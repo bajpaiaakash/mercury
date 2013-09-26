@@ -1,0 +1,8 @@
+test:
+  post:
+    - cp -r test/result $CIRCLE_ARTIFACTS
+
+## Notification to Google App Engine listener that posts to Chatter on behalf of user
+notify:
+  webhooks:
+    - url: http://mavens-mercury.appspot.com/build-notify
