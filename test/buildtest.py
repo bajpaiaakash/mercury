@@ -64,7 +64,7 @@ class MercuryBuildTest(unittest.TestCase):
         f.write(json_result)
         f.close()
 
-        self.assertTrue(result["success"] == False)
+        self.assertTrue(result["success"] == True)
 
     # def test_apex_classes(self):
     #     test_result_json = client.run_async_apex_tests({
