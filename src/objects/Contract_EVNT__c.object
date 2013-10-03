@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Contains contract details between Lilly and event speakers. 
+Created by John A Adams 10/2/2013</description>
+    <enableActivities>true</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Country_Tier_EVNT_MVN__c</fullName>
+        <description>Country and Tier levels that fee is based upon
+Created by John A Adams 10/2/2013</description>
+        <externalId>false</externalId>
+        <label>Country Tier</label>
+        <picklist>
+            <picklistValues>
+                <fullName>France Tier 1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>France Tier 2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>France Tier 3</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>France Tier 4</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Germany Tier 1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Germany Tier 2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Germany Tier 3</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Germany Tier 4</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>UK Tier 1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>UK Tier 2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>UK Tier 3</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>UK Tier 4</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Event_Time_EVNT_MVN__c</fullName>
+        <description>Amount of hours during the event speaker is required
+Created by John A Adams 10/2/2013</description>
+        <externalId>false</externalId>
+        <label>Event Time</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Fee_Values_EVNT_MVN__c</fullName>
+        <description>Posible Fee values that can be used depending on Country and Tier selected</description>
+        <externalId>false</externalId>
+        <label>Fee Values</label>
+        <picklist>
+            <controllingField>Country_Tier_EVNT_MVN__c</controllingField>
+            <picklistValues>
+                <fullName>50</fullName>
+                <controllingFieldValues>Germany Tier 4</controllingFieldValues>
+                <controllingFieldValues>UK Tier 4</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>100</fullName>
+                <controllingFieldValues>UK Tier 3</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>150</fullName>
+                <controllingFieldValues>Germany Tier 3</controllingFieldValues>
+                <controllingFieldValues>UK Tier 2</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>200</fullName>
+                <controllingFieldValues>France Tier 4</controllingFieldValues>
+                <controllingFieldValues>UK Tier 1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>250</fullName>
+                <controllingFieldValues>Germany Tier 2</controllingFieldValues>
+                <controllingFieldValues>UK Tier 1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>300</fullName>
+                <controllingFieldValues>France Tier 3</controllingFieldValues>
+                <controllingFieldValues>Germany Tier 1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>350</fullName>
+                <controllingFieldValues>France Tier 2</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>400</fullName>
+                <controllingFieldValues>France Tier 1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Payee_Address_ENNT_MVN__c</fullName>
+        <description>Payee adress information
+Created by John A Adams 10/2/2013</description>
+        <externalId>false</externalId>
+        <label>Payee Address</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Payee_Name_EVNT_MVN__c</fullName>
+        <description>Name of Payee
+Created by John A Adams 10/2/2013</description>
+        <externalId>false</externalId>
+        <label>Payee Name</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Payment_Required_EVNT_MVN__c</fullName>
+        <description>Created by John A Adams 10/2/2013</description>
+        <externalId>false</externalId>
+        <label>Payment Required</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Preparation_Time_EVNT_MVN__c</fullName>
+        <description>Time in hours for contracted for Speakers preparation</description>
+        <externalId>false</externalId>
+        <label>Preparation Time</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Social_Security_Number_EVNT_MVN__c</fullName>
+        <description>Social Security Number  for Speaker to be used in contract.
+Created by John A Adams 10/2/2013</description>
+        <externalId>false</externalId>
+        <label>Social Security Number</label>
+        <length>18</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Speaker_Service_EVNT_MVN__c</fullName>
+        <description>Associates the contracts to the Speakers (Accounts) via the Speakers Services.
+Created by John A Adams 10/2/2013</description>
+        <externalId>false</externalId>
+        <label>Speaker Service</label>
+        <referenceTo>Speaker_Service_EVNT__c</referenceTo>
+        <relationshipLabel>Contracts</relationshipLabel>
+        <relationshipName>Contracts</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Total_Hours_of_Service_EVNT_MVN__c</fullName>
+        <externalId>false</externalId>
+        <formula>Event_Time_EVNT_MVN__c  +  Preparation_Time_EVNT_MVN__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Hours of Service</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Type_of_Service_EVNT_MVN__c</fullName>
+        <description>Type of service being contracted for
+Created by John A Adams 10/2/2013</description>
+        <externalId>false</externalId>
+        <label>Type of Service</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Speaking, Speaker</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Speaking, Chairman Symposium</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Advisory Board, Chairman</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Consulting ad hoc</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>VATID_EVNT_MVN__c</fullName>
+        <description>A value added tax identification number or VAT identification number (VATIN) is an identifier used in many countries, including the countries of the European Union, for value added tax purposes.
+Created by John A Adams 10/2/2013</description>
+        <externalId>false</externalId>
+        <label>VATIN</label>
+        <length>18</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Contract</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>CNTR-{000000}</displayFormat>
+        <label>Contract Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Contracts</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>
