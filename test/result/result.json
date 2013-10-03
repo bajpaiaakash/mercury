@@ -1,0 +1,16 @@
+{
+  "Messages": [],
+  "id": "09S11000000CxadEAC",
+  "runTestResult": {
+    "codeCoverage": {
+      "classes": [],
+      "triggers": []
+    },
+    "numFailures": "0",
+    "numTestsRun": "0",
+    "pass_fail": {},
+    "results_normal": {},
+    "totalTime": "0.0"
+  },
+  "success": true
+}

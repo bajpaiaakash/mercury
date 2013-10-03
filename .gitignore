@@ -1,8 +1,5 @@
 *.pyc
 config/*
 *.sublime-project
-test/result/*.html
-test/result/*.json
-test/result/*.log
 debug/*
 apex-scripts/*
