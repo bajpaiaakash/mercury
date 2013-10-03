@@ -9,7 +9,7 @@ import pprint
 pp = pprint.PrettyPrinter(indent=4)
 
 #compiles the entire project
-def compile(client, project_path):
+def compile(client, project_path, **kwargs):
     try:
         tmp = mm_util.put_tmp_directory_on_disk()
         shutil.copytree(os.path.join(project_path,"src"), os.path.join(tmp,"src"))
@@ -17,9 +17,9 @@ def compile(client, project_path):
         zip_file = mm_util.zip_directory(tmp, tmp)
         deploy_params = {
             "zip_file"          : zip_file,
-            "rollback_on_error" : True,
-            "ret_xml"           : True,
-            "run_tests"         : True,
+            "rollback_on_error" : kwargs.get('rollback_on_error', True),
+            "ret_xml"           : kwargs.get('ret_xml', True),
+            "run_tests"         : kwargs.get('run_tests', True),
             "debug_categories"  : [
                 {
                     "category"  : "Apex_code",

@@ -739,13 +739,32 @@ class MavensMateClient(object):
     ############################
     #Runs asynchronous apex tests
     ############################
-    def run_async_apex_tests(self, payload):
-        classes = payload["classes"]
+    def run_async_apex_tests(self, payload, run_all=False):
+        if run_all:
+            classes = []
+            #qr = self.query("Select ID, Name FROM ApexClass WHERE NamespacePrefix = null")
+            qr = self.query("Select ID, Name FROM ApexClass WHERE NamespacePrefix = null AND Name LIKE '%Test%'")
+            records = None
+            if qr["done"] == True and 'records' in qr:
+                if type(qr['records']) is not list:
+                    records = [qr['records']]
+                else:
+                    records = qr['records']
+                for r in records:
+                    classes.append(r)
+        else:      
+            classes = payload["classes"]
+        #print classes
         responses = []
         for c in classes:
-            payload = {
-                "ApexClassId" : self.get_apex_entity_id_by_name(object_type="ApexClass", name=c)
-            }
+            if type(c) is dict and "Id" in c:
+                payload = {
+                    "ApexClassId" : c["Id"]
+                }
+            else:
+                payload = {
+                    "ApexClassId" : self.get_apex_entity_id_by_name(object_type="ApexClass", name=c)
+                }
             payload = json.dumps(payload)
             r = requests.post(self.get_tooling_url()+"/sobjects/ApexTestQueueItem", data=payload, headers=self.get_rest_headers('POST'), verify=False)
             res = mm_util.parse_rest_response(r.text)
@@ -792,8 +811,7 @@ class MavensMateClient(object):
             else:
                 responses.append({"class":c,"success":False})
 
-        return json.dumps(responses)
-
+        return json.dumps(responses, sort_keys=True, indent=2, separators=(',', ': '))
 
 
     #####

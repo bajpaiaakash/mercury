@@ -8,6 +8,8 @@ import logging
 import pprint
 import shutil
 
+pp = pprint.PrettyPrinter(indent=4)
+
 logging.raiseExceptions = False
 logging.basicConfig(level=logging.DEBUG)
 logging.getLogger('suds.client').setLevel(logging.CRITICAL)
@@ -27,7 +29,6 @@ logging.getLogger('suds.umx.typed').setLevel(logging.CRITICAL)
 
 project_path = os.path.dirname(os.path.dirname(__file__))
 result_path = os.path.join(project_path, "test", "result")
-artifact_directory = os.environ.get("CIRCLE_ARTIFACTS", result_path)
 
 ##set up client
 username = 'ferraro_joe@gso1.lly.mercurycfg'
@@ -39,13 +40,15 @@ client = MavensMateClient(credentials={
     "org_type" : org_type
 })
 
-
-pp = pprint.PrettyPrinter(indent=4)
-
 class MercuryBuildTest(unittest.TestCase):
     
     def test_compile_project(self):
-        result, log, html = project.compile(client, project_path)
+        
+        #####################
+        ## validate deploy ##
+        #####################
+
+        result, log, html = project.compile(client, project_path, run_tests=False) #running tests below, bc run all tests runs managed package tests which can fail
         json_result = json.dumps(result, sort_keys=True, indent=2, separators=(',', ': '))
 
         #result = json.loads(json_result)
@@ -66,29 +69,40 @@ class MercuryBuildTest(unittest.TestCase):
 
         self.assertTrue(result["success"] == True)
 
-    # def test_apex_classes(self):
-    #     test_result_json = client.run_async_apex_tests({
-    #         "classes" : ["CompileAndTest", "MyClassNameTESTER"]
-    #     })
-    #     test_result = json.loads(test_result_json)
 
-    #     #logging.debug(pprint.pformat(test_result, indent=2))
+        ####################
+        ## validate tests ##
+        ####################
 
-    #     if type(test_result) is not list:
-    #         test_result = [test_result]
-    #     success = True
-    #     for apex_class in test_result:
-    #         class_tests_passed = True
-    #         for s in apex_class["detailed_results"]:
-    #             if "Outcome" in s and s["Outcome"] == "Fail":
-    #                 class_tests_passed = False
-    #                 break
-    #         if not class_tests_passed:
-    #             success = False
-    #             break
-    #     if not success:
-    #         os.system("echo '"+test_result_json+"' | python -mjson.tool")
-    #     self.assertTrue(success)
+        # test_result_json = client.run_async_apex_tests({
+        #     "classes" : ["CompileAndTest", "MyClassNameTESTER"]
+        # })
+        test_result_json = client.run_async_apex_tests(None, True) #run all non-namespace tests
+        test_result = json.loads(test_result_json)
+
+        if type(test_result) is not list:
+            test_result = [test_result]
+        success = True
+        for apex_class in test_result:
+            class_tests_passed = True
+            for s in apex_class["detailed_results"]:
+                if "Outcome" in s and s["Outcome"] == "Fail":
+                    class_tests_passed = False
+                    break
+            if not class_tests_passed:
+                success = False
+                break
+        
+        #to write test result to stdout
+        #os.system("echo '"+test_result_json+"' | python -mjson.tool")
+
+        ##TODO: Winter '14 update will give us coverage details here, so we'll factor this into our build success
+        
+        f = open(os.path.join(result_path, "tests.json"), 'w')
+        f.write(test_result_json)
+        f.close()
+
+        self.assertTrue(success)
 
 
 def main():
