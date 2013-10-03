@@ -48,12 +48,13 @@ class MercuryBuildTest(unittest.TestCase):
         ## validate deploy ##
         #####################
 
-        result, log, html = project.compile(client, project_path, run_tests=False) #running tests below, bc run all tests runs managed package tests which can fail
+        result, log, html = project.compile(client, project_path, run_tests=True) #running tests below, bc run all tests runs managed package tests which can fail
         json_result = json.dumps(result, sort_keys=True, indent=2, separators=(',', ': '))
-
-        #result = json.loads(json_result)
-        if result["success"] == False:
-            os.system("echo '"+json_result+"' | python -mjson.tool")
+        result = json.loads(json_result)
+        
+        #if result["success"] == False:
+        #    os.system("echo '"+json_result+"' | python -mjson.tool")
+        
         if os.path.exists(result_path):
             shutil.rmtree(result_path)
         os.makedirs(result_path)
@@ -67,43 +68,61 @@ class MercuryBuildTest(unittest.TestCase):
         f.write(json_result)
         f.close()
 
-        self.assertTrue(result["success"] == True)
+        compile_success = True
 
+        failures = result['runTestResult']['failures']
+        if type(failures) is not list:
+            failures = [failures]
 
-        ####################
-        ## validate tests ##
-        ####################
-
-        # test_result_json = client.run_async_apex_tests({
-        #     "classes" : ["CompileAndTest", "MyClassNameTESTER"]
-        # })
-        test_result_json = client.run_async_apex_tests(None, True) #run all non-namespace tests
-        test_result = json.loads(test_result_json)
-
-        if type(test_result) is not list:
-            test_result = [test_result]
-        success = True
-        for apex_class in test_result:
-            class_tests_passed = True
-            for s in apex_class["detailed_results"]:
-                if "Outcome" in s and s["Outcome"] == "Fail":
-                    class_tests_passed = False
-                    break
-            if not class_tests_passed:
-                success = False
+        for f in failures:
+            if f['namespace'] != '' and f['namespace'] != None:
+                compile_success = False
                 break
+
+        if compile_success:
+            warnings = result['runTestResult']['codeCoverageWarnings']
+            if type(warnings) is not list:
+                warnings = [warnings]
+
+            for w in warnings:
+                if 'Average test coverage across all Apex Classes and Triggers' in w['message']:
+                    compile_success = False
+
+        self.assertTrue(compile_success)
+
+        # ####################
+        # ## validate tests ##
+        # ####################
+
+        # # test_result_json = client.run_async_apex_tests({
+        # #     "classes" : ["CompileAndTest", "MyClassNameTESTER"]
+        # # })
+        # test_result_json = client.run_async_apex_tests(None, True) #run all non-namespace tests
+        # test_result = json.loads(test_result_json)
+
+        # if type(test_result) is not list:
+        #     test_result = [test_result]
+        # success = True
+        # for apex_class in test_result:
+        #     class_tests_passed = True
+        #     for s in apex_class["detailed_results"]:
+        #         if "Outcome" in s and s["Outcome"] == "Fail":
+        #             class_tests_passed = False
+        #             break
+        #     if not class_tests_passed:
+        #         success = False
+        #         break
         
-        #to write test result to stdout
-        #os.system("echo '"+test_result_json+"' | python -mjson.tool")
+        # #to write test result to stdout
+        # #os.system("echo '"+test_result_json+"' | python -mjson.tool")
 
-        ##TODO: Winter '14 update will give us coverage details here, so we'll factor this into our build success
+        # ##TODO: Winter '14 update will give us coverage details here, so we'll factor this into our build success
         
-        f = open(os.path.join(result_path, "tests.json"), 'w')
-        f.write(test_result_json)
-        f.close()
+        # f = open(os.path.join(result_path, "tests.json"), 'w')
+        # f.write(test_result_json)
+        # f.close()
 
-        self.assertTrue(success)
-
+        # self.assertTrue(success)
 
 def main():
     unittest.main()
