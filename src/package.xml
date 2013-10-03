@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
+		<members>DocusignService</members>
+		<members>DocusignServiceMock</members>
+		<members>DocusignServiceTest</members>
 		<members>PersonSearchControllerMVN</members>
 		<members>PersonSearchControllerTestMVN</members>
+		<members>TriggersMVN</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -19,7 +23,17 @@
 	</types>
 	<types>
 		<members>Case</members>
+		<members>Meeting_Venue_EVNT__c</members>
+		<members>Contract_EVNT__c</members>
+		<members>Meeting_EVNT__c</members>
+		<members>Meeting_Participant_EVNT__c</members>
+		<members>Venue_EVNT__c</members>
+		<members>Docusign_Settings_EVNT__c</members>
 		<name>CustomObject</name>
+	</types>
+	<types>
+		<members>Admin</members>
+		<name>Profile</name>
 	</types>
 	<types>
 		<members>*</members>
