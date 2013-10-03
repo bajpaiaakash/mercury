@@ -70,14 +70,15 @@ class MercuryBuildTest(unittest.TestCase):
 
         compile_success = True
 
-        failures = result['runTestResult']['failures']
-        if type(failures) is not list:
-            failures = [failures]
+        if 'runTestResult' in result and 'failures' in result['runTestResult']:
+            failures = result['runTestResult']['failures']
+            if type(failures) is not list:
+                failures = [failures]
 
-        for f in failures:
-            if f['namespace'] != '' and f['namespace'] != None:
-                compile_success = False
-                break
+            for f in failures:
+                if f['namespace'] != '' and f['namespace'] != None:
+                    compile_success = False
+                    break
 
         if compile_success:
             warnings = result['runTestResult']['codeCoverageWarnings']

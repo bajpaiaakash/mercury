@@ -1,6 +1,6 @@
 {
   "Messages": [],
-  "id": "09S11000000CxdvEAC",
+  "id": "09S11000000CxfCEAS",
   "runTestResult": {
     "codeCoverage": {
       "classes": [
@@ -18615,7 +18615,7 @@
         "namespace": "Loop",
         "packageName": "ddpWizardExt",
         "stackTrace": "(Loop)",
-        "time": "253.0",
+        "time": "251.0",
         "type": "Class"
       },
       {
@@ -18628,7 +18628,7 @@
         "stackTrace": {
           "@xsi:nil": "true"
         },
-        "time": "503.0",
+        "time": "526.0",
         "type": "Class"
       },
       {
@@ -18639,7 +18639,7 @@
         "namespace": "Loop",
         "packageName": "PostInstall",
         "stackTrace": "(Loop)",
-        "time": "234.0",
+        "time": "217.0",
         "type": "Class"
       }
     ],
@@ -18782,35 +18782,35 @@
           "methodName": "ExclusionCtrl",
           "name": "CountdownTestSuite",
           "namespace": "primest",
-          "time": "207.0"
+          "time": "216.0"
         },
         {
           "id": "01pb0000001lutqAAA",
           "methodName": "TestUpdateCacheConfigChange",
           "name": "CountdownTestSuite",
           "namespace": "primest",
-          "time": "309.0"
+          "time": "291.0"
         },
         {
           "id": "01pb0000001lutqAAA",
           "methodName": "TestUpdateCacheHolidayChange",
           "name": "CountdownTestSuite",
           "namespace": "primest",
-          "time": "341.0"
+          "time": "307.0"
         },
         {
           "id": "01pb0000001lutqAAA",
           "methodName": "editCoundownCtrWithConfig",
           "name": "CountdownTestSuite",
           "namespace": "primest",
-          "time": "347.0"
+          "time": "371.0"
         },
         {
           "id": "01pb0000001lutqAAA",
           "methodName": "editCountdownCtrWithoutConfig",
           "name": "CountdownTestSuite",
           "namespace": "primest",
-          "time": "354.0"
+          "time": "420.0"
         }
       ],
       "DocumentService": [
@@ -18819,28 +18819,28 @@
           "methodName": "convertAndMergeTest",
           "name": "DocumentService",
           "namespace": "Loop",
-          "time": "290.0"
+          "time": "286.0"
         },
         {
           "id": "01p1100000002zMAAQ",
           "methodName": "getConvertAndMergeParamsTest",
           "name": "DocumentService",
           "namespace": "Loop",
-          "time": "14.0"
+          "time": "17.0"
         },
         {
           "id": "01p1100000002zMAAQ",
           "methodName": "getConvertAndMergeRedirectTest",
           "name": "DocumentService",
           "namespace": "Loop",
-          "time": "77.0"
+          "time": "71.0"
         },
         {
           "id": "01p1100000002zMAAQ",
           "methodName": "getSfInstanceTest",
           "name": "DocumentService",
           "namespace": "Loop",
-          "time": "39.0"
+          "time": "17.0"
         }
       ],
       "DocusignServiceTest": [
@@ -18851,7 +18851,7 @@
           "namespace": {
             "@xsi:nil": "true"
           },
-          "time": "176.0"
+          "time": "189.0"
         }
       ],
       "JSONObject": [
@@ -18860,42 +18860,42 @@
           "methodName": "test_g",
           "name": "JSONObject",
           "namespace": "Loop",
-          "time": "83.0"
+          "time": "75.0"
         },
         {
           "id": "01p1100000002zNAAQ",
           "methodName": "test_geocode",
           "name": "JSONObject",
           "namespace": "Loop",
-          "time": "16.0"
+          "time": "30.0"
         },
         {
           "id": "01p1100000002zNAAQ",
           "methodName": "test_parsing",
           "name": "JSONObject",
           "namespace": "Loop",
-          "time": "55.0"
+          "time": "54.0"
         },
         {
           "id": "01p1100000002zNAAQ",
           "methodName": "test_tokener",
           "name": "JSONObject",
           "namespace": "Loop",
-          "time": "13.0"
+          "time": "117.0"
         },
         {
           "id": "01p1100000002zNAAQ",
           "methodName": "test_tokener_nl",
           "name": "JSONObject",
           "namespace": "Loop",
-          "time": "9.0"
+          "time": "12.0"
         },
         {
           "id": "01p1100000002zNAAQ",
           "methodName": "test_valueToString",
           "name": "JSONObject",
           "namespace": "Loop",
-          "time": "8.0"
+          "time": "18.0"
         }
       ],
       "PostInstall": [
@@ -18907,7 +18907,7 @@
           "namespace": "Loop",
           "packageName": "PostInstall",
           "stackTrace": "(Loop)",
-          "time": "234.0",
+          "time": "217.0",
           "type": "Class"
         }
       ],
@@ -18917,7 +18917,7 @@
           "methodName": "testAboutLoop",
           "name": "aboutLoop",
           "namespace": "Loop",
-          "time": "271.0"
+          "time": "313.0"
         }
       ],
       "cioClone": [
@@ -18926,7 +18926,7 @@
           "methodName": "testCioClone",
           "name": "cioClone",
           "namespace": "Loop",
-          "time": "891.0"
+          "time": "846.0"
         }
       ],
       "cioNewExt": [
@@ -18935,7 +18935,7 @@
           "methodName": "newCioTest",
           "name": "cioNewExt",
           "namespace": "Loop",
-          "time": "152.0"
+          "time": "160.0"
         }
       ],
       "countdownController": [
@@ -18944,7 +18944,7 @@
           "methodName": "TestCountdownController",
           "name": "countdownController",
           "namespace": "primest",
-          "time": "921.0"
+          "time": "975.0"
         }
       ],
       "ddp": [
@@ -18953,7 +18953,7 @@
           "methodName": "testDdpClass",
           "name": "ddp",
           "namespace": "Loop",
-          "time": "616.0"
+          "time": "665.0"
         }
       ],
       "ddpButtonWizardExt": [
@@ -18962,7 +18962,7 @@
           "methodName": "testButtonWizard",
           "name": "ddpButtonWizardExt",
           "namespace": "Loop",
-          "time": "106.0"
+          "time": "117.0"
         }
       ],
       "ddpClone": [
@@ -18971,14 +18971,14 @@
           "methodName": "testDdpClone",
           "name": "ddpClone",
           "namespace": "Loop",
-          "time": "2111.0"
+          "time": "1712.0"
         },
         {
           "id": "01p1100000002zUAAQ",
           "methodName": "testNoDdpClone",
           "name": "ddpClone",
           "namespace": "Loop",
-          "time": "282.0"
+          "time": "412.0"
         }
       ],
       "ddpContentWorkspaceController": [
@@ -18987,7 +18987,7 @@
           "methodName": "testDdpContentWorkspace",
           "name": "ddpContentWorkspaceController",
           "namespace": "Loop",
-          "time": "541.0"
+          "time": "585.0"
         }
       ],
       "ddpMigrationController": [
@@ -18996,7 +18996,7 @@
           "methodName": "testController",
           "name": "ddpMigrationController",
           "namespace": "Loop",
-          "time": "427.0"
+          "time": "410.0"
         }
       ],
       "ddpWizardExt": [
@@ -19005,7 +19005,7 @@
           "methodName": "reportDdpWizard",
           "name": "ddpWizardExt",
           "namespace": "Loop",
-          "time": "165.0"
+          "time": "171.0"
         },
         {
           "id": "01p1100000002zYAAQ",
@@ -19015,7 +19015,7 @@
           "namespace": "Loop",
           "packageName": "ddpWizardExt",
           "stackTrace": "(Loop)",
-          "time": "253.0",
+          "time": "251.0",
           "type": "Class"
         }
       ],
@@ -19025,7 +19025,7 @@
           "methodName": "dsTest",
           "name": "dsUser",
           "namespace": "Loop",
-          "time": "413.0"
+          "time": "580.0"
         }
       ],
       "editFormExt": [
@@ -19034,28 +19034,28 @@
           "methodName": "testFilterLogic",
           "name": "editFormExt",
           "namespace": "Loop",
-          "time": "20.0"
+          "time": "19.0"
         },
         {
           "id": "01p1100000002zaAAA",
           "methodName": "testForm",
           "name": "editFormExt",
           "namespace": "Loop",
-          "time": "1728.0"
+          "time": "1802.0"
         },
         {
           "id": "01p1100000002zaAAA",
           "methodName": "testInnerClasses",
           "name": "editFormExt",
           "namespace": "Loop",
-          "time": "25.0"
+          "time": "17.0"
         },
         {
           "id": "01p1100000002zaAAA",
           "methodName": "testOperators",
           "name": "editFormExt",
           "namespace": "Loop",
-          "time": "19.0"
+          "time": "14.0"
         }
       ],
       "emailExt": [
@@ -19069,7 +19069,7 @@
           "stackTrace": {
             "@xsi:nil": "true"
           },
-          "time": "503.0",
+          "time": "526.0",
           "type": "Class"
         }
       ],
@@ -19079,49 +19079,49 @@
           "methodName": "deactivated",
           "name": "errorController",
           "namespace": "Loop",
-          "time": "17.0"
+          "time": "22.0"
         },
         {
           "id": "01p1100000002zcAAA",
           "methodName": "docuSignDeactivated",
           "name": "errorController",
           "namespace": "Loop",
-          "time": "14.0"
+          "time": "15.0"
         },
         {
           "id": "01p1100000002zcAAA",
           "methodName": "noDocuSign",
           "name": "errorController",
           "namespace": "Loop",
-          "time": "17.0"
+          "time": "12.0"
         },
         {
           "id": "01p1100000002zcAAA",
           "methodName": "noLicense",
           "name": "errorController",
           "namespace": "Loop",
-          "time": "14.0"
+          "time": "18.0"
         },
         {
           "id": "01p1100000002zcAAA",
           "methodName": "noService",
           "name": "errorController",
           "namespace": "Loop",
-          "time": "13.0"
+          "time": "11.0"
         },
         {
           "id": "01p1100000002zcAAA",
           "methodName": "trialExpired",
           "name": "errorController",
           "namespace": "Loop",
-          "time": "20.0"
+          "time": "12.0"
         },
         {
           "id": "01p1100000002zcAAA",
           "methodName": "uninstalled",
           "name": "errorController",
           "namespace": "Loop",
-          "time": "23.0"
+          "time": "15.0"
         }
       ],
       "fieldTaggerExt": [
@@ -19130,7 +19130,7 @@
           "methodName": "testFieldTagger",
           "name": "fieldTaggerExt",
           "namespace": "Loop",
-          "time": "1451.0"
+          "time": "1758.0"
         }
       ],
       "flowDDP": [
@@ -19139,7 +19139,7 @@
           "methodName": "flowDDPTest",
           "name": "flowDDP",
           "namespace": "Loop",
-          "time": "189.0"
+          "time": "417.0"
         }
       ],
       "loopController": [
@@ -19148,119 +19148,119 @@
           "methodName": "containsTest",
           "name": "loopController",
           "namespace": "Loop",
-          "time": "56.0"
+          "time": "527.0"
         },
         {
           "id": "01p1100000002zfAAA",
           "methodName": "loopitNextTest",
           "name": "loopController",
           "namespace": "Loop",
-          "time": "61.0"
+          "time": "78.0"
         },
         {
           "id": "01p1100000002zfAAA",
           "methodName": "testLoopMerge",
           "name": "loopController",
           "namespace": "Loop",
-          "time": "1060.0"
+          "time": "732.0"
         },
         {
           "id": "01p1100000002zfAAA",
           "methodName": "testLoopMergeCustomObject",
           "name": "loopController",
           "namespace": "Loop",
-          "time": "342.0"
+          "time": "198.0"
         },
         {
           "id": "01p1100000002zfAAA",
           "methodName": "testLooplusCase",
           "name": "loopController",
           "namespace": "Loop",
-          "time": "988.0"
+          "time": "743.0"
         },
         {
           "id": "01p1100000002zfAAA",
           "methodName": "testLooplusContact",
           "name": "loopController",
           "namespace": "Loop",
-          "time": "330.0"
+          "time": "359.0"
         },
         {
           "id": "01p1100000002zfAAA",
           "methodName": "testLooplusContract",
           "name": "loopController",
           "namespace": "Loop",
-          "time": "2416.0"
+          "time": "1521.0"
         },
         {
           "id": "01p1100000002zfAAA",
           "methodName": "testLooplusCustomObj",
           "name": "loopController",
           "namespace": "Loop",
-          "time": "531.0"
+          "time": "375.0"
         },
         {
           "id": "01p1100000002zfAAA",
           "methodName": "testLooplusNoObj",
           "name": "loopController",
           "namespace": "Loop",
-          "time": "313.0"
+          "time": "211.0"
         },
         {
           "id": "01p1100000002zfAAA",
           "methodName": "testLooplusOpp",
           "name": "loopController",
           "namespace": "Loop",
-          "time": "792.0"
+          "time": "696.0"
         },
         {
           "id": "01p1100000002zfAAA",
           "methodName": "testMassLoopMergeAccount",
           "name": "loopController",
           "namespace": "Loop",
-          "time": "425.0"
+          "time": "451.0"
         },
         {
           "id": "01p1100000002zfAAA",
           "methodName": "testMassLoopMergeCase",
           "name": "loopController",
           "namespace": "Loop",
-          "time": "1473.0"
+          "time": "745.0"
         },
         {
           "id": "01p1100000002zfAAA",
           "methodName": "testMassLoopMergeContact",
           "name": "loopController",
           "namespace": "Loop",
-          "time": "739.0"
+          "time": "569.0"
         },
         {
           "id": "01p1100000002zfAAA",
           "methodName": "testMassLoopMergeContract",
           "name": "loopController",
           "namespace": "Loop",
-          "time": "1188.0"
+          "time": "682.0"
         },
         {
           "id": "01p1100000002zfAAA",
           "methodName": "testMassLoopMergeLead",
           "name": "loopController",
           "namespace": "Loop",
-          "time": "618.0"
+          "time": "767.0"
         },
         {
           "id": "01p1100000002zfAAA",
           "methodName": "testMassLoopMergeOpp",
           "name": "loopController",
           "namespace": "Loop",
-          "time": "808.0"
+          "time": "667.0"
         },
         {
           "id": "01p1100000002zfAAA",
           "methodName": "testMassLooplus",
           "name": "loopController",
           "namespace": "Loop",
-          "time": "848.0"
+          "time": "624.0"
         }
       ],
       "loopMessage": [
@@ -19269,7 +19269,7 @@
           "methodName": "messageTest",
           "name": "loopMessage",
           "namespace": "Loop",
-          "time": "320.0"
+          "time": "240.0"
         }
       ],
       "loopTools": [
@@ -19278,7 +19278,7 @@
           "methodName": "testCloudforceUrl",
           "name": "loopTools",
           "namespace": "Loop",
-          "time": "70.0"
+          "time": "16.0"
         }
       ],
       "looplusInsertUpdateExt": [
@@ -19287,7 +19287,7 @@
           "methodName": "testInsertUpdateExt",
           "name": "looplusInsertUpdateExt",
           "namespace": "Loop",
-          "time": "1076.0"
+          "time": "971.0"
         }
       ],
       "pdfStampExt": [
@@ -19296,7 +19296,7 @@
           "methodName": "testStamps",
           "name": "pdfStampExt",
           "namespace": "Loop",
-          "time": "360.0"
+          "time": "252.0"
         }
       ],
       "recipientExt": [
@@ -19305,7 +19305,7 @@
           "methodName": "testRecipient",
           "name": "recipientExt",
           "namespace": "Loop",
-          "time": "420.0"
+          "time": "312.0"
         }
       ],
       "relatedObjectExt": [
@@ -19314,7 +19314,7 @@
           "methodName": "testRelatedObject",
           "name": "relatedObjectExt",
           "namespace": "Loop",
-          "time": "543.0"
+          "time": "800.0"
         }
       ],
       "selectEmailTemplate": [
@@ -19323,21 +19323,21 @@
           "methodName": "testCioEmailSelect",
           "name": "selectEmailTemplate",
           "namespace": "Loop",
-          "time": "410.0"
+          "time": "171.0"
         },
         {
           "id": "01p1100000002zpAAA",
           "methodName": "testDdpEmailSelect",
           "name": "selectEmailTemplate",
           "namespace": "Loop",
-          "time": "124.0"
+          "time": "110.0"
         },
         {
           "id": "01p1100000002zpAAA",
           "methodName": "testLoopMergeEmailSelect",
           "name": "selectEmailTemplate",
           "namespace": "Loop",
-          "time": "48.0"
+          "time": "51.0"
         }
       ],
       "smtpPasswordExt": [
@@ -19346,7 +19346,7 @@
           "methodName": "testSmtpPasswordExt",
           "name": "smtpPasswordExt",
           "namespace": "Loop",
-          "time": "300.0"
+          "time": "253.0"
         }
       ],
       "subscriptionServicesController": [
@@ -19355,7 +19355,7 @@
           "methodName": "testController",
           "name": "subscriptionServicesController",
           "namespace": "Loop",
-          "time": "156.0"
+          "time": "150.0"
         }
       ],
       "testLoopTriggers": [
@@ -19364,35 +19364,35 @@
           "methodName": "delDdp",
           "name": "testLoopTriggers",
           "namespace": "Loop",
-          "time": "581.0"
+          "time": "477.0"
         },
         {
           "id": "01p1100000002zsAAA",
           "methodName": "delOpts",
           "name": "testLoopTriggers",
           "namespace": "Loop",
-          "time": "627.0"
+          "time": "631.0"
         },
         {
           "id": "01p1100000002zsAAA",
           "methodName": "delReqs",
           "name": "testLoopTriggers",
           "namespace": "Loop",
-          "time": "487.0"
+          "time": "253.0"
         },
         {
           "id": "01p1100000002zsAAA",
           "methodName": "loopToSalesforceTest",
           "name": "testLoopTriggers",
           "namespace": "Loop",
-          "time": "289.0"
+          "time": "120.0"
         },
         {
           "id": "01p1100000002zsAAA",
           "methodName": "loopVisualforceTest",
           "name": "testLoopTriggers",
           "namespace": "Loop",
-          "time": "154.0"
+          "time": "62.0"
         }
       ]
     },
@@ -19404,521 +19404,521 @@
         "namespace": {
           "@xsi:nil": "true"
         },
-        "time": "176.0"
+        "time": "189.0"
       },
       {
         "id": "01p1100000002zPAAQ",
         "methodName": "testAboutLoop",
         "name": "aboutLoop",
         "namespace": "Loop",
-        "time": "271.0"
+        "time": "313.0"
       },
       {
         "id": "01p1100000002zQAAQ",
         "methodName": "testCioClone",
         "name": "cioClone",
         "namespace": "Loop",
-        "time": "891.0"
+        "time": "846.0"
       },
       {
         "id": "01p1100000002zRAAQ",
         "methodName": "newCioTest",
         "name": "cioNewExt",
         "namespace": "Loop",
-        "time": "152.0"
+        "time": "160.0"
       },
       {
         "id": "01p1100000002zSAAQ",
         "methodName": "testDdpClass",
         "name": "ddp",
         "namespace": "Loop",
-        "time": "616.0"
+        "time": "665.0"
       },
       {
         "id": "01p1100000002zTAAQ",
         "methodName": "testButtonWizard",
         "name": "ddpButtonWizardExt",
         "namespace": "Loop",
-        "time": "106.0"
+        "time": "117.0"
       },
       {
         "id": "01p1100000002zUAAQ",
         "methodName": "testDdpClone",
         "name": "ddpClone",
         "namespace": "Loop",
-        "time": "2111.0"
+        "time": "1712.0"
       },
       {
         "id": "01p1100000002zUAAQ",
         "methodName": "testNoDdpClone",
         "name": "ddpClone",
         "namespace": "Loop",
-        "time": "282.0"
+        "time": "412.0"
       },
       {
         "id": "01p1100000002zVAAQ",
         "methodName": "testDdpContentWorkspace",
         "name": "ddpContentWorkspaceController",
         "namespace": "Loop",
-        "time": "541.0"
+        "time": "585.0"
       },
       {
         "id": "01p1100000002zWAAQ",
         "methodName": "testController",
         "name": "ddpMigrationController",
         "namespace": "Loop",
-        "time": "427.0"
+        "time": "410.0"
       },
       {
         "id": "01p1100000002zYAAQ",
         "methodName": "reportDdpWizard",
         "name": "ddpWizardExt",
         "namespace": "Loop",
-        "time": "165.0"
+        "time": "171.0"
       },
       {
         "id": "01p1100000002zMAAQ",
         "methodName": "convertAndMergeTest",
         "name": "DocumentService",
         "namespace": "Loop",
-        "time": "290.0"
+        "time": "286.0"
       },
       {
         "id": "01p1100000002zMAAQ",
         "methodName": "getConvertAndMergeParamsTest",
         "name": "DocumentService",
         "namespace": "Loop",
-        "time": "14.0"
+        "time": "17.0"
       },
       {
         "id": "01p1100000002zMAAQ",
         "methodName": "getConvertAndMergeRedirectTest",
         "name": "DocumentService",
         "namespace": "Loop",
-        "time": "77.0"
+        "time": "71.0"
       },
       {
         "id": "01p1100000002zMAAQ",
         "methodName": "getSfInstanceTest",
         "name": "DocumentService",
         "namespace": "Loop",
-        "time": "39.0"
+        "time": "17.0"
       },
       {
         "id": "01p1100000002zZAAQ",
         "methodName": "dsTest",
         "name": "dsUser",
         "namespace": "Loop",
-        "time": "413.0"
+        "time": "580.0"
       },
       {
         "id": "01p1100000002zaAAA",
         "methodName": "testFilterLogic",
         "name": "editFormExt",
         "namespace": "Loop",
-        "time": "20.0"
+        "time": "19.0"
       },
       {
         "id": "01p1100000002zaAAA",
         "methodName": "testForm",
         "name": "editFormExt",
         "namespace": "Loop",
-        "time": "1728.0"
+        "time": "1802.0"
       },
       {
         "id": "01p1100000002zaAAA",
         "methodName": "testInnerClasses",
         "name": "editFormExt",
         "namespace": "Loop",
-        "time": "25.0"
+        "time": "17.0"
       },
       {
         "id": "01p1100000002zaAAA",
         "methodName": "testOperators",
         "name": "editFormExt",
         "namespace": "Loop",
-        "time": "19.0"
+        "time": "14.0"
       },
       {
         "id": "01p1100000002zcAAA",
         "methodName": "deactivated",
         "name": "errorController",
         "namespace": "Loop",
-        "time": "17.0"
+        "time": "22.0"
       },
       {
         "id": "01p1100000002zcAAA",
         "methodName": "docuSignDeactivated",
         "name": "errorController",
         "namespace": "Loop",
-        "time": "14.0"
+        "time": "15.0"
       },
       {
         "id": "01p1100000002zcAAA",
         "methodName": "noDocuSign",
         "name": "errorController",
         "namespace": "Loop",
-        "time": "17.0"
+        "time": "12.0"
       },
       {
         "id": "01p1100000002zcAAA",
         "methodName": "noLicense",
         "name": "errorController",
         "namespace": "Loop",
-        "time": "14.0"
+        "time": "18.0"
       },
       {
         "id": "01p1100000002zcAAA",
         "methodName": "noService",
         "name": "errorController",
         "namespace": "Loop",
-        "time": "13.0"
+        "time": "11.0"
       },
       {
         "id": "01p1100000002zcAAA",
         "methodName": "trialExpired",
         "name": "errorController",
         "namespace": "Loop",
-        "time": "20.0"
+        "time": "12.0"
       },
       {
         "id": "01p1100000002zcAAA",
         "methodName": "uninstalled",
         "name": "errorController",
         "namespace": "Loop",
-        "time": "23.0"
+        "time": "15.0"
       },
       {
         "id": "01p1100000002zdAAA",
         "methodName": "testFieldTagger",
         "name": "fieldTaggerExt",
         "namespace": "Loop",
-        "time": "1451.0"
+        "time": "1758.0"
       },
       {
         "id": "01p1100000002zeAAA",
         "methodName": "flowDDPTest",
         "name": "flowDDP",
         "namespace": "Loop",
-        "time": "189.0"
+        "time": "417.0"
       },
       {
         "id": "01p1100000002zNAAQ",
         "methodName": "test_g",
         "name": "JSONObject",
         "namespace": "Loop",
-        "time": "83.0"
+        "time": "75.0"
       },
       {
         "id": "01p1100000002zNAAQ",
         "methodName": "test_geocode",
         "name": "JSONObject",
         "namespace": "Loop",
-        "time": "16.0"
+        "time": "30.0"
       },
       {
         "id": "01p1100000002zNAAQ",
         "methodName": "test_parsing",
         "name": "JSONObject",
         "namespace": "Loop",
-        "time": "55.0"
+        "time": "54.0"
       },
       {
         "id": "01p1100000002zNAAQ",
         "methodName": "test_tokener",
         "name": "JSONObject",
         "namespace": "Loop",
-        "time": "13.0"
+        "time": "117.0"
       },
       {
         "id": "01p1100000002zNAAQ",
         "methodName": "test_tokener_nl",
         "name": "JSONObject",
         "namespace": "Loop",
-        "time": "9.0"
+        "time": "12.0"
       },
       {
         "id": "01p1100000002zNAAQ",
         "methodName": "test_valueToString",
         "name": "JSONObject",
         "namespace": "Loop",
-        "time": "8.0"
+        "time": "18.0"
       },
       {
         "id": "01p1100000002zfAAA",
         "methodName": "containsTest",
         "name": "loopController",
         "namespace": "Loop",
-        "time": "56.0"
+        "time": "527.0"
       },
       {
         "id": "01p1100000002zfAAA",
         "methodName": "loopitNextTest",
         "name": "loopController",
         "namespace": "Loop",
-        "time": "61.0"
+        "time": "78.0"
       },
       {
         "id": "01p1100000002zfAAA",
         "methodName": "testLoopMerge",
         "name": "loopController",
         "namespace": "Loop",
-        "time": "1060.0"
+        "time": "732.0"
       },
       {
         "id": "01p1100000002zfAAA",
         "methodName": "testLoopMergeCustomObject",
         "name": "loopController",
         "namespace": "Loop",
-        "time": "342.0"
+        "time": "198.0"
       },
       {
         "id": "01p1100000002zfAAA",
         "methodName": "testLooplusCase",
         "name": "loopController",
         "namespace": "Loop",
-        "time": "988.0"
+        "time": "743.0"
       },
       {
         "id": "01p1100000002zfAAA",
         "methodName": "testLooplusContact",
         "name": "loopController",
         "namespace": "Loop",
-        "time": "330.0"
+        "time": "359.0"
       },
       {
         "id": "01p1100000002zfAAA",
         "methodName": "testLooplusContract",
         "name": "loopController",
         "namespace": "Loop",
-        "time": "2416.0"
+        "time": "1521.0"
       },
       {
         "id": "01p1100000002zfAAA",
         "methodName": "testLooplusCustomObj",
         "name": "loopController",
         "namespace": "Loop",
-        "time": "531.0"
+        "time": "375.0"
       },
       {
         "id": "01p1100000002zfAAA",
         "methodName": "testLooplusNoObj",
         "name": "loopController",
         "namespace": "Loop",
-        "time": "313.0"
+        "time": "211.0"
       },
       {
         "id": "01p1100000002zfAAA",
         "methodName": "testLooplusOpp",
         "name": "loopController",
         "namespace": "Loop",
-        "time": "792.0"
+        "time": "696.0"
       },
       {
         "id": "01p1100000002zfAAA",
         "methodName": "testMassLoopMergeAccount",
         "name": "loopController",
         "namespace": "Loop",
-        "time": "425.0"
+        "time": "451.0"
       },
       {
         "id": "01p1100000002zfAAA",
         "methodName": "testMassLoopMergeCase",
         "name": "loopController",
         "namespace": "Loop",
-        "time": "1473.0"
+        "time": "745.0"
       },
       {
         "id": "01p1100000002zfAAA",
         "methodName": "testMassLoopMergeContact",
         "name": "loopController",
         "namespace": "Loop",
-        "time": "739.0"
+        "time": "569.0"
       },
       {
         "id": "01p1100000002zfAAA",
         "methodName": "testMassLoopMergeContract",
         "name": "loopController",
         "namespace": "Loop",
-        "time": "1188.0"
+        "time": "682.0"
       },
       {
         "id": "01p1100000002zfAAA",
         "methodName": "testMassLoopMergeLead",
         "name": "loopController",
         "namespace": "Loop",
-        "time": "618.0"
+        "time": "767.0"
       },
       {
         "id": "01p1100000002zfAAA",
         "methodName": "testMassLoopMergeOpp",
         "name": "loopController",
         "namespace": "Loop",
-        "time": "808.0"
+        "time": "667.0"
       },
       {
         "id": "01p1100000002zfAAA",
         "methodName": "testMassLooplus",
         "name": "loopController",
         "namespace": "Loop",
-        "time": "848.0"
+        "time": "624.0"
       },
       {
         "id": "01p1100000002zlAAA",
         "methodName": "testInsertUpdateExt",
         "name": "looplusInsertUpdateExt",
         "namespace": "Loop",
-        "time": "1076.0"
+        "time": "971.0"
       },
       {
         "id": "01p1100000002zgAAA",
         "methodName": "messageTest",
         "name": "loopMessage",
         "namespace": "Loop",
-        "time": "320.0"
+        "time": "240.0"
       },
       {
         "id": "01p1100000002ziAAA",
         "methodName": "testCloudforceUrl",
         "name": "loopTools",
         "namespace": "Loop",
-        "time": "70.0"
+        "time": "16.0"
       },
       {
         "id": "01p1100000002zmAAA",
         "methodName": "testStamps",
         "name": "pdfStampExt",
         "namespace": "Loop",
-        "time": "360.0"
+        "time": "252.0"
       },
       {
         "id": "01p1100000002znAAA",
         "methodName": "testRecipient",
         "name": "recipientExt",
         "namespace": "Loop",
-        "time": "420.0"
+        "time": "312.0"
       },
       {
         "id": "01p1100000002zoAAA",
         "methodName": "testRelatedObject",
         "name": "relatedObjectExt",
         "namespace": "Loop",
-        "time": "543.0"
+        "time": "800.0"
       },
       {
         "id": "01p1100000002zpAAA",
         "methodName": "testCioEmailSelect",
         "name": "selectEmailTemplate",
         "namespace": "Loop",
-        "time": "410.0"
+        "time": "171.0"
       },
       {
         "id": "01p1100000002zpAAA",
         "methodName": "testDdpEmailSelect",
         "name": "selectEmailTemplate",
         "namespace": "Loop",
-        "time": "124.0"
+        "time": "110.0"
       },
       {
         "id": "01p1100000002zpAAA",
         "methodName": "testLoopMergeEmailSelect",
         "name": "selectEmailTemplate",
         "namespace": "Loop",
-        "time": "48.0"
+        "time": "51.0"
       },
       {
         "id": "01p1100000002zqAAA",
         "methodName": "testSmtpPasswordExt",
         "name": "smtpPasswordExt",
         "namespace": "Loop",
-        "time": "300.0"
+        "time": "253.0"
       },
       {
         "id": "01p1100000002zrAAA",
         "methodName": "testController",
         "name": "subscriptionServicesController",
         "namespace": "Loop",
-        "time": "156.0"
+        "time": "150.0"
       },
       {
         "id": "01p1100000002zsAAA",
         "methodName": "delDdp",
         "name": "testLoopTriggers",
         "namespace": "Loop",
-        "time": "581.0"
+        "time": "477.0"
       },
       {
         "id": "01p1100000002zsAAA",
         "methodName": "delOpts",
         "name": "testLoopTriggers",
         "namespace": "Loop",
-        "time": "627.0"
+        "time": "631.0"
       },
       {
         "id": "01p1100000002zsAAA",
         "methodName": "delReqs",
         "name": "testLoopTriggers",
         "namespace": "Loop",
-        "time": "487.0"
+        "time": "253.0"
       },
       {
         "id": "01p1100000002zsAAA",
         "methodName": "loopToSalesforceTest",
         "name": "testLoopTriggers",
         "namespace": "Loop",
-        "time": "289.0"
+        "time": "120.0"
       },
       {
         "id": "01p1100000002zsAAA",
         "methodName": "loopVisualforceTest",
         "name": "testLoopTriggers",
         "namespace": "Loop",
-        "time": "154.0"
+        "time": "62.0"
       },
       {
         "id": "01pb0000001lutsAAA",
         "methodName": "TestCountdownController",
         "name": "countdownController",
         "namespace": "primest",
-        "time": "921.0"
+        "time": "975.0"
       },
       {
         "id": "01pb0000001lutqAAA",
         "methodName": "ExclusionCtrl",
         "name": "CountdownTestSuite",
         "namespace": "primest",
-        "time": "207.0"
+        "time": "216.0"
       },
       {
         "id": "01pb0000001lutqAAA",
         "methodName": "TestUpdateCacheConfigChange",
         "name": "CountdownTestSuite",
         "namespace": "primest",
-        "time": "309.0"
+        "time": "291.0"
       },
       {
         "id": "01pb0000001lutqAAA",
         "methodName": "TestUpdateCacheHolidayChange",
         "name": "CountdownTestSuite",
         "namespace": "primest",
-        "time": "341.0"
+        "time": "307.0"
       },
       {
         "id": "01pb0000001lutqAAA",
         "methodName": "editCoundownCtrWithConfig",
         "name": "CountdownTestSuite",
         "namespace": "primest",
-        "time": "347.0"
+        "time": "371.0"
       },
       {
         "id": "01pb0000001lutqAAA",
         "methodName": "editCountdownCtrWithoutConfig",
         "name": "CountdownTestSuite",
         "namespace": "primest",
-        "time": "354.0"
+        "time": "420.0"
       }
     ],
-    "totalTime": "33008.0"
+    "totalTime": "29666.0"
   },
   "success": false
 }
