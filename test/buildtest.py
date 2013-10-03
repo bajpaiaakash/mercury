@@ -57,6 +57,9 @@ class MercuryBuildTest(unittest.TestCase):
         if os.path.exists(result_path):
             shutil.rmtree(result_path)
         os.makedirs(result_path)
+        f = open(os.path.join(result_path, "result.txt"), 'w')
+        f.write("### DO NOT DELETE")
+        f.close()
         f = open(os.path.join(result_path, "result.html"), 'w')
         f.write(html)
         f.close()
