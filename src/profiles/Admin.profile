@@ -13,11 +13,23 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>EVNT_BudgetVersionHandlerMVN</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>PersonSearchControllerMVN</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>PersonSearchControllerTestMVN</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SobjectDataLoaderMVN</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SobjectDataLoaderTestMVN</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -141,66 +153,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Contract_EVNT__c.Country_Tier_EVNT_MVN__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Contract_EVNT__c.Event_Time_EVNT_MVN__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Contract_EVNT__c.Fee_Values_EVNT_MVN__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Contract_EVNT__c.Payee_Address_ENNT_MVN__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Contract_EVNT__c.Payee_Name_EVNT_MVN__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Contract_EVNT__c.Payment_Required_EVNT_MVN__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Contract_EVNT__c.Preparation_Time_EVNT_MVN__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Contract_EVNT__c.Social_Security_Number_EVNT_MVN__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Contract_EVNT__c.Speaker_Service_EVNT_MVN__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Contract_EVNT__c.Total_Hours_of_Service_EVNT_MVN__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Contract_EVNT__c.Type_of_Service_EVNT_MVN__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Contract_EVNT__c.VATID_EVNT_MVN__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Meeting_EVNT__c.Content_Approval_Needed_EVNT_MVN__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -236,6 +188,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Meeting_EVNT__c.Hours_for_Education_EVNT_MVN__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Meeting_EVNT__c.Internal_Delegates_EVNT_MVN__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -246,12 +203,32 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Meeting_EVNT__c.Meeting_Planning_Company_EVNT_MVN__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Meeting_EVNT__c.Number_of_Break_Out_Rooms_EVNT_MVN__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Meeting_EVNT__c.Number_of_Conference_Rooms_EVNT_MVN__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting_EVNT__c.Number_of_Expected_Deletgates_EVNT_MVN__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting_EVNT__c.Number_of_Expected_Employees_EVNT_MVN__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting_EVNT__c.Number_of_Expected_Speakers_EVNT_MVN__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -281,11 +258,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Meeting_EVNT__c.Time_for_Education__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Meeting_EVNT__c.Type_EVNT_MVN__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -301,17 +273,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Meeting_Participant_EVNT__c.Hours_Estimate_EVNT_MVN__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Meeting_Participant_EVNT__c.Meeting_EVNT_MVN__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Meeting_Participant_EVNT__c.Participant_Type_EVNT_MVN__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -325,18 +287,18 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Meeting_Venue_EVNT__c.Meeting_EVNT_MVN__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Meeting_Venue_EVNT__c.Venue_EVNT_MVN__c</field>
-        <readable>false</readable>
+        <editable>true</editable>
+        <field>Meeting_Venue_EVNT__c.Account_EVNT_MVN__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Venue_EVNT__c.Type_EVNT_MVN__c</field>
+        <field>Meeting_Venue_EVNT__c.Meeting_EVNT_MVN__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting_Venue_EVNT__c.Type_EVNT_MVN__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <loginIpRanges>
@@ -350,15 +312,6 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
         <object>Case</object>
-        <viewAllRecords>true</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>true</modifyAllRecords>
-        <object>Contract_EVNT__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -386,15 +339,6 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
         <object>Meeting_Venue_EVNT__c</object>
-        <viewAllRecords>true</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>true</modifyAllRecords>
-        <object>Venue_EVNT__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <pageAccesses>

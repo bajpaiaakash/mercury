@@ -33,17 +33,16 @@
         <type>Default</type>
     </actionOverrides>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Junction object to create Many to Many relationship between Meeting and Venue objects. Created 9/27/2013 by KLorenti.</description>
+    <description>Object to track Venues that may be associated with a Meeting. Created on 9/27/2013 by KLorenti</description>
     <enableActivities>false</enableActivities>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
     <fields>
-        <fullName>Meeting_EVNT_MVN__c</fullName>
-        <description>Creates Master-Detail Relationship to Meeting object. Created 9/7/2013 by KLorenti</description>
+        <fullName>Account_EVNT_MVN__c</fullName>
         <externalId>false</externalId>
-        <label>Meeting</label>
-        <referenceTo>Meeting_EVNT__c</referenceTo>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
         <relationshipLabel>Meeting Venues</relationshipLabel>
         <relationshipName>Meeting_Venues</relationshipName>
         <relationshipOrder>0</relationshipOrder>
@@ -53,27 +52,70 @@
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
-        <fullName>Venue_EVNT_MVN__c</fullName>
-        <description>Creates Master-Detail relationship to Venue object. Created 9/27/2013</description>
+        <fullName>Meeting_EVNT_MVN__c</fullName>
         <externalId>false</externalId>
-        <label>Venue</label>
-        <referenceTo>Venue_EVNT__c</referenceTo>
-        <relationshipLabel>Meeting Venues</relationshipLabel>
-        <relationshipName>Meeting_Venues</relationshipName>
+        <label>Meeting</label>
+        <referenceTo>Meeting_EVNT__c</referenceTo>
+        <relationshipLabel>Venues</relationshipLabel>
+        <relationshipName>Meeting_Venues1</relationshipName>
         <relationshipOrder>1</relationshipOrder>
         <reparentableMasterDetail>false</reparentableMasterDetail>
         <trackHistory>false</trackHistory>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
+    <fields>
+        <fullName>Type_EVNT_MVN__c</fullName>
+        <description>Tracks type of Venue. Created 9/28/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Hotel</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Conference Center</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Restaurant</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
     <label>Meeting Venue</label>
     <nameField>
-        <displayFormat>MV-{00000}</displayFormat>
-        <label>Meeting Venue Number</label>
+        <displayFormat>V-{00000}</displayFormat>
+        <label>Venue Number</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Meeting Venues</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts>
+        <customTabListAdditionalFields>Account_EVNT_MVN__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Meeting_EVNT_MVN__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Type_EVNT_MVN__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Account_EVNT_MVN__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Meeting_EVNT_MVN__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Type_EVNT_MVN__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Account_EVNT_MVN__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Meeting_EVNT_MVN__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Type_EVNT_MVN__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Account_EVNT_MVN__c</searchFilterFields>
+        <searchFilterFields>Meeting_EVNT_MVN__c</searchFilterFields>
+        <searchFilterFields>Type_EVNT_MVN__c</searchFilterFields>
+        <searchResultsAdditionalFields>Account_EVNT_MVN__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Meeting_EVNT_MVN__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Type_EVNT_MVN__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

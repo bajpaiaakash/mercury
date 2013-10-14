@@ -1,0 +1,1771 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Contains contract details between Lilly and event speakers. 
+Created by John A Adams 10/2/2013</description>
+    <enableActivities>true</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Account_EVNT_MVN__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup relationship between HCP Contracts and Accounts
+Created by John A Adams 10/9/2013</description>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>HCP Contracts</relationshipLabel>
+        <relationshipName>HCP_Contracts</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Fee_EVNT_MVN__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(Fee_Values_EVNT_MVN__c , &quot;50&quot;), 50,
+ IF(ISPICKVAL(Fee_Values_EVNT_MVN__c , &quot;60&quot;), 60,
+  IF(ISPICKVAL(Fee_Values_EVNT_MVN__c , &quot;70&quot;), 70,
+   IF(ISPICKVAL(Fee_Values_EVNT_MVN__c , &quot;80&quot;), 80,
+    IF(ISPICKVAL(Fee_Values_EVNT_MVN__c , &quot;90&quot;), 90,
+IF(ISPICKVAL(Fee_Values_EVNT_MVN__c , &quot;100&quot;), 100,
+ IF(ISPICKVAL(Fee_Values_EVNT_MVN__c , &quot;110&quot;), 110,
+  IF(ISPICKVAL(Fee_Values_EVNT_MVN__c , &quot;120&quot;), 120,
+   IF(ISPICKVAL(Fee_Values_EVNT_MVN__c , &quot;130&quot;), 130,
+    IF(ISPICKVAL(Fee_Values_EVNT_MVN__c , &quot;140&quot;), 140,
+IF(ISPICKVAL(Fee_Values_EVNT_MVN__c , &quot;150&quot;), 150,
+ IF(ISPICKVAL(Fee_Values_EVNT_MVN__c , &quot;160&quot;), 160,
+  IF(ISPICKVAL(Fee_Values_EVNT_MVN__c , &quot;170&quot;), 170,
+   IF(ISPICKVAL(Fee_Values_EVNT_MVN__c , &quot;180&quot;), 180,
+    IF(ISPICKVAL(Fee_Values_EVNT_MVN__c , &quot;190&quot;), 190,666
+    )
+   )
+  )
+ )
+)
+    )
+   )
+  )
+ )
+)
+    )
+   )
+  )
+ )
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contract Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Request_Status_EVNT_MVN__c</fullName>
+        <description>Records the status of the contract.
+Created by John A Adams 10/8/2013</description>
+        <externalId>false</externalId>
+        <label>Contract Request Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Requested</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Draft</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Approved by Lilly</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Approved by Speaker</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Signed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Country_EVNT_MVN__c</fullName>
+        <description>Select speakers country to start fee calculation process
+Created by John A Adams 10/4/2013</description>
+        <externalId>false</externalId>
+        <label>Country</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Germany</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>France</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>UK</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Country_Tier_EVNT_MVN__c</fullName>
+        <description>Country and Tier levels that fee is based upon
+Created by John A Adams 10/2/2013</description>
+        <externalId>false</externalId>
+        <label>Country Tier</label>
+        <picklist>
+            <controllingField>Country_EVNT_MVN__c</controllingField>
+            <picklistValues>
+                <fullName>France Tier 1</fullName>
+                <controllingFieldValues>France</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>France Tier 2</fullName>
+                <controllingFieldValues>France</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>France Tier 3</fullName>
+                <controllingFieldValues>France</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>France Tier 4</fullName>
+                <controllingFieldValues>France</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Germany Tier 1</fullName>
+                <controllingFieldValues>Germany</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Germany Tier 2</fullName>
+                <controllingFieldValues>Germany</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Germany Tier 3</fullName>
+                <controllingFieldValues>Germany</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Germany Tier 4</fullName>
+                <controllingFieldValues>Germany</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>UK Tier 1</fullName>
+                <controllingFieldValues>UK</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>UK Tier 2</fullName>
+                <controllingFieldValues>UK</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>UK Tier 3</fullName>
+                <controllingFieldValues>UK</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>UK Tier 4</fullName>
+                <controllingFieldValues>UK</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Event_Time_EVNT_MVN__c</fullName>
+        <description>Amount of hours during the event speaker is required
+Created by John A Adams 10/2/2013</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter hours and fractions of hours that speaker is involved in the event (e.g., 1.25 = 1hour and 15 minutes)</inlineHelpText>
+        <label>Event Time (hrs)</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Fee_Values_EVNT_MVN__c</fullName>
+        <description>Posible Fee values that can be used depending on Country and Tier selected</description>
+        <externalId>false</externalId>
+        <label>Fee Values</label>
+        <picklist>
+            <controllingField>Country_Tier_EVNT_MVN__c</controllingField>
+            <picklistValues>
+                <fullName>50</fullName>
+                <controllingFieldValues>France Tier 4</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>60</fullName>
+                <controllingFieldValues>France Tier 4</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>70</fullName>
+                <controllingFieldValues>France Tier 4</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>80</fullName>
+                <controllingFieldValues>France Tier 4</controllingFieldValues>
+                <controllingFieldValues>UK Tier 4</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>90</fullName>
+                <controllingFieldValues>France Tier 4</controllingFieldValues>
+                <controllingFieldValues>UK Tier 4</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>100</fullName>
+                <controllingFieldValues>France Tier 3</controllingFieldValues>
+                <controllingFieldValues>France Tier 4</controllingFieldValues>
+                <controllingFieldValues>Germany Tier 4</controllingFieldValues>
+                <controllingFieldValues>UK Tier 4</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>110</fullName>
+                <controllingFieldValues>France Tier 3</controllingFieldValues>
+                <controllingFieldValues>Germany Tier 4</controllingFieldValues>
+                <controllingFieldValues>UK Tier 4</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>120</fullName>
+                <controllingFieldValues>France Tier 3</controllingFieldValues>
+                <controllingFieldValues>Germany Tier 4</controllingFieldValues>
+                <controllingFieldValues>UK Tier 4</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>130</fullName>
+                <controllingFieldValues>France Tier 3</controllingFieldValues>
+                <controllingFieldValues>Germany Tier 4</controllingFieldValues>
+                <controllingFieldValues>UK Tier 4</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>140</fullName>
+                <controllingFieldValues>France Tier 3</controllingFieldValues>
+                <controllingFieldValues>Germany Tier 4</controllingFieldValues>
+                <controllingFieldValues>UK Tier 4</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>150</fullName>
+                <controllingFieldValues>France Tier 3</controllingFieldValues>
+                <controllingFieldValues>Germany Tier 3</controllingFieldValues>
+                <controllingFieldValues>UK Tier 3</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>160</fullName>
+                <controllingFieldValues>France Tier 3</controllingFieldValues>
+                <controllingFieldValues>Germany Tier 3</controllingFieldValues>
+                <controllingFieldValues>UK Tier 3</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>170</fullName>
+                <controllingFieldValues>France Tier 3</controllingFieldValues>
+                <controllingFieldValues>Germany Tier 3</controllingFieldValues>
+                <controllingFieldValues>UK Tier 3</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>180</fullName>
+                <controllingFieldValues>France Tier 3</controllingFieldValues>
+                <controllingFieldValues>Germany Tier 3</controllingFieldValues>
+                <controllingFieldValues>UK Tier 3</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>190</fullName>
+                <controllingFieldValues>France Tier 3</controllingFieldValues>
+                <controllingFieldValues>Germany Tier 3</controllingFieldValues>
+                <controllingFieldValues>UK Tier 3</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>200</fullName>
+                <controllingFieldValues>France Tier 2</controllingFieldValues>
+                <controllingFieldValues>Germany Tier 2</controllingFieldValues>
+                <controllingFieldValues>Germany Tier 3</controllingFieldValues>
+                <controllingFieldValues>UK Tier 3</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>210</fullName>
+                <controllingFieldValues>France Tier 2</controllingFieldValues>
+                <controllingFieldValues>Germany Tier 2</controllingFieldValues>
+                <controllingFieldValues>UK Tier 3</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>220</fullName>
+                <controllingFieldValues>France Tier 2</controllingFieldValues>
+                <controllingFieldValues>Germany Tier 2</controllingFieldValues>
+                <controllingFieldValues>UK Tier 3</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>230</fullName>
+                <controllingFieldValues>France Tier 2</controllingFieldValues>
+                <controllingFieldValues>Germany Tier 2</controllingFieldValues>
+                <controllingFieldValues>UK Tier 2</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>240</fullName>
+                <controllingFieldValues>France Tier 2</controllingFieldValues>
+                <controllingFieldValues>Germany Tier 2</controllingFieldValues>
+                <controllingFieldValues>UK Tier 2</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>250</fullName>
+                <controllingFieldValues>France Tier 2</controllingFieldValues>
+                <controllingFieldValues>Germany Tier 2</controllingFieldValues>
+                <controllingFieldValues>UK Tier 2</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>260</fullName>
+                <controllingFieldValues>France Tier 2</controllingFieldValues>
+                <controllingFieldValues>Germany Tier 2</controllingFieldValues>
+                <controllingFieldValues>UK Tier 2</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>270</fullName>
+                <controllingFieldValues>France Tier 2</controllingFieldValues>
+                <controllingFieldValues>Germany Tier 2</controllingFieldValues>
+                <controllingFieldValues>UK Tier 2</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>280</fullName>
+                <controllingFieldValues>France Tier 2</controllingFieldValues>
+                <controllingFieldValues>Germany Tier 2</controllingFieldValues>
+                <controllingFieldValues>UK Tier 2</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>290</fullName>
+                <controllingFieldValues>France Tier 2</controllingFieldValues>
+                <controllingFieldValues>Germany Tier 2</controllingFieldValues>
+                <controllingFieldValues>UK Tier 1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>300</fullName>
+                <controllingFieldValues>France Tier 1</controllingFieldValues>
+                <controllingFieldValues>Germany Tier 2</controllingFieldValues>
+                <controllingFieldValues>UK Tier 1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>310</fullName>
+                <controllingFieldValues>France Tier 1</controllingFieldValues>
+                <controllingFieldValues>Germany Tier 2</controllingFieldValues>
+                <controllingFieldValues>UK Tier 1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>320</fullName>
+                <controllingFieldValues>France Tier 1</controllingFieldValues>
+                <controllingFieldValues>Germany Tier 2</controllingFieldValues>
+                <controllingFieldValues>UK Tier 1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>330</fullName>
+                <controllingFieldValues>France Tier 1</controllingFieldValues>
+                <controllingFieldValues>Germany Tier 2</controllingFieldValues>
+                <controllingFieldValues>UK Tier 1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>340</fullName>
+                <controllingFieldValues>France Tier 1</controllingFieldValues>
+                <controllingFieldValues>Germany Tier 2</controllingFieldValues>
+                <controllingFieldValues>UK Tier 1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>352</fullName>
+                <controllingFieldValues>France Tier 1</controllingFieldValues>
+                <controllingFieldValues>Germany Tier 1</controllingFieldValues>
+                <controllingFieldValues>Germany Tier 2</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>360</fullName>
+                <controllingFieldValues>France Tier 1</controllingFieldValues>
+                <controllingFieldValues>Germany Tier 1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>370</fullName>
+                <controllingFieldValues>France Tier 1</controllingFieldValues>
+                <controllingFieldValues>Germany Tier 1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>380</fullName>
+                <controllingFieldValues>France Tier 1</controllingFieldValues>
+                <controllingFieldValues>Germany Tier 1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>390</fullName>
+                <controllingFieldValues>France Tier 1</controllingFieldValues>
+                <controllingFieldValues>Germany Tier 1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>400</fullName>
+                <controllingFieldValues>France Tier 1</controllingFieldValues>
+                <controllingFieldValues>Germany Tier 1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>410</fullName>
+                <controllingFieldValues>Germany Tier 1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>420</fullName>
+                <controllingFieldValues>Germany Tier 1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>430</fullName>
+                <controllingFieldValues>Germany Tier 1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>440</fullName>
+                <controllingFieldValues>Germany Tier 1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>450</fullName>
+                <controllingFieldValues>Germany Tier 1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>460</fullName>
+                <controllingFieldValues>Germany Tier 1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>470</fullName>
+                <controllingFieldValues>Germany Tier 1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>480</fullName>
+                <controllingFieldValues>Germany Tier 1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>490</fullName>
+                <controllingFieldValues>Germany Tier 1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>500</fullName>
+                <controllingFieldValues>Germany Tier 1</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Justification_EVNT_MVN__c</fullName>
+        <description>Multi-Picklist created to identify reason to select the HCP for this service of work.
+Created by John A Adams 10/7/2013</description>
+        <externalId>false</externalId>
+        <label>Justification</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Recognized as a Thought Leader</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Significant topic research / background</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Outstanding speaking ability</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trained to speak on this topic</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Therapeutic Area knowledge / experience</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Recognized by local peers as a SME</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Published author in the Therapeutic Area</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Proven effective Speaker / Moderator</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other (please explain)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Other_Details_EVNT_MVN__c</fullName>
+        <description>Text are to note other details about potential speaker
+Created by John A Adams 10/7/2013</description>
+        <externalId>false</externalId>
+        <label>Other Details</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Payee_EVNT_MVN__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup to payee
+Created by John A Adams 10/7/2013</description>
+        <externalId>false</externalId>
+        <label>Payee</label>
+        <referenceTo>Payee_EVNT__c</referenceTo>
+        <relationshipName>ContractXs</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Preparation_Time_EVNT_MVN__c</fullName>
+        <description>Time in hours for contracted for Speakers preparation</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter hours and fractions of hours that speaker is prepared for the the event (e.g., 3.50 = 3 hours and 30 minutes)</inlineHelpText>
+        <label>Preparation Time (hrs)</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Hours_of_Service_EVNT_MVN__c</fullName>
+        <description>Calculation of the total time of the service.
+Created by John A Adams 10/4/2013</description>
+        <externalId>false</externalId>
+        <formula>Preparation_Time_EVNT_MVN__c  +  Travel_Time_hrs_EVNT_MVN__c  + Event_Time_EVNT_MVN__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Hours of Service (hrs)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Travel_Time_hrs_EVNT_MVN__c</fullName>
+        <description>Amount of hours the individual is traveling to and from the event
+Created by John A Adams 10/7/2013</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter hours and fractions of hours that individual  is traveling to the event (e.g., 1.25 = 1hour and 15 minutes)</inlineHelpText>
+        <label>Travel Time (hrs)</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Type_of_Service_EVNT_MVN__c</fullName>
+        <description>Type of service being contracted for
+Created by John A Adams 10/2/2013</description>
+        <externalId>false</externalId>
+        <label>Type of Service</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Speaking, Speaker</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Speaking, Chairman Symposium</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Advisory Board, Chairman</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Consulting ad hoc</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>VAT_ID_EVNT_MVN__c</fullName>
+        <description>A value added tax identification number or VAT identification number (VATIN) is an identifier used in many countries, including the countries of the European Union, for value added tax purposes.
+Created by John A Adams 10/2/2013</description>
+        <externalId>false</externalId>
+        <inlineHelpText>A value added tax identification number or VAT identification number (VATIN) is an identifier used in many countries, including the countries of the European Union, for value added tax purposes.</inlineHelpText>
+        <label>VAT Identification #</label>
+        <length>18</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>HCP Contract</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <displayFormat>CNTR-{000000}</displayFormat>
+        <label>HCP Contract Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>HCP Contracts</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Master_Service_Agreement_EVNT_MVN</fullName>
+        <active>true</active>
+        <description>A master agreement permits the parties to quickly negotiate future transactions or agreements.</description>
+        <label>Master Service Agreement</label>
+        <picklistValues>
+            <picklist>Contract_Request_Status_EVNT_MVN__c</picklist>
+            <values>
+                <fullName>Approved by Lilly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Approved by Speaker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Requested</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Signed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Country_EVNT_MVN__c</picklist>
+            <values>
+                <fullName>France</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Germany</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UK</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Country_Tier_EVNT_MVN__c</picklist>
+            <values>
+                <fullName>France Tier 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>France Tier 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>France Tier 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>France Tier 4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Germany Tier 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Germany Tier 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Germany Tier 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Germany Tier 4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UK Tier 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UK Tier 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UK Tier 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UK Tier 4</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Fee_Values_EVNT_MVN__c</picklist>
+            <values>
+                <fullName>100</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>110</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>120</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>130</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>140</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>150</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>160</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>170</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>180</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>190</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>200</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>210</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>220</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>230</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>240</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>250</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>260</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>270</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>280</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>290</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>300</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>310</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>320</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>330</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>340</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>352</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>360</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>370</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>380</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>390</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>400</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>410</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>420</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>430</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>440</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>450</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>460</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>470</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>480</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>490</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>50</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>500</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>60</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>70</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>80</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>90</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Justification_EVNT_MVN__c</picklist>
+            <values>
+                <fullName>Other %28please explain%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outstanding speaking ability</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Proven effective Speaker %2F Moderator</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Published author in the Therapeutic Area</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recognized as a Thought Leader</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recognized by local peers as a SME</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Significant topic research %2F background</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Therapeutic Area knowledge %2F experience</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trained to speak on this topic</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type_of_Service_EVNT_MVN__c</picklist>
+            <values>
+                <fullName>Advisory Board%2C Chairman</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consulting ad hoc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Speaking%2C Chairman Symposium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Speaking%2C Speaker</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Multiple_Event_Contract_EVNT_MVN</fullName>
+        <active>true</active>
+        <description>A contract for a series of meetings.</description>
+        <label>Multiple-Event Contract</label>
+        <picklistValues>
+            <picklist>Contract_Request_Status_EVNT_MVN__c</picklist>
+            <values>
+                <fullName>Approved by Lilly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Approved by Speaker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Requested</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Signed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Country_EVNT_MVN__c</picklist>
+            <values>
+                <fullName>France</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Germany</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UK</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Country_Tier_EVNT_MVN__c</picklist>
+            <values>
+                <fullName>France Tier 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>France Tier 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>France Tier 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>France Tier 4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Germany Tier 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Germany Tier 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Germany Tier 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Germany Tier 4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UK Tier 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UK Tier 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UK Tier 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UK Tier 4</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Fee_Values_EVNT_MVN__c</picklist>
+            <values>
+                <fullName>100</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>110</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>120</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>130</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>140</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>150</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>160</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>170</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>180</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>190</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>200</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>210</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>220</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>230</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>240</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>250</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>260</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>270</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>280</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>290</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>300</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>310</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>320</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>330</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>340</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>352</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>360</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>370</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>380</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>390</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>400</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>410</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>420</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>430</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>440</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>450</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>460</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>470</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>480</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>490</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>50</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>500</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>60</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>70</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>80</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>90</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Justification_EVNT_MVN__c</picklist>
+            <values>
+                <fullName>Other %28please explain%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outstanding speaking ability</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Proven effective Speaker %2F Moderator</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Published author in the Therapeutic Area</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recognized as a Thought Leader</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recognized by local peers as a SME</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Significant topic research %2F background</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Therapeutic Area knowledge %2F experience</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trained to speak on this topic</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type_of_Service_EVNT_MVN__c</picklist>
+            <values>
+                <fullName>Advisory Board%2C Chairman</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consulting ad hoc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Speaking%2C Chairman Symposium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Speaking%2C Speaker</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Single_Event_Contract_EVNT_MVN</fullName>
+        <active>true</active>
+        <description>A contract for a single meeting event.  Once meeting is over contract expires.</description>
+        <label>Single Event Contract</label>
+        <picklistValues>
+            <picklist>Contract_Request_Status_EVNT_MVN__c</picklist>
+            <values>
+                <fullName>Approved by Lilly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Approved by Speaker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Requested</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Signed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Country_EVNT_MVN__c</picklist>
+            <values>
+                <fullName>France</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Germany</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UK</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Country_Tier_EVNT_MVN__c</picklist>
+            <values>
+                <fullName>France Tier 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>France Tier 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>France Tier 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>France Tier 4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Germany Tier 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Germany Tier 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Germany Tier 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Germany Tier 4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UK Tier 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UK Tier 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UK Tier 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UK Tier 4</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Fee_Values_EVNT_MVN__c</picklist>
+            <values>
+                <fullName>100</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>110</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>120</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>130</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>140</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>150</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>160</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>170</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>180</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>190</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>200</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>210</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>220</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>230</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>240</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>250</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>260</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>270</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>280</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>290</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>300</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>310</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>320</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>330</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>340</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>352</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>360</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>370</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>380</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>390</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>400</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>410</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>420</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>430</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>440</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>450</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>460</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>470</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>480</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>490</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>50</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>500</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>60</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>70</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>80</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>90</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Justification_EVNT_MVN__c</picklist>
+            <values>
+                <fullName>Other %28please explain%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outstanding speaking ability</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Proven effective Speaker %2F Moderator</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Published author in the Therapeutic Area</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recognized as a Thought Leader</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recognized by local peers as a SME</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Significant topic research %2F background</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Therapeutic Area knowledge %2F experience</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trained to speak on this topic</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type_of_Service_EVNT_MVN__c</picklist>
+            <values>
+                <fullName>Advisory Board%2C Chairman</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consulting ad hoc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Speaking%2C Chairman Symposium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Speaking%2C Speaker</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Account_EVNT_MVN__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields xsi:nil="true"/>
+        <customTabListAdditionalFields xsi:nil="true"/>
+        <customTabListAdditionalFields xsi:nil="true"/>
+        <customTabListAdditionalFields>Type_of_Service_EVNT_MVN__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Country_Tier_EVNT_MVN__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Fee_Values_EVNT_MVN__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Total_Hours_of_Service_EVNT_MVN__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields xsi:nil="true"/>
+        <lookupDialogsAdditionalFields>Account_EVNT_MVN__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields xsi:nil="true"/>
+        <lookupDialogsAdditionalFields xsi:nil="true"/>
+        <lookupDialogsAdditionalFields>Type_of_Service_EVNT_MVN__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Country_Tier_EVNT_MVN__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Fee_Values_EVNT_MVN__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Total_Hours_of_Service_EVNT_MVN__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields xsi:nil="true"/>
+        <lookupPhoneDialogsAdditionalFields>Account_EVNT_MVN__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields xsi:nil="true"/>
+        <lookupPhoneDialogsAdditionalFields xsi:nil="true"/>
+        <lookupPhoneDialogsAdditionalFields>Type_of_Service_EVNT_MVN__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Country_Tier_EVNT_MVN__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Fee_Values_EVNT_MVN__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Total_Hours_of_Service_EVNT_MVN__c</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields xsi:nil="true"/>
+        <searchResultsAdditionalFields>Account_EVNT_MVN__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields xsi:nil="true"/>
+        <searchResultsAdditionalFields xsi:nil="true"/>
+        <searchResultsAdditionalFields>Type_of_Service_EVNT_MVN__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Country_Tier_EVNT_MVN__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Fee_Values_EVNT_MVN__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Total_Hours_of_Service_EVNT_MVN__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

@@ -4,8 +4,12 @@
 		<members>DocusignService</members>
 		<members>DocusignServiceMock</members>
 		<members>DocusignServiceTest</members>
+		<members>EVNT_BudgetVersionHandlerMVN</members>
+		<members>EVNT_TestFactoryMVN</members>
 		<members>PersonSearchControllerMVN</members>
 		<members>PersonSearchControllerTestMVN</members>
+		<members>SobjectDataLoaderMVN</members>
+		<members>SobjectDataLoaderTestMVN</members>
 		<members>TriggersMVN</members>
 		<name>ApexClass</name>
 	</types>
@@ -24,10 +28,10 @@
 	<types>
 		<members>Case</members>
 		<members>Meeting_Venue_EVNT__c</members>
-		<members>Contract_EVNT__c</members>
+		<members>HCP_Contract_EVNT__c</members>
 		<members>Meeting_EVNT__c</members>
 		<members>Meeting_Participant_EVNT__c</members>
-		<members>Venue_EVNT__c</members>
+		<members>Meeting_Venue_EVNT__c</members>
 		<members>Docusign_Settings_EVNT__c</members>
 		<name>CustomObject</name>
 	</types>

@@ -40,27 +40,41 @@
     <enableReports>true</enableReports>
     <fields>
         <fullName>Account_EVNT_MVN__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
+        <deleteConstraint>Restrict</deleteConstraint>
         <description>Lookup to Account from Event Participant. Created 9/28/2013 by KLorenti.</description>
         <externalId>false</externalId>
         <label>Account</label>
         <referenceTo>Account</referenceTo>
+        <relationshipLabel>Meeting Participants</relationshipLabel>
         <relationshipName>Event_Participants</relationshipName>
-        <required>false</required>
+        <required>true</required>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Hours_Estimate_EVNT_MVN__c</fullName>
-        <description>Number of hours speaker is estimated for. Will be used to calculate against FMV. Created 10/1/2013 by KLorenti</description>
+        <fullName>Event_Time_Hrs_EVNT_MVN__c</fullName>
+        <description>Event Time Hours. Created 10/10/2013 by KLorenti.</description>
         <externalId>false</externalId>
-        <label>Hours Estimate</label>
-        <precision>3</precision>
+        <label>Event Time (hrs)</label>
+        <precision>6</precision>
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>HCP_Contract_EVNT_MVN__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup Relationship from Meeting Participant to HCP Contract. Created 10/10/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <label>HCP Contract</label>
+        <referenceTo>HCP_Contract_EVNT__c</referenceTo>
+        <relationshipLabel>Meeting Participants</relationshipLabel>
+        <relationshipName>Meeting_Participants</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Meeting_EVNT_MVN__c</fullName>
@@ -76,23 +90,16 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Participant_Type_EVNT_MVN__c</fullName>
-        <description>Tracks type of Meeting Participant. Created 10/1/2013 by KLorenti</description>
+        <fullName>Preparation_Time_Hrs_EVNT_MVN__c</fullName>
+        <description>Preparation time for patricipant. Created 10/10/2013 by KLorenti.</description>
         <externalId>false</externalId>
-        <label>Participant Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Speaker</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Delegate</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
+        <label>Preparation Time (hrs)</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
         <trackHistory>false</trackHistory>
-        <type>Picklist</type>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Slot_EVNT_MVN__c</fullName>
@@ -135,12 +142,92 @@ Created by John A Adams 9/27/2013</description>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
+    <fields>
+        <fullName>Total_Food_Beverage_ToV_EVNT_MVN__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Food &amp; Beverage ToV</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Ground_Transporation_ToV_EVNT_MVN__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Ground Transporation ToV</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Honorarium_EVNT_MVN__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Honorarium</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Hotel_ToV_EVNT_MVN__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Hotel ToV</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Hours_of_Service_EVNT_MVN__c</fullName>
+        <externalId>false</externalId>
+        <formula>Travel_Time_Hrs_EVNT_MVN__c +  Event_Time_Hrs_EVNT_MVN__c +  Preparation_Time_Hrs_EVNT_MVN__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Hours of Service</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Other_ToV_EVNT_MVN__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Other ToV</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Registration_ToV_EVNT_MVN__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Registration ToV</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Travel_Time_Hrs_EVNT_MVN__c</fullName>
+        <description>Travel Time Hours. Created 10/10/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <label>Travel Time (hrs)</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
     <label>Meeting Participant</label>
-    <listViews>
-        <fullName>All</fullName>
-        <filterScope>Everything</filterScope>
-        <label>All</label>
-    </listViews>
     <nameField>
         <displayFormat>MP-{000000}</displayFormat>
         <label>Meeting Participant Number</label>
@@ -152,18 +239,8 @@ Created by John A Adams 9/27/2013</description>
     <recordTypes>
         <fullName>Delegate</fullName>
         <active>true</active>
+        <description>Meeting attendee</description>
         <label>Delegate</label>
-        <picklistValues>
-            <picklist>Participant_Type_EVNT_MVN__c</picklist>
-            <values>
-                <fullName>Delegate</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Speaker</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>Status_EVNT_MVN__c</picklist>
             <values>
@@ -183,18 +260,8 @@ Created by John A Adams 9/27/2013</description>
     <recordTypes>
         <fullName>Speaker</fullName>
         <active>true</active>
+        <description>Invited presenter for meeting</description>
         <label>Speaker</label>
-        <picklistValues>
-            <picklist>Participant_Type_EVNT_MVN__c</picklist>
-            <values>
-                <fullName>Delegate</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Speaker</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>Status_EVNT_MVN__c</picklist>
             <values>
@@ -215,6 +282,28 @@ Created by John A Adams 9/27/2013</description>
             </values>
         </picklistValues>
     </recordTypes>
-    <searchLayouts/>
+    <searchLayouts>
+        <customTabListAdditionalFields>Meeting_EVNT_MVN__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Account_EVNT_MVN__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status_EVNT_MVN__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Account_EVNT_MVN__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>RECORDTYPE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status_EVNT_MVN__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Meeting_EVNT_MVN__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Account_EVNT_MVN__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>RECORDTYPE</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Status_EVNT_MVN__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Meeting_EVNT_MVN__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Account_EVNT_MVN__c</searchFilterFields>
+        <searchFilterFields>RECORDTYPE</searchFilterFields>
+        <searchFilterFields>Status_EVNT_MVN__c</searchFilterFields>
+        <searchFilterFields>Meeting_EVNT_MVN__c</searchFilterFields>
+        <searchResultsAdditionalFields>Account_EVNT_MVN__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status_EVNT_MVN__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Meeting_EVNT_MVN__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

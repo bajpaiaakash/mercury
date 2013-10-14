@@ -41,4 +41,39 @@ private class DocusignServiceTest {
         System.assertEquals(loginAccountObject.userName, d.loginInfo.loginAccounts[0].userName);
     }
 
+    @isTest static void testSendToSigners() {
+        Test.startTest();
+        
+        //generate signers
+        List<Account> signingAccounts = EVNT_TestFactoryMVN.insertAccounts(2);
+        List<DocusignService.RequiredSigner> requiredSigners = new List<DocusignService.RequiredSigner>();
+        for (Integer i = 0; i < signingAccounts.size(); i++) {
+            DocusignService.RequiredSigner signer = new DocusignService.RequiredSigner();
+            signer.acc = signingAccounts.get(i);
+            signer.order = i+1;
+            requiredSigners.add(signer);
+        }
+
+        //serialize mock response
+        DocusignService.EnvelopeResponse mockResponse = new DocusignService.EnvelopeResponse();
+        mockResponse.envelopeId = '7f7de730-811d-458a-97a3-deeef96b38d0';
+        mockResponse.status = 'sent';
+        mockResponse.statusDateTime = '2013-10-11T17:17:55.5470518Z';
+        mockResponse.uri = '/envelopes/7f7de730-811d-458a-97a3-deeef96b38d0';
+        String envelopeResponseJSONString = JSON.serializePretty(mockResponse);
+        system.debug(envelopeResponseJSONString);
+
+        DocusignServiceMock fakeResponse = new DocusignServiceMock(200, 'Complete', envelopeResponseJSONString, null);
+        Test.setMock(HttpCalloutMock.class, fakeResponse);
+        
+        //send requesr for signature
+        DocusignService d = new DocusignService();
+        DocusignService.EnvelopeResponse r = d.requestSignature(requiredSigners, 'this is the document to sign');
+        Test.stopTest();
+
+        system.debug(r);
+        System.assertEquals(r.envelopeId, mockResponse.envelopeId);
+        System.assertEquals(r.status, mockResponse.status);
+    }
+
 }

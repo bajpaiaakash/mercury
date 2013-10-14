@@ -1,7 +1,7 @@
 /**
  *  TriggersMVN
- * 
- */
+*/
+
 public class TriggersMVN 
 {
     /**
@@ -85,5 +85,4 @@ public class TriggersMVN
             }
         }
     }
-
 }

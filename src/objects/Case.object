@@ -66,6 +66,20 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Meeting_EVNT_MVN__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup relationship from Case to Meeting. Created 10/11/2013 by KLorenti</description>
+        <externalId>false</externalId>
+        <label>Meeting</label>
+        <referenceTo>Meeting_EVNT__c</referenceTo>
+        <relationshipLabel>Cases</relationshipLabel>
+        <relationshipName>Cases</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Origin</fullName>
         <picklist>
             <picklistValues>

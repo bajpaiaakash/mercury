@@ -92,11 +92,9 @@
         <description>End Time of Meeting. Created 10/2/2013 by KLorenti.</description>
         <externalId>false</externalId>
         <label>End Time of Meeting</label>
-        <length>20</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Event_Country_EVNT_MVN__c</fullName>
@@ -123,30 +121,85 @@
     </fields>
     <fields>
         <fullName>External_Delegates_EVNT_MVN__c</fullName>
-        <defaultValue>false</defaultValue>
         <description>Indicate if External Delegates are to be surveyed? Created 10/2/2013 by KLorenti.</description>
         <externalId>false</externalId>
         <label>External Delegates?</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
         <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Hours_for_Education_EVNT_MVN__c</fullName>
+        <description>Time for Education (in hours). Created 10/2/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <label>Hours for Education</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Internal_Delegates_EVNT_MVN__c</fullName>
-        <defaultValue>false</defaultValue>
         <description>Indicate if Internal Delegates are to be surveyed? Created 10/2/2013 by KLorenti.</description>
         <externalId>false</externalId>
         <label>Internal Delegates?</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
         <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Meeting_Owner_Sales_Rep_EVNT_MVN__c</fullName>
-        <defaultValue>false</defaultValue>
         <description>Indicate if Meeting Owners/Sales Reps are to be surveyed? Created 10/2/2013 by KLorenti.</description>
         <externalId>false</externalId>
         <label>Meeting Owner/Sales Rep?</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
         <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Planning_Company_EVNT_MVN__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup to Account to select a Meeting Planning Company. Created 10/4/2013.</description>
+        <externalId>false</externalId>
+        <label>Meeting Planning Company</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Meetings</relationshipLabel>
+        <relationshipName>Meetings</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Number_of_Break_Out_Rooms_EVNT_MVN__c</fullName>
@@ -166,6 +219,42 @@
         <externalId>false</externalId>
         <label>Number of Conference Rooms</label>
         <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Expected_Deletgates_EVNT_MVN__c</fullName>
+        <description>Number of delegates expected to attend meeting. Created 10/08/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <label>Number of Expected Deletgates</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Expected_Employees_EVNT_MVN__c</fullName>
+        <description>Number of Lilly Employees expected to attend meeting. Created 10/08/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <label>Number of Expected Employees</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Expected_Speakers_EVNT_MVN__c</fullName>
+        <description>Number of speakers expected to attend meeting. Created 10/08/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <label>Number of Expected Speakers</label>
+        <precision>6</precision>
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
@@ -206,34 +295,31 @@
     </fields>
     <fields>
         <fullName>Speaker_EVNT_MVN__c</fullName>
-        <defaultValue>false</defaultValue>
         <description>Indicate if Speakers are to be surveyed? Created 10/2/2013 by KLorenti.</description>
         <externalId>false</externalId>
         <label>Speaker?</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
         <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Start_Time_of_Meeting_EVNT_MVN__c</fullName>
         <description>Start Time of Meeting. Created 10/2/2013 by KLorenti.</description>
         <externalId>false</externalId>
         <label>Start Time of Meeting</label>
-        <length>20</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Time_for_Education__c</fullName>
-        <description>Time for Education. Created 10/2/2013 by KLorenti.</description>
-        <externalId>false</externalId>
-        <label>Time for Education</label>
-        <length>20</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Type_EVNT_MVN__c</fullName>
@@ -242,11 +328,19 @@
         <label>Type</label>
         <picklist>
             <picklistValues>
-                <fullName>Independent</fullName>
+                <fullName>Consultant</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Health Education</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Independent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Investigator Meeting</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -261,11 +355,7 @@
                 <fullName>Speaker Training</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
-                <fullName>Investigator Meeting</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
+            <sorted>true</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -282,8 +372,14 @@
     <label>Meeting</label>
     <listViews>
         <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Parent_Meeting_EVNT_MVN__c</columns>
+        <columns>Date_of_Event_EVNT_MVN__c</columns>
+        <columns>Event_Country_EVNT_MVN__c</columns>
+        <columns>Type_EVNT_MVN__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
+        <language>en_US</language>
     </listViews>
     <nameField>
         <label>Meeting Name</label>
@@ -295,15 +391,23 @@
         <customTabListAdditionalFields>Parent_Meeting_EVNT_MVN__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Type_EVNT_MVN__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Date_of_Event_EVNT_MVN__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Event_Country_EVNT_MVN__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>CREATEDBY_USER</customTabListAdditionalFields>
-        <customTabListAdditionalFields>OWNER.ALIAS</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>Parent_Meeting_EVNT_MVN__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Type_EVNT_MVN__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Date_of_Event_EVNT_MVN__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Event_Country_EVNT_MVN__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>CREATEDBY_USER</lookupDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Parent_Meeting_EVNT_MVN__c</searchFilterFields>
+        <searchFilterFields>Type_EVNT_MVN__c</searchFilterFields>
+        <searchFilterFields>Date_of_Event_EVNT_MVN__c</searchFilterFields>
+        <searchFilterFields>Event_Country_EVNT_MVN__c</searchFilterFields>
+        <searchFilterFields>CREATEDBY_USER</searchFilterFields>
         <searchResultsAdditionalFields>Parent_Meeting_EVNT_MVN__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Type_EVNT_MVN__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Date_of_Event_EVNT_MVN__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Event_Country_EVNT_MVN__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CREATEDBY_USER</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>

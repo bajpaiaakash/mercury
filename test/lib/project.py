@@ -19,7 +19,8 @@ def compile(client, project_path, **kwargs):
             "zip_file"          : zip_file,
             "rollback_on_error" : kwargs.get('rollback_on_error', True),
             "ret_xml"           : kwargs.get('ret_xml', True),
-            "run_tests"         : kwargs.get('run_tests', True),
+            "run_tests"         : kwargs.get('run_tests', False),
+            "classes"           : kwargs.get('classes', []),
             "debug_categories"  : [
                 {
                     "category"  : "Apex_code",

@@ -48,7 +48,19 @@ class MercuryBuildTest(unittest.TestCase):
         ## validate deploy ##
         #####################
 
-        result, log, html = project.compile(client, project_path, run_tests=True) #running tests below, bc run all tests runs managed package tests which can fail
+        classes = []
+        qr = client.query("Select ID, Name FROM ApexClass WHERE NamespacePrefix = null AND Name LIKE '%Test%'")
+        records = None
+        if qr["done"] == True and 'records' in qr:
+            if type(qr['records']) is not list:
+                records = [qr['records']]
+            else:
+                records = qr['records']
+            for r in records:
+                classes.append(r["Name"])
+
+
+        result, log, html = project.compile(client, project_path, classes=classes) #running tests below, bc run all tests runs managed package tests which can fail
         json_result = json.dumps(result, sort_keys=True, indent=2, separators=(',', ': '))
         result = json.loads(json_result)
         
@@ -81,13 +93,14 @@ class MercuryBuildTest(unittest.TestCase):
                     break
 
         if compile_success:
-            warnings = result['runTestResult']['codeCoverageWarnings']
-            if type(warnings) is not list:
-                warnings = [warnings]
+            if 'runTestResult' in result and 'codeCoverageWarnings' in result['runTestResult']:
+                warnings = result['runTestResult']['codeCoverageWarnings']
+                if type(warnings) is not list:
+                    warnings = [warnings]
 
-            for w in warnings:
-                if 'Average test coverage across all Apex Classes and Triggers' in w['message']:
-                    compile_success = False
+                for w in warnings:
+                    if 'Average test coverage across all Apex Classes and Triggers' in w['message']:
+                        compile_success = False
 
         self.assertTrue(compile_success)
 

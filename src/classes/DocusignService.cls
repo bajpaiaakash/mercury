@@ -5,6 +5,9 @@ public with sharing class DocusignService {
 	String integratorKey;
 	String accountId;
 	String baseUrl = 'https://demo.docusign.net/restapi/v2/';
+    String boundaryName = 'MYBOUNDARY';
+    String boundaryMarker = '--'+boundaryName;
+    String boundaryMarkerEnd = '--'+boundaryName+'--';
 	public LoginInformation loginInfo { get; private set; }
 
 	public DocusignService() {
@@ -26,10 +29,10 @@ public with sharing class DocusignService {
 	    }
     }
 
-    void parseResponse(String responseBody, String type) {
-    	JSONParser parse = JSON.createParser(responseBody);
-    	EnvResponse envstat = (EnvResponse)parse.readValueAs(EnvResponse.class);
-    }
+    // void parseResponse(String responseBody, String type) {
+    // 	JSONParser parse = JSON.createParser(responseBody);
+    // 	EnvResponse envstat = (EnvResponse)parse.readValueAs(EnvResponse.class);
+    // }
 
     public void login() {
     	Http httpProtocol = new Http();
@@ -44,274 +47,101 @@ public with sharing class DocusignService {
 		JSONParser parser = JSON.createParser(response1.getBody());
 		this.loginInfo = (LoginInformation)parser.readValueAs(LoginInformation.class);
     }
-
-    // void prepareRequest() {
-    // 	Http httpProtocol = new Http();
-    // 	HttpRequest request = new HttpRequest();
-    // 	String endpoint = '/accounts/'+accKey+'/envelopes';
-    // 	request.setEndPoint(endpoint);
-    // 	request.setMethod('POST');
-    // 	request.setHeader('Accept', 'application/json');
-    // 	request.setHeader('X-DocuSign-Authentication', passString);
-    // 	request.setHeader('content-type', 'multipart/form-data;boundary=myBoundary'); 
-    // }
-
-    // //Call Create and send envelope method
-    // public static Pagereference processDocument(Id ctrId) {
-    //     //Account Id
-    //     String accId = Docusign_Settings_EVNT__c.getValues('accountId').value__c;
-    //     //Create Draft Envelope
-    //     String envstatus = creatAndSendEnvelope(accId, ctrId);
-    //     System.debug('Env Status = '+envstatus);
-    //     return new Pagereference('/'+ctrId);
-    // }
     
-    //Create And Send Envelope - Creates Dynamic PDF Document, Create Recipient, Tabs and Sends for singature in one step
-    public String creatAndSendEnvelope(String accKey, Id ctrId) {
-        String passString = authHeader;                   
-        //MyBoundary - used to indicate benging/end of document in multi-part request
-        String contentType = '\r\n--myBoundary'+'\r\n'+'Content-Type:application/octet-stream'+ '\r\n'+
-                                'Content-Transfer-Encoding: base64'+'\r\n'+'Content-Disposition:attachment; '+'filename=\"contract.pdf\";'+
-                                'documentid=1 '+'\r\n\r\n\r\n';
-        String cheader = '\r\n--myBoundary'+'\r\n'+' Content-Type: application/json'+ '\r\n'+' Content-Disposition: form-data'+ '\r\n'+'\r\n';
-        String envelop = createJSONString(ctrId);
-        System.debug('request body => '+envelop);
-        String envEOF = '\r\n'+'--myBoundary--';                    
+    public EnvelopeResponse requestSignature(List<RequiredSigner> requiredSigners, String pdfBytes) {
         Http httpProtocol = new Http();
         HttpRequest request = new HttpRequest();
-        String endpoint = 'https://demo.docusign.net/restapi/v2/accounts/'+accKey+'/envelopes';
+        String endpoint = this.baseUrl + 'accounts/' + this.accountId + '/envelopes';
         request.setEndPoint(endpoint);
         request.setMethod('POST');
+        request.setHeader('Content-Type', 'multipart/form-data; boundary=MYBOUNDARY'); 
         request.setHeader('Accept', 'application/json');
-        request.setHeader('X-DocuSign-Authentication', passString);
-        request.setHeader('content-type', 'multipart/form-data;boundary=myBoundary'); 
+        request.setHeader('X-DocuSign-Authentication', this.authHeader);
+
+        String documentId = '1';
+        String fileName = 'contract.pdf';
+
+        String postBody = '';
+        postBody += boundaryMarker;
+        postBody += lineBreak;
+        postBody += 'Content-Type: application/json';
+        postBody += lineBreak;
+        postBody += 'Content-Disposition: form-data';
+        postBody += lineBreak;
+        postBody += lineBreak;
+        postBody += getEnvelope(requiredSigners);
+        postBody += lineBreak;
+        postBody += boundaryMarker;
+        postBody += lineBreak;
+        postBody += 'Content-Type: application/pdf';
+        postBody += lineBreak;
+        postBody += 'Content-Disposition: file; filename="'+fileName+'"; documentid='+documentId;
+        postBody += lineBreak;
+        postBody += 'Content-Transfer-Encoding: base64';
+        postBody += lineBreak;
+        postBody += lineBreak;
+        postBody += pdfBytes;
+        postBody += lineBreak;
+        postBody += lineBreak;
+        postBody += boundaryMarkerEnd;
+        postBody += lineBreak;
+        postBody += lineBreak;
+
+        system.debug(postBody);
         
-        //Generate PDF
-        PageReference pageRef = new PageReference('/apex/contractpdf');
-        pageRef.getParameters().put('id',ctrId);
-        String bcontent = EncodingUtil.base64Encode(pageRef.getContentaspdf());
-        request.setHeader('content-length', String.valueOf(bcontent.length()));
+        request.setBody(postBody);
+        HttpResponse response = httpProtocol.send(request);
+        String responseBody = response.getBody();
+        System.debug('response =>'+responseBody);
         
-        //Body
-        request.setBody(cheader+''+envelop+'\r\n'+contentType+'\r\n'+bcontent+'\r\n'+envEOF);
-        System.debug('Request Body = '+cheader+''+envelop+'\r\n'+contentType+'\r\n'+bcontent+'\r\n'+envEOF);
-        HttpResponse response1 = httpProtocol.send(request);
-        System.debug('response1 =>'+response1.getBody());
-        JSONParser parse = JSON.createParser(response1.getBody());
-        EnvResponse envstat = (EnvResponse)parse.readValueAs(EnvResponse.class);
-        System.debug('De-Serialized class is envstats => '+envstat);
-        return envstat.status;
+        JSONParser parser = JSON.createParser(responseBody);
+        EnvelopeResponse envelopeStatus = (EnvelopeResponse)parser.readValueAs(EnvelopeResponse.class);
+        system.debug(envelopeStatus);
+        return envelopeStatus;
     }
-    
-    //Util helper for constructing JSON request for createandsend all in one method 
-    public String createJSONString(String ctrId) {    
-        List<Signers> recipient1 = new List<Signers>{new Signers('rpachaiyappan@gmail.com', 'Ram', '1', '1') };
-        JSONGenerator gen = JSON.createGenerator(true);
-        gen.writeStartObject();
-        gen.writeStringField('emailBlurb', 'Please Sign Contracts ASAP!');
-        gen.writeStringField('emailSubject', 'Docusign Contracts');
-        //document
-        gen.writeFieldName('documents');
-        gen.writeStartArray();
-        gen.writeStartObject();
-        gen.writeStringField('documentId', '1');
-        gen.writeStringField('name', 'contract.pdf');
-        gen.writeEndObject();
-        gen.writeEndArray(); //end of doc
-        //srat recip
-        gen.writeFieldName('recipients');
-        //signer -1
-        gen.writeStartObject();
-        //array of singers
-        gen.writeFieldName('signers');
-        gen.writeStartArray();
-        //gen.writeObject(new Signers('rpachaiyappan@gmail.com', 'Ram', '1', '1') );
-        gen.writeStartObject();
-        gen.writeObjectField('email', 'rpachaiyappan@gmail.com');
-        gen.writeObjectField('name', 'rpachaiyappan');
-        gen.writeObjectField('recipientId', '1');
-        gen.writeObjectField('routingOrder', '1');
-        //start tab
-        gen.writeFieldName('tabs');
-        gen.writeStartObject();
-        //start sign here
-        gen.writeFieldName('signHereTabs');
-        gen.writeStartArray();
-        gen.writeObject(new Tab('CustSignInsert'));
-        gen.writeEndArray();
-        //end sign here
-        
-        //date tab
-        gen.writeFieldName('dateSignedTabs');
-        gen.writeStartArray();
-        gen.writeObject(new Tab('CustDate'));
-        gen.writeEndArray();
-        //date tab end
-        
-        //title tab
-        gen.writeFieldName('titleTabs');
-        gen.writeStartArray();
-        gen.writeObject(new Tab('CustTitle'));
-        gen.writeEndArray();
-        //end sign here
-        gen.writeEndObject(); //end tab
-        gen.writeEndObject();
-        
-        //signer -2
-        gen.writeStartObject();
-        gen.writeObjectField('email', 'ramanathanp82@yahoo.com');
-        gen.writeObjectField('name', 'pachaiyappan');
-        gen.writeObjectField('recipientId', '2');
-        gen.writeObjectField('routingOrder', '2');
-        //start tab
-        gen.writeFieldName('tabs');
-        gen.writeStartObject();
-        //start sign here
-        gen.writeFieldName('signHereTabs');
-        gen.writeStartArray();
-        gen.writeObject(new Tab('SellSignInsert'));
-        gen.writeEndArray();
-        
-        gen.writeFieldName('titleTabs');
-        gen.writeStartArray();
-        gen.writeObject(new Tab('SellerTitle'));
-        gen.writeEndArray();
-        //end sign here
-        
-        gen.writeEndObject();
-        
-        gen.writeEndObject();
-        
-        gen.writeEndArray(); 
-        gen.writeEndObject();//end recip
-        gen.writeStringField('status', 'sent');
-        gen.writeFieldName('customFields');
-        gen.writeStartObject();
-        gen.writeFieldName('textCustomFields');
-        gen.writeStartArray();
-        gen.writeStartObject();
-        gen.writeObjectField('name', 'ContractId');
-        gen.writeObjectField('show', 'true');
-        gen.writeObjectField('required', 'False');
-        gen.writeObjectField('value', ctrId);
-        gen.writeObjectField('customFieldType', 'text');
-        gen.writeEndObject();
-        gen.writeEndArray();
-        gen.writeEndObject();
-        
-        gen.writeEndObject();
-        System.debug('JSON String => '+gen.getAsString());
-        return gen.getAsString();
-    }
-    
-    
-    
-    //Lengthy Method call -Process Document for sending to Docusign
-    public Pagereference processDocument2(Id ctrId) {
-        //Create Draft Envelope
-        String envId = createEnvelope(this.accountId);
-        if(envId!=null) {
-            //Attach Document
-            attachDocToDS(envId, ctrId, this.accountId);
-            //Send envelope
-            sendToDS(envId, this.accountId);
+
+    String lineBreak {
+        get {
+            return '\r\n';
         }
-        return new Pagereference('/'+ctrId);
     }
-    
-    //Lengthy Method call -Create Draft Envelope Method 
-    public String createEnvelope(String accKey) {
-        String passString = authHeader;                   
-        //MyBoundary - used to indicate benging/end of document in multi-part request
-        String contentType = '\r\n--myBoundary'+'\r\n'+' Content-Type: application/json'+ '\r\n'+' Content-Disposition: form-data'+'\r\n\r\n';
-        String envelop = createJSONString2();
-        System.debug('request body => '+envelop);
-        String envEOF = '\r\n'+'--myBoundary--';                    
-        Http httpProtocol = new Http();
-        HttpRequest request = new HttpRequest();
-        String endpoint = 'https://demo.docusign.net/restapi/v2/accounts/'+accKey+'/envelopes';
-        request.setEndPoint(endpoint);
-        request.setMethod('POST');
-        request.setHeader('Accept', 'application/json');
-        request.setHeader('X-DocuSign-Authentication', passString);
-        request.setHeader('content-type', 'multipart/form-data;boundary=myBoundary'); 
-        System.debug('Request Body = '+contentType+''+envelop+''+envEOF);
-        request.setBody(contentType+''+envelop+''+envEOF);
-        HttpResponse response1 = httpProtocol.send(request);
-        System.debug('response1 =>'+response1.getBody());
-        JSONParser parse = JSON.createParser(response1.getBody());
-        EnvResponse envstat = (EnvResponse)parse.readValueAs(EnvResponse.class);
-        System.debug('De-Serialized class is envstats => '+envstat);
-        return envstat.envelopeId;
-    }
-    
-    
-    //Lengthy Method call - Attach Document to Draft Envelope
-    public void attachDocToDS(String envId, Id ctrId, String accKey) {
-        String passString = authHeader;
-        Http httpProtocol = new Http();
-        String endpoint = 'https://demo.docusign.net/restapi/v2/accounts/'+accKey+'/envelopes/'+envid+'/documents/1';
-        System.debug('End Point => '+endpoint);
-        //Send PDF
-        PageReference pageRef = new PageReference('/apex/contractpdf');
-        //Contract Id for PDF
-        pageRef.getParameters().put('id',ctrId);
-        Blob b = pageRef.getContentaspdf();
-        // Create HTTP request to send.
-        HttpRequest request2 = new HttpRequest();
-        request2.setEndPoint(endpoint);
-        // Set the HTTP verb to GET.
-        request2.setMethod('PUT');
-        request2.setHeader('Accept', 'application/json');
-        request2.setHeader('X-DocuSign-Authentication', passString);
-        request2.setHeader('content-length', String.valueOf(b.size()));
-        request2.setHeader('content-type', 'application/pdf;Content-Disposition: file; filename=contract.pdf; documentid=1; fileExtension=pdf');
-        request2.setHeader('Content-Disposition', 'file; filename=contract.pdf; documentid=1; fileExtension=pdf');
-        request2.setBodyAsBlob(b);
-        HttpResponse response2 = httpProtocol.send(request2);
-        System.debug('response2 header =>'+response2.getStatus()+', Body=> '+response2.getBody());
-    }
-    
-    
-    //Lengthy Method call - Send Document for Signing
-    public void sendToDS(String envId, String accKey) {
-        String passString = authHeader;
-        Http httpProtocol = new Http();
-        String endpoint = 'https://demo.docusign.net/restapi/v2/accounts/'+accKey+'/envelopes/'+envid;
-        System.debug('End Point => '+endpoint);
-        HttpRequest request2 = new HttpRequest();
-        request2.setEndPoint(endpoint);
-        // Set the HTTP verb to GET.
-        request2.setMethod('PUT');
-        request2.setHeader('Accept', 'application/json');
-        request2.setHeader('X-DocuSign-Authentication', passString);
-        JSONGenerator gen = JSON.createGenerator(true);
-        gen.writeStartObject();
-        gen.writeStringField('status', 'sent');
-        gen.writeEndObject();
-        String  body = gen.getAsString();
-        System.debug('body => '+body);
-        request2.setBody(body);
-        HttpResponse response2 = httpProtocol.send(request2);
-        System.debug('response2 header =>'+response2.getStatus()+', Body=> '+response2.getBody());
-    }
-    
-    
-    //Lengthy Method call - Util helper for constructing JSON request 
-    public String createJSONString2() {   
-        List<Signers> recipients = new List<Signers>{new Signers('rpachaiyappan@gmail.com', 'Ram', '1', '1') };
-        JSONGenerator gen = JSON.createGenerator(true);
-        gen.writeStartObject();
-        gen.writeStringField('emailBlurb', 'Please Sign Contracts ASAP!');
-        gen.writeStringField('emailSubject', 'Docusign Contracts');
-        gen.writeFieldName('recipients');
-        gen.writeStartObject();
-        gen.writeObjectField('signers',recipients);
-        gen.writeEndObject();
-        gen.writeStringField('status', 'created');
-        gen.writeEndObject();
-        System.debug('JSON String => '+gen.getAsString());
-        return gen.getAsString();
+
+    String getEnvelope(List<RequiredSigner> requiredSigners) {
+        //set up documents to be signed
+        Document d = new Document();
+        d.name = 'contract.pdf';
+        d.documentId = '1';
+        d.order = '1';
+        List<Document> docs = new List<Document>();
+        docs.add(d);
+
+        //set location(s) for signature
+        List<SignHereTab> sts = new List<SignHereTab>{ new SignHereTab('1', '1', '1', '1') };
+        Tab t = new Tab();
+        t.signHereTabs = sts;
+
+        List<Signer> signers = new List<Signer>();
+        
+        for (RequiredSigner rs : requiredSigners) {
+            //add signers
+            Signer s = new Signer(rs.acc.PersonEmail, rs.acc.Name, String.valueOf(rs.order), String.valueOf(rs.order));
+            s.tabs = t;
+            signers.add(s);
+        }
+
+        Recipient r = new Recipient();
+        r.signers = signers;
+
+        Envelope e = new Envelope();
+        e.status = 'sent';
+        e.emailBlurb = 'hi';
+        e.emailSubject = 'hi there';
+        e.documents = docs;
+        e.recipients = r;
+
+        String envelopeJson = JSON.serializePretty(e);
+        //system.debug(envelopeJson);
+        return envelopeJson;
     }
 
     public class LoginInformation {
@@ -338,36 +168,68 @@ public with sharing class DocusignService {
     	    this.siteDescription = sd;     
     	}
     }
+
+    public class Envelope {
+        public String status;
+        public String emailBlurb;
+        public String emailSubject;
+        public List<Document> documents;
+        public Recipient recipients;
+    }
+
+    public class Document {
+        public String name;
+        public String documentId;
+        public String order;
+    }
+
+    public class Recipient {
+        public List<Signer> signers;
+    }
+
+    public class RequiredSigner {
+        public Account acc;
+        public Integer order;
+    }
     
-    //Signer Class
-    public class Signers {
-        String email;
-        String name;
-        String recipientId;
-        String routingOrder;
+    public class Signer {
+        public String email;
+        public String name;
+        public String recipientId;
+        public String routingOrder;
+        public Tab tabs;
         
-        public Signers(String emailAddr, String nam, String recpId, String routId) {
+        public Signer(String emailAddr, String nam, String recpId, String routId) {
             email = emailAddr;
             name = nam;
             recipientId = recpId;
             routingOrder = routId;      
         }   
     }
-    
+
     public class Tab {
-        String name;
-        String anchorString;
-        public Tab(String n) {
-            name =n;
-            anchorString = n;
+        public List<SignHereTab> signHereTabs;
+    }
+
+    public class SignHereTab {
+        public String xPosition;
+        public String yPosition;
+        public String documentId;
+        public String pageNumber;
+        
+        public SignHereTab(String x, String y, String id, String pn) {
+            xPosition = x;
+            yPosition = y;
+            documentid = id;
+            pageNumber = pn;
         }
+
     }
     
-    //Envelope Data Class
-    public class EnvResponse {
-        String envelopeId;
-        String  status;
-        String statusDateTime;
-        String uri;
+    public class EnvelopeResponse {
+        public String envelopeId;
+        public String status;
+        public String statusDateTime;
+        public String uri;
     }
 }
