@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Used support Many to Many relationship between Meeting Object and Event Participants
+Slots will be created by for each meeting and does not need to be a junction object.
+Used to manage capacity for a meeting and to manage Country allocation capacity for international meetings
+
+Created by John A Adams 9/26/2013</description>
+    <enableActivities>true</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Country_MERC__c</fullName>
+        <description>Pick list of countries
+Created by John Adams</description>
+        <externalId>false</externalId>
+        <label>Country</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Germany</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>France</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Spain</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Portugal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>UK</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Associates Slots with meetings 
+Created by John A Adams 9/27/2013</description>
+        <externalId>false</externalId>
+        <label>Meeting</label>
+        <referenceTo>Meeting_MERC__c</referenceTo>
+        <relationshipLabel>Slots</relationshipLabel>
+        <relationshipName>Slots</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Number_of_Slots_MERC__c</fullName>
+        <description>Maximum recommended slots available per country
+Created by John A Adams 9/27/2013</description>
+        <externalId>false</externalId>
+        <label>Number of Slots</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Slot_Title_MERC__c</fullName>
+        <description>Title of the meeting slot 
+Created by John A Adams 9/27/2013</description>
+        <externalId>false</externalId>
+        <label>Slot Title</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Slot</label>
+    <nameField>
+        <label>Slot Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Slots</pluralLabel>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>Slot_Title_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Country_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Number_of_Slots_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Meeting_MERC__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Slot_Title_MERC__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Country_MERC__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Number_of_Slots_MERC__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Meeting_MERC__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Slot_Title_MERC__c</searchFilterFields>
+        <searchFilterFields>Country_MERC__c</searchFilterFields>
+        <searchFilterFields>Number_of_Slots_MERC__c</searchFilterFields>
+        <searchFilterFields>Meeting_MERC__c</searchFilterFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

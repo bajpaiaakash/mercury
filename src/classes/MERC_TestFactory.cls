@@ -1,4 +1,4 @@
-public with sharing class EVNT_TestFactoryMVN {
+public with sharing class MERC_TestFactory {
 	
 	static Id hcpRecordTypeId = [Select ID From RecordType Where SObjectType = 'Account' and Name = 'HCP'].ID;
 
@@ -12,5 +12,6 @@ public with sharing class EVNT_TestFactoryMVN {
 			a.PersonEmail = 'unittest'+i+'@gmail.com';
 		}
 		return accs;
+		
 	}
 }

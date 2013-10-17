@@ -1,12 +1,12 @@
 @isTest
-public class DocusignServiceMock implements HttpCalloutMock {
+public class MERC_DocusignServiceMock implements HttpCalloutMock {
 	protected Integer code;
 	protected String status;
 	protected String bodyAsString;
 	protected Blob bodyAsBlob;
 	protected Map<String, String> responseHeaders;
 
-	public DocusignServiceMock(Integer code, String status, String body,
+	public MERC_DocusignServiceMock(Integer code, String status, String body,
                                      Map<String, String> responseHeaders) {
 		this.code = code;
 		this.status = status;
@@ -15,7 +15,7 @@ public class DocusignServiceMock implements HttpCalloutMock {
 		this.responseHeaders = responseHeaders;
 	}
 
-	public DocusignServiceMock(Integer code, String status, Blob body,
+	public MERC_DocusignServiceMock(Integer code, String status, Blob body,
                                      Map<String, String> responseHeaders) {
 		this.code = code;
 		this.status = status;

@@ -1,8 +1,8 @@
 /**
- *  TriggersMVN
+ *  GLBL_TriggerHandler
 */
 
-public class TriggersMVN 
+public class GLBL_TriggerHandler 
 {
     /**
      *   Enum representing each of before/after CRUD events on Sobjects
@@ -28,7 +28,7 @@ public class TriggersMVN
     /**
      *   Core API to bind handlers with events
      */
-    public TriggersMVN bind(Evt event, HandlerInterface eh)
+    public GLBL_TriggerHandler bind(Evt event, HandlerInterface eh)
     {
         list<HandlerInterface> handlers = eventHandlerMapping.get(event.name());
         if (handlers == null) 

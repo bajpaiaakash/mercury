@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Captures payee information for account lookup
+Created by John A Adams 9/26/2013</description>
+    <enableActivities>true</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Account_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Associate payee information from SAP with Account
+Created by John A Adams 9/27/2013</description>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Payee</relationshipLabel>
+        <relationshipName>Payee</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Bank_Account_Number_MERC__c</fullName>
+        <description>Stores payee bank account number
+Created by John A Adams 10/17/2013</description>
+        <externalId>false</externalId>
+        <label>Bank Account Number</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bank_Address_MERC__c</fullName>
+        <description>Stores payee bank address 
+Created by John A Adams 10/17/2013</description>
+        <externalId>false</externalId>
+        <label>Bank Address</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Bank_IBAN_MERC__c</fullName>
+        <description>Stores the payees account IBAN 
+Created by John A Adams 10/17/2013</description>
+        <externalId>false</externalId>
+        <label>Bank IBAN</label>
+        <length>34</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bank_Name_MERC__c</fullName>
+        <description>Stores payee bank name data 
+Created by John A Adams 10/17/2013</description>
+        <externalId>false</externalId>
+        <label>Bank Name</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bank_SWIFT_Code_MERC__c</fullName>
+        <description>Stores the payee&apos;s the Bank Identifier Code (BIC) or SWIFT Code 
+Created by John A Adams 10/17/2013</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Bank Identifier Code (BIC) or SWIFT Code usually 8 or 11 digets</inlineHelpText>
+        <label>Bank SWIFT Code</label>
+        <length>16</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Payee_Address_MERC__c</fullName>
+        <description>Stores payee address data 
+Created by John A Adams 10/17/2013</description>
+        <externalId>false</externalId>
+        <label>Payee Address</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Payee_Name_MERC__c</fullName>
+        <description>Stores payee name  data 
+Created by John A Adams 10/17/2013</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter name that payment should be made out to.</inlineHelpText>
+        <label>Payee Name</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Payment_Method_MERC__c</fullName>
+        <description>Payment method
+Created by John A Adams 10/17/2013</description>
+        <externalId>false</externalId>
+        <label>Payment Method</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Transfer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cheque</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Payment_Required_MERC__c</fullName>
+        <description>Records if payment for service is required
+Created by John A Adams 10/7/2013</description>
+        <externalId>false</externalId>
+        <label>Payment Required</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Primary_Account_MERC__c</fullName>
+        <description>Identifies the payee record as the primary account to be used for payment 
+Created by John A Adams 10/17/2013</description>
+        <externalId>false</externalId>
+        <label>Primary Account</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>SAP_Account_Name_MERC__c</fullName>
+        <description>The name of the Bank account in SAP system
+Created by John A Adams 9/27/2013</description>
+        <externalId>false</externalId>
+        <label>SAP Account Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SAP_Vendor_ID_MERC__c</fullName>
+        <description>SAP Vender ID number - used to integrate with SAP system
+Created by John A Adams 9/27/2013</description>
+        <externalId>false</externalId>
+        <label>SAP Vendor ID</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Social_Security_Number_MERC__c</fullName>
+        <description>Stores Payee&apos;s SSN
+Created by John A Adams 10/17/2013</description>
+        <externalId>false</externalId>
+        <label>Social Security Number</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Payee</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>Account_MERC__c</columns>
+        <columns>SAP_Vendor_ID_MERC__c</columns>
+        <columns>SAP_Account_Name_MERC__c</columns>
+        <columns>CURRENCY_ISO_CODE</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <displayFormat>P-{000000}</displayFormat>
+        <label>Payee Number</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Payee</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Account_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Payment_Required_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>SAP_Account_Name_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>SAP_Vendor_ID_MERC__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Account_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Payment_Required_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>SAP_Account_Name_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>SAP_Vendor_ID_MERC__c</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>Account_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Payment_Required_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>SAP_Account_Name_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>SAP_Vendor_ID_MERC__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

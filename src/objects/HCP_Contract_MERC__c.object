@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>Accept</actionName>
         <type>Default</type>
@@ -40,7 +40,7 @@ Created by John A Adams 10/2/2013</description>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
     <fields>
-        <fullName>Account_EVNT_MVN__c</fullName>
+        <fullName>Account_MERC__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Lookup relationship between HCP Contracts and Accounts
 Created by John A Adams 10/9/2013</description>
@@ -54,23 +54,56 @@ Created by John A Adams 10/9/2013</description>
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Contract_Fee_EVNT_MVN__c</fullName>
+        <fullName>Additional_Conditions_MERC__c</fullName>
+        <description>Free text to allow entry of any additional contract or Payment conditions 
+Created by John A Adams 10/17/2013</description>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Fee_Values_EVNT_MVN__c , &quot;50&quot;), 50,
- IF(ISPICKVAL(Fee_Values_EVNT_MVN__c , &quot;60&quot;), 60,
-  IF(ISPICKVAL(Fee_Values_EVNT_MVN__c , &quot;70&quot;), 70,
-   IF(ISPICKVAL(Fee_Values_EVNT_MVN__c , &quot;80&quot;), 80,
-    IF(ISPICKVAL(Fee_Values_EVNT_MVN__c , &quot;90&quot;), 90,
-IF(ISPICKVAL(Fee_Values_EVNT_MVN__c , &quot;100&quot;), 100,
- IF(ISPICKVAL(Fee_Values_EVNT_MVN__c , &quot;110&quot;), 110,
-  IF(ISPICKVAL(Fee_Values_EVNT_MVN__c , &quot;120&quot;), 120,
-   IF(ISPICKVAL(Fee_Values_EVNT_MVN__c , &quot;130&quot;), 130,
-    IF(ISPICKVAL(Fee_Values_EVNT_MVN__c , &quot;140&quot;), 140,
-IF(ISPICKVAL(Fee_Values_EVNT_MVN__c , &quot;150&quot;), 150,
- IF(ISPICKVAL(Fee_Values_EVNT_MVN__c , &quot;160&quot;), 160,
-  IF(ISPICKVAL(Fee_Values_EVNT_MVN__c , &quot;170&quot;), 170,
-   IF(ISPICKVAL(Fee_Values_EVNT_MVN__c , &quot;180&quot;), 180,
-    IF(ISPICKVAL(Fee_Values_EVNT_MVN__c , &quot;190&quot;), 190,666
+        <label>Additional Contract or Payment Condition</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Confirm_Final_Fee_MERC__c</fullName>
+        <description>Meeting Owner acknowledges and confirms the contract fee.  Prior to final singing
+Created by John A Adams 10/17/2013</description>
+        <externalId>false</externalId>
+        <label>Confirm Final Fee</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Fee_MERC__c</fullName>
+        <description>Final fee (system calculated ) if Tier available at the time of the request
+Created by John A Adams 10/16/2013</description>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(Fee_Values_MERC__c , &quot;50&quot;), 50,
+ IF(ISPICKVAL(Fee_Values_MERC__c , &quot;60&quot;), 60,
+  IF(ISPICKVAL(Fee_Values_MERC__c , &quot;70&quot;), 70,
+   IF(ISPICKVAL(Fee_Values_MERC__c , &quot;80&quot;), 80,
+    IF(ISPICKVAL(Fee_Values_MERC__c , &quot;90&quot;), 90,
+IF(ISPICKVAL(Fee_Values_MERC__c , &quot;100&quot;), 100,
+ IF(ISPICKVAL(Fee_Values_MERC__c , &quot;110&quot;), 110,
+  IF(ISPICKVAL(Fee_Values_MERC__c , &quot;120&quot;), 120,
+   IF(ISPICKVAL(Fee_Values_MERC__c , &quot;130&quot;), 130,
+    IF(ISPICKVAL(Fee_Values_MERC__c , &quot;140&quot;), 140,
+IF(ISPICKVAL(Fee_Values_MERC__c , &quot;150&quot;), 150,
+ IF(ISPICKVAL(Fee_Values_MERC__c , &quot;160&quot;), 160,
+  IF(ISPICKVAL(Fee_Values_MERC__c , &quot;170&quot;), 170,
+   IF(ISPICKVAL(Fee_Values_MERC__c , &quot;180&quot;), 180,
+    IF(ISPICKVAL(Fee_Values_MERC__c , &quot;190&quot;), 190,666
     )
    )
   )
@@ -95,30 +128,38 @@ IF(ISPICKVAL(Fee_Values_EVNT_MVN__c , &quot;150&quot;), 150,
         <type>Currency</type>
     </fields>
     <fields>
-        <fullName>Contract_Request_Status_EVNT_MVN__c</fullName>
+        <fullName>Contract_Request_Status_MERC__c</fullName>
         <description>Records the status of the contract.
 Created by John A Adams 10/8/2013</description>
         <externalId>false</externalId>
         <label>Contract Request Status</label>
         <picklist>
             <picklistValues>
-                <fullName>Requested</fullName>
+                <fullName>Contract request submitted</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Draft</fullName>
+                <fullName>HCP IP in progress</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Approved by Lilly</fullName>
+                <fullName>HCP IP received</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Approved by Speaker</fullName>
+                <fullName>FMV in progress</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Signed</fullName>
+                <fullName>FMV completed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contract in progress</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contract signed</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -127,7 +168,7 @@ Created by John A Adams 10/8/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Country_EVNT_MVN__c</fullName>
+        <fullName>Country_MERC__c</fullName>
         <description>Select speakers country to start fee calculation process
 Created by John A Adams 10/4/2013</description>
         <externalId>false</externalId>
@@ -151,13 +192,13 @@ Created by John A Adams 10/4/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Country_Tier_EVNT_MVN__c</fullName>
+        <fullName>Country_Tier_MERC__c</fullName>
         <description>Country and Tier levels that fee is based upon
 Created by John A Adams 10/2/2013</description>
         <externalId>false</externalId>
         <label>Country Tier</label>
         <picklist>
-            <controllingField>Country_EVNT_MVN__c</controllingField>
+            <controllingField>Country_MERC__c</controllingField>
             <picklistValues>
                 <fullName>France Tier 1</fullName>
                 <controllingFieldValues>France</controllingFieldValues>
@@ -224,7 +265,19 @@ Created by John A Adams 10/2/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Event_Time_EVNT_MVN__c</fullName>
+        <fullName>Description_of_Service_MERC__c</fullName>
+        <description>Description of service (only if ad hoc consulting)
+Created by John A Adams 10/17/2013</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Provide a description of service only if an ad hoc consulting</inlineHelpText>
+        <label>Description of Service</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Event_Time_MERC__c</fullName>
         <description>Amount of hours during the event speaker is required
 Created by John A Adams 10/2/2013</description>
         <externalId>false</externalId>
@@ -238,12 +291,32 @@ Created by John A Adams 10/2/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Fee_Values_EVNT_MVN__c</fullName>
+        <fullName>Expense_Reimbursment_MERC__c</fullName>
+        <description>Records if Lilly is required to reimburse HCP for his expenses
+Created by John A Adams 10/17/2013</description>
+        <externalId>false</externalId>
+        <label>Expense Reimbursement</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Fee_Values_MERC__c</fullName>
         <description>Posible Fee values that can be used depending on Country and Tier selected</description>
         <externalId>false</externalId>
         <label>Fee Values</label>
         <picklist>
-            <controllingField>Country_Tier_EVNT_MVN__c</controllingField>
+            <controllingField>Country_Tier_MERC__c</controllingField>
             <picklistValues>
                 <fullName>50</fullName>
                 <controllingFieldValues>France Tier 4</controllingFieldValues>
@@ -541,10 +614,22 @@ Created by John A Adams 10/2/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Justification_EVNT_MVN__c</fullName>
+        <fullName>HCP_Obligations_MERC__c</fullName>
+        <description>Records any contract specific HCP obligations
+Created by John A Adams 10/17/2013</description>
+        <externalId>false</externalId>
+        <label>HCP Obligations</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Justification_MERC__c</fullName>
         <description>Multi-Picklist created to identify reason to select the HCP for this service of work.
 Created by John A Adams 10/7/2013</description>
         <externalId>false</externalId>
+        <inlineHelpText>An HCP must NOT be selected for any business relationship in order to influence or reward an HCP for past, present or future support of Lilly products, to gain access to a customer or formulary decision makers, to influence the outcome of clinical trial</inlineHelpText>
         <label>Justification</label>
         <picklist>
             <picklistValues>
@@ -590,7 +675,19 @@ Created by John A Adams 10/7/2013</description>
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
-        <fullName>Other_Details_EVNT_MVN__c</fullName>
+        <fullName>Names_Addresses_Signers_MERC__c</fullName>
+        <description>Stores the names and addresses of agreement signers other than the HCP
+Created by John A Adams 10/17/2013</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Provide names and addresses of parties other than HCP that need to sing agreement.</inlineHelpText>
+        <label>Names / Addresses of Signers</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Other_Details_MERC__c</fullName>
         <description>Text are to note other details about potential speaker
 Created by John A Adams 10/7/2013</description>
         <externalId>false</externalId>
@@ -600,20 +697,21 @@ Created by John A Adams 10/7/2013</description>
         <type>TextArea</type>
     </fields>
     <fields>
-        <fullName>Payee_EVNT_MVN__c</fullName>
+        <fullName>Payee_MERC__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Lookup to payee
 Created by John A Adams 10/7/2013</description>
         <externalId>false</externalId>
         <label>Payee</label>
-        <referenceTo>Payee_EVNT__c</referenceTo>
+        <referenceTo>Payee_MERC__c</referenceTo>
+        <relationshipLabel>HCP Contracts</relationshipLabel>
         <relationshipName>ContractXs</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Preparation_Time_EVNT_MVN__c</fullName>
+        <fullName>Preparation_Time_MERC__c</fullName>
         <description>Time in hours for contracted for Speakers preparation</description>
         <externalId>false</externalId>
         <inlineHelpText>Enter hours and fractions of hours that speaker is prepared for the the event (e.g., 3.50 = 3 hours and 30 minutes)</inlineHelpText>
@@ -626,11 +724,88 @@ Created by John A Adams 10/7/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Total_Hours_of_Service_EVNT_MVN__c</fullName>
+        <fullName>Presentation_Approval_MERC__c</fullName>
+        <description>Speakers presentation must be approved by Lilly (another Process) and is checked and number manually filled by Meeting owner.
+Created by John A Adams 10/17/2013</description>
+        <externalId>false</externalId>
+        <label>Presentation Approval</label>
+        <length>16</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Required_Recording_Consent_MERC__c</fullName>
+        <description>To trigger the creation of the recording consent for for each contract .
+Created by John A Adams 10/17/2013</description>
+        <externalId>false</externalId>
+        <label>Require Recording Consent</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Audio Recording</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Video Recording</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Signing_Parties_MERC__c</fullName>
+        <description>Identifies parties that are needed to sign agreement.  This will be managed by Drawloop and DocuSign.
+Created by John A Adams 10/17/2013</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Identify which parties must sign the agreement?</inlineHelpText>
+        <label>Signing Parties</label>
+        <picklist>
+            <picklistValues>
+                <fullName>HCP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Institution</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HCP and Institution</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HCP Legal Entity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HCP and HCP Legal Entity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Topic_Area_MERC__c</fullName>
+        <description>Topic for contract 
+Created by John A Adams 10/17/2013</description>
+        <externalId>false</externalId>
+        <label>Topic Area</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Total_Hours_of_Service_MERC__c</fullName>
         <description>Calculation of the total time of the service.
 Created by John A Adams 10/4/2013</description>
         <externalId>false</externalId>
-        <formula>Preparation_Time_EVNT_MVN__c  +  Travel_Time_hrs_EVNT_MVN__c  + Event_Time_EVNT_MVN__c</formula>
+        <formula>Preparation_Time_MERC__c  +  Travel_Time_hrs_MERC__c  + Event_Time_MERC__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Total Hours of Service (hrs)</label>
         <precision>18</precision>
@@ -641,7 +816,27 @@ Created by John A Adams 10/4/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Travel_Time_hrs_EVNT_MVN__c</fullName>
+        <fullName>Travel_Required_MERC__c</fullName>
+        <description>Will the HCP be required to travel?
+Created by John A Adams 10/17/2013</description>
+        <externalId>false</externalId>
+        <label>Travel Required</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Travel_Time_hrs_MERC__c</fullName>
         <description>Amount of hours the individual is traveling to and from the event
 Created by John A Adams 10/7/2013</description>
         <externalId>false</externalId>
@@ -655,7 +850,7 @@ Created by John A Adams 10/7/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Type_of_Service_EVNT_MVN__c</fullName>
+        <fullName>Type_of_Service_MERC__c</fullName>
         <description>Type of service being contracted for
 Created by John A Adams 10/2/2013</description>
         <externalId>false</externalId>
@@ -684,7 +879,7 @@ Created by John A Adams 10/2/2013</description>
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
-        <fullName>VAT_ID_EVNT_MVN__c</fullName>
+        <fullName>VAT_ID_MERC__c</fullName>
         <description>A value added tax identification number or VAT identification number (VATIN) is an identifier used in many countries, including the countries of the European Union, for value added tax purposes.
 Created by John A Adams 10/2/2013</description>
         <externalId>false</externalId>
@@ -718,30 +913,49 @@ Created by John A Adams 10/2/2013</description>
         <description>A master agreement permits the parties to quickly negotiate future transactions or agreements.</description>
         <label>Master Service Agreement</label>
         <picklistValues>
-            <picklist>Contract_Request_Status_EVNT_MVN__c</picklist>
+            <picklist>Confirm_Final_Fee_MERC__c</picklist>
             <values>
-                <fullName>Approved by Lilly</fullName>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Approved by Speaker</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Draft</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Requested</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Signed</fullName>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Country_EVNT_MVN__c</picklist>
+            <picklist>Contract_Request_Status_MERC__c</picklist>
+            <values>
+                <fullName>Contract in progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contract request submitted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contract signed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FMV completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FMV in progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP IP in progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP IP received</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Country_MERC__c</picklist>
             <values>
                 <fullName>France</fullName>
                 <default>false</default>
@@ -756,7 +970,7 @@ Created by John A Adams 10/2/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Country_Tier_EVNT_MVN__c</picklist>
+            <picklist>Country_Tier_MERC__c</picklist>
             <values>
                 <fullName>France Tier 1</fullName>
                 <default>false</default>
@@ -807,7 +1021,18 @@ Created by John A Adams 10/2/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Fee_Values_EVNT_MVN__c</picklist>
+            <picklist>Expense_Reimbursment_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Fee_Values_MERC__c</picklist>
             <values>
                 <fullName>100</fullName>
                 <default>false</default>
@@ -994,7 +1219,7 @@ Created by John A Adams 10/2/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Justification_EVNT_MVN__c</picklist>
+            <picklist>Justification_MERC__c</picklist>
             <values>
                 <fullName>Other %28please explain%29</fullName>
                 <default>false</default>
@@ -1033,7 +1258,52 @@ Created by John A Adams 10/2/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Type_of_Service_EVNT_MVN__c</picklist>
+            <picklist>Required_Recording_Consent_MERC__c</picklist>
+            <values>
+                <fullName>Audio Recording</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Video Recording</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Signing_Parties_MERC__c</picklist>
+            <values>
+                <fullName>HCP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP Legal Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP and HCP Legal Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP and Institution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Institution</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Travel_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type_of_Service_MERC__c</picklist>
             <values>
                 <fullName>Advisory Board%2C Chairman</fullName>
                 <default>false</default>
@@ -1058,30 +1328,49 @@ Created by John A Adams 10/2/2013</description>
         <description>A contract for a series of meetings.</description>
         <label>Multiple-Event Contract</label>
         <picklistValues>
-            <picklist>Contract_Request_Status_EVNT_MVN__c</picklist>
+            <picklist>Confirm_Final_Fee_MERC__c</picklist>
             <values>
-                <fullName>Approved by Lilly</fullName>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Approved by Speaker</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Draft</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Requested</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Signed</fullName>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Country_EVNT_MVN__c</picklist>
+            <picklist>Contract_Request_Status_MERC__c</picklist>
+            <values>
+                <fullName>Contract in progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contract request submitted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contract signed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FMV completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FMV in progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP IP in progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP IP received</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Country_MERC__c</picklist>
             <values>
                 <fullName>France</fullName>
                 <default>false</default>
@@ -1096,7 +1385,7 @@ Created by John A Adams 10/2/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Country_Tier_EVNT_MVN__c</picklist>
+            <picklist>Country_Tier_MERC__c</picklist>
             <values>
                 <fullName>France Tier 1</fullName>
                 <default>false</default>
@@ -1147,7 +1436,18 @@ Created by John A Adams 10/2/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Fee_Values_EVNT_MVN__c</picklist>
+            <picklist>Expense_Reimbursment_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Fee_Values_MERC__c</picklist>
             <values>
                 <fullName>100</fullName>
                 <default>false</default>
@@ -1334,7 +1634,7 @@ Created by John A Adams 10/2/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Justification_EVNT_MVN__c</picklist>
+            <picklist>Justification_MERC__c</picklist>
             <values>
                 <fullName>Other %28please explain%29</fullName>
                 <default>false</default>
@@ -1373,7 +1673,52 @@ Created by John A Adams 10/2/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Type_of_Service_EVNT_MVN__c</picklist>
+            <picklist>Required_Recording_Consent_MERC__c</picklist>
+            <values>
+                <fullName>Audio Recording</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Video Recording</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Signing_Parties_MERC__c</picklist>
+            <values>
+                <fullName>HCP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP Legal Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP and HCP Legal Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP and Institution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Institution</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Travel_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type_of_Service_MERC__c</picklist>
             <values>
                 <fullName>Advisory Board%2C Chairman</fullName>
                 <default>false</default>
@@ -1398,30 +1743,49 @@ Created by John A Adams 10/2/2013</description>
         <description>A contract for a single meeting event.  Once meeting is over contract expires.</description>
         <label>Single Event Contract</label>
         <picklistValues>
-            <picklist>Contract_Request_Status_EVNT_MVN__c</picklist>
+            <picklist>Confirm_Final_Fee_MERC__c</picklist>
             <values>
-                <fullName>Approved by Lilly</fullName>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Approved by Speaker</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Draft</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Requested</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Signed</fullName>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Country_EVNT_MVN__c</picklist>
+            <picklist>Contract_Request_Status_MERC__c</picklist>
+            <values>
+                <fullName>Contract in progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contract request submitted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contract signed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FMV completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FMV in progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP IP in progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP IP received</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Country_MERC__c</picklist>
             <values>
                 <fullName>France</fullName>
                 <default>false</default>
@@ -1436,7 +1800,7 @@ Created by John A Adams 10/2/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Country_Tier_EVNT_MVN__c</picklist>
+            <picklist>Country_Tier_MERC__c</picklist>
             <values>
                 <fullName>France Tier 1</fullName>
                 <default>false</default>
@@ -1487,7 +1851,18 @@ Created by John A Adams 10/2/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Fee_Values_EVNT_MVN__c</picklist>
+            <picklist>Expense_Reimbursment_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Fee_Values_MERC__c</picklist>
             <values>
                 <fullName>100</fullName>
                 <default>false</default>
@@ -1674,7 +2049,7 @@ Created by John A Adams 10/2/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Justification_EVNT_MVN__c</picklist>
+            <picklist>Justification_MERC__c</picklist>
             <values>
                 <fullName>Other %28please explain%29</fullName>
                 <default>false</default>
@@ -1713,7 +2088,52 @@ Created by John A Adams 10/2/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Type_of_Service_EVNT_MVN__c</picklist>
+            <picklist>Required_Recording_Consent_MERC__c</picklist>
+            <values>
+                <fullName>Audio Recording</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Video Recording</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Signing_Parties_MERC__c</picklist>
+            <values>
+                <fullName>HCP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP Legal Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP and HCP Legal Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP and Institution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Institution</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Travel_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type_of_Service_MERC__c</picklist>
             <values>
                 <fullName>Advisory Board%2C Chairman</fullName>
                 <default>false</default>
@@ -1734,38 +2154,28 @@ Created by John A Adams 10/2/2013</description>
     </recordTypes>
     <searchLayouts>
         <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Account_EVNT_MVN__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields xsi:nil="true"/>
-        <customTabListAdditionalFields xsi:nil="true"/>
-        <customTabListAdditionalFields xsi:nil="true"/>
-        <customTabListAdditionalFields>Type_of_Service_EVNT_MVN__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Country_Tier_EVNT_MVN__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Fee_Values_EVNT_MVN__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Total_Hours_of_Service_EVNT_MVN__c</customTabListAdditionalFields>
-        <lookupDialogsAdditionalFields xsi:nil="true"/>
-        <lookupDialogsAdditionalFields>Account_EVNT_MVN__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields xsi:nil="true"/>
-        <lookupDialogsAdditionalFields xsi:nil="true"/>
-        <lookupDialogsAdditionalFields>Type_of_Service_EVNT_MVN__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Country_Tier_EVNT_MVN__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Fee_Values_EVNT_MVN__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Total_Hours_of_Service_EVNT_MVN__c</lookupDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields xsi:nil="true"/>
-        <lookupPhoneDialogsAdditionalFields>Account_EVNT_MVN__c</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields xsi:nil="true"/>
-        <lookupPhoneDialogsAdditionalFields xsi:nil="true"/>
-        <lookupPhoneDialogsAdditionalFields>Type_of_Service_EVNT_MVN__c</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>Country_Tier_EVNT_MVN__c</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>Fee_Values_EVNT_MVN__c</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>Total_Hours_of_Service_EVNT_MVN__c</lookupPhoneDialogsAdditionalFields>
-        <searchResultsAdditionalFields xsi:nil="true"/>
-        <searchResultsAdditionalFields>Account_EVNT_MVN__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields xsi:nil="true"/>
-        <searchResultsAdditionalFields xsi:nil="true"/>
-        <searchResultsAdditionalFields>Type_of_Service_EVNT_MVN__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Country_Tier_EVNT_MVN__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Fee_Values_EVNT_MVN__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Total_Hours_of_Service_EVNT_MVN__c</searchResultsAdditionalFields>
+        <customTabListAdditionalFields>Account_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Type_of_Service_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Country_Tier_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Fee_Values_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Total_Hours_of_Service_MERC__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>RECORDTYPE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Account_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Type_of_Service_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Country_Tier_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Fee_Values_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Total_Hours_of_Service_MERC__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Account_MERC__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Type_of_Service_MERC__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Country_Tier_MERC__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Fee_Values_MERC__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Total_Hours_of_Service_MERC__c</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Account_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Type_of_Service_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Country_Tier_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Fee_Values_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Total_Hours_of_Service_MERC__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

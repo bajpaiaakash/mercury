@@ -1,4 +1,4 @@
-public with sharing class DocusignService {
+public with sharing class MERC_DocusignService {
 
 	String username;
 	String password;
@@ -10,7 +10,7 @@ public with sharing class DocusignService {
     String boundaryMarkerEnd = '--'+boundaryName+'--';
 	public LoginInformation loginInfo { get; private set; }
 
-	public DocusignService() {
+	public MERC_DocusignService() {
     	Docusign_Settings_EVNT__c settings = Docusign_Settings_EVNT__c.getValues('default');
 		this.username 		= settings.Username_EVNT_MVN__c;
 		this.password 		= settings.Password_EVNT_MVN__c;

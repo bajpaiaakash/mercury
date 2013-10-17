@@ -66,12 +66,12 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Meeting_EVNT_MVN__c</fullName>
+        <fullName>Meeting_MERC__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Lookup relationship from Case to Meeting. Created 10/11/2013 by KLorenti</description>
         <externalId>false</externalId>
         <label>Meeting</label>
-        <referenceTo>Meeting_EVNT__c</referenceTo>
+        <referenceTo>Meeting_MERC__c</referenceTo>
         <relationshipLabel>Cases</relationshipLabel>
         <relationshipName>Cases</relationshipName>
         <required>false</required>
@@ -156,6 +156,19 @@
             <sorted>false</sorted>
         </picklist>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Referred_By_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Referred By</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Cases</relationshipLabel>
+        <relationshipName>Cases</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Status</fullName>

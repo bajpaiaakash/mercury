@@ -39,7 +39,7 @@
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
     <fields>
-        <fullName>Account_EVNT_MVN__c</fullName>
+        <fullName>Account_MERC__c</fullName>
         <deleteConstraint>Restrict</deleteConstraint>
         <description>Lookup to Account from Event Participant. Created 9/28/2013 by KLorenti.</description>
         <externalId>false</externalId>
@@ -52,7 +52,7 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Event_Time_Hrs_EVNT_MVN__c</fullName>
+        <fullName>Event_Time_Hrs_MERC__c</fullName>
         <description>Event Time Hours. Created 10/10/2013 by KLorenti.</description>
         <externalId>false</externalId>
         <label>Event Time (hrs)</label>
@@ -64,12 +64,12 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>HCP_Contract_EVNT_MVN__c</fullName>
+        <fullName>HCP_Contract_MERC__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Lookup Relationship from Meeting Participant to HCP Contract. Created 10/10/2013 by KLorenti.</description>
         <externalId>false</externalId>
         <label>HCP Contract</label>
-        <referenceTo>HCP_Contract_EVNT__c</referenceTo>
+        <referenceTo>HCP_Contract_MERC__c</referenceTo>
         <relationshipLabel>Meeting Participants</relationshipLabel>
         <relationshipName>Meeting_Participants</relationshipName>
         <required>false</required>
@@ -77,12 +77,12 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Meeting_EVNT_MVN__c</fullName>
+        <fullName>Meeting_MERC__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Master-Detail Relationship from Meeting Participant to Meeting. Created 9/30/2013 by KLorenti.</description>
         <externalId>false</externalId>
         <label>Meeting</label>
-        <referenceTo>Meeting_EVNT__c</referenceTo>
+        <referenceTo>Meeting_MERC__c</referenceTo>
         <relationshipLabel>Meeting Participants</relationshipLabel>
         <relationshipName>Meeting_Participants_del</relationshipName>
         <required>false</required>
@@ -90,7 +90,7 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Preparation_Time_Hrs_EVNT_MVN__c</fullName>
+        <fullName>Preparation_Time_Hrs_MERC__c</fullName>
         <description>Preparation time for patricipant. Created 10/10/2013 by KLorenti.</description>
         <externalId>false</externalId>
         <label>Preparation Time (hrs)</label>
@@ -102,13 +102,13 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Slot_EVNT_MVN__c</fullName>
+        <fullName>Slot_MERC__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Lookup for  Event Participants with a Meeting Slot
 Created by John A Adams 9/27/2013</description>
         <externalId>false</externalId>
         <label>Slot</label>
-        <referenceTo>Slot_EVNT__c</referenceTo>
+        <referenceTo>Slot_MERC__c</referenceTo>
         <relationshipLabel>Meeting Participants</relationshipLabel>
         <relationshipName>Event_Participants</relationshipName>
         <required>false</required>
@@ -116,7 +116,7 @@ Created by John A Adams 9/27/2013</description>
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Status_EVNT_MVN__c</fullName>
+        <fullName>Status_MERC__c</fullName>
         <description>Status of Participant. Created 9/28/2013 by KLorenti</description>
         <externalId>false</externalId>
         <label>Status</label>
@@ -143,7 +143,8 @@ Created by John A Adams 9/27/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Total_Food_Beverage_ToV_EVNT_MVN__c</fullName>
+        <fullName>Total_Food_Beverage_ToV_MERC__c</fullName>
+        <description>Stores total ToV for Food and Beverage . Oliver Dunford 10/10/2013</description>
         <externalId>false</externalId>
         <label>Total Food &amp; Beverage ToV</label>
         <precision>18</precision>
@@ -153,7 +154,8 @@ Created by John A Adams 9/27/2013</description>
         <type>Currency</type>
     </fields>
     <fields>
-        <fullName>Total_Ground_Transporation_ToV_EVNT_MVN__c</fullName>
+        <fullName>Total_Ground_Transporation_ToV_MERC__c</fullName>
+        <description>Stores Total ToV for ground transportation cost. Oliver Dunford 10/10/2013</description>
         <externalId>false</externalId>
         <label>Total Ground Transporation ToV</label>
         <precision>18</precision>
@@ -163,7 +165,8 @@ Created by John A Adams 9/27/2013</description>
         <type>Currency</type>
     </fields>
     <fields>
-        <fullName>Total_Honorarium_EVNT_MVN__c</fullName>
+        <fullName>Total_Honorarium_MERC__c</fullName>
+        <description>Stores total honorarium. Oliver Dunford 10/10/2013</description>
         <externalId>false</externalId>
         <label>Total Honorarium</label>
         <precision>18</precision>
@@ -173,7 +176,8 @@ Created by John A Adams 9/27/2013</description>
         <type>Currency</type>
     </fields>
     <fields>
-        <fullName>Total_Hotel_ToV_EVNT_MVN__c</fullName>
+        <fullName>Total_Hotel_ToV_MERC__c</fullName>
+        <description>Stores total ToV for Hotel cost. Oliver Dunford 10/10/2013</description>
         <externalId>false</externalId>
         <label>Total Hotel ToV</label>
         <precision>18</precision>
@@ -183,9 +187,11 @@ Created by John A Adams 9/27/2013</description>
         <type>Currency</type>
     </fields>
     <fields>
-        <fullName>Total_Hours_of_Service_EVNT_MVN__c</fullName>
+        <fullName>Total_Hours_of_Service_MERC__c</fullName>
+        <description>Calculation of total hours of service
+Created by John A Adams 10/17/2013</description>
         <externalId>false</externalId>
-        <formula>Travel_Time_Hrs_EVNT_MVN__c +  Event_Time_Hrs_EVNT_MVN__c +  Preparation_Time_Hrs_EVNT_MVN__c</formula>
+        <formula>Event_Time_Hrs_MERC__c +  Preparation_Time_Hrs_MERC__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Total Hours of Service</label>
         <precision>18</precision>
@@ -196,7 +202,8 @@ Created by John A Adams 9/27/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Total_Other_ToV_EVNT_MVN__c</fullName>
+        <fullName>Total_Other_ToV_MERC__c</fullName>
+        <description>Stores total other ToV. Oliver Dunford 10/10/2013</description>
         <externalId>false</externalId>
         <label>Total Other ToV</label>
         <precision>18</precision>
@@ -206,7 +213,8 @@ Created by John A Adams 9/27/2013</description>
         <type>Currency</type>
     </fields>
     <fields>
-        <fullName>Total_Registration_ToV_EVNT_MVN__c</fullName>
+        <fullName>Total_Registration_ToV_MERC__c</fullName>
+        <description>Stores total registration ToV. Oliver Dunford 10/10/2013</description>
         <externalId>false</externalId>
         <label>Total Registration ToV</label>
         <precision>18</precision>
@@ -216,16 +224,31 @@ Created by John A Adams 9/27/2013</description>
         <type>Currency</type>
     </fields>
     <fields>
-        <fullName>Travel_Time_Hrs_EVNT_MVN__c</fullName>
-        <description>Travel Time Hours. Created 10/10/2013 by KLorenti.</description>
+        <fullName>Travel_Time_Hrs_MERC__c</fullName>
+        <description>Travel Time Hours. Created 10/10/2013 by K Lorenti. Modified to Pick list by J Adams 10/17/2013
+
+– between 2 and 10 h triggers 20% travel adjustment in Fee
+- 11 – 20h triggers 25%
+- more than 20 h – 30%</description>
         <externalId>false</externalId>
         <label>Travel Time (hrs)</label>
-        <precision>6</precision>
-        <required>false</required>
-        <scale>0</scale>
+        <picklist>
+            <picklistValues>
+                <fullName>2-10 hrs</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>11-20 hrs</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>More than 20 hrs</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
         <trackHistory>false</trackHistory>
-        <type>Number</type>
-        <unique>false</unique>
+        <type>Picklist</type>
     </fields>
     <label>Meeting Participant</label>
     <nameField>
@@ -242,7 +265,7 @@ Created by John A Adams 9/27/2013</description>
         <description>Meeting attendee</description>
         <label>Delegate</label>
         <picklistValues>
-            <picklist>Status_EVNT_MVN__c</picklist>
+            <picklist>Status_MERC__c</picklist>
             <values>
                 <fullName>Accepted</fullName>
                 <default>false</default>
@@ -256,6 +279,21 @@ Created by John A Adams 9/27/2013</description>
                 <default>false</default>
             </values>
         </picklistValues>
+        <picklistValues>
+            <picklist>Travel_Time_Hrs_MERC__c</picklist>
+            <values>
+                <fullName>11-20 hrs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2-10 hrs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>More than 20 hrs</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
     <recordTypes>
         <fullName>Speaker</fullName>
@@ -263,7 +301,7 @@ Created by John A Adams 9/27/2013</description>
         <description>Invited presenter for meeting</description>
         <label>Speaker</label>
         <picklistValues>
-            <picklist>Status_EVNT_MVN__c</picklist>
+            <picklist>Status_MERC__c</picklist>
             <values>
                 <fullName>Accepted</fullName>
                 <default>false</default>
@@ -281,29 +319,44 @@ Created by John A Adams 9/27/2013</description>
                 <default>false</default>
             </values>
         </picklistValues>
+        <picklistValues>
+            <picklist>Travel_Time_Hrs_MERC__c</picklist>
+            <values>
+                <fullName>11-20 hrs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2-10 hrs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>More than 20 hrs</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
     <searchLayouts>
-        <customTabListAdditionalFields>Meeting_EVNT_MVN__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Meeting_MERC__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Account_EVNT_MVN__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Status_EVNT_MVN__c</customTabListAdditionalFields>
-        <lookupDialogsAdditionalFields>Account_EVNT_MVN__c</lookupDialogsAdditionalFields>
+        <customTabListAdditionalFields>Account_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status_MERC__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Account_MERC__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>RECORDTYPE</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Status_EVNT_MVN__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Meeting_EVNT_MVN__c</lookupDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>Account_EVNT_MVN__c</lookupPhoneDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Meeting_MERC__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Account_MERC__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>RECORDTYPE</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>Status_EVNT_MVN__c</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>Meeting_EVNT_MVN__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Status_MERC__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Meeting_MERC__c</lookupPhoneDialogsAdditionalFields>
         <searchFilterFields>NAME</searchFilterFields>
-        <searchFilterFields>Account_EVNT_MVN__c</searchFilterFields>
+        <searchFilterFields>Account_MERC__c</searchFilterFields>
         <searchFilterFields>RECORDTYPE</searchFilterFields>
-        <searchFilterFields>Status_EVNT_MVN__c</searchFilterFields>
-        <searchFilterFields>Meeting_EVNT_MVN__c</searchFilterFields>
-        <searchResultsAdditionalFields>Account_EVNT_MVN__c</searchResultsAdditionalFields>
+        <searchFilterFields>Status_MERC__c</searchFilterFields>
+        <searchFilterFields>Meeting_MERC__c</searchFilterFields>
+        <searchResultsAdditionalFields>Account_MERC__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Status_EVNT_MVN__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Meeting_EVNT_MVN__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Meeting_MERC__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Junction object between Meeting Participant and Agenda. Created by John A Adams 10/3/2013</description>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Assigned_Topic_MERC__c</fullName>
+        <description>Track topic assigned to speaker. Created 10/08/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <label>Assigned Topic</label>
+        <length>100</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Meeting_Day_MERC__c</fullName>
+        <description>Meeting Day</description>
+        <externalId>false</externalId>
+        <formula>Session_MERC__r.Start_Time_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting Day</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Participant_MERC__c</fullName>
+        <description>Associates Meeting Participant with Session trough junction object
+Created by John A Adams 10/3/2013</description>
+        <externalId>false</externalId>
+        <label>Meeting Participant</label>
+        <referenceTo>Meeting_Participant_MERC__c</referenceTo>
+        <relationshipLabel>Participant Agendas</relationshipLabel>
+        <relationshipName>Participant_Sessions</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Session_MERC__c</fullName>
+        <description>One to Many relationship between Participant Session and Session
+Created by John A Adams 10/3/2013</description>
+        <externalId>false</externalId>
+        <label>Session</label>
+        <referenceTo>Agenda_Item_MERC__c</referenceTo>
+        <relationshipLabel>Participant Agendas</relationshipLabel>
+        <relationshipName>Participant_Sessions</relationshipName>
+        <relationshipOrder>1</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Speaker_Topic_Title_MERC__c</fullName>
+        <description>Track Speaker Topic where speaker may choose title of the session. Created 10/08/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <label>Speaker Topic Title</label>
+        <length>100</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Participant Agenda</label>
+    <nameField>
+        <displayFormat>PA-{000000}</displayFormat>
+        <label>Participant Agenda Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Participant Agendas</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

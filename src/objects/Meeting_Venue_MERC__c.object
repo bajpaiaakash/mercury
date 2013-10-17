@@ -39,7 +39,8 @@
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
     <fields>
-        <fullName>Account_EVNT_MVN__c</fullName>
+        <fullName>Account_MERC__c</fullName>
+        <description>Links to Account. Created 9/28/2013 by KLorenti.</description>
         <externalId>false</externalId>
         <label>Account</label>
         <referenceTo>Account</referenceTo>
@@ -52,10 +53,12 @@
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
-        <fullName>Meeting_EVNT_MVN__c</fullName>
+        <fullName>Meeting_MERC__c</fullName>
+        <description>Meeting name information 
+Created 9/28/2013 by KLorenti.</description>
         <externalId>false</externalId>
         <label>Meeting</label>
-        <referenceTo>Meeting_EVNT__c</referenceTo>
+        <referenceTo>Meeting_MERC__c</referenceTo>
         <relationshipLabel>Venues</relationshipLabel>
         <relationshipName>Meeting_Venues1</relationshipName>
         <relationshipOrder>1</relationshipOrder>
@@ -65,7 +68,7 @@
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
-        <fullName>Type_EVNT_MVN__c</fullName>
+        <fullName>Type_MERC__c</fullName>
         <description>Tracks type of Venue. Created 9/28/2013 by KLorenti.</description>
         <externalId>false</externalId>
         <label>Type</label>
@@ -100,22 +103,22 @@
     </nameField>
     <pluralLabel>Meeting Venues</pluralLabel>
     <searchLayouts>
-        <customTabListAdditionalFields>Account_EVNT_MVN__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Meeting_EVNT_MVN__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Type_EVNT_MVN__c</customTabListAdditionalFields>
-        <lookupDialogsAdditionalFields>Account_EVNT_MVN__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Meeting_EVNT_MVN__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Type_EVNT_MVN__c</lookupDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>Account_EVNT_MVN__c</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>Meeting_EVNT_MVN__c</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>Type_EVNT_MVN__c</lookupPhoneDialogsAdditionalFields>
+        <customTabListAdditionalFields>Account_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Meeting_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Type_MERC__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Account_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Meeting_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Type_MERC__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Account_MERC__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Meeting_MERC__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Type_MERC__c</lookupPhoneDialogsAdditionalFields>
         <searchFilterFields>NAME</searchFilterFields>
-        <searchFilterFields>Account_EVNT_MVN__c</searchFilterFields>
-        <searchFilterFields>Meeting_EVNT_MVN__c</searchFilterFields>
-        <searchFilterFields>Type_EVNT_MVN__c</searchFilterFields>
-        <searchResultsAdditionalFields>Account_EVNT_MVN__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Meeting_EVNT_MVN__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Type_EVNT_MVN__c</searchResultsAdditionalFields>
+        <searchFilterFields>Account_MERC__c</searchFilterFields>
+        <searchFilterFields>Meeting_MERC__c</searchFilterFields>
+        <searchFilterFields>Type_MERC__c</searchFilterFields>
+        <searchResultsAdditionalFields>Account_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Meeting_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Type_MERC__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

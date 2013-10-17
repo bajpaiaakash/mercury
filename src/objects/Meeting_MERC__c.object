@@ -1,0 +1,748 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Primary object to store meeting information.  Created on 9/27/2013 by KLorenti.</description>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Agenda_Status_MERC__c</fullName>
+        <description>Capture Current Status of Agenda. Created 10/17/2013</description>
+        <externalId>false</externalId>
+        <label>Agenda Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Draft</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Final</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>CME_Accredited_MERC__c</fullName>
+        <description>Is Meeting CME Accredited? Created 10/17/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>CME Accredited?</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Content_Approval_Needed_MERC__c</fullName>
+        <description>Will content need to be approved? Created 10/2/2013 by KLorenti</description>
+        <externalId>false</externalId>
+        <label>Content Approval Needed?</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Content_Creator_MERC__c</fullName>
+        <description>Who will be creating the content? Created 10/3/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Who will be creating the content?</inlineHelpText>
+        <label>Content Creator</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Date_of_Event_MERC__c</fullName>
+        <description>Date of Event. Created 10/2/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <label>Date of Event</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_to_Send_Invitations_MERC__c</fullName>
+        <description>Indicate date to send invitations. Created 10/2/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <label>Date to Send Invitations</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>End_Time_of_Meeting_MERC__c</fullName>
+        <description>End Time of Meeting. Created 10/2/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <label>End Time of Meeting</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Event_Country_MERC__c</fullName>
+        <description>Country of Event. Created 10/2/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <label>Event Country</label>
+        <picklist>
+            <picklistValues>
+                <fullName>UK</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>France</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Germany</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Event_Website_MERC__c</fullName>
+        <description>Capture URL of the Web Address for the Meeting, if one exists. Created 10/16/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Event Website</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Event_Website_Needed_MERC__c</fullName>
+        <description>Determine if a website is needed for Event. Created 10/17/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Do you want a web site for the event where the delegate can register?</inlineHelpText>
+        <label>Event Website Needed?</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>External_Delegates_MERC__c</fullName>
+        <description>Indicate if External Delegates are to be surveyed? Created 10/2/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <label>External Delegates?</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Food_and_Beverage_Requirements_MERC__c</fullName>
+        <description>Food and Beverage requirements for Meeting. Created 10/17/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Food and Beverage Requirements</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Hospitality_Desk_Required_MERC__c</fullName>
+        <description>Is Hospitality Desk required for Meeting? Created 10/17/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Hospitality Desk Required</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Hours_for_Education_MERC__c</fullName>
+        <description>Time for Education (in hours). Created 10/2/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <label>Hours for Education</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Internal_Delegates_MERC__c</fullName>
+        <description>Indicate if Internal Delegates are to be surveyed? Created 10/2/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <label>Internal Delegates?</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Invitation_Template_MERC__c</fullName>
+        <description>Which invitation template will be used for meeting? Created 10/17/2013 by KLorenti, Mavens Consultng</description>
+        <externalId>false</externalId>
+        <label>Invitation Template</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Template 1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Template 2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Template 3</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Objectives_MERC__c</fullName>
+        <description>Capture of Meeting Objectives. Created 10/16/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Meeting Objectives</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Owner_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Created lookup relationship to User to look up User/Meeting Owner. Created 10/16/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Meeting Owner</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Meetings</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Owner_Sales_Rep_MERC__c</fullName>
+        <description>Indicate if Meeting Owners/Sales Reps are to be surveyed? Created 10/2/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <label>Meeting Owner/Sales Rep?</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Mercury_Team_to_Send_Invitataions_MERC__c</fullName>
+        <description>Capture if Mercury Team is to send Invitations. Created 10/17/2013 by KLorenti, Mavens Consultng</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Do you want the Mercury Team to send invitations to delegates?</inlineHelpText>
+        <label>Mercury Team to Send Invitataions?</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Number_of_Break_Out_Rooms_MERC__c</fullName>
+        <description>Indicate number of Break Out rooms needed. Created 10/3/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <label># of Break Out Rooms</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Conference_Rooms_MERC__c</fullName>
+        <description>Indicate number of Conference rooms needed. Created 10/3/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <label># of Conference Rooms</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Expected_Deletgates_MERC__c</fullName>
+        <description>Number of delegates expected to attend meeting. Created 10/08/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <label># of Expected Deletgates</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Expected_Employees_MERC__c</fullName>
+        <description>Number of Lilly Employees expected to attend meeting. Created 10/08/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <label># of Expected Employees</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Expected_Non_HCP_MERC__c</fullName>
+        <description>Number of Expected Non-Lilly/Non-HCPs. Created 10/17/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label># of Expected Non-Lilly/Non-HCPs</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Expected_Speakers_MERC__c</fullName>
+        <description>Number of speakers expected to attend meeting. Created 10/08/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <label># of Expected Speakers</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Hotel_Rooms_MERC__c</fullName>
+        <description>Number of Hotel Rooms needed for Accommodations. Created 10/17/2013 by KLorenti, Mavens Consulting.</description>
+        <externalId>false</externalId>
+        <label># of Hotel Rooms</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Restaurants_MERC__c</fullName>
+        <description>Number of Restaurants needed for Meeting. Created 10/17/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label># of Restaurants</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>On_Site_Support_Required_MERC__c</fullName>
+        <description>Is Onsite Supported needed for meeting? Created 10/17/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>On Site Support Required?</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Parent_Meeting_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup Relationship to Meeting in order to select a Parent Meeting. Created 9/30/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <label>Parent Meeting</label>
+        <referenceTo>Meeting_MERC__c</referenceTo>
+        <relationshipLabel>Meetings</relationshipLabel>
+        <relationshipName>Meetings</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Preferred_Venue_MERC__c</fullName>
+        <description>Capture Preferred Venue during the meeting planning process. Created 10/16/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Preferred Venue</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Printed_Invitations_MERC__c</fullName>
+        <description>Number/copies of printed invitations needed per meeting owner. Created 10/17/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number/copies of printed invitations needed per MeetingOwner.</inlineHelpText>
+        <label># Printed Invitations</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quarter_Month_MERC__c</fullName>
+        <description>Capture Quarter and Month for forecasting purposes. Created 10/16/2013 by KLorenti, Mavens Consulting.</description>
+        <externalId>false</externalId>
+        <label>Quarter/Month</label>
+        <picklist>
+            <picklistValues>
+                <fullName>1Q/January</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1Q/February</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1Q/March</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2Q/April</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2Q/May</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2Q/June</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3Q/July</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3Q/August</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3Q/September</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4Q/October</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4Q/November</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4Q/December</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Responses_Due_Date_MERC__c</fullName>
+        <description>Tracks date invitation responses are due. Created 10/2/2013 by KLorenti</description>
+        <externalId>false</externalId>
+        <label>Responses Due Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Sales_Rep_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Created Lookup to Account to select Sales Rep if it is a Sales Rep initiated meeting. Created 10/16/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Sales Rep</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Meetings</relationshipLabel>
+        <relationshipName>Meetings</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Send_Save_the_Date_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicate if a &quot;Save to Date&quot; should be sent to delegates?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Do you want the ability to send a &quot;Save the Date&quot; to delegates?</inlineHelpText>
+        <label>Send Save the Date?</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Shipping_Address_for_Invitations_MERC__c</fullName>
+        <description>Shipping address for Invitations. Created 10/17/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Shipping Address for Invitations</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Speaker_MERC__c</fullName>
+        <description>Indicate if Speakers are to be surveyed? Created 10/2/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <label>Speaker?</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Start_Time_of_Meeting_MERC__c</fullName>
+        <description>Start Time of Meeting. Created 10/2/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <label>Start Time of Meeting</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Target_Audience_MERC__c</fullName>
+        <description>Who is the target audience for the meeting? Created 10/7/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Target Audience</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Technical_Requirements_MERC__c</fullName>
+        <description>Technical Requirements for Meeting. Created 10/17/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Technical Requirements</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Type_MERC__c</fullName>
+        <description>Type of Event. Created 10/2/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Consultant</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Health Education</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Independent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Investigator Meeting</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Promotional</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Scientific Exchange</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Speaker Training</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Venue_Preferred_Location_MERC__c</fullName>
+        <description>Indicate preferred Venue location. Updated 10/16/2013 by KLorenti, Mavens Consulting.</description>
+        <externalId>false</externalId>
+        <label>Preferred Venue Location</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Meeting</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Parent_Meeting_MERC__c</columns>
+        <columns>Date_of_Event_MERC__c</columns>
+        <columns>Event_Country_MERC__c</columns>
+        <columns>Type_MERC__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <label>Meeting Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Meetings</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Parent_Meeting_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Type_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Date_of_Event_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Event_Country_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CREATEDBY_USER</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Parent_Meeting_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Type_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Date_of_Event_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Event_Country_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CREATEDBY_USER</lookupDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Parent_Meeting_MERC__c</searchFilterFields>
+        <searchFilterFields>Type_MERC__c</searchFilterFields>
+        <searchFilterFields>Date_of_Event_MERC__c</searchFilterFields>
+        <searchFilterFields>Event_Country_MERC__c</searchFilterFields>
+        <searchFilterFields>CREATEDBY_USER</searchFilterFields>
+        <searchResultsAdditionalFields>Parent_Meeting_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Type_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Date_of_Event_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Event_Country_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CREATEDBY_USER</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

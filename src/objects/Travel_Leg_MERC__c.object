@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Details of travel arrangements child of Travel
+Created by John A Adams 10/9/2013</description>
+    <enableActivities>true</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Carrier_MERC__c</fullName>
+        <description>Transportation carrier
+Created by John A Adams 10/10/2013</description>
+        <externalId>false</externalId>
+        <label>Carrier</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Details_MERC__c</fullName>
+        <description>Transportation details
+Created by John A Adams 10/10/2013</description>
+        <externalId>false</externalId>
+        <label>Details</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>End_Date_and_Time_MERC__c</fullName>
+        <description>End date and time for travel leg
+Created by John A Adams 10/10/2013</description>
+        <externalId>false</externalId>
+        <label>End Date and Time</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Flight_MERC__c</fullName>
+        <description>Flight Number for air transportation
+Created by John A Adams 10/10/2013</description>
+        <externalId>false</externalId>
+        <label>Flight</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>From_MERC__c</fullName>
+        <description>Transportation leg departing from
+Created by John A Adams 10/10/2013</description>
+        <externalId>false</externalId>
+        <label>From</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Start_Date_and_Time_MERC__c</fullName>
+        <description>Date and time start of travel leg
+Created by John A Adams 10/10/2013</description>
+        <externalId>false</externalId>
+        <label>Start Date and Time</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>To_MERC__c</fullName>
+        <description>Transportion leg arriving at:
+Created by John A Adams 10/10/2013</description>
+        <externalId>false</externalId>
+        <label>To</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Travel_MERC__c</fullName>
+        <description>Details of Travel object
+Created by John A Adams 10/10/2013</description>
+        <externalId>false</externalId>
+        <label>Travel</label>
+        <referenceTo>Travel_MERC__c</referenceTo>
+        <relationshipLabel>Travel Legs</relationshipLabel>
+        <relationshipName>Travel_Legs</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <label>Travel Leg</label>
+    <nameField>
+        <displayFormat>Leg-{00000}</displayFormat>
+        <label>Travel Leg Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Travel Legs</pluralLabel>
+    <recordTypes>
+        <fullName>Air_ENVT_MVN</fullName>
+        <active>true</active>
+        <description>Air transportation details</description>
+        <label>Air</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Ground_EVNT_MVN</fullName>
+        <active>true</active>
+        <description>Ground transportation details</description>
+        <label>Ground</label>
+    </recordTypes>
+    <searchLayouts>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Carrier_MERC__c</searchFilterFields>
+        <searchFilterFields>Flight_MERC__c</searchFilterFields>
+        <searchFilterFields>Details_MERC__c</searchFilterFields>
+        <searchFilterFields>From_MERC__c</searchFilterFields>
+        <searchFilterFields>To_MERC__c</searchFilterFields>
+        <searchFilterFields>Start_Date_and_Time_MERC__c</searchFilterFields>
+        <searchFilterFields>End_Date_and_Time_MERC__c</searchFilterFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

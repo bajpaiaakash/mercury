@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
-		<members>DocusignService</members>
-		<members>DocusignServiceMock</members>
-		<members>DocusignServiceTest</members>
-		<members>EVNT_BudgetVersionHandlerMVN</members>
-		<members>EVNT_TestFactoryMVN</members>
-		<members>PersonSearchControllerMVN</members>
-		<members>PersonSearchControllerTestMVN</members>
+		<members>GLBL_TriggerHandler</members>
+		<members>MERC_DocusignService</members>
+		<members>MERC_DocusignServiceMock</members>
+		<members>MERC_DocusignServiceTest</members>
+		<members>MERC_TestFactory</members>
 		<members>SobjectDataLoaderMVN</members>
 		<members>SobjectDataLoaderTestMVN</members>
-		<members>TriggersMVN</members>
 		<name>ApexClass</name>
 	</types>
 	<types>
@@ -27,12 +24,34 @@
 	</types>
 	<types>
 		<members>Case</members>
-		<members>Meeting_Venue_EVNT__c</members>
-		<members>HCP_Contract_EVNT__c</members>
-		<members>Meeting_EVNT__c</members>
-		<members>Meeting_Participant_EVNT__c</members>
-		<members>Meeting_Venue_EVNT__c</members>
 		<members>Docusign_Settings_EVNT__c</members>
+		<members>Address_GLBL__c</members>
+		<members>Affiliation_GLBL__c</members>
+		<members>Agenda_Item_MERC__c</members>
+		<members>Alternate_Id_GLBL__c</members>
+		<members>Budget_MERC__c</members>
+		<members>Budget_Line_Item_MERC__c</members>
+		<members>Communication_Preference_GLBL__c</members>
+		<members>Daily_Attendance_TOV_MERC__c</members>
+		<members>HCP_Contract_MERC__c</members>
+		<members>Invoice_MERC__c</members>
+		<members>Invoice_Line_Item_MERC__c</members>
+		<members>Meeting_MERC__c</members>
+		<members>Meeting_Day_MERC__c</members>
+		<members>Meeting_Participant_MERC__c</members>
+		<members>Meeting_Products_MERC__c</members>
+		<members>Meeting_Third_Party_MERC__c</members>
+		<members>Meeting_Venue_MERC__c</members>
+		<members>Meeting_Vendor_MERC__c</members>
+		<members>Merge_History_GLBL__c</members>
+		<members>Milestone_MERC__c</members>
+		<members>Participant_Agenda_MERC__c</members>
+		<members>Payee_MERC__c</members>
+		<members>Product_Catalogue_GLBL__c</members>
+		<members>Slot_MERC__c</members>
+		<members>Team_Member_MERC__c</members>
+		<members>Travel_MERC__c</members>
+		<members>Travel_Leg_MERC__c</members>
 		<name>CustomObject</name>
 	</types>
 	<types>

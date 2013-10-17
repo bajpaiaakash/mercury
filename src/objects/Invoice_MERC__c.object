@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Object to store invoice header information. Created on 9/27/2013 by KLorenti</description>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Budget_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup between Invoice and Budget to retrieve Cost Center 
+Created by John A Adams 10/11/2013</description>
+        <externalId>false</externalId>
+        <label>Budget</label>
+        <referenceTo>Budget_MERC__c</referenceTo>
+        <relationshipLabel>Invoices</relationshipLabel>
+        <relationshipName>Invoices</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Cost_Center_MERC__c</fullName>
+        <description>Cost Center code from budget
+Created by John A Adams 10/11/2013</description>
+        <externalId>false</externalId>
+        <formula>Budget_MERC__r.Cost_Center_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Cost Center</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Meeting_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup Relationship from Invoice to Meeting. Created 9/30/2013 by KLorenti.
+Modified by John A Adams 10/4/2013</description>
+        <externalId>false</externalId>
+        <label>Meeting</label>
+        <referenceTo>Meeting_MERC__c</referenceTo>
+        <relationshipLabel>Invoices</relationshipLabel>
+        <relationshipName>Invoices</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Participant_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup to find the meeting Participant this invoice is for.
+Created by John A Adams 10/4/2013</description>
+        <externalId>false</externalId>
+        <label>Meeting Participant</label>
+        <referenceTo>Meeting_Participant_MERC__c</referenceTo>
+        <relationshipLabel>Invoices</relationshipLabel>
+        <relationshipName>Invoices</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Vendor_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Meeting Vendor</label>
+        <referenceTo>Meeting_Vendor_MERC__c</referenceTo>
+        <relationshipLabel>Invoices</relationshipLabel>
+        <relationshipName>Invoices</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Mercury_Transaction_Id_MERC__c</fullName>
+        <description>Mercury Transaction Id 
+Created by John A Adams 10/4/2013</description>
+        <externalId>false</externalId>
+        <label>Mercury Transaction Id</label>
+        <length>16</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Net_Invoice_Amount_MERC__c</fullName>
+        <description>Net Invoice Amount (roll up summary based on line item value) 
+Created by John A Adams 10/4/2013</description>
+        <externalId>false</externalId>
+        <label>Net Invoice Amount</label>
+        <summarizedField>Invoice_Line_Item_MERC__c.Value_MERC__c</summarizedField>
+        <summaryForeignKey>Invoice_Line_Item_MERC__c.Invoice_MERC__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Payee_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Payee</label>
+        <referenceTo>Payee_MERC__c</referenceTo>
+        <relationshipLabel>Invoices</relationshipLabel>
+        <relationshipName>Invoices</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>SAP_Document_Number_MERC__c</fullName>
+        <description>Stores the SAP Document Number
+Created by John A Adams 10/7/2013.</description>
+        <externalId>false</externalId>
+        <label>SAP Document Number</label>
+        <length>16</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tax_Amount_MERC__c</fullName>
+        <description>Tax Amount (roll up summary based on line item value) 
+Created by John A Adams 10/4/2013</description>
+        <externalId>false</externalId>
+        <label>Tax Amount</label>
+        <summarizedField>Invoice_Line_Item_MERC__c.Tax_Amount_MERC__c</summarizedField>
+        <summaryForeignKey>Invoice_Line_Item_MERC__c.Invoice_MERC__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Vendor_Invoice_Number_MERC__c</fullName>
+        <description>Vendor Invoice Number 
+Created by John A Adams 10/4/2013</description>
+        <externalId>false</externalId>
+        <label>Vendor Invoice Number</label>
+        <length>16</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Invoice</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Meeting_MERC__c</columns>
+        <columns>Meeting_Participant_MERC__c</columns>
+        <columns>Net_Invoice_Amount_MERC__c</columns>
+        <columns>Vendor_Invoice_Number_MERC__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <displayFormat>INV-{000000}</displayFormat>
+        <label>Invoice Number</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Invoices</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Meeting_Participant_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Meeting_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Net_Invoice_Amount_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Tax_Amount_MERC__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Meeting_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Meeting_Participant_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Net_Invoice_Amount_MERC__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Meeting_MERC__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Meeting_Participant_MERC__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Net_Invoice_Amount_MERC__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Meeting_MERC__c</searchFilterFields>
+        <searchFilterFields>Meeting_Participant_MERC__c</searchFilterFields>
+        <searchFilterFields>Net_Invoice_Amount_MERC__c</searchFilterFields>
+        <searchResultsAdditionalFields>Meeting_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Meeting_Participant_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Net_Invoice_Amount_MERC__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <startsWith>Vowel</startsWith>
+</CustomObject>

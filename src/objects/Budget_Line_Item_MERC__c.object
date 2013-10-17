@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Object to track detailed budget information. Created 9/27/2013 by KLorenti.</description>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Amount_MERC__c</fullName>
+        <description>Tracks amount of Budget Line Item. Created 9/30/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <label>Amount</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Budget_MERC__c</fullName>
+        <description>Master-Detail relationship to Budget Object. Created 9/27/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <label>Budget</label>
+        <referenceTo>Budget_MERC__c</referenceTo>
+        <relationshipLabel>Budget Line Items</relationshipLabel>
+        <relationshipName>Budget_Line_Items</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Overage_MERC__c</fullName>
+        <description>Tracks any Overages during budgeting and negotiation process. Created 10/11/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <label>Overage</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Savings_MERC__c</fullName>
+        <description>Tracks any savings that may be incurred during budging/negotiation process. Created 10/11/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <label>Savings</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Type_MERC__c</fullName>
+        <description>Track type of Budget Line item. Created 9/30/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Honorarium</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hotel</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <label>Budget Line Item</label>
+    <nameField>
+        <displayFormat>BL-{00000}</displayFormat>
+        <label>Budget Line Item Number</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Budget Line Items</pluralLabel>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>Budget_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Type_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Amount_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CREATEDBY_USER</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Budget_MERC__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Type_MERC__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Amount_MERC__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CREATEDBY_USER</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Budget_MERC__c</searchFilterFields>
+        <searchFilterFields>Type_MERC__c</searchFilterFields>
+        <searchFilterFields>Amount_MERC__c</searchFilterFields>
+        <searchFilterFields>CREATEDBY_USER</searchFilterFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

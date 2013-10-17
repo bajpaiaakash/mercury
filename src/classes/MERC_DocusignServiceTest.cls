@@ -1,5 +1,5 @@
 @isTest
-private class DocusignServiceTest {
+private class MERC_DocusignServiceTest {
 	
 	static {
 		Docusign_Settings_EVNT__c settings = new Docusign_Settings_EVNT__c();
@@ -14,7 +14,7 @@ private class DocusignServiceTest {
 	@isTest static void testLoginAccount() {
         Test.startTest();
 
-        DocusignService.LoginAccount loginAccountObject = new DocusignService.LoginAccount(
+        MERC_DocusignService.LoginAccount loginAccountObject = new MERC_DocusignService.LoginAccount(
         	'A test name', 
         	'a test account id', 
         	'a baseurl', 
@@ -24,15 +24,15 @@ private class DocusignServiceTest {
         	'my email', 
         	''
         );
-        DocusignService.LoginInformation loginInformation = new DocusignService.LoginInformation();
-        loginInformation.loginAccounts = new List<DocusignService.LoginAccount>{ loginAccountObject};
+        MERC_DocusignService.LoginInformation loginInformation = new MERC_DocusignService.LoginInformation();
+        loginInformation.loginAccounts = new List<MERC_DocusignService.LoginAccount>{ loginAccountObject};
 
         String loginAccountResponse = JSON.serializePretty(loginInformation);
         system.debug(loginAccountResponse);
 
-        DocusignServiceMock fakeResponse = new DocusignServiceMock(200, 'Complete', loginAccountResponse, null);
+        MERC_DocusignServiceMock fakeResponse = new MERC_DocusignServiceMock(200, 'Complete', loginAccountResponse, null);
 		Test.setMock(HttpCalloutMock.class, fakeResponse);
-        DocusignService d = new DocusignService();
+        MERC_DocusignService d = new MERC_DocusignService();
         d.login();
         Test.stopTest();
 
@@ -45,17 +45,17 @@ private class DocusignServiceTest {
         Test.startTest();
         
         //generate signers
-        List<Account> signingAccounts = EVNT_TestFactoryMVN.insertAccounts(2);
-        List<DocusignService.RequiredSigner> requiredSigners = new List<DocusignService.RequiredSigner>();
+        List<Account> signingAccounts = MERC_TestFactory.insertAccounts(2);
+        List<MERC_DocusignService.RequiredSigner> requiredSigners = new List<MERC_DocusignService.RequiredSigner>();
         for (Integer i = 0; i < signingAccounts.size(); i++) {
-            DocusignService.RequiredSigner signer = new DocusignService.RequiredSigner();
+            MERC_DocusignService.RequiredSigner signer = new MERC_DocusignService.RequiredSigner();
             signer.acc = signingAccounts.get(i);
             signer.order = i+1;
             requiredSigners.add(signer);
         }
 
         //serialize mock response
-        DocusignService.EnvelopeResponse mockResponse = new DocusignService.EnvelopeResponse();
+        MERC_DocusignService.EnvelopeResponse mockResponse = new MERC_DocusignService.EnvelopeResponse();
         mockResponse.envelopeId = '7f7de730-811d-458a-97a3-deeef96b38d0';
         mockResponse.status = 'sent';
         mockResponse.statusDateTime = '2013-10-11T17:17:55.5470518Z';
@@ -63,12 +63,12 @@ private class DocusignServiceTest {
         String envelopeResponseJSONString = JSON.serializePretty(mockResponse);
         system.debug(envelopeResponseJSONString);
 
-        DocusignServiceMock fakeResponse = new DocusignServiceMock(200, 'Complete', envelopeResponseJSONString, null);
+        MERC_DocusignServiceMock fakeResponse = new MERC_DocusignServiceMock(200, 'Complete', envelopeResponseJSONString, null);
         Test.setMock(HttpCalloutMock.class, fakeResponse);
         
         //send requesr for signature
-        DocusignService d = new DocusignService();
-        DocusignService.EnvelopeResponse r = d.requestSignature(requiredSigners, 'this is the document to sign');
+        MERC_DocusignService d = new MERC_DocusignService();
+        MERC_DocusignService.EnvelopeResponse r = d.requestSignature(requiredSigners, 'this is the document to sign');
         Test.stopTest();
 
         system.debug(r);

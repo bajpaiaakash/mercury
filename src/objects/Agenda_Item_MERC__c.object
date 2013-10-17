@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Contains agenda information
+Created by John A Adams 9/26/2013</description>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>End_Time_MERC__c</fullName>
+        <description>Date and time that session will end
+Created by John A Adams 10/8/2013</description>
+        <externalId>false</externalId>
+        <label>End Time</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_MERC__c</fullName>
+        <description>One to Many relationship with Meeting
+Created by John A Adams 9/30/2013</description>
+        <externalId>false</externalId>
+        <label>Meeting</label>
+        <referenceTo>Meeting_MERC__c</referenceTo>
+        <relationshipLabel>Agenda Items</relationshipLabel>
+        <relationshipName>Sessions</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Meeting_Venue_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Venue of meeting</description>
+        <externalId>false</externalId>
+        <label>Meeting Venue</label>
+        <referenceTo>Meeting_Venue_MERC__c</referenceTo>
+        <relationshipLabel>Agenda Items</relationshipLabel>
+        <relationshipName>Agenda_Items</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Room_MERC__c</fullName>
+        <description>Room name or number that the meeting session is to be held in
+Created by John A Adams 10/8/2013</description>
+        <externalId>false</externalId>
+        <label>Room</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Session_Type_MERC__c</fullName>
+        <description>Tracks type of session to track agenda details. Created 10/08/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <label>Session Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>General Session</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Breakout Session</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Start_Time_MERC__c</fullName>
+        <description>Start date and time of session
+Created by John A Adams 10/8/2013</description>
+        <externalId>false</externalId>
+        <label>Start Time</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <label>Agenda Item</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Meeting_MERC__c</columns>
+        <columns>Start_Time_MERC__c</columns>
+        <columns>End_Time_MERC__c</columns>
+        <columns>Session_Type_MERC__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <label>Agenda Item Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Agenda Items</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Meeting_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Session_Type_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Start_Time_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>End_Time_MERC__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Meeting_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Session_Type_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Start_Time_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>End_Time_MERC__c</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>Meeting_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Session_Type_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Start_Time_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>End_Time_MERC__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>End_after_Start</fullName>
+        <active>true</active>
+        <description>Rule to prevent entering an end time for a session before it starts
+Created by John A Adams 10/3/2013</description>
+        <errorConditionFormula>End_Time_MERC__c &lt;  Start_Time_MERC__c</errorConditionFormula>
+        <errorDisplayField>End_Time_MERC__c</errorDisplayField>
+        <errorMessage>The meeting end time must be after the start time</errorMessage>
+    </validationRules>
+</CustomObject>

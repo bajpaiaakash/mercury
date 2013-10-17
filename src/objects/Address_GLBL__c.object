@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Used to capture participant (speaker and attendee) addresses
+Created by John A Adams 9/26/2013</description>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Account_GLBL__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup between addresses and accounts
+Created by John A Adams 9/27/2013</description>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Addresses</relationshipLabel>
+        <relationshipName>Addresses</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>City_GLBL__c</fullName>
+        <description>Records city information for address
+Created by John A Adams 9/27/2013</description>
+        <externalId>false</externalId>
+        <label>City</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Country_GLBL__c</fullName>
+        <description>Country information for address
+Created by John A Adams 9/27/2013</description>
+        <externalId>false</externalId>
+        <label>Country</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>State_Province_GLBL__c</fullName>
+        <description>State information for Address
+Created by John A Adams 9/27/2013</description>
+        <externalId>false</externalId>
+        <label>State/Province</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Street_GLBL__c</fullName>
+        <description>Street Address
+Created by John A Adams 9/27/2013</description>
+        <externalId>false</externalId>
+        <label>Street</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Zip_Postal_Code_GLBL__c</fullName>
+        <description>Zip or Postal Code information for address
+Created by John A Adams 9/27/2013</description>
+        <externalId>false</externalId>
+        <label>Zip / Postal Code</label>
+        <length>16</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Address</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>A-{000000}</displayFormat>
+        <label>Address Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Addresses</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Account_GLBL__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Street_GLBL__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>City_GLBL__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>State_Province_GLBL__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Country_GLBL__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Zip_Postal_Code_GLBL__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Account_GLBL__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Street_GLBL__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>City_GLBL__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>State_Province_GLBL__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Country_GLBL__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Zip_Postal_Code_GLBL__c</lookupDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Street_GLBL__c</searchFilterFields>
+        <searchFilterFields>State_Province_GLBL__c</searchFilterFields>
+        <searchFilterFields>City_GLBL__c</searchFilterFields>
+        <searchFilterFields>Zip_Postal_Code_GLBL__c</searchFilterFields>
+        <searchFilterFields>Country_GLBL__c</searchFilterFields>
+        <searchResultsAdditionalFields>Account_GLBL__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Street_GLBL__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>City_GLBL__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>State_Province_GLBL__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Country_GLBL__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Zip_Postal_Code_GLBL__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <startsWith>Vowel</startsWith>
+</CustomObject>
