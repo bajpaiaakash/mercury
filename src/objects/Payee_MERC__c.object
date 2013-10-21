@@ -177,13 +177,65 @@ Created by John A Adams 10/21/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Payee_Address_MERC__c</fullName>
-        <description>Presents payees address associated with Account.
+        <fullName>Payee_City_MERC__c</fullName>
+        <description>Payee City address
+Created by John A Adams 10/21/2013</description>
+        <externalId>false</externalId>
+        <formula>Associated_Address_MERC__r.City_GLBL__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Payee City</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Payee_Country_MERC__c</fullName>
+        <description>Payee Country
+Created by John A Adams 10/21/2013</description>
+        <externalId>false</externalId>
+        <formula>Associated_Address_MERC__r.Country_GLBL__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Payee Country</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Payee_State_Province_MERC__c</fullName>
+        <description>Payee State / Province 
+Created by John A Adams 10/21/2013</description>
+        <externalId>false</externalId>
+        <formula>Associated_Address_MERC__r.State_Province_GLBL__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Payee State /Province</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Payee_Street_MERC__c</fullName>
+        <description>Presents payees street address associated with Account.
 Created by John A Adams 10/17/2013</description>
         <externalId>false</externalId>
-        <formula>Associated_Address_MERC__r.Street_GLBL__c &amp;&apos;, &apos;&amp; Associated_Address_MERC__r.City_GLBL__c  &amp;&apos;, &apos;&amp; Associated_Address_MERC__r.State_Province_GLBL__c &amp;&apos;, &apos;&amp;  Associated_Address_MERC__r.Country_GLBL__c  &amp;&apos;, &apos;&amp; Associated_Address_MERC__r.Zip_Postal_Code_GLBL__c</formula>
+        <formula>Associated_Address_MERC__r.Street_GLBL__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Payee Address</label>
+        <label>Payee Street</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Payee_Zip_Postal_Code_MERC__c</fullName>
+        <description>Payee Zip
+Created by John A Adams 10/21/2013</description>
+        <externalId>false</externalId>
+        <formula>Associated_Address_MERC__r.Zip_Postal_Code_GLBL__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Payee Zip / Postal Code</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Text</type>

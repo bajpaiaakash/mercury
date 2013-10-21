@@ -265,18 +265,6 @@ Created by John A Adams 10/2/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Country_of_Residence_MERC__c</fullName>
-        <description>Country of residence which may differ from the Country to be used for contract fee calculation.  Needed for Tax Purposes in Invoice.
-Created by John A Adams 10/20/2013</description>
-        <externalId>false</externalId>
-        <label>Country of Residence</label>
-        <length>18</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Description_of_Service_MERC__c</fullName>
         <description>Description of service (only if ad hoc consulting)
 Created by John A Adams 10/17/2013</description>
@@ -685,18 +673,6 @@ Created by John A Adams 10/7/2013</description>
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Names_Addresses_Signers_MERC__c</fullName>
-        <description>Stores the names and addresses of agreement signers other than the HCP
-Created by John A Adams 10/17/2013</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Provide names and addresses of parties other than HCP that need to sing agreement.</inlineHelpText>
-        <label>Names / Addresses of Signers</label>
-        <length>32768</length>
-        <trackHistory>false</trackHistory>
-        <type>Html</type>
-        <visibleLines>10</visibleLines>
     </fields>
     <fields>
         <fullName>Other_Details_MERC__c</fullName>
