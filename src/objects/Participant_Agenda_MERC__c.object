@@ -103,6 +103,12 @@ Created by John A Adams 10/3/2013</description>
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Participant Agendas</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>Meeting_Participant_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Meeting_Day_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Session_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Assigned_Topic_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Speaker_Topic_Title_MERC__c</lookupDialogsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

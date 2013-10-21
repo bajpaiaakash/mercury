@@ -11,11 +11,11 @@ public with sharing class MERC_DocusignService {
 	public LoginInformation loginInfo { get; private set; }
 
 	public MERC_DocusignService() {
-    	Docusign_Settings_EVNT__c settings = Docusign_Settings_EVNT__c.getValues('default');
-		this.username 		= settings.Username_EVNT_MVN__c;
-		this.password 		= settings.Password_EVNT_MVN__c;
-		this.integratorKey 	= settings.Integrator_Key_EVNT_MVN__c;
-		this.accountId 		= settings.Account_ID_EVNT_MVN__c;
+    	Docusign_Settings_MERC__c settings = Docusign_Settings_MERC__c.getValues('default');
+		this.username 		= settings.Username_MERC__c;
+		this.password 		= settings.Password_MERC__c;
+		this.integratorKey 	= settings.Integrator_Key_MERC__c;
+		this.accountId 		= settings.Account_ID_MERC__c;
 	}
 
     String authHeader { 

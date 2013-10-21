@@ -161,7 +161,7 @@ Created by John A Adams 10/10/2013</description>
     </listViews>
     <nameField>
         <displayFormat>MV-{000000}</displayFormat>
-        <label>Meeting Vendor Number</label>
+        <label>Vendor Number</label>
         <type>AutoNumber</type>
     </nameField>
     <namedFilters>

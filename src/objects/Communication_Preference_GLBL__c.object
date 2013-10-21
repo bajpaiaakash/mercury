@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>Accept</actionName>
         <type>Default</type>
@@ -229,7 +229,7 @@ Created by John A Adams 10/3/2013</description>
     </listViews>
     <nameField>
         <displayFormat>C-{000000}</displayFormat>
-        <label>Communicaion Name</label>
+        <label>Communicaion Number</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
@@ -477,19 +477,16 @@ Created by John A Adams 10/3/2013</description>
     </recordTypes>
     <searchLayouts>
         <customTabListAdditionalFields>Account_GLBL__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields xsi:nil="true"/>
         <customTabListAdditionalFields>Interaction_Channel_Type_GLBL__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Permission_Status_GLBL__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Speaker_Interest_GLBL__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Communication_Preference_GLBL__c</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>Account_GLBL__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields xsi:nil="true"/>
         <lookupDialogsAdditionalFields>Interaction_Channel_Type_GLBL__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Permission_Status_GLBL__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Speaker_Interest_GLBL__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Communication_Preference_GLBL__c</lookupDialogsAdditionalFields>
         <searchResultsAdditionalFields>Account_GLBL__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields xsi:nil="true"/>
         <searchResultsAdditionalFields>Interaction_Channel_Type_GLBL__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Permission_Status_GLBL__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Speaker_Interest_GLBL__c</searchResultsAdditionalFields>

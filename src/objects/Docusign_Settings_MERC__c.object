@@ -5,7 +5,7 @@
     <description>Docusign API authentication information</description>
     <enableFeeds>false</enableFeeds>
     <fields>
-        <fullName>Account_ID_EVNT_MVN__c</fullName>
+        <fullName>Account_ID_MERC__c</fullName>
         <description>Docusign API account ID</description>
         <externalId>false</externalId>
         <inlineHelpText>Docusign API connection account ID</inlineHelpText>
@@ -16,7 +16,7 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Integrator_Key_EVNT_MVN__c</fullName>
+        <fullName>Integrator_Key_MERC__c</fullName>
         <description>Docusign API Integrator Key</description>
         <externalId>false</externalId>
         <inlineHelpText>Docusign API Integrator Key</inlineHelpText>
@@ -27,7 +27,7 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Password_EVNT_MVN__c</fullName>
+        <fullName>Password_MERC__c</fullName>
         <description>Docusign API connection password</description>
         <externalId>false</externalId>
         <inlineHelpText>Docusign API connection password</inlineHelpText>
@@ -38,7 +38,7 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Username_EVNT_MVN__c</fullName>
+        <fullName>Username_MERC__c</fullName>
         <description>Docusign API connection username</description>
         <externalId>false</externalId>
         <inlineHelpText>Docusign API connection username</inlineHelpText>

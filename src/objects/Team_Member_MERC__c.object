@@ -129,7 +129,7 @@
         <language>en_US</language>
     </listViews>
     <nameField>
-        <displayFormat>TM-{00000}</displayFormat>
+        <displayFormat>TM-{000000}</displayFormat>
         <label>Team Member Number</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>

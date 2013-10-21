@@ -82,7 +82,7 @@
     </fields>
     <label>Merge History</label>
     <nameField>
-        <displayFormat>{0}</displayFormat>
+        <displayFormat>HIST-{000000}</displayFormat>
         <label>Merge History Number</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>

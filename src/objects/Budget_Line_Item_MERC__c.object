@@ -110,7 +110,7 @@
     </fields>
     <label>Budget Line Item</label>
     <nameField>
-        <displayFormat>BL-{00000}</displayFormat>
+        <displayFormat>BL-{000000}</displayFormat>
         <label>Budget Line Item Number</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>

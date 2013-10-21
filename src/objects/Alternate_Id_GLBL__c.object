@@ -68,7 +68,7 @@
     </fields>
     <label>Alternate ID</label>
     <nameField>
-        <displayFormat>{0}</displayFormat>
+        <displayFormat>ALT-{000000}</displayFormat>
         <label>Alternate ID Number</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>

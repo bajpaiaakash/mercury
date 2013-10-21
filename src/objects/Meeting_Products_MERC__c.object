@@ -68,8 +68,8 @@
     </fields>
     <label>Meeting Product</label>
     <nameField>
-        <displayFormat>P-{00000}</displayFormat>
-        <label>Meeting Products Name</label>
+        <displayFormat>P-{000000}</displayFormat>
+        <label>Meeting Products Number</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>

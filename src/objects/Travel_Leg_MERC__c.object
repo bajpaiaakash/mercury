@@ -128,8 +128,8 @@ Created by John A Adams 10/10/2013</description>
     </fields>
     <label>Travel Leg</label>
     <nameField>
-        <displayFormat>Leg-{00000}</displayFormat>
-        <label>Travel Leg Name</label>
+        <displayFormat>Leg-{000000}</displayFormat>
+        <label>Leg Number</label>
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Travel Legs</pluralLabel>

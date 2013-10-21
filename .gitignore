@@ -3,3 +3,4 @@ config/*
 *.sublime-project
 debug/*
 apex-scripts/*
+deploy/*

@@ -96,7 +96,7 @@ Created 9/28/2013 by KLorenti.</description>
     </fields>
     <label>Meeting Venue</label>
     <nameField>
-        <displayFormat>V-{00000}</displayFormat>
+        <displayFormat>V-{000000}</displayFormat>
         <label>Venue Number</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>

@@ -54,6 +54,20 @@ Created by John A Adams 9/27/2013</description>
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Associated_Address_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup up specific address information from Addresses for Payee
+Created by John A Adams 10/17/2013</description>
+        <externalId>false</externalId>
+        <label>Associated Address</label>
+        <referenceTo>Address_GLBL__c</referenceTo>
+        <relationshipLabel>Payee</relationshipLabel>
+        <relationshipName>Payee</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Bank_Account_Number_MERC__c</fullName>
         <description>Stores payee bank account number
 Created by John A Adams 10/17/2013</description>
@@ -66,15 +80,28 @@ Created by John A Adams 10/17/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Bank_Address_MERC__c</fullName>
-        <description>Stores payee bank address 
-Created by John A Adams 10/17/2013</description>
+        <fullName>Bank_City_MERC__c</fullName>
+        <description>Bank City 
+Created by John A Adams 10/21/2013</description>
         <externalId>false</externalId>
-        <label>Bank Address</label>
-        <length>32768</length>
+        <label>Bank City</label>
+        <length>80</length>
+        <required>false</required>
         <trackHistory>false</trackHistory>
-        <type>Html</type>
-        <visibleLines>25</visibleLines>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bank_Country_MERC__c</fullName>
+        <description>Bank Country
+Created by John A Adams 10/21/2013</description>
+        <externalId>false</externalId>
+        <label>Bank Country</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Bank_IBAN_MERC__c</fullName>
@@ -114,24 +141,49 @@ Created by John A Adams 10/17/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Payee_Address_MERC__c</fullName>
-        <description>Stores payee address data 
-Created by John A Adams 10/17/2013</description>
+        <fullName>Bank_State_Province_MERC__c</fullName>
+        <description>Bank State/Province
+Created by John A Adams 10/21/2013</description>
         <externalId>false</externalId>
-        <label>Payee Address</label>
-        <length>32768</length>
+        <label>Bank State/Province</label>
+        <length>80</length>
+        <required>false</required>
         <trackHistory>false</trackHistory>
-        <type>LongTextArea</type>
-        <visibleLines>3</visibleLines>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Payee_Name_MERC__c</fullName>
-        <description>Stores payee name  data 
+        <fullName>Bank_Street_MERC__c</fullName>
+        <description>Bank Street Address
+Created by John A Adams 10/21/2013</description>
+        <externalId>false</externalId>
+        <label>Bank Street</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bank_Zip_Postal_Code_MERC__c</fullName>
+        <description>Bank Zip or Postal Code
+Created by John A Adams 10/21/2013</description>
+        <externalId>false</externalId>
+        <label>Bank Zip/Postal Code</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Payee_Address_MERC__c</fullName>
+        <description>Presents payees address associated with Account.
 Created by John A Adams 10/17/2013</description>
         <externalId>false</externalId>
-        <inlineHelpText>Enter name that payment should be made out to.</inlineHelpText>
-        <label>Payee Name</label>
-        <length>80</length>
+        <formula>Associated_Address_MERC__r.Street_GLBL__c &amp;&apos;, &apos;&amp; Associated_Address_MERC__r.City_GLBL__c  &amp;&apos;, &apos;&amp; Associated_Address_MERC__r.State_Province_GLBL__c &amp;&apos;, &apos;&amp;  Associated_Address_MERC__r.Country_GLBL__c  &amp;&apos;, &apos;&amp; Associated_Address_MERC__r.Zip_Postal_Code_GLBL__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Payee Address</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Text</type>
@@ -221,19 +273,6 @@ Created by John A Adams 9/27/2013</description>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
-        <fullName>Social_Security_Number_MERC__c</fullName>
-        <description>Stores Payee&apos;s SSN
-Created by John A Adams 10/17/2013</description>
-        <externalId>false</externalId>
-        <label>Social Security Number</label>
-        <precision>16</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackHistory>false</trackHistory>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
     <label>Payee</label>
     <listViews>
         <fullName>All</fullName>
@@ -246,10 +285,9 @@ Created by John A Adams 10/17/2013</description>
         <language>en_US</language>
     </listViews>
     <nameField>
-        <displayFormat>P-{000000}</displayFormat>
-        <label>Payee Number</label>
+        <label>Payee Name</label>
         <trackHistory>false</trackHistory>
-        <type>AutoNumber</type>
+        <type>Text</type>
     </nameField>
     <pluralLabel>Payee</pluralLabel>
     <searchLayouts>

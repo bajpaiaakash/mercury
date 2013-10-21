@@ -146,7 +146,7 @@ Created by John A Adams 10/10/2013</description>
     <label>Daily Attendance &amp; TOV</label>
     <nameField>
         <displayFormat>DA-{000000}</displayFormat>
-        <label>Daily Attendance Id</label>
+        <label>Attendance Number</label>
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Daily Attendance &amp; TOV</pluralLabel>

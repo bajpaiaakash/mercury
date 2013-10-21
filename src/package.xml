@@ -5,6 +5,8 @@
 		<members>MERC_DocusignService</members>
 		<members>MERC_DocusignServiceMock</members>
 		<members>MERC_DocusignServiceTest</members>
+		<members>MERC_TeamMemberShareHandler</members>
+		<members>MERC_TeamMemberShareHandlerTest</members>
 		<members>MERC_TestFactory</members>
 		<members>SobjectDataLoaderMVN</members>
 		<members>SobjectDataLoaderTestMVN</members>
@@ -24,7 +26,7 @@
 	</types>
 	<types>
 		<members>Case</members>
-		<members>Docusign_Settings_EVNT__c</members>
+		<members>Docusign_Settings_MERC__c</members>
 		<members>Address_GLBL__c</members>
 		<members>Affiliation_GLBL__c</members>
 		<members>Agenda_Item_MERC__c</members>

@@ -191,12 +191,25 @@ Created by John A Adams 9/27/2013</description>
         <description>Calculation of total hours of service
 Created by John A Adams 10/17/2013</description>
         <externalId>false</externalId>
-        <formula>Event_Time_Hrs_MERC__c +  Preparation_Time_Hrs_MERC__c</formula>
+        <formula>IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;2-10 hrs&quot;),
+    (0.20 * (Preparation_Time_Hrs_MERC__c + Event_Time_Hrs_MERC__c)+           
+     Preparation_Time_Hrs_MERC__c + Event_Time_Hrs_MERC__c),
+
+  IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;11-20 hrs&quot;),
+    (0.25 * (Preparation_Time_Hrs_MERC__c + Event_Time_Hrs_MERC__c)+           
+     Preparation_Time_Hrs_MERC__c + Event_Time_Hrs_MERC__c), 
+
+    IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;),
+      (0.30 * (Preparation_Time_Hrs_MERC__c + Event_Time_Hrs_MERC__c)+           
+      Preparation_Time_Hrs_MERC__c + Event_Time_Hrs_MERC__c), 0
+    )
+  )
+)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Total Hours of Service</label>
         <precision>18</precision>
         <required>false</required>
-        <scale>0</scale>
+        <scale>2</scale>
         <trackHistory>false</trackHistory>
         <type>Number</type>
         <unique>false</unique>

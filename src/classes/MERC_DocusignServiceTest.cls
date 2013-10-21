@@ -2,12 +2,12 @@
 private class MERC_DocusignServiceTest {
 	
 	static {
-		Docusign_Settings_EVNT__c settings = new Docusign_Settings_EVNT__c();
+		Docusign_Settings_MERC__c settings = new Docusign_Settings_MERC__c();
 		settings.Name = 'default';
-		settings.Account_ID_EVNT_MVN__c = '12345';
-		settings.Integrator_Key_EVNT_MVN__c = '12345';
-		settings.Password_EVNT_MVN__c = 'foo';
-		settings.Username_EVNT_MVN__c = 'bar';
+		settings.Account_ID_MERC__c = '12345';
+		settings.Integrator_Key_MERC__c = '12345';
+		settings.Password_MERC__c = 'foo';
+		settings.Username_MERC__c = 'bar';
 		insert settings;
 	}
 

@@ -69,8 +69,8 @@ Created 10/10/2013 by KLorenti</description>
     </fields>
     <label>Meeting Third Party</label>
     <nameField>
-        <displayFormat>TPO-{00000}</displayFormat>
-        <label>Meeting Third Party Number</label>
+        <displayFormat>TPO-{000000}</displayFormat>
+        <label>Third Party Number</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>

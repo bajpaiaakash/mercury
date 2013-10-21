@@ -61,8 +61,8 @@ Created by John A Adams 10/17/2013</description>
         <label>Additional Contract or Payment Condition</label>
         <length>32768</length>
         <trackHistory>false</trackHistory>
-        <type>Html</type>
-        <visibleLines>25</visibleLines>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
     </fields>
     <fields>
         <fullName>Confirm_Final_Fee_MERC__c</fullName>
@@ -265,6 +265,18 @@ Created by John A Adams 10/2/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Country_of_Residence_MERC__c</fullName>
+        <description>Country of residence which may differ from the Country to be used for contract fee calculation.  Needed for Tax Purposes in Invoice.
+Created by John A Adams 10/20/2013</description>
+        <externalId>false</externalId>
+        <label>Country of Residence</label>
+        <length>18</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Description_of_Service_MERC__c</fullName>
         <description>Description of service (only if ad hoc consulting)
 Created by John A Adams 10/17/2013</description>
@@ -273,8 +285,8 @@ Created by John A Adams 10/17/2013</description>
         <label>Description of Service</label>
         <length>32768</length>
         <trackHistory>false</trackHistory>
-        <type>Html</type>
-        <visibleLines>25</visibleLines>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
     </fields>
     <fields>
         <fullName>Event_Time_MERC__c</fullName>
@@ -621,8 +633,8 @@ Created by John A Adams 10/17/2013</description>
         <label>HCP Obligations</label>
         <length>32768</length>
         <trackHistory>false</trackHistory>
-        <type>Html</type>
-        <visibleLines>25</visibleLines>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
     </fields>
     <fields>
         <fullName>Justification_MERC__c</fullName>
@@ -684,7 +696,7 @@ Created by John A Adams 10/17/2013</description>
         <length>32768</length>
         <trackHistory>false</trackHistory>
         <type>Html</type>
-        <visibleLines>25</visibleLines>
+        <visibleLines>10</visibleLines>
     </fields>
     <fields>
         <fullName>Other_Details_MERC__c</fullName>
@@ -754,7 +766,7 @@ Created by John A Adams 10/17/2013</description>
         </picklist>
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
-        <visibleLines>4</visibleLines>
+        <visibleLines>3</visibleLines>
     </fields>
     <fields>
         <fullName>Signing_Parties_MERC__c</fullName>
@@ -795,10 +807,9 @@ Created by John A Adams 10/17/2013</description>
 Created by John A Adams 10/17/2013</description>
         <externalId>false</externalId>
         <label>Topic Area</label>
-        <length>32768</length>
+        <required>false</required>
         <trackHistory>false</trackHistory>
-        <type>Html</type>
-        <visibleLines>25</visibleLines>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Total_Hours_of_Service_MERC__c</fullName>
@@ -857,15 +868,15 @@ Created by John A Adams 10/2/2013</description>
         <label>Type of Service</label>
         <picklist>
             <picklistValues>
-                <fullName>Speaking, Speaker</fullName>
+                <fullName>Speaking - Speaker</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Speaking, Chairman Symposium</fullName>
+                <fullName>Speaking - Chairman Symposium</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Advisory Board, Chairman</fullName>
+                <fullName>Advisory Board - Chairman</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -905,6 +916,19 @@ Created by John A Adams 10/2/2013</description>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
+    <namedFilters>
+        <fullName>nf_01I11000000CjxpEAC_00N11000000Sl5sEAC</fullName>
+        <active>true</active>
+        <field>Meeting_Participant_MERC__c.HCP_Contract_MERC__c</field>
+        <filterItems>
+            <field>HCP_Contract_MERC__c.Account_MERC__c</field>
+            <operation>equals</operation>
+            <valueField>$Source.Account_MERC__c</valueField>
+        </filterItems>
+        <isOptional>false</isOptional>
+        <name>Meeting Participant_HCP Contract</name>
+        <sourceObject>Meeting_Participant_MERC__c</sourceObject>
+    </namedFilters>
     <pluralLabel>HCP Contracts</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
@@ -1305,7 +1329,7 @@ Created by John A Adams 10/2/2013</description>
         <picklistValues>
             <picklist>Type_of_Service_MERC__c</picklist>
             <values>
-                <fullName>Advisory Board%2C Chairman</fullName>
+                <fullName>Advisory Board - Chairman</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1313,11 +1337,11 @@ Created by John A Adams 10/2/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Speaking%2C Chairman Symposium</fullName>
+                <fullName>Speaking - Chairman Symposium</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Speaking%2C Speaker</fullName>
+                <fullName>Speaking - Speaker</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1720,7 +1744,7 @@ Created by John A Adams 10/2/2013</description>
         <picklistValues>
             <picklist>Type_of_Service_MERC__c</picklist>
             <values>
-                <fullName>Advisory Board%2C Chairman</fullName>
+                <fullName>Advisory Board - Chairman</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1728,11 +1752,11 @@ Created by John A Adams 10/2/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Speaking%2C Chairman Symposium</fullName>
+                <fullName>Speaking - Chairman Symposium</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Speaking%2C Speaker</fullName>
+                <fullName>Speaking - Speaker</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2135,7 +2159,7 @@ Created by John A Adams 10/2/2013</description>
         <picklistValues>
             <picklist>Type_of_Service_MERC__c</picklist>
             <values>
-                <fullName>Advisory Board%2C Chairman</fullName>
+                <fullName>Advisory Board - Chairman</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2143,11 +2167,11 @@ Created by John A Adams 10/2/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Speaking%2C Chairman Symposium</fullName>
+                <fullName>Speaking - Chairman Symposium</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Speaking%2C Speaker</fullName>
+                <fullName>Speaking - Speaker</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

@@ -79,7 +79,7 @@ Created by John A Adams 10/10/2013</description>
     <label>Travel</label>
     <nameField>
         <displayFormat>T-{000000}</displayFormat>
-        <label>Travel Name</label>
+        <label>Travel Number</label>
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Travel</pluralLabel>

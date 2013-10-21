@@ -59,16 +59,17 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Cost_Center_MERC__c</fullName>
-        <description>Cost Center  provided by Budget Owner
-Created by John A Adams 10/11/2013</description>
+        <fullName>Cost_Centre_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup Relationship from Budget to Cost Centre. Created 10/18/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <label>Cost Center</label>
-        <length>7</length>
+        <label>Cost Centre</label>
+        <referenceTo>Cost_Center_GLBL__c</referenceTo>
+        <relationshipLabel>Budgets</relationshipLabel>
+        <relationshipName>Budgets</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>HCP_Copay_Needed_MERC__c</fullName>
