@@ -89,6 +89,14 @@ class MercuryBuildTest(unittest.TestCase):
 
             for f in failures:
                 if f['namespace'] != '' and f['namespace'] != None:
+                    print f
+                    compile_success = False
+                    break
+
+        if 'Messages' in result and type(result['Messages'] is list and len(result['Messages'] > 0)):
+            for m in result['Messages']:
+                if m['problemType'] != '' and m['problemType'] == 'Error':
+                    print m
                     compile_success = False
                     break
 
