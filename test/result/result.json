@@ -6,12 +6,24 @@
       "deleted": false,
       "fileName": "unpackaged/objects/Invoice_MERC__c.object",
       "fullName": "Invoice_MERC__c",
-      "problem": "An unexpected error occurred. Please include this ErrorId if you contact support: 476702841-34523 (961975181)",
+      "problem": "An unexpected error occurred. Please include this ErrorId if you contact support: 2011619487-12078 (961975181)",
+      "problemType": "Error",
+      "success": false
+    },
+    {
+      "changed": false,
+      "columnNumber": "16",
+      "created": false,
+      "deleted": false,
+      "fileName": "unpackaged/classes/GLBL_SobjectDataLoaderTest.cls",
+      "fullName": "GLBL_SobjectDataLoaderTest",
+      "lineNumber": "94",
+      "problem": "GLBL_SobjectDataLoaderTest.ApplyStandardPricebook: Class must implement the public interface method: void cloneMapHAndler(MAP<Id,SObject>) from GLBL_SobjectDataLoader.IDeserializeCallback",
       "problemType": "Error",
       "success": false
     }
   ],
-  "id": "09S11000000DOZpEAO",
+  "id": "09S11000000DTFaEAO",
   "runTestResult": {
     "codeCoverage": {
       "classes": [],

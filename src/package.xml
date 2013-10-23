@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
+		<members>GLBL_SobjectDataLoader</members>
+		<members>GLBL_SobjectDataLoaderTest</members>
+		<members>GLBL_SobjectDataLoaderTestMVN</members>
 		<members>GLBL_TriggerHandler</members>
+		<members>MERC_BudgetVersionController</members>
+		<members>MERC_BudgetVersionControllerTest</members>
 		<members>MERC_DocusignService</members>
 		<members>MERC_DocusignServiceMock</members>
 		<members>MERC_DocusignServiceTest</members>
 		<members>MERC_TeamMemberShareHandler</members>
 		<members>MERC_TeamMemberShareHandlerTest</members>
 		<members>MERC_TestFactory</members>
+		<members>MERC_Util</members>
 		<members>SobjectDataLoaderMVN</members>
 		<members>SobjectDataLoaderTestMVN</members>
 		<name>ApexClass</name>
@@ -17,6 +23,9 @@
 		<name>ApexComponent</name>
 	</types>
 	<types>
+		<members>MERC_ActivateBudget</members>
+		<members>MERC_NewBudgetVersion</members>
+		<members>MERC_SaveBudgetVersion</members>
 		<members>PersonSearchMVN</members>
 		<name>ApexPage</name>
 	</types>
