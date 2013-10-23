@@ -85,49 +85,6 @@ Created by John A Adams 10/17/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Contract_Fee_MERC__c</fullName>
-        <description>Final fee (system calculated ) if Tier available at the time of the request
-Created by John A Adams 10/16/2013</description>
-        <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Fee_Values_MERC__c , &quot;50&quot;), 50,
- IF(ISPICKVAL(Fee_Values_MERC__c , &quot;60&quot;), 60,
-  IF(ISPICKVAL(Fee_Values_MERC__c , &quot;70&quot;), 70,
-   IF(ISPICKVAL(Fee_Values_MERC__c , &quot;80&quot;), 80,
-    IF(ISPICKVAL(Fee_Values_MERC__c , &quot;90&quot;), 90,
-IF(ISPICKVAL(Fee_Values_MERC__c , &quot;100&quot;), 100,
- IF(ISPICKVAL(Fee_Values_MERC__c , &quot;110&quot;), 110,
-  IF(ISPICKVAL(Fee_Values_MERC__c , &quot;120&quot;), 120,
-   IF(ISPICKVAL(Fee_Values_MERC__c , &quot;130&quot;), 130,
-    IF(ISPICKVAL(Fee_Values_MERC__c , &quot;140&quot;), 140,
-IF(ISPICKVAL(Fee_Values_MERC__c , &quot;150&quot;), 150,
- IF(ISPICKVAL(Fee_Values_MERC__c , &quot;160&quot;), 160,
-  IF(ISPICKVAL(Fee_Values_MERC__c , &quot;170&quot;), 170,
-   IF(ISPICKVAL(Fee_Values_MERC__c , &quot;180&quot;), 180,
-    IF(ISPICKVAL(Fee_Values_MERC__c , &quot;190&quot;), 190,666
-    )
-   )
-  )
- )
-)
-    )
-   )
-  )
- )
-)
-    )
-   )
-  )
- )
-)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Contract Fee</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackHistory>false</trackHistory>
-        <type>Currency</type>
-    </fields>
-    <fields>
         <fullName>Contract_Request_Status_MERC__c</fullName>
         <description>Records the status of the contract.
 Created by John A Adams 10/8/2013</description>
@@ -309,6 +266,49 @@ Created by John A Adams 10/17/2013</description>
         </picklist>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Fair_Market_Value_MERC__c</fullName>
+        <description>Fee calculated by system if Tier available at the time of the request
+Created by John A Adams 10/16/2013</description>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(Fee_Values_MERC__c , &quot;50&quot;), 50,
+ IF(ISPICKVAL(Fee_Values_MERC__c , &quot;60&quot;), 60,
+  IF(ISPICKVAL(Fee_Values_MERC__c , &quot;70&quot;), 70,
+   IF(ISPICKVAL(Fee_Values_MERC__c , &quot;80&quot;), 80,
+    IF(ISPICKVAL(Fee_Values_MERC__c , &quot;90&quot;), 90,
+IF(ISPICKVAL(Fee_Values_MERC__c , &quot;100&quot;), 100,
+ IF(ISPICKVAL(Fee_Values_MERC__c , &quot;110&quot;), 110,
+  IF(ISPICKVAL(Fee_Values_MERC__c , &quot;120&quot;), 120,
+   IF(ISPICKVAL(Fee_Values_MERC__c , &quot;130&quot;), 130,
+    IF(ISPICKVAL(Fee_Values_MERC__c , &quot;140&quot;), 140,
+IF(ISPICKVAL(Fee_Values_MERC__c , &quot;150&quot;), 150,
+ IF(ISPICKVAL(Fee_Values_MERC__c , &quot;160&quot;), 160,
+  IF(ISPICKVAL(Fee_Values_MERC__c , &quot;170&quot;), 170,
+   IF(ISPICKVAL(Fee_Values_MERC__c , &quot;180&quot;), 180,
+    IF(ISPICKVAL(Fee_Values_MERC__c , &quot;190&quot;), 190,666
+    )
+   )
+  )
+ )
+)
+    )
+   )
+  )
+ )
+)
+    )
+   )
+  )
+ )
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Fair Market Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
     </fields>
     <fields>
         <fullName>Fee_Values_MERC__c</fullName>
@@ -675,6 +675,18 @@ Created by John A Adams 10/7/2013</description>
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
+        <fullName>Negotiated_Fee_MERC__c</fullName>
+        <description>Final negotiated fee.
+Created by John A Adams 10/21/2013</description>
+        <externalId>false</externalId>
+        <label>Negotiated Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>Other_Details_MERC__c</fullName>
         <description>Text are to note other details about potential speaker
 Created by John A Adams 10/7/2013</description>
@@ -697,6 +709,26 @@ Created by John A Adams 10/7/2013</description>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Payment_Required_MERC__c</fullName>
+        <description>Records if payment for service is required
+Created by John A Adams 10/7/2013</description>
+        <externalId>false</externalId>
+        <label>Payment Required</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Preparation_Time_MERC__c</fullName>
@@ -1258,6 +1290,17 @@ Created by John A Adams 10/2/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Payment_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Required_Recording_Consent_MERC__c</picklist>
             <values>
                 <fullName>Audio Recording</fullName>
@@ -1673,6 +1716,17 @@ Created by John A Adams 10/2/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Payment_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Required_Recording_Consent_MERC__c</picklist>
             <values>
                 <fullName>Audio Recording</fullName>
@@ -2084,6 +2138,17 @@ Created by John A Adams 10/2/2013</description>
             </values>
             <values>
                 <fullName>Trained to speak on this topic</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

@@ -107,6 +107,28 @@ Created by John A Adams 10/17/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Contract_Restrictions_GLBL__c</fullName>
+        <description>Restrictions to contract that HCP is requiring
+Created by John A Adams 10/22/2013</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Note any restrictions to contracting that exist.</inlineHelpText>
+        <label>Contract Restrictions</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Detailed_Preferences_GLBL__c</fullName>
+        <description>Captures HCP preferences at a more granular level e.g. I want to speak about these topics, I want to speak only in International Meetings.
+Created by John A Adams 10/23/2013</description>
+        <externalId>false</externalId>
+        <label>Detailed Preferences</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
         <fullName>Interaction_Channel_Type_GLBL__c</fullName>
         <description>Stores the  interaction selection by Speakers / Delegates
 Created by John A Adams 10/2/2013</description>
@@ -476,16 +498,19 @@ Created by John A Adams 10/3/2013</description>
         </picklistValues>
     </recordTypes>
     <searchLayouts>
+        <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
         <customTabListAdditionalFields>Account_GLBL__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Interaction_Channel_Type_GLBL__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Permission_Status_GLBL__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Speaker_Interest_GLBL__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Communication_Preference_GLBL__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>RECORDTYPE</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Account_GLBL__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Interaction_Channel_Type_GLBL__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Permission_Status_GLBL__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Speaker_Interest_GLBL__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Communication_Preference_GLBL__c</lookupDialogsAdditionalFields>
+        <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Account_GLBL__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Interaction_Channel_Type_GLBL__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Permission_Status_GLBL__c</searchResultsAdditionalFields>

@@ -137,6 +137,18 @@ Created by John A Adams 9/27/2013</description>
                 <fullName>Onboarded</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Interested in Meeting</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Declined</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No Show</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
@@ -288,7 +300,71 @@ Created by John A Adams 10/17/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Declined</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interested in Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Invited</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Show</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Travel_Time_Hrs_MERC__c</picklist>
+            <values>
+                <fullName>11-20 hrs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2-10 hrs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>More than 20 hrs</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Lilly_Employee</fullName>
+        <active>true</active>
+        <description>Lilly employees that would need to be captured on a meeting.  Created by John A Adams 10/23/2013</description>
+        <label>Lilly Employee</label>
+        <picklistValues>
+            <picklist>Status_MERC__c</picklist>
+            <values>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Attended</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Declined</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interested in Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invited</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Onboarded</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -324,7 +400,19 @@ Created by John A Adams 10/17/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Declined</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interested in Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Invited</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Show</fullName>
                 <default>false</default>
             </values>
             <values>

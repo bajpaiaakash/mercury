@@ -80,6 +80,21 @@ Created by John A Adams 10/4/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Hours_of_Service_MERC__c</fullName>
+        <description>Retrieves total hours of service from HPC Contract
+Created by John A Adams 10/21/2013</description>
+        <externalId>false</externalId>
+        <formula>Invoice_MERC__r.Meeting_Participant_MERC__r.HCP_Contract_MERC__r.Total_Hours_of_Service_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Hours of Service</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Invoice_MERC__c</fullName>
         <description>Master-Detail relationship to Invoice object. Created 9/28/2013 by KLorenti</description>
         <externalId>false</externalId>

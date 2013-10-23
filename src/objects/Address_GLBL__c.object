@@ -53,7 +53,34 @@ Created by John A Adams 9/27/2013</description>
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Adressee_MERC__c</fullName>
+        <fullName>Address_Type_GLBL__c</fullName>
+        <description>Identifies the type of address (personal, work)
+Created by John A Adams 10/22/2013</description>
+        <externalId>false</externalId>
+        <label>Address Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Personal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Work</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Correspondence</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Payment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Adressee_GLBL__c</fullName>
         <description>Name of addressee 
 Created by John A Adams 10/21/2013</description>
         <externalId>false</externalId>
@@ -87,22 +114,52 @@ Created by John A Adams 9/27/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>State_Province_GLBL__c</fullName>
-        <description>State information for Address
-Created by John A Adams 9/27/2013</description>
+        <fullName>Email_GLBL__c</fullName>
+        <description>HCP email address (work and or Private depending on type of address)
+Created by John A Adams 10/22/2013</description>
         <externalId>false</externalId>
-        <label>State/Province</label>
+        <label>Email</label>
         <length>80</length>
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Street_GLBL__c</fullName>
-        <description>Street Address
+        <fullName>Fax_GLBL__c</fullName>
+        <description>HCP Fax number (work and or Private depending on type of address)
+Created by John A Adams 10/22/2013</description>
+        <externalId>false</externalId>
+        <label>Fax</label>
+        <required>false</required>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Line_2_Adrs_Txt_GLBL__c</fullName>
+        <description>Street Address Line 2
+Created by John A Adams 9/27/2013
+Updated Field Name from Street_GLBL to Line_2_Adrs_Txt_GLBL KLorenti 10/23/2013</description>
+        <externalId>false</externalId>
+        <label>Address Line 2</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Phone_GLBL__c</fullName>
+        <description>HCP phone (work and or Private depending on type of address)
+Created by John A Adams 10/22/2013</description>
+        <externalId>false</externalId>
+        <label>Phone</label>
+        <required>false</required>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>State_Province_GLBL__c</fullName>
+        <description>State information for Address
 Created by John A Adams 9/27/2013</description>
         <externalId>false</externalId>
-        <label>Street</label>
+        <label>State/Province</label>
         <length>80</length>
         <required>false</required>
         <type>Text</type>
@@ -126,36 +183,35 @@ Created by John A Adams 9/27/2013</description>
         <label>All</label>
     </listViews>
     <nameField>
-        <displayFormat>A-{000000}</displayFormat>
-        <label>Address Name</label>
-        <type>AutoNumber</type>
+        <label>Address Line 1</label>
+        <type>Text</type>
     </nameField>
     <pluralLabel>Addresses</pluralLabel>
     <searchLayouts>
-        <customTabListAdditionalFields>Adressee_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Adressee_GLBL__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Account_GLBL__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Street_GLBL__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Line_2_Adrs_Txt_GLBL__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>City_GLBL__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>State_Province_GLBL__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Country_GLBL__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Zip_Postal_Code_GLBL__c</customTabListAdditionalFields>
-        <lookupDialogsAdditionalFields>Adressee_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Adressee_GLBL__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Account_GLBL__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Street_GLBL__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Line_2_Adrs_Txt_GLBL__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>City_GLBL__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>State_Province_GLBL__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Country_GLBL__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Zip_Postal_Code_GLBL__c</lookupDialogsAdditionalFields>
         <searchFilterFields>NAME</searchFilterFields>
-        <searchFilterFields>Adressee_MERC__c</searchFilterFields>
-        <searchFilterFields>Street_GLBL__c</searchFilterFields>
+        <searchFilterFields>Adressee_GLBL__c</searchFilterFields>
+        <searchFilterFields>Line_2_Adrs_Txt_GLBL__c</searchFilterFields>
         <searchFilterFields>State_Province_GLBL__c</searchFilterFields>
         <searchFilterFields>City_GLBL__c</searchFilterFields>
         <searchFilterFields>Zip_Postal_Code_GLBL__c</searchFilterFields>
         <searchFilterFields>Country_GLBL__c</searchFilterFields>
-        <searchResultsAdditionalFields>Adressee_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Adressee_GLBL__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Account_GLBL__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Street_GLBL__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Line_2_Adrs_Txt_GLBL__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>City_GLBL__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>State_Province_GLBL__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Country_GLBL__c</searchResultsAdditionalFields>

@@ -39,6 +39,15 @@
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
     <fields>
+        <fullName>Accommodation_Information_MERC__c</fullName>
+        <description>Capture additional information on Accommodations. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Accommodation Information</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
         <fullName>Agenda_Status_MERC__c</fullName>
         <description>Capture Current Status of Agenda. Created 10/17/2013</description>
         <externalId>false</externalId>
@@ -50,6 +59,72 @@
             </picklistValues>
             <picklistValues>
                 <fullName>Final</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Approved_MERC__c</fullName>
+        <description>Determine if Meeting is Approved. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Approved?</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Brand_Plan_Program_MERC__c</fullName>
+        <description>Capture Brand Plan Program for Marketing Purposes. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Brand Plan Program</label>
+        <picklist>
+            <picklistValues>
+                <fullName>TBD</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Business_Unit_MERC__c</fullName>
+        <description>Primary Meeting Business Unit. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Primary Meeting Business Unit</inlineHelpText>
+        <label>Business Unit</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Oncology</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Diabetes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bio-Medicines</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Emerging Markets</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -124,6 +199,25 @@
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Employee_Travel_MERC__c</fullName>
+        <description>How will the travel expenses for Lilly Employees be covered? Created 10/22/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Employee Travel Covered by</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Meeting Budget</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Individual Cost Center</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>End_Time_of_Meeting_MERC__c</fullName>
@@ -1201,6 +1295,38 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Forecasting_Information_MERC__c</fullName>
+        <description>Captures Additional Information about Forecasting. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Forecasting Information</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Functional_Area_MERC__c</fullName>
+        <description>Functional area paying for Meeting. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Functional Area</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Medical</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TBD</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Hospitality_Desk_Required_MERC__c</fullName>
         <description>Is Hospitality Desk required for Meeting? Created 10/17/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -1274,6 +1400,97 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Inviting_Delegates_MERC__c</fullName>
+        <description>Capture who is inviting delegates. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Who is Inviting Delegates?</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Sales Rep</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Brand Manager</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Medical Director</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Logistics_Information_MERC__c</fullName>
+        <description>Capture notes and comments on Logistics. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Logistics Information</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Month_MERC__c</fullName>
+        <description>Capture Month of meeting  for forecasting purposes. Created 10/16/2013 by KLorenti, Mavens Consulting.</description>
+        <externalId>false</externalId>
+        <label>Meeting Month</label>
+        <picklist>
+            <picklistValues>
+                <fullName>January</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>February</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>March</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>April</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>May</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>June</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>July</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>August</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>September</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>October</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>November</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>December</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Meeting_Objectives_MERC__c</fullName>
         <description>Capture of Meeting Objectives. Created 10/16/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -1306,6 +1523,233 @@
             </picklistValues>
             <picklistValues>
                 <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Quarter_MERC__c</fullName>
+        <description>Captures Quarter of Meeting for Forecasting purposes. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Meeting Quarter</label>
+        <picklist>
+            <picklistValues>
+                <fullName>1Q</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2Q</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3Q</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4Q</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Related_to_Another_Meeting_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicate if Meeting is part of a Speaker Tour, Series, Congress, etc. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Is Meeting Related to Another Meeting?</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Room_Setup_MERC__c</fullName>
+        <description>Capture preferred setup for Meeting Room. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Meeting Room Setup</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Theatre Style</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>U-Shaped</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Scope_MERC__c</fullName>
+        <description>Identifies whether a Meeting is National, International, or Rep Initiated. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Meeting Scope</label>
+        <picklist>
+            <picklistValues>
+                <fullName>National</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>International</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rep Initiated</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Status_MERC__c</fullName>
+        <description>Capture status of Meeting. Created 10/21/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Meeting Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Forecasted</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ready for Sourcing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Submitted for Contracting</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Registered</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Done</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Sub_Type_MERC__c</fullName>
+        <description>Track Sub-type of Meeting. Created 10/21/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Meeting Sub-Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Medical</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Medical Research</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TBD...</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Year_MERC__c</fullName>
+        <description>Captures Year of Meeting for Forecasting purposes. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Meeting Year</label>
+        <picklist>
+            <picklistValues>
+                <fullName>2013</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2014</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2015</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2016</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2017</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2018</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2019</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2020</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2021</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2022</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2023</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2024</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2025</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2026</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2027</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2028</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2029</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2030</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1462,6 +1906,17 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Preferred_Location_MERC__c</fullName>
+        <description>Preferred location of Accommodations. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Preferred Location</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Preferred_Venue_MERC__c</fullName>
         <description>Capture Preferred Venue during the meeting planning process. Created 10/16/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -1486,57 +1941,18 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Quarter_Month_MERC__c</fullName>
-        <description>Capture Quarter and Month for forecasting purposes. Created 10/16/2013 by KLorenti, Mavens Consulting.</description>
+        <fullName>RMAT_Assistance__c</fullName>
+        <description>Allows the Rep to request  &apos;RMAT Assistance Needed&apos; when a Rep cannot locate the required Vendor record (Payee Information).
+Created by John A Adams 10/23/2013</description>
         <externalId>false</externalId>
-        <label>Quarter/Month</label>
+        <label>RMAT Assistance</label>
         <picklist>
             <picklistValues>
-                <fullName>1Q/January</fullName>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>1Q/February</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>1Q/March</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>2Q/April</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>2Q/May</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>2Q/June</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>3Q/July</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>3Q/August</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>3Q/September</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>4Q/October</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>4Q/November</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>4Q/December</fullName>
+                <fullName>No</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1554,6 +1970,15 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Restauraunt_Information_MERC__c</fullName>
+        <description>Capture Additional Information about Restauraunts. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Restaurant Information</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
         <fullName>Sales_Rep_MERC__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Created Lookup to Account to select Sales Rep if it is a Sales Rep initiated meeting. Created 10/16/2013 by KLorenti, Mavens Consulting</description>
@@ -1568,13 +1993,23 @@
     </fields>
     <fields>
         <fullName>Send_Save_the_Date_MERC__c</fullName>
-        <defaultValue>false</defaultValue>
         <description>Indicate if a &quot;Save to Date&quot; should be sent to delegates?</description>
         <externalId>false</externalId>
         <inlineHelpText>Do you want the ability to send a &quot;Save the Date&quot; to delegates?</inlineHelpText>
         <label>Send Save the Date?</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
         <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Shipping_Address_for_Invitations_MERC__c</fullName>
@@ -1638,10 +2073,62 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Therapeutic_Area_MERC__c</fullName>
+        <description>Capture Therapeutic Area of Meeting. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Therapeutic Area</label>
+        <picklist>
+            <picklistValues>
+                <fullName>TBD</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Time_for_Restaurant_Booking_MERC__c</fullName>
+        <description>Enter time of Restaurant Booking. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Time for Restaurant Booking</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Transfers_MERC__c</fullName>
+        <description>For organizing Transfers. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Transfers</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Travel_Information_MERC__c</fullName>
+        <description>Capture notes and comments on Travel. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Travel Information</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
         <fullName>Type_MERC__c</fullName>
         <description>Type of Event. Created 10/2/2013 by KLorenti.</description>
         <externalId>false</externalId>
-        <label>Type</label>
+        <label>Meeting Type</label>
         <picklist>
             <picklistValues>
                 <fullName>Consultant</fullName>

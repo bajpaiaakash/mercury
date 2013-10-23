@@ -39,6 +39,15 @@
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
     <fields>
+        <fullName>Additional_Information_Budget_MERC__c</fullName>
+        <description>Captures notes for additional information about the budget. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Additional Information</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
         <fullName>Approved_PO_Number_MERC__c</fullName>
         <description>Approved PO Number to be entered on Budget. Created 10/16/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -48,6 +57,25 @@
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Billing_Option_MERC__c</fullName>
+        <description>Capture Billing Option for Budgets. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Billing Option</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Central Team</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EERS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Budget_Date_MERC__c</fullName>
@@ -70,6 +98,65 @@
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Countries_to_Receive_Invoices_MERC__c</fullName>
+        <description>Which countries are to receive invoices?  Created 10/22/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Countries to Receive Invoices</label>
+        <picklist>
+            <picklistValues>
+                <fullName>UK</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>France</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Germany</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Italy</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TBD</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Current_Budget_Used_MERC__c</fullName>
+        <description>Sum of current Budget Line Items. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Sum of current Budget Line Items</inlineHelpText>
+        <label>Current Budget Used</label>
+        <summarizedField>Budget_Line_Item_MERC__c.Amount_MERC__c</summarizedField>
+        <summaryForeignKey>Budget_Line_Item_MERC__c.Budget_MERC__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>GL_Account_Number_MERC__c</fullName>
+        <description>Capture G/L Account Number. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>G/L Account #</label>
+        <picklist>
+            <picklistValues>
+                <fullName>TBD</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>HCP_Copay_Needed_MERC__c</fullName>
@@ -110,6 +197,41 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Internal_Order_Number_MERC__c</fullName>
+        <description>Internal order number if known. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Internal Order Number</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Master_Budget_Delta_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(Master_Budget_MERC__c != &apos;&apos;, Current_Budget_Used_MERC__c - Master_Budget_MERC__r.Current_Budget_Used_MERC__c, 0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Master Budget Delta</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Master_Budget_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Master Budget</label>
+        <referenceTo>Budget_MERC__c</referenceTo>
+        <relationshipLabel>Budget Versions</relationshipLabel>
+        <relationshipName>Child_Budgets_MERC</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Meeting_MERC__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Master-Detail relationship from Budget to Meeting. Create 9/30/2012 by KLorenti.</description>
@@ -134,27 +256,62 @@
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>Previous_Budget_Revision_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Previous Budget Revision</label>
+        <referenceTo>Budget_MERC__c</referenceTo>
+        <relationshipLabel>Budgets (Previous Budget Revision)</relationshipLabel>
+        <relationshipName>Previous_Budget_Revisions_MERC</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Product_Category_MERC__c</fullName>
+        <description>Capture Product Category for Budget. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Product Category</label>
+        <length>4</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Status_MERC__c</fullName>
         <description>Status of Budget. Created 9/27/2013 by KLorenti.</description>
         <externalId>false</externalId>
         <label>Status</label>
         <picklist>
             <picklistValues>
-                <fullName>Forecast</fullName>
+                <fullName>Draft</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Active</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Planned</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Final Budget</fullName>
+                <fullName>Archived</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Version_Number_MERC__c</fullName>
+        <defaultValue>1</defaultValue>
+        <externalId>false</externalId>
+        <label>Version Number</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <label>Budget</label>
     <listViews>
@@ -174,6 +331,232 @@
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Budgets</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>MERC_Budget_Active</fullName>
+        <active>true</active>
+        <label>Active</label>
+        <picklistValues>
+            <picklist>Billing_Option_MERC__c</picklist>
+            <values>
+                <fullName>Central Team</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EERS</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Countries_to_Receive_Invoices_MERC__c</picklist>
+            <values>
+                <fullName>France</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Germany</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Italy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TBD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UK</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>GL_Account_Number_MERC__c</picklist>
+            <values>
+                <fullName>TBD</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>HCP_Copay_Needed_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>InterCompany_Billing_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_MERC__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>MERC_Budget_Archived</fullName>
+        <active>true</active>
+        <label>Archived</label>
+        <picklistValues>
+            <picklist>Billing_Option_MERC__c</picklist>
+            <values>
+                <fullName>Central Team</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EERS</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Countries_to_Receive_Invoices_MERC__c</picklist>
+            <values>
+                <fullName>France</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Germany</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Italy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TBD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UK</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>GL_Account_Number_MERC__c</picklist>
+            <values>
+                <fullName>TBD</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>HCP_Copay_Needed_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>InterCompany_Billing_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_MERC__c</picklist>
+            <values>
+                <fullName>Archived</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>MERC_Budget_Draft</fullName>
+        <active>true</active>
+        <label>Draft</label>
+        <picklistValues>
+            <picklist>Billing_Option_MERC__c</picklist>
+            <values>
+                <fullName>Central Team</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EERS</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Countries_to_Receive_Invoices_MERC__c</picklist>
+            <values>
+                <fullName>France</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Germany</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Italy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TBD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UK</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>GL_Account_Number_MERC__c</picklist>
+            <values>
+                <fullName>TBD</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>HCP_Copay_Needed_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>InterCompany_Billing_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_MERC__c</picklist>
+            <values>
+                <fullName>Draft</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <searchLayouts>
         <customTabListAdditionalFields>Budget_Date_MERC__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Status_MERC__c</customTabListAdditionalFields>
@@ -198,4 +581,33 @@
         <searchResultsAdditionalFields>CREATEDBY_USER</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>MERC_Prevent_Budget_Edit_Archived_Active</fullName>
+        <active>true</active>
+        <description>Prevents edits of Active or Archived Budgets - JFerraro 10/23/2013</description>
+        <errorConditionFormula>$Setup.Mercury_Settings_MERC__c.Budget_Edit_Validation_MERC__c &amp;&amp; (RecordType.DeveloperName == &apos;MERC_Budget_Active&apos; || RecordType.DeveloperName == &apos;MERC_Budget_Archived&apos;)</errorConditionFormula>
+        <errorMessage>You cannot modify an Active or Archived Budget.</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>MERC_Activate_Budget</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Activate Budget</masterLabel>
+        <openType>sidebar</openType>
+        <page>MERC_ActivateBudget</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>MERC_New_Budget_Version</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>New Version</masterLabel>
+        <openType>sidebar</openType>
+        <page>MERC_NewBudgetVersion</page>
+        <protected>false</protected>
+    </webLinks>
 </CustomObject>
