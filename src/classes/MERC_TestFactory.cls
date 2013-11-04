@@ -34,6 +34,44 @@ public with sharing class MERC_TestFactory {
 		return mtgs;
 	}
 
+	public static Daily_Attendance_TOV_MERC__c insertTov(String meetingDayId, String meetingParticipantId) {
+		Daily_Attendance_TOV_MERC__c tov = new Daily_Attendance_TOV_MERC__c();
+		tov.Meeting_Day_MERC__c = meetingDayId;
+		tov.Meeting_Participant_MERC__c = meetingParticipantId;
+		insert tov;
+		return tov;
+	}
+
+	public static List<Meeting_Day_MERC__c> insertMeetingDays(String meetingId, Integer numberOfDays) {
+		List<Meeting_Day_MERC__c> mtgDays = new List<Meeting_Day_MERC__c>();
+		for (Integer i = 0; i < numberOfDays; i++) {
+			Meeting_Day_MERC__c m = new Meeting_Day_MERC__c();
+			m.Date_MERC__c = Date.today().addDays(i);
+			m.Meeting_MERC__c = meetingId;
+			m.Daily_Food_Beverage_Amount_MERC__c = 100;
+			m.Daily_Ground_Trans_Amount_MERC__c = 50;
+			m.Daily_Hotel_Amount_MERC__c = 300;
+			m.Daily_Other_Amount_MERC__c = 800;
+			m.Daily_Registration_Amount_MERC__c = 200;
+			mtgDays.add(m);
+		}
+		insert mtgDays;
+		return mtgDays;
+	}
+
+	public static List<Meeting_Participant_MERC__c> insertParticipants(String meetingId, List<Account> accounts) {
+		List<Meeting_Participant_MERC__c> participants = new List<Meeting_Participant_MERC__c>();
+		for (Integer i = 0; i < accounts.size(); i++) {
+			Meeting_Participant_MERC__c p = new Meeting_Participant_MERC__c();
+			p.Account_MERC__c = accounts.get(0).Id;
+			p.Meeting_MERC__c = meetingId;
+			participants.add(p);
+		}
+
+		insert participants;
+		return participants;
+	}
+
 	public static Budget_MERC__c insertBudget(String meetingId) {
 		Budget_MERC__c b = new Budget_MERC__c();
 		b.Meeting_MERC__c = meetingId;

@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Details of travel arrangements - child of Travel
+Created by John A Adams 10/9/2013</description>
+    <enableActivities>true</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Address_MERC__c</fullName>
+        <description>Address of Hotel or Vehicle rental organization
+Created by John A Adams 11/2/2013</description>
+        <externalId>false</externalId>
+        <label>Address</label>
+        <length>32768</length>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Arrival_Time_MERC__c</fullName>
+        <description>Arrival times
+Created by John A Adams 10/31/2013</description>
+        <externalId>false</externalId>
+        <label>Arrival Time</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Check_in_MERC__c</fullName>
+        <description>Check-in Date
+Created by John A Adams 11/2/2013</description>
+        <externalId>false</externalId>
+        <label>Check-in</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Check_out_Date_MERC__c</fullName>
+        <description>Check-out Date 
+Created by John A Adams 11/2/2013</description>
+        <externalId>false</externalId>
+        <label>Check-out Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Class_or_Model_MERC__c</fullName>
+        <description>Class or Model of vehicle
+Created by John A Adams 11/2/2013</description>
+        <externalId>false</externalId>
+        <label>Class or Model</label>
+        <length>100</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Date_MERC__c</fullName>
+        <description>Date
+Created by John A Adams 10/31/2013</description>
+        <externalId>false</externalId>
+        <label>Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Departing_City_MERC__c</fullName>
+        <description>Transportation leg departing from
+Created by John A Adams 10/10/2013</description>
+        <externalId>false</externalId>
+        <label>Departing City</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Departure_Time_MERC__c</fullName>
+        <description>Departure time 
+Created by John A Adams 10/31/2013</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Connection Time</inlineHelpText>
+        <label>Departure Time</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Destination_City_MERC__c</fullName>
+        <description>Final destination city of travel leg
+Created by John A Adams 10/31/2013</description>
+        <externalId>false</externalId>
+        <label>Destination City</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Drop_off_Date_MERC__c</fullName>
+        <description>Vehicle Drop-off Date
+Created by John A Adams 11/2/2013</description>
+        <externalId>false</externalId>
+        <label>Drop-off Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Final_Destination_MERC__c</fullName>
+        <description>Identifies if  this the final destination of travel?
+Created by John A Adams 10/31/2013</description>
+        <externalId>false</externalId>
+        <label>Final Destination</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Flight_Number_MERC__c</fullName>
+        <description>Flight Number or other transportation
+Created by John A Adams 10/10/2013</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Flight number or other transportation</inlineHelpText>
+        <label>Flight Number</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Nights_MERC__c</fullName>
+        <description>Number of nights in hotel
+Created by John A Adams 11/2/2013</description>
+        <externalId>false</externalId>
+        <formula>Check_out_Date_MERC__c - Date_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Number of Nights</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PNR_MERC__c</fullName>
+        <description>PNR</description>
+        <externalId>false</externalId>
+        <label>PNR</label>
+        <length>12</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Phone_MERC__c</fullName>
+        <description>Phone Number of Hotel or Vehicle rental
+Created by John A Adams 11/2/2013</description>
+        <externalId>false</externalId>
+        <label>Phone</label>
+        <required>false</required>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Reservation_MERC__c</fullName>
+        <description>Reservation Number of Hotel 
+Created by John A Adams 11/2/2013</description>
+        <externalId>false</externalId>
+        <label>Reservation #</label>
+        <length>50</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Travel_Detail_Type__c</fullName>
+        <description>Identifies what details of travel
+Created by John A Adams 10/31/2013</description>
+        <externalId>false</externalId>
+        <label>Travel Detail Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Outbound Leg</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Connection Leg</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Inbound Leg</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Accommodation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle Rental</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Travel_MERC__c</fullName>
+        <description>Details of Travel object
+Created by John A Adams 10/10/2013</description>
+        <externalId>false</externalId>
+        <label>Travel</label>
+        <referenceTo>Travel_MERC__c</referenceTo>
+        <relationshipName>Travel_Legs</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Vendor_MERC__c</fullName>
+        <description>Airline, Hotel, Car Rental Agency
+Created by John A Adams 10/10/2013</description>
+        <externalId>false</externalId>
+        <label>Vendor</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Travel Itinerary</label>
+    <nameField>
+        <displayFormat>Leg-{000000}</displayFormat>
+        <label>Leg #</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Travel Itineraries</pluralLabel>
+    <recordTypes>
+        <fullName>Accommodations_MERC</fullName>
+        <active>true</active>
+        <description>Hotel Information</description>
+        <label>Accommodations</label>
+        <picklistValues>
+            <picklist>Final_Destination_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Travel_Detail_Type__c</picklist>
+            <values>
+                <fullName>Accommodation</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Transportation_MERC</fullName>
+        <active>true</active>
+        <description>Transportation information</description>
+        <label>Transportation</label>
+        <picklistValues>
+            <picklist>Final_Destination_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Travel_Detail_Type__c</picklist>
+            <values>
+                <fullName>Connection Leg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inbound Leg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outbound Leg</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Vehicle_MERC</fullName>
+        <active>true</active>
+        <description>Vehicle rental information</description>
+        <label>Vehicle</label>
+        <picklistValues>
+            <picklist>Final_Destination_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Travel_Detail_Type__c</picklist>
+            <values>
+                <fullName>Vehicle Rental</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Vendor_MERC__c</searchFilterFields>
+        <searchFilterFields>Flight_Number_MERC__c</searchFilterFields>
+        <searchFilterFields xsi:nil="true"/>
+        <searchFilterFields>Departing_City_MERC__c</searchFilterFields>
+        <searchFilterFields xsi:nil="true"/>
+        <searchFilterFields xsi:nil="true"/>
+        <searchFilterFields xsi:nil="true"/>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

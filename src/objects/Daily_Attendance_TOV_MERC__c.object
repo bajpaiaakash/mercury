@@ -39,7 +39,7 @@
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
     <fields>
-        <fullName>Estimated_Food_and_Beverage_ToV_MERC__c</fullName>
+        <fullName>Est_Food_Bev_ToV_MERC__c</fullName>
         <externalId>false</externalId>
         <formula>Meeting_Day_MERC__r.Daily_Food_Beverage_Amount_MERC__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
@@ -50,7 +50,7 @@
         <type>Currency</type>
     </fields>
     <fields>
-        <fullName>Estimated_Ground_Transportation_MERC__c</fullName>
+        <fullName>Est_Grnd_Transp_MERC__c</fullName>
         <externalId>false</externalId>
         <formula>Meeting_Day_MERC__r.Daily_Ground_Trans_Amount_MERC__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
@@ -61,7 +61,7 @@
         <type>Currency</type>
     </fields>
     <fields>
-        <fullName>Estimated_Hotel_ToV_MERC__c</fullName>
+        <fullName>Est_Hotel_ToV_MERC__c</fullName>
         <externalId>false</externalId>
         <formula>Meeting_Day_MERC__r.Daily_Room_Rate_MERC__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
@@ -72,7 +72,7 @@
         <type>Currency</type>
     </fields>
     <fields>
-        <fullName>Estimated_Other_ToV_MERC__c</fullName>
+        <fullName>Est_Other_ToV_MERC__c</fullName>
         <externalId>false</externalId>
         <formula>Meeting_Day_MERC__r.Daily_Other_Amount_MERC__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
@@ -83,7 +83,7 @@
         <type>Currency</type>
     </fields>
     <fields>
-        <fullName>Estimated_Registration_Amt_ToV_MERC__c</fullName>
+        <fullName>Est_Reg_Amt_ToV_MERC__c</fullName>
         <externalId>false</externalId>
         <formula>Meeting_Day_MERC__r.Daily_Registration_Amount_MERC__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
@@ -146,7 +146,7 @@ Created by John A Adams 10/10/2013</description>
     <label>Daily Attendance &amp; TOV</label>
     <nameField>
         <displayFormat>DA-{000000}</displayFormat>
-        <label>Attendance Number</label>
+        <label>Attendance #</label>
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Daily Attendance &amp; TOV</pluralLabel>

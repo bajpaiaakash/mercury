@@ -68,10 +68,9 @@
     </fields>
     <label>Alternate ID</label>
     <nameField>
-        <displayFormat>ALT-{000000}</displayFormat>
-        <label>Alternate ID Number</label>
+        <label>Alternate ID</label>
         <trackHistory>false</trackHistory>
-        <type>AutoNumber</type>
+        <type>Text</type>
     </nameField>
     <pluralLabel>Alternate ID&apos;s</pluralLabel>
     <searchLayouts/>

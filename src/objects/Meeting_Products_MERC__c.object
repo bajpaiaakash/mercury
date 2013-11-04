@@ -57,7 +57,7 @@
         <description>Master-Detail from Meeting to Product. Created 10/4/2013 by KLorenti.</description>
         <externalId>false</externalId>
         <label>Products</label>
-        <referenceTo>Product_Catalogue_GLBL__c</referenceTo>
+        <referenceTo>Product_Group_GLBL__c</referenceTo>
         <relationshipLabel>Meetings</relationshipLabel>
         <relationshipName>Meeting_Products</relationshipName>
         <relationshipOrder>0</relationshipOrder>
@@ -69,7 +69,7 @@
     <label>Meeting Product</label>
     <nameField>
         <displayFormat>P-{000000}</displayFormat>
-        <label>Meeting Products Number</label>
+        <label>Product/Topic  #</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>

@@ -1,0 +1,66 @@
+<apex:page showHeader="true" sidebar="true" tabStyle="Meeting_MERC__c" standardController="Meeting_Day_MERC__c" recordSetVar="a" extensions="MERC_DailyAttendanceController">
+	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/jquery.min.js')}"/>
+	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/mercury.js')}"/>
+	<apex:stylesheet value="{!urlfor($Resource.mercury, 'css/style.css')}"/>
+	<apex:sectionHeader title="{!meeting.Name}" subtitle="{!$ObjectType.Daily_Attendance_TOV_MERC__c.label}" />
+	<style>
+		table.attendanceTable tr {
+			cursor:pointer;
+		}
+
+		select.selectMeetingDay {
+			font-size:16px !important;
+		}
+	</style>
+	<script>
+		$(function() {
+			bindDomHandlers()
+		})
+
+		function bindDomHandlers() {
+			$('table.attendanceTable tr td.accountNameCell').bind('selectstart', function(event) {
+			    event.preventDefault();
+			});
+			
+			$("table.attendanceTable tr td.accountNameCell").click(function() {
+				var attendedCheckbox = $(this).parent().find('input[type="checkbox"]')
+				attendedCheckbox.prop("checked", !attendedCheckbox.prop("checked"))
+			})	
+
+			$("input#chkSelectAll").click(function() {
+				var isSelectAllChecked = $(this).prop("checked")
+				if (isSelectAllChecked) {
+					$("input.chkSelected").prop("checked", true)
+				} else {
+					$("input.chkSelected").prop("checked", false)
+				}
+			})	
+		}
+	</script>
+	<apex:form >
+		<div class="loading-wrapper" style="position:relative;">
+			<apex:pageMessage severity="INFO" strength="2" summary="Select the participants who attended for each meeting day and click the 'Update' button."/>
+			<apex:pageBlock title="Meeting Participants" id="mainBlock">
+				<apex:pageBlockButtons >
+					<apex:selectList value="{!selectedMeetingDayId}" size="1" styleclass="selectMeetingDay">
+						<apex:selectOptions value="{!meetingDayOptions}"/>
+						<apex:actionSupport action="{!changeDay}" onsubmit="toggleLoading()" oncomplete="bindDomHandlers();toggleLoading()" event="onchange" rerender="mainBlock"/>
+					</apex:selectList>
+					<apex:commandButton value="Update" action="{!updateAttendanceForSelectedMeetingDay}" onclick="toggleLoading()" oncomplete="bindDomHandlers();toggleLoading()" rerender="mainBlock"/>
+					<apex:commandButton value="Back to Meeting" action="{!cancel}"/>
+				</apex:pageBlockButtons>
+				<apex:pageMessages />
+				<apex:pageBlockTable value="{!participants}" var="p" styleclass="attendanceTable">
+					<apex:column headerValue="Attended" width="30">
+						<apex:facet name="header">
+							<input type="checkbox" id="chkSelectAll"/>
+						</apex:facet>
+						<apex:inputCheckbox value="{!p.selected}" styleClass="chkSelected"/>
+					</apex:column>
+					<apex:column value="{!p.participant.Account_MERC__r.Name}" styleClass="accountNameCell"/>
+				</apex:pageBlockTable>
+			</apex:pageBlock>
+			<c:MERC_LoadingMask />
+		</div>
+	</apex:form>
+</apex:page>

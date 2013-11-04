@@ -11,4 +11,9 @@ public with sharing class MERC_Util {
 		settings.Budget_Edit_Validation_MERC__c = true;
 		update settings;
 	}
+
+	public static String getSobjectAPIName(Sobject s) {
+		Id recordId = (Id)s.get('Id');
+		return recordId.getSObjectType().getDescribe().getName();
+	}
 }

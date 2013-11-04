@@ -54,6 +54,75 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Account_Email_GLBL__c</fullName>
+        <description>Stamps the Account Email as chosen for the selected Requester on the Interaction.</description>
+        <externalId>false</externalId>
+        <label>Account Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Fax_GLBL__c</fullName>
+        <description>Stamps the Account Fax number as chosen for the selected Requester on the Interaction.</description>
+        <externalId>false</externalId>
+        <label>Account Fax</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Account_Phone_GLBL__c</fullName>
+        <description>Stamps the Account Phone number as chosen for the selected Requester on the Interaction.</description>
+        <externalId>false</externalId>
+        <label>Account Phone</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>AddressLine1_GLBL__c</fullName>
+        <description>Stamps Address Line 2 with the address line 2 of the Requester&apos;s address that was selected during the Person Search.</description>
+        <externalId>false</externalId>
+        <label>Address Line 1</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AddressLine2_GLBL__c</fullName>
+        <description>Stamps Address Line 2 with the address line 2 of the Requester&apos;s address that was selected during the Person Search.</description>
+        <externalId>false</externalId>
+        <label>Address Line 2</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Address_GLBL__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Look up to the Address object.  This allows Person Search to set the Address on the Case for ease of accessing the selected Account&apos;s Address.</description>
+        <externalId>false</externalId>
+        <label>Address</label>
+        <referenceTo>Address_GLBL__c</referenceTo>
+        <relationshipLabel>Cases</relationshipLabel>
+        <relationshipName>Cases</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>AssetId</fullName>
         <type>Lookup</type>
     </fields>
@@ -62,8 +131,33 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>City_GLBL__c</fullName>
+        <description>Stamps the City as chosen for the selected Requester on the Interaction.</description>
+        <externalId>false</externalId>
+        <label>City</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>ContactId</fullName>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Country_GLBL__c</fullName>
+        <defaultValue>$User.Country</defaultValue>
+        <description>Either the country of the call center agent or the country from the caller&apos;s address.</description>
+        <externalId>false</externalId>
+        <label>Country</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Meeting_MERC__c</fullName>
@@ -105,6 +199,18 @@
     <fields>
         <fullName>ParentId</fullName>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Postal_Code_GLBL__c</fullName>
+        <description>Stamps the Postal Code as chosen for the selected Requester on the Interaction.</description>
+        <externalId>false</externalId>
+        <label>Postal Code</label>
+        <length>10</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Priority</fullName>
@@ -158,7 +264,7 @@
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Referred_By_MERC__c</fullName>
+        <fullName>Referred_By_GLBL__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Referred By</label>
@@ -169,6 +275,19 @@
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>State_GLBL__c</fullName>
+        <description>Stamps the State as chosen for the selected Requester on the Interaction.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>You may enter any valid US state postal code 2 character abbreviation</inlineHelpText>
+        <label>State</label>
+        <length>2</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Status</fullName>

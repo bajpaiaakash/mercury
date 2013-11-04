@@ -251,7 +251,7 @@ Created by John A Adams 10/3/2013</description>
     </listViews>
     <nameField>
         <displayFormat>C-{000000}</displayFormat>
-        <label>Communicaion Number</label>
+        <label>Communicaion #</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>

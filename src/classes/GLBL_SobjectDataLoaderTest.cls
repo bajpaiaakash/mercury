@@ -99,6 +99,8 @@ private class GLBL_SobjectDataLoaderTest {
 		{
 			standardPricebook = [select Id from Pricebook2 where IsStandard = true];				
 		}
+
+		public void cloneMapHAndler(Map<Id, SObject> cloneMap) {}
 		
 		public void unresolvedReferences(Schema.SObjectType sObjectType, List<GLBL_SobjectDataLoader.UnresolvedReferences> unresolvedReferences)
 		{

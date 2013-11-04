@@ -83,7 +83,7 @@
     <label>Merge History</label>
     <nameField>
         <displayFormat>HIST-{000000}</displayFormat>
-        <label>Merge History Number</label>
+        <label>Merge History #</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>

@@ -215,9 +215,35 @@ Created by John A Adams 10/21/2013</description>
         <description>Payee Country
 Created by John A Adams 10/21/2013</description>
         <externalId>false</externalId>
-        <formula>Associated_Address_MERC__r.Country_GLBL__c</formula>
+        <formula>text(Associated_Address_MERC__r.Adrs_Cntry_Cd_GLBL__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Payee Country</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Payee_Email_MERC__c</fullName>
+        <description>Payee Email address
+Created by John A Adams 10/25/2013</description>
+        <externalId>false</externalId>
+        <formula>Associated_Address_MERC__r.Email_GLBL__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Payee Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Payee_Fax_Number_MERC__c</fullName>
+        <description>Payee Fax Number
+Created by John A Adams 10/25/2013</description>
+        <externalId>false</externalId>
+        <formula>Associated_Address_MERC__r.Fax_GLBL__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Payee Fax Number</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Text</type>
@@ -228,7 +254,7 @@ Created by John A Adams 10/21/2013</description>
         <description>Payee State / Province 
 Created by John A Adams 10/21/2013</description>
         <externalId>false</externalId>
-        <formula>Associated_Address_MERC__r.State_Province_GLBL__c</formula>
+        <formula>text(Associated_Address_MERC__r.St_Cd_GLBL__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Payee State /Province</label>
         <required>false</required>
@@ -270,11 +296,35 @@ Created by John A Adams 10/17/2013</description>
         <label>Payment Method</label>
         <picklist>
             <picklistValues>
-                <fullName>Transfer</fullName>
+                <fullName>Automatic Bank Transfer</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Cheque</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Payment_Type_MERC__c</fullName>
+        <description>Type of payment
+Created by John A Adams 10/25/2013</description>
+        <externalId>false</externalId>
+        <label>Payment Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Domestic</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Foreign</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -303,18 +353,6 @@ Created by John A Adams 10/17/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>SAP_Account_Name_MERC__c</fullName>
-        <description>The name of the Bank account in SAP system
-Created by John A Adams 9/27/2013</description>
-        <externalId>false</externalId>
-        <label>SAP Account Name</label>
-        <length>100</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>SAP_Vendor_ID_MERC__c</fullName>
         <description>SAP Vender ID number - used to integrate with SAP system
 Created by John A Adams 9/27/2013</description>
@@ -326,13 +364,24 @@ Created by John A Adams 9/27/2013</description>
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>VAT_Identification_MERC__c</fullName>
+        <description>A value added tax identification number or VAT identification number (VATIN) is an identifier used in many countries, including the countries of the European Union, for value added tax purposes.
+Created by John A Adams 10/30/2013</description>
+        <externalId>false</externalId>
+        <formula>Account_MERC__r.VAT_ID_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>VAT Identification #</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <label>Payee</label>
     <listViews>
         <fullName>All</fullName>
         <columns>Account_MERC__c</columns>
         <columns>SAP_Vendor_ID_MERC__c</columns>
-        <columns>SAP_Account_Name_MERC__c</columns>
-        <columns>CURRENCY_ISO_CODE</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
         <language>en_US</language>
@@ -359,17 +408,17 @@ Created by John A Adams 9/27/2013</description>
         <customTabListAdditionalFields>Account_MERC__c</customTabListAdditionalFields>
         <customTabListAdditionalFields xsi:nil="true"/>
         <customTabListAdditionalFields>Primary_Account_MERC__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>SAP_Account_Name_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields xsi:nil="true"/>
         <customTabListAdditionalFields>SAP_Vendor_ID_MERC__c</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>Account_MERC__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields xsi:nil="true"/>
         <lookupDialogsAdditionalFields>Primary_Account_MERC__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>SAP_Account_Name_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields xsi:nil="true"/>
         <lookupDialogsAdditionalFields>SAP_Vendor_ID_MERC__c</lookupDialogsAdditionalFields>
         <searchResultsAdditionalFields>Account_MERC__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields xsi:nil="true"/>
         <searchResultsAdditionalFields>Primary_Account_MERC__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>SAP_Account_Name_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields xsi:nil="true"/>
         <searchResultsAdditionalFields>SAP_Vendor_ID_MERC__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>

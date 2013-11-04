@@ -65,6 +65,28 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Priority_Rank_Nbr_GLBL__c</fullName>
+        <externalId>false</externalId>
+        <label>Priority Rank</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Rltnshp_Typ_Cd_GLBL__c</fullName>
+        <description>Maps to Customer.ODS.Relationship Type field. Created by Oliver Dunford 25th Oct 2013</description>
+        <externalId>false</externalId>
+        <label>Affiliation Type</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Role_GLBL__c</fullName>
         <description>Role describing relationship among accounts.  Created 10/17/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -146,7 +168,7 @@
     <label>Affiliation</label>
     <nameField>
         <displayFormat>A-{000000}</displayFormat>
-        <label>Affiliation Number</label>
+        <label>Affiliation #</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>

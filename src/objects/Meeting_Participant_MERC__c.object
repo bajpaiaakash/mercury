@@ -40,16 +40,45 @@
     <enableReports>true</enableReports>
     <fields>
         <fullName>Account_MERC__c</fullName>
-        <deleteConstraint>Restrict</deleteConstraint>
         <description>Lookup to Account from Event Participant. Created 9/28/2013 by KLorenti.</description>
         <externalId>false</externalId>
         <label>Account</label>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Meeting Participants</relationshipLabel>
         <relationshipName>Event_Participants</relationshipName>
-        <required>true</required>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
         <trackHistory>false</trackHistory>
-        <type>Lookup</type>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Contract_Without_Payment_MERC__c</fullName>
+        <description>Pulls in if the contract is without payment.
+Created by John A Adams 10/31/2013</description>
+        <externalId>false</externalId>
+        <formula>IF
+(ISPICKVAL(HCP_Contract_MERC__r.Payment_Required_MERC__c, &quot;Yes&quot;),
+&quot;Yes&quot;, &quot;No&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contract Without Payment</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Country_of_Residence_MERC__c</fullName>
+        <description>Country of Residence from HCP Profile - used to determine Min/Max rates based on Tier
+Created by John A Adams 10/31/2013</description>
+        <externalId>false</externalId>
+        <formula>Account_MERC__r.Country_of_Residence_GLBL__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Country of Residence</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Event_Time_Hrs_MERC__c</fullName>
@@ -62,6 +91,36 @@
         <trackHistory>false</trackHistory>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Final_Fee_MERC__c</fullName>
+        <description>Can be used to override the calculated Maximum Fee.  This is the figure used within the Invoicing Process.  Created by Oliver Dunford 31st Oct 2013.</description>
+        <externalId>false</externalId>
+        <label>Final Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Ground_Transportation_Required_MERC__c</fullName>
+        <description>When a Meeting Owner is registering a participant manually in Mercury, these fields may be populated. Created 10/28/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Ground Transportation Required?</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>HCP_Contract_MERC__c</fullName>
@@ -77,6 +136,72 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Hotel_Required_MERC__c</fullName>
+        <description>When a Meeting Owner is registering participants manually in Mercury, these attributes may be populated. Created 10/28/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Hotel Required?</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Maximum_Fee_MERC__c</fullName>
+        <description>Calculates the maximum fee possible based on Max Rate and Total Hrs of Service then adjusted based on Travel.
+Created by John A Adams 10/31/2013</description>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(Travel_Time_Hrs_MERC__c,&quot;&quot;), 
+(Maximum_Rate_MERC__c *  Total_Hours_of_Service_MERC__c), 
+
+IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;0-2 hrs&quot;), 
+(Maximum_Rate_MERC__c *  Total_Hours_of_Service_MERC__c), 
+
+IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;2-10 hrs&quot;), 
+(0.20 * (Maximum_Rate_MERC__c *  Total_Hours_of_Service_MERC__c)+ 
+Maximum_Rate_MERC__c *  Total_Hours_of_Service_MERC__c), 
+
+IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;11-20 hrs&quot;), 
+(0.25 * (Maximum_Rate_MERC__c *  Total_Hours_of_Service_MERC__c)+ 
+Maximum_Rate_MERC__c *  Total_Hours_of_Service_MERC__c), 
+
+IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;), 
+(0.30 * (Maximum_Rate_MERC__c *  Total_Hours_of_Service_MERC__c)+ 
+Maximum_Rate_MERC__c *  Total_Hours_of_Service_MERC__c), 0 
+) 
+) 
+) 
+) 
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Maximum Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Maximum_Rate_MERC__c</fullName>
+        <description>Maximum Rate based on Country and Tier
+Created by John A Adams 10/31/2013</description>
+        <externalId>false</externalId>
+        <label>Maximum Rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>Meeting_MERC__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Master-Detail Relationship from Meeting Participant to Meeting. Created 9/30/2013 by KLorenti.</description>
@@ -88,6 +213,74 @@
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Minimum_Fee_MERC__c</fullName>
+        <description>Calculates the minimum fee possible based on Min Rate and Total Hrs of Service then adjusted based on Travel.
+Created by John A Adams 10/31/2013</description>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(Travel_Time_Hrs_MERC__c,&quot;&quot;), 
+(Minimum_Rate_MERC__c *  Total_Hours_of_Service_MERC__c), 
+
+
+IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;0-2 hrs&quot;), 
+(Minimum_Rate_MERC__c *  Total_Hours_of_Service_MERC__c), 
+
+
+IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;2-10 hrs&quot;), 
+(0.20 * (Minimum_Rate_MERC__c *  Total_Hours_of_Service_MERC__c)+ 
+Minimum_Rate_MERC__c *  Total_Hours_of_Service_MERC__c), 
+
+IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;11-20 hrs&quot;), 
+(0.25 * (Minimum_Rate_MERC__c *  Total_Hours_of_Service_MERC__c)+ 
+Minimum_Rate_MERC__c *  Total_Hours_of_Service_MERC__c), 
+
+IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;), 
+(0.30 * (Minimum_Rate_MERC__c *  Total_Hours_of_Service_MERC__c)+ 
+Minimum_Rate_MERC__c *  Total_Hours_of_Service_MERC__c), 0 
+) 
+) 
+) 
+) 
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Minimum Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Minimum_Rate_MERC__c</fullName>
+        <description>Minimum rate based on Country and Tier.
+Created by John A Adams 10/31/2013</description>
+        <externalId>false</externalId>
+        <label>Minimum Rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Partial_Payment_Justification_MERC__c</fullName>
+        <description>Capture the justification reason if part payment was required. Created 10/29/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Partial Payment Justification Needed</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Preparation_Time_Hrs_MERC__c</fullName>
@@ -102,6 +295,39 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Service_Provider_Tier_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account_MERC__r.Service_Provider_Tier_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Service Provider Tier</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Services_Rendered_MERC__c</fullName>
+        <description>Allows Mercury Owner to confirm that speaker rendered contractual services.
+Created by John A Adams 10/24/2013</description>
+        <externalId>false</externalId>
+        <label>Services Rendered</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Slot_MERC__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Lookup for  Event Participants with a Meeting Slot
@@ -114,6 +340,18 @@ Created by John A Adams 9/27/2013</description>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Speciality_MERC__c</fullName>
+        <description>Displays Speciality from Account Object. Created 10/25/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Text(Account_MERC__r.Specialty_GLBL__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Speciality</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Status_MERC__c</fullName>
@@ -149,9 +387,25 @@ Created by John A Adams 9/27/2013</description>
                 <fullName>No Show</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Pending Approval</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -163,7 +417,8 @@ Created by John A Adams 9/27/2013</description>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
-        <type>Currency</type>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Total_Ground_Transporation_ToV_MERC__c</fullName>
@@ -174,12 +429,15 @@ Created by John A Adams 9/27/2013</description>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
-        <type>Currency</type>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Total_Honorarium_MERC__c</fullName>
-        <description>Stores total honorarium. Oliver Dunford 10/10/2013</description>
+        <description>Pulls in the Final Fee from the Meeting Participant record.  This is the final value that should get sent to Activity ODS. Created by Oliver Dunford 4th November 2013.</description>
         <externalId>false</externalId>
+        <formula>Final_Fee_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Total Honorarium</label>
         <precision>18</precision>
         <required>false</required>
@@ -196,27 +454,15 @@ Created by John A Adams 9/27/2013</description>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
-        <type>Currency</type>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Total_Hours_of_Service_MERC__c</fullName>
         <description>Calculation of total hours of service
 Created by John A Adams 10/17/2013</description>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;2-10 hrs&quot;),
-    (0.20 * (Preparation_Time_Hrs_MERC__c + Event_Time_Hrs_MERC__c)+           
-     Preparation_Time_Hrs_MERC__c + Event_Time_Hrs_MERC__c),
-
-  IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;11-20 hrs&quot;),
-    (0.25 * (Preparation_Time_Hrs_MERC__c + Event_Time_Hrs_MERC__c)+           
-     Preparation_Time_Hrs_MERC__c + Event_Time_Hrs_MERC__c), 
-
-    IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;),
-      (0.30 * (Preparation_Time_Hrs_MERC__c + Event_Time_Hrs_MERC__c)+           
-      Preparation_Time_Hrs_MERC__c + Event_Time_Hrs_MERC__c), 0
-    )
-  )
-)</formula>
+        <formula>(Preparation_Time_Hrs_MERC__c + Event_Time_Hrs_MERC__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Total Hours of Service</label>
         <precision>18</precision>
@@ -235,7 +481,8 @@ Created by John A Adams 10/17/2013</description>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
-        <type>Currency</type>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Total_Registration_ToV_MERC__c</fullName>
@@ -246,7 +493,8 @@ Created by John A Adams 10/17/2013</description>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
-        <type>Currency</type>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Travel_Time_Hrs_MERC__c</fullName>
@@ -258,6 +506,10 @@ Created by John A Adams 10/17/2013</description>
         <externalId>false</externalId>
         <label>Travel Time (hrs)</label>
         <picklist>
+            <picklistValues>
+                <fullName>0-2 hrs</fullName>
+                <default>false</default>
+            </picklistValues>
             <picklistValues>
                 <fullName>2-10 hrs</fullName>
                 <default>false</default>
@@ -276,9 +528,18 @@ Created by John A Adams 10/17/2013</description>
         <type>Picklist</type>
     </fields>
     <label>Meeting Participant</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>Account_MERC__c</columns>
+        <columns>NAME</columns>
+        <columns>Meeting_MERC__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
     <nameField>
         <displayFormat>MP-{000000}</displayFormat>
-        <label>Meeting Participant Number</label>
+        <label>Meeting Participant #</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
@@ -290,13 +551,65 @@ Created by John A Adams 10/17/2013</description>
         <description>Meeting attendee</description>
         <label>Delegate</label>
         <picklistValues>
+            <picklist>Ground_Transportation_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Hotel_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Partial_Payment_Justification_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Services_Rendered_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Status_MERC__c</picklist>
             <values>
                 <fullName>Accepted</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Attended</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -315,9 +628,21 @@ Created by John A Adams 10/17/2013</description>
                 <fullName>No Show</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>Pending Approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Travel_Time_Hrs_MERC__c</picklist>
+            <values>
+                <fullName>0-2 hrs</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>11-20 hrs</fullName>
                 <default>false</default>
@@ -333,62 +658,54 @@ Created by John A Adams 10/17/2013</description>
         </picklistValues>
     </recordTypes>
     <recordTypes>
-        <fullName>Lilly_Employee</fullName>
-        <active>true</active>
-        <description>Lilly employees that would need to be captured on a meeting.  Created by John A Adams 10/23/2013</description>
-        <label>Lilly Employee</label>
-        <picklistValues>
-            <picklist>Status_MERC__c</picklist>
-            <values>
-                <fullName>Accepted</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Attended</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Declined</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Interested in Meeting</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Invited</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No Show</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Onboarded</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Travel_Time_Hrs_MERC__c</picklist>
-            <values>
-                <fullName>11-20 hrs</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>2-10 hrs</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>More than 20 hrs</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-    </recordTypes>
-    <recordTypes>
-        <fullName>Speaker</fullName>
+        <fullName>Service_Provider</fullName>
         <active>true</active>
         <description>Invited presenter for meeting</description>
-        <label>Speaker</label>
+        <label>Service Provider</label>
+        <picklistValues>
+            <picklist>Ground_Transportation_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Hotel_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Partial_Payment_Justification_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Services_Rendered_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Status_MERC__c</picklist>
             <values>
@@ -396,7 +713,15 @@ Created by John A Adams 10/17/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Attended</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -419,9 +744,21 @@ Created by John A Adams 10/17/2013</description>
                 <fullName>Onboarded</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>Pending Approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Travel_Time_Hrs_MERC__c</picklist>
+            <values>
+                <fullName>0-2 hrs</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>11-20 hrs</fullName>
                 <default>false</default>
@@ -459,5 +796,5 @@ Created by John A Adams 10/17/2013</description>
         <searchResultsAdditionalFields>Status_MERC__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Meeting_MERC__c</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

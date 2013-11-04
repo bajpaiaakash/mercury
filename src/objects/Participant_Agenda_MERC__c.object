@@ -99,7 +99,7 @@ Created by John A Adams 10/3/2013</description>
     <label>Participant Agenda</label>
     <nameField>
         <displayFormat>PA-{000000}</displayFormat>
-        <label>Participant Agenda Number</label>
+        <label>Participant Agenda #</label>
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Participant Agendas</pluralLabel>

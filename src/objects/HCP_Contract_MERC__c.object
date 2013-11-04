@@ -311,6 +311,26 @@ IF(ISPICKVAL(Fee_Values_MERC__c , &quot;150&quot;), 150,
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>Fee_Acceptance__c</fullName>
+        <description>A flag to identify if the fee offered has ben accepted.  it is used to  original calculation rather than using the overridden amount.
+Created by John A Adams 10/25/2013</description>
+        <externalId>false</externalId>
+        <label>Fee Acceptance</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Fee_Values_MERC__c</fullName>
         <description>Posible Fee values that can be used depending on Country and Tier selected</description>
         <externalId>false</externalId>
@@ -614,6 +634,18 @@ IF(ISPICKVAL(Fee_Values_MERC__c , &quot;150&quot;), 150,
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Final_Fee_MERC__c</fullName>
+        <description>Populated by workflow from the Meeting Participant
+Created by John A Adams 10/31/2013</description>
+        <externalId>false</externalId>
+        <label>Final Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>HCP_Obligations_MERC__c</fullName>
         <description>Records any contract specific HCP obligations
 Created by John A Adams 10/17/2013</description>
@@ -623,6 +655,43 @@ Created by John A Adams 10/17/2013</description>
         <trackHistory>false</trackHistory>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Institution_MERC__c</fullName>
+        <description>Pulls the Veeva Organization name in so that have ability to manually reconfirm a HCP&apos;s affiliated Institutions by asking the question within the Payment Contract.
+Created by John A Adams 10/29/2013</description>
+        <externalId>false</externalId>
+        <formula>Account_MERC__r.Veeva_Organization_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Institution</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Invoice_Template_Needed__c</fullName>
+        <description>Should an invoice be templated and sent to HCP or  expect HCP to submit their own 
+Created by John A Adams 10/28/2013</description>
+        <externalId>false</externalId>
+        <label>Invoice Template Needed</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HCP Provides</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Justification_MERC__c</fullName>
@@ -675,16 +744,24 @@ Created by John A Adams 10/7/2013</description>
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
-        <fullName>Negotiated_Fee_MERC__c</fullName>
-        <description>Final negotiated fee.
-Created by John A Adams 10/21/2013</description>
+        <fullName>MSA_End_Date_MERC__c</fullName>
+        <description>End Date for and Multi-Service Agreement Contract
+Created by John A Adams 10/28/2013</description>
         <externalId>false</externalId>
-        <label>Negotiated Fee</label>
-        <precision>18</precision>
+        <label>MSA End Date</label>
         <required>false</required>
-        <scale>2</scale>
         <trackHistory>false</trackHistory>
-        <type>Currency</type>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>MSA_Start_Date_MERC__c</fullName>
+        <description>Start Date for and Multi-Service Agreement Contract
+Created by John A Adams 10/28/2013</description>
+        <externalId>false</externalId>
+        <label>MSA Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Other_Details_MERC__c</fullName>
@@ -897,23 +974,15 @@ Created by John A Adams 10/2/2013</description>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
     </fields>
-    <fields>
-        <fullName>VAT_ID_MERC__c</fullName>
-        <description>A value added tax identification number or VAT identification number (VATIN) is an identifier used in many countries, including the countries of the European Union, for value added tax purposes.
-Created by John A Adams 10/2/2013</description>
-        <externalId>false</externalId>
-        <inlineHelpText>A value added tax identification number or VAT identification number (VATIN) is an identifier used in many countries, including the countries of the European Union, for value added tax purposes.</inlineHelpText>
-        <label>VAT Identification #</label>
-        <length>18</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
     <label>HCP Contract</label>
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
+        <columns>Account_MERC__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Country_MERC__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>CREATED_DATE</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
         <language>en_US</language>
@@ -1060,6 +1129,17 @@ Created by John A Adams 10/2/2013</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Fee_Acceptance__c</picklist>
+            <values>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1247,6 +1327,21 @@ Created by John A Adams 10/2/2013</description>
             </values>
             <values>
                 <fullName>90</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Invoice_Template_Needed__c</picklist>
+            <values>
+                <fullName>HCP Provides</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1490,6 +1585,17 @@ Created by John A Adams 10/2/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Fee_Acceptance__c</picklist>
+            <values>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Fee_Values_MERC__c</picklist>
             <values>
                 <fullName>100</fullName>
@@ -1673,6 +1779,21 @@ Created by John A Adams 10/2/2013</description>
             </values>
             <values>
                 <fullName>90</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Invoice_Template_Needed__c</picklist>
+            <values>
+                <fullName>HCP Provides</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1916,6 +2037,17 @@ Created by John A Adams 10/2/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Fee_Acceptance__c</picklist>
+            <values>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Fee_Values_MERC__c</picklist>
             <values>
                 <fullName>100</fullName>
@@ -2103,6 +2235,21 @@ Created by John A Adams 10/2/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Invoice_Template_Needed__c</picklist>
+            <values>
+                <fullName>HCP Provides</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Justification_MERC__c</picklist>
             <values>
                 <fullName>Other %28please explain%29</fullName>
@@ -2243,4 +2390,40 @@ Created by John A Adams 10/2/2013</description>
         <searchResultsAdditionalFields>Total_Hours_of_Service_MERC__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
+    <webLinks>
+        <fullName>Generate_Contract_MERC</fullName>
+        <availability>online</availability>
+        <description>Sends user to DrawLoop UI to generate contract.</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Generate Contract</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/loop__looplus?sessionId={!$Api.Session_ID}&amp;eid={!HCP_Contract_MERC__c.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Request_HCP_Signature_MERC</fullName>
+        <availability>online</availability>
+        <description>Used to request Docusign signature from HCP -JFerraro 2013-10-28</description>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Request HCP Signature</masterLabel>
+        <openType>sidebar</openType>
+        <page>MERC_RequestHCPSignature</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>Upload_Content_MERC</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Upload Content</masterLabel>
+        <openType>sidebar</openType>
+        <page>MERC_NewHCPContractContent</page>
+        <protected>false</protected>
+    </webLinks>
 </CustomObject>

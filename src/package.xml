@@ -1,22 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
+		<members>GLBL_RollupSummaryUtility</members>
+		<members>GLBL_RollupSummaryUtilityTest</members>
 		<members>GLBL_SobjectDataLoader</members>
 		<members>GLBL_SobjectDataLoaderTest</members>
-		<members>GLBL_SobjectDataLoaderTestMVN</members>
 		<members>GLBL_TriggerHandler</members>
+		<members>MERC_BudgetHistoryController</members>
 		<members>MERC_BudgetVersionController</members>
 		<members>MERC_BudgetVersionControllerTest</members>
+		<members>MERC_ContentVersionHandler</members>
+		<members>MERC_ContentVersionHandlerTest</members>
+		<members>MERC_DailyAttendanceController</members>
 		<members>MERC_DocusignService</members>
 		<members>MERC_DocusignServiceMock</members>
 		<members>MERC_DocusignServiceTest</members>
+		<members>MERC_NewContentController</members>
+		<members>MERC_ParticipantFMVCalculator</members>
+		<members>MERC_RequestHCPSignatureController</members>
+		<members>MERC_TOVCalculator</members>
+		<members>MERC_TOVCalculatorTest</members>
 		<members>MERC_TeamMemberShareHandler</members>
 		<members>MERC_TeamMemberShareHandlerTest</members>
 		<members>MERC_TestFactory</members>
 		<members>MERC_Util</members>
-		<members>SobjectDataLoaderMVN</members>
-		<members>SobjectDataLoaderTestMVN</members>
+		<members>PersonSearchControllerMVN</members>
+		<members>PersonSearchControllerTestMVN</members>
+		<members>TestDataFactoryMVN</members>
 		<name>ApexClass</name>
+	</types>
+	<types>
+		<members>*</members>
+		<name>CustomLabels</name>
 	</types>
 	<types>
 		<members>*</members>
@@ -24,13 +39,23 @@
 	</types>
 	<types>
 		<members>MERC_ActivateBudget</members>
+		<members>MERC_BudgetHistory</members>
+		<members>MERC_DailyAttendance</members>
+		<members>MERC_DocusignTagAndSend</members>
+		<members>MERC_InvoicePDF</members>
 		<members>MERC_NewBudgetVersion</members>
-		<members>MERC_SaveBudgetVersion</members>
+		<members>MERC_NewHCPContractContent</members>
+		<members>MERC_NewMeetingContent</members>
+		<members>MERC_RequestHCPSignature</members>
 		<members>PersonSearchMVN</members>
 		<name>ApexPage</name>
 	</types>
 	<types>
-		<members>*</members>
+		<members>MERC_ContentVersion</members>
+		<members>MERC_DailyAttendanceTOV</members>
+		<members>MERC_MeetingDay</members>
+		<members>MERC_MeetingParticipant</members>
+		<members>MERC_TeamMember</members>
 		<name>ApexTrigger</name>
 	</types>
 	<types>
@@ -58,12 +83,18 @@
 		<members>Milestone_MERC__c</members>
 		<members>Participant_Agenda_MERC__c</members>
 		<members>Payee_MERC__c</members>
-		<members>Product_Catalogue_GLBL__c</members>
+		<members>Service_Cloud_Settings_MVN__c</members>
 		<members>Slot_MERC__c</members>
 		<members>Team_Member_MERC__c</members>
 		<members>Travel_MERC__c</members>
-		<members>Travel_Leg_MERC__c</members>
+		<members>Travel_Itinerary_MERC__c</members>
 		<name>CustomObject</name>
+	</types>
+	<types>
+		<members>PersonAccount.Employee_GLBL</members>
+		<members>PersonAccount.HCP_GLBL</members>
+		<members>PersonAccount.Non_HCP_MERC</members>
+		<name>RecordType</name>
 	</types>
 	<types>
 		<members>Admin</members>

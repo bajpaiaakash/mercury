@@ -42,11 +42,12 @@
         <fullName>Amount_MERC__c</fullName>
         <description>Tracks amount of Budget Line Item. Created 9/30/2013 by KLorenti.</description>
         <externalId>false</externalId>
+        <inlineHelpText>Please include Room Taxes in Amount if for Hotel.</inlineHelpText>
         <label>Amount</label>
         <precision>8</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -59,7 +60,7 @@
         <relationshipName>Budget_Line_Items</relationshipName>
         <relationshipOrder>0</relationshipOrder>
         <reparentableMasterDetail>false</reparentableMasterDetail>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
@@ -84,7 +85,7 @@
         <relationshipLabel>Budget Line Item Versions</relationshipLabel>
         <relationshipName>Child_Budget_Line_Items_MERC</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -95,7 +96,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -107,7 +108,7 @@
         <relationshipLabel>Budget Line Items (Previous Budget Line Item Version)</relationshipLabel>
         <relationshipName>Child_Budget_Line_Item_Versions_MERC</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -118,7 +119,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -141,7 +142,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -159,7 +160,7 @@
     <label>Budget Line Item</label>
     <nameField>
         <displayFormat>BL-{000000}</displayFormat>
-        <label>Budget Line Item Number</label>
+        <label>Budget Line Item #</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>

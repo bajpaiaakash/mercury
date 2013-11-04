@@ -150,7 +150,7 @@
     </listViews>
     <nameField>
         <displayFormat>TM-{000000}</displayFormat>
-        <label>Team Member Number</label>
+        <label>Team Member #</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>

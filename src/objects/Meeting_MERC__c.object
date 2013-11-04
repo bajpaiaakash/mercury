@@ -48,6 +48,15 @@
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>Activities_MERC__c</fullName>
+        <description>Description of Activities for Meeting. Created 10/29/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Activities</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
         <fullName>Agenda_Status_MERC__c</fullName>
         <description>Capture Current Status of Agenda. Created 10/17/2013</description>
         <externalId>false</externalId>
@@ -152,6 +161,36 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Compliant_MERC__c</fullName>
+        <description>Flags a meeting as being potentially non-compliant. RMAT require a report or public list to show these occurrences so that an external investigation can take place and the Meeting can be investigated. 
+Created by John A Adams 10/24/2013</description>
+        <externalId>false</externalId>
+        <label>Compliant</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Confirm_Meeting_Date_Change_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used with a validation rule to provide an error if the user does not validate the change using this checkbox. Created 10/24/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>I agree to and confirm the meeting date change.</inlineHelpText>
+        <label>Confirm Meeting Date Change</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Content_Approval_Needed_MERC__c</fullName>
         <description>Will content need to be approved? Created 10/2/2013 by KLorenti</description>
         <externalId>false</externalId>
@@ -184,11 +223,11 @@
     </fields>
     <fields>
         <fullName>Date_of_Event_MERC__c</fullName>
-        <description>Date of Event. Created 10/2/2013 by KLorenti.</description>
+        <description>Start Date of Event. Created 10/2/2013 by KLorenti.</description>
         <externalId>false</externalId>
-        <label>Date of Event</label>
+        <label>Start Date of Event</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Date</type>
     </fields>
     <fields>
@@ -218,6 +257,16 @@
         </picklist>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>End_Date_of_Event_MERC__c</fullName>
+        <description>Last date of event
+Created by John A Adams 10/25/2013</description>
+        <externalId>false</externalId>
+        <label>End Date of Event</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>End_Time_of_Meeting_MERC__c</fullName>
@@ -1236,6 +1285,26 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Event_Occurred_MERC__c</fullName>
+        <description>Allows the Mercury Owner to confirm that the Event Occurred
+Created by John A Adams 10/24/2013</description>
+        <externalId>false</externalId>
+        <label>Event Occurred</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Event_Website_MERC__c</fullName>
         <description>Capture URL of the Web Address for the Meeting, if one exists. Created 10/16/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -1295,6 +1364,17 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Forecasted_ToV_Range_MERC__c</fullName>
+        <description>For some countries a forecasted ToV range is required which is presented to the HCP within the Meeting invitation.</description>
+        <externalId>false</externalId>
+        <label>Forecasted ToV Range</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Forecasting_Information_MERC__c</fullName>
         <description>Captures Additional Information about Forecasting. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -1304,11 +1384,26 @@
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>Formatted_Name_MERC__c</fullName>
+        <description>A workflow and field update will populate this text field to enable the ability to search on the Formatted Name. Created 10/23/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Formatted Name</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Functional_Area_MERC__c</fullName>
         <description>Functional area paying for Meeting. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Functional Area</label>
         <picklist>
+            <picklistValues>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </picklistValues>
             <picklistValues>
                 <fullName>Medical</fullName>
                 <default>false</default>
@@ -1317,8 +1412,24 @@
                 <fullName>Marketing</fullName>
                 <default>false</default>
             </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>HCP_Care_Assistance_MERC__c</fullName>
+        <description>Allows the Rep to request  &apos;HCP Care (RMAT) Assistance Needed&apos; when a Rep cannot locate the required Vendor record (Payee Information).
+Created by John A Adams 10/23/2013</description>
+        <externalId>false</externalId>
+        <label>HCP Care Assistance</label>
+        <picklist>
             <picklistValues>
-                <fullName>TBD</fullName>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1400,21 +1511,88 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Invitation_ToV_Estimate_MERC__c</fullName>
+        <description>Enables inclusion of the ToV Estimate on the template invitation/sponsorship documents. A ToV estimate is required by geographies such as Germany for the invitation process. Created 10/28/2013 by KLorenti, Mavens Consulting.</description>
+        <externalId>false</externalId>
+        <label>Invitation ToV Estimate</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Invitee_List_Status_MERC__c</fullName>
+        <description>Captures overall status of the invitee list. Use to drive email notifications. Created 10/25/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Invitee List Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Pending Approval</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Inviting_Delegates_MERC__c</fullName>
         <description>Capture who is inviting delegates. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Who is Inviting Delegates?</label>
         <picklist>
             <picklistValues>
-                <fullName>Sales Rep</fullName>
+                <fullName>Marketing</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Brand Manager</fullName>
+                <fullName>Medical</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Medical Director</fullName>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Inviting_Delegates_Other_MERC__c</fullName>
+        <description>If Other is chosen for Who is inviting delegates? enter free text. Created 10/31/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Other</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Invoicing_Completed_MERC__c</fullName>
+        <description>The ability for the designated Lilly Approver to confirm that the Invoicing is Accurate and Complete via an attribute on the Meeting record.
+Created by John A Adams 10/28/2013</description>
+        <externalId>false</externalId>
+        <label>Invoicing Completed</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1573,15 +1751,23 @@
         <label>Meeting Room Setup</label>
         <picklist>
             <picklistValues>
-                <fullName>Theatre Style</fullName>
+                <fullName>Boardroom</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cabaret</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Classroom</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Theatre</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>U-Shaped</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1639,7 +1825,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Done</fullName>
+                <fullName>Closed</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1653,23 +1839,69 @@
         <externalId>false</externalId>
         <label>Meeting Sub-Type</label>
         <picklist>
+            <controllingField>Type_MERC__c</controllingField>
             <picklistValues>
-                <fullName>Medical</fullName>
+                <fullName>Advisory Board</fullName>
+                <controllingFieldValues>Consultant</controllingFieldValues>
+                <controllingFieldValues>Health Education</controllingFieldValues>
+                <controllingFieldValues>Promotional</controllingFieldValues>
+                <controllingFieldValues>Scientific Exchange</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Medical Research</fullName>
+                <fullName>Corporate Affairs</fullName>
+                <controllingFieldValues>Health Education</controllingFieldValues>
+                <controllingFieldValues>Promotional</controllingFieldValues>
+                <controllingFieldValues>Speaker Training</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HCO Sponsorship</fullName>
+                <controllingFieldValues>Independent</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Individual HCP Sponsorship</fullName>
+                <controllingFieldValues>Independent</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Marketing</fullName>
+                <controllingFieldValues>Consultant</controllingFieldValues>
+                <controllingFieldValues>Health Education</controllingFieldValues>
+                <controllingFieldValues>Promotional</controllingFieldValues>
+                <controllingFieldValues>Speaker Training</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>TBD...</fullName>
+                <fullName>Medical</fullName>
+                <controllingFieldValues>Consultant</controllingFieldValues>
+                <controllingFieldValues>Health Education</controllingFieldValues>
+                <controllingFieldValues>Scientific Exchange</controllingFieldValues>
+                <controllingFieldValues>Speaker Training</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
+            <picklistValues>
+                <fullName>Medical Research</fullName>
+                <controllingFieldValues>Consultant</controllingFieldValues>
+                <controllingFieldValues>Investigator Meeting</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales</fullName>
+                <controllingFieldValues>Promotional</controllingFieldValues>
+                <controllingFieldValues>Speaker Training</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Satellite Symposium</fullName>
+                <controllingFieldValues>Consultant</controllingFieldValues>
+                <controllingFieldValues>Health Education</controllingFieldValues>
+                <controllingFieldValues>Promotional</controllingFieldValues>
+                <controllingFieldValues>Scientific Exchange</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -1941,26 +2173,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>RMAT_Assistance__c</fullName>
-        <description>Allows the Rep to request  &apos;RMAT Assistance Needed&apos; when a Rep cannot locate the required Vendor record (Payee Information).
-Created by John A Adams 10/23/2013</description>
-        <externalId>false</externalId>
-        <label>RMAT Assistance</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>Responses_Due_Date_MERC__c</fullName>
         <description>Tracks date invitation responses are due. Created 10/2/2013 by KLorenti</description>
         <externalId>false</externalId>
@@ -2051,10 +2263,42 @@ Created by John A Adams 10/23/2013</description>
         <type>DateTime</type>
     </fields>
     <fields>
-        <fullName>Target_Audience_MERC__c</fullName>
-        <description>Who is the target audience for the meeting? Created 10/7/2013 by KLorenti, Mavens Consulting</description>
+        <fullName>Target_Audience_List_MERC__c</fullName>
+        <description>Capture Target Audience. Created 10/29/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Target Audience</label>
+        <picklist>
+            <picklistValues>
+                <fullName>HCP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pharmacist</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Nurse</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lilly Employee</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Target_Audience_MERC__c</fullName>
+        <description>Additional comments about the target audience for the meeting? Created 10/7/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If choosing &quot;Other&quot; as the Target Audience, please describe here.</inlineHelpText>
+        <label>Target Audience Comments</label>
         <length>100</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -2071,21 +2315,6 @@ Created by John A Adams 10/23/2013</description>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Therapeutic_Area_MERC__c</fullName>
-        <description>Capture Therapeutic Area of Meeting. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <label>Therapeutic Area</label>
-        <picklist>
-            <picklistValues>
-                <fullName>TBD</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Time_for_Restaurant_Booking_MERC__c</fullName>
@@ -2216,4 +2445,23 @@ Created by John A Adams 10/23/2013</description>
         <searchResultsAdditionalFields>CREATEDBY_USER</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
+    <validationRules>
+        <fullName>Confirm_Meeting_Date_Change_MERC</fullName>
+        <active>true</active>
+        <description>Enforces confirmation of Meeting Date changes. Created 10/24/2013 by KLorenti, Mavens Consulting</description>
+        <errorConditionFormula>ISCHANGED(Date_of_Event_MERC__c)  &amp;&amp;  !Confirm_Meeting_Date_Change_MERC__c</errorConditionFormula>
+        <errorDisplayField>Confirm_Meeting_Date_Change_MERC__c</errorDisplayField>
+        <errorMessage>Please agree to/confirm the Meeting Date Change.</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>Upload_Content_MERC</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Upload Content</masterLabel>
+        <openType>sidebar</openType>
+        <page>MERC_NewMeetingContent</page>
+        <protected>false</protected>
+    </webLinks>
 </CustomObject>

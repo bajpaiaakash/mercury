@@ -44,7 +44,7 @@
         <externalId>false</externalId>
         <label>Additional Information</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>TextArea</type>
     </fields>
     <fields>
@@ -54,28 +54,9 @@
         <label>Approved PO Number</label>
         <length>20</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Billing_Option_MERC__c</fullName>
-        <description>Capture Billing Option for Budgets. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <label>Billing Option</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Central Team</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>EERS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Budget_Date_MERC__c</fullName>
@@ -83,53 +64,31 @@
         <externalId>false</externalId>
         <label>Budget Date</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Cost_Centre_MERC__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>Lookup Relationship from Budget to Cost Centre. Created 10/18/2013 by KLorenti, Mavens Consulting</description>
+        <fullName>Cost_Center_MERC__c</fullName>
+        <description>Cost Center  provided by Budget Owner
+Created by John A Adams 10/11/2013</description>
         <externalId>false</externalId>
-        <label>Cost Centre</label>
-        <referenceTo>Cost_Center_GLBL__c</referenceTo>
-        <relationshipLabel>Budgets</relationshipLabel>
-        <relationshipName>Budgets</relationshipName>
+        <label>Cost Center</label>
+        <length>7</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <type>Lookup</type>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Countries_to_Receive_Invoices_MERC__c</fullName>
         <description>Which countries are to receive invoices?  Created 10/22/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Countries to Receive Invoices</label>
-        <picklist>
-            <picklistValues>
-                <fullName>UK</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>France</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Germany</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Italy</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TBD</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackHistory>false</trackHistory>
-        <type>MultiselectPicklist</type>
-        <visibleLines>4</visibleLines>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Current_Budget_Used_MERC__c</fullName>
@@ -155,7 +114,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -174,8 +133,19 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Identified_Savings_MERC__c</fullName>
+        <description>Capture identified savings for the active budget record. Created 10/25/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Identified Savings</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
     </fields>
     <fields>
         <fullName>InterCompany_Billing_Required_MERC__c</fullName>
@@ -193,7 +163,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -203,7 +173,7 @@
         <label>Internal Order Number</label>
         <length>20</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -228,7 +198,7 @@
         <relationshipLabel>Budget Versions</relationshipLabel>
         <relationshipName>Child_Budgets_MERC</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -241,7 +211,7 @@
         <relationshipLabel>Budgets</relationshipLabel>
         <relationshipName>Budgets</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -252,7 +222,7 @@
         <precision>12</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -264,7 +234,7 @@
         <relationshipLabel>Budgets (Previous Budget Revision)</relationshipLabel>
         <relationshipName>Previous_Budget_Revisions_MERC</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -274,7 +244,7 @@
         <label>Product Category</label>
         <length>4</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -298,7 +268,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -309,7 +279,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -327,49 +297,15 @@
     <nameField>
         <displayFormat>BDGT-{000000}</displayFormat>
         <label>Budget Name</label>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Budgets</pluralLabel>
-    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypeTrackHistory>true</recordTypeTrackHistory>
     <recordTypes>
         <fullName>MERC_Budget_Active</fullName>
         <active>true</active>
         <label>Active</label>
-        <picklistValues>
-            <picklist>Billing_Option_MERC__c</picklist>
-            <values>
-                <fullName>Central Team</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>EERS</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Countries_to_Receive_Invoices_MERC__c</picklist>
-            <values>
-                <fullName>France</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Germany</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Italy</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TBD</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>UK</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>GL_Account_Number_MERC__c</picklist>
             <values>
@@ -412,40 +348,6 @@
         <active>true</active>
         <label>Archived</label>
         <picklistValues>
-            <picklist>Billing_Option_MERC__c</picklist>
-            <values>
-                <fullName>Central Team</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>EERS</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Countries_to_Receive_Invoices_MERC__c</picklist>
-            <values>
-                <fullName>France</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Germany</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Italy</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TBD</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>UK</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>GL_Account_Number_MERC__c</picklist>
             <values>
                 <fullName>TBD</fullName>
@@ -485,41 +387,8 @@
     <recordTypes>
         <fullName>MERC_Budget_Draft</fullName>
         <active>true</active>
+        <description>The initial budget for a Meeting.  Used to enter original amounts during initial forecasting/registration.</description>
         <label>Draft</label>
-        <picklistValues>
-            <picklist>Billing_Option_MERC__c</picklist>
-            <values>
-                <fullName>Central Team</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>EERS</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Countries_to_Receive_Invoices_MERC__c</picklist>
-            <values>
-                <fullName>France</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Germany</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Italy</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TBD</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>UK</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>GL_Account_Number_MERC__c</picklist>
             <values>

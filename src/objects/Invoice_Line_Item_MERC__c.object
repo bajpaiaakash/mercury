@@ -39,6 +39,18 @@
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
     <fields>
+        <fullName>Amount_MERC__c</fullName>
+        <description>Amount of Line Item
+Created by John A Adams 10/31/2013</description>
+        <externalId>false</externalId>
+        <label>Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>Cost_Element_MERC__c</fullName>
         <description>Selection of cost elements to select for Invoice items 
 Created by John A Adams 10/15/2013
@@ -47,19 +59,27 @@ NOTE: needs final list from Lilly</description>
         <label>Cost Element</label>
         <picklist>
             <picklistValues>
-                <fullName>Food &amp; Beverage</fullName>
+                <fullName>Speaking Services - 9078</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Audio Visual</fullName>
+                <fullName>Accommodation - 4566</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Transportation</fullName>
+                <fullName>Audio Visual - 1233</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Accommodation</fullName>
+                <fullName>Food &amp; Beverage - 6788</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tavel - 1456 (Belgium)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Travel - 4866</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -84,7 +104,11 @@ Created by John A Adams 10/4/2013</description>
         <description>Retrieves total hours of service from HPC Contract
 Created by John A Adams 10/21/2013</description>
         <externalId>false</externalId>
-        <formula>Invoice_MERC__r.Meeting_Participant_MERC__r.HCP_Contract_MERC__r.Total_Hours_of_Service_MERC__c</formula>
+        <formula>IF (ISPICKVAL(Cost_Element_MERC__c, &quot;Speaking Services - 9078&quot;), 
+
+ (Invoice_MERC__r.Meeting_Participant_MERC__r.Total_Hours_of_Service_MERC__c ),
+
+  Null )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Hours of Service</label>
         <precision>18</precision>
@@ -109,11 +133,24 @@ Created by John A Adams 10/21/2013</description>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
+        <fullName>Quantity_MERC__c</fullName>
+        <description>Quantity of line items
+Created by John A Adams 10/27/2013</description>
+        <externalId>false</externalId>
+        <label>Quantity</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Tax_Amount_MERC__c</fullName>
         <description>Tax Amount (currency, calc based on value &amp; tax rate) 
 Created by John A Adams 10/4/2013</description>
         <externalId>false</externalId>
-        <formula>Value_MERC__c  *  (Tax_Rate_MERC__c / 100)</formula>
+        <formula>Amount_MERC__c *  (VAT_Rate_MERC__c / 100)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Tax Amount</label>
         <precision>18</precision>
@@ -123,11 +160,35 @@ Created by John A Adams 10/4/2013</description>
         <type>Currency</type>
     </fields>
     <fields>
-        <fullName>Tax_Rate_MERC__c</fullName>
+        <fullName>Unit_Price_MERC__c</fullName>
+        <description>Unit Price of Line Items.
+Created by John A Adams 10/27/2013</description>
+        <externalId>false</externalId>
+        <label>Unit Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>VAT_Description_MERC__c</fullName>
+        <description>Description of VAT rate
+Created by John A Adams 10/24/2013</description>
+        <externalId>false</externalId>
+        <label>VAT Description</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>VAT_Rate_MERC__c</fullName>
         <description>Tax Rate Percentage
 Created by John A Adams 10/4/2013</description>
         <externalId>false</externalId>
-        <label>Tax Rate %</label>
+        <label>VAT Rate %</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -135,36 +196,65 @@ Created by John A Adams 10/4/2013</description>
         <type>Number</type>
         <unique>false</unique>
     </fields>
-    <fields>
-        <fullName>Value_MERC__c</fullName>
-        <description>VaLue of Line item</description>
-        <externalId>false</externalId>
-        <label>Value</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackHistory>false</trackHistory>
-        <type>Currency</type>
-    </fields>
     <label>Invoice Line Item</label>
     <nameField>
         <displayFormat>IL-{000000}</displayFormat>
-        <label>Invoice Line Item Number</label>
+        <label>Invoice Line Item #</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Invoice Line Items</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Contracted_Services_MERC</fullName>
+        <active>true</active>
+        <description>Services provided by HCP or Non-HCP under contract</description>
+        <label>Contracted Services</label>
+        <picklistValues>
+            <picklist>Cost_Element_MERC__c</picklist>
+            <values>
+                <fullName>Speaking Services - 9078</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Other_Items</fullName>
+        <active>true</active>
+        <description>Other items for reimburments</description>
+        <label>Other Items</label>
+        <picklistValues>
+            <picklist>Cost_Element_MERC__c</picklist>
+            <values>
+                <fullName>Accommodation - 4566</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Audio Visual - 1233</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food %26 Beverage - 6788</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tavel - 1456 %28Belgium%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel - 4866</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <searchLayouts>
         <lookupDialogsAdditionalFields>Invoice_MERC__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Description_MERC__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Value_MERC__c</lookupDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Invoice_MERC__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Description_MERC__c</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>Value_MERC__c</lookupPhoneDialogsAdditionalFields>
         <searchFilterFields>NAME</searchFilterFields>
         <searchFilterFields>Invoice_MERC__c</searchFilterFields>
         <searchFilterFields>Description_MERC__c</searchFilterFields>
-        <searchFilterFields>Value_MERC__c</searchFilterFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <startsWith>Vowel</startsWith>

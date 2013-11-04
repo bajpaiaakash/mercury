@@ -40,16 +40,51 @@ Created by John A Adams 9/30/2013</description>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
     <fields>
+        <fullName>Comment_MERC__c</fullName>
+        <description>Comments 
+Created by John A Adams 10/31/2013</description>
+        <externalId>false</externalId>
+        <label>Comment</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>End_Travel_MERC__c</fullName>
         <description>End of Travel
 
 Created by John A Adams 10/10/2013</description>
         <externalId>false</externalId>
         <label>End Travel</label>
-        <summarizedField>Travel_Leg_MERC__c.End_Date_and_Time_MERC__c</summarizedField>
-        <summaryForeignKey>Travel_Leg_MERC__c.Travel_MERC__c</summaryForeignKey>
+        <summarizedField>Travel_Itinerary_MERC__c.Date_MERC__c</summarizedField>
+        <summaryForeignKey>Travel_Itinerary_MERC__c.Travel_MERC__c</summaryForeignKey>
         <summaryOperation>max</summaryOperation>
         <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>First_Name_MERC__c</fullName>
+        <description>First Name of Passenger
+Created by John A Adams 10/31/2013</description>
+        <externalId>false</externalId>
+        <formula>Meeting_Participant_MERC__r.Account_MERC__r.FirstName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>First Name</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Last_Name_MERC__c</fullName>
+        <description>Last name of passenger
+Created by John A Adams 10/31/2013</description>
+        <externalId>false</externalId>
+        <formula>Meeting_Participant_MERC__r.Account_MERC__r.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Last Name</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Meeting_Participant_MERC__c</fullName>
@@ -65,24 +100,47 @@ Created by John A Adams 10/3/2013</description>
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Middle_Name_MERC__c</fullName>
+        <description>Middle name of passenger 
+Created by John A Adams 10/31/2013</description>
+        <externalId>false</externalId>
+        <formula>Meeting_Participant_MERC__r.Account_MERC__r.Mdl_Nm_GLBL__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Middle Name</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Start_Travel_MERC__c</fullName>
         <description>Start of travel
 
 Created by John A Adams 10/10/2013</description>
         <externalId>false</externalId>
         <label>Start Travel</label>
-        <summarizedField>Travel_Leg_MERC__c.Start_Date_and_Time_MERC__c</summarizedField>
-        <summaryForeignKey>Travel_Leg_MERC__c.Travel_MERC__c</summaryForeignKey>
+        <summarizedField>Travel_Itinerary_MERC__c.Date_MERC__c</summarizedField>
+        <summaryForeignKey>Travel_Itinerary_MERC__c.Travel_MERC__c</summaryForeignKey>
         <summaryOperation>min</summaryOperation>
         <type>Summary</type>
     </fields>
     <label>Travel</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
     <nameField>
         <displayFormat>T-{000000}</displayFormat>
-        <label>Travel Number</label>
+        <label>Travel #</label>
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Travel</pluralLabel>
+    <recordTypes>
+        <fullName>Transportation</fullName>
+        <active>true</active>
+        <description>Transportation information</description>
+        <label>Transportation</label>
+    </recordTypes>
     <searchLayouts>
         <lookupDialogsAdditionalFields>Meeting_Participant_MERC__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Start_Travel_MERC__c</lookupDialogsAdditionalFields>

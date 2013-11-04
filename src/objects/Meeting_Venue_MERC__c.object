@@ -40,7 +40,7 @@
     <enableReports>true</enableReports>
     <fields>
         <fullName>Account_MERC__c</fullName>
-        <description>Links to Account. Created 9/28/2013 by KLorenti.</description>
+        <description>Lookup to Accounts that are type Venue. Created 9/28/2013 by KLorenti.</description>
         <externalId>false</externalId>
         <label>Account</label>
         <referenceTo>Account</referenceTo>
@@ -51,6 +51,28 @@
         <trackHistory>false</trackHistory>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Identified_Savings_MERC__c</fullName>
+        <description>Capture Identified Savings for Sourced Meeting Venue. Created 10/24/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Identified Savings</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Justification_for_Sourced_Venue_MERC__c</fullName>
+        <description>Free text to enter a justification for the Sourced Venue. Created 10/24/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Justification for Sourced Venue</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Meeting_MERC__c</fullName>
@@ -97,7 +119,7 @@ Created 9/28/2013 by KLorenti.</description>
     <label>Meeting Venue</label>
     <nameField>
         <displayFormat>V-{000000}</displayFormat>
-        <label>Venue Number</label>
+        <label>Venue #</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>

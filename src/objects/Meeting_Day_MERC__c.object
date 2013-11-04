@@ -40,6 +40,7 @@
     <enableReports>true</enableReports>
     <fields>
         <fullName>Daily_Food_Beverage_Amount_MERC__c</fullName>
+        <defaultValue>0</defaultValue>
         <description>Food and Beverage 
 Created by John A Adams 10/15/2013</description>
         <externalId>false</externalId>
@@ -51,6 +52,7 @@ Created by John A Adams 10/15/2013</description>
     </fields>
     <fields>
         <fullName>Daily_Ground_Trans_Amount_MERC__c</fullName>
+        <defaultValue>0</defaultValue>
         <description>Daily ground transportation
 Created by John A Adams 10/15/2013</description>
         <externalId>false</externalId>
@@ -72,6 +74,7 @@ Created by John A Adams 10/15/2013</description>
     </fields>
     <fields>
         <fullName>Daily_Other_Amount_MERC__c</fullName>
+        <defaultValue>0</defaultValue>
         <description>Stores daily ToV estimate for Other cost. Oliver Dunford 10/10/2013</description>
         <externalId>false</externalId>
         <label>Daily Other Amount</label>
@@ -82,6 +85,7 @@ Created by John A Adams 10/15/2013</description>
     </fields>
     <fields>
         <fullName>Daily_Registration_Amount_MERC__c</fullName>
+        <defaultValue>0</defaultValue>
         <description>Stores daily ToV estimate for Registration cost. Oliver Dunford 10/10/2013</description>
         <externalId>false</externalId>
         <label>Daily Registration Amount</label>
@@ -151,4 +155,16 @@ Created by John A Adams 10/10/2013</description>
         <searchFilterFields>Date_MERC__c</searchFilterFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
+    <webLinks>
+        <fullName>Manage_Daily_Attendance_MERC</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Manage Daily Attendance</masterLabel>
+        <openType>sidebar</openType>
+        <page>MERC_DailyAttendance</page>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+    </webLinks>
 </CustomObject>

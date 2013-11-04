@@ -42,7 +42,6 @@ private class MERC_DocusignServiceTest {
     }
 
     @isTest static void testSendToSigners() {
-        Test.startTest();
         
         //generate signers
         List<Account> signingAccounts = MERC_TestFactory.insertAccounts(2);
@@ -53,7 +52,8 @@ private class MERC_DocusignServiceTest {
             signer.order = i+1;
             requiredSigners.add(signer);
         }
-
+        
+        Test.startTest();
         //serialize mock response
         MERC_DocusignService.EnvelopeResponse mockResponse = new MERC_DocusignService.EnvelopeResponse();
         mockResponse.envelopeId = '7f7de730-811d-458a-97a3-deeef96b38d0';
