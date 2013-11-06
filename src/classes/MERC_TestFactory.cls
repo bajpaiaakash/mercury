@@ -1,6 +1,6 @@
 public with sharing class MERC_TestFactory {
 	
-	static Id hcpRecordTypeId = [Select ID From RecordType Where SObjectType = 'Account' and Name = 'HCP'].ID;
+	static Id hcpRecordTypeId = [Select ID From RecordType Where SObjectType = 'Account' and DeveloperName = 'HCP_GLBL'].ID;
 
 	public static void insertMercuryCustomSettings() {
 		Mercury_Settings_MERC__c settings = Mercury_Settings_MERC__c.getOrgDefaults();
@@ -22,11 +22,26 @@ public with sharing class MERC_TestFactory {
 		return accs;
 	}
 
+	public static List<Account> insertEmployeeAccounts(Integer numberOfAccounts) {
+		List<Account> accs = new List<Account>();
+		for (Integer i = 0; i < numberOfAccounts; i++) {
+			Account a = new Account();
+			a.FirstName = 'UnitTest';
+			a.LastName = 'Smith'+numberOfAccounts;
+			a.RecordTypeId = [Select ID From RecordType Where SObjectType = 'Account' and DeveloperName = 'Employee_GLBL'].ID;
+			a.PersonEmail = 'unittest'+i+'@gmail.com';
+			accs.add(a);
+		}
+		insert accs;
+		return accs;
+	}
+
 	public static List<Meeting_MERC__c> insertMeetings(Integer numberOfMeetings) {
 		List<Meeting_MERC__c> mtgs = new List<Meeting_MERC__c>();
 		for (Integer i = 0; i < numberOfMeetings; i++) {
 			Meeting_MERC__c m = new Meeting_MERC__c();
 			m.Date_of_Event_MERC__c = Date.today().addDays(2);
+			m.End_Date_of_Event_MERC__c = Date.today().addDays(2);
 			m.Name = 'Event Name'+i;
 			mtgs.add(m);
 		}
@@ -63,7 +78,7 @@ public with sharing class MERC_TestFactory {
 		List<Meeting_Participant_MERC__c> participants = new List<Meeting_Participant_MERC__c>();
 		for (Integer i = 0; i < accounts.size(); i++) {
 			Meeting_Participant_MERC__c p = new Meeting_Participant_MERC__c();
-			p.Account_MERC__c = accounts.get(0).Id;
+			p.Account_MERC__c = accounts.get(i).Id;
 			p.Meeting_MERC__c = meetingId;
 			participants.add(p);
 		}

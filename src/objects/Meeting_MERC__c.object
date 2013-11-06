@@ -35,6 +35,7 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Primary object to store meeting information.  Created on 9/27/2013 by KLorenti.</description>
     <enableActivities>false</enableActivities>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
@@ -79,7 +80,7 @@
         <fullName>Approved_MERC__c</fullName>
         <description>Determine if Meeting is Approved. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <label>Approved?</label>
+        <label>Senior Medical Director Approved?</label>
         <picklist>
             <picklistValues>
                 <fullName>Yes</fullName>
@@ -257,6 +258,17 @@ Created by John A Adams 10/24/2013</description>
         </picklist>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>End_Date_Year_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(YEAR(End_Date_of_Event_MERC__c))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>End Date Year</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>End_Date_of_Event_MERC__c</fullName>
@@ -1469,6 +1481,29 @@ Created by John A Adams 10/23/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Interaction_Type_MERC__c</fullName>
+        <description>Capture the interaction type of the Meeting. Created 11/6/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Interaction_Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Face to Face</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Virtual</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ad-hoc Advising</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Internal_Delegates_MERC__c</fullName>
         <description>Indicate if Internal Delegates are to be surveyed? Created 10/2/2013 by KLorenti.</description>
         <externalId>false</externalId>
@@ -1529,7 +1564,7 @@ Created by John A Adams 10/23/2013</description>
         <picklist>
             <picklistValues>
                 <fullName>Pending Approval</fullName>
-                <default>false</default>
+                <default>true</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Approved</fullName>
@@ -1782,11 +1817,23 @@ Created by John A Adams 10/28/2013</description>
         <label>Meeting Scope</label>
         <picklist>
             <picklistValues>
+                <fullName>International</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>National</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>International</fullName>
+                <fullName>Global</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Regional</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Satellite Symposium</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1806,7 +1853,7 @@ Created by John A Adams 10/28/2013</description>
         <picklist>
             <picklistValues>
                 <fullName>Forecasted</fullName>
-                <default>false</default>
+                <default>true</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Ready for Sourcing</fullName>
@@ -1842,14 +1889,11 @@ Created by John A Adams 10/28/2013</description>
             <controllingField>Type_MERC__c</controllingField>
             <picklistValues>
                 <fullName>Advisory Board</fullName>
-                <controllingFieldValues>Consultant</controllingFieldValues>
-                <controllingFieldValues>Health Education</controllingFieldValues>
-                <controllingFieldValues>Promotional</controllingFieldValues>
-                <controllingFieldValues>Scientific Exchange</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Corporate Affairs</fullName>
+                <controllingFieldValues>Consultant</controllingFieldValues>
                 <controllingFieldValues>Health Education</controllingFieldValues>
                 <controllingFieldValues>Promotional</controllingFieldValues>
                 <controllingFieldValues>Speaker Training</controllingFieldValues>
@@ -1878,7 +1922,6 @@ Created by John A Adams 10/28/2013</description>
                 <controllingFieldValues>Consultant</controllingFieldValues>
                 <controllingFieldValues>Health Education</controllingFieldValues>
                 <controllingFieldValues>Scientific Exchange</controllingFieldValues>
-                <controllingFieldValues>Speaker Training</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1895,10 +1938,6 @@ Created by John A Adams 10/28/2013</description>
             </picklistValues>
             <picklistValues>
                 <fullName>Satellite Symposium</fullName>
-                <controllingFieldValues>Consultant</controllingFieldValues>
-                <controllingFieldValues>Health Education</controllingFieldValues>
-                <controllingFieldValues>Promotional</controllingFieldValues>
-                <controllingFieldValues>Scientific Exchange</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <sorted>true</sorted>
@@ -2409,10 +2448,70 @@ Created by John A Adams 10/28/2013</description>
         <columns>NAME</columns>
         <columns>Parent_Meeting_MERC__c</columns>
         <columns>Date_of_Event_MERC__c</columns>
+        <columns>End_Date_of_Event_MERC__c</columns>
         <columns>Event_Country_MERC__c</columns>
         <columns>Type_MERC__c</columns>
+        <columns>Approved_MERC__c</columns>
+        <columns>Meeting_Status_MERC__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Closed_Meetings_MERC</fullName>
+        <columns>NAME</columns>
+        <columns>Parent_Meeting_MERC__c</columns>
+        <columns>Type_MERC__c</columns>
+        <columns>Date_of_Event_MERC__c</columns>
+        <columns>End_Date_of_Event_MERC__c</columns>
+        <columns>Event_Country_MERC__c</columns>
+        <columns>Approved_MERC__c</columns>
+        <columns>Meeting_Status_MERC__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Meeting_Status_MERC__c</field>
+            <operation>equals</operation>
+            <value>Closed</value>
+        </filters>
+        <label>Closed Meetings</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Forecasted_Meetings_MERC</fullName>
+        <columns>NAME</columns>
+        <columns>Parent_Meeting_MERC__c</columns>
+        <columns>Type_MERC__c</columns>
+        <columns>Date_of_Event_MERC__c</columns>
+        <columns>End_Date_of_Event_MERC__c</columns>
+        <columns>Event_Country_MERC__c</columns>
+        <columns>Approved_MERC__c</columns>
+        <columns>Meeting_Status_MERC__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Meeting_Status_MERC__c</field>
+            <operation>equals</operation>
+            <value>Forecasted</value>
+        </filters>
+        <label>Forecasted Meetings</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Registered_Meetings_MERC</fullName>
+        <columns>NAME</columns>
+        <columns>Parent_Meeting_MERC__c</columns>
+        <columns>Type_MERC__c</columns>
+        <columns>Date_of_Event_MERC__c</columns>
+        <columns>End_Date_of_Event_MERC__c</columns>
+        <columns>Event_Country_MERC__c</columns>
+        <columns>Approved_MERC__c</columns>
+        <columns>Meeting_Status_MERC__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Meeting_Status_MERC__c</field>
+            <operation>equals</operation>
+            <value>Registered</value>
+        </filters>
+        <label>Registered Meetings</label>
         <language>en_US</language>
     </listViews>
     <nameField>
@@ -2425,7 +2524,10 @@ Created by John A Adams 10/28/2013</description>
         <customTabListAdditionalFields>Parent_Meeting_MERC__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Type_MERC__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Date_of_Event_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>End_Date_of_Event_MERC__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Event_Country_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Approved_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Meeting_Status_MERC__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>CREATEDBY_USER</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>Parent_Meeting_MERC__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Type_MERC__c</lookupDialogsAdditionalFields>
@@ -2439,9 +2541,12 @@ Created by John A Adams 10/28/2013</description>
         <searchFilterFields>Event_Country_MERC__c</searchFilterFields>
         <searchFilterFields>CREATEDBY_USER</searchFilterFields>
         <searchResultsAdditionalFields>Parent_Meeting_MERC__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Type_MERC__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Date_of_Event_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>End_Date_of_Event_MERC__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Event_Country_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Type_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Approved_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Meeting_Status_MERC__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CREATEDBY_USER</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>

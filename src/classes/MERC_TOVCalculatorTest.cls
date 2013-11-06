@@ -1,11 +1,20 @@
 @isTest
 private class MERC_TOVCalculatorTest {
 	
+	static List<Account> accounts;
+	static List<Meeting_MERC__c> meetings;
+	static List<Meeting_Day_MERC__c> meetingDays;
+	static List<Meeting_Participant_MERC__c> participants;
+
+	static {
+		accounts = MERC_TestFactory.insertAccounts(5);
+		meetings = MERC_TestFactory.insertMeetings(1);
+		meetingDays = MERC_TestFactory.insertMeetingDays(meetings.get(0).Id, 3);
+		participants = MERC_TestFactory.insertParticipants(meetings.get(0).Id, accounts);
+	}
+
 	@isTest static void testShouldRollTovUpToParticipants() {
-		List<Account> accounts = MERC_TestFactory.insertAccounts(5);
-		List<Meeting_MERC__c> meetings = MERC_TestFactory.insertMeetings(1);
-		List<Meeting_Day_MERC__c> meetingDays = MERC_TestFactory.insertMeetingDays(meetings.get(0).Id, 3);
-		List<Meeting_Participant_MERC__c> participants = MERC_TestFactory.insertParticipants(meetings.get(0).Id, accounts);
+		Test.startTest();
 
 		//set participant 1 to attending on day 1
 		Daily_Attendance_TOV_MERC__c tovForParticipant1Day1 = MERC_TestFactory.insertTov(meetingDays.get(0).Id, participants.get(0).Id);
@@ -50,5 +59,7 @@ private class MERC_TOVCalculatorTest {
 
 		//now ensure the rollup re-calculated
 		System.assertEquals(0, participant1.Total_Food_Beverage_ToV_MERC__c);
+
+		Test.stopTest();
 	}
 }

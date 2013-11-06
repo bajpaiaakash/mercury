@@ -2,10 +2,28 @@ public with sharing class MERC_DailyAttendanceController {
 	
 	public String selectedMeetingDayId { get; set; }
 	public Boolean refreshParticipants { get; set; }
+	public Boolean hasError { get; private set; }
 
 	public MERC_DailyAttendanceController(ApexPages.StandardSetController c) {
-		this.selectedMeetingDayId = meetingDays.get(0).Id;
 		this.refreshParticipants = false;
+		this.hasError = false;
+		validate();
+		if (meetingDays.size() > 0)
+			this.selectedMeetingDayId = meetingDays.get(0).Id;
+	}
+
+	void validate() {
+		if (meetingDays.size() == 0) {
+			ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Please add Meeting Days to this Meeting'));
+			this.hasError = true;
+		}
+		if (participants.size() == 0) {
+			ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Please add Participants to this Meeting'));
+			this.hasError = true;
+		}
+		if (!this.hasError) {
+			this.hasError = false;
+		}
 	}
 
 	public Meeting_MERC__c meeting {
@@ -39,12 +57,11 @@ public with sharing class MERC_DailyAttendanceController {
 
 		List<Daily_Attendance_TOV_MERC__c> tovsToInsert = new List<Daily_Attendance_TOV_MERC__c>();
 		for (ParticipantWrapper p : participants) {
-			if (p.selected) {
-				Daily_Attendance_TOV_MERC__c newTov = new Daily_Attendance_TOV_MERC__c();
-				newTov.Meeting_Day_MERC__c = selectedMeetingDayId;
-				newTov.Meeting_Participant_MERC__c = p.participant.Id;
-				tovsToInsert.add(newTov);
-			}
+			Daily_Attendance_TOV_MERC__c newTov = new Daily_Attendance_TOV_MERC__c();
+			newTov.Meeting_Day_MERC__c = selectedMeetingDayId;
+			newTov.Meeting_Participant_MERC__c = p.participant.Id;
+			newTov.Status_MERC__c = p.selected ? 'Attended' : 'No Show';
+			tovsToInsert.add(newTov);
 		}
 		insert tovsToInsert;
 		return null;

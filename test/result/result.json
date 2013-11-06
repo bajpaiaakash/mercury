@@ -1,6 +1,6 @@
 {
   "Messages": [],
-  "id": "09S11000000DifYEAS",
+  "id": "09S11000000DmnlEAC",
   "runTestResult": {
     "codeCoverage": {
       "classes": [
@@ -307,42 +307,68 @@
           "type": "Class"
         },
         {
-          "coverageLevel": "warning",
-          "id": "01p1100000008DTAAY",
+          "coverageLevel": "success",
+          "id": "01p1100000008gBAAQ",
           "locationsNotCovered": [
             {
               "column": "0",
-              "line": "25",
+              "line": "12",
               "numExecutions": "0",
               "time": "-1.0"
             },
             {
               "column": "0",
-              "line": "26",
+              "line": "13",
               "numExecutions": "0",
               "time": "-1.0"
             },
             {
               "column": "0",
-              "line": "27",
+              "line": "21",
+              "numExecutions": "0",
+              "time": "-1.0"
+            }
+          ],
+          "name": "MERC_HcpCapActualsCalculator",
+          "namespace": {
+            "@xsi:nil": "true"
+          },
+          "numLocations": "32",
+          "numLocationsNotCovered": "3",
+          "percentCovered": 91,
+          "type": "Class"
+        },
+        {
+          "coverageLevel": "warning",
+          "id": "01p1100000008fNAAQ",
+          "locationsNotCovered": [
+            {
+              "column": "0",
+              "line": "16",
               "numExecutions": "0",
               "time": "-1.0"
             },
             {
               "column": "0",
-              "line": "28",
+              "line": "20",
               "numExecutions": "0",
               "time": "-1.0"
             },
             {
               "column": "0",
-              "line": "30",
+              "line": "21",
               "numExecutions": "0",
               "time": "-1.0"
             },
             {
               "column": "0",
-              "line": "31",
+              "line": "22",
+              "numExecutions": "0",
+              "time": "-1.0"
+            },
+            {
+              "column": "0",
+              "line": "24",
               "numExecutions": "0",
               "time": "-1.0"
             },
@@ -360,13 +386,13 @@
             },
             {
               "column": "0",
-              "line": "42",
+              "line": "41",
               "numExecutions": "0",
               "time": "-1.0"
             },
             {
               "column": "0",
-              "line": "43",
+              "line": "42",
               "numExecutions": "0",
               "time": "-1.0"
             },
@@ -384,19 +410,147 @@
             },
             {
               "column": "0",
-              "line": "46",
+              "line": "54",
               "numExecutions": "0",
               "time": "-1.0"
             },
             {
               "column": "0",
-              "line": "47",
+              "line": "55",
               "numExecutions": "0",
               "time": "-1.0"
             },
             {
               "column": "0",
-              "line": "48",
+              "line": "56",
+              "numExecutions": "0",
+              "time": "-1.0"
+            },
+            {
+              "column": "0",
+              "line": "57",
+              "numExecutions": "0",
+              "time": "-1.0"
+            }
+          ],
+          "name": "MERC_HcpCapLimitCalculator",
+          "namespace": {
+            "@xsi:nil": "true"
+          },
+          "numLocations": "35",
+          "numLocationsNotCovered": "15",
+          "percentCovered": 57,
+          "type": "Class"
+        },
+        {
+          "coverageLevel": "warning",
+          "id": "01p1100000008DTAAY",
+          "locationsNotCovered": [
+            {
+              "column": "0",
+              "line": "19",
+              "numExecutions": "0",
+              "time": "-1.0"
+            },
+            {
+              "column": "0",
+              "line": "30",
+              "numExecutions": "0",
+              "time": "-1.0"
+            },
+            {
+              "column": "0",
+              "line": "31",
+              "numExecutions": "0",
+              "time": "-1.0"
+            },
+            {
+              "column": "0",
+              "line": "56",
+              "numExecutions": "0",
+              "time": "-1.0"
+            },
+            {
+              "column": "0",
+              "line": "57",
+              "numExecutions": "0",
+              "time": "-1.0"
+            },
+            {
+              "column": "0",
+              "line": "58",
+              "numExecutions": "0",
+              "time": "-1.0"
+            },
+            {
+              "column": "0",
+              "line": "59",
+              "numExecutions": "0",
+              "time": "-1.0"
+            },
+            {
+              "column": "0",
+              "line": "61",
+              "numExecutions": "0",
+              "time": "-1.0"
+            },
+            {
+              "column": "0",
+              "line": "62",
+              "numExecutions": "0",
+              "time": "-1.0"
+            },
+            {
+              "column": "0",
+              "line": "70",
+              "numExecutions": "0",
+              "time": "-1.0"
+            },
+            {
+              "column": "0",
+              "line": "71",
+              "numExecutions": "0",
+              "time": "-1.0"
+            },
+            {
+              "column": "0",
+              "line": "73",
+              "numExecutions": "0",
+              "time": "-1.0"
+            },
+            {
+              "column": "0",
+              "line": "74",
+              "numExecutions": "0",
+              "time": "-1.0"
+            },
+            {
+              "column": "0",
+              "line": "75",
+              "numExecutions": "0",
+              "time": "-1.0"
+            },
+            {
+              "column": "0",
+              "line": "76",
+              "numExecutions": "0",
+              "time": "-1.0"
+            },
+            {
+              "column": "0",
+              "line": "77",
+              "numExecutions": "0",
+              "time": "-1.0"
+            },
+            {
+              "column": "0",
+              "line": "78",
+              "numExecutions": "0",
+              "time": "-1.0"
+            },
+            {
+              "column": "0",
+              "line": "79",
               "numExecutions": "0",
               "time": "-1.0"
             }
@@ -405,9 +559,9 @@
           "namespace": {
             "@xsi:nil": "true"
           },
-          "numLocations": "28",
-          "numLocationsNotCovered": "15",
-          "percentCovered": 46,
+          "numLocations": "46",
+          "numLocationsNotCovered": "18",
+          "percentCovered": 61,
           "type": "Class"
         },
         {
@@ -417,7 +571,7 @@
           "namespace": {
             "@xsi:nil": "true"
           },
-          "numLocations": "81",
+          "numLocations": "86",
           "numLocationsNotCovered": "0",
           "percentCovered": 100,
           "type": "Class"
@@ -429,7 +583,7 @@
           "namespace": {
             "@xsi:nil": "true"
           },
-          "numLocations": "82",
+          "numLocations": "94",
           "numLocationsNotCovered": "0",
           "percentCovered": 100,
           "type": "Class"
@@ -1004,24 +1158,12 @@
         },
         {
           "coverageLevel": "success",
-          "id": "01q1100000001ACAAY",
-          "name": "MERC_DailyAttendanceTOV",
-          "namespace": {
-            "@xsi:nil": "true"
-          },
-          "numLocations": "6",
-          "numLocationsNotCovered": "0",
-          "percentCovered": 100,
-          "type": "Trigger"
-        },
-        {
-          "coverageLevel": "success",
           "id": "01q1100000001CXAAY",
           "name": "MERC_MeetingParticipant",
           "namespace": {
             "@xsi:nil": "true"
           },
-          "numLocations": "4",
+          "numLocations": "8",
           "numLocationsNotCovered": "0",
           "percentCovered": 100,
           "type": "Trigger"
@@ -1049,6 +1191,42 @@
           "numLocationsNotCovered": "0",
           "percentCovered": 100,
           "type": "Trigger"
+        },
+        {
+          "coverageLevel": "success",
+          "id": "01q1100000001ILAAY",
+          "name": "MERC_Meeting",
+          "namespace": {
+            "@xsi:nil": "true"
+          },
+          "numLocations": "3",
+          "numLocationsNotCovered": "0",
+          "percentCovered": 100,
+          "type": "Trigger"
+        },
+        {
+          "coverageLevel": "success",
+          "id": "01q1100000001ACAAY",
+          "name": "MERC_DailyAttendanceTOV",
+          "namespace": {
+            "@xsi:nil": "true"
+          },
+          "numLocations": "6",
+          "numLocationsNotCovered": "0",
+          "percentCovered": 100,
+          "type": "Trigger"
+        },
+        {
+          "coverageLevel": "success",
+          "id": "01q1100000001FlAAI",
+          "name": "MERC_Account",
+          "namespace": {
+            "@xsi:nil": "true"
+          },
+          "numLocations": "5",
+          "numLocationsNotCovered": "0",
+          "percentCovered": 100,
+          "type": "Trigger"
         }
       ]
     },
@@ -1063,7 +1241,7 @@
       }
     ],
     "numFailures": "0",
-    "numTestsRun": "28",
+    "numTestsRun": "30",
     "pass_fail": {
       "GLBL_RollupSummaryUtilityTest": {
         "fail": 0,
@@ -1082,6 +1260,10 @@
         "pass": 1
       },
       "MERC_DocusignServiceTest": {
+        "fail": 0,
+        "pass": 2
+      },
+      "MERC_HcpCapActualsCalculatorTest": {
         "fail": 0,
         "pass": 2
       },
@@ -1107,7 +1289,7 @@
           "namespace": {
             "@xsi:nil": "true"
           },
-          "time": "498.0"
+          "time": "357.0"
         }
       ],
       "GLBL_SobjectDataLoaderTest": [
@@ -1118,7 +1300,7 @@
           "namespace": {
             "@xsi:nil": "true"
           },
-          "time": "85.0"
+          "time": "60.0"
         },
         {
           "id": "01p1100000006T5AAI",
@@ -1127,7 +1309,7 @@
           "namespace": {
             "@xsi:nil": "true"
           },
-          "time": "3992.0"
+          "time": "3516.0"
         },
         {
           "id": "01p1100000006T5AAI",
@@ -1136,7 +1318,7 @@
           "namespace": {
             "@xsi:nil": "true"
           },
-          "time": "3173.0"
+          "time": "3134.0"
         }
       ],
       "MERC_BudgetVersionControllerTest": [
@@ -1147,7 +1329,7 @@
           "namespace": {
             "@xsi:nil": "true"
           },
-          "time": "1199.0"
+          "time": "1251.0"
         },
         {
           "id": "01p1100000007BWAAY",
@@ -1156,7 +1338,7 @@
           "namespace": {
             "@xsi:nil": "true"
           },
-          "time": "605.0"
+          "time": "600.0"
         }
       ],
       "MERC_ContentVersionHandlerTest": [
@@ -1187,7 +1369,27 @@
           "namespace": {
             "@xsi:nil": "true"
           },
-          "time": "477.0"
+          "time": "324.0"
+        }
+      ],
+      "MERC_HcpCapActualsCalculatorTest": [
+        {
+          "id": "01p1100000008gQAAQ",
+          "methodName": "test_with_multiple_meetings",
+          "name": "MERC_HcpCapActualsCalculatorTest",
+          "namespace": {
+            "@xsi:nil": "true"
+          },
+          "time": "2784.0"
+        },
+        {
+          "id": "01p1100000008gQAAQ",
+          "methodName": "test_with_one_meeting",
+          "name": "MERC_HcpCapActualsCalculatorTest",
+          "namespace": {
+            "@xsi:nil": "true"
+          },
+          "time": "2447.0"
         }
       ],
       "MERC_TOVCalculatorTest": [
@@ -1198,7 +1400,7 @@
           "namespace": {
             "@xsi:nil": "true"
           },
-          "time": "940.0"
+          "time": "2189.0"
         }
       ],
       "MERC_TeamMemberShareHandlerTest": [
@@ -1209,7 +1411,7 @@
           "namespace": {
             "@xsi:nil": "true"
           },
-          "time": "1099.0"
+          "time": "1146.0"
         },
         {
           "id": "01p1100000006N2AAI",
@@ -1218,7 +1420,7 @@
           "namespace": {
             "@xsi:nil": "true"
           },
-          "time": "714.0"
+          "time": "887.0"
         },
         {
           "id": "01p1100000006N2AAI",
@@ -1227,7 +1429,7 @@
           "namespace": {
             "@xsi:nil": "true"
           },
-          "time": "947.0"
+          "time": "1261.0"
         },
         {
           "id": "01p1100000006N2AAI",
@@ -1236,7 +1438,7 @@
           "namespace": {
             "@xsi:nil": "true"
           },
-          "time": "781.0"
+          "time": "1162.0"
         }
       ],
       "PersonSearchControllerTestMVN": [
@@ -1247,7 +1449,7 @@
           "namespace": {
             "@xsi:nil": "true"
           },
-          "time": "799.0"
+          "time": "808.0"
         },
         {
           "id": "01p1100000007HAAAY",
@@ -1256,7 +1458,7 @@
           "namespace": {
             "@xsi:nil": "true"
           },
-          "time": "600.0"
+          "time": "575.0"
         },
         {
           "id": "01p1100000007HAAAY",
@@ -1265,7 +1467,7 @@
           "namespace": {
             "@xsi:nil": "true"
           },
-          "time": "762.0"
+          "time": "820.0"
         },
         {
           "id": "01p1100000007HAAAY",
@@ -1283,7 +1485,7 @@
           "namespace": {
             "@xsi:nil": "true"
           },
-          "time": "657.0"
+          "time": "676.0"
         },
         {
           "id": "01p1100000007HAAAY",
@@ -1292,7 +1494,7 @@
           "namespace": {
             "@xsi:nil": "true"
           },
-          "time": "2879.0"
+          "time": "682.0"
         },
         {
           "id": "01p1100000007HAAAY",
@@ -1301,7 +1503,7 @@
           "namespace": {
             "@xsi:nil": "true"
           },
-          "time": "687.0"
+          "time": "677.0"
         },
         {
           "id": "01p1100000007HAAAY",
@@ -1310,7 +1512,7 @@
           "namespace": {
             "@xsi:nil": "true"
           },
-          "time": "701.0"
+          "time": "658.0"
         },
         {
           "id": "01p1100000007HAAAY",
@@ -1319,7 +1521,7 @@
           "namespace": {
             "@xsi:nil": "true"
           },
-          "time": "721.0"
+          "time": "640.0"
         },
         {
           "id": "01p1100000007HAAAY",
@@ -1328,7 +1530,7 @@
           "namespace": {
             "@xsi:nil": "true"
           },
-          "time": "547.0"
+          "time": "598.0"
         },
         {
           "id": "01p1100000007HAAAY",
@@ -1337,7 +1539,7 @@
           "namespace": {
             "@xsi:nil": "true"
           },
-          "time": "1085.0"
+          "time": "3133.0"
         },
         {
           "id": "01p1100000007HAAAY",
@@ -1346,7 +1548,7 @@
           "namespace": {
             "@xsi:nil": "true"
           },
-          "time": "415.0"
+          "time": "344.0"
         },
         {
           "id": "01p1100000007HAAAY",
@@ -1355,7 +1557,7 @@
           "namespace": {
             "@xsi:nil": "true"
           },
-          "time": "458.0"
+          "time": "600.0"
         },
         {
           "id": "01p1100000007HAAAY",
@@ -1364,7 +1566,7 @@
           "namespace": {
             "@xsi:nil": "true"
           },
-          "time": "543.0"
+          "time": "572.0"
         }
       ]
     },
@@ -1376,7 +1578,7 @@
         "namespace": {
           "@xsi:nil": "true"
         },
-        "time": "498.0"
+        "time": "357.0"
       },
       {
         "id": "01p1100000006T5AAI",
@@ -1385,7 +1587,7 @@
         "namespace": {
           "@xsi:nil": "true"
         },
-        "time": "85.0"
+        "time": "60.0"
       },
       {
         "id": "01p1100000006T5AAI",
@@ -1394,7 +1596,7 @@
         "namespace": {
           "@xsi:nil": "true"
         },
-        "time": "3992.0"
+        "time": "3516.0"
       },
       {
         "id": "01p1100000006T5AAI",
@@ -1403,7 +1605,7 @@
         "namespace": {
           "@xsi:nil": "true"
         },
-        "time": "3173.0"
+        "time": "3134.0"
       },
       {
         "id": "01p1100000007BWAAY",
@@ -1412,7 +1614,7 @@
         "namespace": {
           "@xsi:nil": "true"
         },
-        "time": "1199.0"
+        "time": "1251.0"
       },
       {
         "id": "01p1100000007BWAAY",
@@ -1421,7 +1623,7 @@
         "namespace": {
           "@xsi:nil": "true"
         },
-        "time": "605.0"
+        "time": "600.0"
       },
       {
         "id": "01p1100000008DiAAI",
@@ -1448,7 +1650,25 @@
         "namespace": {
           "@xsi:nil": "true"
         },
-        "time": "477.0"
+        "time": "324.0"
+      },
+      {
+        "id": "01p1100000008gQAAQ",
+        "methodName": "test_with_multiple_meetings",
+        "name": "MERC_HcpCapActualsCalculatorTest",
+        "namespace": {
+          "@xsi:nil": "true"
+        },
+        "time": "2784.0"
+      },
+      {
+        "id": "01p1100000008gQAAQ",
+        "methodName": "test_with_one_meeting",
+        "name": "MERC_HcpCapActualsCalculatorTest",
+        "namespace": {
+          "@xsi:nil": "true"
+        },
+        "time": "2447.0"
       },
       {
         "id": "01p1100000006N2AAI",
@@ -1457,7 +1677,7 @@
         "namespace": {
           "@xsi:nil": "true"
         },
-        "time": "1099.0"
+        "time": "1146.0"
       },
       {
         "id": "01p1100000006N2AAI",
@@ -1466,7 +1686,7 @@
         "namespace": {
           "@xsi:nil": "true"
         },
-        "time": "714.0"
+        "time": "887.0"
       },
       {
         "id": "01p1100000006N2AAI",
@@ -1475,7 +1695,7 @@
         "namespace": {
           "@xsi:nil": "true"
         },
-        "time": "947.0"
+        "time": "1261.0"
       },
       {
         "id": "01p1100000006N2AAI",
@@ -1484,7 +1704,7 @@
         "namespace": {
           "@xsi:nil": "true"
         },
-        "time": "781.0"
+        "time": "1162.0"
       },
       {
         "id": "01p1100000007wcAAA",
@@ -1493,7 +1713,7 @@
         "namespace": {
           "@xsi:nil": "true"
         },
-        "time": "940.0"
+        "time": "2189.0"
       },
       {
         "id": "01p1100000007HAAAY",
@@ -1502,7 +1722,7 @@
         "namespace": {
           "@xsi:nil": "true"
         },
-        "time": "799.0"
+        "time": "808.0"
       },
       {
         "id": "01p1100000007HAAAY",
@@ -1511,7 +1731,7 @@
         "namespace": {
           "@xsi:nil": "true"
         },
-        "time": "600.0"
+        "time": "575.0"
       },
       {
         "id": "01p1100000007HAAAY",
@@ -1520,7 +1740,7 @@
         "namespace": {
           "@xsi:nil": "true"
         },
-        "time": "762.0"
+        "time": "820.0"
       },
       {
         "id": "01p1100000007HAAAY",
@@ -1538,7 +1758,7 @@
         "namespace": {
           "@xsi:nil": "true"
         },
-        "time": "657.0"
+        "time": "676.0"
       },
       {
         "id": "01p1100000007HAAAY",
@@ -1547,7 +1767,7 @@
         "namespace": {
           "@xsi:nil": "true"
         },
-        "time": "2879.0"
+        "time": "682.0"
       },
       {
         "id": "01p1100000007HAAAY",
@@ -1556,7 +1776,7 @@
         "namespace": {
           "@xsi:nil": "true"
         },
-        "time": "687.0"
+        "time": "677.0"
       },
       {
         "id": "01p1100000007HAAAY",
@@ -1565,7 +1785,7 @@
         "namespace": {
           "@xsi:nil": "true"
         },
-        "time": "701.0"
+        "time": "658.0"
       },
       {
         "id": "01p1100000007HAAAY",
@@ -1574,7 +1794,7 @@
         "namespace": {
           "@xsi:nil": "true"
         },
-        "time": "721.0"
+        "time": "640.0"
       },
       {
         "id": "01p1100000007HAAAY",
@@ -1583,7 +1803,7 @@
         "namespace": {
           "@xsi:nil": "true"
         },
-        "time": "547.0"
+        "time": "598.0"
       },
       {
         "id": "01p1100000007HAAAY",
@@ -1592,7 +1812,7 @@
         "namespace": {
           "@xsi:nil": "true"
         },
-        "time": "1085.0"
+        "time": "3133.0"
       },
       {
         "id": "01p1100000007HAAAY",
@@ -1601,7 +1821,7 @@
         "namespace": {
           "@xsi:nil": "true"
         },
-        "time": "415.0"
+        "time": "344.0"
       },
       {
         "id": "01p1100000007HAAAY",
@@ -1610,7 +1830,7 @@
         "namespace": {
           "@xsi:nil": "true"
         },
-        "time": "458.0"
+        "time": "600.0"
       },
       {
         "id": "01p1100000007HAAAY",
@@ -1619,10 +1839,10 @@
         "namespace": {
           "@xsi:nil": "true"
         },
-        "time": "543.0"
+        "time": "572.0"
       }
     ],
-    "totalTime": "26241.0"
+    "totalTime": "32778.0"
   },
   "success": false
 }

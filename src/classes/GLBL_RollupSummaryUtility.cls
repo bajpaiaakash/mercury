@@ -42,7 +42,9 @@ public class GLBL_RollupSummaryUtility {
         childParentLookupField + ' from ' + childObject + ' where  ' + 
         childParentLookupField + ' IN :parentIds ' + queryFilter + ' ' +
         ' group by ' + childParentLookupField;
-         
+        
+        system.debug('aggregate query >>> '+aggregateQuery);
+ 
         //Map will contain one parent record Id per one aggregate object
         map<Id, AggregateResult> parentValueMap = 
         new map <Id, AggregateResult>();
@@ -50,13 +52,17 @@ public class GLBL_RollupSummaryUtility {
         for(AggregateResult q : Database.query(aggregateQuery)){
             parentValueMap.put((Id)q.get(childParentLookupField), q);
         }
-         
+
+        system.debug('parentValueMap >>> '+parentValueMap);
+
         //list of parent object records to update
         list<sObject> parentsToUpdate = new list<sObject>();
          
         String parentQuery = 'select ' + parentFields + ' Id ' +
          ' from ' + parentObject + ' where Id IN :parentIds';
-         
+        
+        system.debug('parent query >>> '+parentQuery);
+
         //for each affected parent object, retrieve aggregate results and 
         //for each field definition add aggregate value to parent field
         for(sObject s : Database.query(parentQuery)) {

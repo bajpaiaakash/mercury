@@ -60,7 +60,7 @@ class MercuryBuildTest(unittest.TestCase):
                 classes.append(r["Name"])
 
 
-        result, log, html = project.compile(client, project_path, classes=classes) #running tests below, bc run all tests runs managed package tests which can fail
+        result, log, html = project.compile(client, project_path, classes=classes, check_only=True) #running tests below, bc run all tests runs managed package tests which can fail
         json_result = json.dumps(result, sort_keys=True, indent=2, separators=(',', ': '))
         result = json.loads(json_result)
         

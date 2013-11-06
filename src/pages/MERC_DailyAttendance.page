@@ -39,18 +39,18 @@
 	</script>
 	<apex:form >
 		<div class="loading-wrapper" style="position:relative;">
-			<apex:pageMessage severity="INFO" strength="2" summary="Select the participants who attended for each meeting day and click the 'Update' button."/>
+			<apex:pageMessage severity="INFO" strength="2" summary="Select the participants who attended for each meeting day and click the 'Update' button." rendered="{!not(hasError)}"/>
 			<apex:pageBlock title="Meeting Participants" id="mainBlock">
 				<apex:pageBlockButtons >
-					<apex:selectList value="{!selectedMeetingDayId}" size="1" styleclass="selectMeetingDay">
+					<apex:selectList value="{!selectedMeetingDayId}" size="1" styleclass="selectMeetingDay" rendered="{!not(hasError)}">
 						<apex:selectOptions value="{!meetingDayOptions}"/>
 						<apex:actionSupport action="{!changeDay}" onsubmit="toggleLoading()" oncomplete="bindDomHandlers();toggleLoading()" event="onchange" rerender="mainBlock"/>
 					</apex:selectList>
-					<apex:commandButton value="Update" action="{!updateAttendanceForSelectedMeetingDay}" onclick="toggleLoading()" oncomplete="bindDomHandlers();toggleLoading()" rerender="mainBlock"/>
+					<apex:commandButton value="Update" rendered="{!not(hasError)}" action="{!updateAttendanceForSelectedMeetingDay}" onclick="toggleLoading()" oncomplete="bindDomHandlers();toggleLoading()" rerender="mainBlock"/>
 					<apex:commandButton value="Back to Meeting" action="{!cancel}"/>
 				</apex:pageBlockButtons>
 				<apex:pageMessages />
-				<apex:pageBlockTable value="{!participants}" var="p" styleclass="attendanceTable">
+				<apex:pageBlockTable value="{!participants}" var="p" styleclass="attendanceTable" rendered="{!not(hasError)}">
 					<apex:column headerValue="Attended" width="30">
 						<apex:facet name="header">
 							<input type="checkbox" id="chkSelectAll"/>

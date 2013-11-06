@@ -35,6 +35,7 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Stores list of Team Members that can be associated to a Meeting. Can be Users or Person Accounts. Created on 9/27/2013 by KLorenti.</description>
     <enableActivities>false</enableActivities>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
@@ -43,7 +44,7 @@
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Lookup relationship to Account so Person Accounts may be selected as Team Members a Meeting. Created 9/27/2013 by KLorenti</description>
         <externalId>false</externalId>
-        <label>Account</label>
+        <label>External User</label>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Team Members</relationshipLabel>
         <relationshipName>Team_Members</relationshipName>
@@ -55,6 +56,7 @@
         <fullName>Attendee_Invite_Limit_MERC__c</fullName>
         <description>Created 10/10/2013 by KLorenti.</description>
         <externalId>false</externalId>
+        <inlineHelpText>Identifies how many people a Sales Reps can invite to the meeting.</inlineHelpText>
         <label>Attendee Invite Limit</label>
         <precision>16</precision>
         <required>false</required>
@@ -128,7 +130,7 @@
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Lookup relationship to User object so users may be selected as Team Members for a Meeting. Created 9/27/2013 by KLorenti.</description>
         <externalId>false</externalId>
-        <label>User</label>
+        <label>Mercury User</label>
         <referenceTo>User</referenceTo>
         <relationshipName>Team_Members</relationshipName>
         <required>false</required>
@@ -155,6 +157,61 @@
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Team Members</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>External_User_MERC</fullName>
+        <active>true</active>
+        <description>Used to add Sales Reps</description>
+        <label>External User</label>
+        <picklistValues>
+            <picklist>Role_MERC__c</picklist>
+            <values>
+                <fullName>Sales Representative</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Mercury_User_MERC</fullName>
+        <active>true</active>
+        <description>Used to add Meeting Planning Company, Travel Agency, Account Mangers</description>
+        <label>Mercury User</label>
+        <picklistValues>
+            <picklist>Role_MERC__c</picklist>
+            <values>
+                <fullName>Account Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Budget Owner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>District Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Final Budget Approver %26 Mediator</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting Owner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting Planning Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Onsite Attendance Checker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel Agent</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <searchLayouts>
         <customTabListAdditionalFields>Meeting_MERC__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Account_MERC__c</customTabListAdditionalFields>

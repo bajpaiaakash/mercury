@@ -35,6 +35,7 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Object to track detailed budget information. Created 9/27/2013 by KLorenti.</description>
     <enableActivities>false</enableActivities>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>

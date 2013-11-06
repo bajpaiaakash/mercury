@@ -36,6 +36,7 @@
     <description>Details of travel arrangements - child of Travel
 Created by John A Adams 10/9/2013</description>
     <enableActivities>true</enableActivities>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
@@ -299,10 +300,42 @@ Created by John A Adams 10/10/2013</description>
         </picklistValues>
     </recordTypes>
     <recordTypes>
+        <fullName>Flights</fullName>
+        <active>true</active>
+        <description>Flight Information</description>
+        <label>Flight</label>
+        <picklistValues>
+            <picklist>Final_Destination_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Travel_Detail_Type__c</picklist>
+            <values>
+                <fullName>Connection Leg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inbound Leg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outbound Leg</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
         <fullName>Transportation_MERC</fullName>
         <active>true</active>
-        <description>Transportation information</description>
-        <label>Transportation</label>
+        <description>Ground Transportation Information</description>
+        <label>Ground Transportation</label>
         <picklistValues>
             <picklist>Final_Destination_MERC__c</picklist>
             <values>
@@ -333,7 +366,7 @@ Created by John A Adams 10/10/2013</description>
     <recordTypes>
         <fullName>Vehicle_MERC</fullName>
         <active>true</active>
-        <description>Vehicle rental information</description>
+        <description>Vehicle Rental Information</description>
         <label>Vehicle</label>
         <picklistValues>
             <picklist>Final_Destination_MERC__c</picklist>

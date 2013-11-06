@@ -35,6 +35,7 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Capture history for account merges. Created 10/17/2013 by KLorenti, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>

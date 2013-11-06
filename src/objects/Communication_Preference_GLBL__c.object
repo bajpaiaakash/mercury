@@ -38,6 +38,7 @@ Created by John A Adams 9/26/2013
 Renamed Communication from Consent by John A Adams 10/7/2013
 Renamed Communication Preference from Communication by JFerraro 10/17/2013</description>
     <enableActivities>false</enableActivities>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
@@ -53,6 +54,108 @@ Created by John A Adams 9/27/2013</description>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Cmnctn_Chnl_Cd_GLBL__c</fullName>
+        <description>Communication Channel Code
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Communication Channel Code</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Cmnctn_Sub_Chnl_Cd_GLBL__c</fullName>
+        <description>Communication Sub Channel Code
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Communication Sub Channel Code</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Cnsnt_Cntct_Dtl_Txt_GLBL__c</fullName>
+        <description>Consent Detail Text
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Consent Detail Text</label>
+        <length>200</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Cnsnt_Exprtn_Dt_GLBL__c</fullName>
+        <description>Expiration Date
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Expiration Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Cnsnt_Prps_Cd_GLBL__c</fullName>
+        <description>Consent Purpose Code
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Consent Purpose Code</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Cnsnt_Src_Nm_GLBL__c</fullName>
+        <description>Consent Source Name
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Consent Source Name</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Cnsnt_Sts_Cd_GLBL__c</fullName>
+        <description>Consent Status Code
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Consent Status Code</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Cnsnt_Typ_Cd_GLBL__c</fullName>
+        <description>Consent Type Code
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Consent Type Code</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Communication_Preference_GLBL__c</fullName>
@@ -119,6 +222,30 @@ Created by John A Adams 10/22/2013</description>
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
+        <fullName>Del_Date_GLBL__c</fullName>
+        <description>Delete Date
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Delete Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Del_Flg_GLBL__c</fullName>
+        <description>Delete Flag
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Delete Flag</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Detailed_Preferences_GLBL__c</fullName>
         <description>Captures HCP preferences at a more granular level e.g. I want to speak about these topics, I want to speak only in International Meetings.
 Created by John A Adams 10/23/2013</description>
@@ -127,6 +254,28 @@ Created by John A Adams 10/23/2013</description>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Efctv_End_Dt_GLBL__c</fullName>
+        <description>End Date
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Efctv_Start_Dt_GLBL__c</fullName>
+        <description>Effective Date
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Effective Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Interaction_Channel_Type_GLBL__c</fullName>
@@ -201,6 +350,80 @@ Created by John A Adams 10/17/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>ODS_Ld_Tmstmp_GLBL__c</fullName>
+        <description>Source Load Timestamp
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Source Load Timestamp</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>ODS_Ld_Usr_GLBL__c</fullName>
+        <description>ODS Load User
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>ODS Load User</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ODS_Lst_Updt_Tmstmp_GLBL__c</fullName>
+        <description>Source Update Timestamp
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Source Update Timestamp</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>ODS_Lst_Updt_Usr_GLBL__c</fullName>
+        <description>ODS Last Update User
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>ODS Last Update User</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Party_Cntry_Cd_GLBL__c</fullName>
+        <description>Party Country Code
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Party Country Code</label>
+        <length>2</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Party_Rcrd_Typ_Cd_GLBL__c</fullName>
+        <description>Party Record Type Code
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Party Record Type Code</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Permission_Status_GLBL__c</fullName>
         <description>Records Speakers / Delegates permission to contact them</description>
         <externalId>false</externalId>
@@ -218,6 +441,20 @@ Created by John A Adams 10/17/2013</description>
         </picklist>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Priority_Rank_Nbr_GLBL__c</fullName>
+        <description>Priority Rank Number
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Priority Rank Number</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Speaker_Interest_GLBL__c</fullName>
@@ -242,6 +479,32 @@ Created by John A Adams 10/3/2013</description>
         </picklist>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Src_Block_Flg_GLBL__c</fullName>
+        <description>Source Block Flag
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Source Block Flag</label>
+        <length>1</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Src_Sys_Cd_GLBL__c</fullName>
+        <description>Source System Code
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Source System Code</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <label>Communication Preference</label>
     <listViews>

@@ -33,8 +33,9 @@
         <type>Default</type>
     </actionOverrides>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Testing - Object to track days of meetings. Created 10/10/2013 by KLorenti.</description>
+    <description>Object to track days of meetings and ToV cost of each day. Created 10/10/2013 by KLorenti.</description>
     <enableActivities>false</enableActivities>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
@@ -128,16 +129,28 @@ Created by John A Adams 10/10/2013</description>
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Meeting_Hotel_Vendor_Name_MERC__c</fullName>
+        <description>Used to display the Hotel Vendor Name once associated to the Day record.  Created by Oliver Dunford 4th Nov 2013.</description>
+        <externalId>false</externalId>
+        <formula>Meeting_Hotel_Vendor_MERC__r.Account_MERC__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting Hotel Vendor Name</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Meeting_MERC__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
         <description>Lookup relationship to Meeting. Created 10/10/2013 by KLorenti</description>
         <externalId>false</externalId>
         <label>Meeting</label>
         <referenceTo>Meeting_MERC__c</referenceTo>
         <relationshipLabel>Meeting Days</relationshipLabel>
         <relationshipName>Meeting_Days</relationshipName>
-        <required>false</required>
-        <type>Lookup</type>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <label>Meeting Day</label>
     <nameField>
@@ -154,7 +167,7 @@ Created by John A Adams 10/10/2013</description>
         <searchFilterFields>Meeting_MERC__c</searchFilterFields>
         <searchFilterFields>Date_MERC__c</searchFilterFields>
     </searchLayouts>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>ControlledByParent</sharingModel>
     <webLinks>
         <fullName>Manage_Daily_Attendance_MERC</fullName>
         <availability>online</availability>

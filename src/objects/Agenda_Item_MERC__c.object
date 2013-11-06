@@ -36,6 +36,7 @@
     <description>Contains agenda information
 Created by John A Adams 9/26/2013</description>
     <enableActivities>false</enableActivities>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
@@ -67,7 +68,7 @@ Created by John A Adams 9/30/2013</description>
     <fields>
         <fullName>Meeting_Venue_MERC__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
-        <description>Venue of meeting</description>
+        <description>Venue of meeting Oliver Dunford 4th Nov 2013</description>
         <externalId>false</externalId>
         <label>Meeting Venue</label>
         <referenceTo>Meeting_Venue_MERC__c</referenceTo>
@@ -76,6 +77,18 @@ Created by John A Adams 9/30/2013</description>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Venue_Name_MERC__c</fullName>
+        <description>Adds the Meeting Venue name to the layout. Oliver Dunford 4th November.</description>
+        <externalId>false</externalId>
+        <formula>Meeting_Venue_MERC__r.Account_MERC__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting Venue Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Room_MERC__c</fullName>

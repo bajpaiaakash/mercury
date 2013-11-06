@@ -39,6 +39,7 @@ Used to manage capacity for a meeting and to manage Country allocation capacity 
 
 Created by John A Adams 9/26/2013</description>
     <enableActivities>true</enableActivities>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
@@ -107,6 +108,50 @@ Created by John A Adams 9/27/2013</description>
         <length>80</length>
         <required>false</required>
         <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Accepted_MERC__c</fullName>
+        <description>Rolls up those Participants who have accepted the meeting. Oliver Dunford 6th Nov 2013.</description>
+        <externalId>false</externalId>
+        <label>Total # Accepted</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Attended_MERC__c</fullName>
+        <description>Rolls up those with a meeting participant status of Attended. Oliver Dunford 6th Nov 2013</description>
+        <externalId>false</externalId>
+        <label>Total # Attended</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Declined_MERC__c</fullName>
+        <description>Rolls up those participants in a Slot who have declined the meeting. Oliver Dunford 6th Nov 2013</description>
+        <externalId>false</externalId>
+        <label>Total # Declined</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Participants_MERC__c</fullName>
+        <description>Rolls up the total number of participants assigned to a Slot. Oliver Dunford 6th Nov 2013.</description>
+        <externalId>false</externalId>
+        <label>Total # Participants</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
         <unique>false</unique>
     </fields>
     <label>Slot</label>

@@ -35,6 +35,7 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Object to store Meeting Participants. Created 9/27/2013 by KLorenti.</description>
     <enableActivities>false</enableActivities>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
@@ -51,6 +52,46 @@
         <trackHistory>false</trackHistory>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Cancellation_Notice_Sent_MERC__c</fullName>
+        <description>Captures when a Cancellation Notice was sent to the meeting participant. Created 11/5/2013 by KLorenti, Mavens Consulting.</description>
+        <externalId>false</externalId>
+        <label>Cancellation Notice Sent</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Classification_MERC__c</fullName>
+        <description>Used to display Classification from HCP Profile. Created 11/4/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Account_MERC__r.Clsfctn_Cd_GLBL__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Classification</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Confirm_Final_Fee_MERC__c</fullName>
+        <description>Used to confirm and trigger the setting of the Final Fee. Oliver Dunford 5th Nov 2013.</description>
+        <externalId>false</externalId>
+        <label>Confirm Final Fee?</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Pending Confirmation</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Confirmed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Contract_Without_Payment_MERC__c</fullName>
@@ -72,7 +113,7 @@ Created by John A Adams 10/31/2013</description>
         <description>Country of Residence from HCP Profile - used to determine Min/Max rates based on Tier
 Created by John A Adams 10/31/2013</description>
         <externalId>false</externalId>
-        <formula>Account_MERC__r.Country_of_Residence_GLBL__c</formula>
+        <formula>TEXT(Account_MERC__r.Country_of_Residence_GLBL__c )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Country of Residence</label>
         <required>false</required>
@@ -93,6 +134,25 @@ Created by John A Adams 10/31/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Expense_Reimbursment_MERC__c</fullName>
+        <description>Captures whether expense reimbursement is needed for this meeting participant. Oliver Dunford 5th November.</description>
+        <externalId>false</externalId>
+        <label>Expense Reimbursement?</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Final_Fee_MERC__c</fullName>
         <description>Can be used to override the calculated Maximum Fee.  This is the figure used within the Invoicing Process.  Created by Oliver Dunford 31st Oct 2013.</description>
         <externalId>false</externalId>
@@ -102,6 +162,18 @@ Created by John A Adams 10/31/2013</description>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Force_Unique_Participant_MERC__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>Stamped via workflow to enforce a unique participant per Meeting.  If someone is a Speaker, they&apos;re primarily a Speaker and not both a Speaker and Delegate.</description>
+        <externalId>false</externalId>
+        <label>Force Unique Participant</label>
+        <length>120</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>true</unique>
     </fields>
     <fields>
         <fullName>Ground_Transportation_Required_MERC__c</fullName>
@@ -123,6 +195,18 @@ Created by John A Adams 10/31/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>HCP_Contract_Details_MERC__c</fullName>
+        <description>Adds more information about the Contract once linked to Participant. Oliver Dunford 4th Nov 2013.</description>
+        <externalId>false</externalId>
+        <formula>HCP_Contract_MERC__r.RecordType.Name &amp; &quot; - &quot; &amp;  TEXT(HCP_Contract_MERC__r.Contract_Request_Status_MERC__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>HCP Contract Details</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>HCP_Contract_MERC__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Lookup Relationship from Meeting Participant to HCP Contract. Created 10/10/2013 by KLorenti.</description>
@@ -136,10 +220,56 @@ Created by John A Adams 10/31/2013</description>
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Higher_Fee_Approval__c</fullName>
+        <description>Controls approval of a Proposed Fee that is higher than the maximum affiliate amount. 6th Nov 2013.  Oliver Dunford. 2013.</description>
+        <externalId>false</externalId>
+        <label>Higher Fee Approval</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Not Required</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Required</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Hotel_Required_MERC__c</fullName>
         <description>When a Meeting Owner is registering participants manually in Mercury, these attributes may be populated. Created 10/28/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Hotel Required?</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Invoice_Template_Needed_MERC__c</fullName>
+        <description>Captures whether meeting participant needs an Invoice Template. Oliver Dunford 5th November 2013.</description>
+        <externalId>false</externalId>
+        <label>Invoice Template Needed?</label>
         <picklist>
             <picklistValues>
                 <fullName>Yes</fullName>
@@ -267,7 +397,7 @@ Created by John A Adams 10/31/2013</description>
         <fullName>Partial_Payment_Justification_MERC__c</fullName>
         <description>Capture the justification reason if part payment was required. Created 10/29/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <label>Partial Payment Justification Needed</label>
+        <label>Partial Payment Justification Needed?</label>
         <picklist>
             <picklistValues>
                 <fullName>Yes</fullName>
@@ -283,6 +413,56 @@ Created by John A Adams 10/31/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Participant_Approved_MERC__c</fullName>
+        <description>Captures if the participant has been approved to be invited to the Meeting. Created 11/5/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Participant Approved?</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Participant_Search_MERC__c</fullName>
+        <description>Ensures the Meeting Participant is searchable. Oliver Dunford 6th Nov 2013</description>
+        <externalId>false</externalId>
+        <label>Participant Search</label>
+        <length>120</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Participant_ToV_Final_MERC__c</fullName>
+        <description>The trigger to send ToV values to Activity ODS.  Oliver Dunford 5th November.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Mechanism for Meeting Planning company to confirm ToV for participants.  Once set to Yes, these will be sent for Reporting.</inlineHelpText>
+        <label>Participant ToV Final?</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Preparation_Time_Hrs_MERC__c</fullName>
         <description>Preparation time for patricipant. Created 10/10/2013 by KLorenti.</description>
         <externalId>false</externalId>
@@ -295,7 +475,57 @@ Created by John A Adams 10/31/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Presentation_Approval_Needed_MERC__c</fullName>
+        <description>Whether the presentation needs approval beforehand. Oliver Dunford 5th November.</description>
+        <externalId>false</externalId>
+        <label>Presentation Approval Needed?</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Proposed_Final_Fee_MERC__c</fullName>
+        <description>Stores the Proposed Fee.  Is needs to go through a confirmation process with the HCP and Affiliate if it exceeds the Maximum Amount. Oliver Dunford 6th Nov.</description>
+        <externalId>false</externalId>
+        <label>Proposed Final Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Require_Recording_Consent_MERC__c</fullName>
+        <description>Is record consent needed for the meeting. Oliver Dunford 5th Nov 2013</description>
+        <externalId>false</externalId>
+        <label>Require Recording Consent?</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Service_Provider_Tier_MERC__c</fullName>
+        <description>Pulls the Service Provider Tier from the HCP Profile. Oliver Dunford 5th Nov 2013.</description>
         <externalId>false</externalId>
         <formula>Account_MERC__r.Service_Provider_Tier_MERC__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
@@ -360,19 +590,11 @@ Created by John A Adams 9/27/2013</description>
         <label>Status</label>
         <picklist>
             <picklistValues>
+                <fullName>Pending Approval</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Invited</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Accepted</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Attended</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Onboarded</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -380,23 +602,19 @@ Created by John A Adams 9/27/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Declined</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Attended</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>No Show</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Pending Approval</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Rejected</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -407,6 +625,15 @@ Created by John A Adams 9/27/2013</description>
         </picklist>
         <trackHistory>true</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Topic_Area_MERC__c</fullName>
+        <description>The topic area chosen by the Service Provider.  Oliver Dunford. 5th Nov 2013.</description>
+        <externalId>false</externalId>
+        <label>Topic Area</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Total_Food_Beverage_ToV_MERC__c</fullName>
@@ -497,6 +724,25 @@ Created by John A Adams 10/17/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Travel_Required_MERC__c</fullName>
+        <description>Captures whether the participant needs travel for the meeting. Oliver Dunford 5th Nov</description>
+        <externalId>false</externalId>
+        <label>Travel Required?</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Travel_Time_Hrs_MERC__c</fullName>
         <description>Travel Time Hours. Created 10/10/2013 by K Lorenti. Modified to Pick list by J Adams 10/17/2013
 
@@ -546,10 +792,32 @@ Created by John A Adams 10/17/2013</description>
     <pluralLabel>Meeting Participants</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
-        <fullName>Delegate</fullName>
+        <fullName>Delegate_MERC</fullName>
         <active>true</active>
         <description>Meeting attendee</description>
         <label>Delegate</label>
+        <picklistValues>
+            <picklist>Confirm_Final_Fee_MERC__c</picklist>
+            <values>
+                <fullName>Confirmed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending Confirmation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Expense_Reimbursment_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Ground_Transportation_Required_MERC__c</picklist>
             <values>
@@ -558,6 +826,25 @@ Created by John A Adams 10/17/2013</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Higher_Fee_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Required</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -573,7 +860,62 @@ Created by John A Adams 10/17/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Invoice_Template_Needed_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Partial_Payment_Justification_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Participant_Approved_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Participant_ToV_Final_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Presentation_Approval_Needed_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Require_Recording_Consent_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -598,10 +940,6 @@ Created by John A Adams 10/17/2013</description>
             <picklist>Status_MERC__c</picklist>
             <values>
                 <fullName>Accepted</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Approved</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -630,10 +968,17 @@ Created by John A Adams 10/17/2013</description>
             </values>
             <values>
                 <fullName>Pending Approval</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Travel_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Rejected</fullName>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -658,10 +1003,32 @@ Created by John A Adams 10/17/2013</description>
         </picklistValues>
     </recordTypes>
     <recordTypes>
-        <fullName>Service_Provider</fullName>
+        <fullName>Service_Provider_MERC</fullName>
         <active>true</active>
         <description>Invited presenter for meeting</description>
         <label>Service Provider</label>
+        <picklistValues>
+            <picklist>Confirm_Final_Fee_MERC__c</picklist>
+            <values>
+                <fullName>Confirmed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending Confirmation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Expense_Reimbursment_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Ground_Transportation_Required_MERC__c</picklist>
             <values>
@@ -670,6 +1037,25 @@ Created by John A Adams 10/17/2013</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Higher_Fee_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Required</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -685,7 +1071,62 @@ Created by John A Adams 10/17/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Invoice_Template_Needed_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Partial_Payment_Justification_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Participant_Approved_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Participant_ToV_Final_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Presentation_Approval_Needed_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Require_Recording_Consent_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -713,10 +1154,6 @@ Created by John A Adams 10/17/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Attended</fullName>
                 <default>false</default>
             </values>
@@ -741,15 +1178,18 @@ Created by John A Adams 10/17/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Onboarded</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Pending Approval</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Travel_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Rejected</fullName>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

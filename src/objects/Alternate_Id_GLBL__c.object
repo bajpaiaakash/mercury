@@ -35,6 +35,7 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Stores Alternate ID&apos;s for Accounts. Created 10/17/2013 by KLorenti, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
@@ -52,19 +53,216 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Type_GLBL__c</fullName>
-        <description>Type of Alternate ID associated to Account. Created 10/17/2013 by KLorenti, Mavens Consulting</description>
+        <fullName>Altrnt_Id_Sts_Cd_GLBL__c</fullName>
+        <description>Status
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
-        <label>Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Cegedim Id</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
+        <label>Status</label>
+        <length>50</length>
+        <required>false</required>
         <trackHistory>false</trackHistory>
-        <type>Picklist</type>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Altrnt_Id_Subtyp_Cd_GLBL__c</fullName>
+        <description>Subtype Code
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/4/2013</description>
+        <externalId>false</externalId>
+        <label>Subtype Code</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Altrnt_Id_Typ_Cd_GLBL__c</fullName>
+        <description>Type Code
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/4/2013</description>
+        <externalId>false</externalId>
+        <label>Type Code</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Del_Date_GLBL__c</fullName>
+        <description>Delete Date
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Delete Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Del_Flg_GLBL__c</fullName>
+        <description>Delete Flag
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Delete Flag</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Efctv_End_Dt_GLBL__c</fullName>
+        <description>End Date
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Efctv_Start_Dt_GLBL__c</fullName>
+        <description>Effective Date
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Effective Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Exprtn_Dt_GLBL__c</fullName>
+        <description>Expiration Date
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/4/2013</description>
+        <externalId>false</externalId>
+        <label>Expiration Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ODS_Ld_Tmstmp_GLBL__c</fullName>
+        <description>Source Load Timestamp
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Source Load Timestamp</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>ODS_Ld_Usr_GLBL__c</fullName>
+        <description>ODS Load User
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>ODS Load User</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ODS_Lst_Updt_Tmstmp_GLBL__c</fullName>
+        <description>Source Update Timestamp
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Source Update Timestamp</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>ODS_Lst_Updt_Usr_GLBL__c</fullName>
+        <description>ODS Last Update User
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>ODS Last Update User</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Party_Cntry_Cd_GLBL__c</fullName>
+        <description>Party Country Code 
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Party Country Code</label>
+        <length>2</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Party_Rcrd_Typ_Cd_GLBL__c</fullName>
+        <description>Type of Alternate ID associated to Account. Created 10/17/2013 by KLorenti, Mavens Consulting
+
+Party Record Type Code
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/4/2013</description>
+        <externalId>false</externalId>
+        <label>Party Record Type Code</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Priority_Rank_Nbr_GLBL__c</fullName>
+        <description>Priority Rank Number
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/4/2013</description>
+        <externalId>false</externalId>
+        <label>Priority Rank Number</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Src_Block_Flg_GLBL__c</fullName>
+        <description>Source Block Flag
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/4/2013</description>
+        <externalId>false</externalId>
+        <label>Source Block Flag</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Src_Sys_Cd_GLBL__c</fullName>
+        <description>Source System Code
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Source System Code</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <label>Alternate ID</label>
     <nameField>

@@ -2,9 +2,15 @@
 private class MERC_TeamMemberShareHandlerTest {
 	
 	static List<User> testUsers;
+	static Id mercuryUserRecordTypeId;
+	static Id nonMercuryUserRecordTypeId;
+	static List<Account> employeeAccs;
 
 	static {
 		testUsers = MERC_TestFactory.insertTestUsers(3, null);
+		mercuryUserRecordTypeId = [SELECT ID FROM RecordType WHERE DeveloperName = 'Mercury_User_MERC' AND SobjectType = 'Team_Member_MERC__c'].ID;
+		nonMercuryUserRecordTypeId = [SELECT ID FROM RecordType WHERE DeveloperName = 'External_User_MERC' AND SobjectType = 'Team_Member_MERC__c'].ID;
+		employeeAccs = MERC_TestFactory.insertEmployeeAccounts(1);
 	}
 
 	@isTest static void test_should_handle_bulk() {
@@ -16,12 +22,20 @@ private class MERC_TeamMemberShareHandlerTest {
 		Team_Member_MERC__c member1 = new Team_Member_MERC__c();
 		member1.User_MERC__c = testUsers.get(0).Id;
 		member1.Meeting_MERC__c = mtg.Id;
+		member1.RecordTypeId = mercuryUserRecordTypeId;
 		members.add(member1);
 
 		Team_Member_MERC__c member2 = new Team_Member_MERC__c();
 		member2.User_MERC__c = testUsers.get(1).Id;
 		member2.Meeting_MERC__c = mtg.Id;
+		member2.RecordTypeId = mercuryUserRecordTypeId;
 		members.add(member2);
+
+		Team_Member_MERC__c member3 = new Team_Member_MERC__c();
+		member3.Account_MERC__c = employeeAccs.get(0).Id;
+		member3.Meeting_MERC__c = mtg.Id;
+		member3.RecordTypeId = nonMercuryUserRecordTypeId;
+		members.add(member3);
 
 		insert members;
 

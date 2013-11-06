@@ -36,6 +36,7 @@
     <description>Junction object between Account for the meeting vendors  (Hotel, Catering, Transportation, AV, Security) and the meeting
 Created by John A Adams 10/3/2013</description>
     <enableActivities>true</enableActivities>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
@@ -149,6 +150,16 @@ Created by John A Adams 10/10/2013</description>
         <scale>2</scale>
         <type>Currency</type>
     </fields>
+    <fields>
+        <fullName>Vendor_Search_MERC__c</fullName>
+        <description>Enables searching across Meeting Vendors for Meeting Day object.  Oliver Dunford 4th November.</description>
+        <externalId>false</externalId>
+        <label>Vendor Search</label>
+        <length>150</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <label>Meeting Vendor</label>
     <listViews>
         <fullName>All</fullName>
@@ -170,17 +181,20 @@ Created by John A Adams 10/10/2013</description>
         <active>true</active>
         <field>Meeting_Day_MERC__c.Meeting_Hotel_Vendor_MERC__c</field>
         <filterItems>
-            <field>Meeting_Vendor_MERC__c.Area_of_Service_MERC__c</field>
+            <field>Meeting_Vendor_MERC__c.Meeting_MERC__c</field>
             <operation>equals</operation>
-            <value>Hotel</value>
+            <valueField>$Source.Meeting_MERC__c</valueField>
         </filterItems>
+        <infoMessage>Note: Select &quot;All Fields&quot; 
+
+This searches all existing Meeting Hotel Vendors associated to the Meeting.  Meeting Hotel Vendors must be associated against the Meeting otherwise no results will be returned.</infoMessage>
         <isOptional>false</isOptional>
         <name>Meeting Day_Meeting Hotel Vendor</name>
+        <sourceObject>Meeting_Day_MERC__c</sourceObject>
     </namedFilters>
     <pluralLabel>Meeting Vendors</pluralLabel>
     <searchLayouts>
         <customTabListAdditionalFields>Meeting_MERC__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Preferred_MERC__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Account_MERC__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Area_of_Service_MERC__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Budget_MERC__c</customTabListAdditionalFields>

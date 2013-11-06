@@ -35,6 +35,7 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Object to track Venues that may be associated with a Meeting. Created on 9/27/2013 by KLorenti</description>
     <enableActivities>false</enableActivities>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
@@ -116,6 +117,17 @@ Created 9/28/2013 by KLorenti.</description>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
+    <fields>
+        <fullName>Venue_Search_MERC__c</fullName>
+        <description>Stamps Meeting Name and Venue Name to ensure searching for Meeting Venues is easier.</description>
+        <externalId>false</externalId>
+        <label>Venue Search</label>
+        <length>120</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <label>Meeting Venue</label>
     <nameField>
         <displayFormat>V-{000000}</displayFormat>
@@ -123,6 +135,22 @@ Created 9/28/2013 by KLorenti.</description>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
+    <namedFilters>
+        <fullName>nf_01I11000000CjvKEAS_00N11000000SlNSEA0</fullName>
+        <active>true</active>
+        <field>Agenda_Item_MERC__c.Meeting_Venue_MERC__c</field>
+        <filterItems>
+            <field>Meeting_Venue_MERC__c.Meeting_MERC__c</field>
+            <operation>equals</operation>
+            <valueField>$Source.Meeting_MERC__c</valueField>
+        </filterItems>
+        <infoMessage>Note: Select &quot;All Fields&quot; 
+
+This searches all existing Meeting Venues associated to the Meeting. Meeting Venues must be associated against the Meeting otherwise no results will be returned.</infoMessage>
+        <isOptional>false</isOptional>
+        <name>Agenda Item_Meeting Venue</name>
+        <sourceObject>Agenda_Item_MERC__c</sourceObject>
+    </namedFilters>
     <pluralLabel>Meeting Venues</pluralLabel>
     <searchLayouts>
         <customTabListAdditionalFields>Account_MERC__c</customTabListAdditionalFields>

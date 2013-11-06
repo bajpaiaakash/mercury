@@ -35,9 +35,90 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Object to track affiliations between accounts for searching purposes. Created 10/17/2013 by KLorenti, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
+    <fields>
+        <fullName>Account_Cust_Id_GLBL__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Affiliate Account
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Affiliate Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Affiliations (Affiliate Account)</relationshipLabel>
+        <relationshipName>Affiliations</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Account_GLBL__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Used to help indicate direction of influence. Created 10/17/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Affiliations</relationshipLabel>
+        <relationshipName>Affiliations_To</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Afltn_Clsfctn_Cd_GLBL__c</fullName>
+        <description>Affiliation Classification Code
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Affiliation Classification Code</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Afltn_Party_Rcrd_Typ_Cd_GLBL__c</fullName>
+        <description>Affiliate Party Record Type Code
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Affiliate Party Record Type Code</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Afltn_Role_Cd_GLBL__c</fullName>
+        <description>Affiliation Role Code
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Affiliation Role Code</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Afltn_Src_Sys_Cd_GLBL__c</fullName>
+        <description>Affiliation Original Source Code
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Affiliation Original Source Code</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Child_Affiliation_GLBL__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -50,6 +131,161 @@
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Del_Date_GLBL__c</fullName>
+        <description>Delete Date
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Delete Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Del_Flg_GLBL__c</fullName>
+        <description>Delete Flag
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Delete Flag</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dept_Cust_Id_GLBL__c</fullName>
+        <description>Department Party Id
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Department Party Id</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Efctv_End_Dt_GLBL__c</fullName>
+        <description>End Date
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Efctv_Start_Dt_GLBL__c</fullName>
+        <description>Effective Date
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Effective Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Elctrnc_Adrs_Cntry_Prfx_Cd_GLBL__c</fullName>
+        <description>Phone1 Country Prefix Code 
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Phone1 Country Prefix Code</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Elctrnc_Adrs_Elc_Txt_GLBL__c</fullName>
+        <description>Email Electronic Address Text
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Email Electronic Address Text</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Elctrnc_Adrs_Extnsn_Cd_GLBL__c</fullName>
+        <description>Phone1 Extension Code 
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Phone1 Extension Code</label>
+        <length>15</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Elctrnc_Adrs_Fax_Cntry_Prfx_Cd_GLBL__c</fullName>
+        <description>Fax Country Prefix Code 
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Fax Country Prefix Code</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Elctrnc_Adrs_Fax_Extnsn_Cd_GLBL__c</fullName>
+        <description>Fax Extension Code
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Fax Extension Code</label>
+        <length>15</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Elctrnc_Adrs_Fax_Txt_GLBL__c</fullName>
+        <description>Fax Electronic Address Text
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Fax Electronic Address Text</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Elctrnc_Adrs_Txt_GLBL__c</fullName>
+        <description>Phone1 Electronic Address Text
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Phone1 Electronic Address Text</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Elctrnc_Adrs_Web_Txt_GLBL__c</fullName>
+        <description>Web Electronic Address Text
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Web Electronic Address Text</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>From_Account_GLBL__c</fullName>
@@ -65,9 +301,150 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Priority_Rank_Nbr_GLBL__c</fullName>
+        <fullName>Gco_Party_Afltn_Id_GLBL__c</fullName>
+        <description>Party Affiliation Id
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
         <externalId>false</externalId>
-        <label>Priority Rank</label>
+        <label>Party Affiliation Id</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Hierarchy_Cd_GLBL__c</fullName>
+        <description>Hierarchy Code
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Hierarchy Code</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Hierarchy_Lvl_Txt_GLBL__c</fullName>
+        <description>Hierarchy Level Text
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Hierarchy Level Text</label>
+        <length>254</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Inflnc_Lvl_Cd_GLBL__c</fullName>
+        <description>Influence Level Code
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Influence Level Code</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Inflnc_Thrptc_Area_Cd_GLBL__c</fullName>
+        <description>Influence Therapeutic Area Code
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Influence Therapuetic Area Code</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ODS_Ld_Tmstmp_GLBL__c</fullName>
+        <description>Source Load Timestamp
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Source Load Timestamp</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>ODS_Ld_Usr_GLBL__c</fullName>
+        <description>ODS Load User
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>ODS Load User</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ODS_Lst_Updt_Tmstmp_GLBL__c</fullName>
+        <description>Source Update Timestamp
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Source Update Timestamp</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ODS_Lst_Updt_Usr_GLBL__c</fullName>
+        <description>ODS Last Update User
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>ODS Last Update User</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Party_Cntry_Cd_GLBL__c</fullName>
+        <description>Party Country Code
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Party Country Code</label>
+        <length>2</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Party_Rcrd_Typ_Cd_GLBL__c</fullName>
+        <description>Party Record Type Code
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Party Record Type Code</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Priority_Rank_Nbr_GLBL__c</fullName>
+        <description>Priority Rank Number
+Customer ODS to Mercury Mapping</description>
+        <externalId>false</externalId>
+        <label>Priority Rank Number</label>
         <precision>5</precision>
         <required>false</required>
         <scale>0</scale>
@@ -76,10 +453,25 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Rltnshp_Typ_Cd_GLBL__c</fullName>
-        <description>Maps to Customer.ODS.Relationship Type field. Created by Oliver Dunford 25th Oct 2013</description>
+        <fullName>Rltnshp_Sts_Cd_GLBL__c</fullName>
+        <description>Relationship Status Code
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
         <externalId>false</externalId>
-        <label>Affiliation Type</label>
+        <label>Relationship Status Code</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Rltnshp_Typ_Cd_GLBL__c</fullName>
+        <description>Maps to Customer.ODS.Relationship Type field. Created by Oliver Dunford 25th Oct 2013
+Relationship Type Code
+Customer ODS to Mercury Mapping</description>
+        <externalId>false</externalId>
+        <label>Relationship Type Code</label>
         <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -153,17 +545,30 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>To_Account_GLBL__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>Used to help indicate direction of influence. Created 10/17/2013 by KLorenti, Mavens Consulting</description>
+        <fullName>Src_Block_Flg_GLBL__c</fullName>
+        <description>Source Block Flag
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
         <externalId>false</externalId>
-        <label>To Account</label>
-        <referenceTo>Account</referenceTo>
-        <relationshipLabel>Affiliations</relationshipLabel>
-        <relationshipName>Affiliations_To</relationshipName>
+        <label>Source Block Flag</label>
+        <length>1</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <type>Lookup</type>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Src_Sys_Cd_GLBL__c</fullName>
+        <description>Source System Code
+Customer ODS to Mercury Mapping
+Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Source System Code</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <label>Affiliation</label>
     <nameField>

@@ -21,6 +21,7 @@ def compile(client, project_path, **kwargs):
             "ret_xml"           : kwargs.get('ret_xml', True),
             "run_tests"         : kwargs.get('run_tests', False),
             "classes"           : kwargs.get('classes', []),
+            "check_only"        : kwargs.get('check_only', True),
             "debug_categories"  : [
                 {
                     "category"  : "Apex_code",

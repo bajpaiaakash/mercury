@@ -1,5 +1,11 @@
 public with sharing class MERC_ParticipantFMVCalculator implements GLBL_TriggerHandler.HandlerInterface {
 	
+	String triggeredSobjectAPIName;
+
+	public MERC_ParticipantFMVCalculator(String objApiName) {
+		this.triggeredSobjectAPIName = objApiName;
+	}
+
 	public void handle() {
 		if (Trigger.isInsert || Trigger.isUpdate ) {
 	    	execute(Trigger.new);
@@ -7,8 +13,33 @@ public with sharing class MERC_ParticipantFMVCalculator implements GLBL_TriggerH
 	}
 
 	void execute(List<Sobject> sobjects) {
-		List<Meeting_Participant_MERC__c> participants = (List<Meeting_Participant_MERC__c>)sobjects;
+		List<Meeting_Participant_MERC__c> participants;
 		
+		if (this.triggeredSobjectAPIName == null)
+			triggeredSobjectAPIName = MERC_Util.getSobjectAPIName(sobjects.get(0));
+		
+		if (triggeredSobjectAPIName == 'Account') {
+			List<Account> accounts = (List<Account>)sobjects;
+			Set<Id> accountIdsToProcess = new Set<Id>();
+			for (Account a : accounts) {
+				if (
+					Trigger.oldMap.get(a.Id).get('Service_Provider_Tier_MERC__c') != a.Service_Provider_Tier_MERC__c
+					&&
+					a.Calculate_Open_Meeting_Fees_MERC__c == true
+				) {
+					if (a.Service_Provider_Tier_MERC__c != null)
+						accountIdsToProcess.add(a.Id);
+				}
+			}
+			participants = [SELECT ID, Country_of_Residence_MERC__c, Service_Provider_Tier_MERC__c 
+									FROM Meeting_Participant_MERC__c WHERE 
+										Account_MERC__c in :accountIdsToProcess AND
+										Meeting_MERC__r.Meeting_Status_MERC__c != 'Closed' AND
+										Meeting_MERC__r.Meeting_Status_MERC__c != 'Cancelled'];
+		} else if (triggeredSobjectAPIName == 'Meeting_Participant_MERC__c') {
+			participants = (List<Meeting_Participant_MERC__c>)sobjects;
+		}
+
 		Set<String> countries = new Set<String>();
 		for (Meeting_Participant_MERC__c p : participants) {
 			countries.add(p.Country_of_Residence_MERC__c);
@@ -51,6 +82,8 @@ public with sharing class MERC_ParticipantFMVCalculator implements GLBL_TriggerH
 			}
 		}
 
-
+		if (triggeredSobjectAPIName == 'Account') {
+			update participants;
+		}
 	}
 }

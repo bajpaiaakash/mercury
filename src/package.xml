@@ -15,6 +15,10 @@
 		<members>MERC_DocusignService</members>
 		<members>MERC_DocusignServiceMock</members>
 		<members>MERC_DocusignServiceTest</members>
+		<members>MERC_Exception</members>
+		<members>MERC_HcpCapActualsCalculator</members>
+		<members>MERC_HcpCapActualsCalculatorTest</members>
+		<members>MERC_HcpCapLimitCalculator</members>
 		<members>MERC_NewContentController</members>
 		<members>MERC_ParticipantFMVCalculator</members>
 		<members>MERC_RequestHCPSignatureController</members>
@@ -51,8 +55,10 @@
 		<name>ApexPage</name>
 	</types>
 	<types>
+		<members>MERC_Account</members>
 		<members>MERC_ContentVersion</members>
 		<members>MERC_DailyAttendanceTOV</members>
+		<members>MERC_Meeting</members>
 		<members>MERC_MeetingDay</members>
 		<members>MERC_MeetingParticipant</members>
 		<members>MERC_TeamMember</members>
@@ -60,6 +66,7 @@
 	</types>
 	<types>
 		<members>Case</members>
+		<members>CAP_Settings_MERC__c</members>
 		<members>Docusign_Settings_MERC__c</members>
 		<members>Address_GLBL__c</members>
 		<members>Affiliation_GLBL__c</members>

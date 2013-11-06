@@ -36,6 +36,7 @@
     <description>Used to record travel details for speakers and participants.
 Created by John A Adams 9/30/2013</description>
     <enableActivities>true</enableActivities>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
@@ -135,12 +136,6 @@ Created by John A Adams 10/10/2013</description>
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Travel</pluralLabel>
-    <recordTypes>
-        <fullName>Transportation</fullName>
-        <active>true</active>
-        <description>Transportation information</description>
-        <label>Transportation</label>
-    </recordTypes>
     <searchLayouts>
         <lookupDialogsAdditionalFields>Meeting_Participant_MERC__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Start_Travel_MERC__c</lookupDialogsAdditionalFields>

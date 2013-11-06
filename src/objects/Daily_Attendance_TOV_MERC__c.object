@@ -35,6 +35,7 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Junction object between Meeting Days and Meeting Participants</description>
     <enableActivities>false</enableActivities>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
@@ -142,6 +143,24 @@ Created by John A Adams 10/10/2013</description>
         <required>false</required>
         <scale>2</scale>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Status_MERC__c</fullName>
+        <description>Used to report across daily meeting attendance for HCP&apos;s. Oliver Dunford 6th Nov  2013.</description>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Attended</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No Show</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
     </fields>
     <label>Daily Attendance &amp; TOV</label>
     <nameField>
