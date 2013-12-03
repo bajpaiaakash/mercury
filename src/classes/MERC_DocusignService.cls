@@ -1,3 +1,9 @@
+/**
+ * @author Joseph Ferraro
+ *
+ * Apex wrapper for Docusign API
+ */
+
 public with sharing class MERC_DocusignService {
 
 	String username;

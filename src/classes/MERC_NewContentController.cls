@@ -1,3 +1,9 @@
+/**
+ * @author Joseph Ferraro
+ *
+ * Controller that enables users to upload documents to Salesforce Content and associate with Mercury objects
+ */
+
 public with sharing class MERC_NewContentController {
 
 	private final sObject mysObject;

@@ -1,3 +1,9 @@
+/**
+ * @author Joseph Ferraro
+ *
+ * Utility class for calculating rollups on Lookup relationships
+ */
+
 public class GLBL_RollupSummaryUtility {
      
     //the following class will be used to house the field names

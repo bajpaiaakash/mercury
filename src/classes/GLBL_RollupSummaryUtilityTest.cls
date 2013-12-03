@@ -1,3 +1,9 @@
+/**
+ * @author Joseph Ferraro
+ *
+ * Test class for RollupSummaryUtility
+ */
+
 @isTest
 private class GLBL_RollupSummaryUtilityTest {
 	

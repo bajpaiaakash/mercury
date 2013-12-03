@@ -1,3 +1,9 @@
+/**
+ * @author Joseph Ferraro
+ *
+ * Utility class for all things Mercury
+ */
+
 public with sharing class MERC_Util {
 	
 	public static void disableBudgetEditValidation() {

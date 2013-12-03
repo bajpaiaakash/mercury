@@ -1,3 +1,9 @@
+/**
+ * @author Joseph Ferraro
+ *
+ * Controller for Budget versioning functionality
+ */
+
 public with sharing class MERC_BudgetVersionController {
 
 	private final Budget_MERC__c budget;

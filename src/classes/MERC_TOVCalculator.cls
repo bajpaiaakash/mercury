@@ -1,3 +1,9 @@
+/**
+ * @author Joseph Ferraro
+ *
+ * Trigger handler that facilitates TOV rollups
+ */
+
 public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.HandlerInterface {
 	
 	public void handle() {

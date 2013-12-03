@@ -1,6 +1,8 @@
 /**
- *  GLBL_TriggerHandler
-*/
+ * @author Joseph Ferraro
+ *
+ * Generic handler for Trigger actions
+ */
 
 public class GLBL_TriggerHandler 
 {
