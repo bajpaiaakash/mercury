@@ -1,3 +1,7 @@
 function toggleLoading() {
-	$("div.merc-loading").toggle()
+	try {
+		$("div.merc-loading").toggle()
+	} catch(e) {
+		j("div.merc-loading").toggle()
+	}
 }

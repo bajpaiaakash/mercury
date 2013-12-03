@@ -78,7 +78,7 @@
         <fullName>Confirm_Final_Fee_MERC__c</fullName>
         <description>Used to confirm and trigger the setting of the Final Fee. Oliver Dunford 5th Nov 2013.</description>
         <externalId>false</externalId>
-        <label>Confirm Final Fee?</label>
+        <label>Confirm Final Fee</label>
         <picklist>
             <picklistValues>
                 <fullName>Pending Confirmation</fullName>
@@ -94,21 +94,6 @@
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Contract_Without_Payment_MERC__c</fullName>
-        <description>Pulls in if the contract is without payment.
-Created by John A Adams 10/31/2013</description>
-        <externalId>false</externalId>
-        <formula>IF
-(ISPICKVAL(HCP_Contract_MERC__r.Payment_Required_MERC__c, &quot;Yes&quot;),
-&quot;Yes&quot;, &quot;No&quot;)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Contract Without Payment</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Country_of_Residence_MERC__c</fullName>
         <description>Country of Residence from HCP Profile - used to determine Min/Max rates based on Tier
 Created by John A Adams 10/31/2013</description>
@@ -120,6 +105,21 @@ Created by John A Adams 10/31/2013</description>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Days_Attended_MERC__c</fullName>
+        <description>Shows how many days the HCP attended for. Oliver Dunford 8th Nov 2013.</description>
+        <externalId>false</externalId>
+        <label># Days Attended</label>
+        <summaryFilterItems>
+            <field>Daily_Attendance_TOV_MERC__c.Status_MERC__c</field>
+            <operation>equals</operation>
+            <value>Attended</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Daily_Attendance_TOV_MERC__c.Meeting_Participant_MERC__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
     </fields>
     <fields>
         <fullName>Event_Time_Hrs_MERC__c</fullName>
@@ -137,7 +137,7 @@ Created by John A Adams 10/31/2013</description>
         <fullName>Expense_Reimbursment_MERC__c</fullName>
         <description>Captures whether expense reimbursement is needed for this meeting participant. Oliver Dunford 5th November.</description>
         <externalId>false</externalId>
-        <label>Expense Reimbursement?</label>
+        <label>Expense Reimbursement</label>
         <picklist>
             <picklistValues>
                 <fullName>Yes</fullName>
@@ -179,7 +179,7 @@ Created by John A Adams 10/31/2013</description>
         <fullName>Ground_Transportation_Required_MERC__c</fullName>
         <description>When a Meeting Owner is registering a participant manually in Mercury, these fields may be populated. Created 10/28/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <label>Ground Transportation Required?</label>
+        <label>Ground Transportation Required</label>
         <picklist>
             <picklistValues>
                 <fullName>Yes</fullName>
@@ -250,7 +250,7 @@ Created by John A Adams 10/31/2013</description>
         <fullName>Hotel_Required_MERC__c</fullName>
         <description>When a Meeting Owner is registering participants manually in Mercury, these attributes may be populated. Created 10/28/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <label>Hotel Required?</label>
+        <label>Hotel Required</label>
         <picklist>
             <picklistValues>
                 <fullName>Yes</fullName>
@@ -269,7 +269,7 @@ Created by John A Adams 10/31/2013</description>
         <fullName>Invoice_Template_Needed_MERC__c</fullName>
         <description>Captures whether meeting participant needs an Invoice Template. Oliver Dunford 5th November 2013.</description>
         <externalId>false</externalId>
-        <label>Invoice Template Needed?</label>
+        <label>Invoice Template Needed</label>
         <picklist>
             <picklistValues>
                 <fullName>Yes</fullName>
@@ -394,10 +394,25 @@ Created by John A Adams 10/31/2013</description>
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>No_Show_Days_MERC__c</fullName>
+        <description>Shows how many days the HCP did not attend. Oliver Dunford 8th Nov 2013.</description>
+        <externalId>false</externalId>
+        <label># No Show Days</label>
+        <summaryFilterItems>
+            <field>Daily_Attendance_TOV_MERC__c.Status_MERC__c</field>
+            <operation>equals</operation>
+            <value>No Show</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Daily_Attendance_TOV_MERC__c.Meeting_Participant_MERC__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
         <fullName>Partial_Payment_Justification_MERC__c</fullName>
         <description>Capture the justification reason if part payment was required. Created 10/29/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <label>Partial Payment Justification Needed?</label>
+        <label>Partial Payment Justification Needed</label>
         <picklist>
             <picklistValues>
                 <fullName>Yes</fullName>
@@ -416,7 +431,7 @@ Created by John A Adams 10/31/2013</description>
         <fullName>Participant_Approved_MERC__c</fullName>
         <description>Captures if the participant has been approved to be invited to the Meeting. Created 11/5/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <label>Participant Approved?</label>
+        <label>Participant Approved</label>
         <picklist>
             <picklistValues>
                 <fullName>Yes</fullName>
@@ -447,7 +462,7 @@ Created by John A Adams 10/31/2013</description>
         <description>The trigger to send ToV values to Activity ODS.  Oliver Dunford 5th November.</description>
         <externalId>false</externalId>
         <inlineHelpText>Mechanism for Meeting Planning company to confirm ToV for participants.  Once set to Yes, these will be sent for Reporting.</inlineHelpText>
-        <label>Participant ToV Final?</label>
+        <label>Participant ToV Final</label>
         <picklist>
             <picklistValues>
                 <fullName>Yes</fullName>
@@ -461,6 +476,21 @@ Created by John A Adams 10/31/2013</description>
         </picklist>
         <trackHistory>true</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Payment_Required_MERC__c</fullName>
+        <description>Pulls in if the contract is without payment.
+Created by John A Adams 10/31/2013</description>
+        <externalId>false</externalId>
+        <formula>IF
+(ISPICKVAL( Account_MERC__r.Payment_Required_MERC__c , &quot;Yes&quot;),
+&quot;Yes&quot;, &quot;No&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Payment Required</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Preparation_Time_Hrs_MERC__c</fullName>
@@ -478,7 +508,7 @@ Created by John A Adams 10/31/2013</description>
         <fullName>Presentation_Approval_Needed_MERC__c</fullName>
         <description>Whether the presentation needs approval beforehand. Oliver Dunford 5th November.</description>
         <externalId>false</externalId>
-        <label>Presentation Approval Needed?</label>
+        <label>Presentation Approval Needed</label>
         <picklist>
             <picklistValues>
                 <fullName>Yes</fullName>
@@ -495,6 +525,7 @@ Created by John A Adams 10/31/2013</description>
     </fields>
     <fields>
         <fullName>Proposed_Final_Fee_MERC__c</fullName>
+        <defaultValue>0</defaultValue>
         <description>Stores the Proposed Fee.  Is needs to go through a confirmation process with the HCP and Affiliate if it exceeds the Maximum Amount. Oliver Dunford 6th Nov.</description>
         <externalId>false</externalId>
         <label>Proposed Final Fee</label>
@@ -508,7 +539,7 @@ Created by John A Adams 10/31/2013</description>
         <fullName>Require_Recording_Consent_MERC__c</fullName>
         <description>Is record consent needed for the meeting. Oliver Dunford 5th Nov 2013</description>
         <externalId>false</externalId>
-        <label>Require Recording Consent?</label>
+        <label>Require Recording Consent</label>
         <picklist>
             <picklistValues>
                 <fullName>Yes</fullName>
@@ -594,11 +625,19 @@ Created by John A Adams 9/27/2013</description>
                 <default>true</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Invited</fullName>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rejected</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Interested in Meeting</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Invited</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -724,10 +763,21 @@ Created by John A Adams 10/17/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Transparency_Reporting_Consent_MERC__c</fullName>
+        <description>Shows the state of the transparency reporting consent flag at the time of ToV updates. Oliver Dunford 7th Nov 2013.</description>
+        <externalId>false</externalId>
+        <label>Transparency Reporting Consent</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Travel_Required_MERC__c</fullName>
         <description>Captures whether the participant needs travel for the meeting. Oliver Dunford 5th Nov</description>
         <externalId>false</externalId>
-        <label>Travel Required?</label>
+        <label>Travel Required</label>
         <picklist>
             <picklistValues>
                 <fullName>Yes</fullName>
@@ -943,6 +993,10 @@ Created by John A Adams 10/17/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Attended</fullName>
                 <default>false</default>
             </values>
@@ -969,6 +1023,10 @@ Created by John A Adams 10/17/2013</description>
             <values>
                 <fullName>Pending Approval</fullName>
                 <default>true</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -1015,7 +1073,7 @@ Created by John A Adams 10/17/2013</description>
             </values>
             <values>
                 <fullName>Pending Confirmation</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -1048,7 +1106,7 @@ Created by John A Adams 10/17/2013</description>
             </values>
             <values>
                 <fullName>Not Required</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Rejected</fullName>

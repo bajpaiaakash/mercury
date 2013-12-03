@@ -54,17 +54,6 @@
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
-        <fullName>Identified_Savings_MERC__c</fullName>
-        <description>Capture Identified Savings for Sourced Meeting Venue. Created 10/24/2013 by KLorenti, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <label>Identified Savings</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackHistory>false</trackHistory>
-        <type>Currency</type>
-    </fields>
-    <fields>
         <fullName>Justification_for_Sourced_Venue_MERC__c</fullName>
         <description>Free text to enter a justification for the Sourced Venue. Created 10/24/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>

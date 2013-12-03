@@ -105,16 +105,6 @@ Created by John A Adams 10/4/2013</description>
         <type>Currency</type>
     </fields>
     <fields>
-        <fullName>Daily_Rate_MERC__c</fullName>
-        <description>Daily Rate of Meeting Vendor (for Hotels). Created 10/10/2013 by KLorenti.</description>
-        <externalId>false</externalId>
-        <label>Daily Rate (excl Tax)</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <type>Currency</type>
-    </fields>
-    <fields>
         <fullName>Meeting_MERC__c</fullName>
         <description>Master Detail relationship with Meeting
 Created by John A Adams 10/3/2013</description>
@@ -144,7 +134,7 @@ Created by John A Adams 10/6/2013</description>
 Created by John A Adams 10/10/2013</description>
         <externalId>false</externalId>
         <inlineHelpText>Does not include Room Tax.</inlineHelpText>
-        <label>Room Rate</label>
+        <label>Room Rate (excl Tax)</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>

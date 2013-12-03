@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>Accept</actionName>
         <type>Default</type>
@@ -51,11 +51,11 @@ Created by John A Adams 11/2/2013</description>
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
-        <fullName>Arrival_Time_MERC__c</fullName>
-        <description>Arrival times
+        <fullName>Arrival_Date_Time_MERC__c</fullName>
+        <description>Arrival date and time
 Created by John A Adams 10/31/2013</description>
         <externalId>false</externalId>
-        <label>Arrival Time</label>
+        <label>Arrival Date &amp; Time</label>
         <required>false</required>
         <type>DateTime</type>
     </fields>
@@ -89,15 +89,6 @@ Created by John A Adams 11/2/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Date_MERC__c</fullName>
-        <description>Date
-Created by John A Adams 10/31/2013</description>
-        <externalId>false</externalId>
-        <label>Date</label>
-        <required>false</required>
-        <type>Date</type>
-    </fields>
-    <fields>
         <fullName>Departing_City_MERC__c</fullName>
         <description>Transportation leg departing from
 Created by John A Adams 10/10/2013</description>
@@ -109,12 +100,12 @@ Created by John A Adams 10/10/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Departure_Time_MERC__c</fullName>
-        <description>Departure time 
+        <fullName>Departure_Date_Time_MERC__c</fullName>
+        <description>Departure date and time 
 Created by John A Adams 10/31/2013</description>
         <externalId>false</externalId>
         <inlineHelpText>Connection Time</inlineHelpText>
-        <label>Departure Time</label>
+        <label>Departure Date &amp; Time</label>
         <required>false</required>
         <type>DateTime</type>
     </fields>
@@ -174,7 +165,7 @@ Created by John A Adams 10/10/2013</description>
         <description>Number of nights in hotel
 Created by John A Adams 11/2/2013</description>
         <externalId>false</externalId>
-        <formula>Check_out_Date_MERC__c - Date_MERC__c</formula>
+        <formula>Check_out_Date_MERC__c - Start_Date_MERC__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Number of Nights</label>
         <precision>18</precision>
@@ -187,7 +178,7 @@ Created by John A Adams 11/2/2013</description>
         <fullName>PNR_MERC__c</fullName>
         <description>PNR</description>
         <externalId>false</externalId>
-        <label>PNR</label>
+        <label>Passenger Name Record #</label>
         <length>12</length>
         <required>false</required>
         <type>Text</type>
@@ -212,6 +203,15 @@ Created by John A Adams 11/2/2013</description>
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Start_Date_MERC__c</fullName>
+        <description>Date that travel arrangement starts
+Created by John A Adams 10/31/2013</description>
+        <externalId>false</externalId>
+        <label>Start Date</label>
+        <required>false</required>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Travel_Detail_Type__c</fullName>
@@ -270,7 +270,7 @@ Created by John A Adams 10/10/2013</description>
     </fields>
     <label>Travel Itinerary</label>
     <nameField>
-        <displayFormat>Leg-{000000}</displayFormat>
+        <displayFormat>TRV-{000000}</displayFormat>
         <label>Leg #</label>
         <type>AutoNumber</type>
     </nameField>
@@ -388,14 +388,21 @@ Created by John A Adams 10/10/2013</description>
         </picklistValues>
     </recordTypes>
     <searchLayouts>
+        <lookupDialogsAdditionalFields>Travel_Detail_Type__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Vendor_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Start_Date_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Flight_Number_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Departing_City_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Destination_City_MERC__c</lookupDialogsAdditionalFields>
         <searchFilterFields>NAME</searchFilterFields>
         <searchFilterFields>Vendor_MERC__c</searchFilterFields>
         <searchFilterFields>Flight_Number_MERC__c</searchFilterFields>
-        <searchFilterFields xsi:nil="true"/>
         <searchFilterFields>Departing_City_MERC__c</searchFilterFields>
-        <searchFilterFields xsi:nil="true"/>
-        <searchFilterFields xsi:nil="true"/>
-        <searchFilterFields xsi:nil="true"/>
+        <searchFilterFields>Start_Date_MERC__c</searchFilterFields>
+        <searchFilterFields>Travel_Detail_Type__c</searchFilterFields>
+        <searchFilterFields>RECORDTYPE</searchFilterFields>
+        <searchFilterFields>Final_Destination_MERC__c</searchFilterFields>
+        <searchFilterFields>Destination_City_MERC__c</searchFilterFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

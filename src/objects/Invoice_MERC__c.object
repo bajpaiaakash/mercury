@@ -534,7 +534,7 @@ Created by John A Adams 10/20/2013</description>
         <fullName>Submit_for_Payment_MERC__c</fullName>
         <description>Used as final check before Invoice is submitted to SAP.  Created by Oliver Dunford 4th Nov 2013.</description>
         <externalId>false</externalId>
-        <label>Submit for Payment?</label>
+        <label>Submit for Payment</label>
         <picklist>
             <picklistValues>
                 <fullName>No</fullName>
@@ -581,15 +581,11 @@ Created by John A Adams 10/31/2013</description>
         <label>Terms of Payment</label>
         <picklist>
             <picklistValues>
-                <fullName>Due on Receipt</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Net 10</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Net 15</fullName>
+                <fullName>Net 14</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -597,10 +593,14 @@ Created by John A Adams 10/31/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Net 45</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Net 60</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
+            <sorted>true</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -698,19 +698,19 @@ Created by John A Adams 10/4/2013</description>
         <picklistValues>
             <picklist>Terms_of_Payment_MERC__c</picklist>
             <values>
-                <fullName>Due on Receipt</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Net 10</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Net 15</fullName>
+                <fullName>Net 14</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Net 30</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Net 45</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -745,19 +745,19 @@ Created by John A Adams 10/4/2013</description>
         <picklistValues>
             <picklist>Terms_of_Payment_MERC__c</picklist>
             <values>
-                <fullName>Due on Receipt</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Net 10</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Net 15</fullName>
+                <fullName>Net 14</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Net 30</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Net 45</fullName>
                 <default>false</default>
             </values>
             <values>

@@ -334,11 +334,11 @@ Created by John A Adams 10/25/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Primary_Account_MERC__c</fullName>
+        <fullName>Primary_Payee_MERC__c</fullName>
         <description>Identifies the payee record as the primary account to be used for payment 
 Created by John A Adams 10/17/2013</description>
         <externalId>false</externalId>
-        <label>Primary Account</label>
+        <label>Primary Payee</label>
         <picklist>
             <picklistValues>
                 <fullName>Yes</fullName>
@@ -397,7 +397,7 @@ Created by John A Adams 10/30/2013</description>
         <active>true</active>
         <field>Invoice_MERC__c.Payee_MERC__c</field>
         <filterItems>
-            <field>Payee_MERC__c.Primary_Account_MERC__c</field>
+            <field>Payee_MERC__c.Primary_Payee_MERC__c</field>
             <operation>equals</operation>
             <value>Yes</value>
         </filterItems>
@@ -408,17 +408,17 @@ Created by John A Adams 10/30/2013</description>
     <searchLayouts>
         <customTabListAdditionalFields>Account_MERC__c</customTabListAdditionalFields>
         <customTabListAdditionalFields xsi:nil="true"/>
-        <customTabListAdditionalFields>Primary_Account_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Primary_Payee_MERC__c</customTabListAdditionalFields>
         <customTabListAdditionalFields xsi:nil="true"/>
         <customTabListAdditionalFields>SAP_Vendor_ID_MERC__c</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>Account_MERC__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields xsi:nil="true"/>
-        <lookupDialogsAdditionalFields>Primary_Account_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Primary_Payee_MERC__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields xsi:nil="true"/>
         <lookupDialogsAdditionalFields>SAP_Vendor_ID_MERC__c</lookupDialogsAdditionalFields>
         <searchResultsAdditionalFields>Account_MERC__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields xsi:nil="true"/>
-        <searchResultsAdditionalFields>Primary_Account_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Primary_Payee_MERC__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields xsi:nil="true"/>
         <searchResultsAdditionalFields>SAP_Vendor_ID_MERC__c</searchResultsAdditionalFields>
     </searchLayouts>

@@ -109,6 +109,14 @@ public with sharing class MERC_TestFactory {
 		return lineItems;
 	}
 
+	public static HCP_Contract_MERC__c insertHCPContract(String accountId) {
+		HCP_Contract_MERC__c c = new HCP_Contract_MERC__c();
+		c.Account_MERC__c = accountId;
+		c.Country_MERC__c = 'UK';
+		insert c;
+		return c;
+	}
+
 	public static List<User> insertTestUsers(Integer numberOfUsers, String profileName) {
 		List<User> users = new List<User>();
 

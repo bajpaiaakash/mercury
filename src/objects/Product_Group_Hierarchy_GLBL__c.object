@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Stores the Product Hierarchies from the Material GSO for future GSO use.  Create by Oliver Dunford 24th Oct 2013</description>
+    <enableActivities>false</enableActivities>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Cease_Pblsh_Dt_GLBL__c</fullName>
+        <description>This represents the last date on which that record was published/refreshed in the Material ODS.   When this date is populated, it indicates that the record has been deleted.  This is one of the two fields that would be used for delta detection of changes to the Material ODS.
+Created by John A Adams 10/31/2013</description>
+        <externalId>false</externalId>
+        <label>Cease Publish Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Cntry_Cd_GLBL__c</fullName>
+        <description>Unique code which describes the Country for which the relationship is valid.
+Created by John A Adams 10/31/2013</description>
+        <externalId>false</externalId>
+        <label>Country Code</label>
+        <length>2</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Cnvrsn_Fctr_GLBL__c</fullName>
+        <description>The multiplier used to convert a unit of measure to a common measurement unit.
+Created by John A Adams 10/31/2013</description>
+        <externalId>false</externalId>
+        <label>Conversion Factor</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>6</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Crt_Dt_GLBL__c</fullName>
+        <description>This represents the date on which the record was initially created in the Material Master Hub database.
+Created by John A Adams 10/31/2013</description>
+        <externalId>false</externalId>
+        <label>ODS Created Date</label>
+        <required>true</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>End_Dt_GLBL__c</fullName>
+        <description>The day, month, year, and century in which the relationship is last effective.
+Created by John A Adams 10/31/2013</description>
+        <externalId>false</externalId>
+        <label>End Date</label>
+        <required>true</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Hrchy_Typ_GLBL__c</fullName>
+        <description>This code classifies the scope of this relationship.  Most commonly, it identifies which country the relationship applies to.  Since the Material ODS also provides the country code associated with the record, this field would not be used unless more than one kind of relationship was established in a specific country.
+Created by John A Adams 10/31/2013</description>
+        <externalId>false</externalId>
+        <label>Hierarchy Type</label>
+        <length>14</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lst_Pblsh_Dt_GLBL__c</fullName>
+        <description>This represents the date on which information was last published for this record to the Material ODS.  This date will be populated when the record is initially created in the ODS or when it is updated.  This is one of the two fields that would be used for delta detection of changes to the Material ODS.  
+Created by John A Adams 10/31/2013</description>
+        <externalId>false</externalId>
+        <label>Last Publish Date</label>
+        <required>true</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Prod_Grp_Id_Child_GLBL__c</fullName>
+        <description>Product Group ID of the child product group in relationship.
+Created by John A Adams 10/31/2013</description>
+        <externalId>false</externalId>
+        <label>Product Group</label>
+        <precision>10</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Prod_Grp_Id_Prnt_GLBL__c</fullName>
+        <description>Product Group ID of the parent product group in relationship.
+Created by John A Adams 10/31/2013</description>
+        <externalId>false</externalId>
+        <label>Parent Product Group</label>
+        <precision>10</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Rel_Class_Cd_GLBL__c</fullName>
+        <description>A code which classifies the relationship for a given downstream system use.  For example, some relationships are classified as ‘CRM’ for Customer Resource Management systems.
+Created by John A Adams 10/31/2013</description>
+        <externalId>false</externalId>
+        <label>Relationship Class</label>
+        <length>10</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Start_Dt_GLBL__c</fullName>
+        <description>The day, month, year, and century in which the relationship becomes effective.
+Created by John A Adams 10/31/2013</description>
+        <externalId>false</externalId>
+        <label>Start Date</label>
+        <required>true</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Updt_Dt_GLBL__c</fullName>
+        <description>This represents the date on which the record was last updated in the Material Master Hub database. 
+Created by John A Adams 10/31/2013</description>
+        <externalId>false</externalId>
+        <label>ODS Updated Date</label>
+        <required>true</required>
+        <type>Date</type>
+    </fields>
+    <label>Product Group Hierarchy</label>
+    <nameField>
+        <displayFormat>PCH-{000000}</displayFormat>
+        <label>Product Hierarchy Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Product Group Hierarchies</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

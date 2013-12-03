@@ -32,7 +32,11 @@ public with sharing class MERC_NewContentController {
 
     public void setContentDefaults() {
         //set to mercury library
-        this.file.FirstPublishLocationId = [select Id from ContentWorkspace WHERE Name = 'Mercury'].Id;
+        try {
+            this.file.FirstPublishLocationId = [select Id from ContentWorkspace WHERE Name = 'Mercury'].Id;    
+        } catch(Exception e) {
+            throw new MERC_Exception('Insufficient access to the Mercury Content Workspace. Please contact your system administrator.');
+        }
 
         //set record type and lookup(s)
         this.recordId = (Id)this.mysObject.get('Id');

@@ -314,7 +314,7 @@ Created by John A Adams 10/22/2013</description>
         <description>Party Physical Address Id
 Customer ODS to Mercury Mapping
 Created by John A Adams 11/4/2013</description>
-        <externalId>false</externalId>
+        <externalId>true</externalId>
         <label>Party Physical Address Id</label>
         <length>40</length>
         <required>false</required>

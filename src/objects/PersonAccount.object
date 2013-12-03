@@ -6,6 +6,17 @@
         <description>Lilly Employees</description>
         <label>Employee</label>
         <picklistValues>
+            <picklist>Academic_Qualifications_MERC__c</picklist>
+            <values>
+                <fullName>MD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PhD</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>AccountSource</picklist>
             <values>
                 <fullName>Advertisement</fullName>
@@ -49,6 +60,180 @@
             </values>
             <values>
                 <fullName>Word of mouth</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Add_to_ODS_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Advisory_Board_Experience_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Approval_MERC__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Need Approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Approved</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Associate_or_Full_Professor_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>CODS_Merge_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Can_Contract_With__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Clinical_Trial_PI_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes - 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes - 2 or more</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Country_MERC__c</picklist>
+            <values>
+                <fullName>France</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UK</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Country_of_Residence_GLBL__c</picklist>
+            <values>
+                <fullName>DE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UK</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>US</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Employed_by_Government_Institution_GLBL__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Ethics_Compliance_Concerns_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Experience_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>HCP_Profile_Status_GLBL__c</picklist>
+            <values>
+                <fullName>HCP Profile Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP Profile incomplete FMV Tier missing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP profile incomplete FMV Tier available</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Hospital_Leadership_Role_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -184,6 +369,109 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Influential_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Instructor_Assistant_Clinical_Prof_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Journal_Articles_MERC__c</picklist>
+            <values>
+                <fullName>0-2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3-4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5%2B</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Key_Opinion_Leader_GLBL__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Licensed_HCP_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Licensed_in_USA_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Multiple_Specialties_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>National_Inter_Leadership_Role_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Offices_in_Other_Countries_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Ownership</picklist>
             <values>
                 <fullName>Other</fullName>
@@ -203,6 +491,47 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Participated_in_Clinical_Trials_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Practicing_for_MERC__c</picklist>
+            <values>
+                <fullName>%3C5 years</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10-20 years</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>20%2B years</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5-10 years</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Rating</picklist>
             <values>
                 <fullName>Cold</fullName>
@@ -214,6 +543,322 @@
             </values>
             <values>
                 <fullName>Warm</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Regional_Leadership_Role_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reviewer_or_Editor_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Source_Block_GLBL__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Speciality_2_GLBL__c</picklist>
+            <values>
+                <fullName>Anesthesiology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cardiology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dermatology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Emergency Medicine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Endocrinology%2C Diabetes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Family Medicine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gastroenterology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General Practice</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Geriatrics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Infectious Disease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal Medicine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical Genetics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Metabolism</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nephrology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Neurological Surgery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Neurology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Obstetrics%2C Gynecology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oncology%2C Cancer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ophthalmology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Orthopedics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Otolaryngology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pathology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pediatrics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Physical Medicine%2C Rehab</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plastic Surgery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Preventive Medicine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Psychiatry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radiology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Surgery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Urology</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Specialty_GLBL__c</picklist>
+            <values>
+                <fullName>Anesthesiology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cardiology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dermatology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Emergency Medicine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Endocrinology%2C Diabetes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Family Medicine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gastroenterology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General Practice</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Geriatrics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Infectious Disease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal Medicine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical Genetics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Metabolism</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nephrology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Neurological Surgery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Neurology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Obstetrics%2C Gynecology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oncology%2C Cancer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ophthalmology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Orthopedics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Otolaryngology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pathology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pediatrics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Physical Medicine%2C Rehab</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plastic Surgery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Preventive Medicine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Psychiatry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radiology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Surgery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Urology</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_MERC__c</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Thought_Leader_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Transparency_Reporting_Opt_Out_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -267,6 +912,17 @@
         <description>Health Care Professional</description>
         <label>HCP</label>
         <picklistValues>
+            <picklist>Academic_Qualifications_MERC__c</picklist>
+            <values>
+                <fullName>MD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PhD</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>AccountSource</picklist>
             <values>
                 <fullName>Advertisement</fullName>
@@ -310,6 +966,180 @@
             </values>
             <values>
                 <fullName>Word of mouth</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Add_to_ODS_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Advisory_Board_Experience_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Approval_MERC__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Need Approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Approved</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Associate_or_Full_Professor_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>CODS_Merge_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Can_Contract_With__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Clinical_Trial_PI_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes - 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes - 2 or more</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Country_MERC__c</picklist>
+            <values>
+                <fullName>France</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UK</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Country_of_Residence_GLBL__c</picklist>
+            <values>
+                <fullName>DE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UK</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>US</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Employed_by_Government_Institution_GLBL__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Ethics_Compliance_Concerns_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Experience_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>HCP_Profile_Status_GLBL__c</picklist>
+            <values>
+                <fullName>HCP Profile Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP Profile incomplete FMV Tier missing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP profile incomplete FMV Tier available</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Hospital_Leadership_Role_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -445,6 +1275,109 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Influential_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Instructor_Assistant_Clinical_Prof_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Journal_Articles_MERC__c</picklist>
+            <values>
+                <fullName>0-2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3-4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5%2B</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Key_Opinion_Leader_GLBL__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Licensed_HCP_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Licensed_in_USA_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Multiple_Specialties_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>National_Inter_Leadership_Role_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Offices_in_Other_Countries_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Ownership</picklist>
             <values>
                 <fullName>Other</fullName>
@@ -464,6 +1397,47 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Participated_in_Clinical_Trials_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Practicing_for_MERC__c</picklist>
+            <values>
+                <fullName>%3C5 years</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10-20 years</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>20%2B years</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5-10 years</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Rating</picklist>
             <values>
                 <fullName>Cold</fullName>
@@ -475,6 +1449,322 @@
             </values>
             <values>
                 <fullName>Warm</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Regional_Leadership_Role_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reviewer_or_Editor_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Source_Block_GLBL__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Speciality_2_GLBL__c</picklist>
+            <values>
+                <fullName>Anesthesiology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cardiology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dermatology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Emergency Medicine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Endocrinology%2C Diabetes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Family Medicine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gastroenterology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General Practice</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Geriatrics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Infectious Disease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal Medicine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical Genetics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Metabolism</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nephrology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Neurological Surgery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Neurology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Obstetrics%2C Gynecology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oncology%2C Cancer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ophthalmology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Orthopedics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Otolaryngology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pathology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pediatrics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Physical Medicine%2C Rehab</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plastic Surgery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Preventive Medicine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Psychiatry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radiology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Surgery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Urology</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Specialty_GLBL__c</picklist>
+            <values>
+                <fullName>Anesthesiology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cardiology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dermatology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Emergency Medicine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Endocrinology%2C Diabetes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Family Medicine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gastroenterology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General Practice</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Geriatrics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Infectious Disease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal Medicine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical Genetics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Metabolism</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nephrology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Neurological Surgery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Neurology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Obstetrics%2C Gynecology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oncology%2C Cancer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ophthalmology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Orthopedics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Otolaryngology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pathology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pediatrics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Physical Medicine%2C Rehab</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plastic Surgery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Preventive Medicine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Psychiatry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radiology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Surgery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Urology</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_MERC__c</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Thought_Leader_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Transparency_Reporting_Opt_Out_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -528,6 +1818,17 @@
         <description>Potential meeting participants who are not a HCP</description>
         <label>Non-HCP</label>
         <picklistValues>
+            <picklist>Academic_Qualifications_MERC__c</picklist>
+            <values>
+                <fullName>MD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PhD</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>AccountSource</picklist>
             <values>
                 <fullName>Advertisement</fullName>
@@ -571,6 +1872,180 @@
             </values>
             <values>
                 <fullName>Word of mouth</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Add_to_ODS_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Advisory_Board_Experience_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Approval_MERC__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Need Approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Approved</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Associate_or_Full_Professor_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>CODS_Merge_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Can_Contract_With__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Clinical_Trial_PI_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes - 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes - 2 or more</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Country_MERC__c</picklist>
+            <values>
+                <fullName>France</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UK</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Country_of_Residence_GLBL__c</picklist>
+            <values>
+                <fullName>DE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UK</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>US</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Employed_by_Government_Institution_GLBL__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Ethics_Compliance_Concerns_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Experience_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>HCP_Profile_Status_GLBL__c</picklist>
+            <values>
+                <fullName>HCP Profile Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP Profile incomplete FMV Tier missing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP profile incomplete FMV Tier available</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Hospital_Leadership_Role_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -706,6 +2181,109 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Influential_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Instructor_Assistant_Clinical_Prof_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Journal_Articles_MERC__c</picklist>
+            <values>
+                <fullName>0-2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3-4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5%2B</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Key_Opinion_Leader_GLBL__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Licensed_HCP_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Licensed_in_USA_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Multiple_Specialties_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>National_Inter_Leadership_Role_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Offices_in_Other_Countries_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Ownership</picklist>
             <values>
                 <fullName>Other</fullName>
@@ -725,6 +2303,47 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Participated_in_Clinical_Trials_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Practicing_for_MERC__c</picklist>
+            <values>
+                <fullName>%3C5 years</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>10-20 years</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>20%2B years</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>5-10 years</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Rating</picklist>
             <values>
                 <fullName>Cold</fullName>
@@ -736,6 +2355,322 @@
             </values>
             <values>
                 <fullName>Warm</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Regional_Leadership_Role_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reviewer_or_Editor_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Source_Block_GLBL__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Speciality_2_GLBL__c</picklist>
+            <values>
+                <fullName>Anesthesiology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cardiology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dermatology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Emergency Medicine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Endocrinology%2C Diabetes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Family Medicine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gastroenterology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General Practice</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Geriatrics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Infectious Disease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal Medicine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical Genetics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Metabolism</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nephrology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Neurological Surgery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Neurology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Obstetrics%2C Gynecology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oncology%2C Cancer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ophthalmology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Orthopedics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Otolaryngology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pathology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pediatrics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Physical Medicine%2C Rehab</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plastic Surgery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Preventive Medicine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Psychiatry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radiology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Surgery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Urology</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Specialty_GLBL__c</picklist>
+            <values>
+                <fullName>Anesthesiology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cardiology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dermatology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Emergency Medicine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Endocrinology%2C Diabetes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Family Medicine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gastroenterology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General Practice</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Geriatrics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Infectious Disease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal Medicine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical Genetics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Metabolism</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nephrology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Neurological Surgery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Neurology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Obstetrics%2C Gynecology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oncology%2C Cancer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ophthalmology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Orthopedics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Otolaryngology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pathology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pediatrics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Physical Medicine%2C Rehab</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plastic Surgery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Preventive Medicine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Psychiatry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radiology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Surgery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Urology</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_MERC__c</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Thought_Leader_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Transparency_Reporting_Opt_Out_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

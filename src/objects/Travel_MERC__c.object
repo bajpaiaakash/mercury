@@ -58,7 +58,7 @@ Created by John A Adams 10/31/2013</description>
 Created by John A Adams 10/10/2013</description>
         <externalId>false</externalId>
         <label>End Travel</label>
-        <summarizedField>Travel_Itinerary_MERC__c.Date_MERC__c</summarizedField>
+        <summarizedField>Travel_Itinerary_MERC__c.Arrival_Date_Time_MERC__c</summarizedField>
         <summaryForeignKey>Travel_Itinerary_MERC__c.Travel_MERC__c</summaryForeignKey>
         <summaryOperation>max</summaryOperation>
         <type>Summary</type>
@@ -119,7 +119,7 @@ Created by John A Adams 10/31/2013</description>
 Created by John A Adams 10/10/2013</description>
         <externalId>false</externalId>
         <label>Start Travel</label>
-        <summarizedField>Travel_Itinerary_MERC__c.Date_MERC__c</summarizedField>
+        <summarizedField>Travel_Itinerary_MERC__c.Start_Date_MERC__c</summarizedField>
         <summaryForeignKey>Travel_Itinerary_MERC__c.Travel_MERC__c</summaryForeignKey>
         <summaryOperation>min</summaryOperation>
         <type>Summary</type>
@@ -127,8 +127,15 @@ Created by John A Adams 10/10/2013</description>
     <label>Travel</label>
     <listViews>
         <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Meeting_Participant_MERC__c</columns>
+        <columns>First_Name_MERC__c</columns>
+        <columns>Last_Name_MERC__c</columns>
+        <columns>Start_Travel_MERC__c</columns>
+        <columns>End_Travel_MERC__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
+        <language>en_US</language>
     </listViews>
     <nameField>
         <displayFormat>T-{000000}</displayFormat>
@@ -137,16 +144,32 @@ Created by John A Adams 10/10/2013</description>
     </nameField>
     <pluralLabel>Travel</pluralLabel>
     <searchLayouts>
+        <customTabListAdditionalFields>Meeting_Participant_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>First_Name_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Last_Name_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Start_Travel_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>End_Travel_MERC__c</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>Meeting_Participant_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>First_Name_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Last_Name_MERC__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Start_Travel_MERC__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>End_Travel_MERC__c</lookupDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Meeting_Participant_MERC__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>First_Name_MERC__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Last_Name_MERC__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Start_Travel_MERC__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>End_Travel_MERC__c</lookupPhoneDialogsAdditionalFields>
         <searchFilterFields>NAME</searchFilterFields>
         <searchFilterFields>Meeting_Participant_MERC__c</searchFilterFields>
+        <searchFilterFields>First_Name_MERC__c</searchFilterFields>
+        <searchFilterFields>Last_Name_MERC__c</searchFilterFields>
         <searchFilterFields>Start_Travel_MERC__c</searchFilterFields>
         <searchFilterFields>End_Travel_MERC__c</searchFilterFields>
+        <searchResultsAdditionalFields>Meeting_Participant_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Last_Name_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>First_Name_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Start_Travel_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>End_Travel_MERC__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

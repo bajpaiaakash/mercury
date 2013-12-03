@@ -70,7 +70,7 @@
         <externalId>false</externalId>
         <formula>if( Master_Budget_Line_Item_MERC__c != &apos;&apos;,  Amount_MERC__c - Master_Budget_Line_Item_MERC__r.Amount_MERC__c, 0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Master Budget Line Item Delta</label>
+        <label>Savings/Overage</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -91,13 +91,14 @@
     </fields>
     <fields>
         <fullName>Overage_MERC__c</fullName>
-        <description>Tracks any Overages during budgeting and negotiation process. Created 10/11/2013 by KLorenti.</description>
         <externalId>false</externalId>
+        <formula>IF( Master_Budget_Line_Item_Delta_MERC__c &gt; 0 , ABS(Master_Budget_Line_Item_Delta_MERC__c), 0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Overage</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -114,13 +115,14 @@
     </fields>
     <fields>
         <fullName>Savings_MERC__c</fullName>
-        <description>Tracks any savings that may be incurred during budging/negotiation process. Created 10/11/2013 by KLorenti.</description>
         <externalId>false</externalId>
+        <formula>IF( Master_Budget_Line_Item_Delta_MERC__c &lt; 0 , ABS(Master_Budget_Line_Item_Delta_MERC__c), 0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Savings</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>

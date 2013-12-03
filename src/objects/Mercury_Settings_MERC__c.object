@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <customSettingsVisibility>Protected</customSettingsVisibility>
+    <description>Custom Settings for the Mercury Project</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Budget_Edit_Validation_MERC__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>When checked, active/archived budgets cannot be modified.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>When checked, active/archived budgets cannot be modified.</inlineHelpText>
+        <label>Budget Edit Validation</label>
+        <type>Checkbox</type>
+    </fields>
+    <label>Mercury Settings</label>
+</CustomObject>

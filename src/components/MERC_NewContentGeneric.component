@@ -9,6 +9,7 @@
 		}
 	</style>
 	<apex:sectionHeader title="{!$ObjectType[sobjectAPIName].label}" subtitle="{!sobjectName}" />
+	<apex:pageMessage strength="3" summary="For documents larger than 10mb, please upload via the 'Library' tab." title="Important" severity="INFO"/>
 	<apex:form styleClass="contentForm">
 		<apex:pageBlock title="Upload Content" mode="edit">
 			<apex:pageBlockButtons location="top">

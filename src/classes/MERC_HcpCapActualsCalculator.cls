@@ -37,41 +37,6 @@ public with sharing class MERC_HcpCapActualsCalculator implements GLBL_TriggerHa
 			participants = (List<Meeting_Participant_MERC__c>)sobjects;
 		}
 
-
-		String currentYear = String.valueOf(Date.today().year());
-        
-        //forecasted rollup to reserved
-		List<GLBL_RollupSummaryUtility.fieldDefinition> fieldDefinitions = 
-			new List<GLBL_RollupSummaryUtility.fieldDefinition> {
-		            new GLBL_RollupSummaryUtility.fieldDefinition(
-		            	'SUM', 'Final_Fee_MERC__c', 'Reserved_CAP_MERC__c')
-		        };
-		         
-        GLBL_RollupSummaryUtility.rollUpTrigger(fieldDefinitions, participants, 
-        	'Meeting_Participant_MERC__c', 'Account_MERC__c', 'Account', 
-        	'AND Meeting_MERC__r.End_Date_Year_MERC__c = \''+currentYear+'\' AND Meeting_MERC__r.Meeting_Status_MERC__c = \'Forecasted\'');
-	
-        //registered rollup to allocated
-        fieldDefinitions = 
-			new List<GLBL_RollupSummaryUtility.fieldDefinition> {
-		            new GLBL_RollupSummaryUtility.fieldDefinition(
-		            	'SUM', 'Final_Fee_MERC__c', 'Allocated_CAP_MERC__c')
-		        };
-		         
-        GLBL_RollupSummaryUtility.rollUpTrigger(fieldDefinitions, participants, 
-        	'Meeting_Participant_MERC__c', 'Account_MERC__c', 'Account', 
-        	'AND Meeting_MERC__r.End_Date_Year_MERC__c = \''+currentYear+'\' AND Meeting_MERC__r.Meeting_Status_MERC__c = \'Registered\'');
-	
-        //services rendered rollup to paid cap
-        fieldDefinitions = 
-			new List<GLBL_RollupSummaryUtility.fieldDefinition> {
-		            new GLBL_RollupSummaryUtility.fieldDefinition(
-		            	'SUM', 'Final_Fee_MERC__c', 'Paid_CAP_MERC__c')
-		        };
-		         
-        GLBL_RollupSummaryUtility.rollUpTrigger(fieldDefinitions, participants, 
-        	'Meeting_Participant_MERC__c', 'Account_MERC__c', 'Account', 
-        	'AND Meeting_MERC__r.End_Date_Year_MERC__c = \''+currentYear+'\' AND Services_Rendered_MERC__c = \'Yes\'');
-	
+		MERC_Util.rollupCapCalculationsFromParticipantToAccount(participants);
 	}
 }

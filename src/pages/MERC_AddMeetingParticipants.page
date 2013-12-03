@@ -1,0 +1,78 @@
+<apex:page showHeader="true" sidebar="true" standardController="Meeting_Participant_MERC__c" recordSetVar="a" extensions="MERC_AddMeetingParticipantsController">
+	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/jquery.min.js')}"/>
+	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/mercury.js')}"/>
+	<apex:stylesheet value="{!urlfor($Resource.mercury, 'css/style.css')}"/>
+	<apex:sectionHeader title="{!meeting.Name}" subtitle="{!$ObjectType.Meeting_Participant_MERC__c.LabelPlural}" />
+	<script>
+		var j = jQuery.noConflict();
+	</script>
+	<style>
+		.activeTab {
+			background-color: #f1f1f1;
+			padding: 6px 17px;
+			font-size: 16px;
+			background-image: none;
+			cursor: pointer;
+		}
+
+		.inactiveTab {
+			background-color: #fff;
+			padding: 5px 17px;
+			font-size: 16px;	
+			background-image: none;
+			opacity: 0.6;
+			cursor: pointer;
+		}
+	</style>
+	<apex:form>
+		<div class="aeu" style="position:relative;">
+			<apex:tabPanel switchType="server" selectedTab="name1" id="theTabPanel" activeTabClass="activeTab" inactiveTabClass="inactiveTab">
+				<apex:tab label="Search" name="name1" id="tabOne">
+					<apex:actionRegion>
+						<apex:pageBlock title="" mode="edit" id="mercuryUserBlock">
+							<apex:pageMessages></apex:pageMessages>
+							<apex:pageBlockButtons >
+								<apex:commandButton action="{!doSearch}" value="Search"/>
+							</apex:pageBlockButtons>
+							<apex:pageBlockSection>
+								
+								<!-- FIRST NAME -->
+								<apex:pageBlockSectionItem>
+									<apex:outputLabel for="fn" value="First Name"></apex:outputLabel>
+									<apex:inputText value="{!searchRequest.fn}" id="fn"/>
+								</apex:pageBlockSectionItem>
+
+								<!-- LAST NAME -->
+								<apex:pageBlockSectionItem>
+									<apex:outputLabel for="ls" value="Last Name"></apex:outputLabel>
+									<apex:inputText value="{!searchRequest.ls}" id="ls"/>
+								</apex:pageBlockSectionItem>
+
+								<!-- CUSTOMER ID -->
+								<apex:pageBlockSectionItem>
+									<apex:outputLabel for="custId" value="Customer Id"></apex:outputLabel>
+									<apex:inputText value="{!searchRequest.custId}" id="custId"/>
+								</apex:pageBlockSectionItem>
+
+							</apex:pageBlockSection>
+						</apex:pageBlock>
+					</apex:actionRegion>
+				</apex:tab>
+
+				<apex:tab label="{!$ObjectType.Meeting_Participant_MERC__c.LabelPlural}" name="name2" id="tabTwo">
+					<apex:actionRegion>
+						<apex:pageBlock title="" mode="edit" id="externalUserBlock">
+							<apex:pageMessages></apex:pageMessages>
+							<apex:pageBlockButtons >
+
+							</apex:pageBlockButtons>
+							<apex:pageBlockTable value="{!meetingParticipants}" var="p">
+								<apex:column value="{!p.Id}"/>
+							</apex:pageBlockTable>
+						</apex:pageBlock>
+					</apex:actionRegion>
+				</apex:tab>
+			</apex:tabPanel>
+		</div>
+	</apex:form>
+</apex:page>

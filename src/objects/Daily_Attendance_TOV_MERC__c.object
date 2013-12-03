@@ -42,9 +42,9 @@
     <fields>
         <fullName>Est_Food_Bev_ToV_MERC__c</fullName>
         <externalId>false</externalId>
-        <formula>Meeting_Day_MERC__r.Daily_Food_Beverage_Amount_MERC__c</formula>
+        <formula>IF(AND(ISPICKVAL(Status_MERC__c,&quot;Attended&quot;), Transparency_Reporting_Consent_MERC__c &lt;&gt; &quot;No&quot;) , Meeting_Day_MERC__r.Daily_Food_Beverage_Amount_MERC__c, 0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Estimated Food and Beverage ToV</label>
+        <label>Food and Beverage ToV</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -53,9 +53,9 @@
     <fields>
         <fullName>Est_Grnd_Transp_MERC__c</fullName>
         <externalId>false</externalId>
-        <formula>Meeting_Day_MERC__r.Daily_Ground_Trans_Amount_MERC__c</formula>
+        <formula>IF(AND(ISPICKVAL(Status_MERC__c,&quot;Attended&quot;), Transparency_Reporting_Consent_MERC__c &lt;&gt; &quot;No&quot;),Meeting_Day_MERC__r.Daily_Ground_Trans_Amount_MERC__c, 0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Estimated Ground Transportation TOV</label>
+        <label>Ground Transportation TOV</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -64,9 +64,9 @@
     <fields>
         <fullName>Est_Hotel_ToV_MERC__c</fullName>
         <externalId>false</externalId>
-        <formula>Meeting_Day_MERC__r.Daily_Room_Rate_MERC__c</formula>
+        <formula>IF(AND(ISPICKVAL(Status_MERC__c,&quot;Attended&quot;), Transparency_Reporting_Consent_MERC__c &lt;&gt; &quot;No&quot;) ,Meeting_Day_MERC__r.Daily_Room_Rate_MERC__c , 0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Estimated Hotel ToV</label>
+        <label>Hotel ToV</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -75,9 +75,9 @@
     <fields>
         <fullName>Est_Other_ToV_MERC__c</fullName>
         <externalId>false</externalId>
-        <formula>Meeting_Day_MERC__r.Daily_Other_Amount_MERC__c</formula>
+        <formula>IF(AND(ISPICKVAL(Status_MERC__c,&quot;Attended&quot;), Transparency_Reporting_Consent_MERC__c &lt;&gt; &quot;No&quot;) , Meeting_Day_MERC__r.Daily_Other_Amount_MERC__c, 0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Estimated Other ToV</label>
+        <label>Other ToV</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -86,13 +86,24 @@
     <fields>
         <fullName>Est_Reg_Amt_ToV_MERC__c</fullName>
         <externalId>false</externalId>
-        <formula>Meeting_Day_MERC__r.Daily_Registration_Amount_MERC__c</formula>
+        <formula>IF(AND(ISPICKVAL(Status_MERC__c,&quot;Attended&quot;), Transparency_Reporting_Consent_MERC__c &lt;&gt; &quot;No&quot;) , Meeting_Day_MERC__r.Daily_Registration_Amount_MERC__c, 0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Estimated Registration Amount ToV</label>
+        <label>Registration Amount ToV</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>External_ID_MERC__c</fullName>
+        <caseSensitive>true</caseSensitive>
+        <description>Key used to upsert in the daily attendance controller. Will be set in workflow, used to ensure participant has single tov record per day</description>
+        <externalId>true</externalId>
+        <label>External ID</label>
+        <length>100</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>true</unique>
     </fields>
     <fields>
         <fullName>Meeting_Day_MERC__c</fullName>
@@ -108,6 +119,16 @@
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
+        <fullName>Meeting_Participant_Account_Name_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>Meeting_Participant_MERC__r.Account_MERC__r.FirstName &amp; &apos; &apos; &amp; Meeting_Participant_MERC__r.Account_MERC__r.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting Participant Account Name</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Meeting_Participant_MERC__c</fullName>
         <description>Master Detail relationship from Daily Attendance to Meeting Participant. Created 10/10/2013 by KLorenti.</description>
         <externalId>false</externalId>
@@ -119,6 +140,16 @@
         <reparentableMasterDetail>false</reparentableMasterDetail>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Meeting_Participant_Record_Type_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>Meeting_Participant_MERC__r.RecordType.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting Participant Record Type</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Meeting_Vendor_MERC__c</fullName>
@@ -161,6 +192,16 @@ Created by John A Adams 10/10/2013</description>
             <sorted>false</sorted>
         </picklist>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Transparency_Reporting_Consent_MERC__c</fullName>
+        <description>Pulls in Transparency Opt Out Consent from HCP Profile. Oliver Dunford 7th Nov 2013.</description>
+        <externalId>false</externalId>
+        <label>Transparency Reporting Consent</label>
+        <length>10</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <label>Daily Attendance &amp; TOV</label>
     <nameField>

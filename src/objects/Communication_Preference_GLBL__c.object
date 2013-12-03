@@ -278,6 +278,15 @@ Created by John A Adams 11/5/2013</description>
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Hotel_Travel_Preferences_MERC__c</fullName>
+        <description>Stores hotel / travel preferences from the HCP Information Package/Portal. Oliver Dunford 8th Nov 2013.</description>
+        <externalId>false</externalId>
+        <label>Hotel / Travel Preferences</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
         <fullName>Interaction_Channel_Type_GLBL__c</fullName>
         <description>Stores the  interaction selection by Speakers / Delegates
 Created by John A Adams 10/2/2013</description>
@@ -348,6 +357,26 @@ Created by John A Adams 10/17/2013</description>
         </picklist>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Meals_Allergy_Preferences_MERC__c</fullName>
+        <description>Stores HCP preferences from the HCP Information Package/Portal. Oliver Dunford 8th Nov 2013.</description>
+        <externalId>false</externalId>
+        <label>Meals / Allergy Preferences</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Name_as_in_Passport_MERC__c</fullName>
+        <description>Stores name as in Passport from HCP Information Package/Portal. Oliver Dunford 8th Nov 2013. Oliver Dunford 8th Nov 2013.</description>
+        <externalId>false</externalId>
+        <label>Name as in Passport</label>
+        <length>150</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>ODS_Ld_Tmstmp_GLBL__c</fullName>
@@ -427,6 +456,7 @@ Created by John A Adams 11/5/2013</description>
         <fullName>Permission_Status_GLBL__c</fullName>
         <description>Records Speakers / Delegates permission to contact them</description>
         <externalId>false</externalId>
+        <inlineHelpText>Do you have the permission of the Speakers / Delegates to contact them</inlineHelpText>
         <label>Permission Status</label>
         <picklist>
             <picklistValues>

@@ -30,11 +30,15 @@ public with sharing class MERC_TeamMemberShareHandler implements GLBL_TriggerHan
 		Id mercuryUserRecordTypeId = [SELECT ID FROM RecordType WHERE DeveloperName = 'Mercury_User_MERC' AND SobjectType = 'Team_Member_MERC__c'].ID;
 		List<Team_Member_MERC__c> teamMembers = (List<Team_Member_MERC__c>)sobjects;
 		List<Team_Member_MERC__c> teamMembersToProcess = new List<Team_Member_MERC__c>();
+		Set<Id> meetingIds = new Set<Id>();
 		for (Team_Member_MERC__c tm : teamMembers) {
 			if (tm.RecordTypeId == mercuryUserRecordTypeId) {
 				teamMembersToProcess.add(tm);	
+				meetingIds.add(tm.Meeting_MERC__c);
 			}
 		}
+		Map<Id, Meeting_MERC__c> meetingMap = new Map<ID, Meeting_MERC__c>([SELECT ID, OwnerId FROM Meeting_MERC__c WHERE ID in :meetingIds]);
+
 		if (Trigger.isInsert || Trigger.isUndelete) {
 			Map<Id, Set<Id>> meetingIdToNewUserIds = getMeetingIdToTriggerUserIds(teamMembersToProcess);
 			
@@ -42,11 +46,13 @@ public with sharing class MERC_TeamMemberShareHandler implements GLBL_TriggerHan
 			for (Id meetingId : meetingIdToNewUserIds.keySet()) {
 				Set<Id> userIdsToAddToShareTable = meetingIdToNewUserIds.get(meetingId);
 				for (Id userId : userIdsToAddToShareTable) {
-					Meeting_MERC__Share shareRecord = new Meeting_MERC__Share();
-					shareRecord.ParentId = meetingId;
-					shareRecord.UserOrGroupId = userId;
-					shareRecord.AccessLevel = 'Edit';
-					shareRecordsToInsert.add(shareRecord);
+					if (userId != meetingMap.get(meetingId).OwnerId) {
+						Meeting_MERC__Share shareRecord = new Meeting_MERC__Share();
+						shareRecord.ParentId = meetingId;
+						shareRecord.UserOrGroupId = userId;
+						shareRecord.AccessLevel = 'Edit';
+						shareRecordsToInsert.add(shareRecord);
+					}
 				}
 			}
 			insert shareRecordsToInsert;
@@ -107,13 +113,15 @@ public with sharing class MERC_TeamMemberShareHandler implements GLBL_TriggerHan
 				for (Id meetingId : meetingIdToNewUserIds.keySet()) {
 					Set<Id> userIdsToAddToShareTable = meetingIdToNewUserIds.get(meetingId);
 					for (Id userId : userIdsToAddToShareTable) {
-						Meeting_MERC__Share shareRecord = new Meeting_MERC__Share();
-						shareRecord.ParentId = meetingId;
-						shareRecord.UserOrGroupId = userId;
-						shareRecord.AccessLevel = 'Edit';
-						system.debug('INSERTING TO SHARE >>>> '+shareRecord);
+						if (userId != meetingMap.get(meetingId).OwnerId) {
+							Meeting_MERC__Share shareRecord = new Meeting_MERC__Share();
+							shareRecord.ParentId = meetingId;
+							shareRecord.UserOrGroupId = userId;
+							shareRecord.AccessLevel = 'Edit';
+							system.debug('INSERTING TO SHARE >>>> '+shareRecord);
 
-						shareRecordsToInsert.add(shareRecord);
+							shareRecordsToInsert.add(shareRecord);
+						}
 					}
 				}
 				insert shareRecordsToInsert;

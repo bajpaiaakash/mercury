@@ -1,41 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
-		<members>GLBL_RollupSummaryUtility</members>
-		<members>GLBL_RollupSummaryUtilityTest</members>
-		<members>GLBL_SobjectDataLoader</members>
-		<members>GLBL_SobjectDataLoaderTest</members>
-		<members>GLBL_TriggerHandler</members>
-		<members>MERC_BudgetHistoryController</members>
-		<members>MERC_BudgetVersionController</members>
-		<members>MERC_BudgetVersionControllerTest</members>
-		<members>MERC_ContentVersionHandler</members>
-		<members>MERC_ContentVersionHandlerTest</members>
-		<members>MERC_DailyAttendanceController</members>
-		<members>MERC_DocusignService</members>
-		<members>MERC_DocusignServiceMock</members>
-		<members>MERC_DocusignServiceTest</members>
-		<members>MERC_Exception</members>
-		<members>MERC_HcpCapActualsCalculator</members>
-		<members>MERC_HcpCapActualsCalculatorTest</members>
-		<members>MERC_HcpCapLimitCalculator</members>
-		<members>MERC_NewContentController</members>
-		<members>MERC_ParticipantFMVCalculator</members>
-		<members>MERC_RequestHCPSignatureController</members>
-		<members>MERC_TOVCalculator</members>
-		<members>MERC_TOVCalculatorTest</members>
-		<members>MERC_TeamMemberShareHandler</members>
-		<members>MERC_TeamMemberShareHandlerTest</members>
-		<members>MERC_TestFactory</members>
-		<members>MERC_Util</members>
-		<members>PersonSearchControllerMVN</members>
-		<members>PersonSearchControllerTestMVN</members>
-		<members>TestDataFactoryMVN</members>
-		<name>ApexClass</name>
-	</types>
-	<types>
 		<members>*</members>
-		<name>CustomLabels</name>
+		<name>ApexClass</name>
 	</types>
 	<types>
 		<members>*</members>
@@ -43,10 +10,13 @@
 	</types>
 	<types>
 		<members>MERC_ActivateBudget</members>
+		<members>MERC_AddMeetingParticipants</members>
+		<members>MERC_AgendaBuilder</members>
 		<members>MERC_BudgetHistory</members>
 		<members>MERC_DailyAttendance</members>
 		<members>MERC_DocusignTagAndSend</members>
 		<members>MERC_InvoicePDF</members>
+		<members>MERC_MeetingTeamManager</members>
 		<members>MERC_NewBudgetVersion</members>
 		<members>MERC_NewHCPContractContent</members>
 		<members>MERC_NewMeetingContent</members>
@@ -55,61 +25,97 @@
 		<name>ApexPage</name>
 	</types>
 	<types>
-		<members>MERC_Account</members>
-		<members>MERC_ContentVersion</members>
-		<members>MERC_DailyAttendanceTOV</members>
-		<members>MERC_Meeting</members>
-		<members>MERC_MeetingDay</members>
-		<members>MERC_MeetingParticipant</members>
-		<members>MERC_TeamMember</members>
+		<members>*</members>
 		<name>ApexTrigger</name>
 	</types>
 	<types>
-		<members>Case</members>
-		<members>CAP_Settings_MERC__c</members>
-		<members>Docusign_Settings_MERC__c</members>
+		<members>Mercury</members>
+		<name>CustomApplication</name>
+	</types>
+	<types>
+		<members>*</members>
+		<name>CustomLabels</name>
+	</types>
+	<types>
+		<members>Account</members>
 		<members>Address_GLBL__c</members>
 		<members>Affiliation_GLBL__c</members>
 		<members>Agenda_Item_MERC__c</members>
 		<members>Alternate_Id_GLBL__c</members>
-		<members>Budget_MERC__c</members>
 		<members>Budget_Line_Item_MERC__c</members>
+		<members>Budget_MERC__c</members>
+		<members>CAP_Settings_MERC__c</members>
+		<members>Case</members>
 		<members>Communication_Preference_GLBL__c</members>
+		<members>ContentVersion</members>
 		<members>Daily_Attendance_TOV_MERC__c</members>
+		<members>Docusign_Settings_MERC__c</members>
+		<members>FMV_Settings_MERC__c</members>
 		<members>HCP_Contract_MERC__c</members>
-		<members>Invoice_MERC__c</members>
 		<members>Invoice_Line_Item_MERC__c</members>
-		<members>Meeting_MERC__c</members>
+		<members>Invoice_MERC__c</members>
 		<members>Meeting_Day_MERC__c</members>
+		<members>Meeting_MERC__c</members>
 		<members>Meeting_Participant_MERC__c</members>
 		<members>Meeting_Products_MERC__c</members>
 		<members>Meeting_Third_Party_MERC__c</members>
-		<members>Meeting_Venue_MERC__c</members>
 		<members>Meeting_Vendor_MERC__c</members>
+		<members>Meeting_Venue_MERC__c</members>
+		<members>Mercury_Settings_MERC__c</members>
 		<members>Merge_History_GLBL__c</members>
 		<members>Milestone_MERC__c</members>
 		<members>Participant_Agenda_MERC__c</members>
 		<members>Payee_MERC__c</members>
+		<members>PersonAccount</members>
+		<members>Product_Group_GLBL__c</members>
+		<members>Product_Group_Hierarchy_GLBL__c</members>
+		<members>Product_Group_Indications_GLBL__c</members>
+		<members>Product_Indication_GLBL__c</members>
 		<members>Service_Cloud_Settings_MVN__c</members>
 		<members>Slot_MERC__c</members>
 		<members>Team_Member_MERC__c</members>
-		<members>Travel_MERC__c</members>
 		<members>Travel_Itinerary_MERC__c</members>
+		<members>Travel_MERC__c</members>
 		<name>CustomObject</name>
 	</types>
 	<types>
-		<members>PersonAccount.Employee_GLBL</members>
-		<members>PersonAccount.HCP_GLBL</members>
-		<members>PersonAccount.Non_HCP_MERC</members>
-		<name>RecordType</name>
+		<members>Address_GLBL__c</members>
+		<members>Agenda_Item_MERC__c</members>
+		<members>Budget_MERC__c</members>
+		<members>Communication_Preference_GLBL__c</members>
+		<members>HCP_Contract_MERC__c</members>
+		<members>Invoice_MERC__c</members>
+		<members>Meeting_MERC__c</members>
+		<members>Meeting_Participant_MERC__c</members>
+		<members>Meeting_Vendor_MERC__c</members>
+		<members>Payee_MERC__c</members>
+		<members>Product_Group_GLBL__c</members>
+		<members>Team_Member_MERC__c</members>
+		<members>Travel_MERC__c</members>
+		<name>CustomTab</name>
+	</types>
+	<types>
+		<members>SharedDocuments/Lilly_Logo.png</members>
+		<name>Document</name>
 	</types>
 	<types>
 		<members>Admin</members>
+		<members>Mercury HCP Care</members>
+		<members>Mercury Integration SAP</members>
+		<members>Mercury Meeting Owner</members>
+		<members>Mercury Meeting Planning Company</members>
+		<members>Mercury Portal API</members>
+		<members>Mercury Project Team</members>
+		<members>Mercury TCS</members>
 		<name>Profile</name>
+	</types>
+	<types>
+		<members>*</members>
+		<name>Scontrol</name>
 	</types>
 	<types>
 		<members>*</members>
 		<name>StaticResource</name>
 	</types>
-	<version>28.0</version>
+	<version>29.0</version>
 </Package>

@@ -66,7 +66,6 @@ Created by John A Adams 10/3/2013</description>
         <externalId>false</externalId>
         <label>Meeting Participant</label>
         <referenceTo>Meeting_Participant_MERC__c</referenceTo>
-        <relationshipLabel>Participant Agendas</relationshipLabel>
         <relationshipName>Participant_Sessions</relationshipName>
         <relationshipOrder>0</relationshipOrder>
         <reparentableMasterDetail>false</reparentableMasterDetail>
@@ -78,9 +77,9 @@ Created by John A Adams 10/3/2013</description>
         <description>One to Many relationship between Participant Session and Session
 Created by John A Adams 10/3/2013</description>
         <externalId>false</externalId>
-        <label>Session</label>
+        <label>Agenda Item</label>
         <referenceTo>Agenda_Item_MERC__c</referenceTo>
-        <relationshipLabel>Participant Agendas</relationshipLabel>
+        <relationshipLabel>Participant Agendas Items</relationshipLabel>
         <relationshipName>Participant_Sessions</relationshipName>
         <relationshipOrder>1</relationshipOrder>
         <reparentableMasterDetail>false</reparentableMasterDetail>
@@ -97,13 +96,13 @@ Created by John A Adams 10/3/2013</description>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <label>Participant Agenda</label>
+    <label>Participant Agenda Item</label>
     <nameField>
         <displayFormat>PA-{000000}</displayFormat>
         <label>Participant Agenda #</label>
         <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>Participant Agendas</pluralLabel>
+    <pluralLabel>Participant Agendas Items</pluralLabel>
     <searchLayouts>
         <lookupDialogsAdditionalFields>Meeting_Participant_MERC__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Meeting_Day_MERC__c</lookupDialogsAdditionalFields>

@@ -122,7 +122,7 @@ Created by John A Adams 10/11/2013</description>
         <fullName>HCP_Copay_Needed_MERC__c</fullName>
         <description>Created 10/17/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <label>HCP Copay Needed?</label>
+        <label>HCP Copay Needed</label>
         <picklist>
             <picklistValues>
                 <fullName>Yes</fullName>
@@ -138,21 +138,10 @@ Created by John A Adams 10/11/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Identified_Savings_MERC__c</fullName>
-        <description>Capture identified savings for the active budget record. Created 10/25/2013 by KLorenti, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <label>Identified Savings</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackHistory>false</trackHistory>
-        <type>Currency</type>
-    </fields>
-    <fields>
         <fullName>InterCompany_Billing_Required_MERC__c</fullName>
         <description>Track if InterCompany billing is required. Created 10/17/2013 by KLorenti, Mavens Consulting.</description>
         <externalId>false</externalId>
-        <label>InterCompany Billing Required?</label>
+        <label>InterCompany Billing Required</label>
         <picklist>
             <picklistValues>
                 <fullName>Yes</fullName>
@@ -183,7 +172,7 @@ Created by John A Adams 10/11/2013</description>
         <externalId>false</externalId>
         <formula>if(Master_Budget_MERC__c != &apos;&apos;, Current_Budget_Used_MERC__c - Master_Budget_MERC__r.Current_Budget_Used_MERC__c, 0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Master Budget Delta</label>
+        <label>Savings/Overage</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -214,6 +203,18 @@ Created by John A Adams 10/11/2013</description>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Overage_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Master_Budget_Delta_MERC__c  &gt; 0 , ABS(Master_Budget_Delta_MERC__c), 0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Overage</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
     </fields>
     <fields>
         <fullName>Planned_Budget_MERC__c</fullName>
@@ -248,6 +249,18 @@ Created by John A Adams 10/11/2013</description>
         <trackHistory>true</trackHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Savings_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Master_Budget_Delta_MERC__c  &lt; 0 , ABS(Master_Budget_Delta_MERC__c), 0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Savings</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
     </fields>
     <fields>
         <fullName>Status_MERC__c</fullName>

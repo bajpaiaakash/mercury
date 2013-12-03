@@ -1,0 +1,149 @@
+<apex:page showHeader="true" sidebar="true" standardController="Team_Member_MERC__c" recordsetvar="e" extensions="MERC_MeetingTeamManagerController">
+	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/jquery.min.js')}"/>
+	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/mercury.js')}"/>
+	<apex:stylesheet value="{!urlfor($Resource.mercury, 'css/style.css')}"/>
+	<apex:includeScript value="{!URLFOR($Resource.mercury, '/js/jquery-ui.min.js')}"/>
+	<script>
+		var j = jQuery.noConflict();
+
+		function setFocusOnLoad() {} 
+
+		j(function() {
+			sortableTable();
+		});
+
+		function sortableTable() {
+			var fixHelperModified = function(e, tr) {
+				var $originals = tr.children();
+			    var $helper = tr.clone();
+			    $helper.children().each(function(index) {
+			        j(this).width($originals.eq(index).width())
+			    });
+			    return $helper;
+			},
+		    updateIndex = function(e, ui) {
+		        j('table.agendaItems input.agenda-index').each(function (i) {
+		            j(this).val(i + 1);
+		        });
+		    };
+
+			j("table.agendaItems tbody").sortable({
+				helper: fixHelperModified,
+			    stop: updateIndex
+			});
+		}
+
+		function updateAgendaItemsIndex() {
+			j('table.agendaItems input.agenda-index').each(function (i) {
+			    j(this).val(i + 1);
+			});
+		}
+	</script>
+	<style>
+		.activeTab {
+			background-color: #f1f1f1;
+			padding: 6px 17px;
+			font-size: 16px;
+			background-image: none;
+			cursor: pointer;
+		}
+
+		.inactiveTab {
+			background-color: #fff;
+			padding: 5px 17px;
+			font-size: 16px;	
+			background-image: none;
+			opacity: 0.6;
+			cursor: pointer;
+		}
+	</style>
+	<apex:sectionHeader subtitle="Team Members" title="{!parent['Name']}"/>
+	<apex:form >
+		<div class="aeu" style="position:relative;">
+			<apex:tabPanel switchType="server" selectedTab="name1" id="theTabPanel" activeTabClass="activeTab" inactiveTabClass="inactiveTab">
+				<apex:tab label="Mercury Users" name="name1" id="tabOne">
+					<apex:actionRegion>
+						<apex:pageBlock title="" mode="edit" id="mercuryUserBlock">
+							<apex:pageMessages />
+							<apex:pageBlockButtons >
+								<apex:commandButton value="Save" action="{!save}" reRender="mercuryUserBlock" 
+									onclick="toggleLoading()" oncomplete="toggleLoading()">
+									<apex:param name="rtdn" value="Mercury_User_MERC"/>
+									<apex:param name="notify" value="1"/>
+									<apex:param name="msg" value="Team Members updated successfully!"/>
+								</apex:commandButton>
+								<apex:commandButton value="Back to Meeting" action="{!cancel}"/>
+							</apex:pageBlockButtons>
+							<apex:pageBlockTable value="{!childrenMap['Mercury_User_MERC']}" var="a" id="agendaTable" styleClass="agendaItems">
+								<apex:column width="16">
+									<apex:image value="{!URLFOR($Resource.mercury, '/img/drag-icon.gif')}" style="cursor:move;"/>
+									<apex:inputText value="{!a.index}" styleclass="agenda-index" style="display:none;"/>
+								</apex:column>
+								<apex:column width="30" style="text-align:center;">
+									<apex:facet name="footer">
+										<apex:commandLink action="{!add}" style="text-align:center;display:block;" onclick="toggleLoading()" rerender="agendaTable"  oncomplete="sortableTable();updateAgendaItemsIndex();toggleLoading();">
+											<apex:image value="{!URLFOR($Resource.mercury, '/img/add.png')}" style="width:16px;"/>
+											<apex:param name="rtdn" value="Mercury_User_MERC"/>
+										</apex:commandLink>
+									</apex:facet>
+									<apex:commandLink action="{!remove}" immediate="true" rerender="agendaTable" onclick="toggleLoading()" oncomplete="sortableTable();updateAgendaItemsIndex();toggleLoading();">
+										<apex:image value="{!URLFOR($Resource.mercury, '/img/delete.png')}" style="width:16px;"/>
+										<apex:param name="clientHash" value="{!a.hash}" assignTo="{!clientHash}"/>
+										<apex:param name="rtdn" value="Mercury_User_MERC"/>
+									</apex:commandLink>
+								</apex:column>
+								<apex:repeat var="f" value="{!$ObjectType.Team_Member_MERC__c.FieldSets.Team_Mercury_MERC}">
+						            <apex:column headerValue="{!f.label}">
+						                <apex:inputField value="{!a.so[f]}" required="{!OR(f.required, f.dbrequired)}" />
+						            </apex:column>
+						        </apex:repeat>
+							</apex:pageBlockTable>
+						</apex:pageBlock>
+					</apex:actionRegion>
+				</apex:tab>
+
+				<apex:tab label="External Users" name="name2" id="tabTwo">
+					<apex:actionRegion>
+						<apex:pageBlock title="" mode="edit" id="externalUserBlock">
+							<apex:pageMessages />
+							<apex:pageBlockButtons >
+								<apex:commandButton value="Save" action="{!save}" reRender="externalUserBlock" 
+									onclick="toggleLoading()" oncomplete="toggleLoading()">
+									<apex:param name="rtdn" value="External_User_MERC"/>
+									<apex:param name="notify" value="1"/>
+									<apex:param name="msg" value="Team Members updated successfully!"/>
+								</apex:commandButton>
+								<apex:commandButton value="Back to Meeting" action="{!cancel}"/>
+							</apex:pageBlockButtons>
+							<apex:pageBlockTable value="{!childrenMap['External_User_MERC']}" var="a" id="agendaTable" styleClass="agendaItems">
+								<apex:column width="16">
+									<apex:image value="{!URLFOR($Resource.mercury, '/img/drag-icon.gif')}" style="cursor:move;"/>
+									<apex:inputText value="{!a.index}" styleclass="agenda-index" style="display:none;"/>
+								</apex:column>
+								<apex:column width="30" style="text-align:center;">
+									<apex:facet name="footer">
+										<apex:commandLink action="{!add}" style="text-align:center;display:block;" onclick="toggleLoading()" rerender="agendaTable"  oncomplete="sortableTable();updateAgendaItemsIndex();toggleLoading();">
+											<apex:image value="{!URLFOR($Resource.mercury, '/img/add.png')}" style="width:16px;"/>
+											<apex:param name="rtdn" value="External_User_MERC"/>
+										</apex:commandLink>
+									</apex:facet>
+									<apex:commandLink action="{!remove}" immediate="true" rerender="agendaTable" onclick="toggleLoading()" oncomplete="sortableTable();updateAgendaItemsIndex();toggleLoading();">
+										<apex:image value="{!URLFOR($Resource.mercury, '/img/delete.png')}" style="width:16px;"/>
+										<apex:param name="clientHash" value="{!a.hash}" assignTo="{!clientHash}"/>
+										<apex:param name="rtdn" value="External_User_MERC"/>
+									</apex:commandLink>
+								</apex:column>
+								<apex:repeat var="f" value="{!$ObjectType.Team_Member_MERC__c.FieldSets.Team_External_MERC}">
+						            <apex:column headerValue="{!f.label}">
+						                <apex:inputField value="{!a.so[f]}" required="{!OR(f.required, f.dbrequired)}" />
+						            </apex:column>
+						        </apex:repeat>
+							</apex:pageBlockTable>
+						</apex:pageBlock>
+					</apex:actionRegion>
+				</apex:tab>
+			</apex:tabPanel>
+			<c:MERC_LoadingMask />
+		</div>
+	</apex:form>
+</apex:page>

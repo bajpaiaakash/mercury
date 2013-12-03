@@ -23,9 +23,18 @@ public with sharing class MERC_ParticipantFMVCalculator implements GLBL_TriggerH
 			Set<Id> accountIdsToProcess = new Set<Id>();
 			for (Account a : accounts) {
 				if (
-					Trigger.oldMap.get(a.Id).get('Service_Provider_Tier_MERC__c') != a.Service_Provider_Tier_MERC__c
-					&&
-					a.Calculate_Open_Meeting_Fees_MERC__c == true
+					(
+						Trigger.oldMap.get(a.Id).get('Service_Provider_Tier_MERC__c') != a.Service_Provider_Tier_MERC__c
+						&&
+						a.Calculate_Open_Meeting_Fees_MERC__c == true
+					) ||
+					(
+						Trigger.oldMap.get(a.Id).get('Calculate_Open_Meeting_Fees_MERC__c') == false
+						&&
+						a.Calculate_Open_Meeting_Fees_MERC__c == true
+						&&
+						a.Service_Provider_Tier_MERC__c != null
+					)
 				) {
 					if (a.Service_Provider_Tier_MERC__c != null)
 						accountIdsToProcess.add(a.Id);
