@@ -32,13 +32,15 @@ public with sharing class MERC_DeleteNotifyService implements GLBL_TriggerHandle
 	}
 
 	public class DeleteNotification {
-		public String notificationId;
-		public String sobjectTypeAPIName;
-		public List<Sobject> records;
+		String notificationId;
+		String orgId;
+		String sobjectTypeAPIName;
+		List<Sobject> records;
 		public DeleteNotification(String sobjectType, String serializedSobjects) {
 			this.notificationId = MERC_Util.generateRandomString(30);
 			this.records = (List<Sobject>)JSON.deserialize(serializedSobjects, List<Sobject>.class); //we need to deserialize here to ensure "records" is not double encoded before we send to listener
 			this.sobjectTypeAPIName = sobjectType;
+			this.orgId = UserInfo.getOrganizationId();
 		}
 	}
 }

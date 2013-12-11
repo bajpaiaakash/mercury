@@ -1,4 +1,4 @@
-<apex:page showHeader="true" sidebar="true" standardController="Agenda_Item_MERC__c" recordsetvar="e" extensions="MERC_AgendaBuilderController">
+<apex:page showHeader="true" sidebar="true" standardController="Agenda_Item_MERC__c" recordsetvar="e" extensions="MERC_AgendaBuilderController" action="{!setTimeZones}">
 	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/jquery.min.js')}"/>
 	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/mercury.js')}"/>
 	<apex:stylesheet value="{!urlfor($Resource.mercury, 'css/style.css')}"/>
@@ -38,6 +38,7 @@
 		}
 	</script>
 	<apex:sectionHeader subtitle="Event Agenda" title="{!parent['Name']}"/>
+	<apex:pageMessage title="" summary="Set all Agenda Item dates/times according to the meeting time zone." severity="info" strength="3" />
 	<apex:form >
 		<div class="aeu" style="position:relative;">
 			<apex:pageBlock title="Event Agenda" mode="edit" id="mainBlock">

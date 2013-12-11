@@ -5,6 +5,10 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Clone</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -17,11 +21,19 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -32,6 +44,7 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Object to track affiliations between accounts for searching purposes. Created 10/17/2013 by KLorenti, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
@@ -52,6 +65,7 @@ Created by John A Adams 11/5/2013</description>
         <relationshipName>Affiliations</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -65,6 +79,7 @@ Created by John A Adams 11/5/2013</description>
         <relationshipName>Affiliations_To</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -77,6 +92,7 @@ Created by John A Adams 11/5/2013</description>
         <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -90,6 +106,7 @@ Created by John A Adams 11/5/2013</description>
         <length>10</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -103,6 +120,21 @@ Created by John A Adams 11/5/2013</description>
         <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Afltn_Role_Desc_GLBL__c</fullName>
+        <description>Affiliation Role Description
+Customer ODS to Mercury Mapping
+Created by John A Adams 12/10/2013</description>
+        <externalId>false</externalId>
+        <label>Affiliation Role Description</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -116,21 +148,9 @@ Created by John A Adams 11/5/2013</description>
         <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Child_Affiliation_GLBL__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>Lookup relationship to another Affiliation. Created 10/17/2013 by KLorenti, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <label>Child Affiliation</label>
-        <referenceTo>Affiliation_GLBL__c</referenceTo>
-        <relationshipLabel>Affiliations</relationshipLabel>
-        <relationshipName>Affiliations</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Del_Date_GLBL__c</fullName>
@@ -141,6 +161,7 @@ Created by John A Adams 11/5/2013</description>
         <label>Delete Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -153,6 +174,7 @@ Created by John A Adams 11/5/2013</description>
         <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -166,6 +188,7 @@ Created by John A Adams 11/5/2013</description>
         <length>40</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -178,6 +201,7 @@ Created by John A Adams 11/5/2013</description>
         <label>End Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -189,6 +213,7 @@ Created by John A Adams 11/5/2013</description>
         <label>Effective Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -201,6 +226,7 @@ Created by John A Adams 11/5/2013</description>
         <length>10</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -213,6 +239,7 @@ Created by John A Adams 11/5/2013</description>
         <label>Email Electronic Address Text</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
@@ -225,6 +252,7 @@ Created by John A Adams 11/5/2013</description>
         <length>15</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -238,6 +266,7 @@ Created by John A Adams 11/5/2013</description>
         <length>10</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -251,6 +280,7 @@ Created by John A Adams 11/5/2013</description>
         <length>15</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -263,6 +293,7 @@ Created by John A Adams 11/5/2013</description>
         <label>Fax Electronic Address Text</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
@@ -274,6 +305,7 @@ Created by John A Adams 11/5/2013</description>
         <label>Phone1 Electronic Address Text</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
@@ -285,20 +317,8 @@ Created by John A Adams 11/5/2013</description>
         <label>Web Electronic Address Text</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>TextArea</type>
-    </fields>
-    <fields>
-        <fullName>From_Account_GLBL__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>Used to help track influence direction between accounts. Created 10/17/2013 by KLorenti, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <label>From Account</label>
-        <referenceTo>Account</referenceTo>
-        <relationshipLabel>Affiliations (From Account)</relationshipLabel>
-        <relationshipName>Affiliations_From</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Gco_Party_Afltn_Id_GLBL__c</fullName>
@@ -310,6 +330,7 @@ Created by John A Adams 11/5/2013</description>
         <length>40</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -323,6 +344,7 @@ Created by John A Adams 11/5/2013</description>
         <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -336,6 +358,7 @@ Created by John A Adams 11/5/2013</description>
         <length>254</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -349,6 +372,7 @@ Created by John A Adams 11/5/2013</description>
         <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -362,6 +386,20 @@ Created by John A Adams 11/5/2013</description>
         <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Mercury_External_Id_MERC__c</fullName>
+        <description>Generated by Workflow used for Integration with External Systems.
+Created by J Adams 12/10/2013</description>
+        <externalId>true</externalId>
+        <label>Mercury External Id</label>
+        <length>250</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -374,6 +412,7 @@ Created by John A Adams 11/5/2013</description>
         <label>Source Load Timestamp</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -386,6 +425,7 @@ Created by John A Adams 11/5/2013</description>
         <length>30</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -398,6 +438,7 @@ Created by John A Adams 11/5/2013</description>
         <label>Source Update Timestamp</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -410,6 +451,7 @@ Created by John A Adams 11/5/2013</description>
         <length>30</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -423,6 +465,7 @@ Created by John A Adams 11/5/2013</description>
         <length>2</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -436,6 +479,7 @@ Created by John A Adams 11/5/2013</description>
         <length>10</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -449,6 +493,7 @@ Customer ODS to Mercury Mapping</description>
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -462,6 +507,7 @@ Created by John A Adams 11/5/2013</description>
         <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -475,6 +521,7 @@ Customer ODS to Mercury Mapping</description>
         <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -531,6 +578,7 @@ Customer ODS to Mercury Mapping</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -541,6 +589,7 @@ Customer ODS to Mercury Mapping</description>
         <length>20</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -554,6 +603,7 @@ Created by John A Adams 11/5/2013</description>
         <length>1</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -567,6 +617,7 @@ Created by John A Adams 11/5/2013</description>
         <length>10</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>

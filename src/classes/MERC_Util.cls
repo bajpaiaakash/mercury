@@ -23,6 +23,32 @@ public with sharing class MERC_Util {
 		return recordId.getSObjectType().getDescribe().getName();
 	}
 
+	public static Map<String, String> getTimeZoneFieldMapForObject(String objectAPIName) {
+		Map<String, String> dateFieldAPINameToTimeZoneFieldAPIName = new Map<String, String>();
+		for (Time_Zone_Field_Mappings_MERC__c fm : [SELECT 
+														Field_API_Name_MERC__c, 
+														Time_Zone_Field_API_Name_MERC__c 
+															FROM 
+																Time_Zone_Field_Mappings_MERC__c 
+																	WHERE Object_API_Name_MERC__c = :objectAPIName]) {
+			dateFieldAPINameToTimeZoneFieldAPIName.put(fm.Field_API_Name_MERC__c, fm.Time_Zone_Field_API_Name_MERC__c);
+		}
+		return dateFieldAPINameToTimeZoneFieldAPIName;
+	}
+
+	public static Map<String, String> getStampFieldMapForObject(String objectAPIName) {
+		Map<String, String> dateFieldAPINameToFieldToStampAPIName = new Map<String, String>();
+		for (Time_Zone_Field_Mappings_MERC__c fm : [SELECT 
+														Field_API_Name_MERC__c, 
+														Static_Field_To_Stamp_MERC__c 
+															FROM 
+																Time_Zone_Field_Mappings_MERC__c 
+																	WHERE Object_API_Name_MERC__c = :objectAPIName]) {
+			dateFieldAPINameToFieldToStampAPIName.put(fm.Field_API_Name_MERC__c, fm.Static_Field_To_Stamp_MERC__c);
+		}
+		return dateFieldAPINameToFieldToStampAPIName;
+	}
+
 	//takes a field set, returns a list of api names
 	public static List<String> getFieldSetFieldList(String objectAPIName, String fieldSetAPIName) {
 		List<String> fieldNames = new List<String>();

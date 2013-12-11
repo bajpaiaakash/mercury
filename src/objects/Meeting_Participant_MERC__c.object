@@ -5,6 +5,10 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Clone</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -17,11 +21,19 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -32,6 +44,7 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Object to store Meeting Participants. Created 9/27/2013 by KLorenti.</description>
     <enableActivities>false</enableActivities>
@@ -50,8 +63,49 @@
         <relationshipOrder>0</relationshipOrder>
         <reparentableMasterDetail>false</reparentableMasterDetail>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Air_Travel_Required_MERC__c</fullName>
+        <description>Created to capture if Air Travel is required for Meeting Participant. Created 11/22/2013 by Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Air Travel Required</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Airport_Transfer_Required_MERC__c</fullName>
+        <description>Capture if Airport Transfer is required for the Meeting Participant. Created 11/26/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Airport Transfer Required</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Cancellation_Notice_Sent_MERC__c</fullName>
@@ -60,6 +114,7 @@
         <label>Cancellation Notice Sent</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -71,8 +126,69 @@
         <label>Classification</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CoPay_Flight_Rail_MERC__c</fullName>
+        <description>Capture CoPay amount for Flight/Rail ToV as a credit. Created 11/22/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>CoPay Flight/Rail</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CoPay_Food_Beverage_MERC__c</fullName>
+        <description>Capture CoPay amount for Food &amp; Beverage ToV as a credit. Created 11/22/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>CoPay Food &amp; Beverage</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CoPay_Ground_Transport_MERC__c</fullName>
+        <description>Capture CoPay amount for Ground Transport ToV as a credit. Created 11/22/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>CoPay Ground Transport</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CoPay_Hotel_MERC__c</fullName>
+        <description>Capture CoPay amount for Hotel ToV as a credit. Created 11/22/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>CoPay Hotel</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CoPay_Registration_MERC__c</fullName>
+        <description>Capture CoPay amount for Registration ToV as a credit. Created 11/22/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>CoPay Registration</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
     </fields>
     <fields>
         <fullName>Confirm_Final_Fee_MERC__c</fullName>
@@ -91,6 +207,40 @@
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Limitations_on_Use_MERC__c</fullName>
+        <description>Display Contract Limitations on Use on Meeting Participant from HCP Profile. Created 11/26/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Account_MERC__r.Contract_Limitations_on_Use_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contract Limitations on Use</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Copay_Required_MERC__c</fullName>
+        <description>Track whether or not HCP needs to provide Co-pay. Created 12/2/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Copay Required?</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -98,28 +248,52 @@
         <description>Country of Residence from HCP Profile - used to determine Min/Max rates based on Tier
 Created by John A Adams 10/31/2013</description>
         <externalId>false</externalId>
-        <formula>TEXT(Account_MERC__r.Country_of_Residence_GLBL__c )</formula>
+        <formula>TEXT(Account_MERC__r.Country_of_Residence_GLBL__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Country of Residence</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Days_Attended_MERC__c</fullName>
-        <description>Shows how many days the HCP attended for. Oliver Dunford 8th Nov 2013.</description>
+        <fullName>Customer_Id_GLBL__c</fullName>
+        <description>Unique identifier for a customer as assigned by Lilly. Pulled from HCP profile.  Created by John Adams on 12/9/2013</description>
         <externalId>false</externalId>
-        <label># Days Attended</label>
-        <summaryFilterItems>
-            <field>Daily_Attendance_TOV_MERC__c.Status_MERC__c</field>
-            <operation>equals</operation>
-            <value>Attended</value>
-        </summaryFilterItems>
-        <summaryForeignKey>Daily_Attendance_TOV_MERC__c.Meeting_Participant_MERC__c</summaryForeignKey>
-        <summaryOperation>count</summaryOperation>
+        <formula>Account_MERC__r.Cust_Id_GLBL__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Customer Id</label>
+        <required>false</required>
         <trackHistory>false</trackHistory>
-        <type>Summary</type>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Description_of_Service_MERC__c</fullName>
+        <description>To capture description of service provided by HCP. Created 11/20/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Description of Service</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Event_Customer_Id_MERC__c</fullName>
+        <description>Unique identifier of the relationship of the customer at the event. Combination of Meeting Id &amp; Meeting Participant Id.
+Created by John Adams on 12/9/2013</description>
+        <externalId>false</externalId>
+        <formula>Meeting_MERC__r.Id &amp; &quot;-&quot; &amp;  Id</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Event Customer Id</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Event_Time_Hrs_MERC__c</fullName>
@@ -130,6 +304,7 @@ Created by John A Adams 10/31/2013</description>
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -150,6 +325,7 @@ Created by John A Adams 10/31/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -161,6 +337,7 @@ Created by John A Adams 10/31/2013</description>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -172,6 +349,7 @@ Created by John A Adams 10/31/2013</description>
         <length>120</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>true</unique>
     </fields>
@@ -192,6 +370,7 @@ Created by John A Adams 10/31/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -203,6 +382,7 @@ Created by John A Adams 10/31/2013</description>
         <label>HCP Contract Details</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -217,13 +397,14 @@ Created by John A Adams 10/31/2013</description>
         <relationshipName>Meeting_Participants</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Higher_Fee_Approval__c</fullName>
         <description>Controls approval of a Proposed Fee that is higher than the maximum affiliate amount. 6th Nov 2013.  Oliver Dunford. 2013.</description>
         <externalId>false</externalId>
-        <label>Higher Fee Approval</label>
+        <label>Exception Approval</label>
         <picklist>
             <picklistValues>
                 <fullName>Not Required</fullName>
@@ -244,6 +425,7 @@ Created by John A Adams 10/31/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -263,7 +445,18 @@ Created by John A Adams 10/31/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Include_CAP_Roll_Up_MERC__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Field created to indicate whether or not CAP should be calculated on the Meeting Participant for the Meeting. Created 12/2/2013 by KLorenti, Mavens Consulting.</description>
+        <externalId>false</externalId>
+        <label>Include CAP Roll Up</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Invoice_Template_Needed_MERC__c</fullName>
@@ -282,41 +475,72 @@ Created by John A Adams 10/31/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Justification_MERC__c</fullName>
+        <description>Justification for Service. Moving from HCP Contract. Created 11/18/2013 by KLorenti, Mavens Consulting.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>An HCP must NOT be selected for any business relationship in order to influence or reward an HCP for past, present or future support of Lilly products, to gain access to a customer or formulary decision makers, to influence the outcome of clinical trial.</inlineHelpText>
+        <label>Justification</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Recognized as a Thought Leader</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Significant topic research / background</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Outstanding speaking ability</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trained to speak on this topic</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Therapeutic Area knowledge / experience</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Recognized by local peers as a SME</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Published author in the Therapeutic Area</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Proven effective Speaker / Moderator</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other (please explain)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
     </fields>
     <fields>
         <fullName>Maximum_Fee_MERC__c</fullName>
         <description>Calculates the maximum fee possible based on Max Rate and Total Hrs of Service then adjusted based on Travel.
 Created by John A Adams 10/31/2013</description>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Travel_Time_Hrs_MERC__c,&quot;&quot;), 
-(Maximum_Rate_MERC__c *  Total_Hours_of_Service_MERC__c), 
-
-IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;0-2 hrs&quot;), 
-(Maximum_Rate_MERC__c *  Total_Hours_of_Service_MERC__c), 
-
-IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;2-10 hrs&quot;), 
-(0.20 * (Maximum_Rate_MERC__c *  Total_Hours_of_Service_MERC__c)+ 
-Maximum_Rate_MERC__c *  Total_Hours_of_Service_MERC__c), 
-
-IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;11-20 hrs&quot;), 
-(0.25 * (Maximum_Rate_MERC__c *  Total_Hours_of_Service_MERC__c)+ 
-Maximum_Rate_MERC__c *  Total_Hours_of_Service_MERC__c), 
-
-IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;), 
-(0.30 * (Maximum_Rate_MERC__c *  Total_Hours_of_Service_MERC__c)+ 
-Maximum_Rate_MERC__c *  Total_Hours_of_Service_MERC__c), 0 
-) 
-) 
-) 
-) 
-)</formula>
+        <formula>Maximum_Rate_MERC__c *  Total_Hours_of_Service_MERC__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Maximum Fee</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -329,20 +553,36 @@ Created by John A Adams 10/31/2013</description>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
         <fullName>Meeting_MERC__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
         <description>Master-Detail Relationship from Meeting Participant to Meeting. Created 9/30/2013 by KLorenti.</description>
         <externalId>false</externalId>
         <label>Meeting</label>
         <referenceTo>Meeting_MERC__c</referenceTo>
         <relationshipLabel>Meeting Participants</relationshipLabel>
         <relationshipName>Meeting_Participants_del</relationshipName>
+        <relationshipOrder>1</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Mercury_External_Id_MERC__c</fullName>
+        <description>Generated by Workflow used for Integration with External Systems.
+Created by J Adams 12/10/2013</description>
+        <externalId>true</externalId>
+        <label>Mercury External Id</label>
+        <length>150</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <type>Lookup</type>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Minimum_Fee_MERC__c</fullName>
@@ -379,6 +619,7 @@ Minimum_Rate_MERC__c *  Total_Hours_of_Service_MERC__c), 0
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -391,22 +632,8 @@ Created by John A Adams 10/31/2013</description>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Currency</type>
-    </fields>
-    <fields>
-        <fullName>No_Show_Days_MERC__c</fullName>
-        <description>Shows how many days the HCP did not attend. Oliver Dunford 8th Nov 2013.</description>
-        <externalId>false</externalId>
-        <label># No Show Days</label>
-        <summaryFilterItems>
-            <field>Daily_Attendance_TOV_MERC__c.Status_MERC__c</field>
-            <operation>equals</operation>
-            <value>No Show</value>
-        </summaryFilterItems>
-        <summaryForeignKey>Daily_Attendance_TOV_MERC__c.Meeting_Participant_MERC__c</summaryForeignKey>
-        <summaryOperation>count</summaryOperation>
-        <trackHistory>false</trackHistory>
-        <type>Summary</type>
     </fields>
     <fields>
         <fullName>Partial_Payment_Justification_MERC__c</fullName>
@@ -425,6 +652,7 @@ Created by John A Adams 10/31/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -444,6 +672,7 @@ Created by John A Adams 10/31/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -454,6 +683,7 @@ Created by John A Adams 10/31/2013</description>
         <length>120</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -475,7 +705,20 @@ Created by John A Adams 10/31/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Participant_Type_MERC__c</fullName>
+        <description>Type of participant stamped into Meeting Participant record using workflow at creation or edit from the Account.  Created by John Adams on 12/9/2013</description>
+        <externalId>false</externalId>
+        <label>Participant Type</label>
+        <length>16</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Payment_Required_MERC__c</fullName>
@@ -489,6 +732,7 @@ Created by John A Adams 10/31/2013</description>
         <label>Payment Required</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -501,6 +745,7 @@ Created by John A Adams 10/31/2013</description>
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -521,6 +766,7 @@ Created by John A Adams 10/31/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -533,6 +779,7 @@ Created by John A Adams 10/31/2013</description>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -552,6 +799,7 @@ Created by John A Adams 10/31/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -565,6 +813,7 @@ Created by John A Adams 10/31/2013</description>
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -586,6 +835,7 @@ Created by John A Adams 10/24/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -600,17 +850,19 @@ Created by John A Adams 9/27/2013</description>
         <relationshipName>Event_Participants</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Speciality_MERC__c</fullName>
         <description>Displays Speciality from Account Object. Created 10/25/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <formula>Text(Account_MERC__r.Specialty_GLBL__c)</formula>
+        <formula>Account_MERC__r.Spclty_Desc_GLBL__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Speciality</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -663,6 +915,7 @@ Created by John A Adams 9/27/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -672,6 +925,7 @@ Created by John A Adams 9/27/2013</description>
         <label>Topic Area</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
@@ -683,6 +937,7 @@ Created by John A Adams 9/27/2013</description>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -690,11 +945,12 @@ Created by John A Adams 9/27/2013</description>
         <fullName>Total_Ground_Transporation_ToV_MERC__c</fullName>
         <description>Stores Total ToV for ground transportation cost. Oliver Dunford 10/10/2013</description>
         <externalId>false</externalId>
-        <label>Total Ground Transporation ToV</label>
+        <label>Total Ground Transport ToV</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -709,6 +965,7 @@ Created by John A Adams 9/27/2013</description>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -720,6 +977,7 @@ Created by John A Adams 9/27/2013</description>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -735,6 +993,7 @@ Created by John A Adams 10/17/2013</description>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -747,6 +1006,7 @@ Created by John A Adams 10/17/2013</description>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -759,6 +1019,7 @@ Created by John A Adams 10/17/2013</description>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -770,6 +1031,7 @@ Created by John A Adams 10/17/2013</description>
         <length>10</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -790,6 +1052,7 @@ Created by John A Adams 10/17/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -821,6 +1084,103 @@ Created by John A Adams 10/17/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Travel_Time_Reimbursement_MERC__c</fullName>
+        <description>Calculate Travel Time reimbursement amount. Created 11/26/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(Travel_Time_Hrs_MERC__c,&quot;&quot;), 
+(0), 
+
+IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;0-2 hrs&quot;), 
+(0), 
+
+IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;2-10 hrs&quot;), 
+(0.20 * (Maximum_Rate_MERC__c * Total_Hours_of_Service_MERC__c)), 
+
+IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;11-20 hrs&quot;), 
+(0.25 * (Maximum_Rate_MERC__c * Total_Hours_of_Service_MERC__c)), 
+
+IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;), 
+(0.30 * (Maximum_Rate_MERC__c * Total_Hours_of_Service_MERC__c)), 0 
+) 
+) 
+) 
+) 
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Travel Time Reimbursement</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Type_of_Contract_MERC__c</fullName>
+        <description>Created to capture type of contract on Meeting Participant. Created 12/3/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Type of Contract</label>
+        <picklist>
+            <picklistValues>
+                <fullName>MSA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Single Event</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Work Order</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Types_of_Service_MERC__c</fullName>
+        <description>Type of Services a speaker may be providing. Moving from HCP Contract object. Created 11/19/2013 by KLorenti, Mavens Consulting.</description>
+        <externalId>false</externalId>
+        <label>Types of Service</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Speaking - Speaker</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Speaking - Chairman Symposium</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Advisory Board - Chairman</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Advisory Board - Participant</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Speaker Training</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Consulting ad hoc</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Medical Research Consultant</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <label>Meeting Participant</label>
@@ -844,8 +1204,30 @@ Created by John A Adams 10/17/2013</description>
     <recordTypes>
         <fullName>Delegate_MERC</fullName>
         <active>true</active>
-        <description>Meeting attendee</description>
+        <description>Meeting attendee or attendees of a Group Sponsorship meeting</description>
         <label>Delegate</label>
+        <picklistValues>
+            <picklist>Air_Travel_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Airport_Transfer_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Confirm_Final_Fee_MERC__c</picklist>
             <values>
@@ -854,6 +1236,17 @@ Created by John A Adams 10/17/2013</description>
             </values>
             <values>
                 <fullName>Pending Confirmation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Copay_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -917,6 +1310,45 @@ Created by John A Adams 10/17/2013</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Justification_MERC__c</picklist>
+            <values>
+                <fullName>Other %28please explain%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outstanding speaking ability</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Proven effective Speaker %2F Moderator</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Published author in the Therapeutic Area</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recognized as a Thought Leader</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recognized by local peers as a SME</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Significant topic research %2F background</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Therapeutic Area knowledge %2F experience</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trained to speak on this topic</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1056,6 +1488,373 @@ Created by John A Adams 10/17/2013</description>
             </values>
             <values>
                 <fullName>More than 20 hrs</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type_of_Contract_MERC__c</picklist>
+            <values>
+                <fullName>MSA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Work Order</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Types_of_Service_MERC__c</picklist>
+            <values>
+                <fullName>Advisory Board - Chairman</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consulting ad hoc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical Research Consultant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Speaking - Chairman Symposium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Speaking - Speaker</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Individual_Sponsorship</fullName>
+        <active>true</active>
+        <description>Lilly sponsors individual HCP&apos;s to attend meeting</description>
+        <label>Individual Sponsorship</label>
+        <picklistValues>
+            <picklist>Air_Travel_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Airport_Transfer_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Confirm_Final_Fee_MERC__c</picklist>
+            <values>
+                <fullName>Confirmed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending Confirmation</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Copay_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Expense_Reimbursment_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Ground_Transportation_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Higher_Fee_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Required</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Required</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Hotel_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Invoice_Template_Needed_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Justification_MERC__c</picklist>
+            <values>
+                <fullName>Other %28please explain%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outstanding speaking ability</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Proven effective Speaker %2F Moderator</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Published author in the Therapeutic Area</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recognized as a Thought Leader</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recognized by local peers as a SME</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Significant topic research %2F background</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Therapeutic Area knowledge %2F experience</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trained to speak on this topic</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Partial_Payment_Justification_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Participant_Approved_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Participant_ToV_Final_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Presentation_Approval_Needed_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Require_Recording_Consent_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Services_Rendered_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_MERC__c</picklist>
+            <values>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Attended</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Declined</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interested in Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invited</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending Approval</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Travel_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Travel_Time_Hrs_MERC__c</picklist>
+            <values>
+                <fullName>0-2 hrs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>11-20 hrs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2-10 hrs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>More than 20 hrs</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type_of_Contract_MERC__c</picklist>
+            <values>
+                <fullName>MSA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Work Order</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Types_of_Service_MERC__c</picklist>
+            <values>
+                <fullName>Advisory Board - Chairman</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consulting ad hoc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical Research Consultant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Speaking - Chairman Symposium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Speaking - Speaker</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1066,6 +1865,28 @@ Created by John A Adams 10/17/2013</description>
         <description>Invited presenter for meeting</description>
         <label>Service Provider</label>
         <picklistValues>
+            <picklist>Air_Travel_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Airport_Transfer_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Confirm_Final_Fee_MERC__c</picklist>
             <values>
                 <fullName>Confirmed</fullName>
@@ -1074,6 +1895,17 @@ Created by John A Adams 10/17/2013</description>
             <values>
                 <fullName>Pending Confirmation</fullName>
                 <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Copay_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -1136,6 +1968,45 @@ Created by John A Adams 10/17/2013</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Justification_MERC__c</picklist>
+            <values>
+                <fullName>Other %28please explain%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outstanding speaking ability</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Proven effective Speaker %2F Moderator</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Published author in the Therapeutic Area</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recognized as a Thought Leader</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recognized by local peers as a SME</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Significant topic research %2F background</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Therapeutic Area knowledge %2F experience</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trained to speak on this topic</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1267,6 +2138,52 @@ Created by John A Adams 10/17/2013</description>
             </values>
             <values>
                 <fullName>More than 20 hrs</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type_of_Contract_MERC__c</picklist>
+            <values>
+                <fullName>MSA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Work Order</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Types_of_Service_MERC__c</picklist>
+            <values>
+                <fullName>Advisory Board - Chairman</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Advisory Board - Participant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consulting ad hoc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical Research Consultant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Speaker Training</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Speaking - Chairman Symposium</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Speaking - Speaker</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1295,4 +2212,48 @@ Created by John A Adams 10/17/2013</description>
         <searchResultsAdditionalFields>Meeting_MERC__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Confirm_Final_Fee</fullName>
+        <active>true</active>
+        <description>Unable to Confirm Final Fee if Exception Fee Approval is Required or Rejected.</description>
+        <errorConditionFormula>(ISPICKVAL(Higher_Fee_Approval__c,&apos;Required&apos;) ||  ISPICKVAL(Higher_Fee_Approval__c,&apos;Rejected&apos;)) &amp;&amp; ISPICKVAL(Confirm_Final_Fee_MERC__c,&apos;Confirmed&apos;)</errorConditionFormula>
+        <errorDisplayField>Confirm_Final_Fee_MERC__c</errorDisplayField>
+        <errorMessage>You cannot confirm the final fee if the Exception Approval is Required or Rejected.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Individual_Sponsorship_Only_MERC</fullName>
+        <active>false</active>
+        <description>If Meeting is Individual Sponsorship, only allow participants of type Individual Sponsorship</description>
+        <errorConditionFormula>ISPICKVAL(Meeting_MERC__r.Sponsorship_Category_MERC__c,
+&apos;Individual Sponsorship&apos;) &amp;&amp;   RecordType.Name  &lt;&gt;  &apos;Individual Sponsorship&apos;</errorConditionFormula>
+        <errorDisplayField>Account_MERC__c</errorDisplayField>
+        <errorMessage>You must enter Participant Type &quot;Individual Sponsorship&quot; for meetings with Meetings of Sponsorship Category &quot;Individual Sponsorship&quot;.</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>Add_Participants_MERC</fullName>
+        <availability>online</availability>
+        <description>Launches UI to allow Mercury users to search and add Accounts to Meeting as Participants -JFerraro 12/3/2013</description>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Add Participants</masterLabel>
+        <openType>sidebar</openType>
+        <page>MERC_AddMeetingParticipants</page>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+    </webLinks>
+    <webLinks>
+        <fullName>LOOP_Plus_MERC</fullName>
+        <availability>online</availability>
+        <description>Launches DrawLOOP 
+Created by John Adams on 11/13/2013</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>LOOP Plus</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/loop__looplus?eid={!Meeting_Participant_MERC__c.Id}&amp;accountId={!Meeting_Participant_MERC__c.Account_MERCId__c}&amp;sessionId={!$Api.Session_ID}</url>
+    </webLinks>
 </CustomObject>

@@ -7,6 +7,7 @@ trigger MERC_MeetingParticipant on Meeting_Participant_MERC__c (before insert, b
 		.bind(GLBL_TriggerHandler.Evt.afterupdate, new MERC_HcpCapActualsCalculator('Meeting_Participant_MERC__c'))
 		.bind(GLBL_TriggerHandler.Evt.afterdelete, new MERC_HcpCapActualsCalculator('Meeting_Participant_MERC__c'))
 		.bind(GLBL_TriggerHandler.Evt.afterundelete, new MERC_HcpCapActualsCalculator('Meeting_Participant_MERC__c'))
+		.bind(GLBL_TriggerHandler.Evt.afterdelete, new MERC_DeleteNotifyService())
         .manage();
 
 }

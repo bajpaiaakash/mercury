@@ -5,6 +5,10 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Clone</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -17,11 +21,19 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -32,6 +44,7 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Object to track days of meetings and ToV cost of each day. Created 10/10/2013 by KLorenti.</description>
     <enableActivities>false</enableActivities>
@@ -49,6 +62,7 @@ Created by John A Adams 10/15/2013</description>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -61,6 +75,7 @@ Created by John A Adams 10/15/2013</description>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -71,6 +86,7 @@ Created by John A Adams 10/15/2013</description>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -82,29 +98,19 @@ Created by John A Adams 10/15/2013</description>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
         <fullName>Daily_Registration_Amount_MERC__c</fullName>
         <defaultValue>0</defaultValue>
-        <description>Stores daily ToV estimate for Registration cost. Oliver Dunford 10/10/2013</description>
+        <description>Store ToV estimate for Registration cost. Oliver Dunford 10/10/2013</description>
         <externalId>false</externalId>
-        <label>Daily Registration Amount</label>
+        <label>Registration Amount</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <type>Currency</type>
-    </fields>
-    <fields>
-        <fullName>Daily_Room_Rate_MERC__c</fullName>
-        <description>Daily room rate for Hotel. Oliver Dunford 10/10/2013</description>
-        <externalId>false</externalId>
-        <formula>Meeting_Hotel_Vendor_MERC__r.Room_Rate_MERC__c</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Daily Hotel Amount</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
+        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -113,44 +119,33 @@ Created by John A Adams 10/15/2013</description>
         <externalId>false</externalId>
         <label>Date</label>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Meeting_Hotel_Vendor_MERC__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>Lookup to Meeting Vendor for Room Rate
-Created by John A Adams 10/10/2013</description>
-        <externalId>false</externalId>
-        <label>Meeting Hotel Vendor</label>
-        <referenceTo>Meeting_Vendor_MERC__c</referenceTo>
-        <relationshipLabel>Meeting Days</relationshipLabel>
-        <relationshipName>Meeting_Days</relationshipName>
-        <required>false</required>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Meeting_Hotel_Vendor_Name_MERC__c</fullName>
-        <description>Used to display the Hotel Vendor Name once associated to the Day record.  Created by Oliver Dunford 4th Nov 2013.</description>
-        <externalId>false</externalId>
-        <formula>Meeting_Hotel_Vendor_MERC__r.Account_MERC__r.Name</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Meeting Hotel Vendor Name</label>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Meeting_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
         <description>Lookup relationship to Meeting. Created 10/10/2013 by KLorenti</description>
         <externalId>false</externalId>
         <label>Meeting</label>
         <referenceTo>Meeting_MERC__c</referenceTo>
         <relationshipLabel>Meeting Days</relationshipLabel>
         <relationshipName>Meeting_Days</relationshipName>
-        <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
-        <type>MasterDetail</type>
-        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Mercury_External_Id_MERC__c</fullName>
+        <description>Generated by Workflow used for Integration with External Systems.
+Created by J Adams 12/10/2013</description>
+        <externalId>true</externalId>
+        <label>Mercury External Id</label>
+        <length>150</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <label>Meeting Day</label>
     <nameField>
@@ -158,6 +153,18 @@ Created by John A Adams 10/10/2013</description>
         <type>Text</type>
     </nameField>
     <pluralLabel>Meeting Days</pluralLabel>
+    <recordTypes>
+        <fullName>Hotel_Night</fullName>
+        <active>true</active>
+        <description>Create a record that represents a hotel nights needed for the meeting</description>
+        <label>Hotel Night</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Meeting_Day</fullName>
+        <active>true</active>
+        <description>Create a record that represents a day of the meeting</description>
+        <label>Meeting Day</label>
+    </recordTypes>
     <searchLayouts>
         <lookupDialogsAdditionalFields>Meeting_MERC__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Date_MERC__c</lookupDialogsAdditionalFields>
@@ -167,7 +174,7 @@ Created by John A Adams 10/10/2013</description>
         <searchFilterFields>Meeting_MERC__c</searchFilterFields>
         <searchFilterFields>Date_MERC__c</searchFilterFields>
     </searchLayouts>
-    <sharingModel>ControlledByParent</sharingModel>
+    <sharingModel>ReadWrite</sharingModel>
     <webLinks>
         <fullName>Manage_Daily_Attendance_MERC</fullName>
         <availability>online</availability>

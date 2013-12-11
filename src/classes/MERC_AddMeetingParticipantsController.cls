@@ -10,7 +10,7 @@ public with sharing class MERC_AddMeetingParticipantsController {
     public List<GLBL_CustomerSearchToolService.SearchResult> searchResults { get; set; }
 
 	public MERC_AddMeetingParticipantsController(ApexPages.StandardSetController controller) {
-		
+		this.searchRequest = new GLBL_CustomerSearchToolService.SearchRequest();
 	}
 
 	public Meeting_MERC__c meeting {
@@ -39,7 +39,9 @@ public with sharing class MERC_AddMeetingParticipantsController {
     }
 
     public PageReference doSearch() {
+    	system.debug('>>> search request '+this.searchRequest);
     	this.searchResults = GLBL_CustomerSearchToolService.doSearch(this.searchRequest);
+    	this.searchRequest = new GLBL_CustomerSearchToolService.SearchRequest();
     	return null;
     }
 

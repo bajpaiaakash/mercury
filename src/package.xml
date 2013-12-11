@@ -15,10 +15,16 @@
 		<members>MERC_BudgetHistory</members>
 		<members>MERC_DailyAttendance</members>
 		<members>MERC_DocusignTagAndSend</members>
+		<members>MERC_FinalizeBudgetConfirm</members>
 		<members>MERC_InvoicePDF</members>
+		<members>MERC_MeetingDateManager</members>
+		<members>MERC_MeetingDateTimes</members>
+		<members>MERC_MeetingDateTimesEdit</members>
 		<members>MERC_MeetingTeamManager</members>
+		<members>MERC_NewAccountContent</members>
 		<members>MERC_NewBudgetVersion</members>
 		<members>MERC_NewHCPContractContent</members>
+		<members>MERC_NewInvoiceContent</members>
 		<members>MERC_NewMeetingContent</members>
 		<members>MERC_RequestHCPSignature</members>
 		<members>PersonSearchMVN</members>
@@ -108,10 +114,6 @@
 		<members>Mercury Project Team</members>
 		<members>Mercury TCS</members>
 		<name>Profile</name>
-	</types>
-	<types>
-		<members>*</members>
-		<name>Scontrol</name>
 	</types>
 	<types>
 		<members>*</members>

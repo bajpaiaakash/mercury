@@ -62,7 +62,7 @@
 		<div class="aeu" style="position:relative;">
 			<apex:tabPanel switchType="server" selectedTab="name1" id="theTabPanel" activeTabClass="activeTab" inactiveTabClass="inactiveTab">
 				<apex:tab label="Mercury Users" name="name1" id="tabOne">
-					<apex:actionRegion>
+					<apex:actionRegion >
 						<apex:pageBlock title="" mode="edit" id="mercuryUserBlock">
 							<apex:pageMessages />
 							<apex:pageBlockButtons >
@@ -103,7 +103,7 @@
 				</apex:tab>
 
 				<apex:tab label="External Users" name="name2" id="tabTwo">
-					<apex:actionRegion>
+					<apex:actionRegion >
 						<apex:pageBlock title="" mode="edit" id="externalUserBlock">
 							<apex:pageMessages />
 							<apex:pageBlockButtons >

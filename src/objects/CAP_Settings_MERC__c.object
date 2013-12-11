@@ -14,6 +14,7 @@ Created by John A Adams 10/24/2013</description>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -25,6 +26,7 @@ Created by John A Adams 10/24/2013</description>
         <label>Country Code</label>
         <length>3</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -35,6 +37,7 @@ Created by John A Adams 10/24/2013</description>
         <label>Currency Code</label>
         <length>3</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -46,6 +49,7 @@ Created by John A Adams 10/24/2013</description>
         <label>Year</label>
         <length>4</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>

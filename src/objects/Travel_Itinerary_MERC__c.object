@@ -5,6 +5,10 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Clone</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -17,11 +21,19 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -32,6 +44,7 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Details of travel arrangements - child of Travel
 Created by John A Adams 10/9/2013</description>
@@ -47,6 +60,7 @@ Created by John A Adams 11/2/2013</description>
         <externalId>false</externalId>
         <label>Address</label>
         <length>32768</length>
+        <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -57,15 +71,17 @@ Created by John A Adams 10/31/2013</description>
         <externalId>false</externalId>
         <label>Arrival Date &amp; Time</label>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
     <fields>
-        <fullName>Check_in_MERC__c</fullName>
+        <fullName>Check_in_Date_MERC__c</fullName>
         <description>Check-in Date
 Created by John A Adams 11/2/2013</description>
         <externalId>false</externalId>
-        <label>Check-in</label>
+        <label>Check-in Date</label>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -75,6 +91,7 @@ Created by John A Adams 11/2/2013</description>
         <externalId>false</externalId>
         <label>Check-out Date</label>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -85,6 +102,7 @@ Created by John A Adams 11/2/2013</description>
         <label>Class or Model</label>
         <length>100</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -96,6 +114,7 @@ Created by John A Adams 10/10/2013</description>
         <label>Departing City</label>
         <length>80</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -107,6 +126,7 @@ Created by John A Adams 10/31/2013</description>
         <inlineHelpText>Connection Time</inlineHelpText>
         <label>Departure Date &amp; Time</label>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -117,6 +137,7 @@ Created by John A Adams 10/31/2013</description>
         <label>Destination City</label>
         <length>80</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -127,6 +148,7 @@ Created by John A Adams 11/2/2013</description>
         <externalId>false</externalId>
         <label>Drop-off Date</label>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -146,6 +168,7 @@ Created by John A Adams 10/31/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -157,6 +180,45 @@ Created by John A Adams 10/10/2013</description>
         <label>Flight Number</label>
         <length>80</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Meeting_Participant_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup from Travel Itinerary to Meeting Participant. Created 12/10/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Meeting Participant</label>
+        <referenceTo>Meeting_Participant_MERC__c</referenceTo>
+        <relationshipLabel>Travel Itineraries</relationshipLabel>
+        <relationshipName>Travel_Itineraries</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Vendor_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup Relationship to Meeting Vendor. Created 12/5/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Meeting Vendor</label>
+        <referenceTo>Meeting_Vendor_MERC__c</referenceTo>
+        <relationshipLabel>Travel Itineraries</relationshipLabel>
+        <relationshipName>Travel_Itineraries</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Mercury_External_Id_MERC__c</fullName>
+        <description>Generated by Workflow used for Integration with External Systems.
+Created by J Adams 12/10/2013</description>
+        <externalId>true</externalId>
+        <label>Mercury External Id</label>
+        <length>150</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -171,6 +233,7 @@ Created by John A Adams 11/2/2013</description>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -181,6 +244,7 @@ Created by John A Adams 11/2/2013</description>
         <label>Passenger Name Record #</label>
         <length>12</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -191,6 +255,7 @@ Created by John A Adams 11/2/2013</description>
         <externalId>false</externalId>
         <label>Phone</label>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Phone</type>
     </fields>
     <fields>
@@ -201,6 +266,7 @@ Created by John A Adams 11/2/2013</description>
         <label>Reservation #</label>
         <length>50</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -211,6 +277,7 @@ Created by John A Adams 10/31/2013</description>
         <externalId>false</externalId>
         <label>Start Date</label>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -242,20 +309,8 @@ Created by John A Adams 10/31/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Travel_MERC__c</fullName>
-        <description>Details of Travel object
-Created by John A Adams 10/10/2013</description>
-        <externalId>false</externalId>
-        <label>Travel</label>
-        <referenceTo>Travel_MERC__c</referenceTo>
-        <relationshipName>Travel_Legs</relationshipName>
-        <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
-        <type>MasterDetail</type>
-        <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
         <fullName>Vendor_MERC__c</fullName>
@@ -265,10 +320,25 @@ Created by John A Adams 10/10/2013</description>
         <label>Vendor</label>
         <length>80</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
     <label>Travel Itinerary</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Start_Date_MERC__c</columns>
+        <columns>Meeting_Vendor_MERC__c</columns>
+        <columns>Reservation_MERC__c</columns>
+        <columns>Travel_Detail_Type__c</columns>
+        <columns>Vendor_MERC__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
     <nameField>
         <displayFormat>TRV-{000000}</displayFormat>
         <label>Leg #</label>
@@ -404,5 +474,5 @@ Created by John A Adams 10/10/2013</description>
         <searchFilterFields>Final_Destination_MERC__c</searchFilterFields>
         <searchFilterFields>Destination_City_MERC__c</searchFilterFields>
     </searchLayouts>
-    <sharingModel>ControlledByParent</sharingModel>
+    <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

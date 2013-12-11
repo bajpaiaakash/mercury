@@ -79,6 +79,18 @@ public with sharing class MERC_BudgetVersionController {
         return controller.view();
     }
 
+    public PageReference finalize() {
+        try {
+            this.budget.RecordTypeId = [SELECT ID FROM RecordType WHERE DeveloperName = 'MERC_Budget_Final' AND SobjectType = 'Budget_Merc__c'].ID;
+            this.budget.Status_MERC__c = 'Final';
+            update this.budget;
+        } catch(Exception e) {
+            ApexPages.addMessages(e);
+            return null;
+        }
+        return this.controller.view();
+    }
+
     //clone callback to set budget line item versioning fields
     public class BudgetCloneCallback implements GLBL_SobjectDataLoader.IDeserializeCallback {
         public void cloneMapHandler(Map<ID, Sobject> cloneMap) {

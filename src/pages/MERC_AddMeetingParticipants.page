@@ -24,45 +24,54 @@
 			cursor: pointer;
 		}
 	</style>
-	<apex:form>
+	<apex:form >
 		<div class="aeu" style="position:relative;">
 			<apex:tabPanel switchType="server" selectedTab="name1" id="theTabPanel" activeTabClass="activeTab" inactiveTabClass="inactiveTab">
 				<apex:tab label="Search" name="name1" id="tabOne">
-					<apex:actionRegion>
+					<apex:actionRegion >
 						<apex:pageBlock title="" mode="edit" id="mercuryUserBlock">
-							<apex:pageMessages></apex:pageMessages>
+							<apex:pageMessages ></apex:pageMessages>
 							<apex:pageBlockButtons >
-								<apex:commandButton action="{!doSearch}" value="Search"/>
+								<apex:commandButton onclick="toggleLoading()" oncomplete="toggleLoading()" 
+									action="{!doSearch}" value="Search" rerender="resultBlock"/>
 							</apex:pageBlockButtons>
-							<apex:pageBlockSection>
+							<apex:pageBlockSection >
 								
 								<!-- FIRST NAME -->
-								<apex:pageBlockSectionItem>
+								<apex:pageBlockSectionItem >
 									<apex:outputLabel for="fn" value="First Name"></apex:outputLabel>
 									<apex:inputText value="{!searchRequest.fn}" id="fn"/>
 								</apex:pageBlockSectionItem>
 
 								<!-- LAST NAME -->
-								<apex:pageBlockSectionItem>
+								<apex:pageBlockSectionItem >
 									<apex:outputLabel for="ls" value="Last Name"></apex:outputLabel>
 									<apex:inputText value="{!searchRequest.ls}" id="ls"/>
 								</apex:pageBlockSectionItem>
 
 								<!-- CUSTOMER ID -->
-								<apex:pageBlockSectionItem>
+								<apex:pageBlockSectionItem >
 									<apex:outputLabel for="custId" value="Customer Id"></apex:outputLabel>
 									<apex:inputText value="{!searchRequest.custId}" id="custId"/>
 								</apex:pageBlockSectionItem>
 
 							</apex:pageBlockSection>
 						</apex:pageBlock>
+
+						<apex:pageBlock id="resultBlock">
+							<apex:pageBlockTable value="{!searchResults}" var="r">
+								<apex:column value="{!r.lastname}"/>
+								<apex:column value="{!r.scnd_nm_glbl}"/>
+
+							</apex:pageBlockTable>
+						</apex:pageBlock>
 					</apex:actionRegion>
 				</apex:tab>
 
 				<apex:tab label="{!$ObjectType.Meeting_Participant_MERC__c.LabelPlural}" name="name2" id="tabTwo">
-					<apex:actionRegion>
+					<apex:actionRegion >
 						<apex:pageBlock title="" mode="edit" id="externalUserBlock">
-							<apex:pageMessages></apex:pageMessages>
+							<apex:pageMessages ></apex:pageMessages>
 							<apex:pageBlockButtons >
 
 							</apex:pageBlockButtons>
@@ -73,6 +82,7 @@
 					</apex:actionRegion>
 				</apex:tab>
 			</apex:tabPanel>
+			<c:MERC_LoadingMask />
 		</div>
 	</apex:form>
 </apex:page>

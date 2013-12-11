@@ -11,6 +11,7 @@
         <externalId>false</externalId>
         <inlineHelpText>When checked, active/archived budgets cannot be modified.</inlineHelpText>
         <label>Budget Edit Validation</label>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <label>Mercury Settings</label>

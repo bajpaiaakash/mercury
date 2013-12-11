@@ -51,6 +51,14 @@ public with sharing class MERC_NewContentController {
             this.file.HCP_Contract_MERC__c = this.recordId;
             this.file.RecordTypeId = [Select Id From RecordType WHERE DeveloperName = 'HCP_Contract_MERC' AND SobjectType = 'ContentVersion' LIMIT 1].Id;
             this.fieldSetAPIName = 'HCP_Contract_MERC';
+        } else if (objectAPIName == 'Invoice_MERC__c') {
+            this.file.Invoice_MERC__c = this.recordId;
+            this.file.RecordTypeId = [Select Id From RecordType WHERE DeveloperName = 'Invoice_MERC' AND SobjectType = 'ContentVersion' LIMIT 1].Id;
+            this.fieldSetAPIName = 'Invoice_MERC';
+        } else if (objectAPIName == 'Account') {
+            this.file.Account_GLBL__c = this.recordId;
+            this.file.RecordTypeId = [Select Id From RecordType WHERE DeveloperName = 'Account_MERC' AND SobjectType = 'ContentVersion' LIMIT 1].Id;
+            this.fieldSetAPIName = 'Account_MERC';
         }
     }
 

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -17,11 +21,19 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -32,6 +44,7 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Contains contract details between Lilly and event speakers. 
 Created by John A Adams 10/2/2013</description>
@@ -52,6 +65,7 @@ Created by John A Adams 10/9/2013</description>
         <relationshipName>HCP_Contracts</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -62,8 +76,19 @@ Created by John A Adams 10/17/2013</description>
         <label>Additional Contract or Payment Condition</label>
         <length>32768</length>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Contract_Expiration_Date_MERC__c</fullName>
+        <description>Capture the expiration date of the contract. Created 11/19/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Contract Expiration Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Contract_Request_Status_MERC__c</fullName>
@@ -103,6 +128,7 @@ Created by John A Adams 10/8/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -113,6 +139,7 @@ Created by John A Adams 10/8/2013</description>
         <length>120</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -138,6 +165,7 @@ Created by John A Adams 10/4/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -149,6 +177,7 @@ Created by John A Adams 10/17/2013</description>
         <label>Description of Service</label>
         <length>32768</length>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -160,6 +189,7 @@ Created by John A Adams 10/17/2013</description>
         <label>HCP Obligations</label>
         <length>32768</length>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -173,6 +203,7 @@ Created by John A Adams 10/29/2013</description>
         <label>Institution</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -223,8 +254,8 @@ Created by John A Adams 10/7/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
-        <type>MultiselectPicklist</type>
-        <visibleLines>4</visibleLines>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>MSA_End_Date_MERC__c</fullName>
@@ -234,7 +265,22 @@ Created by John A Adams 10/28/2013</description>
         <label>MSA End Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>MSA_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup relationship to associate a Work Order to an MSA. Oliver Dunford 12th Nov.</description>
+        <externalId>false</externalId>
+        <label>MSA</label>
+        <referenceTo>HCP_Contract_MERC__c</referenceTo>
+        <relationshipLabel>Work Orders</relationshipLabel>
+        <relationshipName>HCP_Contracts</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>MSA_Start_Date_MERC__c</fullName>
@@ -244,7 +290,21 @@ Created by John A Adams 10/28/2013</description>
         <label>MSA Start Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Mercury_External_Id_MERC__c</fullName>
+        <description>Generated by Workflow used for Integration with External Systems.
+Created by J Adams 12/10/2013</description>
+        <externalId>true</externalId>
+        <label>Mercury External Id</label>
+        <length>150</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Other_Details_MERC__c</fullName>
@@ -254,6 +314,7 @@ Created by John A Adams 10/7/2013</description>
         <label>Other Details</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
@@ -268,6 +329,7 @@ Created by John A Adams 10/7/2013</description>
         <relationshipName>ContractXs</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -288,6 +350,7 @@ Created by John A Adams 10/7/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -321,6 +384,7 @@ Created by John A Adams 10/17/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -349,8 +413,8 @@ Created by John A Adams 10/2/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
-        <type>MultiselectPicklist</type>
-        <visibleLines>4</visibleLines>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <label>HCP Contract</label>
     <listViews>
@@ -384,7 +448,7 @@ Created by John A Adams 10/2/2013</description>
     </listViews>
     <nameField>
         <displayFormat>CNTR-{000000}</displayFormat>
-        <label>HCP Contract Name</label>
+        <label>HCP Contract #</label>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
@@ -403,6 +467,18 @@ This searches all existing HCP Contracts for the HCP. The HCP Contract must alre
         <isOptional>false</isOptional>
         <name>Meeting Participant_HCP Contract</name>
         <sourceObject>Meeting_Participant_MERC__c</sourceObject>
+    </namedFilters>
+    <namedFilters>
+        <fullName>nf_01I11000000Ck6cEAC_00N11000000T7RqEAK</fullName>
+        <active>true</active>
+        <field>HCP_Contract_MERC__c.MSA_MERC__c</field>
+        <filterItems>
+            <field>HCP_Contract_MERC__c.RecordType.Name</field>
+            <operation>equals</operation>
+            <value>Master Service Agreement</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+        <name>HCP Contract_MSA</name>
     </namedFilters>
     <pluralLabel>HCP Contracts</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
@@ -822,26 +898,22 @@ This searches all existing HCP Contracts for the HCP. The HCP Contract must alre
         <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
         <customTabListAdditionalFields>Account_MERC__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Type_of_Service_MERC__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields xsi:nil="true"/>
-        <customTabListAdditionalFields xsi:nil="true"/>
-        <customTabListAdditionalFields xsi:nil="true"/>
+        <customTabListAdditionalFields>Contract_Request_Status_MERC__c</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>RECORDTYPE</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Account_MERC__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Type_of_Service_MERC__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields xsi:nil="true"/>
-        <lookupDialogsAdditionalFields xsi:nil="true"/>
-        <lookupDialogsAdditionalFields xsi:nil="true"/>
+        <lookupDialogsAdditionalFields>Contract_Request_Status_MERC__c</lookupDialogsAdditionalFields>
+        <lookupFilterFields>NAME</lookupFilterFields>
+        <lookupFilterFields>RECORDTYPE</lookupFilterFields>
+        <lookupFilterFields>Account_MERC__c</lookupFilterFields>
+        <lookupFilterFields>Type_of_Service_MERC__c</lookupFilterFields>
+        <lookupFilterFields>Contract_Request_Status_MERC__c</lookupFilterFields>
         <lookupPhoneDialogsAdditionalFields>Account_MERC__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Type_of_Service_MERC__c</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields xsi:nil="true"/>
-        <lookupPhoneDialogsAdditionalFields xsi:nil="true"/>
-        <lookupPhoneDialogsAdditionalFields xsi:nil="true"/>
         <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Account_MERC__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Type_of_Service_MERC__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields xsi:nil="true"/>
-        <searchResultsAdditionalFields xsi:nil="true"/>
-        <searchResultsAdditionalFields xsi:nil="true"/>
+        <searchResultsAdditionalFields>Contract_Request_Status_MERC__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <webLinks>

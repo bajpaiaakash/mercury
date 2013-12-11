@@ -1,0 +1,13 @@
+<apex:page showHeader="true" sidebar="true" standardController="Budget_MERC__c" extensions="MERC_BudgetVersionController">
+	<apex:sectionHeader title="{!$ObjectType.Budget_MERC__c.label}" subtitle="{!Budget_MERC__c.Name}" />
+	<apex:form >
+		<apex:pageBlock title="Finalize Budget">
+			<apex:pageBlockButtons location="top">
+				<apex:commandButton value="Finalize Budget" action="{!finalize}"/>
+				<apex:commandButton value="Cancel" action="{!cancel}"/>
+			</apex:pageBlockButtons>
+			<apex:pageMessages />
+			<apex:pageMessage severity="WARNING" strength="2" summary="Are you sure you want to finalize this budget? You will not be able to modify the budget once it's been finalized."/>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>
