@@ -30,8 +30,12 @@ public with sharing class MERC_AgendaBuilderController extends GLBL_GenericRelat
 		return returnSobjects;
 	}
 
-	public void setTimeZones() {
+	public PageReference setTimeZones() {
 	    tz.execute(getSobjects(children), false); //sets date/times based on meeting time/zone, for UX purposes
+	    if (MERC_Util.getUrlParam('notify') == '1') {
+	    	ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.CONFIRM, MERC_Util.getUrlParam('msg')));
+	    }
+	    return null;
 	}
 
 	public override PageReference save() {

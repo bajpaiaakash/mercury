@@ -40,14 +40,17 @@
 	<apex:sectionHeader subtitle="Event Agenda" title="{!parent['Name']}"/>
 	<apex:pageMessage title="" summary="Set all Agenda Item dates/times according to the meeting time zone." severity="info" strength="3" />
 	<apex:form >
+		<apex:actionFunction name="setTimeZones" action="{!setTimeZones}" oncomplete="toggleLoading()" reRender="mainBlock">
+			<apex:param name="notify" value="1"/>
+			<apex:param name="msg" value="Meeting Agenda updated successfully!"/>
+		</apex:actionFunction>
 		<div class="aeu" style="position:relative;">
 			<apex:pageBlock title="Event Agenda" mode="edit" id="mainBlock">
 				<apex:pageMessages />
 				<apex:pageBlockButtons >
 					<apex:commandButton value="Save" action="{!save}" reRender="mainBlock" 
-						onclick="toggleLoading()" oncomplete="toggleLoading()">
-						<apex:param name="notify" value="1"/>
-						<apex:param name="msg" value="Meeting Agenda updated successfully!"/>
+						onclick="toggleLoading()" oncomplete="setTimeZones();">
+						<apex:param name="retNull" value="1"/>
 					</apex:commandButton>
 					<apex:commandButton value="Back to Meeting" action="{!cancel}"/>
 				</apex:pageBlockButtons>

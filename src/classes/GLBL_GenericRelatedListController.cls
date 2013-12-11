@@ -128,6 +128,8 @@ global with sharing abstract class GLBL_GenericRelatedListController {
 			if (MERC_Util.getUrlParam('notify') == '1') {
 				ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.CONFIRM, MERC_Util.getUrlParam('msg')));
 				return null;
+			} else if (MERC_Util.getUrlParam('retNull') == '1') {
+				return null;
 			} else {
 				return new PageReference('/'+parentId);
 			}
