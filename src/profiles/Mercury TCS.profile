@@ -42,6 +42,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_AgendaItemNewEditController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_BudgetHistoryController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -644,6 +648,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.Lilly_Company_Code_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Lilly_Company_VAT_ID__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.Mdl_Nm_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -865,6 +879,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Primary_HCO_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Primary_Pstl_Cd_Extnsn_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2734,13 +2753,23 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Invoice_MERC__c.Customer_Address_MERC__c</field>
-        <readable>false</readable>
+        <field>Invoice_MERC__c.Customer_Add_Ln1_MERC__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Invoice_MERC__c.Customer_ID_VAT_MERC__c</field>
-        <readable>false</readable>
+        <field>Invoice_MERC__c.Customer_Add_Ln2_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Invoice_MERC__c.Customer_City_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Invoice_MERC__c.Customer_Country_MERC__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -2756,6 +2785,16 @@
         <editable>false</editable>
         <field>Invoice_MERC__c.Customer_Name_MERC__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Invoice_MERC__c.Customer_Postal_Code_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Invoice_MERC__c.Customer_VAT_MERC__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -4423,6 +4462,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Travel_Itinerary_MERC__c.Meeting_Time_Zone_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Travel_Itinerary_MERC__c.Meeting_Vendor_MERC__c</field>
         <readable>true</readable>
@@ -4749,6 +4793,14 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>MERC_AgendaItemDateTimes</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>MERC_AgendaItemNewEdit</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>MERC_BudgetHistory</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -4815,6 +4867,11 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Account.Health_Care_Organization_GLBL</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Account.Lilly_Affiliate_Business_GLBL</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>

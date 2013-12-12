@@ -219,25 +219,53 @@ Created by John A Adams 10/30/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Customer_Address_MERC__c</fullName>
-        <defaultValue>&quot;Lilly Corporate Center Indianapolis, Indiana 46285 USA&quot;</defaultValue>
-        <description>Lilly Address
-Created by John A Adams 10/24/2013</description>
+        <fullName>Customer_Add_Ln1_MERC__c</fullName>
+        <description>Pulls the Customers Primary Address Line 1
+Created by John A Adams 12/11/2013</description>
         <externalId>false</externalId>
-        <label>Customer Address</label>
+        <formula>Customer_Name_MERC__r.Primary_Addr_Line1_GLBL__c</formula>
+        <label>Customer Address Line 1</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>TextArea</type>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Customer_ID_VAT_MERC__c</fullName>
-        <defaultValue>&quot;12324234&quot;</defaultValue>
-        <description>Lilly ID/VAT
-Created by John A Adams 10/24/2013</description>
+        <fullName>Customer_Add_Ln2_MERC__c</fullName>
+        <description>Pulls the Customers Primary Address Line 2
+Created by John A Adams 12/11/2013</description>
         <externalId>false</externalId>
-        <label>Customer ID/VAT ID</label>
-        <length>18</length>
+        <formula>Customer_Name_MERC__r.Primary_Addr_Line2_GLBL__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Customer Address Line 2</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Customer_City_MERC__c</fullName>
+        <description>Pulls the Customers Primary Address City
+Created by John A Adams 12/11/2013</description>
+        <externalId>false</externalId>
+        <formula>Customer_Name_MERC__r.Primary_Addr_City_GLBL__c</formula>
+        <label>Customer City</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Customer_Country_MERC__c</fullName>
+        <description>Pulls the Customers Primary Address Country
+Created by John A Adams 12/11/2013</description>
+        <externalId>false</externalId>
+        <formula>Customer_Name_MERC__r.Prim_Affil_Addr_Country_GLBL__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Customer Country</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -272,12 +300,40 @@ Created by John A Adams 10/20/2013</description>
     </fields>
     <fields>
         <fullName>Customer_Name_MERC__c</fullName>
-        <defaultValue>&quot;Elli Lilly Business Name&quot;</defaultValue>
-        <description>Lilly Business Name
-Created by John A Adams 10/24/2013</description>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <description>Lilly Business Name 
+Created by John A Adams 12/11/2013</description>
         <externalId>false</externalId>
         <label>Customer Name</label>
-        <length>80</length>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Invoices (Customer Name2)</relationshipLabel>
+        <relationshipName>Invoices1</relationshipName>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Customer_Postal_Code_MERC__c</fullName>
+        <description>Pulls the Customers Primary Postal Code
+Created by John A Adams 12/11/2013</description>
+        <externalId>false</externalId>
+        <formula>Customer_Name_MERC__r.Primary_Pstl_Cd_Extnsn_GLBL__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Customer Postal Code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Customer_VAT_MERC__c</fullName>
+        <description>Pulls in the Lilly Affiliate VAT ID number
+Created by John A Adams 12/11/2013</description>
+        <externalId>false</externalId>
+        <formula>Customer_Name_MERC__r.Lilly_Company_VAT_ID__c</formula>
+        <label>Customer ID/VAT</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>

@@ -55,7 +55,6 @@ Created by John A Adams 9/26/2013</description>
     <enableReports>true</enableReports>
     <fields>
         <fullName>Account_GLBL__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
         <description>Lookup between addresses and accounts
 Created by John A Adams 9/27/2013</description>
         <externalId>false</externalId>
@@ -63,9 +62,11 @@ Created by John A Adams 9/27/2013</description>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Addresses</relationshipLabel>
         <relationshipName>Addresses_GLBL</relationshipName>
-        <required>false</required>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
         <trackTrending>false</trackTrending>
-        <type>Lookup</type>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
         <fullName>Address_Source_MERC__c</fullName>
@@ -1613,6 +1614,7 @@ Created by John A Adams 11/4/2013</description>
     </fields>
     <fields>
         <fullName>Priority_Rank_Nbr_GLBL__c</fullName>
+        <defaultValue>1</defaultValue>
         <description>Priority Rank Number
 Customer ODS to Mercury Mapping
 Created by John A Adams 11/4/2013</description>
@@ -1783,6 +1785,6 @@ Created by John A Adams 9/27/2013</description>
         <searchResultsAdditionalFields>Zip_Postal_Code_GLBL__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Adrs_Cntry_Cd_GLBL__c</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>ControlledByParent</sharingModel>
     <startsWith>Vowel</startsWith>
 </CustomObject>

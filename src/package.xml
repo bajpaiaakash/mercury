@@ -12,6 +12,8 @@
 		<members>MERC_ActivateBudget</members>
 		<members>MERC_AddMeetingParticipants</members>
 		<members>MERC_AgendaBuilder</members>
+		<members>MERC_AgendaItemDateTimes</members>
+		<members>MERC_AgendaItemNewEdit</members>
 		<members>MERC_BudgetHistory</members>
 		<members>MERC_DailyAttendance</members>
 		<members>MERC_DocusignTagAndSend</members>
@@ -28,6 +30,9 @@
 		<members>MERC_NewMeetingContent</members>
 		<members>MERC_RequestHCPSignature</members>
 		<members>PersonSearchMVN</members>
+		<members>managetrigger</members>
+		<members>rollupcalculate</members>
+		<members>welcome</members>
 		<name>ApexPage</name>
 	</types>
 	<types>
@@ -74,9 +79,6 @@
 		<members>Payee_MERC__c</members>
 		<members>PersonAccount</members>
 		<members>Product_Group_GLBL__c</members>
-		<members>Product_Group_Hierarchy_GLBL__c</members>
-		<members>Product_Group_Indications_GLBL__c</members>
-		<members>Product_Indication_GLBL__c</members>
 		<members>Service_Cloud_Settings_MVN__c</members>
 		<members>Slot_MERC__c</members>
 		<members>Team_Member_MERC__c</members>

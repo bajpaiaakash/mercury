@@ -198,6 +198,16 @@ Created by John A Adams 10/10/2013</description>
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Meeting_Time_Zone_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>text(Meeting_Participant_MERC__r.Meeting_MERC__r.Meeting_Time_Zone_MERC__c)</formula>
+        <label>Meeting Time Zone</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Meeting_Vendor_MERC__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Lookup Relationship to Meeting Vendor. Created 12/5/2013 by KLorenti, Mavens Consulting</description>
