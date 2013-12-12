@@ -15,7 +15,7 @@ public with sharing class MERC_HcpCapActualsCalculator implements GLBL_TriggerHa
 	}
 
 	void execute(List<SObject> sobjects) {
-		List<Meeting_Participant_MERC__c> participants;
+		List<Sobject> participantsToRollup;
 		
 		if (this.triggeredSobjectAPIName == null)
 			triggeredSobjectAPIName = MERC_Util.getSobjectAPIName(sobjects.get(0));
@@ -31,12 +31,12 @@ public with sharing class MERC_HcpCapActualsCalculator implements GLBL_TriggerHa
 					meetingIdsToProcess.add(m.Id);
 				}
 			}
-			participants = [SELECT ID, Account_MERC__c, Meeting_MERC__c FROM Meeting_Participant_MERC__c WHERE 
+			participantsToRollup = [SELECT ID, Account_MERC__c, Meeting_MERC__c FROM Meeting_Participant_MERC__c WHERE 
 										Meeting_MERC__c in :meetingIdsToProcess];
 		} else if (triggeredSobjectAPIName == 'Meeting_Participant_MERC__c') {
-			participants = (List<Meeting_Participant_MERC__c>)sobjects;
+			participantsToRollup = sobjects;
 		}
 
-		MERC_Util.rollupCapCalculationsFromParticipantToAccount(participants);
+		GLBL_Rollup.RollupService.triggerHandler(participantsToRollup);
 	}
 }

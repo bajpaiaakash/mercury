@@ -1,8 +1,8 @@
 /**
- * @author Joseph Ferraro
- *
- * Utility class for calculating rollups on Lookup relationships
- */
+* @author Joseph Ferraro
+*
+* Utility class for calculating rollups on Lookup relationships
+*/
 
 public class GLBL_RollupSummaryUtility {
      

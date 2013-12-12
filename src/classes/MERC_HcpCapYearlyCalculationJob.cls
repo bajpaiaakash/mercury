@@ -11,7 +11,7 @@ global class MERC_HcpCapYearlyCalculationJob implements Database.Batchable<sObje
 	}
 
    	global void execute(Database.BatchableContext BC, List<sObject> scope) {
-		MERC_Util.rollupCapCalculationsFromParticipantToAccount((List<Meeting_Participant_MERC__c>)scope);
+		GLBL_Rollup.RollupService.triggerHandler(scope);
 	}
 	
 	global void finish(Database.BatchableContext BC) {
