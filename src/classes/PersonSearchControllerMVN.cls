@@ -12,7 +12,7 @@ public with sharing class PersonSearchControllerMVN {
     private static String ACCOUNTORDERBY = ' order by LastName, FirstName';
     private static String ADDRESSORDERBY = ' order by Account_GLBL__r.LastName, Account_GLBL__r.FirstName';
     private static String ACCOUNTFIELDS = 'Id, FirstName, LastName, Mdl_Nm_GLBL__c, RecordTypeId';
-    private static String ADDRESSFIELDS = 'Id, Name, City_GLBL__c, toLabel(St_Cd_GLBL__c), Zip_Postal_Code_GLBL__c, toLabel(Adrs_Cntry_Cd_GLBL__c), Account_GLBL__c, Account_GLBL__r.LastName, Account_GLBL__r.FirstName, Account_GLBL__r.Mdl_Nm_GLBL__c, Account_GLBL__r.RecordTypeId';
+    private static String ADDRESSFIELDS = 'Id, Name, Line_1_Adrs_Txt_GLBL__c, City_GLBL__c, toLabel(St_Cd_GLBL__c), Zip_Postal_Code_GLBL__c, toLabel(Adrs_Cntry_Cd_GLBL__c), Account_GLBL__c, Account_GLBL__r.LastName, Account_GLBL__r.FirstName, Account_GLBL__r.Mdl_Nm_GLBL__c, Account_GLBL__r.RecordTypeId';
 
     public String actId {get;set;}
     public String refId {get;set;}
