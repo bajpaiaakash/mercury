@@ -4,3 +4,5 @@ config/*
 debug/*
 apex-scripts/*
 deploy/*
+
+mercury-force.sublime-workspace
