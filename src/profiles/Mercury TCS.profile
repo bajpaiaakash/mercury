@@ -2587,6 +2587,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>HCP_Contract_MERC__c.Lilly_Affiliate_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>HCP_Contract_MERC__c.MSA_End_Date_MERC__c</field>
         <readable>false</readable>
@@ -3725,6 +3730,11 @@
         <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Maximum_Rate_MERC__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Meeting_Date_MERC__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>

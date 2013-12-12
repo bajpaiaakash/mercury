@@ -4172,6 +4172,18 @@ Created by John A Adams 11/4/2013</description>
         <name>Invoice_Customer Name</name>
     </namedFilters>
     <namedFilters>
+        <fullName>nf_01I11000000Ck6cEAC_00N11000000TEmREAW</fullName>
+        <active>true</active>
+        <field>HCP_Contract_MERC__c.Lilly_Affiliate_MERC__c</field>
+        <filterItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Lilly Affiliate Business</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+        <name>HCP Contract_Lilly Affiliate</name>
+    </namedFilters>
+    <namedFilters>
         <fullName>nf_01I11000000CkBhEAK_00N11000000Sf1fEAC</fullName>
         <active>true</active>
         <field>Meeting_Vendor_MERC__c.Account_MERC__c</field>

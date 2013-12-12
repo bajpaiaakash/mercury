@@ -557,6 +557,17 @@ Created by John A Adams 10/31/2013</description>
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>Meeting_Date_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>Meeting_MERC__r.Date_of_Event_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Meeting_MERC__c</fullName>
         <description>Master-Detail Relationship from Meeting Participant to Meeting. Created 9/30/2013 by KLorenti.</description>
         <externalId>false</externalId>

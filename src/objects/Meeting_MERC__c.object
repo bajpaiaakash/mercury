@@ -16030,11 +16030,11 @@ ISPICKVAL( Meeting_Status_MERC__c ,&apos;Cancelled&apos;) &amp;&amp;
 )
 &amp;&amp;
 (
-!ISBLANK( TEXT(Meeting_Time_Zone_MERC__c)) ||
-!ISBLANK( Start_Date_Meeting_Time_Zone_MERC__c ) ||
-!ISBLANK( Start_Time_In_Meeting_Time_Zone__c ) ||
-!ISBLANK( End_Date_Meeting_Time_Zone_MERC__c ) ||
-!ISBLANK( End_Time_In_Meeting_Time_Zone_MERC__c )
+ISCHANGED( Meeting_Time_Zone_MERC__c) ||
+ISCHANGED( Start_Date_Meeting_Time_Zone_MERC__c ) ||
+ISCHANGED( Start_Time_In_Meeting_Time_Zone__c ) ||
+ISCHANGED( End_Date_Meeting_Time_Zone_MERC__c ) ||
+ISCHANGED( End_Time_In_Meeting_Time_Zone_MERC__c )
 ) 
 &amp;&amp;  !Confirm_Meeting_Date_Change_MERC__c</errorConditionFormula>
         <errorDisplayField>Confirm_Meeting_Date_Change_MERC__c</errorDisplayField>

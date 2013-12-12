@@ -258,6 +258,21 @@ Created by John A Adams 10/7/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Lilly_Affiliate_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup to retrieve the Lilly Affiliate Business information pertaining to contract
+Created by John A Adams 12/11/2013</description>
+        <externalId>false</externalId>
+        <label>Lilly Affiliate</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>HCP Contracts (Lilly Affiliate)</relationshipLabel>
+        <relationshipName>HCP_Contracts1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>MSA_End_Date_MERC__c</fullName>
         <description>End Date for and Multi-Service Agreement Contract
 Created by John A Adams 10/28/2013</description>
