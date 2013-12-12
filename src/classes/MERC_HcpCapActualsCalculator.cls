@@ -37,6 +37,7 @@ public with sharing class MERC_HcpCapActualsCalculator implements GLBL_TriggerHa
 			participantsToRollup = sobjects;
 		}
 
-		GLBL_Rollup.RollupService.triggerHandler(participantsToRollup);
+		if (participantsToRollup.size() > 0)
+			GLBL_Rollup.RollupService.triggerHandler(participantsToRollup);
 	}
 }

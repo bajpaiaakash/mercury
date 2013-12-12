@@ -25,6 +25,7 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 			detailSobjects = sobjects;
 		}
 
-		GLBL_Rollup.RollupService.triggerHandler(detailSobjects);
+		if (detailSobjects.size() > 0)
+			GLBL_Rollup.RollupService.triggerHandler(detailSobjects);
 	}
 }
