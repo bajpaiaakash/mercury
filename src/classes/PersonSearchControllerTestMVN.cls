@@ -61,7 +61,7 @@ private class PersonSearchControllerTestMVN {
     controller.searchAccount.FirstName  = 'Test';
     controller.searchAccount.LastName = 'Account';
     controller.searchAccount.Mdl_Nm_GLBL__c   = 'Lit*';
-    controller.searchAddress.Name   = '1';
+    controller.searchAddress.Line_1_Adrs_Txt_GLBL__c   = '1';
     controller.searchAddress.Line_2_Adrs_Txt_GLBL__c   = 'St.';
     controller.searchAddress.City_GLBL__c     = 'San Fran*';
     controller.searchAddress.Adrs_Cntry_Cd_GLBL__c    = 'US';
@@ -170,7 +170,7 @@ private class PersonSearchControllerTestMVN {
   public static void repEntersNewEmployeeInformation(){
     controller.searchAccount.LastName   = 'Employee';
     controller.searchAccount.FirstName  = 'Peter';
-    controller.searchAddress.Name = '123 Test St';
+    controller.searchAddress.Line_1_Adrs_Txt_GLBL__c = '123 Test St';
   }
   public static void employeeNotFound(){
     System.assertEquals(0, controller.searchResults.size());
@@ -298,7 +298,7 @@ private class PersonSearchControllerTestMVN {
     psr.setAccount(new Account(LastName='Jones'));
     System.assertEquals('Jones',psr.lastName);
 
-    psr.setAddress(new Address_GLBL__c(Name='123 Main'));
+    psr.setAddress(new Address_GLBL__c(Line_1_Adrs_Txt_GLBL__c='123 Main'));
     System.assertEquals('123 Main', psr.addressLine1);
   }
 
@@ -313,7 +313,7 @@ private class PersonSearchControllerTestMVN {
     controller.searchAccount.LastName   = 'Employee';
     controller.searchAccount.FirstName  = 'Peter';
     controller.searchAccount.Fax  = '5555555';
-    controller.searchAddress.Name = '123 Test St';
+    controller.searchAddress.Line_1_Adrs_Txt_GLBL__c = '123 Test St';
 
     controller.updateNewPerson();
     controller.enterAccount();
@@ -372,7 +372,7 @@ private class PersonSearchControllerTestMVN {
     controller.searchAccount.FirstName  = 'Peter';
     controller.searchAccount.Fax  = '5555555';
     controller.searchAccount.Phone  = '5555555';
-    controller.searchAddress.Name = '123 Test St';
+    controller.searchAddress.Line_1_Adrs_Txt_GLBL__c = '123 Test St';
     controller.searchAddress.City_GLBL__c = 'Chicago';
 
     controller.recordTypeText = 'All';  

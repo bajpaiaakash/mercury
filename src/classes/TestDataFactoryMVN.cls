@@ -127,7 +127,7 @@ public class TestDataFactoryMVN {
     }
     
     public static Address_GLBL__c createTestAddress(Account acct){
-        Address_GLBL__c address = new Address_GLBL__c(Name = '123 Fake St.');
+        Address_GLBL__c address = new Address_GLBL__c(Line_1_Adrs_Txt_GLBL__c = '123 Fake St.');
         address.City_GLBL__c = 'San Francisco Treat';
         address.Zip_Postal_Code_GLBL__c = '94941';
         address.St_Cd_GLBL__c = 'ca';

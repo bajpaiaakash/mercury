@@ -48,7 +48,7 @@ public without sharing class PersonSearchResultMockMVN {
 		recordType = acct.RecordTypeId;
 
 		addrId = addr.Id;
-		addressLine1 = addr.Name;
+		addressLine1 = addr.Line_1_Adrs_Txt_GLBL__c;
 		city = addr.City_GLBL__c;
 		state = addr.St_Cd_GLBL__c;
 		zipCode = addr.Zip_Postal_Code_GLBL__c;
@@ -63,7 +63,7 @@ public without sharing class PersonSearchResultMockMVN {
 	}
 
 	public Address_GLBL__c getAddress() {
-		theAddress.Name = addressLine1;
+		theAddress.Line_1_Adrs_Txt_GLBL__c = addressLine1;
 		theAddress.City_GLBL__c = city;
 		theAddress.St_Cd_GLBL__c = state;
 		theAddress.Zip_Postal_Code_GLBL__c = zipCode;
@@ -84,7 +84,7 @@ public without sharing class PersonSearchResultMockMVN {
 		theAddress = addr;
 
 		addrId = addr.Id;
-		addressLine1 = addr.Name;
+		addressLine1 = addr.Line_1_Adrs_Txt_GLBL__c;
 		city = addr.City_GLBL__c;
 		state = addr.St_Cd_GLBL__c;
 		zipCode = addr.Zip_Postal_Code_GLBL__c;
