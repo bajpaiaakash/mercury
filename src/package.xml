@@ -30,9 +30,6 @@
 		<members>MERC_NewMeetingContent</members>
 		<members>MERC_RequestHCPSignature</members>
 		<members>PersonSearchMVN</members>
-		<members>managetrigger</members>
-		<members>rollupcalculate</members>
-		<members>welcome</members>
 		<name>ApexPage</name>
 	</types>
 	<types>
