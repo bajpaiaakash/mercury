@@ -25,7 +25,7 @@ public with sharing class MERC_DailyAttendanceController {
 				 	Daily_Attendance_TOV_MERC__c tovRecord = new Daily_Attendance_TOV_MERC__c();
 					tovRecord.Meeting_Participant_MERC__c = participantId;
 					tovRecord.Meeting_Day_MERC__c = day.Id;
-					tovRecord.External_ID_MERC__c = participantId+';'+day.Id;
+					tovRecord.External_ID_MERC__c = participantId+'_'+day.Id;
 					tovsToUpsert.add(tovRecord);	
 				}
 			}
@@ -99,7 +99,7 @@ public with sharing class MERC_DailyAttendanceController {
 			if (p.selected) {
 				p.selected = false;
 				p.tov.Status_MERC__c = 'No Show';
-				p.tov.External_ID_MERC__c = p.tov.Meeting_Participant_MERC__c+';'+selectedMeetingDayId;
+				p.tov.External_ID_MERC__c = p.tov.Meeting_Participant_MERC__c+'_'+selectedMeetingDayId;
 				tovsToUpsert.add(p.tov);
 			}
 		}
@@ -113,7 +113,7 @@ public with sharing class MERC_DailyAttendanceController {
 			if (p.selected) {
 				p.selected = false;
 				p.tov.Status_MERC__c = 'Attended';
-				p.tov.External_ID_MERC__c = p.tov.Meeting_Participant_MERC__c+';'+selectedMeetingDayId;
+				p.tov.External_ID_MERC__c = p.tov.Meeting_Participant_MERC__c+'_'+selectedMeetingDayId;
 				tovsToUpsert.add(p.tov);
 			}
 		}
@@ -128,7 +128,7 @@ public with sharing class MERC_DailyAttendanceController {
 		system.debug('>>>>> '+participants);
 		for (ParticipantWrapper p : participants) {
 			if (p.tov.Id == tovRecordId) {
-				p.tov.External_ID_MERC__c = p.tov.Meeting_Participant_MERC__c+';'+selectedMeetingDayId;
+				p.tov.External_ID_MERC__c = p.tov.Meeting_Participant_MERC__c+'_'+selectedMeetingDayId;
 				upsert p.tov External_ID_MERC__c;
 				break;
 			}
