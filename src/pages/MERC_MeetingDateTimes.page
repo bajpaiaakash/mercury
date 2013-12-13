@@ -1,16 +1,9 @@
 <apex:page sidebar="false" standardController="Meeting_MERC__c" extensions="MERC_MeetingDateTimesController">
 	<apex:pageBlock mode="maindetail">
-		<apex:pageMessage title="Editing Meeting Date/Time" summary="To set the meeting date/times, click the 'Meeting Date/Times' button." severity="info" strength="3" />
-		<apex:pageBlockSection collapsible="false" columns="2" title="According to Meeting Time Zone">
+		<apex:pageBlockSection collapsible="false" columns="2">
 			<apex:outputField value="{!Meeting_MERC__c.Meeting_Time_Zone_MERC__c}"/>
 			<apex:pageBlockSectionItem >&nbsp;</apex:pageBlockSectionItem>
 			<apex:repeat value="{!$ObjectType.Meeting_MERC__c.FieldSets.Meeting_Date_Time_View_MERC}" var="f"> 
-				<apex:outputField value="{!Meeting_MERC__c[f]}"/>
-		    </apex:repeat>
-		</apex:pageBlockSection>
-
-		<apex:pageBlockSection collapsible="false" columns="2" title="According to User Time Zone">
-			<apex:repeat value="{!$ObjectType.Meeting_MERC__c.FieldSets.Meeting_Date_Time_View_User_TZ_MERC}" var="f"> 
 				<apex:outputField value="{!Meeting_MERC__c[f]}"/>
 		    </apex:repeat>
 		</apex:pageBlockSection>
