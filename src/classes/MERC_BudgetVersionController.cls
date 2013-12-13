@@ -27,6 +27,7 @@ public with sharing class MERC_BudgetVersionController {
         Set<Id> budgetIds = new Set<Id>{budget.Id};
         String serializedData = GLBL_SobjectDataLoader.serialize(budgetIds, 
             new GLBL_SobjectDataLoader.SerializeConfig().
+                followMaster(Budget_MERC__c.Meeting_MERC__c). //this tells the serializer to set the new budget with the existing meeting id
                 followChild(Budget_Line_Item_MERC__c.Master_Budget_Line_Item_MERC__c).  // Serialize any related Budget Lines
                 followChild(Budget_Line_Item_MERC__c.Budget_MERC__c));  // Serialize any related Budget Lines
         Set<Id> resultIds = GLBL_SobjectDataLoader.deserialize(serializedData, new BudgetCloneCallback());
@@ -45,7 +46,7 @@ public with sharing class MERC_BudgetVersionController {
         if (budget.Version_Number_MERC__c == null)
             budget.Version_Number_MERC__c = 1;
         newBudget.Version_Number_MERC__c = budget.Version_Number_MERC__c + 1;
-        newBudget.Meeting_MERC__c = budget.Meeting_MERC__c;
+        //newBudget.Meeting_MERC__c = budget.Meeting_MERC__c; //we don't set this here anymore bc budget is now detail of meeting, which means it's set in the clone process
         update newBudget;
 
         //enable validation rules on budget edits
@@ -111,7 +112,7 @@ public with sharing class MERC_BudgetVersionController {
         }
 
         //unused
-        public void unresolvedReferences(Schema.SObjectType foo, LIST<GLBL_SobjectDataLoader.UnresolvedReferences> bar) {}
+        public void unresolvedReferences(Schema.SObjectType foo, LIST<GLBL_SobjectDataLoader.UnresolvedReferences> bar) { }
     }
 
 }

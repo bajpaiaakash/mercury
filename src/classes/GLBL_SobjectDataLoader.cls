@@ -39,12 +39,14 @@ public with sharing class GLBL_SobjectDataLoader
 	{
 		protected Set<Schema.SObjectField> followRelationships;
 		protected Set<Schema.SObjectField> followChildRelationships;
+		protected Set<Schema.SObjectField> followMasterRelationships;
 		protected Set<Schema.SObjectField> omitFields;
 		
 		public SerializeConfig()
 		{	
 			followRelationships = new Set<Schema.SObjectField>();
 			followChildRelationships = new Set<Schema.SObjectField>();
+			followMasterRelationships = new Set<Schema.SObjectField>();
 			omitFields = new Set<Schema.SObjectField>(); 			
 		}
 		
@@ -54,6 +56,15 @@ public with sharing class GLBL_SobjectDataLoader
 		public SerializeConfig follow(Schema.SObjectField relationshipField)
 		{
 			followRelationships.add(relationshipField);
+			return this;
+		}
+
+		/**
+		 * Provide a field that represents the lookup relationship the serializer should follow
+		 **/
+		public SerializeConfig followMaster(Schema.SObjectField relationshipField)
+		{
+			followMasterRelationships.add(relationshipField);
 			return this;
 		}
 		
@@ -295,7 +306,7 @@ public with sharing class GLBL_SobjectDataLoader
 		Schema.DescribeSObjectResult sObjectDesc = sObjectType.getDescribe();
 		Map<String, Schema.SObjectField> sObjectFields = sObjectDesc.fields.getMap();
 		List<Schema.SObjectField> sObjectFieldsToSerialize = listFieldsToSerialize(sObjectFields, config);
-						
+		
 		// Query records to serialize
 		String fieldList = null;
 		for(Schema.SObjectField sObjectField : sObjectFieldsToSerialize)
@@ -305,7 +316,7 @@ public with sharing class GLBL_SobjectDataLoader
 		Map<Id, SObject> recordsToSerializeById = new Map<Id, SObject>(Database.query(query));
 		if(recordsToSerializeById.size()==0)
 			return;
-		
+
 		// Any lookup relationships to folow?
 		Set<Schema.SObjectField> sObjectFollowRelationships = config.followRelationships.clone();
 		sObjectFollowRelationships.retainAll(sObjectFields.values());
@@ -379,7 +390,8 @@ public with sharing class GLBL_SobjectDataLoader
 			// Skip lookup fields not in either of the follow lists
 			if(sObjectFieldDescribe.getType() == Schema.DisplayType.Reference)
 				if(!(config.followRelationships.contains(sObjectField) ||
-				     config.followChildRelationships.contains(sObjectField)))
+				     config.followChildRelationships.contains(sObjectField) ||
+				     config.followMasterRelationships.contains(sObjectField)))
 				   continue;
 			// Serialize this field..						
 			serializeFields.add(sObjectField);
