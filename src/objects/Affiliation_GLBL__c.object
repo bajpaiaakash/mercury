@@ -70,17 +70,18 @@ Created by John A Adams 11/5/2013</description>
     </fields>
     <fields>
         <fullName>Account_GLBL__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
         <description>Used to help indicate direction of influence. Created 10/17/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Account</label>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Affiliations</relationshipLabel>
         <relationshipName>Affiliations_To</relationshipName>
-        <required>false</required>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Lookup</type>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
         <fullName>Afltn_Clsfctn_Cd_GLBL__c</fullName>
@@ -630,5 +631,5 @@ Created by John A Adams 11/5/2013</description>
     </nameField>
     <pluralLabel>Affiliations</pluralLabel>
     <searchLayouts/>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

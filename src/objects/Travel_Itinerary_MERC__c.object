@@ -79,7 +79,7 @@ Created by John A Adams 10/31/2013</description>
         <description>Check-in Date
 Created by John A Adams 11/2/2013</description>
         <externalId>false</externalId>
-        <label>Check-in Date</label>
+        <label>Check-In Date</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -89,7 +89,7 @@ Created by John A Adams 11/2/2013</description>
         <description>Check-out Date 
 Created by John A Adams 11/2/2013</description>
         <externalId>false</externalId>
-        <label>Check-out Date</label>
+        <label>Check-Out Date</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
@@ -351,7 +351,7 @@ Created by John A Adams 10/10/2013</description>
     </listViews>
     <nameField>
         <displayFormat>TRV-{000000}</displayFormat>
-        <label>Leg #</label>
+        <label>Itinerary #</label>
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Travel Itineraries</pluralLabel>

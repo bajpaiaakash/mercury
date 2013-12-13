@@ -53,6 +53,18 @@
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
     <fields>
+        <fullName>Amount_Adhoc_Consulting_MERC__c</fullName>
+        <description>Used to capture a manually types value for ad hoc consulting services.  This has the same label as the standard Amount field to prevent any UI confusion.  The standard Amount_MERC field is set via workflow for ad hoc consulting. Oliver Dunford 13th Dec.</description>
+        <externalId>false</externalId>
+        <label>Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>Amount_MERC__c</fullName>
         <description>Amount of Line Item
 Created by John A Adams 10/31/2013</description>
@@ -254,6 +266,19 @@ Created by John A Adams 10/4/2013</description>
     </nameField>
     <pluralLabel>Invoice Line Items</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Ad_Hoc_Consulting</fullName>
+        <active>true</active>
+        <description>To represent ad hoc consulting engagements.</description>
+        <label>Ad Hoc Consulting</label>
+        <picklistValues>
+            <picklist>Cost_Element_MERC__c</picklist>
+            <values>
+                <fullName>Speaking Services - 9078</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <recordTypes>
         <fullName>Contracted_Services_MERC</fullName>
         <active>true</active>

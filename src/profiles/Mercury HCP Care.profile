@@ -538,6 +538,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.Full_Nm_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.Gndr_Cd_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -854,6 +859,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Prim_Affil_HCO_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Prim_Affil_Pstl_Cd_Extnsn_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2637,6 +2647,31 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Hotel_Allocation_MERC__c.Meeting_Day_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Hotel_Allocation_MERC__c.Meeting_Vendor_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Hotel_Allocation_MERC__c.Mercury_External_Id_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Hotel_Allocation_MERC__c.Rooms_Available_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Invoice_Line_Item_MERC__c.Amount_Adhoc_Consulting_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Invoice_Line_Item_MERC__c.Amount_MERC__c</field>
         <readable>true</readable>
@@ -3578,6 +3613,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Meeting_Participant_MERC__c.Accnt_Nmbr_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Account_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3593,12 +3633,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Meeting_Participant_MERC__c.Bkng_Dt_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Cancellation_Notice_Sent_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Classification_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting_Participant_MERC__c.Cnfrmtn_Nmbr_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3647,6 +3697,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting_Participant_MERC__c.Crrncy_Cd_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Customer_Id_GLBL__c</field>
         <readable>true</readable>
@@ -3664,6 +3719,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Event_Time_Hrs_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting_Participant_MERC__c.Exchng_Trans_Flag_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3713,12 +3773,32 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Meeting_Participant_MERC__c.Intrntnl_Flag_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Invoice_Template_Needed_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Meeting_Participant_MERC__c.Issd_GMT_TS_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Justification_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting_Participant_MERC__c.Lilly_Affiliate_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting_Participant_MERC__c.Manl_Bkng_Flg_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3803,7 +3883,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Meeting_Participant_MERC__c.Rate_Fr_Amnt_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting_Participant_MERC__c.Rec_Lctr_Num_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Require_Recording_Consent_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting_Participant_MERC__c.Rsrvtn_Type_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3818,6 +3913,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Meeting_Participant_MERC__c.Sgmnt_Nmbr_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Slot_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3828,7 +3928,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Meeting_Participant_MERC__c.Spplr_Srvce_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Status_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting_Participant_MERC__c.Tckt_Nmbr_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3893,12 +4003,52 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Meeting_Participant_MERC__c.Trnsctn_Typ_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting_Participant_MERC__c.Trvlr_Ref_Id_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting_Participant_MERC__c.Ttl_Fr_Amnt_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting_Participant_MERC__c.Ttl_Fr_Crrncy_Cd_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Type_of_Contract_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Types_of_Service_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting_Participant_MERC__c.Vndr_Clss_Cd_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting_Participant_MERC__c.Vndr_Clssfctn_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting_Participant_MERC__c.Vndr_Code_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting_Participant_MERC__c.Vndr_Nm_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4556,6 +4706,302 @@
         <field>Travel_MERC__c.Middle_Name_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <layoutAssignments>
+        <layout>Account-MERC_Account Meeting Owner</layout>
+        <recordType>Account.Meeting_Planning_Company_GLBL</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account-MERC_HCO Organization</layout>
+        <recordType>Account.Health_Care_Organization_GLBL</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account-MERC_Lilly Affiliate Business</layout>
+        <recordType>Account.Lilly_Affiliate_Business_GLBL</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account-MERC_Third Party Organization</layout>
+        <recordType>Account.Third_Party_Organization_GLBL</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account-MERC_Vendor</layout>
+        <recordType>Account.Vendor_GLBL</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account-MERC_Venue</layout>
+        <recordType>Account.Venue_GLBL</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Address_GLBL__c-GLBL_Addresses</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Affiliation_GLBL__c-Affiliation Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Agenda_Item_MERC__c-MERC_Session</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Alternate_Id_GLBL__c-Alternate ID Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Budget_Line_Item_MERC__c-MERC_Budget Line Item</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Budget_MERC__c-MERC_Budget_Active</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Budget_MERC__c-MERC_Budget_Active</layout>
+        <recordType>Budget_MERC__c.MERC_Budget_Active</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Budget_MERC__c-MERC_Budget_Archived</layout>
+        <recordType>Budget_MERC__c.MERC_Budget_Archived</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Budget_MERC__c-MERC_Budget_Draft</layout>
+        <recordType>Budget_MERC__c.MERC_Budget_Draft</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Budget_MERC__c-MERC_Budget_Final</layout>
+        <recordType>Budget_MERC__c.MERC_Budget_Final</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Case-Case Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>CaseClose-Close Case Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Communication_Preference_GLBL__c-GLBL_Consent</layout>
+        <recordType>Communication_Preference_GLBL__c.Consent_EVNT_MVN</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Communication_Preference_GLBL__c-GLBL_Preferences</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Communication_Preference_GLBL__c-GLBL_Preferences</layout>
+        <recordType>Communication_Preference_GLBL__c.Preferences_EVNT_MVN</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Consulting_Services_MERC__c-Consulting Services Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Contact-Contact Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ContentVersion-Account_MERC</layout>
+        <recordType>ContentVersion.Account_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ContentVersion-General</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ContentVersion-HCP_Contract_MERC</layout>
+        <recordType>ContentVersion.HCP_Contract_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ContentVersion-Invoice_MERC</layout>
+        <recordType>ContentVersion.Invoice_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ContentVersion-Meeting_MERC</layout>
+        <recordType>ContentVersion.Meeting_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Contract-Contract Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Daily_Attendance_TOV_MERC__c-MERC_Daily Attendance %26 TOV</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>HCP_Contract_MERC__c-MERC_Contract</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>HCP_Contract_MERC__c-MERC_Contract</layout>
+        <recordType>HCP_Contract_MERC__c.Single_Event_Contract_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>HCP_Contract_MERC__c-MERC_Contract</layout>
+        <recordType>HCP_Contract_MERC__c.Work_Order_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>HCP_Contract_MERC__c-MERC_MSA Contract</layout>
+        <recordType>HCP_Contract_MERC__c.Master_Service_Agreement_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Hotel_Allocation_MERC__c-Hotel Allocation Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Indication_GLBL__c-MERC_Product Indication Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Invoice_Line_Item_MERC__c-MERC_Ad Hoc Consulting</layout>
+        <recordType>Invoice_Line_Item_MERC__c.Ad_Hoc_Consulting</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Invoice_Line_Item_MERC__c-MERC_Contracted Services</layout>
+        <recordType>Invoice_Line_Item_MERC__c.Contracted_Services_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Invoice_Line_Item_MERC__c-MERC_Invoice Line Item</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Invoice_Line_Item_MERC__c-MERC_Invoice Line Item</layout>
+        <recordType>Invoice_Line_Item_MERC__c.Other_Items</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Invoice_MERC__c-MERC_Credit Note</layout>
+        <recordType>Invoice_MERC__c.Credit_Note_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Invoice_MERC__c-MERC_Invoice</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Invoice_MERC__c-MERC_Invoice</layout>
+        <recordType>Invoice_MERC__c.Invoice_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_Day_MERC__c-MERC_Hotel Night</layout>
+        <recordType>Meeting_Day_MERC__c.Hotel_Night</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_Day_MERC__c-MERC_Meeting Day</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_Day_MERC__c-MERC_Meeting Day</layout>
+        <recordType>Meeting_Day_MERC__c.Meeting_Day</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_MERC__c-MERC_Ad_hoc_Consulting</layout>
+        <recordType>Meeting_MERC__c.Ad_Hoc_Consulting</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_MERC__c-MERC_Completed</layout>
+        <recordType>Meeting_MERC__c.Completed</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_MERC__c-MERC_Forecasted_Meeting</layout>
+        <recordType>Meeting_MERC__c.Forecasted</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_MERC__c-MERC_Independent_Sponsorship</layout>
+        <recordType>Meeting_MERC__c.Independent_Sponsorship</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_MERC__c-MERC_Ready_for_Sourcing</layout>
+        <recordType>Meeting_MERC__c.Ready_for_Sourcing</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_MERC__c-MERC_Registered_Meeting</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_MERC__c-MERC_Registered_Meeting</layout>
+        <recordType>Meeting_MERC__c.Registered</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_MERC__c-MERC_Submitted_for_Contracting</layout>
+        <recordType>Meeting_MERC__c.Submitted_for_Contracting</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_Participant_MERC__c-MERC_Delegate</layout>
+        <recordType>Meeting_Participant_MERC__c.Delegate_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_Participant_MERC__c-MERC_Individual Sponsorship</layout>
+        <recordType>Meeting_Participant_MERC__c.Individual_Sponsorship</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_Participant_MERC__c-MERC_Service Provider</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_Participant_MERC__c-MERC_Service Provider</layout>
+        <recordType>Meeting_Participant_MERC__c.Service_Provider_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_Products_MERC__c-MERC_Meeting Product</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_Third_Party_MERC__c-MERC_Meeting Third Party</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_Vendor_MERC__c-MERC_Meeting Vendor Hotel</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_Vendor_MERC__c-MERC_Meeting Vendor Hotel</layout>
+        <recordType>Meeting_Vendor_MERC__c.Hotel</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_Vendor_MERC__c-MERC_Meeting Vendor Other</layout>
+        <recordType>Meeting_Vendor_MERC__c.Other</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_Venue_MERC__c-MERC_Venue</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Merge_History_GLBL__c-GLBL_Merge History</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Milestone_MERC__c-MERC_Milestone</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Participant_Agenda_MERC__c-MERC_Participant Session</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Payee_MERC__c-MERC_Payee</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>PersonAccount-MERC_Employee</layout>
+        <recordType>PersonAccount.Employee_GLBL</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>PersonAccount-MERC_HCP</layout>
+        <recordType>PersonAccount.HCP_GLBL</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>PersonAccount-MERC_Non-HCP</layout>
+        <recordType>PersonAccount.Non_HCP_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Product_Group_GLBL__c-GLBL_Product</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Slot_MERC__c-MERC_Slot</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Team_Member_MERC__c-MERC_External_Team Member</layout>
+        <recordType>Team_Member_MERC__c.External_User_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Team_Member_MERC__c-MERC_Mercury_Team Member</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Team_Member_MERC__c-MERC_Mercury_Team Member</layout>
+        <recordType>Team_Member_MERC__c.Mercury_User_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Travel_Itinerary_MERC__c-MERC_Accommodations</layout>
+        <recordType>Travel_Itinerary_MERC__c.Accommodations_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Travel_Itinerary_MERC__c-MERC_Flight_Travel_Leg</layout>
+        <recordType>Travel_Itinerary_MERC__c.Flights</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Travel_Itinerary_MERC__c-MERC_Ground_Travel_Leg</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Travel_Itinerary_MERC__c-MERC_Ground_Travel_Leg</layout>
+        <recordType>Travel_Itinerary_MERC__c.Transportation_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Travel_Itinerary_MERC__c-MERC_Vehicle</layout>
+        <recordType>Travel_Itinerary_MERC__c.Vehicle_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Travel_MERC__c-MERC_Travel_Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>User-User Layout</layout>
+    </layoutAssignments>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
@@ -4635,6 +5081,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>HCP_Contract_MERC__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Hotel_Allocation_MERC__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -4969,6 +5424,11 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Invoice_Line_Item_MERC__c.Ad_Hoc_Consulting</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
         <default>true</default>
         <recordType>Invoice_Line_Item_MERC__c.Contracted_Services_MERC</recordType>
         <visible>true</visible>
@@ -4996,6 +5456,11 @@
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Meeting_Day_MERC__c.Meeting_Day</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Meeting_MERC__c.Ad_Hoc_Consulting</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
@@ -5148,6 +5613,10 @@
     <tabVisibilities>
         <tab>Team_Member_MERC__c</tab>
         <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Travel_Itinerary_MERC__c</tab>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Travel_MERC__c</tab>

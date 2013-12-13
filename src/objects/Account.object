@@ -2054,6 +2054,18 @@ Created by John A Adams 11/4/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Full_Nm_GLBL__c</fullName>
+        <description>Account Full Name, populated by master data. Oliver Dunford 12th Dec 2013</description>
+        <externalId>false</externalId>
+        <label>Full Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Gndr_Cd_GLBL__c</fullName>
         <description>Gender Code 
 Created by John A Adams 11/4/2013</description>
@@ -3134,6 +3146,19 @@ Created by John Adams on 12/9/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Prim_Affil_Pstl_Cd_Extnsn_GLBL__c</fullName>
+        <description>Primary Affiliate Postal Code Extension
+Created by John A Adams 12/12/2013</description>
+        <externalId>false</externalId>
+        <label>Primary Affiliate Postal Code Extension</label>
+        <length>32</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Primary_Addr_City_GLBL__c</fullName>
         <description>Primary Address City copied from primary address
 Created by John Adams on 11/13/2013</description>
@@ -4170,6 +4195,18 @@ Created by John A Adams 11/4/2013</description>
         </filterItems>
         <isOptional>false</isOptional>
         <name>Invoice_Customer Name</name>
+    </namedFilters>
+    <namedFilters>
+        <fullName>nf_01I11000000CjxpEAC_00N11000000TEu1EAG</fullName>
+        <active>true</active>
+        <field>Meeting_Participant_MERC__c.Lilly_Affiliate_MERC__c</field>
+        <filterItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Lilly Affiliate Business</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+        <name>Meeting Participant_Lilly Affiliate</name>
     </namedFilters>
     <namedFilters>
         <fullName>nf_01I11000000Ck6cEAC_00N11000000TEmREAW</fullName>
