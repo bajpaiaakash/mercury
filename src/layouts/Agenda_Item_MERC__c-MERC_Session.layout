@@ -43,7 +43,7 @@
         <label>Session Date/Time Information</label>
         <layoutColumns>
             <layoutItems>
-                <height>130</height>
+                <height>70</height>
                 <page>MERC_AgendaItemDateTimes</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>false</showScrollbars>
