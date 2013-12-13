@@ -8,6 +8,10 @@ public with sharing class MERC_TestFactory {
 		insert settings;
 	}
 
+	public static void loadDeclarativeRollupSummaries() {
+		List<sObject> rollups = Test.loadData(glbl_rollup__LookupRollupSummary__c.sObjectType, 'DeclarativeRollupTestData_MERC');
+	}
+
 	public static List<Account> insertAccounts(Integer numberOfAccounts) {
 		List<Account> accs = new List<Account>();
 		for (Integer i = 0; i < numberOfAccounts; i++) {

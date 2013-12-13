@@ -13,6 +13,7 @@ private class MERC_HcpCapActualsCalculatorTest {
 		meetingDays = MERC_TestFactory.insertMeetingDays(meetings.get(0).Id, 3); //insert 3 days
 		participants = MERC_TestFactory.insertParticipants(meetings.get(0).Id, accounts); //insert 5 participants
 		participants2 = MERC_TestFactory.insertParticipants(meetings.get(1).Id, accounts); //insert 5 participants
+		MERC_TestFactory.loadDeclarativeRollupSummaries();
 	}
 
 	@isTest static void test_with_one_meeting() {
@@ -29,7 +30,12 @@ private class MERC_HcpCapActualsCalculatorTest {
 		system.assertEquals(100, [Select Reserved_CAP_MERC__c FROM Account WHERE Id = :p1.Account_MERC__c].Reserved_CAP_MERC__c); 
 
 		m = meetings.get(0);
+		m.Number_of_Expected_Employees_MERC__c = 10;
+		m.Number_of_Expected_Speakers_MERC__c = 10;
+		m.Interaction_Type_MERC__c = 'Virtual';
 		m.Meeting_Status_MERC__c = 'Registered';
+		m.Venue_Preferred_Location_MERC__c = 'somewhere fun';
+		m.Target_Audience_List_MERC__c = 'Nurses';
 		update m;
 		
 		system.assertEquals(100, [Select Allocated_CAP_MERC__c FROM Account WHERE Id = :p1.Account_MERC__c].Allocated_CAP_MERC__c); 
