@@ -306,8 +306,8 @@
     </layoutSections>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>RECORDTYPE</fields>
         <fields>Cost_Element_MERC__c</fields>
-        <fields>Description_MERC__c</fields>
         <fields>Quantity_MERC__c</fields>
         <fields>Unit_Price_MERC__c</fields>
         <fields>Amount_MERC__c</fields>

@@ -2647,9 +2647,19 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Hotel_Allocation_MERC__c.Booked_Rooms__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
+        <field>Hotel_Allocation_MERC__c.Meeting_Day_Date_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Hotel_Allocation_MERC__c.Meeting_Day_MERC__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -2662,8 +2672,18 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Hotel_Allocation_MERC__c.Remaining_Rooms_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
-        <field>Hotel_Allocation_MERC__c.Rooms_Available_MERC__c</field>
+        <field>Hotel_Allocation_MERC__c.Room_Block_Release_Date_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Hotel_Allocation_MERC__c.Total_Rooms_in_Block_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2769,11 +2789,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Invoice_MERC__c.Company_Code_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Invoice_MERC__c.Consulting_Services_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4782,9 +4797,6 @@
         <recordType>Communication_Preference_GLBL__c.Preferences_EVNT_MVN</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Consulting_Services_MERC__c-Consulting Services Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Contact-Contact Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -4858,10 +4870,6 @@
     <layoutAssignments>
         <layout>Invoice_MERC__c-MERC_Invoice</layout>
         <recordType>Invoice_MERC__c.Invoice_MERC</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Meeting_Day_MERC__c-MERC_Hotel Night</layout>
-        <recordType>Meeting_Day_MERC__c.Hotel_Night</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Meeting_Day_MERC__c-MERC_Meeting Day</layout>
@@ -5211,11 +5219,6 @@
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Invoice_MERC__c.Invoice_MERC</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Meeting_Day_MERC__c.Hotel_Night</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>

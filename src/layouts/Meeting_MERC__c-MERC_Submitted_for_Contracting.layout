@@ -97,12 +97,12 @@
         <label>Meeting Dates &amp; Times</label>
         <layoutColumns>
             <layoutItems>
-    <height>80</height>
-    <page>MERC_MeetingDateTimes</page>
-    <showLabel>false</showLabel>
-    <showScrollbars>false</showScrollbars>
-    <width>100%</width>
-</layoutItems>
+                <height>80</height>
+                <page>MERC_MeetingDateTimes</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>false</showScrollbars>
+                <width>100%</width>
+            </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>

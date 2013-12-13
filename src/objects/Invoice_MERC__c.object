@@ -164,20 +164,6 @@ Created by John A Adams 10/21/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Consulting_Services_MERC__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>Lookup to Invoice. Created 12/10/2013 by KLorenti, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <label>Consulting Services</label>
-        <referenceTo>Consulting_Services_MERC__c</referenceTo>
-        <relationshipLabel>Invoices</relationshipLabel>
-        <relationshipName>Invoices</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>Cost_Center_MERC__c</fullName>
         <description>Cost Centre id entered.
 Mercury Transaction Id 

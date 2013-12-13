@@ -68,7 +68,11 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>Meeting_Day_MERC__c</fields>
-        <fields>Rooms_Available_MERC__c</fields>
+        <fields>Meeting_Day_Date_MERC__c</fields>
+        <fields>Total_Rooms_in_Block_MERC__c</fields>
+        <fields>Booked_Rooms__c</fields>
+        <fields>Remaining_Rooms_MERC__c</fields>
+        <fields>Room_Block_Release_Date_MERC__c</fields>
         <relatedList>Hotel_Allocation_MERC__c.Meeting_Vendor_MERC__c</relatedList>
     </relatedLists>
     <relatedLists>

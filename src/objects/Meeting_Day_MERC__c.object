@@ -154,12 +154,6 @@ Created by J Adams 12/10/2013</description>
     </nameField>
     <pluralLabel>Meeting Days</pluralLabel>
     <recordTypes>
-        <fullName>Hotel_Night</fullName>
-        <active>true</active>
-        <description>Create a record that represents a hotel nights needed for the meeting</description>
-        <label>Hotel Night</label>
-    </recordTypes>
-    <recordTypes>
         <fullName>Meeting_Day</fullName>
         <active>true</active>
         <description>Create a record that represents a day of the meeting</description>

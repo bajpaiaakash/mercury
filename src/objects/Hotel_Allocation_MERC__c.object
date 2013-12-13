@@ -52,19 +52,43 @@
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
     <fields>
+        <fullName>Booked_Rooms__c</fullName>
+        <description>Auto-calculated based on those Meeting Participants using the Room Block. Oliver Dunford 13th Dec 2013.</description>
+        <externalId>false</externalId>
+        <label>Booked Rooms</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Meeting_Day_Date_MERC__c</fullName>
+        <description>Pulls the Date from the Meeting Day record. Oliver Dunford 13th Dec</description>
+        <externalId>false</externalId>
+        <formula>Meeting_Day_MERC__r.Date_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting Day Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Meeting_Day_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
         <description>Master Detail Relationship to Meeting Day. Created 12/5/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <label>Hotel Night</label>
+        <label>Meeting Day</label>
         <referenceTo>Meeting_Day_MERC__c</referenceTo>
         <relationshipLabel>Hotel Allocation</relationshipLabel>
         <relationshipName>Hotel_Allocation</relationshipName>
-        <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>MasterDetail</type>
-        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Meeting_Vendor_MERC__c</fullName>
@@ -94,10 +118,35 @@ Created by J Adams 12/10/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Rooms_Available_MERC__c</fullName>
+        <fullName>Remaining_Rooms_MERC__c</fullName>
+        <description>Returns the total rooms left in the Room block. Oliver Dunford 13th Dec 2013.</description>
+        <externalId>false</externalId>
+        <formula>Total_Rooms_in_Block_MERC__c -  Booked_Rooms__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Remaining Rooms</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Room_Block_Release_Date_MERC__c</fullName>
+        <description>The date the hotel releases the Rooms from the Block allocated to Lilly. Oliver Dunford 13th Dec 2013.</description>
+        <externalId>false</externalId>
+        <label>Room Block Release Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Total_Rooms_in_Block_MERC__c</fullName>
         <description>Indicates the number of Rooms available for each Hotel Night. Created 12/5/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <label>Rooms Available</label>
+        <label>Total Rooms in Block</label>
         <precision>10</precision>
         <required>false</required>
         <scale>0</scale>
@@ -115,5 +164,5 @@ Created by J Adams 12/10/2013</description>
     </nameField>
     <pluralLabel>Hotel Allocation</pluralLabel>
     <searchLayouts/>
-    <sharingModel>ControlledByParent</sharingModel>
+    <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

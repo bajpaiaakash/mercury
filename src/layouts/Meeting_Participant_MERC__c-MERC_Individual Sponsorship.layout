@@ -229,8 +229,12 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Invoice_Date_MERC__c</fields>
         <fields>RECORDTYPE</fields>
+        <fields>Invoice_Date_MERC__c</fields>
+        <fields>Submit_for_Payment_MERC__c</fields>
+        <fields>Subtotal_NET_MERC__c</fields>
+        <fields>Total_VAT_MERC__c</fields>
+        <fields>TOTAL_INCL_VAT_MERC__c</fields>
         <relatedList>Invoice_MERC__c.Meeting_Participant_MERC__c</relatedList>
     </relatedLists>
     <relatedLists>

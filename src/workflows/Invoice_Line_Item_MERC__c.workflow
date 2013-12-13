@@ -32,6 +32,16 @@
         <protected>false</protected>
         <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Amount_for_AdHoc_MERC</fullName>
+        <description>Updates the Amount field rolled up to the Invoice Totals with the value manually typed by HCP Care for the Ad Hoc consulting Invoices. Oliver Dunford 13th Dec 2013.</description>
+        <field>Amount_MERC__c</field>
+        <formula>Amount_Adhoc_Consulting_MERC__c</formula>
+        <name>Update Amount</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <rules>
         <fullName>Mercury External ID-InvoiceLine</fullName>
         <actions>
@@ -46,6 +56,18 @@
         </criteriaItems>
         <description>Populates the external id upon creation of a record</description>
         <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Populate Ad Hoc Amount_MERC</fullName>
+        <actions>
+            <name>Update_Amount_for_AdHoc_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Populate Line Item amount for ad hoc consulting services
+Created by Oliver Dunford 13 Dec 2013</description>
+        <formula>NOT(ISBLANK( Invoice_MERC__r.Meeting_Participant_MERC__c))</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Populate Other Amounts_MERC</fullName>
@@ -71,7 +93,7 @@
         <active>true</active>
         <description>Populate Line Item amount for Services
 Created by John A Adams 10/31/2013</description>
-        <formula>NOT(ISBLANK( Invoice_MERC__r.Meeting_Participant_MERC__c))</formula>
+        <formula>AND (NOT(ISBLANK( Invoice_MERC__r.Meeting_Participant_MERC__c)),  RecordType.Name = &apos;Contracted Services&apos;)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>

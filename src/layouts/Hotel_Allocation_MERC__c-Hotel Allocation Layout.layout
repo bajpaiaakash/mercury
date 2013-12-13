@@ -15,15 +15,31 @@
                 <behavior>Edit</behavior>
                 <field>Meeting_Vendor_MERC__c</field>
             </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Meeting_Day_MERC__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Meeting_Day_Date_MERC__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
+            <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Rooms_Available_MERC__c</field>
+                <field>Total_Rooms_in_Block_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Booked_Rooms__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Remaining_Rooms_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Room_Block_Release_Date_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>

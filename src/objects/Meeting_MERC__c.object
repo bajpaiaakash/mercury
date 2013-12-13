@@ -15465,7 +15465,7 @@ ISPICKVAL(Meeting_Status_MERC__c,&apos;Completed&apos;)</errorConditionFormula>
         <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Sponsorship&apos; &amp;&amp;
       ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
 		TEXT(Meeting_Status_MERC__c) = &apos;Registered&apos; &amp;&amp;
-		(ISBLANK ( Number_of_Expected_Speakers_MERC__c ))
+		(ISBLANK (Number_of_Expected_Employees_MERC__c ))
 	,true, false)</errorConditionFormula>
         <errorDisplayField>Number_of_Expected_Employees_MERC__c</errorDisplayField>
         <errorMessage>The # of Expected Employees is required before status can be changed to Registered</errorMessage>

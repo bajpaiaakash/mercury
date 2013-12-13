@@ -91,7 +91,7 @@ Created by John A Adams 12/11/2013</description>
             <name>Prim_Add_City_MERC</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Address_GLBL__c.Priority_Rank_Nbr_GLBL__c</field>
             <operation>equals</operation>
@@ -107,7 +107,7 @@ Created by John A Adams 12/11/2013</description>
             <name>Prim_Add_Country_MERC</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Address_GLBL__c.Priority_Rank_Nbr_GLBL__c</field>
             <operation>equals</operation>
@@ -123,7 +123,7 @@ Created by John A Adams 12/11/2013</description>
             <name>Prim_Add_Line1_MERC</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Address_GLBL__c.Priority_Rank_Nbr_GLBL__c</field>
             <operation>equals</operation>

@@ -52,7 +52,7 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Amount_Adhoc_Consulting_MERC__c</field>
             </layoutItems>
             <layoutItems>

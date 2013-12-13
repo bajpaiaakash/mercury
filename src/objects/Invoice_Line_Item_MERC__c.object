@@ -54,9 +54,9 @@
     <enableReports>true</enableReports>
     <fields>
         <fullName>Amount_Adhoc_Consulting_MERC__c</fullName>
-        <description>Used to capture a manually types value for ad hoc consulting services.  This has the same label as the standard Amount field to prevent any UI confusion.  The standard Amount_MERC field is set via workflow for ad hoc consulting. Oliver Dunford 13th Dec.</description>
+        <description>Used to capture a manually typed value for ad hoc consulting services.  Oliver Dunford 13th Dec.</description>
         <externalId>false</externalId>
-        <label>Amount</label>
+        <label>Ad hoc Amount</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
