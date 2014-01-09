@@ -78,8 +78,7 @@
     <relatedLists>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
-        <fields>Check_in_Date_MERC__c</fields>
-        <fields>Check_out_Date_MERC__c</fields>
+        <fields>Traveller_Name_MERC__c</fields>
         <relatedList>Travel_Itinerary_MERC__c.Meeting_Vendor_MERC__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>

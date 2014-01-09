@@ -4,7 +4,33 @@
 	<apex:stylesheet value="{!urlfor($Resource.mercury, 'css/style.css')}"/>
 	<apex:sectionHeader title="{!meeting.Name}" subtitle="{!$ObjectType.Meeting_Participant_MERC__c.LabelPlural}" />
 	<script>
+		var actionedElement;
 		var j = jQuery.noConflict();
+
+		function handleAddResponse(el) {
+			console.log(el.id);
+			var controllerHasError = document.getElementById("{!$Component.mainForm.controllerHasError}").innerHTML == "true";
+			console.log(controllerHasError);
+			if (!controllerHasError) {
+				var img = j(escapeVfId(el.id));
+				console.log(img);
+				img.parent().remove();
+			}
+			toggleLoading();
+		}
+
+		function handleRemoveResponse(el) {
+			console.log(el);
+			toggleLoading();
+			var controllerHasError = document.getElementById("{!$Component.mainForm.controllerHasError}").innerHTML == "true";
+			if (!controllerHasError) {
+				
+			}
+		}
+
+		function markMe(el) {
+			actionedElement = el;
+		}
 	</script>
 	<style>
 		.activeTab {
@@ -23,17 +49,26 @@
 			opacity: 0.6;
 			cursor: pointer;
 		}
+
+		table.rich-tabpanel  .rich-tabpanel-content {
+			background-color: #fff;
+			border:none;
+			padding:5px 0px;
+		}
 	</style>
-	<apex:form >
+	<apex:form id="mainForm">
+		<apex:outputPanel id="responseWrapper">
+			<apex:outputText value="{!hasError}" id="controllerHasError"/>
+		</apex:outputPanel>
 		<div class="aeu" style="position:relative;">
 			<apex:tabPanel switchType="server" selectedTab="name1" id="theTabPanel" activeTabClass="activeTab" inactiveTabClass="inactiveTab">
 				<apex:tab label="Search" name="name1" id="tabOne">
 					<apex:actionRegion >
-						<apex:pageBlock title="" mode="edit" id="mercuryUserBlock">
+						<apex:pageBlock title="Search Form" mode="edit" id="mercuryUserBlock">
 							<apex:pageMessages ></apex:pageMessages>
 							<apex:pageBlockButtons >
 								<apex:commandButton onclick="toggleLoading()" oncomplete="toggleLoading()" 
-									action="{!doSearch}" value="Search" rerender="resultBlock"/>
+									action="{!doSearch}" value="Search" rerender="resultBlockWrapper"/>
 							</apex:pageBlockButtons>
 							<apex:pageBlockSection >
 								
@@ -58,25 +93,49 @@
 							</apex:pageBlockSection>
 						</apex:pageBlock>
 
-						<apex:pageBlock id="resultBlock">
-							<apex:pageBlockTable value="{!searchResults}" var="r">
-								<apex:column value="{!r.lastname}"/>
-								<apex:column value="{!r.scnd_nm_glbl}"/>
+						<!-- SEARCH RESULTS -->
+						<apex:outputPanel id="resultBlockWrapper">
+							<apex:pageMessages/>
+							<apex:pageBlock title="Search Results" id="resultBlock" rendered="{!searchResults != null && searchResults.size > 0}">
+								<apex:pageBlockTable value="{!searchResults}" var="r">
+									<apex:column width="30">
+										<apex:commandLink rendered="{!r.selectable}" action="{!addToMeeting}" onclick="toggleLoading()" oncomplete="handleAddResponse(this)" rerender="responseWrapper, resultBlockWrapper">
+											<apex:image value="{!urlfor($resource.mercury, 'img/add.png')}" style="width:12px;"/>
+											<apex:param name="aid" value="{!r.sfid}"/>
+										</apex:commandLink>
+									</apex:column>
+									<apex:column headerValue="{!$ObjectType.Account.fields.Id.label}" value="{!r.sfid}"/>
+									<apex:column headerValue="{!$ObjectType.Account.fields.FirstName.label}" value="{!r.firstname}"/>
+									<apex:column headerValue="{!$ObjectType.Account.fields.LastName.label}" value="{!r.lastname}"/>
+									<apex:column headerValue="{!$ObjectType.Account.fields.scnd_nm_glbl__c.label}" value="{!r.scnd_nm_glbl}"/>
 
-							</apex:pageBlockTable>
-						</apex:pageBlock>
+								</apex:pageBlockTable>
+							</apex:pageBlock>
+							<apex:outputPanel rendered="{!searchResults != null && searchResults.size == 0}">
+								No Results Found
+							</apex:outputPanel>
+						</apex:outputPanel>
 					</apex:actionRegion>
 				</apex:tab>
 
+				<!-- TAB 2 -->
 				<apex:tab label="{!$ObjectType.Meeting_Participant_MERC__c.LabelPlural}" name="name2" id="tabTwo">
 					<apex:actionRegion >
-						<apex:pageBlock title="" mode="edit" id="externalUserBlock">
+						<apex:pageBlock title="Meeting Participants" mode="edit" id="meetingParticipantBlock">
 							<apex:pageMessages ></apex:pageMessages>
 							<apex:pageBlockButtons >
 
 							</apex:pageBlockButtons>
 							<apex:pageBlockTable value="{!meetingParticipants}" var="p">
+								<apex:column width="30">
+									<apex:commandLink action="{!removeFromMeeting}" onclick="toggleLoading()" oncomplete="handleRemoveResponse(this)" rerender="meetingParticipantBlock, responseWrapper">
+										<apex:image value="{!urlfor($resource.mercury, 'img/delete.png')}" style="width:12px;"/>
+										<apex:param name="pid" value="{!p.Id}"/>
+									</apex:commandLink>
+								</apex:column>
 								<apex:column value="{!p.Id}"/>
+								<apex:column value="{!p.Account_MERC__c}"/>
+								<apex:column value="{!p.Account_MERC__r.Name}"/>
 							</apex:pageBlockTable>
 						</apex:pageBlock>
 					</apex:actionRegion>

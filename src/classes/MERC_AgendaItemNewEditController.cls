@@ -2,40 +2,45 @@ public with sharing class MERC_AgendaItemNewEditController {
 
 	private final Agenda_Item_MERC__c agendaItem;
     ApexPages.StandardController stdController;
-    MERC_TimeZoneCalculator tz = new MERC_TimeZoneCalculator('Agenda_Item_MERC__c');
+    MERC_TimeZoneUtility tz = new MERC_TimeZoneUtility(Agenda_Item_MERC__c.sObjectType);
 
     public MERC_AgendaItemNewEditController(ApexPages.StandardController c) {
         this.agendaItem = (Agenda_Item_MERC__c)c.getRecord();
         this.stdController = c;
+        if (this.agendaItem.Id == null) {
+            this.agendaItem.Start_Time_MERC__c = meeting.Start_Time_of_Meeting_MERC__c;
+            this.agendaItem.End_Time_MERC__c = meeting.End_Time_of_Meeting_MERC__c;
+        }
     }
 
     //sets date/times based on meeting time/zone, for UX purposes
     public void setTimeZones() {
-        tz.execute(new List<Sobject>{this.agendaItem}, false);
+        tz.convertDateTimes(new List<Sobject>{this.agendaItem}, false, meeting.Meeting_Time_Zone_MERC__c);
     }
 
     public Meeting_MERC__c meeting {
         get {
-            return [SELECT ID, Name, Meeting_Time_Zone_MERC__C FROM Meeting_MERC__c WHERE ID = :this.agendaItem.Meeting_MERC__c];
+            if (meeting == null) {
+                meeting = [SELECT ID, Name, Start_Time_of_Meeting_MERC__c, End_Time_of_Meeting_MERC__c, Meeting_Time_Zone_MERC__C FROM Meeting_MERC__c WHERE ID = :this.agendaItem.Meeting_MERC__c];
+            }
+            return meeting;
         }
+        private set;
     }
 
     public PageReference save() {
         try {
-            tz.execute(new List<Sobject>{this.agendaItem}, true); //sets date/times based on UTC, stamps static text with "user-friendly" date/time values
+            tz.convertDateTimes(new List<Sobject>{this.agendaItem}, true, meeting.Meeting_Time_Zone_MERC__c); //sets date/times based on UTC, stamps static text with "user-friendly" date/time values
             if (this.agendaItem.Id == null) {
                 insert this.agendaItem;
             } else {
                 update this.agendaItem; 
             }
         } catch(Exception e) {
+            ApexPages.addMessages(e); //doesn't show ugly error text
             return null;
         }
-        return stdController.view();
+        PageReference p = new PageReference('/'+this.agendaItem.Id);
+        return p;
     }
-
-    public PageReference cancel() {
-        return stdController.view();
-    }
-
 }

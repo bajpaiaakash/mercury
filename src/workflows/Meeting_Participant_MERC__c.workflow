@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <fieldUpdates>
+        <fullName>Clear_Confirm_Partial_Payment_Amt_MERC</fullName>
+        <description>Set the Confirm Partial Payment Amount checkbox to False. Created 12/18/2013 by KLorenti, Mavens Consulting</description>
+        <field>Confirm_Partial_Payment_Amount_MERC__c</field>
+        <literalValue>0</literalValue>
+        <name>Clear Confirm Partial Payment Amt_MERC</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>External_ID_MeetingParticipant_MERC</fullName>
         <description>Populates External ID with OrdID and ID</description>
         <field>Mercury_External_Id_MERC__c</field>
@@ -13,13 +23,22 @@
     <fieldUpdates>
         <fullName>Populate_Participant_Type_MERC</fullName>
         <description>Populates the Participant Type field in the Meeting Participant based on value in Account</description>
-        <field>Participant_Type_MERC__c</field>
+        <field>Participant_Typ_MERC__c</field>
         <formula>Account_MERC__r.RecordType.Name</formula>
         <name>Populate Participant Type</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
         <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Remove_Final_Fee_MERC</fullName>
+        <description>Remove Final Fee</description>
+        <field>Final_Fee_MERC__c</field>
+        <name>Remove Final Fee_MERC</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Confirm_Final_Fee_to_Pending</fullName>
@@ -63,12 +82,32 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_Final_Fee_Zero_MERC</fullName>
+        <description>Update Final Fee to Zero if no payment is required.</description>
+        <field>Final_Fee_MERC__c</field>
+        <formula>0</formula>
+        <name>Update_Final_Fee_Zero</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Final_Fee_to_Zero_MERC</fullName>
         <description>If the Confirm Final Fee &lt;&gt; Confirmed, reset Final Fee amount back to zero.  Created 11/21/2013 by KLorenti</description>
         <field>Final_Fee_MERC__c</field>
         <name>Update Final Fee to Zero_MERC</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Null</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Final_Fee_with_Partial_Pymt_MERC</fullName>
+        <description>Update Final Fee with the Partial Payment Amount.  Used by HCP Care only. Created 12/18/2013 by KLorenti, Mavens Consulting</description>
+        <field>Final_Fee_MERC__c</field>
+        <formula>Partial_Payment_Amount_MERC__c</formula>
+        <name>Update Final Fee with Partial Payment</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
@@ -123,6 +162,17 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_Payment_Required_for_Svcs_MERC</fullName>
+        <description>If Payment is not required, update to &quot;No&quot;. Created 12/13/2013 by KLorenti, Mavens Consulting</description>
+        <field>Payment_Required_for_Meeting_MERC__c</field>
+        <literalValue>No</literalValue>
+        <name>Update Payment Required for Services</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Record_Type_to_Individual_Sponsor</fullName>
         <description>Update Record Type to Individual Sponsorship if Sponsorship Type is Individual Sponsorship</description>
         <field>RecordTypeId</field>
@@ -154,6 +204,108 @@
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
+    <outboundMessages>
+        <fullName>RTI_Meeting_Participant_Updated</fullName>
+        <apiVersion>29.0</apiVersion>
+        <endpointUrl>http://ec2-54-227-9-128.compute-1.amazonaws.com/rti-development/v1/genericUpdated</endpointUrl>
+        <fields>Account_MERC__c</fields>
+        <fields>Air_Travel_Required_MERC__c</fields>
+        <fields>Airport_Transfer_Required_MERC__c</fields>
+        <fields>Cancellation_Notice_Sent_MERC__c</fields>
+        <fields>Classification_MERC__c</fields>
+        <fields>CoPay_Flight_Rail_MERC__c</fields>
+        <fields>CoPay_Food_Beverage_MERC__c</fields>
+        <fields>CoPay_Ground_Transport_MERC__c</fields>
+        <fields>CoPay_Hotel_MERC__c</fields>
+        <fields>CoPay_Registration_MERC__c</fields>
+        <fields>Confirm_Final_Fee_MERC__c</fields>
+        <fields>Contract_Limitations_on_Use_MERC__c</fields>
+        <fields>Copay_Required_MERC__c</fields>
+        <fields>Country_of_Residence_MERC__c</fields>
+        <fields>CreatedById</fields>
+        <fields>CreatedDate</fields>
+        <fields>CurrencyIsoCode</fields>
+        <fields>Customer_Id_GLBL__c</fields>
+        <fields>Description_of_Service_MERC__c</fields>
+        <fields>Event_Customer_Id_MERC__c</fields>
+        <fields>Event_Time_Hrs_MERC__c</fields>
+        <fields>Expense_Reimbursment_MERC__c</fields>
+        <fields>Final_Fee_MERC__c</fields>
+        <fields>Force_Unique_Participant_MERC__c</fields>
+        <fields>Ground_Transportation_Required_MERC__c</fields>
+        <fields>HCP_Contract_Details_MERC__c</fields>
+        <fields>HCP_Contract_MERC__c</fields>
+        <fields>Higher_Fee_Approval__c</fields>
+        <fields>Hotel_Required_MERC__c</fields>
+        <fields>Id</fields>
+        <fields>Include_CAP_Roll_Up_MERC__c</fields>
+        <fields>Invoice_Template_Needed_MERC__c</fields>
+        <fields>IsDeleted</fields>
+        <fields>Justification_MERC__c</fields>
+        <fields>LastModifiedById</fields>
+        <fields>LastModifiedDate</fields>
+        <fields>LastReferencedDate</fields>
+        <fields>LastViewedDate</fields>
+        <fields>Lilly_Affiliate_MERC__c</fields>
+        <fields>Maximum_Fee_MERC__c</fields>
+        <fields>Maximum_Rate_MERC__c</fields>
+        <fields>Meeting_Date_MERC__c</fields>
+        <fields>Meeting_MERC__c</fields>
+        <fields>Mercury_External_Id_MERC__c</fields>
+        <fields>Minimum_Fee_MERC__c</fields>
+        <fields>Minimum_Rate_MERC__c</fields>
+        <fields>Name</fields>
+        <fields>Partial_Payment_Justification_MERC__c</fields>
+        <fields>Participant_Approved_MERC__c</fields>
+        <fields>Participant_Search_MERC__c</fields>
+        <fields>Participant_ToV_Final_MERC__c</fields>
+        <fields>Participant_Typ_MERC__c</fields>
+        <fields>Payment_Required_MERC__c</fields>
+        <fields>Payment_Required_for_Meeting_MERC__c</fields>
+        <fields>Preparation_Time_Hrs_MERC__c</fields>
+        <fields>Presentation_Approval_Needed_MERC__c</fields>
+        <fields>Proposed_Final_Fee_MERC__c</fields>
+        <fields>RecordTypeId</fields>
+        <fields>Require_Recording_Consent_MERC__c</fields>
+        <fields>Service_Provider_Tier_MERC__c</fields>
+        <fields>Services_Rendered_MERC__c</fields>
+        <fields>Speciality_MERC__c</fields>
+        <fields>Status_MERC__c</fields>
+        <fields>SystemModstamp</fields>
+        <fields>Topic_Area_MERC__c</fields>
+        <fields>Total_Food_Beverage_ToV_MERC__c</fields>
+        <fields>Total_Ground_Transporation_ToV_MERC__c</fields>
+        <fields>Total_Honorarium_MERC__c</fields>
+        <fields>Total_Hotel_ToV_MERC__c</fields>
+        <fields>Total_Hours_of_Service_MERC__c</fields>
+        <fields>Total_Other_ToV_MERC__c</fields>
+        <fields>Total_Registration_ToV_MERC__c</fields>
+        <fields>Transparency_Reporting_Consent_MERC__c</fields>
+        <fields>Travel_Required_MERC__c</fields>
+        <fields>Travel_Time_Hrs_MERC__c</fields>
+        <fields>Travel_Time_Reimbursement_MERC__c</fields>
+        <fields>Trnsctn_Typ_MERC__c</fields>
+        <fields>Trtry_Cd_MERC__c</fields>
+        <fields>Trtry_Desc_MERC__c</fields>
+        <fields>Type_of_Contract_MERC__c</fields>
+        <fields>Types_of_Service_MERC__c</fields>
+        <includeSessionId>false</includeSessionId>
+        <integrationUser>helmer@gso1.lly</integrationUser>
+        <name>RTI - Meeting Participant Updated</name>
+        <protected>false</protected>
+        <useDeadLetterQueue>false</useDeadLetterQueue>
+    </outboundMessages>
+    <rules>
+        <fullName>Clear_Confirm_Partial_Payment_Amt_MERC</fullName>
+        <actions>
+            <name>Clear_Confirm_Partial_Payment_Amt_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Clear the Confirm Partial Payment Amount checkbox after each record update. Created 12/18/2013 by KLorenti, Mavens Consulting</description>
+        <formula>TRUE</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
     <rules>
         <fullName>Flag Account as Service Provider_MERC</fullName>
         <actions>
@@ -185,6 +337,21 @@
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
+        <fullName>Is Payment Required</fullName>
+        <actions>
+            <name>Update_Payment_Required_for_Svcs_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Payment_Required_MERC__c</field>
+            <operation>equals</operation>
+            <value>No</value>
+        </criteriaItems>
+        <description>If Payment is not required, update to &quot;No&quot;. Created 12/13/2013 by KLorenti, Mavens Consulting</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
         <fullName>Mercury External ID-MeetingParticipant</fullName>
         <actions>
             <name>External_ID_MeetingParticipant_MERC</name>
@@ -198,25 +365,6 @@
         </criteriaItems>
         <description>Populates the external id upon creation of a record</description>
         <triggerType>onCreateOnly</triggerType>
-    </rules>
-    <rules>
-        <fullName>No Payment Required_MERC</fullName>
-        <actions>
-            <name>Update_Maximum_Fee_to_zero_MERC</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <actions>
-            <name>Update_Minimum_Fee_to_zero_MERC</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <criteriaItems>
-            <field>Meeting_Participant_MERC__c.Payment_Required_MERC__c</field>
-            <operation>equals</operation>
-            <value>No</value>
-        </criteriaItems>
-        <description>If Payment Required is &quot;No&quot;, update Minimum and Maximum Fee to zero</description>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
         <fullName>Over Maximum Fee_MERC</fullName>
@@ -234,6 +382,18 @@
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
+        <fullName>Override Final Fee for Partial Payment_MERC</fullName>
+        <actions>
+            <name>Update_Final_Fee_with_Partial_Pymt_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>If HCP is due a Partial Payment, set the Final Fee to the Partial Payment amount.</description>
+        <formula>ISCHANGED(Partial_Payment_Amount_MERC__c) &amp;&amp;
+Partial_Payment_Amount_MERC__c &gt; 0</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
         <fullName>Participant Type MERC</fullName>
         <actions>
             <name>Populate_Participant_Type_MERC</name>
@@ -247,6 +407,28 @@
         </criteriaItems>
         <description>Records participant type when record is created or edited</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>RTI - Meeting Participant  Updated</fullName>
+        <actions>
+            <name>RTI_Meeting_Participant_Updated</name>
+            <type>OutboundMessage</type>
+        </actions>
+        <active>true</active>
+        <formula>1==1</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Remove Final Fee if Partial Payment is Zero_MERC</fullName>
+        <actions>
+            <name>Remove_Final_Fee_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Remove Final Fee if Partial Payment is set to zero.  Created 12/19/2013 by KLorenti, Mavens Consulting</description>
+        <formula>ISCHANGED(Partial_Payment_Amount_MERC__c) &amp;&amp;
+Partial_Payment_Amount_MERC__c = 0</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Un-Confirm Final Fee_MERC</fullName>
@@ -277,6 +459,26 @@
         <description>If Proposed Final Fee is lass than the Maximum Fee then set the Exception Approval to &quot;Not Required&quot;. Created 11/21/2013 by KLorenti</description>
         <formula>ISCHANGED (Proposed_Final_Fee_MERC__c ) &amp;&amp;  Proposed_Final_Fee_MERC__c &lt; Maximum_Fee_MERC__c</formula>
         <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Final Fee to Zero_MERC</fullName>
+        <actions>
+            <name>Update_Final_Fee_Zero_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Meeting_Participant_MERC__c.Payment_Required_for_Meeting_MERC__c</field>
+            <operation>equals</operation>
+            <value>No</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Meeting_Participant_MERC__c.Confirm_Final_Fee_MERC__c</field>
+            <operation>equals</operation>
+            <value>Confirmed</value>
+        </criteriaItems>
+        <description>Update Final Fee to Zero if Fee is confirmed and Payment Required is changed to No. Created 12/3/2013 by KLorenti, Mavnes Consulting</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
         <fullName>Update Final Fee_MERC</fullName>

@@ -10,38 +10,6 @@
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Update_Start_Date_from_Check_in_MERC</fullName>
-        <description>Updates Start Date field on Travel Itinerary Record when Record type = Accommodation. Created 11/09/2013 by KLorenti, Mavens Consulting</description>
-        <field>Start_Date_MERC__c</field>
-        <formula>Check_in_Date_MERC__c</formula>
-        <name>Update Start Date from Check-in Date</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Formula</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Update_Start_Date_from_Departure_MERC</fullName>
-        <description>Will update the Start Date field with the Departure date if Travel Itinerary Record type is Flight.</description>
-        <field>Start_Date_MERC__c</field>
-        <formula>DATEVALUE(Departure_Date_Time_MERC__c)</formula>
-        <name>Update Start Date from Departure Date</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Formula</operation>
-        <protected>false</protected>
-        <reevaluateOnChange>true</reevaluateOnChange>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Update_Start_Date_from_Ground_MERC</fullName>
-        <description>Updates Start Date with Departure Date when record type = Ground Transportation. Created 11/9/2013</description>
-        <field>Start_Date_MERC__c</field>
-        <formula>DATEVALUE(Departure_Date_Time_MERC__c)</formula>
-        <name>Update Start Date from Ground_MERC</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Formula</operation>
-        <protected>false</protected>
-        <reevaluateOnChange>true</reevaluateOnChange>
-    </fieldUpdates>
     <rules>
         <fullName>Mercury External ID-TravelItinerary</fullName>
         <actions>

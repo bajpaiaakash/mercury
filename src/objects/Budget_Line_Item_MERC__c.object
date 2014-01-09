@@ -66,6 +66,18 @@
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>Approved_PO_Number_MERC__c</fullName>
+        <description>PO Number for Budget Line Item: Oliver Dunford 14th Dec 2013.</description>
+        <externalId>false</externalId>
+        <label>Approved PO Number</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Budget_MERC__c</fullName>
         <description>Master-Detail relationship to Budget Object. Created 9/27/2013 by KLorenti.</description>
         <externalId>false</externalId>

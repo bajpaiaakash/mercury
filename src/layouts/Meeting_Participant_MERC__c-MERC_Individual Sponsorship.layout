@@ -34,7 +34,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Participant_Type_MERC__c</field>
+                <field>Participant_Typ_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -52,10 +52,6 @@
             </layoutItems>
             <layoutItems>
                 <emptySpace>true</emptySpace>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Slot_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -222,10 +218,14 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
-        <fields>Start_Date_MERC__c</fields>
-        <fields>Vendor_MERC__c</fields>
-        <fields>Travel_Detail_Type__c</fields>
+        <fields>Segment_Number__c</fields>
+        <fields>Sgmnt_Bgin_TS_MERC__c</fields>
+        <fields>Sgmnt_End_TS_MERC__c</fields>
+        <fields>PNR_MERC__c</fields>
+        <fields>Vendor_Name_MERC__c</fields>
         <relatedList>Travel_Itinerary_MERC__c.Meeting_Participant_MERC__c</relatedList>
+        <sortField>Sgmnt_Bgin_TS_MERC__c</sortField>
+        <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>

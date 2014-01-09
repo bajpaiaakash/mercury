@@ -1,0 +1,6 @@
+<apex:page showHeader="true" sidebar="true" standardController="Travel_Itinerary_MERC__c" extensions="MERC_TravelItineraryNewEdit">
+	
+    <apex:pagemessages id="pageMessage"/>
+	<apex:dynamicComponent componentValue="{!Form}"/>
+
+</apex:page>

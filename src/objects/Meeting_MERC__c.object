@@ -473,7 +473,7 @@ Created by John Adams on 12/9/2013</description>
             <value>Attended</value>
         </summaryFilterItems>
         <summaryFilterItems>
-            <field>Meeting_Participant_MERC__c.Participant_Type_MERC__c</field>
+            <field>Meeting_Participant_MERC__c.Participant_Typ_MERC__c</field>
             <operation>equals</operation>
             <value>Employee</value>
         </summaryFilterItems>
@@ -1816,7 +1816,7 @@ Created by John Adams 11/6/2013</description>
             <value>Attended</value>
         </summaryFilterItems>
         <summaryFilterItems>
-            <field>Meeting_Participant_MERC__c.Participant_Type_MERC__c</field>
+            <field>Meeting_Participant_MERC__c.Participant_Typ_MERC__c</field>
             <operation>equals</operation>
             <value>HCP</value>
         </summaryFilterItems>
@@ -2022,6 +2022,16 @@ Created by John A Adams 10/28/2013</description>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Justification_for_Venue_MERC__c</fullName>
+        <description>Justification for Venue. Created 12/18/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Justification for Venue</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Logistics_Information_MERC__c</fullName>
@@ -2376,7 +2386,7 @@ Created by John Adams on 12/9/2013</description>
             <value>Attended</value>
         </summaryFilterItems>
         <summaryFilterItems>
-            <field>Meeting_Participant_MERC__c.Participant_Type_MERC__c</field>
+            <field>Meeting_Participant_MERC__c.Participant_Typ_MERC__c</field>
             <operation>equals</operation>
             <value>Non-HCP</value>
         </summaryFilterItems>
@@ -2629,11 +2639,35 @@ Created by John Adams on 12/9/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Preferred_Venue_Addr_2_MERC__c</fullName>
+        <description>Populated via integration for Reps, workflow for Mercury Initiated Meetings. Oliver Dunford 16th Dec 2013.</description>
+        <externalId>false</externalId>
+        <label>Preferred Venue Addr 2</label>
+        <length>200</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Preferred_Venue_MERC__c</fullName>
         <description>Capture Preferred Venue during the meeting planning process. Created 10/16/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <label>Preferred Venue</label>
+        <label>Preferred Venue Name</label>
         <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Rep_Cost_Center_MERC__c</fullName>
+        <description>Populated via Integration for Rep Initiated meetings. Oliver Dunford 16th Dec 2013.</description>
+        <externalId>false</externalId>
+        <label>Rep Cost Center</label>
+        <length>7</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -3097,10 +3131,24 @@ Created by John Adams 11/6/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Venue_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup relationship to Account to select a Venue for the Meeting. Created 12/18/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Sourced Venue</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Meetings</relationshipLabel>
+        <relationshipName>Venues</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Venue_Preferred_Location_MERC__c</fullName>
         <description>Indicate preferred Venue location. Updated 10/16/2013 by KLorenti, Mavens Consulting.</description>
         <externalId>false</externalId>
-        <label>Preferred Venue Location</label>
+        <label>Preferred Venue Addr 1</label>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -3245,6 +3293,25 @@ Created by John Adams 11/6/2013</description>
             <value>Forecasted</value>
         </filters>
         <label>Forecasted Meetings</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Ready_for_Sourcing_MERC</fullName>
+        <columns>NAME</columns>
+        <columns>Parent_Meeting_MERC__c</columns>
+        <columns>Type_MERC__c</columns>
+        <columns>Date_of_Event_MERC__c</columns>
+        <columns>End_Date_of_Event_MERC__c</columns>
+        <columns>Event_Country_MERC__c</columns>
+        <columns>Approved_MERC__c</columns>
+        <columns>Meeting_Status_MERC__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Meeting_Status_MERC__c</field>
+            <operation>equals</operation>
+            <value>Ready for Sourcing</value>
+        </filters>
+        <label>Ready for Sourcing Meetings</label>
         <language>en_US</language>
     </listViews>
     <listViews>
@@ -9860,19 +9927,7 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Forecasted</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Ready for Sourcing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Registered</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Submitted for Contracting</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15407,6 +15462,16 @@ Created by John Adams 11/6/2013</description>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <validationRules>
+        <fullName>Compliance_Risk_before_Complete_MERC</fullName>
+        <active>true</active>
+        <description>The Compliance Risk field must be set to yes before the Meeting can be Completed.  Created 12/18/2013 by KLorenti, Mavens Consulting</description>
+        <errorConditionFormula>ISBLANK(Text(Compliant_MERC__c)) &amp;&amp; 
+ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
+ISPICKVAL(Meeting_Status_MERC__c,&apos;Completed&apos;)</errorConditionFormula>
+        <errorDisplayField>Compliant_MERC__c</errorDisplayField>
+        <errorMessage>The Compliance Risk must be selected in order to Complete the Meeting.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Confirm_Budget_is_Final_MERC</fullName>
         <active>true</active>
         <description>Budget must be final before Meeting can be completed. Created 11/19/2013 by KLorenti, Mavens Consulting</description>
@@ -15496,7 +15561,7 @@ ISPICKVAL(Meeting_Status_MERC__c,&apos;Completed&apos;)</errorConditionFormula>
     </validationRules>
     <validationRules>
         <fullName>Validate_Registered_Preferred_Loc_MERC</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
         <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Sponsorship&apos; &amp;&amp;
       ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;

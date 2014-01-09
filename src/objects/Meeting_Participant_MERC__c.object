@@ -53,19 +53,6 @@
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
     <fields>
-        <fullName>Accnt_Nmbr_MERC__c</fullName>
-        <description>The PNR back office account number.
-Created by John A Adams 12/12/2013</description>
-        <externalId>false</externalId>
-        <label>Account Number</label>
-        <length>20</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Account_MERC__c</fullName>
         <description>Lookup to Account from Event Participant. Created 9/28/2013 by KLorenti.</description>
         <externalId>false</externalId>
@@ -121,17 +108,6 @@ Created by John A Adams 12/12/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Bkng_Dt_MERC__c</fullName>
-        <description>The date the booking was done.
-Created by John A Adams 12/12/2013</description>
-        <externalId>false</externalId>
-        <label>Booking Date</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>DateTime</type>
-    </fields>
-    <fields>
         <fullName>Cancellation_Notice_Sent_MERC__c</fullName>
         <description>Captures when a Cancellation Notice was sent to the meeting participant. Created 11/5/2013 by KLorenti, Mavens Consulting.</description>
         <externalId>false</externalId>
@@ -148,19 +124,6 @@ Created by John A Adams 12/12/2013</description>
         <formula>Account_MERC__r.Clsfctn_Cd_GLBL__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Classification</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Cnfrmtn_Nmbr_MERC__c</fullName>
-        <description>The number received from the vendor that indicates confirmation of the reservation.   The primary use of this number is to confirm reservations at the vendor location.  Note: for an air reservation the confirmation is the same as the airline record locator.
-Created by John A Adams 12/12/2013</description>
-        <externalId>false</externalId>
-        <label>Confirmation Number</label>
-        <length>30</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -243,9 +206,19 @@ Created by John A Adams 12/12/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Confirm_Partial_Payment_Amount_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>HCP Care to confirm they want to update the Final Fee with the Partial Payment Amount. Created 12/18/2013 by KLorenti, Mavens Consulting.</description>
+        <externalId>false</externalId>
+        <label>Confirm Partial Payment Amount</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Contract_Limitations_on_Use_MERC__c</fullName>
@@ -276,7 +249,7 @@ Created by John A Adams 12/12/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -288,19 +261,6 @@ Created by John A Adams 10/31/2013</description>
         <formula>TEXT(Account_MERC__r.Country_of_Residence_GLBL__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Country of Residence</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Crrncy_Cd_MERC__c</fullName>
-        <description>This is a code which identifies a type of currency used for the rate/fare amount for this segment.  For example USD = United States Dollars, EUR = Euro, etc.
-Created by John A Adams 12/12/2013</description>
-        <externalId>false</externalId>
-        <label>Currency Code</label>
-        <length>10</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -359,17 +319,6 @@ Created by John Adams on 12/9/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Exchng_Trans_Flag_MERC__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>A flag that indicates whether this ticket is being exchanged as part of the ticketing of this stored fare.
-Created by John A Adams 12/12/2013</description>
-        <externalId>false</externalId>
-        <label>Exchange Transaction Flag</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>Expense_Reimbursment_MERC__c</fullName>
         <description>Captures whether expense reimbursement is needed for this meeting participant. Oliver Dunford 5th November.</description>
         <externalId>false</externalId>
@@ -397,7 +346,7 @@ Created by John A Adams 12/12/2013</description>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
@@ -485,7 +434,7 @@ Created by John A Adams 12/12/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -520,17 +469,6 @@ Created by John A Adams 12/12/2013</description>
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>Intrntnl_Flag_MERC__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>A flag that indicates whether the travel crosses international boundaries.
-Created by John A Adams 12/12/2013</description>
-        <externalId>false</externalId>
-        <label>International Flag</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>Invoice_Template_Needed_MERC__c</fullName>
         <description>Captures whether meeting participant needs an Invoice Template. Oliver Dunford 5th November 2013.</description>
         <externalId>false</externalId>
@@ -549,17 +487,6 @@ Created by John A Adams 12/12/2013</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Issd_GMT_TS_MERC__c</fullName>
-        <description>The date and time that the ticket was actually generated.  Expressed in GMT and must be less than the stored fare&apos;s ticket by date.
-Created by John A Adams 12/12/2013</description>
-        <externalId>false</externalId>
-        <label>Issued GMT Timestamp</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Justification_MERC__c</fullName>
@@ -625,17 +552,6 @@ Created by John A Adams 12/12/2013</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Manl_Bkng_Flg_MERC__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>A flag that indicates whether this segment was manually booked.
-Created by John A Adams 12/12/2013</description>
-        <externalId>false</externalId>
-        <label>Manual Booking Flag</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Maximum_Fee_MERC__c</fullName>
@@ -756,6 +672,18 @@ Created by John A Adams 10/31/2013</description>
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>Partial_Payment_Amount_MERC__c</fullName>
+        <description>HCP Care can enter a partial payment amount in the case when the HCP needs a partial payment but the meeting is cancelled.  The partial payment needs to update the final fee so the paid cap is adjusted correctly. Created 12/18/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Partial Payment Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>Partial_Payment_Justification_MERC__c</fullName>
         <description>Capture the justification reason if part payment was required. Created 10/29/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -829,7 +757,7 @@ Created by John A Adams 10/31/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Participant_Type_MERC__c</fullName>
+        <fullName>Participant_Typ_MERC__c</fullName>
         <description>Type of participant stamped into Meeting Participant record using workflow at creation or edit from the Account.  Created by John Adams on 12/9/2013</description>
         <externalId>false</externalId>
         <label>Participant Type</label>
@@ -845,9 +773,7 @@ Created by John A Adams 10/31/2013</description>
         <description>Pulls in if the contract is without payment.
 Created by John A Adams 10/31/2013</description>
         <externalId>false</externalId>
-        <formula>IF
-(ISPICKVAL( Account_MERC__r.Payment_Required_MERC__c , &quot;Yes&quot;),
-&quot;Yes&quot;, &quot;No&quot;)</formula>
+        <formula>TEXT(Account_MERC__r.Payment_Required_MERC__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Payment Required</label>
         <required>false</required>
@@ -855,6 +781,26 @@ Created by John A Adams 10/31/2013</description>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Payment_Required_for_Meeting_MERC__c</fullName>
+        <description>Specifies if payment is created for the particular meeting. Created 12/13/2013 by KLorenti, Mavens Consulting.</description>
+        <externalId>false</externalId>
+        <label>Payment Required for Meeting</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Preparation_Time_Hrs_MERC__c</fullName>
@@ -898,35 +844,9 @@ Created by John A Adams 10/31/2013</description>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
-    </fields>
-    <fields>
-        <fullName>Rate_Fr_Amnt_MERC__c</fullName>
-        <description>The amount of the rate or fare charge for this segment.
-Created by John A Adams 12/12/2013</description>
-        <externalId>false</externalId>
-        <label>Rate Fare Amount</label>
-        <precision>12</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Rec_Lctr_Num_MERC__c</fullName>
-        <description>Identifying number of the record locator.   For the GDS its length is 6 and it consists of letters and digits.  Examples:  TXFWJJ (Sabre), 23JYK9 (Apollo),  9WXX8P (Worldspan).   Format and length for other future suppliers is inherently unknown.</description>
-        <externalId>false</externalId>
-        <label>Record Locator Number</label>
-        <length>10</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Require_Recording_Consent_MERC__c</fullName>
@@ -947,19 +867,6 @@ Created by John A Adams 12/12/2013</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Rsrvtn_Type_MERC__c</fullName>
-        <description>The code value of the type of travel that describes this reservation.  Hardcoded to &quot;Business&quot;
-Created by John A Adams 12/12/2013</description>
-        <externalId>false</externalId>
-        <label>Reservation Type</label>
-        <length>10</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Service_Provider_Tier_MERC__c</fullName>
@@ -998,67 +905,12 @@ Created by John A Adams 10/24/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Sgmnt_Nmbr_MERC__c</fullName>
-        <description>The number that identifies a specific segment within a supplier record locator.
-Created by John A Adams 12/12/2013</description>
-        <externalId>false</externalId>
-        <label>Segment Number</label>
-        <precision>10</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Slot_MERC__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>Lookup for  Event Participants with a Meeting Slot
-Created by John A Adams 9/27/2013</description>
-        <externalId>false</externalId>
-        <label>Slot</label>
-        <referenceTo>Slot_MERC__c</referenceTo>
-        <relationshipLabel>Meeting Participants</relationshipLabel>
-        <relationshipName>Event_Participants</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>Speciality_MERC__c</fullName>
         <description>Displays Speciality from Account Object. Created 10/25/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <formula>Account_MERC__r.Spclty_Desc_GLBL__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Speciality</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Spplr_Srvce_MERC__c</fullName>
-        <description>The identifying code used for this supplier service.  Listed below are examples and may not be complete:  
-- Sabre
- - Apollo
- - Worldspan
- - Sabre Canada
- - Navitaire
- - Amadeus
- - Galileo
- - HARP
- - GT3 SuperConnect
- - Curtis-C
- - G2
- - SITA Rail
- - Worldspan Direct Connect
-Created by John A Adams 12/12/2013</description>
-        <externalId>false</externalId>
-        <label>Supplier Service</label>
-        <length>30</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -1116,18 +968,6 @@ Created by John A Adams 12/12/2013</description>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Tckt_Nmbr_MERC__c</fullName>
-        <description>The ticket number that comes back from the supplier service when the ticket is generated.  This does not include the 3 character validating carrier code (which is the final part of the &quot;ticket number&quot; sent by the CRS). Created by John A Adams 12/12/2013</description>
-        <externalId>false</externalId>
-        <label>Ticket Number</label>
-        <length>20</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Topic_Area_MERC__c</fullName>
@@ -1344,40 +1184,23 @@ Created by John A Adams 12/12/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Trvlr_Ref_Id_MERC__c</fullName>
-        <description>Key to TravelerList/Traveler/ @id
-Created by John A Adams 12/12/2013</description>
+        <fullName>Trtry_Cd_MERC__c</fullName>
+        <description>Territory Code of the Sales Rep will be stamped when the meeting participant is added by the Rep. Created 12/18/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <label>Traveler Ref Id</label>
-        <precision>18</precision>
+        <label>Territory Code</label>
+        <length>255</length>
         <required>false</required>
-        <scale>0</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Number</type>
+        <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Ttl_Fr_Amnt_MERC__c</fullName>
-        <description>The total amount of the fare including taxes.
-Created by John A Adams 12/12/2013</description>
+        <fullName>Trtry_Desc_MERC__c</fullName>
+        <description>Territory Description of the Sales Rep will be stamped when the meeting participant is added by the Rep. Created 12/18/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <label>Total Fare Amount</label>
-        <precision>12</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Ttl_Fr_Crrncy_Cd_MERC__c</fullName>
-        <description>This is a code which identifies a type of currency for the total fare.  For example USD = United States Dollars,  BF= Belgian Franck, etc…
-Created by John A Adams 12/12/2013</description>
-        <externalId>false</externalId>
-        <label>Total Fare Currency Code</label>
-        <length>10</length>
+        <label>Territory Description</label>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -1447,68 +1270,6 @@ Created by John A Adams 12/12/2013</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Vndr_Clss_Cd_MERC__c</fullName>
-        <description>The code value representing the class of vendor.  Listed below are examples and may not be complete:
-Airline = 1
-Car = 2
-Hotel = 3
-Limousine = 4
-Rail = 5</description>
-        <externalId>false</externalId>
-        <label>Vendor Class Code</label>
-        <precision>6</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Vndr_Clssfctn_MERC__c</fullName>
-        <description>The vendor classification.  Listed below are examples and may not be complete:
-Airline
-Car
-Hotel
-Limousine
-Rail
-Created by John A Adams 12/12/2013</description>
-        <externalId>false</externalId>
-        <label>Vendor Classification</label>
-        <length>10</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Vndr_Code_MERC__c</fullName>
-        <description>The code value that representing a vendor company.
-Created by John A Adams 12/12/2013</description>
-        <externalId>false</externalId>
-        <label>Vendor Code</label>
-        <length>10</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Vndr_Nm_MERC__c</fullName>
-        <description>The name of a vendor company
-Created by John A Adams 12/12/2013</description>
-        <externalId>false</externalId>
-        <label>Vendor Name</label>
-        <length>40</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <label>Meeting Participant</label>
     <listViews>
@@ -1703,6 +1464,17 @@ Created by John A Adams 12/12/2013</description>
         </picklistValues>
         <picklistValues>
             <picklist>Participant_ToV_Final_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Required_for_Meeting_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -2042,6 +1814,17 @@ Created by John A Adams 12/12/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Payment_Required_for_Meeting_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Presentation_Approval_Needed_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -2371,6 +2154,17 @@ Created by John A Adams 12/12/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Payment_Required_for_Meeting_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Presentation_Approval_Needed_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -2546,6 +2340,15 @@ Created by John A Adams 12/12/2013</description>
         <errorConditionFormula>(ISPICKVAL(Higher_Fee_Approval__c,&apos;Required&apos;) ||  ISPICKVAL(Higher_Fee_Approval__c,&apos;Rejected&apos;)) &amp;&amp; ISPICKVAL(Confirm_Final_Fee_MERC__c,&apos;Confirmed&apos;)</errorConditionFormula>
         <errorDisplayField>Confirm_Final_Fee_MERC__c</errorDisplayField>
         <errorMessage>You cannot confirm the final fee if the Exception Approval is Required or Rejected.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Confirm_Partial_Payment_MERC</fullName>
+        <active>true</active>
+        <description>Confirm Final Fee should be updated with the Partial Payment Amount</description>
+        <errorConditionFormula>!Confirm_Partial_Payment_Amount_MERC__c &amp;&amp;
+Partial_Payment_Amount_MERC__c &gt; 0</errorConditionFormula>
+        <errorDisplayField>Confirm_Partial_Payment_Amount_MERC__c</errorDisplayField>
+        <errorMessage>Please confirm the Final Fee should be updated with the Partial Payment Amount.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Individual_Sponsorship_Only_MERC</fullName>

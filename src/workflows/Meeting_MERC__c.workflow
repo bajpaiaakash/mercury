@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Notify_Meeting_Owner_when_Meeting_Status_is_changed_from_Forecasted_to_Cancelled</fullName>
+        <ccEmails>katy@mavensconsulting.com</ccEmails>
+        <description>Notify Meeting Owner when Meeting Status is changed from Forecasted to Cancelled</description>
+        <protected>false</protected>
+        <recipients>
+            <type>creator</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Cancelled_Meeting</template>
+    </alerts>
     <fieldUpdates>
         <fullName>External_ID_Meeting_MERC</fullName>
         <description>Populates External ID with OrdID and ID</description>
@@ -309,6 +320,19 @@
         </criteriaItems>
         <description>Populates the external id upon creation of a record</description>
         <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Notify Meeting Owner of Cancelled Meeting_MERC</fullName>
+        <actions>
+            <name>Notify_Meeting_Owner_when_Meeting_Status_is_changed_from_Forecasted_to_Cancelled</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>Notify Meeting Owner when Meeting Status changes from Forecasted to Cancelled.</description>
+        <formula>ISPICKVAL(PRIORVALUE(Meeting_Status_MERC__c),&quot;Forecasted&quot;) &amp;&amp;
+ISPICKVAL(Meeting_Status_MERC__c,&quot;Cancelled&quot;) &amp;&amp;
+ISCHANGED(Meeting_Status_MERC__c)</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>RTI - Meeting Updated</fullName>

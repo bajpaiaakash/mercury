@@ -8,6 +8,10 @@ public with sharing class MERC_TestFactory {
 		insert settings;
 	}
 
+	public static void loadTimeZoneFieldMapSettings() {
+		List<sObject> timeZoneFieldMappings = Test.loadData(Time_Zone_Field_Mappings_MERC__c.sObjectType, 'TimeZoneMappingTestData_MERC');
+	}
+
 	public static void loadDeclarativeRollupSummaries() {
 		List<sObject> rollups = Test.loadData(glbl_rollup__LookupRollupSummary__c.sObjectType, 'DeclarativeRollupTestData_MERC');
 	}
@@ -47,6 +51,7 @@ public with sharing class MERC_TestFactory {
 			m.Date_of_Event_MERC__c = Date.today().addDays(2);
 			m.End_Date_of_Event_MERC__c = Date.today().addDays(2);
 			m.Name = 'Event Name'+i;
+			m.Meeting_Time_Zone_MERC__c = 'Greenwich Mean Time (Europe/London)';
 			mtgs.add(m);
 		}
 		insert mtgs;
@@ -70,7 +75,6 @@ public with sharing class MERC_TestFactory {
 			m.Daily_Food_Beverage_Amount_MERC__c = 100;
 			m.Daily_Ground_Trans_Amount_MERC__c = 50;
 			m.Daily_Hotel_Amount_MERC__c = 300;
-			m.Daily_Other_Amount_MERC__c = 800;
 			m.Daily_Registration_Amount_MERC__c = 200;
 			mtgDays.add(m);
 		}

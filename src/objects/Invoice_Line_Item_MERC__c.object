@@ -207,7 +207,7 @@ Created by John A Adams 10/27/2013</description>
         <description>Tax Amount (currency, calc based on value &amp; tax rate) 
 Created by John A Adams 10/4/2013</description>
         <externalId>false</externalId>
-        <formula>Amount_MERC__c *(VAT_Rate_MERC__c / 100) + Unit_Price_MERC__c *( VAT_Rate_MERC__c /100)</formula>
+        <formula>IF( Amount_MERC__c = 0, Amount_MERC__c *(VAT_Rate_MERC__c / 100) + Unit_Price_MERC__c *( VAT_Rate_MERC__c /100),  Amount_Adhoc_Consulting_MERC__c *(VAT_Rate_MERC__c / 100) + Unit_Price_MERC__c *( VAT_Rate_MERC__c /100))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Tax Amount</label>
         <precision>18</precision>

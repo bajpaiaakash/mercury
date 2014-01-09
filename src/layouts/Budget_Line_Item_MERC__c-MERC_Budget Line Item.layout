@@ -27,6 +27,10 @@
                 <behavior>Edit</behavior>
                 <field>Meeting_Vendor_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Approved_PO_Number_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

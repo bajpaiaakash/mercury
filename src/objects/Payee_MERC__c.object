@@ -432,7 +432,11 @@ Moved from Account to Payee 11/22/2013 by KLorenti, Mavens Consulting</descripti
     <listViews>
         <fullName>All</fullName>
         <columns>Account_MERC__c</columns>
+        <columns>NAME</columns>
         <columns>SAP_Vendor_ID_MERC__c</columns>
+        <columns>Primary_Payee_MERC__c</columns>
+        <columns>Payee_Country_MERC__c</columns>
+        <columns>CURRENCY_ISO_CODE</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
         <language>en_US</language>

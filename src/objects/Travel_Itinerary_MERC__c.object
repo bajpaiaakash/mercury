@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <actionOverrides>
         <actionName>Accept</actionName>
         <type>Default</type>
@@ -54,64 +54,214 @@ Created by John A Adams 10/9/2013</description>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
     <fields>
-        <fullName>Address_MERC__c</fullName>
-        <description>Address of Hotel or Vehicle rental organization
-Created by John A Adams 11/2/2013</description>
+        <fullName>Account_Number_MERC__c</fullName>
+        <description>The PNR back office account number. Oliver Dunford 14th Dec 2013</description>
         <externalId>false</externalId>
-        <label>Address</label>
-        <length>32768</length>
-        <trackTrending>false</trackTrending>
-        <type>LongTextArea</type>
-        <visibleLines>3</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Arrival_Date_Time_MERC__c</fullName>
-        <description>Arrival date and time
-Created by John A Adams 10/31/2013</description>
-        <externalId>false</externalId>
-        <label>Arrival Date &amp; Time</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>DateTime</type>
-    </fields>
-    <fields>
-        <fullName>Check_in_Date_MERC__c</fullName>
-        <description>Check-in Date
-Created by John A Adams 11/2/2013</description>
-        <externalId>false</externalId>
-        <label>Check-In Date</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Check_out_Date_MERC__c</fullName>
-        <description>Check-out Date 
-Created by John A Adams 11/2/2013</description>
-        <externalId>false</externalId>
-        <label>Check-Out Date</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Class_or_Model_MERC__c</fullName>
-        <description>Class or Model of vehicle
-Created by John A Adams 11/2/2013</description>
-        <externalId>false</externalId>
-        <label>Class or Model</label>
-        <length>100</length>
+        <label>Account Number</label>
+        <length>20</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Departing_City_MERC__c</fullName>
-        <description>Transportation leg departing from
-Created by John A Adams 10/10/2013</description>
+        <fullName>Allwnc_Dstnc_Desc_MERC__c</fullName>
+        <description>The quantity of miles or kilometers of distance that is allowed for car on this segment.
+Created by John A Adams 12/13/2013</description>
         <externalId>false</externalId>
-        <label>Departing City</label>
+        <label>Allowance Distance Description</label>
+        <length>6</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Allwnc_Dstnc_Typ_MERC__c</fullName>
+        <description>The code value of the unit of measurement for the allowance distance.  The Listed below are examples and may not be complete:: 
+Miles 
+Kilometers
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Allowance Distance Type</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Arcrft_Typ_Cd_MERC__c</fullName>
+        <description>The code identifying the type of equipment servicing the flight (model of plane).   Examples:  747, 727, L10.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Aircraft Type Code</label>
+        <length>3</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Arrvl_Trmnl_Nm_MERC__c</fullName>
+        <description>The name of the air terminal where the traveler&apos;s airplane will arrive – Change of Gauge
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Arrival Terminal Name</label>
+        <length>60</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bgn_Arprt_Cd_MERC__c</fullName>
+        <description>The airport code designation for the point of origin for the trip.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Begin Airport Code</label>
+        <length>3</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bgn_City_MERC__c</fullName>
+        <description>The IATA City code designation of the car pick up location
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Begin City</label>
+        <length>3</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bgn_Sttn_Cd_MERC__c</fullName>
+        <description>The code value identifying the begin station for this rail segment.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Begin Station Code</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bgn_Sttn_Nm_MERC__c</fullName>
+        <description>The name of the location where the departure portion of this segment will occur.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Begin Station Name</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Booking_Date_MERC__c</fullName>
+        <description>The date the booking was done. Oliver Dunford 14th Dec 2013</description>
+        <externalId>false</externalId>
+        <label>Booking Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Car_Clss_Cd_MERC__c</fullName>
+        <description>The code value of the class of car requested for this segment.  Listed below are examples and may not be complete:
+ M - Mini
+ E - Economy
+ C - Compact
+ I - Intermediate
+ S - Standard
+ F - Full Size
+ P - Premium
+ L - Luxury
+ X - Special
+ O - Oversize
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Car Class Code</label>
+        <length>3</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Car_Equip_Cd_MERC__c</fullName>
+        <description>The code value of an item of option equipment that has been requested for a car segment.  Listed below are examples and may not be complete:
+ BYC - Bicycle Rack
+ CSI - Child Seat/Infant
+ CST - Child Seat/Toddler
+ HCL - Hand Control/Left
+ HCR - Hand Control/Right
+ LDP - Laserdisc Player
+ LUG - Luggage Rack
+ NAV - Navigation System
+ PHN - Mobile Phone
+ SIX - Six Passenger Car
+ SKV - Ski Equipped Vehicle
+ SNO - Snow Chains
+ TAP - Cassette Player
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Car Equipment Code</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Car_Rate_Cd_MERC__c</fullName>
+        <description>The rate code associated with the car segment.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Car Rate Code</label>
+        <length>6</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Car_Typ_Cd_MERC__c</fullName>
+        <description>The code value of the type of car requested for this segment.  Listed below are examples and may not be complete:
+ B - 2 Door
+ C - Car
+ D - 4 Door
+ F - 4 Wheel Drive
+ J - All Terrain
+ K - Truck
+ L - Limousine
+ P - Pickup
+ R - Recreation Vehicle
+ S - Sports Car
+ T - Convertible
+ V - Van
+ W - Wagon
+ X - Special
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Car Type Code</label>
+        <length>1</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Cd_Shr_Rmrk_MERC__c</fullName>
+        <description>The name of the airline that has a code share
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Code Share Remark</label>
         <length>80</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -119,22 +269,11 @@ Created by John A Adams 10/10/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Departure_Date_Time_MERC__c</fullName>
-        <description>Departure date and time 
-Created by John A Adams 10/31/2013</description>
+        <fullName>City_MERC__c</fullName>
+        <description>The name of the address city for this hotel property.
+Created by John A Adams 12/13/2013</description>
         <externalId>false</externalId>
-        <inlineHelpText>Connection Time</inlineHelpText>
-        <label>Departure Date &amp; Time</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>DateTime</type>
-    </fields>
-    <fields>
-        <fullName>Destination_City_MERC__c</fullName>
-        <description>Final destination city of travel leg
-Created by John A Adams 10/31/2013</description>
-        <externalId>false</externalId>
-        <label>Destination City</label>
+        <label>City</label>
         <length>80</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -142,47 +281,375 @@ Created by John A Adams 10/31/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Drop_off_Date_MERC__c</fullName>
-        <description>Vehicle Drop-off Date
-Created by John A Adams 11/2/2013</description>
+        <fullName>Clss_Sric_Cd_MERC__c</fullName>
+        <description>The class of service code for an air segment.  Examples include F, Y, B, Q
+Created by John A Adams 12/13/2013</description>
         <externalId>false</externalId>
-        <label>Drop-off Date</label>
+        <label>Class of Service Code</label>
+        <length>1</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>Date</type>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Final_Destination_MERC__c</fullName>
-        <description>Identifies if  this the final destination of travel?
-Created by John A Adams 10/31/2013</description>
+        <fullName>Cnnctn_Typ_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>A flag that indicates whether there is a connecting flight to this segment.
+Created by John A Adams 12/13/2013</description>
         <externalId>false</externalId>
-        <label>Final Destination</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
+        <label>Connection Type</label>
         <trackTrending>false</trackTrending>
-        <type>Picklist</type>
+        <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>Flight_Number_MERC__c</fullName>
-        <description>Flight Number or other transportation
-Created by John A Adams 10/10/2013</description>
+        <fullName>Confirmation_Number_MERC__c</fullName>
+        <description>The number received from the vendor that indicates confirmation of the reservation.   The primary use of this number is to confirm reservations at the vendor location.  Note: for an air reservation the confirmation is the same as the airline record locator. Oliver Dunford 13th Dec 2013.</description>
         <externalId>false</externalId>
-        <inlineHelpText>Flight number or other transportation</inlineHelpText>
+        <label>Confirmation Number</label>
+        <length>30</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dly_Ext_Amnt_Desc_MERC__c</fullName>
+        <description>The text describing the extra daily amount being charged for a service or product.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Daily Extra Amount Description</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dprtr_Trmnl_Nm_MERC__c</fullName>
+        <description>The name of the air terminal where the traveler&apos;s airplane will be departing.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Departure Terminal Name</label>
+        <length>60</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Drp_off_Lctn_Desc_MERC__c</fullName>
+        <description>The description of the location where a traveler is to drop off the car.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Drop off Location Description</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dstnc_Chrg_Amnt_Desc_MERC__c</fullName>
+        <description>The text describing the distance amount being charged for a service or product.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Distance Charge Amount Desc</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>End_Arprt_Cd_MERC__c</fullName>
+        <description>Airport code for the final destination of a particular leg of the trip.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>End Airport Code</label>
+        <length>3</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>End_City_MERC__c</fullName>
+        <description>The IATA City code designation of the car drop off location.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>End City</label>
+        <length>3</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>End_Sttn_Cd_MERC__c</fullName>
+        <description>The code value identifying the end station for this rail segment.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>End Station Code</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>End_Sttn_Nm_MERC__c</fullName>
+        <description>The name of the location where the return portion of this segment will occur.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>End Station Name</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Exchange_Transaction_Flag_MERC__c</fullName>
+        <description>A flag that indicates whether this ticket is being exchanged as part of the ticketing of this stored fare. Oliver Dunford 14th Dec 2013</description>
+        <externalId>false</externalId>
+        <label>Exchange Transaction Flag</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Fare_Bss_Cd_MERC__c</fullName>
+        <description>The unique identifier that is used to tie fare rules with fare amount.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Fare Basis Code</label>
+        <length>15</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Field_Nm_MERC__c</fullName>
+        <description>The name by which this definition is known.   Hardcoded to &quot;Group Code&quot; unless defined otherwise
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Field Name</label>
+        <length>30</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Field_Value_Description_MERC__c</fullName>
+        <description>The data value for this client reporting field information. Oliver Dunford 14th Dec 2013</description>
+        <externalId>false</externalId>
+        <label>Field Value Description</label>
+        <length>86</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>First_Name_MERC__c</fullName>
+        <description>First name of Traveller. Created 12/13/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Meeting_Participant_MERC__r.Account_MERC__r.FirstName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>First Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Flght_Nmbr_MERC__c</fullName>
+        <description>This is a number which identifies a specific flight from one airport to another.   The combination of Airline Code + Flight Number make it unique.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
         <label>Flight Number</label>
+        <length>4</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Gg_Chng_Arprt_Cd_MERC__c</fullName>
+        <description>The code of the airport where the traveler will use for gauge change.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Gauge Change Airport Code</label>
+        <length>5</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Hotel_Name_MERC__c</fullName>
+        <description>Name of Hotel. Created 12/13/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Meeting_Vendor_MERC__r.Account_MERC__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Hotel Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Hrly_Ext_Chrg_Amnt_Desc_MERC__c</fullName>
+        <description>The text describing the hourly extra amount being charged for a service or product.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Hourly Extra Charge Amount Description</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Htl_Addrss_Typ_MERC__c</fullName>
+        <description>Type of address for hotel is default of &quot;Alternate&quot;
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Hotel Address Type</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Htl_City_Cd_MERC__c</fullName>
+        <description>City code for the location of the hotel
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Hotel City Code</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Htl_Fax_Nmbr_MERC__c</fullName>
+        <description>FAX number of hotel
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Hotel Fax Number</label>
+        <length>14</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Htl_Phone_Nmbr_MERC__c</fullName>
+        <description>Phone number of hotel.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Hotel Phone Number</label>
+        <length>14</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Htl_Prprty_Cd_MERC__c</fullName>
+        <description>The unique system code used to identify a Hotel Property.  This attribute usually will be optional since manually booked hotels do not have a property code.  (Note -- this may vary from GDS so it is important to consider this in the use of this item.)
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Hotel Property Code</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>In_Flght_Ml_Desc_MERC__c</fullName>
+        <description>FlightDetails.MealInfo
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>In Flight Meal Description</label>
         <length>80</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>International_Flag_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>A flag that indicates whether the travel crosses international boundaries. Oliver Dunford Dec 14th 2013</description>
+        <externalId>false</externalId>
+        <label>International Flag</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Issued_GTM_Timestamp_MERC__c</fullName>
+        <description>The date and time that the ticket was actually generated.  Espressed in GMT and must be less than the stored fare&apos;s ticket by date. Oliver Dunford 14th Dec 2013.</description>
+        <externalId>false</externalId>
+        <label>Issued GTM Timestamp</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Last_Name_MERC__c</fullName>
+        <description>Last name of Traveller. Created 12/13/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Meeting_Participant_MERC__r.Account_MERC__r.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Last Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Line1_MERC__c</fullName>
+        <description>The first address line for this hotel property.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Line1</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lw_Fr_Amnt_MERC__c</fullName>
+        <description>The amount of the lowest fare captured for this segment grouping.  Lowest fare available for the flight routing.  This is dependent on the travel counselor doing a low fare search.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Low Fare Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Manual_Booking_Flag_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>A flag that indicates whether this segment was manually booked. 14th Dec 2013.</description>
+        <externalId>false</externalId>
+        <label>Manual Booking Flag</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Meeting_Participant_MERC__c</fullName>
@@ -233,18 +700,38 @@ Created by J Adams 12/10/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Number_of_Nights_MERC__c</fullName>
-        <description>Number of nights in hotel
-Created by John A Adams 11/2/2013</description>
+        <fullName>Middle_Name_MERC__c</fullName>
+        <description>Middle name of Traveller. Created 12/13/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <formula>Check_out_Date_MERC__c - Start_Date_MERC__c</formula>
+        <formula>Meeting_Participant_MERC__r.Account_MERC__r.Mdl_Nm_GLBL__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Number of Nights</label>
-        <precision>18</precision>
+        <label>Middle Name</label>
         <required>false</required>
-        <scale>2</scale>
         <trackTrending>false</trackTrending>
-        <type>Number</type>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Mssd_Rsn_Cd_MERC__c</fullName>
+        <description>This code describes the reason the lowest fare was not used.</description>
+        <externalId>false</externalId>
+        <label>Missed Reason Code</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Mssge_Vrsn_MERC__c</fullName>
+        <description>The schema version a document instance conforms to
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Message Version</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -259,21 +746,11 @@ Created by John A Adams 11/2/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Phone_MERC__c</fullName>
-        <description>Phone Number of Hotel or Vehicle rental
-Created by John A Adams 11/2/2013</description>
+        <fullName>Pck_Up_Lctn_Desc_MERC__c</fullName>
+        <description>The description of the location where a traveler is to pick up the car.
+Created by John A Adams 12/13/2013</description>
         <externalId>false</externalId>
-        <label>Phone</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Phone</type>
-    </fields>
-    <fields>
-        <fullName>Reservation_MERC__c</fullName>
-        <description>Reservation Number of Hotel 
-Created by John A Adams 11/2/2013</description>
-        <externalId>false</externalId>
-        <label>Reservation #</label>
+        <label>Pick Up Location Description</label>
         <length>50</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -281,17 +758,343 @@ Created by John A Adams 11/2/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Start_Date_MERC__c</fullName>
-        <description>Date that travel arrangement starts
-Created by John A Adams 10/31/2013</description>
+        <fullName>Priority_MERC__c</fullName>
+        <description>Priority to apply Low (0-4) or High (5-9) if priority handling is necessary.  Unspecified in PNR data sync.
+Created by John A Adams 12/13/2013</description>
         <externalId>false</externalId>
-        <label>Start Date</label>
+        <label>Priority</label>
+        <precision>2</precision>
         <required>false</required>
+        <scale>0</scale>
         <trackTrending>false</trackTrending>
-        <type>Date</type>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Travel_Detail_Type__c</fullName>
+        <fullName>Prprty_Nm_MERC__c</fullName>
+        <description>The name of the hotel property.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Property Name</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Pseudo_City_MERC__c</fullName>
+        <description>This is a code assigned by a GDS uniquely identifying an &apos;address&apos; on their GDS network. A branch typically has a single &apos;pseudo&apos; per GDS they&apos;re connected to. Oliver Dunford 14th Dec 2013</description>
+        <externalId>false</externalId>
+        <label>Pseudo City</label>
+        <length>86</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Pseudo_City_Type_MERC__c</fullName>
+        <description>The code value of the purpose of the Pseudo City.  Listed below are examples and may not be complete:
+ - Booking
+ - Ticketing
+Oliver Dunford 14th Dec</description>
+        <externalId>false</externalId>
+        <label>Pseudo City Type</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Rail_Fr_Bss_Cd_MERC__c</fullName>
+        <description>The unique identifier that is used to tie fare rules with fare amounts.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Rail Fare Basis Code</label>
+        <length>15</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Rate_Fare_Amount_MERC__c</fullName>
+        <description>The amount of the rate or fare charge for this segment. Oliver Dunford 14th Dec 2013.</description>
+        <externalId>false</externalId>
+        <label>Rate Fare Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Reservation_Type_MERC__c</fullName>
+        <defaultValue>&quot;Business&quot;</defaultValue>
+        <description>The code value of the type of travel that describes this reservation.  Hardcoded to &quot;Business&quot; Oliver Dunford 14th Dec 2013</description>
+        <externalId>false</externalId>
+        <label>Reservation Type</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Rm_Adlt_Qntty_MERC__c</fullName>
+        <description>The quantity of adults staying in the room.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Room Adult Quantity</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Rm_Crib_Qntty_MERC__c</fullName>
+        <description>The number of cribs in room
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Room Crib Quantity</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Rm_Ext_Adlt_Qntty_MERC__c</fullName>
+        <description>The quantity of extra adults staying in the room.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Room Extra Adult Quantity</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Rm_Ext_Chld_Qntty_MERC__c</fullName>
+        <description>The quantity of extra children staying in the room.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Room Extra Child Quantity</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Rm_Typ_Cd_MERC__c</fullName>
+        <description>The code detailing the type of room, number of beds, and size of beds.  Examples are A1K and A1Q.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Room Type Code</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Rsrvd_Unt_Qntty_MERC__c</fullName>
+        <description>The quantity of units that have been reserved for this segment. Field populated for hotel segment only and will include number of rooms.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Reserved Unit Quantity</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Seat_Nmbr_MERC__c</fullName>
+        <description>The seat number assigned to passenger for this segment.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Seat Number</label>
+        <length>5</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Segment_Number__c</fullName>
+        <description>The number that identifies a specific segment within a supplier record locator. Oliver Dunford 14th Dec 2013.</description>
+        <externalId>false</externalId>
+        <label>Segment Number</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Segment_Type_Description_MERC__c</fullName>
+        <description>The type of segment. Listed below are examples and may not be complete:
+Airline 
+Car
+Hotel
+Limousine
+Rail
+
+Oliver Dunford 14th Dec</description>
+        <externalId>false</externalId>
+        <label>Segment Type Description</label>
+        <length>30</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sgmnt_Bgin_TS_MERC__c</fullName>
+        <description>The begin date and time of this segment.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Segment Begin Timestamp</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Sgmnt_End_TS_MERC__c</fullName>
+        <description>The end date and time of this segment.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Segment End Timestamp</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Sgmnt_Trvl_Drtn_Vl_MERC__c</fullName>
+        <description>The estimated flying time duration in hours and minutes
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Segment Travel Duration Value</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>State_Prvnc_MERC__c</fullName>
+        <description>The code value of the address state/province for this hotel property.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>State Province</label>
+        <length>3</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Supplier_Service_MERC__c</fullName>
+        <description>The identifying code used for this supplier service.  Listed below are examples and may not be complete:
+ - Sabre
+ - Apollo
+ - Worldspan
+ - etc
+
+Oliver Dunford 14th Dec 2013.</description>
+        <externalId>false</externalId>
+        <label>Supplier Service</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Supplier_Status_Code_MERC__c</fullName>
+        <description>The code value of the supplier status of this segment.  Listed below are examples and may not be complete:
+ BK - Booked
+ HK - Confirmed Flight
+
+Oliver Dunford 14th Dec 2013</description>
+        <externalId>false</externalId>
+        <label>Supplier Status Code</label>
+        <length>2</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tag_Name_MERC__c</fullName>
+        <description>The tag identifier for a reporting field.   It is either expressed as a UDID field or as customer-defined tag. Hardcoded to &quot;GroupCode&quot; unless defined otherwise. Oliver Dunford 14th Dec</description>
+        <externalId>false</externalId>
+        <label>Tag Name</label>
+        <length>30</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Ticket_Number_MERC__c</fullName>
+        <description>The ticket number that comes back from the supplier service when the ticket is generated.  This does not include the 3 character validating carrier code (which is the final part of the &quot;ticket number&quot; sent by the CRS). Oliver Dunford 14th Dec 2013.</description>
+        <externalId>false</externalId>
+        <label>Ticket Number</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Fare_Amount_MERC__c</fullName>
+        <description>The total amount of the fare including taxes. Oliver Dunford 14th Dec 2013.</description>
+        <externalId>false</externalId>
+        <label>Total Fare Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Transaction_Id_MERC__c</fullName>
+        <description>A unique GUID identifier assigned to each transaction to enable tracking through multiple systems (e.g. &quot;7855b14e-01d6-4432-894b-97c88e6c606d&quot;)
+Created by John A Adams 12/13/2013</description>
+        <externalId>true</externalId>
+        <label>Transaction Id</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Transaction_Type_MERC__c</fullName>
+        <description>Indicates if the transaction is Cancelled, Ticketed, Passed_OC, or Booked Oliver Dunford 14th Dec 2013.</description>
+        <externalId>false</externalId>
+        <label>Transaction Type</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Travel_Detail_Typ_MERC__c</fullName>
         <description>Identifies what details of travel
 Created by John A Adams 10/31/2013</description>
         <externalId>false</externalId>
@@ -323,6 +1126,130 @@ Created by John A Adams 10/31/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Traveler_Ref_Id_MERC__c</fullName>
+        <description>Key to TravelerList/Traveler/ @id Oliver Dunford 14th Dec 2013.</description>
+        <externalId>false</externalId>
+        <label>Traveler Ref Id</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Traveller_Name_MERC__c</fullName>
+        <description>Display Account Name. Created 12/13/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Meeting_Participant_MERC__r.Account_MERC__r.FirstName  &amp;  
+&quot; &quot; &amp;
+Meeting_Participant_MERC__r.Account_MERC__r.Mdl_Nm_GLBL__c  &amp;  
+&quot; &quot; &amp;
+Meeting_Participant_MERC__r.Account_MERC__r.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Traveller Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Trn_Cch_Nmbr_MERC__c</fullName>
+        <description>The identifying number of the assign coach within a train for a rail segment.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Train Coach Number</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Trn_Nmbr_MERC__c</fullName>
+        <description>This is a number which identifies a specific rail-trip from one station to another. Similar to an air segment&apos;s flight number.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Train Number</label>
+        <length>12</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Trvl_Dstnc_Vl_MERC__c</fullName>
+        <description>The actual air miles from the departure city to the arrival city.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Travel Distance Value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Trvlr_Id_Rfrnc_MERC__c</fullName>
+        <description>Traveler Id reference to segment
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Traveler Id Reference</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Vendor_Class_Code_MERC__c</fullName>
+        <description>The code value representing the class of vendor.  Listed below are examples and may not be complete:
+Airline = 1
+Car = 2
+Hotel = 3
+Limousine = 4
+Rail = 5
+
+Oliver Dunford 14th Dec 2013.</description>
+        <externalId>false</externalId>
+        <label>Vendor Class Code</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Vendor_Classification_MERC__c</fullName>
+        <description>The vendor classification.  Listed below are examples and may not be complete:
+Airline 
+Car
+Hotel
+Limousine
+Rail
+Oliver Dunford 14 Dec 2013.</description>
+        <externalId>false</externalId>
+        <label>Vendor Classification</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Vendor_Code_MERC__c</fullName>
+        <description>The code value that representing a vendor company. Oliver Dunford 14th Dec 2013.</description>
+        <externalId>false</externalId>
+        <label>Vendor Code</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Vendor_MERC__c</fullName>
         <description>Airline, Hotel, Car Rental Agency
 Created by John A Adams 10/10/2013</description>
@@ -334,15 +1261,46 @@ Created by John A Adams 10/10/2013</description>
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>Vendor_Name_MERC__c</fullName>
+        <description>The name of a vendor company. Oliver Dunford 14th Dec 2013.</description>
+        <externalId>false</externalId>
+        <label>Vendor Name</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Zip_Pstl_Cd_MERC__c</fullName>
+        <description>The postal code of the address for this hotel property.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>Zip Postal Code</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>eTicket_Flg_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>A flag that indicates whether this air segment can be electronically ticketed.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <label>eTicket Flag</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <label>Travel Itinerary</label>
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
         <columns>RECORDTYPE</columns>
-        <columns>Start_Date_MERC__c</columns>
         <columns>Meeting_Vendor_MERC__c</columns>
-        <columns>Reservation_MERC__c</columns>
-        <columns>Travel_Detail_Type__c</columns>
+        <columns>Travel_Detail_Typ_MERC__c</columns>
         <columns>Vendor_MERC__c</columns>
         <columns>CREATED_DATE</columns>
         <filterScope>Everything</filterScope>
@@ -356,23 +1314,46 @@ Created by John A Adams 10/10/2013</description>
     </nameField>
     <pluralLabel>Travel Itineraries</pluralLabel>
     <recordTypes>
-        <fullName>Accommodations_MERC</fullName>
+        <fullName>Air_MERC</fullName>
         <active>true</active>
-        <description>Hotel Information</description>
-        <label>Accommodations</label>
+        <description>Air travel Information</description>
+        <label>Air</label>
         <picklistValues>
-            <picklist>Final_Destination_MERC__c</picklist>
+            <picklist>Travel_Detail_Typ_MERC__c</picklist>
             <values>
-                <fullName>No</fullName>
+                <fullName>Connection Leg</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes</fullName>
+                <fullName>Inbound Leg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outbound Leg</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Car_MERC</fullName>
+        <active>true</active>
+        <description>Car Rental Information</description>
+        <label>Car</label>
         <picklistValues>
-            <picklist>Travel_Detail_Type__c</picklist>
+            <picklist>Travel_Detail_Typ_MERC__c</picklist>
+            <values>
+                <fullName>Vehicle Rental</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Hotel_MERC</fullName>
+        <active>true</active>
+        <description>Hotel Information</description>
+        <label>Hotel</label>
+        <picklistValues>
+            <picklist>Travel_Detail_Typ_MERC__c</picklist>
             <values>
                 <fullName>Accommodation</fullName>
                 <default>true</default>
@@ -380,23 +1361,16 @@ Created by John A Adams 10/10/2013</description>
         </picklistValues>
     </recordTypes>
     <recordTypes>
-        <fullName>Flights</fullName>
+        <fullName>Limo_Service_MERC</fullName>
         <active>true</active>
-        <description>Flight Information</description>
-        <label>Flight</label>
+        <description>Limo Service travel Information</description>
+        <label>Limo Service</label>
         <picklistValues>
-            <picklist>Final_Destination_MERC__c</picklist>
+            <picklist>Travel_Detail_Typ_MERC__c</picklist>
             <values>
-                <fullName>No</fullName>
+                <fullName>Accommodation</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Travel_Detail_Type__c</picklist>
             <values>
                 <fullName>Connection Leg</fullName>
                 <default>false</default>
@@ -409,80 +1383,49 @@ Created by John A Adams 10/10/2013</description>
                 <fullName>Outbound Leg</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
-    </recordTypes>
-    <recordTypes>
-        <fullName>Transportation_MERC</fullName>
-        <active>true</active>
-        <description>Ground Transportation Information</description>
-        <label>Ground Transportation</label>
-        <picklistValues>
-            <picklist>Final_Destination_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Travel_Detail_Type__c</picklist>
-            <values>
-                <fullName>Connection Leg</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Inbound Leg</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Outbound Leg</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-    </recordTypes>
-    <recordTypes>
-        <fullName>Vehicle_MERC</fullName>
-        <active>true</active>
-        <description>Vehicle Rental Information</description>
-        <label>Vehicle</label>
-        <picklistValues>
-            <picklist>Final_Destination_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Travel_Detail_Type__c</picklist>
             <values>
                 <fullName>Vehicle Rental</fullName>
-                <default>true</default>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Rail_MERC</fullName>
+        <active>true</active>
+        <description>Rail travel Information</description>
+        <label>Rail</label>
+        <picklistValues>
+            <picklist>Travel_Detail_Typ_MERC__c</picklist>
+            <values>
+                <fullName>Connection Leg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inbound Leg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outbound Leg</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
     </recordTypes>
     <searchLayouts>
-        <lookupDialogsAdditionalFields>Travel_Detail_Type__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Travel_Detail_Typ_MERC__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Vendor_MERC__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Start_Date_MERC__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Flight_Number_MERC__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Departing_City_MERC__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Destination_City_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields xsi:nil="true"/>
+        <lookupDialogsAdditionalFields xsi:nil="true"/>
+        <lookupDialogsAdditionalFields xsi:nil="true"/>
+        <lookupDialogsAdditionalFields xsi:nil="true"/>
         <searchFilterFields>NAME</searchFilterFields>
         <searchFilterFields>Vendor_MERC__c</searchFilterFields>
-        <searchFilterFields>Flight_Number_MERC__c</searchFilterFields>
-        <searchFilterFields>Departing_City_MERC__c</searchFilterFields>
-        <searchFilterFields>Start_Date_MERC__c</searchFilterFields>
-        <searchFilterFields>Travel_Detail_Type__c</searchFilterFields>
+        <searchFilterFields xsi:nil="true"/>
+        <searchFilterFields xsi:nil="true"/>
+        <searchFilterFields xsi:nil="true"/>
+        <searchFilterFields>Travel_Detail_Typ_MERC__c</searchFilterFields>
         <searchFilterFields>RECORDTYPE</searchFilterFields>
-        <searchFilterFields>Final_Destination_MERC__c</searchFilterFields>
-        <searchFilterFields>Destination_City_MERC__c</searchFilterFields>
+        <searchFilterFields xsi:nil="true"/>
+        <searchFilterFields xsi:nil="true"/>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

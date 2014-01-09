@@ -1607,7 +1607,7 @@
     <recordTypes>
         <fullName>HCP_GLBL</fullName>
         <active>true</active>
-        <description>Health Care Professional</description>
+        <description>Health Care Provider</description>
         <label>HCP</label>
         <picklistValues>
             <picklist>Academic_Qualifications_MERC__c</picklist>
@@ -3049,7 +3049,7 @@
             </values>
             <values>
                 <fullName>Yes</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -3210,7 +3210,7 @@
     <recordTypes>
         <fullName>Non_HCP_MERC</fullName>
         <active>true</active>
-        <description>Potential meeting participants who are not a HCP</description>
+        <description>Potential meeting participants who are not Health Care Providers</description>
         <label>Non-HCP</label>
         <picklistValues>
             <picklist>Academic_Qualifications_MERC__c</picklist>

@@ -183,7 +183,7 @@ Created by John A Adams 10/17/2013</description>
     </fields>
     <fields>
         <fullName>HCP_Obligations_MERC__c</fullName>
-        <description>Records any contract specific HCP obligations
+        <description>Records any contract specific Health Care Provider obligations
 Created by John A Adams 10/17/2013</description>
         <externalId>false</externalId>
         <label>HCP Obligations</label>

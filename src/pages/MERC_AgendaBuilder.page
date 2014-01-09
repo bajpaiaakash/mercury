@@ -36,24 +36,70 @@
 			    $(this).val(i + 1);
 			});
 		}
+
+		function handleControllerResponse() {
+			var controllerHasError = document.getElementById("{!$Component.mainForm.controllerHasError}").innerHTML;
+
+			setTimeZones();
+		}
 	</script>
+	<style>
+		table.list.agendaItems td {
+			vertical-align: top !important;
+		}
+
+		table.list.agendaItems td textarea {
+			min-width: 200px;
+			height:44px;
+		}
+	</style>
 	<apex:sectionHeader subtitle="Event Agenda" title="{!parent['Name']}"/>
-	<apex:pageMessage title="" summary="Set all Agenda Item dates/times according to the meeting time zone." severity="info" strength="3" />
-	<apex:form >
-		<apex:actionFunction name="setTimeZones" action="{!setTimeZones}" oncomplete="toggleLoading()" reRender="mainBlock">
-			<apex:param name="notify" value="1"/>
-			<apex:param name="msg" value="Meeting Agenda updated successfully!"/>
-		</apex:actionFunction>
+	<apex:form id="mainForm">
+		<apex:outputPanel id="controllerResponseWrapper">
+			<apex:outputText value="{!hasError}" id="controllerHasError" style="display:none;"/>
+			<apex:actionFunction name="setTimeZones" action="{!setTimeZones}" oncomplete="toggleLoading()" reRender="mainBlock">
+				<apex:param name="notify" value="1"/>
+				<apex:param name="msg" value="{!pageMessage}"/>
+			</apex:actionFunction>
+		</apex:outputPanel>
 		<div class="aeu" style="position:relative;">
+			
+			<apex:outputPanel rendered="{!meeting.Agenda_Status_MERC__c == 'Final'}" id="confirmWrapper">
+				<div class="message infoM3" role="alert">
+			        <table border="0" cellpadding="0" cellspacing="0" class="messageTable" style="padding:0px;margin:0px;">
+			            <tbody><tr valign="top">
+			                <td>
+			                    <img alt="info" src="/s.gif" class="msgIcon" title="info"/>
+			                </td>
+			                <td class="messageCell" style="padding-left:5px;">
+			                	<apex:outputLabel style="font-weight:bold;padding-right:3px;" for="chkConfirm"
+			                		value="{!$ObjectType.Agenda_Item_MERC__c.fields.Cnfrm_Chg_Fnl_Agnd_MERC__c.label}"/>
+			                	<apex:inputCheckbox id="chkConfirm" 
+			                		value="{!confirmAgendaChange}"/>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td></td>
+			                <td>
+			                </td>
+			            </tr>
+			        </tbody></table>
+			    </div>
+			</apex:outputPanel>
+
 			<apex:pageBlock title="Event Agenda" mode="edit" id="mainBlock">
 				<apex:pageMessages />
+				
+				<!-- BUTTONS -->
 				<apex:pageBlockButtons >
-					<apex:commandButton value="Save" action="{!save}" reRender="mainBlock" 
-						onclick="toggleLoading()" oncomplete="setTimeZones();">
+					<apex:commandButton value="Save" action="{!save}" reRender="mainBlock, controllerResponseWrapper, confirmWrapper" 
+						onclick="toggleLoading()" oncomplete="handleControllerResponse();">
 						<apex:param name="retNull" value="1"/>
 					</apex:commandButton>
 					<apex:commandButton value="Back to Meeting" action="{!cancel}"/>
 				</apex:pageBlockButtons>
+
+				<!-- TABLE -->
 				<apex:pageBlockTable value="{!children}" var="a" id="agendaTable" styleClass="agendaItems">
 					<apex:column width="16">
 						<apex:image value="{!URLFOR($Resource.mercury, '/img/drag-icon.gif')}" style="cursor:move;"/>
@@ -65,7 +111,7 @@
 								<apex:image value="{!URLFOR($Resource.mercury, '/img/add.png')}" style="width:16px;"/>
 							</apex:commandLink>
 						</apex:facet>
-						<apex:commandLink action="{!remove}" rerender="agendaTable" onclick="toggleLoading()" oncomplete="sortableTable();updateAgendaItemsIndex();toggleLoading();">
+						<apex:commandLink action="{!remove}" rerender="agendaTable" onclick="toggleLoading()" oncomplete="sortableTable();updateAgendaItemsIndex();toggleLoading();" immediate="true">
 							<apex:image value="{!URLFOR($Resource.mercury, '/img/delete.png')}" style="width:16px;"/>
 							<apex:param name="clientHash" value="{!a.hash}" assignTo="{!clientHash}"/>
 						</apex:commandLink>

@@ -110,98 +110,31 @@ Created by John A Adams 12/11/2013</description>
         <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
-        <fullName>Prim Affiliate Add Line 1</fullName>
+        <fullName>Primary Affiliation Addresses</fullName>
         <actions>
             <name>Prim_Affil_Add_Ln1_GLBL</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
-        <criteriaItems>
-            <field>Affiliation_GLBL__c.Priority_Rank_Nbr_GLBL__c</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </criteriaItems>
-        <description>Triggers copying the HCO Primary Address Line 1 to the Primary Affiliate Address Line 1
-Created by John A Adams 12/12/2013</description>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
-        <fullName>Prim Affiliate Add Line 2</fullName>
         <actions>
             <name>Prim_Affil_Add_Ln2_GLBL</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
-        <criteriaItems>
-            <field>Affiliation_GLBL__c.Priority_Rank_Nbr_GLBL__c</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </criteriaItems>
-        <description>Triggers copying the HCO Primary Address Line 2 to the Primary Affiliate Address Line 2. Created by John A Adams 12/12/2013</description>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
-        <fullName>Prim Affiliate City</fullName>
-        <actions>
-            <name>Prim_Affiliate_City_GLBL</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <criteriaItems>
-            <field>Affiliation_GLBL__c.Priority_Rank_Nbr_GLBL__c</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </criteriaItems>
-        <description>Triggers copying the HCO Primary Address City to the Primary Affiliate Address City. Created by John A Adams 12/12/2013</description>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
-        <fullName>Prim Affiliate Country</fullName>
-        <actions>
-            <name>Prim_Affiliate_Country_GLBL</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <criteriaItems>
-            <field>Affiliation_GLBL__c.Priority_Rank_Nbr_GLBL__c</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </criteriaItems>
-        <description>Triggers copying the HCO Primary Address Line 1 to the Primary Affiliate Address Line 1. Created by John A Adams 12/12/2013</description>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
-        <fullName>Prim Affiliate HCO</fullName>
-        <actions>
-            <name>Prim_Affiliate_HCO_GLBL</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <criteriaItems>
-            <field>Affiliation_GLBL__c.Priority_Rank_Nbr_GLBL__c</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </criteriaItems>
-        <description>Triggers copying the HCO  to the Primary HCO. Created by John A Adams 12/12/2013</description>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
-        <fullName>Prim Affiliate Postal</fullName>
         <actions>
             <name>Prim_Affil_Postal_GLBL</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
-        <criteriaItems>
-            <field>Affiliation_GLBL__c.Priority_Rank_Nbr_GLBL__c</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </criteriaItems>
-        <description>Triggers copying the HCO Primary Address Postal Code to the Primary Affiliate Address Postal Code. Created by John A Adams 12/12/2013</description>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
-        <fullName>Prim Affiliation HCO Name</fullName>
+        <actions>
+            <name>Prim_Affiliate_City_GLBL</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Prim_Affiliate_Country_GLBL</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Prim_Affiliate_HCO_GLBL</name>
+            <type>FieldUpdate</type>
+        </actions>
         <actions>
             <name>Prim_Affiliate_HCO_Name_GLBL</name>
             <type>FieldUpdate</type>
@@ -212,7 +145,8 @@ Created by John A Adams 12/12/2013</description>
             <operation>equals</operation>
             <value>1</value>
         </criteriaItems>
-        <description>Triggers copying the HCO Name to the Primary Affiliate HCO Name. Created by John A Adams 12/12/2013</description>
+        <description>Triggers copying the HCO Primary Address fields to the Primary Affiliate Address fields
+Created by John A Adams 12/12/2013</description>
         <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>

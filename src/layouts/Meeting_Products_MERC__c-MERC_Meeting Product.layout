@@ -13,11 +13,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>Products_MERC__c</field>
+                <field>Product_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Meeting_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Indication_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns/>

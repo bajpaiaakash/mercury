@@ -18,6 +18,17 @@ public with sharing class MERC_Util {
 		update settings;
 	}
 
+	public static String getTimeZonePicklistValueForCurrentUser(Schema.DescribeFieldResult timezoneFieldDescribe) {
+		String userTimeZone = String.valueOf(UserInfo.getTimeZone());
+		List<Schema.PicklistEntry> picklistValues = timezoneFieldDescribe.getPicklistValues();
+		for (Schema.PicklistEntry pe : picklistValues) {
+			if (pe.getLabel().contains(userTimeZone)) {
+				return pe.getLabel();
+			}
+		}
+		return null;
+	}
+
 	public static String getSobjectAPIName(Sobject s) {
 		Id recordId = (Id)s.get('Id');
 		return recordId.getSObjectType().getDescribe().getName();
@@ -76,6 +87,15 @@ public with sharing class MERC_Util {
 	    return ApexPages.currentPage().getParameters().get(paramValue);
 	}
 
+	public static Map<String, String> getFieldSetLabels(Schema.SObjectType sObjectType, List<String> fieldSetAPINames) {
+		Schema.DescribeSObjectResult r1 = sObjectType.getDescribe(); 
+		Map<String, String> fieldSetNameMap = new Map<String, String>();
+		Map<String, Schema.FieldSet> fieldSetMap = r1.fieldSets.getMap();
+		for (String s : fieldSetAPINames)
+			fieldSetNameMap.put(s, fieldSetMap.get(s).getLabel());
+		return fieldSetNameMap;
+	}
+
 	public static String generateRandomString(Integer count) {
 	    String chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz';
 	    String hash = '';
@@ -84,5 +104,16 @@ public with sharing class MERC_Util {
 	        hash += chars.substring(rnum,rnum+1);
 	    }
 	    return hash;
+	}
+
+	public virtual class RemoteResponse {
+		public Boolean success;
+		public String message;
+		public String contextId;
+		public RemoteResponse(Boolean s, String m, String cid) {
+			this.success = s;
+			this.message = m;
+			this.contextId = cid;
+		}
 	}
 }

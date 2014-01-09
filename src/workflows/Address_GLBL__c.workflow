@@ -86,71 +86,23 @@ Created by John A Adams 12/11/2013</description>
         <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
-        <fullName>Prim Add City</fullName>
+        <fullName>Primary Address</fullName>
         <actions>
             <name>Prim_Add_City_MERC</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
-        <criteriaItems>
-            <field>Address_GLBL__c.Priority_Rank_Nbr_GLBL__c</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </criteriaItems>
-        <description>Triggers copying the Address City to the Primary Address City of Accounts
-Created by John A Adams 12/11/2013</description>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
-        <fullName>Prim Add Country</fullName>
         <actions>
             <name>Prim_Add_Country_MERC</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
-        <criteriaItems>
-            <field>Address_GLBL__c.Priority_Rank_Nbr_GLBL__c</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </criteriaItems>
-        <description>Triggers copying the Address Country Code to the Primary Address Country of Accounts
-Created by John A Adams 12/11/2013</description>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
-        <fullName>Prim Add Line1</fullName>
         <actions>
             <name>Prim_Add_Line1_MERC</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
-        <criteriaItems>
-            <field>Address_GLBL__c.Priority_Rank_Nbr_GLBL__c</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </criteriaItems>
-        <description>Triggers copying the Address Line 1 to the Primary Address Line 1 of Accounts
-Created by John A Adams 12/11/2013</description>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
-        <fullName>Prim Add Line2</fullName>
         <actions>
             <name>Prim_Add_Line2_MERC</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
-        <criteriaItems>
-            <field>Address_GLBL__c.Priority_Rank_Nbr_GLBL__c</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </criteriaItems>
-        <description>Triggers copying the Address Line 2 to the Primary Address Line 2 of Accounts
-Created by John A Adams 12/11/2013</description>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
-        <fullName>Prim Add Postal</fullName>
         <actions>
             <name>Prim_Add_Postal_MERC</name>
             <type>FieldUpdate</type>
@@ -161,8 +113,8 @@ Created by John A Adams 12/11/2013</description>
             <operation>equals</operation>
             <value>1</value>
         </criteriaItems>
-        <description>Triggers copying the Address Postal Code to the Primary Postal Code Extension of Accounts
-Created by John A Adams 12/11/2013</description>
+        <description>Triggers copying the Address  fields to the Primary Address Fields in Accounts
+Created by John A Adams 12/13/2013</description>
         <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>

@@ -21,6 +21,38 @@
                 <behavior>Edit</behavior>
                 <field>ParentId</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>Cust_Id_GLBL__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>Party_Rcrd_Typ_Cd_GLBL__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>Src_Sys_Cd_GLBL__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>Efctv_Start_Dt_GLBL__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>Efctv_End_Dt_GLBL__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>ODS_Ld_Tmstmp_GLBL__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>ODS_Lst_Updt_Usr_GLBL__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>ODS_Lst_Updt_Tmstmp_GLBL__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -30,10 +62,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Venue_Preference_Type_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Justification_for_Preferred_Venue_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -136,16 +164,6 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
-        <excludeButtons>New</excludeButtons>
-        <fields>NAME</fields>
-        <fields>Type_MERC__c</fields>
-        <fields>Justification_for_Sourced_Venue_MERC__c</fields>
-        <fields>Meeting_MERC__c.NAME</fields>
-        <fields>Meeting_MERC__c.Date_of_Event_MERC__c</fields>
-        <fields>UPDATEDBY_USER</fields>
-        <relatedList>Meeting_Venue_MERC__c.Account_MERC__c</relatedList>
-    </relatedLists>
-    <relatedLists>
         <fields>NAME</fields>
         <fields>Line_1_Adrs_Txt_GLBL__c</fields>
         <fields>Line_2_Adrs_Txt_GLBL__c</fields>
@@ -168,6 +186,20 @@
         <fields>VERSION.CREATED_DATE</fields>
         <fields>VERSION.LAST_UPDATE</fields>
         <relatedList>ContentVersion.Account_GLBL__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <excludeButtons>New</excludeButtons>
+        <fields>NAME</fields>
+        <fields>Parent_Meeting_MERC__c</fields>
+        <fields>Formatted_Name_MERC__c</fields>
+        <fields>Type_MERC__c</fields>
+        <fields>Date_of_Event_MERC__c</fields>
+        <fields>End_Date_of_Event_MERC__c</fields>
+        <fields>Event_Country_MERC__c</fields>
+        <fields>Approved_MERC__c</fields>
+        <fields>Meeting_Status_MERC__c</fields>
+        <fields>CREATEDBY_USER</fields>
+        <relatedList>Meeting_MERC__c.Venue_MERC__c</relatedList>
     </relatedLists>
     <relatedObjects>ParentId</relatedObjects>
     <showEmailCheckbox>false</showEmailCheckbox>

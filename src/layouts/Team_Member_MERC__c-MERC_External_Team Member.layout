@@ -23,10 +23,6 @@
                 <behavior>Required</behavior>
                 <field>Role_MERC__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Mercury_External_Id_MERC__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns/>
         <style>TwoColumnsTopToBottom</style>

@@ -22,6 +22,36 @@
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
+    <outboundMessages>
+        <fullName>RTI_Team_Member_Updated</fullName>
+        <apiVersion>29.0</apiVersion>
+        <endpointUrl>http://ec2-54-227-9-128.compute-1.amazonaws.com/rti-development/v1/genericUpdated</endpointUrl>
+        <fields>Account_MERC__c</fields>
+        <fields>Attendee_Invite_Limit_MERC__c</fields>
+        <fields>CreatedById</fields>
+        <fields>CreatedDate</fields>
+        <fields>CurrencyIsoCode</fields>
+        <fields>Id</fields>
+        <fields>IsDeleted</fields>
+        <fields>LastModifiedById</fields>
+        <fields>LastModifiedDate</fields>
+        <fields>LastReferencedDate</fields>
+        <fields>LastViewedDate</fields>
+        <fields>Meeting_MERC__c</fields>
+        <fields>Mercury_External_Id_MERC__c</fields>
+        <fields>Name</fields>
+        <fields>OwnerId</fields>
+        <fields>RecordTypeId</fields>
+        <fields>Role_MERC__c</fields>
+        <fields>Sales_Rep_Country_Code_MERC__c</fields>
+        <fields>SystemModstamp</fields>
+        <fields>User_MERC__c</fields>
+        <includeSessionId>false</includeSessionId>
+        <integrationUser>helmer@gso1.lly</integrationUser>
+        <name>RTI - Team Member Updated</name>
+        <protected>false</protected>
+        <useDeadLetterQueue>false</useDeadLetterQueue>
+    </outboundMessages>
     <rules>
         <fullName>Mercury External ID-Team Member</fullName>
         <actions>
@@ -46,6 +76,16 @@
         <active>true</active>
         <description>Ensures each new Team Member is notified that they have been added to the meeting team.</description>
         <formula>TRUE</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>RTI - Team Member Updated</fullName>
+        <actions>
+            <name>RTI_Team_Member_Updated</name>
+            <type>OutboundMessage</type>
+        </actions>
+        <active>true</active>
+        <formula>1==1</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>

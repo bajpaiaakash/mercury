@@ -24,16 +24,12 @@
                 <field>Meeting_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Approved_PO_Number_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Countries_to_Receive_Invoices_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Planned_Budget_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>InterCompany_Billing_Required_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -56,10 +52,6 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Overage_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>InterCompany_Billing_Required_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>

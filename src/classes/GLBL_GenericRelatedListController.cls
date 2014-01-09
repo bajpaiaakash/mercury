@@ -10,12 +10,12 @@ global with sharing abstract class GLBL_GenericRelatedListController {
 	public ApexPages.StandardSetController controller;
 	String parentObjectAPIName;
 	String childObjectAPIName;
-	String parentFieldAPIName;
+	public String parentFieldAPIName;
 	List<String> parentFields;
 	List<String> childFields;
 	List<String> recordTypeDeveloperNames;
 	String orderChildrenBy;
-	Id parentId = ApexPages.currentPage().getParameters().get('id');
+	public Id parentId = ApexPages.currentPage().getParameters().get('id');
 
 	public GLBL_GenericRelatedListController(
 		ApexPages.StandardSetController controller, 
@@ -114,6 +114,7 @@ global with sharing abstract class GLBL_GenericRelatedListController {
 			}
 			system.debug('>>> '+childrenList);
 			for (GenericSobjectWrapper sow : childrenList) {
+				system.debug('child so........ '+sow.so);
 				if (sow.so.Id != null) {
 					childrenToUpdate.add(sow.so);	
 				} else {

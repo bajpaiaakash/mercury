@@ -111,7 +111,6 @@ Created by John A Adams 10/3/2013</description>
         <externalId>false</externalId>
         <label>Meeting Participant</label>
         <referenceTo>Meeting_Participant_MERC__c</referenceTo>
-        <relationshipLabel>Travel</relationshipLabel>
         <relationshipName>Travel</relationshipName>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -142,7 +141,7 @@ Created by John A Adams 10/31/2013</description>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <label>Travel</label>
+    <label>Travel (to be deleted)</label>
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>

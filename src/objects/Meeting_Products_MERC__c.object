@@ -85,6 +85,20 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Indication_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Associated Meeting Product to Indication Information. Oliver Dunford 19th Dec 2013</description>
+        <externalId>false</externalId>
+        <label>Indication</label>
+        <referenceTo>Indication_GLBL__c</referenceTo>
+        <relationshipLabel>Meeting Products</relationshipLabel>
+        <relationshipName>Meeting_Products</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Meeting_MERC__c</fullName>
         <description>Master Detail Relationship between Products and Meeting. Created 10/4/2013 by KLorenti.</description>
         <externalId>false</externalId>
@@ -112,11 +126,11 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Product_Group_Id_GLBL__c</fullName>
+        <fullName>Product_Group_Id_MERC__c</fullName>
         <description>Unique identifier of product group as assigned by Lilly.
 Created by John Adams on 12/9/2013</description>
         <externalId>false</externalId>
-        <formula>Products_MERC__r.Product_Group_Id_GLBL__c</formula>
+        <formula>Product_MERC__r.Product_Group_Id_GLBL__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Product Group Id</label>
         <required>false</required>
@@ -126,10 +140,10 @@ Created by John Adams on 12/9/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Products_MERC__c</fullName>
+        <fullName>Product_MERC__c</fullName>
         <description>Master-Detail from Meeting to Product. Created 10/4/2013 by KLorenti.</description>
         <externalId>false</externalId>
-        <label>Products</label>
+        <label>Product</label>
         <referenceTo>Product_Group_GLBL__c</referenceTo>
         <relationshipLabel>Meetings</relationshipLabel>
         <relationshipName>Meeting_Products</relationshipName>
@@ -150,12 +164,12 @@ Created by John Adams on 12/9/2013</description>
     <pluralLabel>Meeting Products</pluralLabel>
     <searchLayouts>
         <lookupDialogsAdditionalFields>Meeting_MERC__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Products_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Product_MERC__c</lookupDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Meeting_MERC__c</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>Products_MERC__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Product_MERC__c</lookupPhoneDialogsAdditionalFields>
         <searchFilterFields>NAME</searchFilterFields>
         <searchFilterFields>Meeting_MERC__c</searchFilterFields>
-        <searchFilterFields>Products_MERC__c</searchFilterFields>
+        <searchFilterFields>Product_MERC__c</searchFilterFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

@@ -10,6 +10,10 @@
         <label>Account Information</label>
         <layoutColumns>
             <layoutItems>
+                <behavior>Required</behavior>
+                <field>Cust_Id_GLBL__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>OwnerId</field>
             </layoutItems>
@@ -113,6 +117,9 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
+    <miniLayout>
+        <fields>Cust_Id_GLBL__c</fields>
+    </miniLayout>
     <relatedLists>
         <fields>NAME</fields>
         <fields>Line_1_Adrs_Txt_GLBL__c</fields>
@@ -143,7 +150,6 @@
         <fields>NAME</fields>
         <fields>Meeting_MERC__c.NAME</fields>
         <fields>Status_MERC__c</fields>
-        <fields>Slot_MERC__c</fields>
         <relatedList>Meeting_Participant_MERC__c.Account_MERC__c</relatedList>
     </relatedLists>
     <relatedLists>

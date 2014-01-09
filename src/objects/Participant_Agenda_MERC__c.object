@@ -67,9 +67,21 @@
         <fullName>Meeting_Day_MERC__c</fullName>
         <description>Meeting Day</description>
         <externalId>false</externalId>
-        <formula>texT(Session_MERC__r.Start_Time_MERC_DEL__c)</formula>
+        <formula>TEXT(Session_MERC__r.Start_Time_MERC__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Meeting Day</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Meeting_ID_MERC__c</fullName>
+        <description>Formula Field to Capture Meeting ID. Not for display purposes. Created 12/16/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Session_MERC__r.Meeting_MERC__r.Id</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting ID</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>

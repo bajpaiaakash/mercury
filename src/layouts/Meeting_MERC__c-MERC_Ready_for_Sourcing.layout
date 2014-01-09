@@ -87,6 +87,10 @@
                 <behavior>Readonly</behavior>
                 <field>Sales_Rep_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Rep_Cost_Center_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -168,16 +172,39 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Logistics</label>
+        <label>Venue</label>
         <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Preferred_Venue_MERC__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Venue_Preferred_Location_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Preferred_Venue_MERC__c</field>
+                <field>Preferred_Venue_Addr_2_MERC__c</field>
             </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Venue_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Justification_for_Venue_MERC__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <style>TwoColumnsLeftToRight</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
+        <label>Logistics</label>
+        <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Technical_Requirements_MERC__c</field>
@@ -192,7 +219,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Activities_MERC__c</field>
+                <field>Number_of_Conference_Rooms_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Number_of_Break_Out_Rooms_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -210,15 +241,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Number_of_Conference_Rooms_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Number_of_Break_Out_Rooms_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Hospitality_Desk_Required_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Activities_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -487,7 +514,6 @@
         <fields>Country_of_Residence_MERC__c</fields>
         <fields>Speciality_MERC__c</fields>
         <fields>Classification_MERC__c</fields>
-        <fields>Slot_MERC__c</fields>
         <fields>Status_MERC__c</fields>
         <relatedList>Meeting_Participant_MERC__c.Meeting_MERC__c</relatedList>
     </relatedLists>
@@ -526,21 +552,13 @@
     <relatedLists>
         <customButtons>Agenda_Builder_MERC</customButtons>
         <fields>NAME</fields>
+        <fields>Agenda_Item_Description_MERC__c</fields>
         <fields>Start_Time_in_Meeting_Time_Zone_MERC__c</fields>
         <fields>End_Time_in_Meeting_Time_Zone_MERC__c</fields>
-        <fields>Meeting_Venue_MERC__c</fields>
         <fields>Room_MERC__c</fields>
         <relatedList>Agenda_Item_MERC__c.Meeting_MERC__c</relatedList>
         <sortField>Start_Time_in_Meeting_Time_Zone_MERC__c</sortField>
         <sortOrder>Asc</sortOrder>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>Account.NAME</fields>
-        <fields>Account.Venue_Preference_Type_MERC__c</fields>
-        <fields>Account.ACC_RECORDTYPE</fields>
-        <fields>Type_MERC__c</fields>
-        <relatedList>Meeting_Venue_MERC__c.Meeting_MERC__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -554,12 +572,6 @@
         <fields>Account.ACC_RECORDTYPE</fields>
         <fields>Account.NAME</fields>
         <relatedList>Meeting_Third_Party_MERC__c.Meeting_MERC__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>Number_of_Slots_MERC__c</fields>
-        <fields>CREATEDBY_USER</fields>
-        <relatedList>Slot_MERC__c.Meeting_MERC__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>

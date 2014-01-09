@@ -35,6 +35,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
+                <field>HCP_Name_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
                 <field>Country_of_Residence_MERC__c</field>
             </layoutItems>
             <layoutItems>

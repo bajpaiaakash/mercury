@@ -63,18 +63,6 @@
         <type>TextArea</type>
     </fields>
     <fields>
-        <fullName>Approved_PO_Number_MERC__c</fullName>
-        <description>Approved PO Number to be entered on Budget. Created 10/16/2013 by KLorenti, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <label>Approved PO Number</label>
-        <length>20</length>
-        <required>false</required>
-        <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Budget_Date_MERC__c</fullName>
         <description>Date Budget was created. Created 9/27/2013</description>
         <externalId>false</externalId>
@@ -93,18 +81,6 @@ Created by John A Adams 10/11/2013</description>
         <length>10</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Countries_to_Receive_Invoices_MERC__c</fullName>
-        <description>Which countries are to receive invoices?  Created 10/22/2013 by KLorenti, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <label>Countries to Receive Invoices</label>
-        <length>255</length>
-        <required>false</required>
-        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
