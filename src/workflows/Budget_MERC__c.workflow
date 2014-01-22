@@ -42,18 +42,17 @@
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
-        <fullName>Mercury External ID-Budget</fullName>
+        <fullName>Mercury External ID-Budget_MERC</fullName>
         <actions>
             <name>External_ID_Budget_MERC</name>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
         <criteriaItems>
-            <field>Budget_MERC__c.Name</field>
-            <operation>notEqual</operation>
-            <value>null</value>
+            <field>Budget_MERC__c.Mercury_External_Id_MERC__c</field>
+            <operation>equals</operation>
         </criteriaItems>
         <description>Populates the external id upon creation of a record</description>
-        <triggerType>onCreateOnly</triggerType>
+        <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>

@@ -519,6 +519,30 @@ Created by John A Adams 11/4/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Communication_Preference_MERC__c</fullName>
+        <description>The preferred channel for Mercury communication.  E.g. Email, Mail, Phone.  Collected via the Consent and Preferences object and stamped on the Account profile. Oliver Dunford 9th Jan.</description>
+        <externalId>false</externalId>
+        <label>Communication Preference</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Consulting_Project_Paid_CAP_MERC__c</fullName>
+        <description>Contains all Paid CAP for Consulting Projects.  Oliver Dunford 20th Jan 2014.</description>
+        <externalId>false</externalId>
+        <label>Consulting Project Paid CAP</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>Contract_Limitations_on_Use_MERC__c</fullName>
         <description>Hold information such as topics the Speaker does not want to speak about or reasons not to contract.
 Created by John A Adams 10/24/2013</description>
@@ -1706,7 +1730,7 @@ Created by John A Adams 11/4/2013</description>
         <externalId>true</externalId>
         <label>Customer Id</label>
         <length>40</length>
-        <required>true</required>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
@@ -2396,6 +2420,16 @@ Created by John A Adams 11/4/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Initiate_Tiering_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Kicks off the process to calculate HCP Tier. Oliver Dunford 10th Jan 2014.</description>
+        <externalId>false</externalId>
+        <label>Initiate Tiering</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Institution_Administrator_GLBL__c</fullName>
         <description>Name of the Government Institution Administrator
 Created by John A Adams 10/22/2013</description>
@@ -2485,6 +2519,18 @@ Created by John A Adams 10/28/2013</description>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Language_Preference_MERC__c</fullName>
+        <description>Used for Mercury specific language preference capture.  The mastered preferred language field is not reliable from a data perspective.  This will be captured and stored/maintained within Mercury until a time whereby the master data can be tidied if possible.  Oliver Dunford 7th Jan.</description>
+        <externalId>false</externalId>
+        <label>Language Preference</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Last_Review_Date_MERC__c</fullName>
@@ -2788,6 +2834,18 @@ Created by John A Adams 12/15/2013</description>
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
+        <fullName>Other_Specialty_Codes_GLBL__c</fullName>
+        <description>Master data speciality code. Oliver Dunford 14th Jan 2014.</description>
+        <externalId>false</externalId>
+        <label>Other Specialty Codes</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Othr_Ttl_Txt_GLBL__c</fullName>
         <description>Workforce ODS data. Created 10/18/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -2828,15 +2886,15 @@ Created by John A Adams 12/15/2013</description>
     </fields>
     <fields>
         <fullName>Paid_CAP_MERC__c</fullName>
-        <description>Paid CAP value.
-Created by John A Adams 10/31/2013</description>
+        <description>Consolidates Paid CAP from Invoices for Consulting Projects or Speaker Engagements. Oliver Dunford 20th Jan 2014.</description>
         <externalId>false</externalId>
-        <inlineHelpText>Service rendered, payment triggered. (After &apos;Services Rendered&apos; box ticked)</inlineHelpText>
+        <formula>Consulting_Project_Paid_CAP_MERC__c +  Speaking_Paid_CAP_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Paid CAP for all Services Provided for the current year.</inlineHelpText>
         <label>Paid CAP</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
@@ -3040,19 +3098,19 @@ Created by John A Adams 10/3/2013</description>
         <label>Practicing for</label>
         <picklist>
             <picklistValues>
-                <fullName>&lt;5 years</fullName>
+                <fullName>&lt;5 Years</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>5-10 years</fullName>
+                <fullName>5-10 Years</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>10-20 years</fullName>
+                <fullName>10-20 Years</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>20+ years</fullName>
+                <fullName>20+ Years</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -3312,6 +3370,17 @@ Created by John A Adams 11/4/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>RTI_Transaction_ID_MERC__c</fullName>
+        <externalId>false</externalId>
+        <label>RTI Transaction ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Rating</fullName>
         <picklist>
             <picklistValues>
@@ -3371,7 +3440,7 @@ Created by John A Adams 10/23/2013</description>
         <fullName>Remaining_CAP_MERC__c</fullName>
         <description>Calculates remaining CAP for the current calendar year.  Annual Country CAP stamped from custom settings and updated each year via Apex batch job. Oliver Dunford 7th Nov 2013.</description>
         <externalId>false</externalId>
-        <formula>Annual_CAP_Limit_MERC__c - ( Reserved_CAP_MERC__c +  Allocated_CAP_MERC__c +  Paid_CAP_MERC__c )</formula>
+        <formula>Annual_CAP_Limit_MERC__c - ( Reserved_CAP_MERC__c +  Allocated_CAP_MERC__c +  Speaking_Paid_CAP_MERC__c +  Consulting_Project_Paid_CAP_MERC__c  )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Remaining CAP</label>
         <precision>18</precision>
@@ -3577,16 +3646,32 @@ Created by John A Adams 11/4/2013</description>
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>Speaking_Paid_CAP_MERC__c</fullName>
+        <description>Paid CAP value for Speaker Meeting (excludes Consulting Projects).
+Created by John A Adams 10/31/2013</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Service rendered, payment triggered. (After &apos;Services Rendered&apos; box ticked)</inlineHelpText>
+        <label>Speaking Paid CAP</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>Src_Block_Flg_GLBL__c</fullName>
-        <defaultValue>false</defaultValue>
         <description>Source Block Flag
 Customer ODS to Mercury Mapping
 Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
         <label>Source Block Flag</label>
+        <length>1</length>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Src_Sys_Cd_GLBL__c</fullName>
@@ -3747,6 +3832,110 @@ Created by John A Adams 10/23/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Tier_1_Criteria_Met_MERC__c</fullName>
+        <description>Defines whether Tier 1 criteria for Tiering have been met. Set via workflow. Oliver Dunford 13th Jan</description>
+        <externalId>false</externalId>
+        <label>Tier 1 Criteria Met</label>
+        <length>10</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tier_1_HCP_CV_Checked_MERC__c</fullName>
+        <description>Used to confirm Tier 1 HCP post verification of CV.  Tier 1 HCP&apos;s must have CV verified. Oliver Dunford 14th Jan 2014.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>All Tier 1 HCP&apos;s must have their CV&apos;s verified before Tier 1 can be set.</inlineHelpText>
+        <label>Tier 1 HCP CV Checked</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Confirmed HCP is Tier 1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HCP is NOT Tier 1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Needs Review</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Not Required</fullName>
+                <default>true</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Tier_1_Score_MERC__c</fullName>
+        <description>Stores the score against Tier 1 criteria inclusive of commentary. Oliver Dunford 13th Jan 2013.</description>
+        <externalId>false</externalId>
+        <label>Tier 1 Score</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tier_2_Criteria_Met_MERC__c</fullName>
+        <description>Defines whether Tier 2 criteria for Tiering have been met. Set via workflow. Oliver Dunford 13th Jan</description>
+        <externalId>false</externalId>
+        <label>Tier 2 Criteria Met</label>
+        <length>10</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tier_2_Score_MERC__c</fullName>
+        <description>Stores the score against Tier 2 criteria inclusive of commentary. Oliver Dunford 13th Jan 2013.</description>
+        <externalId>false</externalId>
+        <label>Tier 2 Score</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tier_3_Criteria_Met_MERC__c</fullName>
+        <description>Defines whether Tier 3 criteria for Tiering have been met.  Set via workflow.  Oliver Dunford 13th Jan</description>
+        <externalId>false</externalId>
+        <label>Tier 3 Criteria Met</label>
+        <length>10</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tier_3_Score_MERC__c</fullName>
+        <description>Stores the score against Tier 3 criteria inclusive of commentary. Oliver Dunford 13th Jan 2013.</description>
+        <externalId>false</externalId>
+        <label>Tier 3 Score</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Title_Desc_GLBL__c</fullName>
         <description>Title Description
 Customer ODS to Mercury Mapping
@@ -3869,7 +4058,7 @@ Created by John A Adams 11/4/2013</description>
         <fullName>Utilised_CAP_MERC__c</fullName>
         <description>Shows how much CAP has been utilised for the current year for each HCP. Oliver Dunford 7th Nov 2013.</description>
         <externalId>false</externalId>
-        <formula>(Reserved_CAP_MERC__c +  Allocated_CAP_MERC__c +  Paid_CAP_MERC__c )  /  Annual_CAP_Limit_MERC__c</formula>
+        <formula>(Reserved_CAP_MERC__c +  Allocated_CAP_MERC__c +  Speaking_Paid_CAP_MERC__c +  Consulting_Project_Paid_CAP_MERC__c )  /  Annual_CAP_Limit_MERC__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Utilised CAP</label>
         <precision>18</precision>
@@ -3994,7 +4183,7 @@ Created by John A Adams 11/4/2013</description>
         <columns>Country_of_Residence_GLBL__c</columns>
         <columns>Annual_CAP_Limit_MERC__c</columns>
         <columns>Allocated_CAP_MERC__c</columns>
-        <columns>Paid_CAP_MERC__c</columns>
+        <columns>Speaking_Paid_CAP_MERC__c</columns>
         <columns>Reserved_CAP_MERC__c</columns>
         <filterScope>Everything</filterScope>
         <label>All Accounts</label>
@@ -4003,6 +4192,11 @@ Created by John A Adams 11/4/2013</description>
     <listViews>
         <fullName>All_Vendors</fullName>
         <columns>ACCOUNT.NAME</columns>
+        <columns>Primary_Addr_Line1_GLBL__c</columns>
+        <columns>Primary_Addr_Line2_GLBL__c</columns>
+        <columns>Primary_Addr_City_GLBL__c</columns>
+        <columns>Primary_Address_Country_GLBL__c</columns>
+        <columns>Prim_Affil_Pstl_Cd_Extnsn_GLBL__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>ACCOUNT.RECORDTYPE</field>
@@ -4015,7 +4209,7 @@ Created by John A Adams 11/4/2013</description>
     <listViews>
         <fullName>All_Venues</fullName>
         <columns>ACCOUNT.NAME</columns>
-        <columns>ACCOUNT.TYPE</columns>
+        <columns>Venue_Preference_Type_MERC__c</columns>
         <columns>Last_Review_Date_MERC__c</columns>
         <columns>Primary_Addr_Line1_GLBL__c</columns>
         <columns>Primary_Addr_Line2_GLBL__c</columns>
@@ -4038,7 +4232,7 @@ Created by John A Adams 11/4/2013</description>
         <columns>Country_of_Residence_GLBL__c</columns>
         <columns>Annual_CAP_Limit_MERC__c</columns>
         <columns>Allocated_CAP_MERC__c</columns>
-        <columns>Paid_CAP_MERC__c</columns>
+        <columns>Speaking_Paid_CAP_MERC__c</columns>
         <columns>Reserved_CAP_MERC__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
@@ -4070,23 +4264,24 @@ Created by John A Adams 11/4/2013</description>
         <language>en_US</language>
     </listViews>
     <listViews>
-        <fullName>Preferred_Venues</fullName>
+        <fullName>RTI</fullName>
         <columns>ACCOUNT.NAME</columns>
-        <columns>Preferred_Venue_MERC__c</columns>
-        <columns>Last_Review_Date_MERC__c</columns>
-        <columns>Justification_for_Preferred_Venue_MERC__c</columns>
+        <columns>ACCOUNT.RECORDTYPE</columns>
+        <columns>Mercury_External_Id_MERC__c</columns>
+        <columns>RTI_Transaction_ID_MERC__c</columns>
+        <columns>ACCOUNT.LAST_UPDATE</columns>
+        <columns>ACCOUNT.SITE</columns>
+        <columns>ACCOUNT.ADDRESS1_STATE</columns>
+        <columns>ACCOUNT.PHONE1</columns>
+        <columns>ACCOUNT.TYPE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>ACCOUNT.ACCOUNT_NUMBER</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>ACCOUNT.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Account.Venue_GLBL</value>
+            <field>RTI_Transaction_ID_MERC__c</field>
+            <operation>notEqual</operation>
         </filters>
-        <filters>
-            <field>Preferred_Venue_MERC__c</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </filters>
-        <label>Preferred Venues</label>
+        <label>RTI</label>
         <language>en_US</language>
     </listViews>
     <namedFilters>
@@ -4162,64 +4357,57 @@ Created by John A Adams 11/4/2013</description>
         <name>Invoice_Health Care Organization</name>
     </namedFilters>
     <namedFilters>
-        <fullName>nf_01I11000000CjxfEAC_00N11000000TEjhEAG</fullName>
+        <fullName>nf_01I11000000CjxfEAC_00N11000000TQdMEAW</fullName>
         <active>true</active>
-        <field>Invoice_MERC__c.Customer_Name_MERC__c</field>
+        <field>Invoice_MERC__c.Lilly_Affiliate_MERC__c</field>
         <filterItems>
-            <field>Account.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Lilly Affiliate Business</value>
+            <field>Account.Name</field>
+            <operation>contains</operation>
+            <value>Lilly</value>
         </filterItems>
         <isOptional>false</isOptional>
-        <name>Invoice_Customer Name</name>
+        <name>Invoice_Lilly Affiliate</name>
     </namedFilters>
     <namedFilters>
-        <fullName>nf_01I11000000CjxpEAC_00N11000000TEu1EAG</fullName>
+        <fullName>nf_01I11000000CjxpEAC_00N11000000SbwOEAS</fullName>
         <active>true</active>
-        <field>Meeting_Participant_MERC__c.Lilly_Affiliate_MERC__c</field>
+        <booleanFilter>1 OR 2 OR 3</booleanFilter>
+        <field>Meeting_Participant_MERC__c.Account_MERC__c</field>
         <filterItems>
-            <field>Account.RecordTypeId</field>
+            <field>Account.RecordType.Name</field>
             <operation>equals</operation>
-            <value>Lilly Affiliate Business</value>
+            <value>HCP</value>
+        </filterItems>
+        <filterItems>
+            <field>Account.RecordType.Name</field>
+            <operation>equals</operation>
+            <value>Non-HCP</value>
+        </filterItems>
+        <filterItems>
+            <field>Account.RecordType.Name</field>
+            <operation>equals</operation>
+            <value>Employee</value>
         </filterItems>
         <isOptional>false</isOptional>
-        <name>Meeting Participant_Lilly Affiliate</name>
-    </namedFilters>
-    <namedFilters>
-        <fullName>nf_01I11000000Ck6cEAC_00N11000000TEmREAW</fullName>
-        <active>true</active>
-        <field>HCP_Contract_MERC__c.Lilly_Affiliate_MERC__c</field>
-        <filterItems>
-            <field>Account.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Lilly Affiliate Business</value>
-        </filterItems>
-        <isOptional>false</isOptional>
-        <name>HCP Contract_Lilly Affiliate</name>
+        <name>Meeting Participant_Account</name>
     </namedFilters>
     <namedFilters>
         <fullName>nf_01I11000000CkBhEAK_00N11000000Sf1fEAC</fullName>
         <active>true</active>
+        <booleanFilter>1 OR 2</booleanFilter>
         <field>Meeting_Vendor_MERC__c.Account_MERC__c</field>
         <filterItems>
             <field>Account.RecordTypeId</field>
             <operation>equals</operation>
             <value>Vendor</value>
         </filterItems>
-        <isOptional>false</isOptional>
-        <name>Meeting Vendor_Account</name>
-    </namedFilters>
-    <namedFilters>
-        <fullName>nf_01I11000000CkVrEAK_00N11000000Sl1REAS</fullName>
-        <active>false</active>
-        <field>Meeting_Third_Party_MERC__c.Account_MERC__c</field>
         <filterItems>
             <field>Account.RecordTypeId</field>
             <operation>equals</operation>
             <value>Third Party Organization</value>
         </filterItems>
         <isOptional>false</isOptional>
-        <name>Meeting Third Party_Account</name>
+        <name>Meeting Vendor_Account</name>
     </namedFilters>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
@@ -5674,19 +5862,19 @@ Created by John A Adams 11/4/2013</description>
         <picklistValues>
             <picklist>Practicing_for_MERC__c</picklist>
             <values>
-                <fullName>%3C5 years</fullName>
+                <fullName>%3C5 Years</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>10-20 years</fullName>
+                <fullName>10-20 Years</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>20%2B years</fullName>
+                <fullName>20%2B Years</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5-10 years</fullName>
+                <fullName>5-10 Years</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5757,6 +5945,17 @@ Created by John A Adams 11/4/2013</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Tier_1_HCP_CV_Checked_MERC__c</picklist>
+            <values>
+                <fullName>Confirmed HCP is Tier 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Required</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5833,7 +6032,7 @@ Created by John A Adams 11/4/2013</description>
     <recordTypes>
         <fullName>Lilly_Affiliate_Business_GLBL</fullName>
         <active>true</active>
-        <description>Lilly affiliate business</description>
+        <description>Lilly affiliate business.</description>
         <label>Lilly Affiliate Business</label>
         <picklistValues>
             <picklist>Academic_Qualifications_MERC__c</picklist>
@@ -5842,19 +6041,7 @@ Created by John A Adams 11/4/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MSc%2CBSc</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Non-MD Health care professional</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>PhD</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Specialist</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7293,19 +7480,19 @@ Created by John A Adams 11/4/2013</description>
         <picklistValues>
             <picklist>Practicing_for_MERC__c</picklist>
             <values>
-                <fullName>%3C5 years</fullName>
+                <fullName>%3C5 Years</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>10-20 years</fullName>
+                <fullName>10-20 Years</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>20%2B years</fullName>
+                <fullName>20%2B Years</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5-10 years</fullName>
+                <fullName>5-10 Years</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7376,6 +7563,17 @@ Created by John A Adams 11/4/2013</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Tier_1_HCP_CV_Checked_MERC__c</picklist>
+            <values>
+                <fullName>Confirmed HCP is Tier 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Required</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7908,19 +8106,19 @@ Created by John A Adams 11/4/2013</description>
         <picklistValues>
             <picklist>Practicing_for_MERC__c</picklist>
             <values>
-                <fullName>%3C5 years</fullName>
+                <fullName>%3C5 Years</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>10-20 years</fullName>
+                <fullName>10-20 Years</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>20%2B years</fullName>
+                <fullName>20%2B Years</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5-10 years</fullName>
+                <fullName>5-10 Years</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7987,6 +8185,17 @@ Created by John A Adams 11/4/2013</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Tier_1_HCP_CV_Checked_MERC__c</picklist>
+            <values>
+                <fullName>Confirmed HCP is Tier 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Required</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8063,7 +8272,7 @@ Created by John A Adams 11/4/2013</description>
     <recordTypes>
         <fullName>Third_Party_Organization_GLBL</fullName>
         <active>true</active>
-        <description>Third Party Sponsorship Organization</description>
+        <description>Meeting Logistics Provider</description>
         <label>Third Party Organization</label>
         <picklistValues>
             <picklist>Academic_Qualifications_MERC__c</picklist>
@@ -9511,19 +9720,19 @@ Created by John A Adams 11/4/2013</description>
         <picklistValues>
             <picklist>Practicing_for_MERC__c</picklist>
             <values>
-                <fullName>%3C5 years</fullName>
+                <fullName>%3C5 Years</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>10-20 years</fullName>
+                <fullName>10-20 Years</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>20%2B years</fullName>
+                <fullName>20%2B Years</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5-10 years</fullName>
+                <fullName>5-10 Years</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9594,6 +9803,17 @@ Created by John A Adams 11/4/2013</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Tier_1_HCP_CV_Checked_MERC__c</picklist>
+            <values>
+                <fullName>Confirmed HCP is Tier 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Required</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11118,19 +11338,19 @@ Created by John A Adams 11/4/2013</description>
         <picklistValues>
             <picklist>Practicing_for_MERC__c</picklist>
             <values>
-                <fullName>%3C5 years</fullName>
+                <fullName>%3C5 Years</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>10-20 years</fullName>
+                <fullName>10-20 Years</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>20%2B years</fullName>
+                <fullName>20%2B Years</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5-10 years</fullName>
+                <fullName>5-10 Years</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11197,6 +11417,17 @@ Created by John A Adams 11/4/2013</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Tier_1_HCP_CV_Checked_MERC__c</picklist>
+            <values>
+                <fullName>Confirmed HCP is Tier 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Required</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12721,19 +12952,19 @@ Created by John A Adams 11/4/2013</description>
         <picklistValues>
             <picklist>Practicing_for_MERC__c</picklist>
             <values>
-                <fullName>%3C5 years</fullName>
+                <fullName>%3C5 Years</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>10-20 years</fullName>
+                <fullName>10-20 Years</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>20%2B years</fullName>
+                <fullName>20%2B Years</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5-10 years</fullName>
+                <fullName>5-10 Years</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12804,6 +13035,17 @@ Created by John A Adams 11/4/2013</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Tier_1_HCP_CV_Checked_MERC__c</picklist>
+            <values>
+                <fullName>Confirmed HCP is Tier 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Required</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12882,16 +13124,36 @@ Created by John A Adams 11/4/2013</description>
         <customTabListAdditionalFields>ACCOUNT.RECORDTYPE</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>ACCOUNT.RECORDTYPE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Primary_Addr_Line2_GLBL__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Primary_Addr_City_GLBL__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Primary_Address_Country_GLBL__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Primary_Addr_Line1_GLBL__c</lookupDialogsAdditionalFields>
         <lookupFilterFields>ACCOUNT.NAME</lookupFilterFields>
         <lookupFilterFields>ACCOUNT.RECORDTYPE</lookupFilterFields>
+        <lookupFilterFields>00N11000000T7pY</lookupFilterFields>
+        <lookupFilterFields>00N11000000T7pd</lookupFilterFields>
+        <lookupFilterFields>00N11000000T7pi</lookupFilterFields>
+        <lookupFilterFields>00N11000000T7pT</lookupFilterFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>CORE.USERS.ALIAS</lookupPhoneDialogsAdditionalFields>
         <searchFilterFields>ACCOUNT.NAME</searchFilterFields>
         <searchFilterFields>ACCOUNT.RECORDTYPE</searchFilterFields>
+        <searchFilterFields>Primary_Addr_City_GLBL__c</searchFilterFields>
+        <searchFilterFields>Primary_Address_Country_GLBL__c</searchFilterFields>
         <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>ACCOUNT.RECORDTYPE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
     </searchLayouts>
+    <validationRules>
+        <fullName>Verify_Service_Provider_Tier_Value_MERC</fullName>
+        <active>true</active>
+        <description>Validate that the Service Provider Tier is either blank or values between 1 and 5.  Created 01/09/2014 by KLorenti, Mavens Consulting</description>
+        <errorConditionFormula>ISCHANGED(Service_Provider_Tier_MERC__c) &amp;&amp;
+(Service_Provider_Tier_MERC__c &lt; 1.0 ||
+Service_Provider_Tier_MERC__c &gt; 5.0)</errorConditionFormula>
+        <errorDisplayField>Service_Provider_Tier_MERC__c</errorDisplayField>
+        <errorMessage>The Service Provider Tier must be blank or between values 1 and 5.</errorMessage>
+    </validationRules>
     <webLinks>
         <fullName>AltavistaNews</fullName>
         <availability>online</availability>

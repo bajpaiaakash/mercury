@@ -381,7 +381,7 @@ Created by J Adams 12/10/2013</description>
     <recordTypes>
         <fullName>MERC_Budget_Final</fullName>
         <active>true</active>
-        <description>Finalized budget, cannot be modified</description>
+        <description>Finalised budget, cannot be modified</description>
         <label>Final</label>
         <picklistValues>
             <picklist>InterCompany_Billing_Required_MERC__c</picklist>
@@ -449,16 +449,16 @@ Created by J Adams 12/10/2013</description>
         <fullName>MERC_Prevent_Budget_Edit_Final</fullName>
         <active>true</active>
         <errorConditionFormula>$Setup.Mercury_Settings_MERC__c.Budget_Edit_Validation_MERC__c &amp;&amp; NOT(ISCHANGED(RecordTypeId)) &amp;&amp; (RecordType.DeveloperName == &apos;MERC_Budget_Final&apos;)</errorConditionFormula>
-        <errorMessage>You cannot modify a finalized budget.</errorMessage>
+        <errorMessage>You cannot modify a finalised budget.</errorMessage>
     </validationRules>
     <webLinks>
-        <fullName>Finalize_Budget_MERC</fullName>
+        <fullName>Finalise_Budget_MERC</fullName>
         <availability>online</availability>
-        <description>Finalizes/locks down a budget -JFerraro Dec. 10, 2013</description>
+        <description>Finalises/locks down a budget -JFerraro Dec. 10, 2013</description>
         <displayType>button</displayType>
         <height>600</height>
         <linkType>page</linkType>
-        <masterLabel>Finalize Budget</masterLabel>
+        <masterLabel>Finalise Budget</masterLabel>
         <openType>sidebar</openType>
         <page>MERC_FinalizeBudgetConfirm</page>
         <protected>false</protected>

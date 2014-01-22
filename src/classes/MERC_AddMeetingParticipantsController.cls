@@ -7,8 +7,8 @@
 public with sharing class MERC_AddMeetingParticipantsController {
 	
 	public GLBL_CustomerSearchToolService.SearchRequest searchRequest { get; set; }
-    public List<GLBL_CustomerSearchToolService.SearchResult> searchResults { get; set; }
     public Boolean hasError { get; private set; }
+    public String newParticipantRecordTypeId { get; set; }
 
 	public MERC_AddMeetingParticipantsController(ApexPages.StandardSetController controller) {
 		this.searchRequest = new GLBL_CustomerSearchToolService.SearchRequest();
@@ -33,8 +33,29 @@ public with sharing class MERC_AddMeetingParticipantsController {
         set;
     }
 
+    public Integer getMpCount() {
+        return [SELECT count() FROM Meeting_Participant_MERC__c WHERE Meeting_MERC__c = :meeting.Id];
+    }
+
+    public Integer getSrCount() {
+        if (this.searchResults == null)
+            return 0;
+        return searchResults.size();
+    }
+
     public List<Meeting_Participant_MERC__c> getMeetingParticipants() {
         return (List<Meeting_Participant_MERC__c>) setCon.getRecords();
+    }
+
+    public List<SelectOption> recordTypeOptions {
+        get {
+            List<SelectOption> options = new List<SelectOption>();
+            options.add(new SelectOption('','--Select--'));
+            for (RecordType rt : [SELECT ID, Name From RecordType WHERE SobjectType = 'Meeting_Participant_MERC__c']) {
+                options.add(new SelectOption(rt.Id, rt.Name));
+            }
+            return options;
+        }
     }
 
     public Set<String> meetingParticipantAccountIds {
@@ -48,13 +69,88 @@ public with sharing class MERC_AddMeetingParticipantsController {
     	set;
     }
 
-    public PageReference doSearch() {
-    	this.searchResults = GLBL_CustomerSearchToolService.doSearch(this.searchRequest);
-    	for (GLBL_CustomerSearchToolService.SearchResult result : this.searchResults) {
-    		system.debug('..... '+result);
-    		result.selectable = !meetingParticipantAccountIds.contains(result.sfid);
+    public List<SelectOption> specialtyPriorityRanks {
+        get {
+            return MERC_Util.getCSTPicklistValuesForFieldName('Specialty_priority_rank_nbr__c', true);
+        }
+    }
+
+    public List<SelectOption> affiliationPriorityRanks {
+        get {
+            return MERC_Util.getCSTPicklistValuesForFieldName('Affiliation_Priority_Rank_Nbr__c', true);
+        }
+    }
+
+    public List<SelectOption> affiliationRoleTypes {
+        get {
+            return MERC_Util.getCSTPicklistValuesForFieldName('Affiliation_Role_Types__c', true);
+        }
+    }
+
+    public List<SelectOption> accountClassifications {
+        get {
+            return MERC_Util.getCSTPicklistValuesForFieldName('Account_Clsfctn_Cd__c', true);
+        }
+    }
+
+    public List<SelectOption> accountStatusTypes {
+        get {
+            return MERC_Util.getCSTPicklistValuesForFieldName('Account_Status_Types__c', true);
+        }
+    }
+
+    public List<SelectOption> professionalDesignations {
+        get {
+            return MERC_Util.getCSTPicklistValuesForFieldName('Account_Bnft_Dsgn_Cd__c', true);
+        }
+    }
+
+    public List<SelectOption> specialties {
+        get {
+            return MERC_Util.getCSTPicklistValuesForFieldName('Specialty_Spclty_Cd__c', true);
+        }
+    }
+
+    public List<SelectOption> alternateIdTypes {
+        get {
+            return MERC_Util.getCSTPicklistValuesForFieldName('Altid_Altrnt_Id_Typ_Cd__c', true);
+        }
+    }
+
+    public List<SelectOption> countries {
+    	get {
+    		Schema.DescribeFieldResult fieldResult = CST_User_Settings_CUST__c.Country_Code_CUST__c.getDescribe();
+    		return MERC_Util.getPicklistValues(fieldResult, true);
     	}
-    	this.searchRequest = new GLBL_CustomerSearchToolService.SearchRequest();
+    }
+
+    public List<SelectOption> dummy {
+    	get {
+    		List<SelectOption> options = new List<SelectOption>();
+    		options.add(new SelectOption('',''));
+    		return options;
+    	}
+    }
+
+    public List<GLBL_CustomerSearchToolService.SearchResult> searchResults { 
+        get {
+            if (searchResults != null) {
+                for (GLBL_CustomerSearchToolService.SearchResult result : searchResults) {
+                    result.selectable = !meetingParticipantAccountIds.contains(result.sfid);
+                }
+            }
+            return searchResults;
+        } 
+        private set {
+            searchResults = value;
+        } 
+    }
+
+
+    public PageReference doSearch() {
+    	system.debug('>>>>>> '+this.searchRequest);
+        this.searchResults = GLBL_CustomerSearchToolService.doSearch(this.searchRequest);
+        this.searchRequest = new GLBL_CustomerSearchToolService.SearchRequest();
     	return null;
     }
 
@@ -64,11 +160,14 @@ public with sharing class MERC_AddMeetingParticipantsController {
 	    	Meeting_Participant_MERC__c m = new Meeting_Participant_MERC__c();
 	    	m.Account_MERC__c = accountId;
 	    	m.Meeting_MERC__c = meeting.Id;
+            m.RecordTypeId = newParticipantRecordTypeId;
 	    	insert m;
 	    } catch(Exception e) {
-			this.hasError = true;
+			this.newParticipantRecordTypeId = null;
+            this.hasError = true;
 			ApexPages.addMessages(e);
 	    }
+        this.newParticipantRecordTypeId = null;
 	    this.hasError = false;
 	    return null;
     }

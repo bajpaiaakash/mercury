@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Holds application-wide settings for the Customer Search Tool</description>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <fields>
+        <fullName>Account_Bnft_Dsgn_Cd__c</fullName>
+        <defaultValue>&quot;MD,PhD,PsyD&quot;</defaultValue>
+        <description>Default values for Professional Designation search control</description>
+        <externalId>false</externalId>
+        <label>Account_Bnft_Dsgn_Cd</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Account_Clsfctn_Cd__c</fullName>
+        <defaultValue>&quot;Exceptional, Extraordinary, Phenomenal&quot;</defaultValue>
+        <description>Default values for Classification search control</description>
+        <externalId>false</externalId>
+        <label>Account_Clsfctn_Cd</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Account_Status_Types__c</fullName>
+        <externalId>false</externalId>
+        <label>Account Status Types</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Affiliation_Countries__c</fullName>
+        <externalId>false</externalId>
+        <label>Affiliation Countries</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Affiliation_Priority_Rank_Nbr__c</fullName>
+        <defaultValue>&quot;1,2,3,4,5&quot;</defaultValue>
+        <description>Default searchable values for Affiliation Priority Rank multi-select</description>
+        <externalId>false</externalId>
+        <label>Affiliation_Priority_Rank_Nbr</label>
+        <length>64</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Affiliation_Role_Types__c</fullName>
+        <externalId>false</externalId>
+        <label>Affiliation Role Types</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Altid_Altrnt_Id_Typ_Cd__c</fullName>
+        <description>Default values for Alternate Id Type search control</description>
+        <externalId>false</externalId>
+        <label>Altid_Altrnt_Id_Typ_Cd</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Login_Message_CUST__c</fullName>
+        <description>Tool should display a user message to user before allowing any access to data, the user must check a box to accept the terms before they are granted access to data</description>
+        <externalId>false</externalId>
+        <label>Login Message</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Record_Type_Ids_CUST__c</fullName>
+        <externalId>false</externalId>
+        <label>Record Type Ids</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Record_Types_CUST__c</fullName>
+        <description>Comma-delmited list of record types to include in search results</description>
+        <externalId>false</externalId>
+        <label>Record Types</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Specialty_Spclty_Cd__c</fullName>
+        <defaultValue>&quot;Cancer,Diabetes,Hypercholesterolemia&quot;</defaultValue>
+        <description>Default values for Specialty search control</description>
+        <externalId>false</externalId>
+        <label>Specialty_Spclty_Cd</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Specialty_priority_rank_nbr__c</fullName>
+        <defaultValue>&quot;1,2,3,4,5&quot;</defaultValue>
+        <description>Default values for the Specialty Rank search control</description>
+        <externalId>false</externalId>
+        <label>Specialty_priority_rank_nbr</label>
+        <length>64</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>CST App Settings</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>CSTAPP-{0000}</displayFormat>
+        <label>CST App Settings Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>CST App Settings</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

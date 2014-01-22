@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>Accept</actionName>
         <type>Default</type>
@@ -18,7 +18,9 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>Edit</actionName>
-        <type>Default</type>
+        <content>MERC_TravelItineraryNewEdit</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>Follow</actionName>
@@ -30,7 +32,9 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
-        <type>Default</type>
+        <content>MERC_TravelItineraryNewEdit</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>SaveEdit</actionName>
@@ -46,13 +50,63 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Details of travel arrangements - child of Travel
+    <description>Details of travel arrangements - child of Meeting Participant object.
 Created by John A Adams 10/9/2013</description>
     <enableActivities>true</enableActivities>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
+    <fieldSets>
+        <fullName>Date_Time_Information_Edit_MERC</fullName>
+        <description>New/Edit forms</description>
+        <displayedFields>
+            <field>Sgmnt_Bgin_TS_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Sgmnt_End_TS_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Segment_Begin_Timezone_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Segment_End_Timezone_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <label>Date/Time Information</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Date_Time_Information_View_MERC</fullName>
+        <description>Travel Itinerary Detail Page</description>
+        <displayedFields>
+            <field>Segment_Begin_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Segment_End_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Segment_Begin_Timezone_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Segment_End_Timezone_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Date/Time Information</label>
+    </fieldSets>
     <fields>
         <fullName>Account_Number_MERC__c</fullName>
         <description>The PNR back office account number. Oliver Dunford 14th Dec 2013</description>
@@ -299,6 +353,15 @@ Created by John A Adams 12/13/2013</description>
 Created by John A Adams 12/13/2013</description>
         <externalId>false</externalId>
         <label>Connection Type</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Confirm_ToV_Reporting_Change_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>HCP Care to confirm the change if ToV has already been reported for this meeting participant. Created 01/08/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Confirm ToV Reporting Change</label>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -652,6 +715,17 @@ Created by John A Adams 12/13/2013</description>
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Meeting_Id_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASESAFEID(Meeting_Participant_MERC__r.Meeting_MERC__r.Id)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting Id</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Meeting_Participant_MERC__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Lookup from Travel Itinerary to Meeting Participant. Created 12/10/2013 by KLorenti, Mavens Consulting</description>
@@ -659,10 +733,21 @@ Created by John A Adams 12/13/2013</description>
         <label>Meeting Participant</label>
         <referenceTo>Meeting_Participant_MERC__c</referenceTo>
         <relationshipLabel>Travel Itineraries</relationshipLabel>
-        <relationshipName>Travel_Itineraries</relationshipName>
+        <relationshipName>Travel_Itineraries_MERC</relationshipName>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Status_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>text(Meeting_Participant_MERC__r.Meeting_MERC__r.Meeting_Status_MERC__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Meeting_Time_Zone_MERC__c</fullName>
@@ -907,6 +992,19 @@ Created by John A Adams 12/13/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Room_Rate_excl_VAT_MERC__c</fullName>
+        <description>Pulls the Room Rate from the Meeting Vendor, used for ToV Calculations.  Oliver Dunford 8th Jan 2014.</description>
+        <externalId>false</externalId>
+        <formula>Meeting_Vendor_MERC__r.Room_Rate_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Room Rate (excl VAT)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>Rsrvd_Unt_Qntty_MERC__c</fullName>
         <description>The quantity of units that have been reserved for this segment. Field populated for hotel segment only and will include number of rooms.
 Created by John A Adams 12/13/2013</description>
@@ -930,6 +1028,174 @@ Created by John A Adams 12/13/2013</description>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Segment_Begin_MERC__c</fullName>
+        <externalId>false</externalId>
+        <label>Segment Begin</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Segment_Begin_Timezone_MERC__c</fullName>
+        <externalId>false</externalId>
+        <label>Segment Begin Timezone</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Moscow Standard Time (Europe/Moscow)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Further-eastern European Time (Europe/Minsk)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Eastern European Time (Europe/Athens)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Eastern European Time (Europe/Bucharest)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Eastern European Time (Europe/Helsinki)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Eastern European Time (Europe/Istanbul)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Central European Time (Europe/Amsterdam)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Central European Time (Europe/Berlin)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Central European Time (Europe/Brussels)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Central European Time (Europe/Paris)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Central European Time (Europe/Prague)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Central European Time (Europe/Rome)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Greenwich Mean Time (Europe/Dublin)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Western European Time (Europe/Lisbon)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Greenwich Mean Time (Europe/London)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Greenwich Mean Time (GMT)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Segment_End_MERC__c</fullName>
+        <externalId>false</externalId>
+        <label>Segment End</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Segment_End_Timezone_MERC__c</fullName>
+        <externalId>false</externalId>
+        <label>Segment End Timezone</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Moscow Standard Time (Europe/Moscow)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Further-eastern European Time (Europe/Minsk)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Eastern European Time (Europe/Athens)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Eastern European Time (Europe/Bucharest)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Eastern European Time (Europe/Helsinki)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Eastern European Time (Europe/Istanbul)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Central European Time (Europe/Amsterdam)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Central European Time (Europe/Berlin)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Central European Time (Europe/Brussels)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Central European Time (Europe/Paris)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Central European Time (Europe/Prague)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Central European Time (Europe/Rome)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Greenwich Mean Time (Europe/Dublin)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Western European Time (Europe/Lisbon)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Greenwich Mean Time (Europe/London)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Greenwich Mean Time (GMT)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Segment_Number__c</fullName>
@@ -1319,6 +1585,140 @@ Created by John A Adams 12/13/2013</description>
         <description>Air travel Information</description>
         <label>Air</label>
         <picklistValues>
+            <picklist>Segment_Begin_Timezone_MERC__c</picklist>
+            <values>
+                <fullName>Central European Time %28Europe%2FAmsterdam%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FBerlin%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FBrussels%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FParis%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FPrague%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FRome%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FAthens%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FBucharest%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FHelsinki%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FIstanbul%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Further-eastern European Time %28Europe%2FMinsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28Europe%2FDublin%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28Europe%2FLondon%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28GMT%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moscow Standard Time %28Europe%2FMoscow%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Western European Time %28Europe%2FLisbon%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Segment_End_Timezone_MERC__c</picklist>
+            <values>
+                <fullName>Central European Time %28Europe%2FAmsterdam%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FBerlin%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FBrussels%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FParis%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FPrague%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FRome%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FAthens%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FBucharest%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FHelsinki%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FIstanbul%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Further-eastern European Time %28Europe%2FMinsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28Europe%2FDublin%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28Europe%2FLondon%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28GMT%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moscow Standard Time %28Europe%2FMoscow%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Western European Time %28Europe%2FLisbon%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Travel_Detail_Typ_MERC__c</picklist>
             <values>
                 <fullName>Connection Leg</fullName>
@@ -1340,6 +1740,140 @@ Created by John A Adams 12/13/2013</description>
         <description>Car Rental Information</description>
         <label>Car</label>
         <picklistValues>
+            <picklist>Segment_Begin_Timezone_MERC__c</picklist>
+            <values>
+                <fullName>Central European Time %28Europe%2FAmsterdam%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FBerlin%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FBrussels%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FParis%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FPrague%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FRome%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FAthens%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FBucharest%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FHelsinki%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FIstanbul%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Further-eastern European Time %28Europe%2FMinsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28Europe%2FDublin%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28Europe%2FLondon%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28GMT%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moscow Standard Time %28Europe%2FMoscow%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Western European Time %28Europe%2FLisbon%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Segment_End_Timezone_MERC__c</picklist>
+            <values>
+                <fullName>Central European Time %28Europe%2FAmsterdam%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FBerlin%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FBrussels%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FParis%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FPrague%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FRome%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FAthens%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FBucharest%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FHelsinki%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FIstanbul%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Further-eastern European Time %28Europe%2FMinsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28Europe%2FDublin%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28Europe%2FLondon%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28GMT%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moscow Standard Time %28Europe%2FMoscow%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Western European Time %28Europe%2FLisbon%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Travel_Detail_Typ_MERC__c</picklist>
             <values>
                 <fullName>Vehicle Rental</fullName>
@@ -1353,6 +1887,140 @@ Created by John A Adams 12/13/2013</description>
         <description>Hotel Information</description>
         <label>Hotel</label>
         <picklistValues>
+            <picklist>Segment_Begin_Timezone_MERC__c</picklist>
+            <values>
+                <fullName>Central European Time %28Europe%2FAmsterdam%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FBerlin%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FBrussels%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FParis%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FPrague%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FRome%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FAthens%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FBucharest%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FHelsinki%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FIstanbul%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Further-eastern European Time %28Europe%2FMinsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28Europe%2FDublin%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28Europe%2FLondon%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28GMT%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moscow Standard Time %28Europe%2FMoscow%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Western European Time %28Europe%2FLisbon%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Segment_End_Timezone_MERC__c</picklist>
+            <values>
+                <fullName>Central European Time %28Europe%2FAmsterdam%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FBerlin%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FBrussels%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FParis%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FPrague%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FRome%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FAthens%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FBucharest%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FHelsinki%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FIstanbul%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Further-eastern European Time %28Europe%2FMinsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28Europe%2FDublin%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28Europe%2FLondon%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28GMT%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moscow Standard Time %28Europe%2FMoscow%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Western European Time %28Europe%2FLisbon%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Travel_Detail_Typ_MERC__c</picklist>
             <values>
                 <fullName>Accommodation</fullName>
@@ -1365,6 +2033,140 @@ Created by John A Adams 12/13/2013</description>
         <active>true</active>
         <description>Limo Service travel Information</description>
         <label>Limo Service</label>
+        <picklistValues>
+            <picklist>Segment_Begin_Timezone_MERC__c</picklist>
+            <values>
+                <fullName>Central European Time %28Europe%2FAmsterdam%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FBerlin%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FBrussels%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FParis%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FPrague%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FRome%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FAthens%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FBucharest%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FHelsinki%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FIstanbul%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Further-eastern European Time %28Europe%2FMinsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28Europe%2FDublin%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28Europe%2FLondon%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28GMT%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moscow Standard Time %28Europe%2FMoscow%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Western European Time %28Europe%2FLisbon%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Segment_End_Timezone_MERC__c</picklist>
+            <values>
+                <fullName>Central European Time %28Europe%2FAmsterdam%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FBerlin%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FBrussels%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FParis%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FPrague%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FRome%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FAthens%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FBucharest%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FHelsinki%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FIstanbul%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Further-eastern European Time %28Europe%2FMinsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28Europe%2FDublin%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28Europe%2FLondon%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28GMT%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moscow Standard Time %28Europe%2FMoscow%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Western European Time %28Europe%2FLisbon%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Travel_Detail_Typ_MERC__c</picklist>
             <values>
@@ -1395,6 +2197,140 @@ Created by John A Adams 12/13/2013</description>
         <description>Rail travel Information</description>
         <label>Rail</label>
         <picklistValues>
+            <picklist>Segment_Begin_Timezone_MERC__c</picklist>
+            <values>
+                <fullName>Central European Time %28Europe%2FAmsterdam%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FBerlin%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FBrussels%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FParis%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FPrague%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FRome%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FAthens%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FBucharest%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FHelsinki%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FIstanbul%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Further-eastern European Time %28Europe%2FMinsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28Europe%2FDublin%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28Europe%2FLondon%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28GMT%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moscow Standard Time %28Europe%2FMoscow%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Western European Time %28Europe%2FLisbon%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Segment_End_Timezone_MERC__c</picklist>
+            <values>
+                <fullName>Central European Time %28Europe%2FAmsterdam%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FBerlin%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FBrussels%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FParis%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FPrague%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FRome%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FAthens%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FBucharest%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FHelsinki%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FIstanbul%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Further-eastern European Time %28Europe%2FMinsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28Europe%2FDublin%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28Europe%2FLondon%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28GMT%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moscow Standard Time %28Europe%2FMoscow%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Western European Time %28Europe%2FLisbon%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Travel_Detail_Typ_MERC__c</picklist>
             <values>
                 <fullName>Connection Leg</fullName>
@@ -1413,19 +2349,22 @@ Created by John A Adams 12/13/2013</description>
     <searchLayouts>
         <lookupDialogsAdditionalFields>Travel_Detail_Typ_MERC__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Vendor_MERC__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields xsi:nil="true"/>
-        <lookupDialogsAdditionalFields xsi:nil="true"/>
-        <lookupDialogsAdditionalFields xsi:nil="true"/>
-        <lookupDialogsAdditionalFields xsi:nil="true"/>
         <searchFilterFields>NAME</searchFilterFields>
         <searchFilterFields>Vendor_MERC__c</searchFilterFields>
-        <searchFilterFields xsi:nil="true"/>
-        <searchFilterFields xsi:nil="true"/>
-        <searchFilterFields xsi:nil="true"/>
         <searchFilterFields>Travel_Detail_Typ_MERC__c</searchFilterFields>
         <searchFilterFields>RECORDTYPE</searchFilterFields>
-        <searchFilterFields xsi:nil="true"/>
-        <searchFilterFields xsi:nil="true"/>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Confirm_ToV_Reporting_Change_MERC</fullName>
+        <active>true</active>
+        <description>If ToV has already been reported for the meeting participant, HCP Care needs to confirm the change to the hotel dates.</description>
+        <errorConditionFormula>(ISPICKVAL(Meeting_Participant_MERC__r.Participant_ToV_Final_MERC__c, &quot;Yes&quot;) &amp;&amp;
+ Meeting_Participant_MERC__r.Total_Hotel_ToV_MERC__c &gt;= 0) &amp;&amp;
+(ISCHANGED( Sgmnt_Bgin_TS_MERC__c ) ||
+ISCHANGED( Sgmnt_End_TS_MERC__c )) &amp;&amp;
+! Confirm_ToV_Reporting_Change_MERC__c</errorConditionFormula>
+        <errorDisplayField>Confirm_ToV_Reporting_Change_MERC__c</errorDisplayField>
+        <errorMessage>ToV has already been reported this meeting participant. HCP Care needs to confirm this change before it can be made.</errorMessage>
+    </validationRules>
 </CustomObject>

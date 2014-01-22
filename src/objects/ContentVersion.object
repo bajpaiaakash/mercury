@@ -27,16 +27,51 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Country_MERC__c</field>
+            <field>Expose_on_Portal_MERC__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Archive_Date_MERC__c</field>
+            <field>Code_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Account_Archive_Date__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <label>Account</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Budget_MERC</fullName>
+        <description>Upload Content to Budget Object</description>
+        <displayedFields>
+            <field>Title</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Meeting_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Document_Type_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Expose_on_Portal_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Code_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Budget</label>
     </fieldSets>
     <fieldSets>
         <fullName>HCP_Contract_MERC</fullName>
@@ -72,12 +107,27 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Contract_Country_MERC__c</field>
+            <field>Archive_Date_MERC__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Archive_Date_MERC__c</field>
+            <field>Expose_on_Portal_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Code_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Upload_Date_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Contract_Archive_Date_MERC__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -107,12 +157,22 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Country_MERC__c</field>
+            <field>Expose_on_Portal_MERC__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Archive_Date_MERC__c</field>
+            <field>Code_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>RecordTypeId</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Invoice_Archive_Date_MERC__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -177,12 +237,68 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Archive_Date_MERC__c</field>
+            <field>Expose_on_Portal_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Code_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>RecordTypeId</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Meeting_Archive_Date_MERC__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <label>Meeting_MERC</label>
     </fieldSets>
+    <fieldSets>
+        <fullName>Meeting_Participant_MERC</fullName>
+        <description>Upload Content to Meeting Participant Object</description>
+        <displayedFields>
+            <field>Meeting_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Title</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Document_Type_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Code_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Meeting_Archive_Date_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Meeting Participant</label>
+    </fieldSets>
+    <fields>
+        <fullName>Account_Archive_Date__c</fullName>
+        <description>One year from date of document upload.  Created 01/16/2014 by Klorenti, Mavens Consultant</description>
+        <externalId>false</externalId>
+        <formula>Upload_Date_MERC__c + 365</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account Archive Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
     <fields>
         <fullName>Account_GLBL__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -216,16 +332,80 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Contract_Country_MERC__c</fullName>
-        <description>Capture Country from HCP Contract when uploading documents to HCP Contract. Created 12/3/2013 by KLorenti, Mavens Consulting</description>
+        <fullName>Budget_Archive_Date_MERC__c</fullName>
+        <description>One year from Budget Date. Created 01/16/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <formula>TEXT(HCP_Contract_MERC__r.Country_MERC__c)</formula>
+        <formula>Budget_MERC__r.Budget_Date_MERC__c + 365</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Contract Country</label>
+        <label>Budget Archive Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Budget_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup relationship from Content to Budget. Created 01/17/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Budget</label>
+        <referenceTo>Budget_MERC__c</referenceTo>
+        <relationshipLabel>Content</relationshipLabel>
+        <relationshipName>Content</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Code_MERC__c</fullName>
+        <description>Populates Retention Code based on Document Type. Created 01/15/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>CASE( Document_Type_MERC__c,
+&quot;Institutional Notification&quot;,&quot;ICO210&quot;,
+&quot;Notification agreement for services (filled version by HCP)&quot;,&quot;ICO210&quot;,
+&quot;Notification agreement for sponsorship (filled version by HCP)&quot;,&quot;ICO210&quot;,
+&quot;FMV&quot;,&quot;ICO210&quot;,
+&quot;Service Rendered Documents&quot;,&quot;ICO210&quot; ,
+&quot;HCP Transparency Reporting Consent (filled version by HCP)&quot;,&quot;ICO210&quot;,
+&quot;CV&quot;,&quot;ICO210&quot;,
+&quot;HCP Related Items&quot; ,&quot;ICO210&quot;,
+&quot;HCP Exceptions&quot;,&quot;ICO210&quot;,
+&quot;Invitations&quot;,&quot;MKT100&quot;,
+&quot;Meeting Documents&quot;,&quot;MKT100&quot;,
+&quot;Registration Form&quot;,&quot;MKT100&quot;,
+&quot;Slide Kits&quot;,&quot;MKT100&quot;,
+&quot;Off-System Approval Documents&quot;,&quot;MKT100&quot;,
+&quot;Approvals and Supporting Documents&quot;,&quot;MKT100&quot;,
+&quot;Agendas&quot;,&quot;MKT100&quot;,
+&quot;Meeting Exceptions&quot;,&quot;MKT100&quot;,
+&quot;Cover Letter for Contract&quot;,&quot;LEG500&quot;,
+&quot;Single Event Contract and Appendices&quot;,&quot;LEG500&quot;,
+&quot;C2P Documents&quot;,&quot;LEG500&quot;,
+&quot;MSA&quot;,&quot;LEG500&quot;,
+&quot;Work Order&quot;,&quot;LEG500&quot;,
+&quot;Services Rendered Documents&quot;,&quot;LEG500&quot;,
+&quot;Partial Payment Justification&quot;,&quot;LEG500&quot;,
+&quot;Contract Exceptions&quot;,&quot;LEG500&quot;,
+&quot;Invoices&quot;,&quot;ACT100&quot;, 
+&quot;Expense Reimbursement&quot;,&quot;ACT100&quot;,
+&quot;MPC Budget and Invoices&quot;,&quot;ACT100&quot;,
+&quot;Invoice Exceptions&quot;,&quot;ACT100&quot;,
+&quot;None&quot;)</formula>
+        <label>Retention Code</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contract_Archive_Date_MERC__c</fullName>
+        <description>One year from Contract Expiration Date. Created 01/17/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>HCP_Contract_MERC__r.Contract_Expiration_Date_MERC__c + 365</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contract Archive Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Contract_End_Date_MERC__c</fullName>
@@ -246,17 +426,6 @@
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Country_MERC__c</fullName>
-        <description>Country to be entered when uploading document. Created 12/6/2013 by KLorenti, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <label>Country</label>
-        <length>40</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Country_of_Residence_MERC__c</fullName>
@@ -289,7 +458,7 @@
         <label>Document Type</label>
         <picklist>
             <picklistValues>
-                <fullName>Institutional notification </fullName>
+                <fullName>Institutional Notification </fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -301,15 +470,19 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>FMV </fullName>
+                <fullName>FMV</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Service rendered documents </fullName>
+                <fullName>Service Rendered Documents </fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>HCP Transparency Reporting Consent ((filled version by HCP)</fullName>
+                <fullName>HCP Transparency Reporting Consent (filled version by HCP)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HCP Related Items </fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -317,19 +490,15 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>HCP related items </fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Invitations</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Meeting documents</fullName>
+                <fullName>Meeting Documents</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Registration form</fullName>
+                <fullName>Registration Form</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -353,7 +522,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>C2P documents</fullName>
+                <fullName>C2P Documents</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -373,15 +542,11 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Invoices </fullName>
+                <fullName>Expense Reimbursement </fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Expense reimbursement </fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MPC budget and invoices</fullName>
+                <fullName>MPC Budget and Invoices</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -389,13 +554,34 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Exceptions</fullName>
+                <fullName>HCP Exceptions</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Invoice Exceptions</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contract Exceptions</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Invoices</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Expose_on_Portal_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Allows the content to be available on the Portal. Created 01/13/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Expose on Portal</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>HCP_Contract_MERC__c</fullName>
@@ -422,6 +608,17 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Invoice_Archive_Date_MERC__c</fullName>
+        <description>One year from Invoice Date. Created 01/17/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Invoice_MERC__r.Invoice_Date_MERC__c + 365</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Invoice Archive Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Invoice_MERC__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Lookup relationship to Invoice. Created 12/6/2013 by KLorenti, Mavens Consulting</description>
@@ -433,6 +630,17 @@
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Archive_Date_MERC__c</fullName>
+        <description>Meeting Start Date plus 1 year to capture the Meeting Archive Date. Created 01/16/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Meeting_MERC__r.Date_of_Event_MERC__c + 365</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting Archive Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Meeting_City_MERC__c</fullName>
@@ -464,6 +672,19 @@
         <externalId>false</externalId>
         <label>Meeting</label>
         <referenceTo>Meeting_MERC__c</referenceTo>
+        <relationshipLabel>Content</relationshipLabel>
+        <relationshipName>Content</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Participant_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup relationship from Content to Meeting Participant. Created 01/16/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Meeting Participant</label>
+        <referenceTo>Meeting_Participant_MERC__c</referenceTo>
         <relationshipLabel>Content</relationshipLabel>
         <relationshipName>Content</relationshipName>
         <required>false</required>
@@ -521,10 +742,65 @@
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
+    <fields>
+        <fullName>Upload_Date_MERC__c</fullName>
+        <description>Today&apos;s date. Created 01/16/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>TODAY()</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Upload Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
     <recordTypes>
         <fullName>Account_MERC</fullName>
         <active>true</active>
         <label>Account_MERC</label>
+        <picklistValues>
+            <picklist>Document_Type_MERC__c</picklist>
+            <values>
+                <fullName>CV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FMV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP Exceptions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP Related Items%C2%A0</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP Transparency Reporting Consent %28filled version by HCP%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Institutional Notification%C2%A0</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Notification agreement for services %28filled version by HCP%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Notification agreement for sponsorship %28filled version by HCP%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service%C2%A0Rendered Documents%C2%A0</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Budget_MERC</fullName>
+        <active>true</active>
+        <label>Budget_MERC</label>
         <picklistValues>
             <picklist>Document_Type_MERC__c</picklist>
             <values>
@@ -536,7 +812,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>C2P documents</fullName>
+                <fullName>C2P Documents</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -544,31 +820,35 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Contract Exceptions</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Cover Letter for Contract</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Exceptions</fullName>
+                <fullName>Expense Reimbursement%C2%A0</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Expense reimbursement%C2%A0</fullName>
+                <fullName>FMV</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>FMV%C2%A0</fullName>
+                <fullName>HCP Exceptions</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>HCP Transparency Reporting Consent %28%28filled version by HCP%29</fullName>
+                <fullName>HCP Related Items%C2%A0</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>HCP related items%C2%A0</fullName>
+                <fullName>HCP Transparency Reporting Consent %28filled version by HCP%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Institutional notification%C2%A0</fullName>
+                <fullName>Institutional Notification%C2%A0</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -576,11 +856,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Invoices%C2%A0</fullName>
+                <fullName>Invoice Exceptions</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MPC budget and invoices</fullName>
+                <fullName>Invoices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MPC Budget and Invoices</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -588,7 +872,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Meeting documents</fullName>
+                <fullName>Meeting Documents</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -608,11 +892,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Registration form</fullName>
+                <fullName>Registration Form</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Service%C2%A0rendered documents%C2%A0</fullName>
+                <fullName>Service%C2%A0Rendered Documents%C2%A0</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -640,7 +924,11 @@
         <picklistValues>
             <picklist>Document_Type_MERC__c</picklist>
             <values>
-                <fullName>C2P documents</fullName>
+                <fullName>C2P Documents</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contract Exceptions</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -648,7 +936,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Exceptions</fullName>
+                <fullName>HCP Exceptions</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -680,107 +968,19 @@
         <picklistValues>
             <picklist>Document_Type_MERC__c</picklist>
             <values>
-                <fullName>Agendas</fullName>
+                <fullName>Expense Reimbursement%C2%A0</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Approvals and Supporting Documents</fullName>
+                <fullName>Invoice Exceptions</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>C2P documents</fullName>
+                <fullName>Invoices</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cover Letter for Contract</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Exceptions</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Expense reimbursement%C2%A0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>FMV%C2%A0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HCP Transparency Reporting Consent %28%28filled version by HCP%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HCP related items%C2%A0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Institutional notification%C2%A0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Invitations</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Invoices%C2%A0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MPC budget and invoices</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MSA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Meeting documents</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Notification agreement for services %28filled version by HCP%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Notification agreement for sponsorship %28filled version by HCP%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Off-System Approval Documents</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partial Payment Justification</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Registration form</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service%C2%A0rendered documents%C2%A0</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Services Rendered Documents</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Single Event Contract and Appendices</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Slide Kits</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Work Order</fullName>
+                <fullName>MPC Budget and Invoices</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -800,7 +1000,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Exceptions</fullName>
+                <fullName>HCP Exceptions</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -808,7 +1008,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Meeting documents</fullName>
+                <fullName>Meeting Documents</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -816,11 +1016,131 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Registration form</fullName>
+                <fullName>Registration Form</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Slide Kits</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Meeting_Participant_MERC</fullName>
+        <active>true</active>
+        <label>Meeting Participant_MERC</label>
+        <picklistValues>
+            <picklist>Document_Type_MERC__c</picklist>
+            <values>
+                <fullName>Agendas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Approvals and Supporting Documents</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C2P Documents</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contract Exceptions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cover Letter for Contract</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Expense Reimbursement%C2%A0</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FMV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP Exceptions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP Related Items%C2%A0</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP Transparency Reporting Consent %28filled version by HCP%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Institutional Notification%C2%A0</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invitations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invoice Exceptions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invoices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MPC Budget and Invoices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MSA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting Documents</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Notification agreement for services %28filled version by HCP%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Notification agreement for sponsorship %28filled version by HCP%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Off-System Approval Documents</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partial Payment Justification</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Registration Form</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service%C2%A0Rendered Documents%C2%A0</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Services Rendered Documents</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Event Contract and Appendices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Slide Kits</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Work Order</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

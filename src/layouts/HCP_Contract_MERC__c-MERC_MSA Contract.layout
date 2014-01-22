@@ -30,6 +30,10 @@
                 <behavior>Edit</behavior>
                 <field>MSA_Start_Date_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Prf_Cntrct_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -62,18 +66,14 @@
         <label>Signees</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Lilly_Affiliate_MERC__c</field>
+                <behavior>Required</behavior>
+                <field>Signing_Parties_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Additional_Conditions_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Signing_Parties_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -111,7 +111,6 @@
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
         <fields>Account_MERC__c</fields>
-        <fields>Type_of_Service_MERC__c</fields>
         <fields>Contract_Request_Status_MERC__c</fields>
         <relatedList>HCP_Contract_MERC__c.MSA_MERC__c</relatedList>
     </relatedLists>

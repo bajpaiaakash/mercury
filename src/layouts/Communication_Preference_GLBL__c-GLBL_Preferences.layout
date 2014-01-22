@@ -47,6 +47,10 @@
                 <behavior>Readonly</behavior>
                 <field>Record_Type_Id_GLBL__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Language_Preference_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

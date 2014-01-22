@@ -6,6 +6,9 @@ private class MERC_TOVCalculatorTest {
 	static List<Meeting_Day_MERC__c> meetingDays;
 	static List<Meeting_Participant_MERC__c> participants;
 
+	/*
+		Set up 1 meeting with 3 meeting days and 5 participants
+	*/
 	static {
 		MERC_TestFactory.loadDeclarativeRollupSummaries();
 		accounts = MERC_TestFactory.insertAccounts(5);

@@ -37,6 +37,26 @@
                 <behavior>Required</behavior>
                 <field>Therapeutic_Area_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Preferred_Venue_Postal_Code_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Source_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Immediate_Source_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>RTI_Transaction_ID_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ToV_Reported_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -46,6 +66,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Confirm_Meeting_Cancellation_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Meeting_Cancellation_Date_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -165,7 +189,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Venue_Preferred_Location_MERC__c</field>
+                <field>Preferred_Venue_Addr_1_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -246,6 +270,7 @@
         <fields>Account_MERC__c</fields>
         <fields>Role_MERC__c</fields>
         <fields>Attendee_Invite_Limit_MERC__c</fields>
+        <fields>Access_MERC__c</fields>
         <relatedList>Team_Member_MERC__c.Meeting_MERC__c</relatedList>
     </relatedLists>
     <relatedLists>

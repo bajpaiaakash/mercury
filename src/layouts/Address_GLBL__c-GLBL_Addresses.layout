@@ -19,6 +19,10 @@
                 <behavior>Edit</behavior>
                 <field>Mercury_External_Id_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Address_Combined_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -56,7 +60,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Line_5_Adrs_Txt_GLBL__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>City_GLBL__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>St_Cd_GLBL__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

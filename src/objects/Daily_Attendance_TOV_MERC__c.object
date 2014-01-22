@@ -46,12 +46,21 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Junction object between Meeting Days and Meeting Participants</description>
+    <description>Junction object between Meeting Days and Meeting Participants. Created on 10/10/2013 by Mavens Consulting.</description>
     <enableActivities>false</enableActivities>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
+    <fields>
+        <fullName>Confirm_ToV_Reporting_Change_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>HCP Care to confirm the ToV change if it has already been reported.  Created 01/07/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Confirm ToV Reporting Change</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>Est_Food_Bev_ToV_MERC__c</fullName>
         <externalId>false</externalId>
@@ -77,11 +86,10 @@
         <type>Currency</type>
     </fields>
     <fields>
-        <fullName>Est_Other_ToV_MERC__c</fullName>
+        <fullName>Est_Hotel_ToV_MERC__c</fullName>
+        <description>Captures ToV for Hotels at a Day Level.  Set via custom development based upon Travel Itinerary record and relationship to Meeting Hotel Vendor/Room Rate.  Jan 7th Oliver Dunford</description>
         <externalId>false</externalId>
-        <formula>IF(AND(ISPICKVAL(Status_MERC__c,&quot;Attended&quot;), Transparency_Reporting_Consent_MERC__c &lt;&gt; &quot;No&quot;) , Meeting_Day_MERC__r.Daily_Other_Amount_MERC__c, 0)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Other ToV</label>
+        <label>Hotel ToV</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -111,6 +119,17 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Meeting_Day_Date_MERC__c</fullName>
+        <description>Oliver Dunford 6th Jan, pulls through the Date of the Meeting Day for Integration to AODS and for reference on the record.</description>
+        <externalId>false</externalId>
+        <formula>Meeting_Day_MERC__r.Date_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting Day Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Meeting_Day_MERC__c</fullName>
@@ -234,4 +253,13 @@ Created by John A Adams 10/10/2013</description>
         <searchFilterFields>Meeting_Participant_MERC__c</searchFilterFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Confirm_ToV_Reporting_Change_MERC</fullName>
+        <active>true</active>
+        <description>If a change is made to a Daily Attendance &amp; ToV record and the ToV is already reported, HCP Care needs to confirm the change. Created 01/07/2014 by KLorenti, Mavens Consulting</description>
+        <errorConditionFormula>ISPICKVAL(Meeting_Participant_MERC__r.Participant_ToV_Final_MERC__c, &quot;Yes&quot;) &amp;&amp;
+ISCHANGED(  Status_MERC__c ) &amp;&amp;  !Confirm_ToV_Reporting_Change_MERC__c</errorConditionFormula>
+        <errorDisplayField>Confirm_ToV_Reporting_Change_MERC__c</errorDisplayField>
+        <errorMessage>ToV has already been reported for this meeting participant. HCP Care needs to confirm this change before it can be made.</errorMessage>
+    </validationRules>
 </CustomObject>

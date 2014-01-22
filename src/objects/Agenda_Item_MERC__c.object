@@ -61,16 +61,21 @@ Created by John A Adams 9/26/2013</description>
     <enableReports>true</enableReports>
     <fieldSets>
         <fullName>Agenda_Builder_MERC</fullName>
-        <description>Used in Agenda Builder VF Page -JFerraro 11/11/2013</description>
+        <description>Used in Agenda Builder VF Page. Represent the columns shown in the PageBlockTable -JFerraro 11/11/2013</description>
         <displayedFields>
             <field>Name</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>true</isRequired>
         </displayedFields>
         <displayedFields>
+            <field>Agenda_Item_Description_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
             <field>Session_Type_MERC__c</field>
             <isFieldManaged>false</isFieldManaged>
-            <isRequired>true</isRequired>
+            <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
             <field>Room_MERC__c</field>
@@ -87,27 +92,22 @@ Created by John A Adams 9/26/2013</description>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>true</isRequired>
         </displayedFields>
+        <label>Agenda Builder</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Agenda_Builder_Non_UI_Fields_MERC</fullName>
+        <description>Used to ensure the Agenda Builder controller includes certain Agenda Item Fields</description>
+        <displayedFields>
+            <field>Cnfrm_Chg_Fnl_Agnd_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
         <displayedFields>
             <field>Meeting_Time_Zone_MERC__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-        <label>Agenda Builder</label>
-    </fieldSets>
-    <fieldSets>
-        <fullName>Agenda_Item_Date_Time_User_TZ_View_MERC</fullName>
-        <description>Embedded in Agenda Item Detail View (MERC_AgendaItemDateTimes.page) -JFerraro Dec 11, 2013</description>
-        <displayedFields>
-            <field>Start_Time_MERC__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>End_Time_MERC__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <label>Agenda Item Date/Time View User TZ View</label>
+        <label>Agenda Builder Non UI Fields</label>
     </fieldSets>
     <fieldSets>
         <fullName>Agenda_Item_Date_Time_View_MERC</fullName>
@@ -152,6 +152,11 @@ Created by John A Adams 9/26/2013</description>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
+        <displayedFields>
+            <field>Cnfrm_Chg_Fnl_Agnd_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
         <label>New/Edit Agenda Item Basic Information</label>
     </fieldSets>
     <fieldSets>
@@ -179,6 +184,17 @@ Created by John A Adams 9/26/2013</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Cnfrm_Chg_Fnl_Agnd_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>When Agenda Item is changed, validation rule will require this box to be checked to confirm if status &quot;Final Agenda&quot;.
+Created by John A Adams 12/19/2013</description>
+        <externalId>false</externalId>
+        <label>Confirm Change to Final Agenda</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>End_Time_MERC__c</fullName>
@@ -238,6 +254,18 @@ Created by J Adams 12/10/2013</description>
         <externalId>true</externalId>
         <label>Mercury External Id</label>
         <length>150</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RTI_Transaction_Id_MERC__c</fullName>
+        <description>Used by Veeva to Mercury Interface. Oliver Dunford 10th Jan.</description>
+        <externalId>false</externalId>
+        <label>RTI Transaction Id</label>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -342,13 +370,20 @@ Created by John A Adams 10/8/2013</description>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
-        <fullName>End_after_Start</fullName>
+        <fullName>Agenda_Item_Change_MERC</fullName>
+        <active>true</active>
+        <description>Confirm that the agenda item should be changed. Created by John A Adams 12/19/2013</description>
+        <errorConditionFormula>TEXT(Meeting_MERC__r.Agenda_Status_MERC__c) = &quot;Final&quot; &amp;&amp;  Cnfrm_Chg_Fnl_Agnd_MERC__c == false</errorConditionFormula>
+        <errorMessage>Please confirm you would like to change an item on the Final Agenda.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Ensure_End_After_Start_MERC</fullName>
         <active>true</active>
         <description>Rule to prevent entering an end time for a session before it starts
 Created by John A Adams 10/3/2013</description>
         <errorConditionFormula>CreatedDate &gt;  LastModifiedDate</errorConditionFormula>
         <errorDisplayField>End_Time_MERC__c</errorDisplayField>
-        <errorMessage>The meeting end time must be after the start time</errorMessage>
+        <errorMessage>The agenda item end time must be after the start time</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>Agenda_Builder_MERC</fullName>

@@ -15,8 +15,8 @@ private class MERC_TeamMemberShareHandlerTest {
 
 	@isTest static void test_should_handle_bulk() {
 		Test.startTest();
+
 		Meeting_MERC__c mtg = MERC_TestFactory.insertMeetings(1).get(0);
-		
 		List<Team_Member_MERC__c> members = new List<Team_Member_MERC__c>();
 
 		Team_Member_MERC__c member1 = new Team_Member_MERC__c();
@@ -56,15 +56,15 @@ private class MERC_TeamMemberShareHandlerTest {
 										ParentId = :mtg.Id AND AccessLevel = 'Edit' AND UserOrGroupId = :testUsers.get(2).Id]);
 
 		
+		MERC_DeleteNotifyService.skipCallout = true;
 		delete members;
-		System.assertEquals(0, [SELECT count() FROM Meeting_MERC__Share WHERE ParentId = :mtg.Id AND AccessLevel = 'Edit']);
-
 		Test.stopTest();
-
+		System.assertEquals(0, [SELECT count() FROM Meeting_MERC__Share WHERE ParentId = :mtg.Id AND AccessLevel = 'Edit']);
 	}
 
 	@isTest static void test_should_add_team_member_share_records() {
 		Test.startTest();
+		Test.setMock(HttpCalloutMock.class, new MERC_DeleteNotifyMock());
 		Meeting_MERC__c mtg = MERC_TestFactory.insertMeetings(1).get(0);
 		
 		Team_Member_MERC__c member1 = new Team_Member_MERC__c();
@@ -90,6 +90,7 @@ private class MERC_TeamMemberShareHandlerTest {
 
 	@isTest static void test_should_add_and_remove_team_member_share_records() {
 		Test.startTest();
+		Test.setMock(HttpCalloutMock.class, new MERC_DeleteNotifyMock());
 		Meeting_MERC__c mtg = MERC_TestFactory.insertMeetings(1).get(0);
 		
 		Team_Member_MERC__c member1 = new Team_Member_MERC__c();
@@ -104,7 +105,9 @@ private class MERC_TeamMemberShareHandlerTest {
 
 		System.assertEquals(2, [SELECT count() FROM Meeting_MERC__Share WHERE ParentId = :mtg.Id AND AccessLevel = 'Edit']);
 
+		MERC_DeleteNotifyService.skipCallout = true;
 		delete member1;
+		Test.stopTest();
 
 		System.assertEquals(1, [SELECT count() FROM Meeting_MERC__Share WHERE ParentId = :mtg.Id AND AccessLevel = 'Edit']);
 		System.assertEquals(0, [SELECT count() 
@@ -117,7 +120,6 @@ private class MERC_TeamMemberShareHandlerTest {
 
 
 
-		Test.stopTest();
 	}
 
 	@isTest static void test_should_prove_updates_to_team_members() {

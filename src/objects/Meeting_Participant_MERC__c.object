@@ -53,6 +53,17 @@
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
     <fields>
+        <fullName>Account_External_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account_MERC__r.Mercury_External_Id_MERC__c</formula>
+        <label>Account External</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Account_MERC__c</fullName>
         <description>Lookup to Account from Event Participant. Created 9/28/2013 by KLorenti.</description>
         <externalId>false</externalId>
@@ -292,6 +303,17 @@ Created by John A Adams 10/31/2013</description>
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
+        <fullName>Email_to_Invite_HCP_to_Portal_MERC__c</fullName>
+        <description>Email address entered by Sales Rep if HCP needs inviting to the Portal. Oliver Dunford 10th Jan.</description>
+        <externalId>false</externalId>
+        <label>Email to Invite HCP to Portal</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Event_Customer_Id_MERC__c</fullName>
         <description>Unique identifier of the relationship of the customer at the event. Combination of Meeting Id &amp; Meeting Participant Id.
 Created by John Adams on 12/9/2013</description>
@@ -342,7 +364,8 @@ Created by John Adams on 12/9/2013</description>
         <fullName>Final_Fee_MERC__c</fullName>
         <description>Can be used to override the calculated Maximum Fee.  This is the figure used within the Invoicing Process.  Created by Oliver Dunford 31st Oct 2013.</description>
         <externalId>false</externalId>
-        <label>Final Fee</label>
+        <inlineHelpText>Final Fee is the total of the Proposed Fee + the Travel Adjustment</inlineHelpText>
+        <label>Final Fee (Incl Travel)</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -352,7 +375,7 @@ Created by John Adams on 12/9/2013</description>
     </fields>
     <fields>
         <fullName>Force_Unique_Participant_MERC__c</fullName>
-        <caseSensitive>false</caseSensitive>
+        <caseSensitive>true</caseSensitive>
         <description>Stamped via workflow to enforce a unique participant per Meeting.  If someone is a Speaker, they&apos;re primarily a Speaker and not both a Speaker and Delegate.</description>
         <externalId>false</externalId>
         <label>Force Unique Participant</label>
@@ -411,6 +434,18 @@ Created by John Adams on 12/9/2013</description>
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>HCP_Info_Package_Comm_Details_MERC__c</fullName>
+        <description>Mapped from Participants orginating from Veeva so that SalesRep can communicate the contact details of the HCP for follow up correspondence.  Oliver Dunford 10th Jan.</description>
+        <externalId>false</externalId>
+        <label>HCP Info Package Communication Details</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Higher_Fee_Approval__c</fullName>
         <description>Controls approval of a Proposed Fee that is higher than the maximum affiliate amount. 6th Nov 2013.  Oliver Dunford. 2013.</description>
         <externalId>false</externalId>
@@ -457,6 +492,20 @@ Created by John Adams on 12/9/2013</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Immediate_Source_MERC__c</fullName>
+        <defaultValue>&quot;Mercury&quot;</defaultValue>
+        <description>Immediate Source information. The Veeva Interface will stamp Veeva as the Source if the Meeting or Meeting Participant comes from Veeva and not Mercury. This is needed for the AODS interface.
+Created by John A Adams 1/7/2014</description>
+        <externalId>false</externalId>
+        <label>Immediate Source</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Include_CAP_Roll_Up_MERC__c</fullName>
@@ -539,21 +588,6 @@ Created by John Adams on 12/9/2013</description>
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
-        <fullName>Lilly_Affiliate_MERC__c</fullName>
-        <deleteConstraint>Restrict</deleteConstraint>
-        <description>Lilly Affiliate Business providing sponsorship
-Created by John A Adams 12/12/2013</description>
-        <externalId>false</externalId>
-        <label>Sponsoring Lilly Affiliate</label>
-        <referenceTo>Account</referenceTo>
-        <relationshipLabel>Meeting Participants (Lilly Affiliate)</relationshipLabel>
-        <relationshipName>Meeting_Participants</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>Maximum_Fee_MERC__c</fullName>
         <description>Calculates the maximum fee possible based on Max Rate and Total Hrs of Service then adjusted based on Travel.
 Created by John A Adams 10/31/2013</description>
@@ -593,6 +627,17 @@ Created by John A Adams 10/31/2013</description>
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Meeting_External_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>Meeting_MERC__r.Mercury_External_Id_MERC__c</formula>
+        <label>Meeting External</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Meeting_MERC__c</fullName>
         <description>Master-Detail Relationship from Meeting Participant to Meeting. Created 9/30/2013 by KLorenti.</description>
         <externalId>false</externalId>
@@ -606,6 +651,21 @@ Created by John A Adams 10/31/2013</description>
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Meeting_Owner_Global_Id_MERC__c</fullName>
+        <description>Oliver Dunford 6th Jan: Pulls the Meeting Owner&apos;s Global Id from the Meeting Owner on the Meeting Object. Needed for AODS Interface.</description>
+        <externalId>false</externalId>
+        <formula>IF(ISNULL( Meeting_MERC__r.Sales_Rep_MERC__c ), Meeting_MERC__r.Meeting_Owner_MERC__r.Prsnl_Nbr_GLBL__c , Meeting_MERC__r.Sales_Rep_MERC__r.Prsnl_Nbr_GLBL__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting Owner Global Id</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Mercury_External_Id_MERC__c</fullName>
@@ -625,30 +685,7 @@ Created by J Adams 12/10/2013</description>
         <description>Calculates the minimum fee possible based on Min Rate and Total Hrs of Service then adjusted based on Travel.
 Created by John A Adams 10/31/2013</description>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Travel_Time_Hrs_MERC__c,&quot;&quot;), 
-(Minimum_Rate_MERC__c *  Total_Hours_of_Service_MERC__c), 
-
-
-IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;0-2 hrs&quot;), 
-(Minimum_Rate_MERC__c *  Total_Hours_of_Service_MERC__c), 
-
-
-IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;2-10 hrs&quot;), 
-(0.20 * (Minimum_Rate_MERC__c *  Total_Hours_of_Service_MERC__c)+ 
-Minimum_Rate_MERC__c *  Total_Hours_of_Service_MERC__c), 
-
-IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;11-20 hrs&quot;), 
-(0.25 * (Minimum_Rate_MERC__c *  Total_Hours_of_Service_MERC__c)+ 
-Minimum_Rate_MERC__c *  Total_Hours_of_Service_MERC__c), 
-
-IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;), 
-(0.30 * (Minimum_Rate_MERC__c *  Total_Hours_of_Service_MERC__c)+ 
-Minimum_Rate_MERC__c *  Total_Hours_of_Service_MERC__c), 0 
-) 
-) 
-) 
-) 
-)</formula>
+        <formula>Minimum_Rate_MERC__c *  Total_Hours_of_Service_MERC__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Minimum Fee</label>
         <precision>18</precision>
@@ -849,6 +886,17 @@ Created by John A Adams 10/31/2013</description>
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>RTI_Transaction_ID_MERC__c</fullName>
+        <externalId>false</externalId>
+        <label>RTI Transaction ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Require_Recording_Consent_MERC__c</fullName>
         <description>Is record consent needed for the meeting. Oliver Dunford 5th Nov 2013</description>
         <externalId>false</externalId>
@@ -867,6 +915,16 @@ Created by John A Adams 10/31/2013</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Send_HCP_Info_Package_to_Rep__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>When the Rep will deliver the HCP Info Package in Person, this field will be set to ensure they receive the Info Package and not the HCP - set via Veeva to Mercury Interface. Oliver Dunford 10th Jan.</description>
+        <externalId>false</externalId>
+        <label>Send HCP Info Package to Rep</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Service_Provider_Tier_MERC__c</fullName>
@@ -903,6 +961,20 @@ Created by John A Adams 10/24/2013</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Source_MERC__c</fullName>
+        <defaultValue>&quot;Mercury&quot;</defaultValue>
+        <description>Initial source of the information. The Veeva Interface will stamp Veeva as the Source if the Meeting or Meeting Participant comes from Veeva and not Mercury. This is needed for the AODS interface.
+Created by John A Adams 1/7/2014</description>
+        <externalId>false</externalId>
+        <label>Source</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Speciality_MERC__c</fullName>
@@ -1049,19 +1121,6 @@ Created by John A Adams 10/17/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Total_Other_ToV_MERC__c</fullName>
-        <description>Stores total other ToV. Oliver Dunford 10/10/2013</description>
-        <externalId>false</externalId>
-        <label>Total Other ToV</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Total_Registration_ToV_MERC__c</fullName>
         <description>Stores total registration ToV. Oliver Dunford 10/10/2013</description>
         <externalId>false</externalId>
@@ -1085,6 +1144,50 @@ Created by John A Adams 10/17/2013</description>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Travel_Adjustment_Amount_MERC__c</fullName>
+        <description>Stamp with the amount of the Travel Adjustment. Created 01/08/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Travel Adjustment Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Travel_Adjustment_Percentage_MERC__c</fullName>
+        <description>Display Percentage for Travel Adjustment. Created 01/06/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(Travel_Time_Hrs_MERC__c,&quot;&quot;), 
+(0), 
+
+IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;0-2 hrs&quot;), 
+(0), 
+
+IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;2-10 hrs&quot;), 
+(0.20), 
+
+IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;11-20 hrs&quot;), 
+(0.25), 
+
+IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;), 
+(0.30), 0 
+) 
+) 
+) 
+) 
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Travel Adjustment</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
     </fields>
     <fields>
         <fullName>Travel_Required_MERC__c</fullName>
@@ -1137,38 +1240,6 @@ Created by John A Adams 10/17/2013</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Travel_Time_Reimbursement_MERC__c</fullName>
-        <description>Calculate Travel Time reimbursement amount. Created 11/26/2013 by KLorenti, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Travel_Time_Hrs_MERC__c,&quot;&quot;), 
-(0), 
-
-IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;0-2 hrs&quot;), 
-(0), 
-
-IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;2-10 hrs&quot;), 
-(0.20 * (Maximum_Rate_MERC__c * Total_Hours_of_Service_MERC__c)), 
-
-IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;11-20 hrs&quot;), 
-(0.25 * (Maximum_Rate_MERC__c * Total_Hours_of_Service_MERC__c)), 
-
-IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;), 
-(0.30 * (Maximum_Rate_MERC__c * Total_Hours_of_Service_MERC__c)), 0 
-) 
-) 
-) 
-) 
-)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Travel Time Reimbursement</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Currency</type>
     </fields>
     <fields>
         <fullName>Trnsctn_Typ_MERC__c</fullName>
@@ -1235,7 +1306,7 @@ Created by John A Adams 12/12/2013</description>
         <fullName>Types_of_Service_MERC__c</fullName>
         <description>Type of Services a speaker may be providing. Moving from HCP Contract object. Created 11/19/2013 by KLorenti, Mavens Consulting.</description>
         <externalId>false</externalId>
-        <label>Types of Service</label>
+        <label>Type of Service</label>
         <picklist>
             <picklistValues>
                 <fullName>Speaking - Speaker</fullName>
@@ -1258,7 +1329,7 @@ Created by John A Adams 12/12/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Consulting ad hoc</fullName>
+                <fullName>Consulting Project</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1612,7 +1683,7 @@ Created by John A Adams 12/12/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Consulting ad hoc</fullName>
+                <fullName>Consulting Project</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1952,7 +2023,7 @@ Created by John A Adams 12/12/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Consulting ad hoc</fullName>
+                <fullName>Consulting Project</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2288,7 +2359,7 @@ Created by John A Adams 12/12/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Consulting ad hoc</fullName>
+                <fullName>Consulting Project</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2334,6 +2405,15 @@ Created by John A Adams 12/12/2013</description>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
+        <fullName>Cancelled_Meeting_with_Part_Pymnt_MER</fullName>
+        <active>false</active>
+        <description>Partial Payments should not be entered unless meeting is Cancelled.</description>
+        <errorConditionFormula>!ISPICKVAL(Meeting_MERC__r.Meeting_Status_MERC__c, &quot;Cancelled&quot;)&amp;&amp;
+ISCHANGED(Partial_Payment_Amount_MERC__c) &amp;&amp; !ISBLANK(Partial_Payment_Amount_MERC__c)</errorConditionFormula>
+        <errorDisplayField>Partial_Payment_Amount_MERC__c</errorDisplayField>
+        <errorMessage>The Partial Payment Amount may only be entered if the Meeting is in a Cancelled status.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Confirm_Final_Fee</fullName>
         <active>true</active>
         <description>Unable to Confirm Final Fee if Exception Fee Approval is Required or Rejected.</description>
@@ -2346,7 +2426,8 @@ Created by John A Adams 12/12/2013</description>
         <active>true</active>
         <description>Confirm Final Fee should be updated with the Partial Payment Amount</description>
         <errorConditionFormula>!Confirm_Partial_Payment_Amount_MERC__c &amp;&amp;
-Partial_Payment_Amount_MERC__c &gt; 0</errorConditionFormula>
+ISCHANGED(Partial_Payment_Amount_MERC__c) &amp;&amp;
+Partial_Payment_Amount_MERC__c &gt; 0.00</errorConditionFormula>
         <errorDisplayField>Confirm_Partial_Payment_Amount_MERC__c</errorDisplayField>
         <errorMessage>Please confirm the Final Fee should be updated with the Partial Payment Amount.</errorMessage>
     </validationRules>
@@ -2358,6 +2439,18 @@ Partial_Payment_Amount_MERC__c &gt; 0</errorConditionFormula>
 &apos;Individual Sponsorship&apos;) &amp;&amp;   RecordType.Name  &lt;&gt;  &apos;Individual Sponsorship&apos;</errorConditionFormula>
         <errorDisplayField>Account_MERC__c</errorDisplayField>
         <errorMessage>You must enter Participant Type &quot;Individual Sponsorship&quot; for meetings with Meetings of Sponsorship Category &quot;Individual Sponsorship&quot;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Partial_Payment_Allowed_MERC</fullName>
+        <active>true</active>
+        <description>The Partial Payment Amount should only be entered if the Final Fee has been entered and the Participant ToV Final is False.</description>
+        <errorConditionFormula>ISCHANGED(Partial_Payment_Amount_MERC__c) &amp;&amp;
+Partial_Payment_Amount_MERC__c &gt; 0.00 &amp;&amp;
+ISPICKVAL(Confirm_Final_Fee_MERC__c,&apos;Confirmed&apos;) &amp;&amp;
+!ISPICKVAL(Participant_ToV_Final_MERC__c,&quot;No&quot;) &amp;&amp;
+!ISPICKVAL(Services_Rendered_MERC__c, &quot;No&quot;)</errorConditionFormula>
+        <errorDisplayField>Partial_Payment_Amount_MERC__c</errorDisplayField>
+        <errorMessage>You may not enter a Partial Payment Amount if the Final Fee has already been reported.</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>Add_Participants_MERC</fullName>

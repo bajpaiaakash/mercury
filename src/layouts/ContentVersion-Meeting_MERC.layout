@@ -65,6 +65,10 @@
                 <behavior>Readonly</behavior>
                 <field>Meeting_Country_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Expose_on_Portal_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns/>
         <style>TwoColumnsLeftToRight</style>

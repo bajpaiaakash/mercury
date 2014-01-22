@@ -9,10 +9,6 @@
         <label>Account Information</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>Cust_Id_GLBL__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>OwnerId</field>
             </layoutItems>
@@ -39,6 +35,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Service_Provider_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Language_Preference_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -183,9 +183,6 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
-    <miniLayout>
-        <fields>Cust_Id_GLBL__c</fields>
-    </miniLayout>
     <relatedLists>
         <fields>NAME</fields>
         <fields>Line_1_Adrs_Txt_GLBL__c</fields>
@@ -208,11 +205,13 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Meeting_MERC__c</fields>
+        <fields>Meeting_MERC__c.NAME</fields>
+        <fields>RECORDTYPE</fields>
         <fields>Status_MERC__c</fields>
-        <fields>HCP_Contract_Details_MERC__c</fields>
-        <fields>Services_Rendered_MERC__c</fields>
+        <fields>Meeting_MERC__c.Start_Date_Meeting_Time_Zone_MERC__c</fields>
         <relatedList>Meeting_Participant_MERC__c.Account_MERC__c</relatedList>
+        <sortField>Meeting_MERC__c.Start_Date_Meeting_Time_Zone_MERC__c</sortField>
+        <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>

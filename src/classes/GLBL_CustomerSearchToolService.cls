@@ -41,18 +41,27 @@ public with sharing class GLBL_CustomerSearchToolService {
 		public String ls { get; set; } //last name
 		public String custId  { get; set; } //customer id
 		public List<String> prod  { get; set; } //professional designation
-		public String classification { get; set; }
+		public String classifation { get; set; }
 		public List<String> status { get; set; }
 		public List<String> specialty { get; set; }
+		public List<String> specialtyRank { get; set; }
 		public String aIDType { get; set; }
 		public String aId { get; set; }
 		public String address { get; set; }
+		public String city { get; set; }
 		public String state { get; set; }
 		public String country { get; set; }
 		public String pc { get; set; }
-		public String affiliation { get; set; }
-		public String priorityRank { get; set; }
-		public String strict { get; set; } //"off" or "on"
+		public List<String> role { get; set; }
+		public String affil { get; set; }
+		public String affilAddress { get; set; }
+		public String affilCity { get; set; }
+		public List<String> affilCountry { get; set; }
+		public List<String> prAffil { get; set; } //priority rank
+		public String prAddress { get; set; }
+		public String sortField { get; set; }
+		public String sortOrder { get; set; }
+		public Boolean strict { get; set; } //"off" or "on"
 	}
 
 	public class ErrorResult {

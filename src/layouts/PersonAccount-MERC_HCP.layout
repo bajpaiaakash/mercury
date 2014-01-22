@@ -18,14 +18,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Service_Provider_Tier_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Calculate_Open_Meeting_Fees_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Othr_Ttl_Txt_GLBL__c</field>
             </layoutItems>
             <layoutItems>
@@ -40,15 +32,23 @@
                 <behavior>Edit</behavior>
                 <field>Service_Provider_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Language_Preference_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Communication_Preference_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Transparency_Reporting_Opt_Out_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>RecordTypeId</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>HCP_Profile_Status_GLBL__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
@@ -68,49 +68,6 @@
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
-    </layoutSections>
-    <layoutSections>
-        <customLabel>true</customLabel>
-        <detailHeading>true</detailHeading>
-        <editHeading>false</editHeading>
-        <label>Customer ODS</label>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Src_Sys_Cd_GLBL__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Party_Rcrd_Typ_Cd_GLBL__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Efctv_Start_Dt_GLBL__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Efctv_End_Dt_GLBL__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>ODS_Ld_Usr_GLBL__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>ODS_Ld_Tmstmp_GLBL__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>ODS_Lst_Updt_Usr_GLBL__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>ODS_Lst_Updt_Tmstmp_GLBL__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <style>TwoColumnsLeftToRight</style>
     </layoutSections>
     <layoutSections>
         <customLabel>true</customLabel>
@@ -178,20 +135,6 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Consent</label>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Transparency_Reporting_Opt_Out_MERC__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <layoutColumns/>
-        <style>TwoColumnsLeftToRight</style>
-    </layoutSections>
-    <layoutSections>
-        <customLabel>true</customLabel>
-        <detailHeading>true</detailHeading>
-        <editHeading>true</editHeading>
         <label>Contact Information</label>
         <layoutColumns>
             <layoutItems>
@@ -227,8 +170,20 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Tier Criteria</label>
+        <label>Tier Information</label>
         <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Service_Provider_Tier_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Influential_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Licensed_in_USA_MERC__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Licensed_HCP_MERC__c</field>
@@ -241,11 +196,35 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Influential_MERC__c</field>
+                <field>Initiate_Tiering_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Licensed_in_USA_MERC__c</field>
+                <field>Calculate_Open_Meeting_Fees_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Tier_1_Criteria_Met_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Tier_1_Score_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Tier_2_Criteria_Met_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Tier_2_Score_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Tier_3_Criteria_Met_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Tier_3_Score_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -270,51 +249,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Spclty_Cd_GLBL__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Spclty_Desc_GLBL__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Other_Specialities_GLBL__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Credential_Code_GLBL__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Crdntl_Typ_Cd_GLBL__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Crdntl_Lvl_GLBL__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Crdntl_Cd2_GLBL__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Crdntl_Typ_Cd2_GLBL__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Crdntl_Lvl2_GLBL__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Crdntl_Cd3_GLBL__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Crdntl_Typ_Cd3_GLBL__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Crdntl_Lvl3_GLBL__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -450,6 +389,49 @@
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
     <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>false</editHeading>
+        <label>Customer ODS</label>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Src_Sys_Cd_GLBL__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Party_Rcrd_Typ_Cd_GLBL__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Efctv_Start_Dt_GLBL__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Efctv_End_Dt_GLBL__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>ODS_Ld_Usr_GLBL__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>ODS_Ld_Tmstmp_GLBL__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>ODS_Lst_Updt_Usr_GLBL__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>ODS_Lst_Updt_Tmstmp_GLBL__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <style>TwoColumnsLeftToRight</style>
+    </layoutSections>
+    <layoutSections>
         <customLabel>false</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
@@ -458,6 +440,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>CreatedById</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Mercury_External_Id_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -484,6 +470,66 @@
     </layoutSections>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Meeting_MERC__c.NAME</fields>
+        <fields>RECORDTYPE</fields>
+        <fields>Status_MERC__c</fields>
+        <fields>Meeting_MERC__c.Start_Date_Meeting_Time_Zone_MERC__c</fields>
+        <relatedList>Meeting_Participant_MERC__c.Account_MERC__c</relatedList>
+        <sortField>Meeting_MERC__c.Start_Date_Meeting_Time_Zone_MERC__c</sortField>
+        <sortOrder>Asc</sortOrder>
+    </relatedLists>
+    <relatedLists>
+        <fields>CASES.CASE_NUMBER</fields>
+        <fields>NAME</fields>
+        <fields>CASES.SUBJECT</fields>
+        <fields>CASES.PRIORITY</fields>
+        <fields>CASES.CREATED_DATE_DATE_ONLY</fields>
+        <fields>CASES.STATUS</fields>
+        <fields>OWNER_NAME</fields>
+        <relatedList>RelatedCaseList</relatedList>
+        <sortField>CASES.STATUS</sortField>
+        <sortOrder>Asc</sortOrder>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>RECORDTYPE</fields>
+        <fields>Contract_Request_Status_MERC__c</fields>
+        <fields>Contract_Expiration_Date_MERC__c</fields>
+        <relatedList>HCP_Contract_MERC__c.Account_MERC__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Invoice_Date_MERC__c</fields>
+        <fields>RECORDTYPE</fields>
+        <fields>Meeting_Participant_MERC__c</fields>
+        <fields>Payee_MERC__c</fields>
+        <fields>Participant_MERC__c</fields>
+        <fields>Meeting_Name_MERC__c</fields>
+        <fields>Meeting_Country_MERC__c</fields>
+        <fields>Purpose_of_Payment_MERC__c</fields>
+        <relatedList>Invoice_MERC__c.HCO_Beneficiary_MERC__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>SAP_Vendor_ID_MERC__c</fields>
+        <fields>Bank_Name_MERC__c</fields>
+        <fields>Bank_City_MERC__c</fields>
+        <fields>Bank_Country_MERC__c</fields>
+        <fields>Payment_Method_MERC__c</fields>
+        <fields>Payment_Type_MERC__c</fields>
+        <relatedList>Payee_MERC__c.Account_MERC__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Account_Cust_Id_GLBL__c</fields>
+        <fields>Afltn_Party_Rcrd_Typ_Cd_GLBL__c</fields>
+        <fields>Afltn_Clsfctn_Cd_GLBL__c</fields>
+        <fields>Afltn_Role_Cd_GLBL__c</fields>
+        <fields>Priority_Rank_Nbr_GLBL__c</fields>
+        <relatedList>Affiliation_GLBL__c.Account_GLBL__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
         <fields>Line_1_Adrs_Txt_GLBL__c</fields>
         <fields>Line_2_Adrs_Txt_GLBL__c</fields>
         <fields>City_GLBL__c</fields>
@@ -503,63 +549,10 @@
         <relatedList>Communication_Preference_GLBL__c.Account_GLBL__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <fields>NAME</fields>
-        <fields>RECORDTYPE</fields>
-        <fields>Status_MERC__c</fields>
-        <fields>HCP_Contract_Details_MERC__c</fields>
-        <fields>Services_Rendered_MERC__c</fields>
-        <relatedList>Meeting_Participant_MERC__c.Account_MERC__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>SAP_Vendor_ID_MERC__c</fields>
-        <fields>Bank_Name_MERC__c</fields>
-        <fields>Bank_City_MERC__c</fields>
-        <fields>Bank_Country_MERC__c</fields>
-        <fields>Payment_Method_MERC__c</fields>
-        <fields>Payment_Type_MERC__c</fields>
-        <relatedList>Payee_MERC__c.Account_MERC__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>RECORDTYPE</fields>
-        <fields>Contract_Request_Status_MERC__c</fields>
-        <fields>Contract_Expiration_Date_MERC__c</fields>
-        <relatedList>HCP_Contract_MERC__c.Account_MERC__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>CASES.CASE_NUMBER</fields>
-        <fields>NAME</fields>
-        <fields>CASES.SUBJECT</fields>
-        <fields>CASES.PRIORITY</fields>
-        <fields>CASES.CREATED_DATE_DATE_ONLY</fields>
-        <fields>CASES.STATUS</fields>
-        <fields>OWNER_NAME</fields>
-        <relatedList>RelatedCaseList</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>Account_Cust_Id_GLBL__c</fields>
-        <fields>Afltn_Party_Rcrd_Typ_Cd_GLBL__c</fields>
-        <fields>Afltn_Clsfctn_Cd_GLBL__c</fields>
-        <fields>Afltn_Role_Cd_GLBL__c</fields>
-        <fields>Priority_Rank_Nbr_GLBL__c</fields>
-        <relatedList>Affiliation_GLBL__c.Account_GLBL__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>ACCOUNT.NAME</fields>
-        <fields>ACCOUNT.RECORDTYPE</fields>
-        <relatedList>Account.Relationship_Owner_MERC__c</relatedList>
-    </relatedLists>
-    <relatedLists>
         <fields>VERSION.TITLE</fields>
         <fields>VERSION.CREATED_DATE</fields>
         <fields>VERSION.LAST_UPDATE</fields>
         <relatedList>ContentVersion.Account_GLBL__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>Speciality_MERC__c.Account_GLBL__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>

@@ -431,6 +431,10 @@ Created by John Adams on 11/18/2013</description>
                 <fullName>Web Service</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Transparency Reporting Opt Out</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>

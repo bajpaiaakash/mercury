@@ -189,28 +189,6 @@ Created by John A Adams 10/21/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Bank_Transfer_Permissions_MERC__c</fullName>
-        <description>HCP acknowledgment that they approve the Bank Transfer Permissions 
-Created by John A Adams 10/22/2013</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Do you agree to all finance related permissions in respect of the the bank transfer?</inlineHelpText>
-        <label>Bank Transfer Permissions</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>Bank_Zip_Postal_Code_MERC__c</fullName>
         <description>Bank Zip or Postal Code
 Created by John A Adams 10/21/2013</description>
@@ -347,10 +325,6 @@ Created by John A Adams 10/17/2013</description>
             </picklistValues>
             <picklistValues>
                 <fullName>Cheque</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Cash</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>

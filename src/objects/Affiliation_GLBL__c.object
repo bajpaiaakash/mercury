@@ -69,6 +69,17 @@ Created by John A Adams 11/5/2013</description>
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Account_Cust_Name_GLBL__c</fullName>
+        <externalId>false</externalId>
+        <formula>Account_Cust_Id_GLBL__r.Name</formula>
+        <label>Affiliate Account Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Account_GLBL__c</fullName>
         <description>Used to help indicate direction of influence. Created 10/17/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -513,6 +524,18 @@ Created by John A Adams 11/5/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Rltnshp_Sts_Desc_GLBL__c</fullName>
+        <description>Oliver Dunford 6th Jan, Mastered ODS fields.</description>
+        <externalId>false</externalId>
+        <label>Relationship Status Description</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Rltnshp_Typ_Cd_GLBL__c</fullName>
         <description>Maps to Customer.ODS.Relationship Type field. Created by Oliver Dunford 25th Oct 2013
 Relationship Type Code
@@ -520,6 +543,18 @@ Customer ODS to Mercury Mapping</description>
         <externalId>false</externalId>
         <label>Relationship Type Code</label>
         <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Rltnshp_Typ_Desc_GLBL__c</fullName>
+        <description>Oliver Dunford 6th Jan, Mastered ODS Information</description>
+        <externalId>false</externalId>
+        <label>Relationship Type Description</label>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>

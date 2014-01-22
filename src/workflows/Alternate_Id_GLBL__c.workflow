@@ -11,18 +11,17 @@
         <protected>false</protected>
     </fieldUpdates>
     <rules>
-        <fullName>Mercury External ID-Alternate ID</fullName>
+        <fullName>Mercury External ID-Alternate ID_MERC</fullName>
         <actions>
             <name>External_ID_Alternate_ID_MERC</name>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
         <criteriaItems>
-            <field>Alternate_Id_GLBL__c.Name</field>
-            <operation>notEqual</operation>
-            <value>null</value>
+            <field>Alternate_Id_GLBL__c.Mercury_External_Id_MERC__c</field>
+            <operation>equals</operation>
         </criteriaItems>
         <description>Populates the external id upon creation of a record</description>
-        <triggerType>onCreateOnly</triggerType>
+        <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>

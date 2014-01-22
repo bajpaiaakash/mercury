@@ -95,22 +95,21 @@ Created by John A Adams 12/11/2013</description>
         <targetObject>Account_GLBL__c</targetObject>
     </fieldUpdates>
     <rules>
-        <fullName>Mercury External ID-Affiliation</fullName>
+        <fullName>Mercury External ID-Affiliation_MERC</fullName>
         <actions>
             <name>External_ID_Affiliation_MERC</name>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
         <criteriaItems>
-            <field>Affiliation_GLBL__c.Name</field>
-            <operation>notEqual</operation>
-            <value>null</value>
+            <field>Affiliation_GLBL__c.Mercury_External_Id_MERC__c</field>
+            <operation>equals</operation>
         </criteriaItems>
         <description>Populates the external id upon creation of a record</description>
-        <triggerType>onCreateOnly</triggerType>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
-        <fullName>Primary Affiliation Addresses</fullName>
+        <fullName>Primary Affiliation Addresses_MERC</fullName>
         <actions>
             <name>Prim_Affil_Add_Ln1_GLBL</name>
             <type>FieldUpdate</type>

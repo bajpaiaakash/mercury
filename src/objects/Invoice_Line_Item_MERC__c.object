@@ -53,10 +53,11 @@
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
     <fields>
-        <fullName>Amount_Adhoc_Consulting_MERC__c</fullName>
-        <description>Used to capture a manually typed value for ad hoc consulting services.  Oliver Dunford 13th Dec.</description>
+        <fullName>Amount_MERC__c</fullName>
+        <description>Amount of Line Item
+Created by John A Adams 10/31/2013</description>
         <externalId>false</externalId>
-        <label>Ad hoc Amount</label>
+        <label>Amount</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -65,11 +66,10 @@
         <type>Currency</type>
     </fields>
     <fields>
-        <fullName>Amount_MERC__c</fullName>
-        <description>Amount of Line Item
-Created by John A Adams 10/31/2013</description>
+        <fullName>Consulting_Amount_MERC__c</fullName>
+        <description>Used to capture a manually typed value for consulting projects.  Oliver Dunford 13th Dec.</description>
         <externalId>false</externalId>
-        <label>Amount</label>
+        <label>Consulting Amount</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -203,11 +203,27 @@ Created by John A Adams 10/27/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Rmbrsmnt_of_Expenses_MERC__c</fullName>
+        <description>Pulls Reimbursement of Expenses from Meeting Participant</description>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(Invoice_MERC__r.Meeting_Participant_MERC__r.Expense_Reimbursment_MERC__c, &quot;Yes&quot;),&quot;Yes&quot;,
+ IF(ISPICKVAL(Invoice_MERC__r.Meeting_Participant_MERC__r.Expense_Reimbursment_MERC__c, &quot;No&quot;),&quot;No&quot;,null
+ )
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Reimbursement of Expenses</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Tax_Amount_MERC__c</fullName>
         <description>Tax Amount (currency, calc based on value &amp; tax rate) 
 Created by John A Adams 10/4/2013</description>
         <externalId>false</externalId>
-        <formula>IF( Amount_MERC__c = 0, Amount_MERC__c *(VAT_Rate_MERC__c / 100) + Unit_Price_MERC__c *( VAT_Rate_MERC__c /100),  Amount_Adhoc_Consulting_MERC__c *(VAT_Rate_MERC__c / 100) + Unit_Price_MERC__c *( VAT_Rate_MERC__c /100))</formula>
+        <formula>IF( Amount_MERC__c = 0, Amount_MERC__c *(VAT_Rate_MERC__c / 100) + Unit_Price_MERC__c *( VAT_Rate_MERC__c /100),  Consulting_Amount_MERC__c *(VAT_Rate_MERC__c / 100) + Unit_Price_MERC__c *( VAT_Rate_MERC__c /100))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Tax Amount</label>
         <precision>18</precision>
@@ -267,10 +283,10 @@ Created by John A Adams 10/4/2013</description>
     <pluralLabel>Invoice Line Items</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
-        <fullName>Ad_Hoc_Consulting</fullName>
+        <fullName>Consulting_Project_MERC</fullName>
         <active>true</active>
-        <description>To represent ad hoc consulting engagements.</description>
-        <label>Ad Hoc Consulting</label>
+        <description>To represent consulting engagements.  The amount is entered manually based on the invoiced amount in these cases.</description>
+        <label>Consulting Project</label>
         <picklistValues>
             <picklist>Cost_Element_MERC__c</picklist>
             <values>

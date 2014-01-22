@@ -9,10 +9,6 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>Cust_Id_GLBL__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
                 <field>Name</field>
             </layoutItems>
             <layoutItems>
@@ -251,9 +247,6 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
-    <miniLayout>
-        <fields>Cust_Id_GLBL__c</fields>
-    </miniLayout>
     <relatedLists>
         <fields>NAME</fields>
         <fields>Party_Rcrd_Typ_Cd_GLBL__c</fields>
@@ -292,6 +285,8 @@
         <fields>CASES.STATUS</fields>
         <fields>OWNER_NAME</fields>
         <relatedList>RelatedCaseList</relatedList>
+        <sortField>CASES.STATUS</sortField>
+        <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>VERSION.TITLE</fields>

@@ -1,3 +1,12 @@
+/**
+ * @author Joseph Ferraro
+ *
+ * controller for Meeting Daily Attendance UI
+ * -when the page loads, any missing daily attendance tov records for the participants are inserted with a blank "status" value
+ *  @TODO: this operation could be costly in larger meetings, so we may need to re-assess where this actually happens
+ * -we're also reloading MP status when their status updates to show real-time TOV numbers. if this isn't necessary, 
+ *  we could save some processing time
+ */
 public with sharing class MERC_DailyAttendanceController {
 	
 	public String selectedMeetingDayId { get; set; }
@@ -58,7 +67,8 @@ public with sharing class MERC_DailyAttendanceController {
 			ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Please add Meeting Days to this Meeting'));
 			this.hasError = true;
 		}
-		this.selectedMeetingDayId = meetingDays.get(0).Id;
+		if (!this.hasError)
+			this.selectedMeetingDayId = meetingDays.get(0).Id;
 		if (participants.size() == 0) {
 			ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Please add Participants to this Meeting'));
 			this.hasError = true;
@@ -104,6 +114,7 @@ public with sharing class MERC_DailyAttendanceController {
 			}
 		}
 		upsert tovsToUpsert External_ID_MERC__c;
+		this.refreshParticipants = true;
 		return null;	
 	}
 
@@ -118,6 +129,7 @@ public with sharing class MERC_DailyAttendanceController {
 			}
 		}
 		upsert tovsToUpsert External_ID_MERC__c;
+		this.refreshParticipants = true;
 		return null;	
 	}
 
@@ -133,6 +145,7 @@ public with sharing class MERC_DailyAttendanceController {
 				break;
 			}
 		}
+		this.refreshParticipants = true;
 		return null;
 	}
 
@@ -154,11 +167,22 @@ public with sharing class MERC_DailyAttendanceController {
 		get {
 			if (participants == null || refreshParticipants) {
 				participants = new List<ParticipantWrapper>();
-				for (Daily_Attendance_TOV_MERC__c tovRecord : [SELECT Id, Name, Meeting_Day_MERC__c, Meeting_Participant_MERC__c, Status_MERC__c, External_ID_MERC__c, Meeting_Participant_Record_Type_MERC__c, Meeting_Participant_Account_Name_MERC__c 
-						FROM Daily_Attendance_TOV_MERC__c 
-							WHERE Meeting_Day_MERC__c = :this.selectedMeetingDayId 
-								order by Meeting_Participant_Account_Name_MERC__c]) {
-						participants.add(new ParticipantWrapper(tovRecord));
+				for (Daily_Attendance_TOV_MERC__c tovRecord : [SELECT 
+																	Id, Name, 
+																	Meeting_Day_MERC__c, 
+																	Meeting_Participant_MERC__c, 
+																	Meeting_Participant_MERC__r.Total_Food_Beverage_ToV_MERC__c,
+																	Meeting_Participant_MERC__r.Total_Ground_Transporation_ToV_MERC__c,
+																	Meeting_Participant_MERC__r.Total_Registration_ToV_MERC__c,
+																	Meeting_Participant_MERC__r.Total_Hotel_ToV_MERC__c,
+																	Status_MERC__c, External_ID_MERC__c, 
+																	Meeting_Participant_Record_Type_MERC__c,
+																	Meeting_Participant_Account_Name_MERC__c 
+																		FROM Daily_Attendance_TOV_MERC__c 
+																		WHERE Meeting_Day_MERC__c = :this.selectedMeetingDayId 
+																		ORDER BY Meeting_Participant_Account_Name_MERC__c]) 
+				{
+					participants.add(new ParticipantWrapper(tovRecord));
 				}
 			}
 			if (this.refreshParticipants)

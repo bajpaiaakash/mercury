@@ -36,26 +36,25 @@
         <fullName>Update_Amount_for_AdHoc_MERC</fullName>
         <description>Updates the Amount field rolled up to the Invoice Totals with the value manually typed by HCP Care for the Ad Hoc consulting Invoices. Oliver Dunford 13th Dec 2013.</description>
         <field>Amount_MERC__c</field>
-        <formula>Amount_Adhoc_Consulting_MERC__c</formula>
+        <formula>Consulting_Amount_MERC__c</formula>
         <name>Update Amount</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
     <rules>
-        <fullName>Mercury External ID-InvoiceLine</fullName>
+        <fullName>Mercury External ID-InvoiceLine_MERC</fullName>
         <actions>
             <name>External_ID_InvoiceLine_MERC</name>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
         <criteriaItems>
-            <field>Invoice_Line_Item_MERC__c.Name</field>
-            <operation>notEqual</operation>
-            <value>null</value>
+            <field>Invoice_MERC__c.Mercury_External_Id_MERC__c</field>
+            <operation>equals</operation>
         </criteriaItems>
         <description>Populates the external id upon creation of a record</description>
-        <triggerType>onCreateOnly</triggerType>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Populate Ad Hoc Amount_MERC</fullName>

@@ -16,18 +16,23 @@ public with sharing class MERC_TestFactory {
 		List<sObject> rollups = Test.loadData(glbl_rollup__LookupRollupSummary__c.sObjectType, 'DeclarativeRollupTestData_MERC');
 	}
 
-	public static List<Account> insertAccounts(Integer numberOfAccounts) {
+	public static List<Account> insertAccounts(Integer numberOfAccounts, Id recordTypeId) {
 		List<Account> accs = new List<Account>();
 		for (Integer i = 0; i < numberOfAccounts; i++) {
+			String randomString = MERC_Util.generateRandomString(8);
 			Account a = new Account();
 			a.FirstName = 'UnitTest';
-			a.LastName = 'Smith'+numberOfAccounts;
-			a.RecordTypeId = hcpRecordTypeId;
-			a.PersonEmail = 'unittest'+i+'@gmail.com';
+			a.LastName = randomString;
+			a.RecordTypeId = recordTypeId;
+			a.PersonEmail = 'ut-'+randomString+'@gmail.com';
 			accs.add(a);
 		}
 		insert accs;
 		return accs;
+	}
+
+	public static List<Account> insertAccounts(Integer numberOfAccounts) {
+		return insertAccounts(numberOfAccounts, hcpRecordTypeId);
 	}
 
 	public static List<Account> insertEmployeeAccounts(Integer numberOfAccounts) {
@@ -66,6 +71,42 @@ public with sharing class MERC_TestFactory {
 		return tov;
 	}
 
+	public static List<Travel_Itinerary_MERC__c> insertHotelItineraries(List<Meeting_Participant_MERC__c> participants, Date startDate, Date endDate) {
+		List<Travel_Itinerary_MERC__c> hotelItineraries = new List<Travel_Itinerary_MERC__c>();
+		for (Meeting_Participant_MERC__c mp : participants) {
+			Travel_Itinerary_MERC__c ti = new Travel_Itinerary_MERC__c();
+			ti.Meeting_Participant_MERC__c = mp.Id;
+			ti.Sgmnt_Bgin_TS_MERC__c = Datetime.newInstance(startDate, Time.newInstance(12, 0, 0, 0));
+			ti.Sgmnt_End_TS_MERC__c = Datetime.newInstance(endDate, Time.newInstance(15, 0, 0, 0));
+			hotelItineraries.add(ti);
+		}
+		insert hotelItineraries;
+		return hotelItineraries;
+	}
+
+	public static List<Meeting_Vendor_MERC__c> insertHotelsForMeeting(Integer numberOfHotels, String meetingId) {
+		List<Account> accounts = new List<Account>();
+		String vendorRecordTypeId = [SELECT ID FROM RecordType WHERE SObjectType = 'Account' AND DeveloperName = 'Vendor_GLBL'].ID;
+		for (Integer i = 0; i < numberOfHotels; i++) {
+			Account a = new Account();
+			a.RecordTypeId = vendorRecordTypeId;
+			a.Name = MERC_Util.generateRandomString(5);
+			accounts.add(a);
+		}
+		insert accounts;
+
+		List<Meeting_Vendor_MERC__c> hotels = new List<Meeting_Vendor_MERC__c>();
+		for (Integer i = 0; i < accounts.size(); i++) {
+			Meeting_Vendor_MERC__c v = new Meeting_Vendor_MERC__c();
+			v.Account_MERC__c = accounts.get(i).Id;
+			v.Room_Rate_MERC__c = (i+1)*50;
+			v.Meeting_MERC__c = meetingId;
+			hotels.add(v);
+		}
+		insert hotels;
+		return hotels;
+	}
+
 	public static List<Meeting_Day_MERC__c> insertMeetingDays(String meetingId, Integer numberOfDays) {
 		List<Meeting_Day_MERC__c> mtgDays = new List<Meeting_Day_MERC__c>();
 		for (Integer i = 0; i < numberOfDays; i++) {
@@ -73,9 +114,9 @@ public with sharing class MERC_TestFactory {
 			m.Date_MERC__c = Date.today().addDays(i);
 			m.Meeting_MERC__c = meetingId;
 			m.Daily_Food_Beverage_Amount_MERC__c = 100;
-			m.Daily_Ground_Trans_Amount_MERC__c = 50;
-			m.Daily_Hotel_Amount_MERC__c = 300;
-			m.Daily_Registration_Amount_MERC__c = 200;
+			m.Daily_Ground_Trans_Amount_MERC__c = 100;
+			m.Daily_Hotel_Amount_MERC__c = 100;
+			m.Daily_Registration_Amount_MERC__c = 100;
 			mtgDays.add(m);
 		}
 		insert mtgDays;

@@ -1,3 +1,8 @@
+/**
+ * @author Joseph Ferraro
+ *
+ * Stamps static text field with a user-friendly date/time value
+ */
 public with sharing class MERC_TimestampHandler implements GLBL_TriggerHandler.HandlerInterface {
 	
 	Schema.SobjectType triggeredSobjectType;
@@ -15,7 +20,10 @@ public with sharing class MERC_TimestampHandler implements GLBL_TriggerHandler.H
 	}
 
 	void execute(List<SObject> sobjects) {		
-		if (this.triggeredSobjectType == Meeting_MERC__c.sObjectType) {
+		if (
+			this.triggeredSobjectType == Meeting_MERC__c.sObjectType ||
+			this.triggeredSobjectType == Travel_Itinerary_MERC__c.sObjectType
+		) {
 			MERC_TimeZoneUtility tz = new MERC_TimeZoneUtility(this.triggeredSobjectType);
 			tz.applyTimeZoneSpecificTimestamps(sobjects, null);
 		} else if (

@@ -18,7 +18,9 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>Edit</actionName>
-        <type>Default</type>
+        <content>MERC_MeetingDayNewEdit</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>Follow</actionName>
@@ -30,7 +32,9 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
-        <type>Default</type>
+        <content>MERC_MeetingDayNewEdit</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>SaveEdit</actionName>
@@ -52,6 +56,65 @@
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
+    <fieldSets>
+        <fullName>Meeting_Day_Basic_Information_MERC</fullName>
+        <description>Controls the form when creating/editing a meeting day. -JFerraro 1/9/2014</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Meeting_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Basic Information</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Meeting_Day_Daily_Amounts_MERC</fullName>
+        <description>Controls the form when creating/editing a meeting day. -JFerraro 1/9/2014</description>
+        <displayedFields>
+            <field>Daily_Hotel_Amount_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Daily_Other_Amount_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Daily_Ground_Trans_Amount_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Daily_Food_Beverage_Amount_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Daily Amounts</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Meeting_Day_Date_Information_MERC</fullName>
+        <description>Controls the form when creating/editing a meeting day. -JFerraro 1/9/2014</description>
+        <displayedFields>
+            <field>Date_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Date Information</label>
+    </fieldSets>
+    <fields>
+        <fullName>Confirm_ToV_Reporting_Change_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Validation checkbox for HCP Care to confirm that the ToV is being updated/corrected. Created 01/07/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Confirm ToV Reporting Change</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <fields>
         <fullName>Daily_Food_Beverage_Amount_MERC__c</fullName>
         <defaultValue>0</defaultValue>
@@ -123,6 +186,29 @@ Created by John A Adams 10/15/2013</description>
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Date_Meeting_Time_Zone__c</fullName>
+        <description>Stamped with the date locale based on the meeting time zone</description>
+        <externalId>false</externalId>
+        <label>Date (Meeting Time Zone)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Force_Unique_Meeting_Day_MERC__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>Stamped via workflow to enforce a that each Meeting Day has a unique date.</description>
+        <externalId>false</externalId>
+        <label>Force Unique Meeting Day</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
         <fullName>Meeting_MERC__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Lookup relationship to Meeting. Created 10/10/2013 by KLorenti</description>
@@ -134,6 +220,17 @@ Created by John A Adams 10/15/2013</description>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Time_Zone_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>text(Meeting_MERC__r.Meeting_Time_Zone_MERC__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting Time Zone</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Mercury_External_Id_MERC__c</fullName>
@@ -148,17 +245,16 @@ Created by J Adams 12/10/2013</description>
         <unique>false</unique>
     </fields>
     <label>Meeting Day</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
     <nameField>
         <label>Meeting Day</label>
         <type>Text</type>
     </nameField>
     <pluralLabel>Meeting Days</pluralLabel>
-    <recordTypes>
-        <fullName>Meeting_Day</fullName>
-        <active>true</active>
-        <description>Create a record that represents a day of the meeting</description>
-        <label>Meeting Day</label>
-    </recordTypes>
     <searchLayouts>
         <lookupDialogsAdditionalFields>Meeting_MERC__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Date_MERC__c</lookupDialogsAdditionalFields>
@@ -169,6 +265,18 @@ Created by J Adams 12/10/2013</description>
         <searchFilterFields>Date_MERC__c</searchFilterFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Check_if_any_ToV_has_been_reported</fullName>
+        <active>true</active>
+        <description>Checks to see if any Meeting Participants have had ToV reported. Created 01/08/2014 by KLorenti, Mavens Consulting</description>
+        <errorConditionFormula>Meeting_MERC__r.ToV_Reported_MERC__c &amp;&amp;
+(ISCHANGED ( Daily_Registration_Amount_MERC__c ) ||
+ISCHANGED ( Daily_Ground_Trans_Amount_MERC__c) ||
+ISCHANGED ( Daily_Food_Beverage_Amount_MERC__c )) &amp;&amp;
+! Confirm_ToV_Reporting_Change_MERC__c</errorConditionFormula>
+        <errorDisplayField>Confirm_ToV_Reporting_Change_MERC__c</errorDisplayField>
+        <errorMessage>ToV has already been reported for participants of this Meeting. HCP Care needs to confirm this change before it can be made.</errorMessage>
+    </validationRules>
     <webLinks>
         <fullName>Manage_Daily_Attendance_MERC</fullName>
         <availability>online</availability>

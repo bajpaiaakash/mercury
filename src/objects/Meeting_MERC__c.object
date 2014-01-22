@@ -66,16 +66,6 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Date_of_Event_MERC__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>true</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>End_Date_of_Event_MERC__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>true</isRequired>
-        </displayedFields>
-        <displayedFields>
             <field>Start_Time_of_Meeting_MERC__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>true</isRequired>
@@ -111,31 +101,6 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <label>Meeting Date Time View (Meeting Time Zone)</label>
-    </fieldSets>
-    <fieldSets>
-        <fullName>Meeting_Date_Time_View_User_TZ_MERC</fullName>
-        <description>Embedded in Meeting detail page</description>
-        <displayedFields>
-            <field>Date_of_Event_MERC__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>End_Date_of_Event_MERC__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Start_Time_User_Time_Zone_MERC__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>End_Time_In_User_Time_Zone__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <label>Meeting Date Time View (User Time Zone)</label>
     </fieldSets>
     <fields>
         <fullName>Accommodation_Information_MERC__c</fullName>
@@ -193,6 +158,18 @@ Created by John Adams on 12/9/2013</description>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Amount_to_be_Paid_MERC__c</fullName>
+        <description>Amount to be paid entered by Sales Reps. Created 01/13/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Amount to be Paid</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
     </fields>
     <fields>
         <fullName>Approve_Sponsorship_MERC__c</fullName>
@@ -527,17 +504,6 @@ Created by John A Adams 10/25/2013</description>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>End_Time_In_User_Time_Zone__c</fullName>
-        <externalId>false</externalId>
-        <formula>End_Time_of_Meeting_MERC__c</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>End Time (User Time Zone)</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>End_Time_of_Meeting_MERC__c</fullName>
@@ -1558,6 +1524,18 @@ Created by John A Adams 10/25/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Event_Id_MERC__c</fullName>
+        <description>Used in combination with Meeting Auto Number to generate a human readable Id for AODS and other downstream systems that require it.  Oliver Dunford 7th Jan 2014.</description>
+        <externalId>false</externalId>
+        <label>Event Id</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Event_Occurred_MERC__c</fullName>
         <description>Allows the Mercury Owner to confirm that the Event Occurred
 Created by John A Adams 10/24/2013</description>
@@ -1860,6 +1838,33 @@ Created by John Adams 11/6/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Immediate_Source_MERC__c</fullName>
+        <defaultValue>&quot;Mercury&quot;</defaultValue>
+        <description>Source of the most recent information.  The Veeva Interface will stamp Veeva as the Source if the Meeting or Meeting Participant comes from Veeva and not Mercury. This is needed for the AODS interface.
+Created by John A Adams 1/7/2014</description>
+        <externalId>false</externalId>
+        <label>Immediate Source</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Independent_Meeting_Organiser_MERC__c</fullName>
+        <description>Field entered by Sales Rep to select the HCO Account if it needs to be mastered and is not in Veeva.  Created 01/13/2014 by Klorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Healthcare Organisation</inlineHelpText>
+        <label>Independent Meeting Organiser</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Individual_Sponsorship_Meeting_MERC__c</fullName>
         <description>Displays if Meeting is of type Individual Sponsorship.  Represented if Meeting Participants of type Individual Sponsorship are added to the meeting. Created 12/6/2013 by KLorenti, Mavens Consulting.</description>
         <externalId>false</externalId>
@@ -2027,7 +2032,7 @@ Created by John A Adams 10/28/2013</description>
         <fullName>Justification_for_Venue_MERC__c</fullName>
         <description>Justification for Venue. Created 12/18/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <label>Justification for Venue</label>
+        <label>Justification for Sourced Venue</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -2042,6 +2047,43 @@ Created by John A Adams 10/28/2013</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>MCP_work_MERC__c</fullName>
+        <description>Indicates the acceptability of the Meeting Planning Company
+Created by John A Adams 1/9/2014</description>
+        <externalId>false</externalId>
+        <label>Meeting Planning Company work acceptable</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Not Applicable</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Make_Payment_To_MERC__c</fullName>
+        <description>Who should be paid if arranged via a third party. Created 01/13/2014 by Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Make Payment To</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Materials_to_be_Shipped_MERC__c</fullName>
@@ -2064,6 +2106,26 @@ Created by John Adams 11/6/2013</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Auto_Nmber_MERC__c</fullName>
+        <description>Incremental Auto Number field used in conjunction with other values to create a human readable Meeting Id.  This will be used by AODS and for other systems requiring such an Id. Oliver Dunford 7th Jan.</description>
+        <displayFormat>MER-{0000}</displayFormat>
+        <externalId>false</externalId>
+        <label>Meeting Auto Number</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Cancellation_Date_MERC__c</fullName>
+        <description>Date is populated automatically if meeting is cancelled. Created 12/19/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Meeting Cancellation Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Meeting_Objectives_MERC__c</fullName>
@@ -2166,6 +2228,10 @@ Created by John Adams 11/6/2013</description>
                 <fullName>Rep Initiated</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
@@ -2187,19 +2253,15 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Submitted for Contracting</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Ready for Sourcing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Cancelled</fullName>
+                <fullName>Active</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Completed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancelled</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -2260,9 +2322,15 @@ Created by John Adams 11/6/2013</description>
             </picklistValues>
             <picklistValues>
                 <fullName>Other</fullName>
+                <controllingFieldValues>Clinical Trial</controllingFieldValues>
+                <controllingFieldValues>Consultant</controllingFieldValues>
+                <controllingFieldValues>Health Education</controllingFieldValues>
                 <controllingFieldValues>Independent</controllingFieldValues>
                 <controllingFieldValues>Internal</controllingFieldValues>
                 <controllingFieldValues>Other</controllingFieldValues>
+                <controllingFieldValues>Promotional</controllingFieldValues>
+                <controllingFieldValues>Scientific Exchange</controllingFieldValues>
+                <controllingFieldValues>Speaker Training</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -2521,6 +2589,17 @@ Created by John Adams on 12/9/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Parent_Meeting_External_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>Parent_Meeting_MERC__r.Mercury_External_Id_MERC__c</formula>
+        <label>Parent Meeting External</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Parent_Meeting_MERC__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Lookup Relationship to Meeting in order to select a Parent Meeting. Created 9/30/2013 by KLorenti.</description>
@@ -2558,28 +2637,12 @@ Appendix A - Updates
 Created by John Adams 11/6/2013</description>
         <externalId>false</externalId>
         <label>Payment For</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Booth</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Advertisement</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Satellite Symposia</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
+        <length>255</length>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Picklist</type>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Payment_To_MERC__c</fullName>
@@ -2587,20 +2650,12 @@ Created by John Adams 11/6/2013</description>
 Created by John Adams 11/6/2013</description>
         <externalId>false</externalId>
         <label>Payment To</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Independent Meeting Organizer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Third Party Logistics Vendor</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
+        <length>255</length>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Picklist</type>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Planned_Attendees_MERC__c</fullName>
@@ -2639,6 +2694,18 @@ Created by John Adams on 12/9/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Preferred_Venue_Addr_1_MERC__c</fullName>
+        <description>Indicate preferred Venue location. Updated 10/16/2013 by KLorenti, Mavens Consulting.</description>
+        <externalId>false</externalId>
+        <label>Preferred Venue Addr 1</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Preferred_Venue_Addr_2_MERC__c</fullName>
         <description>Populated via integration for Reps, workflow for Mercury Initiated Meetings. Oliver Dunford 16th Dec 2013.</description>
         <externalId>false</externalId>
@@ -2661,6 +2728,39 @@ Created by John Adams on 12/9/2013</description>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Preferred_Venue_Postal_Code_MERC__c</fullName>
+        <description>Captures Zip/Postal Code of Venue.  Primarily used for Rep Initiated meetings but essential as this forms part of the Venue address details on invitations exposed on the agenda documents and portal. Oliver Dunford 7th Jan</description>
+        <externalId>false</externalId>
+        <label>Preferred Venue Postal Code</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RTI_Transaction_ID_MERC__c</fullName>
+        <externalId>false</externalId>
+        <label>RTI Transaction ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Ready_for_Sourcing_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicate when the Planned meeting is &quot;Ready for Sourcing&quot;. Created 01/06/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Ready for Sourcing</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Rep_Cost_Center_MERC__c</fullName>
@@ -2756,6 +2856,20 @@ Created by John Adams on 12/9/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Source_MERC__c</fullName>
+        <defaultValue>&quot;Mercury&quot;</defaultValue>
+        <description>Initial source of the information. The Veeva Interface will stamp Veeva as the Source if the Meeting or Meeting Participant comes from Veeva and not Mercury. This is needed for the AODS interface.
+Created by John A Adams 1/7/2014</description>
+        <externalId>false</externalId>
+        <label>Source</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Speaker_MERC__c</fullName>
         <description>Indicate if Speakers are to be surveyed? Created 10/2/2013 by KLorenti.</description>
         <externalId>false</externalId>
@@ -2805,33 +2919,14 @@ Created by John Adams on 12/9/2013</description>
 Appendix A - Updates 
 Created by John Adams 11/6/2013</description>
         <externalId>false</externalId>
-        <label>Sponsorship Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Advertisement</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Booth</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Bronze</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Gold</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Silver</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
+        <inlineHelpText>Levels of Sponsorship such as Advertisement, Booth, Bronze, Gold, Silver, etc.</inlineHelpText>
+        <label>Level of Sponsorship</label>
+        <length>100</length>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Picklist</type>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Sponsorship_WO_Lilly_Assistance_MERC__c</fullName>
@@ -2900,19 +2995,8 @@ Created by John Adams 11/6/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Start_Time_User_Time_Zone_MERC__c</fullName>
-        <externalId>false</externalId>
-        <formula>Start_Time_of_Meeting_MERC__c</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Start Time (User Time Zone)</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>DateTime</type>
-    </fields>
-    <fields>
         <fullName>Start_Time_of_Meeting_MERC__c</fullName>
-        <description>Start Time of Meeting. Created 10/2/2013 by KLorenti.</description>
+        <description>Start Time of Meeting (UTC). Created 10/2/2013 by KLorenti.</description>
         <externalId>false</externalId>
         <inlineHelpText>Enter the start time of the meeting in the TIME ZONE OF THE MEETING</inlineHelpText>
         <label>Start Time of Meeting</label>
@@ -2920,6 +3004,16 @@ Created by John Adams 11/6/2013</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Submit_for_Contracting_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicate when planned meeting is ready to be submitted for contracting. Created 01/06/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Submit for Contracting</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Target_Audience_List_MERC__c</fullName>
@@ -3053,6 +3147,16 @@ Created by John Adams 11/6/2013</description>
         <type>DateTime</type>
     </fields>
     <fields>
+        <fullName>ToV_Reported_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Testing: Used behind the scenes to identify whether or not the Meeting has had participants who have already had their ToV Reported.  In other words, those meeting participants with the Participant ToV Final = &quot;Yes&quot;. Created 01/08/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>ToV Reported</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Transfers_MERC__c</fullName>
         <description>For organizing Transfers. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -3145,18 +3249,6 @@ Created by John Adams 11/6/2013</description>
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Venue_Preferred_Location_MERC__c</fullName>
-        <description>Indicate preferred Venue location. Updated 10/16/2013 by KLorenti, Mavens Consulting.</description>
-        <externalId>false</externalId>
-        <label>Preferred Venue Addr 1</label>
-        <length>255</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Virtual_Meeting_MERC__c</fullName>
         <description>To determine whether the meeting is Virtual. Oliver Dunford 20th Nov 2013.</description>
         <externalId>false</externalId>
@@ -3225,6 +3317,25 @@ Created by John Adams 11/6/2013</description>
     </fields>
     <label>Meeting</label>
     <listViews>
+        <fullName>Active_MERC</fullName>
+        <columns>NAME</columns>
+        <columns>Parent_Meeting_MERC__c</columns>
+        <columns>Type_MERC__c</columns>
+        <columns>Date_of_Event_MERC__c</columns>
+        <columns>End_Date_of_Event_MERC__c</columns>
+        <columns>Event_Country_MERC__c</columns>
+        <columns>Approved_MERC__c</columns>
+        <columns>Meeting_Status_MERC__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Meeting_Status_MERC__c</field>
+            <operation>equals</operation>
+            <value>Active</value>
+        </filters>
+        <label>Active Meetings</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
         <columns>Parent_Meeting_MERC__c</columns>
@@ -3244,9 +3355,8 @@ Created by John Adams 11/6/2013</description>
         <columns>Parent_Meeting_MERC__c</columns>
         <columns>Type_MERC__c</columns>
         <columns>Date_of_Event_MERC__c</columns>
-        <columns>End_Date_of_Event_MERC__c</columns>
+        <columns>Meeting_Cancellation_Date_MERC__c</columns>
         <columns>Event_Country_MERC__c</columns>
-        <columns>Approved_MERC__c</columns>
         <columns>Meeting_Status_MERC__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
@@ -3296,25 +3406,6 @@ Created by John Adams 11/6/2013</description>
         <language>en_US</language>
     </listViews>
     <listViews>
-        <fullName>Ready_for_Sourcing_MERC</fullName>
-        <columns>NAME</columns>
-        <columns>Parent_Meeting_MERC__c</columns>
-        <columns>Type_MERC__c</columns>
-        <columns>Date_of_Event_MERC__c</columns>
-        <columns>End_Date_of_Event_MERC__c</columns>
-        <columns>Event_Country_MERC__c</columns>
-        <columns>Approved_MERC__c</columns>
-        <columns>Meeting_Status_MERC__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Meeting_Status_MERC__c</field>
-            <operation>equals</operation>
-            <value>Ready for Sourcing</value>
-        </filters>
-        <label>Ready for Sourcing Meetings</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
         <fullName>Registered_Meetings_MERC</fullName>
         <columns>NAME</columns>
         <columns>Parent_Meeting_MERC__c</columns>
@@ -3333,6 +3424,36 @@ Created by John Adams 11/6/2013</description>
         <label>Registered Meetings</label>
         <language>en_US</language>
     </listViews>
+    <listViews>
+        <fullName>UK_Meetings_Queue</fullName>
+        <columns>NAME</columns>
+        <columns>Parent_Meeting_MERC__c</columns>
+        <columns>Event_Country_MERC__c</columns>
+        <columns>Date_of_Event_MERC__c</columns>
+        <columns>Type_MERC__c</columns>
+        <columns>Meeting_Sub_Type_MERC__c</columns>
+        <columns>Meeting_Scope_MERC__c</columns>
+        <columns>Meeting_Owner_MERC__c</columns>
+        <columns>Sales_Rep_MERC__c</columns>
+        <columns>Meeting_Status_MERC__c</columns>
+        <filterScope>Queue</filterScope>
+        <filters>
+            <field>Meeting_Status_MERC__c</field>
+            <operation>equals</operation>
+            <value>Registered</value>
+        </filters>
+        <filters>
+            <field>Event_Country_MERC__c</field>
+            <operation>equals</operation>
+            <value>GB</value>
+        </filters>
+        <label>UK Meetings Queue</label>
+        <language>en_US</language>
+        <queue>UK_Registered_Meetings</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
     <nameField>
         <label>Meeting Name</label>
         <trackHistory>false</trackHistory>
@@ -3344,7 +3465,7 @@ Created by John Adams 11/6/2013</description>
         <fullName>Ad_Hoc_Consulting</fullName>
         <active>true</active>
         <description>To represent ad hoc consulting engagements.</description>
-        <label>Ad Hoc Consulting</label>
+        <label>Consulting Project</label>
         <picklistValues>
             <picklist>Agenda_Status_MERC__c</picklist>
             <values>
@@ -4650,6 +4771,21 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>MCP_work_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Applicable</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Materials_to_be_Shipped_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -4713,12 +4849,20 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Rep Initiated</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Meeting_Status_MERC__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Cancelled</fullName>
                 <default>false</default>
@@ -4732,15 +4876,7 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Ready for Sourcing</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Registered</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Submitted for Contracting</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4846,36 +4982,6 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Payment_For_MERC__c</picklist>
-            <values>
-                <fullName>Advertisement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Booth</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Satellite Symposia</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Payment_To_MERC__c</picklist>
-            <values>
-                <fullName>Independent Meeting Organizer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Third Party Logistics Vendor</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Send_Save_the_Date_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -4909,29 +5015,6 @@ Created by John Adams 11/6/2013</description>
             </values>
             <values>
                 <fullName>Individual Sponsorship</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Sponsorship_Type_MERC__c</picklist>
-            <values>
-                <fullName>Advertisement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Booth</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bronze</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gold</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Silver</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5077,7 +5160,7 @@ Created by John Adams 11/6/2013</description>
         <fullName>Completed</fullName>
         <active>true</active>
         <description>Meeting has been completed</description>
-        <label>Completed</label>
+        <label>Meeting - Completed</label>
         <picklistValues>
             <picklist>Agenda_Status_MERC__c</picklist>
             <values>
@@ -6383,6 +6466,21 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>MCP_work_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Applicable</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Materials_to_be_Shipped_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -6446,12 +6544,20 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Rep Initiated</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Meeting_Status_MERC__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Cancelled</fullName>
                 <default>false</default>
@@ -6465,15 +6571,7 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Ready for Sourcing</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Registered</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Submitted for Contracting</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6579,36 +6677,6 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Payment_For_MERC__c</picklist>
-            <values>
-                <fullName>Advertisement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Booth</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Satellite Symposia</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Payment_To_MERC__c</picklist>
-            <values>
-                <fullName>Independent Meeting Organizer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Third Party Logistics Vendor</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Send_Save_the_Date_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -6642,29 +6710,6 @@ Created by John Adams 11/6/2013</description>
             </values>
             <values>
                 <fullName>Individual Sponsorship</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Sponsorship_Type_MERC__c</picklist>
-            <values>
-                <fullName>Advertisement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Booth</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bronze</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gold</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Silver</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6810,7 +6855,7 @@ Created by John Adams 11/6/2013</description>
         <fullName>Forecasted</fullName>
         <active>true</active>
         <description>Meeting in Forecasted Stage</description>
-        <label>Forecasted</label>
+        <label>Meeting - Forecasted</label>
         <picklistValues>
             <picklist>Agenda_Status_MERC__c</picklist>
             <values>
@@ -8116,6 +8161,21 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>MCP_work_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Applicable</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Materials_to_be_Shipped_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -8179,12 +8239,20 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Rep Initiated</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Meeting_Status_MERC__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Cancelled</fullName>
                 <default>false</default>
@@ -8198,15 +8266,7 @@ Created by John Adams 11/6/2013</description>
                 <default>true</default>
             </values>
             <values>
-                <fullName>Ready for Sourcing</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Registered</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Submitted for Contracting</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8312,36 +8372,6 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Payment_For_MERC__c</picklist>
-            <values>
-                <fullName>Advertisement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Booth</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Satellite Symposia</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Payment_To_MERC__c</picklist>
-            <values>
-                <fullName>Independent Meeting Organizer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Third Party Logistics Vendor</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Send_Save_the_Date_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -8375,29 +8405,6 @@ Created by John Adams 11/6/2013</description>
             </values>
             <values>
                 <fullName>Individual Sponsorship</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Sponsorship_Type_MERC__c</picklist>
-            <values>
-                <fullName>Advertisement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Booth</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bronze</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gold</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Silver</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8543,7 +8550,7 @@ Created by John Adams 11/6/2013</description>
         <fullName>Independent_Sponsorship</fullName>
         <active>true</active>
         <description>Independent Sponsorship Meeting</description>
-        <label>Independent Sponsorship</label>
+        <label>Independent Meeting</label>
         <picklistValues>
             <picklist>Agenda_Status_MERC__c</picklist>
             <values>
@@ -9849,6 +9856,21 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>MCP_work_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Applicable</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Materials_to_be_Shipped_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -9912,6 +9934,10 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Rep Initiated</fullName>
                 <default>false</default>
             </values>
@@ -9919,15 +9945,15 @@ Created by John Adams 11/6/2013</description>
         <picklistValues>
             <picklist>Meeting_Status_MERC__c</picklist>
             <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Cancelled</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Completed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ready for Sourcing</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10033,36 +10059,6 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Payment_For_MERC__c</picklist>
-            <values>
-                <fullName>Advertisement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Booth</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Satellite Symposia</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Payment_To_MERC__c</picklist>
-            <values>
-                <fullName>Independent Meeting Organizer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Third Party Logistics Vendor</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Send_Save_the_Date_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -10096,29 +10092,6 @@ Created by John Adams 11/6/2013</description>
             </values>
             <values>
                 <fullName>Individual Sponsorship</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Sponsorship_Type_MERC__c</picklist>
-            <values>
-                <fullName>Advertisement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Booth</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bronze</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gold</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Silver</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10229,10 +10202,10 @@ Created by John Adams 11/6/2013</description>
         </picklistValues>
     </recordTypes>
     <recordTypes>
-        <fullName>Ready_for_Sourcing</fullName>
+        <fullName>Meeting_Active</fullName>
         <active>true</active>
-        <description>Meeting in Ready for Sourcing Stage</description>
-        <label>Ready for Sourcing</label>
+        <description>Meeting in Active Stage</description>
+        <label>Meeting - Active</label>
         <picklistValues>
             <picklist>Agenda_Status_MERC__c</picklist>
             <values>
@@ -11538,6 +11511,21 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>MCP_work_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Applicable</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Materials_to_be_Shipped_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -11601,12 +11589,20 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Rep Initiated</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Meeting_Status_MERC__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Cancelled</fullName>
                 <default>false</default>
@@ -11620,15 +11616,7 @@ Created by John Adams 11/6/2013</description>
                 <default>true</default>
             </values>
             <values>
-                <fullName>Ready for Sourcing</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Registered</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Submitted for Contracting</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11734,36 +11722,6 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Payment_For_MERC__c</picklist>
-            <values>
-                <fullName>Advertisement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Booth</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Satellite Symposia</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Payment_To_MERC__c</picklist>
-            <values>
-                <fullName>Independent Meeting Organizer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Third Party Logistics Vendor</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Send_Save_the_Date_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -11797,29 +11755,6 @@ Created by John Adams 11/6/2013</description>
             </values>
             <values>
                 <fullName>Individual Sponsorship</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Sponsorship_Type_MERC__c</picklist>
-            <values>
-                <fullName>Advertisement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Booth</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bronze</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gold</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Silver</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11965,7 +11900,7 @@ Created by John Adams 11/6/2013</description>
         <fullName>Registered</fullName>
         <active>true</active>
         <description>Meeting in Registered Stage</description>
-        <label>Registered</label>
+        <label>Meeting - Registered</label>
         <picklistValues>
             <picklist>Agenda_Status_MERC__c</picklist>
             <values>
@@ -13271,6 +13206,21 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>MCP_work_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Applicable</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Materials_to_be_Shipped_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -13334,12 +13284,20 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Rep Initiated</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Meeting_Status_MERC__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Cancelled</fullName>
                 <default>false</default>
@@ -13353,16 +13311,8 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Ready for Sourcing</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Registered</fullName>
                 <default>true</default>
-            </values>
-            <values>
-                <fullName>Submitted for Contracting</fullName>
-                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -13467,36 +13417,6 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Payment_For_MERC__c</picklist>
-            <values>
-                <fullName>Advertisement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Booth</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Satellite Symposia</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Payment_To_MERC__c</picklist>
-            <values>
-                <fullName>Independent Meeting Organizer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Third Party Logistics Vendor</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Send_Save_the_Date_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -13530,1762 +13450,6 @@ Created by John Adams 11/6/2013</description>
             </values>
             <values>
                 <fullName>Individual Sponsorship</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Sponsorship_Type_MERC__c</picklist>
-            <values>
-                <fullName>Advertisement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Booth</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bronze</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gold</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Silver</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Sponsorship_WO_Lilly_Assistance_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Sponsorship_W_Lilly_Assistance_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Target_Audience_List_MERC__c</picklist>
-            <values>
-                <fullName>HCP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lilly Employee</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nurse</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pharmacist</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Therapeutic_Area_MERC__c</picklist>
-            <values>
-                <fullName>Autoimmune</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bone%2C Muscle%2C Joint %28BMJ%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cardiovascular</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Diabetes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Neuroscience</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Oncology</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Urology</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Transfers_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Type_MERC__c</picklist>
-            <values>
-                <fullName>Clinical Trial</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Consultant</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Health Education</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Independent</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Internal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Promotional</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Scientific Exchange</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Speaker Training</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Virtual_Meeting_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-    </recordTypes>
-    <recordTypes>
-        <fullName>Submitted_for_Contracting</fullName>
-        <active>true</active>
-        <description>Meeting in Submitted for Contracting Stage</description>
-        <label>Submitted for Contracting</label>
-        <picklistValues>
-            <picklist>Agenda_Status_MERC__c</picklist>
-            <values>
-                <fullName>Draft</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Final</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Working</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Approve_Sponsorship_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Approved_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Budget_is_Final_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Business_Unit_MERC__c</picklist>
-            <values>
-                <fullName>Bio-Medicines</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Diabetes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Emerging Markets</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Oncology</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>CME_Accredited_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Compliant_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Content_Approval_Needed_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Employee_Travel_MERC__c</picklist>
-            <values>
-                <fullName>Individual Cost Center</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Meeting Budget</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Event_Country_MERC__c</picklist>
-            <values>
-                <fullName>AD</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>AE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>AF</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>AG</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>AI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>AL</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>AM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>AO</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>AQ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>AR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>AS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>AT</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>AU</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>AW</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>AX</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>AZ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BD</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BF</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BG</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BH</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BJ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BL</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BO</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BQ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BT</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BW</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BZ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CD</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CF</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CG</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CH</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CK</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CL</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CO</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CU</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CW</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CX</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CZ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DJ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DK</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DO</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DZ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>EC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>EE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>EG</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>EH</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ER</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ES</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ET</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>FI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>FJ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>FK</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>FM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>FO</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>FR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GD</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GF</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GG</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GH</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GL</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GQ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GT</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GU</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GW</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HK</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HT</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HU</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ID</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IL</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IO</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IQ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>IT</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>JE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>JM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>JO</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>JP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>KE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>KG</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>KH</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>KI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>KM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>KN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>KP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>KR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>KW</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>KY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>KZ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>LA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>LB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>LC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>LI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>LK</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>LR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>LS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>LT</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>LU</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>LV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>LY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MD</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ME</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MF</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MG</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MH</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MK</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ML</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MO</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MQ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MT</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MU</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MW</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MX</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MZ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NF</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NG</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NL</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NO</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NU</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NZ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>OM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PF</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PG</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PH</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PK</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PL</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PT</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PW</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>QA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RO</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RU</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RW</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SD</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SG</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SH</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SJ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SK</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SL</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SO</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ST</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SX</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SZ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TD</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TF</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TG</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TH</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TJ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TK</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TL</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TO</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TT</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TW</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TZ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>UA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>UG</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>UM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>US</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>UY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>UZ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VG</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VU</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>WF</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>WS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>YE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>YT</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ZA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ZM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ZW</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Event_Occurred_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Event_Website_Needed_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Expenses_MERC__c</picklist>
-            <values>
-                <fullName>Accommodation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Registration Fee</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Transportation</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>External_Delegates_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Functional_Area_MERC__c</picklist>
-            <values>
-                <fullName>Corporate Affairs</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Marketing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Medical</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>HCP_Care_Assistance_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>HCP_Eligibile_for_Sponsorship_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Hospitality_Desk_Required_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Interaction_Type_MERC__c</picklist>
-            <values>
-                <fullName>Ad-hoc Advising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Face to Face</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Virtual</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Internal_Delegates_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Invitation_Template_MERC__c</picklist>
-            <values>
-                <fullName>Template 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Template 2</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Template 3</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Invitee_List_Status_MERC__c</picklist>
-            <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pending Approval</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Inviting_Delegates_MERC__c</picklist>
-            <values>
-                <fullName>Marketing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Medical</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Invoicing_Completed_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Materials_to_be_Shipped_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Meeting_Owner_Sales_Rep_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Meeting_Room_Setup_MERC__c</picklist>
-            <values>
-                <fullName>Boardroom</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cabaret</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Classroom</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Theatre</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>U-Shaped</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Meeting_Scope_MERC__c</picklist>
-            <values>
-                <fullName>Cluster</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>International</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Local</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>National</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rep Initiated</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Meeting_Status_MERC__c</picklist>
-            <values>
-                <fullName>Cancelled</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Completed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Forecasted</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Ready for Sourcing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Registered</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Submitted for Contracting</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Meeting_Sub_Type_MERC__c</picklist>
-            <values>
-                <fullName>Corporate Affairs</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Marketing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Medical</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Meeting_Time_Zone_MERC__c</picklist>
-            <values>
-                <fullName>Central European Time %28Europe%2FAmsterdam%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Central European Time %28Europe%2FBerlin%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Central European Time %28Europe%2FBrussels%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Central European Time %28Europe%2FParis%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Central European Time %28Europe%2FPrague%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Central European Time %28Europe%2FRome%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Eastern European Time %28Europe%2FAthens%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Eastern European Time %28Europe%2FBucharest%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Eastern European Time %28Europe%2FHelsinki%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Eastern European Time %28Europe%2FIstanbul%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Further-eastern European Time %28Europe%2FMinsk%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Greenwich Mean Time %28Europe%2FDublin%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Greenwich Mean Time %28Europe%2FLondon%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Greenwich Mean Time %28GMT%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Moscow Standard Time %28Europe%2FMoscow%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Western European Time %28Europe%2FLisbon%29</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>On_Site_Support_Required_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Payment_For_MERC__c</picklist>
-            <values>
-                <fullName>Advertisement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Booth</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Satellite Symposia</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Payment_To_MERC__c</picklist>
-            <values>
-                <fullName>Independent Meeting Organizer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Third Party Logistics Vendor</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Send_Save_the_Date_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Speaker_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Sponsorship_Category_MERC__c</picklist>
-            <values>
-                <fullName>Group Sponsorship</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HCO Sponsorship</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Individual Sponsorship</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Sponsorship_Type_MERC__c</picklist>
-            <values>
-                <fullName>Advertisement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Booth</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bronze</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gold</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Silver</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15482,10 +13646,20 @@ ISPICKVAL(Meeting_Status_MERC__c,&apos;Completed&apos;)</errorConditionFormula>
         <errorMessage>The Budget must be Final before the Meeting can be Completed.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Confirm_MCP_Evaluation_MERC</fullName>
+        <active>true</active>
+        <description>The MPC has been evaluated before the Meeting can be Completed.</description>
+        <errorConditionFormula>RecordType.Name &lt;&gt; &apos;Independent Sponsorship&apos;
+&amp;&amp; ISPICKVAL( MCP_work_MERC__c , &quot;&quot;)
+&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c, &apos;Completed&apos;)</errorConditionFormula>
+        <errorMessage>The Meeting Planning Companies performance must be evaluated before completing.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Confirm_Meeting_Cancellation_MERC</fullName>
         <active>true</active>
         <description>Confirm that the Meeting should be cancelled. Created 11/19/2013 by KLorenti, Mavens Consulting.</description>
-        <errorConditionFormula>ISCHANGED( Meeting_Status_MERC__c) &amp;&amp; 
+        <errorConditionFormula>!ISPICKVAL(Event_Occurred_MERC__c,&quot;Yes&quot;) &amp;&amp;
+ISCHANGED( Meeting_Status_MERC__c) &amp;&amp; 
 ISPICKVAL( Meeting_Status_MERC__c ,&apos;Cancelled&apos;) &amp;&amp;  
 !Confirm_Meeting_Cancellation_MERC__c</errorConditionFormula>
         <errorDisplayField>Confirm_Meeting_Cancellation_MERC__c</errorDisplayField>
@@ -15522,6 +13696,15 @@ ISCHANGED( End_Time_In_Meeting_Time_Zone_MERC__c )
 ISPICKVAL(Meeting_Status_MERC__c,&apos;Completed&apos;)</errorConditionFormula>
         <errorDisplayField>Event_Occurred_MERC__c</errorDisplayField>
         <errorMessage>The Meeting must have occurred in order to Complete the Meeting.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Prevent_Cancel_Meeting_if_Occurred_MERC</fullName>
+        <active>true</active>
+        <description>If the Meeting has already occurred you may not cancel the meeting. Created 01/10/2014 by KLorenti, Mavens Consulting</description>
+        <errorConditionFormula>ISPICKVAL(Event_Occurred_MERC__c,&apos;Yes&apos;)&amp;&amp; ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
+ISPICKVAL(Meeting_Status_MERC__c,&apos;Cancelled&apos;)</errorConditionFormula>
+        <errorDisplayField>Event_Occurred_MERC__c</errorDisplayField>
+        <errorMessage>The Meeting cannot be cancelled if it has already occurred.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Validate_Registered_Expected_Emp_MERC</fullName>
@@ -15566,10 +13749,10 @@ ISPICKVAL(Meeting_Status_MERC__c,&apos;Completed&apos;)</errorConditionFormula>
         <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Sponsorship&apos; &amp;&amp;
       ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
 		TEXT(Meeting_Status_MERC__c) = &apos;Registered&apos; &amp;&amp;
-		(ISBLANK (Venue_Preferred_Location_MERC__c  ))
+		(ISBLANK (Preferred_Venue_Addr_1_MERC__c  ))
 	,true, false)</errorConditionFormula>
-        <errorDisplayField>Venue_Preferred_Location_MERC__c</errorDisplayField>
-        <errorMessage>The Preferred Venue Location is required before status can be changed to Registered</errorMessage>
+        <errorDisplayField>Preferred_Venue_Addr_1_MERC__c</errorDisplayField>
+        <errorMessage>The Preferred Venue Location is required before status can be updated to Registered</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Validate_Registered_Target_Audience_MERC</fullName>
@@ -15589,11 +13772,11 @@ ISPICKVAL(Meeting_Status_MERC__c,&apos;Completed&apos;)</errorConditionFormula>
         <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
         <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Sponsorship&apos; &amp;&amp;
       ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
-		TEXT(Meeting_Status_MERC__c) = &apos;Ready for Sourcing&apos; &amp;&amp;
+		TEXT(Meeting_Status_MERC__c) = &apos;Active&apos; &amp;&amp;
 		(ISBLANK(Number_of_Expected_Non_HCP_MERC__c)) 
 ,true, false)</errorConditionFormula>
         <errorDisplayField>Number_of_Expected_Non_HCP_MERC__c</errorDisplayField>
-        <errorMessage>The # of Expected Non-Lilly/Non-HCPs is required before status can be changed to Submitted for Contracting.</errorMessage>
+        <errorMessage>The # of Expected Non-Lilly/Non-HCPs is required before status can be changed to Active</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Validate_Status_Fields_MERC</fullName>
@@ -15612,7 +13795,7 @@ RecordType.DeveloperName &lt;&gt; &apos;Independent Sponsorship&apos; ,
 				ISBLANK (Number_of_Expected_Employees_MERC__c) ||
 				ISBLANK (Number_of_Expected_Speakers_MERC__c) ||
 				ISBLANK (TEXT(Target_Audience_List_MERC__c )) ||
-				ISBLANK ( Venue_Preferred_Location_MERC__c)
+				ISBLANK ( Preferred_Venue_Addr_1_MERC__c)
 				),
 			1,
 			0),
@@ -15647,14 +13830,14 @@ false
     <validationRules>
         <fullName>Validate_Submitted_Content_Approval_MERC</fullName>
         <active>true</active>
-        <description>Check the required fields based on the Status selected. Created 12/4/2013 by KLorenti, Mavens Consulting (work in progress)</description>
+        <description>Check the required fields based on the Status selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
         <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Sponsorship&apos; &amp;&amp;
       ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
-	TEXT(Meeting_Status_MERC__c) = &apos;Submitted for Contracting&apos; &amp;&amp;
+	TEXT(Meeting_Status_MERC__c) = &apos;Active&apos; &amp;&amp;
       (ISBLANK(TEXT(Content_Approval_Needed_MERC__c )))
 ,true, false)</errorConditionFormula>
         <errorDisplayField>Content_Approval_Needed_MERC__c</errorDisplayField>
-        <errorMessage>The Content Approval Needed is required before status can be changed to Submitted for Contracting.</errorMessage>
+        <errorMessage>The Content Approval Needed is required before status can be changed to Active</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Validate_Submitted_Content_Creator_MERC</fullName>
@@ -15662,11 +13845,11 @@ false
         <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
         <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Sponsorship&apos; &amp;&amp;
       ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
-      TEXT(Meeting_Status_MERC__c) = &apos;Submitted for Contracting&apos; &amp;&amp;
+      TEXT(Meeting_Status_MERC__c) = &apos;Active&apos; &amp;&amp;
      (ISBLANK(Content_Creator_MERC__c )),
 true, false)</errorConditionFormula>
         <errorDisplayField>Content_Creator_MERC__c</errorDisplayField>
-        <errorMessage>The Content Creator is required before status can be changed to Submitted for Contracting.</errorMessage>
+        <errorMessage>The Content Creator is required before status can be changed to Active</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Validate_Submitted_Meeting_Obj_MERC</fullName>
@@ -15674,12 +13857,31 @@ true, false)</errorConditionFormula>
         <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
         <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Sponsorship&apos; &amp;&amp;
       ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
-		TEXT(Meeting_Status_MERC__c) = &apos;Submitted for Contracting&apos; &amp;&amp;
+		TEXT(Meeting_Status_MERC__c) = &apos;Active&apos; &amp;&amp;
 		(ISBLANK (Meeting_Objectives_MERC__c ))
 ,true, false)</errorConditionFormula>
         <errorDisplayField>Meeting_Objectives_MERC__c</errorDisplayField>
-        <errorMessage>The Meeting Objectives is required before status can be changed to Submitted for Contracting.</errorMessage>
+        <errorMessage>The Meeting Objectives is required before status can be changed to Active</errorMessage>
     </validationRules>
+    <webLinks>
+        <fullName>Affiliate_Resource_Center_MERC</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Affiliate Resource Center</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://lillynetcollaboration.global.lilly.com/sites/CandE/AffiliateInfo/Pages/default.aspx</url>
+    </webLinks>
     <webLinks>
         <fullName>Generate_Agenda</fullName>
         <availability>online</availability>
@@ -15703,6 +13905,25 @@ true, false)</errorConditionFormula>
         <openType>sidebar</openType>
         <page>MERC_MeetingDateTimesEdit</page>
         <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>Meetings_with_HCPs_Resources_MERC</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Meetings with HCPs Resources</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://lillynet.global.lilly.com/sites/CandE/GeneralResources/Pages/MeetingsWithHCPs.aspx</url>
     </webLinks>
     <webLinks>
         <fullName>Upload_Content_MERC</fullName>

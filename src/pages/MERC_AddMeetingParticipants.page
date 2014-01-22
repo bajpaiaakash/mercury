@@ -1,11 +1,28 @@
 <apex:page showHeader="true" sidebar="true" standardController="Meeting_Participant_MERC__c" recordSetVar="a" extensions="MERC_AddMeetingParticipantsController">
 	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/jquery.min.js')}"/>
+	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/chosen.jquery.min.js')}"/>
+	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/bootstrap.tabs.min.js')}"/>
 	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/mercury.js')}"/>
 	<apex:stylesheet value="{!urlfor($Resource.mercury, 'css/style.css')}"/>
+	<apex:stylesheet value="{!urlfor($Resource.mercury, 'css/chosen.css')}"/>
+	<apex:stylesheet value="{!urlfor($Resource.mercury, 'css/bootstrap.tabs.css')}"/>
 	<apex:sectionHeader title="{!meeting.Name}" subtitle="{!$ObjectType.Meeting_Participant_MERC__c.LabelPlural}" />
 	<script>
 		var actionedElement;
-		var j = jQuery.noConflict();
+		j = jQuery.noConflict();
+
+		(function( $ ) {
+			$(function() {
+				$(".bPageBlock.brandSecondaryBrd.bEditBlock.secondaryPalette").css("border-top-color", "transparent");
+
+				$(".multichosen").chosen({width: "65%"})
+
+				$('#myTab a').click(function (e) {
+					e.preventDefault()
+				  	$(this).tab('show')
+				})
+		  	});
+		})(j);
 
 		function handleAddResponse(el) {
 			console.log(el.id);
@@ -31,117 +48,396 @@
 		function markMe(el) {
 			actionedElement = el;
 		}
+
+		function showMessage(message) {
+			j("#statusMessage").html(message);
+			j("#statusMessage").show();
+			window.setTimeout(function() {
+		        // This will execute 5 seconds later
+		        var label = document.getElementById('statusMessage');
+		        if (label != null) {
+		            label.style.display = 'none';
+		        }
+		    }, 5000);
+		}
+
+		function showAddPopover(el, sfid) {
+			var $el = j(el);
+			var position = $el.position();
+			hideAddPopovers()
+			j("#"+sfid+"popover").css('left',position.left+"px");
+			j("#"+sfid+"popover").css('top',position.top+"px");
+			j("#"+sfid+"popover").show();
+		}
+
+		function hideAddPopovers() {
+			j("div.addToMeetingPopover").hide();
+		}
 	</script>
 	<style>
-		.activeTab {
-			background-color: #f1f1f1;
-			padding: 6px 17px;
-			font-size: 16px;
-			background-image: none;
-			cursor: pointer;
+		/* don't show top blue border because we're showing a bottom blue border on the tab nav*/
+		div.aeu .bPageBlock.brandSecondaryBrd.bEditBlock.secondaryPalette,
+		div.aeu .bPageBlock.brandSecondaryBrd.apexDefaultPageBlock.secondaryPalette {
+			border-top-color: transparent;
+			border-top-left-radius: 0px;
+			border-top-right-radius: 0px;
 		}
 
-		.inactiveTab {
-			background-color: #fff;
-			padding: 5px 17px;
-			font-size: 16px;	
-			background-image: none;
-			opacity: 0.6;
-			cursor: pointer;
+		.bootstraplabel {
+			display: inline;
+			padding: .2em .6em .3em;
+			font-size: 75%;
+			font-weight: bold;
+			line-height: 1;
+			color: #fff;
+			text-align: center;
+			white-space: nowrap;
+			vertical-align: baseline;
+			border-radius: .25em;
 		}
 
-		table.rich-tabpanel  .rich-tabpanel-content {
+		span.bootstraplabel.count {
+			background-color: #5cb85c;
+		}
+
+		span.bootstraplabel.success {
+			background-color: #5cb85c;
+		}
+
+		span.bootstraplabel.warning {
+			background-color: #f0ad4e;
+		}
+
+		span.bootstraplabel.info {
+			background-color: #5bc0de;
+		}
+
+		span.bootstraplabel a {
+			text-decoration: none !important;
+		}
+
+		#statusMessage {
+			display: none;
+			position: absolute;
+			top: 13px;
+			left: 50%;
+			font-size:14px;
+		}
+
+		div.addToMeetingPopover {
+			display: none;
+			z-index: 1000;
+			position: absolute;
+			border:2px solid #ccc;
 			background-color: #fff;
-			border:none;
-			padding:5px 0px;
+		}
+
+		div.addToMeetingPopover .addToMeetingPopoverBody {
+			padding:10px;
+		}
+
+		div.addToMeetingPopover .addToMeetingPopoverBody label {
+			font-weight: bold;
+			display: block;
+		}
+
+		a.btn, a.btn:hover {
+			text-decoration: none;
 		}
 	</style>
+	<span id="statusMessage" class="bootstraplabel info">
+
+	</span>
 	<apex:form id="mainForm">
 		<apex:outputPanel id="responseWrapper">
-			<apex:outputText value="{!hasError}" id="controllerHasError"/>
+			<apex:outputText style="display:none;" value="{!hasError}" id="controllerHasError"/>
 		</apex:outputPanel>
+		
+		<!-- Nav tabs -->
+		<ul class="nav nav-tabs" id="myTab">
+			<li class="active"><a href="#search" data-toggle="tab">Search Form</a></li>
+		  	<li>
+		  		<a href="#sr" data-toggle="tab" id="searchResultTabAnchor">
+		  			Search Results &nbsp;&nbsp;
+		  			<apex:outputPanel styleClass="bootstraplabel count" id="srCountWrapper" rendered="{!srCount != null}">{!srCount}</apex:outputPanel>
+		  		</a>
+		  	</li>
+		  	<li>
+		  		<a href="#mp" data-toggle="tab">
+		  			Meeting Participants &nbsp;&nbsp;
+		  			<apex:outputPanel styleClass="bootstraplabel count" id="mpCountWrapper">{!mpCount}</apex:outputPanel>
+		  		</a>
+		  	</li>
+		</ul>
 		<div class="aeu" style="position:relative;">
-			<apex:tabPanel switchType="server" selectedTab="name1" id="theTabPanel" activeTabClass="activeTab" inactiveTabClass="inactiveTab">
-				<apex:tab label="Search" name="name1" id="tabOne">
-					<apex:actionRegion >
-						<apex:pageBlock title="Search Form" mode="edit" id="mercuryUserBlock">
-							<apex:pageMessages ></apex:pageMessages>
-							<apex:pageBlockButtons >
-								<apex:commandButton onclick="toggleLoading()" oncomplete="toggleLoading()" 
-									action="{!doSearch}" value="Search" rerender="resultBlockWrapper"/>
-							</apex:pageBlockButtons>
-							<apex:pageBlockSection >
-								
-								<!-- FIRST NAME -->
-								<apex:pageBlockSectionItem >
-									<apex:outputLabel for="fn" value="First Name"></apex:outputLabel>
-									<apex:inputText value="{!searchRequest.fn}" id="fn"/>
-								</apex:pageBlockSectionItem>
+			<!-- Tab panes -->
+			<div class="tab-content">
+			  	<!-- SEARCH FORM -->
+			  	<div class="tab-pane active" id="search">
+			  		<apex:actionRegion >
+			  			<apex:pageBlock title="" mode="edit" id="mercuryUserBlock">
+			  				<apex:pageMessages ></apex:pageMessages>
+			  				<apex:pageBlockButtons >
+			  					<apex:commandButton onclick="toggleLoading()" oncomplete="toggleLoading();j('#searchResultTabAnchor').click()" 
+			  						action="{!doSearch}" value="Search" rerender="resultTableWrapper, srCountWrapper"/>
+			  				</apex:pageBlockButtons>
+			  				<apex:pageBlockSection title="Basic Information">
+			  					
+			  					<!-- FIRST NAME -->
+			  					<apex:pageBlockSectionItem >
+			  						<apex:outputLabel for="fn" value="First Name"></apex:outputLabel>
+			  						<apex:inputText value="{!searchRequest.fn}" id="fn"/>
+			  					</apex:pageBlockSectionItem>
 
-								<!-- LAST NAME -->
-								<apex:pageBlockSectionItem >
-									<apex:outputLabel for="ls" value="Last Name"></apex:outputLabel>
-									<apex:inputText value="{!searchRequest.ls}" id="ls"/>
-								</apex:pageBlockSectionItem>
+			  					<!-- LAST NAME -->
+			  					<apex:pageBlockSectionItem >
+			  						<apex:outputLabel for="ls" value="Last Name"></apex:outputLabel>
+			  						<apex:inputText value="{!searchRequest.ls}" id="ls"/>
+			  					</apex:pageBlockSectionItem>
 
-								<!-- CUSTOMER ID -->
-								<apex:pageBlockSectionItem >
-									<apex:outputLabel for="custId" value="Customer Id"></apex:outputLabel>
-									<apex:inputText value="{!searchRequest.custId}" id="custId"/>
-								</apex:pageBlockSectionItem>
+			  					<!-- CUSTOMER ID -->
+			  					<apex:pageBlockSectionItem >
+			  						<apex:outputLabel for="custId" value="Customer Id"></apex:outputLabel>
+			  						<apex:inputText value="{!searchRequest.custId}" id="custId"/>
+			  					</apex:pageBlockSectionItem>
 
-							</apex:pageBlockSection>
-						</apex:pageBlock>
+			  				</apex:pageBlockSection>
 
-						<!-- SEARCH RESULTS -->
-						<apex:outputPanel id="resultBlockWrapper">
-							<apex:pageMessages/>
-							<apex:pageBlock title="Search Results" id="resultBlock" rendered="{!searchResults != null && searchResults.size > 0}">
-								<apex:pageBlockTable value="{!searchResults}" var="r">
-									<apex:column width="30">
-										<apex:commandLink rendered="{!r.selectable}" action="{!addToMeeting}" onclick="toggleLoading()" oncomplete="handleAddResponse(this)" rerender="responseWrapper, resultBlockWrapper">
-											<apex:image value="{!urlfor($resource.mercury, 'img/add.png')}" style="width:12px;"/>
-											<apex:param name="aid" value="{!r.sfid}"/>
-										</apex:commandLink>
-									</apex:column>
-									<apex:column headerValue="{!$ObjectType.Account.fields.Id.label}" value="{!r.sfid}"/>
-									<apex:column headerValue="{!$ObjectType.Account.fields.FirstName.label}" value="{!r.firstname}"/>
-									<apex:column headerValue="{!$ObjectType.Account.fields.LastName.label}" value="{!r.lastname}"/>
-									<apex:column headerValue="{!$ObjectType.Account.fields.scnd_nm_glbl__c.label}" value="{!r.scnd_nm_glbl}"/>
+			  				<apex:pageBlockSection title="Address Information" collapsible="true">
+			  					
+			  					<!-- ADDRESS -->
+			  					<apex:pageBlockSectionItem >
+			  						<apex:outputLabel for="add" value="Address"></apex:outputLabel>
+			  						<apex:inputText value="{!searchRequest.address}" id="add"/>
+			  					</apex:pageBlockSectionItem>
 
-								</apex:pageBlockTable>
-							</apex:pageBlock>
-							<apex:outputPanel rendered="{!searchResults != null && searchResults.size == 0}">
-								No Results Found
-							</apex:outputPanel>
-						</apex:outputPanel>
-					</apex:actionRegion>
-				</apex:tab>
+			  					<!-- CITY -->
+			  					<apex:pageBlockSectionItem >
+			  						<apex:outputLabel for="city" value="City"></apex:outputLabel>
+			  						<apex:inputText value="{!searchRequest.city}" id="city"/>
+			  					</apex:pageBlockSectionItem>
 
-				<!-- TAB 2 -->
-				<apex:tab label="{!$ObjectType.Meeting_Participant_MERC__c.LabelPlural}" name="name2" id="tabTwo">
-					<apex:actionRegion >
-						<apex:pageBlock title="Meeting Participants" mode="edit" id="meetingParticipantBlock">
-							<apex:pageMessages ></apex:pageMessages>
-							<apex:pageBlockButtons >
+			  					<!-- REGION -->
+			  					<apex:pageBlockSectionItem >
+			  						<apex:outputLabel for="region" value="State/Region"></apex:outputLabel>
+			  						<apex:inputText value="{!searchRequest.state}" id="region"/>
+			  					</apex:pageBlockSectionItem>
 
-							</apex:pageBlockButtons>
-							<apex:pageBlockTable value="{!meetingParticipants}" var="p">
-								<apex:column width="30">
-									<apex:commandLink action="{!removeFromMeeting}" onclick="toggleLoading()" oncomplete="handleRemoveResponse(this)" rerender="meetingParticipantBlock, responseWrapper">
-										<apex:image value="{!urlfor($resource.mercury, 'img/delete.png')}" style="width:12px;"/>
-										<apex:param name="pid" value="{!p.Id}"/>
-									</apex:commandLink>
-								</apex:column>
-								<apex:column value="{!p.Id}"/>
-								<apex:column value="{!p.Account_MERC__c}"/>
-								<apex:column value="{!p.Account_MERC__r.Name}"/>
-							</apex:pageBlockTable>
-						</apex:pageBlock>
-					</apex:actionRegion>
-				</apex:tab>
-			</apex:tabPanel>
+			  					<!-- COUNTRY -->
+			  					<apex:pageBlockSectionItem >
+			  						<apex:outputLabel for="country" value="Country"></apex:outputLabel>
+			  						<apex:selectList value="{!searchRequest.country}" size="1" id="country" styleClass="">
+			  							<apex:selectOptions value="{!countries}"/>
+			  						</apex:selectList>
+			  					</apex:pageBlockSectionItem>
+
+			  					<!-- POSTAL CODE -->
+			  					<apex:pageBlockSectionItem >
+			  						<apex:outputLabel for="pc" value="Postal Code"></apex:outputLabel>
+			  						<apex:inputText value="{!searchRequest.pc}" id="pc"/>
+			  					</apex:pageBlockSectionItem>
+
+			  					<!-- SEARCH PRIMARY -->
+			  					<apex:pageBlockSectionItem >
+			  						<apex:outputLabel for="prAddress" value="Search Primary Address Only"></apex:outputLabel>
+			  						<apex:inputCheckbox value="{!searchRequest.prAddress}" id="prAddress"/>
+			  					</apex:pageBlockSectionItem>
+
+
+			  				</apex:pageBlockSection>
+
+			  				<apex:pageBlockSection title="Affiliation Information">
+
+			  					<!-- Affiliation Name -->
+			  					<apex:pageBlockSectionItem >
+			  						<apex:outputLabel for="affil" value="Affiliation Name"></apex:outputLabel>
+			  						<apex:inputText value="{!searchRequest.affil}" id="affil"/>
+			  					</apex:pageBlockSectionItem>
+
+			  					<!-- Affiliation Address -->
+			  					<apex:pageBlockSectionItem >
+			  						<apex:outputLabel for="affilAddress" value="Affiliation Address"></apex:outputLabel>
+			  						<apex:inputText value="{!searchRequest.affilAddress}" id="affilAddress"/>
+			  					</apex:pageBlockSectionItem>
+
+			  					<!-- Affiliation City -->
+			  					<apex:pageBlockSectionItem >
+			  						<apex:outputLabel for="affilCity" value="Affiliation City"></apex:outputLabel>
+			  						<apex:inputText value="{!searchRequest.affilCity}" id="affilCity"/>
+			  					</apex:pageBlockSectionItem>
+
+			  					<!-- Affiliation Country -->
+			  					<apex:pageBlockSectionItem >
+			  						<apex:outputLabel for="affilCountry" value="Affiliation Country"></apex:outputLabel>
+			  						<apex:selectList multiselect="true" value="{!searchRequest.affilCountry}" id="affilCountry" styleClass="multichosen">
+			  							<apex:selectOptions value="{!countries}"/>
+			  						</apex:selectList>
+			  					</apex:pageBlockSectionItem>
+
+			  					<!-- Affiliation Role -->
+			  					<apex:pageBlockSectionItem >
+			  						<apex:outputLabel for="role" value="Affiliation Role"></apex:outputLabel>
+			  						<apex:selectList multiselect="true" value="{!searchRequest.role}" id="role" styleClass="multichosen">
+			  							<apex:selectOptions value="{!affiliationRoleTypes}"/>
+			  						</apex:selectList>
+			  					</apex:pageBlockSectionItem>
+
+			  					<!-- Search only Priority Ranks -->
+			  					<apex:pageBlockSectionItem >
+			  						<apex:outputLabel for="prAffil" value="Priority Rank"></apex:outputLabel>
+			  						<apex:selectList multiselect="true" value="{!searchRequest.prAffil}" id="prAffil" styleClass="multichosen">
+			  							<apex:selectOptions value="{!affiliationPriorityRanks}"/>
+			  						</apex:selectList>
+			  					</apex:pageBlockSectionItem>
+
+
+			  				</apex:pageBlockSection>
+
+			  				<apex:pageBlockSection title="Additional Details">
+			  					<!-- Professional Designation -->
+			  					<apex:pageBlockSectionItem >
+			  						<apex:outputLabel for="prod" value="Professional Designation"></apex:outputLabel>
+			  						<apex:selectList multiselect="true" value="{!searchRequest.prod}" id="prod" styleClass="multichosen">
+			  							<apex:selectOptions value="{!professionalDesignations}"/>
+			  						</apex:selectList>
+			  					</apex:pageBlockSectionItem>
+
+			  					<!-- Classification -->
+			  					<apex:pageBlockSectionItem >
+			  						<apex:outputLabel for="classifation" value="Classification"></apex:outputLabel>
+			  						<apex:selectList size="1" value="{!searchRequest.classifation}" id="classifation" styleClass="single">
+			  							<apex:selectOptions value="{!accountClassifications}"/>
+			  						</apex:selectList>
+			  					</apex:pageBlockSectionItem>
+
+			  					<!-- Status -->
+			  					<apex:pageBlockSectionItem >
+			  						<apex:outputLabel for="status" value="Status"></apex:outputLabel>
+			  						<apex:selectList multiselect="true" value="{!searchRequest.status}" id="status" styleClass="multichosen">
+			  							<apex:selectOptions value="{!accountStatusTypes}"/>
+			  						</apex:selectList>
+			  					</apex:pageBlockSectionItem>
+
+			  					<!-- Specialty -->
+			  					<apex:pageBlockSectionItem >
+			  						<apex:outputLabel for="specialty" value="Specialty"></apex:outputLabel>
+			  						<apex:selectList multiselect="true" value="{!searchRequest.specialty}" id="specialty" styleClass="multichosen">
+			  							<apex:selectOptions value="{!specialties}"/>
+			  						</apex:selectList>
+			  					</apex:pageBlockSectionItem>
+
+			  					<!-- Alternate Id Type -->
+			  					<apex:pageBlockSectionItem >
+			  						<apex:outputLabel for="aIDType" value="Alternate Id Type"></apex:outputLabel>
+			  						<apex:selectList size="1" value="{!searchRequest.aIDType}" id="aIDType" styleClass="single">
+			  							<apex:selectOptions value="{!alternateIdTypes}"/>
+			  						</apex:selectList>
+			  					</apex:pageBlockSectionItem>
+
+			  					<!-- Alternate Id -->
+			  					<apex:pageBlockSectionItem >
+			  						<apex:outputLabel for="aID" value="Alternate Id"></apex:outputLabel>
+			  						<apex:inputText value="{!searchRequest.aID}" id="aID"/>
+			  					</apex:pageBlockSectionItem>
+
+			  					<!-- Specialty Rank -->
+			  					<apex:pageBlockSectionItem >
+			  						<apex:outputLabel for="specialtyRank" value="Specialty Rank"></apex:outputLabel>
+			  						<apex:selectList multiselect="true" value="{!searchRequest.specialtyRank}" id="specialtyRank" styleClass="multichosen">
+			  							<apex:selectOptions value="{!specialtyPriorityRanks}"/>
+			  						</apex:selectList>
+			  					</apex:pageBlockSectionItem>
+			  				</apex:pageBlockSection>
+
+			  			</apex:pageBlock>
+			  		</apex:actionRegion>
+			  	</div>
+			  	<div class="tab-pane" id="sr">
+			  		<!-- SEARCH RESULTS -->
+			  		<apex:actionRegion >
+				  		<apex:outputPanel id="resultBlockWrapper">
+				  			<apex:pageMessages />
+				  			<apex:pageBlock title="Search Results" id="resultBlock">
+				  				<apex:outputPanel id="resultTableWrapper">
+					  				<apex:pageBlockTable value="{!searchResults}" var="r" rendered="{!searchResults != null && searchResults.size > 0}">
+					  					<apex:column width="30">
+					  						<apex:outputLink value="javascript:void(0)" rendered="{!r.selectable}" onclick="showAddPopover(this,'{!r.sfid}')">
+					  							<apex:image value="{!urlfor($Resource.mercury, 'img/add.png')}" style="width:12px;"/>
+					  						</apex:outputLink>
+					  						<div class="addToMeetingPopover" id="{!r.sfid}popover">
+					  							<div class="addToMeetingPopoverBody">
+						  							<apex:actionRegion>
+						  								<apex:outputLabel for="nrtid" value="Record Type"/>
+						  								<apex:selectList id="nrtid" value="{!newParticipantRecordTypeId}" size="1">
+						  									<apex:selectOptions value="{!recordTypeOptions}"/>
+						  								</apex:selectList>
+						  								<div style="margin-top:5px;">
+							  								<apex:commandLink styleClass="btn" value="Add To Meeting" action="{!addToMeeting}" onclick="hideAddPopovers();toggleLoading();" oncomplete="handleAddResponse(this);showMessage('Participant Successfully Added');" rerender="meetingParticipantTableWrapper, responseWrapper, resultTableWrapper, mpCountWrapper">
+							  									<apex:param name="aid" value="{!r.sfid}"/>
+							  								</apex:commandLink>
+							  								<apex:outputLink value="javascript:void(0)" styleClass="btn" onclick="hideAddPopovers()">
+							  									Cancel
+							  								</apex:outputLink>
+							  							</div>
+						  							</apex:actionRegion>
+						  						</div>
+					  						</div>
+					  					</apex:column>
+					  					<apex:column headerValue="{!$ObjectType.Account.fields.Cust_Id_GLBL__c.label}">
+					  						<apex:outputLink target="_blank" value="/{!r.sfid}">{!r.cust_id_glbl}</apex:outputLink>
+					  					</apex:column>
+					  					<apex:column headerValue="{!$ObjectType.Account.fields.FirstName.label}" value="{!r.firstname}"/>
+					  					<apex:column headerValue="{!$ObjectType.Account.fields.Mdl_Nm_GLBL__c.label}" value="{!r.mdl_nm_glbl}"/>
+					  					<apex:column headerValue="{!$ObjectType.Account.fields.LastName.label}" value="{!r.lastname}"/>
+					  					<apex:column headerValue="{!$ObjectType.Account.fields.Scnd_Nm_GLBL__c.label}" value="{!r.scnd_nm_glbl}"/>
+					  					<apex:column headerValue="{!$ObjectType.Account.fields.Clsfctn_Cd_GLBL__c.label}" value="{!r.clsfctn_cd_glbl}"/>
+
+					  					<apex:column headerValue="{!$ObjectType.Account.fields.primary_addr_line1_glbl__c.label}" value="{!r.primary_addr_line1_glbl}"/>
+
+					  					<apex:column headerValue="{!$ObjectType.Account.fields.primary_addr_line2_glbl__c.label}" value="{!r.primary_addr_line2_glbl}"/>
+
+					  					<apex:column headerValue="{!$ObjectType.Account.fields.primary_addr_city_glbl__c.label}" value="{!r.primary_addr_city_glbl}"/>
+					  					<apex:column headerValue="{!$ObjectType.Account.fields.primary_address_country_glbl__c.label}" value="{!r.primary_address_country_glbl}"/>
+					  					<apex:column headerValue="{!$ObjectType.Account.fields.primary_pstl_cd_extnsn_glbl__c.label}" value="{!r.primary_pstl_cd_extnsn_glbl}"/>			
+					  					
+					  				</apex:pageBlockTable>
+
+					  				<apex:outputPanel rendered="{!searchResults != null && searchResults.size == 0}">
+					  					No Results Found
+					  				</apex:outputPanel>
+					  				<apex:outputPanel rendered="{!searchResults == null}">
+					  					Please perform your search on the "Search Form" tab
+					  				</apex:outputPanel>
+					  			</apex:outputPanel>
+				  			</apex:pageBlock>
+				  		</apex:outputPanel>
+				  	</apex:actionRegion>
+			  	</div>
+			  	<div class="tab-pane" id="mp">
+			  		<apex:actionRegion >
+			  			<apex:pageBlock title="Meeting Participants" mode="edit" id="meetingParticipantBlock">
+			  				<apex:pageMessages ></apex:pageMessages>
+			  				<apex:pageBlockButtons >
+
+			  				</apex:pageBlockButtons>
+			  				<apex:outputPanel id="meetingParticipantTableWrapper">
+				  				<apex:pageBlockTable value="{!meetingParticipants}" var="p">
+				  					<apex:column width="30">
+				  						<apex:commandLink action="{!removeFromMeeting}" onclick="toggleLoading()" oncomplete="handleRemoveResponse(this);showMessage('Participant Successfully Removed')" rerender="meetingParticipantTableWrapper, responseWrapper, resultTableWrapper, mpCountWrapper">
+				  							<apex:image value="{!urlfor($Resource.mercury, 'img/delete.png')}" style="width:12px;"/>
+				  							<apex:param name="pid" value="{!p.Id}"/>
+				  						</apex:commandLink>
+				  					</apex:column>
+				  					<apex:column value="{!p.Id}"/>
+				  					<apex:column value="{!p.Account_MERC__c}"/>
+				  					<apex:column value="{!p.Account_MERC__r.Name}"/>
+				  				</apex:pageBlockTable>
+				  			</apex:outputPanel>
+			  			</apex:pageBlock>
+			  		</apex:actionRegion>
+			  	</div>
+			</div>
 			<c:MERC_LoadingMask />
-		</div>
+		</div><!-- end aeu -->
 	</apex:form>
 </apex:page>

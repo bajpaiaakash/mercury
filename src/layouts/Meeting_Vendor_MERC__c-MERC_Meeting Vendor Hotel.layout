@@ -23,6 +23,10 @@
                 <behavior>Edit</behavior>
                 <field>Area_of_Service_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Confirm_ToV_Reporting_Change_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

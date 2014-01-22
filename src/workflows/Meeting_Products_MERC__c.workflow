@@ -11,14 +11,16 @@
         <protected>false</protected>
     </fieldUpdates>
     <outboundMessages>
-        <fullName>RTI_Meeting_Product_Updated</fullName>
+        <fullName>RTI_Meeting_Product_Updated_MERC</fullName>
         <apiVersion>29.0</apiVersion>
-        <endpointUrl>http://ec2-54-227-9-128.compute-1.amazonaws.com/rti-development/v1/genericUpdated</endpointUrl>
+        <endpointUrl>https://cs18.salesforce.com/04k110000004CFk</endpointUrl>
         <fields>CreatedById</fields>
         <fields>CreatedDate</fields>
         <fields>CurrencyIsoCode</fields>
         <fields>Detail_Sequence_MERC__c</fields>
         <fields>Id</fields>
+        <fields>Indication_Description_MERC__c</fields>
+        <fields>Indication_MERC__c</fields>
         <fields>IsDeleted</fields>
         <fields>LastModifiedById</fields>
         <fields>LastModifiedDate</fields>
@@ -28,35 +30,34 @@
         <fields>Product_Group_Id_MERC__c</fields>
         <fields>Product_MERC__c</fields>
         <fields>SystemModstamp</fields>
-        <includeSessionId>false</includeSessionId>
+        <includeSessionId>true</includeSessionId>
         <integrationUser>helmer@gso1.lly</integrationUser>
         <name>RTI - Meeting Product Updated</name>
         <protected>false</protected>
         <useDeadLetterQueue>false</useDeadLetterQueue>
     </outboundMessages>
     <rules>
-        <fullName>Mercury External ID-MeetingProduct</fullName>
+        <fullName>Mercury External ID-MeetingProduct_MERC</fullName>
         <actions>
             <name>External_ID_MeetingProduct_MERC</name>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
         <criteriaItems>
-            <field>Meeting_Products_MERC__c.Name</field>
-            <operation>notEqual</operation>
-            <value>null</value>
+            <field>Meeting_Products_MERC__c.Mercury_External_Id_MERC__c</field>
+            <operation>equals</operation>
         </criteriaItems>
         <description>Populates the external id upon creation of a record</description>
-        <triggerType>onCreateOnly</triggerType>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>RTI - Meeting Product Updated</fullName>
         <actions>
-            <name>RTI_Meeting_Product_Updated</name>
+            <name>RTI_Meeting_Product_Updated_MERC</name>
             <type>OutboundMessage</type>
         </actions>
         <active>true</active>
-        <formula>1==1</formula>
+        <formula>NOT(ISCHANGED( RTI_Transaction_ID_MERC__c ) )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>

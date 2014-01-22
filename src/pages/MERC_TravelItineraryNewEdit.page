@@ -1,6 +1,28 @@
-<apex:page showHeader="true" sidebar="true" standardController="Travel_Itinerary_MERC__c" extensions="MERC_TravelItineraryNewEdit">
-	
-    <apex:pagemessages id="pageMessage"/>
-	<apex:dynamicComponent componentValue="{!Form}"/>
+<apex:page showHeader="true" sidebar="true" standardController="Travel_Itinerary_MERC__c" extensions="MERC_TravelItineraryNewEditController">
+	<apex:sectionHeader title="{!title}" subtitle="{!subtitle}"/>
+	<apex:form >
+		<apex:pageBlock mode="edit" title="{!subtitle}">
+			<apex:pageBlockButtons >
+				<apex:commandButton value="Save" action="{!save}"/>
+				<apex:commandButton value="Cancel" action="{!cancel}"/>
+			</apex:pageBlockButtons>
+			<apex:pagemessages id="pageMessage"/>
 
+			<apex:repeat value="{!sections}" var="section">
+				
+				<apex:pageBlockSection rendered="{!section.index == 2}" collapsible="false" columns="2" title="{!fieldSetLabels['Date_Time_Information_Edit_MERC']}">
+					<apex:repeat value="{!$ObjectType.Travel_Itinerary_MERC__c.FieldSets.Date_Time_Information_Edit_MERC}" var="f">
+						<apex:inputField value="{!Travel_Itinerary_MERC__c[f]}" required="{!OR(f.required, f.dbrequired)}"/>
+				    </apex:repeat>
+				</apex:pageBlockSection>
+
+				<apex:pageBlockSection title="{!section.title}" rendered="{!section.index != 2}">
+					<apex:repeat value="{!section.fields}" var="field">
+						<apex:inputField required="{!field.required}" value="{!Travel_Itinerary_MERC__c[field.value]}" rendered="{!field.readOnly == false}"/>
+						<apex:outputField value="{!Travel_Itinerary_MERC__c[field.value]}" rendered="{!field.readOnly}"/>
+					</apex:repeat>
+				</apex:pageBlockSection>
+			</apex:repeat>
+		</apex:pageBlock>
+	</apex:form>
 </apex:page>

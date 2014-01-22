@@ -426,6 +426,42 @@ Created by John A Adams 10/2/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Language_Preference_MERC__c</fullName>
+        <description>Captured for Mercury.  Mastered Language Preference field cannot be used due to data quality.  Oliver Dunford 7th Jan.</description>
+        <externalId>false</externalId>
+        <label>Language Preference</label>
+        <picklist>
+            <picklistValues>
+                <fullName>en</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>fr</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>de</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>es</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>pt</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ru</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Language_of_Choice_GLBL__c</fullName>
         <description>Language preference for communications.
 Created by John A Adams 10/17/2013</description>
@@ -433,27 +469,27 @@ Created by John A Adams 10/17/2013</description>
         <label>Language of Choice</label>
         <picklist>
             <picklistValues>
-                <fullName>English</fullName>
+                <fullName>en</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>French</fullName>
+                <fullName>fr</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>German</fullName>
+                <fullName>de</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Spanish</fullName>
+                <fullName>es</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Portuguese</fullName>
+                <fullName>pt</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Russian</fullName>
+                <fullName>ru</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -793,29 +829,36 @@ Created by John A Adams 11/5/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Language_Preference_MERC__c</picklist>
+            <values>
+                <fullName>en</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Language_of_Choice_GLBL__c</picklist>
             <values>
-                <fullName>English</fullName>
+                <fullName>de</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>French</fullName>
+                <fullName>en</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>German</fullName>
+                <fullName>es</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Portuguese</fullName>
+                <fullName>fr</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Russian</fullName>
+                <fullName>pt</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Spanish</fullName>
+                <fullName>ru</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -924,29 +967,56 @@ Created by John A Adams 11/5/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Language_Preference_MERC__c</picklist>
+            <values>
+                <fullName>de</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>en</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>es</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>fr</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>pt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ru</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Language_of_Choice_GLBL__c</picklist>
             <values>
-                <fullName>English</fullName>
+                <fullName>de</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>French</fullName>
+                <fullName>en</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>German</fullName>
+                <fullName>es</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Portuguese</fullName>
+                <fullName>fr</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Russian</fullName>
+                <fullName>pt</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Spanish</fullName>
+                <fullName>ru</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

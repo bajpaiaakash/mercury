@@ -426,7 +426,8 @@ public with sharing class PersonSearchControllerMVN {
         String qString = 'SELECT ' + ACCOUNTFIELDS;
         qString += ',(SELECT ' + ADDRESSFIELDS + ' FROM Addresses_GLBL__r)';
         qString += ' FROM Account ' + buildAccountWhereClause() + ACCOUNTORDERBY + ' LIMIT ' + SEARCHLIMIT;
-
+        system.debug(qString);
+        system.debug(validRecordTypeIds);
         String translatedCountryValue = null;
         if(searchAddress.Adrs_Cntry_Cd_GLBL__c != null && searchAddress.Adrs_Cntry_Cd_GLBL__c != ''){
             for(Schema.PicklistEntry countryPicklistVal:Schema.sObjectType.Address_GLBL__c.fields.Adrs_Cntry_Cd_GLBL__c.getPicklistValues()){

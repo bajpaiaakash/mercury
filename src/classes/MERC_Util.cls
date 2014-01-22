@@ -29,6 +29,36 @@ public with sharing class MERC_Util {
 		return null;
 	}
 
+	public static List<SelectOption> getPicklistValues(Schema.DescribeFieldResult fieldResult) {
+		List<SelectOption> options = new List<SelectOption>();
+		List<Schema.PicklistEntry> ple = fieldResult.getPicklistValues();
+		for( Schema.PicklistEntry f : ple) {
+			options.add(new SelectOption(f.getLabel(), f.getValue()));
+		}       
+		return options;
+	}
+
+	public static List<SelectOption> getPicklistValues(Schema.DescribeFieldResult fieldResult, Boolean includeNullSelectOption) {
+		List<SelectOption> options = new List<SelectOption>();
+		if (includeNullSelectOption)
+			options.add(new SelectOption('','--Select--'));
+		options.addAll(getPicklistValues(fieldResult));
+		return options;
+	}
+
+	public static List<SelectOption> getCSTPicklistValuesForFieldName(String fieldName, Boolean includeNullSelectOption) {
+		List<SelectOption> options = new List<SelectOption>();
+		if (includeNullSelectOption)
+			options.add(new SelectOption('','--Select--'));
+		for (Sobject appSetting : Database.query('SELECT '+fieldName+' FROM CST_App_Settings_CUST__c LIMIT 1')) {
+			String optionString = (String)appSetting.get(fieldName);
+			for (String s : optionString.split(',')) {
+				options.add(new SelectOption(s,s));
+			}
+		}
+		return options;
+	}
+
 	public static String getSobjectAPIName(Sobject s) {
 		Id recordId = (Id)s.get('Id');
 		return recordId.getSObjectType().getDescribe().getName();

@@ -32,6 +32,16 @@ Created by John A Adams 12/18/2013</description>
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Set_Calculate_Open_Meeting_Fees_MERC</fullName>
+        <description>Set Calculate Open Meeting Fees checkbox to FALSE after each record update.</description>
+        <field>Calculate_Open_Meeting_Fees_MERC__c</field>
+        <literalValue>0</literalValue>
+        <name>Set Calculate Open Meeting Fees</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Calculate_Open_Fees_MERC</fullName>
         <description>Updates the Calculate Open Meeting Fees checkbox to ensure it&apos;s only set once. Oliver Dunford 9th Nov 2013.</description>
         <field>Calculate_Open_Meeting_Fees_MERC__c</field>
@@ -39,6 +49,53 @@ Created by John A Adams 12/18/2013</description>
         <name>Update Calculate Open Fees</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Tier_2_Criteria_Met_MERC</fullName>
+        <description>Updates Tier 2 Criteria met field.  Must also Meet Tier 3 Criteria.  Oliver Dunford 13th Jan 2014.</description>
+        <field>Tier_2_Criteria_Met_MERC__c</field>
+        <name>Update Tier 2 Criteria Met</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Tier_2_Score_MERC</fullName>
+        <description>Updates Tier 2 Score based on FMV rule Criteria. Oliver Dunford 13th Jan 2014.</description>
+        <field>Tier_2_Score_MERC__c</field>
+        <formula>IF(TEXT(Practicing_for_MERC__c) &lt;&gt; &quot;&lt;5 Years&quot;, 1, 0) +
+IF((TEXT(Regional_Leadership_Role_MERC__c ) = &quot;Yes&quot;) ||  (TEXT(National_Inter_Leadership_Role_MERC__c ) = &quot;Yes&quot;), 1, 0) + IF( TEXT(Journal_Articles_MERC__c) &lt;&gt; &quot;0-2&quot;, 1,0) + IF( TEXT(Reviewer_or_Editor_MERC__c) = &quot;Yes&quot;, 1, 0) + IF((TEXT( Instructor_Assistant_Clinical_Prof_MERC__c ) = &quot;Yes&quot;) ||  (TEXT( Associate_or_Full_Professor_MERC__c ) = &quot;Yes&quot;), 1, 0) + IF((TEXT( Participated_in_Clinical_Trials_MERC__c ) = &quot;Yes&quot;) ||  (TEXT( Clinical_Trial_PI_MERC__c ) &lt;&gt; &quot;No&quot;), 1, 0) + IF(TEXT(Advisory_Board_Experience_MERC__c) = &quot;Yes&quot;, 1, 0) +  IF(TEXT(Multiple_Specialties_MERC__c) = &quot;Yes&quot;, 1, 0)</formula>
+        <name>Update Tier 2 Score</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Tier_3_Criteria_Met_MERC</fullName>
+        <description>Update Tier 3 Criteria met based on Results.  Oliver Dunford 13th Jan 2014.</description>
+        <field>Tier_3_Criteria_Met_MERC__c</field>
+        <formula>IF( AND (
+ TEXT(Licensed_HCP_MERC__c) = &quot;Yes&quot;,
+ TEXT(Experience_MERC__c) = &quot;Yes&quot;,
+ TEXT(Influential_MERC__c) = &quot;Yes&quot;),
+ &quot;Yes&quot;, &quot;No&quot;
+)</formula>
+        <name>Update Tier 3 Criteria Met</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Tier_3_Score_MERC</fullName>
+        <description>Updates Tier 3 Score based on results from rule criteria. Oliver Dunford 13th Jan 2014.</description>
+        <field>Tier_3_Score_MERC__c</field>
+        <formula>IF(TEXT(Licensed_HCP_MERC__c) = &quot;Yes&quot;, 1,0) +
+IF(TEXT(Experience_MERC__c) = &quot;Yes&quot;, 1,0) +
+IF(TEXT(Influential_MERC__c) = &quot;Yes&quot;, 1,0)</formula>
+        <name>Update Tier 3 Score</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
     <outboundMessages>
@@ -79,6 +136,7 @@ Created by John A Adams 12/18/2013</description>
         <fields>Cntrct_Nm_GLBL__c</fields>
         <fields>Cntrct_Shrt_Nm_GLBL__c</fields>
         <fields>Cntry_Cd_GLBL__c</fields>
+        <fields>Communication_Preference_MERC__c</fields>
         <fields>Contract_Limitations_on_Use_MERC__c</fields>
         <fields>Cost_Cntr_Nbr_GLBL__c</fields>
         <fields>Cost_Cntr_Nm_GLBL__c</fields>
@@ -120,6 +178,7 @@ Created by John A Adams 12/18/2013</description>
         <fields>Elctrnc_Adrs_Txt_GLBL__c</fields>
         <fields>Elctrnc_Adrs_Web_Txt_GLBL__c</fields>
         <fields>Employed_by_Government_Institution_GLBL__c</fields>
+        <fields>Exec_Smmry_Note_MERC__c</fields>
         <fields>Experience_MERC__c</fields>
         <fields>Fax</fields>
         <fields>Fax_Phone_Cntry_Cd_GLBL__c</fields>
@@ -141,6 +200,7 @@ Created by John A Adams 12/18/2013</description>
         <fields>Industry</fields>
         <fields>Influential_MERC__c</fields>
         <fields>Initials_GLBL__c</fields>
+        <fields>Initiate_Tiering_MERC__c</fields>
         <fields>Institution_Administrator_GLBL__c</fields>
         <fields>Instructor_Assistant_Clinical_Prof_MERC__c</fields>
         <fields>IsDeleted</fields>
@@ -150,6 +210,7 @@ Created by John A Adams 12/18/2013</description>
         <fields>Journal_Articles_MERC__c</fields>
         <fields>Justification_for_Preferred_Venue_MERC__c</fields>
         <fields>Key_Opinion_Leader_GLBL__c</fields>
+        <fields>Language_Preference_MERC__c</fields>
         <fields>LastActivityDate</fields>
         <fields>LastModifiedById</fields>
         <fields>LastModifiedDate</fields>
@@ -308,12 +369,23 @@ Created by John A Adams 12/18/2013</description>
         <fields>Work_Cntry_Cd_GLBL__c</fields>
         <fields>Work_Country_Desc_GLBL__c</fields>
         <fields>Work_Phone_Cntry_Cd_GLBL__c</fields>
-        <includeSessionId>false</includeSessionId>
+        <includeSessionId>true</includeSessionId>
         <integrationUser>helmer@gso1.lly</integrationUser>
         <name>RTI - Account Updated</name>
         <protected>false</protected>
         <useDeadLetterQueue>false</useDeadLetterQueue>
     </outboundMessages>
+    <rules>
+        <fullName>Clear Calculate Open Meeting Fees_MERC</fullName>
+        <actions>
+            <name>Set_Calculate_Open_Meeting_Fees_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Clear the Calculate Open Meeting Fees checkbox after each record update</description>
+        <formula>TRUE</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
     <rules>
         <fullName>Date Stamp CAP Usage Note_MERC</fullName>
         <actions>
@@ -337,19 +409,18 @@ Created by John A Adams 12/18/2013</description>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
-        <fullName>Mercury External ID-Account</fullName>
+        <fullName>Mercury External ID-Account_MERC</fullName>
         <actions>
             <name>External_ID_Account_MERC</name>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
         <criteriaItems>
-            <field>Account.Name</field>
-            <operation>notEqual</operation>
-            <value>null</value>
+            <field>Account.Mercury_External_Id_MERC__c</field>
+            <operation>equals</operation>
         </criteriaItems>
         <description>Populates the external id upon creation of a record</description>
-        <triggerType>onCreateOnly</triggerType>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>RTI - Account Updated</fullName>
@@ -358,8 +429,31 @@ Created by John A Adams 12/18/2013</description>
             <type>OutboundMessage</type>
         </actions>
         <active>true</active>
-        <formula>1==1</formula>
+        <formula>NOT(ISCHANGED( RTI_Transaction_ID_MERC__c ) )</formula>
         <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Tier Initiation Update</fullName>
+        <actions>
+            <name>Update_Tier_2_Score_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Tier_3_Criteria_Met_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Tier_3_Score_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Initiate_Tiering_MERC__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <description>Updates Tier Criteria based on Scoring. Oliver Dunford Jan 13th 2014.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
         <fullName>Update Calculate Open Fees_MERC</fullName>

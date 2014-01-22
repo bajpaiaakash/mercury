@@ -34,7 +34,7 @@ private class MERC_HcpCapActualsCalculatorTest {
 		m.Number_of_Expected_Speakers_MERC__c = 10;
 		m.Interaction_Type_MERC__c = 'Virtual';
 		m.Meeting_Status_MERC__c = 'Registered';
-		m.Venue_Preferred_Location_MERC__c = 'somewhere fun';
+		m.Preferred_Venue_Addr_1_MERC__c = 'somewhere fun';
 		m.Target_Audience_List_MERC__c = 'Nurses';
 		update m;
 		
@@ -44,7 +44,7 @@ private class MERC_HcpCapActualsCalculatorTest {
 		p1.Services_Rendered_MERC__c = 'Yes';
 		update p1;
 
-		system.assertEquals(100, [Select Paid_CAP_MERC__c FROM Account WHERE Id = :p1.Account_MERC__c].Paid_CAP_MERC__c); 
+		system.assertEquals(100, [Select Speaking_Paid_CAP_MERC__c FROM Account WHERE Id = :p1.Account_MERC__c].Speaking_Paid_CAP_MERC__c); 
 
 		Test.stopTest();
 	}

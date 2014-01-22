@@ -7,11 +7,28 @@ public with sharing class MERC_ContentVersionHandler implements GLBL_TriggerHand
 	}
 
 	public void execute(list<Sobject> sobjects) {        
+		Set<String> mercuryContentRecordTypes = new Set<String>{
+			'Invoice_MERC', 'Meeting_MERC', 'HCP_Contract_MERC', 'Account_MERC', 'Meeting Participant_MERC', 'Budget_MERC'
+		};
 		List<ContentVersion> documents = (List<ContentVersion>)sobjects;
-		Id hcpContractRecordTypeId = [Select ID From RecordType Where SobjectType = 'ContentVersion' and DeveloperName = 'HCP_Contract_MERC'].ID;
+		Map<String, String> objectTypeToContentRecordId = new Map<String, String>();
+		for (RecordType recordType : [Select ID, DeveloperName From RecordType Where SobjectType = 'ContentVersion' and DeveloperName IN :mercuryContentRecordTypes]) {
+			objectTypeToContentRecordId.put(recordType.DeveloperName, recordType.Id);
+		}
+
 		for (ContentVersion d : documents) {
 			if (d.HCP_Contract_MERC__c != null) {
-				d.RecordTypeId = hcpContractRecordTypeId;
+				d.RecordTypeId = objectTypeToContentRecordId.get('HCP_Contract_MERC');
+			} else if (d.Invoice_MERC__c != null) {
+				d.RecordTypeId = objectTypeToContentRecordId.get('Invoice_MERC');
+			} else if (d.Meeting_MERC__c != null) {
+				d.RecordTypeId = objectTypeToContentRecordId.get('Meeting_MERC');
+			} else if (d.Account_GLBL__c != null) {
+				d.RecordTypeId = objectTypeToContentRecordId.get('Account_MERC');
+			} else if (d.Meeting_Participant_MERC__c != null) {
+				d.RecordTypeId = objectTypeToContentRecordId.get('Meeting Participant_MERC');
+			} else if (d.Budget_MERC__c != null) {
+				d.RecordTypeId = objectTypeToContentRecordId.get('Budget_MERC');
 			}
 		}
 

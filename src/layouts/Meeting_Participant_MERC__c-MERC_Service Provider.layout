@@ -35,6 +35,26 @@
                 <behavior>Readonly</behavior>
                 <field>HCP_Contract_Details_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Immediate_Source_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Source_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>HCP_Info_Package_Comm_Details_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Send_HCP_Info_Package_to_Rep__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Email_to_Invite_HCP_to_Portal_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -219,12 +239,12 @@
                 <field>Maximum_Fee_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Travel_Time_Reimbursement_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Proposed_Final_Fee_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Travel_Adjustment_Percentage_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -266,10 +286,6 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Total_Registration_ToV_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Total_Other_ToV_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -398,7 +414,7 @@
         <fields>Est_Grnd_Transp_MERC__c</fields>
         <fields>Est_Food_Bev_ToV_MERC__c</fields>
         <fields>Est_Reg_Amt_ToV_MERC__c</fields>
-        <fields>Est_Other_ToV_MERC__c</fields>
+        <fields>Est_Hotel_ToV_MERC__c</fields>
         <relatedList>Daily_Attendance_TOV_MERC__c.Meeting_Participant_MERC__c</relatedList>
     </relatedLists>
     <relatedLists>

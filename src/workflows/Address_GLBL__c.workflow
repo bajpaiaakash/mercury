@@ -71,22 +71,21 @@ Created by John A Adams 12/11/2013</description>
         <targetObject>Account_GLBL__c</targetObject>
     </fieldUpdates>
     <rules>
-        <fullName>Mercury External ID-Address</fullName>
+        <fullName>Mercury External ID-Address_MERC</fullName>
         <actions>
             <name>External_ID_Address_MERC</name>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
         <criteriaItems>
-            <field>Address_GLBL__c.Name</field>
-            <operation>notEqual</operation>
-            <value>null</value>
+            <field>Address_GLBL__c.Mercury_External_Id_MERC__c</field>
+            <operation>equals</operation>
         </criteriaItems>
         <description>Populates the external id upon creation of a record</description>
-        <triggerType>onCreateOnly</triggerType>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
-        <fullName>Primary Address</fullName>
+        <fullName>Primary Address_MERC</fullName>
         <actions>
             <name>Prim_Add_City_MERC</name>
             <type>FieldUpdate</type>

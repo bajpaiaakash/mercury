@@ -21,7 +21,11 @@ public with sharing class MERC_AgendaItemNewEditController {
     public Meeting_MERC__c meeting {
         get {
             if (meeting == null) {
-                meeting = [SELECT ID, Name, Start_Time_of_Meeting_MERC__c, End_Time_of_Meeting_MERC__c, Meeting_Time_Zone_MERC__C FROM Meeting_MERC__c WHERE ID = :this.agendaItem.Meeting_MERC__c];
+                try {
+                    meeting = [SELECT ID, Name, Start_Time_of_Meeting_MERC__c, End_Time_of_Meeting_MERC__c, Meeting_Time_Zone_MERC__C FROM Meeting_MERC__c WHERE ID = :this.agendaItem.Meeting_MERC__c];
+                } catch(System.QueryException e) {
+                    throw new MERC_Exception('You must provide a valid Agenda Item Id (MERC_AgendaItemNewEdit?id=agenda_item_id)');
+                }
             }
             return meeting;
         }

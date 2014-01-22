@@ -6,12 +6,15 @@
 
 public with sharing class MERC_DeleteNotifyService implements GLBL_TriggerHandler.HandlerInterface {
 	
+	public static Boolean skipCallout = false;
+
 	public void handle() {
 		List<Sobject> sobjects = Trigger.old;
 		String sobjectTypeAPIName = MERC_Util.getSobjectAPIName(sobjects.get(0));
 		String serializedSobjects = Json.serialize(sobjects); 
 		//we need to send primitives because execute method is @future
-		MERC_DeleteNotifyService.execute(sobjectTypeAPIName, serializedSobjects);
+		if (!MERC_DeleteNotifyService.skipCallout)
+			MERC_DeleteNotifyService.execute(sobjectTypeAPIName, serializedSobjects);
 	}
 
 	@Future(callout=true)

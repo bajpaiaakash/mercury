@@ -13,11 +13,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>Meeting_Day_MERC__c</field>
+                <field>Meeting_Participant_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>Meeting_Participant_MERC__c</field>
+                <field>Meeting_Day_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Meeting_Day_Date_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -26,6 +30,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Transparency_Reporting_Consent_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Confirm_ToV_Reporting_Change_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns/>
@@ -38,6 +46,10 @@
         <label>ToV Detail</label>
         <layoutColumns>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Est_Hotel_ToV_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Est_Grnd_Transp_MERC__c</field>
             </layoutItems>
@@ -48,10 +60,6 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Est_Food_Bev_ToV_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Est_Other_ToV_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns/>

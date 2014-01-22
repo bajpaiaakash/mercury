@@ -31,6 +31,14 @@
                 <behavior>Edit</behavior>
                 <field>Priority_Rank_Nbr_GLBL__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Rltnshp_Typ_Desc_GLBL__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Rltnshp_Sts_Desc_GLBL__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

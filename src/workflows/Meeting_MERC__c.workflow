@@ -2,21 +2,51 @@
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <alerts>
         <fullName>Notify_Meeting_Owner_when_Meeting_Status_is_changed_from_Forecasted_to_Cancelled</fullName>
-        <ccEmails>katy@mavensconsulting.com</ccEmails>
         <description>Notify Meeting Owner when Meeting Status is changed from Forecasted to Cancelled</description>
         <protected>false</protected>
         <recipients>
-            <type>creator</type>
+            <field>Meeting_Owner_MERC__c</field>
+            <type>userLookup</type>
         </recipients>
         <senderType>CurrentUser</senderType>
-        <template>unfiled$public/Cancelled_Meeting</template>
+        <template>Mercury_Email_Templates_MERC/Cancelled_Meeting</template>
     </alerts>
+    <alerts>
+        <fullName>Two_week_compliance_notification_to_Meeting_Owner_MERC</fullName>
+        <description>Two week compliance notification to Meeting Owner</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Meeting_Owner_MERC__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Mercury_Email_Templates_MERC/Two_week_Compliance_Notification_to_Owner</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Clear_Meeting_Cancellation_Date_MERC</fullName>
+        <description>If Meeting is changed from Cancelled to another status, update the Meeting Cancellation Date to blank. Created 12/19/2013 by KLorenti, Mavens Consulting</description>
+        <field>Meeting_Cancellation_Date_MERC__c</field>
+        <name>Clear Meeting Cancellation Date_MERC</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>External_ID_Meeting_MERC</fullName>
         <description>Populates External ID with OrdID and ID</description>
         <field>Mercury_External_Id_MERC__c</field>
         <formula>CASESAFEID($Organization.Id) &amp;&quot;_&quot;&amp; CASESAFEID(Id)</formula>
         <name>External ID-Meeting</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Meeting_Cancellation_Date_MERC</fullName>
+        <description>Updates Meeting Cancellation Date with the Date the Meeting is Cancelled. Created 12/19/2013 by KLorenti, Mavens Consulting</description>
+        <field>Meeting_Cancellation_Date_MERC__c</field>
+        <formula>Today()</formula>
+        <name>Set Meeting Cancellation Date_MERC</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
@@ -29,6 +59,16 @@
         <name>Update Confirm Cancellation Change Check</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Event_Id_MERC</fullName>
+        <description>Updated the Event Id Meeting AutoNumberCountryCodeYY. Oliver Dunford 7th Jan 2014.</description>
+        <field>Event_Id_MERC__c</field>
+        <formula>Meeting_Auto_Nmber_MERC__c &amp; TEXT(Event_Country_MERC__c) &amp;  RIGHT(TEXT(YEAR(Today())),2)</formula>
+        <name>Update Event Id_MERC</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
@@ -52,12 +92,62 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_Meeting_End_Date</fullName>
+        <description>Update Meeting End Date with Meeting End Time</description>
+        <field>End_Date_of_Event_MERC__c</field>
+        <formula>End_Time_of_Meeting_MERC__c</formula>
+        <name>Update Meeting End Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Meeting_End_Dt_MERC</fullName>
+        <description>Update Meeting End Date when Meeting End Time is changed</description>
+        <field>End_Date_of_Event_MERC__c</field>
+        <formula>End_Time_of_Meeting_MERC__c</formula>
+        <name>Update Meeting End Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Meeting_Start_Date</fullName>
+        <description>Update Meeting Start Date with Meeting Start Time</description>
+        <field>End_Date_Meeting_Time_Zone_MERC__c</field>
+        <formula>Start_Time_In_Meeting_Time_Zone__c</formula>
+        <name>Update Meeting Start Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Meeting_Start_Date_MERC</fullName>
+        <description>Update Meeting Start Date when Meeting Start Time is changed</description>
+        <field>Date_of_Event_MERC__c</field>
+        <formula>DATEVALUE(End_Time_In_Meeting_Time_Zone_MERC__c)</formula>
+        <name>Update Meeting Start Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Meeting_Start_Dt_MERC</fullName>
+        <description>Update Meeting Start Date with Meeting Start Time</description>
+        <field>Date_of_Event_MERC__c</field>
+        <formula>Start_Time_of_Meeting_MERC__c</formula>
+        <name>Update Meeting Start Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Rec_Type_Ready_for_Sourcing_MERC</fullName>
-        <description>When Meeting Status is updated to Ready for Sourcing, update Record type to Ready for Sourcing.</description>
+        <description>When Meeting Status is updated to Active update Record type to Active.</description>
         <field>RecordTypeId</field>
-        <lookupValue>Ready_for_Sourcing</lookupValue>
+        <lookupValue>Meeting_Active</lookupValue>
         <lookupValueType>RecordType</lookupValueType>
-        <name>Update Rec Type Ready for Sourcing_MERC</name>
+        <name>Update Rec Type Planned_MERC</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>LookupValue</operation>
         <protected>false</protected>
@@ -98,9 +188,9 @@
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Updated_Record_Type_to_Submitted_MERC</fullName>
-        <description>When Meeting Status is changed to Submitted for Contracting, the Meeting record type is updated to Submitted for Contracting</description>
+        <description>When Meeting Status is changed to Planned, the Meeting record type is updated to Planned</description>
         <field>RecordTypeId</field>
-        <lookupValue>Submitted_for_Contracting</lookupValue>
+        <lookupValue>Meeting_Active</lookupValue>
         <lookupValueType>RecordType</lookupValueType>
         <name>Updated Record Type to Submitted _MERC</name>
         <notifyAssignee>false</notifyAssignee>
@@ -109,13 +199,14 @@
         <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
     <outboundMessages>
-        <fullName>RTI_Meeting_Updated</fullName>
+        <fullName>RTI_Meeting_Updated_MERC</fullName>
         <apiVersion>29.0</apiVersion>
         <endpointUrl>http://ec2-54-227-9-128.compute-1.amazonaws.com/rti-development/v1/genericUpdated</endpointUrl>
         <fields>Accommodation_Information_MERC__c</fields>
         <fields>Activities_MERC__c</fields>
         <fields>Agenda_Status_MERC__c</fields>
         <fields>Alignment_Internal_Id_GLBL__c</fields>
+        <fields>Amount_to_be_Paid_MERC__c</fields>
         <fields>Approve_Sponsorship_MERC__c</fields>
         <fields>Approved_MERC__c</fields>
         <fields>Budget_is_Final_MERC__c</fields>
@@ -140,9 +231,9 @@
         <fields>End_Date_Year_MERC__c</fields>
         <fields>End_Date_of_Event_MERC__c</fields>
         <fields>End_Time_In_Meeting_Time_Zone_MERC__c</fields>
-        <fields>End_Time_In_User_Time_Zone__c</fields>
         <fields>End_Time_of_Meeting_MERC__c</fields>
         <fields>Event_Country_MERC__c</fields>
+        <fields>Event_Id_MERC__c</fields>
         <fields>Event_Occurred_MERC__c</fields>
         <fields>Event_Website_MERC__c</fields>
         <fields>Event_Website_Needed_MERC__c</fields>
@@ -161,6 +252,8 @@
         <fields>Hospitality_Desk_Required_MERC__c</fields>
         <fields>Hours_for_Education_MERC__c</fields>
         <fields>Id</fields>
+        <fields>Immediate_Source_MERC__c</fields>
+        <fields>Independent_Meeting_Organiser_MERC__c</fields>
         <fields>Individual_Sponsorship_Meeting_MERC__c</fields>
         <fields>Interaction_Type_MERC__c</fields>
         <fields>Internal_Delegates_MERC__c</fields>
@@ -170,12 +263,17 @@
         <fields>Inviting_Delegates_Other_MERC__c</fields>
         <fields>Invoicing_Completed_MERC__c</fields>
         <fields>IsDeleted</fields>
+        <fields>Justification_for_Venue_MERC__c</fields>
         <fields>LastModifiedById</fields>
         <fields>LastModifiedDate</fields>
         <fields>LastReferencedDate</fields>
         <fields>LastViewedDate</fields>
         <fields>Logistics_Information_MERC__c</fields>
+        <fields>MCP_work_MERC__c</fields>
+        <fields>Make_Payment_To_MERC__c</fields>
         <fields>Materials_to_be_Shipped_MERC__c</fields>
+        <fields>Meeting_Auto_Nmber_MERC__c</fields>
+        <fields>Meeting_Cancellation_Date_MERC__c</fields>
         <fields>Meeting_Objectives_MERC__c</fields>
         <fields>Meeting_Owner_MERC__c</fields>
         <fields>Meeting_Owner_Sales_Rep_MERC__c</fields>
@@ -198,30 +296,33 @@
         <fields>Number_of_Restaurants_MERC__c</fields>
         <fields>On_Site_Support_Required_MERC__c</fields>
         <fields>OwnerId</fields>
+        <fields>Parent_Meeting_External_MERC__c</fields>
         <fields>Parent_Meeting_MERC__c</fields>
         <fields>Participants_Attended_MERC__c</fields>
-        <fields>Payment_For_MERC__c</fields>
-        <fields>Payment_To_MERC__c</fields>
         <fields>Planned_Attendees_MERC__c</fields>
         <fields>Planned_Budget_MERC__c</fields>
         <fields>Preferred_Location_MERC__c</fields>
+        <fields>Preferred_Venue_Addr_1_MERC__c</fields>
+        <fields>Preferred_Venue_Addr_2_MERC__c</fields>
         <fields>Preferred_Venue_MERC__c</fields>
+        <fields>Preferred_Venue_Postal_Code_MERC__c</fields>
+        <fields>RTI_Transaction_ID_MERC__c</fields>
+        <fields>Ready_for_Sourcing_MERC__c</fields>
         <fields>RecordTypeId</fields>
+        <fields>Rep_Cost_Center_MERC__c</fields>
         <fields>Responses_Due_Date_MERC__c</fields>
         <fields>Restauraunt_Information_MERC__c</fields>
         <fields>RowID__c</fields>
         <fields>Sales_Rep_MERC__c</fields>
         <fields>Send_Save_the_Date_MERC__c</fields>
         <fields>Shipping_Address_for_Invitations_MERC__c</fields>
+        <fields>Source_MERC__c</fields>
         <fields>Speaker_MERC__c</fields>
         <fields>Sponsorship_Category_MERC__c</fields>
-        <fields>Sponsorship_Type_MERC__c</fields>
-        <fields>Sponsorship_WO_Lilly_Assistance_MERC__c</fields>
-        <fields>Sponsorship_W_Lilly_Assistance_MERC__c</fields>
         <fields>Start_Date_Meeting_Time_Zone_MERC__c</fields>
         <fields>Start_Time_In_Meeting_Time_Zone__c</fields>
-        <fields>Start_Time_User_Time_Zone_MERC__c</fields>
         <fields>Start_Time_of_Meeting_MERC__c</fields>
+        <fields>Submit_for_Contracting_MERC__c</fields>
         <fields>SystemModstamp</fields>
         <fields>Target_Audience_List_MERC__c</fields>
         <fields>Target_Audience_MERC__c</fields>
@@ -230,20 +331,33 @@
         <fields>Territory_Id_GLBL__c</fields>
         <fields>Therapeutic_Area_MERC__c</fields>
         <fields>Time_for_Restaurant_Booking_MERC__c</fields>
+        <fields>ToV_Reported_MERC__c</fields>
         <fields>Transfers_MERC__c</fields>
         <fields>Travel_Information_MERC__c</fields>
         <fields>Type_MERC__c</fields>
-        <fields>Venue_Preferred_Location_MERC__c</fields>
+        <fields>Venue_MERC__c</fields>
         <fields>Virtual_Meeting_MERC__c</fields>
         <fields>Work_Cntry_Cd_GLBL__c</fields>
         <fields>of_Sponsored_Individuals_MERC__c</fields>
         <fields>of_Sponsorship_Group_MERC__c</fields>
-        <includeSessionId>false</includeSessionId>
-        <integrationUser>helmer@gso1.lly</integrationUser>
+        <includeSessionId>true</includeSessionId>
+        <integrationUser>lorentikaty@gso1.lly</integrationUser>
         <name>RTI - Meeting Updated</name>
         <protected>false</protected>
         <useDeadLetterQueue>false</useDeadLetterQueue>
     </outboundMessages>
+    <rules>
+        <fullName>Clear Meeting Cancellation Date_MERC</fullName>
+        <actions>
+            <name>Clear_Meeting_Cancellation_Date_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>If Meeting is changed from Cancelled to another status, update the Meeting Cancellation Date to blank. Created 12/19/2013 by KLorenti, Mavens Consulting</description>
+        <formula>ISCHANGED(Meeting_Status_MERC__c)&amp;&amp;
+!ISPICKVAL(Meeting_Status_MERC__c,&quot;Cancelled&quot;)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
     <rules>
         <fullName>Clear_Confirm_Meeting_Cancellation_Checkbox_MERC</fullName>
         <actions>
@@ -307,19 +421,18 @@
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
-        <fullName>Mercury External ID-Meeting</fullName>
+        <fullName>Mercury External ID-Meeting_MERC</fullName>
         <actions>
             <name>External_ID_Meeting_MERC</name>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
         <criteriaItems>
-            <field>Meeting_MERC__c.Name</field>
-            <operation>notEqual</operation>
-            <value>null</value>
+            <field>Meeting_MERC__c.Mercury_External_Id_MERC__c</field>
+            <operation>equals</operation>
         </criteriaItems>
         <description>Populates the external id upon creation of a record</description>
-        <triggerType>onCreateOnly</triggerType>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Notify Meeting Owner of Cancelled Meeting_MERC</fullName>
@@ -335,17 +448,7 @@ ISCHANGED(Meeting_Status_MERC__c)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
-        <fullName>RTI - Meeting Updated</fullName>
-        <actions>
-            <name>RTI_Meeting_Updated</name>
-            <type>OutboundMessage</type>
-        </actions>
-        <active>true</active>
-        <formula>1==1</formula>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
-        <fullName>Ready_for_Sourcing_MERC</fullName>
+        <fullName>Planned_MERC</fullName>
         <actions>
             <name>Update_Rec_Type_Ready_for_Sourcing_MERC</name>
             <type>FieldUpdate</type>
@@ -354,14 +457,20 @@ ISCHANGED(Meeting_Status_MERC__c)</formula>
         <criteriaItems>
             <field>Meeting_MERC__c.Meeting_Status_MERC__c</field>
             <operation>equals</operation>
-            <value>Ready for Sourcing</value>
+            <value>Active</value>
         </criteriaItems>
         <criteriaItems>
             <field>Meeting_MERC__c.RecordTypeId</field>
             <operation>notEqual</operation>
             <value>Independent Sponsorship</value>
         </criteriaItems>
-        <description>When Meeting Status is changed to Ready for Sourcing, updated Record Type to Ready for Sourcing</description>
+        <description>When Meeting Status is changed to Active, updated Record Type to Active</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>RTI - Meeting Updated</fullName>
+        <active>true</active>
+        <formula>AND(NOT(ISCHANGED( RTI_Transaction_ID_MERC__c )),NOT( Source_MERC__c  = &apos;Internal&apos;))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -385,23 +494,46 @@ ISCHANGED(Meeting_Status_MERC__c)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
-        <fullName>Submitted_for_Contracting_MERC</fullName>
+        <fullName>Set Meeting Cancellation Date_MERC</fullName>
         <actions>
-            <name>Updated_Record_Type_to_Submitted_MERC</name>
+            <name>Set_Meeting_Cancellation_Date_MERC</name>
             <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>If Meeting is Cancelled, update the Meeting Cancellation Date. Created 12/19/2013 by KLorenti, Mavens Consulting</description>
+        <formula>ISCHANGED(Meeting_Status_MERC__c)&amp;&amp;
+ISPICKVAL(Meeting_Status_MERC__c,&quot;Cancelled&quot;)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Two Week Compliance Notification_MERC</fullName>
+        <actions>
+            <name>Two_week_compliance_notification_to_Meeting_Owner_MERC</name>
+            <type>Alert</type>
         </actions>
         <active>true</active>
         <criteriaItems>
             <field>Meeting_MERC__c.Meeting_Status_MERC__c</field>
             <operation>equals</operation>
-            <value>Submitted for Contracting</value>
+            <value>Registered,Submitted for Contracting,Ready for Sourcing</value>
         </criteriaItems>
-        <criteriaItems>
-            <field>Meeting_MERC__c.RecordTypeId</field>
-            <operation>notEqual</operation>
-            <value>Independent Sponsorship</value>
-        </criteriaItems>
-        <description>When Meeting Status is changed to Submitted for Contracting, updated Record Type to Submitted for Contracting</description>
+        <description>Notify Meeting Owner two weeks after meeting creation to remind them to ensure all compliance information has been populated.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <offsetFromField>Meeting_MERC__c.CreatedDate</offsetFromField>
+            <timeLength>14</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Update Event Id_MERC</fullName>
+        <actions>
+            <name>Update_Event_Id_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Updates the Event Id based on Meeting Details and the Meeting Auto Numbber field.  Creates a human readable Id for AODS and other downstream systems that  need it.</description>
+        <formula>ISCHANGED( RTI_Transaction_ID_MERC__c ) == False</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -413,6 +545,42 @@ ISCHANGED(Meeting_Status_MERC__c)</formula>
         <active>true</active>
         <description>Workflow will update the Formatted Name field on the Meeting to allow for searching for a Meeting based on a defined naming convention.</description>
         <formula>TRUE</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Meeting Start and End Date_MERC</fullName>
+        <actions>
+            <name>Update_Meeting_End_Dt_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Meeting_Start_Dt_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Update the Meeting Start Date and End Date when the Meeting Start Time and End Times are populated</description>
+        <formula>(ISCHANGED(  Start_Time_of_Meeting_MERC__c ) ||
+ISCHANGED( End_Time_of_Meeting_MERC__c ))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update_RT_Planned_MERC</fullName>
+        <actions>
+            <name>Updated_Record_Type_to_Submitted_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Meeting_MERC__c.Meeting_Status_MERC__c</field>
+            <operation>equals</operation>
+            <value>Planned</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Meeting_MERC__c.RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>Independent Sponsorship</value>
+        </criteriaItems>
+        <description>When Meeting Status is changed to Planned, updated Record Type to Meeting - Planned</description>
         <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>

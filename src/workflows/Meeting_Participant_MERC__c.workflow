@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Non_HCP_participant_approval</fullName>
+        <ccEmails>jadams@mavensconsulting.com</ccEmails>
+        <description>A Non-HCP participant has been created for a meeting and email requesting Managerial Approval will be sent.</description>
+        <protected>false</protected>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>Mercury_Email_Templates_MERC/Non_HCP_Approval_MERC</template>
+    </alerts>
     <fieldUpdates>
         <fullName>Clear_Confirm_Partial_Payment_Amt_MERC</fullName>
         <description>Set the Confirm Partial Payment Amount checkbox to False. Created 12/18/2013 by KLorenti, Mavens Consulting</description>
@@ -75,7 +83,7 @@
         <fullName>Update_Final_Fee_MERC</fullName>
         <description>Stamps the Final Fee with the Proposed Fee. Oliver Dunford 6th Nov 2013.</description>
         <field>Final_Fee_MERC__c</field>
-        <formula>Proposed_Final_Fee_MERC__c</formula>
+        <formula>ROUND(Proposed_Final_Fee_MERC__c + (Proposed_Final_Fee_MERC__c *  Travel_Adjustment_Percentage_MERC__c),0)</formula>
         <name>Update Final Fee</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
@@ -195,10 +203,31 @@
         <targetObject>Account_MERC__c</targetObject>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_ToV_Reported_MERC</fullName>
+        <description>Update Is ToV Reported to Yes when Meeting Participant ToV is finalized. Created 01/08/2013 by KLorenti, Mavens Consulting</description>
+        <field>ToV_Reported_MERC__c</field>
+        <literalValue>1</literalValue>
+        <name>Update ToV Reported</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <targetObject>Meeting_MERC__c</targetObject>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Travel_Adjustment_Amount</fullName>
+        <description>Update when Final Fee is confirmed</description>
+        <field>Travel_Adjustment_Amount_MERC__c</field>
+        <formula>ROUND((Proposed_Final_Fee_MERC__c *  Travel_Adjustment_Percentage_MERC__c),0)</formula>
+        <name>Update Travel Adjustment Amount</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Unique_Participant_MERC</fullName>
         <description>Updates the force unique participant with the Account Id and Meeting Id. Oliver Dunford 4th November.</description>
         <field>Force_Unique_Participant_MERC__c</field>
-        <formula>Account_MERC__c  &amp; &quot; - &quot; &amp; Meeting_MERC__c</formula>
+        <formula>CASESAFEID(Account_MERC__c)  &amp; &quot; - &quot; &amp; CASESAFEID(Meeting_MERC__c)</formula>
         <name>Update Unique Participant</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
@@ -208,6 +237,7 @@
         <fullName>RTI_Meeting_Participant_Updated</fullName>
         <apiVersion>29.0</apiVersion>
         <endpointUrl>http://ec2-54-227-9-128.compute-1.amazonaws.com/rti-development/v1/genericUpdated</endpointUrl>
+        <fields>Account_External_MERC__c</fields>
         <fields>Account_MERC__c</fields>
         <fields>Air_Travel_Required_MERC__c</fields>
         <fields>Airport_Transfer_Required_MERC__c</fields>
@@ -219,6 +249,7 @@
         <fields>CoPay_Hotel_MERC__c</fields>
         <fields>CoPay_Registration_MERC__c</fields>
         <fields>Confirm_Final_Fee_MERC__c</fields>
+        <fields>Confirm_Partial_Payment_Amount_MERC__c</fields>
         <fields>Contract_Limitations_on_Use_MERC__c</fields>
         <fields>Copay_Required_MERC__c</fields>
         <fields>Country_of_Residence_MERC__c</fields>
@@ -227,6 +258,7 @@
         <fields>CurrencyIsoCode</fields>
         <fields>Customer_Id_GLBL__c</fields>
         <fields>Description_of_Service_MERC__c</fields>
+        <fields>Email_to_Invite_HCP_to_Portal_MERC__c</fields>
         <fields>Event_Customer_Id_MERC__c</fields>
         <fields>Event_Time_Hrs_MERC__c</fields>
         <fields>Expense_Reimbursment_MERC__c</fields>
@@ -235,9 +267,11 @@
         <fields>Ground_Transportation_Required_MERC__c</fields>
         <fields>HCP_Contract_Details_MERC__c</fields>
         <fields>HCP_Contract_MERC__c</fields>
+        <fields>HCP_Info_Package_Comm_Details_MERC__c</fields>
         <fields>Higher_Fee_Approval__c</fields>
         <fields>Hotel_Required_MERC__c</fields>
         <fields>Id</fields>
+        <fields>Immediate_Source_MERC__c</fields>
         <fields>Include_CAP_Roll_Up_MERC__c</fields>
         <fields>Invoice_Template_Needed_MERC__c</fields>
         <fields>IsDeleted</fields>
@@ -246,15 +280,17 @@
         <fields>LastModifiedDate</fields>
         <fields>LastReferencedDate</fields>
         <fields>LastViewedDate</fields>
-        <fields>Lilly_Affiliate_MERC__c</fields>
         <fields>Maximum_Fee_MERC__c</fields>
         <fields>Maximum_Rate_MERC__c</fields>
         <fields>Meeting_Date_MERC__c</fields>
+        <fields>Meeting_External_MERC__c</fields>
         <fields>Meeting_MERC__c</fields>
+        <fields>Meeting_Owner_Global_Id_MERC__c</fields>
         <fields>Mercury_External_Id_MERC__c</fields>
         <fields>Minimum_Fee_MERC__c</fields>
         <fields>Minimum_Rate_MERC__c</fields>
         <fields>Name</fields>
+        <fields>Partial_Payment_Amount_MERC__c</fields>
         <fields>Partial_Payment_Justification_MERC__c</fields>
         <fields>Participant_Approved_MERC__c</fields>
         <fields>Participant_Search_MERC__c</fields>
@@ -267,8 +303,10 @@
         <fields>Proposed_Final_Fee_MERC__c</fields>
         <fields>RecordTypeId</fields>
         <fields>Require_Recording_Consent_MERC__c</fields>
+        <fields>Send_HCP_Info_Package_to_Rep__c</fields>
         <fields>Service_Provider_Tier_MERC__c</fields>
         <fields>Services_Rendered_MERC__c</fields>
+        <fields>Source_MERC__c</fields>
         <fields>Speciality_MERC__c</fields>
         <fields>Status_MERC__c</fields>
         <fields>SystemModstamp</fields>
@@ -278,18 +316,18 @@
         <fields>Total_Honorarium_MERC__c</fields>
         <fields>Total_Hotel_ToV_MERC__c</fields>
         <fields>Total_Hours_of_Service_MERC__c</fields>
-        <fields>Total_Other_ToV_MERC__c</fields>
         <fields>Total_Registration_ToV_MERC__c</fields>
         <fields>Transparency_Reporting_Consent_MERC__c</fields>
+        <fields>Travel_Adjustment_Amount_MERC__c</fields>
+        <fields>Travel_Adjustment_Percentage_MERC__c</fields>
         <fields>Travel_Required_MERC__c</fields>
         <fields>Travel_Time_Hrs_MERC__c</fields>
-        <fields>Travel_Time_Reimbursement_MERC__c</fields>
         <fields>Trnsctn_Typ_MERC__c</fields>
         <fields>Trtry_Cd_MERC__c</fields>
         <fields>Trtry_Desc_MERC__c</fields>
         <fields>Type_of_Contract_MERC__c</fields>
         <fields>Types_of_Service_MERC__c</fields>
-        <includeSessionId>false</includeSessionId>
+        <includeSessionId>true</includeSessionId>
         <integrationUser>helmer@gso1.lly</integrationUser>
         <name>RTI - Meeting Participant Updated</name>
         <protected>false</protected>
@@ -328,12 +366,18 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
+        <booleanFilter>1 OR 2</booleanFilter>
         <criteriaItems>
             <field>Meeting_Participant_MERC__c.Types_of_Service_MERC__c</field>
             <operation>equals</operation>
             <value>Medical Research Consultant</value>
         </criteriaItems>
-        <description>If the Type of Service is Medical Research, Set &quot;Include In Cap Rollup&quot; checkbox to &quot;false&quot;</description>
+        <criteriaItems>
+            <field>Meeting_Participant_MERC__c.Types_of_Service_MERC__c</field>
+            <operation>equals</operation>
+            <value>Consulting Project</value>
+        </criteriaItems>
+        <description>If the Type of Service is Medical Research or Consulting Project, Set &quot;Include In Cap Rollup&quot; checkbox to &quot;false&quot;</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -352,19 +396,44 @@
         <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
-        <fullName>Mercury External ID-MeetingParticipant</fullName>
+        <fullName>Is ToV Reported</fullName>
+        <actions>
+            <name>Update_ToV_Reported_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Flag if ToV has been reported for any meeting participants on the meeting</description>
+        <formula>ISCHANGED (Participant_ToV_Final_MERC__c) &amp;&amp;(ISPICKVAL(Participant_ToV_Final_MERC__c, &quot;Yes&quot;))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Mercury External ID-MeetingParticipant_MERC</fullName>
         <actions>
             <name>External_ID_MeetingParticipant_MERC</name>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
         <criteriaItems>
-            <field>Meeting_Participant_MERC__c.Name</field>
-            <operation>notEqual</operation>
-            <value>null</value>
+            <field>Meeting_Participant_MERC__c.Mercury_External_Id_MERC__c</field>
+            <operation>equals</operation>
         </criteriaItems>
         <description>Populates the external id upon creation of a record</description>
-        <triggerType>onCreateOnly</triggerType>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Non-HCP Approval_MERC</fullName>
+        <actions>
+            <name>Non_HCP_participant_approval</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Non-HCP</value>
+        </criteriaItems>
+        <description>When a participant is created who is NOT a HCP, an automated email should be triggered to the Meeting Manager who should approve the Participant before they can be utilised for meetings.  Created by John A Adams 12/20/2013</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
         <fullName>Over Maximum Fee_MERC</fullName>
@@ -394,7 +463,7 @@ Partial_Payment_Amount_MERC__c &gt; 0</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
-        <fullName>Participant Type MERC</fullName>
+        <fullName>Participant Type_MERC</fullName>
         <actions>
             <name>Populate_Participant_Type_MERC</name>
             <type>FieldUpdate</type>
@@ -415,7 +484,7 @@ Partial_Payment_Amount_MERC__c &gt; 0</formula>
             <type>OutboundMessage</type>
         </actions>
         <active>true</active>
-        <formula>1==1</formula>
+        <formula>NOT(ISCHANGED( RTI_Transaction_ID_MERC__c ) )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -484,6 +553,10 @@ Partial_Payment_Amount_MERC__c = 0</formula>
         <fullName>Update Final Fee_MERC</fullName>
         <actions>
             <name>Update_Final_Fee_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Travel_Adjustment_Amount</name>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>

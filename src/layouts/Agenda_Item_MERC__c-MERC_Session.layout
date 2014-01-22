@@ -19,6 +19,10 @@
                 <behavior>Edit</behavior>
                 <field>Session_Type_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Cnfrm_Chg_Fnl_Agnd_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

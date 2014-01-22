@@ -36,6 +36,18 @@
                 <behavior>Edit</behavior>
                 <field>Participant_Typ_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Immediate_Source_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Source_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Email_to_Invite_HCP_to_Portal_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -45,10 +57,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>RecordTypeId</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Lilly_Affiliate_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <emptySpace>true</emptySpace>
@@ -120,10 +128,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Total_Food_Beverage_ToV_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Total_Other_ToV_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

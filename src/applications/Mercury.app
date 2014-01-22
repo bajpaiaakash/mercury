@@ -19,6 +19,6 @@
     <tab>Payee_MERC__c</tab>
     <tab>Communication_Preference_GLBL__c</tab>
     <tab>Meeting_Participant_MERC__c</tab>
-    <tab>Travel_MERC__c</tab>
     <tab>Travel_Itinerary_MERC__c</tab>
+    <tab>Consent_Setting_GLBL__c</tab>
 </CustomApplication>

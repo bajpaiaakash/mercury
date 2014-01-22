@@ -18,11 +18,13 @@
 		<members>MERC_DailyAttendance</members>
 		<members>MERC_DocusignTagAndSend</members>
 		<members>MERC_FinalizeBudgetConfirm</members>
+		<members>MERC_InvoiceAFIXML</members>
 		<members>MERC_InvoicePDF</members>
 		<members>MERC_MeetingDateManager</members>
 		<members>MERC_MeetingDateTimes</members>
 		<members>MERC_MeetingDateTimesEdit</members>
 		<members>MERC_MeetingDayNewEdit</members>
+		<members>MERC_MeetingNewEdit</members>
 		<members>MERC_MeetingTeamManager</members>
 		<members>MERC_NewAccountContent</members>
 		<members>MERC_NewBudgetVersion</members>
@@ -39,6 +41,7 @@
 		<name>ApexTrigger</name>
 	</types>
 	<types>
+		<members>CST</members>
 		<members>Mercury</members>
 		<name>CustomApplication</name>
 	</types>
@@ -55,6 +58,8 @@
 		<members>Budget_Line_Item_MERC__c</members>
 		<members>Budget_MERC__c</members>
 		<members>CAP_Settings_MERC__c</members>
+		<members>CST_App_Settings_CUST__c</members>
+		<members>CST_User_Settings_CUST__c</members>
 		<members>Case</members>
 		<members>Communication_Preference_GLBL__c</members>
 		<members>ContentVersion</members>
@@ -79,6 +84,7 @@
 		<members>PersonAccount</members>
 		<members>Product_Group_GLBL__c</members>
 		<members>Service_Cloud_Settings_MVN__c</members>
+		<members>Speciality_MERC__c</members>
 		<members>Team_Member_MERC__c</members>
 		<members>Time_Zone_Field_Mappings_MERC__c</members>
 		<members>Travel_Itinerary_MERC__c</members>
@@ -89,9 +95,13 @@
 		<members>Address_GLBL__c</members>
 		<members>Agenda_Item_MERC__c</members>
 		<members>Budget_MERC__c</members>
+		<members>CST_App_Settings_CUST__c</members>
+		<members>CST_User_Settings_CUST__c</members>
 		<members>Communication_Preference_GLBL__c</members>
+		<members>Consent_Setting_GLBL__c</members>
 		<members>HCP_Contract_MERC__c</members>
 		<members>Invoice_MERC__c</members>
+		<members>Meeting_Day_MERC__c</members>
 		<members>Meeting_MERC__c</members>
 		<members>Meeting_Participant_MERC__c</members>
 		<members>Meeting_Vendor_MERC__c</members>
@@ -99,7 +109,6 @@
 		<members>Product_Group_GLBL__c</members>
 		<members>Team_Member_MERC__c</members>
 		<members>Travel_Itinerary_MERC__c</members>
-		<members>Travel_MERC__c</members>
 		<name>CustomTab</name>
 	</types>
 	<types>
@@ -109,7 +118,6 @@
 	<types>
 		<members>Account-MERC_Account Meeting Owner</members>
 		<members>Account-MERC_HCO Organization</members>
-		<members>Account-MERC_Lilly Affiliate Business</members>
 		<members>Account-MERC_Third Party Organization</members>
 		<members>Account-MERC_Vendor</members>
 		<members>Account-MERC_Venue</members>
@@ -139,7 +147,6 @@
 		<members>HCP_Contract_MERC__c-MERC_Work Order</members>
 		<members>Hotel_Allocation_MERC__c-Hotel Allocation Layout</members>
 		<members>Indication_GLBL__c-MERC_Product Indication Layout</members>
-		<members>Invoice_Line_Item_MERC__c-MERC_Ad Hoc Consulting</members>
 		<members>Invoice_Line_Item_MERC__c-MERC_Contracted Services</members>
 		<members>Invoice_Line_Item_MERC__c-MERC_Invoice Line Item</members>
 		<members>Invoice_MERC__c-MERC_Credit Note</members>
@@ -149,7 +156,6 @@
 		<members>Meeting_MERC__c-MERC_Completed</members>
 		<members>Meeting_MERC__c-MERC_Forecasted_Meeting</members>
 		<members>Meeting_MERC__c-MERC_Independent_Sponsorship</members>
-		<members>Meeting_MERC__c-MERC_Ready_for_Sourcing</members>
 		<members>Meeting_MERC__c-MERC_Registered_Meeting</members>
 		<members>Meeting_MERC__c-MERC_Submitted_for_Contracting</members>
 		<members>Meeting_Participant_MERC__c-MERC_Delegate</members>
@@ -177,6 +183,7 @@
 	<types>
 		<members>Admin</members>
 		<members>Mercury HCP Care</members>
+		<members>Mercury Integration CP</members>
 		<members>Mercury Integration SAP</members>
 		<members>Mercury Meeting Owner</members>
 		<members>Mercury Meeting Planning Company</members>
@@ -184,10 +191,6 @@
 		<members>Mercury Project Team</members>
 		<members>Mercury TCS</members>
 		<name>Profile</name>
-	</types>
-	<types>
-		<members>*</members>
-		<name>Report</name>
 	</types>
 	<types>
 		<members>*</members>
