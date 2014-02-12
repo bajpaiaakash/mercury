@@ -9,11 +9,11 @@
         <picklistValues>
             <picklist>Academic_Qualifications_MERC__c</picklist>
             <values>
-                <fullName>MD</fullName>
+                <fullName>MD non- specialist or GP</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>PhD</fullName>
+                <fullName>PhD non-MD</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -61,17 +61,6 @@
             </values>
             <values>
                 <fullName>Word of mouth</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Add_to_ODS_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1160,17 +1149,13 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>HCP_Profile_Status_GLBL__c</picklist>
+            <picklist>Has_MSA_MERC__c</picklist>
             <values>
-                <fullName>HCP Profile Complete</fullName>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>HCP Profile Incomplete - FMV Tier Available</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HCP Profile Incomplete - FMV Tier Missing</fullName>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1366,17 +1351,6 @@
         </picklistValues>
         <picklistValues>
             <picklist>Licensed_HCP_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Licensed_in_USA_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -1524,24 +1498,13 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Thought_Leader_MERC__c</picklist>
+            <picklist>Tier_1_HCP_CV_Checked_MERC__c</picklist>
             <values>
-                <fullName>No</fullName>
+                <fullName>Confirmed HCP is Tier 1</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Transparency_Reporting_Opt_Out_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
+                <fullName>Not Required</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1612,11 +1575,23 @@
         <picklistValues>
             <picklist>Academic_Qualifications_MERC__c</picklist>
             <values>
-                <fullName>MD</fullName>
+                <fullName>MD Specialist</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>PhD</fullName>
+                <fullName>MD non- specialist or GP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MSc%2C BSc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-MD Health care professional</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PhD non-MD</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1664,17 +1639,6 @@
             </values>
             <values>
                 <fullName>Word of mouth</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Add_to_ODS_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2763,17 +2727,13 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>HCP_Profile_Status_GLBL__c</picklist>
+            <picklist>Has_MSA_MERC__c</picklist>
             <values>
-                <fullName>HCP Profile Complete</fullName>
-                <default>false</default>
+                <fullName>No</fullName>
+                <default>true</default>
             </values>
             <values>
-                <fullName>HCP Profile Incomplete - FMV Tier Available</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HCP Profile Incomplete - FMV Tier Missing</fullName>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2969,17 +2929,6 @@
         </picklistValues>
         <picklistValues>
             <picklist>Licensed_HCP_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Licensed_in_USA_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -3127,24 +3076,21 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Thought_Leader_MERC__c</picklist>
+            <picklist>Tier_1_HCP_CV_Checked_MERC__c</picklist>
             <values>
-                <fullName>No</fullName>
+                <fullName>Confirmed HCP is Tier 1</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Transparency_Reporting_Opt_Out_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
+                <fullName>HCP is NOT Tier 1</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes</fullName>
+                <fullName>Needs Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Required</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3210,16 +3156,16 @@
     <recordTypes>
         <fullName>Non_HCP_MERC</fullName>
         <active>true</active>
-        <description>Potential meeting participants who are not Health Care Providers</description>
+        <description>Potential Meeting Participants who are not Health Care Providers</description>
         <label>Non-HCP</label>
         <picklistValues>
             <picklist>Academic_Qualifications_MERC__c</picklist>
             <values>
-                <fullName>MD</fullName>
+                <fullName>MD non- specialist or GP</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>PhD</fullName>
+                <fullName>PhD non-MD</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3267,17 +3213,6 @@
             </values>
             <values>
                 <fullName>Word of mouth</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Add_to_ODS_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4366,17 +4301,13 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>HCP_Profile_Status_GLBL__c</picklist>
+            <picklist>Has_MSA_MERC__c</picklist>
             <values>
-                <fullName>HCP Profile Complete</fullName>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>HCP Profile Incomplete - FMV Tier Available</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HCP Profile Incomplete - FMV Tier Missing</fullName>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4582,17 +4513,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Licensed_in_USA_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Multiple_Specialties_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -4730,24 +4650,13 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Thought_Leader_MERC__c</picklist>
+            <picklist>Tier_1_HCP_CV_Checked_MERC__c</picklist>
             <values>
-                <fullName>No</fullName>
+                <fullName>Confirmed HCP is Tier 1</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Transparency_Reporting_Opt_Out_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
+                <fullName>Not Required</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

@@ -715,6 +715,18 @@ Created by John A Adams 12/13/2013</description>
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Meeting_End_Date_Time_MERC__c</fullName>
+        <description>Displays Meeting End Date and Time on Travel Itinerary. Created 02/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Meeting_Participant_MERC__r.Meeting_MERC__r.End_Time_In_Meeting_Time_Zone_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting End Date/Time</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Meeting_Id_MERC__c</fullName>
         <externalId>false</externalId>
         <formula>CASESAFEID(Meeting_Participant_MERC__r.Meeting_MERC__r.Id)</formula>
@@ -737,6 +749,18 @@ Created by John A Adams 12/13/2013</description>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Start_Date_Time_MERC__c</fullName>
+        <description>Displays Meeting Start Date and Time on Travel Itinerary. Created 02/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Meeting_Participant_MERC__r.Meeting_MERC__r.Start_Time_In_Meeting_Time_Zone__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting Start Date/Time</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Meeting_Status_MERC__c</fullName>
@@ -771,6 +795,17 @@ Created by John A Adams 12/13/2013</description>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Vendor_Name_MERC__c</fullName>
+        <description>Displays Meeting Vendor Name for Hotels. Created 01/20/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Meeting_Vendor_MERC__r.Account_MERC__r.Name</formula>
+        <label>Meeting Vendor Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Mercury_External_Id_MERC__c</fullName>
@@ -1565,8 +1600,8 @@ Created by John A Adams 12/13/2013</description>
         <fullName>All</fullName>
         <columns>NAME</columns>
         <columns>RECORDTYPE</columns>
-        <columns>Meeting_Vendor_MERC__c</columns>
         <columns>Travel_Detail_Typ_MERC__c</columns>
+        <columns>Traveller_Name_MERC__c</columns>
         <columns>Vendor_MERC__c</columns>
         <columns>CREATED_DATE</columns>
         <filterScope>Everything</filterScope>
@@ -1582,7 +1617,7 @@ Created by John A Adams 12/13/2013</description>
     <recordTypes>
         <fullName>Air_MERC</fullName>
         <active>true</active>
-        <description>Air travel Information</description>
+        <description>Air Travel Information</description>
         <label>Air</label>
         <picklistValues>
             <picklist>Segment_Begin_Timezone_MERC__c</picklist>
@@ -1737,8 +1772,8 @@ Created by John A Adams 12/13/2013</description>
     <recordTypes>
         <fullName>Car_MERC</fullName>
         <active>true</active>
-        <description>Car Rental Information</description>
-        <label>Car</label>
+        <description>Rental Car Information</description>
+        <label>Rental Car</label>
         <picklistValues>
             <picklist>Segment_Begin_Timezone_MERC__c</picklist>
             <values>
@@ -2031,8 +2066,8 @@ Created by John A Adams 12/13/2013</description>
     <recordTypes>
         <fullName>Limo_Service_MERC</fullName>
         <active>true</active>
-        <description>Limo Service travel Information</description>
-        <label>Limo Service</label>
+        <description>Car Service Information</description>
+        <label>Car Service</label>
         <picklistValues>
             <picklist>Segment_Begin_Timezone_MERC__c</picklist>
             <values>
@@ -2194,7 +2229,7 @@ Created by John A Adams 12/13/2013</description>
     <recordTypes>
         <fullName>Rail_MERC</fullName>
         <active>true</active>
-        <description>Rail travel Information</description>
+        <description>Rail Travel Information</description>
         <label>Rail</label>
         <picklistValues>
             <picklist>Segment_Begin_Timezone_MERC__c</picklist>
@@ -2347,19 +2382,38 @@ Created by John A Adams 12/13/2013</description>
         </picklistValues>
     </recordTypes>
     <searchLayouts>
+        <customTabListAdditionalFields>Traveller_Name_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Travel_Detail_Typ_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Segment_Begin_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Segment_Begin_Timezone_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Segment_End_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Segment_End_Timezone_MERC__c</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>Travel_Detail_Typ_MERC__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Vendor_MERC__c</lookupDialogsAdditionalFields>
         <searchFilterFields>NAME</searchFilterFields>
-        <searchFilterFields>Vendor_MERC__c</searchFilterFields>
-        <searchFilterFields>Travel_Detail_Typ_MERC__c</searchFilterFields>
+        <searchFilterFields>Traveller_Name_MERC__c</searchFilterFields>
         <searchFilterFields>RECORDTYPE</searchFilterFields>
+        <searchFilterFields>Travel_Detail_Typ_MERC__c</searchFilterFields>
+        <searchFilterFields>Segment_Begin_MERC__c</searchFilterFields>
+        <searchFilterFields>Segment_Begin_Timezone_MERC__c</searchFilterFields>
+        <searchFilterFields>Segment_End_MERC__c</searchFilterFields>
+        <searchFilterFields>Segment_End_Timezone_MERC__c</searchFilterFields>
+        <searchFilterFields>Vendor_Name_MERC__c</searchFilterFields>
+        <searchResultsAdditionalFields>Traveller_Name_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Travel_Detail_Typ_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Segment_Begin_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Segment_Begin_Timezone_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Segment_End_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Segment_End_Timezone_MERC__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
         <fullName>Confirm_ToV_Reporting_Change_MERC</fullName>
         <active>true</active>
         <description>If ToV has already been reported for the meeting participant, HCP Care needs to confirm the change to the hotel dates.</description>
-        <errorConditionFormula>(ISPICKVAL(Meeting_Participant_MERC__r.Participant_ToV_Final_MERC__c, &quot;Yes&quot;) &amp;&amp;
+        <errorConditionFormula>(ISPICKVAL( Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c , &quot;Yes&quot;) &amp;&amp;
  Meeting_Participant_MERC__r.Total_Hotel_ToV_MERC__c &gt;= 0) &amp;&amp;
 (ISCHANGED( Sgmnt_Bgin_TS_MERC__c ) ||
 ISCHANGED( Sgmnt_End_TS_MERC__c )) &amp;&amp;

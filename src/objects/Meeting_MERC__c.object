@@ -18,7 +18,10 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>Edit</actionName>
-        <type>Default</type>
+        <comment>Overridden for Date/Time UX purposes. Layout still edited in standard way via Page Layouts. -JFerraro Jan 22, 2014</comment>
+        <content>MERC_MeetingNewEdit</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>Follow</actionName>
@@ -30,7 +33,10 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
-        <type>Default</type>
+        <comment>Overridden for Date/Time UX purposes. Layout still edited in standard way via Page Layouts. -JFerraro Jan 22, 2014</comment>
+        <content>MERC_MeetingNewEdit</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>SaveEdit</actionName>
@@ -47,14 +53,14 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Primary object to store meeting information.  Created on 9/27/2013 by KLorenti.</description>
-    <enableActivities>false</enableActivities>
+    <enableActivities>true</enableActivities>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
     <fieldSets>
         <fullName>Meeting_Date_Time_Edit_MERC</fullName>
-        <description>Embedded in Meeting view</description>
+        <description>MeetingNewEdit VF page</description>
         <displayedFields>
             <field>Meeting_Time_Zone_MERC__c</field>
             <isFieldManaged>false</isFieldManaged>
@@ -75,21 +81,11 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>true</isRequired>
         </displayedFields>
-        <label>Meeting Date Time Edit</label>
+        <label>Date/Time Information</label>
     </fieldSets>
     <fieldSets>
         <fullName>Meeting_Date_Time_View_MERC</fullName>
-        <description>Embedded in Meeting detail page</description>
-        <displayedFields>
-            <field>Start_Date_Meeting_Time_Zone_MERC__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>End_Date_Meeting_Time_Zone_MERC__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
+        <description>Embedded in Meeting detail page. This is used to show the Meeting dates/times in the time zone of the meeting, to minimize confusion if the Meeting is in a different time zone than the running user.</description>
         <displayedFields>
             <field>Start_Time_In_Meeting_Time_Zone__c</field>
             <isFieldManaged>false</isFieldManaged>
@@ -333,7 +329,7 @@ Created by John A Adams 10/24/2013</description>
         <description>Used with a validation rule to provide an error if the user does not validate the change using this checkbox. Created 10/24/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <inlineHelpText>I agree to and confirm the meeting date change.</inlineHelpText>
-        <label>Confirm Meeting Date Change</label>
+        <label>Confirm Meeting Date/Time Change</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -407,6 +403,21 @@ Created by John Adams on 12/9/2013</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Days_Until_Meeting_MERC__c</fullName>
+        <description>Days until start date of meeting. Created 01/30/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Date_of_Event_MERC__c - Today()</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Days Until Meeting</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Disable_Portal_Registration_MERC__c</fullName>
@@ -1615,6 +1626,16 @@ Created by John Adams 11/6/2013</description>
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
+        <fullName>Expose_on_Portal_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Field to indicate if meeting should be exposed on portal. Created 02/03/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Activate Web Services</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>External_Delegates_MERC__c</fullName>
         <description>Indicate if External Delegates are to be surveyed? Created 10/2/2013 by KLorenti.</description>
         <externalId>false</externalId>
@@ -1719,6 +1740,7 @@ Created by John Adams 11/6/2013</description>
 Appendix A - Updates 
 Created by John Adams 11/6/2013</description>
         <externalId>false</externalId>
+        <inlineHelpText>Beneficiary for Transparency Reporting Purposes.</inlineHelpText>
         <label>HCO</label>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Meetings (HCO)</relationshipLabel>
@@ -1741,32 +1763,12 @@ Created by John Adams 11/6/2013</description>
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>HCP_Care_Assistance_MERC__c</fullName>
-        <description>Allows the Rep to request  &apos;HCP Care (RMAT) Assistance Needed&apos; when a Rep cannot locate the required Vendor record (Payee Information).
-Created by John A Adams 10/23/2013</description>
-        <externalId>false</externalId>
-        <label>HCP Care Assistance</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>HCP_Eligibile_for_Sponsorship_MERC__c</fullName>
         <description>HCP Eligible for Sponsorship?
 Appendix A - Updates 
 Created by John Adams 11/6/2013</description>
         <externalId>false</externalId>
+        <inlineHelpText>According to the Lilly Standard on Independent Meetings the following eligibility criteria for Lilly sponsorship must be met: equal opportunities to sponsor, transparent costs, public disclosure, documentation, payment recipient requirements.</inlineHelpText>
         <label>HCP Eligible for Sponsorship</label>
         <picklist>
             <picklistValues>
@@ -2053,7 +2055,7 @@ Created by John A Adams 10/28/2013</description>
         <description>Indicates the acceptability of the Meeting Planning Company
 Created by John A Adams 1/9/2014</description>
         <externalId>false</externalId>
-        <label>Meeting Planning Company work acceptable</label>
+        <label>Meeting Planning Company Work Approved</label>
         <picklist>
             <picklistValues>
                 <fullName>Not Applicable</fullName>
@@ -2132,10 +2134,46 @@ Created by John Adams 11/6/2013</description>
         <description>Capture of Meeting Objectives. Created 10/16/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Meeting Objectives</label>
+        <length>32000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Meeting_Organiser_Type_MERC__c</fullName>
+        <description>Used for categorisation of Independent Meetings. Oliver Dunford 21st Jan 2014.</description>
+        <externalId>false</externalId>
+        <label>Meeting Organiser Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Healthcare Organisation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Patient Organisation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Owner_Email_MERC__c</fullName>
+        <description>Email address of Primary Meeting Owner from Team Member. Created 01/19/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Meeting Owner Email</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>TextArea</type>
+        <type>Email</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Meeting_Owner_MERC__c</fullName>
@@ -2225,7 +2263,7 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Rep Initiated</fullName>
+                <fullName>Customer Facing Team Initiated</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -2257,11 +2295,15 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Completed</fullName>
+                <fullName>Complete</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Cancelled</fullName>
+                <fullName>Complete - Closed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Complete - Cancelled</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -2415,6 +2457,44 @@ Created by John Adams 11/6/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Meeting_Type_Abbreviation_MERC__c</fullName>
+        <description>Used behind the scenes to capture an abbreviation of Meeting Type used in the Meeting&apos;s Formatted Name. Created 02/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>CASE( Type_MERC__c , 
+&quot;Promotional&quot;, &quot;P&quot;,
+&quot;Health Education&quot;, &quot;H&quot;,
+&quot;Scientific Exchange&quot;,&quot;S&quot;,
+&quot;Consultant&quot;,&quot;A&quot;,
+&quot;Speaker Training&quot;,&quot;T&quot;,
+&quot;Independent&quot;,&quot;I&quot;,
+&quot;Clinical Trial&quot;,&quot;C&quot;,
+&quot;Internal&quot;,&quot;E&quot;,
+&quot;Other&quot;,&quot;O&quot;,
+&quot;&quot;) 
+&amp; 
+CASE(  Meeting_Sub_Type_MERC__c  , 
+&quot;Sales&quot;, &quot;S&quot;,
+&quot;Marketing&quot;, &quot;M&quot;,
+&quot;Medical&quot;,&quot;R&quot;,
+&quot;Corporate Affairs&quot;,&quot;C&quot;,
+&quot;Other&quot;,&quot;O&quot;,
+&quot;&quot;) 
+&amp; 
+CASE(  Meeting_Scope_MERC__c   , 
+&quot;Local&quot;, &quot;L&quot;,
+&quot;National&quot;, &quot;N&quot;,
+&quot;Cluster&quot;,&quot;C&quot;,
+&quot;International&quot;,&quot;I&quot;,
+&quot;&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting Type Abbreviation</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Mercury_External_Id_MERC__c</fullName>
         <description>Populated via Workflow, used for Integration with External systems. OD: 9th Dec</description>
         <externalId>true</externalId>
@@ -2533,7 +2613,7 @@ Created by John Adams on 12/9/2013</description>
         <fullName>Number_of_Expected_Speakers_MERC__c</fullName>
         <description>Number of speakers expected to attend meeting. Created 10/08/2013 by KLorenti.</description>
         <externalId>false</externalId>
-        <label># of Expected Speakers</label>
+        <label># of Expected Service Providers</label>
         <precision>10</precision>
         <required>false</required>
         <scale>0</scale>
@@ -2589,6 +2669,42 @@ Created by John Adams on 12/9/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Owner_Master_Id_MERC__c</fullName>
+        <description>Returns master Employee Id of the meeting owner.  Used by AODS.  Oliver Dunford 26th Jan 2014.</description>
+        <externalId>false</externalId>
+        <formula>IF (ISBLANK(Sales_Rep_MERC__r.Prsnl_Nbr_GLBL__c ), Meeting_Owner_MERC__r.Prsnl_Nbr_GLBL__c , Sales_Rep_MERC__r.Prsnl_Nbr_GLBL__c)</formula>
+        <label>Owner Master Id</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PO_Number_MERC__c</fullName>
+        <description>Used for HCO Sponsorships to Identify the PO Number. Oliver Dunford 6th Feb 2014.</description>
+        <externalId>false</externalId>
+        <label>PO Number</label>
+        <length>15</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Parent_Meeting_Event_Id_MERC__c</fullName>
+        <description>The Parent Meetings Event Id.  Used for integration with AODS.  Oliver Dunford 3rd Feb 2014.</description>
+        <externalId>false</externalId>
+        <formula>Parent_Meeting_MERC__r.Event_Id_MERC__c</formula>
+        <label>Parent Meeting Event Id</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Parent_Meeting_External_MERC__c</fullName>
         <externalId>false</externalId>
         <formula>Parent_Meeting_MERC__r.Mercury_External_Id_MERC__c</formula>
@@ -2614,6 +2730,47 @@ Created by John Adams on 12/9/2013</description>
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Participant_CoPay_Updated_Date_MERC__c</fullName>
+        <description>Indicates the date that CoPay data was added/changed.  This will trigger the meeting to be picked up by AODS and CoPay data will be refreshed. Oliver Dunford 4th Feb 2014.</description>
+        <externalId>false</externalId>
+        <label>Participant CoPay Updated Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Participant_ToV_Final_MERC__c</fullName>
+        <description>The trigger to send ToV values to Activity ODS. Oliver Dunford 5th November.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Mechanism for Meeting Planning company to confirm ToV for participants. Once set to Yes, these will be sent for Reporting.</inlineHelpText>
+        <label>Participant ToV Final</label>
+        <picklist>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Participant_ToV_Updated_Date_MERC__c</fullName>
+        <description>The date that a change occurred to ToV information for meeting participants, this indicates that the meeting should be picked up and AODS refreshed with this data.  Oliver Dunford 4th Feb 2014.</description>
+        <externalId>false</externalId>
+        <label>Participant ToV Updated Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>Participants_Attended_MERC__c</fullName>
         <description>Actual total number of attendees at meeting.
 Created by John Adams on 12/9/2013</description>
@@ -2631,33 +2788,6 @@ Created by John Adams on 12/9/2013</description>
         <type>Summary</type>
     </fields>
     <fields>
-        <fullName>Payment_For_MERC__c</fullName>
-        <description>Payment For
-Appendix A - Updates 
-Created by John Adams 11/6/2013</description>
-        <externalId>false</externalId>
-        <label>Payment For</label>
-        <length>255</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Payment_To_MERC__c</fullName>
-        <description>Appendix A - Updates 
-Created by John Adams 11/6/2013</description>
-        <externalId>false</externalId>
-        <label>Payment To</label>
-        <length>255</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Planned_Attendees_MERC__c</fullName>
         <description>Planned total number of attendees at  the meeting. Including all types of attendees.
 Created by John Adams on 12/9/2013</description>
@@ -2673,6 +2803,7 @@ Created by John Adams on 12/9/2013</description>
         <fullName>Planned_Budget_MERC__c</fullName>
         <description>Enter planned budget amount for meeting, to be pulled into Budget record. Created 11/18/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
+        <inlineHelpText>Include total meeting spend, including travel and HCP fees. Exclude recoverable taxes where practical</inlineHelpText>
         <label>Planned Budget</label>
         <precision>18</precision>
         <required>false</required>
@@ -2757,7 +2888,7 @@ Created by John Adams on 12/9/2013</description>
         <defaultValue>false</defaultValue>
         <description>Indicate when the Planned meeting is &quot;Ready for Sourcing&quot;. Created 01/06/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <label>Ready for Sourcing</label>
+        <label>Initiate Sourcing</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -2766,7 +2897,7 @@ Created by John Adams on 12/9/2013</description>
         <fullName>Rep_Cost_Center_MERC__c</fullName>
         <description>Populated via Integration for Rep Initiated meetings. Oliver Dunford 16th Dec 2013.</description>
         <externalId>false</externalId>
-        <label>Rep Cost Center</label>
+        <label>Customer Facing User&apos;s Cost Center</label>
         <length>7</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -2795,25 +2926,11 @@ Created by John Adams on 12/9/2013</description>
         <type>TextArea</type>
     </fields>
     <fields>
-        <fullName>RowID__c</fullName>
-        <defaultValue>$Organization.Id</defaultValue>
-        <description>Stamped via workflow. &apos;Mercury External Id&apos; set with: {orgID}_{Id}
-Created by John Adams on 12/9/2013</description>
-        <externalId>true</externalId>
-        <label>RowID</label>
-        <length>31</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Sales_Rep_MERC__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Created Lookup to Account to select Sales Rep if it is a Sales Rep initiated meeting. Created 10/16/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <label>Sales Rep</label>
+        <label>Customer Facing User</label>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Meetings</relationshipLabel>
         <relationshipName>Meetings</relationshipName>
@@ -2870,6 +2987,78 @@ Created by John A Adams 1/7/2014</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Sourced_Venue_Addr1_MERC__c</fullName>
+        <description>Displays Primary Address Line 1 for Sourced Venue. Created 01/24/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Venue_MERC__r.Primary_Addr_Line1_GLBL__c</formula>
+        <label>Sourced Venue Addr 1</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sourced_Venue_Addr_2_MERC__c</fullName>
+        <description>Displays Primary Address Line 2 of Sourced Venue. Created 01/24/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Venue_MERC__r.Primary_Addr_Line2_GLBL__c</formula>
+        <label>Sourced Venue Addr 2</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sourced_Venue_City_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>Venue_MERC__r.Primary_Addr_City_GLBL__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Sourced Venue City</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sourced_Venue_Country_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>Venue_MERC__r.Primary_Address_Country_GLBL__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Sourced Venue Country</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sourced_Venue_Name_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>Venue_MERC__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Sourced Venue Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sourced_Venue_Postal_Code_MERC__c</fullName>
+        <description>Displays Primary Postal Code for Sourced Venue. Created 01/24/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Venue_MERC__r.Primary_Pstl_Cd_Extnsn_GLBL__c</formula>
+        <label>Sourced Venue Postal Code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Speaker_MERC__c</fullName>
         <description>Indicate if Speakers are to be surveyed? Created 10/2/2013 by KLorenti.</description>
         <externalId>false</externalId>
@@ -2912,6 +3101,36 @@ Created by John A Adams 1/7/2014</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Sponsorship_Eligibility_Crit_Met_MERC__c</fullName>
+        <description>For Independent Sponsorship meetings. Oliver Dunford 21st Jan 2014.</description>
+        <externalId>false</externalId>
+        <label>Sponsorship Eligibility Criteria Met</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Sponsorship_Processed_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicates if the Sponsorship has been processed by the meeting team. Created 02/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Sponsorship Processed</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Sponsorship_Type_MERC__c</fullName>
@@ -3010,7 +3229,7 @@ Created by John Adams 11/6/2013</description>
         <defaultValue>false</defaultValue>
         <description>Indicate when planned meeting is ready to be submitted for contracting. Created 01/06/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <label>Submit for Contracting</label>
+        <label>Initiate HCP Services Contracting</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -3147,16 +3366,6 @@ Created by John Adams 11/6/2013</description>
         <type>DateTime</type>
     </fields>
     <fields>
-        <fullName>ToV_Reported_MERC__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>Testing: Used behind the scenes to identify whether or not the Meeting has had participants who have already had their ToV Reported.  In other words, those meeting participants with the Participant ToV Final = &quot;Yes&quot;. Created 01/08/2014 by KLorenti, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <label>ToV Reported</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>Transfers_MERC__c</fullName>
         <description>For organizing Transfers. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -3272,10 +3481,7 @@ Created by John Adams 11/6/2013</description>
         <fullName>Work_Cntry_Cd_GLBL__c</fullName>
         <description>Country Code of Meeting Owner.  If generated in Mercury then use Meeting Owner country value if created in Veeva use Sales Rep country values.  Created by John Adams on 12/9/2013</description>
         <externalId>false</externalId>
-        <formula>IF (Sales_Rep_MERC__c &lt;&gt; &quot;&quot;, 
- TEXT(Sales_Rep_MERC__r.Country_of_Residence_GLBL__c), 
- TEXT (Meeting_Owner_MERC__r.Country_of_Residence_MERC__c ))</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <formula>TEXT(Meeting_Owner_MERC__r.Country_of_Residence_MERC__c)</formula>
         <label>Worker Country Code</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -3324,8 +3530,9 @@ Created by John Adams 11/6/2013</description>
         <columns>Date_of_Event_MERC__c</columns>
         <columns>End_Date_of_Event_MERC__c</columns>
         <columns>Event_Country_MERC__c</columns>
-        <columns>Approved_MERC__c</columns>
         <columns>Meeting_Status_MERC__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>CREATED_DATE</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>Meeting_Status_MERC__c</field>
@@ -3333,20 +3540,6 @@ Created by John Adams 11/6/2013</description>
             <value>Active</value>
         </filters>
         <label>Active Meetings</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>All</fullName>
-        <columns>NAME</columns>
-        <columns>Parent_Meeting_MERC__c</columns>
-        <columns>Date_of_Event_MERC__c</columns>
-        <columns>End_Date_of_Event_MERC__c</columns>
-        <columns>Event_Country_MERC__c</columns>
-        <columns>Type_MERC__c</columns>
-        <columns>Approved_MERC__c</columns>
-        <columns>Meeting_Status_MERC__c</columns>
-        <filterScope>Everything</filterScope>
-        <label>All</label>
         <language>en_US</language>
     </listViews>
     <listViews>
@@ -3375,7 +3568,6 @@ Created by John Adams 11/6/2013</description>
         <columns>Date_of_Event_MERC__c</columns>
         <columns>End_Date_of_Event_MERC__c</columns>
         <columns>Event_Country_MERC__c</columns>
-        <columns>Approved_MERC__c</columns>
         <columns>Meeting_Status_MERC__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
@@ -3394,7 +3586,6 @@ Created by John Adams 11/6/2013</description>
         <columns>Date_of_Event_MERC__c</columns>
         <columns>End_Date_of_Event_MERC__c</columns>
         <columns>Event_Country_MERC__c</columns>
-        <columns>Approved_MERC__c</columns>
         <columns>Meeting_Status_MERC__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
@@ -3406,6 +3597,109 @@ Created by John Adams 11/6/2013</description>
         <language>en_US</language>
     </listViews>
     <listViews>
+        <fullName>France_Hub</fullName>
+        <columns>NAME</columns>
+        <columns>City_of_Meeting_MERC__c</columns>
+        <columns>Event_Country_MERC__c</columns>
+        <columns>Date_of_Event_MERC__c</columns>
+        <columns>End_Date_of_Event_MERC__c</columns>
+        <columns>Meeting_Status_MERC__c</columns>
+        <columns>Meeting_Time_Zone_MERC__c</columns>
+        <columns>Type_MERC__c</columns>
+        <columns>Meeting_Sub_Type_MERC__c</columns>
+        <columns>Meeting_Scope_MERC__c</columns>
+        <filterScope>Queue</filterScope>
+        <label>Hub - France</label>
+        <language>en_US</language>
+        <queue>France_Hub</queue>
+    </listViews>
+    <listViews>
+        <fullName>Germany_Hub</fullName>
+        <columns>NAME</columns>
+        <columns>City_of_Meeting_MERC__c</columns>
+        <columns>Event_Country_MERC__c</columns>
+        <columns>Date_of_Event_MERC__c</columns>
+        <columns>End_Date_of_Event_MERC__c</columns>
+        <columns>Meeting_Status_MERC__c</columns>
+        <columns>Meeting_Time_Zone_MERC__c</columns>
+        <columns>Type_MERC__c</columns>
+        <columns>Meeting_Sub_Type_MERC__c</columns>
+        <columns>Meeting_Scope_MERC__c</columns>
+        <filterScope>Queue</filterScope>
+        <label>Hub - Germany</label>
+        <language>en_US</language>
+        <queue>Germany_Hub</queue>
+    </listViews>
+    <listViews>
+        <fullName>Italy_Hub</fullName>
+        <columns>NAME</columns>
+        <columns>City_of_Meeting_MERC__c</columns>
+        <columns>Event_Country_MERC__c</columns>
+        <columns>Date_of_Event_MERC__c</columns>
+        <columns>End_Date_of_Event_MERC__c</columns>
+        <columns>Meeting_Time_Zone_MERC__c</columns>
+        <columns>Type_MERC__c</columns>
+        <columns>Meeting_Sub_Type_MERC__c</columns>
+        <columns>Meeting_Scope_MERC__c</columns>
+        <filterScope>Queue</filterScope>
+        <label>Hub - Italy</label>
+        <language>en_US</language>
+        <queue>Italy_Hub</queue>
+    </listViews>
+    <listViews>
+        <fullName>Meetings_Created_in_the_last_90_Days</fullName>
+        <columns>NAME</columns>
+        <columns>Parent_Meeting_MERC__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Date_of_Event_MERC__c</columns>
+        <columns>End_Date_of_Event_MERC__c</columns>
+        <columns>Event_Country_MERC__c</columns>
+        <columns>Type_MERC__c</columns>
+        <columns>Meeting_Status_MERC__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>equals</operation>
+            <value>LAST_90_DAYS</value>
+        </filters>
+        <label>Meetings Created in the Last 90 Days</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Meetings_Starting_in_the_Next_90_Days</fullName>
+        <columns>NAME</columns>
+        <columns>Parent_Meeting_MERC__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Date_of_Event_MERC__c</columns>
+        <columns>End_Date_of_Event_MERC__c</columns>
+        <columns>Event_Country_MERC__c</columns>
+        <columns>Type_MERC__c</columns>
+        <columns>Meeting_Status_MERC__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Date_of_Event_MERC__c</field>
+            <operation>equals</operation>
+            <value>NEXT_90_DAYS</value>
+        </filters>
+        <label>Meetings Starting in the Next 90 Days</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>My_Meetings</fullName>
+        <columns>NAME</columns>
+        <columns>Parent_Meeting_MERC__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>Date_of_Event_MERC__c</columns>
+        <columns>End_Date_of_Event_MERC__c</columns>
+        <columns>Event_Country_MERC__c</columns>
+        <columns>Type_MERC__c</columns>
+        <columns>Meeting_Status_MERC__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <label>My Meetings</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
         <fullName>Registered_Meetings_MERC</fullName>
         <columns>NAME</columns>
         <columns>Parent_Meeting_MERC__c</columns>
@@ -3413,7 +3707,6 @@ Created by John Adams 11/6/2013</description>
         <columns>Date_of_Event_MERC__c</columns>
         <columns>End_Date_of_Event_MERC__c</columns>
         <columns>Event_Country_MERC__c</columns>
-        <columns>Approved_MERC__c</columns>
         <columns>Meeting_Status_MERC__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
@@ -3425,34 +3718,86 @@ Created by John Adams 11/6/2013</description>
         <language>en_US</language>
     </listViews>
     <listViews>
-        <fullName>UK_Meetings_Queue</fullName>
+        <fullName>Russia</fullName>
         <columns>NAME</columns>
-        <columns>Parent_Meeting_MERC__c</columns>
+        <columns>City_of_Meeting_MERC__c</columns>
         <columns>Event_Country_MERC__c</columns>
         <columns>Date_of_Event_MERC__c</columns>
+        <columns>End_Date_of_Event_MERC__c</columns>
+        <columns>Meeting_Status_MERC__c</columns>
+        <columns>Meeting_Time_Zone_MERC__c</columns>
         <columns>Type_MERC__c</columns>
         <columns>Meeting_Sub_Type_MERC__c</columns>
         <columns>Meeting_Scope_MERC__c</columns>
-        <columns>Meeting_Owner_MERC__c</columns>
-        <columns>Sales_Rep_MERC__c</columns>
-        <columns>Meeting_Status_MERC__c</columns>
         <filterScope>Queue</filterScope>
-        <filters>
-            <field>Meeting_Status_MERC__c</field>
-            <operation>equals</operation>
-            <value>Registered</value>
-        </filters>
-        <filters>
-            <field>Event_Country_MERC__c</field>
-            <operation>equals</operation>
-            <value>GB</value>
-        </filters>
-        <label>UK Meetings Queue</label>
+        <label>Hub - Russia</label>
         <language>en_US</language>
-        <queue>UK_Registered_Meetings</queue>
-        <sharedTo>
-            <allInternalUsers></allInternalUsers>
-        </sharedTo>
+        <queue>Russia</queue>
+    </listViews>
+    <listViews>
+        <fullName>Spain_Hub</fullName>
+        <columns>NAME</columns>
+        <columns>City_of_Meeting_MERC__c</columns>
+        <columns>Event_Country_MERC__c</columns>
+        <columns>Date_of_Event_MERC__c</columns>
+        <columns>End_Date_of_Event_MERC__c</columns>
+        <columns>Meeting_Status_MERC__c</columns>
+        <columns>Meeting_Time_Zone_MERC__c</columns>
+        <columns>Type_MERC__c</columns>
+        <columns>Meeting_Sub_Type_MERC__c</columns>
+        <columns>Meeting_Scope_MERC__c</columns>
+        <filterScope>Queue</filterScope>
+        <label>Hub - Spain</label>
+        <language>en_US</language>
+        <queue>Spain_Hub</queue>
+    </listViews>
+    <listViews>
+        <fullName>Turkey</fullName>
+        <columns>NAME</columns>
+        <columns>City_of_Meeting_MERC__c</columns>
+        <columns>Event_Country_MERC__c</columns>
+        <columns>Date_of_Event_MERC__c</columns>
+        <columns>End_Date_of_Event_MERC__c</columns>
+        <columns>Meeting_Status_MERC__c</columns>
+        <columns>Meeting_Time_Zone_MERC__c</columns>
+        <columns>Meeting_Sub_Type_MERC__c</columns>
+        <columns>Meeting_Scope_MERC__c</columns>
+        <filterScope>Queue</filterScope>
+        <label>Hub - Turkey</label>
+        <language>en_US</language>
+        <queue>Turkey</queue>
+    </listViews>
+    <listViews>
+        <fullName>UK_Hub</fullName>
+        <columns>NAME</columns>
+        <columns>City_of_Meeting_MERC__c</columns>
+        <columns>Event_Country_MERC__c</columns>
+        <columns>Date_of_Event_MERC__c</columns>
+        <columns>End_Date_of_Event_MERC__c</columns>
+        <columns>Meeting_Time_Zone_MERC__c</columns>
+        <columns>Type_MERC__c</columns>
+        <columns>Meeting_Sub_Type_MERC__c</columns>
+        <columns>Meeting_Scope_MERC__c</columns>
+        <filterScope>Queue</filterScope>
+        <label>Hub - UK</label>
+        <language>en_US</language>
+        <queue>UK_Hub</queue>
+    </listViews>
+    <listViews>
+        <fullName>Ukraine</fullName>
+        <columns>NAME</columns>
+        <columns>City_of_Meeting_MERC__c</columns>
+        <columns>Event_Country_MERC__c</columns>
+        <columns>Date_of_Event_MERC__c</columns>
+        <columns>End_Date_of_Event_MERC__c</columns>
+        <columns>Meeting_Time_Zone_MERC__c</columns>
+        <columns>Type_MERC__c</columns>
+        <columns>Functional_Area_MERC__c</columns>
+        <columns>Meeting_Scope_MERC__c</columns>
+        <filterScope>Queue</filterScope>
+        <label>Hub - Ukraine</label>
+        <language>en_US</language>
+        <queue>Ukraine</queue>
     </listViews>
     <nameField>
         <label>Meeting Name</label>
@@ -3464,7 +3809,7 @@ Created by John Adams 11/6/2013</description>
     <recordTypes>
         <fullName>Ad_Hoc_Consulting</fullName>
         <active>true</active>
-        <description>To represent ad hoc consulting engagements.</description>
+        <description>For Consulting Projects</description>
         <label>Consulting Project</label>
         <picklistValues>
             <picklist>Agenda_Status_MERC__c</picklist>
@@ -4652,17 +4997,6 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>HCP_Care_Assistance_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>HCP_Eligibile_for_Sponsorship_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -4797,6 +5131,21 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Meeting_Organiser_Type_MERC__c</picklist>
+            <values>
+                <fullName>Healthcare Organisation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Patient Organisation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Meeting_Owner_Sales_Rep_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -4837,6 +5186,10 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Customer Facing Team Initiated</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>International</fullName>
                 <default>false</default>
             </values>
@@ -4852,10 +5205,6 @@ Created by John Adams 11/6/2013</description>
                 <fullName>Other</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Rep Initiated</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Meeting_Status_MERC__c</picklist>
@@ -4864,11 +5213,15 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Cancelled</fullName>
+                <fullName>Complete</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Completed</fullName>
+                <fullName>Complete - Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Complete - Closed</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4982,6 +5335,17 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Participant_ToV_Final_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Send_Save_the_Date_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -5015,6 +5379,17 @@ Created by John Adams 11/6/2013</description>
             </values>
             <values>
                 <fullName>Individual Sponsorship</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sponsorship_Eligibility_Crit_Met_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6347,17 +6722,6 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>HCP_Care_Assistance_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>HCP_Eligibile_for_Sponsorship_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -6492,6 +6856,21 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Meeting_Organiser_Type_MERC__c</picklist>
+            <values>
+                <fullName>Healthcare Organisation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Patient Organisation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Meeting_Owner_Sales_Rep_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -6532,6 +6911,10 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Customer Facing Team Initiated</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>International</fullName>
                 <default>false</default>
             </values>
@@ -6547,10 +6930,6 @@ Created by John Adams 11/6/2013</description>
                 <fullName>Other</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Rep Initiated</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Meeting_Status_MERC__c</picklist>
@@ -6559,11 +6938,15 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Cancelled</fullName>
+                <fullName>Complete</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Completed</fullName>
+                <fullName>Complete - Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Complete - Closed</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6677,6 +7060,17 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Participant_ToV_Final_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Send_Save_the_Date_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -6710,6 +7104,17 @@ Created by John Adams 11/6/2013</description>
             </values>
             <values>
                 <fullName>Individual Sponsorship</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sponsorship_Eligibility_Crit_Met_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6854,7 +7259,7 @@ Created by John Adams 11/6/2013</description>
     <recordTypes>
         <fullName>Forecasted</fullName>
         <active>true</active>
-        <description>Meeting in Forecasted Stage</description>
+        <description>For forecasting meeting</description>
         <label>Meeting - Forecasted</label>
         <picklistValues>
             <picklist>Agenda_Status_MERC__c</picklist>
@@ -8042,17 +8447,6 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>HCP_Care_Assistance_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>HCP_Eligibile_for_Sponsorship_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -8187,6 +8581,21 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Meeting_Organiser_Type_MERC__c</picklist>
+            <values>
+                <fullName>Healthcare Organisation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Patient Organisation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Meeting_Owner_Sales_Rep_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -8227,6 +8636,10 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Customer Facing Team Initiated</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>International</fullName>
                 <default>false</default>
             </values>
@@ -8242,10 +8655,6 @@ Created by John Adams 11/6/2013</description>
                 <fullName>Other</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Rep Initiated</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Meeting_Status_MERC__c</picklist>
@@ -8254,11 +8663,15 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Cancelled</fullName>
+                <fullName>Complete</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Completed</fullName>
+                <fullName>Complete - Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Complete - Closed</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8372,6 +8785,17 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Participant_ToV_Final_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Send_Save_the_Date_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -8405,6 +8829,17 @@ Created by John Adams 11/6/2013</description>
             </values>
             <values>
                 <fullName>Individual Sponsorship</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sponsorship_Eligibility_Crit_Met_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8549,7 +8984,7 @@ Created by John Adams 11/6/2013</description>
     <recordTypes>
         <fullName>Independent_Sponsorship</fullName>
         <active>true</active>
-        <description>Independent Sponsorship Meeting</description>
+        <description>For Independent Meetings</description>
         <label>Independent Meeting</label>
         <picklistValues>
             <picklist>Agenda_Status_MERC__c</picklist>
@@ -9737,17 +10172,6 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>HCP_Care_Assistance_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>HCP_Eligibile_for_Sponsorship_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -9882,6 +10306,21 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Meeting_Organiser_Type_MERC__c</picklist>
+            <values>
+                <fullName>Healthcare Organisation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Patient Organisation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Meeting_Owner_Sales_Rep_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -9922,6 +10361,10 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Customer Facing Team Initiated</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>International</fullName>
                 <default>false</default>
             </values>
@@ -9937,10 +10380,6 @@ Created by John Adams 11/6/2013</description>
                 <fullName>Other</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Rep Initiated</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Meeting_Status_MERC__c</picklist>
@@ -9949,11 +10388,23 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Cancelled</fullName>
+                <fullName>Complete</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Completed</fullName>
+                <fullName>Complete - Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Complete - Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Forecasted</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Registered</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10059,6 +10510,17 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Participant_ToV_Final_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Send_Save_the_Date_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -10092,6 +10554,17 @@ Created by John Adams 11/6/2013</description>
             </values>
             <values>
                 <fullName>Individual Sponsorship</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sponsorship_Eligibility_Crit_Met_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11392,17 +11865,6 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>HCP_Care_Assistance_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>HCP_Eligibile_for_Sponsorship_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -11537,6 +11999,21 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Meeting_Organiser_Type_MERC__c</picklist>
+            <values>
+                <fullName>Healthcare Organisation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Patient Organisation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Meeting_Owner_Sales_Rep_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -11577,6 +12054,10 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Customer Facing Team Initiated</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>International</fullName>
                 <default>false</default>
             </values>
@@ -11592,10 +12073,6 @@ Created by John Adams 11/6/2013</description>
                 <fullName>Other</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Rep Initiated</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Meeting_Status_MERC__c</picklist>
@@ -11604,11 +12081,15 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Cancelled</fullName>
+                <fullName>Complete</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Completed</fullName>
+                <fullName>Complete - Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Complete - Closed</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11722,6 +12203,17 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Participant_ToV_Final_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Send_Save_the_Date_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -11755,6 +12247,17 @@ Created by John Adams 11/6/2013</description>
             </values>
             <values>
                 <fullName>Individual Sponsorship</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sponsorship_Eligibility_Crit_Met_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11899,7 +12402,7 @@ Created by John Adams 11/6/2013</description>
     <recordTypes>
         <fullName>Registered</fullName>
         <active>true</active>
-        <description>Meeting in Registered Stage</description>
+        <description>For registering meeting that were not forecasted</description>
         <label>Meeting - Registered</label>
         <picklistValues>
             <picklist>Agenda_Status_MERC__c</picklist>
@@ -13087,17 +13590,6 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>HCP_Care_Assistance_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>HCP_Eligibile_for_Sponsorship_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -13232,6 +13724,21 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Meeting_Organiser_Type_MERC__c</picklist>
+            <values>
+                <fullName>Healthcare Organisation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Patient Organisation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Meeting_Owner_Sales_Rep_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -13272,6 +13779,10 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Customer Facing Team Initiated</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>International</fullName>
                 <default>false</default>
             </values>
@@ -13287,10 +13798,6 @@ Created by John Adams 11/6/2013</description>
                 <fullName>Other</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Rep Initiated</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Meeting_Status_MERC__c</picklist>
@@ -13299,11 +13806,15 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Cancelled</fullName>
+                <fullName>Complete</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Completed</fullName>
+                <fullName>Complete - Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Complete - Closed</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13417,6 +13928,17 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Participant_ToV_Final_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Send_Save_the_Date_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -13450,6 +13972,17 @@ Created by John Adams 11/6/2013</description>
             </values>
             <values>
                 <fullName>Individual Sponsorship</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sponsorship_Eligibility_Crit_Met_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13598,9 +14131,9 @@ Created by John Adams 11/6/2013</description>
         <customTabListAdditionalFields>Date_of_Event_MERC__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>End_Date_of_Event_MERC__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Event_Country_MERC__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Approved_MERC__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Meeting_Status_MERC__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>CREATEDBY_USER</customTabListAdditionalFields>
+        <listViewButtons>Mass_LOOP_Plus</listViewButtons>
         <lookupDialogsAdditionalFields>Parent_Meeting_MERC__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Formatted_Name_MERC__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Type_MERC__c</lookupDialogsAdditionalFields>
@@ -13620,7 +14153,6 @@ Created by John Adams 11/6/2013</description>
         <searchResultsAdditionalFields>End_Date_of_Event_MERC__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Event_Country_MERC__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Type_MERC__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Approved_MERC__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Meeting_Status_MERC__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CREATEDBY_USER</searchResultsAdditionalFields>
     </searchLayouts>
@@ -13631,7 +14163,7 @@ Created by John Adams 11/6/2013</description>
         <description>The Compliance Risk field must be set to yes before the Meeting can be Completed.  Created 12/18/2013 by KLorenti, Mavens Consulting</description>
         <errorConditionFormula>ISBLANK(Text(Compliant_MERC__c)) &amp;&amp; 
 ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
-ISPICKVAL(Meeting_Status_MERC__c,&apos;Completed&apos;)</errorConditionFormula>
+ISPICKVAL(Meeting_Status_MERC__c,&apos;Complete - Closed&apos;)</errorConditionFormula>
         <errorDisplayField>Compliant_MERC__c</errorDisplayField>
         <errorMessage>The Compliance Risk must be selected in order to Complete the Meeting.</errorMessage>
     </validationRules>
@@ -13641,7 +14173,7 @@ ISPICKVAL(Meeting_Status_MERC__c,&apos;Completed&apos;)</errorConditionFormula>
         <description>Budget must be final before Meeting can be completed. Created 11/19/2013 by KLorenti, Mavens Consulting</description>
         <errorConditionFormula>RecordType.Name &lt;&gt; &apos;Independent Sponsorship&apos;
 &amp;&amp; !ISPICKVAL(Budget_is_Final_MERC__c,&apos;Yes&apos;)
-&amp;&amp;  ISPICKVAL(Meeting_Status_MERC__c,&apos;Completed&apos;)</errorConditionFormula>
+&amp;&amp;  ISPICKVAL(Meeting_Status_MERC__c,&apos;Complete - Closed&apos;)</errorConditionFormula>
         <errorDisplayField>Budget_is_Final_MERC__c</errorDisplayField>
         <errorMessage>The Budget must be Final before the Meeting can be Completed.</errorMessage>
     </validationRules>
@@ -13651,7 +14183,8 @@ ISPICKVAL(Meeting_Status_MERC__c,&apos;Completed&apos;)</errorConditionFormula>
         <description>The MPC has been evaluated before the Meeting can be Completed.</description>
         <errorConditionFormula>RecordType.Name &lt;&gt; &apos;Independent Sponsorship&apos;
 &amp;&amp; ISPICKVAL( MCP_work_MERC__c , &quot;&quot;)
-&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c, &apos;Completed&apos;)</errorConditionFormula>
+&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c, &apos;Complete - Closed&apos;)</errorConditionFormula>
+        <errorDisplayField>MCP_work_MERC__c</errorDisplayField>
         <errorMessage>The Meeting Planning Companies performance must be evaluated before completing.</errorMessage>
     </validationRules>
     <validationRules>
@@ -13660,7 +14193,7 @@ ISPICKVAL(Meeting_Status_MERC__c,&apos;Completed&apos;)</errorConditionFormula>
         <description>Confirm that the Meeting should be cancelled. Created 11/19/2013 by KLorenti, Mavens Consulting.</description>
         <errorConditionFormula>!ISPICKVAL(Event_Occurred_MERC__c,&quot;Yes&quot;) &amp;&amp;
 ISCHANGED( Meeting_Status_MERC__c) &amp;&amp; 
-ISPICKVAL( Meeting_Status_MERC__c ,&apos;Cancelled&apos;) &amp;&amp;  
+ISPICKVAL( Meeting_Status_MERC__c ,&apos;Complete - Cancelled&apos;) &amp;&amp;  
 !Confirm_Meeting_Cancellation_MERC__c</errorConditionFormula>
         <errorDisplayField>Confirm_Meeting_Cancellation_MERC__c</errorDisplayField>
         <errorMessage>Please confirm you would like this Meeting to be Cancelled.</errorMessage>
@@ -13670,19 +14203,15 @@ ISPICKVAL( Meeting_Status_MERC__c ,&apos;Cancelled&apos;) &amp;&amp;
         <active>true</active>
         <description>Enforces confirmation of Meeting Date changes. Created 10/24/2013 by KLorenti, Mavens Consulting</description>
         <errorConditionFormula>(
-!ISBLANK( PRIORVALUE(Meeting_Time_Zone_MERC__c)) &amp;&amp;
-!ISBLANK( PRIORVALUE(Start_Date_Meeting_Time_Zone_MERC__c )) &amp;&amp;
-!ISBLANK( PRIORVALUE(Start_Time_In_Meeting_Time_Zone__c )) &amp;&amp;
-!ISBLANK( PRIORVALUE(End_Date_Meeting_Time_Zone_MERC__c )) &amp;&amp;
-!ISBLANK( PRIORVALUE(End_Time_In_Meeting_Time_Zone_MERC__c )) 
+!ISBLANK(PRIORVALUE(Meeting_Time_Zone_MERC__c)) &amp;&amp;
+!ISBLANK(PRIORVALUE(Start_Time_of_Meeting_MERC__c )) &amp;&amp;
+!ISBLANK(PRIORVALUE(End_Time_of_Meeting_MERC__c )) 
 )
 &amp;&amp;
 (
-ISCHANGED( Meeting_Time_Zone_MERC__c) ||
-ISCHANGED( Start_Date_Meeting_Time_Zone_MERC__c ) ||
-ISCHANGED( Start_Time_In_Meeting_Time_Zone__c ) ||
-ISCHANGED( End_Date_Meeting_Time_Zone_MERC__c ) ||
-ISCHANGED( End_Time_In_Meeting_Time_Zone_MERC__c )
+ISCHANGED(Meeting_Time_Zone_MERC__c) ||
+ISCHANGED(Start_Time_of_Meeting_MERC__c) ||
+ISCHANGED(End_Time_of_Meeting_MERC__c) 
 ) 
 &amp;&amp;  !Confirm_Meeting_Date_Change_MERC__c</errorConditionFormula>
         <errorDisplayField>Confirm_Meeting_Date_Change_MERC__c</errorDisplayField>
@@ -13693,7 +14222,7 @@ ISCHANGED( End_Time_In_Meeting_Time_Zone_MERC__c )
         <active>true</active>
         <description>The Event Occurred field must be set to yes before the Meeting can be Completed.  Created 11/26/2013 by KLorenti, Mavens Consulting</description>
         <errorConditionFormula>NOT ISPICKVAL(Event_Occurred_MERC__c,&apos;Yes&apos;)&amp;&amp; ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
-ISPICKVAL(Meeting_Status_MERC__c,&apos;Completed&apos;)</errorConditionFormula>
+ISPICKVAL(Meeting_Status_MERC__c,&apos;Complete - Closed&apos;)</errorConditionFormula>
         <errorDisplayField>Event_Occurred_MERC__c</errorDisplayField>
         <errorMessage>The Meeting must have occurred in order to Complete the Meeting.</errorMessage>
     </validationRules>
@@ -13707,70 +14236,31 @@ ISPICKVAL(Meeting_Status_MERC__c,&apos;Cancelled&apos;)</errorConditionFormula>
         <errorMessage>The Meeting cannot be cancelled if it has already occurred.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Validate_Registered_Expected_Emp_MERC</fullName>
+        <fullName>Prevent_Participant_ToV_Final_Chg_MERC</fullName>
+        <active>true</active>
+        <description>Once Participant ToV Final is Yes, it cannot be changed. Created 02/04/2014 by KLorenti, Mavens Consulting</description>
+        <errorConditionFormula>ISCHANGED(Participant_ToV_Final_MERC__c) &amp;&amp;
+ISPICKVAL(PRIORVALUE(Participant_ToV_Final_MERC__c),&quot;Yes&quot;)</errorConditionFormula>
+        <errorDisplayField>Participant_ToV_Final_MERC__c</errorDisplayField>
+        <errorMessage>You may not change this value once it has been set to Yes.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Validate_Active_Expected_Emp_MERC</fullName>
         <active>true</active>
         <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
-        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Sponsorship&apos; &amp;&amp;
+        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
       ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
-		TEXT(Meeting_Status_MERC__c) = &apos;Registered&apos; &amp;&amp;
+		TEXT(Meeting_Status_MERC__c) = &apos;Active&apos; &amp;&amp;
 		(ISBLANK (Number_of_Expected_Employees_MERC__c ))
 	,true, false)</errorConditionFormula>
         <errorDisplayField>Number_of_Expected_Employees_MERC__c</errorDisplayField>
-        <errorMessage>The # of Expected Employees is required before status can be changed to Registered</errorMessage>
+        <errorMessage>The # of Expected Employees is required before status can be changed to Active</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Validate_Registered_Expected_Speakr_MERC</fullName>
+        <fullName>Validate_Active_Expected_Non_MERC</fullName>
         <active>true</active>
         <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
-        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Sponsorship&apos; &amp;&amp;
-      ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
-		TEXT(Meeting_Status_MERC__c) = &apos;Registered&apos; &amp;&amp;
-		(ISBLANK ( Number_of_Expected_Speakers_MERC__c ))
-	,true, false)</errorConditionFormula>
-        <errorDisplayField>Number_of_Expected_Speakers_MERC__c</errorDisplayField>
-        <errorMessage>The # of Expected Speakers is required before status can be changed to Registered</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Validate_Registered_Interact_Type_MERC</fullName>
-        <active>true</active>
-        <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
-        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Sponsorship&apos; &amp;&amp;
-      ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
-		TEXT(Meeting_Status_MERC__c) = &apos;Registered&apos; &amp;&amp;
-		(ISBLANK (Text( Interaction_Type_MERC__c )))
-	,true, false)</errorConditionFormula>
-        <errorDisplayField>Interaction_Type_MERC__c</errorDisplayField>
-        <errorMessage>The Interaction Type is required before status can be changed to Registered</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Validate_Registered_Preferred_Loc_MERC</fullName>
-        <active>false</active>
-        <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
-        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Sponsorship&apos; &amp;&amp;
-      ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
-		TEXT(Meeting_Status_MERC__c) = &apos;Registered&apos; &amp;&amp;
-		(ISBLANK (Preferred_Venue_Addr_1_MERC__c  ))
-	,true, false)</errorConditionFormula>
-        <errorDisplayField>Preferred_Venue_Addr_1_MERC__c</errorDisplayField>
-        <errorMessage>The Preferred Venue Location is required before status can be updated to Registered</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Validate_Registered_Target_Audience_MERC</fullName>
-        <active>true</active>
-        <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
-        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Sponsorship&apos; &amp;&amp;
-      ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
-		TEXT(Meeting_Status_MERC__c) = &apos;Registered&apos; &amp;&amp;
-		(ISBLANK (Text(  Target_Audience_List_MERC__c )))
-	,true, false)</errorConditionFormula>
-        <errorDisplayField>Target_Audience_List_MERC__c</errorDisplayField>
-        <errorMessage>The Target Audience is required before status can be changed to Registered</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Validate_Sourcing_Expected_Non_MERC</fullName>
-        <active>true</active>
-        <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
-        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Sponsorship&apos; &amp;&amp;
+        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
       ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
 		TEXT(Meeting_Status_MERC__c) = &apos;Active&apos; &amp;&amp;
 		(ISBLANK(Number_of_Expected_Non_HCP_MERC__c)) 
@@ -13779,59 +14269,106 @@ ISPICKVAL(Meeting_Status_MERC__c,&apos;Cancelled&apos;)</errorConditionFormula>
         <errorMessage>The # of Expected Non-Lilly/Non-HCPs is required before status can be changed to Active</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Validate_Status_Fields_MERC</fullName>
-        <active>false</active>
-        <description>Check the required fields based on the Status selected. Created 12/4/2013 by KLorenti, Mavens Consulting (work in progress)</description>
-        <errorConditionFormula>IF ( RecordType.Name  &lt;&gt; &apos;Independent Sponsorship&apos;, 
-IF(ISCHANGED(Meeting_Status_MERC__c) &amp;&amp; 
-RecordType.DeveloperName &lt;&gt; &apos;Independent Sponsorship&apos; ,
-	IF(
-	  CASE (TEXT(Meeting_Status_MERC__c),
-		&apos;Registered&apos;,
-			IF(
-				(
-				ISBLANK(TEXT( Interaction_Type_MERC__c )) ||
-				ISBLANK (Number_of_Expected_Deletgates_MERC__c) ||
-				ISBLANK (Number_of_Expected_Employees_MERC__c) ||
-				ISBLANK (Number_of_Expected_Speakers_MERC__c) ||
-				ISBLANK (TEXT(Target_Audience_List_MERC__c )) ||
-				ISBLANK ( Preferred_Venue_Addr_1_MERC__c)
-				),
-			1,
-			0),
-
-		&apos;Submitted for Contracting&apos;,
-			IF(
-				(
-				ISBLANK ( Meeting_Objectives_MERC__c ) ||
-				ISBLANK ( Content_Creator_MERC__c ) ||
-				ISBLANK ( TEXT(Content_Approval_Needed_MERC__c ))
-				),
-			1,
-			0),
-
-		&apos;Ready for Sourcing&apos;,
-			IF(
-				(
-				ISBLANK( Number_of_Expected_Non_HCP_MERC__c ) 
-				),
-			1,
-			0),
-
-		0
-		) = 1, true, false),
-
-	false
-),
-false
-)</errorConditionFormula>
-        <errorMessage>Please verify required fields below are populated to register the meeting.</errorMessage>
+        <fullName>Validate_Active_Expected_Speaker_MERC</fullName>
+        <active>true</active>
+        <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
+        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
+      ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
+		TEXT(Meeting_Status_MERC__c) = &apos;Active&apos; &amp;&amp;
+		(ISBLANK ( Number_of_Expected_Speakers_MERC__c ))
+	,true, false)</errorConditionFormula>
+        <errorDisplayField>Number_of_Expected_Speakers_MERC__c</errorDisplayField>
+        <errorMessage>The # of Expected Speakers is required before status can be changed to Active</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Validate_Active_Interact_Type_MERC</fullName>
+        <active>true</active>
+        <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
+        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
+      ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
+		TEXT(Meeting_Status_MERC__c) = &apos;Active&apos; &amp;&amp;
+		(ISBLANK (Text( Interaction_Type_MERC__c )))
+	,true, false)</errorConditionFormula>
+        <errorDisplayField>Interaction_Type_MERC__c</errorDisplayField>
+        <errorMessage>The Interaction Type is required before status can be changed to Active</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Validate_Active_Planned_Budget_MERC</fullName>
+        <active>true</active>
+        <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
+        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
+      ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
+		TEXT(Meeting_Status_MERC__c) = &apos;Active&apos; &amp;&amp;
+		(ISBLANK(Planned_Budget_MERC__c))
+	,true, false)</errorConditionFormula>
+        <errorDisplayField>Planned_Budget_MERC__c</errorDisplayField>
+        <errorMessage>The Planned Budget is required before status can be changed to Active</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Validate_Registered_Expected_Emp_MERC</fullName>
+        <active>true</active>
+        <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
+        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
+      ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
+		TEXT(Meeting_Status_MERC__c) = &apos;Registered&apos; &amp;&amp;
+		(ISBLANK (Number_of_Expected_Employees_MERC__c ))
+	,true, false)</errorConditionFormula>
+        <errorDisplayField>Number_of_Expected_Employees_MERC__c</errorDisplayField>
+        <errorMessage>The # of Expected Employees is required before status can be changed to Registered</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Validate_Registered_Expected_Non_MERC</fullName>
+        <active>true</active>
+        <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
+        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
+      ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
+		TEXT(Meeting_Status_MERC__c) = &apos;Registered&apos; &amp;&amp;
+		(ISBLANK(Number_of_Expected_Non_HCP_MERC__c)) 
+,true, false)</errorConditionFormula>
+        <errorDisplayField>Number_of_Expected_Non_HCP_MERC__c</errorDisplayField>
+        <errorMessage>The # of Expected Non-Lilly/Non-HCPs is required before status can be changed to Registered</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Validate_Registered_Interact_Type_MERC</fullName>
+        <active>true</active>
+        <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
+        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
+      ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
+		TEXT(Meeting_Status_MERC__c) = &apos;Registered&apos; &amp;&amp;
+		(ISBLANK (Text( Interaction_Type_MERC__c )))
+	,true, false)</errorConditionFormula>
+        <errorDisplayField>Interaction_Type_MERC__c</errorDisplayField>
+        <errorMessage>The Interaction Type is required before status can be changed to Registered</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Validate_Registered_Planned_Budget_MERC</fullName>
+        <active>true</active>
+        <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
+        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
+      ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
+		TEXT(Meeting_Status_MERC__c) = &apos;Registered&apos; &amp;&amp;
+		(ISBLANK(Planned_Budget_MERC__c))
+	,true, false)</errorConditionFormula>
+        <errorDisplayField>Planned_Budget_MERC__c</errorDisplayField>
+        <errorMessage>The Planned Budget is required before status can be changed to Registered</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Validate_Registered_Target_Audience_MERC</fullName>
+        <active>true</active>
+        <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
+        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Sponsorship&apos; &amp;&amp;
+      ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
+		TEXT(Meeting_Status_MERC__c) = &apos;Active&apos; &amp;&amp;
+		(ISBLANK (Text(  Target_Audience_List_MERC__c )))
+	,true, false)</errorConditionFormula>
+        <errorDisplayField>Target_Audience_List_MERC__c</errorDisplayField>
+        <errorMessage>The Target Audience is required before status can be changed to Active</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Validate_Submitted_Content_Approval_MERC</fullName>
         <active>true</active>
         <description>Check the required fields based on the Status selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
-        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Sponsorship&apos; &amp;&amp;
+        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
       ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
 	TEXT(Meeting_Status_MERC__c) = &apos;Active&apos; &amp;&amp;
       (ISBLANK(TEXT(Content_Approval_Needed_MERC__c )))
@@ -13843,7 +14380,7 @@ false
         <fullName>Validate_Submitted_Content_Creator_MERC</fullName>
         <active>true</active>
         <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
-        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Sponsorship&apos; &amp;&amp;
+        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
       ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
       TEXT(Meeting_Status_MERC__c) = &apos;Active&apos; &amp;&amp;
      (ISBLANK(Content_Creator_MERC__c )),
@@ -13855,7 +14392,7 @@ true, false)</errorConditionFormula>
         <fullName>Validate_Submitted_Meeting_Obj_MERC</fullName>
         <active>true</active>
         <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
-        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Sponsorship&apos; &amp;&amp;
+        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
       ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
 		TEXT(Meeting_Status_MERC__c) = &apos;Active&apos; &amp;&amp;
 		(ISBLANK (Meeting_Objectives_MERC__c ))
@@ -13883,17 +14420,42 @@ true, false)</errorConditionFormula>
         <url>http://lillynetcollaboration.global.lilly.com/sites/CandE/AffiliateInfo/Pages/default.aspx</url>
     </webLinks>
     <webLinks>
-        <fullName>Generate_Agenda</fullName>
+        <fullName>Generate_Content_MERC</fullName>
         <availability>online</availability>
-        <description>Generate meting agenda</description>
+        <description>Generates content  with DrawLoop for the Meeting. 
+Created by John Adams on 1/21/2014</description>
         <displayType>button</displayType>
         <encodingKey>UTF-8</encodingKey>
         <height>600</height>
         <linkType>url</linkType>
-        <masterLabel>Generate Agenda</masterLabel>
+        <masterLabel>Generate Content</masterLabel>
         <openType>sidebar</openType>
         <protected>false</protected>
         <url>/apex/loop__looplus?eid={!Meeting_MERC__c.Id}&amp;sessionId={!$Api.Session_ID}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Mass_LOOP_Plus</fullName>
+        <availability>online</availability>
+        <description>Test Mass Loop Button</description>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Mass LOOP Plus</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/26.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/support/console/26.0/integration.js&quot;)}
+
+var ids = {!GETRECORDIDS($ObjectType.Meeting_MERC__c)};
+if (!ids || ids.length &lt; 1)
+    alert(&quot;Please select at least one record.&quot;);
+else
+{
+    var redirectUrl = &quot;/apex/loop__masslooplus?&amp;retURL=&quot; + encodeURI(window.location.pathname+window.location.search);
+    redirectUrl += &quot;&amp;recordIds=&quot;+ids.join(&quot;,&quot;);
+    redirectUrl += &quot;&amp;sessionId={!$Api.Session_ID}&quot;;
+        window.location.href = redirectUrl;
+}</url>
     </webLinks>
     <webLinks>
         <fullName>Meeting_Date_Times</fullName>

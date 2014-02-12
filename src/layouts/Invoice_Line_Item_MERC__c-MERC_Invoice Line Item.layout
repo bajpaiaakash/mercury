@@ -43,21 +43,28 @@
         <label>Details</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Cost_Element_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Quantity_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Unit_Price_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Cost_Element_SAP_Code_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Amount_MERC__c</field>
             </layoutItems>
             <layoutItems>
@@ -108,6 +115,15 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
+    <miniLayout>
+        <fields>Invoice_MERC__c</fields>
+        <fields>Cost_Element_MERC__c</fields>
+        <fields>Quantity_MERC__c</fields>
+        <fields>Unit_Price_MERC__c</fields>
+        <fields>Amount_MERC__c</fields>
+        <fields>Tax_Amount_MERC__c</fields>
+        <fields>VAT_Rate_MERC__c</fields>
+    </miniLayout>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>

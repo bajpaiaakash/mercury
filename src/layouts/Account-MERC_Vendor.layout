@@ -107,13 +107,12 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
-    <relatedLists>
-        <excludeButtons>New</excludeButtons>
-        <fields>NAME</fields>
-        <fields>Area_of_Service_MERC__c</fields>
-        <fields>Meeting_MERC__c</fields>
-        <relatedList>Meeting_Vendor_MERC__c.Account_MERC__c</relatedList>
-    </relatedLists>
+    <miniLayout>
+        <fields>Name</fields>
+        <fields>ParentId</fields>
+        <fields>RecordTypeId</fields>
+        <fields>Website</fields>
+    </miniLayout>
     <relatedLists>
         <fields>NAME</fields>
         <fields>Line_1_Adrs_Txt_GLBL__c</fields>
@@ -123,6 +122,13 @@
         <fields>Adrs_Cntry_Cd_GLBL__c</fields>
         <fields>Priority_Rank_Nbr_GLBL__c</fields>
         <relatedList>Address_GLBL__c.Account_GLBL__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <excludeButtons>New</excludeButtons>
+        <fields>NAME</fields>
+        <fields>Area_of_Service_MERC__c</fields>
+        <fields>Meeting_MERC__c</fields>
+        <relatedList>Meeting_Vendor_MERC__c.Account_MERC__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -138,9 +144,6 @@
         <fields>CASES.STATUS</fields>
         <fields>OWNER_NAME</fields>
         <relatedList>RelatedCaseList</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <relatedList>RelatedNoteList</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>VERSION.TITLE</fields>

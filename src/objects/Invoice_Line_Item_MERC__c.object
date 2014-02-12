@@ -116,6 +116,18 @@ NOTE: needs final list from Lilly</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Cost_Element_SAP_Code_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>RIGHT(TEXT(Cost_Element_MERC__c),4)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Cost Element SAP Code MERC</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Description_MERC__c</fullName>
         <description>Line Item Description
 Created by John A Adams 10/4/2013</description>
@@ -189,6 +201,18 @@ Created by J Adams 12/10/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Payment_Required_MERC__c</fullName>
+        <description>Displays Payment Required value from Account Profile. Created 01/22/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>TEXT(Invoice_MERC__r.Payee_MERC__r.Account_MERC__r.Payment_Required_MERC__c)</formula>
+        <label>Payment Required</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Quantity_MERC__c</fullName>
         <description>Quantity of line items
 Created by John A Adams 10/27/2013</description>
@@ -223,7 +247,10 @@ Created by John A Adams 10/27/2013</description>
         <description>Tax Amount (currency, calc based on value &amp; tax rate) 
 Created by John A Adams 10/4/2013</description>
         <externalId>false</externalId>
-        <formula>IF( Amount_MERC__c = 0, Amount_MERC__c *(VAT_Rate_MERC__c / 100) + Unit_Price_MERC__c *( VAT_Rate_MERC__c /100),  Consulting_Amount_MERC__c *(VAT_Rate_MERC__c / 100) + Unit_Price_MERC__c *( VAT_Rate_MERC__c /100))</formula>
+        <formula>IF( Amount_MERC__c &lt;&gt; 0, Amount_MERC__c *(VAT_Rate_MERC__c / 100),  
+  (Consulting_Amount_MERC__c *(VAT_Rate_MERC__c / 100)) + 
+  (Quantity_MERC__c *  Unit_Price_MERC__c *(VAT_Rate_MERC__c / 100))
+)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Tax Amount</label>
         <precision>18</precision>
@@ -311,7 +338,7 @@ Created by John A Adams 10/4/2013</description>
     <recordTypes>
         <fullName>Other_Items</fullName>
         <active>true</active>
-        <description>Other items for reimburments</description>
+        <description>Other items for reimbursements</description>
         <label>Other Items</label>
         <picklistValues>
             <picklist>Cost_Element_MERC__c</picklist>
@@ -348,4 +375,32 @@ Created by John A Adams 10/4/2013</description>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <startsWith>Vowel</startsWith>
+    <validationRules>
+        <fullName>Adding_Invoice_Line_Item</fullName>
+        <active>true</active>
+        <description>Prevents an Invoice Line Item being added unless services have been rendered or partial payment has been approved. Created by John A Adams 2/5/2014</description>
+        <errorConditionFormula>ISPICKVAL (Invoice_MERC__r.Meeting_Participant_MERC__r.Services_Rendered_MERC__c, &quot;&quot;) || 
+
+ISPICKVAL (Invoice_MERC__r.Meeting_Participant_MERC__r.Services_Rendered_MERC__c, &quot;NO&quot;)</errorConditionFormula>
+        <errorMessage>The Meeting Participant must have rendered services or have agreement for partial payment.</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>New_Line_Item</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Line Item</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>{!URLFOR( 
+$Action.Invoice_Line_Item_MERC__c.New, 
+null, 
+[saveURL=Invoice_MERC__c.Link+&apos;#&apos;+Invoice_MERC__c.Id+&apos;_00N11000000SbwI_target&apos;,
+retURL=Invoice_MERC__c.Link,
+CF00N11000000SbwI=Invoice_MERC__c.Name,
+CF00N11000000SbwI_lkid=Invoice_MERC__c.Id] 
+)}</url>
+    </webLinks>
 </CustomObject>

@@ -11,11 +11,11 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
-        <fullName>Other_Amounts</fullName>
-        <description>Calculates line Item Other Amount</description>
+        <fullName>Other_Amount</fullName>
+        <description>Calculates Amount value for Other Items</description>
         <field>Amount_MERC__c</field>
         <formula>Quantity_MERC__c *  Unit_Price_MERC__c</formula>
-        <name>Other Amounts</name>
+        <name>Other Amount</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
@@ -63,25 +63,21 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <description>Populate Line Item amount for ad hoc consulting services
+        <description>Populate Line Item amount for Consulting Projects
 Created by Oliver Dunford 13 Dec 2013</description>
-        <formula>NOT(ISBLANK( Invoice_MERC__r.Meeting_Participant_MERC__c))</formula>
+        <formula>AND (NOT(ISBLANK( Invoice_MERC__r.Meeting_Participant_MERC__c)), RecordType.Name = &apos;Consulting Project&apos;)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Populate Other Amounts_MERC</fullName>
         <actions>
-            <name>Other_Amounts</name>
+            <name>Other_Amount</name>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <criteriaItems>
-            <field>Invoice_Line_Item_MERC__c.Quantity_MERC__c</field>
-            <operation>greaterThan</operation>
-            <value>0</value>
-        </criteriaItems>
         <description>Calculates the Amount for other Line Item entries</description>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <formula>AND (NOT(ISBLANK( Invoice_MERC__r.Meeting_Participant_MERC__c)), RecordType.Name = &apos;Other Items&apos;)</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Populate Service Amount_MERC</fullName>

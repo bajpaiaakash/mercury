@@ -11,10 +11,6 @@
                 <behavior>Required</behavior>
                 <field>Name</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Daily_Registration_Amount_MERC__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -42,6 +38,10 @@
                 <behavior>Edit</behavior>
                 <field>Date_Meeting_Time_Zone__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>CurrencyIsoCode</field>
+            </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>
@@ -53,15 +53,15 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Daily_Hotel_Amount_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Daily_Ground_Trans_Amount_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Daily_Food_Beverage_Amount_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Daily_Registration_Amount_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns/>
@@ -107,6 +107,10 @@
         <fields>NAME</fields>
         <fields>Meeting_Participant_MERC__c</fields>
         <fields>Status_MERC__c</fields>
+        <fields>Est_Hotel_ToV_MERC__c</fields>
+        <fields>Est_Food_Bev_ToV_MERC__c</fields>
+        <fields>Est_Grnd_Transp_MERC__c</fields>
+        <fields>Est_Reg_Amt_ToV_MERC__c</fields>
         <relatedList>Daily_Attendance_TOV_MERC__c.Meeting_Day_MERC__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>

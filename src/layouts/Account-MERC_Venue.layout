@@ -21,38 +21,6 @@
                 <behavior>Edit</behavior>
                 <field>ParentId</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Cust_Id_GLBL__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Party_Rcrd_Typ_Cd_GLBL__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Src_Sys_Cd_GLBL__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Efctv_Start_Dt_GLBL__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Efctv_End_Dt_GLBL__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>ODS_Ld_Tmstmp_GLBL__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>ODS_Lst_Updt_Usr_GLBL__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>ODS_Lst_Updt_Tmstmp_GLBL__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -150,6 +118,10 @@
                 <behavior>Readonly</behavior>
                 <field>LastModifiedById</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>RTI_Transaction_ID_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -163,6 +135,14 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
+    <miniLayout>
+        <fields>Name</fields>
+        <fields>ParentId</fields>
+        <fields>RecordTypeId</fields>
+        <fields>Venue_Preference_Type_MERC__c</fields>
+        <fields>Website</fields>
+        <fields>Last_Review_Date_MERC__c</fields>
+    </miniLayout>
     <relatedLists>
         <fields>NAME</fields>
         <fields>Line_1_Adrs_Txt_GLBL__c</fields>
@@ -174,20 +154,6 @@
         <relatedList>Address_GLBL__c.Account_GLBL__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <fields>NAME</fields>
-        <fields>SAP_Vendor_ID_MERC__c</fields>
-        <relatedList>Payee_MERC__c.Account_MERC__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <relatedList>RelatedNoteList</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>VERSION.TITLE</fields>
-        <fields>VERSION.CREATED_DATE</fields>
-        <fields>VERSION.LAST_UPDATE</fields>
-        <relatedList>ContentVersion.Account_GLBL__c</relatedList>
-    </relatedLists>
-    <relatedLists>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Parent_Meeting_MERC__c</fields>
@@ -196,10 +162,20 @@
         <fields>Date_of_Event_MERC__c</fields>
         <fields>End_Date_of_Event_MERC__c</fields>
         <fields>Event_Country_MERC__c</fields>
-        <fields>Approved_MERC__c</fields>
         <fields>Meeting_Status_MERC__c</fields>
         <fields>CREATEDBY_USER</fields>
         <relatedList>Meeting_MERC__c.Venue_MERC__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>SAP_Vendor_ID_MERC__c</fields>
+        <relatedList>Payee_MERC__c.Account_MERC__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>VERSION.TITLE</fields>
+        <fields>VERSION.CREATED_DATE</fields>
+        <fields>VERSION.LAST_UPDATE</fields>
+        <relatedList>ContentVersion.Account_GLBL__c</relatedList>
     </relatedLists>
     <relatedObjects>ParentId</relatedObjects>
     <showEmailCheckbox>false</showEmailCheckbox>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>Accept</actionName>
         <type>Default</type>
@@ -55,7 +55,6 @@ Created by John A Adams 10/2/2013</description>
     <enableReports>true</enableReports>
     <fields>
         <fullName>Account_MERC__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
         <description>Lookup relationship between HCP Contracts and Accounts
 Created by John A Adams 10/9/2013</description>
         <externalId>false</externalId>
@@ -63,10 +62,12 @@ Created by John A Adams 10/9/2013</description>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>HCP Contracts</relationshipLabel>
         <relationshipName>HCP_Contracts</relationshipName>
-        <required>false</required>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Lookup</type>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
         <fullName>Additional_Conditions_MERC__c</fullName>
@@ -125,6 +126,10 @@ Created by John A Adams 10/8/2013</description>
                 <fullName>Contract signed</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Contract cancelled</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
@@ -169,24 +174,39 @@ Created by John A Adams 10/4/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Country_of_Residence_MERC__c</fullName>
+        <description>Formula field to pull in Country of Residence from HCP Profile. Created 01/15/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>TEXT(Account_MERC__r.Country_of_Residence_GLBL__c)</formula>
+        <label>Country</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Days_Since_Last_Modified_MERC__c</fullName>
+        <description>Days since contract was last modified. Created 01/30/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Today()- DateValue(LastModifiedDate)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Days Since Last Modified</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Description_of_Service_MERC__c</fullName>
         <description>Description of service (only if ad hoc consulting)
 Created by John A Adams 10/17/2013</description>
         <externalId>false</externalId>
         <inlineHelpText>Provide a description of service only if an ad hoc consulting</inlineHelpText>
         <label>Description of Service</label>
-        <length>32768</length>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>LongTextArea</type>
-        <visibleLines>3</visibleLines>
-    </fields>
-    <fields>
-        <fullName>HCP_Obligations_MERC__c</fullName>
-        <description>Records any contract specific Health Care Provider obligations
-Created by John A Adams 10/17/2013</description>
-        <externalId>false</externalId>
-        <label>HCP Obligations</label>
         <length>32768</length>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -201,6 +221,18 @@ Created by John A Adams 10/29/2013</description>
         <formula>Account_MERC__r.Veeva_Organization_MERC__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Institution</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Internal_Lilly_Signee_Email_MERC__c</fullName>
+        <description>Pulls the Email Address of the Internal Lilly Employee.  Oliver Dunford 21st Jan 2014.</description>
+        <externalId>false</externalId>
+        <formula>Lilly_Internal_Signee_MERC__r.PersonEmail</formula>
+        <label>Internal Lilly Signee Email</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -258,6 +290,20 @@ Created by John A Adams 10/7/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Lilly_Internal_Signee_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Used to indicate who the Lilly Internal Employee is for the first round of Contract signature. Oliver Dunford 21st Jan 2014.</description>
+        <externalId>false</externalId>
+        <label>Lilly Internal Signee</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>HCP Contracts (Lilly Internal Signee)</relationshipLabel>
+        <relationshipName>Lilly_Internal_Signee</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>MSA_End_Date_MERC__c</fullName>
         <description>End Date for and Multi-Service Agreement Contract
 Created by John A Adams 10/28/2013</description>
@@ -301,6 +347,21 @@ Created by John A Adams 12/19/2013</description>
         <externalId>false</externalId>
         <label>Meeting Name</label>
         <referenceTo>Meeting_MERC__c</referenceTo>
+        <relationshipLabel>HCP Contracts</relationshipLabel>
+        <relationshipName>HCP_Contracts</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Participant_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup to Meeting Participant from Contract for Single Event and Work Order contracts.
+Created by John Adams 1/15/14</description>
+        <externalId>false</externalId>
+        <label>Meeting Participant</label>
+        <referenceTo>Meeting_Participant_MERC__c</referenceTo>
         <relationshipLabel>HCP Contracts</relationshipLabel>
         <relationshipName>HCP_Contracts</relationshipName>
         <required>false</required>
@@ -382,18 +443,6 @@ Created by John A Adams 10/7/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Prf_Cntrct_MERC__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>User must confirm that they have uploaded proof of the contract work.
-Created by John A Adams 1/8/2014</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Confirm that proof of the contract work has been uploaded in the HCP Contract record.</inlineHelpText>
-        <label>Proof of contract record uploaded</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>Signing_Parties_MERC__c</fullName>
         <description>Identifies parties that are needed to sign agreement.  This will be managed by Drawloop and DocuSign.
 Created by John A Adams 10/17/2013</description>
@@ -464,22 +513,6 @@ Created by John A Adams 10/17/2013</description>
         <type>AutoNumber</type>
     </nameField>
     <namedFilters>
-        <fullName>nf_01I11000000CjxpEAC_00N11000000Sl5sEAC</fullName>
-        <active>true</active>
-        <field>Meeting_Participant_MERC__c.HCP_Contract_MERC__c</field>
-        <filterItems>
-            <field>HCP_Contract_MERC__c.Account_MERC__c</field>
-            <operation>equals</operation>
-            <valueField>$Source.Account_MERC__c</valueField>
-        </filterItems>
-        <infoMessage>Note: Select &quot;All Fields&quot; 
-
-This searches all existing HCP Contracts for the HCP. The HCP Contract must already exist for the HCP.</infoMessage>
-        <isOptional>false</isOptional>
-        <name>Meeting Participant_HCP Contract</name>
-        <sourceObject>Meeting_Participant_MERC__c</sourceObject>
-    </namedFilters>
-    <namedFilters>
         <fullName>nf_01I11000000Ck6cEAC_00N11000000T7RqEAK</fullName>
         <active>true</active>
         <field>HCP_Contract_MERC__c.MSA_MERC__c</field>
@@ -500,6 +533,10 @@ This searches all existing HCP Contracts for the HCP. The HCP Contract must alre
         <label>Master Service Agreement</label>
         <picklistValues>
             <picklist>Contract_Request_Status_MERC__c</picklist>
+            <values>
+                <fullName>Contract cancelled</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Contract in progress</fullName>
                 <default>false</default>
@@ -626,6 +663,10 @@ This searches all existing HCP Contracts for the HCP. The HCP Contract must alre
         <picklistValues>
             <picklist>Contract_Request_Status_MERC__c</picklist>
             <values>
+                <fullName>Contract cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Contract in progress</fullName>
                 <default>false</default>
             </values>
@@ -751,6 +792,10 @@ This searches all existing HCP Contracts for the HCP. The HCP Contract must alre
         <picklistValues>
             <picklist>Contract_Request_Status_MERC__c</picklist>
             <values>
+                <fullName>Contract cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Contract in progress</fullName>
                 <default>true</default>
             </values>
@@ -851,34 +896,43 @@ This searches all existing HCP Contracts for the HCP. The HCP Contract must alre
     <searchLayouts>
         <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
         <customTabListAdditionalFields>Account_MERC__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields xsi:nil="true"/>
         <customTabListAdditionalFields>Contract_Request_Status_MERC__c</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>RECORDTYPE</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Account_MERC__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields xsi:nil="true"/>
         <lookupDialogsAdditionalFields>Contract_Request_Status_MERC__c</lookupDialogsAdditionalFields>
         <lookupFilterFields>NAME</lookupFilterFields>
         <lookupFilterFields>RECORDTYPE</lookupFilterFields>
         <lookupFilterFields>Account_MERC__c</lookupFilterFields>
-        <lookupFilterFields xsi:nil="true"/>
         <lookupFilterFields>Contract_Request_Status_MERC__c</lookupFilterFields>
         <lookupPhoneDialogsAdditionalFields>Account_MERC__c</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields xsi:nil="true"/>
         <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Account_MERC__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields xsi:nil="true"/>
         <searchResultsAdditionalFields>Contract_Request_Status_MERC__c</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>ControlledByParent</sharingModel>
     <webLinks>
-        <fullName>Generate_Contract_MERC</fullName>
+        <fullName>Create_HCP_Contract</fullName>
+        <availability>online</availability>
+        <description>Custom link to prepopulate multiple fields in the subsequent detail page</description>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Create HCP Contract</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>https://cs18.salesforce.com/setup/ui/recordtypeselect.jsp?
+ent=01I11000000Ck6c&amp;save_new_url=%2Fa0x%2Fe%3FCF00N11000000TRyu={!Meeting_Participant_MERC__c.Name}%26YYZ=true%26CF00N11000000TRyu_lkid={!Meeting_Participant_MERC__c.Id}%26CF00N11000000SiOD={!URLENCODE(Account.Name)}%26CF00N11000000SiOD_lkid={!Meeting_Participant_MERC__c.Account_MERCId__c}%26CF00N11000000TG5U={!URLENCODE(Meeting_Participant_MERC__c.Meeting_MERC__c)}%26CF00N11000000TG5U_lkid={!Meeting_Participant_MERC__c.Meeting_MERCId__c}%26retURL=%252F{!Meeting_Participant_MERC__c.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Generate_Content_MERC</fullName>
         <availability>online</availability>
         <description>Sends user to DrawLoop UI to generate contract.</description>
         <displayType>button</displayType>
         <encodingKey>UTF-8</encodingKey>
         <height>600</height>
         <linkType>url</linkType>
-        <masterLabel>Generate Contract</masterLabel>
+        <masterLabel>Generate Content</masterLabel>
         <openType>sidebar</openType>
         <protected>false</protected>
         <url>/apex/loop__looplus?sessionId={!$Api.Session_ID}&amp;eid={!HCP_Contract_MERC__c.Id}</url>

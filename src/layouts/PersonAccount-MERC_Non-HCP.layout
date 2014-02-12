@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -37,13 +36,13 @@
                 <field>Service_Provider_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Language_Preference_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>RecordTypeId</field>
             </layoutItems>
             <layoutItems>
@@ -57,10 +56,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Description</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Add_to_ODS_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -183,6 +178,12 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
+    <miniLayout>
+        <fields>Name</fields>
+        <fields>Relationship_Owner_MERC__c</fields>
+        <fields>RecordTypeId</fields>
+        <fields>Account_Add_Reason_MERC__c</fields>
+    </miniLayout>
     <relatedLists>
         <fields>NAME</fields>
         <fields>Line_1_Adrs_Txt_GLBL__c</fields>
@@ -196,12 +197,10 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
-        <fields>Language_of_Choice_GLBL__c</fields>
-        <fields>Communication_Preference_GLBL__c</fields>
-        <fields>Interaction_Channel_Type_GLBL__c</fields>
-        <fields>Speaker_Interest_GLBL__c</fields>
-        <fields>Permission_Status_GLBL__c</fields>
-        <relatedList>Communication_Preference_GLBL__c.Account_GLBL__c</relatedList>
+        <fields>Preference_Type_MERC__c</fields>
+        <fields>Preference_Sub_Type_MERC__c</fields>
+        <fields>Preference_Value_MERC__c</fields>
+        <relatedList>Preferences_and_Consent_GLBL__c.Account_GLBL__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -220,7 +219,6 @@
         <fields>Bank_City_MERC__c</fields>
         <fields>Bank_Country_MERC__c</fields>
         <fields>Payment_Method_MERC__c</fields>
-        <fields>Payment_Type_MERC__c</fields>
         <relatedList>Payee_MERC__c.Account_MERC__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -229,10 +227,6 @@
         <fields>Contract_Request_Status_MERC__c</fields>
         <fields>Contract_Expiration_Date_MERC__c</fields>
         <relatedList>HCP_Contract_MERC__c.Account_MERC__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>Meeting_Third_Party_MERC__c.Account_MERC__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>ACCOUNT.NAME</fields>

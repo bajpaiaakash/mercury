@@ -50,10 +50,6 @@
                 <field>Document_Type_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Archive_Date_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Meeting_Start_Date_MERC__c</field>
             </layoutItems>
@@ -64,6 +60,22 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Meeting_Country_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Code_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Invoice_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>HCP_Contract_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Meeting_Archive_Date_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

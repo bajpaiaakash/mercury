@@ -48,7 +48,7 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Captures payee information for account lookup
 Created by John A Adams 9/26/2013</description>
-    <enableActivities>true</enableActivities>
+    <enableActivities>false</enableActivities>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
@@ -289,7 +289,7 @@ Created by John A Adams 10/21/2013</description>
         <description>Presents payees street address associated with Account.
 Created by John A Adams 10/17/2013</description>
         <externalId>false</externalId>
-        <formula>Associated_Address_MERC__r.Line_2_Adrs_Txt_GLBL__c</formula>
+        <formula>Associated_Address_MERC__r.Line_1_Adrs_Txt_GLBL__c + &quot;,&quot; + &quot; &quot; + Associated_Address_MERC__r.Line_2_Adrs_Txt_GLBL__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Payee Street</label>
         <required>false</required>
@@ -325,27 +325,6 @@ Created by John A Adams 10/17/2013</description>
             </picklistValues>
             <picklistValues>
                 <fullName>Cheque</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Payment_Type_MERC__c</fullName>
-        <description>Type of payment
-Created by John A Adams 10/25/2013</description>
-        <externalId>false</externalId>
-        <label>Payment Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Domestic</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Foreign</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -421,16 +400,17 @@ Moved from Account to Payee 11/22/2013 by KLorenti, Mavens Consulting</descripti
         <type>Text</type>
     </nameField>
     <namedFilters>
-        <fullName>nf_01I11000000CjxfEAC_00N11000000SlNhEAK</fullName>
+        <fullName>nf_01I11000000Ck6cEAC_00N11000000SgtJEAS</fullName>
         <active>true</active>
-        <field>Invoice_MERC__c.Payee_MERC__c</field>
+        <field>HCP_Contract_MERC__c.Payee_MERC__c</field>
         <filterItems>
-            <field>Payee_MERC__c.Primary_Payee_MERC__c</field>
+            <field>$Source.Account_MERC__c</field>
             <operation>equals</operation>
-            <value>Yes</value>
+            <valueField>Payee_MERC__c.Account_MERC__c</valueField>
         </filterItems>
         <isOptional>false</isOptional>
-        <name>Invoice_Payee</name>
+        <name>HCP Contract_Payee</name>
+        <sourceObject>HCP_Contract_MERC__c</sourceObject>
     </namedFilters>
     <pluralLabel>Payee</pluralLabel>
     <searchLayouts>

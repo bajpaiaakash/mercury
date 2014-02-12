@@ -12,14 +12,15 @@ public with sharing class MERC_DeleteNotifyService implements GLBL_TriggerHandle
 		List<Sobject> sobjects = Trigger.old;
 		String sobjectTypeAPIName = MERC_Util.getSobjectAPIName(sobjects.get(0));
 		String serializedSobjects = Json.serialize(sobjects); 
+		String sessionId = UserInfo.getSessionId();
 		//we need to send primitives because execute method is @future
 		if (!MERC_DeleteNotifyService.skipCallout)
-			MERC_DeleteNotifyService.execute(sobjectTypeAPIName, serializedSobjects);
+			MERC_DeleteNotifyService.execute(sobjectTypeAPIName, serializedSobjects, sessionId);
 	}
 
 	@Future(callout=true)
-	public static void execute(String sobjectType, String serializedSobjects) {
-		DeleteNotification notification = new DeleteNotification(sobjectType, serializedSobjects);
+	public static void execute(String sobjectType, String serializedSobjects, String sessionId) {
+		DeleteNotification notification = new DeleteNotification(sobjectType, serializedSobjects, sessionId);
 		String jsonstring = Json.serialize(notification); 
 		system.debug(jsonstring);
 
@@ -37,13 +38,17 @@ public with sharing class MERC_DeleteNotifyService implements GLBL_TriggerHandle
 	public class DeleteNotification {
 		String notificationId;
 		String orgId;
+		String sessionId;
 		String sobjectTypeAPIName;
+		String instanceUrl;
 		List<Sobject> records;
-		public DeleteNotification(String sobjectType, String serializedSobjects) {
+		public DeleteNotification(String sobjectType, String serializedSobjects, String sessionId) {
 			this.notificationId = MERC_Util.generateRandomString(30);
 			this.records = (List<Sobject>)JSON.deserialize(serializedSobjects, List<Sobject>.class); //we need to deserialize here to ensure "records" is not double encoded before we send to listener
 			this.sobjectTypeAPIName = sobjectType;
 			this.orgId = UserInfo.getOrganizationId();
+			this.sessionId = sessionId;
+			this.instanceUrl = 'https://' + System.URL.getSalesforceBaseURL().getHost();
 		}
 	}
 }

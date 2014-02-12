@@ -149,7 +149,19 @@ Created by John A Adams 1/9/2014</description>
         <externalId>false</externalId>
         <formula>LEFT(Cost_Center_MERC__c ,3)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Company Code</label>
+        <label>Lilly Affiliate Company Code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Conditional_Invoice_Number_MERC__c</fullName>
+        <description>Used by the SAP Interface.  If the Customer Invoice is populated this is used, otherwise the Mercury Invoice number is used.  Oliver Dunford 28th Jan 2014.</description>
+        <externalId>false</externalId>
+        <formula>IF(OR(ISNULL( Customer_Invoice_Number_MERC__c ),ISBLANK( Customer_Invoice_Number_MERC__c )),  Name , Customer_Invoice_Number_MERC__c)</formula>
+        <label>Conditional Invoice Number</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -218,7 +230,7 @@ Created by John A Adams 10/30/2013</description>
         <fullName>Customer_Id_MERC__c</fullName>
         <description>Customer Id of Beneficiary.  If this this is the HCO, then the HCO Customer Id is populated, otherwise it&apos;s the meeting Participant.   Oliver Dunford 4th Dec 2013</description>
         <externalId>false</externalId>
-        <formula>IF( ISNULL(HCO_Beneficiary_MERC__c) ,  Meeting_Participant_MERC__r.Account_MERC__r.Cust_Id_GLBL__c ,  HCO_Beneficiary_MERC__r.Cust_Id_GLBL__c )</formula>
+        <formula>IF( OR(ISNULL(HCO_Beneficiary_MERC__c),ISBLANK(HCO_Beneficiary_MERC__c)) ,  Meeting_Participant_MERC__r.Account_MERC__r.Cust_Id_GLBL__c ,  HCO_Beneficiary_MERC__r.Cust_Id_GLBL__c )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Customer Id</label>
         <required>false</required>
@@ -238,6 +250,21 @@ Created by John A Adams 10/20/2013</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Days_Since_Created_Date_MERC__c</fullName>
+        <description>Days since Invoice creation.  Used for Reporting.  Oliver Duford 30th Jan 2014.</description>
+        <externalId>false</externalId>
+        <formula>Today()- DateValue( CreatedDate )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Days Since Created Date</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -312,6 +339,93 @@ Created by John A Adams 10/24/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Lilly_Affil_Add_City_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>Lilly_Affiliate_MERC__r.Primary_Addr_City_GLBL__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Lilly Affiliate City</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lilly_Affil_Add_Country_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>Lilly_Affiliate_MERC__r.Primary_Address_Country_GLBL__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Lilly Affiliate Country</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lilly_Affil_Add_Ln_1_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>Lilly_Affiliate_MERC__r.Primary_Addr_Line1_GLBL__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Lilly Affiliate Address Line 1</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lilly_Affil_Add_Ln_2_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>Lilly_Affiliate_MERC__r.Primary_Addr_Line2_GLBL__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Lilly Affiliate Address Line 2</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lilly_Affil_ID_VAT_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>Lilly_Affiliate_MERC__r.Lilly_Company_VAT_ID_GLBL__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Lilly Affiliate ID/VAT</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lilly_Affil_Postal_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>Lilly_Affiliate_MERC__r.Primary_Pstl_Cd_Extnsn_GLBL__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Lilly Affiliate Postal Code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lilly_Affiliate_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup to Account to pull in Lilly Affiliate name.
+Created by John Adams 1/14/14</description>
+        <externalId>false</externalId>
+        <label>Lilly Affiliate</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Invoices (Lilly Affiliate)</relationshipLabel>
+        <relationshipName>Invoices1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Line_Items_MERC__c</fullName>
         <description>Counts the number of line items for an Invoice. Oliver Dunford 4th Nov 2013.</description>
         <externalId>false</externalId>
@@ -329,6 +443,19 @@ Created by John A Adams 10/24/2013</description>
         <formula>Meeting_Participant_MERC__r.Meeting_MERC__r.City_of_Meeting_MERC__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Meeting City</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Meeting_Cost_Center_MERC__c</fullName>
+        <description>Customer Facing Cost center pulled from the Meeting.  Created by J Adams 2/6/2014.</description>
+        <externalId>false</externalId>
+        <formula>Meeting_Participant_MERC__r.Meeting_MERC__r.Rep_Cost_Center_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting Cost Center</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -371,6 +498,18 @@ Created by John A Adams 10/20/2013</description>
         <formula>Meeting_Participant_MERC__r.Meeting_MERC__r.Name</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Meeting Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Meeting_Participant_Account_Id_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASESAFEID(Meeting_Participant_MERC__r.Account_MERC__r.Id )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting Participant Account Id</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -500,7 +639,7 @@ Created by John A Adams 10/21/2013</description>
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Payee_Name__c</fullName>
+        <fullName>Payee_Name_MERC__c</fullName>
         <description>Payee Name loaded from Payee by Workflow.
 Created by John A Adams 1/9/2014</description>
         <externalId>false</externalId>
@@ -740,7 +879,10 @@ Created by John A Adams 10/4/2013</description>
         <fullName>All</fullName>
         <columns>NAME</columns>
         <columns>Meeting_Participant_MERC__c</columns>
+        <columns>Participant_MERC__c</columns>
         <columns>Vendor_Invoice_Number_MERC__c</columns>
+        <columns>Meeting_Name_MERC__c</columns>
+        <columns>Submit_for_Payment_MERC__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
         <language>en_US</language>
@@ -899,22 +1041,23 @@ Created by John A Adams 10/4/2013</description>
     <startsWith>Vowel</startsWith>
     <validationRules>
         <fullName>Submit_for_Payment</fullName>
-        <active>false</active>
-        <errorConditionFormula>AND (TEXT(Submit_for_Payment_MERC__c)=&quot;Yes&quot;,
-Invoice_Attached_MERC__c = FALSE
-)</errorConditionFormula>
-        <errorMessage>An invoice record cannot be submitted for payment unless an Invoice PDF has been created and attached.  Press the &quot;Generate Invoice&quot; button at top.</errorMessage>
+        <active>true</active>
+        <description>Prevent an invoice being submitted for payment if the total value is less than zero or if there has not been a PDF generated and attached. Created by John A Adams 2/5/2014</description>
+        <errorConditionFormula>ISPICKVAL(Submit_for_Payment_MERC__c,&quot;Yes&quot;) &amp;&amp; 
+((Invoice_Attached_MERC__c = FALSE) || 
+(TOTAL_INCL_VAT_MERC__c &lt;=0))</errorConditionFormula>
+        <errorMessage>An invoice record cannot be submitted for payment if the total is not greater than zero and an Invoice PDF has been created and attached.  Press the &quot;Generate Content&quot; button at top.</errorMessage>
     </validationRules>
     <webLinks>
-        <fullName>Generate_Invoice</fullName>
+        <fullName>Generate_Content_MERC</fullName>
         <availability>online</availability>
-        <description>Generates the Invoice for the account.
+        <description>Generates content for the Invoice
 Created by John Adams on 11/13/2013</description>
         <displayType>button</displayType>
         <encodingKey>UTF-8</encodingKey>
         <height>600</height>
         <linkType>url</linkType>
-        <masterLabel>Generate Invoice</masterLabel>
+        <masterLabel>Generate Content</masterLabel>
         <openType>sidebar</openType>
         <protected>false</protected>
         <url>/apex/loop__looplus?eid={!Invoice_MERC__c.Id}&amp;sessionId={!$Api.Session_ID}</url>

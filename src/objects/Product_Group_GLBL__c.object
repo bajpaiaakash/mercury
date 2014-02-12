@@ -204,12 +204,11 @@ Created by John A Adams 11/1/2013</description>
 Created by John A Adams 11/1/2013</description>
         <externalId>false</externalId>
         <label>Product Group Id</label>
-        <precision>10</precision>
+        <length>10</length>
         <required>false</required>
-        <scale>0</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Number</type>
+        <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -264,6 +263,8 @@ Created by John A Adams 11/1/2013</description>
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
+        <columns>Prod_Grp_Desc_Txt_GLBL__c</columns>
+        <columns>Cntry_Cd_GLBL__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
         <language>en_US</language>
@@ -275,7 +276,18 @@ Created by John A Adams 11/1/2013</description>
     </nameField>
     <pluralLabel>Product Group</pluralLabel>
     <searchLayouts>
+        <customTabListAdditionalFields>Prod_Grp_Desc_Txt_GLBL__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Cntry_Cd_GLBL__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Prod_Grp_Desc_Txt_GLBL__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Cntry_Cd_GLBL__c</lookupDialogsAdditionalFields>
+        <lookupFilterFields>NAME</lookupFilterFields>
+        <lookupFilterFields>Prod_Grp_Desc_Txt_GLBL__c</lookupFilterFields>
+        <lookupFilterFields>Cntry_Cd_GLBL__c</lookupFilterFields>
         <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Prod_Grp_Desc_Txt_GLBL__c</searchFilterFields>
+        <searchFilterFields>Cntry_Cd_GLBL__c</searchFilterFields>
+        <searchResultsAdditionalFields>Prod_Grp_Desc_Txt_GLBL__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Cntry_Cd_GLBL__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

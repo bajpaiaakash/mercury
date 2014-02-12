@@ -8,7 +8,7 @@ public with sharing class MERC_ContentVersionHandler implements GLBL_TriggerHand
 
 	public void execute(list<Sobject> sobjects) {        
 		Set<String> mercuryContentRecordTypes = new Set<String>{
-			'Invoice_MERC', 'Meeting_MERC', 'HCP_Contract_MERC', 'Account_MERC', 'Meeting Participant_MERC', 'Budget_MERC'
+			'Invoice_MERC', 'Meeting_MERC', 'HCP_Contract_MERC', 'Account_MERC', 'Meeting_Participant_MERC', 'Budget_MERC'
 		};
 		List<ContentVersion> documents = (List<ContentVersion>)sobjects;
 		Map<String, String> objectTypeToContentRecordId = new Map<String, String>();
@@ -26,7 +26,7 @@ public with sharing class MERC_ContentVersionHandler implements GLBL_TriggerHand
 			} else if (d.Account_GLBL__c != null) {
 				d.RecordTypeId = objectTypeToContentRecordId.get('Account_MERC');
 			} else if (d.Meeting_Participant_MERC__c != null) {
-				d.RecordTypeId = objectTypeToContentRecordId.get('Meeting Participant_MERC');
+				d.RecordTypeId = objectTypeToContentRecordId.get('Meeting_Participant_MERC');
 			} else if (d.Budget_MERC__c != null) {
 				d.RecordTypeId = objectTypeToContentRecordId.get('Budget_MERC');
 			}

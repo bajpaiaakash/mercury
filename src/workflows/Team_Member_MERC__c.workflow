@@ -22,6 +22,17 @@
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Primary_Meeting_Owner_Email_MERC</fullName>
+        <description>Update Primary Meeting Owner email on Meeting</description>
+        <field>Meeting_Owner_Email_MERC__c</field>
+        <formula>User_MERC__r.Email</formula>
+        <name>Set Primary Meeting Owner Email_MERC</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <targetObject>Meeting_MERC__c</targetObject>
+    </fieldUpdates>
     <outboundMessages>
         <fullName>RTI_Team_Member_Updated</fullName>
         <apiVersion>29.0</apiVersion>
@@ -43,7 +54,6 @@
         <fields>Meeting_MERC__c</fields>
         <fields>Mercury_External_Id_MERC__c</fields>
         <fields>Name</fields>
-        <fields>OwnerId</fields>
         <fields>RecordTypeId</fields>
         <fields>Role_MERC__c</fields>
         <fields>Sales_Rep_Country_Code_MERC__c</fields>
@@ -92,7 +102,28 @@
             <type>OutboundMessage</type>
         </actions>
         <active>true</active>
-        <formula>NOT(ISCHANGED( RTI_Transaction_ID_MERC__c ) )</formula>
+        <formula>NOT(ISCHANGED( RTI_Transaction_ID_MERC__c ) ) &amp;&amp;  (Account_MERC__r.Prsnl_Nbr_GLBL__c) != &apos;&apos;</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Set Meeting Owner_MERC</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Team_Member_MERC__c.Role_MERC__c</field>
+            <operation>equals</operation>
+            <value>Primary Meeting Owner</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Set Primary Meeting Owner Email_MERC</fullName>
+        <actions>
+            <name>Set_Primary_Meeting_Owner_Email_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Set Primary Meeting Owner email address on Meeting object. Created 01/21/2014 by KLorenti, Mavens Consulting</description>
+        <formula>ISPICKVAL(Role_MERC__c,&quot;Primary Meeting Owner&quot;)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>

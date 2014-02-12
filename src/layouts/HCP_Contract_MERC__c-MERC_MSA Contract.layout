@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Upload_Content_MERC</customButtons>
-    <customButtons>Generate_Contract_MERC</customButtons>
+    <customButtons>Generate_Content_MERC</customButtons>
     <customButtons>Request_HCP_Signature_MERC</customButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
@@ -15,7 +15,7 @@
                 <field>Name</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Account_MERC__c</field>
             </layoutItems>
             <layoutItems>
@@ -23,16 +23,12 @@
                 <field>Institution_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Payee_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>MSA_Start_Date_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Prf_Cntrct_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -45,15 +41,15 @@
                 <field>Contract_Request_Status_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Country_MERC__c</field>
+                <behavior>Readonly</behavior>
+                <field>Country_of_Residence_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Contract_Expiration_Date_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>MSA_End_Date_MERC__c</field>
             </layoutItems>
         </layoutColumns>
@@ -68,6 +64,14 @@
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Signing_Parties_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>Lilly_Internal_Signee_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Internal_Lilly_Signee_Email_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

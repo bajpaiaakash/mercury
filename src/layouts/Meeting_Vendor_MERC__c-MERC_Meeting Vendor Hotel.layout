@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <excludeButtons>Clone</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -20,7 +21,7 @@
                 <field>Meeting_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Area_of_Service_MERC__c</field>
             </layoutItems>
             <layoutItems>
@@ -69,6 +70,12 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
+    <miniLayout>
+        <fields>Account_MERC__c</fields>
+        <fields>Meeting_MERC__c</fields>
+        <fields>Area_of_Service_MERC__c</fields>
+        <fields>Room_Rate_MERC__c</fields>
+    </miniLayout>
     <relatedLists>
         <fields>NAME</fields>
         <fields>Meeting_Day_MERC__c</fields>
@@ -84,6 +91,9 @@
         <fields>NAME</fields>
         <fields>Traveller_Name_MERC__c</fields>
         <relatedList>Travel_Itinerary_MERC__c.Meeting_Vendor_MERC__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <relatedList>RelatedEntityHistoryList</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>

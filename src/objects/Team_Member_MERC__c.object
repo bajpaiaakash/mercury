@@ -115,8 +115,7 @@ Created by John A Adams 1/10/2014</description>
     <fields>
         <fullName>Account_External_MERC__c</fullName>
         <externalId>false</externalId>
-        <formula>Account_MERC__r.Mercury_External_Id_MERC__c</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <formula>Account_MERC__r.Prsnl_Nbr_GLBL__c</formula>
         <label>External User External</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -165,17 +164,18 @@ Created by John A Adams 1/10/2014</description>
     </fields>
     <fields>
         <fullName>Meeting_MERC__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
         <description>Master Detail relationship to Meeting object.  Created 9/27/2013 by KLorenti.</description>
         <externalId>false</externalId>
         <label>Meeting</label>
         <referenceTo>Meeting_MERC__c</referenceTo>
         <relationshipLabel>Team Members</relationshipLabel>
         <relationshipName>Team_Members</relationshipName>
-        <required>false</required>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Lookup</type>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
         <fullName>Mercury_External_Id_MERC__c</fullName>
@@ -211,6 +211,10 @@ Created by John A Adams 1/10/2014</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Primary Meeting Owner</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Meeting Owner</fullName>
                 <default>false</default>
             </picklistValues>
@@ -235,7 +239,7 @@ Created by John A Adams 1/10/2014</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Final Budget Approver &amp; Mediator</fullName>
+                <fullName>Final Budget Approver</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -358,7 +362,7 @@ Created by John A Adams 1/10/2014</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Final Budget Approver %26 Mediator</fullName>
+                <fullName>Final Budget Approver</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -371,6 +375,10 @@ Created by John A Adams 1/10/2014</description>
             </values>
             <values>
                 <fullName>Onsite Attendance Checker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Primary Meeting Owner</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -412,7 +420,7 @@ Created by John A Adams 1/10/2014</description>
         <searchResultsAdditionalFields>CREATEDBY_USER</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CREATED_DATE</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
         <fullName>Mercury_User_or_External_User_MERC</fullName>
         <active>true</active>
@@ -431,5 +439,24 @@ Created by John A Adams 1/10/2014</description>
         <page>MERC_MeetingTeamManager</page>
         <protected>false</protected>
         <requireRowSelection>false</requireRowSelection>
+    </webLinks>
+    <webLinks>
+        <fullName>New_Team_Member</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Meeting Team Member</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!URLFOR( 
+$Action.Team_Member_MERC__c.New, 
+null, 
+[saveURL=Meeting_MERC__c.Link+&apos;#&apos;+Meeting_MERC__c.Id+&apos;_00N11000000SbaR_target&apos;, 
+retURL=Meeting_MERC__c.Link, 
+CF00N11000000SbaR=Meeting_MERC__c.Name, 
+CF00N11000000SbaR_lkid=Meeting_MERC__c.Id] 
+)}</url>
     </webLinks>
 </CustomObject>

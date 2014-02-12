@@ -72,7 +72,7 @@
 Customer ODS to Mercury Mapping
 Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
-        <label>Status</label>
+        <label>Status Code</label>
         <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -86,7 +86,7 @@ Created by John A Adams 11/4/2013</description>
 Customer ODS to Mercury Mapping
 Created by John A Adams 12/10/2013</description>
         <externalId>false</externalId>
-        <label>Status Description</label>
+        <label>Status</label>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -114,7 +114,7 @@ Created by John A Adams 11/4/2013</description>
 Customer ODS to Mercury Mapping
 Created by John A Adams 12/10/2013</description>
         <externalId>false</externalId>
-        <label>Subtype Description</label>
+        <label>Subtype</label>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -142,7 +142,7 @@ Created by John A Adams 11/4/2013</description>
 Customer ODS to Mercury Mapping
 Created by John A Adams 12/10/2013</description>
         <externalId>false</externalId>
-        <label>Type Description</label>
+        <label>Type</label>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>

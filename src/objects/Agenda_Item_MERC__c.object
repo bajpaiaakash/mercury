@@ -227,7 +227,7 @@ Created by John A Adams 9/30/2013</description>
         <label>Meeting</label>
         <referenceTo>Meeting_MERC__c</referenceTo>
         <relationshipLabel>Agenda Items</relationshipLabel>
-        <relationshipName>Sessions</relationshipName>
+        <relationshipName>Agenda_Items_MERC</relationshipName>
         <relationshipOrder>0</relationshipOrder>
         <reparentableMasterDetail>false</reparentableMasterDetail>
         <trackHistory>true</trackHistory>

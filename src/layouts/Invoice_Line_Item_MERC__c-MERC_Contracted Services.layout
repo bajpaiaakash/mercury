@@ -23,6 +23,10 @@
                 <behavior>Readonly</behavior>
                 <field>Invoice_Cost_Center_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Payment_Required_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -39,7 +43,7 @@
         <label>Details</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Cost_Element_MERC__c</field>
             </layoutItems>
             <layoutItems>
@@ -48,6 +52,10 @@
             </layoutItems>
             <layoutItems>
                 <emptySpace>true</emptySpace>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Cost_Element_SAP_Code_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

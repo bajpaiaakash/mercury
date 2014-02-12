@@ -1,23 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <alerts>
+        <fullName>Notification_email_of_Non_Compliant_Meeting</fullName>
+        <ccEmails>jadams@mavensconsulting.com</ccEmails>
+        <ccEmails>oliver@mavensconsulting.com</ccEmails>
+        <ccEmails>katy@mavensconsulting.com</ccEmails>
+        <description>Notification email of Non Compliant Meeting</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Meeting_Owner_Email_MERC__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Mercury_Email_Templates_MERC/Non_Compliant_Notification</template>
+    </alerts>
+    <alerts>
         <fullName>Notify_Meeting_Owner_when_Meeting_Status_is_changed_from_Forecasted_to_Cancelled</fullName>
         <description>Notify Meeting Owner when Meeting Status is changed from Forecasted to Cancelled</description>
         <protected>false</protected>
         <recipients>
-            <field>Meeting_Owner_MERC__c</field>
-            <type>userLookup</type>
+            <field>Meeting_Owner_Email_MERC__c</field>
+            <type>email</type>
+        </recipients>
+        <recipients>
+            <type>owner</type>
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>Mercury_Email_Templates_MERC/Cancelled_Meeting</template>
     </alerts>
     <alerts>
-        <fullName>Two_week_compliance_notification_to_Meeting_Owner_MERC</fullName>
+        <fullName>Two_week_compliance_notification_to_Meeting_Owner</fullName>
+        <ccEmails>oliver@mavensconsulting.com</ccEmails>
+        <ccEmails>katy@mavensconsulting.com</ccEmails>
         <description>Two week compliance notification to Meeting Owner</description>
         <protected>false</protected>
         <recipients>
-            <field>Meeting_Owner_MERC__c</field>
-            <type>userLookup</type>
+            <field>Meeting_Owner_Email_MERC__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Mercury_Email_Templates_MERC/Two_week_Compliance_Notification_to_Owner</template>
+    </alerts>
+    <alerts>
+        <fullName>Two_week_compliance_notification_to_Meeting_Owner_MERC</fullName>
+        <ccEmails>oliver@mavensconsulting.com</ccEmails>
+        <ccEmails>katy@mavensconsulting.com</ccEmails>
+        <description>Two week compliance notification to Meeting Owner</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Meeting_Owner_Email_MERC__c</field>
+            <type>email</type>
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>Mercury_Email_Templates_MERC/Two_week_Compliance_Notification_to_Owner</template>
@@ -52,6 +84,104 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Set_Queue_Owner_Australia_New_Zealand</fullName>
+        <description>Set Queue Owner - Australia/New Zealand</description>
+        <field>OwnerId</field>
+        <lookupValue>France_Hub</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Set Queue Owner - Australia/New Zealand</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Queue_Owner_France_Hub</fullName>
+        <field>OwnerId</field>
+        <lookupValue>France_Hub</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Set Queue Owner - France Hub</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Queue_Owner_Germany_Hub</fullName>
+        <description>Sets Queue Owner to Germany Hub</description>
+        <field>OwnerId</field>
+        <lookupValue>Germany_Hub</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Set Queue Owner - Germany Hub</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Queue_Owner_Italy_Hub</fullName>
+        <description>Set Queue Owner to Italy Hub</description>
+        <field>OwnerId</field>
+        <lookupValue>Italy_Hub</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Set Queue Owner - Italy Hub</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Queue_Owner_Russia</fullName>
+        <description>Sets Queue Owner to Russia</description>
+        <field>OwnerId</field>
+        <lookupValue>Russia</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Set Queue Owner - Russia</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Queue_Owner_Spain_Hub</fullName>
+        <description>Set Queue Owner - Spain Hub</description>
+        <field>OwnerId</field>
+        <lookupValue>Spain_Hub</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Set Queue Owner - Spain Hub</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Queue_Owner_Turkey</fullName>
+        <description>Sets Queue Owner to Turkey</description>
+        <field>OwnerId</field>
+        <lookupValue>Turkey</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Set Queue Owner - Turkey</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Queue_Owner_UK_Hub</fullName>
+        <description>Set Queue based on Country of Meeting</description>
+        <field>OwnerId</field>
+        <lookupValue>UK_Hub</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Set Queue Owner - UK Hub</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Queue_Owner_Ukraine</fullName>
+        <description>Set Queue Owner to Ukraine</description>
+        <field>OwnerId</field>
+        <lookupValue>Ukraine</lookupValue>
+        <lookupValueType>Queue</lookupValueType>
+        <name>Set Queue Owner - Ukraine</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Confirm_Cancellation_Change_Check</fullName>
         <description>Updates the &quot;Confirm Meeting Cancellation&quot; checkbox to False. Created 11/19/2013 by KLorenti, Mavens Consulting</description>
         <field>Confirm_Meeting_Cancellation_MERC__c</field>
@@ -75,7 +205,13 @@
         <fullName>Update_Formatted_Name</fullName>
         <description>Update Formatted Name field based certain meeting attributes</description>
         <field>Formatted_Name_MERC__c</field>
-        <formula>Text(Event_Country_MERC__c) &amp;&quot;-&quot;&amp;  TEXT(YEAR(Date_of_Event_MERC__c))&amp; Text(MONTH(Date_of_Event_MERC__c)) &amp; TEXT(DAY(Date_of_Event_MERC__c)) &amp; &quot; - &quot; &amp;  Name</formula>
+        <formula>Text(Event_Country_MERC__c) &amp;
+&quot;-&quot;&amp;  
+TEXT(YEAR(DATEVALUE(Start_Time_of_Meeting_MERC__c))) &amp; Text(MONTH(DATEVALUE(Start_Time_of_Meeting_MERC__c ))) &amp; TEXT(DAY(DATEVALUE(Start_Time_of_Meeting_MERC__c ))) &amp;
+&quot;-&quot; &amp; 
+Meeting_Type_Abbreviation_MERC__c &amp; 
+&quot;-&quot; &amp; 
+Name</formula>
         <name>Update Formatted Name</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
@@ -246,7 +382,6 @@
         <fields>Group_Sponsorship_Meeting_MERC__c</fields>
         <fields>HCO_MERC__c</fields>
         <fields>HCO_Sponsorship_MERC__c</fields>
-        <fields>HCP_Care_Assistance_MERC__c</fields>
         <fields>HCP_Eligibile_for_Sponsorship_MERC__c</fields>
         <fields>HCPs_Attended_MERC__c</fields>
         <fields>Hospitality_Desk_Required_MERC__c</fields>
@@ -275,6 +410,8 @@
         <fields>Meeting_Auto_Nmber_MERC__c</fields>
         <fields>Meeting_Cancellation_Date_MERC__c</fields>
         <fields>Meeting_Objectives_MERC__c</fields>
+        <fields>Meeting_Organiser_Type_MERC__c</fields>
+        <fields>Meeting_Owner_Email_MERC__c</fields>
         <fields>Meeting_Owner_MERC__c</fields>
         <fields>Meeting_Owner_Sales_Rep_MERC__c</fields>
         <fields>Meeting_Room_Setup_MERC__c</fields>
@@ -312,26 +449,27 @@
         <fields>Rep_Cost_Center_MERC__c</fields>
         <fields>Responses_Due_Date_MERC__c</fields>
         <fields>Restauraunt_Information_MERC__c</fields>
-        <fields>RowID__c</fields>
         <fields>Sales_Rep_MERC__c</fields>
         <fields>Send_Save_the_Date_MERC__c</fields>
         <fields>Shipping_Address_for_Invitations_MERC__c</fields>
         <fields>Source_MERC__c</fields>
         <fields>Speaker_MERC__c</fields>
         <fields>Sponsorship_Category_MERC__c</fields>
+        <fields>Sponsorship_Eligibility_Crit_Met_MERC__c</fields>
+        <fields>Sponsorship_Type_MERC__c</fields>
+        <fields>Sponsorship_WO_Lilly_Assistance_MERC__c</fields>
+        <fields>Sponsorship_W_Lilly_Assistance_MERC__c</fields>
         <fields>Start_Date_Meeting_Time_Zone_MERC__c</fields>
         <fields>Start_Time_In_Meeting_Time_Zone__c</fields>
         <fields>Start_Time_of_Meeting_MERC__c</fields>
         <fields>Submit_for_Contracting_MERC__c</fields>
         <fields>SystemModstamp</fields>
-        <fields>Target_Audience_List_MERC__c</fields>
         <fields>Target_Audience_MERC__c</fields>
         <fields>Technical_Requirements_MERC__c</fields>
         <fields>Territory_Description_GLBL__c</fields>
         <fields>Territory_Id_GLBL__c</fields>
         <fields>Therapeutic_Area_MERC__c</fields>
         <fields>Time_for_Restaurant_Booking_MERC__c</fields>
-        <fields>ToV_Reported_MERC__c</fields>
         <fields>Transfers_MERC__c</fields>
         <fields>Travel_Information_MERC__c</fields>
         <fields>Type_MERC__c</fields>
@@ -347,6 +485,31 @@
         <useDeadLetterQueue>false</useDeadLetterQueue>
     </outboundMessages>
     <rules>
+        <fullName>Active_MERC</fullName>
+        <actions>
+            <name>Update_Rec_Type_Ready_for_Sourcing_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Meeting_MERC__c.Meeting_Status_MERC__c</field>
+            <operation>equals</operation>
+            <value>Active</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Meeting_MERC__c.RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>Independent Meeting</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Meeting_MERC__c.RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>Consulting Project</value>
+        </criteriaItems>
+        <description>When Meeting Status is changed to Active, updated Record Type to Active</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
         <fullName>Clear Meeting Cancellation Date_MERC</fullName>
         <actions>
             <name>Clear_Meeting_Cancellation_Date_MERC</name>
@@ -355,7 +518,7 @@
         <active>true</active>
         <description>If Meeting is changed from Cancelled to another status, update the Meeting Cancellation Date to blank. Created 12/19/2013 by KLorenti, Mavens Consulting</description>
         <formula>ISCHANGED(Meeting_Status_MERC__c)&amp;&amp;
-!ISPICKVAL(Meeting_Status_MERC__c,&quot;Cancelled&quot;)</formula>
+!ISPICKVAL(Meeting_Status_MERC__c,&quot;Complete - Cancelled&quot;)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -390,14 +553,19 @@
         <criteriaItems>
             <field>Meeting_MERC__c.Meeting_Status_MERC__c</field>
             <operation>equals</operation>
-            <value>Completed</value>
+            <value>Complete - Closed</value>
         </criteriaItems>
         <criteriaItems>
             <field>Meeting_MERC__c.RecordTypeId</field>
             <operation>notEqual</operation>
-            <value>Independent Sponsorship</value>
+            <value>Independent Meeting</value>
         </criteriaItems>
-        <description>When Meeting Status is changed to Complete updated Record Type to Complete</description>
+        <criteriaItems>
+            <field>Meeting_MERC__c.RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>Consulting Project</value>
+        </criteriaItems>
+        <description>When Meeting Status is changed to Complete - Closed updated Record Type to Complete - Closed</description>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -415,7 +583,12 @@
         <criteriaItems>
             <field>Meeting_MERC__c.RecordTypeId</field>
             <operation>notEqual</operation>
-            <value>Independent Sponsorship</value>
+            <value>Independent Meeting</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Meeting_MERC__c.RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>Consulting Project</value>
         </criteriaItems>
         <description>When Meeting Status is changed to Forecasted, updated Record Type to Forecasted</description>
         <triggerType>onAllChanges</triggerType>
@@ -435,6 +608,21 @@
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
+        <fullName>Non Compliant Notification_MERC</fullName>
+        <actions>
+            <name>Notification_email_of_Non_Compliant_Meeting</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Meeting_MERC__c.Compliant_MERC__c</field>
+            <operation>equals</operation>
+            <value>Yes</value>
+        </criteriaItems>
+        <description>Notification of Non Compliant Meeting sent to Meeting Owner</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
         <fullName>Notify Meeting Owner of Cancelled Meeting_MERC</fullName>
         <actions>
             <name>Notify_Meeting_Owner_when_Meeting_Status_is_changed_from_Forecasted_to_Cancelled</name>
@@ -443,32 +631,16 @@
         <active>true</active>
         <description>Notify Meeting Owner when Meeting Status changes from Forecasted to Cancelled.</description>
         <formula>ISPICKVAL(PRIORVALUE(Meeting_Status_MERC__c),&quot;Forecasted&quot;) &amp;&amp;
-ISPICKVAL(Meeting_Status_MERC__c,&quot;Cancelled&quot;) &amp;&amp;
+ISPICKVAL(Meeting_Status_MERC__c,&quot;Complete - Cancelled&quot;) &amp;&amp;
 ISCHANGED(Meeting_Status_MERC__c)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
-        <fullName>Planned_MERC</fullName>
-        <actions>
-            <name>Update_Rec_Type_Ready_for_Sourcing_MERC</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <criteriaItems>
-            <field>Meeting_MERC__c.Meeting_Status_MERC__c</field>
-            <operation>equals</operation>
-            <value>Active</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Meeting_MERC__c.RecordTypeId</field>
-            <operation>notEqual</operation>
-            <value>Independent Sponsorship</value>
-        </criteriaItems>
-        <description>When Meeting Status is changed to Active, updated Record Type to Active</description>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
         <fullName>RTI - Meeting Updated</fullName>
+        <actions>
+            <name>RTI_Meeting_Updated_MERC</name>
+            <type>OutboundMessage</type>
+        </actions>
         <active>true</active>
         <formula>AND(NOT(ISCHANGED( RTI_Transaction_ID_MERC__c )),NOT( Source_MERC__c  = &apos;Internal&apos;))</formula>
         <triggerType>onAllChanges</triggerType>
@@ -488,7 +660,12 @@ ISCHANGED(Meeting_Status_MERC__c)</formula>
         <criteriaItems>
             <field>Meeting_MERC__c.RecordTypeId</field>
             <operation>notEqual</operation>
-            <value>Independent Sponsorship</value>
+            <value>Independent Meeting</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Meeting_MERC__c.RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>Consulting Project</value>
         </criteriaItems>
         <description>When Meeting Status is changed to Registered, updated Record Type to Registered</description>
         <triggerType>onAllChanges</triggerType>
@@ -502,24 +679,144 @@ ISCHANGED(Meeting_Status_MERC__c)</formula>
         <active>true</active>
         <description>If Meeting is Cancelled, update the Meeting Cancellation Date. Created 12/19/2013 by KLorenti, Mavens Consulting</description>
         <formula>ISCHANGED(Meeting_Status_MERC__c)&amp;&amp;
-ISPICKVAL(Meeting_Status_MERC__c,&quot;Cancelled&quot;)</formula>
+ISPICKVAL(Meeting_Status_MERC__c,&quot;Complete - Cancelled&quot;)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
-        <fullName>Two Week Compliance Notification_MERC</fullName>
+        <fullName>Set Queue Owner - France Hub</fullName>
         <actions>
-            <name>Two_week_compliance_notification_to_Meeting_Owner_MERC</name>
-            <type>Alert</type>
+            <name>Set_Queue_Owner_France_Hub</name>
+            <type>FieldUpdate</type>
         </actions>
+        <active>true</active>
+        <description>Set Queue Owner - France Hub</description>
+        <formula>(ISPICKVAL(Event_Country_MERC__c,&apos;FR&apos;)||
+ISPICKVAL(Event_Country_MERC__c,&apos;NL&apos;)||
+ISPICKVAL(Event_Country_MERC__c,&apos;BE&apos;))&amp;&amp;
+ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Set Queue Owner - Germany Hub</fullName>
+        <actions>
+            <name>Set_Queue_Owner_Germany_Hub</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Set Queue Owner - Germany Hub</description>
+        <formula>(ISPICKVAL(Event_Country_MERC__c,&apos;DE&apos;)||
+ISPICKVAL(Event_Country_MERC__c,&apos;AT&apos;)||
+ISPICKVAL(Event_Country_MERC__c,&apos;CH&apos;))&amp;&amp;
+ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Set Queue Owner - Italy Hub</fullName>
+        <actions>
+            <name>Set_Queue_Owner_Italy_Hub</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Set Queue Owner - Italy Hub</description>
+        <formula>(ISPICKVAL(Event_Country_MERC__c,&apos;IT&apos;)||
+ISPICKVAL(Event_Country_MERC__c,&apos;RO&apos;)||
+ISPICKVAL(Event_Country_MERC__c,&apos;BG&apos;)||
+ISPICKVAL(Event_Country_MERC__c,&apos;HR&apos;)||
+ISPICKVAL(Event_Country_MERC__c,&apos;RS&apos;)||
+ISPICKVAL(Event_Country_MERC__c,&apos;SI&apos;)||
+ISPICKVAL(Event_Country_MERC__c,&apos;CY&apos;)||
+ISPICKVAL(Event_Country_MERC__c,&apos;MT&apos;)||
+ISPICKVAL(Event_Country_MERC__c,&apos;CA&apos;)||
+ISPICKVAL(Event_Country_MERC__c,&apos;HU&apos;)||
+ISPICKVAL(Event_Country_MERC__c,&apos;PL&apos;)||
+ISPICKVAL(Event_Country_MERC__c,&apos;SK&apos;))&amp;&amp;
+ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Set Queue Owner - Russia</fullName>
+        <actions>
+            <name>Set_Queue_Owner_Russia</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Set Queue Owner - Russia</description>
+        <formula>ISPICKVAL(Event_Country_MERC__c,&apos;RU&apos;)&amp;&amp;
+ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Set Queue Owner - Spain Hub</fullName>
+        <actions>
+            <name>Set_Queue_Owner_Spain_Hub</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Set Queue Owner - Spain Hub</description>
+        <formula>(ISPICKVAL(Event_Country_MERC__c,&apos;ES&apos;)||
+ISPICKVAL(Event_Country_MERC__c,&apos;PT&apos;))&amp;&amp;
+ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Set Queue Owner - Turkey</fullName>
+        <actions>
+            <name>Set_Queue_Owner_Turkey</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Set Queue Owner - Turkey</description>
+        <formula>ISPICKVAL(Event_Country_MERC__c,&apos;TR&apos;)&amp;&amp;
+ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Set Queue Owner - UK Hub</fullName>
+        <actions>
+            <name>Set_Queue_Owner_UK_Hub</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Set Queue Owner - UK Hub</description>
+        <formula>(ISPICKVAL(Event_Country_MERC__c,&apos;GB&apos;)||
+ISPICKVAL(Event_Country_MERC__c,&apos;IE&apos;)||
+ISPICKVAL(Event_Country_MERC__c,&apos;SE&apos;)||
+ISPICKVAL(Event_Country_MERC__c,&apos;NO&apos;)||
+ISPICKVAL(Event_Country_MERC__c,&apos;DK&apos;)||
+ISPICKVAL(Event_Country_MERC__c,&apos;FI&apos;)||
+ISPICKVAL(Event_Country_MERC__c,&apos;LV&apos;)||
+ISPICKVAL(Event_Country_MERC__c,&apos;LT&apos;)||
+ISPICKVAL(Event_Country_MERC__c,&apos;EE&apos;))&amp;&amp;
+ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Set Queue Owner - Ukraine</fullName>
+        <actions>
+            <name>Set_Queue_Owner_Ukraine</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Set Queue Owner - Ukraine</description>
+        <formula>ISPICKVAL(Event_Country_MERC__c,&apos;UA&apos;)&amp;&amp;
+ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Two Week Compliance Notification_MERC</fullName>
         <active>true</active>
         <criteriaItems>
             <field>Meeting_MERC__c.Meeting_Status_MERC__c</field>
             <operation>equals</operation>
-            <value>Registered,Submitted for Contracting,Ready for Sourcing</value>
+            <value>Registered,Active</value>
         </criteriaItems>
         <description>Notify Meeting Owner two weeks after meeting creation to remind them to ensure all compliance information has been populated.</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
+            <actions>
+                <name>Two_week_compliance_notification_to_Meeting_Owner</name>
+                <type>Alert</type>
+            </actions>
             <offsetFromField>Meeting_MERC__c.CreatedDate</offsetFromField>
             <timeLength>14</timeLength>
             <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
@@ -559,28 +856,8 @@ ISPICKVAL(Meeting_Status_MERC__c,&quot;Cancelled&quot;)</formula>
         </actions>
         <active>true</active>
         <description>Update the Meeting Start Date and End Date when the Meeting Start Time and End Times are populated</description>
-        <formula>(ISCHANGED(  Start_Time_of_Meeting_MERC__c ) ||
-ISCHANGED( End_Time_of_Meeting_MERC__c ))</formula>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
-        <fullName>Update_RT_Planned_MERC</fullName>
-        <actions>
-            <name>Updated_Record_Type_to_Submitted_MERC</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>false</active>
-        <criteriaItems>
-            <field>Meeting_MERC__c.Meeting_Status_MERC__c</field>
-            <operation>equals</operation>
-            <value>Planned</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Meeting_MERC__c.RecordTypeId</field>
-            <operation>notEqual</operation>
-            <value>Independent Sponsorship</value>
-        </criteriaItems>
-        <description>When Meeting Status is changed to Planned, updated Record Type to Meeting - Planned</description>
+        <formula>ISNEW() || (ISCHANGED( Start_Time_In_Meeting_Time_Zone__c) || 
+ISCHANGED( End_Time_In_Meeting_Time_Zone_MERC__c ))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>

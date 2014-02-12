@@ -77,6 +77,7 @@
         <description>Cost Center  provided by Budget Owner
 Created by John A Adams 10/11/2013</description>
         <externalId>false</externalId>
+        <inlineHelpText>If more Cost Centers need to be entered, please enter in the Additional Information section below.</inlineHelpText>
         <label>Cost Center</label>
         <length>10</length>
         <required>false</required>
@@ -483,6 +484,17 @@ Created by J Adams 12/10/2013</description>
         <masterLabel>New Version</masterLabel>
         <openType>sidebar</openType>
         <page>MERC_NewBudgetVersion</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>Upload_Content</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Upload Content</masterLabel>
+        <openType>sidebar</openType>
+        <page>MERC_NewBudgetContent</page>
         <protected>false</protected>
     </webLinks>
 </CustomObject>

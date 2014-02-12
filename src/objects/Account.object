@@ -85,11 +85,11 @@ Created by John A Adams 10/2/2013</description>
         <label>Academic Qualifications</label>
         <picklist>
             <picklistValues>
-                <fullName>Specialist</fullName>
+                <fullName>MD Specialist</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>MD</fullName>
+                <fullName>MD non- specialist or GP</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -97,11 +97,11 @@ Created by John A Adams 10/2/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>PhD</fullName>
+                <fullName>PhD non-MD</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>MSc,BSc</fullName>
+                <fullName>MSc, BSc</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -172,27 +172,6 @@ Created by John A Adams 10/2/2013</description>
         <trackHistory>false</trackHistory>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Add_to_ODS_MERC__c</fullName>
-        <description>Non-HCP&apos;s can be created in Mercury.  This flag indicates if record should be added to ODS.
-Created by John A Adams 10/24/2013</description>
-        <externalId>false</externalId>
-        <label>Add to ODS</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Advisory_Board_Experience_MERC__c</fullName>
@@ -440,7 +419,7 @@ Created by John A Adams 10/16/2013</description>
         <fullName>Clsfctn_Cd_GLBL__c</fullName>
         <description>Maps to Customer.ODS.Classification field.  Created by Oliver Dunford 25th Oct 2013</description>
         <externalId>false</externalId>
-        <label>Classification</label>
+        <label>Classification Code</label>
         <length>50</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -454,7 +433,7 @@ Created by John A Adams 10/16/2013</description>
 Customer ODS to Mercury Mapping
 Created by John A Adams 12/10/2013</description>
         <externalId>false</externalId>
-        <label>Classification Description</label>
+        <label>Classification</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -551,7 +530,7 @@ Created by John A Adams 10/24/2013</description>
         <label>Contract Limitations on Use</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <type>TextArea</type>
     </fields>
     <fields>
@@ -1756,7 +1735,7 @@ Created by John A Adams 11/4/2013</description>
 Customer ODS to Mercury Mapping
 Created by John A Adams 12/10/2013</description>
         <externalId>false</externalId>
-        <label>Customer Type Description</label>
+        <label>Customer Type</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1870,7 +1849,7 @@ Created by John A Adams 11/4/2013</description>
 Customer ODS to Mercury Mapping
 Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
-        <label>Phone2 Extension Code</label>
+        <label>Phone Number 2 Ext</label>
         <length>15</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1884,7 +1863,7 @@ Created by John A Adams 11/4/2013</description>
 Customer ODS to Mercury Mapping
 Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
-        <label>Phone2 Electronic Address Text</label>
+        <label>Phone Number 2</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -1910,7 +1889,7 @@ Created by John A Adams 11/4/2013</description>
 Customer ODS to Mercury Mapping
 Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
-        <label>Email Electronic Address</label>
+        <label>Email Address</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -1922,7 +1901,7 @@ Created by John A Adams 11/4/2013</description>
 Customer ODS to Mercury Mapping
 Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
-        <label>Phone1 Extension Code</label>
+        <label>Phone Number 1 Ext</label>
         <length>15</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1950,7 +1929,7 @@ Created by John A Adams 11/4/2013</description>
 Customer ODS to Mercury Mapping
 Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
-        <label>Fax Extension Code</label>
+        <label>Fax Number Ext</label>
         <length>15</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1964,7 +1943,7 @@ Created by John A Adams 11/4/2013</description>
 Customer ODS to Mercury Mapping
 Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
-        <label>Fax Electronic Address Text</label>
+        <label>Fax Number</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -1976,7 +1955,7 @@ Created by John A Adams 11/4/2013</description>
 Customer ODS to Mercury Mapping
 Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
-        <label>Phone1 Electronic Address Text</label>
+        <label>Phone Number 1</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -1988,7 +1967,7 @@ Created by John A Adams 11/4/2013</description>
 Customer ODS to Mercury Mapping
 Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
-        <label>Web Electronic Address</label>
+        <label>Web Address</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -2047,6 +2026,31 @@ Created by John A Adams 12/18/2013</description>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>FMV_Criteria_Map_MERC__c</fullName>
+        <description>Returns the equivalent mapping based on the Tier of the HCP and their Academic Qualifications.  This is then mapped to the FMV table for the Country of the HCP to return the Maximum and Minimum hourly rates for the HCP.  This logic is picked up by Apex to map to the FMV Custom Settings table. Case Statement not support for multi-select picklist. Oliver Dunford 10th Feb 2014.</description>
+        <externalId>false</externalId>
+        <formula>IF ( INCLUDES ( Academic_Qualifications_MERC__c , &quot;MD Specialist&quot; ), 
+	&quot;T&quot; &amp; TEXT(Service_Provider_Tier_MERC__c) &amp; &quot; Specialist&quot;, 
+		IF ( INCLUDES ( Academic_Qualifications_MERC__c , &quot;MD non- specialist or GP&quot;), 
+			&quot;T&quot; &amp; TEXT(Service_Provider_Tier_MERC__c) &amp; &quot; GP&quot;, 
+				IF ( INCLUDES ( Academic_Qualifications_MERC__c , &quot;PhD non-MD&quot; ), 
+					&quot;T&quot; &amp; TEXT(Service_Provider_Tier_MERC__c) &amp; &quot; PhD&quot;, 
+						IF ( INCLUDES ( Academic_Qualifications_MERC__c , &quot;Non-MD Health care professional&quot; ), 
+							&quot;T&quot; &amp; TEXT(Service_Provider_Tier_MERC__c) &amp; &quot; Non-MD&quot;, 
+								IF ( INCLUDES ( Academic_Qualifications_MERC__c , &quot;MSc, BSc&quot; ), 
+									&quot;T&quot; &amp; TEXT(Service_Provider_Tier_MERC__c) &amp; &quot; Non-MD&quot;
+										, NULL) 
+						)
+				)
+		)		
+)</formula>
+        <label>FMV Criteria Map</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Fax_Phone_Cntry_Cd_GLBL__c</fullName>
@@ -2120,7 +2124,7 @@ Created by John A Adams 11/4/2013</description>
 Customer ODS to Mercury Mapping
 Created by John A Adams 12/10/2013</description>
         <externalId>false</externalId>
-        <label>Gender Description</label>
+        <label>Gender</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -2166,23 +2170,18 @@ Created by John A Adams 11/4/2013</description>
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
-        <fullName>HCP_Profile_Status_GLBL__c</fullName>
-        <description>Records the status of the Health Care Provider profile
-Lilly contact tailor initial contact discussio</description>
+        <fullName>Has_MSA_MERC__c</fullName>
+        <description>Indicates if HCP Has an MSA Contract. Created 02/10/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <label>HCP Profile Status</label>
+        <label>Has MSA</label>
         <picklist>
             <picklistValues>
-                <fullName>HCP Profile Complete</fullName>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>HCP Profile Incomplete - FMV Tier Missing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>HCP Profile Incomplete - FMV Tier Available</fullName>
-                <default>false</default>
+                <fullName>No</fullName>
+                <default>true</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -2564,27 +2563,6 @@ Created by John A Adams 10/28/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Licensed_in_USA_MERC__c</fullName>
-        <description>Records if HCP is licensed to practice in the USA
-Created by John A Adams 10/17/2013</description>
-        <externalId>false</externalId>
-        <label>Licensed in USA</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>Lilly_Company_Code_GLBL__c</fullName>
         <description>The Lilly Affiliate Company code. Created by John Adams 12/11/2013</description>
         <externalId>false</externalId>
@@ -2608,6 +2586,16 @@ Created by John A Adams 12/11/2013</description>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MSA_Expiration_Date_MERC__c</fullName>
+        <description>MSA Expiration Date from HCP Contract. Created 02/10/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>MSA Expiration Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Mdl_Nm_GLBL__c</fullName>
@@ -3345,14 +3333,13 @@ Created by John A Adams 11/4/2013</description>
     <fields>
         <fullName>Prsnl_Nbr_GLBL__c</fullName>
         <description>Workforce ODS data. Created 10/17/2013 by KLorenti, Mavens Consulting</description>
-        <externalId>true</externalId>
+        <externalId>false</externalId>
         <label>Global ID</label>
-        <precision>8</precision>
+        <length>8</length>
         <required>false</required>
-        <scale>0</scale>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
-        <type>Number</type>
+        <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -3433,7 +3420,7 @@ Created by John A Adams 10/23/2013</description>
         <relationshipName>Accounts</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -3553,7 +3540,7 @@ Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
         <label>Service Provider?</label>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -3565,7 +3552,7 @@ Created by John A Adams 11/4/2013</description>
         <required>false</required>
         <scale>0</scale>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -3585,7 +3572,6 @@ Created by John A Adams 11/4/2013</description>
     </fields>
     <fields>
         <fullName>Social_Security_Number_MERC__c</fullName>
-        <caseSensitive>false</caseSensitive>
         <description>Social Security Number
 Stores Account Owner&apos;s SSN
 Created by John A Adams 10/17/2013</description>
@@ -3596,7 +3582,7 @@ Created by John A Adams 10/17/2013</description>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <type>Text</type>
-        <unique>true</unique>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Source_Block_GLBL__c</fullName>
@@ -3778,12 +3764,11 @@ Created by John A Adams 12/10/2013</description>
         <description>Workforce ODS data. Created 10/18/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Supervisor Global Id</label>
-        <precision>8</precision>
+        <length>8</length>
         <required>false</required>
-        <scale>0</scale>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
-        <type>Number</type>
+        <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -3811,27 +3796,6 @@ Created by John A Adams 12/10/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Thought_Leader_MERC__c</fullName>
-        <description>This enable Affiliates to flag Speakers as &quot;Thought Leaders&quot;. This eventually improves the Search process for Affiliates.
-Created by John A Adams 10/23/2013</description>
-        <externalId>false</externalId>
-        <label>Thought Leader</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>Tier_1_Criteria_Met_MERC__c</fullName>
         <description>Defines whether Tier 1 criteria for Tiering have been met. Set via workflow. Oliver Dunford 13th Jan</description>
         <externalId>false</externalId>
@@ -3839,7 +3803,7 @@ Created by John A Adams 10/23/2013</description>
         <length>10</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -3869,7 +3833,7 @@ Created by John A Adams 10/23/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -3893,7 +3857,7 @@ Created by John A Adams 10/23/2013</description>
         <length>10</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -3918,7 +3882,7 @@ Created by John A Adams 10/23/2013</description>
         <length>10</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -3956,20 +3920,12 @@ Created by John A Adams 10/22/2013</description>
         <externalId>false</externalId>
         <inlineHelpText>HCP is not consenting to having their information included in Transparency Reports</inlineHelpText>
         <label>Transparency Reporting Consent</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
+        <length>6</length>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Trng_Acct_Flg_GLBL__c</fullName>
@@ -4065,7 +4021,7 @@ Created by John A Adams 11/4/2013</description>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
-        <type>Currency</type>
+        <type>Percent</type>
     </fields>
     <fields>
         <fullName>Veeva_Organization_MERC__c</fullName>
@@ -4190,7 +4146,7 @@ Created by John A Adams 11/4/2013</description>
         <language>en_US</language>
     </listViews>
     <listViews>
-        <fullName>All_Vendors</fullName>
+        <fullName>All_Lilly_Affiliates</fullName>
         <columns>ACCOUNT.NAME</columns>
         <columns>Primary_Addr_Line1_GLBL__c</columns>
         <columns>Primary_Addr_Line2_GLBL__c</columns>
@@ -4201,9 +4157,9 @@ Created by John A Adams 11/4/2013</description>
         <filters>
             <field>ACCOUNT.RECORDTYPE</field>
             <operation>equals</operation>
-            <value>Account.Vendor_GLBL</value>
+            <value>Account.Lilly_Affiliate_Business_GLBL</value>
         </filters>
-        <label>All Vendors</label>
+        <label>All Lilly Affiliates</label>
         <language>en_US</language>
     </listViews>
     <listViews>
@@ -4282,6 +4238,23 @@ Created by John A Adams 11/4/2013</description>
             <operation>notEqual</operation>
         </filters>
         <label>RTI</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>SAP_Test_Accounts</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>Country_Code_MERC__c</columns>
+        <columns>Country_of_Residence_GLBL__c</columns>
+        <columns>Service_Provider_Tier_MERC__c</columns>
+        <columns>Primary_Address_Country_GLBL__c</columns>
+        <columns>Prim_Affil_Addr_Country_GLBL__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ACCOUNT.NAME</field>
+            <operation>contains</operation>
+            <value>sap</value>
+        </filters>
+        <label>SAP Test Accounts</label>
         <language>en_US</language>
     </listViews>
     <namedFilters>
@@ -4392,9 +4365,22 @@ Created by John A Adams 11/4/2013</description>
         <name>Meeting Participant_Account</name>
     </namedFilters>
     <namedFilters>
+        <fullName>nf_01I11000000Ck6cEAC_00N11000000TYIWEA4</fullName>
+        <active>true</active>
+        <field>HCP_Contract_MERC__c.Lilly_Internal_Signee_MERC__c</field>
+        <filterItems>
+            <field>Account.RecordType.Name</field>
+            <operation>equals</operation>
+            <value>Employee</value>
+        </filterItems>
+        <infoMessage>If you cannot find the Employee you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+        <isOptional>false</isOptional>
+        <name>HCP Contract_Lilly Internal Signee</name>
+    </namedFilters>
+    <namedFilters>
         <fullName>nf_01I11000000CkBhEAK_00N11000000Sf1fEAC</fullName>
         <active>true</active>
-        <booleanFilter>1 OR 2</booleanFilter>
+        <booleanFilter>1 OR 2 OR 3</booleanFilter>
         <field>Meeting_Vendor_MERC__c.Account_MERC__c</field>
         <filterItems>
             <field>Account.RecordTypeId</field>
@@ -4405,6 +4391,11 @@ Created by John A Adams 11/4/2013</description>
             <field>Account.RecordTypeId</field>
             <operation>equals</operation>
             <value>Third Party Organization</value>
+        </filterItems>
+        <filterItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Venue</value>
         </filterItems>
         <isOptional>false</isOptional>
         <name>Meeting Vendor_Account</name>
@@ -4419,11 +4410,11 @@ Created by John A Adams 11/4/2013</description>
         <picklistValues>
             <picklist>Academic_Qualifications_MERC__c</picklist>
             <values>
-                <fullName>MD</fullName>
+                <fullName>MD non- specialist or GP</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>PhD</fullName>
+                <fullName>PhD non-MD</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4471,17 +4462,6 @@ Created by John A Adams 11/4/2013</description>
             </values>
             <values>
                 <fullName>Word of mouth</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Add_to_ODS_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5570,17 +5550,13 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>HCP_Profile_Status_GLBL__c</picklist>
+            <picklist>Has_MSA_MERC__c</picklist>
             <values>
-                <fullName>HCP Profile Complete</fullName>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>HCP Profile Incomplete - FMV Tier Available</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HCP Profile Incomplete - FMV Tier Missing</fullName>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5786,17 +5762,6 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Licensed_in_USA_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Multiple_Specialties_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -5938,17 +5903,6 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Thought_Leader_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Tier_1_HCP_CV_Checked_MERC__c</picklist>
             <values>
                 <fullName>Confirmed HCP is Tier 1</fullName>
@@ -5956,17 +5910,6 @@ Created by John A Adams 11/4/2013</description>
             </values>
             <values>
                 <fullName>Not Required</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Transparency_Reporting_Opt_Out_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6032,16 +5975,16 @@ Created by John A Adams 11/4/2013</description>
     <recordTypes>
         <fullName>Lilly_Affiliate_Business_GLBL</fullName>
         <active>true</active>
-        <description>Lilly affiliate business.</description>
+        <description>Lilly Affiliate Business</description>
         <label>Lilly Affiliate Business</label>
         <picklistValues>
             <picklist>Academic_Qualifications_MERC__c</picklist>
             <values>
-                <fullName>MD</fullName>
+                <fullName>MD non- specialist or GP</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>PhD</fullName>
+                <fullName>PhD non-MD</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6089,17 +6032,6 @@ Created by John A Adams 11/4/2013</description>
             </values>
             <values>
                 <fullName>Word of mouth</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Add_to_ODS_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7188,17 +7120,13 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>HCP_Profile_Status_GLBL__c</picklist>
+            <picklist>Has_MSA_MERC__c</picklist>
             <values>
-                <fullName>HCP Profile Complete</fullName>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>HCP Profile Incomplete - FMV Tier Available</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HCP Profile Incomplete - FMV Tier Missing</fullName>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7404,17 +7332,6 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Licensed_in_USA_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Multiple_Specialties_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -7556,17 +7473,6 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Thought_Leader_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Tier_1_HCP_CV_Checked_MERC__c</picklist>
             <values>
                 <fullName>Confirmed HCP is Tier 1</fullName>
@@ -7574,17 +7480,6 @@ Created by John A Adams 11/4/2013</description>
             </values>
             <values>
                 <fullName>Not Required</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Transparency_Reporting_Opt_Out_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7655,11 +7550,11 @@ Created by John A Adams 11/4/2013</description>
         <picklistValues>
             <picklist>Academic_Qualifications_MERC__c</picklist>
             <values>
-                <fullName>MD</fullName>
+                <fullName>MD non- specialist or GP</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>PhD</fullName>
+                <fullName>PhD non-MD</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7707,17 +7602,6 @@ Created by John A Adams 11/4/2013</description>
             </values>
             <values>
                 <fullName>Word of mouth</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Add_to_ODS_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7814,17 +7698,13 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>HCP_Profile_Status_GLBL__c</picklist>
+            <picklist>Has_MSA_MERC__c</picklist>
             <values>
-                <fullName>HCP Profile Complete</fullName>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>HCP Profile Incomplete - FMV Tier Available</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HCP Profile Incomplete - FMV Tier Missing</fullName>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8030,17 +7910,6 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Licensed_in_USA_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Multiple_Specialties_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -8178,17 +8047,6 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Thought_Leader_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Tier_1_HCP_CV_Checked_MERC__c</picklist>
             <values>
                 <fullName>Confirmed HCP is Tier 1</fullName>
@@ -8196,17 +8054,6 @@ Created by John A Adams 11/4/2013</description>
             </values>
             <values>
                 <fullName>Not Required</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Transparency_Reporting_Opt_Out_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8277,11 +8124,11 @@ Created by John A Adams 11/4/2013</description>
         <picklistValues>
             <picklist>Academic_Qualifications_MERC__c</picklist>
             <values>
-                <fullName>MD</fullName>
+                <fullName>MD non- specialist or GP</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>PhD</fullName>
+                <fullName>PhD non-MD</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8329,17 +8176,6 @@ Created by John A Adams 11/4/2013</description>
             </values>
             <values>
                 <fullName>Word of mouth</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Add_to_ODS_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9428,17 +9264,13 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>HCP_Profile_Status_GLBL__c</picklist>
+            <picklist>Has_MSA_MERC__c</picklist>
             <values>
-                <fullName>HCP Profile Complete</fullName>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>HCP Profile Incomplete - FMV Tier Available</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HCP Profile Incomplete - FMV Tier Missing</fullName>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9644,17 +9476,6 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Licensed_in_USA_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Multiple_Specialties_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -9796,17 +9617,6 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Thought_Leader_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Tier_1_HCP_CV_Checked_MERC__c</picklist>
             <values>
                 <fullName>Confirmed HCP is Tier 1</fullName>
@@ -9814,17 +9624,6 @@ Created by John A Adams 11/4/2013</description>
             </values>
             <values>
                 <fullName>Not Required</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Transparency_Reporting_Opt_Out_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9890,16 +9689,16 @@ Created by John A Adams 11/4/2013</description>
     <recordTypes>
         <fullName>Vendor_GLBL</fullName>
         <active>true</active>
-        <description>Vendor for meeting services</description>
+        <description>Vendor for Meeting Services</description>
         <label>Vendor</label>
         <picklistValues>
             <picklist>Academic_Qualifications_MERC__c</picklist>
             <values>
-                <fullName>MD</fullName>
+                <fullName>MD non- specialist or GP</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>PhD</fullName>
+                <fullName>PhD non-MD</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9947,17 +9746,6 @@ Created by John A Adams 11/4/2013</description>
             </values>
             <values>
                 <fullName>Word of mouth</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Add_to_ODS_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11046,17 +10834,13 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>HCP_Profile_Status_GLBL__c</picklist>
+            <picklist>Has_MSA_MERC__c</picklist>
             <values>
-                <fullName>HCP Profile Complete</fullName>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>HCP Profile Incomplete - FMV Tier Available</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HCP Profile Incomplete - FMV Tier Missing</fullName>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11252,17 +11036,6 @@ Created by John A Adams 11/4/2013</description>
         </picklistValues>
         <picklistValues>
             <picklist>Licensed_HCP_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Licensed_in_USA_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -11410,17 +11183,6 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Thought_Leader_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Tier_1_HCP_CV_Checked_MERC__c</picklist>
             <values>
                 <fullName>Confirmed HCP is Tier 1</fullName>
@@ -11428,17 +11190,6 @@ Created by John A Adams 11/4/2013</description>
             </values>
             <values>
                 <fullName>Not Required</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Transparency_Reporting_Opt_Out_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11504,16 +11255,16 @@ Created by John A Adams 11/4/2013</description>
     <recordTypes>
         <fullName>Venue_GLBL</fullName>
         <active>true</active>
-        <description>Location of meeting</description>
+        <description>Location of Meeting</description>
         <label>Venue</label>
         <picklistValues>
             <picklist>Academic_Qualifications_MERC__c</picklist>
             <values>
-                <fullName>MD</fullName>
+                <fullName>MD non- specialist or GP</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>PhD</fullName>
+                <fullName>PhD non-MD</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11561,17 +11312,6 @@ Created by John A Adams 11/4/2013</description>
             </values>
             <values>
                 <fullName>Word of mouth</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Add_to_ODS_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12660,17 +12400,13 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>HCP_Profile_Status_GLBL__c</picklist>
+            <picklist>Has_MSA_MERC__c</picklist>
             <values>
-                <fullName>HCP Profile Complete</fullName>
+                <fullName>No</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>HCP Profile Incomplete - FMV Tier Available</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HCP Profile Incomplete - FMV Tier Missing</fullName>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12866,17 +12602,6 @@ Created by John A Adams 11/4/2013</description>
         </picklistValues>
         <picklistValues>
             <picklist>Licensed_HCP_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Licensed_in_USA_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -13028,17 +12753,6 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Thought_Leader_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Tier_1_HCP_CV_Checked_MERC__c</picklist>
             <values>
                 <fullName>Confirmed HCP is Tier 1</fullName>
@@ -13046,17 +12760,6 @@ Created by John A Adams 11/4/2013</description>
             </values>
             <values>
                 <fullName>Not Required</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Transparency_Reporting_Opt_Out_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

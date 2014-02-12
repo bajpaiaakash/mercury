@@ -62,6 +62,7 @@ public virtual with sharing class GLBL_BaseEditController {
 
 	public class Field {
 		public Boolean readOnly { get; set; }
+		public Boolean blankSpace { get; set; }
 		public String id { get; set; }
 		public String value { get; set; }
 		public Boolean required { get; set; }
@@ -78,27 +79,30 @@ public virtual with sharing class GLBL_BaseEditController {
 
 		        sobjectPartnerSoapSforceCom.Soap handler = HandlerMetadataInit();
 
-	        	//if running test, we can't make a callout, so this won't work.
 	        	//sObjectRecordType is the recordtype of the sobject. If the sobject has no recordtype, then it's null and it's still fine.
 	            sobjectPartnerSoapSforceCom.DescribeLayoutResult LayoutResult = handler.describeLayout(this.sObjectAPIName, new list<String>{sObjectRecordType});
 
-	            if(LayoutResult != null) {
+	            if (LayoutResult != null) {
 	            	//we take the first one because we queried only one recordtype.               
-	                for(sobjectPartnerSoapSforceCom.DescribeLayoutSection LayoutSection:LayoutResult.Layouts.get(0).editLayoutSections) {
+	                for (sobjectPartnerSoapSforceCom.DescribeLayoutSection LayoutSection : LayoutResult.Layouts.get(0).editLayoutSections) {
 	                   	//the different sections.
-	                   	
+	                   	//System.debug('LAYOUT SECTION ---> '+LayoutSection);
+	                   	//System.debug('LAYOUT SECTION HEADING ---> '+LayoutSection.heading);
+
 						pBs = new PageBlockSection(LayoutSection.columns);
 
 	                   	if (LayoutSection.useHeading==true) {
 							pBS.title = LayoutSection.heading;
 						}
 
-	                    for(sobjectPartnerSoapSforceCom.DescribeLayoutRow layoutRow:LayoutSection.layoutRows) {
-	                        for(sobjectPartnerSoapSforceCom.DescribeLayoutItem layoutItem:layoutRow.layoutItems) {
-	                           	if(layoutItem.layoutComponents!=null){
+	                    for (sobjectPartnerSoapSforceCom.DescribeLayoutRow layoutRow:LayoutSection.layoutRows) {
+	                        //System.debug('LAYOUT ROW ---> '+layoutRow);
+	                        for (sobjectPartnerSoapSforceCom.DescribeLayoutItem layoutItem:layoutRow.layoutItems) {
+	                           	//System.debug('LAYOUT ITEM ---> '+layoutItem);
+	                           	if (layoutItem.layoutComponents != null) {
 	                                //fields
 	                                for (sobjectPartnerSoapSforceCom.DescribeLayoutComponent layoutComponent : layoutItem.layoutComponents) {
-	                                  	if(layoutComponent.value=='OwnerId' || layoutComponent.value=='RecordTypeId' ){
+	                                  	if (layoutComponent.value=='OwnerId' || layoutComponent.value=='RecordTypeId') {
 	                                  		//The user shouldn't change the OwnerId/RecordType this way.
 	                                  	}
 	                                  	else if (layoutitem.editable == false && layoutComponent.value != null) {
@@ -119,19 +123,18 @@ public virtual with sharing class GLBL_BaseEditController {
 	                                }
 	                            }
 	                            else {
-	                            	//small workaround for adding empty fields when the layout require it
-	                            	//in order to reproduce to 100% the standard layout.
-	                            	//pBS.childComponents.add(new Component.Apex.OutputText());
+	                            	f = new Field();
+	                            	f.blankspace = true;
+	                            	pBs.fields.add(f);
 	                            }
 	                           
 	                        }
 	                    }
+	                    pBs.index = sections.size();
 	                    sections.add(pBs);
 	                }
 	            }
 			}
-			for (Integer i = 0; i < sections.size(); i++)
-				sections.get(i).index = i;
 			return sections;
 		} 
 		private set; 

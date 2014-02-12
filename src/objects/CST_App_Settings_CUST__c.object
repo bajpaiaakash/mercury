@@ -48,6 +48,7 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Holds application-wide settings for the Customer Search Tool</description>
     <enableActivities>false</enableActivities>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>false</enableReports>

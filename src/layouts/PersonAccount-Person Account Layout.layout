@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -163,23 +164,13 @@
         <fields>Interaction_Channel_Type_GLBL__c</fields>
         <fields>Speaker_Interest_GLBL__c</fields>
         <fields>Permission_Status_GLBL__c</fields>
-        <relatedList>Communication_Preference_GLBL__c.Account_GLBL__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>Meeting_MERC__c</fields>
-        <fields>NAME</fields>
-        <fields>Status_MERC__c</fields>
-        <relatedList>Meeting_Participant_MERC__c.Account_MERC__c</relatedList>
+        <relatedList>Preferences_and_Consent_GLBL__c.Account_GLBL__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
         <fields>Meeting_MERC__c</fields>
         <fields>Area_of_Service_MERC__c</fields>
         <relatedList>Meeting_Vendor_MERC__c.Account_MERC__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>Meeting_Third_Party_MERC__c.Account_MERC__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>VERSION.TITLE</fields>

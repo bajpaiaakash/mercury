@@ -13,20 +13,23 @@
     <outboundMessages>
         <fullName>RTI_Meeting_Product_Updated_MERC</fullName>
         <apiVersion>29.0</apiVersion>
-        <endpointUrl>https://cs18.salesforce.com/04k110000004CFk</endpointUrl>
+        <endpointUrl>http://ec2-54-227-9-128.compute-1.amazonaws.com/rti-development/v1/genericUpdated</endpointUrl>
         <fields>CreatedById</fields>
         <fields>CreatedDate</fields>
         <fields>CurrencyIsoCode</fields>
         <fields>Detail_Sequence_MERC__c</fields>
         <fields>Id</fields>
         <fields>Indication_Description_MERC__c</fields>
+        <fields>Indication_External_MERC__c</fields>
         <fields>Indication_MERC__c</fields>
         <fields>IsDeleted</fields>
         <fields>LastModifiedById</fields>
         <fields>LastModifiedDate</fields>
+        <fields>Meeting_External_MERC__c</fields>
         <fields>Meeting_MERC__c</fields>
         <fields>Mercury_External_Id_MERC__c</fields>
         <fields>Name</fields>
+        <fields>Product_External_ID_MERC__c</fields>
         <fields>Product_Group_Id_MERC__c</fields>
         <fields>Product_MERC__c</fields>
         <fields>SystemModstamp</fields>

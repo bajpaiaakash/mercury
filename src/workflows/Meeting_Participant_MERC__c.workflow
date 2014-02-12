@@ -5,8 +5,51 @@
         <ccEmails>jadams@mavensconsulting.com</ccEmails>
         <description>A Non-HCP participant has been created for a meeting and email requesting Managerial Approval will be sent.</description>
         <protected>false</protected>
+        <recipients>
+            <recipient>meeting.owner@lilly.gso.test</recipient>
+            <type>user</type>
+        </recipients>
         <senderType>DefaultWorkflowUser</senderType>
         <template>Mercury_Email_Templates_MERC/Non_HCP_Approval_MERC</template>
+    </alerts>
+    <alerts>
+        <fullName>Notifies_Meeting_Owner_of_Final_Fee</fullName>
+        <ccEmails>oliver@mavensconsulting.com</ccEmails>
+        <ccEmails>katy@mavensconsulting.com</ccEmails>
+        <description>Notifies Meeting Owner of Final Fee</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Meeting_Owner_Email_MERC__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Mercury_Email_Templates_MERC/Final_Fee_Calculation_Email</template>
+    </alerts>
+    <alerts>
+        <fullName>Notify_Meeting_Owner_when_Final_Fee_is_Rejected_MERC</fullName>
+        <ccEmails>oliver@mavensconsulting.com</ccEmails>
+        <ccEmails>katy@mavensconsulting.com</ccEmails>
+        <description>Notify Meeting Owner when Final Fee is Rejected</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Meeting_Owner_Email_MERC__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Mercury_Email_Templates_MERC/Final_Fee_Rejection_Email</template>
+    </alerts>
+    <alerts>
+        <fullName>Notify_Meeting_Owner_when_Tiering_is_Complete</fullName>
+        <ccEmails>katy@mavensconsulting.com,</ccEmails>
+        <ccEmails>oliver@mavensconsulting.com</ccEmails>
+        <description>Notify Meeting Owner when Tiering is Complete</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Meeting_Owner_Email_MERC__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Mercury_Email_Templates_MERC/Tier_Calculation_Complete</template>
     </alerts>
     <fieldUpdates>
         <fullName>Clear_Confirm_Partial_Payment_Amt_MERC</fullName>
@@ -14,6 +57,16 @@
         <field>Confirm_Partial_Payment_Amount_MERC__c</field>
         <literalValue>0</literalValue>
         <name>Clear Confirm Partial Payment Amt_MERC</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Clear_Confirm_ToV_Reporting_Change_MERC</fullName>
+        <description>Set Confirm ToV Reporting Change checkbox to FALSE after each record update.</description>
+        <field>Confirm_ToV_Reporting_Change_MERC__c</field>
+        <literalValue>0</literalValue>
+        <name>Clear Confirm ToV Reporting Change_MERC</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -49,6 +102,26 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Set_CoPay_Updated_DateTime_MERC</fullName>
+        <description>Sets the CoPay Updates Date/Time field to NOW().  Indicating that CoPay has been updated so that AODS can pull the information. Oliver Dunford 11th Feb 2014.</description>
+        <field>Participant_CoPay_Updated_Date_MERC__c</field>
+        <formula>NOW()</formula>
+        <name>Set CoPay Updated DateTime</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <targetObject>Meeting_MERC__c</targetObject>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Meeting_Owner_Email_MERC</fullName>
+        <field>Meeting_Owner_Email_MERC__c</field>
+        <formula>Meeting_MERC__r.Meeting_Owner_Email_MERC__c</formula>
+        <name>Set Meeting Owner Email_MERC</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Confirm_Final_Fee_to_Pending</fullName>
         <description>Update Confirm Final Fee back to Pending Confirmation if the Proposed Final Fee is edited.</description>
         <field>Confirm_Final_Fee_MERC__c</field>
@@ -67,6 +140,17 @@
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Copay_Update_Date</fullName>
+        <description>Update Copay Update date with current date</description>
+        <field>Participant_CoPay_Updated_Date_MERC__c</field>
+        <formula>Now()</formula>
+        <name>Update Copay Update Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <targetObject>Meeting_MERC__c</targetObject>
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Exception_Approval_MERC</fullName>
@@ -117,6 +201,7 @@
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Higher_Fee_Approval_MERC</fullName>
@@ -170,6 +255,28 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_Participant_ToV_Date_MERC</fullName>
+        <description>Updates the Participant ToV Updated Date/Time with the current time to indicate a ToV Change.  Oliver Dunford 11th Feb 2014.</description>
+        <field>Participant_ToV_Updated_Date_MERC__c</field>
+        <formula>NOW()</formula>
+        <name>Update Participant ToV Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <targetObject>Meeting_MERC__c</targetObject>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Participant_ToV_Update_Date_MERC</fullName>
+        <description>Update Participant ToV Update Date with Current Date/Time</description>
+        <field>Participant_ToV_Updated_Date_MERC__c</field>
+        <formula>Now()</formula>
+        <name>Update Participant ToV Update Date_MERC</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <targetObject>Meeting_MERC__c</targetObject>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Payment_Required_for_Svcs_MERC</fullName>
         <description>If Payment is not required, update to &quot;No&quot;. Created 12/13/2013 by KLorenti, Mavens Consulting</description>
         <field>Payment_Required_for_Meeting_MERC__c</field>
@@ -203,17 +310,6 @@
         <targetObject>Account_MERC__c</targetObject>
     </fieldUpdates>
     <fieldUpdates>
-        <fullName>Update_ToV_Reported_MERC</fullName>
-        <description>Update Is ToV Reported to Yes when Meeting Participant ToV is finalized. Created 01/08/2013 by KLorenti, Mavens Consulting</description>
-        <field>ToV_Reported_MERC__c</field>
-        <literalValue>1</literalValue>
-        <name>Update ToV Reported</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-        <targetObject>Meeting_MERC__c</targetObject>
-    </fieldUpdates>
-    <fieldUpdates>
         <fullName>Update_Travel_Adjustment_Amount</fullName>
         <description>Update when Final Fee is confirmed</description>
         <field>Travel_Adjustment_Amount_MERC__c</field>
@@ -240,7 +336,6 @@
         <fields>Account_External_MERC__c</fields>
         <fields>Account_MERC__c</fields>
         <fields>Air_Travel_Required_MERC__c</fields>
-        <fields>Airport_Transfer_Required_MERC__c</fields>
         <fields>Cancellation_Notice_Sent_MERC__c</fields>
         <fields>Classification_MERC__c</fields>
         <fields>CoPay_Flight_Rail_MERC__c</fields>
@@ -264,9 +359,7 @@
         <fields>Expense_Reimbursment_MERC__c</fields>
         <fields>Final_Fee_MERC__c</fields>
         <fields>Force_Unique_Participant_MERC__c</fields>
-        <fields>Ground_Transportation_Required_MERC__c</fields>
-        <fields>HCP_Contract_Details_MERC__c</fields>
-        <fields>HCP_Contract_MERC__c</fields>
+        <fields>Global_Id_MERC__c</fields>
         <fields>HCP_Info_Package_Comm_Details_MERC__c</fields>
         <fields>Higher_Fee_Approval__c</fields>
         <fields>Hotel_Required_MERC__c</fields>
@@ -294,7 +387,6 @@
         <fields>Partial_Payment_Justification_MERC__c</fields>
         <fields>Participant_Approved_MERC__c</fields>
         <fields>Participant_Search_MERC__c</fields>
-        <fields>Participant_ToV_Final_MERC__c</fields>
         <fields>Participant_Typ_MERC__c</fields>
         <fields>Payment_Required_MERC__c</fields>
         <fields>Payment_Required_for_Meeting_MERC__c</fields>
@@ -302,7 +394,6 @@
         <fields>Presentation_Approval_Needed_MERC__c</fields>
         <fields>Proposed_Final_Fee_MERC__c</fields>
         <fields>RecordTypeId</fields>
-        <fields>Require_Recording_Consent_MERC__c</fields>
         <fields>Send_HCP_Info_Package_to_Rep__c</fields>
         <fields>Service_Provider_Tier_MERC__c</fields>
         <fields>Services_Rendered_MERC__c</fields>
@@ -320,19 +411,30 @@
         <fields>Transparency_Reporting_Consent_MERC__c</fields>
         <fields>Travel_Adjustment_Amount_MERC__c</fields>
         <fields>Travel_Adjustment_Percentage_MERC__c</fields>
-        <fields>Travel_Required_MERC__c</fields>
         <fields>Travel_Time_Hrs_MERC__c</fields>
         <fields>Trnsctn_Typ_MERC__c</fields>
         <fields>Trtry_Cd_MERC__c</fields>
         <fields>Trtry_Desc_MERC__c</fields>
         <fields>Type_of_Contract_MERC__c</fields>
         <fields>Types_of_Service_MERC__c</fields>
+        <fields>Video_Audio_Recording_MERC__c</fields>
         <includeSessionId>true</includeSessionId>
         <integrationUser>helmer@gso1.lly</integrationUser>
         <name>RTI - Meeting Participant Updated</name>
         <protected>false</protected>
         <useDeadLetterQueue>false</useDeadLetterQueue>
     </outboundMessages>
+    <rules>
+        <fullName>Clear Confirm ToV Change_MERC</fullName>
+        <actions>
+            <name>Clear_Confirm_ToV_Reporting_Change_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Clear the Confirm ToV Reporting Change checkbox after each record update. Created 02/04/2014 by KLorenti, Mavens Consulting</description>
+        <formula>TRUE</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
     <rules>
         <fullName>Clear_Confirm_Partial_Payment_Amt_MERC</fullName>
         <actions>
@@ -342,6 +444,18 @@
         <active>true</active>
         <description>Clear the Confirm Partial Payment Amount checkbox after each record update. Created 12/18/2013 by KLorenti, Mavens Consulting</description>
         <formula>TRUE</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Final Fee Rejected_MERC</fullName>
+        <actions>
+            <name>Notify_Meeting_Owner_when_Final_Fee_is_Rejected_MERC</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>Notify the Meeting Owner when the Final Fee has been rejected due to surpassing the maximum fee threshold. Created 01/19/2014 by KLorenti, Mavens Consulting</description>
+        <formula>ISCHANGED(Higher_Fee_Approval__c) &amp;&amp;
+ISPICKVAL(Higher_Fee_Approval__c,&quot;Rejected&quot;)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -396,17 +510,6 @@
         <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
-        <fullName>Is ToV Reported</fullName>
-        <actions>
-            <name>Update_ToV_Reported_MERC</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <description>Flag if ToV has been reported for any meeting participants on the meeting</description>
-        <formula>ISCHANGED (Participant_ToV_Final_MERC__c) &amp;&amp;(ISPICKVAL(Participant_ToV_Final_MERC__c, &quot;Yes&quot;))</formula>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
         <fullName>Mercury External ID-MeetingParticipant_MERC</fullName>
         <actions>
             <name>External_ID_MeetingParticipant_MERC</name>
@@ -434,6 +537,33 @@
         </criteriaItems>
         <description>When a participant is created who is NOT a HCP, an automated email should be triggered to the Meeting Manager who should approve the Participant before they can be utilised for meetings.  Created by John A Adams 12/20/2013</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Notify Meeting Owner Tiering Complete_MERC</fullName>
+        <actions>
+            <name>Notify_Meeting_Owner_when_Tiering_is_Complete</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>Notifies Meeting Owner when Tiering has been completed and the Proposed Fee may be entered. Created 01/26/2014 by KLorenti, Mavens Consulting</description>
+        <formula>Service_Provider_Tier_MERC__c &gt; 0 &amp;&amp;
+ISCHANGED(Minimum_Fee_MERC__c) &amp;&amp;
+Minimum_Fee_MERC__c &gt; 0 &amp;&amp;
+ISCHANGED(Maximum_Fee_MERC__c) &amp;&amp;
+Maximum_Fee_MERC__c &gt; 0</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Notify Meeting Owner of Final Fee_MERC</fullName>
+        <actions>
+            <name>Notifies_Meeting_Owner_of_Final_Fee</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>Notifies Meeting Owner when Final Fee has been confirmed. Created 01/19/2014 by KLorenti, Mavens Consulting</description>
+        <formula>ISCHANGED(Confirm_Final_Fee_MERC__c) &amp;&amp;
+ISPICKVAL(Confirm_Final_Fee_MERC__c,&quot;Confirmed&quot;)</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Over Maximum Fee_MERC</fullName>
@@ -500,6 +630,61 @@ Partial_Payment_Amount_MERC__c = 0</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
+        <fullName>Set Meeting Owner Email_MERC</fullName>
+        <actions>
+            <name>Set_Meeting_Owner_Email_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Sets the Meeting Owner email address on each meeting participant record when changed on the Meeting. Created 01/19/2014 by KLorenti, Mavens Consulting</description>
+        <formula>NOT ISBLANK( Meeting_MERC__r.Meeting_Owner_Email_MERC__c )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Set Transparency Reporting Consent_MERC</fullName>
+        <active>false</active>
+        <formula>true</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Trigger CoPay AODS Update</fullName>
+        <actions>
+            <name>Set_CoPay_Updated_DateTime_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>This fires when any of the CoPay fields on the Meeting Participant are changed or updated.  This will ensure that any changes are picked up by AODS.</description>
+        <formula>(ISBLANK(PRIORVALUE(CoPay_Flight_Rail_MERC__c)) &amp;&amp; !ISBLANK(CoPay_Flight_Rail_MERC__c)) 
+	|| ISCHANGED(CoPay_Flight_Rail_MERC__c) || 
+(ISBLANK(PRIORVALUE( CoPay_Food_Beverage_MERC__c )) &amp;&amp; !ISBLANK( CoPay_Food_Beverage_MERC__c )) 
+	|| ISCHANGED( CoPay_Food_Beverage_MERC__c ) || 
+(ISBLANK(PRIORVALUE(CoPay_Ground_Transport_MERC__c)) &amp;&amp; !ISBLANK(CoPay_Ground_Transport_MERC__c)) || 
+	ISCHANGED(CoPay_Ground_Transport_MERC__c) || 
+(ISBLANK(PRIORVALUE(CoPay_Hotel_MERC__c )) &amp;&amp; !ISBLANK(CoPay_Hotel_MERC__c )) || 
+	ISCHANGED(CoPay_Hotel_MERC__c ) || 
+(ISBLANK(PRIORVALUE(CoPay_Registration_MERC__c)) &amp;&amp; !ISBLANK(CoPay_Registration_MERC__c)) || 
+	ISCHANGED(CoPay_Registration_MERC__c)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Trigger ToV AODS Update</fullName>
+        <actions>
+            <name>Update_Participant_ToV_Date_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Triggers to set the Participant ToV Update date/time when the Meeting Participants ToV values change, indicating that this information should be pulled into AODS. Oliver Dunford 11th Feb 2014.</description>
+        <formula>(ISBLANK(PRIORVALUE( Total_Food_Beverage_ToV_MERC__c )) &amp;&amp; !ISBLANK(Total_Food_Beverage_ToV_MERC__c)) 
+	|| ISCHANGED(Total_Food_Beverage_ToV_MERC__c) || 
+(ISBLANK(PRIORVALUE( Total_Ground_Transporation_ToV_MERC__c )) &amp;&amp; !ISBLANK( Total_Ground_Transporation_ToV_MERC__c )) 
+	|| ISCHANGED( Total_Ground_Transporation_ToV_MERC__c ) || 
+(ISBLANK(PRIORVALUE(Total_Hotel_ToV_MERC__c)) &amp;&amp; !ISBLANK(Total_Hotel_ToV_MERC__c)) || 
+	ISCHANGED(Total_Hotel_ToV_MERC__c) || 
+(ISBLANK(PRIORVALUE(Total_Registration_ToV_MERC__c )) &amp;&amp; !ISBLANK(Total_Registration_ToV_MERC__c )) || 
+	ISCHANGED(Total_Registration_ToV_MERC__c )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
         <fullName>Un-Confirm Final Fee_MERC</fullName>
         <actions>
             <name>Update_Final_Fee_to_Zero_MERC</name>
@@ -527,6 +712,21 @@ Partial_Payment_Amount_MERC__c = 0</formula>
         <active>true</active>
         <description>If Proposed Final Fee is lass than the Maximum Fee then set the Exception Approval to &quot;Not Required&quot;. Created 11/21/2013 by KLorenti</description>
         <formula>ISCHANGED (Proposed_Final_Fee_MERC__c ) &amp;&amp;  Proposed_Final_Fee_MERC__c &lt; Maximum_Fee_MERC__c</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Copay Update Date when Copay Fields Change_MERC</fullName>
+        <actions>
+            <name>Update_Copay_Update_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>When the CoPay fields change, update the Participant CoPay Updated Date with current date/time.</description>
+        <formula>ISCHANGED(CoPay_Flight_Rail_MERC__c) || 
+ISCHANGED(CoPay_Food_Beverage_MERC__c) || 
+ISCHANGED(CoPay_Ground_Transport_MERC__c) || 
+ISCHANGED(CoPay_Hotel_MERC__c) || 
+ISCHANGED(CoPay_Registration_MERC__c)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -574,6 +774,20 @@ Partial_Payment_Amount_MERC__c = 0</formula>
         <description>Updates the meeting participant search field with a searchable string. Oliver Dunford 6th Nov 2013.</description>
         <formula>TRUE</formula>
         <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Participant ToV Update Date_MERC</fullName>
+        <actions>
+            <name>Update_Participant_ToV_Update_Date_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>When any of the other ToV fields change (at Daily Attendance &amp; ToV Level or Meeting Participant Level (for those manually typed), update the Participant ToV Updated Date with current date/time.</description>
+        <formula>ISCHANGED(Total_Hotel_ToV_MERC__c) || 
+ISCHANGED(Total_Ground_Transporation_ToV_MERC__c) || 
+ISCHANGED(Total_Food_Beverage_ToV_MERC__c) || 
+ISCHANGED(Total_Registration_ToV_MERC__c)</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Update Unique Meeting Participant_MERC</fullName>

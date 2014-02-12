@@ -488,4 +488,23 @@ Budget_MERC__r.RecordType.DeveloperName == &apos;MERC_Budget_Archived&apos;
 )</errorConditionFormula>
         <errorMessage>You cannot modify Budget Lines on Active or Archived Budgets.</errorMessage>
     </validationRules>
+    <webLinks>
+        <fullName>New_Line_Item</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Line Item</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!URLFOR( 
+$Action.Budget_Line_Item_MERC__c.New, 
+null, 
+[saveURL=Budget_MERC__c.Link+&apos;#&apos;+Budget_MERC__c.Id+&apos;_00N11000000Sbb5_target&apos;, 
+retURL=Budget_MERC__c.Link, 
+CF00N11000000Sbb5=Budget_MERC__c.Name, 
+CF00N11000000Sbb5_lkid=Budget_MERC__c.Id] 
+)}</url>
+    </webLinks>
 </CustomObject>

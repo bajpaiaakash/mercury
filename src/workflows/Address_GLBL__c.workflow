@@ -70,6 +70,16 @@ Created by John A Adams 12/11/2013</description>
         <protected>false</protected>
         <targetObject>Account_GLBL__c</targetObject>
     </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Address_Account_Name_MERC</fullName>
+        <description>Updates the Address Account Name.</description>
+        <field>Account_Name_MERC__c</field>
+        <formula>Account_GLBL__r.FirstName &amp; &quot; &quot; &amp; Account_GLBL__r.LastName</formula>
+        <name>Update Address Account Name</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <rules>
         <fullName>Mercury External ID-Address_MERC</fullName>
         <actions>
@@ -115,5 +125,16 @@ Created by John A Adams 12/11/2013</description>
         <description>Triggers copying the Address  fields to the Primary Address Fields in Accounts
 Created by John A Adams 12/13/2013</description>
         <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Address Account Name_MERC</fullName>
+        <actions>
+            <name>Update_Address_Account_Name_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Updates the Address Account Name to ensure this can be used in Lookup relationship Searches.  Field must remain on Address layout. Oliver Dunford 22nd Jan 2014.</description>
+        <formula>true</formula>
+        <triggerType>onCreateOnly</triggerType>
     </rules>
 </Workflow>

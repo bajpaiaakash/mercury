@@ -366,7 +366,7 @@
 					  						</apex:outputLink>
 					  						<div class="addToMeetingPopover" id="{!r.sfid}popover">
 					  							<div class="addToMeetingPopoverBody">
-						  							<apex:actionRegion>
+						  							<apex:actionRegion >
 						  								<apex:outputLabel for="nrtid" value="Record Type"/>
 						  								<apex:selectList id="nrtid" value="{!newParticipantRecordTypeId}" size="1">
 						  									<apex:selectOptions value="{!recordTypeOptions}"/>
@@ -392,13 +392,13 @@
 					  					<apex:column headerValue="{!$ObjectType.Account.fields.Scnd_Nm_GLBL__c.label}" value="{!r.scnd_nm_glbl}"/>
 					  					<apex:column headerValue="{!$ObjectType.Account.fields.Clsfctn_Cd_GLBL__c.label}" value="{!r.clsfctn_cd_glbl}"/>
 
-					  					<apex:column headerValue="{!$ObjectType.Account.fields.primary_addr_line1_glbl__c.label}" value="{!r.primary_addr_line1_glbl}"/>
+					  					<apex:column headerValue="{!$ObjectType.Account.fields.Primary_Addr_Line1_GLBL__c.label}" value="{!r.primary_addr_line1_glbl}"/>
 
-					  					<apex:column headerValue="{!$ObjectType.Account.fields.primary_addr_line2_glbl__c.label}" value="{!r.primary_addr_line2_glbl}"/>
+					  					<apex:column headerValue="{!$ObjectType.Account.fields.Primary_Addr_Line2_GLBL__c.label}" value="{!r.primary_addr_line2_glbl}"/>
 
-					  					<apex:column headerValue="{!$ObjectType.Account.fields.primary_addr_city_glbl__c.label}" value="{!r.primary_addr_city_glbl}"/>
-					  					<apex:column headerValue="{!$ObjectType.Account.fields.primary_address_country_glbl__c.label}" value="{!r.primary_address_country_glbl}"/>
-					  					<apex:column headerValue="{!$ObjectType.Account.fields.primary_pstl_cd_extnsn_glbl__c.label}" value="{!r.primary_pstl_cd_extnsn_glbl}"/>			
+					  					<apex:column headerValue="{!$ObjectType.Account.fields.Primary_Addr_City_GLBL__c.label}" value="{!r.primary_addr_city_glbl}"/>
+					  					<apex:column headerValue="{!$ObjectType.Account.fields.Primary_Address_Country_GLBL__c.label}" value="{!r.primary_address_country_glbl}"/>
+					  					<apex:column headerValue="{!$ObjectType.Account.fields.Primary_Pstl_Cd_Extnsn_GLBL__c.label}" value="{!r.primary_pstl_cd_extnsn_glbl}"/>			
 					  					
 					  				</apex:pageBlockTable>
 

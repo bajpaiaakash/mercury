@@ -142,7 +142,7 @@ Created by John A Adams 11/5/2013</description>
 Customer ODS to Mercury Mapping
 Created by John A Adams 12/10/2013</description>
         <externalId>false</externalId>
-        <label>Affiliation Role Description</label>
+        <label>Role</label>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -248,7 +248,7 @@ Created by John A Adams 11/5/2013</description>
 Customer ODS to Mercury Mapping
 Created by John A Adams 11/5/2013</description>
         <externalId>false</externalId>
-        <label>Email Electronic Address Text</label>
+        <label>Email Address</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -260,7 +260,7 @@ Created by John A Adams 11/5/2013</description>
 Customer ODS to Mercury Mapping
 Created by John A Adams 11/5/2013</description>
         <externalId>false</externalId>
-        <label>Phone1 Extension Code</label>
+        <label>Phone Number Ext</label>
         <length>15</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -288,7 +288,7 @@ Created by John A Adams 11/5/2013</description>
 Customer ODS to Mercury Mapping
 Created by John A Adams 11/5/2013</description>
         <externalId>false</externalId>
-        <label>Fax Extension Code</label>
+        <label>Fax Number Ext</label>
         <length>15</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -302,7 +302,7 @@ Created by John A Adams 11/5/2013</description>
 Customer ODS to Mercury Mapping
 Created by John A Adams 11/5/2013</description>
         <externalId>false</externalId>
-        <label>Fax Electronic Address Text</label>
+        <label>Fax Number</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -314,7 +314,7 @@ Created by John A Adams 11/5/2013</description>
 Customer ODS to Mercury Mapping
 Created by John A Adams 11/5/2013</description>
         <externalId>false</externalId>
-        <label>Phone1 Electronic Address Text</label>
+        <label>Phone Number</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -326,7 +326,7 @@ Created by John A Adams 11/5/2013</description>
 Customer ODS to Mercury Mapping
 Created by John A Adams 11/5/2013</description>
         <externalId>false</externalId>
-        <label>Web Electronic Address Text</label>
+        <label>Web Address</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -337,7 +337,7 @@ Created by John A Adams 11/5/2013</description>
         <description>Party Affiliation Id
 Customer ODS to Mercury Mapping
 Created by John A Adams 11/5/2013</description>
-        <externalId>false</externalId>
+        <externalId>true</externalId>
         <label>Party Affiliation Id</label>
         <length>40</length>
         <required>false</required>
@@ -527,7 +527,7 @@ Created by John A Adams 11/5/2013</description>
         <fullName>Rltnshp_Sts_Desc_GLBL__c</fullName>
         <description>Oliver Dunford 6th Jan, Mastered ODS fields.</description>
         <externalId>false</externalId>
-        <label>Relationship Status Description</label>
+        <label>Status</label>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -553,7 +553,7 @@ Customer ODS to Mercury Mapping</description>
         <fullName>Rltnshp_Typ_Desc_GLBL__c</fullName>
         <description>Oliver Dunford 6th Jan, Mastered ODS Information</description>
         <externalId>false</externalId>
-        <label>Relationship Type Description</label>
+        <label>Type</label>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>

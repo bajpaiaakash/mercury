@@ -114,7 +114,7 @@
         <fullName>Populate_Payee_Name</fullName>
         <description>Populates the Payee Name from Payee
 Truncates the Payee Name to 35 characters to send via the SAP Interface. This is just used to trouble shoot any issues on the SAP end and is hidden from users view. Oliver Dunford 5th Dec 2013.</description>
-        <field>Payee_Name__c</field>
+        <field>Payee_Name_MERC__c</field>
         <formula>LEFT( Payee_MERC__r.Name , 35)</formula>
         <name>Populate Payee Name</name>
         <notifyAssignee>false</notifyAssignee>
@@ -137,6 +137,16 @@ Truncates the Payee Name to 35 characters to send via the SAP Interface. This is
         <field>Payee_Zip_Postal_Code_MERC__c</field>
         <formula>Payee_MERC__r.Payee_Zip_Postal_Code_MERC__c</formula>
         <name>Populate Payee Zip</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Populate_SAP_Vendor_Id_MERC</fullName>
+        <description>Populated SAP Vendor Number if one exists on the Payee Record. Oliver Dunford 20th Jan 2014.</description>
+        <field>SAP_Vendor_Number_MERC__c</field>
+        <formula>IF(ISBLANK(SAP_Vendor_Number_MERC__c),  Payee_MERC__r.SAP_Vendor_ID_MERC__c , SAP_Vendor_Number_MERC__c)</formula>
+        <name>Populate SAP Vendor Id</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
@@ -225,7 +235,8 @@ Truncates the Payee Name to 35 characters to send via the SAP Interface. This is
         </actions>
         <active>true</active>
         <description>Populate Bank information into Invoice</description>
-        <formula>ISCHANGED(Payee_MERC__c)</formula>
+        <formula>OR((Payee_MERC__c &lt;&gt; &quot;&quot;),
+ ISCHANGED(Payee_MERC__c))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -251,6 +262,10 @@ Truncates the Payee Name to 35 characters to send via the SAP Interface. This is
             <type>FieldUpdate</type>
         </actions>
         <actions>
+            <name>Populate_SAP_Vendor_Id_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
             <name>Populate_Street</name>
             <type>FieldUpdate</type>
         </actions>
@@ -260,7 +275,8 @@ Truncates the Payee Name to 35 characters to send via the SAP Interface. This is
         </actions>
         <active>true</active>
         <description>Populate Payee information into Invoice</description>
-        <formula>ISCHANGED(Payee_MERC__c)</formula>
+        <formula>OR((Payee_MERC__c &lt;&gt; &quot;&quot;),
+ ISCHANGED(Payee_MERC__c))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>

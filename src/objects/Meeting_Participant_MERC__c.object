@@ -55,7 +55,7 @@
     <fields>
         <fullName>Account_External_MERC__c</fullName>
         <externalId>false</externalId>
-        <formula>Account_MERC__r.Mercury_External_Id_MERC__c</formula>
+        <formula>Account_MERC__r.Cust_Id_GLBL__c</formula>
         <label>Account External</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -99,24 +99,16 @@
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Airport_Transfer_Required_MERC__c</fullName>
-        <description>Capture if Airport Transfer is required for the Meeting Participant. Created 11/26/2013 by KLorenti, Mavens Consulting</description>
+        <fullName>Amount_to_be_Paid_MERC__c</fullName>
+        <description>Amount to be Paid for sponsorship. Created 01/14/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <label>Airport Transfer Required</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
+        <label>Amount to be Paid</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Picklist</type>
+        <type>Currency</type>
     </fields>
     <fields>
         <fullName>Cancellation_Notice_Sent_MERC__c</fullName>
@@ -140,6 +132,76 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CoPay_AODS_Flight_Rail_MERC__c</fullName>
+        <description>This will convert the positive CoPay values entered by a user into negative values to be sent to Activity ODS.  Created by John A Adams 2/4/2014</description>
+        <externalId>false</externalId>
+        <formula>IF (CoPay_Flight_Rail_MERC__c &gt; 0 , CoPay_Flight_Rail_MERC__c - ( 2 * CoPay_Flight_Rail_MERC__c ), CoPay_Flight_Rail_MERC__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>CoPay AODS Flight/Rail</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CoPay_AODS_Food_Beverage_MERC__c</fullName>
+        <description>This will convert the positive CoPay values entered by a user into negative values to be sent to Activity ODS.  Created by John A Adams 2/4/2014</description>
+        <externalId>false</externalId>
+        <formula>IF (CoPay_Food_Beverage_MERC__c &gt; 0 , CoPay_Food_Beverage_MERC__c  - ( 2 * CoPay_Food_Beverage_MERC__c  ), CoPay_Food_Beverage_MERC__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>CoPay AODS Food Beverage</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CoPay_AODS_Ground_Transport_MERC__c</fullName>
+        <description>This will convert the positive CoPay values entered by a user into negative values to be sent to Activity ODS.  Created by John A Adams 2/4/2014</description>
+        <externalId>false</externalId>
+        <formula>IF (CoPay_Ground_Transport_MERC__c &gt;0 , CoPay_Ground_Transport_MERC__c - ( 2 * CoPay_Ground_Transport_MERC__c ), CoPay_Ground_Transport_MERC__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>CoPay AODS Ground Transportation</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CoPay_AODS_Hotel_MERC__c</fullName>
+        <description>This will convert the positive CoPay values entered by a user into negative values to be sent to Activity ODS.  Created by John A Adams 2/4/2014</description>
+        <externalId>false</externalId>
+        <formula>IF (CoPay_Hotel_MERC__c &gt; 0 , CoPay_Hotel_MERC__c - ( 2 * CoPay_Hotel_MERC__c ), CoPay_Hotel_MERC__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>CoPay AODS Hotel</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CoPay_AODS_Registration_MERC__c</fullName>
+        <description>This will convert the positive CoPay values entered by a user into negative values to be sent to Activity ODS.  Created by John A Adams 2/4/2014</description>
+        <externalId>false</externalId>
+        <formula>IF (CoPay_Registration_MERC__c &gt; 0 , CoPay_Registration_MERC__c - ( 2 * CoPay_Registration_MERC__c ), CoPay_Registration_MERC__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>CoPay AODS Registration</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
     </fields>
     <fields>
         <fullName>CoPay_Flight_Rail_MERC__c</fullName>
@@ -232,6 +294,16 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Confirm_ToV_Reporting_Change_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Only HCP Care can update ToV values after ToV has already been reported. Only HCP Care will have access to this field. Created 02/04/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Confirm ToV Reporting Change</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Contract_Limitations_on_Use_MERC__c</fullName>
         <description>Display Contract Limitations on Use on Meeting Participant from HCP Profile. Created 11/26/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -246,23 +318,14 @@
     </fields>
     <fields>
         <fullName>Copay_Required_MERC__c</fullName>
-        <description>Track whether or not HCP needs to provide Co-pay. Created 12/2/2013 by KLorenti, Mavens Consulting</description>
+        <defaultValue>false</defaultValue>
+        <description>Track whether or not HCP needs to provide CoPay. Created 12/2/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
+        <inlineHelpText>CoPay values must be entered as positive amounts.</inlineHelpText>
         <label>Copay Required?</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Picklist</type>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Country_of_Residence_MERC__c</fullName>
@@ -292,6 +355,21 @@ Created by John A Adams 10/31/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Days_Until_Meeting_MERC__c</fullName>
+        <description>Calculates days until Meeting start date. Created 01/30/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Meeting_MERC__r.Date_of_Event_MERC__c - Today()</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Days Until Meeting</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Description_of_Service_MERC__c</fullName>
         <description>To capture description of service provided by HCP. Created 11/20/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -301,6 +379,17 @@ Created by John A Adams 10/31/2013</description>
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Email_MERC__c</fullName>
+        <description>Stamped by Apex Trigger</description>
+        <externalId>false</externalId>
+        <label>Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Email_to_Invite_HCP_to_Portal_MERC__c</fullName>
@@ -387,51 +476,16 @@ Created by John Adams on 12/9/2013</description>
         <unique>true</unique>
     </fields>
     <fields>
-        <fullName>Ground_Transportation_Required_MERC__c</fullName>
-        <description>When a Meeting Owner is registering a participant manually in Mercury, these fields may be populated. Created 10/28/2013 by KLorenti, Mavens Consulting</description>
+        <fullName>Global_Id_MERC__c</fullName>
+        <description>Returns the global Id of the Lilly Employee should they be a delegate/speaker at the meeting.</description>
         <externalId>false</externalId>
-        <label>Ground Transportation Required</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>HCP_Contract_Details_MERC__c</fullName>
-        <description>Adds more information about the Contract once linked to Participant. Oliver Dunford 4th Nov 2013.</description>
-        <externalId>false</externalId>
-        <formula>HCP_Contract_MERC__r.RecordType.Name &amp; &quot; - &quot; &amp;  TEXT(HCP_Contract_MERC__r.Contract_Request_Status_MERC__c)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>HCP Contract Details</label>
+        <formula>IF(Account_MERC__r.RecordType.Name = &quot;Employee&quot;, Account_MERC__r.Prsnl_Nbr_GLBL__c,&quot;&quot;)</formula>
+        <label>Global Id</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>HCP_Contract_MERC__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>Lookup Relationship from Meeting Participant to HCP Contract. Created 10/10/2013 by KLorenti.</description>
-        <externalId>false</externalId>
-        <label>HCP Contract</label>
-        <referenceTo>HCP_Contract_MERC__c</referenceTo>
-        <relationshipLabel>Meeting Participants</relationshipLabel>
-        <relationshipName>Meeting_Participants</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>HCP_Info_Package_Comm_Details_MERC__c</fullName>
@@ -538,6 +592,39 @@ Created by John A Adams 1/7/2014</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Items_to_be_Sponsored_MERC__c</fullName>
+        <description>Indicate items to be sponsored. Created 01/14/2014 by KLoreneti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Items to be Sponsored</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Accommodation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Air Transportation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Out of Pocket Expenses</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rail/Bus Transportation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Registration</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
         <fullName>Justification_MERC__c</fullName>
         <description>Justification for Service. Moving from HCP Contract. Created 11/18/2013 by KLorenti, Mavens Consulting.</description>
         <externalId>false</externalId>
@@ -588,8 +675,20 @@ Created by John A Adams 1/7/2014</description>
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
+        <fullName>Max_Fee_Test__c</fullName>
+        <description>Test using a read-only on the page populated by workflow to simplify fee entry for users</description>
+        <externalId>false</externalId>
+        <label>Max Fee Test</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>Maximum_Fee_MERC__c</fullName>
-        <description>Calculates the maximum fee possible based on Max Rate and Total Hrs of Service then adjusted based on Travel.
+        <description>Calculates the maximum fee possible based on Max Rate and Total Hrs of Service.
 Created by John A Adams 10/31/2013</description>
         <externalId>false</externalId>
         <formula>Maximum_Rate_MERC__c *  Total_Hours_of_Service_MERC__c</formula>
@@ -627,6 +726,17 @@ Created by John A Adams 10/31/2013</description>
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Meeting_End_Date_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>Meeting_MERC__r.End_Date_of_Event_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Meeting_External_MERC__c</fullName>
         <externalId>false</externalId>
         <formula>Meeting_MERC__r.Mercury_External_Id_MERC__c</formula>
@@ -653,18 +763,26 @@ Created by John A Adams 10/31/2013</description>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
+        <fullName>Meeting_Owner_Email_MERC__c</fullName>
+        <description>Meeting Owner email address stamped from Meeting. Created 01/19/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Meeting Owner Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Meeting_Owner_Global_Id_MERC__c</fullName>
         <description>Oliver Dunford 6th Jan: Pulls the Meeting Owner&apos;s Global Id from the Meeting Owner on the Meeting Object. Needed for AODS Interface.</description>
         <externalId>false</externalId>
-        <formula>IF(ISNULL( Meeting_MERC__r.Sales_Rep_MERC__c ), Meeting_MERC__r.Meeting_Owner_MERC__r.Prsnl_Nbr_GLBL__c , Meeting_MERC__r.Sales_Rep_MERC__r.Prsnl_Nbr_GLBL__c )</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <formula>IF(ISBLANK( Meeting_MERC__r.Sales_Rep_MERC__c ), Meeting_MERC__r.Meeting_Owner_MERC__r.Prsnl_Nbr_GLBL__c , Meeting_MERC__r.Sales_Rep_MERC__r.Prsnl_Nbr_GLBL__c )</formula>
         <label>Meeting Owner Global Id</label>
-        <precision>18</precision>
         <required>false</required>
-        <scale>0</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Number</type>
+        <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -682,7 +800,7 @@ Created by J Adams 12/10/2013</description>
     </fields>
     <fields>
         <fullName>Minimum_Fee_MERC__c</fullName>
-        <description>Calculates the minimum fee possible based on Min Rate and Total Hrs of Service then adjusted based on Travel.
+        <description>Calculates the minimum fee possible based on Min Rate and Total Hrs of Service.
 Created by John A Adams 10/31/2013</description>
         <externalId>false</externalId>
         <formula>Minimum_Rate_MERC__c *  Total_Hours_of_Service_MERC__c</formula>
@@ -773,27 +891,6 @@ Created by John A Adams 10/31/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Participant_ToV_Final_MERC__c</fullName>
-        <description>The trigger to send ToV values to Activity ODS.  Oliver Dunford 5th November.</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Mechanism for Meeting Planning company to confirm ToV for participants.  Once set to Yes, these will be sent for Reporting.</inlineHelpText>
-        <label>Participant ToV Final</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>Participant_Typ_MERC__c</fullName>
         <description>Type of participant stamped into Meeting Participant record using workflow at creation or edit from the Account.  Created by John Adams on 12/9/2013</description>
         <externalId>false</externalId>
@@ -838,6 +935,18 @@ Created by John A Adams 10/31/2013</description>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Person_Contact_Id_MERC__c</fullName>
+        <description>Stamped by trigger, needed for ET integration</description>
+        <externalId>false</externalId>
+        <label>Contact Id</label>
+        <length>18</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Preparation_Time_Hrs_MERC__c</fullName>
@@ -897,24 +1006,28 @@ Created by John A Adams 10/31/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Require_Recording_Consent_MERC__c</fullName>
-        <description>Is record consent needed for the meeting. Oliver Dunford 5th Nov 2013</description>
+        <fullName>Record_Type_Name_MERC__c</fullName>
+        <description>Used by AODS to determine at which level the ToV should be obtained from.  For individual sponsorship or consulting services this will be participant level.  For anything else this will be from the Daily Attendance &amp; ToV object. Oliver Dunford 3rd Feb 2014.</description>
         <externalId>false</externalId>
-        <label>Require Recording Consent</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
+        <formula>RecordType.DeveloperName</formula>
+        <label>Record Type Name</label>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Picklist</type>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sales_Rep_MERC__c</fullName>
+        <description>Sales Rep will be Stamped on Meeting Participant when a Meeting Participant is added in Veeva and sent through to Mercury via integration. Created 01/14/2014 by Klorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Customer Facing User</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Send_HCP_Info_Package_to_Rep__c</fullName>
@@ -931,7 +1044,6 @@ Created by John A Adams 10/31/2013</description>
         <description>Pulls the Service Provider Tier from the HCP Profile. Oliver Dunford 5th Nov 2013.</description>
         <externalId>false</externalId>
         <formula>Account_MERC__r.Service_Provider_Tier_MERC__c</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Service Provider Tier</label>
         <precision>18</precision>
         <required>false</required>
@@ -946,6 +1058,7 @@ Created by John A Adams 10/31/2013</description>
         <description>Allows Mercury Owner to confirm that speaker rendered contractual services.
 Created by John A Adams 10/24/2013</description>
         <externalId>false</externalId>
+        <inlineHelpText>This must only be selected once services has been complete.</inlineHelpText>
         <label>Services Rendered</label>
         <picklist>
             <picklistValues>
@@ -958,7 +1071,7 @@ Created by John A Adams 10/24/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -1190,26 +1303,6 @@ IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;),
         <type>Percent</type>
     </fields>
     <fields>
-        <fullName>Travel_Required_MERC__c</fullName>
-        <description>Captures whether the participant needs travel for the meeting. Oliver Dunford 5th Nov</description>
-        <externalId>false</externalId>
-        <label>Travel Required</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>Travel_Time_Hrs_MERC__c</fullName>
         <description>Travel Time Hours. Created 10/10/2013 by K Lorenti. Modified to Pick list by J Adams 10/17/2013
 
@@ -1306,6 +1399,7 @@ Created by John A Adams 12/12/2013</description>
         <fullName>Types_of_Service_MERC__c</fullName>
         <description>Type of Services a speaker may be providing. Moving from HCP Contract object. Created 11/19/2013 by KLorenti, Mavens Consulting.</description>
         <externalId>false</externalId>
+        <inlineHelpText>By selecting this value, I confirm that this person has relevant experience on the topic and is well respected and influential within the local community</inlineHelpText>
         <label>Type of Service</label>
         <picklist>
             <picklistValues>
@@ -1313,7 +1407,7 @@ Created by John A Adams 12/12/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Speaking - Chairman Symposium</fullName>
+                <fullName>Speaking - Chairman Meeting</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1334,6 +1428,30 @@ Created by John A Adams 12/12/2013</description>
             </picklistValues>
             <picklistValues>
                 <fullName>Medical Research Consultant</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Preceptorship</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Video_Audio_Recording_MERC__c</fullName>
+        <description>Is record consent needed for the meeting? Oliver Dunford 5th Nov 2013</description>
+        <externalId>false</externalId>
+        <label>Video/Audio Recording</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1361,23 +1479,12 @@ Created by John A Adams 12/12/2013</description>
     <pluralLabel>Meeting Participants</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
-        <fullName>Delegate_MERC</fullName>
+        <fullName>Consulting</fullName>
         <active>true</active>
-        <description>Meeting attendee or attendees of a Group Sponsorship meeting</description>
-        <label>Delegate</label>
+        <description>For Consulting Projects with no meeting and no logistical requirements</description>
+        <label>Consulting</label>
         <picklistValues>
             <picklist>Air_Travel_Required_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Airport_Transfer_Required_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -1395,33 +1502,11 @@ Created by John A Adams 12/12/2013</description>
             </values>
             <values>
                 <fullName>Pending Confirmation</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Copay_Required_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Expense_Reimbursment_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Ground_Transportation_Required_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -1439,7 +1524,7 @@ Created by John A Adams 12/12/2013</description>
             </values>
             <values>
                 <fullName>Not Required</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Rejected</fullName>
@@ -1469,6 +1554,13 @@ Created by John A Adams 12/12/2013</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Items_to_be_Sponsored_MERC__c</picklist>
+            <values>
+                <fullName>Registration</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1534,697 +1626,6 @@ Created by John A Adams 12/12/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Participant_ToV_Final_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Payment_Required_for_Meeting_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Presentation_Approval_Needed_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Require_Recording_Consent_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Services_Rendered_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Status_MERC__c</picklist>
-            <values>
-                <fullName>Accepted</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Attended</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cancelled</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Declined</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Interested in Meeting</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Invited</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No Show</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pending Approval</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Travel_Required_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Travel_Time_Hrs_MERC__c</picklist>
-            <values>
-                <fullName>0-2 hrs</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>11-20 hrs</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>2-10 hrs</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>More than 20 hrs</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Type_of_Contract_MERC__c</picklist>
-            <values>
-                <fullName>MSA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Single Event</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Work Order</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Types_of_Service_MERC__c</picklist>
-            <values>
-                <fullName>Advisory Board - Chairman</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Consulting Project</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Medical Research Consultant</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Speaking - Chairman Symposium</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Speaking - Speaker</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-    </recordTypes>
-    <recordTypes>
-        <fullName>Individual_Sponsorship</fullName>
-        <active>true</active>
-        <description>Lilly sponsors individual HCP&apos;s to attend meeting</description>
-        <label>Individual Sponsorship</label>
-        <picklistValues>
-            <picklist>Air_Travel_Required_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Airport_Transfer_Required_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Confirm_Final_Fee_MERC__c</picklist>
-            <values>
-                <fullName>Confirmed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pending Confirmation</fullName>
-                <default>true</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Copay_Required_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Expense_Reimbursment_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Ground_Transportation_Required_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Higher_Fee_Approval__c</picklist>
-            <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Not Required</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Required</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Hotel_Required_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Invoice_Template_Needed_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Justification_MERC__c</picklist>
-            <values>
-                <fullName>Other %28please explain%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Outstanding speaking ability</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Proven effective Speaker %2F Moderator</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Published author in the Therapeutic Area</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Recognized as a Thought Leader</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Recognized by local peers as a SME</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Significant topic research %2F background</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Therapeutic Area knowledge %2F experience</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Trained to speak on this topic</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Partial_Payment_Justification_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Participant_Approved_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Participant_ToV_Final_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Payment_Required_for_Meeting_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Presentation_Approval_Needed_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Require_Recording_Consent_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Services_Rendered_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Status_MERC__c</picklist>
-            <values>
-                <fullName>Accepted</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Attended</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cancelled</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Declined</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Interested in Meeting</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Invited</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>No Show</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pending Approval</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Travel_Required_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Travel_Time_Hrs_MERC__c</picklist>
-            <values>
-                <fullName>0-2 hrs</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>11-20 hrs</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>2-10 hrs</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>More than 20 hrs</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Type_of_Contract_MERC__c</picklist>
-            <values>
-                <fullName>MSA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Single Event</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Work Order</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Types_of_Service_MERC__c</picklist>
-            <values>
-                <fullName>Advisory Board - Chairman</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Consulting Project</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Medical Research Consultant</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Speaking - Chairman Symposium</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Speaking - Speaker</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-    </recordTypes>
-    <recordTypes>
-        <fullName>Service_Provider_MERC</fullName>
-        <active>true</active>
-        <description>Invited presenter for meeting</description>
-        <label>Service Provider</label>
-        <picklistValues>
-            <picklist>Air_Travel_Required_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Airport_Transfer_Required_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Confirm_Final_Fee_MERC__c</picklist>
-            <values>
-                <fullName>Confirmed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pending Confirmation</fullName>
-                <default>true</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Copay_Required_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Expense_Reimbursment_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Ground_Transportation_Required_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Higher_Fee_Approval__c</picklist>
-            <values>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Not Required</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Required</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Hotel_Required_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Invoice_Template_Needed_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Justification_MERC__c</picklist>
-            <values>
-                <fullName>Other %28please explain%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Outstanding speaking ability</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Proven effective Speaker %2F Moderator</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Published author in the Therapeutic Area</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Recognized as a Thought Leader</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Recognized by local peers as a SME</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Significant topic research %2F background</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Therapeutic Area knowledge %2F experience</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Trained to speak on this topic</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Partial_Payment_Justification_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Participant_Approved_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Participant_ToV_Final_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Payment_Required_for_Meeting_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -2237,17 +1638,6 @@ Created by John A Adams 12/12/2013</description>
         </picklistValues>
         <picklistValues>
             <picklist>Presentation_Approval_Needed_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Require_Recording_Consent_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -2301,17 +1691,6 @@ Created by John A Adams 12/12/2013</description>
             <values>
                 <fullName>Pending Approval</fullName>
                 <default>true</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Travel_Required_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -2367,15 +1746,934 @@ Created by John A Adams 12/12/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Preceptorship</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Speaker Training</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Speaking - Chairman Symposium</fullName>
+                <fullName>Speaking - Chairman Meeting</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Speaking - Speaker</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Video_Audio_Recording_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Delegate_MERC</fullName>
+        <active>true</active>
+        <description>A delegate attending a Lilly meeting or an Independent Meeting as a group.</description>
+        <label>Delegate</label>
+        <picklistValues>
+            <picklist>Air_Travel_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Confirm_Final_Fee_MERC__c</picklist>
+            <values>
+                <fullName>Confirmed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending Confirmation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Expense_Reimbursment_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Higher_Fee_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Required</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Hotel_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Invoice_Template_Needed_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Items_to_be_Sponsored_MERC__c</picklist>
+            <values>
+                <fullName>Registration</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Justification_MERC__c</picklist>
+            <values>
+                <fullName>Other %28please explain%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outstanding speaking ability</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Proven effective Speaker %2F Moderator</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Published author in the Therapeutic Area</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recognized as a Thought Leader</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recognized by local peers as a SME</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Significant topic research %2F background</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Therapeutic Area knowledge %2F experience</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trained to speak on this topic</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Partial_Payment_Justification_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Participant_Approved_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Required_for_Meeting_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Presentation_Approval_Needed_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Services_Rendered_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_MERC__c</picklist>
+            <values>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Attended</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Declined</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interested in Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invited</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending Approval</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Travel_Time_Hrs_MERC__c</picklist>
+            <values>
+                <fullName>0-2 hrs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>11-20 hrs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2-10 hrs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>More than 20 hrs</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type_of_Contract_MERC__c</picklist>
+            <values>
+                <fullName>MSA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Work Order</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Types_of_Service_MERC__c</picklist>
+            <values>
+                <fullName>Advisory Board - Chairman</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consulting Project</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical Research Consultant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Preceptorship</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Speaking - Chairman Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Speaking - Speaker</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Video_Audio_Recording_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Individual_Sponsorship</fullName>
+        <active>true</active>
+        <description>Sponsoring of an individual to attend an Independent Meeting.</description>
+        <label>Individual Sponsorship</label>
+        <picklistValues>
+            <picklist>Air_Travel_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Confirm_Final_Fee_MERC__c</picklist>
+            <values>
+                <fullName>Confirmed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending Confirmation</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Expense_Reimbursment_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Higher_Fee_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Required</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Required</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Hotel_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Invoice_Template_Needed_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Items_to_be_Sponsored_MERC__c</picklist>
+            <values>
+                <fullName>Accommodation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Air Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Out of Pocket Expenses</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rail%2FBus Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Registration</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Justification_MERC__c</picklist>
+            <values>
+                <fullName>Other %28please explain%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outstanding speaking ability</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Proven effective Speaker %2F Moderator</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Published author in the Therapeutic Area</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recognized as a Thought Leader</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recognized by local peers as a SME</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Significant topic research %2F background</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Therapeutic Area knowledge %2F experience</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trained to speak on this topic</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Partial_Payment_Justification_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Participant_Approved_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Required_for_Meeting_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Presentation_Approval_Needed_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Services_Rendered_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_MERC__c</picklist>
+            <values>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Attended</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Declined</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interested in Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invited</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending Approval</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Travel_Time_Hrs_MERC__c</picklist>
+            <values>
+                <fullName>0-2 hrs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>11-20 hrs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2-10 hrs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>More than 20 hrs</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type_of_Contract_MERC__c</picklist>
+            <values>
+                <fullName>MSA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Work Order</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Types_of_Service_MERC__c</picklist>
+            <values>
+                <fullName>Advisory Board - Chairman</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consulting Project</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical Research Consultant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Preceptorship</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Speaking - Chairman Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Speaking - Speaker</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Video_Audio_Recording_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Service_Provider_MERC</fullName>
+        <active>true</active>
+        <description>HCP contracted to provide services for a Meeting including  includes Consulting and Advisory Meetings</description>
+        <label>Service Provider</label>
+        <picklistValues>
+            <picklist>Air_Travel_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Confirm_Final_Fee_MERC__c</picklist>
+            <values>
+                <fullName>Confirmed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending Confirmation</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Expense_Reimbursment_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Higher_Fee_Approval__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Required</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Required</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Hotel_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Invoice_Template_Needed_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Items_to_be_Sponsored_MERC__c</picklist>
+            <values>
+                <fullName>Registration</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Justification_MERC__c</picklist>
+            <values>
+                <fullName>Other %28please explain%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outstanding speaking ability</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Proven effective Speaker %2F Moderator</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Published author in the Therapeutic Area</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recognized as a Thought Leader</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recognized by local peers as a SME</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Significant topic research %2F background</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Therapeutic Area knowledge %2F experience</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trained to speak on this topic</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Partial_Payment_Justification_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Participant_Approved_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Required_for_Meeting_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Presentation_Approval_Needed_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Services_Rendered_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_MERC__c</picklist>
+            <values>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Attended</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Declined</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interested in Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invited</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending Approval</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Travel_Time_Hrs_MERC__c</picklist>
+            <values>
+                <fullName>0-2 hrs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>11-20 hrs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2-10 hrs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>More than 20 hrs</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type_of_Contract_MERC__c</picklist>
+            <values>
+                <fullName>MSA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Work Order</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Types_of_Service_MERC__c</picklist>
+            <values>
+                <fullName>Advisory Board - Chairman</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Advisory Board - Participant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consulting Project</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical Research Consultant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Preceptorship</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Speaker Training</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Speaking - Chairman Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Speaking - Speaker</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Video_Audio_Recording_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2385,6 +2683,7 @@ Created by John A Adams 12/12/2013</description>
         <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
         <customTabListAdditionalFields>Account_MERC__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Status_MERC__c</customTabListAdditionalFields>
+        <listViewButtons>Mass_LOOP_Plus</listViewButtons>
         <lookupDialogsAdditionalFields>Account_MERC__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>RECORDTYPE</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Status_MERC__c</lookupDialogsAdditionalFields>
@@ -2414,6 +2713,25 @@ ISCHANGED(Partial_Payment_Amount_MERC__c) &amp;&amp; !ISBLANK(Partial_Payment_Am
         <errorMessage>The Partial Payment Amount may only be entered if the Meeting is in a Cancelled status.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Check_if_any_ToV_has_been_reported</fullName>
+        <active>true</active>
+        <description>Checks to see if any Meeting Participants have had ToV reported. Created 01/08/2014 by KLorenti, Mavens Consulting</description>
+        <errorConditionFormula>ISPICKVAL( Meeting_MERC__r.Participant_ToV_Final_MERC__c,&quot;Yes&quot;) &amp;&amp;
+(
+ISCHANGED ( Total_Registration_ToV_MERC__c  ) ||
+ISCHANGED ( Total_Ground_Transporation_ToV_MERC__c ) ||
+ISCHANGED ( Total_Food_Beverage_ToV_MERC__c ) ||
+ISCHANGED ( CoPay_Hotel_MERC__c ) ||
+ISCHANGED ( CoPay_Ground_Transport_MERC__c ) ||
+ISCHANGED ( CoPay_Registration_MERC__c ) ||
+ISCHANGED ( CoPay_Food_Beverage_MERC__c ) ||
+ISCHANGED ( CoPay_Flight_Rail_MERC__c )
+) 
+&amp;&amp;  !Confirm_ToV_Reporting_Change_MERC__c</errorConditionFormula>
+        <errorDisplayField>Confirm_ToV_Reporting_Change_MERC__c</errorDisplayField>
+        <errorMessage>ToV has already been reported for participants of this Meeting. HCP Care needs to confirm this change before it can be made.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Confirm_Final_Fee</fullName>
         <active>true</active>
         <description>Unable to Confirm Final Fee if Exception Fee Approval is Required or Rejected.</description>
@@ -2427,9 +2745,53 @@ ISCHANGED(Partial_Payment_Amount_MERC__c) &amp;&amp; !ISBLANK(Partial_Payment_Am
         <description>Confirm Final Fee should be updated with the Partial Payment Amount</description>
         <errorConditionFormula>!Confirm_Partial_Payment_Amount_MERC__c &amp;&amp;
 ISCHANGED(Partial_Payment_Amount_MERC__c) &amp;&amp;
-Partial_Payment_Amount_MERC__c &gt; 0.00</errorConditionFormula>
+Partial_Payment_Amount_MERC__c &gt; 0.00 &amp;&amp;
+TEXT(Confirm_Final_Fee_MERC__c) = &quot;Confirmed&quot; &amp;&amp; TEXT(Services_Rendered_MERC__c) = &quot;Yes&quot;</errorConditionFormula>
         <errorDisplayField>Confirm_Partial_Payment_Amount_MERC__c</errorDisplayField>
         <errorMessage>Please confirm the Final Fee should be updated with the Partial Payment Amount.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Enter_Blank_If_Not_Reported_MERC</fullName>
+        <active>true</active>
+        <description>Users cannot enter a 0.00 in a CoPay if ToV has not been reported.</description>
+        <errorConditionFormula>( 
+(ISCHANGED(Total_Hotel_ToV_MERC__c) &amp;&amp; Total_Hotel_ToV_MERC__c = 0.00) || 
+(ISCHANGED(Total_Ground_Transporation_ToV_MERC__c) &amp;&amp; Total_Ground_Transporation_ToV_MERC__c = 0.00) || 
+(ISCHANGED(Total_Food_Beverage_ToV_MERC__c) &amp;&amp; Total_Food_Beverage_ToV_MERC__c = 0.00) || 
+(ISCHANGED(Total_Registration_ToV_MERC__c) &amp;&amp; Total_Registration_ToV_MERC__c = 0.00) || 
+(ISCHANGED(CoPay_Flight_Rail_MERC__c) &amp;&amp; CoPay_Flight_Rail_MERC__c = 0.00) || 
+(ISCHANGED(CoPay_Food_Beverage_MERC__c) &amp;&amp; CoPay_Food_Beverage_MERC__c = 0.00) || 
+(ISCHANGED(CoPay_Ground_Transport_MERC__c) &amp;&amp; CoPay_Ground_Transport_MERC__c = 0.00) || 
+(ISCHANGED(CoPay_Hotel_MERC__c) &amp;&amp; CoPay_Hotel_MERC__c = 0.00) || 
+(ISCHANGED(CoPay_Registration_MERC__c) &amp;&amp; CoPay_Registration_MERC__c = 0.00) 
+) 
+
+&amp;&amp; 
+
+(ISPICKVAL(Meeting_MERC__r.Participant_ToV_Final_MERC__c,&quot;No&quot;) ||
+ISPICKVAL(Meeting_MERC__r.Participant_ToV_Final_MERC__c,&quot;&quot;))</errorConditionFormula>
+        <errorMessage>You may not enter 0.00 unless ToV has already been reported for this Meeting</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Enter_Zero_If_ToV_Reported_MERC</fullName>
+        <active>true</active>
+        <description>Users cannot enter a blank if ToV has been reported.</description>
+        <errorConditionFormula>(
+(ISCHANGED(Total_Hotel_ToV_MERC__c) &amp;&amp;  ISBLANK(Total_Hotel_ToV_MERC__c)) || 
+ (ISCHANGED(Total_Ground_Transporation_ToV_MERC__c) &amp;&amp; ISBLANK(Total_Ground_Transporation_ToV_MERC__c)) || 
+ (ISCHANGED(Total_Food_Beverage_ToV_MERC__c) &amp;&amp; ISBLANK(Total_Food_Beverage_ToV_MERC__c)) || 
+ (ISCHANGED(Total_Registration_ToV_MERC__c) &amp;&amp; ISBLANK(Total_Registration_ToV_MERC__c)) || 
+ (ISCHANGED(CoPay_Flight_Rail_MERC__c) &amp;&amp; ISBLANK(CoPay_Flight_Rail_MERC__c)) || 
+ (ISCHANGED(CoPay_Food_Beverage_MERC__c) &amp;&amp; ISBLANK(CoPay_Food_Beverage_MERC__c)) || 
+ (ISCHANGED(CoPay_Ground_Transport_MERC__c) &amp;&amp; ISBLANK(CoPay_Ground_Transport_MERC__c)) ||
+ (ISCHANGED(CoPay_Hotel_MERC__c) &amp;&amp; ISBLANK(CoPay_Hotel_MERC__c)) ||
+ (ISCHANGED(CoPay_Registration_MERC__c) &amp;&amp; ISBLANK(CoPay_Registration_MERC__c))
+)
+
+&amp;&amp;  
+
+ (ISPICKVAL(Meeting_MERC__r.Participant_ToV_Final_MERC__c,&quot;Yes&quot;))</errorConditionFormula>
+        <errorMessage>You may not enter a blank value if ToV has already been reported for this Meeting</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Individual_Sponsorship_Only_MERC</fullName>
@@ -2445,12 +2807,51 @@ Partial_Payment_Amount_MERC__c &gt; 0.00</errorConditionFormula>
         <active>true</active>
         <description>The Partial Payment Amount should only be entered if the Final Fee has been entered and the Participant ToV Final is False.</description>
         <errorConditionFormula>ISCHANGED(Partial_Payment_Amount_MERC__c) &amp;&amp;
-Partial_Payment_Amount_MERC__c &gt; 0.00 &amp;&amp;
-ISPICKVAL(Confirm_Final_Fee_MERC__c,&apos;Confirmed&apos;) &amp;&amp;
-!ISPICKVAL(Participant_ToV_Final_MERC__c,&quot;No&quot;) &amp;&amp;
-!ISPICKVAL(Services_Rendered_MERC__c, &quot;No&quot;)</errorConditionFormula>
+Partial_Payment_Amount_MERC__c &gt; 0 &amp;&amp;
+(TEXT(Services_Rendered_MERC__c) &lt;&gt; &quot;Yes&quot; ||
+Text(Confirm_Final_Fee_MERC__c) &lt;&gt; &quot;Confirmed&quot;)</errorConditionFormula>
         <errorDisplayField>Partial_Payment_Amount_MERC__c</errorDisplayField>
-        <errorMessage>You may not enter a Partial Payment Amount if the Final Fee has already been reported.</errorMessage>
+        <errorMessage>You may not enter a Partial Payment Amount if services have not been rendered or if the Final Fee has not been confirmed.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Prevent_Change_Status_if_ToV_Final_MERC</fullName>
+        <active>true</active>
+        <description>If the Participant ToV Final is checked you should not be able to change the Participant&apos;s attendance status. Created 01/14/2014 by KLorenti, Mavens Consulting</description>
+        <errorConditionFormula>ISCHANGED(Status_MERC__c) &amp;&amp; 
+ISPICKVAL( Meeting_MERC__r.Participant_ToV_Final_MERC__c ,&quot;Yes&quot;)</errorConditionFormula>
+        <errorDisplayField>Status_MERC__c</errorDisplayField>
+        <errorMessage>You cannot change the Participant&apos;s status if the Participant ToV is final.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Prevent_Negative_Amount_in_CoPay_MERC</fullName>
+        <active>true</active>
+        <description>Prevent users from entering negative numbers in CoPay fields</description>
+        <errorConditionFormula>(ISCHANGED(CoPay_Flight_Rail_MERC__c) &amp;&amp;
+ CoPay_Flight_Rail_MERC__c &lt;0) ||
+
+(ISCHANGED(CoPay_Food_Beverage_MERC__c) &amp;&amp;
+ CoPay_Food_Beverage_MERC__c &lt;0) ||
+
+(ISCHANGED(CoPay_Ground_Transport_MERC__c) &amp;&amp;
+ CoPay_Ground_Transport_MERC__c &lt;0) ||
+
+(ISCHANGED(CoPay_Hotel_MERC__c) &amp;&amp;
+CoPay_Hotel_MERC__c &lt;0) ||
+
+(ISCHANGED(CoPay_Registration_MERC__c) &amp;&amp;
+CoPay_Registration_MERC__c &lt;0)</errorConditionFormula>
+        <errorMessage>You may not enter a CoPay value less than zero.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Services_Rendered_MERC</fullName>
+        <active>true</active>
+        <description>Only HCP Care or System Administrator can change Services Rendered value if it is already set to &quot;Yes&quot;.  Created 02/03/2014 by KLorenti, Mavens Consulting</description>
+        <errorConditionFormula>$Profile.Name &lt;&gt; &quot;Mercury HCP Care&quot; &amp;&amp; 
+$Profile.Name &lt;&gt; &quot;System Administrator&quot; &amp;&amp;
+ISCHANGED(Services_Rendered_MERC__c) &amp;&amp;
+ISPICKVAL(PRIORVALUE(Services_Rendered_MERC__c),&quot;Yes&quot;)</errorConditionFormula>
+        <errorDisplayField>Services_Rendered_MERC__c</errorDisplayField>
+        <errorMessage>You may not change this value after services has been rendered. Please contact HCP Care.</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>Add_Participants_MERC</fullName>
@@ -2466,7 +2867,7 @@ ISPICKVAL(Confirm_Final_Fee_MERC__c,&apos;Confirmed&apos;) &amp;&amp;
         <requireRowSelection>false</requireRowSelection>
     </webLinks>
     <webLinks>
-        <fullName>LOOP_Plus_MERC</fullName>
+        <fullName>Generate_Content_MERC</fullName>
         <availability>online</availability>
         <description>Launches DrawLOOP 
 Created by John Adams on 11/13/2013</description>
@@ -2474,9 +2875,56 @@ Created by John Adams on 11/13/2013</description>
         <encodingKey>UTF-8</encodingKey>
         <height>600</height>
         <linkType>url</linkType>
-        <masterLabel>LOOP Plus</masterLabel>
+        <masterLabel>Generate Content</masterLabel>
         <openType>sidebar</openType>
         <protected>false</protected>
         <url>/apex/loop__looplus?eid={!Meeting_Participant_MERC__c.Id}&amp;accountId={!Meeting_Participant_MERC__c.Account_MERCId__c}&amp;sessionId={!$Api.Session_ID}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Generate_Welcome_Letter</fullName>
+        <availability>online</availability>
+        <description>Creates a Welcome Letter for the participant.</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Generate Welcome Letter</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/loop__looplus?sessionId={!$Api.Session_ID}&amp;eid={!Meeting_Participant_MERC__c.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Mass_LOOP_Plus</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Mass LOOP Plus</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/26.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/support/console/26.0/integration.js&quot;)}
+
+var ids = {!GETRECORDIDS($ObjectType.Meeting_Participant_MERC__c)};
+if (!ids || ids.length &lt; 1)
+    alert(&quot;Please select at least one record.&quot;);
+else
+{
+    var redirectUrl = &quot;/apex/loop__masslooplus?&amp;retURL=&quot; + encodeURI(window.location.pathname+window.location.search);
+    redirectUrl += &quot;&amp;recordIds=&quot;+ids.join(&quot;,&quot;);
+    redirectUrl += &quot;&amp;sessionId={!$Api.Session_ID}&quot;;
+        window.location.href = redirectUrl;
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Upload_Content</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Upload Content</masterLabel>
+        <openType>sidebar</openType>
+        <page>MERC_NewMeetingParticipantContent</page>
+        <protected>false</protected>
     </webLinks>
 </CustomObject>

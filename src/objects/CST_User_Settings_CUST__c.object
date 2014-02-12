@@ -48,6 +48,7 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Holds user authorization settings for the Customer Search Tool</description>
     <enableActivities>false</enableActivities>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
@@ -1092,8 +1093,13 @@
     <label>CST User Settings</label>
     <listViews>
         <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>CST_User_CUST__c</columns>
+        <columns>Access_Level_CUST__c</columns>
+        <columns>Country_Code_CUST__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
+        <language>en_US</language>
     </listViews>
     <nameField>
         <displayFormat>CSTUS-{000000}</displayFormat>

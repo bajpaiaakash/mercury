@@ -59,6 +59,14 @@ public with sharing class MERC_NewContentController {
             this.file.Account_GLBL__c = this.recordId;
             this.file.RecordTypeId = [Select Id From RecordType WHERE DeveloperName = 'Account_MERC' AND SobjectType = 'ContentVersion' LIMIT 1].Id;
             this.fieldSetAPIName = 'Account_MERC';
+        } else if (objectAPIName == 'Meeting_Participant_MERC__c') {
+            this.file.Meeting_Participant_MERC__c = this.recordId;
+            this.file.RecordTypeId = [Select Id From RecordType WHERE DeveloperName = 'Meeting_Participant_MERC' AND SobjectType = 'ContentVersion' LIMIT 1].Id;
+            this.fieldSetAPIName = 'Meeting_Participant_MERC';
+        } else if (objectAPIName == 'Budget_MERC__c') {
+            this.file.Budget_MERC__c = this.recordId;
+            this.file.RecordTypeId = [Select Id From RecordType WHERE DeveloperName = 'Budget_MERC' AND SobjectType = 'ContentVersion' LIMIT 1].Id;
+            this.fieldSetAPIName = 'Budget_MERC';
         }
     }
 

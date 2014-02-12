@@ -49,6 +49,7 @@
     <description>Contains Health Care Provider speciality information 
 Created by John A Adams 12/15/2013</description>
     <enableActivities>false</enableActivities>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>false</enableReports>
@@ -242,7 +243,7 @@ Created by John A Adams 12/15/2013</description>
         <description>Specialty Description
 Created by John A Adams 12/15/2013</description>
         <externalId>false</externalId>
-        <label>Speciality Description</label>
+        <label>Speciality</label>
         <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>

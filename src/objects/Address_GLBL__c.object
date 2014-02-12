@@ -51,7 +51,7 @@ Created by John A Adams 9/26/2013</description>
     <enableActivities>false</enableActivities>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
-    <enableHistory>false</enableHistory>
+    <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
     <fields>
         <fullName>Account_GLBL__c</fullName>
@@ -64,9 +64,22 @@ Created by John A Adams 9/27/2013</description>
         <relationshipName>Addresses_GLBL</relationshipName>
         <relationshipOrder>0</relationshipOrder>
         <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Account_Name_MERC__c</fullName>
+        <description>Stamped via workflow to ensure Addresses can also be searched for using the name of the Account.  Oliver Dunford 22nd Jan 2014.</description>
+        <externalId>false</externalId>
+        <label>Account Name</label>
+        <length>150</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Address_Combined_MERC__c</fullName>
@@ -76,28 +89,10 @@ Created by John Adams 1/13/14</description>
         <formula>Line_1_Adrs_Txt_GLBL__c &amp;&apos; &apos;&amp; Line_2_Adrs_Txt_GLBL__c</formula>
         <label>Address Combined</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Address_Source_MERC__c</fullName>
-        <description>Capture where address originated from. Created 11/26/2013 by KLorenti, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <label>Address Source</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Mercury</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Customer ODS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Adrs_Cntry_Cd_GLBL__c</fullName>
@@ -1105,6 +1100,7 @@ Created by John A Adams 11/4/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -1117,6 +1113,7 @@ Created by John A Adams 11/4/2013</description>
         <label>Address Id</label>
         <length>30</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1130,6 +1127,7 @@ Created by John A Adams 11/4/2013</description>
         <label>Care of NM</label>
         <length>50</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1142,6 +1140,7 @@ Created by John A Adams 9/27/2013</description>
         <label>City Name</label>
         <length>254</length>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1155,6 +1154,7 @@ Created by John A Adams 11/4/2013</description>
         <label>County Name</label>
         <length>50</length>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1168,6 +1168,7 @@ Created by John A Adams 11/4/2013</description>
         <label>DEA Number</label>
         <length>10</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1180,6 +1181,7 @@ Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
         <label>Delete Date</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -1192,6 +1194,7 @@ Created by John A Adams 11/4/2013</description>
         <label>Delete Flag</label>
         <length>50</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1204,6 +1207,7 @@ Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
         <label>End Date</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -1215,6 +1219,7 @@ Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
         <label>Effective Date</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -1227,6 +1232,7 @@ Created by John A Adams 11/4/2013</description>
         <label>Phone2 Country Prefix Code</label>
         <length>10</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1237,9 +1243,10 @@ Created by John A Adams 11/4/2013</description>
 Customer ODS to Mercury Mapping
 Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
-        <label>Phone2 Extension Code</label>
+        <label>Phone Number 2 Ext</label>
         <length>15</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1250,8 +1257,9 @@ Created by John A Adams 11/4/2013</description>
 Customer ODS to Mercury Mapping
 Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
-        <label>Phone2 Electronic Address Text</label>
+        <label>Phone Number 2</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
@@ -1264,6 +1272,7 @@ Created by John A Adams 11/4/2013</description>
         <label>Phone1 Country Prefix Code</label>
         <length>10</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1274,8 +1283,9 @@ Created by John A Adams 11/4/2013</description>
 Customer ODS to Mercury Mapping
 Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
-        <label>Email Electronic Address Text</label>
+        <label>Email Address</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
@@ -1285,9 +1295,10 @@ Created by John A Adams 11/4/2013</description>
 Customer ODS to Mercury Mapping
 Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
-        <label>Phone1 Extension Code</label>
+        <label>Phone Number 1 Ext</label>
         <length>15</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1301,6 +1312,7 @@ Created by John A Adams 11/4/2013</description>
         <label>Fax Country Prefix Code</label>
         <length>10</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1311,9 +1323,10 @@ Created by John A Adams 11/4/2013</description>
 Customer ODS to Mercury Mapping
 Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
-        <label>Fax Extension Code</label>
+        <label>Fax Number Ext</label>
         <length>15</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1324,8 +1337,9 @@ Created by John A Adams 11/4/2013</description>
 Customer ODS to Mercury Mapping
 Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
-        <label>Fax Electronic Address Text</label>
+        <label>Fax Number</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
@@ -1335,8 +1349,9 @@ Created by John A Adams 11/4/2013</description>
 Customer ODS to Mercury Mapping
 Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
-        <label>Phone1 Electronic Address Text</label>
+        <label>Phone Number 1</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
@@ -1346,8 +1361,9 @@ Created by John A Adams 11/4/2013</description>
 Customer ODS to Mercury Mapping
 Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
-        <label>Web Electronic Address Text</label>
+        <label>Web Address</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
@@ -1358,6 +1374,7 @@ Created by John A Adams 10/22/2013</description>
         <externalId>false</externalId>
         <label>Fax</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Phone</type>
     </fields>
@@ -1370,6 +1387,7 @@ Created by John A Adams 11/4/2013</description>
         <label>Party Physical Address Id</label>
         <length>40</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1382,6 +1400,7 @@ Created by John A Adams 10/24/2013</description>
         <label>HCP License</label>
         <length>80</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1395,6 +1414,7 @@ Created by John A Adams 11/4/2013</description>
         <label>Latitude Coordinate</label>
         <length>15</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1406,6 +1426,7 @@ Created by John A Adams 11/4/2013</description>
         <label>Address Line 1</label>
         <length>150</length>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1419,6 +1440,7 @@ Updated Field Name from Street_GLBL to Line_2_Adrs_Txt_GLBL KLorenti 10/23/2013<
         <label>Address Line 2</label>
         <length>254</length>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1432,6 +1454,7 @@ Created by John A Adams 11/4/2013</description>
         <label>Address Line 3</label>
         <length>254</length>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1445,6 +1468,7 @@ Created by John A Adams 11/4/2013</description>
         <label>Address Line 4</label>
         <length>254</length>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1458,6 +1482,7 @@ Created by John A Adams 11/4/2013</description>
         <label>Address Line 5</label>
         <length>254</length>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1471,6 +1496,7 @@ Created by John A Adams 11/4/2013</description>
         <label>Longitude Coordinate</label>
         <length>15</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1484,6 +1510,7 @@ Created by John A Adams 11/4/2013</description>
         <label>Mail Stop Text</label>
         <length>20</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1496,6 +1523,7 @@ Created by J Adams 12/10/2013</description>
         <label>Mercury External Id</label>
         <length>150</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1508,6 +1536,7 @@ Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
         <label>Source Load Timestamp</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
@@ -1520,6 +1549,7 @@ Created by John A Adams 11/4/2013</description>
         <label>ODS Load User</label>
         <length>30</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1532,6 +1562,7 @@ Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
         <label>Source Update Timestamp</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
@@ -1544,6 +1575,7 @@ Created by John A Adams 11/4/2013</description>
         <label>ODS Last Update User</label>
         <length>30</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1557,6 +1589,7 @@ Created by John A Adams 11/4/2013</description>
         <label>Party Country Code</label>
         <length>2</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1571,6 +1604,7 @@ Created by John A Adams 10/22/2013</description>
         <label>Party Record Type Code</label>
         <length>10</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1582,6 +1616,7 @@ Created by John A Adams 10/22/2013</description>
         <externalId>false</externalId>
         <label>Phone</label>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Phone</type>
     </fields>
@@ -1594,6 +1629,7 @@ Created by John A Adams 11/4/2013</description>
         <label>Physical Address Type Code</label>
         <length>50</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1607,6 +1643,7 @@ Created by John A Adams 12/10/2013</description>
         <label>Physical Address Type Description</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1620,6 +1657,7 @@ Created by John A Adams 11/4/2013</description>
         <label>PO Box Number</label>
         <length>100</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1635,6 +1673,7 @@ Created by John A Adams 11/4/2013</description>
         <precision>5</precision>
         <required>false</required>
         <scale>0</scale>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
@@ -1648,6 +1687,7 @@ Created by John A Adams 11/4/2013</description>
         <label>Postal Code Extension</label>
         <length>32</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1661,6 +1701,7 @@ Created by John A Adams 11/4/2013</description>
         <label>Postal Validation Flag</label>
         <length>1</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1674,6 +1715,7 @@ Created by John A Adams 11/4/2013</description>
         <label>SAP Customer Number</label>
         <length>30</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1687,6 +1729,7 @@ Created by John A Adams 11/4/2013</description>
         <label>Source Block Flag</label>
         <length>1</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1700,6 +1743,7 @@ Created by John A Adams 11/4/2013</description>
         <label>Source System Code</label>
         <length>30</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1724,6 +1768,7 @@ Created by John A Adams 11/4/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -1735,6 +1780,7 @@ Created by John A Adams 9/27/2013</description>
         <label>Zip / Postal Code</label>
         <length>32</length>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1742,12 +1788,22 @@ Created by John A Adams 9/27/2013</description>
     <label>Address</label>
     <listViews>
         <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Account_GLBL__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Line_1_Adrs_Txt_GLBL__c</columns>
+        <columns>Line_2_Adrs_Txt_GLBL__c</columns>
+        <columns>City_GLBL__c</columns>
+        <columns>Adrs_Cntry_Cd_GLBL__c</columns>
+        <columns>Zip_Postal_Code_GLBL__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
+        <language>en_US</language>
     </listViews>
     <nameField>
         <displayFormat>ADR-{000000}</displayFormat>
         <label>Address</label>
+        <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
     <namedFilters>
@@ -1755,31 +1811,1041 @@ Created by John A Adams 9/27/2013</description>
         <active>true</active>
         <field>Payee_MERC__c.Associated_Address_MERC__c</field>
         <filterItems>
-            <field>Address_GLBL__c.Address_Source_MERC__c</field>
+            <field>Address_GLBL__c.RecordType.Name</field>
             <operation>equals</operation>
-            <value>Mercury</value>
+            <value>Payee Address</value>
         </filterItems>
-        <infoMessage>Only returns Addresses of source Mercury. No Mastered addresses will be returned.</infoMessage>
+        <infoMessage>Only returns Payee Addresses. To search for an address based upon fields such as Account Name,  select the &apos;All Fields&apos; option and run your search again.</infoMessage>
         <isOptional>false</isOptional>
         <name>Payee_Associated Address</name>
     </namedFilters>
     <pluralLabel>Addresses</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
-        <fullName>Customer_ODS_Address</fullName>
+        <fullName>Mastered_Address</fullName>
         <active>true</active>
-        <description>Mastered Address from Customer ODS</description>
-        <label>Customer ODS Address</label>
+        <description>Mastered Addresses from Customer ODS</description>
+        <label>Mastered Address</label>
         <picklistValues>
-            <picklist>Address_Source_MERC__c</picklist>
+            <picklist>Adrs_Cntry_Cd_GLBL__c</picklist>
             <values>
-                <fullName>Customer ODS</fullName>
+                <fullName>AD</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mercury</fullName>
+                <fullName>AE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AQ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AW</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AX</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AZ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BQ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BW</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BZ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CK</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CW</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CX</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CZ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DK</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DZ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ER</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ES</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ET</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FK</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GQ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GW</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HK</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ID</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IQ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>JP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KW</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>KZ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LK</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ME</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MK</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ML</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MQ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MW</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MX</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MZ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NZ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PK</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PW</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>QA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RW</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SK</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ST</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SX</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SZ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TJ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TK</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TW</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TZ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>US</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UZ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>YE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>YT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ZA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ZM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ZW</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
+        <picklistValues>
+            <picklist>St_Cd_GLBL__c</picklist>
+            <values>
+                <fullName>State 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State 3</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Other_Address</fullName>
+        <active>true</active>
+        <description>Other Non-Mastered addresses such as Vendor addresses, Venue addresses, and Non-HCP Addresses</description>
+        <label>Other Address</label>
         <picklistValues>
             <picklist>Adrs_Cntry_Cd_GLBL__c</picklist>
             <values>
@@ -2800,17 +3866,6 @@ Created by John A Adams 9/27/2013</description>
         <active>true</active>
         <description>Payee Addresses</description>
         <label>Payee Address</label>
-        <picklistValues>
-            <picklist>Address_Source_MERC__c</picklist>
-            <values>
-                <fullName>Customer ODS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercury</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
         <picklistValues>
             <picklist>Adrs_Cntry_Cd_GLBL__c</picklist>
             <values>
@@ -3833,7 +4888,7 @@ Created by John A Adams 9/27/2013</description>
         <customTabListAdditionalFields>City_GLBL__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Zip_Postal_Code_GLBL__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Adrs_Cntry_Cd_GLBL__c</customTabListAdditionalFields>
-        <lookupDialogsAdditionalFields>Account_GLBL__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Account_Name_MERC__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Line_1_Adrs_Txt_GLBL__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Line_2_Adrs_Txt_GLBL__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>City_GLBL__c</lookupDialogsAdditionalFields>
@@ -3846,13 +4901,13 @@ Created by John A Adams 9/27/2013</description>
         <lookupFilterFields>City_GLBL__c</lookupFilterFields>
         <lookupFilterFields>Zip_Postal_Code_GLBL__c</lookupFilterFields>
         <searchFilterFields>NAME</searchFilterFields>
-        <searchFilterFields>Account_GLBL__c</searchFilterFields>
+        <searchFilterFields>Account_Name_MERC__c</searchFilterFields>
         <searchFilterFields>Line_1_Adrs_Txt_GLBL__c</searchFilterFields>
         <searchFilterFields>Line_2_Adrs_Txt_GLBL__c</searchFilterFields>
         <searchFilterFields>City_GLBL__c</searchFilterFields>
         <searchFilterFields>Zip_Postal_Code_GLBL__c</searchFilterFields>
         <searchFilterFields>Adrs_Cntry_Cd_GLBL__c</searchFilterFields>
-        <searchResultsAdditionalFields>Account_GLBL__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Account_Name_MERC__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Line_1_Adrs_Txt_GLBL__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Line_2_Adrs_Txt_GLBL__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>City_GLBL__c</searchResultsAdditionalFields>
@@ -3861,4 +4916,23 @@ Created by John A Adams 9/27/2013</description>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <startsWith>Vowel</startsWith>
+    <webLinks>
+        <fullName>New_Address</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Address</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!URLFOR( 
+$Action.Address_GLBL__c.New, 
+null, 
+[saveURL=Account.Link+&apos;#&apos;+Account.Id+&apos;_00N11000000SbZi_target&apos;, 
+retURL=Account.Link, 
+CF00N11000000SbZi=Account.Name, 
+CF00N11000000SbZi_lkid=Account.Id] 
+)}</url>
+    </webLinks>
 </CustomObject>

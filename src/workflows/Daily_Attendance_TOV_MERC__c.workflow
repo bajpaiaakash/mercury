@@ -32,13 +32,6 @@
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
-        <fullName>Confirm ToV Reporting Change</fullName>
-        <active>false</active>
-        <description>HCP Care to confirm ToV Reporting change if Participant ToV is Final. Created 01/07/2014 by KLorenti, Mavens Consulting</description>
-        <formula>ISPICKVAL(Meeting_Participant_MERC__r.Participant_ToV_Final_MERC__c, &apos;Yes&apos;)</formula>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
-    <rules>
         <fullName>Set TOV External Id_MERC</fullName>
         <actions>
             <name>Set_TOV_External_Id</name>

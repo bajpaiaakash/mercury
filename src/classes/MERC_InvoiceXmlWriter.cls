@@ -5,7 +5,7 @@ public with sharing class MERC_InvoiceXmlWriter implements GLBL_TriggerHandler.H
 			if (Trigger.isInsert || Trigger.isUpdate || Trigger.isUndelete) {
 		    	Set<Id> invoiceIds = new Set<Id>();
 		    	for (Invoice_MERC__c invoice : (List<Invoice_MERC__c>)Trigger.new) {
-		    		invoiceIds.add(invoice.Id);
+		    		if (invoice.Submit_for_Payment_MERC__c == 'Yes') invoiceIds.add(invoice.Id);
 		    	}
 		    	if (invoiceIds.size() > 0)
 		    		execute(invoiceIds, UserInfo.getSessionId());
@@ -49,8 +49,8 @@ public with sharing class MERC_InvoiceXmlWriter implements GLBL_TriggerHandler.H
        		Blob b = xmlFile.getContent();
        		
        		ContentVersion invoiceXml = new ContentVersion();
-       		invoiceXml.Title = invoiceId+'.xml';
-       		invoiceXml.PathOnClient = invoiceId+'.xml';
+       		invoiceXml.Title = invoiceId.substring(0, 15)+'.xml';
+       		invoiceXml.PathOnClient = invoiceId.substring(0, 15)+'.xml';
        		invoiceXml.FirstPublishLocationId = workspaceId;
        		invoiceXml.RecordTypeId = recordTypeId;
        		invoiceXml.Invoice_MERC__c = invoiceId;

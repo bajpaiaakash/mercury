@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -247,6 +248,12 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
+    <miniLayout>
+        <fields>Name</fields>
+        <fields>PersonTitle</fields>
+        <fields>RecordTypeId</fields>
+        <fields>Country_of_Residence_GLBL__c</fields>
+    </miniLayout>
     <relatedLists>
         <fields>NAME</fields>
         <fields>Party_Rcrd_Typ_Cd_GLBL__c</fields>
@@ -259,12 +266,10 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
-        <fields>Language_of_Choice_GLBL__c</fields>
-        <fields>Communication_Preference_GLBL__c</fields>
-        <fields>Interaction_Channel_Type_GLBL__c</fields>
-        <fields>Speaker_Interest_GLBL__c</fields>
-        <fields>Permission_Status_GLBL__c</fields>
-        <relatedList>Communication_Preference_GLBL__c.Account_GLBL__c</relatedList>
+        <fields>Preference_Type_MERC__c</fields>
+        <fields>Preference_Sub_Type_MERC__c</fields>
+        <fields>Preference_Value_MERC__c</fields>
+        <relatedList>Preferences_and_Consent_GLBL__c.Account_GLBL__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>

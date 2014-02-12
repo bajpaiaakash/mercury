@@ -81,6 +81,12 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
+    <miniLayout>
+        <fields>Name</fields>
+        <fields>Session_Type_MERC__c</fields>
+        <fields>Meeting_MERC__c</fields>
+        <fields>Room_MERC__c</fields>
+    </miniLayout>
     <relatedLists>
         <fields>Meeting_Participant_MERC__c</fields>
         <fields>Assigned_Topic_MERC__c</fields>

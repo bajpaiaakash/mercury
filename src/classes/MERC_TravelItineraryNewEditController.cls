@@ -7,7 +7,7 @@
 
 public with sharing class MERC_TravelItineraryNewEditController extends GLBL_BaseEditController {
 	
-	MERC_TimeZoneUtility tz = new MERC_TimeZoneUtility(Meeting_MERC__c.sObjectType);
+	MERC_TimeZoneUtility tz = new MERC_TimeZoneUtility(Travel_Itinerary_MERC__c.sObjectType);
 
 	public MERC_TravelItineraryNewEditController(ApexPages.StandardController controller) {
 		super(controller, Travel_Itinerary_MERC__c.SobjectType);
