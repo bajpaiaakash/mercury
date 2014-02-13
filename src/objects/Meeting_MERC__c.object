@@ -375,7 +375,7 @@ Created by John Adams on 12/9/2013</description>
         <fullName>Content_Creator_MERC__c</fullName>
         <description>Who will be creating the content? Created 10/3/2013 by KLorenti.</description>
         <externalId>false</externalId>
-        <inlineHelpText>Who will be creating the content?</inlineHelpText>
+        <inlineHelpText>Who is creating the content?</inlineHelpText>
         <label>Content Creator</label>
         <length>80</length>
         <required>false</required>
@@ -2507,6 +2507,30 @@ CASE(  Meeting_Scope_MERC__c   ,
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Mercury_Owner_Master_Id_MERC__c</fullName>
+        <description>Returns master Employee Id of the meeting owner, populated via workflow. Used by AODS. Oliver Dunford 26th Jan 2014.</description>
+        <externalId>false</externalId>
+        <label>Mercury Owner Master Id</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Mercury_Worker_Country_Code_MERC__c</fullName>
+        <description>Country Code of Meeting Owner. If generated in Mercury then use Meeting Owner country value if created in Veeva use Sales Rep country values. Created by John Adams on 12/9/2013</description>
+        <externalId>false</externalId>
+        <label>Mercury_Worker Country Code</label>
+        <length>2</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>No_Shows_MERC__c</fullName>
         <description>Number of invitees who did not attend the meeting.
 Created by John Adams on 12/9/2013</description>
@@ -2670,10 +2694,10 @@ Created by John Adams on 12/9/2013</description>
     </fields>
     <fields>
         <fullName>Owner_Master_Id_MERC__c</fullName>
-        <description>Returns master Employee Id of the meeting owner.  Used by AODS.  Oliver Dunford 26th Jan 2014.</description>
+        <description>Stamped based on the master owner of the meeting.  Id sent to AODS. Oliver Dunford 12th Feb 2014.</description>
         <externalId>false</externalId>
-        <formula>IF (ISBLANK(Sales_Rep_MERC__r.Prsnl_Nbr_GLBL__c ), Meeting_Owner_MERC__r.Prsnl_Nbr_GLBL__c , Sales_Rep_MERC__r.Prsnl_Nbr_GLBL__c)</formula>
         <label>Owner Master Id</label>
+        <length>10</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -3479,10 +3503,10 @@ Created by John Adams 11/6/2013</description>
     </fields>
     <fields>
         <fullName>Work_Cntry_Cd_GLBL__c</fullName>
-        <description>Country Code of Meeting Owner.  If generated in Mercury then use Meeting Owner country value if created in Veeva use Sales Rep country values.  Created by John Adams on 12/9/2013</description>
+        <description>Populated upon record creation to stamp the master owner id of the meeting for AODS.  Oliver Dunford 12th Feb 2014.</description>
         <externalId>false</externalId>
-        <formula>TEXT(Meeting_Owner_MERC__r.Country_of_Residence_MERC__c)</formula>
         <label>Worker Country Code</label>
+        <length>2</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -14163,7 +14187,7 @@ Created by John Adams 11/6/2013</description>
         <description>The Compliance Risk field must be set to yes before the Meeting can be Completed.  Created 12/18/2013 by KLorenti, Mavens Consulting</description>
         <errorConditionFormula>ISBLANK(Text(Compliant_MERC__c)) &amp;&amp; 
 ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
-ISPICKVAL(Meeting_Status_MERC__c,&apos;Complete - Closed&apos;)</errorConditionFormula>
+ISPICKVAL(Meeting_Status_MERC__c,&apos;Complete&apos;)</errorConditionFormula>
         <errorDisplayField>Compliant_MERC__c</errorDisplayField>
         <errorMessage>The Compliance Risk must be selected in order to Complete the Meeting.</errorMessage>
     </validationRules>
@@ -14171,9 +14195,9 @@ ISPICKVAL(Meeting_Status_MERC__c,&apos;Complete - Closed&apos;)</errorConditionF
         <fullName>Confirm_Budget_is_Final_MERC</fullName>
         <active>true</active>
         <description>Budget must be final before Meeting can be completed. Created 11/19/2013 by KLorenti, Mavens Consulting</description>
-        <errorConditionFormula>RecordType.Name &lt;&gt; &apos;Independent Sponsorship&apos;
+        <errorConditionFormula>RecordType.Name &lt;&gt; &apos;Independent Meeting&apos;
 &amp;&amp; !ISPICKVAL(Budget_is_Final_MERC__c,&apos;Yes&apos;)
-&amp;&amp;  ISPICKVAL(Meeting_Status_MERC__c,&apos;Complete - Closed&apos;)</errorConditionFormula>
+&amp;&amp;  ISPICKVAL(Meeting_Status_MERC__c,&apos;Complete&apos;)</errorConditionFormula>
         <errorDisplayField>Budget_is_Final_MERC__c</errorDisplayField>
         <errorMessage>The Budget must be Final before the Meeting can be Completed.</errorMessage>
     </validationRules>
@@ -14181,7 +14205,7 @@ ISPICKVAL(Meeting_Status_MERC__c,&apos;Complete - Closed&apos;)</errorConditionF
         <fullName>Confirm_MCP_Evaluation_MERC</fullName>
         <active>true</active>
         <description>The MPC has been evaluated before the Meeting can be Completed.</description>
-        <errorConditionFormula>RecordType.Name &lt;&gt; &apos;Independent Sponsorship&apos;
+        <errorConditionFormula>RecordType.Name &lt;&gt; &apos;Independent Meeting&apos;
 &amp;&amp; ISPICKVAL( MCP_work_MERC__c , &quot;&quot;)
 &amp;&amp; ISPICKVAL(Meeting_Status_MERC__c, &apos;Complete - Closed&apos;)</errorConditionFormula>
         <errorDisplayField>MCP_work_MERC__c</errorDisplayField>
@@ -14202,12 +14226,7 @@ ISPICKVAL( Meeting_Status_MERC__c ,&apos;Complete - Cancelled&apos;) &amp;&amp;
         <fullName>Confirm_Meeting_Date_Change_MERC</fullName>
         <active>true</active>
         <description>Enforces confirmation of Meeting Date changes. Created 10/24/2013 by KLorenti, Mavens Consulting</description>
-        <errorConditionFormula>(
-!ISBLANK(PRIORVALUE(Meeting_Time_Zone_MERC__c)) &amp;&amp;
-!ISBLANK(PRIORVALUE(Start_Time_of_Meeting_MERC__c )) &amp;&amp;
-!ISBLANK(PRIORVALUE(End_Time_of_Meeting_MERC__c )) 
-)
-&amp;&amp;
+        <errorConditionFormula>!ISNEW ()&amp;&amp;
 (
 ISCHANGED(Meeting_Time_Zone_MERC__c) ||
 ISCHANGED(Start_Time_of_Meeting_MERC__c) ||
@@ -14215,7 +14234,7 @@ ISCHANGED(End_Time_of_Meeting_MERC__c)
 ) 
 &amp;&amp;  !Confirm_Meeting_Date_Change_MERC__c</errorConditionFormula>
         <errorDisplayField>Confirm_Meeting_Date_Change_MERC__c</errorDisplayField>
-        <errorMessage>Please agree to/confirm the Meeting Date Change.</errorMessage>
+        <errorMessage>Please agree to/confirm the Meeting Date/Time Change.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Event_Occurred_before_Complete_MERC</fullName>
@@ -14231,7 +14250,7 @@ ISPICKVAL(Meeting_Status_MERC__c,&apos;Complete - Closed&apos;)</errorConditionF
         <active>true</active>
         <description>If the Meeting has already occurred you may not cancel the meeting. Created 01/10/2014 by KLorenti, Mavens Consulting</description>
         <errorConditionFormula>ISPICKVAL(Event_Occurred_MERC__c,&apos;Yes&apos;)&amp;&amp; ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
-ISPICKVAL(Meeting_Status_MERC__c,&apos;Cancelled&apos;)</errorConditionFormula>
+ISPICKVAL(Meeting_Status_MERC__c,&apos;Complete - Cancelled&apos;)</errorConditionFormula>
         <errorDisplayField>Event_Occurred_MERC__c</errorDisplayField>
         <errorMessage>The Meeting cannot be cancelled if it has already occurred.</errorMessage>
     </validationRules>
@@ -14243,6 +14262,30 @@ ISPICKVAL(Meeting_Status_MERC__c,&apos;Cancelled&apos;)</errorConditionFormula>
 ISPICKVAL(PRIORVALUE(Participant_ToV_Final_MERC__c),&quot;Yes&quot;)</errorConditionFormula>
         <errorDisplayField>Participant_ToV_Final_MERC__c</errorDisplayField>
         <errorMessage>You may not change this value once it has been set to Yes.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Validate_Active_Content_Approval_MERC</fullName>
+        <active>true</active>
+        <description>Check the required fields based on the Status selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
+        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
+      ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
+	TEXT(Meeting_Status_MERC__c) = &apos;Active&apos; &amp;&amp;
+      (ISBLANK(TEXT(Content_Approval_Needed_MERC__c )))
+,true, false)</errorConditionFormula>
+        <errorDisplayField>Content_Approval_Needed_MERC__c</errorDisplayField>
+        <errorMessage>The Content Approval Needed is required before status can be changed to Active</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Validate_Active_Content_Creator_MERC</fullName>
+        <active>false</active>
+        <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
+        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
+      ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
+      TEXT(Meeting_Status_MERC__c) = &apos;Active&apos; &amp;&amp;
+     (ISBLANK(Content_Creator_MERC__c )),
+true, false)</errorConditionFormula>
+        <errorDisplayField>Content_Creator_MERC__c</errorDisplayField>
+        <errorMessage>The Content Creator is required before status can be changed to Active</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Validate_Active_Expected_Emp_MERC</fullName>
@@ -14293,6 +14336,18 @@ ISPICKVAL(PRIORVALUE(Participant_ToV_Final_MERC__c),&quot;Yes&quot;)</errorCondi
         <errorMessage>The Interaction Type is required before status can be changed to Active</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Validate_Active_Meeting_Obj_MERC</fullName>
+        <active>true</active>
+        <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
+        <errorConditionFormula>IF(RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp; 
+ISCHANGED(Meeting_Status_MERC__c) &amp;&amp; 
+TEXT(Meeting_Status_MERC__c) = &apos;Active&apos; &amp;&amp; 
+LEN (Meeting_Objectives_MERC__c) = 0
+,true, false)</errorConditionFormula>
+        <errorDisplayField>Meeting_Objectives_MERC__c</errorDisplayField>
+        <errorMessage>The Meeting Objectives is required before status can be changed to Active</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Validate_Active_Planned_Budget_MERC</fullName>
         <active>true</active>
         <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
@@ -14303,6 +14358,18 @@ ISPICKVAL(PRIORVALUE(Participant_ToV_Final_MERC__c),&quot;Yes&quot;)</errorCondi
 	,true, false)</errorConditionFormula>
         <errorDisplayField>Planned_Budget_MERC__c</errorDisplayField>
         <errorMessage>The Planned Budget is required before status can be changed to Active</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Validate_Active_Target_Audience_MERC</fullName>
+        <active>true</active>
+        <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
+        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
+      ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
+		TEXT(Meeting_Status_MERC__c) = &apos;Active&apos; &amp;&amp;
+		(ISBLANK (Text(  Target_Audience_List_MERC__c )))
+	,true, false)</errorConditionFormula>
+        <errorDisplayField>Target_Audience_List_MERC__c</errorDisplayField>
+        <errorMessage>The Target Audience is required before status can be changed to Active</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Validate_Registered_Expected_Emp_MERC</fullName>
@@ -14329,6 +14396,18 @@ ISPICKVAL(PRIORVALUE(Participant_ToV_Final_MERC__c),&quot;Yes&quot;)</errorCondi
         <errorMessage>The # of Expected Non-Lilly/Non-HCPs is required before status can be changed to Registered</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Validate_Registered_Expected_Speakr_MERC</fullName>
+        <active>true</active>
+        <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
+        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
+      ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
+		TEXT(Meeting_Status_MERC__c) = &apos;Registered&apos; &amp;&amp;
+		(ISBLANK ( Number_of_Expected_Speakers_MERC__c ))
+	,true, false)</errorConditionFormula>
+        <errorDisplayField>Number_of_Expected_Speakers_MERC__c</errorDisplayField>
+        <errorMessage>The # of Expected Speakers is required before status can be changed to Registered</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Validate_Registered_Interact_Type_MERC</fullName>
         <active>true</active>
         <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
@@ -14351,54 +14430,6 @@ ISPICKVAL(PRIORVALUE(Participant_ToV_Final_MERC__c),&quot;Yes&quot;)</errorCondi
 	,true, false)</errorConditionFormula>
         <errorDisplayField>Planned_Budget_MERC__c</errorDisplayField>
         <errorMessage>The Planned Budget is required before status can be changed to Registered</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Validate_Registered_Target_Audience_MERC</fullName>
-        <active>true</active>
-        <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
-        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Sponsorship&apos; &amp;&amp;
-      ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
-		TEXT(Meeting_Status_MERC__c) = &apos;Active&apos; &amp;&amp;
-		(ISBLANK (Text(  Target_Audience_List_MERC__c )))
-	,true, false)</errorConditionFormula>
-        <errorDisplayField>Target_Audience_List_MERC__c</errorDisplayField>
-        <errorMessage>The Target Audience is required before status can be changed to Active</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Validate_Submitted_Content_Approval_MERC</fullName>
-        <active>true</active>
-        <description>Check the required fields based on the Status selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
-        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
-      ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
-	TEXT(Meeting_Status_MERC__c) = &apos;Active&apos; &amp;&amp;
-      (ISBLANK(TEXT(Content_Approval_Needed_MERC__c )))
-,true, false)</errorConditionFormula>
-        <errorDisplayField>Content_Approval_Needed_MERC__c</errorDisplayField>
-        <errorMessage>The Content Approval Needed is required before status can be changed to Active</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Validate_Submitted_Content_Creator_MERC</fullName>
-        <active>true</active>
-        <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
-        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
-      ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
-      TEXT(Meeting_Status_MERC__c) = &apos;Active&apos; &amp;&amp;
-     (ISBLANK(Content_Creator_MERC__c )),
-true, false)</errorConditionFormula>
-        <errorDisplayField>Content_Creator_MERC__c</errorDisplayField>
-        <errorMessage>The Content Creator is required before status can be changed to Active</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Validate_Submitted_Meeting_Obj_MERC</fullName>
-        <active>true</active>
-        <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
-        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
-      ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
-		TEXT(Meeting_Status_MERC__c) = &apos;Active&apos; &amp;&amp;
-		(ISBLANK (Meeting_Objectives_MERC__c ))
-,true, false)</errorConditionFormula>
-        <errorDisplayField>Meeting_Objectives_MERC__c</errorDisplayField>
-        <errorMessage>The Meeting Objectives is required before status can be changed to Active</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>Affiliate_Resource_Center_MERC</fullName>

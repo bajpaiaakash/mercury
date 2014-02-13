@@ -33,6 +33,28 @@
         <protected>false</protected>
         <targetObject>Meeting_MERC__c</targetObject>
     </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_AODS_Master_Owner_Id_Field_MERC</fullName>
+        <description>Updates Master Owner Id field with the Mercury Primary Meeting Owner. Oliver Dunford 12th Feb 2014.</description>
+        <field>Mercury_Owner_Master_Id_MERC__c</field>
+        <formula>User_MERC__r.Prsnl_Nbr_GLBL__c</formula>
+        <name>Update AODS Master Owner Id Field</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <targetObject>Meeting_MERC__c</targetObject>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Master_Worker_Country_Code_MERC</fullName>
+        <description>Updates the AODS Worker Country Code on the Meeting. Oliver Dunford. 12th Feb 2014.</description>
+        <field>Mercury_Worker_Country_Code_MERC__c</field>
+        <formula>TEXT(User_MERC__r.Country_of_Residence_MERC__c)</formula>
+        <name>Update Master Worker Country Code</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <targetObject>Meeting_MERC__c</targetObject>
+    </fieldUpdates>
     <outboundMessages>
         <fullName>RTI_Team_Member_Updated</fullName>
         <apiVersion>29.0</apiVersion>
@@ -48,8 +70,6 @@
         <fields>IsDeleted</fields>
         <fields>LastModifiedById</fields>
         <fields>LastModifiedDate</fields>
-        <fields>LastReferencedDate</fields>
-        <fields>LastViewedDate</fields>
         <fields>Meeting_External_MERC__c</fields>
         <fields>Meeting_MERC__c</fields>
         <fields>Mercury_External_Id_MERC__c</fields>
@@ -60,7 +80,7 @@
         <fields>SystemModstamp</fields>
         <fields>User_MERC__c</fields>
         <includeSessionId>true</includeSessionId>
-        <integrationUser>helmer@gso1.lly</integrationUser>
+        <integrationUser>helmerdavid@gso1.lly</integrationUser>
         <name>RTI - Team Member Updated</name>
         <protected>false</protected>
         <useDeadLetterQueue>false</useDeadLetterQueue>
@@ -104,16 +124,6 @@
         <active>true</active>
         <formula>NOT(ISCHANGED( RTI_Transaction_ID_MERC__c ) ) &amp;&amp;  (Account_MERC__r.Prsnl_Nbr_GLBL__c) != &apos;&apos;</formula>
         <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
-        <fullName>Set Meeting Owner_MERC</fullName>
-        <active>false</active>
-        <criteriaItems>
-            <field>Team_Member_MERC__c.Role_MERC__c</field>
-            <operation>equals</operation>
-            <value>Primary Meeting Owner</value>
-        </criteriaItems>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
         <fullName>Set Primary Meeting Owner Email_MERC</fullName>

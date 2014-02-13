@@ -75,6 +75,10 @@
                 <behavior>Edit</behavior>
                 <field>Country_Cd_GLBL__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Indctn_Short_Desc_GLBL__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns/>
         <style>TwoColumnsTopToBottom</style>

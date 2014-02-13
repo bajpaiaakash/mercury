@@ -34,7 +34,7 @@
         <fields>Product_MERC__c</fields>
         <fields>SystemModstamp</fields>
         <includeSessionId>true</includeSessionId>
-        <integrationUser>helmer@gso1.lly</integrationUser>
+        <integrationUser>helmerdavid@gso1.lly</integrationUser>
         <name>RTI - Meeting Product Updated</name>
         <protected>false</protected>
         <useDeadLetterQueue>false</useDeadLetterQueue>

@@ -121,6 +121,26 @@
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>Employee_Record_Type_Id__c</fullName>
+        <externalId>false</externalId>
+        <label>Employee Record Type Id</label>
+        <length>18</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Employee_Record_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Employee Record Type</label>
+        <length>64</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Login_Message_CUST__c</fullName>
         <description>Tool should display a user message to user before allowing any access to data, the user must check a box to accept the terms before they are granted access to data</description>
         <externalId>false</externalId>

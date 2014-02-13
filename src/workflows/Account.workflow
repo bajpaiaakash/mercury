@@ -329,8 +329,6 @@ IF(TEXT(Influential_MERC__c) = &quot;Yes&quot;, 1,0)</formula>
         <fields>LastModifiedById</fields>
         <fields>LastModifiedDate</fields>
         <fields>LastName</fields>
-        <fields>LastReferencedDate</fields>
-        <fields>LastViewedDate</fields>
         <fields>Last_Review_Date_MERC__c</fields>
         <fields>Licensed_HCP_MERC__c</fields>
         <fields>Lilly_Company_Code_GLBL__c</fields>
@@ -492,7 +490,7 @@ IF(TEXT(Influential_MERC__c) = &quot;Yes&quot;, 1,0)</formula>
         <fields>Work_Country_Desc_GLBL__c</fields>
         <fields>Work_Phone_Cntry_Cd_GLBL__c</fields>
         <includeSessionId>true</includeSessionId>
-        <integrationUser>helmer@gso1.lly</integrationUser>
+        <integrationUser>helmerdavid@gso1.lly</integrationUser>
         <name>RTI - Account Updated</name>
         <protected>false</protected>
         <useDeadLetterQueue>false</useDeadLetterQueue>
@@ -605,13 +603,7 @@ IF(TEXT(Influential_MERC__c) = &quot;Yes&quot;, 1,0)</formula>
         </actions>
         <active>true</active>
         <description>Updates the CV checked field back to Not Required should the Tier change from 1 to 2 or 3. Oliver Dunford 15th Jan 2014.</description>
-        <formula>Tier_1_Criteria_Met_MERC__c = &apos;No&apos; &amp;&amp; 
-(
-          ISPICKVAL(Tier_1_HCP_CV_Checked_MERC__c, &quot;Confirmed HCP is Tier 1&quot;) ||
-          ISPICKVAL(Tier_1_HCP_CV_Checked_MERC__c, &quot;HCP is NOT Tier 1&quot;) ||
-          ISPICKVAL(Tier_1_HCP_CV_Checked_MERC__c, &quot;Needs Review&quot;) ||
-          ISPICKVAL(Tier_1_HCP_CV_Checked_MERC__c, &quot;&quot;)
-)</formula>
+        <formula>Tier_1_Criteria_Met_MERC__c = &apos;No&apos; &amp;&amp;  (           ISPICKVAL(Tier_1_HCP_CV_Checked_MERC__c, &quot;Confirmed HCP is Tier 1&quot;) ||           ISPICKVAL(Tier_1_HCP_CV_Checked_MERC__c, &quot;HCP is NOT Tier 1&quot;) ||           ISPICKVAL(Tier_1_HCP_CV_Checked_MERC__c, &quot;Needs Review&quot;) ||           ISPICKVAL(Tier_1_HCP_CV_Checked_MERC__c, &quot;&quot;) )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -637,8 +629,7 @@ IF(TEXT(Influential_MERC__c) = &quot;Yes&quot;, 1,0)</formula>
         </actions>
         <active>true</active>
         <description>Once a HCP&apos;s CV has been verified, set the Service Provider Tier to 1. Oliver Dunford 15th Jan 2014.</description>
-        <formula>AND(ISCHANGED(Tier_1_HCP_CV_Checked_MERC__c),
-ISPICKVAL( Tier_1_HCP_CV_Checked_MERC__c , &quot;Confirmed HCP is Tier 1&quot;),  Tier_1_Criteria_Met_MERC__c = &quot;Yes&quot;,  Tier_2_Criteria_Met_MERC__c = &quot;Yes&quot;,  Tier_3_Criteria_Met_MERC__c = &quot;Yes&quot;)</formula>
+        <formula>AND(ISCHANGED(Tier_1_HCP_CV_Checked_MERC__c), ISPICKVAL( Tier_1_HCP_CV_Checked_MERC__c , &quot;Confirmed HCP is Tier 1&quot;),  Tier_1_Criteria_Met_MERC__c = &quot;Yes&quot;,  Tier_2_Criteria_Met_MERC__c = &quot;Yes&quot;,  Tier_3_Criteria_Met_MERC__c = &quot;Yes&quot;)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -649,12 +640,7 @@ ISPICKVAL( Tier_1_HCP_CV_Checked_MERC__c , &quot;Confirmed HCP is Tier 1&quot;),
         </actions>
         <active>true</active>
         <description>Ensures the CV is checked before setting the Service Provider Tier to 1. Oliver Dunford 15th Jan 2014.</description>
-        <formula>Tier_1_Criteria_Met_MERC__c = &quot;Yes&quot; &amp;&amp; 
-( 
-ISPICKVAL(Tier_1_HCP_CV_Checked_MERC__c, &quot;&quot;) || 
-ISPICKVAL(Tier_1_HCP_CV_Checked_MERC__c, &quot;HCP is NOT Tier 1&quot;) || 
-ISPICKVAL(Tier_1_HCP_CV_Checked_MERC__c, &quot;Not Required&quot;) 
-)</formula>
+        <formula>Tier_1_Criteria_Met_MERC__c = &quot;Yes&quot; &amp;&amp;  (  ISPICKVAL(Tier_1_HCP_CV_Checked_MERC__c, &quot;&quot;) ||  ISPICKVAL(Tier_1_HCP_CV_Checked_MERC__c, &quot;HCP is NOT Tier 1&quot;) ||  ISPICKVAL(Tier_1_HCP_CV_Checked_MERC__c, &quot;Not Required&quot;)  )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>

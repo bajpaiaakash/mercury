@@ -91,9 +91,13 @@
         <formula>MSA_End_Date_MERC__c =  Account_MERC__r.MSA_Expiration_Date_MERC__c</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
+            <actions>
+                <name>Update_HAS_MSA_to_NO_if_Expired</name>
+                <type>FieldUpdate</type>
+            </actions>
             <offsetFromField>HCP_Contract_MERC__c.MSA_End_Date_MERC__c</offsetFromField>
             <timeLength>1</timeLength>
-            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
     </rules>
     <rules>
@@ -135,8 +139,7 @@
         </actions>
         <active>true</active>
         <description>Update MSA Expiration Date on HCP Account Profile.  Created 02/10/2014 by KLorenti, Mavens Consulting</description>
-        <formula>ISPICKVAL(Contract_Request_Status_MERC__c,&quot;Contract Signed&quot;) &amp;&amp;
- RecordType.Name = &quot;Master Service Agreement&quot;</formula>
+        <formula>ISPICKVAL(Contract_Request_Status_MERC__c,&quot;Contract Signed&quot;) &amp;&amp;  RecordType.Name = &quot;Master Service Agreement&quot;</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>

@@ -114,6 +114,17 @@ Created by J Adams 12/10/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Name_MERC__c</fullName>
+        <description>Pulls the name of the Service Provider for Incorporation onto the Agenda. Oliver Dunford 13th Feb 2014.</description>
+        <externalId>false</externalId>
+        <formula>Meeting_Participant_MERC__r.Account_MERC__r.Name</formula>
+        <label>Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Session_MERC__c</fullName>
         <description>One to Many relationship between Participant Session and Session
 Created by John A Adams 10/3/2013</description>

@@ -235,8 +235,7 @@ Truncates the Payee Name to 35 characters to send via the SAP Interface. This is
         </actions>
         <active>true</active>
         <description>Populate Bank information into Invoice</description>
-        <formula>OR((Payee_MERC__c &lt;&gt; &quot;&quot;),
- ISCHANGED(Payee_MERC__c))</formula>
+        <formula>OR((Payee_MERC__c &lt;&gt; &quot;&quot;),  ISCHANGED(Payee_MERC__c))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -275,8 +274,7 @@ Truncates the Payee Name to 35 characters to send via the SAP Interface. This is
         </actions>
         <active>true</active>
         <description>Populate Payee information into Invoice</description>
-        <formula>OR((Payee_MERC__c &lt;&gt; &quot;&quot;),
- ISCHANGED(Payee_MERC__c))</formula>
+        <formula>OR((Payee_MERC__c &lt;&gt; &quot;&quot;),  ISCHANGED(Payee_MERC__c))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>

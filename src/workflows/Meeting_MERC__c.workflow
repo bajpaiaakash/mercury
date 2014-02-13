@@ -218,6 +218,26 @@ Name</formula>
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_Master_Owner_Id_MERC</fullName>
+        <description>Updates Master Owner Id from Account for Reps profile of User record for Mercury Meeting Owner.  Oliver Dunford 12th Feb 2014.</description>
+        <field>Owner_Master_Id_MERC__c</field>
+        <formula>IF(ISBLANK( Sales_Rep_MERC__c ),  Owner:User.Prsnl_Nbr_GLBL__c ,  Sales_Rep_MERC__r.Prsnl_Nbr_GLBL__c )</formula>
+        <name>Update Master Owner Id</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Master_Worker_Country_Cd_MERC</fullName>
+        <description>Updates Owner Master Country Code for AODS Interface.  Oliver Dunford 12th feb 2014.</description>
+        <field>Work_Cntry_Cd_GLBL__c</field>
+        <formula>IF(ISBLANK( Sales_Rep_MERC__c ),   TEXT(Owner:User.Country_of_Residence_MERC__c)  ,  TEXT(Sales_Rep_MERC__r.Country_of_Residence_GLBL__c)  )</formula>
+        <name>Update Master Worker Country Code</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Meeting_Date_Change_Check_MERC</fullName>
         <description>Clear the &quot;Confirm Meeting Date Change&quot; Checkbox after record is updated.</description>
         <field>Confirm_Meeting_Date_Change_MERC__c</field>
@@ -401,8 +421,6 @@ Name</formula>
         <fields>Justification_for_Venue_MERC__c</fields>
         <fields>LastModifiedById</fields>
         <fields>LastModifiedDate</fields>
-        <fields>LastReferencedDate</fields>
-        <fields>LastViewedDate</fields>
         <fields>Logistics_Information_MERC__c</fields>
         <fields>MCP_work_MERC__c</fields>
         <fields>Make_Payment_To_MERC__c</fields>
@@ -475,7 +493,6 @@ Name</formula>
         <fields>Type_MERC__c</fields>
         <fields>Venue_MERC__c</fields>
         <fields>Virtual_Meeting_MERC__c</fields>
-        <fields>Work_Cntry_Cd_GLBL__c</fields>
         <fields>of_Sponsored_Individuals_MERC__c</fields>
         <fields>of_Sponsorship_Group_MERC__c</fields>
         <includeSessionId>true</includeSessionId>
@@ -517,8 +534,7 @@ Name</formula>
         </actions>
         <active>true</active>
         <description>If Meeting is changed from Cancelled to another status, update the Meeting Cancellation Date to blank. Created 12/19/2013 by KLorenti, Mavens Consulting</description>
-        <formula>ISCHANGED(Meeting_Status_MERC__c)&amp;&amp;
-!ISPICKVAL(Meeting_Status_MERC__c,&quot;Complete - Cancelled&quot;)</formula>
+        <formula>ISCHANGED(Meeting_Status_MERC__c)&amp;&amp; !ISPICKVAL(Meeting_Status_MERC__c,&quot;Complete - Cancelled&quot;)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -630,9 +646,7 @@ Name</formula>
         </actions>
         <active>true</active>
         <description>Notify Meeting Owner when Meeting Status changes from Forecasted to Cancelled.</description>
-        <formula>ISPICKVAL(PRIORVALUE(Meeting_Status_MERC__c),&quot;Forecasted&quot;) &amp;&amp;
-ISPICKVAL(Meeting_Status_MERC__c,&quot;Complete - Cancelled&quot;) &amp;&amp;
-ISCHANGED(Meeting_Status_MERC__c)</formula>
+        <formula>ISPICKVAL(PRIORVALUE(Meeting_Status_MERC__c),&quot;Forecasted&quot;) &amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Complete - Cancelled&quot;) &amp;&amp; ISCHANGED(Meeting_Status_MERC__c)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -678,8 +692,7 @@ ISCHANGED(Meeting_Status_MERC__c)</formula>
         </actions>
         <active>true</active>
         <description>If Meeting is Cancelled, update the Meeting Cancellation Date. Created 12/19/2013 by KLorenti, Mavens Consulting</description>
-        <formula>ISCHANGED(Meeting_Status_MERC__c)&amp;&amp;
-ISPICKVAL(Meeting_Status_MERC__c,&quot;Complete - Cancelled&quot;)</formula>
+        <formula>ISCHANGED(Meeting_Status_MERC__c)&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Complete - Cancelled&quot;)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -690,10 +703,7 @@ ISPICKVAL(Meeting_Status_MERC__c,&quot;Complete - Cancelled&quot;)</formula>
         </actions>
         <active>true</active>
         <description>Set Queue Owner - France Hub</description>
-        <formula>(ISPICKVAL(Event_Country_MERC__c,&apos;FR&apos;)||
-ISPICKVAL(Event_Country_MERC__c,&apos;NL&apos;)||
-ISPICKVAL(Event_Country_MERC__c,&apos;BE&apos;))&amp;&amp;
-ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
+        <formula>(ISPICKVAL(Event_Country_MERC__c,&apos;FR&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;NL&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;BE&apos;))&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -704,10 +714,7 @@ ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
         </actions>
         <active>true</active>
         <description>Set Queue Owner - Germany Hub</description>
-        <formula>(ISPICKVAL(Event_Country_MERC__c,&apos;DE&apos;)||
-ISPICKVAL(Event_Country_MERC__c,&apos;AT&apos;)||
-ISPICKVAL(Event_Country_MERC__c,&apos;CH&apos;))&amp;&amp;
-ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
+        <formula>(ISPICKVAL(Event_Country_MERC__c,&apos;DE&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;AT&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;CH&apos;))&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -718,19 +725,7 @@ ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
         </actions>
         <active>true</active>
         <description>Set Queue Owner - Italy Hub</description>
-        <formula>(ISPICKVAL(Event_Country_MERC__c,&apos;IT&apos;)||
-ISPICKVAL(Event_Country_MERC__c,&apos;RO&apos;)||
-ISPICKVAL(Event_Country_MERC__c,&apos;BG&apos;)||
-ISPICKVAL(Event_Country_MERC__c,&apos;HR&apos;)||
-ISPICKVAL(Event_Country_MERC__c,&apos;RS&apos;)||
-ISPICKVAL(Event_Country_MERC__c,&apos;SI&apos;)||
-ISPICKVAL(Event_Country_MERC__c,&apos;CY&apos;)||
-ISPICKVAL(Event_Country_MERC__c,&apos;MT&apos;)||
-ISPICKVAL(Event_Country_MERC__c,&apos;CA&apos;)||
-ISPICKVAL(Event_Country_MERC__c,&apos;HU&apos;)||
-ISPICKVAL(Event_Country_MERC__c,&apos;PL&apos;)||
-ISPICKVAL(Event_Country_MERC__c,&apos;SK&apos;))&amp;&amp;
-ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
+        <formula>(ISPICKVAL(Event_Country_MERC__c,&apos;IT&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;RO&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;BG&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;HR&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;RS&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;SI&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;CY&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;MT&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;CA&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;HU&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;PL&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;SK&apos;))&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -741,8 +736,7 @@ ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
         </actions>
         <active>true</active>
         <description>Set Queue Owner - Russia</description>
-        <formula>ISPICKVAL(Event_Country_MERC__c,&apos;RU&apos;)&amp;&amp;
-ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
+        <formula>ISPICKVAL(Event_Country_MERC__c,&apos;RU&apos;)&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -753,9 +747,7 @@ ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
         </actions>
         <active>true</active>
         <description>Set Queue Owner - Spain Hub</description>
-        <formula>(ISPICKVAL(Event_Country_MERC__c,&apos;ES&apos;)||
-ISPICKVAL(Event_Country_MERC__c,&apos;PT&apos;))&amp;&amp;
-ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
+        <formula>(ISPICKVAL(Event_Country_MERC__c,&apos;ES&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;PT&apos;))&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -766,8 +758,7 @@ ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
         </actions>
         <active>true</active>
         <description>Set Queue Owner - Turkey</description>
-        <formula>ISPICKVAL(Event_Country_MERC__c,&apos;TR&apos;)&amp;&amp;
-ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
+        <formula>ISPICKVAL(Event_Country_MERC__c,&apos;TR&apos;)&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -778,16 +769,7 @@ ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
         </actions>
         <active>true</active>
         <description>Set Queue Owner - UK Hub</description>
-        <formula>(ISPICKVAL(Event_Country_MERC__c,&apos;GB&apos;)||
-ISPICKVAL(Event_Country_MERC__c,&apos;IE&apos;)||
-ISPICKVAL(Event_Country_MERC__c,&apos;SE&apos;)||
-ISPICKVAL(Event_Country_MERC__c,&apos;NO&apos;)||
-ISPICKVAL(Event_Country_MERC__c,&apos;DK&apos;)||
-ISPICKVAL(Event_Country_MERC__c,&apos;FI&apos;)||
-ISPICKVAL(Event_Country_MERC__c,&apos;LV&apos;)||
-ISPICKVAL(Event_Country_MERC__c,&apos;LT&apos;)||
-ISPICKVAL(Event_Country_MERC__c,&apos;EE&apos;))&amp;&amp;
-ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
+        <formula>(ISPICKVAL(Event_Country_MERC__c,&apos;GB&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;IE&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;SE&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;NO&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;DK&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;FI&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;LV&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;LT&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;EE&apos;))&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -798,8 +780,7 @@ ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
         </actions>
         <active>true</active>
         <description>Set Queue Owner - Ukraine</description>
-        <formula>ISPICKVAL(Event_Country_MERC__c,&apos;UA&apos;)&amp;&amp;
-ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
+        <formula>ISPICKVAL(Event_Country_MERC__c,&apos;UA&apos;)&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -858,6 +839,21 @@ ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
         <description>Update the Meeting Start Date and End Date when the Meeting Start Time and End Times are populated</description>
         <formula>ISNEW() || (ISCHANGED( Start_Time_In_Meeting_Time_Zone__c) || 
 ISCHANGED( End_Time_In_Meeting_Time_Zone_MERC__c ))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Updated Owner AODS Fields</fullName>
+        <actions>
+            <name>Update_Master_Owner_Id_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Master_Worker_Country_Cd_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Updates Master Owner Id and Country Code for AODS interface.  Oliver Dunford 12th Feb 2014.</description>
+        <formula>ISNEW() || ISCHANGED( Sales_Rep_MERC__c )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>

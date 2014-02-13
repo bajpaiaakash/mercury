@@ -663,10 +663,6 @@ Created by John A Adams 1/7/2014</description>
                 <fullName>Proven effective Speaker / Moderator</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
-                <fullName>Other (please explain)</fullName>
-                <default>false</default>
-            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
@@ -1567,10 +1563,6 @@ Created by John A Adams 12/12/2013</description>
         <picklistValues>
             <picklist>Justification_MERC__c</picklist>
             <values>
-                <fullName>Other %28please explain%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Outstanding speaking ability</fullName>
                 <default>false</default>
             </values>
@@ -1862,10 +1854,6 @@ Created by John A Adams 12/12/2013</description>
         </picklistValues>
         <picklistValues>
             <picklist>Justification_MERC__c</picklist>
-            <values>
-                <fullName>Other %28please explain%29</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Outstanding speaking ability</fullName>
                 <default>false</default>
@@ -2175,10 +2163,6 @@ Created by John A Adams 12/12/2013</description>
         <picklistValues>
             <picklist>Justification_MERC__c</picklist>
             <values>
-                <fullName>Other %28please explain%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Outstanding speaking ability</fullName>
                 <default>false</default>
             </values>
@@ -2470,10 +2454,6 @@ Created by John A Adams 12/12/2013</description>
         </picklistValues>
         <picklistValues>
             <picklist>Justification_MERC__c</picklist>
-            <values>
-                <fullName>Other %28please explain%29</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Outstanding speaking ability</fullName>
                 <default>false</default>

@@ -6,7 +6,7 @@
         <description>A Non-HCP participant has been created for a meeting and email requesting Managerial Approval will be sent.</description>
         <protected>false</protected>
         <recipients>
-            <recipient>meeting.owner@lilly.gso.test</recipient>
+            <recipient>dunfordoliver@gso1.lly</recipient>
             <type>user</type>
         </recipients>
         <senderType>DefaultWorkflowUser</senderType>
@@ -336,8 +336,14 @@
         <fields>Account_External_MERC__c</fields>
         <fields>Account_MERC__c</fields>
         <fields>Air_Travel_Required_MERC__c</fields>
+        <fields>Amount_to_be_Paid_MERC__c</fields>
         <fields>Cancellation_Notice_Sent_MERC__c</fields>
         <fields>Classification_MERC__c</fields>
+        <fields>CoPay_AODS_Flight_Rail_MERC__c</fields>
+        <fields>CoPay_AODS_Food_Beverage_MERC__c</fields>
+        <fields>CoPay_AODS_Ground_Transport_MERC__c</fields>
+        <fields>CoPay_AODS_Hotel_MERC__c</fields>
+        <fields>CoPay_AODS_Registration_MERC__c</fields>
         <fields>CoPay_Flight_Rail_MERC__c</fields>
         <fields>CoPay_Food_Beverage_MERC__c</fields>
         <fields>CoPay_Ground_Transport_MERC__c</fields>
@@ -345,6 +351,7 @@
         <fields>CoPay_Registration_MERC__c</fields>
         <fields>Confirm_Final_Fee_MERC__c</fields>
         <fields>Confirm_Partial_Payment_Amount_MERC__c</fields>
+        <fields>Confirm_ToV_Reporting_Change_MERC__c</fields>
         <fields>Contract_Limitations_on_Use_MERC__c</fields>
         <fields>Copay_Required_MERC__c</fields>
         <fields>Country_of_Residence_MERC__c</fields>
@@ -352,7 +359,9 @@
         <fields>CreatedDate</fields>
         <fields>CurrencyIsoCode</fields>
         <fields>Customer_Id_GLBL__c</fields>
+        <fields>Days_Until_Meeting_MERC__c</fields>
         <fields>Description_of_Service_MERC__c</fields>
+        <fields>Email_MERC__c</fields>
         <fields>Email_to_Invite_HCP_to_Portal_MERC__c</fields>
         <fields>Event_Customer_Id_MERC__c</fields>
         <fields>Event_Time_Hrs_MERC__c</fields>
@@ -368,16 +377,20 @@
         <fields>Include_CAP_Roll_Up_MERC__c</fields>
         <fields>Invoice_Template_Needed_MERC__c</fields>
         <fields>IsDeleted</fields>
+        <fields>Items_to_be_Sponsored_MERC__c</fields>
         <fields>Justification_MERC__c</fields>
         <fields>LastModifiedById</fields>
         <fields>LastModifiedDate</fields>
         <fields>LastReferencedDate</fields>
         <fields>LastViewedDate</fields>
+        <fields>Max_Fee_Test__c</fields>
         <fields>Maximum_Fee_MERC__c</fields>
         <fields>Maximum_Rate_MERC__c</fields>
         <fields>Meeting_Date_MERC__c</fields>
+        <fields>Meeting_End_Date_MERC__c</fields>
         <fields>Meeting_External_MERC__c</fields>
         <fields>Meeting_MERC__c</fields>
+        <fields>Meeting_Owner_Email_MERC__c</fields>
         <fields>Meeting_Owner_Global_Id_MERC__c</fields>
         <fields>Mercury_External_Id_MERC__c</fields>
         <fields>Minimum_Fee_MERC__c</fields>
@@ -390,10 +403,13 @@
         <fields>Participant_Typ_MERC__c</fields>
         <fields>Payment_Required_MERC__c</fields>
         <fields>Payment_Required_for_Meeting_MERC__c</fields>
+        <fields>Person_Contact_Id_MERC__c</fields>
         <fields>Preparation_Time_Hrs_MERC__c</fields>
         <fields>Presentation_Approval_Needed_MERC__c</fields>
         <fields>Proposed_Final_Fee_MERC__c</fields>
         <fields>RecordTypeId</fields>
+        <fields>Record_Type_Name_MERC__c</fields>
+        <fields>Sales_Rep_MERC__c</fields>
         <fields>Send_HCP_Info_Package_to_Rep__c</fields>
         <fields>Service_Provider_Tier_MERC__c</fields>
         <fields>Services_Rendered_MERC__c</fields>
@@ -419,7 +435,7 @@
         <fields>Types_of_Service_MERC__c</fields>
         <fields>Video_Audio_Recording_MERC__c</fields>
         <includeSessionId>true</includeSessionId>
-        <integrationUser>helmer@gso1.lly</integrationUser>
+        <integrationUser>helmerdavid@gso1.lly</integrationUser>
         <name>RTI - Meeting Participant Updated</name>
         <protected>false</protected>
         <useDeadLetterQueue>false</useDeadLetterQueue>
@@ -454,8 +470,7 @@
         </actions>
         <active>true</active>
         <description>Notify the Meeting Owner when the Final Fee has been rejected due to surpassing the maximum fee threshold. Created 01/19/2014 by KLorenti, Mavens Consulting</description>
-        <formula>ISCHANGED(Higher_Fee_Approval__c) &amp;&amp;
-ISPICKVAL(Higher_Fee_Approval__c,&quot;Rejected&quot;)</formula>
+        <formula>ISCHANGED(Higher_Fee_Approval__c) &amp;&amp; ISPICKVAL(Higher_Fee_Approval__c,&quot;Rejected&quot;)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -546,11 +561,7 @@ ISPICKVAL(Higher_Fee_Approval__c,&quot;Rejected&quot;)</formula>
         </actions>
         <active>true</active>
         <description>Notifies Meeting Owner when Tiering has been completed and the Proposed Fee may be entered. Created 01/26/2014 by KLorenti, Mavens Consulting</description>
-        <formula>Service_Provider_Tier_MERC__c &gt; 0 &amp;&amp;
-ISCHANGED(Minimum_Fee_MERC__c) &amp;&amp;
-Minimum_Fee_MERC__c &gt; 0 &amp;&amp;
-ISCHANGED(Maximum_Fee_MERC__c) &amp;&amp;
-Maximum_Fee_MERC__c &gt; 0</formula>
+        <formula>Service_Provider_Tier_MERC__c &gt; 0 &amp;&amp; ISCHANGED(Minimum_Fee_MERC__c) &amp;&amp; Minimum_Fee_MERC__c &gt; 0 &amp;&amp; ISCHANGED(Maximum_Fee_MERC__c) &amp;&amp; Maximum_Fee_MERC__c &gt; 0</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -561,8 +572,7 @@ Maximum_Fee_MERC__c &gt; 0</formula>
         </actions>
         <active>true</active>
         <description>Notifies Meeting Owner when Final Fee has been confirmed. Created 01/19/2014 by KLorenti, Mavens Consulting</description>
-        <formula>ISCHANGED(Confirm_Final_Fee_MERC__c) &amp;&amp;
-ISPICKVAL(Confirm_Final_Fee_MERC__c,&quot;Confirmed&quot;)</formula>
+        <formula>ISCHANGED(Confirm_Final_Fee_MERC__c) &amp;&amp; ISPICKVAL(Confirm_Final_Fee_MERC__c,&quot;Confirmed&quot;)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -588,8 +598,7 @@ ISPICKVAL(Confirm_Final_Fee_MERC__c,&quot;Confirmed&quot;)</formula>
         </actions>
         <active>true</active>
         <description>If HCP is due a Partial Payment, set the Final Fee to the Partial Payment amount.</description>
-        <formula>ISCHANGED(Partial_Payment_Amount_MERC__c) &amp;&amp;
-Partial_Payment_Amount_MERC__c &gt; 0</formula>
+        <formula>ISCHANGED(Partial_Payment_Amount_MERC__c) &amp;&amp; Partial_Payment_Amount_MERC__c &gt; 0</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -625,8 +634,7 @@ Partial_Payment_Amount_MERC__c &gt; 0</formula>
         </actions>
         <active>true</active>
         <description>Remove Final Fee if Partial Payment is set to zero.  Created 12/19/2013 by KLorenti, Mavens Consulting</description>
-        <formula>ISCHANGED(Partial_Payment_Amount_MERC__c) &amp;&amp;
-Partial_Payment_Amount_MERC__c = 0</formula>
+        <formula>ISCHANGED(Partial_Payment_Amount_MERC__c) &amp;&amp; Partial_Payment_Amount_MERC__c = 0</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -654,16 +662,7 @@ Partial_Payment_Amount_MERC__c = 0</formula>
         </actions>
         <active>true</active>
         <description>This fires when any of the CoPay fields on the Meeting Participant are changed or updated.  This will ensure that any changes are picked up by AODS.</description>
-        <formula>(ISBLANK(PRIORVALUE(CoPay_Flight_Rail_MERC__c)) &amp;&amp; !ISBLANK(CoPay_Flight_Rail_MERC__c)) 
-	|| ISCHANGED(CoPay_Flight_Rail_MERC__c) || 
-(ISBLANK(PRIORVALUE( CoPay_Food_Beverage_MERC__c )) &amp;&amp; !ISBLANK( CoPay_Food_Beverage_MERC__c )) 
-	|| ISCHANGED( CoPay_Food_Beverage_MERC__c ) || 
-(ISBLANK(PRIORVALUE(CoPay_Ground_Transport_MERC__c)) &amp;&amp; !ISBLANK(CoPay_Ground_Transport_MERC__c)) || 
-	ISCHANGED(CoPay_Ground_Transport_MERC__c) || 
-(ISBLANK(PRIORVALUE(CoPay_Hotel_MERC__c )) &amp;&amp; !ISBLANK(CoPay_Hotel_MERC__c )) || 
-	ISCHANGED(CoPay_Hotel_MERC__c ) || 
-(ISBLANK(PRIORVALUE(CoPay_Registration_MERC__c)) &amp;&amp; !ISBLANK(CoPay_Registration_MERC__c)) || 
-	ISCHANGED(CoPay_Registration_MERC__c)</formula>
+        <formula>(ISBLANK(PRIORVALUE(CoPay_Flight_Rail_MERC__c)) &amp;&amp; !ISBLANK(CoPay_Flight_Rail_MERC__c))  	|| ISCHANGED(CoPay_Flight_Rail_MERC__c) ||  (ISBLANK(PRIORVALUE( CoPay_Food_Beverage_MERC__c )) &amp;&amp; !ISBLANK( CoPay_Food_Beverage_MERC__c ))  	|| ISCHANGED( CoPay_Food_Beverage_MERC__c ) ||  (ISBLANK(PRIORVALUE(CoPay_Ground_Transport_MERC__c)) &amp;&amp; !ISBLANK(CoPay_Ground_Transport_MERC__c)) ||  	ISCHANGED(CoPay_Ground_Transport_MERC__c) ||  (ISBLANK(PRIORVALUE(CoPay_Hotel_MERC__c )) &amp;&amp; !ISBLANK(CoPay_Hotel_MERC__c )) ||  	ISCHANGED(CoPay_Hotel_MERC__c ) ||  (ISBLANK(PRIORVALUE(CoPay_Registration_MERC__c)) &amp;&amp; !ISBLANK(CoPay_Registration_MERC__c)) ||  	ISCHANGED(CoPay_Registration_MERC__c)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -674,14 +673,7 @@ Partial_Payment_Amount_MERC__c = 0</formula>
         </actions>
         <active>true</active>
         <description>Triggers to set the Participant ToV Update date/time when the Meeting Participants ToV values change, indicating that this information should be pulled into AODS. Oliver Dunford 11th Feb 2014.</description>
-        <formula>(ISBLANK(PRIORVALUE( Total_Food_Beverage_ToV_MERC__c )) &amp;&amp; !ISBLANK(Total_Food_Beverage_ToV_MERC__c)) 
-	|| ISCHANGED(Total_Food_Beverage_ToV_MERC__c) || 
-(ISBLANK(PRIORVALUE( Total_Ground_Transporation_ToV_MERC__c )) &amp;&amp; !ISBLANK( Total_Ground_Transporation_ToV_MERC__c )) 
-	|| ISCHANGED( Total_Ground_Transporation_ToV_MERC__c ) || 
-(ISBLANK(PRIORVALUE(Total_Hotel_ToV_MERC__c)) &amp;&amp; !ISBLANK(Total_Hotel_ToV_MERC__c)) || 
-	ISCHANGED(Total_Hotel_ToV_MERC__c) || 
-(ISBLANK(PRIORVALUE(Total_Registration_ToV_MERC__c )) &amp;&amp; !ISBLANK(Total_Registration_ToV_MERC__c )) || 
-	ISCHANGED(Total_Registration_ToV_MERC__c )</formula>
+        <formula>(ISBLANK(PRIORVALUE( Total_Food_Beverage_ToV_MERC__c )) &amp;&amp; !ISBLANK(Total_Food_Beverage_ToV_MERC__c))  	|| ISCHANGED(Total_Food_Beverage_ToV_MERC__c) ||  (ISBLANK(PRIORVALUE( Total_Ground_Transporation_ToV_MERC__c )) &amp;&amp; !ISBLANK( Total_Ground_Transporation_ToV_MERC__c ))  	|| ISCHANGED( Total_Ground_Transporation_ToV_MERC__c ) ||  (ISBLANK(PRIORVALUE(Total_Hotel_ToV_MERC__c)) &amp;&amp; !ISBLANK(Total_Hotel_ToV_MERC__c)) ||  	ISCHANGED(Total_Hotel_ToV_MERC__c) ||  (ISBLANK(PRIORVALUE(Total_Registration_ToV_MERC__c )) &amp;&amp; !ISBLANK(Total_Registration_ToV_MERC__c )) ||  	ISCHANGED(Total_Registration_ToV_MERC__c )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -722,11 +714,7 @@ Partial_Payment_Amount_MERC__c = 0</formula>
         </actions>
         <active>true</active>
         <description>When the CoPay fields change, update the Participant CoPay Updated Date with current date/time.</description>
-        <formula>ISCHANGED(CoPay_Flight_Rail_MERC__c) || 
-ISCHANGED(CoPay_Food_Beverage_MERC__c) || 
-ISCHANGED(CoPay_Ground_Transport_MERC__c) || 
-ISCHANGED(CoPay_Hotel_MERC__c) || 
-ISCHANGED(CoPay_Registration_MERC__c)</formula>
+        <formula>ISCHANGED(CoPay_Flight_Rail_MERC__c) ||  ISCHANGED(CoPay_Food_Beverage_MERC__c) ||  ISCHANGED(CoPay_Ground_Transport_MERC__c) ||  ISCHANGED(CoPay_Hotel_MERC__c) ||  ISCHANGED(CoPay_Registration_MERC__c)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -783,10 +771,7 @@ ISCHANGED(CoPay_Registration_MERC__c)</formula>
         </actions>
         <active>true</active>
         <description>When any of the other ToV fields change (at Daily Attendance &amp; ToV Level or Meeting Participant Level (for those manually typed), update the Participant ToV Updated Date with current date/time.</description>
-        <formula>ISCHANGED(Total_Hotel_ToV_MERC__c) || 
-ISCHANGED(Total_Ground_Transporation_ToV_MERC__c) || 
-ISCHANGED(Total_Food_Beverage_ToV_MERC__c) || 
-ISCHANGED(Total_Registration_ToV_MERC__c)</formula>
+        <formula>ISCHANGED(Total_Hotel_ToV_MERC__c) ||  ISCHANGED(Total_Ground_Transporation_ToV_MERC__c) ||  ISCHANGED(Total_Food_Beverage_ToV_MERC__c) ||  ISCHANGED(Total_Registration_ToV_MERC__c)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>

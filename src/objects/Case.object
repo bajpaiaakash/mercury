@@ -301,6 +301,10 @@ Created by J Adams 12/10/2013</description>
                 <fullName>In Person</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <type>Picklist</type>
@@ -420,6 +424,21 @@ Created by J Adams 12/10/2013</description>
                 <closed>false</closed>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>On Hold</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Escalated</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>New</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <type>Picklist</type>
@@ -496,6 +515,18 @@ Created by John Adams on 11/18/2013</description>
                 <fullName>IT/Technical</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Problem</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Feature Request</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Question</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <type>Picklist</type>
@@ -538,6 +569,8 @@ Created by John Adams on 11/18/2013</description>
         <lookupPhoneDialogsAdditionalFields>CASES.SUBJECT</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>CASES.STATUS</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>00N11000000PFvb</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>00N11000000PFvc</lookupPhoneDialogsAdditionalFields>
         <searchResultsAdditionalFields>CASES.CASE_NUMBER</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CASES.SUBJECT</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CASES.STATUS</searchResultsAdditionalFields>

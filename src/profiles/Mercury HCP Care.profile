@@ -924,6 +924,26 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.Personal_Address_City_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Personal_Address_Country_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Personal_Address_Line_1_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Personal_Address_Line_2_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.Phone</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2181,6 +2201,16 @@
         <editable>false</editable>
         <field>CST_App_Settings_CUST__c.Altid_Altrnt_Id_Typ_Cd__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_App_Settings_CUST__c.Employee_Record_Type_Id__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_App_Settings_CUST__c.Employee_Record_Type__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -3618,6 +3648,16 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting_MERC__c.Mercury_Owner_Master_Id_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting_MERC__c.Mercury_Worker_Country_Code_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_MERC__c.No_Shows_MERC__c</field>
         <readable>true</readable>
@@ -3673,7 +3713,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Owner_Master_Id_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3943,7 +3983,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Work_Cntry_Cd_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4585,6 +4625,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Participant_Agenda_MERC__c.Mercury_External_Id_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Participant_Agenda_MERC__c.Name_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5709,6 +5754,10 @@
         <recordType>PersonAccount.Non_HCP_MERC</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>PersonAccount-Person Account Layout</layout>
+        <recordType>PersonAccount.PersonAccount</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Product_Group_GLBL__c-GLBL_Product</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -6033,6 +6082,11 @@
     </pageAccesses>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>Account.Business_Account</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Account.Health_Care_Organization_GLBL</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -6084,7 +6138,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-        <personAccountDefault>true</personAccountDefault>
         <recordType>Budget_MERC__c.MERC_Budget_Draft</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -6115,7 +6168,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-        <personAccountDefault>true</personAccountDefault>
         <recordType>ContentVersion.Meeting_MERC</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -6176,7 +6228,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-        <personAccountDefault>true</personAccountDefault>
         <recordType>Meeting_MERC__c.Forecasted</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -6243,6 +6294,11 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>PersonAccount.PersonAccount</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Team_Member_MERC__c.External_User_MERC</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -6273,7 +6329,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-        <personAccountDefault>true</personAccountDefault>
         <recordType>Travel_Itinerary_MERC__c.Rail_MERC</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -6344,6 +6399,10 @@
     <userLicense>Force.com - App Subscription</userLicense>
     <userPermissions>
         <enabled>true</enabled>
+        <name>AllowUniversalSearch</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>ApiEnabled</name>
     </userPermissions>
     <userPermissions>
@@ -6380,6 +6439,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>EditEvent</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>EditReports</name>
     </userPermissions>
     <userPermissions>
@@ -6392,6 +6455,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>EmailMass</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>EmailSingle</name>
     </userPermissions>
     <userPermissions>
@@ -6401,10 +6468,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ExportReport</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ManageContentPermissions</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

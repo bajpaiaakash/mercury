@@ -31,7 +31,7 @@ project_path = os.path.dirname(os.path.dirname(__file__))
 result_path = os.path.join(project_path, "test", "result")
 
 ##set up client
-username = 'ferraro_joe@gso1.lly.mercurycfg'
+username = 'ferraro_joe@gso1.lly.merccfg2'
 password = 'mavens123'
 org_type = 'sandbox' 
 client = MavensMateClient(credentials={
