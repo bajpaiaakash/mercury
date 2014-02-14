@@ -5,14 +5,19 @@
  */
 
 public with sharing class MERC_AddMeetingParticipantsController {
-	
+    
+    public GLBL_CustomerSearchToolService cstService = new GLBL_CustomerSearchToolService();
 	public GLBL_CustomerSearchToolService.SearchRequest searchRequest { get; set; }
     public Boolean hasError { get; private set; }
     public String newParticipantRecordTypeId { get; set; }
 
 	public MERC_AddMeetingParticipantsController(ApexPages.StandardSetController controller) {
-		this.searchRequest = new GLBL_CustomerSearchToolService.SearchRequest();
+        this.searchRequest = new GLBL_CustomerSearchToolService.SearchRequest();
 	}
+
+    public void ensureCstToken() {
+        this.cstService.refreshToken();
+    }
 
 	public Meeting_MERC__c meeting {
 		get {
@@ -71,49 +76,49 @@ public with sharing class MERC_AddMeetingParticipantsController {
 
     public List<SelectOption> specialtyPriorityRanks {
         get {
-            return MERC_Util.getCSTPicklistValuesForFieldName('Specialty_priority_rank_nbr__c', true);
+            return MERC_Util.getCSTPicklistValuesForFieldName('Specialty_priority_rank_CUST__c', true);
         }
     }
 
     public List<SelectOption> affiliationPriorityRanks {
         get {
-            return MERC_Util.getCSTPicklistValuesForFieldName('Affiliation_Priority_Rank_Nbr__c', true);
+            return MERC_Util.getCSTPicklistValuesForFieldName('Affiliation_Priority_Rank_Nbr_CUST__c', true);
         }
     }
 
     public List<SelectOption> affiliationRoleTypes {
         get {
-            return MERC_Util.getCSTPicklistValuesForFieldName('Affiliation_Role_Types__c', true);
+            return MERC_Util.getCSTPicklistValuesForFieldName('Affiliation_Role_Types_CUST__c', true);
         }
     }
 
     public List<SelectOption> accountClassifications {
         get {
-            return MERC_Util.getCSTPicklistValuesForFieldName('Account_Clsfctn_Cd__c', true);
+            return MERC_Util.getCSTPicklistValuesForFieldName('Account_Clsfctn_Cd_CUST__c', true);
         }
     }
 
     public List<SelectOption> accountStatusTypes {
         get {
-            return MERC_Util.getCSTPicklistValuesForFieldName('Account_Status_Types__c', true);
+            return MERC_Util.getCSTPicklistValuesForFieldName('Account_Status_Types_CUST__c', true);
         }
     }
 
     public List<SelectOption> professionalDesignations {
         get {
-            return MERC_Util.getCSTPicklistValuesForFieldName('Account_Bnft_Dsgn_Cd__c', true);
+            return MERC_Util.getCSTPicklistValuesForFieldName('Account_Bnft_Dsgn_Cd_CUST__c', true);
         }
     }
 
     public List<SelectOption> specialties {
         get {
-            return MERC_Util.getCSTPicklistValuesForFieldName('Specialty_Spclty_Cd__c', true);
+            return MERC_Util.getCSTPicklistValuesForFieldName('Specialty_Spclty_Cd_CUST__c', true);
         }
     }
 
     public List<SelectOption> alternateIdTypes {
         get {
-            return MERC_Util.getCSTPicklistValuesForFieldName('Altid_Altrnt_Id_Typ_Cd__c', true);
+            return MERC_Util.getCSTPicklistValuesForFieldName('Altid_Altrnt_Id_Typ_Cd_CUST__c', true);
         }
     }
 
@@ -149,7 +154,7 @@ public with sharing class MERC_AddMeetingParticipantsController {
 
     public PageReference doSearch() {
     	system.debug('>>>>>> '+this.searchRequest);
-        this.searchResults = GLBL_CustomerSearchToolService.doSearch(this.searchRequest);
+        this.searchResults = this.cstService.doSearch(this.searchRequest);
         this.searchRequest = new GLBL_CustomerSearchToolService.SearchRequest();
     	return null;
     }

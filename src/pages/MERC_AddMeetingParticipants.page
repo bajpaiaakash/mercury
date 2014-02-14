@@ -1,4 +1,4 @@
-<apex:page showHeader="true" sidebar="true" standardController="Meeting_Participant_MERC__c" recordSetVar="a" extensions="MERC_AddMeetingParticipantsController">
+<apex:page showHeader="true" sidebar="true" standardController="Meeting_Participant_MERC__c" recordSetVar="a" extensions="MERC_AddMeetingParticipantsController" action="{!ensureCstToken}">
 	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/jquery.min.js')}"/>
 	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/chosen.jquery.min.js')}"/>
 	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/bootstrap.tabs.min.js')}"/>
@@ -199,6 +199,12 @@
 			  					<apex:pageBlockSectionItem >
 			  						<apex:outputLabel for="custId" value="Customer Id"></apex:outputLabel>
 			  						<apex:inputText value="{!searchRequest.custId}" id="custId"/>
+			  					</apex:pageBlockSectionItem>
+
+			  					<!-- EMPLOYEE ONLY -->
+			  					<apex:pageBlockSectionItem >
+			  						<apex:outputLabel for="eonly" value="Search Lilly Employees Only"></apex:outputLabel>
+			  						<apex:inputCheckbox value="{!searchRequest.eonly}" id="eonly"/>
 			  					</apex:pageBlockSectionItem>
 
 			  				</apex:pageBlockSection>

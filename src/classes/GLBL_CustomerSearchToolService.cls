@@ -6,18 +6,28 @@
 
 public with sharing class GLBL_CustomerSearchToolService {
 	
-	//static String baseUrl = 'https://afternoon-temple-9240.herokuapp.com'; //TODO: custom setting
-	static String baseUrl = 'https://mercury-cst-dev.herokuapp.com'; //TODO: custom setting
-	static String apiKey = '12345'; //TODO: custom setting
+	String baseUrl = 'https://mercury-cst-dev.herokuapp.com'; //TODO: custom setting
+	public CST_App_Settings_CUST__c appSettings {
+		get {
+			if (appSettings == null) {
+				appSettings = [SELECT ID, Client_Id_CUST__c, Client_Secret_CUST__c, Access_Token_CUST__c FROM CST_App_Settings_CUST__c LIMIT 1];
+			}
+			return appSettings;
+		}
+		private set;
+	}
 
-	public static List<SearchResult> doSearch(SearchRequest req) {
+	public GLBL_CustomerSearchToolService() { }
+
+	public List<SearchResult> doSearch(SearchRequest req) {
 		String requestJson = JSON.serialize(req);
 		system.debug('>>> '+requestJson);
 
 		HttpRequest r = new HttpRequest();
 		r.setHeader('Content-type', 'application/json');
+		r.setHeader('Authorization', 'Bearer '+this.appSettings.Access_Token_CUST__c);
 		r.setHeader('Accept', 'application/json');
-		r.setEndpoint(GLBL_CustomerSearchToolService.baseUrl+'/search'); 
+		r.setEndpoint(this.baseUrl+'/search'); 
 		r.setMethod('POST');
 		r.setBody(requestJson);
 
@@ -28,17 +38,62 @@ public with sharing class GLBL_CustomerSearchToolService {
 		if (response.getStatusCode() == 400) {
 			ErrorResult res = (ErrorResult)JSON.deserialize(s, ErrorResult.class);
 			return null;
-		} else {
+		} else if (response.getStatusCode() == 401) {
+			//todo dml operation with callout is 			
+		} else if (response.getStatusCode() == 200) {
 			s = s.replaceAll('__c"','"');
 			List<SearchResult> results = (List<SearchResult>)JSON.deserialize(s, List<SearchResult>.class);
 			system.debug(results);
 			return results;
 		}
+		return null;
 	}
+
+	public void refreshToken() {
+		HttpRequest r = new HttpRequest();
+		r.setHeader('Content-type', 'application/x-www-form-urlencoded');
+		r.setEndpoint(this.baseUrl+'/oauth/token'); 
+		r.setBody('grant_type=client_credentials&client_id='+this.appSettings.Client_Id_CUST__c+'&client_secret='+this.appSettings.Client_Secret_CUST__c);
+		r.setMethod('POST');
+
+		Http h = new Http();
+		HttpResponse response = h.send(r);
+		String s = response.getBody();
+		system.debug('>>> response from search tool: '+s);
+		AccessTokenResponse tokenResponse = (AccessTokenResponse)JSON.deserialize(s, AccessTokenResponse.class);
+		if (tokenResponse.access_token != null) {
+			this.appSettings.Access_Token_CUST__c = tokenResponse.access_token;
+			update appSettings;
+		} else if (tokenResponse.error != null) {
+			//todo: raise
+		}
+	}
+
+	public class AccessTokenResponse {
+		public String token_type;
+		public String access_token;
+		public String expires_in;
+		public String error_description;
+		public String error;
+	}
+
+	//ERROR
+	//{
+	//  "error_description" : "Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.",
+	//  "error" : "invalid_client"
+	//}
+
+	//SUCCESS
+	//{
+	//  "token_type" : "bearer",
+	//  "access_token" : "7e008f3e324a631350183c95c8df51ad5b2e6fbecabfc8c653351c68df918005",
+	//  "expires_in" : 7200
+	//}
 
 	public class SearchRequest {
 		public String fn { get; set; } //first name
 		public String ls { get; set; } //last name
+		public Boolean eonly { get; set; } //true: search employees only
 		public String custId  { get; set; } //customer id
 		public List<String> prod  { get; set; } //professional designation
 		public String classifation { get; set; }
