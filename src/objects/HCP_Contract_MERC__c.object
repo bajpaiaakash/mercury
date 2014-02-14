@@ -214,6 +214,19 @@ Created by John A Adams 10/17/2013</description>
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
+        <fullName>Docusign_Envelope_Id_MERC__c</fullName>
+        <description>The Docusign envelope ID generated when the contract was sent for signature.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Docusign envelope ID generated when the contract was sent for signature.</inlineHelpText>
+        <label>Docusign Envelope Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Institution_MERC__c</fullName>
         <description>Pulls the Veeva Organization name in so that have ability to manually reconfirm a HCP&apos;s affiliated Institutions by asking the question within the Payment Contract.
 Created by John A Adams 10/29/2013</description>
@@ -920,8 +933,8 @@ Created by John A Adams 10/17/2013</description>
         <openType>replace</openType>
         <protected>false</protected>
         <requireRowSelection>false</requireRowSelection>
-        <url>https://cs18.salesforce.com/setup/ui/recordtypeselect.jsp?
-ent=01I11000000Ck6c&amp;save_new_url=%2Fa0x%2Fe%3FCF00N11000000TRyu={!Meeting_Participant_MERC__c.Name}%26YYZ=true%26CF00N11000000TRyu_lkid={!Meeting_Participant_MERC__c.Id}%26CF00N11000000SiOD={!URLENCODE(Account.Name)}%26CF00N11000000SiOD_lkid={!Meeting_Participant_MERC__c.Account_MERCId__c}%26CF00N11000000TG5U={!URLENCODE(Meeting_Participant_MERC__c.Meeting_MERC__c)}%26CF00N11000000TG5U_lkid={!Meeting_Participant_MERC__c.Meeting_MERCId__c}%26retURL=%252F{!Meeting_Participant_MERC__c.Id}</url>
+        <url>/setup/ui/recordtypeselect.jsp?
+ent=01I110000008cxp&amp;save_new_url=%2Fa0t%2Fe%3FCF00N11000000PFx1={!Meeting_Participant_MERC__c.Name}%26CF00N11000000PFx1_lkid={!Meeting_Participant_MERC__c.Id}%26CF00N11000000PFpU={!URLENCODE(Account.Name)}%26CF00N11000000PFpU_lkid={!Account.Id}%26CF00N11000000PFx0={!URLENCODE( Meeting_Participant_MERC__c.Meeting_MERC__c )}%26CF00N11000000PFx0_lkid={!Meeting_Participant_MERC__c.Meeting_MERCId__c}%26retURL=%252F{!Meeting_Participant_MERC__c.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>Generate_Content_MERC</fullName>

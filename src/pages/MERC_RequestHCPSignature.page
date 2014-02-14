@@ -19,12 +19,19 @@
 			</apex:pageBlockButtons>
 			<apex:pageMessage severity="WARNING" strength="2" summary="Are you sure you want to request an HCP signature for this contract?" rendered="{!canRequestSignature}"/>
 			<apex:pageMessage rendered="{!not(canRequestSignature)}" severity="ERROR" strength="2" summary="{!error}"/>
-			<apex:pageBlockSection title="Recipient Information" collapsible="false" columns="1">
+			<apex:pageBlockSection title="HCP Information" collapsible="false" columns="1">
 				<apex:outputField value="{!HCP_Contract_MERC__c.Account_Merc__r.Name}"/>
 				<apex:outputField value="{!HCP_Contract_MERC__c.Account_Merc__r.PersonEmail}"/>
 			</apex:pageBlockSection>
+			<apex:pageBlockSection title="Lilly Signing Party" collapsible="false" columns="1">
+				<apex:outputField value="{!HCP_Contract_MERC__c.Lilly_Internal_Signee_MERC__r.Name}"/>
+				<apex:outputField value="{!HCP_Contract_MERC__c.Lilly_Internal_Signee_MERC__r.PersonEmail}"/>
+			</apex:pageBlockSection>
 			<apex:pageBlockSection title="Contract Information" collapsible="false" columns="1" rendered="{!canRequestSignature}">
-				<apex:outputField value="{!contractContentVersion.Title}"/>
+				<apex:pageBlockSectionItem>
+					<apex:outputLabel for="title" value="Title"/>
+					<apex:outputLink target="_blank" value="/{!contractContentVersion.Id}">{!contractContentVersion.Title}</apex:outputLink>
+				</apex:pageBlockSectionItem>
 				<apex:outputField value="{!contractContentVersion.FileType}"/>
 				<apex:outputField value="{!contractContentVersion.LastModifiedDate}"/>
 			</apex:pageBlockSection>
@@ -35,12 +42,19 @@
 			</apex:pageBlockButtons>
 			<apex:pageMessage severity="CONFIRM" strength="2" summary="Contract successfully sent for signature."/>
 			<apex:pageMessage rendered="{!not(canRequestSignature)}" severity="ERROR" strength="2" summary="{!error}"/>
-			<apex:pageBlockSection title="Recipient Information" collapsible="false" columns="1">
+			<apex:pageBlockSection title="HCP Information" collapsible="false" columns="1">
 				<apex:outputField value="{!HCP_Contract_MERC__c.Account_Merc__r.Name}"/>
 				<apex:outputField value="{!HCP_Contract_MERC__c.Account_Merc__r.PersonEmail}"/>
 			</apex:pageBlockSection>
+			<apex:pageBlockSection title="Lilly Signing Party" collapsible="false" columns="1">
+				<apex:outputField value="{!HCP_Contract_MERC__c.Lilly_Internal_Signee_MERC__r.Name}"/>
+				<apex:outputField value="{!HCP_Contract_MERC__c.Lilly_Internal_Signee_MERC__r.PersonEmail}"/>
+			</apex:pageBlockSection>
 			<apex:pageBlockSection title="Contract Information" collapsible="false" columns="1" rendered="{!canRequestSignature}">
-				<apex:outputField value="{!contractContentVersion.Title}"/>
+				<apex:pageBlockSectionItem>
+					<apex:outputLabel for="title" value="Title"/>
+					<apex:outputLink target="_blank" value="/{!contractContentVersion.Id}">{!contractContentVersion.Title}</apex:outputLink>
+				</apex:pageBlockSectionItem>
 				<apex:outputField value="{!contractContentVersion.FileType}"/>
 				<apex:outputField value="{!contractContentVersion.LastModifiedDate}"/>
 			</apex:pageBlockSection>

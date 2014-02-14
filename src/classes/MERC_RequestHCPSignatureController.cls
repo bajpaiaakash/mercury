@@ -19,9 +19,13 @@ public with sharing class MERC_RequestHCPSignatureController {
     }
 
     public Boolean getCanRequestSignature() {
-        Account recipient = [Select Id, PersonEmail From Account Where Id = :this.contract.Account_MERC__c];
-        if (recipient.PersonEmail == null) {
+        Account hcpRecipient = [Select Id, PersonEmail From Account Where Id = :this.contract.Account_MERC__c];
+        Account lillyRecipient = [Select Id, PersonEmail From Account Where Id = :this.contract.Lilly_Internal_Signee_MERC__c];
+        if (hcpRecipient.PersonEmail == null) {
             this.error = 'HCP does not have a valid e-mail address'; //TODO label
+            return false;
+        } else if (lillyRecipient.PersonEmail == null) {
+            this.error = 'Lilly recipient does not have a valid e-mail address'; //TODO label
             return false;
         } else if ( contractContentVersion == null ) {
             this.error = 'Could not find HCP Contract PDF file. Please use the "Upload Content" button on the HCP Contract record.'; //TODO label
@@ -39,7 +43,8 @@ public with sharing class MERC_RequestHCPSignatureController {
                         FROM ContentVersion WHERE 
                             HCP_Contract_MERC__c = :this.contract.Id AND 
                             FileType = 'PDF' AND 
-                            PublishStatus = 'P' AND 
+                            PublishStatus = 'P' AND
+                            Title = :this.contract.Name AND 
                             IsLatest = True ORDER BY CreatedDate desc LIMIT 1];
                 } 
                 return contractContentVersion;   
@@ -50,19 +55,32 @@ public with sharing class MERC_RequestHCPSignatureController {
         private set;
     }
 
+    @future
+    static void stampEnvelopeId(Id hcpContractId, String envelopeId) {
+        HCP_Contract_MERC__c contract = [SELECT ID FROM HCP_Contract_MERC__c WHERE ID = :hcpContractId];
+        contract.Docusign_Envelope_Id_MERC__c = envelopeId;
+        update contract;
+    }
+
+
     public PageReference requestSignature() {
         Blob pdfBlob = [Select VersionData From ContentVersion Where Id = :contractContentVersion.Id].VersionData;
         String pdfBytes = EncodingUtil.base64Encode(pdfBlob);
 
-        List<Account> signingAccounts = [Select Id, Name, PersonEmail From Account Where Id = :this.contract.Account_MERC__c];
+        Account lillySigner = [Select Id, Name, PersonEmail From Account Where Id = :this.contract.Lilly_Internal_Signee_MERC__c];
+        Account hcpSigner = [Select Id, Name, PersonEmail From Account Where Id = :this.contract.Account_MERC__c];
 
         List<MERC_DocusignService.RequiredSigner> signers = new List<MERC_DocusignService.RequiredSigner>();
-        for (Integer i=0; i < signingAccounts.size(); i++) {
-            MERC_DocusignService.RequiredSigner s = new MERC_DocusignService.RequiredSigner();
-            s.acc = signingAccounts.get(i);
-            s.order = i+1;  
-            signers.add(s);
-        }
+        
+        MERC_DocusignService.RequiredSigner s1 = new MERC_DocusignService.RequiredSigner();
+        s1.acc = lillySigner;
+        s1.order = 1;
+        signers.add(s1);
+
+        MERC_DocusignService.RequiredSigner s2 = new MERC_DocusignService.RequiredSigner();
+        s2.acc = hcpSigner;
+        s2.order = 2;
+        signers.add(s2);
 
         MERC_DocusignService d = new MERC_DocusignService();
         MERC_DocusignService.EnvelopeResponse r = d.requestSignature(signers, pdfBytes);
@@ -72,7 +90,7 @@ public with sharing class MERC_RequestHCPSignatureController {
                 String returnUrl = 'https://' + System.URL.getSalesforceBaseUrl().getHost().remove('-api' ) + '/apex/MERC_RequestHCPSignature?docusignTasStatus=1&id='+this.contract.Id;
                 MERC_DocusignService.EnvelopeResponse r2 = d.requestSignature(signers, pdfBytes, True); //send as draft mode
                 MERC_DocusignService.TagAndSendResponse tasResponse = d.getTagAndSendUrl(r2, returnUrl); //get tas url
-                
+                stampEnvelopeId(this.contract.Id, r2.envelopeId);
                 //redirect to tag and send url                
                 PageReference p = new PageReference(tasResponse.url);
                 return p;
@@ -83,6 +101,7 @@ public with sharing class MERC_RequestHCPSignatureController {
                 return null;
             }
         } else {
+            stampEnvelopeId(this.contract.Id, r.envelopeId);
             this.isSent = true;
             return null;
         }
