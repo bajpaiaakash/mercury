@@ -10,7 +10,7 @@ public with sharing class MERC_DocusignService {
 	String password;
 	String integratorKey;
 	String accountId;
-	String baseUrl = 'https://demo.docusign.net/restapi/v2/';
+	String baseUrl = 'https://demo.docusign.net/restapi/v2/'; //todo: custom setting
     String boundaryName = 'MYBOUNDARY';
     String boundaryMarker = '--'+boundaryName;
     String boundaryMarkerEnd = '--'+boundaryName+'--';

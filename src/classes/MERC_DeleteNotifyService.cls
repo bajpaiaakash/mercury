@@ -26,7 +26,7 @@ public with sharing class MERC_DeleteNotifyService implements GLBL_TriggerHandle
 
 		HttpRequest r = new HttpRequest();
 		r.setHeader('Content-type', 'text/json');
-		r.setEndpoint('http://ec2-54-227-9-128.compute-1.amazonaws.com/rti-development/v1/genericDeleted');
+		r.setEndpoint('http://ec2-54-227-9-128.compute-1.amazonaws.com/rti-development/v1/genericDeleted'); //todo custom setting
 		r.setMethod('POST');
 		r.setBody(jsonstring);
 
