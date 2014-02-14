@@ -53,7 +53,15 @@ public with sharing class MERC_DailyAttendanceController {
 		get {
 			if (participantIds == null) {
 				participantIds = new Set<Id>();
-				for (Meeting_Participant_MERC__c p : [SELECT ID FROM Meeting_Participant_MERC__c WHERE Meeting_MERC__c = :meeting.Id]) {
+				Id employeeRecordTypeId = [SELECT ID FROM RecordType WHERE SobjectType = 'Account' and DeveloperName = 'Employee_GLBL'].ID;
+				List<String> excludedStatuses = new List<String>{ 'Pending Approval', 'Declined', 'Interested in Meeting', 'Cancelled' };
+				for (Meeting_Participant_MERC__c p : [SELECT ID FROM 
+																	Meeting_Participant_MERC__c 
+																		WHERE 
+																			Meeting_MERC__c = :meeting.Id AND
+																			Account_MERC__r.RecordTypeId != :employeeRecordTypeId AND
+																			Status_MERC__c NOT IN :excludedStatuses
+													]) {
 					participantIds.add(p.Id);
 				}
 			}
@@ -171,10 +179,10 @@ public with sharing class MERC_DailyAttendanceController {
 																	Id, Name, 
 																	Meeting_Day_MERC__c, 
 																	Meeting_Participant_MERC__c, 
-																	Meeting_Participant_MERC__r.Total_Food_Beverage_ToV_MERC__c,
-																	Meeting_Participant_MERC__r.Total_Ground_Transporation_ToV_MERC__c,
-																	Meeting_Participant_MERC__r.Total_Registration_ToV_MERC__c,
-																	Meeting_Participant_MERC__r.Total_Hotel_ToV_MERC__c,
+																	Est_Food_Bev_ToV_MERC__c,
+																	Est_Grnd_Transp_MERC__c,
+																	Est_Reg_Amt_ToV_MERC__c,
+																	Est_Hotel_ToV_MERC__c,
 																	Status_MERC__c, External_ID_MERC__c, 
 																	Meeting_Participant_Record_Type_MERC__c,
 																	Meeting_Participant_Account_Name_MERC__c 

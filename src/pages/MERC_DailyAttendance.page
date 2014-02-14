@@ -104,10 +104,10 @@
 					</apex:column>
 					<apex:column value="{!p.tov.Meeting_Participant_Account_Name_MERC__c}" styleClass="selectCell"/>
 					<apex:column value="{!p.tov.Meeting_Participant_Record_Type_MERC__c}" headerValue="{!$ObjectType.RecordType.label}" styleClass="selectCell"/>
-					<apex:column value="{!p.tov.Meeting_Participant_MERC__r.Total_Food_Beverage_ToV_MERC__c}" styleClass="selectCell"/>
-					<apex:column value="{!p.tov.Meeting_Participant_MERC__r.Total_Ground_Transporation_ToV_MERC__c}" styleClass="selectCell"/>
-					<apex:column value="{!p.tov.Meeting_Participant_MERC__r.Total_Registration_ToV_MERC__c}" styleClass="selectCell"/>
-					<apex:column value="{!p.tov.Meeting_Participant_MERC__r.Total_Hotel_ToV_MERC__c}" styleClass="selectCell"/>
+					<apex:column value="{!p.tov.Est_Food_Bev_ToV_MERC__c}" styleClass="selectCell"/>
+					<apex:column value="{!p.tov.Est_Grnd_Transp_MERC__c}" styleClass="selectCell"/>
+					<apex:column value="{!p.tov.Est_Reg_Amt_ToV_MERC__c}" styleClass="selectCell"/>
+					<apex:column value="{!p.tov.Est_Hotel_ToV_MERC__c}" styleClass="selectCell"/>
 				</apex:pageBlockTable>
 			</apex:pageBlock>
 			<c:MERC_LoadingMask />
