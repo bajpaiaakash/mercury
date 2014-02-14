@@ -49,6 +49,18 @@ public with sharing class MERC_TestFactory {
 		return accs;
 	}
 
+	public static List<Invoice_MERC__c> insertInvoices(List<Meeting_Participant_MERC__c> participants) {
+		List<Invoice_MERC__c> invoices = new List<Invoice_MERC__c>();
+		for (Meeting_Participant_MERC__c m : participants) {
+			Invoice_MERC__c i = new Invoice_MERC__c();
+			i.Invoice_Date_MERC__c = Date.today();
+			i.Meeting_Participant_MERC__c = m.Id;
+			invoices.add(i);
+		}
+		insert invoices;
+		return invoices;
+	}
+
 	public static List<Meeting_MERC__c> insertMeetings(Integer numberOfMeetings) {
 		List<Meeting_MERC__c> mtgs = new List<Meeting_MERC__c>();
 		for (Integer i = 0; i < numberOfMeetings; i++) {
