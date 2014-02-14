@@ -1,3 +1,9 @@
+/**
+ * @author Joseph Ferraro
+ *
+ * Mock/Unit Test to test the dynamic layout describe via sobjectPartnerSoapSforceCom
+ */
+
 @IsTest
 private with sharing class GLBL_DescribeLayoutTest {
 	private class WebServiceMockImpl implements WebServiceMock {

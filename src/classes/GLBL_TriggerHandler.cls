@@ -1,7 +1,15 @@
 /**
  * @author Joseph Ferraro
  *
- * Generic handler for Trigger actions
+ * Generic handler for Trigger actions, example:
+ *
+ *   trigger MyTriggerName on MyObjectName (before insert, before update, after update) {
+ *       new GLBL_TriggerHandler()
+ *           .bind(GLBL_TriggerHandler.Evt.beforeinsert, new ClassThatImplementsGLBL_TriggerHandler.HandlerInterface())
+ *           .bind(GLBL_TriggerHandler.Evt.beforeupdate, new ClassThatImplementsGLBL_TriggerHandler.HandlerInterface())
+ *           .manage();
+ *   }
+ *
  */
 
 public class GLBL_TriggerHandler 

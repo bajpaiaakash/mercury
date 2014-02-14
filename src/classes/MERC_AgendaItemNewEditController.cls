@@ -1,3 +1,10 @@
+/**
+ * @author Joseph Ferraro
+ *
+ * Controller for VF Page that enables users to create/edit an agenda item
+ */
+
+
 public with sharing class MERC_AgendaItemNewEditController {
 
 	private final Agenda_Item_MERC__c agendaItem;

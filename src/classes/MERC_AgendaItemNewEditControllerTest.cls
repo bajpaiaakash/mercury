@@ -1,3 +1,10 @@
+/**
+ * @author Joseph Ferraro
+ *
+ * Asserts functionality of MERC_AgendaItemNewEditController
+ */
+
+
 @isTest
 private class MERC_AgendaItemNewEditControllerTest {
 	

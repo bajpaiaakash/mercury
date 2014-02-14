@@ -1,3 +1,9 @@
+/**
+ * @author Joseph Ferraro
+ *
+ * Asserts functionality of the MERC_BudgetVersionController controller
+ */
+
 @isTest
 private class MERC_BudgetVersionControllerTest {
 	

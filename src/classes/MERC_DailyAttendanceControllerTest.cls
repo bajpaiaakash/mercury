@@ -1,3 +1,9 @@
+/**
+ * @author Joseph Ferraro
+ *
+ * Asserts functionality for daily attendance/tov controller functionality found in MERC_DailyAttendanceController
+ */
+
 @isTest
 private class MERC_DailyAttendanceControllerTest {
 	

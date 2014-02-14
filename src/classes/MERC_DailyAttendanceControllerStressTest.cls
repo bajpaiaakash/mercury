@@ -1,3 +1,9 @@
+/**
+ * @author Joseph Ferraro
+ *
+ * Stress tests (for larger meetings) daily attendance/tov controller functionality found in MERC_DailyAttendanceController
+ */
+
 @isTest
 private class MERC_DailyAttendanceControllerStressTest {
 	

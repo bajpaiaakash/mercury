@@ -1,3 +1,10 @@
+/**
+ * @author Joseph Ferraro
+ *
+ * Trigger handler for Salesforce Content DML.
+ * -It ensures that the Content RecordTypeId field is set based on the lookup provided
+ */
+
 public with sharing class MERC_ContentVersionHandler implements GLBL_TriggerHandler.HandlerInterface {
 
 	public void handle() {

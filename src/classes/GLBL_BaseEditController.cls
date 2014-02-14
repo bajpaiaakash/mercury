@@ -1,7 +1,8 @@
 /**
  * @author Joseph Ferraro
  *
- * Base controller that builds an edit page layout via the Metadata API
+ * Base controller that builds an edit page layout dynamically via the Metadata API
+ * We use this for Meeting and Travel Itinerary new/edit pages because it allows us to provide a better UX when dealing with Date/Times
  */
 
 public virtual with sharing class GLBL_BaseEditController {

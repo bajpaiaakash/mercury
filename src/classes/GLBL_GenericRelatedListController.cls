@@ -1,7 +1,7 @@
 /**
  * @author Joseph Ferraro
  *
- * Generic controller for VF Pages that modify related lists via a unified UI
+ * Generic controller for VF Pages that need to modify related lists via a unified UI
  */
 
 global with sharing abstract class GLBL_GenericRelatedListController {

@@ -1,3 +1,9 @@
+/**
+ * @author Joseph Ferraro
+ *
+ * Mock class for delete notify service found on the Real-Time Integration listener
+ */
+
 @isTest
 public class MERC_DeleteNotifyMock implements HttpCalloutMock {
 	

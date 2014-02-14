@@ -1,3 +1,9 @@
+/**
+ * @author Joseph Ferraro
+ *
+ * Asserts functionality for Trigger handler (MERC_ConsultingProjectCapCalculator) that calculates Consulting_Project_Paid_CAP_MERC__c on Account
+ */
+
 @isTest
 private class MERC_ConsultingProjectCapCalculatorTest {
 

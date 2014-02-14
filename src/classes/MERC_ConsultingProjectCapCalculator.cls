@@ -1,3 +1,9 @@
+/**
+ * @author Joseph Ferraro
+ *
+ * Trigger handler that calculates Consulting_Project_Paid_CAP_MERC__c on Account based on an Account's participation in Consulting projects for the year
+ */
+
 public with sharing class MERC_ConsultingProjectCapCalculator implements GLBL_TriggerHandler.HandlerInterface {
 	
 	Schema.SobjectType triggeredSobjectType;

@@ -2,6 +2,9 @@
  * @author Joseph Ferraro
  *
  * Service which submits query to Customer Search Tool running on Heroku
+ * -It relies on clientid/clientsecret distributed by the CST to retrieve a token
+ * -Because of Apex constraints re: DML/calling out, we retrieve a new access token each time the page is loaded
+ * 		-we can refactor in the future to possibly implement a @future method which updates an expired access token on a 401 response
  */
 
 public with sharing class GLBL_CustomerSearchToolService {
