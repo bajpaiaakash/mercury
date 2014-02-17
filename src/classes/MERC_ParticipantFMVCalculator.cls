@@ -52,6 +52,7 @@ public with sharing class MERC_ParticipantFMVCalculator implements GLBL_TriggerH
 										Meeting_MERC__r.Meeting_Status_MERC__c != 'Cancelled'];
 		} else if (this.triggeredSobjectType == Meeting_Participant_MERC__c.SobjectType) {
 			List<Meeting_Participant_MERC__c> triggeredParticipants = (List<Meeting_Participant_MERC__c>)sobjects;
+			participants = new List<Meeting_Participant_MERC__c>();
 			for (Meeting_Participant_MERC__c p : triggeredParticipants) {
 				if (p.Final_Fee_MERC__c == null)
 					participants.add(p);
