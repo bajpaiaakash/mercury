@@ -180,6 +180,7 @@
 			  				<apex:pageBlockButtons >
 			  					<apex:commandButton onclick="toggleLoading()" oncomplete="toggleLoading();j('#searchResultTabAnchor').click()" 
 			  						action="{!doSearch}" value="Search" rerender="resultTableWrapper, srCountWrapper"/>
+			  					<apex:commandButton action="{!cancel}" value="Back to Meeting"/>
 			  				</apex:pageBlockButtons>
 			  				<apex:pageBlockSection title="Basic Information">
 			  					
@@ -364,6 +365,9 @@
 				  		<apex:outputPanel id="resultBlockWrapper">
 				  			<apex:pageMessages />
 				  			<apex:pageBlock title="Search Results" id="resultBlock">
+				  				<apex:pageBlockButtons>
+				  					<apex:commandButton action="{!cancel}" value="Back to Meeting"/>
+				  				</apex:pageBlockButtons>
 				  				<apex:outputPanel id="resultTableWrapper">
 					  				<apex:pageBlockTable value="{!searchResults}" var="r" rendered="{!searchResults != null && searchResults.size > 0}">
 					  					<apex:column width="30">
@@ -424,7 +428,7 @@
 			  			<apex:pageBlock title="Meeting Participants" mode="edit" id="meetingParticipantBlock">
 			  				<apex:pageMessages ></apex:pageMessages>
 			  				<apex:pageBlockButtons >
-
+			  					<apex:commandButton action="{!cancel}" value="Back to Meeting"/>
 			  				</apex:pageBlockButtons>
 			  				<apex:outputPanel id="meetingParticipantTableWrapper">
 				  				<apex:pageBlockTable value="{!meetingParticipants}" var="p">
