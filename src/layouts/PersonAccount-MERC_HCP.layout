@@ -99,12 +99,16 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Has_MSA_MERC__c</field>
+                <behavior>Readonly</behavior>
+                <field>Has_Contract_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>MSA_Expiration_Date_MERC__c</field>
+                <behavior>Readonly</behavior>
+                <field>Has_MSA_Contract_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>MSA_Contract_Expiration_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -441,6 +445,8 @@
         <fields>RECORDTYPE</fields>
         <fields>Contract_Request_Status_MERC__c</fields>
         <fields>Contract_Expiration_Date_MERC__c</fields>
+        <fields>MSA_End_Date_MERC__c</fields>
+        <fields>MSA_Start_Date_MERC__c</fields>
         <relatedList>HCP_Contract_MERC__c.Account_MERC__c</relatedList>
     </relatedLists>
     <relatedLists>

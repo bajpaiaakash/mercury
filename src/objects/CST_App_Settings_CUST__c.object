@@ -53,6 +53,18 @@
     <enableHistory>false</enableHistory>
     <enableReports>false</enableReports>
     <fields>
+        <fullName>Access_Token_CUST__c</fullName>
+        <description>Access token used to access the CST, acquired via Oauth</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Access token used to access the CST, acquired via Oauth</inlineHelpText>
+        <label>Access Token</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Account_Bnft_Dsgn_Cd__c</fullName>
         <defaultValue>&quot;MD,PhD,PsyD&quot;</defaultValue>
         <description>Default values for Professional Designation search control</description>
@@ -119,6 +131,30 @@
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Client_Id_CUST__c</fullName>
+        <description>Client Id provided by the CST endpoint for the Mercury application</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Client Id provided by the CST endpoint for the Mercury application</inlineHelpText>
+        <label>Client Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Client_Secret_CUST__c</fullName>
+        <description>Client secret provided by the CST endpoint for access to the CST by Mercury</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Client secret provided by the CST endpoint for access to the CST by Mercury</inlineHelpText>
+        <label>Client Secret</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Employee_Record_Type_Id__c</fullName>

@@ -139,13 +139,15 @@ Created by John A Adams 12/11/2013</description>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <criteriaItems>
-            <field>Affiliation_GLBL__c.Priority_Rank_Nbr_GLBL__c</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </criteriaItems>
         <description>Triggers copying the HCO Primary Address fields to the Primary Affiliate Address fields
 Created by John A Adams 12/12/2013</description>
+        <formula>ISNEW() &amp;&amp; Priority_Rank_Nbr_GLBL__c = 1 || 
+(Priority_Rank_Nbr_GLBL__c = 1 &amp;&amp; 
+ (
+  ISCHANGED(Account_Cust_Id_GLBL__c) ||
+  ISCHANGED(Account_GLBL__c)
+ )
+)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>

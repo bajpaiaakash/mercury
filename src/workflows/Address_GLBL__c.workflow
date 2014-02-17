@@ -117,13 +117,20 @@ Created by John A Adams 12/11/2013</description>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <criteriaItems>
-            <field>Address_GLBL__c.Priority_Rank_Nbr_GLBL__c</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </criteriaItems>
         <description>Triggers copying the Address  fields to the Primary Address Fields in Accounts
 Created by John A Adams 12/13/2013</description>
+        <formula>ISNEW() &amp;&amp; Priority_Rank_Nbr_GLBL__c = 1 &amp;&amp; RecordType.Name  = &quot;Mastered Address&quot; || 
+(Priority_Rank_Nbr_GLBL__c = 1 &amp;&amp;  RecordType.Name = &quot;Mastered Address&quot; &amp;&amp;
+ (
+  (ISCHANGED(Line_1_Adrs_Txt_GLBL__c )) ||
+  (ISCHANGED(Line_2_Adrs_Txt_GLBL__c )) ||
+  (ISCHANGED(Line_3_Adrs_Txt_GLBL__c )) ||
+  (ISCHANGED(Line_4_Adrs_Txt_GLBL__c )) ||
+  (ISCHANGED(City_GLBL__c )) ||
+  (ISCHANGED(Adrs_Cntry_Cd_GLBL__c )) ||
+  (ISCHANGED(Zip_Postal_Code_GLBL__c )) 
+ )
+)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>

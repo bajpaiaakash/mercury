@@ -1149,17 +1149,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Has_MSA_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Hospital_Leadership_Role_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -2727,17 +2716,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Has_MSA_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Hospital_Leadership_Role_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -4291,17 +4269,6 @@
         </picklistValues>
         <picklistValues>
             <picklist>Experience_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Has_MSA_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>

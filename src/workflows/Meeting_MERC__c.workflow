@@ -380,6 +380,7 @@ Name</formula>
         <fields>CurrencyIsoCode</fields>
         <fields>Date_of_Event_MERC__c</fields>
         <fields>Date_to_Send_Invitations_MERC__c</fields>
+        <fields>Days_Until_Meeting_MERC__c</fields>
         <fields>Disable_Portal_Registration_MERC__c</fields>
         <fields>Employee_Travel_MERC__c</fields>
         <fields>Employees_Attended_MERC__c</fields>
@@ -394,6 +395,7 @@ Name</formula>
         <fields>Event_Website_MERC__c</fields>
         <fields>Event_Website_Needed_MERC__c</fields>
         <fields>Expenses_MERC__c</fields>
+        <fields>Expose_on_Portal_MERC__c</fields>
         <fields>External_Delegates_MERC__c</fields>
         <fields>Food_and_Beverage_Requirements_MERC__c</fields>
         <fields>Forecasting_Information_MERC__c</fields>
@@ -419,6 +421,7 @@ Name</formula>
         <fields>Invoicing_Completed_MERC__c</fields>
         <fields>IsDeleted</fields>
         <fields>Justification_for_Venue_MERC__c</fields>
+        <fields>LastActivityDate</fields>
         <fields>LastModifiedById</fields>
         <fields>LastModifiedDate</fields>
         <fields>Logistics_Information_MERC__c</fields>
@@ -437,7 +440,10 @@ Name</formula>
         <fields>Meeting_Status_MERC__c</fields>
         <fields>Meeting_Sub_Type_MERC__c</fields>
         <fields>Meeting_Time_Zone_MERC__c</fields>
+        <fields>Meeting_Type_Abbreviation_MERC__c</fields>
         <fields>Mercury_External_Id_MERC__c</fields>
+        <fields>Mercury_Owner_Master_Id_MERC__c</fields>
+        <fields>Mercury_Worker_Country_Code_MERC__c</fields>
         <fields>Name</fields>
         <fields>No_Shows_MERC__c</fields>
         <fields>Non_HCPs_Attended_MERC__c</fields>
@@ -451,8 +457,14 @@ Name</formula>
         <fields>Number_of_Restaurants_MERC__c</fields>
         <fields>On_Site_Support_Required_MERC__c</fields>
         <fields>OwnerId</fields>
+        <fields>Owner_Master_Id_MERC__c</fields>
+        <fields>PO_Number_MERC__c</fields>
+        <fields>Parent_Meeting_Event_Id_MERC__c</fields>
         <fields>Parent_Meeting_External_MERC__c</fields>
         <fields>Parent_Meeting_MERC__c</fields>
+        <fields>Participant_CoPay_Updated_Date_MERC__c</fields>
+        <fields>Participant_ToV_Final_MERC__c</fields>
+        <fields>Participant_ToV_Updated_Date_MERC__c</fields>
         <fields>Participants_Attended_MERC__c</fields>
         <fields>Planned_Attendees_MERC__c</fields>
         <fields>Planned_Budget_MERC__c</fields>
@@ -461,7 +473,6 @@ Name</formula>
         <fields>Preferred_Venue_Addr_2_MERC__c</fields>
         <fields>Preferred_Venue_MERC__c</fields>
         <fields>Preferred_Venue_Postal_Code_MERC__c</fields>
-        <fields>RTI_Transaction_ID_MERC__c</fields>
         <fields>Ready_for_Sourcing_MERC__c</fields>
         <fields>RecordTypeId</fields>
         <fields>Rep_Cost_Center_MERC__c</fields>
@@ -471,9 +482,16 @@ Name</formula>
         <fields>Send_Save_the_Date_MERC__c</fields>
         <fields>Shipping_Address_for_Invitations_MERC__c</fields>
         <fields>Source_MERC__c</fields>
+        <fields>Sourced_Venue_Addr1_MERC__c</fields>
+        <fields>Sourced_Venue_Addr_2_MERC__c</fields>
+        <fields>Sourced_Venue_City_MERC__c</fields>
+        <fields>Sourced_Venue_Country_MERC__c</fields>
+        <fields>Sourced_Venue_Name_MERC__c</fields>
+        <fields>Sourced_Venue_Postal_Code_MERC__c</fields>
         <fields>Speaker_MERC__c</fields>
         <fields>Sponsorship_Category_MERC__c</fields>
         <fields>Sponsorship_Eligibility_Crit_Met_MERC__c</fields>
+        <fields>Sponsorship_Processed_MERC__c</fields>
         <fields>Sponsorship_Type_MERC__c</fields>
         <fields>Sponsorship_WO_Lilly_Assistance_MERC__c</fields>
         <fields>Sponsorship_W_Lilly_Assistance_MERC__c</fields>
@@ -482,6 +500,7 @@ Name</formula>
         <fields>Start_Time_of_Meeting_MERC__c</fields>
         <fields>Submit_for_Contracting_MERC__c</fields>
         <fields>SystemModstamp</fields>
+        <fields>Target_Audience_List_MERC__c</fields>
         <fields>Target_Audience_MERC__c</fields>
         <fields>Technical_Requirements_MERC__c</fields>
         <fields>Territory_Description_GLBL__c</fields>

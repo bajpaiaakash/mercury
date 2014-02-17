@@ -2828,7 +2828,7 @@ Created by John Adams on 12/9/2013</description>
         <description>Enter planned budget amount for meeting, to be pulled into Budget record. Created 11/18/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <inlineHelpText>Include total meeting spend, including travel and HCP fees. Exclude recoverable taxes where practical</inlineHelpText>
-        <label>Planned Budget</label>
+        <label>Budget</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -3288,7 +3288,8 @@ Created by John Adams 11/6/2013</description>
         </picklist>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Picklist</type>
+        <type>MultiselectPicklist</type>
+        <visibleLines>3</visibleLines>
     </fields>
     <fields>
         <fullName>Target_Audience_MERC__c</fullName>
@@ -5512,7 +5513,7 @@ Created by John Adams 11/6/2013</description>
             </values>
             <values>
                 <fullName>Consultant</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Health Education</fullName>
@@ -14357,7 +14358,7 @@ LEN (Meeting_Objectives_MERC__c) = 0
 		(ISBLANK(Planned_Budget_MERC__c))
 	,true, false)</errorConditionFormula>
         <errorDisplayField>Planned_Budget_MERC__c</errorDisplayField>
-        <errorMessage>The Planned Budget is required before status can be changed to Active</errorMessage>
+        <errorMessage>The Budget is required before status can be changed to Active</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Validate_Active_Target_Audience_MERC</fullName>
@@ -14366,7 +14367,11 @@ LEN (Meeting_Objectives_MERC__c) = 0
         <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
       ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
 		TEXT(Meeting_Status_MERC__c) = &apos;Active&apos; &amp;&amp;
+<<<<<<< HEAD
 		(ISBLANK (Text(  Target_Audience_List_MERC__c )))
+=======
+		(ISBLANK (  Target_Audience_List_MERC__c ))
+>>>>>>> 28012b15be45558a7c6d19cca704944ea9d70aae
 	,true, false)</errorConditionFormula>
         <errorDisplayField>Target_Audience_List_MERC__c</errorDisplayField>
         <errorMessage>The Target Audience is required before status can be changed to Active</errorMessage>

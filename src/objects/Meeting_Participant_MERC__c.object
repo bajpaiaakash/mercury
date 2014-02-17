@@ -138,7 +138,6 @@
         <description>This will convert the positive CoPay values entered by a user into negative values to be sent to Activity ODS.  Created by John A Adams 2/4/2014</description>
         <externalId>false</externalId>
         <formula>IF (CoPay_Flight_Rail_MERC__c &gt; 0 , CoPay_Flight_Rail_MERC__c - ( 2 * CoPay_Flight_Rail_MERC__c ), CoPay_Flight_Rail_MERC__c)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>CoPay AODS Flight/Rail</label>
         <precision>18</precision>
         <required>false</required>
@@ -152,7 +151,6 @@
         <description>This will convert the positive CoPay values entered by a user into negative values to be sent to Activity ODS.  Created by John A Adams 2/4/2014</description>
         <externalId>false</externalId>
         <formula>IF (CoPay_Food_Beverage_MERC__c &gt; 0 , CoPay_Food_Beverage_MERC__c  - ( 2 * CoPay_Food_Beverage_MERC__c  ), CoPay_Food_Beverage_MERC__c )</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>CoPay AODS Food Beverage</label>
         <precision>18</precision>
         <required>false</required>
@@ -166,7 +164,6 @@
         <description>This will convert the positive CoPay values entered by a user into negative values to be sent to Activity ODS.  Created by John A Adams 2/4/2014</description>
         <externalId>false</externalId>
         <formula>IF (CoPay_Ground_Transport_MERC__c &gt;0 , CoPay_Ground_Transport_MERC__c - ( 2 * CoPay_Ground_Transport_MERC__c ), CoPay_Ground_Transport_MERC__c)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>CoPay AODS Ground Transportation</label>
         <precision>18</precision>
         <required>false</required>
@@ -180,7 +177,6 @@
         <description>This will convert the positive CoPay values entered by a user into negative values to be sent to Activity ODS.  Created by John A Adams 2/4/2014</description>
         <externalId>false</externalId>
         <formula>IF (CoPay_Hotel_MERC__c &gt; 0 , CoPay_Hotel_MERC__c - ( 2 * CoPay_Hotel_MERC__c ), CoPay_Hotel_MERC__c)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>CoPay AODS Hotel</label>
         <precision>18</precision>
         <required>false</required>
@@ -194,7 +190,6 @@
         <description>This will convert the positive CoPay values entered by a user into negative values to be sent to Activity ODS.  Created by John A Adams 2/4/2014</description>
         <externalId>false</externalId>
         <formula>IF (CoPay_Registration_MERC__c &gt; 0 , CoPay_Registration_MERC__c - ( 2 * CoPay_Registration_MERC__c ), CoPay_Registration_MERC__c)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>CoPay AODS Registration</label>
         <precision>18</precision>
         <required>false</required>
@@ -493,6 +488,33 @@ Created by John Adams on 12/9/2013</description>
         <externalId>false</externalId>
         <label>HCP Info Package Communication Details</label>
         <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Has_Active_MSA_MERC__c</fullName>
+        <description>Displays whether the HCP currently has an Active MSA agreement with Lilly. Created 02/13/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF ( Account_MERC__r.Has_MSA_Contract_MERC__c = &quot;Yes&quot;, &quot;Yes&quot;, &quot;No&quot;)</formula>
+        <inlineHelpText>Whether the HCP currently has an Active MSA agreement with Lilly</inlineHelpText>
+        <label>Has Active MSA</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Has_Contract_MERC__c</fullName>
+        <description>Displays if HCP has an Active Contract. Created 02/13/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF (Account_MERC__r.Has_Contract_MERC__c = &quot;Yes&quot;, &quot;Yes&quot;, &quot;No&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Whether the HCP currently has a signed Work Order or Single Event Contract for the Meeting</inlineHelpText>
+        <label>Has Active Contract</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>

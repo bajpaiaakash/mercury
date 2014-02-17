@@ -106,7 +106,27 @@ NOTE: needs final list from Lilly</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Travel - 4866</fullName>
+                <fullName>Delegate Out of Pocket Registration Fees - 6040</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Delegate Out of Pocket Travel expenses - 3940</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Provider Fees - 4865</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Provider Out of Pocket Travel expenses - 4866</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Food &amp; Beverage expenses (non-reportable) - 4167</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Misc non-reportable expenses - 4864</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -317,6 +337,30 @@ Created by John A Adams 10/4/2013</description>
         <picklistValues>
             <picklist>Cost_Element_MERC__c</picklist>
             <values>
+                <fullName>Delegate Out of Pocket Registration Fees - 6040</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delegate Out of Pocket Travel expenses - 3940</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food %26 Beverage expenses %28non-reportable%29 - 4167</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Misc non-reportable expenses - 4864</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Provider Fees - 4865</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Provider Out of Pocket Travel expenses - 4866</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Speaking Services - 9078</fullName>
                 <default>true</default>
             </values>
@@ -329,6 +373,30 @@ Created by John A Adams 10/4/2013</description>
         <label>Contracted Services</label>
         <picklistValues>
             <picklist>Cost_Element_MERC__c</picklist>
+            <values>
+                <fullName>Delegate Out of Pocket Registration Fees - 6040</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delegate Out of Pocket Travel expenses - 3940</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food %26 Beverage expenses %28non-reportable%29 - 4167</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Misc non-reportable expenses - 4864</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Provider Fees - 4865</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Provider Out of Pocket Travel expenses - 4866</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Speaking Services - 9078</fullName>
                 <default>true</default>
@@ -351,15 +419,35 @@ Created by John A Adams 10/4/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Delegate Out of Pocket Registration Fees - 6040</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delegate Out of Pocket Travel expenses - 3940</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Food %26 Beverage - 6788</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Tavel - 1456 %28Belgium%29</fullName>
+                <fullName>Food %26 Beverage expenses %28non-reportable%29 - 4167</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Travel - 4866</fullName>
+                <fullName>Misc non-reportable expenses - 4864</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Provider Fees - 4865</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Provider Out of Pocket Travel expenses - 4866</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tavel - 1456 %28Belgium%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -397,10 +485,10 @@ ISPICKVAL (Invoice_MERC__r.Meeting_Participant_MERC__r.Services_Rendered_MERC__c
         <url>{!URLFOR( 
 $Action.Invoice_Line_Item_MERC__c.New, 
 null, 
-[saveURL=Invoice_MERC__c.Link+&apos;#&apos;+Invoice_MERC__c.Id+&apos;_00N11000000SbwI_target&apos;,
+[saveURL=Invoice_MERC__c.Link+&apos;#&apos;+Invoice_MERC__c.Id+&apos;_00N11000000PFpW_target&apos;,
 retURL=Invoice_MERC__c.Link,
-CF00N11000000SbwI=Invoice_MERC__c.Name,
-CF00N11000000SbwI_lkid=Invoice_MERC__c.Id] 
+CF00N11000000PFpW=Invoice_MERC__c.Name,
+CF00N11000000PFpW_lkid=Invoice_MERC__c.Id] 
 )}</url>
     </webLinks>
 </CustomObject>

@@ -649,4 +649,16 @@ else
     window.location.href = url;
 }</url>
     </webLinks>
+    <webLinks>
+        <fullName>Person_Search_MVN</fullName>
+        <availability>online</availability>
+        <description>Launches a person search for an HCP, Consumer or Employee</description>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Person Search</masterLabel>
+        <openType>sidebar</openType>
+        <page>PersonSearchMVN</page>
+        <protected>false</protected>
+    </webLinks>
 </CustomObject>

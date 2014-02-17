@@ -147,17 +147,6 @@ Created by John A Adams 10/15/2013</description>
         <type>Currency</type>
     </fields>
     <fields>
-        <fullName>Daily_Hotel_Amount_MERC__c</fullName>
-        <description>Stores daily ToV estimate for Hotel cost. Oliver Dunford 10/10/2013</description>
-        <externalId>false</externalId>
-        <label>Daily Hotel Amount</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackTrending>false</trackTrending>
-        <type>Currency</type>
-    </fields>
-    <fields>
         <fullName>Daily_Registration_Amount_MERC__c</fullName>
         <description>Store ToV estimate for Registration cost. Oliver Dunford 10/10/2013</description>
         <externalId>false</externalId>

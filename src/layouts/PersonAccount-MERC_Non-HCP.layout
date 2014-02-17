@@ -219,13 +219,6 @@
         <relatedList>Payee_MERC__c.Account_MERC__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <fields>NAME</fields>
-        <fields>RECORDTYPE</fields>
-        <fields>Contract_Request_Status_MERC__c</fields>
-        <fields>Contract_Expiration_Date_MERC__c</fields>
-        <relatedList>HCP_Contract_MERC__c.Account_MERC__c</relatedList>
-    </relatedLists>
-    <relatedLists>
         <fields>ACCOUNT.NAME</fields>
         <fields>ACCOUNT.RECORDTYPE</fields>
         <relatedList>Account.Relationship_Owner_MERC__c</relatedList>

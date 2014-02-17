@@ -233,6 +233,8 @@
         <fields>Speciality_MERC__c</fields>
         <fields>Classification_MERC__c</fields>
         <fields>Status_MERC__c</fields>
+        <fields>Has_Contract_MERC__c</fields>
+        <fields>Has_Active_MSA_MERC__c</fields>
         <relatedList>Meeting_Participant_MERC__c.Meeting_MERC__c</relatedList>
         <sortField>RECORDTYPE</sortField>
         <sortOrder>Desc</sortOrder>
