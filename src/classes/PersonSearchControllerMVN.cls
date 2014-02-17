@@ -19,6 +19,8 @@ public with sharing class PersonSearchControllerMVN {
     public String addId {get;set;}
     public String recordTypeText {get;set;}
     public Case cs {get; set;}
+    public String caseId{get; set;}
+
     public Address_GLBL__c searchAddress {get;set;}
     public Address_GLBL__c createAddress {get;set;}
     public Account searchAccount {get;set;}
@@ -53,10 +55,10 @@ public with sharing class PersonSearchControllerMVN {
         removeAccountError = false;
         
         validRecordTypeIds = new List<Id>();
-
+        caseId = ApexPages.currentPage().getParameters().get('caseId');
         cs = (Case) controller.getRecord();
         
-        if(cs.Id != null){
+        if(String.isNotBlank(caseId)){
             getCaseValues();
             standAloneSearch = false;
         } else
@@ -146,7 +148,7 @@ public with sharing class PersonSearchControllerMVN {
     }
 
     public void getCaseValues() {
-        cs = [select Id, AccountId, Account.Name, Account.Salutation, Referred_By_GLBL__c, Referred_By_GLBL__r.Name from Case where Id = :cs.Id];
+        cs = [select Id, AccountId, Account.Name, Account.Salutation, Referred_By_GLBL__c, Referred_By_GLBL__r.Name from Case where Id = :caseId];
     }
 
     public PageReference removeRequester(){

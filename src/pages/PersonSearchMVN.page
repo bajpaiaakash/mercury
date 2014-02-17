@@ -95,12 +95,12 @@
 
         function closeTab() {
             //In scc?
-            inServiceCloudConsle = false;
-            if (inServiceCloudConsle){
+            isInParentTab = true;
+            if (isInParentTab){
                 sforce.console.refreshPrimaryTabById(tabId, false, closeSubTab);    
             } else {
                 //return to standard case layout
-                window.open('/' + "{!Case.Id}", "_self");
+                window.open('/' + "{!Case.Id}?isdtp=vw", "_self");
             }
             
         }
