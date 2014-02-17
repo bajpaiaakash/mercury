@@ -45,12 +45,17 @@ public with sharing class MERC_ParticipantFMVCalculator implements GLBL_TriggerH
 				}
 			}
 			participants = [SELECT ID, Country_of_Residence_MERC__c, Service_Provider_Tier_MERC__c 
-									FROM Meeting_Participant_MERC__c WHERE 
+									FROM Meeting_Participant_MERC__c WHERE
+										Final_Fee_MERC__c = null AND 
 										Account_MERC__c in :accountIdsToProcess AND
 										Meeting_MERC__r.Meeting_Status_MERC__c != 'Closed' AND
 										Meeting_MERC__r.Meeting_Status_MERC__c != 'Cancelled'];
 		} else if (this.triggeredSobjectType == Meeting_Participant_MERC__c.SobjectType) {
-			participants = (List<Meeting_Participant_MERC__c>)sobjects;
+			List<Meeting_Participant_MERC__c> triggeredParticipants = (List<Meeting_Participant_MERC__c>)sobjects;
+			for (Meeting_Participant_MERC__c p : triggeredParticipants) {
+				if (p.Final_Fee_MERC__c == null)
+					participants.add(p);
+			}
 		}
 
 		Set<String> countries = new Set<String>();
