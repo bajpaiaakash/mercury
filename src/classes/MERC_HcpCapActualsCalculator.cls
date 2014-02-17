@@ -1,9 +1,9 @@
 public with sharing class MERC_HcpCapActualsCalculator implements GLBL_TriggerHandler.HandlerInterface {
 	
-	String triggeredSobjectAPIName;
+	Schema.SobjectType triggeredSobjectType;
 
-	public MERC_HcpCapActualsCalculator(String objApiName) {
-		this.triggeredSobjectAPIName = objApiName;
+	public MERC_HcpCapActualsCalculator(Schema.SobjectType sobjectType) {
+		this.triggeredSobjectType = sObjectType;
 	}
 
 	public void handle() {
@@ -17,10 +17,7 @@ public with sharing class MERC_HcpCapActualsCalculator implements GLBL_TriggerHa
 	void execute(List<SObject> sobjects) {
 		List<Sobject> participantsToRollup;
 		
-		if (this.triggeredSobjectAPIName == null)
-			triggeredSobjectAPIName = MERC_Util.getSobjectAPIName(sobjects.get(0));
-		
-		if (triggeredSobjectAPIName == 'Meeting_MERC__c') {
+		if (this.triggeredSobjectType == Meeting_MERC__c.SobjectType) {
 			List<Meeting_MERC__c> meetings = (List<Meeting_MERC__c>)sobjects;
 			Set<Id> meetingIdsToProcess = new Set<Id>();
 			for (Meeting_MERC__c m : meetings) {
@@ -33,7 +30,7 @@ public with sharing class MERC_HcpCapActualsCalculator implements GLBL_TriggerHa
 			}
 			participantsToRollup = [SELECT ID, Account_MERC__c, Meeting_MERC__c FROM Meeting_Participant_MERC__c WHERE 
 										Meeting_MERC__c in :meetingIdsToProcess];
-		} else if (triggeredSobjectAPIName == 'Meeting_Participant_MERC__c') {
+		} else if (this.triggeredSobjectType == Meeting_Participant_MERC__c.SobjectType) {
 			participantsToRollup = sobjects;
 		}
 

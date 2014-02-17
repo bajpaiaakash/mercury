@@ -1,9 +1,16 @@
+/**
+ * @author Joseph Ferraro
+ *
+ * Trigger handler that calculates min/max rate for HCPs based on FMV custom settings
+ */
+
+
 public with sharing class MERC_ParticipantFMVCalculator implements GLBL_TriggerHandler.HandlerInterface {
 	
-	String triggeredSobjectAPIName;
+	Schema.SobjectType triggeredSobjectType;
 
-	public MERC_ParticipantFMVCalculator(String objApiName) {
-		this.triggeredSobjectAPIName = objApiName;
+	public MERC_ParticipantFMVCalculator(Schema.SobjectType sobjectType) {
+		this.triggeredSobjectType = sObjectType;
 	}
 
 	public void handle() {
@@ -15,10 +22,7 @@ public with sharing class MERC_ParticipantFMVCalculator implements GLBL_TriggerH
 	void execute(List<Sobject> sobjects) {
 		List<Meeting_Participant_MERC__c> participants;
 		
-		if (this.triggeredSobjectAPIName == null)
-			triggeredSobjectAPIName = MERC_Util.getSobjectAPIName(sobjects.get(0));
-		
-		if (triggeredSobjectAPIName == 'Account') {
+		if (this.triggeredSobjectType == Account.SobjectType) {
 			List<Account> accounts = (List<Account>)sobjects;
 			Set<Id> accountIdsToProcess = new Set<Id>();
 			for (Account a : accounts) {
@@ -45,7 +49,7 @@ public with sharing class MERC_ParticipantFMVCalculator implements GLBL_TriggerH
 										Account_MERC__c in :accountIdsToProcess AND
 										Meeting_MERC__r.Meeting_Status_MERC__c != 'Closed' AND
 										Meeting_MERC__r.Meeting_Status_MERC__c != 'Cancelled'];
-		} else if (triggeredSobjectAPIName == 'Meeting_Participant_MERC__c') {
+		} else if (this.triggeredSobjectType == Meeting_Participant_MERC__c.SobjectType) {
 			participants = (List<Meeting_Participant_MERC__c>)sobjects;
 		}
 
@@ -91,7 +95,7 @@ public with sharing class MERC_ParticipantFMVCalculator implements GLBL_TriggerH
 			}
 		}
 
-		if (triggeredSobjectAPIName == 'Account') {
+		if (this.triggeredSobjectType == Account.SobjectType) {
 			update participants;
 		}
 	}
