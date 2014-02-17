@@ -72,13 +72,13 @@ public with sharing class MERC_DailyAttendanceController {
 
 	void validate() {
 		if (meetingDays.size() == 0) {
-			ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Please add Meeting Days to this Meeting'));
+			ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Please add Meeting Days to this Meeting.'));
 			this.hasError = true;
 		}
 		if (!this.hasError)
 			this.selectedMeetingDayId = meetingDays.get(0).Id;
 		if (participants.size() == 0) {
-			ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Please add Participants to this Meeting'));
+			ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Only those Meeting Participants that are allocated to attend (e.g. Not Declined, Interested in Meeting, Rejected, Cancelled or Pending Approval) will appear in this list.  Please ensure Meeting Participants have been added to the Meeting and all Meeting Participants have the correct Status.'));
 			this.hasError = true;
 		}
 		if (!this.hasError) {
