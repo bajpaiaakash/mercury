@@ -51,6 +51,7 @@ public with sharing class MERC_TravelItineraryNewEditController extends GLBL_Bas
                 update this.mySobject; 
             }
         } catch(Exception e) {
+            setTimeZones();
             ApexPages.addMessages(e); //doesn't show ugly error text
             return null;
         }
