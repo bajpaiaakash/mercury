@@ -74,11 +74,13 @@ public with sharing class MERC_RequestHCPSignatureController {
         
         MERC_DocusignService.RequiredSigner s1 = new MERC_DocusignService.RequiredSigner();
         s1.acc = lillySigner;
+        s1.isLilly = true;
         s1.order = 1;
         signers.add(s1);
 
         MERC_DocusignService.RequiredSigner s2 = new MERC_DocusignService.RequiredSigner();
         s2.acc = hcpSigner;
+        s2.isLilly = false;
         s2.order = 2;
         signers.add(s2);
 
