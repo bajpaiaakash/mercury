@@ -16,6 +16,11 @@ public with sharing class MERC_TestFactory {
 		List<sObject> rollups = Test.loadData(glbl_rollup__LookupRollupSummary__c.sObjectType, 'DeclarativeRollupTestData_MERC');
 	}
 
+	public static void loadFMVSettings() {
+		//TODO when oliver updates fmv settings
+		//List<sObject> rollups = Test.loadData(glbl_rollup__LookupRollupSummary__c.sObjectType, 'DeclarativeRollupTestData_MERC');
+	}
+
 	public static List<Account> insertAccounts(Integer numberOfAccounts, Id recordTypeId) {
 		List<Account> accs = new List<Account>();
 		for (Integer i = 0; i < numberOfAccounts; i++) {
@@ -59,6 +64,17 @@ public with sharing class MERC_TestFactory {
 		}
 		insert invoices;
 		return invoices;
+	}
+
+	public static List<Invoice_Line_Item_MERC__c> insertInvoiceLineItems(String invoiceId, Integer numberOfLineItems) {
+		List<Invoice_Line_Item_MERC__c> lineItems = new List<Invoice_Line_Item_MERC__c>();
+		for (Integer i = 0; i < numberOfLineItems; i++) {
+			Invoice_Line_Item_MERC__c lineItem = new Invoice_Line_Item_MERC__c();
+			lineItem.Invoice_MERC__c = invoiceId;
+			lineItems.add(lineItem);
+		}
+		insert lineItems;
+		return lineItems;
 	}
 
 	public static List<Meeting_MERC__c> insertMeetings(Integer numberOfMeetings) {
@@ -135,11 +151,17 @@ public with sharing class MERC_TestFactory {
 	}
 
 	public static List<Meeting_Participant_MERC__c> insertParticipants(String meetingId, List<Account> accounts) {
+		return insertParticipants(meetingId, accounts, null);
+	}
+
+	public static List<Meeting_Participant_MERC__c> insertParticipants(String meetingId, List<Account> accounts, String status) {
+		String pStatus = status == null ? 'Invited' : status;
 		List<Meeting_Participant_MERC__c> participants = new List<Meeting_Participant_MERC__c>();
 		for (Integer i = 0; i < accounts.size(); i++) {
 			Meeting_Participant_MERC__c p = new Meeting_Participant_MERC__c();
 			p.Account_MERC__c = accounts.get(i).Id;
 			p.Meeting_MERC__c = meetingId;
+			p.Status_MERC__c = pStatus;
 			participants.add(p);
 		}
 
