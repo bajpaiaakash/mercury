@@ -22,31 +22,37 @@ public with sharing class MERC_DailyAttendanceController {
 	//make sure every meeting participant has a tov record for every meeting day
 	//todo move to trigger
 	public PageReference upsertMissingTovRecords() {
-		List<Daily_Attendance_TOV_MERC__c> tovsToUpsert = new List<Daily_Attendance_TOV_MERC__c>();
-		
-		for (Meeting_Day_MERC__c day : [SELECT ID, (SELECT ID, Meeting_Participant_MERC__c FROM Daily_Attendance_TOV__r) FROM Meeting_Day_MERC__c WHERE Meeting_MERC__c = :meeting.Id]) {
-			Set<Id> participantIdsWithTovsForThisDay = new Set<Id>();
-			for (Daily_Attendance_TOV_MERC__c tov : day.Daily_Attendance_TOV__r) {
-				participantIdsWithTovsForThisDay.add(tov.Meeting_Participant_MERC__c);
-			}
-			for (Id participantId : participantIds) {
-				if (!participantIdsWithTovsForThisDay.contains(participantId)) {
-				 	Daily_Attendance_TOV_MERC__c tovRecord = new Daily_Attendance_TOV_MERC__c();
-					tovRecord.Meeting_Participant_MERC__c = participantId;
-					tovRecord.Meeting_Day_MERC__c = day.Id;
-					tovRecord.External_ID_MERC__c = participantId+'_'+day.Id;
-					tovsToUpsert.add(tovRecord);	
+		try {
+			List<Daily_Attendance_TOV_MERC__c> tovsToUpsert = new List<Daily_Attendance_TOV_MERC__c>();
+			
+			for (Meeting_Day_MERC__c day : [SELECT ID, (SELECT ID, Meeting_Participant_MERC__c FROM Daily_Attendance_TOV__r) FROM Meeting_Day_MERC__c WHERE Meeting_MERC__c = :meeting.Id]) {
+				Set<Id> participantIdsWithTovsForThisDay = new Set<Id>();
+				for (Daily_Attendance_TOV_MERC__c tov : day.Daily_Attendance_TOV__r) {
+					participantIdsWithTovsForThisDay.add(tov.Meeting_Participant_MERC__c);
+				}
+				for (Id participantId : participantIds) {
+					if (!participantIdsWithTovsForThisDay.contains(participantId)) {
+					 	Daily_Attendance_TOV_MERC__c tovRecord = new Daily_Attendance_TOV_MERC__c();
+						tovRecord.Meeting_Participant_MERC__c = participantId;
+						tovRecord.Meeting_Day_MERC__c = day.Id;
+						tovRecord.External_ID_MERC__c = participantId+'_'+day.Id;
+						tovsToUpsert.add(tovRecord);	
+					}
 				}
 			}
+			if (tovsToUpsert.size() > 0) {
+				upsert tovsToUpsert External_ID_MERC__c;
+				PageReference p = Page.MERC_DailyAttendance;
+				p.getParameters().put('id', meeting.Id);
+				p.setRedirect(true);
+				return p;
+			}
+			return null;
+		} catch (Exception e) {
+			this.hasError = true;
+			ApexPages.addMessages(e); //doesn't show ugly error text
+			return null;
 		}
-		if (tovsToUpsert.size() > 0) {
-			upsert tovsToUpsert External_ID_MERC__c;
-			PageReference p = Page.MERC_DailyAttendance;
-			p.getParameters().put('id', meeting.Id);
-			p.setRedirect(true);
-			return p;
-		}
-		return null;
 	}
 
 	Set<Id> participantIds {
@@ -112,48 +118,60 @@ public with sharing class MERC_DailyAttendanceController {
 	}
 
 	public PageReference setSelectedToNoShow() {
-		List<Daily_Attendance_TOV_MERC__c> tovsToUpsert = new List<Daily_Attendance_TOV_MERC__c>();
-		for (ParticipantWrapper p : participants) {
-			if (p.selected) {
-				p.selected = false;
-				p.tov.Status_MERC__c = 'No Show';
-				p.tov.External_ID_MERC__c = p.tov.Meeting_Participant_MERC__c+'_'+selectedMeetingDayId;
-				tovsToUpsert.add(p.tov);
+		try {
+			List<Daily_Attendance_TOV_MERC__c> tovsToUpsert = new List<Daily_Attendance_TOV_MERC__c>();
+			for (ParticipantWrapper p : participants) {
+				if (p.selected) {
+					p.selected = false;
+					p.tov.Status_MERC__c = 'No Show';
+					p.tov.External_ID_MERC__c = p.tov.Meeting_Participant_MERC__c+'_'+selectedMeetingDayId;
+					tovsToUpsert.add(p.tov);
+				}
 			}
+			upsert tovsToUpsert External_ID_MERC__c;
+			this.refreshParticipants = true;
+		} catch(Exception e) {
+			ApexPages.addMessages(e); //doesn't show ugly error text
 		}
-		upsert tovsToUpsert External_ID_MERC__c;
-		this.refreshParticipants = true;
-		return null;	
+		return null;
 	}
 
 	public PageReference setSelectedToAttended() {
-		List<Daily_Attendance_TOV_MERC__c> tovsToUpsert = new List<Daily_Attendance_TOV_MERC__c>();
-		for (ParticipantWrapper p : participants) {
-			if (p.selected) {
-				p.selected = false;
-				p.tov.Status_MERC__c = 'Attended';
-				p.tov.External_ID_MERC__c = p.tov.Meeting_Participant_MERC__c+'_'+selectedMeetingDayId;
-				tovsToUpsert.add(p.tov);
+		try {
+			List<Daily_Attendance_TOV_MERC__c> tovsToUpsert = new List<Daily_Attendance_TOV_MERC__c>();
+			for (ParticipantWrapper p : participants) {
+				if (p.selected) {
+					p.selected = false;
+					p.tov.Status_MERC__c = 'Attended';
+					p.tov.External_ID_MERC__c = p.tov.Meeting_Participant_MERC__c+'_'+selectedMeetingDayId;
+					tovsToUpsert.add(p.tov);
+				}
 			}
+			upsert tovsToUpsert External_ID_MERC__c;
+			this.refreshParticipants = true;
+		} catch(Exception e) {
+			ApexPages.addMessages(e); //doesn't show ugly error text
 		}
-		upsert tovsToUpsert External_ID_MERC__c;
-		this.refreshParticipants = true;
 		return null;	
 	}
 
 	public PageReference updateTov() {
-		String tovRecordId = ApexPages.currentPage().getParameters().get('tovRecordId');
-		system.debug('>>>>> UPDATING TOV');
-		system.debug('>>>>> '+tovRecordId);
-		system.debug('>>>>> '+participants);
-		for (ParticipantWrapper p : participants) {
-			if (p.tov.Id == tovRecordId) {
-				p.tov.External_ID_MERC__c = p.tov.Meeting_Participant_MERC__c+'_'+selectedMeetingDayId;
-				upsert p.tov External_ID_MERC__c;
-				break;
+		try {
+			String tovRecordId = ApexPages.currentPage().getParameters().get('tovRecordId');
+			system.debug('>>>>> UPDATING TOV');
+			system.debug('>>>>> '+tovRecordId);
+			system.debug('>>>>> '+participants);
+			for (ParticipantWrapper p : participants) {
+				if (p.tov.Id == tovRecordId) {
+					p.tov.External_ID_MERC__c = p.tov.Meeting_Participant_MERC__c+'_'+selectedMeetingDayId;
+					upsert p.tov External_ID_MERC__c;
+					break;
+				}
 			}
+			this.refreshParticipants = true;
+		} catch(Exception e) {
+			ApexPages.addMessages(e); //doesn't show ugly error text
 		}
-		this.refreshParticipants = true;
 		return null;
 	}
 
