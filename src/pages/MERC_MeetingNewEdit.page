@@ -20,7 +20,7 @@
 				</apex:pageBlockSection>
 
 				<!-- regular sections -->
-				<apex:pageBlockSection title="{!section.title}">
+				<apex:pageBlockSection title="{!section.title}" >
 					<apex:repeat value="{!section.fields}" var="field">
 						<apex:inputField required="{!field.required}" value="{!Meeting_MERC__c[field.value]}" rendered="{!field.readOnly == false && not(field.blankSpace)}"/>
 						<apex:outputField value="{!Meeting_MERC__c[field.value]}" rendered="{!field.readOnly}"/>
