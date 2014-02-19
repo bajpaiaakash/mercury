@@ -649,4 +649,43 @@ else
     window.location.href = url;
 }</url>
     </webLinks>
+    <webLinks>
+        <fullName>Person_Search_MVN</fullName>
+        <availability>online</availability>
+        <description>Launches a person search for an HCP, Consumer or Employee</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Person Search</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/support/console/28.0/integration.js&quot;)} 
+
+var parentTabId;
+var childTabId;
+
+/*Person Search Subtab*/
+function openPersonSearchSubtab() {
+	sforce.console.getEnclosingPrimaryTabId(openSubtab);
+}
+
+var openSubtab = function openSubtab(result) {
+    var primaryTabId = result.id;
+    /*Param is caseId instead of Id to prevent the selected requester page from appearing on the person search page */
+    sforce.console.openSubtab(primaryTabId, &apos;/apex/PersonSearchMVN?caseId={!Case.Id}&apos;, true);
+}
+
+openPersonSearchSubtab();</url>
+    </webLinks>
+    <webLinks>
+        <fullName>dsfs__Send_with_DocuSign</fullName>
+        <availability>online</availability>
+        <description>This button will initiate a DocuSign Envelope that is linked to the Case</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Send with DocuSign</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/apex/dsfs__DocuSign_JavaScript&quot;)}
+DocuSign_CreateEnvelope();</url>
+    </webLinks>
 </CustomObject>

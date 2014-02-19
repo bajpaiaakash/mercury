@@ -89,6 +89,14 @@
         <value>Invalid Email Address</value>
     </labels>
     <labels>
+        <fullName>Meeting_Locked_MERC</fullName>
+        <categories>Error Message</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Meeting_Locked_MERC</shortDescription>
+        <value>Operation Failed:  The record is locked due to the meeting being closed.  Please contact Customer Meeting Services for Assistance.</value>
+    </labels>
+    <labels>
         <fullName>New_Person_Button_MVN</fullName>
         <categories>PersonSearchMVN</categories>
         <language>en_US</language>

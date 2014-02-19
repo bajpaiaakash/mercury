@@ -1138,28 +1138,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Experience_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Has_MSA_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Hospital_Leadership_Role_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -1302,17 +1280,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Influential_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Instructor_Assistant_Clinical_Prof_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -1340,17 +1307,6 @@
         </picklistValues>
         <picklistValues>
             <picklist>Key_Opinion_Leader_GLBL__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Licensed_HCP_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -1501,10 +1457,6 @@
             <picklist>Tier_1_HCP_CV_Checked_MERC__c</picklist>
             <values>
                 <fullName>Confirmed HCP is Tier 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Not Required</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2716,28 +2668,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Experience_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Has_MSA_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>true</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Hospital_Leadership_Role_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -2880,17 +2810,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Influential_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Instructor_Assistant_Clinical_Prof_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -2918,17 +2837,6 @@
         </picklistValues>
         <picklistValues>
             <picklist>Key_Opinion_Leader_GLBL__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Licensed_HCP_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -3083,14 +2991,6 @@
             </values>
             <values>
                 <fullName>HCP is NOT Tier 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Needs Review</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Not Required</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4290,28 +4190,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Experience_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Has_MSA_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Hospital_Leadership_Role_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -4454,17 +4332,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Influential_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Instructor_Assistant_Clinical_Prof_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -4492,17 +4359,6 @@
         </picklistValues>
         <picklistValues>
             <picklist>Key_Opinion_Leader_GLBL__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Licensed_HCP_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -4653,10 +4509,6 @@
             <picklist>Tier_1_HCP_CV_Checked_MERC__c</picklist>
             <values>
                 <fullName>Confirmed HCP is Tier 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Not Required</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

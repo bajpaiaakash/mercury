@@ -297,6 +297,7 @@ Created by John Adams on 12/9/2013</description>
         <description>Flags a meeting as being potentially non-compliant. RMAT require a report or public list to show these occurrences so that an external investigation can take place and the Meeting can be investigated. 
 Created by John A Adams 10/24/2013</description>
         <externalId>false</externalId>
+        <inlineHelpText>To the best of your knowledge, were there any potential compliance issues during the meeting related to HCP services, HCP sponsorships , meeting content, venue, hospitality, travel, gifts and any other global or local meeting requirements?</inlineHelpText>
         <label>Compliance Risk</label>
         <picklist>
             <picklistValues>
@@ -2522,7 +2523,7 @@ CASE(  Meeting_Scope_MERC__c   ,
         <fullName>Mercury_Worker_Country_Code_MERC__c</fullName>
         <description>Country Code of Meeting Owner. If generated in Mercury then use Meeting Owner country value if created in Veeva use Sales Rep country values. Created by John Adams on 12/9/2013</description>
         <externalId>false</externalId>
-        <label>Mercury_Worker Country Code</label>
+        <label>Mercury Worker Country Code</label>
         <length>2</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -2828,7 +2829,7 @@ Created by John Adams on 12/9/2013</description>
         <description>Enter planned budget amount for meeting, to be pulled into Budget record. Created 11/18/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <inlineHelpText>Include total meeting spend, including travel and HCP fees. Exclude recoverable taxes where practical</inlineHelpText>
-        <label>Planned Budget</label>
+        <label>Budget</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -3288,7 +3289,8 @@ Created by John Adams 11/6/2013</description>
         </picklist>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Picklist</type>
+        <type>MultiselectPicklist</type>
+        <visibleLines>3</visibleLines>
     </fields>
     <fields>
         <fullName>Target_Audience_MERC__c</fullName>
@@ -3567,6 +3569,21 @@ Created by John Adams 11/6/2013</description>
         <language>en_US</language>
     </listViews>
     <listViews>
+        <fullName>All_Meeting_MERC</fullName>
+        <columns>NAME</columns>
+        <columns>Parent_Meeting_MERC__c</columns>
+        <columns>Type_MERC__c</columns>
+        <columns>Date_of_Event_MERC__c</columns>
+        <columns>End_Date_of_Event_MERC__c</columns>
+        <columns>Event_Country_MERC__c</columns>
+        <columns>Meeting_Status_MERC__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Meetings</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
         <fullName>Cancelled_Meetings_MERC</fullName>
         <columns>NAME</columns>
         <columns>Parent_Meeting_MERC__c</columns>
@@ -3635,7 +3652,7 @@ Created by John Adams 11/6/2013</description>
         <filterScope>Queue</filterScope>
         <label>Hub - France</label>
         <language>en_US</language>
-        <queue>France_Hub</queue>
+        <queue>Hub_France</queue>
     </listViews>
     <listViews>
         <fullName>Germany_Hub</fullName>
@@ -3652,7 +3669,7 @@ Created by John Adams 11/6/2013</description>
         <filterScope>Queue</filterScope>
         <label>Hub - Germany</label>
         <language>en_US</language>
-        <queue>Germany_Hub</queue>
+        <queue>Hub_Germany</queue>
     </listViews>
     <listViews>
         <fullName>Italy_Hub</fullName>
@@ -3668,7 +3685,7 @@ Created by John Adams 11/6/2013</description>
         <filterScope>Queue</filterScope>
         <label>Hub - Italy</label>
         <language>en_US</language>
-        <queue>Italy_Hub</queue>
+        <queue>Hub_Italy</queue>
     </listViews>
     <listViews>
         <fullName>Meetings_Created_in_the_last_90_Days</fullName>
@@ -3756,7 +3773,7 @@ Created by John Adams 11/6/2013</description>
         <filterScope>Queue</filterScope>
         <label>Hub - Russia</label>
         <language>en_US</language>
-        <queue>Russia</queue>
+        <queue>Hub_Russia</queue>
     </listViews>
     <listViews>
         <fullName>Spain_Hub</fullName>
@@ -3773,7 +3790,7 @@ Created by John Adams 11/6/2013</description>
         <filterScope>Queue</filterScope>
         <label>Hub - Spain</label>
         <language>en_US</language>
-        <queue>Spain_Hub</queue>
+        <queue>Hub_Spain</queue>
     </listViews>
     <listViews>
         <fullName>Turkey</fullName>
@@ -3789,7 +3806,7 @@ Created by John Adams 11/6/2013</description>
         <filterScope>Queue</filterScope>
         <label>Hub - Turkey</label>
         <language>en_US</language>
-        <queue>Turkey</queue>
+        <queue>Hub_Turkey</queue>
     </listViews>
     <listViews>
         <fullName>UK_Hub</fullName>
@@ -3805,7 +3822,7 @@ Created by John Adams 11/6/2013</description>
         <filterScope>Queue</filterScope>
         <label>Hub - UK</label>
         <language>en_US</language>
-        <queue>UK_Hub</queue>
+        <queue>Hub_UK</queue>
     </listViews>
     <listViews>
         <fullName>Ukraine</fullName>
@@ -3821,7 +3838,7 @@ Created by John Adams 11/6/2013</description>
         <filterScope>Queue</filterScope>
         <label>Hub - Ukraine</label>
         <language>en_US</language>
-        <queue>Ukraine</queue>
+        <queue>Hub_Ukraine</queue>
     </listViews>
     <nameField>
         <label>Meeting Name</label>
@@ -5512,7 +5529,7 @@ Created by John Adams 11/6/2013</description>
             </values>
             <values>
                 <fullName>Consultant</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Health Education</fullName>
@@ -14185,7 +14202,8 @@ Created by John Adams 11/6/2013</description>
         <fullName>Compliance_Risk_before_Complete_MERC</fullName>
         <active>true</active>
         <description>The Compliance Risk field must be set to yes before the Meeting can be Completed.  Created 12/18/2013 by KLorenti, Mavens Consulting</description>
-        <errorConditionFormula>ISBLANK(Text(Compliant_MERC__c)) &amp;&amp; 
+        <errorConditionFormula>RecordType.Name &lt;&gt; &apos;Consulting Project&apos; &amp;&amp;
+ISBLANK(Text(Compliant_MERC__c)) &amp;&amp; 
 ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
 ISPICKVAL(Meeting_Status_MERC__c,&apos;Complete&apos;)</errorConditionFormula>
         <errorDisplayField>Compliant_MERC__c</errorDisplayField>
@@ -14195,9 +14213,9 @@ ISPICKVAL(Meeting_Status_MERC__c,&apos;Complete&apos;)</errorConditionFormula>
         <fullName>Confirm_Budget_is_Final_MERC</fullName>
         <active>true</active>
         <description>Budget must be final before Meeting can be completed. Created 11/19/2013 by KLorenti, Mavens Consulting</description>
-        <errorConditionFormula>RecordType.Name &lt;&gt; &apos;Independent Meeting&apos;
-&amp;&amp; !ISPICKVAL(Budget_is_Final_MERC__c,&apos;Yes&apos;)
-&amp;&amp;  ISPICKVAL(Meeting_Status_MERC__c,&apos;Complete&apos;)</errorConditionFormula>
+        <errorConditionFormula>(RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
+RecordType.Name &lt;&gt; &apos;Consulting Project&apos;) &amp;&amp; !ISPICKVAL(Budget_is_Final_MERC__c,&apos;Yes&apos;) &amp;&amp;  (ISPICKVAL(Meeting_Status_MERC__c,&apos;Complete&apos;) || 
+ISPICKVAL(Meeting_Status_MERC__c,&apos;Complete - Closed&apos;))</errorConditionFormula>
         <errorDisplayField>Budget_is_Final_MERC__c</errorDisplayField>
         <errorMessage>The Budget must be Final before the Meeting can be Completed.</errorMessage>
     </validationRules>
@@ -14206,6 +14224,7 @@ ISPICKVAL(Meeting_Status_MERC__c,&apos;Complete&apos;)</errorConditionFormula>
         <active>true</active>
         <description>The MPC has been evaluated before the Meeting can be Completed.</description>
         <errorConditionFormula>RecordType.Name &lt;&gt; &apos;Independent Meeting&apos;
+&amp;&amp; RecordType.Name &lt;&gt; &apos;Consulting Project&apos;
 &amp;&amp; ISPICKVAL( MCP_work_MERC__c , &quot;&quot;)
 &amp;&amp; ISPICKVAL(Meeting_Status_MERC__c, &apos;Complete - Closed&apos;)</errorConditionFormula>
         <errorDisplayField>MCP_work_MERC__c</errorDisplayField>
@@ -14240,7 +14259,8 @@ ISCHANGED(End_Time_of_Meeting_MERC__c)
         <fullName>Event_Occurred_before_Complete_MERC</fullName>
         <active>true</active>
         <description>The Event Occurred field must be set to yes before the Meeting can be Completed.  Created 11/26/2013 by KLorenti, Mavens Consulting</description>
-        <errorConditionFormula>NOT ISPICKVAL(Event_Occurred_MERC__c,&apos;Yes&apos;)&amp;&amp; ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
+        <errorConditionFormula>RecordType.Name &lt;&gt; &apos;Consulting Project&apos; &amp;&amp;
+NOT ISPICKVAL(Event_Occurred_MERC__c,&apos;Yes&apos;)&amp;&amp; ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
 ISPICKVAL(Meeting_Status_MERC__c,&apos;Complete - Closed&apos;)</errorConditionFormula>
         <errorDisplayField>Event_Occurred_MERC__c</errorDisplayField>
         <errorMessage>The Meeting must have occurred in order to Complete the Meeting.</errorMessage>
@@ -14267,10 +14287,11 @@ ISPICKVAL(PRIORVALUE(Participant_ToV_Final_MERC__c),&quot;Yes&quot;)</errorCondi
         <fullName>Validate_Active_Content_Approval_MERC</fullName>
         <active>true</active>
         <description>Check the required fields based on the Status selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
-        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
-      ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
-	TEXT(Meeting_Status_MERC__c) = &apos;Active&apos; &amp;&amp;
-      (ISBLANK(TEXT(Content_Approval_Needed_MERC__c )))
+        <errorConditionFormula>IF((RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp; 
+    RecordType.Name &lt;&gt; &apos;Consulting Project&apos;)  &amp;&amp;
+ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
+TEXT(Meeting_Status_MERC__c) = &apos;Active&apos; &amp;&amp;
+(ISBLANK(TEXT(Content_Approval_Needed_MERC__c )))
 ,true, false)</errorConditionFormula>
         <errorDisplayField>Content_Approval_Needed_MERC__c</errorDisplayField>
         <errorMessage>The Content Approval Needed is required before status can be changed to Active</errorMessage>
@@ -14291,11 +14312,11 @@ true, false)</errorConditionFormula>
         <fullName>Validate_Active_Expected_Emp_MERC</fullName>
         <active>true</active>
         <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
-        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
-      ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
-		TEXT(Meeting_Status_MERC__c) = &apos;Active&apos; &amp;&amp;
-		(ISBLANK (Number_of_Expected_Employees_MERC__c ))
-	,true, false)</errorConditionFormula>
+        <errorConditionFormula>IF((RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp; 
+    RecordType.Name &lt;&gt; &apos;Consulting Project&apos;) &amp;&amp;          ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
+TEXT(Meeting_Status_MERC__c) = &apos;Active&apos; &amp;&amp;
+(ISBLANK (Number_of_Expected_Employees_MERC__c ))
+,true, false)</errorConditionFormula>
         <errorDisplayField>Number_of_Expected_Employees_MERC__c</errorDisplayField>
         <errorMessage>The # of Expected Employees is required before status can be changed to Active</errorMessage>
     </validationRules>
@@ -14303,7 +14324,8 @@ true, false)</errorConditionFormula>
         <fullName>Validate_Active_Expected_Non_MERC</fullName>
         <active>true</active>
         <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
-        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
+        <errorConditionFormula>IF((RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
+RecordType.Name &lt;&gt; &apos;Consulting Project&apos;)  &amp;&amp;
       ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
 		TEXT(Meeting_Status_MERC__c) = &apos;Active&apos; &amp;&amp;
 		(ISBLANK(Number_of_Expected_Non_HCP_MERC__c)) 
@@ -14315,7 +14337,8 @@ true, false)</errorConditionFormula>
         <fullName>Validate_Active_Expected_Speaker_MERC</fullName>
         <active>true</active>
         <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
-        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
+        <errorConditionFormula>IF((RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp; 
+RecordType.Name &lt;&gt; &apos;Consulting Project&apos;)  &amp;&amp;
       ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
 		TEXT(Meeting_Status_MERC__c) = &apos;Active&apos; &amp;&amp;
 		(ISBLANK ( Number_of_Expected_Speakers_MERC__c ))
@@ -14327,7 +14350,8 @@ true, false)</errorConditionFormula>
         <fullName>Validate_Active_Interact_Type_MERC</fullName>
         <active>true</active>
         <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
-        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
+        <errorConditionFormula>IF((RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
+RecordType.Name &lt;&gt; &apos;Consulting Project&apos;)  &amp;&amp;
       ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
 		TEXT(Meeting_Status_MERC__c) = &apos;Active&apos; &amp;&amp;
 		(ISBLANK (Text( Interaction_Type_MERC__c )))
@@ -14339,7 +14363,8 @@ true, false)</errorConditionFormula>
         <fullName>Validate_Active_Meeting_Obj_MERC</fullName>
         <active>true</active>
         <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
-        <errorConditionFormula>IF(RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp; 
+        <errorConditionFormula>IF((RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
+RecordType.Name &lt;&gt; &apos;Consulting Project&apos;)  &amp;&amp; 
 ISCHANGED(Meeting_Status_MERC__c) &amp;&amp; 
 TEXT(Meeting_Status_MERC__c) = &apos;Active&apos; &amp;&amp; 
 LEN (Meeting_Objectives_MERC__c) = 0
@@ -14351,22 +14376,24 @@ LEN (Meeting_Objectives_MERC__c) = 0
         <fullName>Validate_Active_Planned_Budget_MERC</fullName>
         <active>true</active>
         <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
-        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
+        <errorConditionFormula>IF((RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
+RecordType.Name &lt;&gt; &apos;Consulting Project&apos;)  &amp;&amp;
       ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
 		TEXT(Meeting_Status_MERC__c) = &apos;Active&apos; &amp;&amp;
 		(ISBLANK(Planned_Budget_MERC__c))
 	,true, false)</errorConditionFormula>
         <errorDisplayField>Planned_Budget_MERC__c</errorDisplayField>
-        <errorMessage>The Planned Budget is required before status can be changed to Active</errorMessage>
+        <errorMessage>The Budget is required before status can be changed to Active</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Validate_Active_Target_Audience_MERC</fullName>
         <active>true</active>
         <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
-        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
+        <errorConditionFormula>IF((RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
+RecordType.Name &lt;&gt; &apos;Consulting Project&apos;)  &amp;&amp;
       ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
 		TEXT(Meeting_Status_MERC__c) = &apos;Active&apos; &amp;&amp;
-		(ISBLANK (Text(  Target_Audience_List_MERC__c )))
+		(ISBLANK (  Target_Audience_List_MERC__c ))
 	,true, false)</errorConditionFormula>
         <errorDisplayField>Target_Audience_List_MERC__c</errorDisplayField>
         <errorMessage>The Target Audience is required before status can be changed to Active</errorMessage>
@@ -14375,7 +14402,7 @@ LEN (Meeting_Objectives_MERC__c) = 0
         <fullName>Validate_Registered_Expected_Emp_MERC</fullName>
         <active>true</active>
         <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
-        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
+        <errorConditionFormula>IF((RecordType.Name  &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp; RecordType.Name &lt;&gt; &apos;Consulting Project&apos;) &amp;&amp;
       ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
 		TEXT(Meeting_Status_MERC__c) = &apos;Registered&apos; &amp;&amp;
 		(ISBLANK (Number_of_Expected_Employees_MERC__c ))
@@ -14387,7 +14414,8 @@ LEN (Meeting_Objectives_MERC__c) = 0
         <fullName>Validate_Registered_Expected_Non_MERC</fullName>
         <active>true</active>
         <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
-        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
+        <errorConditionFormula>IF((RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp; 
+RecordType.Name &lt;&gt; &apos;Consulting Project&apos;) &amp;&amp;
       ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
 		TEXT(Meeting_Status_MERC__c) = &apos;Registered&apos; &amp;&amp;
 		(ISBLANK(Number_of_Expected_Non_HCP_MERC__c)) 
@@ -14399,7 +14427,8 @@ LEN (Meeting_Objectives_MERC__c) = 0
         <fullName>Validate_Registered_Expected_Speakr_MERC</fullName>
         <active>true</active>
         <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
-        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
+        <errorConditionFormula>IF((RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
+RecordType.Name &lt;&gt; &apos;Consulting Project&apos;)  &amp;&amp;
       ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
 		TEXT(Meeting_Status_MERC__c) = &apos;Registered&apos; &amp;&amp;
 		(ISBLANK ( Number_of_Expected_Speakers_MERC__c ))
@@ -14411,7 +14440,8 @@ LEN (Meeting_Objectives_MERC__c) = 0
         <fullName>Validate_Registered_Interact_Type_MERC</fullName>
         <active>true</active>
         <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
-        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
+        <errorConditionFormula>IF((RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
+RecordType.Name &lt;&gt; &apos;Consulting Project&apos;)  &amp;&amp;
       ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
 		TEXT(Meeting_Status_MERC__c) = &apos;Registered&apos; &amp;&amp;
 		(ISBLANK (Text( Interaction_Type_MERC__c )))
@@ -14423,13 +14453,14 @@ LEN (Meeting_Objectives_MERC__c) = 0
         <fullName>Validate_Registered_Planned_Budget_MERC</fullName>
         <active>true</active>
         <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
-        <errorConditionFormula>IF(RecordType.Name  &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
+        <errorConditionFormula>IF((RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp; 
+RecordType.Name &lt;&gt; &apos;Consulting Project&apos;)  &amp;&amp;
       ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
 		TEXT(Meeting_Status_MERC__c) = &apos;Registered&apos; &amp;&amp;
 		(ISBLANK(Planned_Budget_MERC__c))
 	,true, false)</errorConditionFormula>
         <errorDisplayField>Planned_Budget_MERC__c</errorDisplayField>
-        <errorMessage>The Planned Budget is required before status can be changed to Registered</errorMessage>
+        <errorMessage>The Budget is required before status can be changed to Registered</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>Affiliate_Resource_Center_MERC</fullName>

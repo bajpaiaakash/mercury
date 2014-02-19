@@ -53,28 +53,43 @@
     <enableHistory>false</enableHistory>
     <enableReports>false</enableReports>
     <fields>
-        <fullName>Account_Bnft_Dsgn_Cd__c</fullName>
+        <fullName>Access_Token_CUST__c</fullName>
+        <description>Access token used to access the CST, acquired via Oauth</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Access token used to access the CST, acquired via Oauth</inlineHelpText>
+        <label>Access Token</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account_Bnft_Dsgn_Cd_CUST__c</fullName>
         <defaultValue>&quot;MD,PhD,PsyD&quot;</defaultValue>
         <description>Default values for Professional Designation search control</description>
         <externalId>false</externalId>
-        <label>Account_Bnft_Dsgn_Cd</label>
+        <label>Professional Designation (US Only)</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
-        <fullName>Account_Clsfctn_Cd__c</fullName>
+        <fullName>Account_Clsfctn_Cd_CUST__c</fullName>
         <defaultValue>&quot;Exceptional, Extraordinary, Phenomenal&quot;</defaultValue>
         <description>Default values for Classification search control</description>
         <externalId>false</externalId>
-        <label>Account_Clsfctn_Cd</label>
+        <inlineHelpText>Default values for Classification search control</inlineHelpText>
+        <label>Account Classification</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
-        <fullName>Account_Status_Types__c</fullName>
+        <fullName>Account_Status_Types_CUST__c</fullName>
+        <description>Values for the Additional Details: Status multi-select picklist</description>
         <externalId>false</externalId>
+        <inlineHelpText>Values for the Additional Details: Status multi-select picklist</inlineHelpText>
         <label>Account Status Types</label>
         <length>32768</length>
         <trackTrending>false</trackTrending>
@@ -82,8 +97,10 @@
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
-        <fullName>Affiliation_Countries__c</fullName>
+        <fullName>Affiliation_Countries_CUST__c</fullName>
+        <description>Values for the Relationship Information (Affiliations): Relationship Country multi-select picklist</description>
         <externalId>false</externalId>
+        <inlineHelpText>Values for the Relationship Information (Affiliations): Relationship Country multi-select picklist</inlineHelpText>
         <label>Affiliation Countries</label>
         <length>32768</length>
         <trackTrending>false</trackTrending>
@@ -91,11 +108,12 @@
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
-        <fullName>Affiliation_Priority_Rank_Nbr__c</fullName>
+        <fullName>Affiliation_Priority_Rank_Nbr_CUST__c</fullName>
         <defaultValue>&quot;1,2,3,4,5&quot;</defaultValue>
-        <description>Default searchable values for Affiliation Priority Rank multi-select</description>
+        <description>Values for the Relationship Information (Affiliations): Priority Rank multi-select picklist</description>
         <externalId>false</externalId>
-        <label>Affiliation_Priority_Rank_Nbr</label>
+        <inlineHelpText>Values for the Relationship Information (Affiliations): Priority Rank multi-select picklist</inlineHelpText>
+        <label>Affiliation Priority Rank</label>
         <length>64</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -103,7 +121,7 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Affiliation_Role_Types__c</fullName>
+        <fullName>Affiliation_Role_Types_CUST__c</fullName>
         <externalId>false</externalId>
         <label>Affiliation Role Types</label>
         <length>32768</length>
@@ -112,29 +130,53 @@
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
-        <fullName>Altid_Altrnt_Id_Typ_Cd__c</fullName>
+        <fullName>Altid_Altrnt_Id_Typ_Cd_CUST__c</fullName>
         <description>Default values for Alternate Id Type search control</description>
         <externalId>false</externalId>
-        <label>Altid_Altrnt_Id_Typ_Cd</label>
+        <label>Alternate Id Type</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
-        <fullName>Employee_Record_Type_Id__c</fullName>
+        <fullName>Client_Id_CUST__c</fullName>
+        <description>Client Id provided by the CST endpoint for the Mercury application</description>
         <externalId>false</externalId>
-        <label>Employee Record Type Id</label>
-        <length>18</length>
+        <inlineHelpText>Client Id provided by the CST endpoint for the Mercury application</inlineHelpText>
+        <label>Client Id</label>
+        <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Employee_Record_Type__c</fullName>
+        <fullName>Client_Secret_CUST__c</fullName>
+        <description>Client secret provided by the CST endpoint for access to the CST by Mercury</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Client secret provided by the CST endpoint for access to the CST by Mercury</inlineHelpText>
+        <label>Client Secret</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Employee_Record_Type_CUST__c</fullName>
         <externalId>false</externalId>
         <label>Employee Record Type</label>
         <length>64</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Employee_Record_Type_Id_CUST__c</fullName>
+        <externalId>false</externalId>
+        <label>Employee Record Type Id</label>
+        <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -168,21 +210,21 @@
         <type>TextArea</type>
     </fields>
     <fields>
-        <fullName>Specialty_Spclty_Cd__c</fullName>
+        <fullName>Specialty_Spclty_Cd_CUST__c</fullName>
         <defaultValue>&quot;Cancer,Diabetes,Hypercholesterolemia&quot;</defaultValue>
         <description>Default values for Specialty search control</description>
         <externalId>false</externalId>
-        <label>Specialty_Spclty_Cd</label>
+        <label>Specialty</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
-        <fullName>Specialty_priority_rank_nbr__c</fullName>
+        <fullName>Specialty_priority_rank_CUST__c</fullName>
         <defaultValue>&quot;1,2,3,4,5&quot;</defaultValue>
         <description>Default values for the Specialty Rank search control</description>
         <externalId>false</externalId>
-        <label>Specialty_priority_rank_nbr</label>
+        <label>Specialty Priority Rank</label>
         <length>64</length>
         <required>false</required>
         <trackTrending>false</trackTrending>

@@ -73,6 +73,7 @@
         <type>Default</type>
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>true</enableFeeds>
     <enableHistory>true</enableHistory>
     <fields>
@@ -519,6 +520,27 @@ Created by John A Adams 11/4/2013</description>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Expiration_Date_MERC__c</fullName>
+        <description>Displays maximum contract expiration date</description>
+        <externalId>false</externalId>
+        <label>Contract Expiration Date</label>
+        <summarizedField>HCP_Contract_MERC__c.Contract_Expiration_Date_MERC__c</summarizedField>
+        <summaryFilterItems>
+            <field>HCP_Contract_MERC__c.Contract_Request_Status_MERC__c</field>
+            <operation>equals</operation>
+            <value>Contract signed</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>HCP_Contract_MERC__c.RecordTypeId</field>
+            <operation>notEqual</operation>
+            <value>Master Service Agreement</value>
+        </summaryFilterItems>
+        <summaryForeignKey>HCP_Contract_MERC__c.Account_MERC__c</summaryForeignKey>
+        <summaryOperation>max</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
     </fields>
     <fields>
         <fullName>Contract_Limitations_on_Use_MERC__c</fullName>
@@ -2006,27 +2028,6 @@ Created by John A Adams 12/18/2013</description>
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
-        <fullName>Experience_MERC__c</fullName>
-        <description>A Speaker must be have clinical/professional experience on topic to qualify as a Tier 3 Speaker. Created 10/7/2013 by KLorenti.</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Does the Speaker have clinical/professional experience on topic?</inlineHelpText>
-        <label>Experience</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>FMV_Criteria_Map_MERC__c</fullName>
         <description>Returns the equivalent mapping based on the Tier of the HCP and their Academic Qualifications.  This is then mapped to the FMV table for the Country of the HCP to return the Maximum and Minimum hourly rates for the HCP.  This logic is picked up by Apex to map to the FMV Custom Settings table. Case Statement not support for multi-select picklist. Oliver Dunford 10th Feb 2014.</description>
         <externalId>false</externalId>
@@ -2050,6 +2051,16 @@ Created by John A Adams 12/18/2013</description>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>FMV_Tier_Exists_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicates whether a HCP has been Tiered.  If this is the case their Service Provider Tier will be set to 1, 2 or 3.  Passed via interface to Veeva  Oliver Dunford 17th Feb 2014.</description>
+        <externalId>false</externalId>
+        <label>FMV Tier Exists</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Fax_Phone_Cntry_Cd_GLBL__c</fullName>
@@ -2158,35 +2169,29 @@ Created by John A Adams 11/4/2013</description>
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>HCP_Care_Information_MERC__c</fullName>
-        <description>Free text field which is available to HCP Care only.  Viewable by HCP Care only.  Not passed to Veeva. Created 11/18/2013 by KLorenti, Mavens Consulting</description>
+        <fullName>Has_Contract_MERC__c</fullName>
+        <description>If there is an active contract and the contract signed, field displays Yes, otherwise No.</description>
         <externalId>false</externalId>
-        <label>HCP Care Information</label>
-        <length>1000</length>
-        <trackFeedHistory>false</trackFeedHistory>
+        <formula>IF (Contract_Expiration_Date_MERC__c &gt;= Today(),&quot;Yes&quot;,&quot;No&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>HCP has a signed contract that is not passed the Contract Expiration Date</inlineHelpText>
+        <label>Has Active Contract</label>
+        <required>false</required>
         <trackHistory>false</trackHistory>
-        <type>LongTextArea</type>
-        <visibleLines>3</visibleLines>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Has_MSA_MERC__c</fullName>
-        <description>Indicates if HCP Has an MSA Contract. Created 02/10/2014 by KLorenti, Mavens Consulting</description>
+        <fullName>Has_MSA_Contract_MERC__c</fullName>
+        <description>Displays whether or not the Account has an active MSA Contract. Created 02/13/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
+        <formula>IF (MSA_Contract_Expiration_MERC__c &lt; Today() || ISBLANK(MSA_Contract_Expiration_MERC__c), &quot;No&quot;, &quot;Yes&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Has MSA</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>true</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
+        <required>false</required>
         <trackHistory>false</trackHistory>
-        <type>Picklist</type>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Hospital_Leadership_Role_MERC__c</fullName>
@@ -2383,27 +2388,6 @@ Created by John A Adams 11/4/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Influential_MERC__c</fullName>
-        <description>A Speaker must be a well respected and influential to qualify as a Tier 3 Speaker. Created 10/7/2013 by KLorenti.</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Is Speaker well respected and influential within local community? (e.g. Medical Expertise, Reputation, or Knowledge and Experience in the Therapeutic Area)</inlineHelpText>
-        <label>Influential</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>Initials_GLBL__c</fullName>
         <description>Initials
 Customer ODS to Mercury Mapping
@@ -2541,27 +2525,6 @@ Created by John A Adams 10/28/2013</description>
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Licensed_HCP_MERC__c</fullName>
-        <description>A Speaker must be a licensed Health Care Provider (HCP) to qualify as a Tier 3 Speaker. Created 10/7/2013 by KLorenti.</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Is this person a licensed Health Care Provider? (e.g. PhD, Physician, Physician’s Assistant, Nurse Educator, Diabetes Educator, Clinical Psychologist, Pharmacist, Dietician, etc.)</inlineHelpText>
-        <label>Licensed HCP</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>Lilly_Company_Code_GLBL__c</fullName>
         <description>The Lilly Affiliate Company code. Created by John Adams 12/11/2013</description>
         <externalId>false</externalId>
@@ -2587,14 +2550,25 @@ Created by John A Adams 12/11/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>MSA_Expiration_Date_MERC__c</fullName>
-        <description>MSA Expiration Date from HCP Contract. Created 02/10/2014 by KLorenti, Mavens Consulting</description>
+        <fullName>MSA_Contract_Expiration_MERC__c</fullName>
+        <description>Displays Maximum Expiration Date of MSA&apos;s if there is one</description>
         <externalId>false</externalId>
         <label>MSA Expiration Date</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
+        <summarizedField>HCP_Contract_MERC__c.MSA_End_Date_MERC__c</summarizedField>
+        <summaryFilterItems>
+            <field>HCP_Contract_MERC__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Master Service Agreement</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>HCP_Contract_MERC__c.Contract_Request_Status_MERC__c</field>
+            <operation>equals</operation>
+            <value>Contract signed</value>
+        </summaryFilterItems>
+        <summaryForeignKey>HCP_Contract_MERC__c.Account_MERC__c</summaryForeignKey>
+        <summaryOperation>max</summaryOperation>
         <trackHistory>false</trackHistory>
-        <type>Date</type>
+        <type>Summary</type>
     </fields>
     <fields>
         <fullName>Mdl_Nm_GLBL__c</fullName>
@@ -3066,6 +3040,18 @@ Created by John A Adams 12/10/2013</description>
         <externalId>false</externalId>
         <label>Personal Address Line 2</label>
         <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Personal_Postal_Code_Extension_MERC__c</fullName>
+        <description>Stamped with the Primary Personal Address of the HCP from the Address object. This is if the HCP supplies such details via the Portal or another medium. Oliver Dunford. 13th Feb 2014.</description>
+        <externalId>false</externalId>
+        <label>Personal Postal Code Extension</label>
+        <length>32</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -3618,20 +3604,6 @@ Created by John A Adams 11/4/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Social_Security_Number_MERC__c</fullName>
-        <description>Social Security Number
-Stores Account Owner&apos;s SSN
-Created by John A Adams 10/17/2013</description>
-        <externalId>false</externalId>
-        <label>Social Security Number</label>
-        <length>12</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Source_Block_GLBL__c</fullName>
         <description>Flags where a Customer has requested a Source Block and this has been actioned within the Customer ODS. This should not modify the HCP record within Mercury as it is likely there will be legal documents such as contracts and other information that should not be modified in any way.
 Created by John A Adams 10/23/2013</description>
@@ -3869,14 +3841,6 @@ Created by John A Adams 12/10/2013</description>
                 <fullName>HCP is NOT Tier 1</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
-                <fullName>Needs Review</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Not Required</fullName>
-                <default>true</default>
-            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -3931,19 +3895,6 @@ Created by John A Adams 12/10/2013</description>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Tier_3_Score_MERC__c</fullName>
-        <description>Stores the score against Tier 3 criteria inclusive of commentary. Oliver Dunford 13th Jan 2013.</description>
-        <externalId>false</externalId>
-        <label>Tier 3 Score</label>
-        <precision>2</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Number</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -4061,7 +4012,8 @@ Created by John A Adams 11/4/2013</description>
         <fullName>Utilised_CAP_MERC__c</fullName>
         <description>Shows how much CAP has been utilised for the current year for each HCP. Oliver Dunford 7th Nov 2013.</description>
         <externalId>false</externalId>
-        <formula>(Reserved_CAP_MERC__c +  Allocated_CAP_MERC__c +  Speaking_Paid_CAP_MERC__c +  Consulting_Project_Paid_CAP_MERC__c )  /  Annual_CAP_Limit_MERC__c</formula>
+        <formula>IF (!ISBLANK(TEXT(Country_of_Residence_GLBL__c)), 
+(Reserved_CAP_MERC__c +  Allocated_CAP_MERC__c +  Speaking_Paid_CAP_MERC__c +  Consulting_Project_Paid_CAP_MERC__c )  /  Annual_CAP_Limit_MERC__c,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Utilised CAP</label>
         <precision>18</precision>
@@ -5847,28 +5799,6 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Experience_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Has_MSA_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Hospital_Leadership_Role_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -6011,17 +5941,6 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Influential_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Instructor_Assistant_Clinical_Prof_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -6049,17 +5968,6 @@ Created by John A Adams 11/4/2013</description>
         </picklistValues>
         <picklistValues>
             <picklist>Key_Opinion_Leader_GLBL__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Licensed_HCP_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -6214,10 +6122,6 @@ Created by John A Adams 11/4/2013</description>
             <picklist>Tier_1_HCP_CV_Checked_MERC__c</picklist>
             <values>
                 <fullName>Confirmed HCP is Tier 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Not Required</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7417,28 +7321,6 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Experience_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Has_MSA_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Hospital_Leadership_Role_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -7581,17 +7463,6 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Influential_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Instructor_Assistant_Clinical_Prof_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -7619,17 +7490,6 @@ Created by John A Adams 11/4/2013</description>
         </picklistValues>
         <picklistValues>
             <picklist>Key_Opinion_Leader_GLBL__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Licensed_HCP_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -7784,10 +7644,6 @@ Created by John A Adams 11/4/2013</description>
             <picklist>Tier_1_HCP_CV_Checked_MERC__c</picklist>
             <values>
                 <fullName>Confirmed HCP is Tier 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Not Required</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7995,28 +7851,6 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Experience_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Has_MSA_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Hospital_Leadership_Role_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -8159,17 +7993,6 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Influential_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Instructor_Assistant_Clinical_Prof_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -8197,17 +8020,6 @@ Created by John A Adams 11/4/2013</description>
         </picklistValues>
         <picklistValues>
             <picklist>Key_Opinion_Leader_GLBL__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Licensed_HCP_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -8358,10 +8170,6 @@ Created by John A Adams 11/4/2013</description>
             <picklist>Tier_1_HCP_CV_Checked_MERC__c</picklist>
             <values>
                 <fullName>Confirmed HCP is Tier 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Not Required</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9561,28 +9369,6 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Experience_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Has_MSA_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Hospital_Leadership_Role_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -9725,17 +9511,6 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Influential_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Instructor_Assistant_Clinical_Prof_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -9763,17 +9538,6 @@ Created by John A Adams 11/4/2013</description>
         </picklistValues>
         <picklistValues>
             <picklist>Key_Opinion_Leader_GLBL__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Licensed_HCP_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -9928,10 +9692,6 @@ Created by John A Adams 11/4/2013</description>
             <picklist>Tier_1_HCP_CV_Checked_MERC__c</picklist>
             <values>
                 <fullName>Confirmed HCP is Tier 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Not Required</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11131,28 +10891,6 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Experience_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Has_MSA_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Hospital_Leadership_Role_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -11295,17 +11033,6 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Influential_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Instructor_Assistant_Clinical_Prof_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -11333,17 +11060,6 @@ Created by John A Adams 11/4/2013</description>
         </picklistValues>
         <picklistValues>
             <picklist>Key_Opinion_Leader_GLBL__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Licensed_HCP_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -11494,10 +11210,6 @@ Created by John A Adams 11/4/2013</description>
             <picklist>Tier_1_HCP_CV_Checked_MERC__c</picklist>
             <values>
                 <fullName>Confirmed HCP is Tier 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Not Required</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12697,28 +12409,6 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Experience_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Has_MSA_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Hospital_Leadership_Role_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -12861,17 +12551,6 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Influential_MERC__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Instructor_Assistant_Clinical_Prof_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -12899,17 +12578,6 @@ Created by John A Adams 11/4/2013</description>
         </picklistValues>
         <picklistValues>
             <picklist>Key_Opinion_Leader_GLBL__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Licensed_HCP_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -13066,10 +12734,6 @@ Created by John A Adams 11/4/2013</description>
                 <fullName>Confirmed HCP is Tier 1</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Not Required</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Type</picklist>
@@ -13132,12 +12796,20 @@ Created by John A Adams 11/4/2013</description>
     </recordTypes>
     <searchLayouts>
         <customTabListAdditionalFields>ACCOUNT.NAME</customTabListAdditionalFields>
-        <customTabListAdditionalFields>ACCOUNT.ADDRESS1_CITY</customTabListAdditionalFields>
-        <customTabListAdditionalFields>ACCOUNT.PHONE1</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ACCOUNT.RECORDTYPE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Primary_Addr_Line1_GLBL__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Primary_Addr_City_GLBL__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Primary_Address_Country_GLBL__c</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>ACCOUNT.SITE</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>CORE.USERS.ALIAS</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>ACCOUNT.TYPE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ACCOUNT.RECORDTYPE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Primary_Addr_Line1_GLBL__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Primary_Addr_City_GLBL__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Primary_Address_Country_GLBL__c</lookupDialogsAdditionalFields>
+        <lookupFilterFields>ACCOUNT.NAME</lookupFilterFields>
+        <lookupFilterFields>ACCOUNT.RECORDTYPE</lookupFilterFields>
+        <lookupFilterFields>00N11000000PFro</lookupFilterFields>
+        <lookupFilterFields>00N11000000PFrn</lookupFilterFields>
+        <lookupFilterFields>00N11000000PFrq</lookupFilterFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.SITE</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>CORE.USERS.ALIAS</lookupPhoneDialogsAdditionalFields>
@@ -13148,11 +12820,28 @@ Created by John A Adams 11/4/2013</description>
         <lookupPhoneDialogsAdditionalFields>PC_PHONE5</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>PC_PHONE6</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>00N11000000PFsh</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>ACCOUNT.NAME</searchFilterFields>
+        <searchFilterFields>ACCOUNT.RECORDTYPE</searchFilterFields>
+        <searchFilterFields>Primary_Addr_City_GLBL__c</searchFilterFields>
+        <searchFilterFields>Primary_Address_Country_GLBL__c</searchFilterFields>
         <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>ACCOUNT.SITE</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>ACCOUNT.PHONE1</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ACCOUNT.RECORDTYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Primary_Addr_Line1_GLBL__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Personal_Address_City_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Primary_Address_Country_GLBL__c</searchResultsAdditionalFields>
     </searchLayouts>
+    <validationRules>
+        <fullName>Confirm_Tier_1_HCP_CV_MERC</fullName>
+        <active>true</active>
+        <description>Prevents toggling the Tier 1 HCP CV Check picklist unless the HCP is a Tier 1 and needs to have their CV validated to set the Service Provider Tier.</description>
+        <errorConditionFormula>ISCHANGED(Tier_1_HCP_CV_Checked_MERC__c) &amp;&amp; (Tier_1_Score_MERC__c &lt;= 5 || Tier_2_Score_MERC__c &lt;= 5)  &amp;&amp; 
+(
+	ISPICKVAL( Tier_1_HCP_CV_Checked_MERC__c , &quot;Confirmed HCP is Tier 1&quot;) || 
+	ISPICKVAL( Tier_1_HCP_CV_Checked_MERC__c , &quot;HCP is NOT Tier 1&quot;)
+)</errorConditionFormula>
+        <errorDisplayField>Tier_1_HCP_CV_Checked_MERC__c</errorDisplayField>
+        <errorMessage>You cannot update the Tier 1 HCP CV Checked field unless the HCP Tier 1 Criteria are met and therefore the HCP is eligible to be a Tier 1 HCP.  Set this value back to blank to continue.</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Verify_Service_Provider_Tier_Value_MERC</fullName>
         <active>true</active>
@@ -13404,6 +13093,18 @@ var url = &apos;https://et4ae.cs18.visual.force.com/apex/exacttargetswitchboard?
         <showsLocation>true</showsLocation>
         <showsStatus>true</showsStatus>
         <url>http://maps.yahoo.com/py/maps.py?cn={!Account_BillingCountry}&amp;csz={!Account_BillingCity}+{!Account_BillingState}+{!Account_BillingPostalCode}+&amp;addr={!Account_BillingAddress}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>dsfs__Send_with_DocuSign</fullName>
+        <availability>online</availability>
+        <description>This button will initiate a DocuSign Envelope that will be linked to the Account.</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Send with DocuSign</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/apex/dsfs__DocuSign_JavaScript&quot;)}
+DocuSign_CreateEnvelope();</url>
     </webLinks>
     <webLinks>
         <fullName>primest__Countdown</fullName>

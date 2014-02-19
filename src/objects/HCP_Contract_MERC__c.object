@@ -497,6 +497,7 @@ Created by John A Adams 10/17/2013</description>
         <columns>RECORDTYPE</columns>
         <columns>Country_MERC__c</columns>
         <columns>CREATED_DATE</columns>
+        <columns>Contract_Request_Status_MERC__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
         <language>en_US</language>
@@ -934,7 +935,7 @@ Created by John A Adams 10/17/2013</description>
         <protected>false</protected>
         <requireRowSelection>false</requireRowSelection>
         <url>/setup/ui/recordtypeselect.jsp?
-ent=01I110000008cxp&amp;save_new_url=%2Fa0t%2Fe%3FCF00N11000000PFx1={!Meeting_Participant_MERC__c.Name}%26CF00N11000000PFx1_lkid={!Meeting_Participant_MERC__c.Id}%26CF00N11000000PFpU={!URLENCODE(Account.Name)}%26CF00N11000000PFpU_lkid={!Account.Id}%26CF00N11000000PFx0={!URLENCODE( Meeting_Participant_MERC__c.Meeting_MERC__c )}%26CF00N11000000PFx0_lkid={!Meeting_Participant_MERC__c.Meeting_MERCId__c}%26retURL=%252F{!Meeting_Participant_MERC__c.Id}</url>
+ent=01I110000008cxp&amp;save_new_url=%2Fa0t%2Fe%3FCF00N11000000PFx1={!Meeting_Participant_MERC__c.Name}%26CF00N11000000PFwm={!Meeting_Participant_MERC__c.Meeting_End_Date_MERC__c}%26CF00N11000000PFx1_lkid={!Meeting_Participant_MERC__c.Id}%26CF00N11000000PFpU={!URLENCODE(Account.Name)}%26CF00N11000000PFpU_lkid={!Account.Id}%26CF00N11000000PFx0={!URLENCODE( Meeting_Participant_MERC__c.Meeting_MERC__c )}%26CF00N11000000PFx0_lkid={!Meeting_Participant_MERC__c.Meeting_MERCId__c}%26retURL=%252F{!Meeting_Participant_MERC__c.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>Generate_Content_MERC</fullName>

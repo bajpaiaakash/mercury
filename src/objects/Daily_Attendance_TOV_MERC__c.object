@@ -65,7 +65,6 @@
         <fullName>Est_Food_Bev_ToV_MERC__c</fullName>
         <externalId>false</externalId>
         <formula>IF(AND(ISPICKVAL(Status_MERC__c,&quot;Attended&quot;), Transparency_Reporting_Consent_MERC__c &lt;&gt; &quot;No&quot;) , Meeting_Day_MERC__r.Daily_Food_Beverage_Amount_MERC__c, 0)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Food and Beverage ToV</label>
         <precision>18</precision>
         <required>false</required>
@@ -77,7 +76,6 @@
         <fullName>Est_Grnd_Transp_MERC__c</fullName>
         <externalId>false</externalId>
         <formula>IF(AND(ISPICKVAL(Status_MERC__c,&quot;Attended&quot;), Transparency_Reporting_Consent_MERC__c &lt;&gt; &quot;No&quot;),Meeting_Day_MERC__r.Daily_Ground_Trans_Amount_MERC__c, 0)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Ground Transportation TOV</label>
         <precision>18</precision>
         <required>false</required>
@@ -100,7 +98,6 @@
         <fullName>Est_Reg_Amt_ToV_MERC__c</fullName>
         <externalId>false</externalId>
         <formula>IF(AND(ISPICKVAL(Status_MERC__c,&quot;Attended&quot;), Transparency_Reporting_Consent_MERC__c &lt;&gt; &quot;No&quot;) , Meeting_Day_MERC__r.Daily_Registration_Amount_MERC__c, 0)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Registration Amount ToV</label>
         <precision>18</precision>
         <required>false</required>
@@ -175,7 +172,7 @@
         <label>Meeting Participant</label>
         <referenceTo>Meeting_Participant_MERC__c</referenceTo>
         <relationshipLabel>Daily Attendance &amp; TOV</relationshipLabel>
-        <relationshipName>Daily_Attendance_TOV</relationshipName>
+        <relationshipName>Daily_Attendance_TOV_MERC</relationshipName>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>

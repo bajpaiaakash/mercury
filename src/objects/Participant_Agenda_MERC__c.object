@@ -56,6 +56,7 @@
         <fullName>Assigned_Topic_MERC__c</fullName>
         <description>Track topic assigned to speaker. Created 10/08/2013 by KLorenti.</description>
         <externalId>false</externalId>
+        <inlineHelpText>The agenda topic title assigned to the Speaker for the meeting.</inlineHelpText>
         <label>Assigned Topic</label>
         <length>100</length>
         <required>false</required>
@@ -79,7 +80,7 @@
         <fullName>Meeting_ID_MERC__c</fullName>
         <description>Formula Field to Capture Meeting ID. Not for display purposes. Created 12/16/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <formula>Session_MERC__r.Meeting_MERC__r.Id</formula>
+        <formula>CASESAFEID(Session_MERC__r.Meeting_MERC__r.Id)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Meeting ID</label>
         <required>false</required>
@@ -117,7 +118,7 @@ Created by J Adams 12/10/2013</description>
         <fullName>Name_MERC__c</fullName>
         <description>Pulls the name of the Service Provider for Incorporation onto the Agenda. Oliver Dunford 13th Feb 2014.</description>
         <externalId>false</externalId>
-        <formula>Meeting_Participant_MERC__r.Account_MERC__r.Name</formula>
+        <formula>Meeting_Participant_MERC__r.Account_MERC__r.FirstName &amp; &quot; &quot; &amp; Meeting_Participant_MERC__r.Account_MERC__r.LastName</formula>
         <label>Name</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -143,6 +144,7 @@ Created by John A Adams 10/3/2013</description>
         <fullName>Speaker_Topic_Title_MERC__c</fullName>
         <description>Track Speaker Topic where speaker may choose title of the session. Created 10/08/2013 by KLorenti.</description>
         <externalId>false</externalId>
+        <inlineHelpText>The agenda topic title sent back to Lilly by the HCP.  This title should be displayed on the Agenda.</inlineHelpText>
         <label>Speaker Topic Title</label>
         <length>100</length>
         <required>false</required>
