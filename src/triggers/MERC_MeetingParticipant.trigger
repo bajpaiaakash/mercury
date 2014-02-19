@@ -1,6 +1,9 @@
-trigger MERC_MeetingParticipant on Meeting_Participant_MERC__c (before insert, before update, after insert, after update, after delete, after undelete) {
+trigger MERC_MeetingParticipant on Meeting_Participant_MERC__c (before insert, before update, before delete, after insert, after update, after delete, after undelete) {
 
 	new GLBL_TriggerHandler()
+		.bind(GLBL_TriggerHandler.Evt.beforeinsert, new MERC_LockedRecordHandler(Meeting_Participant_MERC__c.SobjectType, Meeting_MERC__c.SobjectType, Schema.sObjectType.Meeting_Participant_MERC__c.fields.Meeting_MERC__c))
+		.bind(GLBL_TriggerHandler.Evt.beforeupdate, new MERC_LockedRecordHandler(Meeting_Participant_MERC__c.SobjectType, Meeting_MERC__c.SobjectType, Schema.sObjectType.Meeting_Participant_MERC__c.fields.Meeting_MERC__c))
+		.bind(GLBL_TriggerHandler.Evt.beforedelete, new MERC_LockedRecordHandler(Meeting_Participant_MERC__c.SobjectType, Meeting_MERC__c.SobjectType, Schema.sObjectType.Meeting_Participant_MERC__c.fields.Meeting_MERC__c))
 		.bind(GLBL_TriggerHandler.Evt.beforeinsert, new MERC_ParticipantTriggerHandler())
 		.bind(GLBL_TriggerHandler.Evt.beforeinsert, new MERC_ParticipantFMVCalculator(Meeting_Participant_MERC__c.SobjectType))
 		.bind(GLBL_TriggerHandler.Evt.beforeupdate, new MERC_ParticipantFMVCalculator(Meeting_Participant_MERC__c.SobjectType))
