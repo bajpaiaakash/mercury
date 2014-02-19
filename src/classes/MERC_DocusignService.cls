@@ -14,7 +14,9 @@ public with sharing class MERC_DocusignService {
     String boundaryName = 'MYBOUNDARY';
     String boundaryMarker = '--'+boundaryName;
     String boundaryMarkerEnd = '--'+boundaryName+'--';
-    String signatureAnchorString = '[DOCUSIGN-HCP-SIGNATURE-MARKER]';
+    String hcpSignatureAnchorString = '[DOCUSIGN-HCP-SIGN]';
+    String lillySignatureAnchorString = '[DOCUSIGN-LILLY-SIGN]'; //todo: custom setting
+
     //String signatureAnchorString = 'THIS-WILL-NOT-BE-FOUND'; //for testing only
 	public LoginInformation loginInfo { get; private set; }
 
@@ -148,18 +150,34 @@ public with sharing class MERC_DocusignService {
         List<Document> docs = new List<Document>();
         docs.add(d);
 
-        //set location(s) for signature
-        List<SignHereTab> sts = new List<SignHereTab>{ new SignHereTab(this.signatureAnchorString, '0', '40', '1') };
-        Tab t = new Tab();
-        t.signHereTabs = sts;
+        //set location(s) for Lilly signature
+        List<SignHereTab> lillySignHereTabs = new List<SignHereTab> { 
+            new SignHereTab(this.lillySignatureAnchorString, '0', '10', '1') 
+        };
+        Tab lillyTab = new Tab();
+        lillyTab.signHereTabs = lillySignHereTabs;
+
+        //set location(s) for HCP signature
+        List<SignHereTab> hcpSignHereTabs = new List<SignHereTab>{ 
+            new SignHereTab(this.hcpSignatureAnchorString, '0', '10', '2') 
+        };
+        Tab hcpTab = new Tab();
+        hcpTab.signHereTabs = hcpSignHereTabs;
+
+       
         
         List<Signer> signers = new List<Signer>();
         
         for (RequiredSigner rs : requiredSigners) {
             //add signers
             Signer s = new Signer(rs.acc.PersonEmail, rs.acc.Name, String.valueOf(rs.order), String.valueOf(rs.order));
-            if (!isDraft) 
-                s.tabs = t;
+            if (rs.isLilly) {
+                if (!isDraft) 
+                    s.tabs = lillyTab;
+            } else {
+                if (!isDraft) 
+                    s.tabs = hcpTab;
+            }
             signers.add(s);
         }
 
@@ -224,6 +242,7 @@ public with sharing class MERC_DocusignService {
     public class RequiredSigner {
         public Account acc;
         public Integer order;
+        public Boolean isLilly;
     }
     
     public class Signer {
