@@ -44,7 +44,7 @@ public with sharing class MERC_ParticipantFMVCalculator implements GLBL_TriggerH
 						accountIdsToProcess.add(a.Id);
 				}
 			}
-			participants = [SELECT ID, Country_of_Residence_MERC__c, Service_Provider_Tier_MERC__c 
+			participants = [SELECT ID, Country_of_Residence_MERC__c, Service_Provider_Tier_MERC__c, FMV_Criteria_Map_MERC__c 
 									FROM Meeting_Participant_MERC__c WHERE
 										Final_Fee_MERC__c = null AND 
 										Account_MERC__c in :accountIdsToProcess AND
@@ -83,15 +83,15 @@ public with sharing class MERC_ParticipantFMVCalculator implements GLBL_TriggerH
 		}
 
 		for (Meeting_Participant_MERC__c p : participants) {
-			if (p.Service_Provider_Tier_MERC__c == null) continue;
+			if (p.FMV_Criteria_Map_MERC__c == null) continue;
 			if (p.Country_of_Residence_MERC__c == null) continue;
 
-			Integer participantTierValue = p.Service_Provider_Tier_MERC__c.intValue();
+			String participantTierValue = p.FMV_Criteria_Map_MERC__c;
 			List<FMV_Settings_MERC__c> fmvSettings = fmvMap.get(p.Country_of_Residence_MERC__c);
 			
 			if (fmvSettings != null) {
 				for (FMV_Settings_MERC__c fmvSetting : fmvSettings) {
-					Integer fmvTierValue = fmvSetting.Tier_Value_MERC__c.intValue();
+					String fmvTierValue = fmvSetting.Tier_Value_MERC__c;
 					if (fmvTierValue == participantTierValue) {
 						p.Minimum_Rate_MERC__c = fmvSetting.Minimum_Hourly_Rate_MERC__c;
 						p.Maximum_Rate_MERC__c = fmvSetting.Maximum_Hourly_Rate_MERC__c;
