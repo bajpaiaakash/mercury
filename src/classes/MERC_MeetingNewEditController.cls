@@ -48,6 +48,7 @@ public with sharing class MERC_MeetingNewEditController extends GLBL_BaseEditCon
                 update this.mySobject; 
             }
         } catch(Exception e) {
+            setTimeZones();
             ApexPages.addMessages(e); //doesn't show ugly error text
             return null;
         }
