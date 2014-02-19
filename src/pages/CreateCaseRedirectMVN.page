@@ -1,0 +1,39 @@
+<apex:page standardController="Case" extensions="CreateCaseRedirectControllerMVN" action="{!getRedirect}">
+	<apex:includeScript value="/support/console/27.0/integration.js"/>
+    <script> 
+		var interactionTabId;
+        var tempTabId;
+        
+        window.onload = getTabId;
+        function getTabId() {
+            sforce.console.getEnclosingTabId(openInteractionTab);
+        }
+        
+        var openInteractionTab = function openInteractionTab(result) {
+        	var newCaseId = '{!newCase.Id}';
+        	
+        	if(newCaseId == '' || newCaseId == 'null' || newCaseId == undefined){
+        		sforce.console.setTabTitle('An Error occured');
+        		return;
+        	}
+        
+            sforce.console.setTabTitle('Creating...');
+            tempTabId = result.id;
+                
+        	sforce.console.openPrimaryTab(null, '/{!newCase.Id}?isdtp=vw', true, '{!Case.CaseNumber}', openSuccess);    
+        };
+ 
+        var openSuccess = function openSuccess(result) {
+        	var phoneSearch = "{!$CurrentPage.parameters.phoneSearch}";
+        	interactionTabId = result.id;
+        	
+        	sforce.console.openSubtab(interactionTabId, '/apex/PersonSearchMVN?id={!newCase.Id}', 
+											true, 'Person Search', null, closeTempTab);
+		};	
+		
+		var closeTempTab = function closeTempTab(result){
+			sforce.console.closeTab(tempTabId);
+		}	    
+    </script>
+    <apex:pageMessages />
+</apex:page>

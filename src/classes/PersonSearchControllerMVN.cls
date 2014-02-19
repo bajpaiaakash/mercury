@@ -237,7 +237,7 @@ public with sharing class PersonSearchControllerMVN {
     }
 
     public PageReference updateCase(){
-        Account selectedAccount = [SELECT FirstName, LastName, PersonEmail, Phone, Fax from Account where Id = :actId];
+        Account selectedAccount = [SELECT FirstName, LastName, PersonEmail, PersonContactId, Phone, Fax from Account where Id = :actId];
         Address_GLBL__c selectedAddress = new Address_GLBL__c();
         List<Address_GLBL__c> getAddresses = [SELECT Name, Line_2_Adrs_Txt_GLBL__c, City_GLBL__c, St_Cd_GLBL__c, Zip_Postal_Code_GLBL__c, Adrs_Cntry_Cd_GLBL__c FROM Address_GLBL__c WHERE Id = :addId];
         if(getAddresses.size() > 0) {
@@ -245,6 +245,7 @@ public with sharing class PersonSearchControllerMVN {
         }
 
         cs.AccountId = selectedAccount.Id;
+        cs.ContactId = selectedAccount.PersonContactId;
         cs.Address_GLBL__c = selectedAddress.Id;
         cs.Account_Email_GLBL__c = selectedAccount.PersonEmail;
         cs.Account_Phone_GLBL__c = selectedAccount.Phone;

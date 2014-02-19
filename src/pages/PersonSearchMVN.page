@@ -1,5 +1,5 @@
 <apex:page standardController="Case" extensions="PersonSearchControllerMVN" tabStyle="Case" sidebar="false" standardStylesheets="true">
-    <apex:includeScript value="/support/console/27.0/integration.js"/>
+    <apex:includeScript value="/support/console/28.0/integration.js"/>
     <apex:includeScript value="{!urlFor($Resource.PersonSearchMVN, 'JQuery/jquery-latest.js')}" />
     <apex:includeScript value="{!URLFOR($Resource.PersonSearchMVN, 'JQuery/TableSorter/jquery.tablesorter.min.js')}" />
     <apex:stylesheet value="{!URLFOR($Resource.PersonSearchMVN, 'JQuery/TableSorter/style.css')}" />
@@ -94,15 +94,7 @@
         }
 
         function closeTab() {
-            //In scc?
-            isInParentTab = true;
-            if (isInParentTab){
-                sforce.console.refreshPrimaryTabById(tabId, false, closeSubTab);    
-            } else {
-                //return to standard case layout
-                window.open('/' + "{!Case.Id}?isdtp=vw", "_self");
-            }
-            
+            sforce.console.refreshPrimaryTabById(tabId, false, closeSubTab);                
         }
         var closeSubTab = function closeSubTab(result) {
             setTimeout('sforce.console.closeTab(thisTabId)', 1);
@@ -336,27 +328,20 @@
                                 <apex:pageMessages id="searchErrorMessage"/>
                             </div>
                             <div style="text-align:center; margin-bottom:5px;">
-                                <apex:outputPanel id="newAccountButton">
-                                 <!-- modalBackground -->
-                                    <apex:commandButton value="{!$Label.New_Person_Button_MVN}" action="{!updateNewPerson}" oncomplete="showAccountCreate();lastNameTextField.focus();lastNameTextField.select();" rendered="{!showNewButton}" rerender="displayPanel, createAccountModalContent" style="margin-left:5px;">
-                                    	<apex:param name="didInsertSucceed" assignTo="{!didInsertSucceed}" value="false"/>
-                                    	<apex:param name="removeAccountError" assignTo="{!removeAccountError}" value="false"/>
-                                    </apex:commandButton>
-                                </apex:outputPanel>
                             </div>
                             <!--Search Results Table -->
                             <apex:outputPanel >
                                 <apex:pageBlockTable styleClass="tablesorter" id="addressResultsTable" value="{!searchResults}" var="rslt" >
                                     <apex:column rendered="{!!standAloneSearch}">
                                         <apex:commandLink action="{!updateCase}" rerender="displayPanel, searchErrorMessage">
-                                            <img title="Add Requester" src="{!URLFor($Resource.GlobalAssetsMVN, 'Icons/Add_user.png')}" width="20px"/>
+                                            <img title="Add Requester" src="{!URLFor('/img/icon/profile24.png')}" width="20px"/>
                                             <apex:param name="adId" assignTo="{!addId}" value="{!rslt.addrId}" />
                                             <apex:param name="actId" assignTo="{!actId}" value="{!rslt.acctId}" />
                                         </apex:commandLink>
                                     </apex:column>
                                     <apex:column rendered="{!!standAloneSearch}">
                                         <apex:commandLink action="{!addReferredBy}" rerender="displayPanel">
-                                            <img title="Add Referred By" src="{!URLFor($Resource.GlobalAssetsMVN, 'Icons/referredby.png')}" width="20px" style="display:{!IF(rslt.recordType==employeeRecordTypeId, 'block', 'none')}"/>
+                                            <img title="Add Referred By" src="{!URLFor('/img/icon/people24.png')}" width="20px" style="display:{!IF(rslt.recordType==employeeRecordTypeId, 'block', 'none')}"/>
                                             <apex:param name="refId" assignTo="{!refId}" value="{!rslt.acctId}" />
                                         </apex:commandLink>
                                     </apex:column>
