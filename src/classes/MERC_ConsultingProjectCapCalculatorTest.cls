@@ -23,7 +23,12 @@ private class MERC_ConsultingProjectCapCalculatorTest {
 	}
 	
 	@isTest static void basic_test() {
+		Test.startTest();
+
 		Meeting_Participant_MERC__c p1 = participants.get(0);
+		p1.Services_Rendered_MERC__c = 'Yes';
+		update p1;
+
 		Payee_MERC__c p = new Payee_MERC__c();
 		p.Account_MERC__c = p1.Account_MERC__c;
 		p.Name = 'foo';
@@ -46,7 +51,8 @@ private class MERC_ConsultingProjectCapCalculatorTest {
 		update i;
 
 		System.assertEquals(20, [SELECT Consulting_Project_Paid_CAP_MERC__c FROM Account WHERE Id = :p1.Account_MERC__c].Consulting_Project_Paid_CAP_MERC__c);
-	
+		
+		Test.stopTest();
 	}
 
 }
