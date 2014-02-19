@@ -105,6 +105,11 @@ public virtual with sharing class GLBL_BaseEditController {
 	                                for (sobjectPartnerSoapSforceCom.DescribeLayoutComponent layoutComponent : layoutItem.layoutComponents) {
 	                                  	if (layoutComponent.value=='OwnerId' || layoutComponent.value=='RecordTypeId') {
 	                                  		//The user shouldn't change the OwnerId/RecordType this way.
+	                                  		f = new Field();
+	                                  		f.id = layoutComponent.value;
+	                                  		f.readOnly = true;
+	                                  		f.value = layoutComponent.value;
+	                                  		pBs.fields.add(f);
 	                                  	}
 	                                  	else if (layoutitem.editable == false && layoutComponent.value != null) {
 											f = new Field();
