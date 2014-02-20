@@ -6,7 +6,13 @@
         
         window.onload = getTabId;
         function getTabId() {
-            sforce.console.getEnclosingTabId(openInteractionTab);
+
+            if (typeof(srcUp) == 'function') {
+                sforce.console.getEnclosingTabId(openInteractionTab);
+            } else {    
+                window.location.href = '/{!newCase.Id}';
+            }
+
         }
         
         var openInteractionTab = function openInteractionTab(result) {
