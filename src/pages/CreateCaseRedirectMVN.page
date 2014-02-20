@@ -13,11 +13,11 @@
         	var newCaseId = '{!newCase.Id}';
         	
         	if(newCaseId == '' || newCaseId == 'null' || newCaseId == undefined){
-        		sforce.console.setTabTitle('An Error occured');
+        		sforce.console.setTabTitle('{!$Label.Error_Tab_Name_MVN}');
         		return;
         	}
         
-            sforce.console.setTabTitle('Creating...');
+            sforce.console.setTabTitle('{!$Label.Currently_Creating_MVN}');
             tempTabId = result.id;
                 
         	sforce.console.openPrimaryTab(null, '/{!newCase.Id}?isdtp=vw', true, '{!Case.CaseNumber}', openSuccess);    
@@ -26,9 +26,8 @@
         var openSuccess = function openSuccess(result) {
         	var phoneSearch = "{!$CurrentPage.parameters.phoneSearch}";
         	interactionTabId = result.id;
-        	
-        	sforce.console.openSubtab(interactionTabId, '/apex/PersonSearchMVN?id={!newCase.Id}', 
-											true, 'Person Search', null, closeTempTab);
+        	sforce.console.openSubtab(interactionTabId, '/apex/PersonSearchMVN?caseId={!newCase.Id}', 
+											true, '{!$Label.Person_Search_Tab_MVN}', null, closeTempTab);
 		};	
 		
 		var closeTempTab = function closeTempTab(result){

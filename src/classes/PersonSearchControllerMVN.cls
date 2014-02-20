@@ -2,7 +2,6 @@
 * PersonSearchControllerMVN
 * Created By: Vincent Reeder
 * Created Date: January 9, 2012
-* Last Modified Date: April 9, 2013
 * Description: Controller for Person Search in Service Cloud.
 */
 public with sharing class PersonSearchControllerMVN {
