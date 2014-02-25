@@ -46,7 +46,10 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>NewCase</actionName>
-        <type>Default</type>
+        <comment>Automatically create a case and open person search.</comment>
+        <content>CreateCaseRedirectMVN</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>SaveEdit</actionName>
@@ -542,6 +545,29 @@ Created by John Adams on 11/18/2013</description>
         <label>All Open Cases</label>
     </listViews>
     <listViews>
+        <fullName>Case_Queue</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CASES.ORIGIN</columns>
+        <columns>Topic_MERC__c</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.REASON</columns>
+        <columns>CORE.USERS.FIRST_NAME</columns>
+        <columns>CORE.USERS.LAST_NAME</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>Language_MERC__c</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CASES.CLOSED_DATE</columns>
+        <filterScope>Queue</filterScope>
+        <label>Case Queue</label>
+        <language>en_US</language>
+        <queue>Case_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>MyCases</fullName>
         <filterScope>Mine</filterScope>
         <label>My Cases</label>
@@ -561,6 +587,7 @@ Created by John Adams on 11/18/2013</description>
         <customTabListAdditionalFields>CASES.SUBJECT</customTabListAdditionalFields>
         <customTabListAdditionalFields>CASES.CREATED_DATE</customTabListAdditionalFields>
         <customTabListAdditionalFields>CASES.PRIORITY</customTabListAdditionalFields>
+        <listViewButtons>Person_Search_List_MVN</listViewButtons>
         <lookupDialogsAdditionalFields>CASES.CASE_NUMBER</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>CASES.SUBJECT</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
@@ -650,6 +677,22 @@ else
 }</url>
     </webLinks>
     <webLinks>
+        <fullName>Person_Search_List_MVN</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Person Search</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/support/console/29.0/integration.js&quot;)} 
+
+
+if (typeof(srcUp) == &apos;function&apos;) {
+sforce.console.openPrimaryTab(null, &apos;/apex/PersonSearchMVN&apos;, true);            
+}</url>
+    </webLinks>
+    <webLinks>
         <fullName>Person_Search_MVN</fullName>
         <availability>online</availability>
         <description>Launches a person search for an HCP, Consumer or Employee</description>
@@ -674,7 +717,9 @@ var openSubtab = function openSubtab(result) {
     sforce.console.openSubtab(primaryTabId, &apos;/apex/PersonSearchMVN?caseId={!Case.Id}&apos;, true);
 }
 
-openPersonSearchSubtab();</url>
+if (typeof(srcUp) == &apos;function&apos;) {
+openPersonSearchSubtab();
+}</url>
     </webLinks>
     <webLinks>
         <fullName>dsfs__Send_with_DocuSign</fullName>

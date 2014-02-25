@@ -30,11 +30,11 @@
                 <field>Type_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Meeting_Sub_Type_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Meeting_Scope_MERC__c</field>
             </layoutItems>
             <layoutItems>
@@ -44,6 +44,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Days_Until_Meeting_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Lock_Meeting_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -253,6 +257,7 @@
         <fields>Speciality_MERC__c</fields>
         <fields>Classification_MERC__c</fields>
         <fields>Status_MERC__c</fields>
+        <fields>Has_Signed_Contract_MERC__c</fields>
         <relatedList>Meeting_Participant_MERC__c.Meeting_MERC__c</relatedList>
         <sortField>RECORDTYPE</sortField>
         <sortOrder>Desc</sortOrder>

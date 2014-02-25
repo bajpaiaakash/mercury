@@ -25,6 +25,7 @@ private class MERC_HcpCapActualsCalculatorTest {
 
 		Meeting_Participant_MERC__c p1 = participants.get(0);
 		p1.Final_Fee_MERC__c = 100;
+		p1.Include_CAP_Roll_Up_MERC__c = true;
 		update p1;
 
 		system.assertEquals(100, [Select Reserved_CAP_MERC__c FROM Account WHERE Id = :p1.Account_MERC__c].Reserved_CAP_MERC__c); 
@@ -36,10 +37,17 @@ private class MERC_HcpCapActualsCalculatorTest {
 		m.Meeting_Status_MERC__c = 'Registered';
 		m.Preferred_Venue_Addr_1_MERC__c = 'somewhere fun';
 		m.Target_Audience_List_MERC__c = 'Nurses';
+		m.Number_of_Expected_Non_HCP_MERC__c = 10;
+		m.Planned_Budget_MERC__c = 3000;
 		update m;
-		
+
 		system.assertEquals(100, [Select Allocated_CAP_MERC__c FROM Account WHERE Id = :p1.Account_MERC__c].Allocated_CAP_MERC__c); 
 
+		m.Meeting_Status_MERC__c = 'Complete';
+		m.Compliant_MERC__c = 'Yes';
+		m.Budget_is_Final_MERC__c = 'Yes';
+		update m;
+		
 		p1 = participants.get(0);
 		p1.Services_Rendered_MERC__c = 'Yes';
 		update p1;

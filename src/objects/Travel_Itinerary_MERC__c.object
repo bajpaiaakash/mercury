@@ -718,13 +718,12 @@ Created by John A Adams 12/13/2013</description>
         <fullName>Meeting_End_Date_Time_MERC__c</fullName>
         <description>Displays Meeting End Date and Time on Travel Itinerary. Created 02/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <formula>Meeting_Participant_MERC__r.Meeting_MERC__r.End_Time_In_Meeting_Time_Zone_MERC__c</formula>
+        <formula>Meeting_Participant_MERC__r.Meeting_MERC__r.End_Time_of_Meeting_MERC__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Meeting End Date/Time</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Meeting_Id_MERC__c</fullName>
@@ -754,13 +753,12 @@ Created by John A Adams 12/13/2013</description>
         <fullName>Meeting_Start_Date_Time_MERC__c</fullName>
         <description>Displays Meeting Start Date and Time on Travel Itinerary. Created 02/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <formula>Meeting_Participant_MERC__r.Meeting_MERC__r.Start_Time_In_Meeting_Time_Zone__c</formula>
+        <formula>Meeting_Participant_MERC__r.Meeting_MERC__r.Start_Time_of_Meeting_MERC__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Meeting Start Date/Time</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Meeting_Status_MERC__c</fullName>
@@ -2419,5 +2417,15 @@ ISCHANGED( Sgmnt_End_TS_MERC__c )) &amp;&amp;
 ! Confirm_ToV_Reporting_Change_MERC__c</errorConditionFormula>
         <errorDisplayField>Confirm_ToV_Reporting_Change_MERC__c</errorDisplayField>
         <errorMessage>ToV has already been reported this meeting participant. HCP Care needs to confirm this change before it can be made.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Travel_Date_Range</fullName>
+        <active>true</active>
+        <description>Ensure that a Travel/Segment date is within 3 days +/- of the Meeting Start or End Date.  This is to accommodate shoulder dates but also limit the dates that can be chosen.  Created on 02/17/2014 by KLorenti, Mavens Consulting</description>
+        <errorConditionFormula>(Sgmnt_Bgin_TS_MERC__c &gt; ( Meeting_Start_Date_Time_MERC__c  + 3))  ||
+(Sgmnt_Bgin_TS_MERC__c &lt; ( Meeting_Start_Date_Time_MERC__c  - 3)) ||
+(Sgmnt_End_TS_MERC__c &gt; (  Meeting_End_Date_Time_MERC__c   + 3))  ||
+(Sgmnt_End_TS_MERC__c &lt; ( Meeting_End_Date_Time_MERC__c  - 3))</errorConditionFormula>
+        <errorMessage>The Segment Dates selected must be within 3 +/- days of the start or end of the meeting.</errorMessage>
     </validationRules>
 </CustomObject>

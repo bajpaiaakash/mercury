@@ -30,7 +30,7 @@
                 <field>OwnerId</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Document_Type_MERC__c</field>
             </layoutItems>
             <layoutItems>
@@ -56,6 +56,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Contract_Archive_Date_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Expose_on_Portal_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns/>

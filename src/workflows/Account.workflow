@@ -1,6 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <fieldUpdates>
+        <fullName>Criteria_1_Met_MERC</fullName>
+        <description>Tier 1 Criteria is met if the HCP meets or exceed a score of 5 for both Tier 2 and Tier 1 Criteria.</description>
+        <field>Tier_1_Criteria_Met_MERC__c</field>
+        <formula>IF( 
+AND( 
+Tier_1_Score_MERC__c &gt;= 5, 
+Tier_2_Score_MERC__c &gt;= 5,
+Tier_3_Criteria_Met_MERC__c = &quot;Yes&quot; 
+),&quot;Yes&quot;, &quot;No&quot; 
+)</formula>
+        <name>Criteria 1 Met</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Criteria_2_Met_MERC</fullName>
+        <description>Tier 2 Criteria are met if the HCP meets or exceeds a score of 5 based on Tier 2 categories.</description>
+        <field>Tier_2_Criteria_Met_MERC__c</field>
+        <formula>IF(AND( 
+Tier_2_Score_MERC__c &gt;= 5, 
+Tier_3_Criteria_Met_MERC__c = &quot;Yes&quot; 
+),&quot;Yes&quot;, &quot;No&quot;)</formula>
+        <name>Criteria 2 Met</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Criteria_3_Met_MERC</fullName>
+        <description>By default every HCP is a Tier 3 if they go through the Tiering process.  Set  this value to Yes.</description>
+        <field>Tier_3_Criteria_Met_MERC__c</field>
+        <formula>&quot;Yes&quot;</formula>
+        <name>Criteria 3 Met</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Date_Stamp_CAP_Usage_Note_MERC</fullName>
         <description>Date Stamps the CAP Usage note to ensure it&apos;s relevant. Oliver Dunford 9th Nov 2013.</description>
         <field>CAP_Usage_Note_MERC__c</field>
@@ -11,11 +50,22 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Date_Stamp_HCP_Contract_Limitations</fullName>
+        <description>Date stamps important information captured for the HCP. This should be date stamped for each post and passed via integration to Veeva. 
+Created 02/17/2014 by KLorenti, Mavens Consulting</description>
+        <field>Contract_Limitations_on_Use_MERC__c</field>
+        <formula>TEXT(TODAY())&amp; &quot;: &quot; &amp;  Contract_Limitations_on_Use_MERC__c  &amp;BR()</formula>
+        <name>Date Stamp HCP Contract Limitations</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Date_Stamp_HCP_Exec_Smmry_MERC</fullName>
         <description>Date stamps important information captured for the HCP. This should be date stamped for each post and passed via integration to Veeva.
 Created by John A Adams 12/18/2013</description>
         <field>Exec_Smmry_Note_MERC__c</field>
-        <formula>TEXT(TODAY())&amp; &quot;:&quot; &amp;  Exec_Smmry_Note_MERC__c &amp;BR()</formula>
+        <formula>TEXT(TODAY())&amp; &quot;: &quot; &amp;  Exec_Smmry_Note_MERC__c &amp;BR()</formula>
         <name>Date Stamp HCP Executive Summary</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
@@ -32,11 +82,50 @@ Created by John A Adams 12/18/2013</description>
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Reset_CV_Review_State_MERC</fullName>
+        <description>Each re-tier of a HCP requires a new validation of the CV.</description>
+        <field>Tier_1_HCP_CV_Checked_MERC__c</field>
+        <name>Reset CV Review State</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Reset_Initiate_Tiering_MERC</fullName>
+        <description>Once the processing is complete, reset the Initiate Tiering checkbox.</description>
+        <field>Initiate_Tiering_MERC__c</field>
+        <literalValue>0</literalValue>
+        <name>Reset Initiate Tiering</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Set_Calculate_Open_Meeting_Fees_MERC</fullName>
         <description>Set Calculate Open Meeting Fees checkbox to FALSE after each record update.</description>
         <field>Calculate_Open_Meeting_Fees_MERC__c</field>
         <literalValue>0</literalValue>
         <name>Set Calculate Open Meeting Fees</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_FMV_Tier_Exists_as_FALSE_MERC</fullName>
+        <description>Set FMV Tier Exists to False is the Service Provider Tier is NULL.</description>
+        <field>FMV_Tier_Exists_MERC__c</field>
+        <literalValue>0</literalValue>
+        <name>Set FMV Tier Exists as FALSE</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_FMV_Tier_Exists_to_TRUE_MERC</fullName>
+        <description>Sets FMV Tier Exists to true based on most recent update where Service Provider Tier &lt;&gt; Blank.  Oliver Dunford 17th Feb 2014.</description>
+        <field>FMV_Tier_Exists_MERC__c</field>
+        <literalValue>1</literalValue>
+        <name>Set FMV Tier Exists to TRUE</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -55,20 +144,28 @@ Created by John A Adams 12/18/2013</description>
         <fullName>Set_Service_Provider_Tier_1_MERC</fullName>
         <description>Sets Service Provider to Tier 1.  Once CV has been verified.  Oliver Dunford Jan 15th 2014.</description>
         <field>Service_Provider_Tier_MERC__c</field>
-        <formula>1</formula>
+        <formula>IF(ISPICKVAL(Tier_1_HCP_CV_Checked_MERC__c, &quot;Confirmed HCP is Tier 1&quot;), 1, 
+IF(ISPICKVAL(Tier_1_HCP_CV_Checked_MERC__c, &quot;HCP is NOT Tier 1&quot;), 2, NULL))</formula>
         <name>Set Service Provider Tier 1</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
-        <fullName>Uncheck_Initiate_Tiering_MERC</fullName>
-        <description>Unchecks Initiate Tiering post execution.  Oliver Dunford 15th Jan 2014.</description>
-        <field>Initiate_Tiering_MERC__c</field>
-        <literalValue>0</literalValue>
-        <name>Uncheck Initiate Tiering</name>
+        <fullName>Set_Service_Provider_Tier_MERC</fullName>
+        <description>Sets the Tier based upon scoring output.  This will only ever be a Tier 2 or 3 as Tier 1 HCPs need CV&apos;s checking.</description>
+        <field>Service_Provider_Tier_MERC__c</field>
+        <formula>IF(AND( 
+Tier_2_Score_MERC__c &gt;= 5, 
+Tier_1_Score_MERC__c &lt;= 5 
+),2, 
+IF(AND( 
+Tier_2_Score_MERC__c &lt;= 5, 
+Tier_1_Score_MERC__c &lt;= 5 
+),3, null))</formula>
+        <name>Set Service Provider Tier</name>
         <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
+        <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
@@ -112,17 +209,15 @@ Created by John A Adams 12/18/2013</description>
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Service_Provider_Tier_MERC</fullName>
-        <description>Updates the Service Provider Tier for Tier 2 and 3 HCP&apos;s.  Cannot auto-update Tier 1&apos;s. Oliver Dunford 14th Jan 2014.</description>
+        <description>Updates the Service Provider Tier for Tier 2 and 3 HCP&apos;s. Cannot auto-update Tier 1&apos;s. Oliver Dunford 14th Jan 2014.</description>
         <field>Service_Provider_Tier_MERC__c</field>
         <formula>IF(AND( 
- Tier_3_Criteria_Met_MERC__c = &quot;Yes&quot;, 
- Tier_2_Criteria_Met_MERC__c = &quot;Yes&quot;,
- Tier_1_Criteria_Met_MERC__c = &quot;No&quot;  
+Tier_2_Score_MERC__c  &gt;= 5,
+Tier_1_Score_MERC__c  &lt;= 5 
 ),2,
 IF(AND( 
- Tier_3_Criteria_Met_MERC__c = &quot;Yes&quot;, 
- Tier_2_Criteria_Met_MERC__c = &quot;No&quot;,
- Tier_1_Criteria_Met_MERC__c = &quot;No&quot;  
+Tier_2_Score_MERC__c  &lt;= 5,
+Tier_1_Score_MERC__c  &lt;= 5 
 ),3, null))</formula>
         <name>Update Service Provider Tier</name>
         <notifyAssignee>false</notifyAssignee>
@@ -131,13 +226,13 @@ IF(AND(
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Tier_1_Criteria_Met_MERC</fullName>
-        <description>Update the Tier 1 Criteria met if all Tier 3 criteria are met and 5 out of 8 Tier 1 criteria are met.  Oliver Dunford 14th Jan 2014.</description>
+        <description>Update the Tier 1 Criteria met if all Tier 3 criteria are met and 5 out of 8 Tier 1 criteria are met. Oliver Dunford 14th Jan 2014.</description>
         <field>Tier_1_Criteria_Met_MERC__c</field>
         <formula>IF(
-   AND( 
-     Tier_1_Score_MERC__c &gt;= 5, 
-     Tier_3_Criteria_Met_MERC__c = &quot;Yes&quot; 
-   ),&quot;Yes&quot;, &quot;No&quot;
+AND( 
+Tier_1_Score_MERC__c &gt;= 5, 
+Tier_3_Criteria_Met_MERC__c = &quot;Yes&quot; 
+),&quot;Yes&quot;, &quot;No&quot;
 )</formula>
         <name>Update Tier 1 Criteria Met</name>
         <notifyAssignee>false</notifyAssignee>
@@ -165,8 +260,8 @@ IF(TEXT( Clinical_Trial_PI_MERC__c ) = &quot;Yes - 2 or more&quot;, 1, 0) + IF(T
         <description>Updates the Criteria Met field if the Tier score is &gt;= 5. Oliver Dunford 14th Jan 2014.</description>
         <field>Tier_2_Criteria_Met_MERC__c</field>
         <formula>IF(AND(
-  Tier_2_Score_MERC__c &gt;= 5,
-  Tier_3_Criteria_Met_MERC__c = &quot;Yes&quot;
+Tier_2_Score_MERC__c &gt;= 5,
+Tier_3_Criteria_Met_MERC__c = &quot;Yes&quot;
 ),&quot;Yes&quot;, &quot;No&quot;)</formula>
         <name>Update Tier 2 Criteria Met</name>
         <notifyAssignee>false</notifyAssignee>
@@ -178,7 +273,7 @@ IF(TEXT( Clinical_Trial_PI_MERC__c ) = &quot;Yes - 2 or more&quot;, 1, 0) + IF(T
         <description>Updates Tier 2 Score based on FMV rule Criteria. Oliver Dunford 13th Jan 2014.</description>
         <field>Tier_2_Score_MERC__c</field>
         <formula>IF(TEXT(Practicing_for_MERC__c) &lt;&gt; &quot;&lt;5 Years&quot;, 1, 0) +
-IF((TEXT(Regional_Leadership_Role_MERC__c ) = &quot;Yes&quot;) ||  (TEXT(National_Inter_Leadership_Role_MERC__c ) = &quot;Yes&quot;), 1, 0) + IF( TEXT(Journal_Articles_MERC__c) &lt;&gt; &quot;0-2&quot;, 1,0) + IF( TEXT(Reviewer_or_Editor_MERC__c) = &quot;Yes&quot;, 1, 0) + IF((TEXT( Instructor_Assistant_Clinical_Prof_MERC__c ) = &quot;Yes&quot;) ||  (TEXT( Associate_or_Full_Professor_MERC__c ) = &quot;Yes&quot;), 1, 0) + IF((TEXT( Participated_in_Clinical_Trials_MERC__c ) = &quot;Yes&quot;) ||  (TEXT( Clinical_Trial_PI_MERC__c ) &lt;&gt; &quot;No&quot;), 1, 0) + IF(TEXT(Advisory_Board_Experience_MERC__c) = &quot;Yes&quot;, 1, 0) +  IF(TEXT(Multiple_Specialties_MERC__c) = &quot;Yes&quot;, 1, 0)</formula>
+IF((TEXT(Regional_Leadership_Role_MERC__c ) = &quot;Yes&quot;) ||  (TEXT(National_Inter_Leadership_Role_MERC__c ) = &quot;Yes&quot;) ||  (TEXT(Hospital_Leadership_Role_MERC__c ) = &quot;Yes&quot;), 1, 0) + IF( TEXT(Journal_Articles_MERC__c) &lt;&gt; &quot;0-2&quot;, 1,0) + IF( TEXT(Reviewer_or_Editor_MERC__c) = &quot;Yes&quot;, 1, 0) + IF((TEXT( Instructor_Assistant_Clinical_Prof_MERC__c ) = &quot;Yes&quot;) ||  (TEXT( Associate_or_Full_Professor_MERC__c ) = &quot;Yes&quot;), 1, 0) + IF((TEXT( Participated_in_Clinical_Trials_MERC__c ) = &quot;Yes&quot;) &amp;&amp;  (TEXT( Clinical_Trial_PI_MERC__c ) &lt;&gt; &quot;No&quot;), 1, 0) + IF(TEXT(Advisory_Board_Experience_MERC__c) = &quot;Yes&quot;, 1, 0) +  IF(TEXT(Multiple_Specialties_MERC__c) = &quot;Yes&quot;, 1, 0)</formula>
         <name>Update Tier 2 Score</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
@@ -186,27 +281,10 @@ IF((TEXT(Regional_Leadership_Role_MERC__c ) = &quot;Yes&quot;) ||  (TEXT(Nationa
     </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Tier_3_Criteria_Met_MERC</fullName>
-        <description>Update Tier 3 Criteria met based on Results.  Oliver Dunford 13th Jan 2014.</description>
+        <description>Update Tier 3 Criteria met based on Results. Oliver Dunford 13th Jan 2014.</description>
         <field>Tier_3_Criteria_Met_MERC__c</field>
-        <formula>IF( AND (
- TEXT(Licensed_HCP_MERC__c) = &quot;Yes&quot;,
- TEXT(Experience_MERC__c) = &quot;Yes&quot;,
- TEXT(Influential_MERC__c) = &quot;Yes&quot;),
- &quot;Yes&quot;, &quot;No&quot;
-)</formula>
+        <formula>&quot;Yes&quot;</formula>
         <name>Update Tier 3 Criteria Met</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Formula</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Update_Tier_3_Score_MERC</fullName>
-        <description>Updates Tier 3 Score based on results from rule criteria. Oliver Dunford 13th Jan 2014.</description>
-        <field>Tier_3_Score_MERC__c</field>
-        <formula>IF(TEXT(Licensed_HCP_MERC__c) = &quot;Yes&quot;, 1,0) +
-IF(TEXT(Experience_MERC__c) = &quot;Yes&quot;, 1,0) +
-IF(TEXT(Influential_MERC__c) = &quot;Yes&quot;, 1,0)</formula>
-        <name>Update Tier 3 Score</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
@@ -250,6 +328,7 @@ IF(TEXT(Influential_MERC__c) = &quot;Yes&quot;, 1,0)</formula>
         <fields>Cntry_Cd_GLBL__c</fields>
         <fields>Communication_Preference_MERC__c</fields>
         <fields>Consulting_Project_Paid_CAP_MERC__c</fields>
+        <fields>Contract_Expiration_Date_MERC__c</fields>
         <fields>Contract_Limitations_on_Use_MERC__c</fields>
         <fields>Cost_Cntr_Nbr_GLBL__c</fields>
         <fields>Cost_Cntr_Nm_GLBL__c</fields>
@@ -292,8 +371,8 @@ IF(TEXT(Influential_MERC__c) = &quot;Yes&quot;, 1,0)</formula>
         <fields>Elctrnc_Adrs_Web_Txt_GLBL__c</fields>
         <fields>Employed_by_Government_Institution_GLBL__c</fields>
         <fields>Exec_Smmry_Note_MERC__c</fields>
-        <fields>Experience_MERC__c</fields>
         <fields>FMV_Criteria_Map_MERC__c</fields>
+        <fields>FMV_Tier_Exists_MERC__c</fields>
         <fields>Fax</fields>
         <fields>Fax_Phone_Cntry_Cd_GLBL__c</fields>
         <fields>FirstName</fields>
@@ -304,15 +383,14 @@ IF(TEXT(Influential_MERC__c) = &quot;Yes&quot;, 1,0)</formula>
         <fields>Gndr_Desc_GLBL__c</fields>
         <fields>Governance_Level_GLBL__c</fields>
         <fields>Govt_Flg_GLBL__c</fields>
-        <fields>HCP_Care_Information_MERC__c</fields>
-        <fields>Has_MSA_MERC__c</fields>
+        <fields>Has_Contract_MERC__c</fields>
+        <fields>Has_MSA_Contract_MERC__c</fields>
         <fields>Hospital_Leadership_Role_MERC__c</fields>
         <fields>Id</fields>
         <fields>Ims_Prscrbr_Flg_GLBL__c</fields>
         <fields>Ims_Xponent_Flg_GLBL__c</fields>
         <fields>Indstry_Grp_Cd_GLBL__c</fields>
         <fields>Industry</fields>
-        <fields>Influential_MERC__c</fields>
         <fields>Initials_GLBL__c</fields>
         <fields>Initiate_Tiering_MERC__c</fields>
         <fields>Institution_Administrator_GLBL__c</fields>
@@ -329,11 +407,12 @@ IF(TEXT(Influential_MERC__c) = &quot;Yes&quot;, 1,0)</formula>
         <fields>LastModifiedById</fields>
         <fields>LastModifiedDate</fields>
         <fields>LastName</fields>
+        <fields>LastReferencedDate</fields>
+        <fields>LastViewedDate</fields>
         <fields>Last_Review_Date_MERC__c</fields>
-        <fields>Licensed_HCP_MERC__c</fields>
         <fields>Lilly_Company_Code_GLBL__c</fields>
         <fields>Lilly_Company_VAT_ID_GLBL__c</fields>
-        <fields>MSA_Expiration_Date_MERC__c</fields>
+        <fields>MSA_Contract_Expiration_MERC__c</fields>
         <fields>MasterRecordId</fields>
         <fields>Mdl_Nm_GLBL__c</fields>
         <fields>Mercury_External_Id_MERC__c</fields>
@@ -396,6 +475,11 @@ IF(TEXT(Influential_MERC__c) = &quot;Yes&quot;, 1,0)</formula>
         <fields>PersonOtherState</fields>
         <fields>PersonOtherStreet</fields>
         <fields>PersonTitle</fields>
+        <fields>Personal_Address_City_MERC__c</fields>
+        <fields>Personal_Address_Country_MERC__c</fields>
+        <fields>Personal_Address_Line_1_MERC__c</fields>
+        <fields>Personal_Address_Line_2_MERC__c</fields>
+        <fields>Personal_Postal_Code_Extension_MERC__c</fields>
         <fields>Phone</fields>
         <fields>Plan_Typ_Cd_GLBL__c</fields>
         <fields>Pmt_Nm_GLBL__c</fields>
@@ -448,7 +532,6 @@ IF(TEXT(Influential_MERC__c) = &quot;Yes&quot;, 1,0)</formula>
         <fields>Sic</fields>
         <fields>SicDesc</fields>
         <fields>Site</fields>
-        <fields>Social_Security_Number_MERC__c</fields>
         <fields>Source_Block_GLBL__c</fields>
         <fields>Spclty_Cd_GLBL__c</fields>
         <fields>Spclty_Desc_GLBL__c</fields>
@@ -472,7 +555,6 @@ IF(TEXT(Influential_MERC__c) = &quot;Yes&quot;, 1,0)</formula>
         <fields>Tier_2_Criteria_Met_MERC__c</fields>
         <fields>Tier_2_Score_MERC__c</fields>
         <fields>Tier_3_Criteria_Met_MERC__c</fields>
-        <fields>Tier_3_Score_MERC__c</fields>
         <fields>Title_Desc_GLBL__c</fields>
         <fields>Transparency_Reporting_Opt_Out_MERC__c</fields>
         <fields>Trng_Acct_Flg_GLBL__c</fields>
@@ -518,6 +600,17 @@ IF(TEXT(Influential_MERC__c) = &quot;Yes&quot;, 1,0)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
+        <fullName>Date Stamp HCP Contract Limitations on Use_MERC</fullName>
+        <actions>
+            <name>Date_Stamp_HCP_Contract_Limitations</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Used to date stamp important information captured for the HCP. This should be date stamped for each post and passed via integration to Veeva.</description>
+        <formula>AND (NOT ISBLANK(  Contract_Limitations_on_Use_MERC__c  ), ISCHANGED( Contract_Limitations_on_Use_MERC__c ) )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
         <fullName>Date Stamp HCP Executive Summary_MERC</fullName>
         <actions>
             <name>Date_Stamp_HCP_Exec_Smmry_MERC</name>
@@ -553,17 +646,55 @@ IF(TEXT(Influential_MERC__c) = &quot;Yes&quot;, 1,0)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
-        <fullName>Tier Initiation Update</fullName>
+        <fullName>Set FMV Tier Exists as FALSE</fullName>
         <actions>
-            <name>Uncheck_Initiate_Tiering_MERC</name>
+            <name>Set_FMV_Tier_Exists_as_FALSE_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Updates the FMV Tier Exists field to False should a Tier be Null post updates.</description>
+        <formula>(ISNEW() &amp;&amp;  ISBLANK(Service_Provider_Tier_MERC__c )) 
+|| 
+(ISCHANGED(Service_Provider_Tier_MERC__c ) &amp;&amp; ISBLANK(Service_Provider_Tier_MERC__c ))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Set FMV Tier Exists as TRUE</fullName>
+        <actions>
+            <name>Set_FMV_Tier_Exists_to_TRUE_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Updates the FMV Tier Exists field to True should a Tier be assigned to the HCP post Initiation of Tiering.</description>
+        <formula>(ISNEW() &amp;&amp;  !ISBLANK(Service_Provider_Tier_MERC__c )) 
+|| 
+(ISCHANGED(Service_Provider_Tier_MERC__c ) &amp;&amp; !ISBLANK(Service_Provider_Tier_MERC__c ))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Tier Step 1%3A Update Tier Scores_MERC</fullName>
+        <actions>
+            <name>Criteria_1_Met_MERC</name>
             <type>FieldUpdate</type>
         </actions>
         <actions>
-            <name>Update_Service_Provider_Tier_MERC</name>
+            <name>Criteria_2_Met_MERC</name>
             <type>FieldUpdate</type>
         </actions>
         <actions>
-            <name>Update_Tier_1_Criteria_Met_MERC</name>
+            <name>Criteria_3_Met_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Reset_CV_Review_State_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Reset_Initiate_Tiering_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Set_Service_Provider_Tier_MERC</name>
             <type>FieldUpdate</type>
         </actions>
         <actions>
@@ -571,19 +702,7 @@ IF(TEXT(Influential_MERC__c) = &quot;Yes&quot;, 1,0)</formula>
             <type>FieldUpdate</type>
         </actions>
         <actions>
-            <name>Update_Tier_2_Criteria_Met_MERC</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <actions>
             <name>Update_Tier_2_Score_MERC</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <actions>
-            <name>Update_Tier_3_Criteria_Met_MERC</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <actions>
-            <name>Update_Tier_3_Score_MERC</name>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
@@ -596,51 +715,18 @@ IF(TEXT(Influential_MERC__c) = &quot;Yes&quot;, 1,0)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
-        <fullName>Update CV checked for Tier 2 %26 3_MERC</fullName>
-        <actions>
-            <name>Set_HCP_CV_Verif_to_Not_Required_MERC</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <description>Updates the CV checked field back to Not Required should the Tier change from 1 to 2 or 3. Oliver Dunford 15th Jan 2014.</description>
-        <formula>Tier_1_Criteria_Met_MERC__c = &apos;No&apos; &amp;&amp;  (           ISPICKVAL(Tier_1_HCP_CV_Checked_MERC__c, &quot;Confirmed HCP is Tier 1&quot;) ||           ISPICKVAL(Tier_1_HCP_CV_Checked_MERC__c, &quot;HCP is NOT Tier 1&quot;) ||           ISPICKVAL(Tier_1_HCP_CV_Checked_MERC__c, &quot;Needs Review&quot;) ||           ISPICKVAL(Tier_1_HCP_CV_Checked_MERC__c, &quot;&quot;) )</formula>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
-        <fullName>Update Calculate Open Fees_MERC</fullName>
-        <actions>
-            <name>Update_Calculate_Open_Fees_MERC</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>false</active>
-        <criteriaItems>
-            <field>Account.Calculate_Open_Meeting_Fees_MERC__c</field>
-            <operation>equals</operation>
-            <value>True</value>
-        </criteriaItems>
-        <description>Resets the Calculate Open Fees checkbox once it&apos;s been set.  It should only be triggered once.  Oliver Dunford 9th Nov 2013.</description>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
-        <fullName>Update Service Provider Tier for Tier 1_MERC</fullName>
+        <fullName>Tier Step 2%3A Manage CV Check if Tier 1</fullName>
         <actions>
             <name>Set_Service_Provider_Tier_1_MERC</name>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <description>Once a HCP&apos;s CV has been verified, set the Service Provider Tier to 1. Oliver Dunford 15th Jan 2014.</description>
-        <formula>AND(ISCHANGED(Tier_1_HCP_CV_Checked_MERC__c), ISPICKVAL( Tier_1_HCP_CV_Checked_MERC__c , &quot;Confirmed HCP is Tier 1&quot;),  Tier_1_Criteria_Met_MERC__c = &quot;Yes&quot;,  Tier_2_Criteria_Met_MERC__c = &quot;Yes&quot;,  Tier_3_Criteria_Met_MERC__c = &quot;Yes&quot;)</formula>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
-        <fullName>Update Tier 1 HCP CV Checked_MERC</fullName>
-        <actions>
-            <name>Update_CV_Tier_1_Needs_Review_MERC</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <description>Ensures the CV is checked before setting the Service Provider Tier to 1. Oliver Dunford 15th Jan 2014.</description>
-        <formula>Tier_1_Criteria_Met_MERC__c = &quot;Yes&quot; &amp;&amp;  (  ISPICKVAL(Tier_1_HCP_CV_Checked_MERC__c, &quot;&quot;) ||  ISPICKVAL(Tier_1_HCP_CV_Checked_MERC__c, &quot;HCP is NOT Tier 1&quot;) ||  ISPICKVAL(Tier_1_HCP_CV_Checked_MERC__c, &quot;Not Required&quot;)  )</formula>
+        <description>Once a HCP&apos;s CV has been verified, set the Service Provider Tier to 1. If their CV is not acceptable they&apos;re set to Tier 2. Oliver Dunford 15th Jan 2014.</description>
+        <formula>ISCHANGED(Tier_1_HCP_CV_Checked_MERC__c) &amp;&amp; 
+(
+ISPICKVAL(Tier_1_HCP_CV_Checked_MERC__c, &quot;Confirmed HCP is Tier 1&quot;) || 
+ISPICKVAL(Tier_1_HCP_CV_Checked_MERC__c, &quot;HCP is NOT Tier 1&quot;)
+)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>

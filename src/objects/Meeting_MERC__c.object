@@ -2042,6 +2042,17 @@ Created by John A Adams 10/28/2013</description>
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>Lock_Meeting_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>If checked, the meeting and all related records are locked from editing. -JFerraro Feb 19, 2014</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If checked, the meeting and all related records are locked from editing.</inlineHelpText>
+        <label>Lock Meeting</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Logistics_Information_MERC__c</fullName>
         <description>Capture notes and comments on Logistics. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -2853,7 +2864,8 @@ Created by John Adams on 12/9/2013</description>
         <fullName>Preferred_Venue_Addr_1_MERC__c</fullName>
         <description>Indicate preferred Venue location. Updated 10/16/2013 by KLorenti, Mavens Consulting.</description>
         <externalId>false</externalId>
-        <label>Preferred Venue Addr 1</label>
+        <inlineHelpText>Venue information entered by Customer Facing User during meeting creation in Veeva</inlineHelpText>
+        <label>Venue Addr 1</label>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -2865,7 +2877,8 @@ Created by John Adams on 12/9/2013</description>
         <fullName>Preferred_Venue_Addr_2_MERC__c</fullName>
         <description>Populated via integration for Reps, workflow for Mercury Initiated Meetings. Oliver Dunford 16th Dec 2013.</description>
         <externalId>false</externalId>
-        <label>Preferred Venue Addr 2</label>
+        <inlineHelpText>Venue information entered by Customer Facing User during meeting creation in Veeva</inlineHelpText>
+        <label>Venue Addr 2</label>
         <length>200</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -2877,7 +2890,8 @@ Created by John Adams on 12/9/2013</description>
         <fullName>Preferred_Venue_MERC__c</fullName>
         <description>Capture Preferred Venue during the meeting planning process. Created 10/16/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <label>Preferred Venue Name</label>
+        <inlineHelpText>Venue information entered by Customer Facing User during meeting creation in Veeva.</inlineHelpText>
+        <label>Venue Name</label>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -2889,7 +2903,8 @@ Created by John Adams on 12/9/2013</description>
         <fullName>Preferred_Venue_Postal_Code_MERC__c</fullName>
         <description>Captures Zip/Postal Code of Venue.  Primarily used for Rep Initiated meetings but essential as this forms part of the Venue address details on invitations exposed on the agenda documents and portal. Oliver Dunford 7th Jan</description>
         <externalId>false</externalId>
-        <label>Preferred Venue Postal Code</label>
+        <inlineHelpText>Venue information entered by Customer Facing User during meeting creation in Veeva</inlineHelpText>
+        <label>Venue Postal Code</label>
         <length>20</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -3266,11 +3281,11 @@ Created by John Adams 11/6/2013</description>
         <label>Target Audience</label>
         <picklist>
             <picklistValues>
-                <fullName>HCP</fullName>
+                <fullName>Specialist</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Pharmacist</fullName>
+                <fullName>General Practitioner</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -3278,7 +3293,11 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Lilly Employee</fullName>
+                <fullName>Pharmacist</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PhD</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5459,11 +5478,7 @@ Created by John Adams 11/6/2013</description>
         <picklistValues>
             <picklist>Target_Audience_List_MERC__c</picklist>
             <values>
-                <fullName>HCP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lilly Employee</fullName>
+                <fullName>General Practitioner</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5475,7 +5490,15 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>PhD</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Pharmacist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Specialist</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7184,11 +7207,7 @@ Created by John Adams 11/6/2013</description>
         <picklistValues>
             <picklist>Target_Audience_List_MERC__c</picklist>
             <values>
-                <fullName>HCP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lilly Employee</fullName>
+                <fullName>General Practitioner</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7200,7 +7219,15 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>PhD</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Pharmacist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Specialist</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8909,11 +8936,7 @@ Created by John Adams 11/6/2013</description>
         <picklistValues>
             <picklist>Target_Audience_List_MERC__c</picklist>
             <values>
-                <fullName>HCP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lilly Employee</fullName>
+                <fullName>General Practitioner</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8925,7 +8948,15 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>PhD</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Pharmacist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Specialist</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10634,11 +10665,7 @@ Created by John Adams 11/6/2013</description>
         <picklistValues>
             <picklist>Target_Audience_List_MERC__c</picklist>
             <values>
-                <fullName>HCP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lilly Employee</fullName>
+                <fullName>General Practitioner</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10650,7 +10677,15 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>PhD</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Pharmacist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Specialist</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12327,11 +12362,7 @@ Created by John Adams 11/6/2013</description>
         <picklistValues>
             <picklist>Target_Audience_List_MERC__c</picklist>
             <values>
-                <fullName>HCP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lilly Employee</fullName>
+                <fullName>General Practitioner</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12343,7 +12374,15 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>PhD</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Pharmacist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Specialist</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14052,11 +14091,7 @@ Created by John Adams 11/6/2013</description>
         <picklistValues>
             <picklist>Target_Audience_List_MERC__c</picklist>
             <values>
-                <fullName>HCP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lilly Employee</fullName>
+                <fullName>General Practitioner</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14068,7 +14103,15 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>PhD</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Pharmacist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Specialist</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14203,6 +14246,7 @@ Created by John Adams 11/6/2013</description>
         <active>true</active>
         <description>The Compliance Risk field must be set to yes before the Meeting can be Completed.  Created 12/18/2013 by KLorenti, Mavens Consulting</description>
         <errorConditionFormula>RecordType.Name &lt;&gt; &apos;Consulting Project&apos; &amp;&amp;
+RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
 ISBLANK(Text(Compliant_MERC__c)) &amp;&amp; 
 ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
 ISPICKVAL(Meeting_Status_MERC__c,&apos;Complete&apos;)</errorConditionFormula>
@@ -14397,6 +14441,15 @@ RecordType.Name &lt;&gt; &apos;Consulting Project&apos;)  &amp;&amp;
 	,true, false)</errorConditionFormula>
         <errorDisplayField>Target_Audience_List_MERC__c</errorDisplayField>
         <errorMessage>The Target Audience is required before status can be changed to Active</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Validate_End_date_is_after_Start_MERC</fullName>
+        <active>true</active>
+        <description>Validates the the Meeting Start Date/Time is before the Meeting End Date/Time.</description>
+        <errorConditionFormula>Start_Time_of_Meeting_MERC__c &gt;= 
+End_Time_of_Meeting_MERC__c</errorConditionFormula>
+        <errorDisplayField>End_Time_of_Meeting_MERC__c</errorDisplayField>
+        <errorMessage>The  End Time of Meeting must be after the Start Time of Meeting</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Validate_Registered_Expected_Emp_MERC</fullName>

@@ -708,8 +708,16 @@ Created by John A Adams 1/9/2014</description>
         <description>The purpose of the payment
 Created by John A Adams 10/30/2013</description>
         <externalId>false</externalId>
-        <formula>TEXT(Meeting_Participant_MERC__r.Types_of_Service_MERC__c)  &amp; &quot; - &quot; &amp;
-TEXT(Meeting_Participant_MERC__r.Meeting_MERC__r.Event_Country_MERC__c)</formula>
+        <formula>If ( Meeting_Participant_MERC__r.RecordType.Name = &quot;Service Provider&quot; || Meeting_Participant_MERC__r.RecordType.Name = &quot;Consulting&quot;,
+TEXT(Meeting_Participant_MERC__r.Types_of_Service_MERC__c)  &amp; &quot;-&quot; &amp;
+TEXT(DAY(DATEVALUE( Meeting_Participant_MERC__r.Meeting_MERC__r.Start_Time_of_Meeting_MERC__c  ))) &amp;
+TEXT(MONTH(DATEVALUE(Meeting_Participant_MERC__r.Meeting_MERC__r.Start_Time_of_Meeting_MERC__c  ))) &amp; 
+TEXT(YEAR(DATEVALUE(Meeting_Participant_MERC__r.Meeting_MERC__r.Start_Time_of_Meeting_MERC__c ))) &amp;  &quot;-&quot; &amp; Meeting_Participant_MERC__r.Meeting_MERC__r.City_of_Meeting_MERC__c, 
+&quot;Expenses&quot;  &amp; &quot;-&quot; &amp;
+TEXT(DAY(DATEVALUE(Meeting_Participant_MERC__r.Meeting_MERC__r.Start_Time_of_Meeting_MERC__c  ))) &amp;
+TEXT(MONTH(DATEVALUE(Meeting_Participant_MERC__r.Meeting_MERC__r.Start_Time_of_Meeting_MERC__c  ))) &amp; 
+TEXT(YEAR(DATEVALUE(Meeting_Participant_MERC__r.Meeting_MERC__r.Start_Time_of_Meeting_MERC__c ))) &amp;  
+&quot;-&quot; &amp; Meeting_Participant_MERC__r.Meeting_MERC__r.City_of_Meeting_MERC__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Purpose of Payment</label>
         <required>false</required>

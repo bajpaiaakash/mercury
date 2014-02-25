@@ -49,8 +49,8 @@ public with sharing class MERC_InvoiceXmlWriter implements GLBL_TriggerHandler.H
        		Blob b = xmlFile.getContent();
        		
        		ContentVersion invoiceXml = new ContentVersion();
-       		invoiceXml.Title = invoiceId.substring(0, 15)+'.xml';
-       		invoiceXml.PathOnClient = invoiceId.substring(0, 15)+'.xml';
+       		invoiceXml.Title = 'MercuryInvoice-'+invoiceId.substring(0, 15)+'.xml';
+       		invoiceXml.PathOnClient = 'MercuryInvoice-'+invoiceId.substring(0, 15)+'.xml';
        		invoiceXml.FirstPublishLocationId = workspaceId;
        		invoiceXml.RecordTypeId = recordTypeId;
        		invoiceXml.Invoice_MERC__c = invoiceId;

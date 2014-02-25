@@ -393,6 +393,55 @@ Moved from Account to Payee 11/22/2013 by KLorenti, Mavens Consulting</descripti
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>WS_Updt_Dt_MERC__c</fullName>
+        <description>Portal activity field to record the date of an update. 
+Created by John A Adams 2/18/2014</description>
+        <externalId>false</externalId>
+        <label>Web Service Update Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>WS_Updt_HCP_Actn_MERC__c</fullName>
+        <description>Portal activity field to record the update action
+Created by John A Adams 2/18/2014</description>
+        <externalId>false</externalId>
+        <label>Web Service Update HCP Action</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>WS_Updt_HCP_Global_ID_MERC__c</fullName>
+        <description>Portal activity field to record the updated Global ID
+Created by John A Adams 2/18/2014</description>
+        <externalId>false</externalId>
+        <label>Web Service Update HCP Global Id</label>
+        <length>8</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>WS_Updt_HCP_Name_MERC__c</fullName>
+        <description>Portal activity field to record the name of the HCP, to indicate that the HCP was the one to make the change. Created by John A Adams 2/18/2014</description>
+        <externalId>false</externalId>
+        <label>Web Service Update HCP Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <label>Payee</label>
     <listViews>
         <fullName>All</fullName>

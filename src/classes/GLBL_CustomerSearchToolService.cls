@@ -9,11 +9,12 @@
 
 public with sharing class GLBL_CustomerSearchToolService {
 	
+	public String accessToken { get; private set; }
 	String baseUrl = 'https://mercury-cst-dev.herokuapp.com'; //TODO: custom setting
-	public CST_App_Settings_CUST__c appSettings {
+	public Mercury_Settings_MERC__c appSettings {
 		get {
 			if (appSettings == null) {
-				appSettings = [SELECT ID, Client_Id_CUST__c, Client_Secret_CUST__c, Access_Token_CUST__c FROM CST_App_Settings_CUST__c LIMIT 1];
+				appSettings = Mercury_Settings_MERC__c.getOrgDefaults();
 			}
 			return appSettings;
 		}
@@ -28,7 +29,7 @@ public with sharing class GLBL_CustomerSearchToolService {
 
 		HttpRequest r = new HttpRequest();
 		r.setHeader('Content-type', 'application/json');
-		r.setHeader('Authorization', 'Bearer '+this.appSettings.Access_Token_CUST__c);
+		r.setHeader('Authorization', 'Bearer '+this.accessToken);
 		r.setHeader('Accept', 'application/json');
 		r.setEndpoint(this.baseUrl+'/search'); 
 		r.setMethod('POST');
@@ -56,7 +57,7 @@ public with sharing class GLBL_CustomerSearchToolService {
 		HttpRequest r = new HttpRequest();
 		r.setHeader('Content-type', 'application/x-www-form-urlencoded');
 		r.setEndpoint(this.baseUrl+'/oauth/token'); 
-		r.setBody('grant_type=client_credentials&client_id='+this.appSettings.Client_Id_CUST__c+'&client_secret='+this.appSettings.Client_Secret_CUST__c);
+		r.setBody('grant_type=client_credentials&client_id='+this.appSettings.CST_Client_Id_MERC__c+'&client_secret='+this.appSettings.CST_Client_Secret_MERC__c);
 		r.setMethod('POST');
 
 		Http h = new Http();
@@ -65,7 +66,7 @@ public with sharing class GLBL_CustomerSearchToolService {
 		system.debug('>>> response from search tool: '+s);
 		AccessTokenResponse tokenResponse = (AccessTokenResponse)JSON.deserialize(s, AccessTokenResponse.class);
 		if (tokenResponse.access_token != null) {
-			this.appSettings.Access_Token_CUST__c = tokenResponse.access_token;
+			this.accessToken = tokenResponse.access_token;
 			update appSettings;
 		} else if (tokenResponse.error != null) {
 			//todo: raise

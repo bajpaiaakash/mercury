@@ -46,7 +46,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Holds user authorization settings for the Customer Search Tool</description>
+    <description>Holds user authorization settings for the Customer Search Tool. Every row reflects a single User/Country/Level combination. Users with access to multiple countries will have multiple rows in this table.</description>
     <enableActivities>false</enableActivities>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
@@ -54,7 +54,9 @@
     <enableReports>true</enableReports>
     <fields>
         <fullName>Access_Level_CUST__c</fullName>
+        <description>Level of authorized access to search fields as reflected in the search form and result lists. E.g. 2</description>
         <externalId>false</externalId>
+        <inlineHelpText>Level of authorized access to search fields as reflected in the search form and result lists. E.g. 2</inlineHelpText>
         <label>Access Level</label>
         <picklist>
             <picklistValues>
@@ -75,6 +77,7 @@
         <deleteConstraint>Restrict</deleteConstraint>
         <description>This field is a lookup to an Account record containing information for an Lilly employee or designate. Adding an Account here will authorize this user to utilized the Customer Search Tool</description>
         <externalId>false</externalId>
+        <inlineHelpText>This field is a lookup to an Account record containing information for an Lilly employee or designate. Adding an Account here will authorize this user to utilized the Customer Search Tool</inlineHelpText>
         <label>CST User</label>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>CST User Settings</relationshipLabel>
@@ -85,8 +88,9 @@
     </fields>
     <fields>
         <fullName>Country_Code_CUST__c</fullName>
-        <description>A country this user is authorized to search against</description>
+        <description>2-letter ISO code for the country this user is authorized to search against</description>
         <externalId>false</externalId>
+        <inlineHelpText>2-letter ISO code for the country this user is authorized to search against</inlineHelpText>
         <label>Country Code</label>
         <picklist>
             <picklistValues>
@@ -1085,7 +1089,7 @@
                 <fullName>ZW</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>true</sorted>
+            <sorted>false</sorted>
         </picklist>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>

@@ -1,7 +1,11 @@
 public with sharing class MERC_ParticipantStatusCalculator implements GLBL_TriggerHandler.HandlerInterface {
 	
 	public void handle() {
-		execute((List<Daily_Attendance_TOV_MERC__c>)Trigger.new);
+		if (Trigger.isInsert || Trigger.isUpdate || Trigger.isUndelete) {
+	    	execute((List<Daily_Attendance_TOV_MERC__c>)Trigger.new);
+	   	} else if (Trigger.isDelete) {
+	   		execute((List<Daily_Attendance_TOV_MERC__c>)Trigger.old);
+	   	}
 	}
 
 	public void execute(List<Daily_Attendance_TOV_MERC__c> tovRecords) {        

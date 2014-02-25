@@ -36,6 +36,11 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
+        <displayedFields>
+            <field>Expose_on_Portal_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
         <label>Account</label>
     </fieldSets>
     <fieldSets>
@@ -116,6 +121,11 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
+        <displayedFields>
+            <field>Expose_on_Portal_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
         <label>HCP Contract</label>
     </fieldSets>
     <fieldSets>
@@ -177,11 +187,6 @@
             <isRequired>true</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Approval_Reference_Number_MERC__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
             <field>Description</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -214,7 +219,7 @@
         <displayedFields>
             <field>Meeting_Participant_MERC__c</field>
             <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
+            <isRequired>true</isRequired>
         </displayedFields>
         <displayedFields>
             <field>Title</field>
@@ -224,7 +229,7 @@
         <displayedFields>
             <field>Document_Type_MERC__c</field>
             <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
+            <isRequired>true</isRequired>
         </displayedFields>
         <displayedFields>
             <field>Code_MERC__c</field>
@@ -233,6 +238,11 @@
         </displayedFields>
         <displayedFields>
             <field>Meeting_Archive_Date_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Expose_on_Portal_MERC__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>

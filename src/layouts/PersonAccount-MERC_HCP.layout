@@ -2,6 +2,7 @@
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Upload_Content_MERC</customButtons>
     <customButtons>Loop__LOOPlus</customButtons>
+    <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -32,6 +33,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Service_Provider_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>FMV_Tier_Exists_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -99,16 +104,12 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Has_MSA_MERC__c</field>
+                <behavior>Readonly</behavior>
+                <field>Has_MSA_Contract_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>MSA_Expiration_Date_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Social_Security_Number_MERC__c</field>
+                <behavior>Readonly</behavior>
+                <field>MSA_Contract_Expiration_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -201,18 +202,6 @@
                 <behavior>Edit</behavior>
                 <field>Tier_1_HCP_CV_Checked_MERC__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Licensed_HCP_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Experience_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Influential_MERC__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -242,10 +231,6 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Tier_3_Criteria_Met_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Tier_3_Score_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -356,10 +341,6 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>HCP_Care_Information_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Exec_Smmry_Note_MERC__c</field>
             </layoutItems>
         </layoutColumns>
@@ -441,6 +422,7 @@
         <fields>RECORDTYPE</fields>
         <fields>Contract_Request_Status_MERC__c</fields>
         <fields>Contract_Expiration_Date_MERC__c</fields>
+        <fields>MSA_End_Date_MERC__c</fields>
         <relatedList>HCP_Contract_MERC__c.Account_MERC__c</relatedList>
     </relatedLists>
     <relatedLists>

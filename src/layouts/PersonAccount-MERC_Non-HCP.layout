@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -72,12 +71,7 @@
                 <field>Contract_Limitations_on_Use_MERC__c</field>
             </layoutItems>
         </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Social_Security_Number_MERC__c</field>
-            </layoutItems>
-        </layoutColumns>
+        <layoutColumns/>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
     <layoutSections>
@@ -217,13 +211,6 @@
         <fields>Bank_Country_MERC__c</fields>
         <fields>Payment_Method_MERC__c</fields>
         <relatedList>Payee_MERC__c.Account_MERC__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>RECORDTYPE</fields>
-        <fields>Contract_Request_Status_MERC__c</fields>
-        <fields>Contract_Expiration_Date_MERC__c</fields>
-        <relatedList>HCP_Contract_MERC__c.Account_MERC__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>ACCOUNT.NAME</fields>

@@ -9,6 +9,7 @@
 		<name>ApexComponent</name>
 	</types>
 	<types>
+		<members>CreateCaseRedirectMVN</members>
 		<members>MERC_ActivateBudget</members>
 		<members>MERC_AddMeetingParticipants</members>
 		<members>MERC_AgendaBuilder</members>
@@ -221,10 +222,6 @@
 		<members>Time_Zone_Field_Mappings_MERC__c</members>
 		<members>Travel_Itinerary_MERC__c</members>
 		<name>Workflow</name>
-	</types>
-	<types>
-		<members>*</members>
-		<name>Translations</name>
 	</types>
 	<version>29.0</version>
 </Package>

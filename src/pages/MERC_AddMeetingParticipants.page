@@ -365,7 +365,7 @@
 				  		<apex:outputPanel id="resultBlockWrapper">
 				  			<apex:pageMessages />
 				  			<apex:pageBlock title="Search Results" id="resultBlock">
-				  				<apex:pageBlockButtons>
+				  				<apex:pageBlockButtons >
 				  					<apex:commandButton action="{!cancel}" value="Back to Meeting"/>
 				  				</apex:pageBlockButtons>
 				  				<apex:outputPanel id="resultTableWrapper">

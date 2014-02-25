@@ -67,8 +67,9 @@
     <fields>
         <fullName>Account_Bnft_Dsgn_Cd_CUST__c</fullName>
         <defaultValue>&quot;MD,PhD,PsyD&quot;</defaultValue>
-        <description>Default values for Professional Designation search control</description>
+        <description>Default values for Additional Details: Professional Designation (US Only) multi-select picklist</description>
         <externalId>false</externalId>
+        <inlineHelpText>Default values for Additional Details: Professional Designation (US Only) multi-select picklist</inlineHelpText>
         <label>Professional Designation (US Only)</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -122,7 +123,9 @@
     </fields>
     <fields>
         <fullName>Affiliation_Role_Types_CUST__c</fullName>
+        <description>Values for the Relationship Information (Affiliations): Relationship Role multi-select picklist</description>
         <externalId>false</externalId>
+        <inlineHelpText>Values for the Relationship Information (Affiliations): Relationship Role multi-select picklist</inlineHelpText>
         <label>Affiliation Role Types</label>
         <length>32768</length>
         <trackTrending>false</trackTrending>
@@ -131,8 +134,9 @@
     </fields>
     <fields>
         <fullName>Altid_Altrnt_Id_Typ_Cd_CUST__c</fullName>
-        <description>Default values for Alternate Id Type search control</description>
+        <description>Values for the Additional Details: Alternate Id Type picklist</description>
         <externalId>false</externalId>
+        <inlineHelpText>Values for the Additional Details: Alternate Id Type picklist</inlineHelpText>
         <label>Alternate Id Type</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -164,7 +168,9 @@
     </fields>
     <fields>
         <fullName>Employee_Record_Type_CUST__c</fullName>
+        <description>A comma-delimited list of Account record types used for Employees.</description>
         <externalId>false</externalId>
+        <inlineHelpText>A comma-delimited list of Account record types used for Employees. Entries should match RecordType.DeveloperName when viewing the schema directly or the &quot;Record Type Name&quot; when viewing Record Type Detail UI.  E.g. Employee_GLBL</inlineHelpText>
         <label>Employee Record Type</label>
         <length>64</length>
         <required>false</required>
@@ -174,8 +180,34 @@
     </fields>
     <fields>
         <fullName>Employee_Record_Type_Id_CUST__c</fullName>
+        <description>Do not edit. This field filled programmatically based on the record type names in Employee_Record_Type_CUST</description>
         <externalId>false</externalId>
+        <inlineHelpText>Do not edit. This field filled programmatically based on the record type names in Employee_Record_Type_CUST</inlineHelpText>
         <label>Employee Record Type Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>HCO_Record_Type_Ids_CUST__c</fullName>
+        <description>Do not edit. This field filled programmatically based on the record type names in HCO_Record_Types_CUST</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Do not edit. This field filled programmatically based on the record type names in HCO_Record_Types_CUST</inlineHelpText>
+        <label>HCO Record Type Ids</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>HCO_Record_Types_CUST__c</fullName>
+        <description>A comma-delimited list of Account record types used for Health Care Organizations.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>A comma-delimited list of Account record types used for HCOs. Entries should match RecordType.DeveloperName when viewing the schema directly or the &quot;Record Type Name&quot; when viewing Record Type Detail UI. E.g. HCO_GLBL</inlineHelpText>
+        <label>HCO Record Types</label>
         <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -186,6 +218,7 @@
         <fullName>Login_Message_CUST__c</fullName>
         <description>Tool should display a user message to user before allowing any access to data, the user must check a box to accept the terms before they are granted access to data</description>
         <externalId>false</externalId>
+        <inlineHelpText>Tool should display a user message to user before allowing any access to data, the user must check a box to accept the terms before they are granted access to data</inlineHelpText>
         <label>Login Message</label>
         <length>32768</length>
         <trackTrending>false</trackTrending>
@@ -194,7 +227,9 @@
     </fields>
     <fields>
         <fullName>Record_Type_Ids_CUST__c</fullName>
+        <description>Do not edit. This field filled programmatically based on the record type names in Record_Types_CUST</description>
         <externalId>false</externalId>
+        <inlineHelpText>Do not edit. This field filled programmatically based on the record type names in Record_Types_CUST</inlineHelpText>
         <label>Record Type Ids</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -202,8 +237,9 @@
     </fields>
     <fields>
         <fullName>Record_Types_CUST__c</fullName>
-        <description>Comma-delmited list of record types to include in search results</description>
+        <description>Comma-delmited list of record types to include in CST search results</description>
         <externalId>false</externalId>
+        <inlineHelpText>A comma-delimited list of Account record types to include for searching. Entries should match RecordType.DeveloperName when viewing the schema directly or the &quot;Record Type Name&quot; when viewing Record Type Detail UI.  E.g. HCP_GLBL,Non_HCP_GLBL,HCO_GLBL</inlineHelpText>
         <label>Record Types</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -212,8 +248,9 @@
     <fields>
         <fullName>Specialty_Spclty_Cd_CUST__c</fullName>
         <defaultValue>&quot;Cancer,Diabetes,Hypercholesterolemia&quot;</defaultValue>
-        <description>Default values for Specialty search control</description>
+        <description>Default values for Additional Details:Specialty multi-select picklist</description>
         <externalId>false</externalId>
+        <inlineHelpText>Default values for Additional Details:Specialty multi-select picklist</inlineHelpText>
         <label>Specialty</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -222,8 +259,9 @@
     <fields>
         <fullName>Specialty_priority_rank_CUST__c</fullName>
         <defaultValue>&quot;1,2,3,4,5&quot;</defaultValue>
-        <description>Default values for the Specialty Rank search control</description>
+        <description>Default values for Additional Details:Only Specialty Ranks multi-select picklist</description>
         <externalId>false</externalId>
+        <inlineHelpText>Default values for Additional Details:Only Specialty Ranks multi-select picklist</inlineHelpText>
         <label>Specialty Priority Rank</label>
         <length>64</length>
         <required>false</required>

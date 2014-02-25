@@ -28,7 +28,7 @@
 				<apex:outputField value="{!HCP_Contract_MERC__c.Lilly_Internal_Signee_MERC__r.PersonEmail}"/>
 			</apex:pageBlockSection>
 			<apex:pageBlockSection title="Contract Information" collapsible="false" columns="1" rendered="{!canRequestSignature}">
-				<apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
 					<apex:outputLabel for="title" value="Title"/>
 					<apex:outputLink target="_blank" value="/{!contractContentVersion.Id}">{!contractContentVersion.Title}</apex:outputLink>
 				</apex:pageBlockSectionItem>
@@ -51,7 +51,7 @@
 				<apex:outputField value="{!HCP_Contract_MERC__c.Lilly_Internal_Signee_MERC__r.PersonEmail}"/>
 			</apex:pageBlockSection>
 			<apex:pageBlockSection title="Contract Information" collapsible="false" columns="1" rendered="{!canRequestSignature}">
-				<apex:pageBlockSectionItem>
+				<apex:pageBlockSectionItem >
 					<apex:outputLabel for="title" value="Title"/>
 					<apex:outputLink target="_blank" value="/{!contractContentVersion.Id}">{!contractContentVersion.Title}</apex:outputLink>
 				</apex:pageBlockSectionItem>

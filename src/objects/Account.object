@@ -2046,6 +2046,7 @@ Created by John A Adams 12/18/2013</description>
 				)
 		)		
 )</formula>
+        <inlineHelpText>Returns the primary qualification which is used to determine the HCPs Minimum and Maximum hourly rate from the fair market value criteria.</inlineHelpText>
         <label>FMV Criteria Map</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -2175,7 +2176,7 @@ Created by John A Adams 11/4/2013</description>
         <formula>IF (Contract_Expiration_Date_MERC__c &gt;= Today(),&quot;Yes&quot;,&quot;No&quot;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <inlineHelpText>HCP has a signed contract that is not passed the Contract Expiration Date</inlineHelpText>
-        <label>Has Active Contract</label>
+        <label>Has Signed Contract</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Text</type>
@@ -3644,7 +3645,7 @@ Created by John A Adams 11/4/2013</description>
 Customer ODS to Mercury Mapping
 Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
-        <label>Primary Specialty Description</label>
+        <label>Primary Specialty</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -3708,7 +3709,7 @@ Created by John A Adams 11/4/2013</description>
         <fullName>Status_Desc_GLBL__c</fullName>
         <description>Workforce ODS data. Created 10/18/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <label>Status Description</label>
+        <label>Status</label>
         <length>120</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -3770,7 +3771,7 @@ Created by John A Adams 11/4/2013</description>
 Customer ODS to Mercury Mapping
 Created by John A Adams 12/10/2013</description>
         <externalId>false</externalId>
-        <label>Sub Classification Description</label>
+        <label>Sub Classification</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -3903,7 +3904,7 @@ Created by John A Adams 12/10/2013</description>
 Customer ODS to Mercury Mapping
 Created by John A Adams 12/10/2013</description>
         <externalId>false</externalId>
-        <label>Title Description</label>
+        <label>Title</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -4082,6 +4083,55 @@ Created by John Adams 10/28/2013</description>
         <type>Phone</type>
     </fields>
     <fields>
+        <fullName>WS_Updt_Dt_MERC__c</fullName>
+        <description>Portal activity field to record the date of an update.
+Created by John A Adams 2/18/2014</description>
+        <externalId>false</externalId>
+        <label>Web Service Update Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>WS_Updt_HCP_Actn_MERC__c</fullName>
+        <description>Portal activity field to record the update action
+Created by John A Adams 2/18/2014</description>
+        <externalId>false</externalId>
+        <label>Web Service Update HCP Action</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>WS_Updt_HCP_Global_ID_MERC__c</fullName>
+        <description>Portal activity field to record the updated Global ID
+Created by John A Adams 2/18/2014</description>
+        <externalId>false</externalId>
+        <label>Web Service Update HCP Global Id</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>WS_Updt_HCP_Name_MERC__c</fullName>
+        <description>Portal activity field to record the name of the HCP, to indicate that the HCP was the one to make the change. Created by John A Adams 2/18/2014</description>
+        <externalId>false</externalId>
+        <label>Web Service Update HCP Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Whlslr_Cd_GLBL__c</fullName>
         <description>Wholesaler Code
 Customer ODS to Mercury Mapping
@@ -4178,6 +4228,23 @@ Created by John A Adams 11/4/2013</description>
             <value>Account.Venue_GLBL</value>
         </filters>
         <label>All Venues</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Employees</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.SITE</columns>
+        <columns>ACCOUNT.ADDRESS1_STATE</columns>
+        <columns>ACCOUNT.PHONE1</columns>
+        <columns>Language_Preference_MERC__c</columns>
+        <columns>ACCOUNT.TYPE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ACCOUNT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>PersonAccount.Employee_GLBL</value>
+        </filters>
+        <label>Employees</label>
         <language>en_US</language>
     </listViews>
     <listViews>

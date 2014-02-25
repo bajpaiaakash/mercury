@@ -92,9 +92,15 @@ public with sharing class MERC_TestFactory {
 	}
 
 	public static Daily_Attendance_TOV_MERC__c insertTov(String meetingDayId, String meetingParticipantId) {
+		return insertTov(meetingDayId, meetingParticipantId, null);
+	}
+
+	public static Daily_Attendance_TOV_MERC__c insertTov(String meetingDayId, String meetingParticipantId, String status) {
 		Daily_Attendance_TOV_MERC__c tov = new Daily_Attendance_TOV_MERC__c();
 		tov.Meeting_Day_MERC__c = meetingDayId;
 		tov.Meeting_Participant_MERC__c = meetingParticipantId;
+		if (status != null)
+			tov.Status_MERC__c = status;
 		insert tov;
 		return tov;
 	}

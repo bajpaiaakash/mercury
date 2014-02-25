@@ -19,5 +19,4 @@ private class MERC_ParticipantFMVCalculatorTest {
 	@isTest static void test_should_stamp_fmv_rates_on_participant() {
 		// todo: implement when oliver update fmv settings data
 	}
-
 }

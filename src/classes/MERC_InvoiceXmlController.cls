@@ -1,9 +1,20 @@
+/* 
+ * @author Sean Harrison 
+ * 
+ * For Invoice data integration with SAP, this class provides the a controller extension
+ * for MERC_InvoiceAFIXML.page. Together these two components create an XML document 
+ * representative of the data in an Invoice record and confirming to AFI's specifications.
+ * The page itself is called from an @future method in MERC_InvoiceXmlWriter.class
+ */
 public with sharing class MERC_InvoiceXmlController {
 	
 	public Invoice_MERC__c invoice { get; private set; }
 	public String now { get{return Datetime.now().format('dd.MM.yyyy');}}
 	public String invoiceDate { get { if (invoiceDate == null) return Datetime.now().format('dd.MM.yyyy'); else return invoiceDate; } set; }
 
+	/*
+	 * Setup controller and its variables
+	 */
 	public MERC_InvoiceXmlController(ApexPages.StandardController controller) {
 		List<String> fieldNames = new List<String>();
 		fieldNames.add('Purpose_of_Payment_MERC__c');
@@ -18,6 +29,10 @@ public with sharing class MERC_InvoiceXmlController {
 		this.invoiceDate = dt.format('dd.MM.yyyy');
 	}
 
+
+	/*
+	 *	Property for VF page to get individual line item data
+	 */
 	public List<InvoiceLineWrapper> invoiceLines {
 		get {
 			if (invoiceLines == null) {
@@ -42,6 +57,9 @@ public with sharing class MERC_InvoiceXmlController {
 		private set;
 	}
 
+	/*
+	 * Inner class for individual line item data
+	 */
 	public class InvoiceLineWrapper {
 		public Integer position { get; private set; }
 		public Invoice_Line_Item_MERC__c lineItem { get; private set; }
@@ -51,6 +69,9 @@ public with sharing class MERC_InvoiceXmlController {
 		}
 	}
 	
+	/*
+	 * CDATA wasn't getting handled correctly by the VF XML generator so we'll just provide as a big string
+	 */
 	public String cdataLines { 
 		get {
 			if (cdataLines == null) {
@@ -72,6 +93,9 @@ public with sharing class MERC_InvoiceXmlController {
 		private set;
 	}
 
+	/*
+	 * A tif is optional. If it is in content, reflect the file data in the XML...
+	 */
 	public String scannedTifSection { 
 		get {
 			if (scannedTifSection == null) {

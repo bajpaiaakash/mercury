@@ -152,11 +152,11 @@ Truncates the Payee Name to 35 characters to send via the SAP Interface. This is
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
-        <fullName>Populate_SWIFT</fullName>
+        <fullName>Populate_Sort_Code</fullName>
         <description>Populates the Bank SWIFT Code from Payee</description>
-        <field>SWIFT_Code_MERC__c</field>
-        <formula>Payee_MERC__r.Bank_SWIFT_Code_MERC__c</formula>
-        <name>Populate SWIFT</name>
+        <field>Bank_Sort_Code_MERC__c</field>
+        <formula>Payee_MERC__r.Bank_Sort_Code_MERC__c</formula>
+        <name>Populate Sort Code</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
@@ -167,6 +167,16 @@ Truncates the Payee Name to 35 characters to send via the SAP Interface. This is
         <field>Payee_Street_MERC__c</field>
         <formula>Payee_MERC__r.Payee_Street_MERC__c</formula>
         <name>Populate Street</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Populate_Tax_Id_MERC</fullName>
+        <description>Pulls Tax Id from Payee Record.</description>
+        <field>Tax_Id_MERC__c</field>
+        <formula>Payee_MERC__r.Tax_Id_MERC__c</formula>
+        <name>Populate Tax Id</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
@@ -230,12 +240,12 @@ Truncates the Payee Name to 35 characters to send via the SAP Interface. This is
             <type>FieldUpdate</type>
         </actions>
         <actions>
-            <name>Populate_SWIFT</name>
+            <name>Populate_Sort_Code</name>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
         <description>Populate Bank information into Invoice</description>
-        <formula>OR((Payee_MERC__c &lt;&gt; &quot;&quot;),  ISCHANGED(Payee_MERC__c))</formula>
+        <formula>(ISNEW() &amp;&amp; !ISBLANK(Payee_MERC__c)) || ISCHANGED(Payee_MERC__c)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -269,12 +279,16 @@ Truncates the Payee Name to 35 characters to send via the SAP Interface. This is
             <type>FieldUpdate</type>
         </actions>
         <actions>
+            <name>Populate_Tax_Id_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
             <name>Populate_VAT_ID</name>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
         <description>Populate Payee information into Invoice</description>
-        <formula>OR((Payee_MERC__c &lt;&gt; &quot;&quot;),  ISCHANGED(Payee_MERC__c))</formula>
+        <formula>(ISNEW() &amp;&amp; !ISBLANK(Payee_MERC__c)) || ISCHANGED(Payee_MERC__c)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>

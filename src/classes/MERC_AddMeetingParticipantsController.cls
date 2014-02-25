@@ -65,10 +65,12 @@ public with sharing class MERC_AddMeetingParticipantsController {
 
     public Set<String> meetingParticipantAccountIds {
     	get {
-			meetingParticipantAccountIds = new Set<String>();
-			for (Meeting_Participant_MERC__c mp : [SELECT ID, Account_MERC__c FROM Meeting_Participant_MERC__c WHERE Meeting_MERC__c = :this.Meeting.Id AND Account_MERC__c != null]) {
-				meetingParticipantAccountIds.add(mp.Account_MERC__c);
-			}
+			if (meetingParticipantAccountIds == null) {
+                meetingParticipantAccountIds = new Set<String>();
+                for (Meeting_Participant_MERC__c mp : [SELECT ID, Account_MERC__c FROM Meeting_Participant_MERC__c WHERE Meeting_MERC__c = :this.Meeting.Id AND Account_MERC__c != null]) {
+                    meetingParticipantAccountIds.add(mp.Account_MERC__c);
+                }
+            }
     		return meetingParticipantAccountIds;
     	}
     	set;
@@ -167,6 +169,7 @@ public with sharing class MERC_AddMeetingParticipantsController {
 	    	m.Meeting_MERC__c = meeting.Id;
             m.RecordTypeId = newParticipantRecordTypeId;
 	    	insert m;
+            this.meetingParticipantAccountIds.add(accountId);
 	    } catch(Exception e) {
 			this.newParticipantRecordTypeId = null;
             this.hasError = true;
@@ -180,7 +183,10 @@ public with sharing class MERC_AddMeetingParticipantsController {
     public PageReference removeFromMeeting() {
     	try {
     		String meetingParticipantId = MERC_Util.getUrlParam('pid');
-    		delete [SELECT ID From Meeting_Participant_MERC__c WHERE Id = :meetingParticipantId];
+            Meeting_Participant_MERC__c mp = [SELECT Id, Account_MERC__c FROM Meeting_Participant_MERC__c WHERE ID = :meetingParticipantId];
+            String accountId = mp.Account_MERC__c;
+            delete mp;
+            this.meetingParticipantAccountIds.remove(accountId);
     	} catch(Exception e) {
 			this.hasError = true;
 			ApexPages.addMessages(e);

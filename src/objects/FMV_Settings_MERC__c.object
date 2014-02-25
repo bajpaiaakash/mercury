@@ -58,11 +58,10 @@ Created by John A Adams 9/29/2013</description>
 Created by John A Adams 9/29/2013</description>
         <externalId>false</externalId>
         <label>Tier Value</label>
-        <precision>2</precision>
+        <length>255</length>
         <required>false</required>
-        <scale>0</scale>
         <trackTrending>false</trackTrending>
-        <type>Number</type>
+        <type>Text</type>
         <unique>false</unique>
     </fields>
     <label>FMV Settings</label>

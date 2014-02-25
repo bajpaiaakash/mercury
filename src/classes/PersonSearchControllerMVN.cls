@@ -2,7 +2,6 @@
 * PersonSearchControllerMVN
 * Created By: Vincent Reeder
 * Created Date: January 9, 2012
-* Last Modified Date: April 9, 2013
 * Description: Controller for Person Search in Service Cloud.
 */
 public with sharing class PersonSearchControllerMVN {
@@ -19,6 +18,8 @@ public with sharing class PersonSearchControllerMVN {
     public String addId {get;set;}
     public String recordTypeText {get;set;}
     public Case cs {get; set;}
+    public String caseId{get; set;}
+
     public Address_GLBL__c searchAddress {get;set;}
     public Address_GLBL__c createAddress {get;set;}
     public Account searchAccount {get;set;}
@@ -53,10 +54,10 @@ public with sharing class PersonSearchControllerMVN {
         removeAccountError = false;
         
         validRecordTypeIds = new List<Id>();
-
+        caseId = ApexPages.currentPage().getParameters().get('caseId');
         cs = (Case) controller.getRecord();
         
-        if(cs.Id != null){
+        if(String.isNotBlank(caseId)){
             getCaseValues();
             standAloneSearch = false;
         } else
@@ -146,7 +147,7 @@ public with sharing class PersonSearchControllerMVN {
     }
 
     public void getCaseValues() {
-        cs = [select Id, AccountId, Account.Name, Account.Salutation, Referred_By_GLBL__c, Referred_By_GLBL__r.Name from Case where Id = :cs.Id];
+        cs = [select Id, AccountId, Account.Name, Account.Salutation, Referred_By_GLBL__c, Referred_By_GLBL__r.Name from Case where Id = :caseId];
     }
 
     public PageReference removeRequester(){
@@ -235,7 +236,7 @@ public with sharing class PersonSearchControllerMVN {
     }
 
     public PageReference updateCase(){
-        Account selectedAccount = [SELECT FirstName, LastName, PersonEmail, Phone, Fax from Account where Id = :actId];
+        Account selectedAccount = [SELECT FirstName, LastName, PersonEmail, PersonContactId, Phone, Fax from Account where Id = :actId];
         Address_GLBL__c selectedAddress = new Address_GLBL__c();
         List<Address_GLBL__c> getAddresses = [SELECT Name, Line_2_Adrs_Txt_GLBL__c, City_GLBL__c, St_Cd_GLBL__c, Zip_Postal_Code_GLBL__c, Adrs_Cntry_Cd_GLBL__c FROM Address_GLBL__c WHERE Id = :addId];
         if(getAddresses.size() > 0) {
@@ -243,6 +244,7 @@ public with sharing class PersonSearchControllerMVN {
         }
 
         cs.AccountId = selectedAccount.Id;
+        cs.ContactId = selectedAccount.PersonContactId;
         cs.Address_GLBL__c = selectedAddress.Id;
         cs.Account_Email_GLBL__c = selectedAccount.PersonEmail;
         cs.Account_Phone_GLBL__c = selectedAccount.Phone;

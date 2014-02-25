@@ -51,6 +51,17 @@
         <senderType>CurrentUser</senderType>
         <template>Mercury_Email_Templates_MERC/Tier_Calculation_Complete</template>
     </alerts>
+    <alerts>
+        <fullName>Reminder_Service_Not_Rendered</fullName>
+        <description>Reminder - Service Not Rendered</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Meeting_Owner_Email_MERC__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Mercury_Email_Templates_MERC/Reminder_Services_Not_Rendered</template>
+    </alerts>
     <fieldUpdates>
         <fullName>Clear_Confirm_Partial_Payment_Amt_MERC</fullName>
         <description>Set the Confirm Partial Payment Amount checkbox to False. Created 12/18/2013 by KLorenti, Mavens Consulting</description>
@@ -142,17 +153,6 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
-        <fullName>Update_Copay_Update_Date</fullName>
-        <description>Update Copay Update date with current date</description>
-        <field>Participant_CoPay_Updated_Date_MERC__c</field>
-        <formula>Now()</formula>
-        <name>Update Copay Update Date</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Formula</operation>
-        <protected>false</protected>
-        <targetObject>Meeting_MERC__c</targetObject>
-    </fieldUpdates>
-    <fieldUpdates>
         <fullName>Update_Exception_Approval_MERC</fullName>
         <description>If the Proposed Final Fee is less than the Maximium Fee then this field update will set the Exception Approval to &quot;Not Required&quot;</description>
         <field>Higher_Fee_Approval__c</field>
@@ -167,7 +167,7 @@
         <fullName>Update_Final_Fee_MERC</fullName>
         <description>Stamps the Final Fee with the Proposed Fee. Oliver Dunford 6th Nov 2013.</description>
         <field>Final_Fee_MERC__c</field>
-        <formula>ROUND(Proposed_Final_Fee_MERC__c + (Proposed_Final_Fee_MERC__c *  Travel_Adjustment_Percentage_MERC__c),0)</formula>
+        <formula>Proposed_Final_Fee_MERC__c</formula>
         <name>Update Final Fee</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
@@ -313,7 +313,7 @@
         <fullName>Update_Travel_Adjustment_Amount</fullName>
         <description>Update when Final Fee is confirmed</description>
         <field>Travel_Adjustment_Amount_MERC__c</field>
-        <formula>ROUND((Proposed_Final_Fee_MERC__c *  Travel_Adjustment_Percentage_MERC__c),0)</formula>
+        <formula>Proposed_Final_Fee_MERC__c *  Travel_Adjustment_Percentage_MERC__c</formula>
         <name>Update Travel Adjustment Amount</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
@@ -627,6 +627,26 @@
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
+        <fullName>Reminder - Services Not Rendered</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Meeting_Participant_MERC__c.Services_Rendered_MERC__c</field>
+            <operation>equals</operation>
+            <value>No</value>
+        </criteriaItems>
+        <description>Notifies Primary Meeting Owner and Customer Facing User, if applicable, to let them know that the Services Rendered is not equal to Yes and it has been 5 days past the end of the meeting.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Reminder_Service_Not_Rendered</name>
+                <type>Alert</type>
+            </actions>
+            <offsetFromField>Meeting_Participant_MERC__c.Meeting_End_Date_MERC__c</offsetFromField>
+            <timeLength>5</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
         <fullName>Remove Final Fee if Partial Payment is Zero_MERC</fullName>
         <actions>
             <name>Remove_Final_Fee_MERC</name>
@@ -662,7 +682,16 @@
         </actions>
         <active>true</active>
         <description>This fires when any of the CoPay fields on the Meeting Participant are changed or updated.  This will ensure that any changes are picked up by AODS.</description>
-        <formula>(ISBLANK(PRIORVALUE(CoPay_Flight_Rail_MERC__c)) &amp;&amp; !ISBLANK(CoPay_Flight_Rail_MERC__c))  	|| ISCHANGED(CoPay_Flight_Rail_MERC__c) ||  (ISBLANK(PRIORVALUE( CoPay_Food_Beverage_MERC__c )) &amp;&amp; !ISBLANK( CoPay_Food_Beverage_MERC__c ))  	|| ISCHANGED( CoPay_Food_Beverage_MERC__c ) ||  (ISBLANK(PRIORVALUE(CoPay_Ground_Transport_MERC__c)) &amp;&amp; !ISBLANK(CoPay_Ground_Transport_MERC__c)) ||  	ISCHANGED(CoPay_Ground_Transport_MERC__c) ||  (ISBLANK(PRIORVALUE(CoPay_Hotel_MERC__c )) &amp;&amp; !ISBLANK(CoPay_Hotel_MERC__c )) ||  	ISCHANGED(CoPay_Hotel_MERC__c ) ||  (ISBLANK(PRIORVALUE(CoPay_Registration_MERC__c)) &amp;&amp; !ISBLANK(CoPay_Registration_MERC__c)) ||  	ISCHANGED(CoPay_Registration_MERC__c)</formula>
+        <formula>(ISBLANK(PRIORVALUE(CoPay_Flight_Rail_MERC__c)) &amp;&amp; !ISBLANK(CoPay_Flight_Rail_MERC__c))  
+	|| ISCHANGED(CoPay_Flight_Rail_MERC__c) ||  
+(ISBLANK(PRIORVALUE( CoPay_Food_Beverage_MERC__c )) &amp;&amp; !ISBLANK( CoPay_Food_Beverage_MERC__c ))  
+	|| ISCHANGED( CoPay_Food_Beverage_MERC__c ) ||  
+(ISBLANK(PRIORVALUE(CoPay_Ground_Transport_MERC__c)) &amp;&amp; !ISBLANK(CoPay_Ground_Transport_MERC__c)) 
+	|| ISCHANGED(CoPay_Ground_Transport_MERC__c) ||  
+(ISBLANK(PRIORVALUE(CoPay_Hotel_MERC__c )) &amp;&amp; !ISBLANK(CoPay_Hotel_MERC__c )) 
+	|| ISCHANGED(CoPay_Hotel_MERC__c ) ||  
+(ISBLANK(PRIORVALUE(CoPay_Registration_MERC__c)) &amp;&amp; !ISBLANK(CoPay_Registration_MERC__c)) 
+	|| ISCHANGED(CoPay_Registration_MERC__c)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -704,17 +733,6 @@
         <active>true</active>
         <description>If Proposed Final Fee is lass than the Maximum Fee then set the Exception Approval to &quot;Not Required&quot;. Created 11/21/2013 by KLorenti</description>
         <formula>ISCHANGED (Proposed_Final_Fee_MERC__c ) &amp;&amp;  Proposed_Final_Fee_MERC__c &lt; Maximum_Fee_MERC__c</formula>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
-        <fullName>Update Copay Update Date when Copay Fields Change_MERC</fullName>
-        <actions>
-            <name>Update_Copay_Update_Date</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <description>When the CoPay fields change, update the Participant CoPay Updated Date with current date/time.</description>
-        <formula>ISCHANGED(CoPay_Flight_Rail_MERC__c) ||  ISCHANGED(CoPay_Food_Beverage_MERC__c) ||  ISCHANGED(CoPay_Ground_Transport_MERC__c) ||  ISCHANGED(CoPay_Hotel_MERC__c) ||  ISCHANGED(CoPay_Registration_MERC__c)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -762,17 +780,6 @@
         <description>Updates the meeting participant search field with a searchable string. Oliver Dunford 6th Nov 2013.</description>
         <formula>TRUE</formula>
         <triggerType>onCreateOnly</triggerType>
-    </rules>
-    <rules>
-        <fullName>Update Participant ToV Update Date_MERC</fullName>
-        <actions>
-            <name>Update_Participant_ToV_Update_Date_MERC</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <description>When any of the other ToV fields change (at Daily Attendance &amp; ToV Level or Meeting Participant Level (for those manually typed), update the Participant ToV Updated Date with current date/time.</description>
-        <formula>ISCHANGED(Total_Hotel_ToV_MERC__c) ||  ISCHANGED(Total_Ground_Transporation_ToV_MERC__c) ||  ISCHANGED(Total_Food_Beverage_ToV_MERC__c) ||  ISCHANGED(Total_Registration_ToV_MERC__c)</formula>
-        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Update Unique Meeting Participant_MERC</fullName>

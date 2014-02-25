@@ -42,11 +42,11 @@
                 <field>Type_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Meeting_Sub_Type_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Meeting_Scope_MERC__c</field>
             </layoutItems>
             <layoutItems>
@@ -54,24 +54,12 @@
                 <field>Meeting_Cancellation_Date_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Preferred_Venue_Postal_Code_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Source_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Immediate_Source_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>RTI_Transaction_ID_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Days_Until_Meeting_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Lock_Meeting_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -212,7 +200,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Justification_for_Venue_MERC__c</field>
+                <field>Preferred_Venue_Postal_Code_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -231,6 +219,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Sourced_Venue_Postal_Code_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Justification_for_Venue_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -552,6 +544,7 @@
         <fields>Speciality_MERC__c</fields>
         <fields>Classification_MERC__c</fields>
         <fields>Status_MERC__c</fields>
+        <fields>Has_Signed_Contract_MERC__c</fields>
         <relatedList>Meeting_Participant_MERC__c.Meeting_MERC__c</relatedList>
         <sortField>RECORDTYPE</sortField>
         <sortOrder>Desc</sortOrder>
@@ -648,4 +641,10 @@
     <showInteractionLogPanel>false</showInteractionLogPanel>
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
+    <summaryLayout>
+        <masterLabel>00h11000000Mwfn</masterLabel>
+        <sizeX>4</sizeX>
+        <sizeY>0</sizeY>
+        <summaryLayoutStyle>Default</summaryLayoutStyle>
+    </summaryLayout>
 </Layout>

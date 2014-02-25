@@ -87,7 +87,7 @@
         <fullName>Set_Queue_Owner_Australia_New_Zealand</fullName>
         <description>Set Queue Owner - Australia/New Zealand</description>
         <field>OwnerId</field>
-        <lookupValue>France_Hub</lookupValue>
+        <lookupValue>Hub_France</lookupValue>
         <lookupValueType>Queue</lookupValueType>
         <name>Set Queue Owner - Australia/New Zealand</name>
         <notifyAssignee>false</notifyAssignee>
@@ -97,7 +97,7 @@
     <fieldUpdates>
         <fullName>Set_Queue_Owner_France_Hub</fullName>
         <field>OwnerId</field>
-        <lookupValue>France_Hub</lookupValue>
+        <lookupValue>Hub_France</lookupValue>
         <lookupValueType>Queue</lookupValueType>
         <name>Set Queue Owner - France Hub</name>
         <notifyAssignee>false</notifyAssignee>
@@ -108,7 +108,7 @@
         <fullName>Set_Queue_Owner_Germany_Hub</fullName>
         <description>Sets Queue Owner to Germany Hub</description>
         <field>OwnerId</field>
-        <lookupValue>Germany_Hub</lookupValue>
+        <lookupValue>Hub_Germany</lookupValue>
         <lookupValueType>Queue</lookupValueType>
         <name>Set Queue Owner - Germany Hub</name>
         <notifyAssignee>false</notifyAssignee>
@@ -119,7 +119,7 @@
         <fullName>Set_Queue_Owner_Italy_Hub</fullName>
         <description>Set Queue Owner to Italy Hub</description>
         <field>OwnerId</field>
-        <lookupValue>Italy_Hub</lookupValue>
+        <lookupValue>Hub_Italy</lookupValue>
         <lookupValueType>Queue</lookupValueType>
         <name>Set Queue Owner - Italy Hub</name>
         <notifyAssignee>false</notifyAssignee>
@@ -130,7 +130,7 @@
         <fullName>Set_Queue_Owner_Russia</fullName>
         <description>Sets Queue Owner to Russia</description>
         <field>OwnerId</field>
-        <lookupValue>Russia</lookupValue>
+        <lookupValue>Hub_Russia</lookupValue>
         <lookupValueType>Queue</lookupValueType>
         <name>Set Queue Owner - Russia</name>
         <notifyAssignee>false</notifyAssignee>
@@ -141,7 +141,7 @@
         <fullName>Set_Queue_Owner_Spain_Hub</fullName>
         <description>Set Queue Owner - Spain Hub</description>
         <field>OwnerId</field>
-        <lookupValue>Spain_Hub</lookupValue>
+        <lookupValue>Hub_Spain</lookupValue>
         <lookupValueType>Queue</lookupValueType>
         <name>Set Queue Owner - Spain Hub</name>
         <notifyAssignee>false</notifyAssignee>
@@ -152,7 +152,7 @@
         <fullName>Set_Queue_Owner_Turkey</fullName>
         <description>Sets Queue Owner to Turkey</description>
         <field>OwnerId</field>
-        <lookupValue>Turkey</lookupValue>
+        <lookupValue>Hub_Turkey</lookupValue>
         <lookupValueType>Queue</lookupValueType>
         <name>Set Queue Owner - Turkey</name>
         <notifyAssignee>false</notifyAssignee>
@@ -163,7 +163,7 @@
         <fullName>Set_Queue_Owner_UK_Hub</fullName>
         <description>Set Queue based on Country of Meeting</description>
         <field>OwnerId</field>
-        <lookupValue>UK_Hub</lookupValue>
+        <lookupValue>Hub_UK</lookupValue>
         <lookupValueType>Queue</lookupValueType>
         <name>Set Queue Owner - UK Hub</name>
         <notifyAssignee>false</notifyAssignee>
@@ -174,7 +174,7 @@
         <fullName>Set_Queue_Owner_Ukraine</fullName>
         <description>Set Queue Owner to Ukraine</description>
         <field>OwnerId</field>
-        <lookupValue>Ukraine</lookupValue>
+        <lookupValue>Hub_Ukraine</lookupValue>
         <lookupValueType>Queue</lookupValueType>
         <name>Set Queue Owner - Ukraine</name>
         <notifyAssignee>false</notifyAssignee>
@@ -380,6 +380,7 @@ Name</formula>
         <fields>CurrencyIsoCode</fields>
         <fields>Date_of_Event_MERC__c</fields>
         <fields>Date_to_Send_Invitations_MERC__c</fields>
+        <fields>Days_Until_Meeting_MERC__c</fields>
         <fields>Disable_Portal_Registration_MERC__c</fields>
         <fields>Employee_Travel_MERC__c</fields>
         <fields>Employees_Attended_MERC__c</fields>
@@ -394,6 +395,7 @@ Name</formula>
         <fields>Event_Website_MERC__c</fields>
         <fields>Event_Website_Needed_MERC__c</fields>
         <fields>Expenses_MERC__c</fields>
+        <fields>Expose_on_Portal_MERC__c</fields>
         <fields>External_Delegates_MERC__c</fields>
         <fields>Food_and_Beverage_Requirements_MERC__c</fields>
         <fields>Forecasting_Information_MERC__c</fields>
@@ -419,8 +421,11 @@ Name</formula>
         <fields>Invoicing_Completed_MERC__c</fields>
         <fields>IsDeleted</fields>
         <fields>Justification_for_Venue_MERC__c</fields>
+        <fields>LastActivityDate</fields>
         <fields>LastModifiedById</fields>
         <fields>LastModifiedDate</fields>
+        <fields>LastReferencedDate</fields>
+        <fields>LastViewedDate</fields>
         <fields>Logistics_Information_MERC__c</fields>
         <fields>MCP_work_MERC__c</fields>
         <fields>Make_Payment_To_MERC__c</fields>
@@ -437,7 +442,10 @@ Name</formula>
         <fields>Meeting_Status_MERC__c</fields>
         <fields>Meeting_Sub_Type_MERC__c</fields>
         <fields>Meeting_Time_Zone_MERC__c</fields>
+        <fields>Meeting_Type_Abbreviation_MERC__c</fields>
         <fields>Mercury_External_Id_MERC__c</fields>
+        <fields>Mercury_Owner_Master_Id_MERC__c</fields>
+        <fields>Mercury_Worker_Country_Code_MERC__c</fields>
         <fields>Name</fields>
         <fields>No_Shows_MERC__c</fields>
         <fields>Non_HCPs_Attended_MERC__c</fields>
@@ -451,8 +459,14 @@ Name</formula>
         <fields>Number_of_Restaurants_MERC__c</fields>
         <fields>On_Site_Support_Required_MERC__c</fields>
         <fields>OwnerId</fields>
+        <fields>Owner_Master_Id_MERC__c</fields>
+        <fields>PO_Number_MERC__c</fields>
+        <fields>Parent_Meeting_Event_Id_MERC__c</fields>
         <fields>Parent_Meeting_External_MERC__c</fields>
         <fields>Parent_Meeting_MERC__c</fields>
+        <fields>Participant_CoPay_Updated_Date_MERC__c</fields>
+        <fields>Participant_ToV_Final_MERC__c</fields>
+        <fields>Participant_ToV_Updated_Date_MERC__c</fields>
         <fields>Participants_Attended_MERC__c</fields>
         <fields>Planned_Attendees_MERC__c</fields>
         <fields>Planned_Budget_MERC__c</fields>
@@ -461,7 +475,6 @@ Name</formula>
         <fields>Preferred_Venue_Addr_2_MERC__c</fields>
         <fields>Preferred_Venue_MERC__c</fields>
         <fields>Preferred_Venue_Postal_Code_MERC__c</fields>
-        <fields>RTI_Transaction_ID_MERC__c</fields>
         <fields>Ready_for_Sourcing_MERC__c</fields>
         <fields>RecordTypeId</fields>
         <fields>Rep_Cost_Center_MERC__c</fields>
@@ -471,9 +484,16 @@ Name</formula>
         <fields>Send_Save_the_Date_MERC__c</fields>
         <fields>Shipping_Address_for_Invitations_MERC__c</fields>
         <fields>Source_MERC__c</fields>
+        <fields>Sourced_Venue_Addr1_MERC__c</fields>
+        <fields>Sourced_Venue_Addr_2_MERC__c</fields>
+        <fields>Sourced_Venue_City_MERC__c</fields>
+        <fields>Sourced_Venue_Country_MERC__c</fields>
+        <fields>Sourced_Venue_Name_MERC__c</fields>
+        <fields>Sourced_Venue_Postal_Code_MERC__c</fields>
         <fields>Speaker_MERC__c</fields>
         <fields>Sponsorship_Category_MERC__c</fields>
         <fields>Sponsorship_Eligibility_Crit_Met_MERC__c</fields>
+        <fields>Sponsorship_Processed_MERC__c</fields>
         <fields>Sponsorship_Type_MERC__c</fields>
         <fields>Sponsorship_WO_Lilly_Assistance_MERC__c</fields>
         <fields>Sponsorship_W_Lilly_Assistance_MERC__c</fields>
@@ -482,6 +502,7 @@ Name</formula>
         <fields>Start_Time_of_Meeting_MERC__c</fields>
         <fields>Submit_for_Contracting_MERC__c</fields>
         <fields>SystemModstamp</fields>
+        <fields>Target_Audience_List_MERC__c</fields>
         <fields>Target_Audience_MERC__c</fields>
         <fields>Technical_Requirements_MERC__c</fields>
         <fields>Territory_Description_GLBL__c</fields>
@@ -493,6 +514,7 @@ Name</formula>
         <fields>Type_MERC__c</fields>
         <fields>Venue_MERC__c</fields>
         <fields>Virtual_Meeting_MERC__c</fields>
+        <fields>Work_Cntry_Cd_GLBL__c</fields>
         <fields>of_Sponsored_Individuals_MERC__c</fields>
         <fields>of_Sponsorship_Group_MERC__c</fields>
         <includeSessionId>true</includeSessionId>
@@ -508,6 +530,7 @@ Name</formula>
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
+        <booleanFilter>1 AND 2 AND 3</booleanFilter>
         <criteriaItems>
             <field>Meeting_MERC__c.Meeting_Status_MERC__c</field>
             <operation>equals</operation>
@@ -703,7 +726,9 @@ Name</formula>
         </actions>
         <active>true</active>
         <description>Set Queue Owner - France Hub</description>
-        <formula>(ISPICKVAL(Event_Country_MERC__c,&apos;FR&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;NL&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;BE&apos;))&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
+        <formula>(ISPICKVAL(Event_Country_MERC__c,&apos;FR&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;NL&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;BE&apos;))&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;) &amp;&amp;
+RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
+RecordType.Name &lt;&gt; &apos;Consulting Project&apos;</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -725,7 +750,9 @@ Name</formula>
         </actions>
         <active>true</active>
         <description>Set Queue Owner - Italy Hub</description>
-        <formula>(ISPICKVAL(Event_Country_MERC__c,&apos;IT&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;RO&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;BG&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;HR&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;RS&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;SI&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;CY&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;MT&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;CA&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;HU&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;PL&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;SK&apos;))&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
+        <formula>(ISPICKVAL(Event_Country_MERC__c,&apos;IT&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;RO&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;BG&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;HR&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;RS&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;SI&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;CY&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;MT&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;CA&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;HU&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;PL&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;SK&apos;))&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;) &amp;&amp;
+RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
+RecordType.Name &lt;&gt; &apos;Consulting Project&apos;</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -736,7 +763,9 @@ Name</formula>
         </actions>
         <active>true</active>
         <description>Set Queue Owner - Russia</description>
-        <formula>ISPICKVAL(Event_Country_MERC__c,&apos;RU&apos;)&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
+        <formula>ISPICKVAL(Event_Country_MERC__c,&apos;RU&apos;)&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;) &amp;&amp;
+RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
+RecordType.Name &lt;&gt; &apos;Consulting Project&apos;</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -747,7 +776,9 @@ Name</formula>
         </actions>
         <active>true</active>
         <description>Set Queue Owner - Spain Hub</description>
-        <formula>(ISPICKVAL(Event_Country_MERC__c,&apos;ES&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;PT&apos;))&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
+        <formula>(ISPICKVAL(Event_Country_MERC__c,&apos;ES&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;PT&apos;))&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;) &amp;&amp;
+RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
+RecordType.Name &lt;&gt; &apos;Consulting Project&apos;</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -758,7 +789,9 @@ Name</formula>
         </actions>
         <active>true</active>
         <description>Set Queue Owner - Turkey</description>
-        <formula>ISPICKVAL(Event_Country_MERC__c,&apos;TR&apos;)&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
+        <formula>ISPICKVAL(Event_Country_MERC__c,&apos;TR&apos;)&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;) &amp;&amp;
+RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
+RecordType.Name &lt;&gt; &apos;Consulting Project&apos;</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -769,7 +802,9 @@ Name</formula>
         </actions>
         <active>true</active>
         <description>Set Queue Owner - UK Hub</description>
-        <formula>(ISPICKVAL(Event_Country_MERC__c,&apos;GB&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;IE&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;SE&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;NO&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;DK&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;FI&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;LV&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;LT&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;EE&apos;))&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
+        <formula>(ISPICKVAL(Event_Country_MERC__c,&apos;GB&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;IE&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;SE&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;NO&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;DK&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;FI&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;LV&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;LT&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;EE&apos;))&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;) &amp;&amp;
+RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
+RecordType.Name &lt;&gt; &apos;Consulting Project&apos;</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -780,7 +815,9 @@ Name</formula>
         </actions>
         <active>true</active>
         <description>Set Queue Owner - Ukraine</description>
-        <formula>ISPICKVAL(Event_Country_MERC__c,&apos;UA&apos;)&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
+        <formula>ISPICKVAL(Event_Country_MERC__c,&apos;UA&apos;)&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot; )&amp;&amp;
+RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
+RecordType.Name &lt;&gt; &apos;Consulting Project&apos;</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>

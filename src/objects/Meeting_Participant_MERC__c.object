@@ -390,7 +390,8 @@ Created by John A Adams 10/31/2013</description>
         <fullName>Email_to_Invite_HCP_to_Portal_MERC__c</fullName>
         <description>Email address entered by Sales Rep if HCP needs inviting to the Portal. Oliver Dunford 10th Jan.</description>
         <externalId>false</externalId>
-        <label>Email to Invite HCP to Portal</label>
+        <inlineHelpText>Not required if “Service provider” box is checked on HCP profile. You must ask HCP to provide this data to you for the purposes of logistics and for web services.</inlineHelpText>
+        <label>Email to Invite HCP to Web Service</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -445,6 +446,18 @@ Created by John Adams on 12/9/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>FMV_Criteria_Map_MERC__c</fullName>
+        <description>Pulls down the FMV Criteria Map field from the Account object in order to lookup the correct FMV value based on qualifications and Tier of HCP.</description>
+        <externalId>false</externalId>
+        <formula>Account_MERC__r.FMV_Criteria_Map_MERC__c</formula>
+        <label>FMV Criteria Map</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Final_Fee_MERC__c</fullName>
         <description>Can be used to override the calculated Maximum Fee.  This is the figure used within the Invoicing Process.  Created by Oliver Dunford 31st Oct 2013.</description>
         <externalId>false</externalId>
@@ -485,6 +498,7 @@ Created by John Adams on 12/9/2013</description>
         <fullName>HCP_Info_Package_Comm_Details_MERC__c</fullName>
         <description>Mapped from Participants orginating from Veeva so that SalesRep can communicate the contact details of the HCP for follow up correspondence.  Oliver Dunford 10th Jan.</description>
         <externalId>false</externalId>
+        <inlineHelpText>Not required if “Service provider” box is checked on HCP profile. You must ask HCP to provide this data to you for the purposes of logistics. E.g. Fax 44 2222 33333.</inlineHelpText>
         <label>HCP Info Package Communication Details</label>
         <length>255</length>
         <required>false</required>
@@ -507,13 +521,13 @@ Created by John Adams on 12/9/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Has_Contract_MERC__c</fullName>
+        <fullName>Has_Signed_Contract_MERC__c</fullName>
         <description>Displays if HCP has an Active Contract. Created 02/13/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <formula>IF (Account_MERC__r.Has_Contract_MERC__c = &quot;Yes&quot;, &quot;Yes&quot;, &quot;No&quot;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <inlineHelpText>Whether the HCP currently has a signed Work Order or Single Event Contract for the Meeting</inlineHelpText>
-        <label>Has Active Contract</label>
+        <label>Has Signed Contract</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -1053,7 +1067,8 @@ Created by John A Adams 10/31/2013</description>
         <defaultValue>false</defaultValue>
         <description>When the Rep will deliver the HCP Info Package in Person, this field will be set to ensure they receive the Info Package and not the HCP - set via Veeva to Mercury Interface. Oliver Dunford 10th Jan.</description>
         <externalId>false</externalId>
-        <label>Send HCP Info Package to Rep</label>
+        <inlineHelpText>Diverts paper information package to Meeting Owner, not HCP.</inlineHelpText>
+        <label>Send HCP Info Package to Meeting Owner</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -1177,6 +1192,7 @@ Created by John A Adams 1/7/2014</description>
         <fullName>Topic_Area_MERC__c</fullName>
         <description>The topic area chosen by the Service Provider.  Oliver Dunford. 5th Nov 2013.</description>
         <externalId>false</externalId>
+        <inlineHelpText>Name of presentation or service.</inlineHelpText>
         <label>Topic Area</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1475,6 +1491,55 @@ Created by John A Adams 12/12/2013</description>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
+    <fields>
+        <fullName>WS_Updt_Dt_MERC__c</fullName>
+        <description>Portal activity field to record the date of an update. 
+Created by John A Adams 2/18/2014</description>
+        <externalId>false</externalId>
+        <label>Web Service Update Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>WS_Updt_HCP_Actn_MERC__c</fullName>
+        <description>Portal activity field to record the update action
+Created by John A Adams 2/18/2014</description>
+        <externalId>false</externalId>
+        <label>Web Service Update HCP Action</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>WS_Updt_HCP_Global_ID_MERC__c</fullName>
+        <description>Portal activity field to record the updated Global ID
+Created by John A Adams 2/18/2014</description>
+        <externalId>false</externalId>
+        <label>Web Service Update HCP Global Id</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>WS_Updt_HCP_Name_MERC__c</fullName>
+        <description>Portal activity field to record the name of the HCP, to indicate that the HCP was the one to make the change. Created by John A Adams 2/18/2014</description>
+        <externalId>false</externalId>
+        <label>Web Service Update HCP Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <label>Meeting Participant</label>
     <listViews>
         <fullName>All</fullName>
@@ -1727,7 +1792,7 @@ Created by John A Adams 12/12/2013</description>
             <picklist>Type_of_Contract_MERC__c</picklist>
             <values>
                 <fullName>MSA</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Single Event</fullName>
@@ -1741,32 +1806,8 @@ Created by John A Adams 12/12/2013</description>
         <picklistValues>
             <picklist>Types_of_Service_MERC__c</picklist>
             <values>
-                <fullName>Advisory Board - Chairman</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Advisory Board - Participant</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Consulting Project</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Medical Research Consultant</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Speaker Training</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Speaking - Chairman Meeting</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Speaking - Speaker</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -2607,7 +2648,7 @@ Created by John A Adams 12/12/2013</description>
             <picklist>Type_of_Contract_MERC__c</picklist>
             <values>
                 <fullName>MSA</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Single Event</fullName>

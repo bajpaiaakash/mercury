@@ -57,6 +57,14 @@
         <value>Creating...</value>
     </labels>
     <labels>
+        <fullName>Error_Tab_Name_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error Tab Name</shortDescription>
+        <value>An Error occured</value>
+    </labels>
+    <labels>
         <fullName>Generic_Phone_Field_Label_MVN</fullName>
         <categories>PersonSearchMVN, SelectedRequesterMVN</categories>
         <language>en_US</language>
@@ -156,9 +164,9 @@
         <fullName>Return_To_Interaction_Button_MVN</fullName>
         <categories>PersonSearchMVN</categories>
         <language>en_US</language>
-        <protected>true</protected>
+        <protected>false</protected>
         <shortDescription>Return To Interaction Button</shortDescription>
-        <value>Return To Interaction</value>
+        <value>Return To Case</value>
     </labels>
     <labels>
         <fullName>Return_to_Request_MVN</fullName>

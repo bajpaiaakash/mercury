@@ -8,7 +8,7 @@
 public with sharing class MERC_LockedRecordHandler implements GLBL_TriggerHandler.HandlerInterface {
 	
 	public static Boolean overrideLockCheck = false;
-    public Schema.DescribeFieldResult lockedField;
+    public String lockedFieldAPIName;
     public Set<String> exemptFields;
     Schema.SobjectType sObjectType;
     Schema.SobjectType parentSobjectType;
@@ -17,13 +17,13 @@ public with sharing class MERC_LockedRecordHandler implements GLBL_TriggerHandle
 
     public MERC_LockedRecordHandler(Schema.SobjectType sObjectType) {
         this.sObjectType = sObjectType;
-        this.lockedField = sObjectToLockedField.get(this.sObjectType);
+        this.lockedFieldAPIName = sObjectToLockedField.get(this.sObjectType).getName();
         this.sObjectIsChild = false;
     }
 
     public MERC_LockedRecordHandler(Schema.SobjectType sObjectType, Set<String> exemptFields) {
         this.sObjectType = sObjectType;
-        this.lockedField = sObjectToLockedField.get(this.sObjectType);
+        this.lockedFieldAPIName = sObjectToLockedField.get(this.sObjectType).getName();
         this.exemptFields = exemptFields;
         this.sObjectIsChild = false;
     }
@@ -31,7 +31,7 @@ public with sharing class MERC_LockedRecordHandler implements GLBL_TriggerHandle
     public MERC_LockedRecordHandler(Schema.SobjectType sObjectType, Schema.SobjectType parentType, Schema.DescribeFieldResult parentLookupField) {
         this.sObjectType = sObjectType;
         this.parentSobjectType = parentType;
-        this.lockedField = sObjectToLockedField.get(this.parentSobjectType);
+        this.lockedFieldAPIName = sObjectToLockedField.get(this.parentSobjectType).getName();
         this.parentLookupField = parentLookupField;
         this.sObjectIsChild = true;
     }
@@ -39,7 +39,7 @@ public with sharing class MERC_LockedRecordHandler implements GLBL_TriggerHandle
     public MERC_LockedRecordHandler(Schema.SobjectType sObjectType, Schema.SobjectType parentType, Schema.DescribeFieldResult parentLookupField, Set<String> exemptFields) {
         this.sObjectType = sObjectType;
         this.parentSobjectType = parentType;
-        this.lockedField = sObjectToLockedField.get(this.parentSobjectType);
+        this.lockedFieldAPIName = sObjectToLockedField.get(this.parentSobjectType).getName();
         this.exemptFields = exemptFields;
         this.parentLookupField = parentLookupField;
         this.sObjectIsChild = true;
@@ -86,7 +86,7 @@ public with sharing class MERC_LockedRecordHandler implements GLBL_TriggerHandle
     			Set<Id> parentObjectIds = new Set<Id>();
     			for (SObject s : sobjects)
     				parentObjectIds.add((Id)s.get(this.parentLookupField.getName()));
-    			for (Sobject s : Database.query('SELECT Id, '+this.lockedField.getName()+' FROM '+this.parentSobjectType.getDescribe().getName()+' Where Id in :parentObjectIds'))
+    			for (Sobject s : Database.query('SELECT Id, '+this.lockedFieldAPIName+' FROM '+this.parentSobjectType.getDescribe().getName()+' Where Id in :parentObjectIds'))
     				parentMap.put((Id)s.get('Id'), s);
     			return parentMap;
 			} else {
@@ -140,10 +140,10 @@ public with sharing class MERC_LockedRecordHandler implements GLBL_TriggerHandle
                 return false;
             } else {
                 Sobject parent = this.parentMap.get(parentId);
-                return (Boolean)parent.get(this.lockedField.getName()) && !isSystemAdmin;
+                return (Boolean)parent.get(this.lockedFieldAPIName) && !isSystemAdmin;
             }
     	} else {
-    		return (Boolean)s.get(this.lockedField.getName()) && !isSystemAdmin;
+    		return (Boolean)s.get(this.lockedFieldAPIName) && !isSystemAdmin;
     	}
     }
 
@@ -155,8 +155,8 @@ public with sharing class MERC_LockedRecordHandler implements GLBL_TriggerHandle
             
             if (!this.sObjectIsChild) {
                 if (Trigger.isUpdate) {
-                    Boolean oldLockValue = (Boolean)Trigger.oldmap.get(recordId).get(this.lockedField.getName());
-                    Boolean newLockValue = (Boolean)Trigger.newmap.get(recordId).get(this.lockedField.getName());
+                    Boolean oldLockValue = (Boolean)Trigger.oldmap.get(recordId).get(this.lockedFieldAPIName);
+                    Boolean newLockValue = (Boolean)Trigger.newmap.get(recordId).get(this.lockedFieldAPIName);
                     if (oldLockValue != newLockValue)
                         continue; //user is unlocking/locking the record
                 }
@@ -178,7 +178,7 @@ public with sharing class MERC_LockedRecordHandler implements GLBL_TriggerHandle
 
             	    if (isCalculated) continue; //we can't control this, so we let it go
 
-            	    if (fieldName != this.lockedField.getName()){
+            	    if (fieldName != this.lockedFieldAPIName){
             	        if (fieldType == 'DOUBLE') {
             	            Double oldFieldValue = (Double)Trigger.oldmap.get(recordId).get(fieldName);
             	            Double newFieldValue = (Double)Trigger.newmap.get(recordId).get(fieldName);

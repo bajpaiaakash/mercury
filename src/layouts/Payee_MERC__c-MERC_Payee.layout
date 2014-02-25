@@ -15,6 +15,10 @@
                 <behavior>Edit</behavior>
                 <field>VAT_ID_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Tax_Id_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -123,7 +127,7 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Bank_SWIFT_Code_MERC__c</field>
+                <field>Bank_Sort_Code_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
