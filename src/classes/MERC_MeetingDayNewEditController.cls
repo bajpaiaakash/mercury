@@ -7,8 +7,12 @@ public with sharing class MERC_MeetingDayNewEditController {
     public MERC_MeetingDayNewEditController(ApexPages.StandardController c) {
         this.meetingDay = (Meeting_Day_MERC__c)c.getRecord();
         this.stdController = c;
-        if (this.meetingDay.Id == null) {
-            this.meetingDay.Date_MERC__c = meeting.Date_of_Event_MERC__c;
+        if (MERC_Util.getUrlParam('clone') == '1') {
+            this.meetingDay.Id = null;
+        } else {
+            if (this.meetingDay.Id == null) {
+                this.meetingDay.Date_MERC__c = meeting.Date_of_Event_MERC__c;
+            }
         }
     }
 
