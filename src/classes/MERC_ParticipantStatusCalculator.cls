@@ -1,3 +1,11 @@
+/**
+ * @author Joseph Ferraro
+ *
+ * Responsible for setting overall status of Meeting Participant based on their attendance at a meeting
+ * 	- if they attend ANY days, their overall status is "Attended"
+ * 	- if they miss all days, their overall status is "No Show"
+ */
+
 public with sharing class MERC_ParticipantStatusCalculator implements GLBL_TriggerHandler.HandlerInterface {
 	
 	public void handle() {

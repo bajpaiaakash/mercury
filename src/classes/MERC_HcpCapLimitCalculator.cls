@@ -1,3 +1,10 @@
+/**
+ * @author Joseph Ferraro
+ *
+ * Responsible for calculating annual cap limit for HCP based on CAP_Settings_MERC__c Custom Setting data
+ */
+
+
 public with sharing class MERC_HcpCapLimitCalculator implements GLBL_TriggerHandler.HandlerInterface {
 
 	public void handle() {

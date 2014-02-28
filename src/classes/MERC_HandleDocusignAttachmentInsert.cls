@@ -1,3 +1,11 @@
+/**
+ * @author Joseph Ferraro
+ *
+ * Docusign inserts executed version(s) of the contracts to attachment via DocusignConnect service (bc they dont support content). 
+ * this apex class copies that attachment to content and deletes the attachment
+ */
+
+
 public with sharing class MERC_HandleDocusignAttachmentInsert implements GLBL_TriggerHandler.HandlerInterface {
 	
 

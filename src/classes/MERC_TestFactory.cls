@@ -62,6 +62,7 @@ public with sharing class MERC_TestFactory {
 			Invoice_MERC__c i = new Invoice_MERC__c();
 			i.Invoice_Date_MERC__c = Date.today();
 			i.Meeting_Participant_MERC__c = m.Id;
+			i.Cost_Center_MERC__c = '1234567';
 			invoices.add(i);
 		}
 		insert invoices;

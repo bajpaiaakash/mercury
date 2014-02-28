@@ -1,3 +1,9 @@
+/**
+ * @author Joseph Ferraro
+ *
+ * Controller for VF page that enables Mercury user to send HCP Contract for signature via Docusign
+ */
+
 public with sharing class MERC_RequestHCPSignatureController {
 
 	private final HCP_Contract_MERC__c contract;
