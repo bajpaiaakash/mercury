@@ -14,6 +14,7 @@ public with sharing class MERC_LockedRecordHandler implements GLBL_TriggerHandle
     Schema.SobjectType parentSobjectType;
     Schema.DescribeFieldResult parentLookupField;
     Boolean sObjectIsChild;
+    List<Sobject> sobjects;
 
     public MERC_LockedRecordHandler(Schema.SobjectType sObjectType) {
         this.sObjectType = sObjectType;
@@ -80,18 +81,15 @@ public with sharing class MERC_LockedRecordHandler implements GLBL_TriggerHandle
 
     Map<Id, Sobject> parentMap {
     	get {
-    		if (this.parentSobjectType != null) {
+    		if (parentMap == null && this.parentSobjectType != null) {
     			parentMap = new Map<Id, Sobject>();
-    			List<Sobject> sobjects = (Trigger.isInsert || Trigger.isUpdate || Trigger.isUndelete) ? Trigger.new : Trigger.old;
     			Set<Id> parentObjectIds = new Set<Id>();
-    			for (SObject s : sobjects)
+    			for (SObject s : this.sobjects)
     				parentObjectIds.add((Id)s.get(this.parentLookupField.getName()));
     			for (Sobject s : Database.query('SELECT Id, '+this.lockedFieldAPIName+' FROM '+this.parentSobjectType.getDescribe().getName()+' Where Id in :parentObjectIds'))
     				parentMap.put((Id)s.get('Id'), s);
-    			return parentMap;
-			} else {
-				return null;
-			}
+			} 
+            return parentMap;
     	}
     	set;
     }
@@ -125,9 +123,11 @@ public with sharing class MERC_LockedRecordHandler implements GLBL_TriggerHandle
         if (!MERC_LockedRecordHandler.overrideLockCheck) {
             if (Trigger.isBefore) {
                 if (Trigger.isInsert || Trigger.isUpdate || Trigger.isUndelete) {
-                    execute(Trigger.new);
+                    this.sobjects = Trigger.new;
+                    execute();
                 } else if (Trigger.isDelete) {
-                    execute(Trigger.old);
+                    this.sobjects = Trigger.old;
+                    execute();
                 }
             }
         }
@@ -147,9 +147,9 @@ public with sharing class MERC_LockedRecordHandler implements GLBL_TriggerHandle
     	}
     }
 
-    public void execute(List<Sobject> sobjects) {
+    public void execute() {
         
-        for (SObject s : sobjects) {
+        for (SObject s : this.sobjects) {
             Id recordId = (Id)s.get('Id');
             Boolean isLocked = getIsLockedFromEditing(s);
             

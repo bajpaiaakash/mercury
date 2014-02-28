@@ -1,3 +1,9 @@
+/**
+ * @author Joseph Ferraro
+ *
+ * Sends meeting participants to the RollupService to calculate Cap Actuals based on activity
+ */
+
 public with sharing class MERC_HcpCapActualsCalculator implements GLBL_TriggerHandler.HandlerInterface {
 	
 	Schema.SobjectType triggeredSobjectType;
@@ -28,8 +34,13 @@ public with sharing class MERC_HcpCapActualsCalculator implements GLBL_TriggerHa
 					meetingIdsToProcess.add(m.Id);
 				}
 			}
-			participantsToRollup = [SELECT ID, Account_MERC__c, Meeting_MERC__c FROM Meeting_Participant_MERC__c WHERE 
-										Meeting_MERC__c in :meetingIdsToProcess];
+			if (meetingIdsToProcess.size() > 0) {
+				participantsToRollup = [SELECT ID, Account_MERC__c, Meeting_MERC__c FROM Meeting_Participant_MERC__c WHERE 
+											Meeting_MERC__c in :meetingIdsToProcess];
+	
+			} else {
+				participantsToRollup = new List<Meeting_Participant_MERC__c>();
+			}
 		} else if (this.triggeredSobjectType == Meeting_Participant_MERC__c.SobjectType) {
 			participantsToRollup = sobjects;
 		}

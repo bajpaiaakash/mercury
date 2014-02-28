@@ -50,6 +50,7 @@ private class MERC_DocusignServiceTest {
             MERC_DocusignService.RequiredSigner signer = new MERC_DocusignService.RequiredSigner();
             signer.acc = signingAccounts.get(i);
             signer.order = i+1;
+            signer.isLilly = i == 0 ? true : false;
             requiredSigners.add(signer);
         }
         

@@ -39,6 +39,7 @@ private class MERC_HcpCapActualsCalculatorTest {
 		m.Target_Audience_List_MERC__c = 'Nurses';
 		m.Number_of_Expected_Non_HCP_MERC__c = 10;
 		m.Planned_Budget_MERC__c = 3000;
+		m.City_of_Meeting_MERC__c = 'Philadelphia';
 		update m;
 
 		system.assertEquals(100, [Select Allocated_CAP_MERC__c FROM Account WHERE Id = :p1.Account_MERC__c].Allocated_CAP_MERC__c); 
