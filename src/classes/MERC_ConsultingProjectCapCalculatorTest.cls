@@ -37,6 +37,7 @@ private class MERC_ConsultingProjectCapCalculatorTest {
 		Invoice_MERC__c i = new Invoice_MERC__c();
 		i.Invoice_Date_MERC__c = Date.today();
 		i.Meeting_Participant_MERC__c = p1.Id;
+		i.Cost_Center_MERC__c = '1234567';
 		insert i;
 
 		Invoice_Line_Item_MERC__c lineItem = new Invoice_Line_Item_MERC__c();

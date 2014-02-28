@@ -43,6 +43,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>GLBL_GlobalIdAccountLookup</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>GLBL_GlobalIdAccountLookupTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>GLBL_SobjectDataLoader</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -752,6 +760,11 @@
         <editable>true</editable>
         <field>Account.Instructor_Assistant_Clinical_Prof_MERC__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.IsExcludedFromRealign</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -2130,6 +2143,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Budget_Line_Item_MERC__c.Vendor_Name_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Budget_Line_Item_MERC__c.Version_Number_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2215,11 +2233,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>CST_App_Settings_CUST__c.Access_Token_CUST__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>CST_App_Settings_CUST__c.Account_Bnft_Dsgn_Cd_CUST__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2251,16 +2264,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>CST_App_Settings_CUST__c.Altid_Altrnt_Id_Typ_Cd_CUST__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>CST_App_Settings_CUST__c.Client_Id_CUST__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>CST_App_Settings_CUST__c.Client_Secret_CUST__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2300,6 +2303,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>CST_App_Settings_CUST__c.Settings_Language_CUST__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>CST_App_Settings_CUST__c.Specialty_Spclty_Cd_CUST__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2314,6 +2322,16 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_User_Settings_CUST__c.Access_Status_CUST__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_User_Settings_CUST__c.Audit_Date_CUST__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>CST_User_Settings_CUST__c.CST_User_CUST__c</field>
         <readable>false</readable>
@@ -2322,6 +2340,26 @@
         <editable>false</editable>
         <field>CST_User_Settings_CUST__c.Country_Code_CUST__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_User_Settings_CUST__c.Justification_for_Access_CUST__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_User_Settings_CUST__c.Manager_Global_ID_CUST__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_User_Settings_CUST__c.Start_Date_CUST__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CST_User_Settings_CUST__c.User_Name_CUST__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -3350,6 +3388,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Meeting_MERC__c.Address_Contact_Information_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Agenda_Status_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3391,6 +3434,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Meeting_MERC__c.City_of_Meeting_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting_MERC__c.Comments_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3866,6 +3914,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Meeting_MERC__c.Preferred_Venue_Postal_Code_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting_MERC__c.Prmry_Mtng_Ownr_Nm_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

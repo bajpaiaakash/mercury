@@ -1506,11 +1506,11 @@
         <picklistValues>
             <picklist>Venue_Preference_Type_MERC__c</picklist>
             <values>
-                <fullName>Compliance Preferred</fullName>
+                <fullName>International Approved Venue</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Local Preferred</fullName>
+                <fullName>Large Meeting Venue</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3040,11 +3040,11 @@
         <picklistValues>
             <picklist>Venue_Preference_Type_MERC__c</picklist>
             <values>
-                <fullName>Compliance Preferred</fullName>
+                <fullName>International Approved Venue</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Local Preferred</fullName>
+                <fullName>Large Meeting Venue</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4558,11 +4558,11 @@
         <picklistValues>
             <picklist>Venue_Preference_Type_MERC__c</picklist>
             <values>
-                <fullName>Compliance Preferred</fullName>
+                <fullName>International Approved Venue</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Local Preferred</fullName>
+                <fullName>Large Meeting Venue</fullName>
                 <default>false</default>
             </values>
             <values>

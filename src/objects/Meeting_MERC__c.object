@@ -119,6 +119,17 @@
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>Address_Contact_Information_MERC__c</fullName>
+        <description>Contact and address information for independent meetings.
+Created by John A Adams 2/25/2014</description>
+        <externalId>false</externalId>
+        <label>Address &amp; Contact Person Information</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
         <fullName>Agenda_Status_MERC__c</fullName>
         <description>Capture Current Status of Agenda. Created 10/17/2013</description>
         <externalId>false</externalId>
@@ -291,6 +302,17 @@ Created by John Adams on 12/9/2013</description>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Comments_MERC__c</fullName>
+        <description>Comments about Independent Meetings
+Created by John A Adams 2/25/2014</description>
+        <externalId>false</externalId>
+        <label>Comments</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Compliant_MERC__c</fullName>
@@ -2124,7 +2146,7 @@ Created by John Adams 11/6/2013</description>
     <fields>
         <fullName>Meeting_Auto_Nmber_MERC__c</fullName>
         <description>Incremental Auto Number field used in conjunction with other values to create a human readable Meeting Id.  This will be used by AODS and for other systems requiring such an Id. Oliver Dunford 7th Jan.</description>
-        <displayFormat>MER-{0000}</displayFormat>
+        <displayFormat>M-{00000}</displayFormat>
         <externalId>false</externalId>
         <label>Meeting Auto Number</label>
         <trackHistory>false</trackHistory>
@@ -2149,8 +2171,8 @@ Created by John Adams 11/6/2013</description>
         <length>32000</length>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Html</type>
-        <visibleLines>10</visibleLines>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
     </fields>
     <fields>
         <fullName>Meeting_Organiser_Type_MERC__c</fullName>
@@ -2913,6 +2935,18 @@ Created by John Adams on 12/9/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Prmry_Mtng_Ownr_Nm_MERC__c</fullName>
+        <description>Primary Meeting Owner Name that will be stamped on the Meeting when the Team Member is added.  Created by John A Adams 2/27/2014</description>
+        <externalId>false</externalId>
+        <label>Primary Meeting Owner Name</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>RTI_Transaction_ID_MERC__c</fullName>
         <externalId>false</externalId>
         <label>RTI Transaction ID</label>
@@ -3146,6 +3180,7 @@ Created by John A Adams 1/7/2014</description>
         <fullName>Sponsorship_Eligibility_Crit_Met_MERC__c</fullName>
         <description>For Independent Sponsorship meetings. Oliver Dunford 21st Jan 2014.</description>
         <externalId>false</externalId>
+        <inlineHelpText>The following eligibility criteria for Lilly sponsorship must be met: equal opprtunities to sponsor, transparent costs, public disclosure, documentation, and payment recipient requirements.</inlineHelpText>
         <label>Sponsorship Eligibility Criteria Met</label>
         <picklist>
             <picklistValues>
@@ -14310,6 +14345,16 @@ ISPICKVAL(Meeting_Status_MERC__c,&apos;Complete - Closed&apos;)</errorConditionF
         <errorMessage>The Meeting must have occurred in order to Complete the Meeting.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>No_Jumping_from_Forecasted_to_Active</fullName>
+        <active>true</active>
+        <description>Status may not be changed from Forecasted to Active. Must go through Registered first.</description>
+        <errorConditionFormula>ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
+ISPICKVAL(Meeting_Status_MERC__c,&apos;Active&apos;) &amp;&amp;
+ISPICKVAL(PRIORVALUE(Meeting_Status_MERC__c),&apos;Forecasted&apos;)</errorConditionFormula>
+        <errorDisplayField>Meeting_Status_MERC__c</errorDisplayField>
+        <errorMessage>You may not change the status from Forecasted to Active. Please change status to Registered first.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Prevent_Cancel_Meeting_if_Occurred_MERC</fullName>
         <active>true</active>
         <description>If the Meeting has already occurred you may not cancel the meeting. Created 01/10/2014 by KLorenti, Mavens Consulting</description>
@@ -14328,12 +14373,26 @@ ISPICKVAL(PRIORVALUE(Participant_ToV_Final_MERC__c),&quot;Yes&quot;)</errorCondi
         <errorMessage>You may not change this value once it has been set to Yes.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Validate_Active_City_of_Meeting_MERC</fullName>
+        <active>false</active>
+        <description>Check the City of Meeting required field based on the Status and field selected. Created 2/27/2014 by KLorenti, Mavens Consulting</description>
+        <errorConditionFormula>IF((RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
+RecordType.Name &lt;&gt; &apos;Consulting Project&apos;)  &amp;&amp;
+      ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
+		TEXT(Meeting_Status_MERC__c) = &apos;Active&apos; &amp;&amp;
+		(ISBLANK(City_of_Meeting_MERC__c))
+	,true, false)</errorConditionFormula>
+        <errorDisplayField>City_of_Meeting_MERC__c</errorDisplayField>
+        <errorMessage>The City of Meeting is required before status can be changed to Active</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Validate_Active_Content_Approval_MERC</fullName>
         <active>true</active>
         <description>Check the required fields based on the Status selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
         <errorConditionFormula>IF((RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp; 
     RecordType.Name &lt;&gt; &apos;Consulting Project&apos;)  &amp;&amp;
 ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
+ISPICKVAL(PRIORVALUE(Meeting_Status_MERC__c),&apos;Registered&apos;) &amp;&amp;
 TEXT(Meeting_Status_MERC__c) = &apos;Active&apos; &amp;&amp;
 (ISBLANK(TEXT(Content_Approval_Needed_MERC__c )))
 ,true, false)</errorConditionFormula>
@@ -14354,7 +14413,7 @@ true, false)</errorConditionFormula>
     </validationRules>
     <validationRules>
         <fullName>Validate_Active_Expected_Emp_MERC</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
         <errorConditionFormula>IF((RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp; 
     RecordType.Name &lt;&gt; &apos;Consulting Project&apos;) &amp;&amp;          ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
@@ -14366,7 +14425,7 @@ TEXT(Meeting_Status_MERC__c) = &apos;Active&apos; &amp;&amp;
     </validationRules>
     <validationRules>
         <fullName>Validate_Active_Expected_Non_MERC</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
         <errorConditionFormula>IF((RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
 RecordType.Name &lt;&gt; &apos;Consulting Project&apos;)  &amp;&amp;
@@ -14379,7 +14438,7 @@ RecordType.Name &lt;&gt; &apos;Consulting Project&apos;)  &amp;&amp;
     </validationRules>
     <validationRules>
         <fullName>Validate_Active_Expected_Speaker_MERC</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
         <errorConditionFormula>IF((RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp; 
 RecordType.Name &lt;&gt; &apos;Consulting Project&apos;)  &amp;&amp;
@@ -14392,7 +14451,7 @@ RecordType.Name &lt;&gt; &apos;Consulting Project&apos;)  &amp;&amp;
     </validationRules>
     <validationRules>
         <fullName>Validate_Active_Interact_Type_MERC</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
         <errorConditionFormula>IF((RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
 RecordType.Name &lt;&gt; &apos;Consulting Project&apos;)  &amp;&amp;
@@ -14409,7 +14468,8 @@ RecordType.Name &lt;&gt; &apos;Consulting Project&apos;)  &amp;&amp;
         <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
         <errorConditionFormula>IF((RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
 RecordType.Name &lt;&gt; &apos;Consulting Project&apos;)  &amp;&amp; 
-ISCHANGED(Meeting_Status_MERC__c) &amp;&amp; 
+ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
+ISPICKVAL(PRIORVALUE(Meeting_Status_MERC__c),&apos;Registered&apos;) &amp;&amp;
 TEXT(Meeting_Status_MERC__c) = &apos;Active&apos; &amp;&amp; 
 LEN (Meeting_Objectives_MERC__c) = 0
 ,true, false)</errorConditionFormula>
@@ -14418,7 +14478,7 @@ LEN (Meeting_Objectives_MERC__c) = 0
     </validationRules>
     <validationRules>
         <fullName>Validate_Active_Planned_Budget_MERC</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
         <errorConditionFormula>IF((RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
 RecordType.Name &lt;&gt; &apos;Consulting Project&apos;)  &amp;&amp;
@@ -14435,10 +14495,11 @@ RecordType.Name &lt;&gt; &apos;Consulting Project&apos;)  &amp;&amp;
         <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
         <errorConditionFormula>IF((RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
 RecordType.Name &lt;&gt; &apos;Consulting Project&apos;)  &amp;&amp;
-      ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
-		TEXT(Meeting_Status_MERC__c) = &apos;Active&apos; &amp;&amp;
-		(ISBLANK (  Target_Audience_List_MERC__c ))
-	,true, false)</errorConditionFormula>
+ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
+ISPICKVAL(PRIORVALUE(Meeting_Status_MERC__c),&apos;Registered&apos;) &amp;&amp;
+TEXT(Meeting_Status_MERC__c) = &apos;Active&apos; &amp;&amp;
+(ISBLANK (  Target_Audience_List_MERC__c ))
+,true, false)</errorConditionFormula>
         <errorDisplayField>Target_Audience_List_MERC__c</errorDisplayField>
         <errorMessage>The Target Audience is required before status can be changed to Active</errorMessage>
     </validationRules>
@@ -14450,6 +14511,19 @@ RecordType.Name &lt;&gt; &apos;Consulting Project&apos;)  &amp;&amp;
 End_Time_of_Meeting_MERC__c</errorConditionFormula>
         <errorDisplayField>End_Time_of_Meeting_MERC__c</errorDisplayField>
         <errorMessage>The  End Time of Meeting must be after the Start Time of Meeting</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Validate_Registered_City_of_Meeting_MERC</fullName>
+        <active>true</active>
+        <description>Check the City of Meeting required field based on the Status and field selected. Created 2/27/2014 by KLorenti, Mavens Consulting</description>
+        <errorConditionFormula>IF((RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp; 
+RecordType.Name &lt;&gt; &apos;Consulting Project&apos;)  &amp;&amp;
+      ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
+		TEXT(Meeting_Status_MERC__c) = &apos;Registered&apos; &amp;&amp;
+		(ISBLANK(City_of_Meeting_MERC__c))
+	,true, false)</errorConditionFormula>
+        <errorDisplayField>City_of_Meeting_MERC__c</errorDisplayField>
+        <errorMessage>The City of Meeting is required before status can be changed to Registered</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Validate_Registered_Expected_Emp_MERC</fullName>
@@ -14582,6 +14656,26 @@ else
         <openType>sidebar</openType>
         <page>MERC_MeetingDateTimesEdit</page>
         <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>Meeting_Report_MERC</fullName>
+        <availability>online</availability>
+        <description>Test</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Meeting Report</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/00O11000000L2DY?pv0={!Meeting_MERC__c.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>Meetings_with_HCPs_Resources_MERC</fullName>

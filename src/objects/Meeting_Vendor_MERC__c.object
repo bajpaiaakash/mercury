@@ -266,6 +266,7 @@ Created by John A Adams 10/10/2013</description>
         <lookupDialogsAdditionalFields>Area_of_Service_MERC__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Room_Rate_MERC__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Meeting_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Vendor_Search_MERC__c</lookupDialogsAdditionalFields>
         <searchFilterFields>NAME</searchFilterFields>
         <searchFilterFields>Account_MERC__c</searchFilterFields>
         <searchFilterFields>Meeting_MERC__c</searchFilterFields>
@@ -273,6 +274,7 @@ Created by John A Adams 10/10/2013</description>
         <searchResultsAdditionalFields>Area_of_Service_MERC__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Room_Rate_MERC__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Meeting_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Vendor_Search_MERC__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>

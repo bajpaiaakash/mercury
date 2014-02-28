@@ -6,16 +6,17 @@
         <description>A Non-HCP participant has been created for a meeting and email requesting Managerial Approval will be sent.</description>
         <protected>false</protected>
         <recipients>
-            <recipient>dunfordoliver@gso1.lly</recipient>
-            <type>user</type>
+            <field>Meeting_Owner_Email_MERC__c</field>
+            <type>email</type>
         </recipients>
-        <senderType>DefaultWorkflowUser</senderType>
+        <senderType>CurrentUser</senderType>
         <template>Mercury_Email_Templates_MERC/Non_HCP_Approval_MERC</template>
     </alerts>
     <alerts>
         <fullName>Notifies_Meeting_Owner_of_Final_Fee</fullName>
         <ccEmails>oliver@mavensconsulting.com</ccEmails>
         <ccEmails>katy@mavensconsulting.com</ccEmails>
+        <ccEmails>jadams@mavensconsulting.com</ccEmails>
         <description>Notifies Meeting Owner of Final Fee</description>
         <protected>false</protected>
         <recipients>
@@ -29,6 +30,7 @@
         <fullName>Notify_Meeting_Owner_when_Final_Fee_is_Rejected_MERC</fullName>
         <ccEmails>oliver@mavensconsulting.com</ccEmails>
         <ccEmails>katy@mavensconsulting.com</ccEmails>
+        <ccEmails>jadams@mavensconsulting.com</ccEmails>
         <description>Notify Meeting Owner when Final Fee is Rejected</description>
         <protected>false</protected>
         <recipients>
@@ -42,6 +44,7 @@
         <fullName>Notify_Meeting_Owner_when_Tiering_is_Complete</fullName>
         <ccEmails>katy@mavensconsulting.com,</ccEmails>
         <ccEmails>oliver@mavensconsulting.com</ccEmails>
+        <ccEmails>jadams@mavensconsulting.com</ccEmails>
         <description>Notify Meeting Owner when Tiering is Complete</description>
         <protected>false</protected>
         <recipients>
@@ -457,7 +460,7 @@
             <name>Clear_Confirm_Partial_Payment_Amt_MERC</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <description>Clear the Confirm Partial Payment Amount checkbox after each record update. Created 12/18/2013 by KLorenti, Mavens Consulting</description>
         <formula>TRUE</formula>
         <triggerType>onAllChanges</triggerType>
@@ -587,7 +590,8 @@
         </actions>
         <active>true</active>
         <description>If the Proposed Final Fee is over the Maximum Fee set the Exception Approval = Required</description>
-        <formula>ISCHANGED (Proposed_Final_Fee_MERC__c ) &amp;&amp;  Proposed_Final_Fee_MERC__c &gt; Maximum_Fee_MERC__c</formula>
+        <formula>ISCHANGED (Proposed_Final_Fee_MERC__c ) &amp;&amp;  Proposed_Final_Fee_MERC__c &gt; Maximum_Fee_MERC__c &amp;&amp; 
+$Profile.Name &lt;&gt; &apos;Mercury Integration CP&apos;</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -732,7 +736,8 @@
         </actions>
         <active>true</active>
         <description>If Proposed Final Fee is lass than the Maximum Fee then set the Exception Approval to &quot;Not Required&quot;. Created 11/21/2013 by KLorenti</description>
-        <formula>ISCHANGED (Proposed_Final_Fee_MERC__c ) &amp;&amp;  Proposed_Final_Fee_MERC__c &lt; Maximum_Fee_MERC__c</formula>
+        <formula>ISCHANGED (Proposed_Final_Fee_MERC__c ) &amp;&amp;  Proposed_Final_Fee_MERC__c &lt; Maximum_Fee_MERC__c &amp;&amp; 
+$Profile.Name &lt;&gt; &apos;Mercury Integration CP&apos;</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>

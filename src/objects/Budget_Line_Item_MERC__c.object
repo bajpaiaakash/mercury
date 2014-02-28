@@ -440,6 +440,18 @@ Created by J Adams 12/10/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Vendor_Name_MERC__c</fullName>
+        <description>Displays name of Vendor on Budget Line Item. Created 02/26/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Meeting_Vendor_MERC__r.Account_MERC__r.Name</formula>
+        <label>Vendor Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Version_Number_MERC__c</fullName>
         <defaultValue>1</defaultValue>
         <externalId>false</externalId>

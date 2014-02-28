@@ -48,7 +48,7 @@
                 <field>Participant_Approved_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Edit</behavior>
                 <field>RecordTypeId</field>
             </layoutItems>
             <layoutItems>
@@ -58,10 +58,6 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Classification_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Topic_Area_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -89,11 +85,11 @@
         <label>Participant Requirements</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Air_Travel_Required_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Hotel_Required_MERC__c</field>
             </layoutItems>
             <layoutItems>
@@ -132,16 +128,20 @@
                 <field>Justification_MERC__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Required</behavior>
+                <field>Types_of_Service_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Description_of_Service_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Services_Rendered_MERC__c</field>
+                <field>Topic_Area_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>Types_of_Service_MERC__c</field>
+                <behavior>Edit</behavior>
+                <field>Services_Rendered_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

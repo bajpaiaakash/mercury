@@ -73,6 +73,56 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Access_Status_CUST__c</fullName>
+        <description>Contains the status of the access request</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Pending: Waiting on Approval
+Denied: Manager denied Request
+Approved: Access granted
+Under Review: Under Audit Review
+Expired: Access expired before it was reviewed</inlineHelpText>
+        <label>Access Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>New Request</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Denied</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Under Review</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Expired</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Audit_Date_CUST__c</fullName>
+        <description>The date that the audit began</description>
+        <externalId>false</externalId>
+        <inlineHelpText>When the audit began.</inlineHelpText>
+        <label>Audit Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>CST_User_CUST__c</fullName>
         <deleteConstraint>Restrict</deleteConstraint>
         <description>This field is a lookup to an Account record containing information for an Lilly employee or designate. Adding an Account here will authorize this user to utilized the Customer Search Tool</description>
@@ -1094,11 +1144,56 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
+    <fields>
+        <fullName>Justification_for_Access_CUST__c</fullName>
+        <description>A field for the user to put their business case for access.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The user&apos;s business case for why they need access.</inlineHelpText>
+        <label>Justification for Access</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Manager_Global_ID_CUST__c</fullName>
+        <description>The Managers Global ID</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Global ID of the Users Manager</inlineHelpText>
+        <label>Manager Global ID</label>
+        <length>8</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Start_Date_CUST__c</fullName>
+        <description>The start date of the access, will reset every 6 or so months</description>
+        <externalId>false</externalId>
+        <inlineHelpText>When Access was granted.</inlineHelpText>
+        <label>Start Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>User_Name_CUST__c</fullName>
+        <externalId>false</externalId>
+        <formula>CST_User_CUST__r.FirstName + &apos; &apos; + CST_User_CUST__r.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>User Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <label>CST User Settings</label>
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
         <columns>CST_User_CUST__c</columns>
+        <columns>Access_Status_CUST__c</columns>
         <columns>Access_Level_CUST__c</columns>
         <columns>Country_Code_CUST__c</columns>
         <filterScope>Everything</filterScope>

@@ -342,7 +342,7 @@ Created by John A Adams 10/24/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>CN</fullName>
+                <fullName>CR</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -922,7 +922,7 @@ Created by John A Adams 10/4/2013</description>
         <picklistValues>
             <picklist>Invoice_Type_MERC__c</picklist>
             <values>
-                <fullName>CN</fullName>
+                <fullName>CR</fullName>
                 <default>true</default>
             </values>
         </picklistValues>
@@ -1046,6 +1046,14 @@ Created by John A Adams 10/4/2013</description>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <startsWith>Vowel</startsWith>
+    <validationRules>
+        <fullName>Cost_Center_completed</fullName>
+        <active>true</active>
+        <description>Ensure that the Cost Center is severn digits long.</description>
+        <errorConditionFormula>NOT(REGEX( Cost_Center_MERC__c, &quot;[0-9]{7}&quot;))</errorConditionFormula>
+        <errorDisplayField>Cost_Center_MERC__c</errorDisplayField>
+        <errorMessage>The Cost Center must be seven digits long.</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Submit_for_Payment</fullName>
         <active>true</active>

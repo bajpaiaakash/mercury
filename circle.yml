@@ -1,4 +1,7 @@
 test:
+  override:
+    - nosetests test/buildtest.py:
+    	timeout: 600
   post:
     - cp -r test/result $CIRCLE_ARTIFACTS
 

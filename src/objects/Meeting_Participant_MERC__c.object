@@ -106,7 +106,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
@@ -206,7 +206,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
@@ -218,7 +218,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
@@ -230,7 +230,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
@@ -242,7 +242,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
@@ -254,7 +254,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
@@ -284,7 +284,7 @@
         <description>HCP Care to confirm they want to update the Final Fee with the Partial Payment Amount. Created 12/18/2013 by KLorenti, Mavens Consulting.</description>
         <externalId>false</externalId>
         <label>Confirm Partial Payment Amount</label>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -294,7 +294,7 @@
         <description>Only HCP Care can update ToV values after ToV has already been reported. Only HCP Care will have access to this field. Created 02/04/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Confirm ToV Reporting Change</label>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -887,7 +887,7 @@ Created by John A Adams 10/31/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -1557,7 +1557,7 @@ Created by John A Adams 2/18/2014</description>
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Meeting Participants</pluralLabel>
-    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypeTrackHistory>true</recordTypeTrackHistory>
     <recordTypes>
         <fullName>Consulting</fullName>
         <active>true</active>
@@ -2865,6 +2865,16 @@ CoPay_Hotel_MERC__c &lt;0) ||
 (ISCHANGED(CoPay_Registration_MERC__c) &amp;&amp;
 CoPay_Registration_MERC__c &lt;0)</errorConditionFormula>
         <errorMessage>You may not enter a CoPay value less than zero.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Proposed_Final_Fee_MERC</fullName>
+        <active>true</active>
+        <description>The Proposed Final Fee cannot be entered unless a Minimum and Maximum Rate are presented.  Created by John A Adams 2/26/2014</description>
+        <errorConditionFormula>ISCHANGED(Proposed_Final_Fee_MERC__c) &amp;&amp; Proposed_Final_Fee_MERC__c &lt;&gt; 0 &amp;&amp;
+ (ISBLANK(Minimum_Rate_MERC__c) ||
+ ISBLANK(Maximum_Rate_MERC__c))</errorConditionFormula>
+        <errorDisplayField>Proposed_Final_Fee_MERC__c</errorDisplayField>
+        <errorMessage>You may not enter a Proposed Final Fee if the Minimum and Maximum Hourly Rate values are not present. Tiering must be complete and Country of Residence indicated.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Services_Rendered_MERC</fullName>

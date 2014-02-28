@@ -53,18 +53,6 @@
     <enableHistory>false</enableHistory>
     <enableReports>false</enableReports>
     <fields>
-        <fullName>Access_Token_CUST__c</fullName>
-        <description>Access token used to access the CST, acquired via Oauth</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Access token used to access the CST, acquired via Oauth</inlineHelpText>
-        <label>Access Token</label>
-        <length>255</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Account_Bnft_Dsgn_Cd_CUST__c</fullName>
         <defaultValue>&quot;MD,PhD,PsyD&quot;</defaultValue>
         <description>Default values for Additional Details: Professional Designation (US Only) multi-select picklist</description>
@@ -141,30 +129,6 @@
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
-    </fields>
-    <fields>
-        <fullName>Client_Id_CUST__c</fullName>
-        <description>Client Id provided by the CST endpoint for the Mercury application</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Client Id provided by the CST endpoint for the Mercury application</inlineHelpText>
-        <label>Client Id</label>
-        <length>255</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Client_Secret_CUST__c</fullName>
-        <description>Client secret provided by the CST endpoint for access to the CST by Mercury</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Client secret provided by the CST endpoint for access to the CST by Mercury</inlineHelpText>
-        <label>Client Secret</label>
-        <length>255</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Employee_Record_Type_CUST__c</fullName>
@@ -246,6 +210,18 @@
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>Settings_Language_CUST__c</fullName>
+        <description>This field determines the language of the application settings.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please type in the two character ISO value for the language, all lower case.</inlineHelpText>
+        <label>Settings Language</label>
+        <length>2</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Specialty_Spclty_Cd_CUST__c</fullName>
         <defaultValue>&quot;Cancer,Diabetes,Hypercholesterolemia&quot;</defaultValue>
         <description>Default values for Additional Details:Specialty multi-select picklist</description>
@@ -272,8 +248,13 @@
     <label>CST App Settings</label>
     <listViews>
         <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Settings_Language_CUST__c</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <columns>LAST_UPDATE</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
+        <language>en_US</language>
     </listViews>
     <nameField>
         <displayFormat>CSTAPP-{0000}</displayFormat>
@@ -281,6 +262,10 @@
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>CST App Settings</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts>
+        <customTabListAdditionalFields>Settings_Language_CUST__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>UPDATEDBY_USER</customTabListAdditionalFields>
+        <customTabListAdditionalFields>LAST_UPDATE</customTabListAdditionalFields>
+    </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

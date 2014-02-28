@@ -5,4 +5,5 @@
     <logo>SharedDocuments/Lilly_Logo.png</logo>
     <tab>CST_User_Settings_CUST__c</tab>
     <tab>CST_App_Settings_CUST__c</tab>
+    <tab>CST_User_Log_CUST__c</tab>
 </CustomApplication>

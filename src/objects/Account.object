@@ -4043,11 +4043,11 @@ Created by John Adams 10/28/2013</description>
         <label>Venue Preference Type</label>
         <picklist>
             <picklistValues>
-                <fullName>Compliance Preferred</fullName>
+                <fullName>International Approved Venue</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Local Preferred</fullName>
+                <fullName>Large Meeting Venue</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -4231,23 +4231,6 @@ Created by John A Adams 11/4/2013</description>
         <language>en_US</language>
     </listViews>
     <listViews>
-        <fullName>Employees</fullName>
-        <columns>ACCOUNT.NAME</columns>
-        <columns>ACCOUNT.SITE</columns>
-        <columns>ACCOUNT.ADDRESS1_STATE</columns>
-        <columns>ACCOUNT.PHONE1</columns>
-        <columns>Language_Preference_MERC__c</columns>
-        <columns>ACCOUNT.TYPE</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>ACCOUNT.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>PersonAccount.Employee_GLBL</value>
-        </filters>
-        <label>Employees</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
         <fullName>HCP_Accounts</fullName>
         <columns>ACCOUNT.NAME</columns>
         <columns>ACCOUNT.RECORDTYPE</columns>
@@ -4286,6 +4269,23 @@ Created by John A Adams 11/4/2013</description>
         <language>en_US</language>
     </listViews>
     <listViews>
+        <fullName>Non_HCP</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.SITE</columns>
+        <columns>ACCOUNT.ADDRESS1_STATE</columns>
+        <columns>ACCOUNT.PHONE1</columns>
+        <columns>Language_Preference_MERC__c</columns>
+        <columns>ACCOUNT.TYPE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ACCOUNT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>PersonAccount.Non_HCP_MERC</value>
+        </filters>
+        <label>Non-HCPs</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
         <fullName>RTI</fullName>
         <columns>ACCOUNT.NAME</columns>
         <columns>ACCOUNT.RECORDTYPE</columns>
@@ -4321,6 +4321,27 @@ Created by John A Adams 11/4/2013</description>
             <value>sap</value>
         </filters>
         <label>SAP Test Accounts</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Web_Service_Test_Users</fullName>
+        <columns>PC_SALUTATION</columns>
+        <columns>PC_FIRST_NAME</columns>
+        <columns>PC_LAST_NAME</columns>
+        <columns>PC_EMAIL</columns>
+        <columns>Cust_Id_GLBL__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Cust_Id_GLBL__c</field>
+            <operation>startsWith</operation>
+            <value>HCP-1111</value>
+        </filters>
+        <filters>
+            <field>ACCOUNT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>PersonAccount.HCP_GLBL</value>
+        </filters>
+        <label>Web Service Test Users</label>
         <language>en_US</language>
     </listViews>
     <namedFilters>
@@ -6238,11 +6259,11 @@ Created by John A Adams 11/4/2013</description>
         <picklistValues>
             <picklist>Venue_Preference_Type_MERC__c</picklist>
             <values>
-                <fullName>Compliance Preferred</fullName>
+                <fullName>International Approved Venue</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Local Preferred</fullName>
+                <fullName>Large Meeting Venue</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7760,11 +7781,11 @@ Created by John A Adams 11/4/2013</description>
         <picklistValues>
             <picklist>Venue_Preference_Type_MERC__c</picklist>
             <values>
-                <fullName>Compliance Preferred</fullName>
+                <fullName>International Approved Venue</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Local Preferred</fullName>
+                <fullName>Large Meeting Venue</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8286,11 +8307,11 @@ Created by John A Adams 11/4/2013</description>
         <picklistValues>
             <picklist>Venue_Preference_Type_MERC__c</picklist>
             <values>
-                <fullName>Compliance Preferred</fullName>
+                <fullName>International Approved Venue</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Local Preferred</fullName>
+                <fullName>Large Meeting Venue</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9808,11 +9829,11 @@ Created by John A Adams 11/4/2013</description>
         <picklistValues>
             <picklist>Venue_Preference_Type_MERC__c</picklist>
             <values>
-                <fullName>Compliance Preferred</fullName>
+                <fullName>International Approved Venue</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Local Preferred</fullName>
+                <fullName>Large Meeting Venue</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11326,11 +11347,11 @@ Created by John A Adams 11/4/2013</description>
         <picklistValues>
             <picklist>Venue_Preference_Type_MERC__c</picklist>
             <values>
-                <fullName>Compliance Preferred</fullName>
+                <fullName>International Approved Venue</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Local Preferred</fullName>
+                <fullName>Large Meeting Venue</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12848,11 +12869,11 @@ Created by John A Adams 11/4/2013</description>
         <picklistValues>
             <picklist>Venue_Preference_Type_MERC__c</picklist>
             <values>
-                <fullName>Compliance Preferred</fullName>
+                <fullName>International Approved Venue</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Local Preferred</fullName>
+                <fullName>Large Meeting Venue</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12894,7 +12915,7 @@ Created by John A Adams 11/4/2013</description>
         <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>ACCOUNT.RECORDTYPE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Primary_Addr_Line1_GLBL__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Personal_Address_City_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Primary_Addr_City_GLBL__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Primary_Address_Country_GLBL__c</searchResultsAdditionalFields>
     </searchLayouts>
     <validationRules>

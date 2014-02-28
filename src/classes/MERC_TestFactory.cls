@@ -1,6 +1,8 @@
 public with sharing class MERC_TestFactory {
 	
-	static Id hcpRecordTypeId = [Select ID From RecordType Where SObjectType = 'Account' and DeveloperName = 'HCP_GLBL'].ID;
+	public static Id hcpRecordTypeId = [Select ID From RecordType Where SObjectType = 'Account' and DeveloperName = 'HCP_GLBL'].ID;
+	public static Id employeeRecordTypeId = [Select ID From RecordType Where SObjectType = 'Account' and DeveloperName = 'Employee_GLBL'].ID;
+	public static Id vendorRecordTypeId = [Select ID From RecordType Where SObjectType = 'Account' and DeveloperName = 'Vendor_GLBL'].ID;
 
 	public static void insertMercuryCustomSettings() {
 		Mercury_Settings_MERC__c settings = Mercury_Settings_MERC__c.getOrgDefaults();
@@ -46,7 +48,7 @@ public with sharing class MERC_TestFactory {
 			Account a = new Account();
 			a.FirstName = 'UnitTest';
 			a.LastName = 'Smith'+numberOfAccounts;
-			a.RecordTypeId = [Select ID From RecordType Where SObjectType = 'Account' and DeveloperName = 'Employee_GLBL'].ID;
+			a.RecordTypeId = employeeRecordTypeId;
 			a.PersonEmail = 'unittest'+i+'@gmail.com';
 			accs.add(a);
 		}
@@ -120,7 +122,6 @@ public with sharing class MERC_TestFactory {
 
 	public static List<Meeting_Vendor_MERC__c> insertHotelsForMeeting(Integer numberOfHotels, String meetingId) {
 		List<Account> accounts = new List<Account>();
-		String vendorRecordTypeId = [SELECT ID FROM RecordType WHERE SObjectType = 'Account' AND DeveloperName = 'Vendor_GLBL'].ID;
 		for (Integer i = 0; i < numberOfHotels; i++) {
 			Account a = new Account();
 			a.RecordTypeId = vendorRecordTypeId;

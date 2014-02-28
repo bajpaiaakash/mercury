@@ -14,7 +14,6 @@ public with sharing class CUST_RecordTypeIdLookup implements GLBL_TriggerHandler
 	   	}
 	}
 
-
 	void execute(List<Sobject> sobjects) {
 		List<CST_App_Settings_CUST__c> settings = (List<CST_App_Settings_CUST__c>)sobjects;
 		List<CST_App_Settings_CUST__c> settingsToProcess = new List<CST_App_Settings_CUST__c>();

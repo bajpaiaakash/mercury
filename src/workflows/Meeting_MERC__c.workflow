@@ -16,14 +16,12 @@
     </alerts>
     <alerts>
         <fullName>Notify_Meeting_Owner_when_Meeting_Status_is_changed_from_Forecasted_to_Cancelled</fullName>
+        <ccEmails>jadams@mavensconsulting.com</ccEmails>
         <description>Notify Meeting Owner when Meeting Status is changed from Forecasted to Cancelled</description>
         <protected>false</protected>
         <recipients>
             <field>Meeting_Owner_Email_MERC__c</field>
             <type>email</type>
-        </recipients>
-        <recipients>
-            <type>owner</type>
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>Mercury_Email_Templates_MERC/Cancelled_Meeting</template>
@@ -32,19 +30,7 @@
         <fullName>Two_week_compliance_notification_to_Meeting_Owner</fullName>
         <ccEmails>oliver@mavensconsulting.com</ccEmails>
         <ccEmails>katy@mavensconsulting.com</ccEmails>
-        <description>Two week compliance notification to Meeting Owner</description>
-        <protected>false</protected>
-        <recipients>
-            <field>Meeting_Owner_Email_MERC__c</field>
-            <type>email</type>
-        </recipients>
-        <senderType>CurrentUser</senderType>
-        <template>Mercury_Email_Templates_MERC/Two_week_Compliance_Notification_to_Owner</template>
-    </alerts>
-    <alerts>
-        <fullName>Two_week_compliance_notification_to_Meeting_Owner_MERC</fullName>
-        <ccEmails>oliver@mavensconsulting.com</ccEmails>
-        <ccEmails>katy@mavensconsulting.com</ccEmails>
+        <ccEmails>jadams@mavensconsulting.com</ccEmails>
         <description>Two week compliance notification to Meeting Owner</description>
         <protected>false</protected>
         <recipients>
@@ -727,7 +713,6 @@ Name</formula>
         <active>true</active>
         <description>Set Queue Owner - France Hub</description>
         <formula>(ISPICKVAL(Event_Country_MERC__c,&apos;FR&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;NL&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;BE&apos;))&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;) &amp;&amp;
-RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
 RecordType.Name &lt;&gt; &apos;Consulting Project&apos;</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -739,7 +724,8 @@ RecordType.Name &lt;&gt; &apos;Consulting Project&apos;</formula>
         </actions>
         <active>true</active>
         <description>Set Queue Owner - Germany Hub</description>
-        <formula>(ISPICKVAL(Event_Country_MERC__c,&apos;DE&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;AT&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;CH&apos;))&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)</formula>
+        <formula>(ISPICKVAL(Event_Country_MERC__c,&apos;DE&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;AT&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;CH&apos;))&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)  &amp;&amp;
+RecordType.Name &lt;&gt; &apos;Consulting Project&apos;</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -751,7 +737,6 @@ RecordType.Name &lt;&gt; &apos;Consulting Project&apos;</formula>
         <active>true</active>
         <description>Set Queue Owner - Italy Hub</description>
         <formula>(ISPICKVAL(Event_Country_MERC__c,&apos;IT&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;RO&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;BG&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;HR&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;RS&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;SI&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;CY&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;MT&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;CA&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;HU&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;PL&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;SK&apos;))&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;) &amp;&amp;
-RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
 RecordType.Name &lt;&gt; &apos;Consulting Project&apos;</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -764,7 +749,6 @@ RecordType.Name &lt;&gt; &apos;Consulting Project&apos;</formula>
         <active>true</active>
         <description>Set Queue Owner - Russia</description>
         <formula>ISPICKVAL(Event_Country_MERC__c,&apos;RU&apos;)&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;) &amp;&amp;
-RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
 RecordType.Name &lt;&gt; &apos;Consulting Project&apos;</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -777,7 +761,6 @@ RecordType.Name &lt;&gt; &apos;Consulting Project&apos;</formula>
         <active>true</active>
         <description>Set Queue Owner - Spain Hub</description>
         <formula>(ISPICKVAL(Event_Country_MERC__c,&apos;ES&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;PT&apos;))&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;) &amp;&amp;
-RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
 RecordType.Name &lt;&gt; &apos;Consulting Project&apos;</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -790,7 +773,6 @@ RecordType.Name &lt;&gt; &apos;Consulting Project&apos;</formula>
         <active>true</active>
         <description>Set Queue Owner - Turkey</description>
         <formula>ISPICKVAL(Event_Country_MERC__c,&apos;TR&apos;)&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;) &amp;&amp;
-RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
 RecordType.Name &lt;&gt; &apos;Consulting Project&apos;</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -803,7 +785,6 @@ RecordType.Name &lt;&gt; &apos;Consulting Project&apos;</formula>
         <active>true</active>
         <description>Set Queue Owner - UK Hub</description>
         <formula>(ISPICKVAL(Event_Country_MERC__c,&apos;GB&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;IE&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;SE&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;NO&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;DK&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;FI&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;LV&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;LT&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;EE&apos;))&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;) &amp;&amp;
-RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
 RecordType.Name &lt;&gt; &apos;Consulting Project&apos;</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -816,7 +797,6 @@ RecordType.Name &lt;&gt; &apos;Consulting Project&apos;</formula>
         <active>true</active>
         <description>Set Queue Owner - Ukraine</description>
         <formula>ISPICKVAL(Event_Country_MERC__c,&apos;UA&apos;)&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot; )&amp;&amp;
-RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
 RecordType.Name &lt;&gt; &apos;Consulting Project&apos;</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>

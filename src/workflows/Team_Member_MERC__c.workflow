@@ -2,7 +2,7 @@
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <alerts>
         <fullName>Send_Team_Member_Notification_MERC</fullName>
-        <ccEmails>oliver@mavensconsulting.com</ccEmails>
+        <ccEmails>jadams@mavensconsulting.com</ccEmails>
         <description>Send Team Member Notification</description>
         <protected>false</protected>
         <recipients>
@@ -12,6 +12,16 @@
         <senderType>CurrentUser</senderType>
         <template>Mercury_Email_Templates_MERC/New_Team_Member_Notification_MERC</template>
     </alerts>
+    <fieldUpdates>
+        <fullName>Clear_existing_PMO</fullName>
+        <description>Clear the current Primary Meeting Owner if owner changes</description>
+        <field>Prmry_Mtng_Ownr_Nm_MERC__c</field>
+        <name>Clear existing PMO</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+        <targetObject>Meeting_MERC__c</targetObject>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>External_ID_Team_Member_MERC</fullName>
         <description>Populates External ID with OrdID and ID</description>
@@ -28,6 +38,20 @@
         <field>Meeting_Owner_Email_MERC__c</field>
         <formula>User_MERC__r.Email</formula>
         <name>Set Primary Meeting Owner Email_MERC</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <targetObject>Meeting_MERC__c</targetObject>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Set_Prmry_Mtng_Ownr_MERC</fullName>
+        <description>Stamps in the Primary Meeting Owner Name into Meeting. Created by John A Adams 2/27/2014</description>
+        <field>Prmry_Mtng_Ownr_Nm_MERC__c</field>
+        <formula>IF(
+(ISBLANK(Meeting_MERC__r.Prmry_Mtng_Ownr_Nm_MERC__c)), (User_MERC__r.FirstName  &amp;&apos; &apos;&amp; User_MERC__r.LastName),
+(User_MERC__r.FirstName  &amp;&apos; &apos;&amp; User_MERC__r.LastName)
+)</formula>
+        <name>Set Prmry  Mtng Ownr_Internal_MERC</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
@@ -134,6 +158,17 @@
         <active>true</active>
         <description>Set Primary Meeting Owner email address on Meeting object. Created 01/21/2014 by KLorenti, Mavens Consulting</description>
         <formula>ISPICKVAL(Role_MERC__c,&quot;Primary Meeting Owner&quot;)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Stamp Primary  Meeting Owner MERC</fullName>
+        <actions>
+            <name>Set_Prmry_Mtng_Ownr_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Stamps the Primary Meeting Owner name into the Meeting record when this team member role has been assigned or changed.</description>
+        <formula>ISPICKVAL(Role_MERC__c, &quot;Primary Meeting Owner&quot;)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>
