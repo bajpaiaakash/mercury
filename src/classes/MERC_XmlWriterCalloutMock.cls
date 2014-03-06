@@ -1,3 +1,8 @@
+/** 
+* @author Joe Ferraro 
+* 
+* This is a mock callout class for MERC_XmlWriterTest and MERC_InvoiceXmlWriterTest
+*/
 @isTest
 public class MERC_XmlWriterCalloutMock implements HttpCalloutMock {
 
