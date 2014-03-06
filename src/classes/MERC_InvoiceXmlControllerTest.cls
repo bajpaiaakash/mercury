@@ -57,7 +57,7 @@ private class MERC_InvoiceXmlControllerTest {
 	 * An optional TIF section is driven by the presence of specific Content.
 	 * Vote for this Idea: https://success.salesforce.com/ideaView?id=08730000000ZWp2AAG
 	 */
-	@isTest(SeeAllData=true) static void testTifSection() {
+	@isTest static void testTifSection() {
 
 		ContentVersion tifObjInsert = new ContentVersion();
 		tifObjInsert.VersionData = Blob.valueOf('12345678');

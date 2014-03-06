@@ -1,5 +1,5 @@
 public with sharing class MERC_InvoiceXmlWriter implements GLBL_TriggerHandler.HandlerInterface {
-	
+
 	public void handle() {
 		if (Trigger.isAfter) {
 			if (Trigger.isInsert || Trigger.isUpdate || Trigger.isUndelete) {
@@ -8,7 +8,7 @@ public with sharing class MERC_InvoiceXmlWriter implements GLBL_TriggerHandler.H
 		    		if (invoice.Submit_for_Payment_MERC__c == 'Yes') invoiceIds.add(invoice.Id);
 		    	}
 		    	if (invoiceIds.size() > 0)
-		    		execute(invoiceIds, UserInfo.getSessionId());
+		    		if (!Test.isRunningTest()) execute(invoiceIds, UserInfo.getSessionId());
 		   	}
 		}
 	}
@@ -37,8 +37,8 @@ public with sharing class MERC_InvoiceXmlWriter implements GLBL_TriggerHandler.H
 	}
 
 	public static void writeXml(List<String> invoiceIds) {
-		RestRequest req = RestContext.request;
-        RestResponse res = RestContext.response;
+		// RestRequest req = RestContext.request;
+        // RestResponse res = RestContext.response;
         
        	Id recordTypeId = [SELECT Id FROM RecordType WHERE DeveloperName = 'Invoice_MERC' And SobjectType = 'ContentVersion'].Id;
        	Id workspaceId = [SELECT Id FROM ContentWorkspace WHERE Name = 'Mercury' Limit 1].Id;
@@ -46,7 +46,7 @@ public with sharing class MERC_InvoiceXmlWriter implements GLBL_TriggerHandler.H
        	for (String invoiceId : invoiceIds) {
        		PageReference xmlFile = Page.MERC_InvoiceAFIXML;
        		xmlFile.getParameters().put('id', invoiceId);
-       		Blob b = xmlFile.getContent();
+       		Blob b = (!Test.isRunningTest()) ? xmlFile.getContent() : Blob.valueOf('<blah></blah>');
        		
        		ContentVersion invoiceXml = new ContentVersion();
        		invoiceXml.Title = 'MercuryInvoice-'+invoiceId.substring(0, 15)+'.xml';
