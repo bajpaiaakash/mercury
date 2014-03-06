@@ -181,6 +181,7 @@ public with sharing class MERC_TestFactory {
 		Budget_MERC__c b = new Budget_MERC__c();
 		b.Meeting_MERC__c = meetingId;
 		b.Status_MERC__c = 'Draft';
+		b.Cost_Center_MERC__c = '1234567';
         b.RecordTypeId = [Select ID From RecordType Where SobjectType = 'Budget_MERC__c' AND DeveloperName = 'MERC_Budget_Draft'].ID;
         insert b;
         return b;
