@@ -190,6 +190,7 @@ Created by J Adams 12/10/2013</description>
         <externalId>false</externalId>
         <formula>IF( Master_Budget_Delta_MERC__c  &gt; 0 , ABS(Master_Budget_Delta_MERC__c), 0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Overage in comparison to the Current Budget Used within the Master Budget (does not compare with Budget field on Meeting</inlineHelpText>
         <label>Overage</label>
         <precision>18</precision>
         <required>false</required>
@@ -229,6 +230,7 @@ Created by J Adams 12/10/2013</description>
         <externalId>false</externalId>
         <formula>IF( Master_Budget_Delta_MERC__c  &lt; 0 , ABS(Master_Budget_Delta_MERC__c), 0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Savings in comparison to the Current Budget Used within the Master Budget (does not compare with Budget field on Meeting</inlineHelpText>
         <label>Savings</label>
         <precision>18</precision>
         <required>false</required>
@@ -439,6 +441,14 @@ Created by J Adams 12/10/2013</description>
         <searchResultsAdditionalFields>CREATEDBY_USER</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Cost_Center_completed</fullName>
+        <active>true</active>
+        <description>Ensure that the Cost Center is severn digits long.</description>
+        <errorConditionFormula>NOT(REGEX( Cost_Center_MERC__c, &quot;[0-9]{7}&quot;))</errorConditionFormula>
+        <errorDisplayField>Cost_Center_MERC__c</errorDisplayField>
+        <errorMessage>The Cost Center must be seven digits long.</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>MERC_Prevent_Budget_Edit_Archived_Active</fullName>
         <active>true</active>

@@ -4,7 +4,6 @@
  * Controller for Budget versioning functionality
  * -Handles activation/finalisation of budgets
  */
-
 public with sharing class MERC_BudgetVersionController {
 
 	private final Budget_MERC__c budget;
