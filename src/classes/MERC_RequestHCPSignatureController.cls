@@ -8,15 +8,19 @@ public with sharing class MERC_RequestHCPSignatureController {
 
 	private final HCP_Contract_MERC__c contract;
     private final ApexPages.StandardController stdController;
+    private String contractName { get; set {if (value!=null) contractName = value;}}
     public String error { get; private set; }
     public Boolean isSent { get; private set; }
 
     public MERC_RequestHCPSignatureController(ApexPages.StandardController stdController) {
         this.stdController = stdController;
-        if (!Test.isRunningTest()) {
-            this.stdController.addFields(new List<String>{ 'Id', 'Name', 'Account_MERC__c' });
-        }
+        if (!Test.isRunningTest()) { this.stdController.addFields(new List<String>{ 'Id', 'Name', 'Account_MERC__c' }); }
+
         this.contract = (HCP_Contract_MERC__c)stdController.getRecord();
+
+        if (Test.isRunningTest()) contractName = [SELECT Name FROM HCP_Contract_MERC__c WHERE Id = :this.contract.Id].Name;
+        contractName = this.contract.Name;
+
         if (ApexPages.currentPage().getParameters().get('docusignTasStatus') == '1') {
             this.isSent = true;
         } else {
@@ -25,7 +29,12 @@ public with sharing class MERC_RequestHCPSignatureController {
     }
 
     public Boolean getCanRequestSignature() {
+
         Account hcpRecipient = [Select Id, PersonEmail From Account Where Id = :this.contract.Account_MERC__c];
+        if (contract.Lilly_Internal_Signee_MERC__c == null) {
+            this.error = 'Contract does not have a Lilly Internal Signee assigned.';  //TODO label
+            return false;
+        }
         Account lillyRecipient = [Select Id, PersonEmail From Account Where Id = :this.contract.Lilly_Internal_Signee_MERC__c];
         if (hcpRecipient.PersonEmail == null) {
             this.error = 'HCP does not have a valid e-mail address'; //TODO label
@@ -45,14 +54,15 @@ public with sharing class MERC_RequestHCPSignatureController {
         get {
             try {
                 if (contractContentVersion == null) {
+                    p('name='+contractName+'|'+this.contract);
                     contractContentVersion = [Select ID, Title, LastModifiedDate, FileType 
                         FROM ContentVersion WHERE 
                             HCP_Contract_MERC__c = :this.contract.Id AND 
+                            Title = :contractName AND 
                             FileType = 'PDF' AND 
                             PublishStatus = 'P' AND
-                            Title = :this.contract.Name AND 
                             IsLatest = True ORDER BY CreatedDate desc LIMIT 1];
-                } 
+                }
                 return contractContentVersion;   
             } catch (Exception e) {
                 return null;
@@ -115,4 +125,7 @@ public with sharing class MERC_RequestHCPSignatureController {
         }
     }
 
+    static void p(String m) {
+        System.debug('\n\n\nYYZ - '+m+'\n\n\n\n');
+    }
 }

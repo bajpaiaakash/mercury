@@ -28,17 +28,23 @@ public class MERC_DocusignServiceMock implements HttpCalloutMock {
         HttpResponse resp = new HttpResponse();
 		resp.setStatusCode(code);
 		resp.setStatus(status);
-		if (bodyAsBlob != null) {
-			resp.setBodyAsBlob(bodyAsBlob);
-		} else {
-			resp.setBody(bodyAsString);
+
+		if (req.getHeader('Content-Type').contains('multipart/form-data')) {
+			if (bodyAsBlob != null) {
+				resp.setBodyAsBlob(bodyAsBlob);
+			} else {
+				resp.setBody(bodyAsString);
+			}
+
+			if (responseHeaders != null) {
+			   	for (String key : responseHeaders.keySet()) {
+					resp.setHeader(key, responseHeaders.get(key));
+			   	}
+			}
+		} else if (req.getBody().contains('returnUrl')) {
+			resp.setBody('{ "url" : "http://google.com" }');
 		}
 
-		if (responseHeaders != null) {
-		   	for (String key : responseHeaders.keySet()) {
-				resp.setHeader(key, responseHeaders.get(key));
-		   	}
-		}
 		return resp;
     }
 }
