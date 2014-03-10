@@ -54,7 +54,6 @@ public with sharing class MERC_RequestHCPSignatureController {
         get {
             try {
                 if (contractContentVersion == null) {
-                    p('name='+contractName+'|'+this.contract);
                     contractContentVersion = [Select ID, Title, LastModifiedDate, FileType 
                         FROM ContentVersion WHERE 
                             HCP_Contract_MERC__c = :this.contract.Id AND 
@@ -123,9 +122,5 @@ public with sharing class MERC_RequestHCPSignatureController {
             this.isSent = true;
             return null;
         }
-    }
-
-    static void p(String m) {
-        System.debug('\n\n\nYYZ - '+m+'\n\n\n\n');
     }
 }
