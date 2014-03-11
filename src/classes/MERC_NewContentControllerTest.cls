@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /** 
 * @author Sean Harrison 
 * 
@@ -23,6 +22,7 @@ private class MERC_NewContentControllerTest {
 		contract = MERC_TestFactory.insertHCPContract(accounts[0].Id);
 	}
 
+	// exercise cancel method.
 	@isTest 
 	static void userCancels() {
 
@@ -39,6 +39,9 @@ private class MERC_NewContentControllerTest {
 			'Expected a return to the object detail but got: '+returnRef.getUrl());
 	}
 	
+	/*
+	 * Loop through all expected content types and try the upload
+	 */
 	@isTest 
 	static void testUploadAllContentTypes() {
 
@@ -75,6 +78,7 @@ private class MERC_NewContentControllerTest {
 		}
 	}
 
+	// Simulate a problem with the User's access to Content
 	@isTest
 	static void catchWorkspaceException() {
         Profile p = [SELECT id FROM profile WHERE name='Standard User'];
@@ -106,6 +110,7 @@ private class MERC_NewContentControllerTest {
 		}
 	}
 
+	// Catch an exception when inserting the ContentVersion record in upload()
 	@isTest
 	static void catchUploadException() {
 		PageReference ref = Page.MERC_NewMeetingContent;
@@ -126,17 +131,4 @@ private class MERC_NewContentControllerTest {
 			System.assertEquals(ApexPages.Severity.Error,m.getSeverity(),'Unexpected error thrown: '+m);			
 		}
 	}
-=======
-@isTest
-private class MERC_NewContentControllerTest {
-	
-	@isTest static void test_method_one() {
-		// Implement test code
-	}
-	
-	@isTest static void test_method_two() {
-		// Implement test code
-	}
-	
->>>>>>> 7515efa49b2a4cf8c238eb1cab94f07ba660c0c9
 }
