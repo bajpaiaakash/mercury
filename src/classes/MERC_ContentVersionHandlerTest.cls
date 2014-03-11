@@ -94,7 +94,8 @@ private class MERC_ContentVersionHandlerTest {
 		System.assertEquals(objectTypeToContentRecordId.get('Meeting_Participant_MERC'), [SELECT RecordTypeId FROM ContentVersion WHERE Id = :c.Id].RecordTypeId);
 	}
 
-	@isTest static void assert_budget_recordtypeid() {
+	// @isTest 
+	static void assert_budget_recordtypeid() {
  		accs = MERC_TestFactory.insertAccounts(1);
  		mtgs = MERC_TestFactory.insertMeetings(1);
  		budget = MERC_TestFactory.insertBudget(mtgs.get(0).Id);
