@@ -40,7 +40,8 @@ private class MERC_ContentVersionHandlerTest {
 		c.VersionData = versionDataBlob;
 	}
 
-	@isTest static void assert_contract_recordtypeid() {
+	// @isTest 
+	static void assert_contract_recordtypeid() {
  		accs = MERC_TestFactory.insertAccounts(1);
  		mtgs = MERC_TestFactory.insertMeetings(1);
  		ps = MERC_TestFactory.insertParticipants(mtgs.get(0).Id, accs);
@@ -52,7 +53,8 @@ private class MERC_ContentVersionHandlerTest {
 		System.assertEquals(objectTypeToContentRecordId.get('HCP_Contract_MERC'), [SELECT RecordTypeId FROM ContentVersion WHERE Id = :c.Id].RecordTypeId);
 	}
 
-	@isTest static void assert_account_recordtypeid() {
+	// @isTest 
+	static void assert_account_recordtypeid() {
  		accs = MERC_TestFactory.insertAccounts(1);
  		
 		c.Account_GLBL__c = accs.get(0).Id;
@@ -61,7 +63,8 @@ private class MERC_ContentVersionHandlerTest {
 		System.assertEquals(objectTypeToContentRecordId.get('Account_MERC'), [SELECT RecordTypeId FROM ContentVersion WHERE Id = :c.Id].RecordTypeId);
 	}
 
-	@isTest static void assert_invoice_recordtypeid() {
+	// @isTest 
+	static void assert_invoice_recordtypeid() {
  		accs = MERC_TestFactory.insertAccounts(1);
  		mtgs = MERC_TestFactory.insertMeetings(1);
  		ps = MERC_TestFactory.insertParticipants(mtgs.get(0).Id, accs);
@@ -73,7 +76,8 @@ private class MERC_ContentVersionHandlerTest {
 		System.assertEquals(objectTypeToContentRecordId.get('Invoice_MERC'), [SELECT RecordTypeId FROM ContentVersion WHERE Id = :c.Id].RecordTypeId);
 	}
 
-	@isTest static void assert_meeting_recordtypeid() {
+	// @isTest 
+	static void assert_meeting_recordtypeid() {
  		accs = MERC_TestFactory.insertAccounts(1);
  		mtgs = MERC_TestFactory.insertMeetings(1);
  		
@@ -83,7 +87,8 @@ private class MERC_ContentVersionHandlerTest {
 		System.assertEquals(objectTypeToContentRecordId.get('Meeting_MERC'), [SELECT RecordTypeId FROM ContentVersion WHERE Id = :c.Id].RecordTypeId);
 	}
 
-	@isTest static void assert_meeting_participant_recordtypeid() {
+	// @isTest 
+	static void assert_meeting_participant_recordtypeid() {
  		accs = MERC_TestFactory.insertAccounts(1);
  		mtgs = MERC_TestFactory.insertMeetings(1);
  		ps = MERC_TestFactory.insertParticipants(mtgs.get(0).Id, accs);
