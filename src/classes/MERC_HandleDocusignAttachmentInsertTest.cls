@@ -1,3 +1,9 @@
+/**
+ * @author Sean Harrison
+ *
+ * Unit tests for MERC_HandleDocusignAttachmentInsert.cls which copies attachments
+ * created by Docusign to Content and deletes the attachment.
+ */
 @isTest
 private class MERC_HandleDocusignAttachmentInsertTest {
 	
@@ -26,6 +32,7 @@ private class MERC_HandleDocusignAttachmentInsertTest {
 		System.assert(!contentVers.isEmpty(), 'The attachment does not appear as Content');
 	}
 	
+	// Should only work for HCP Contracts, so let's try a non-contract obj to confirm attachment remains
 	@isTest static void justHCPContractsShouldHaveAttachmentsConverted() {
 		List<Meeting_MERC__c> meets = MERC_TestFactory.insertMeetings(1);
 
