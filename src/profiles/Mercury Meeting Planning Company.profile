@@ -6,16 +6,29 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
+        <application>Customer_Meeting_Services_MERC</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
         <application>Mercury</application>
         <default>true</default>
         <visible>true</visible>
     </applicationVisibilities>
+    <classAccesses>
+        <apexClass>CUST_ProcessScheduler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>CUST_RecordTypeIdLookup</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>CUST_RecordTypeIdLookupTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CUST_UserSettingsStatusChangeBatchable</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -143,6 +156,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_HandleDocusignAttachmentInsertTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_HcpCapActualsCalculator</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -172,6 +189,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_InvoiceXmlWriter</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_InvoiceXmlWriterTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -215,6 +236,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_NewContentControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_ParticipantFMVCalculator</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -232,6 +257,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_RequestHCPSignatureController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_RequestHCPSignatureControllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -394,6 +423,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.CODS_Merge_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.CST_Email_Stamp_CUST__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -669,6 +703,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Fax_Phone_Cntry_Cd_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Flag_CST_Email_CUST__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2268,6 +2307,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>CST_App_Settings_CUST__c.Cnsnt_Prps_Cd_CUST__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_App_Settings_CUST__c.Cnsnt_Sts_Cd_CUST__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>CST_App_Settings_CUST__c.Employee_Record_Type_CUST__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2284,6 +2333,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>CST_App_Settings_CUST__c.HCO_Record_Types_CUST__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_App_Settings_CUST__c.Interaction_Channel_Type_CUST__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2315,6 +2369,31 @@
         <editable>false</editable>
         <field>CST_App_Settings_CUST__c.Specialty_priority_rank_CUST__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CST_User_Log_CUST__c.Prsnl_Nbr_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_User_Log_CUST__c.Term_Language_CUST__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_User_Log_CUST__c.Terms_Accepted_CUST__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_User_Log_CUST__c.Time_Accessed_CUST__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_User_Log_CUST__c.User_Account_CUST__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -5745,6 +5824,10 @@
         <recordType>Account.Health_Care_Organization_GLBL</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Account-MERC_Lilly Affiliate Business</layout>
+        <recordType>Account.Lilly_Affiliate_Business_GLBL</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Account-MERC_Third Party Organization</layout>
         <recordType>Account.Third_Party_Organization_GLBL</recordType>
     </layoutAssignments>
@@ -5762,6 +5845,14 @@
     <layoutAssignments>
         <layout>Address_GLBL__c-GLBL_Addresses</layout>
         <recordType>Address_GLBL__c.Mastered_Address</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Address_GLBL__c-MERC_Payee Address</layout>
+        <recordType>Address_GLBL__c.Payee_Address</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Address_GLBL__c-MERC_Personal Address</layout>
+        <recordType>Address_GLBL__c.Other_Address</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Affiliation_GLBL__c-Affiliation Layout</layout>
@@ -5795,10 +5886,22 @@
         <recordType>Budget_MERC__c.MERC_Budget_Final</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>CST_App_Settings_CUST__c-CST App Settings Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>CST_User_Log_CUST__c-CST User Log Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>CST_User_Settings_CUST__c-CST User Settings Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Case-Case Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>CaseClose-Close Case Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Consent_Setting_GLBL__c-Consent Setting Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Contact-Contact Layout</layout>
@@ -5806,6 +5909,10 @@
     <layoutAssignments>
         <layout>ContentVersion-Account_MERC</layout>
         <recordType>ContentVersion.Account_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ContentVersion-Budget_MERC</layout>
+        <recordType>ContentVersion.Budget_MERC</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>ContentVersion-General</layout>
@@ -5821,6 +5928,10 @@
     <layoutAssignments>
         <layout>ContentVersion-Meeting_MERC</layout>
         <recordType>ContentVersion.Meeting_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ContentVersion-Meeting_Participant_MERC</layout>
+        <recordType>ContentVersion.Meeting_Participant_MERC</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Contract-Contract Layout</layout>
@@ -5850,6 +5961,10 @@
         <layout>Indication_GLBL__c-MERC_Product Indication Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Invoice_Line_Item_MERC__c-MERC_Consulting Project</layout>
+        <recordType>Invoice_Line_Item_MERC__c.Consulting_Project_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Invoice_Line_Item_MERC__c-MERC_Contracted Services</layout>
         <recordType>Invoice_Line_Item_MERC__c.Contracted_Services_MERC</recordType>
     </layoutAssignments>
@@ -5875,8 +5990,16 @@
         <layout>Meeting_Day_MERC__c-MERC_Meeting Day</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Meeting_MERC__c-MERC_Active</layout>
+        <recordType>Meeting_MERC__c.Meeting_Active</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Meeting_MERC__c-MERC_Completed</layout>
         <recordType>Meeting_MERC__c.Completed</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_MERC__c-MERC_Consulting_Project</layout>
+        <recordType>Meeting_MERC__c.Ad_Hoc_Consulting</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Meeting_MERC__c-MERC_Forecasted_Meeting</layout>
@@ -5892,6 +6015,10 @@
     <layoutAssignments>
         <layout>Meeting_MERC__c-MERC_Registered_Meeting</layout>
         <recordType>Meeting_MERC__c.Registered</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_Participant_MERC__c-MERC_Consulting</layout>
+        <recordType>Meeting_Participant_MERC__c.Consulting</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Meeting_Participant_MERC__c-MERC_Delegate</layout>
@@ -5951,6 +6078,9 @@
         <recordType>PersonAccount.PersonAccount</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Preferences_and_Consent_GLBL__c-GLBL_Preferences</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Product_Group_GLBL__c-GLBL_Product</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -5963,6 +6093,25 @@
     <layoutAssignments>
         <layout>Team_Member_MERC__c-MERC_Mercury_Team Member</layout>
         <recordType>Team_Member_MERC__c.Mercury_User_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Travel_Itinerary_MERC__c-MERC_Air</layout>
+        <recordType>Travel_Itinerary_MERC__c.Air_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Travel_Itinerary_MERC__c-MERC_Car</layout>
+        <recordType>Travel_Itinerary_MERC__c.Car_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Travel_Itinerary_MERC__c-MERC_Hotel</layout>
+        <recordType>Travel_Itinerary_MERC__c.Hotel_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Travel_Itinerary_MERC__c-MERC_Rail</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Travel_Itinerary_MERC__c-MERC_Rail</layout>
+        <recordType>Travel_Itinerary_MERC__c.Rail_MERC</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>User-User Layout</layout>
@@ -6492,11 +6641,6 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Travel_Itinerary_MERC__c.Limo_Service_MERC</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
         <default>true</default>
         <recordType>Travel_Itinerary_MERC__c.Rail_MERC</recordType>
         <visible>true</visible>
@@ -6518,6 +6662,10 @@
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>CST_User_Log_CUST__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>CST_User_Settings_CUST__c</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
@@ -6535,6 +6683,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Meeting_Vendor_MERC__c</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Preferences_and_Consent_GLBL__c</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>

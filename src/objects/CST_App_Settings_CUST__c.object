@@ -131,6 +131,30 @@
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>Cnsnt_Prps_Cd_CUST__c</fullName>
+        <description>Default values for Consent Purpose Code search control</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Default values for Consent Purpose Code search control</inlineHelpText>
+        <label>Consent Purpose Code</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Cnsnt_Sts_Cd_CUST__c</fullName>
+        <description>Default values for Consent Status search control</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Default values for Consent Status search control</inlineHelpText>
+        <label>Consent Status</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Employee_Record_Type_CUST__c</fullName>
         <description>A comma-delimited list of Account record types used for Employees.</description>
         <externalId>false</externalId>
@@ -172,6 +196,18 @@
         <externalId>false</externalId>
         <inlineHelpText>A comma-delimited list of Account record types used for HCOs. Entries should match RecordType.DeveloperName when viewing the schema directly or the &quot;Record Type Name&quot; when viewing Record Type Detail UI. E.g. HCO_GLBL</inlineHelpText>
         <label>HCO Record Types</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Interaction_Channel_Type_CUST__c</fullName>
+        <description>Default values for Consent Channel search control</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Default values for Consent Channel search control</inlineHelpText>
+        <label>Consent Channel</label>
         <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>

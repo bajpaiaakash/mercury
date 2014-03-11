@@ -136,6 +136,48 @@ Created by John A Adams 12/13/2013</description>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
+        <fullName>Primary Address_Venue_MERC</fullName>
+        <actions>
+            <name>Prim_Add_City_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Prim_Add_Country_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Prim_Add_Line1_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Prim_Add_Line2_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Prim_Add_Postal_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Triggers copying the Address  fields for a Venue or Vendor to the Primary Address Fields in Accounts of type Venue or Vendor with Priority Rank 1. Created 02/28/2014 by KLorenti, Mavens Consulting</description>
+        <formula>ISNEW() &amp;&amp; Priority_Rank_Nbr_GLBL__c = 1 &amp;&amp; RecordType.Name  = &quot;Other Address&quot; ||  
+(
+	Priority_Rank_Nbr_GLBL__c = 1 &amp;&amp;  RecordType.Name = &quot;Other Address&quot; &amp;&amp;  
+		(   
+			(ISCHANGED(Line_1_Adrs_Txt_GLBL__c )) ||   
+			(ISCHANGED(Line_2_Adrs_Txt_GLBL__c )) ||  
+			(ISCHANGED(Line_3_Adrs_Txt_GLBL__c )) || 
+			(ISCHANGED(Line_4_Adrs_Txt_GLBL__c )) ||   
+			(ISCHANGED(City_GLBL__c )) ||   
+			(ISCHANGED(Adrs_Cntry_Cd_GLBL__c )) ||  
+			(ISCHANGED(Zip_Postal_Code_GLBL__c )) ||
+			(ISCHANGED(RecordTypeId))   
+		) 
+)
+
+&amp;&amp; (Account_GLBL__r.RecordType.Name = &quot;Vendor&quot; || Account_GLBL__r.RecordType.Name = &quot;Venue&quot;)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
         <fullName>Update Address Account Name_MERC</fullName>
         <actions>
             <name>Update_Address_Account_Name_MERC</name>

@@ -1,5 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Send_email_to_Manager_CUST</fullName>
+        <description>Send email to Manager</description>
+        <protected>false</protected>
+        <recipients>
+            <field>CST_Email_Stamp_CUST__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Mercury_Email_Templates_MERC/AccessRequestsAwaitingApproval</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Clear_Email_Flag_CUST</fullName>
+        <field>Flag_CST_Email_CUST__c</field>
+        <name>Clear Email Flag</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Copy_Email_CUST</fullName>
+        <description>Copies the Person Account email to the Custom email field for the CST notification.</description>
+        <field>CST_Email_Stamp_CUST__c</field>
+        <formula>PersonEmail</formula>
+        <name>Copy Email</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>Criteria_1_Met_MERC</fullName>
         <description>Tier 1 Criteria is met if the HCP meets or exceed a score of 5 for both Tier 2 and Tier 1 Criteria.</description>
@@ -317,6 +346,7 @@ IF((TEXT(Regional_Leadership_Role_MERC__c ) = &quot;Yes&quot;) ||  (TEXT(Nationa
         <fields>CAP_Usage_Note_MERC__c</fields>
         <fields>CODS_End_Date_GLBL__c</fields>
         <fields>CODS_Merge_MERC__c</fields>
+        <fields>CST_Email_Stamp_CUST__c</fields>
         <fields>Calculate_Open_Meeting_Fees_MERC__c</fields>
         <fields>Cellular_Phone_Cntry_Cd_GLBL__c</fields>
         <fields>Clinical_Trial_PI_MERC__c</fields>
@@ -376,6 +406,7 @@ IF((TEXT(Regional_Leadership_Role_MERC__c ) = &quot;Yes&quot;) ||  (TEXT(Nationa
         <fields>Fax</fields>
         <fields>Fax_Phone_Cntry_Cd_GLBL__c</fields>
         <fields>FirstName</fields>
+        <fields>Flag_CST_Email_CUST__c</fields>
         <fields>Formulary_Id_GLBL__c</fields>
         <fields>Frmr_Nm_GLBL__c</fields>
         <fields>Full_Nm_GLBL__c</fields>
@@ -396,6 +427,7 @@ IF((TEXT(Regional_Leadership_Role_MERC__c ) = &quot;Yes&quot;) ||  (TEXT(Nationa
         <fields>Institution_Administrator_GLBL__c</fields>
         <fields>Instructor_Assistant_Clinical_Prof_MERC__c</fields>
         <fields>IsDeleted</fields>
+        <fields>IsExcludedFromRealign</fields>
         <fields>IsPersonAccount</fields>
         <fields>Jigsaw</fields>
         <fields>JigsawCompanyId</fields>
@@ -566,6 +598,10 @@ IF((TEXT(Regional_Leadership_Role_MERC__c ) = &quot;Yes&quot;) ||  (TEXT(Nationa
         <fields>Venue_Preference_Type_MERC__c</fields>
         <fields>Voicemail_Phone_Cd_GLBL__c</fields>
         <fields>Voicemail_Phone_Nbr_GLBL__c</fields>
+        <fields>WS_Updt_Dt_MERC__c</fields>
+        <fields>WS_Updt_HCP_Actn_MERC__c</fields>
+        <fields>WS_Updt_HCP_Global_ID_MERC__c</fields>
+        <fields>WS_Updt_HCP_Name_MERC__c</fields>
         <fields>Website</fields>
         <fields>Whlslr_Cd_GLBL__c</fields>
         <fields>Work_Cntry_Cd_GLBL__c</fields>
@@ -577,6 +613,33 @@ IF((TEXT(Regional_Leadership_Role_MERC__c ) = &quot;Yes&quot;) ||  (TEXT(Nationa
         <protected>false</protected>
         <useDeadLetterQueue>false</useDeadLetterQueue>
     </outboundMessages>
+    <rules>
+        <fullName>CST Manager Email CUST</fullName>
+        <actions>
+            <name>Copy_Email_CUST</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Flag_CST_Email_CUST__c</field>
+            <operation>equals</operation>
+            <value>MANAGER</value>
+        </criteriaItems>
+        <description>When a User Settings record is changed from &apos;New Request&apos; to &apos;Pending&apos; , The account field &apos;Flag CST Email&apos; is updated so an email can be sent to the manager.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Send_email_to_Manager_CUST</name>
+                <type>Alert</type>
+            </actions>
+            <actions>
+                <name>Clear_Email_Flag_CUST</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
     <rules>
         <fullName>Clear Calculate Open Meeting Fees_MERC</fullName>
         <actions>

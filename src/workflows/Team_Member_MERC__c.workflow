@@ -13,10 +13,30 @@
         <template>Mercury_Email_Templates_MERC/New_Team_Member_Notification_MERC</template>
     </alerts>
     <fieldUpdates>
+        <fullName>Clear_Primary_Meeting_Owner_MERC</fullName>
+        <description>Clears Primary Meeting Owner field if Team Member changes roles</description>
+        <field>Prmry_Mtng_Ownr_Nm_MERC__c</field>
+        <name>Clear Primary Meeting Owner _MERC</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+        <targetObject>Meeting_MERC__c</targetObject>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Clear_existing_PMO</fullName>
         <description>Clear the current Primary Meeting Owner if owner changes</description>
         <field>Prmry_Mtng_Ownr_Nm_MERC__c</field>
         <name>Clear existing PMO</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+        <targetObject>Meeting_MERC__c</targetObject>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Clears_Meeting_Owner_Email_MERC</fullName>
+        <description>Clears Primary Meeting Owner email field if Team Member changes roles.</description>
+        <field>Meeting_Owner_Email_MERC__c</field>
+        <name>Clears Meeting Owner Email MERC</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Null</operation>
         <protected>false</protected>
@@ -48,10 +68,10 @@
         <description>Stamps in the Primary Meeting Owner Name into Meeting. Created by John A Adams 2/27/2014</description>
         <field>Prmry_Mtng_Ownr_Nm_MERC__c</field>
         <formula>IF(
-(ISBLANK(Meeting_MERC__r.Prmry_Mtng_Ownr_Nm_MERC__c)), (User_MERC__r.FirstName  &amp;&apos; &apos;&amp; User_MERC__r.LastName),
-(User_MERC__r.FirstName  &amp;&apos; &apos;&amp; User_MERC__r.LastName)
+ISPICKVAL(Role_MERC__c, &quot;Primary Meeting Owner&quot;),
+(User_MERC__r.FirstName  &amp;&apos; &apos;&amp; User_MERC__r.LastName),&quot;&quot;
 )</formula>
-        <name>Set Prmry  Mtng Ownr_Internal_MERC</name>
+        <name>Set Prmry  Mtng Ownr_MERC</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
@@ -94,6 +114,8 @@
         <fields>IsDeleted</fields>
         <fields>LastModifiedById</fields>
         <fields>LastModifiedDate</fields>
+        <fields>LastReferencedDate</fields>
+        <fields>LastViewedDate</fields>
         <fields>Meeting_External_MERC__c</fields>
         <fields>Meeting_MERC__c</fields>
         <fields>Mercury_External_Id_MERC__c</fields>
@@ -109,6 +131,24 @@
         <protected>false</protected>
         <useDeadLetterQueue>false</useDeadLetterQueue>
     </outboundMessages>
+    <rules>
+        <fullName>Clears Primary Meeting Owner MERC</fullName>
+        <actions>
+            <name>Clear_Primary_Meeting_Owner_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Clears_Meeting_Owner_Email_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Clears values in Meeting Primary Meeting owner fields if Team Member is  edited and role changes.</description>
+        <formula>AND(
+NOT(ISNEW() ),
+ISPICKVAL(PRIORVALUE(Role_MERC__c), &quot;Primary Meeting Owner&quot;)
+)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
     <rules>
         <fullName>Mercury External ID-Team Member_MERC</fullName>
         <actions>
@@ -167,7 +207,7 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <description>Stamps the Primary Meeting Owner name into the Meeting record when this team member role has been assigned or changed.</description>
+        <description>Stamps the Primary Meeting Owner name into the Meeting record when this team member role has been assigned or changed. Created by John A Adams 3/3/2014</description>
         <formula>ISPICKVAL(Role_MERC__c, &quot;Primary Meeting Owner&quot;)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
