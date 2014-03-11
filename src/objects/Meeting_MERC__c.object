@@ -1653,7 +1653,7 @@ Created by John Adams 11/6/2013</description>
         <defaultValue>false</defaultValue>
         <description>Field to indicate if meeting should be exposed on portal. Created 02/03/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <label>Activate Web Services</label>
+        <label>Activate Meeting on Web Services</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -1705,7 +1705,7 @@ Created by John Adams 11/6/2013</description>
         <description>A workflow and field update will populate this text field to enable the ability to search on the Formatted Name. Created 10/23/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Formatted Name</label>
-        <length>80</length>
+        <length>200</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -2861,7 +2861,7 @@ Created by John Adams on 12/9/2013</description>
         <fullName>Planned_Budget_MERC__c</fullName>
         <description>Enter planned budget amount for meeting, to be pulled into Budget record. Created 11/18/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <inlineHelpText>Include total meeting spend, including travel and HCP fees. Exclude recoverable taxes where practical</inlineHelpText>
+        <inlineHelpText>Include total meeting spend, including travel and HCP fees. Exclude recoverable taxes where practical.</inlineHelpText>
         <label>Budget</label>
         <precision>18</precision>
         <required>false</required>

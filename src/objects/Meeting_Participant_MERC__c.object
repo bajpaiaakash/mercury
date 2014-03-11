@@ -2753,7 +2753,7 @@ ISCHANGED ( CoPay_Flight_Rail_MERC__c )
 ) 
 &amp;&amp;  !Confirm_ToV_Reporting_Change_MERC__c</errorConditionFormula>
         <errorDisplayField>Confirm_ToV_Reporting_Change_MERC__c</errorDisplayField>
-        <errorMessage>ToV has already been reported for participants of this Meeting. HCP Care needs to confirm this change before it can be made.</errorMessage>
+        <errorMessage>ToV has already been reported for participants of this Meeting. Customer Meeting Services needs to confirm this change before it can be made.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Confirm_Final_Fee</fullName>
@@ -2885,7 +2885,7 @@ $Profile.Name &lt;&gt; &quot;System Administrator&quot; &amp;&amp;
 ISCHANGED(Services_Rendered_MERC__c) &amp;&amp;
 ISPICKVAL(PRIORVALUE(Services_Rendered_MERC__c),&quot;Yes&quot;)</errorConditionFormula>
         <errorDisplayField>Services_Rendered_MERC__c</errorDisplayField>
-        <errorMessage>You may not change this value after services has been rendered. Please contact HCP Care.</errorMessage>
+        <errorMessage>You may not change this value after services has been rendered. Please contact Customer Meeting Services.</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>Add_Participants_MERC</fullName>

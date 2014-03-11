@@ -369,10 +369,13 @@
         <fields>Event_Customer_Id_MERC__c</fields>
         <fields>Event_Time_Hrs_MERC__c</fields>
         <fields>Expense_Reimbursment_MERC__c</fields>
+        <fields>FMV_Criteria_Map_MERC__c</fields>
         <fields>Final_Fee_MERC__c</fields>
         <fields>Force_Unique_Participant_MERC__c</fields>
         <fields>Global_Id_MERC__c</fields>
         <fields>HCP_Info_Package_Comm_Details_MERC__c</fields>
+        <fields>Has_Active_MSA_MERC__c</fields>
+        <fields>Has_Signed_Contract_MERC__c</fields>
         <fields>Higher_Fee_Approval__c</fields>
         <fields>Hotel_Required_MERC__c</fields>
         <fields>Id</fields>
@@ -437,6 +440,10 @@
         <fields>Type_of_Contract_MERC__c</fields>
         <fields>Types_of_Service_MERC__c</fields>
         <fields>Video_Audio_Recording_MERC__c</fields>
+        <fields>WS_Updt_Dt_MERC__c</fields>
+        <fields>WS_Updt_HCP_Actn_MERC__c</fields>
+        <fields>WS_Updt_HCP_Global_ID_MERC__c</fields>
+        <fields>WS_Updt_HCP_Name_MERC__c</fields>
         <includeSessionId>true</includeSessionId>
         <integrationUser>helmerdavid@gso1.lly</integrationUser>
         <name>RTI - Meeting Participant Updated</name>

@@ -1056,12 +1056,32 @@ Created by John A Adams 10/4/2013</description>
     </validationRules>
     <validationRules>
         <fullName>Submit_for_Payment</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Prevent an invoice being submitted for payment if the total value is less than zero or if there has not been a PDF generated and attached. Created by John A Adams 2/5/2014</description>
         <errorConditionFormula>ISPICKVAL(Submit_for_Payment_MERC__c,&quot;Yes&quot;) &amp;&amp; 
 ((Invoice_Attached_MERC__c = FALSE) || 
 (TOTAL_INCL_VAT_MERC__c &lt;=0))</errorConditionFormula>
         <errorMessage>An invoice record cannot be submitted for payment if the total is not greater than zero and an Invoice PDF has been created and attached.  Press the &quot;Generate Content&quot; button at top.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Submit_for_Payment_PDF_Check</fullName>
+        <active>true</active>
+        <description>Prevent an invoice being submitted for payment if the total value is less than zero or if there has not been a PDF generated and attached.</description>
+        <errorConditionFormula>ISPICKVAL(Submit_for_Payment_MERC__c,&quot;Yes&quot;) &amp;&amp; 
+(Invoice_Attached_MERC__c = FALSE)</errorConditionFormula>
+        <errorMessage>PDF missing. Please press the &quot;Generate Content&quot; button at top of this detail page.
+
+An invoice record cannot be submitted for payment if the total is not greater than zero and an Invoice PDF has been created and attached.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Submit_for_Payment_Total_Check</fullName>
+        <active>true</active>
+        <description>Prevent an invoice being submitted for payment if the total value is less than zero or if there has not been a PDF generated and attached.</description>
+        <errorConditionFormula>ISPICKVAL(Submit_for_Payment_MERC__c,&quot;Yes&quot;) &amp;&amp; 
+(TOTAL_INCL_VAT_MERC__c &lt;=0)</errorConditionFormula>
+        <errorMessage>Total = 0
+
+An invoice record cannot be submitted for payment if the total is not greater than zero and an Invoice PDF has been created and attached.</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>Generate_Content_MERC</fullName>

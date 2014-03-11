@@ -224,22 +224,12 @@
         <displayedFields>
             <field>Title</field>
             <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
+            <isRequired>true</isRequired>
         </displayedFields>
         <displayedFields>
             <field>Document_Type_MERC__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>true</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Code_MERC__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Meeting_Archive_Date_MERC__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
             <field>Expose_on_Portal_MERC__c</field>

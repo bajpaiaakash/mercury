@@ -346,6 +346,7 @@ Name</formula>
         <endpointUrl>http://ec2-54-227-9-128.compute-1.amazonaws.com/rti-development/v1/genericUpdated</endpointUrl>
         <fields>Accommodation_Information_MERC__c</fields>
         <fields>Activities_MERC__c</fields>
+        <fields>Address_Contact_Information_MERC__c</fields>
         <fields>Agenda_Status_MERC__c</fields>
         <fields>Alignment_Internal_Id_GLBL__c</fields>
         <fields>Amount_to_be_Paid_MERC__c</fields>
@@ -355,6 +356,7 @@ Name</formula>
         <fields>Business_Unit_MERC__c</fields>
         <fields>CME_Accredited_MERC__c</fields>
         <fields>City_of_Meeting_MERC__c</fields>
+        <fields>Comments_MERC__c</fields>
         <fields>Compliant_MERC__c</fields>
         <fields>Confirm_Meeting_Cancellation_MERC__c</fields>
         <fields>Confirm_Meeting_Date_Change_MERC__c</fields>
@@ -412,6 +414,7 @@ Name</formula>
         <fields>LastModifiedDate</fields>
         <fields>LastReferencedDate</fields>
         <fields>LastViewedDate</fields>
+        <fields>Lock_Meeting_MERC__c</fields>
         <fields>Logistics_Information_MERC__c</fields>
         <fields>MCP_work_MERC__c</fields>
         <fields>Make_Payment_To_MERC__c</fields>
@@ -461,6 +464,7 @@ Name</formula>
         <fields>Preferred_Venue_Addr_2_MERC__c</fields>
         <fields>Preferred_Venue_MERC__c</fields>
         <fields>Preferred_Venue_Postal_Code_MERC__c</fields>
+        <fields>Prmry_Mtng_Ownr_Nm_MERC__c</fields>
         <fields>Ready_for_Sourcing_MERC__c</fields>
         <fields>RecordTypeId</fields>
         <fields>Rep_Cost_Center_MERC__c</fields>

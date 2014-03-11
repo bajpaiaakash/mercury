@@ -477,8 +477,9 @@
         <fields>VERSION.LAST_UPDATE</fields>
         <relatedList>ContentVersion.Account_GLBL__c</relatedList>
     </relatedLists>
+    <runAssignmentRulesDefault>true</runAssignmentRulesDefault>
     <showEmailCheckbox>false</showEmailCheckbox>
-    <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
+    <showRunAssignmentRulesCheckbox>true</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
         <masterLabel>00h11000000Mwfx</masterLabel>

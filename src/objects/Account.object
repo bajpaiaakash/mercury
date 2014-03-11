@@ -367,6 +367,17 @@ Created by John A Adams 10/23/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>CST_Email_Stamp_CUST__c</fullName>
+        <description>The stamp of the Person Email, so it is accessible via the workflow action.</description>
+        <externalId>false</externalId>
+        <label>CST Email Stamp</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Calculate_Open_Meeting_Fees_MERC__c</fullName>
         <defaultValue>false</defaultValue>
         <description>When checked the system will update all Fee calculations for Open Meetings.  This deals with the scenario whereby a Fee cannot calculate because a Tier does not exist, or a HCP is re-tiered and only new Meetings should have the new Tier applied. Created by Oliver Dunford 31st Oct 2013.</description>
@@ -2069,6 +2080,18 @@ Created by John A Adams 12/18/2013</description>
         <externalId>false</externalId>
         <label>Fax Phone Country Code</label>
         <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Flag_CST_Email_CUST__c</fullName>
+        <description>A flag that flags an Account for a workflow. That workflow will email a Customer Search Tool manager or user. A value of &quot;MANAGER&quot; sends the manager email, a value of &quot;USER&quot; sends the user or requester email.</description>
+        <externalId>false</externalId>
+        <label>Flag CST Email</label>
+        <length>60</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>

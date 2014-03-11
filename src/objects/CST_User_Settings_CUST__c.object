@@ -1192,10 +1192,12 @@ Expired: Access expired before it was reviewed</inlineHelpText>
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
+        <columns>Manager_Global_ID_CUST__c</columns>
         <columns>CST_User_CUST__c</columns>
         <columns>Access_Status_CUST__c</columns>
         <columns>Access_Level_CUST__c</columns>
         <columns>Country_Code_CUST__c</columns>
+        <columns>LAST_UPDATE</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
         <language>en_US</language>

@@ -21,10 +21,12 @@
         <fields>Id</fields>
         <fields>Indication_Description_MERC__c</fields>
         <fields>Indication_External_MERC__c</fields>
+        <fields>Indication_Id_MERC__c</fields>
         <fields>Indication_MERC__c</fields>
         <fields>IsDeleted</fields>
         <fields>LastModifiedById</fields>
         <fields>LastModifiedDate</fields>
+        <fields>Meeting_Event_Id_MERC__c</fields>
         <fields>Meeting_External_MERC__c</fields>
         <fields>Meeting_MERC__c</fields>
         <fields>Mercury_External_Id_MERC__c</fields>
@@ -32,6 +34,7 @@
         <fields>Product_External_ID_MERC__c</fields>
         <fields>Product_Group_Id_MERC__c</fields>
         <fields>Product_MERC__c</fields>
+        <fields>Product_Name_MERC__c</fields>
         <fields>SystemModstamp</fields>
         <includeSessionId>true</includeSessionId>
         <integrationUser>helmerdavid@gso1.lly</integrationUser>

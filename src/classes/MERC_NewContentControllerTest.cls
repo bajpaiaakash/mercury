@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /** 
 * @author Sean Harrison 
 * 
@@ -125,4 +126,17 @@ private class MERC_NewContentControllerTest {
 			System.assertEquals(ApexPages.Severity.Error,m.getSeverity(),'Unexpected error thrown: '+m);			
 		}
 	}
+=======
+@isTest
+private class MERC_NewContentControllerTest {
+	
+	@isTest static void test_method_one() {
+		// Implement test code
+	}
+	
+	@isTest static void test_method_two() {
+		// Implement test code
+	}
+	
+>>>>>>> 7515efa49b2a4cf8c238eb1cab94f07ba660c0c9
 }

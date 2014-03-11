@@ -155,6 +155,7 @@
         <fields>Type_MERC__c</fields>
         <fields>Sub_Type_MERC__c</fields>
         <fields>Meeting_Vendor_MERC__c</fields>
+        <fields>Vendor_Name_MERC__c</fields>
         <fields>Amount_MERC__c</fields>
         <fields>Savings_MERC__c</fields>
         <fields>Overage_MERC__c</fields>
