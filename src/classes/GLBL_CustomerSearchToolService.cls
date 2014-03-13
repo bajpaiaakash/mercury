@@ -69,7 +69,7 @@ public with sharing class GLBL_CustomerSearchToolService {
 			this.accessToken = tokenResponse.access_token;
 			update appSettings;
 		} else if (tokenResponse.error != null) {
-			//todo: raise
+			//TODO: raise
 		}
 	}
 
@@ -99,6 +99,7 @@ public with sharing class GLBL_CustomerSearchToolService {
 		public String ls { get; set; } //last name
 		public Boolean eonly { get; set; } //true: search employees only
 		public String custId  { get; set; } //customer id
+		public String country { get; set; } //country of residence
 		public List<String> prod  { get; set; } //professional designation
 		public String classifation { get; set; }
 		public List<String> status { get; set; }
@@ -109,7 +110,7 @@ public with sharing class GLBL_CustomerSearchToolService {
 		public String address { get; set; }
 		public String city { get; set; }
 		public String state { get; set; }
-		public String country { get; set; }
+		public String acountry { get; set; }
 		public String pc { get; set; }
 		public List<String> role { get; set; }
 		public String affil { get; set; }
