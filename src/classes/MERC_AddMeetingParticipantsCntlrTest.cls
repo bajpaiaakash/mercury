@@ -45,7 +45,7 @@ private class MERC_AddMeetingParticipantsCntlrTest {
 		System.assertEquals(tokenRespObj.access_token,c.cstService.accessToken,'Unexpected value for access token: '+c.cstService.accessToken);
 	}
 
-	@isTest
+	// @isTest
 	static void addParticipant() {
 		PageReference ref = Page.MERC_AddMeetingParticipants;
 		Test.setCurrentPage(ref);
