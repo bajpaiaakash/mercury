@@ -65,10 +65,6 @@
     </types>
     <types>
         <members>*</members>
-        <name>InstalledPackage</name>
-    </types>
-    <types>
-        <members>*</members>
         <name>Layout</name>
     </types>
     <types>
