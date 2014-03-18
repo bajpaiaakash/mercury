@@ -33,6 +33,46 @@
         <name>CustomLabels</name>
     </types>
     <types>
+        <members>Account</members>
+        <members>Address_GLBL__c</members>
+        <members>Affiliation_GLBL__c</members>
+        <members>Agenda_Item_MERC__c</members>
+        <members>Alternate_Id_GLBL__c</members>
+        <members>Budget_Line_Item_MERC__c</members>
+        <members>Budget_MERC__c</members>
+        <members>CAP_Settings_MERC__c</members>
+        <members>CST_App_Settings_CUST__c</members>
+        <members>CST_User_Log_CUST__c</members>
+        <members>CST_User_Settings_CUST__c</members>
+        <members>Case</members>
+        <members>ContentVersion</members>
+        <members>Daily_Attendance_TOV_MERC__c</members>
+        <members>Docusign_Settings_MERC__c</members>
+        <members>FMV_Settings_MERC__c</members>
+        <members>HCP_Contract_MERC__c</members>
+        <members>Hotel_Allocation_MERC__c</members>
+        <members>Invoice_Line_Item_MERC__c</members>
+        <members>Invoice_MERC__c</members>
+        <members>Meeting_Day_MERC__c</members>
+        <members>Meeting_MERC__c</members>
+        <members>Meeting_Participant_MERC__c</members>
+        <members>Meeting_Products_MERC__c</members>
+        <members>Meeting_Vendor_MERC__c</members>
+        <members>Mercury_Settings_MERC__c</members>
+        <members>Merge_History_GLBL__c</members>
+        <members>Milestone_MERC__c</members>
+        <members>Participant_Agenda_MERC__c</members>
+        <members>Payee_MERC__c</members>
+        <members>PersonAccount</members>
+        <members>Product_Group_GLBL__c</members>
+        <members>Service_Cloud_Settings_MVN__c</members>
+        <members>Speciality_MERC__c</members>
+        <members>Team_Member_MERC__c</members>
+        <members>Time_Zone_Field_Mappings_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
         <members>*</members>
         <name>CustomTab</name>
     </types>
