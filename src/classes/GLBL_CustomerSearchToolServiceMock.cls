@@ -28,4 +28,8 @@ global class GLBL_CustomerSearchToolServiceMock implements HttpCalloutMock {
 
         return resp;
 	}
+
+	global void setBody(String newBody) {
+		this.body = newBody;
+	}
 }

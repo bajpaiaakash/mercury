@@ -170,9 +170,7 @@ public with sharing class MERC_AddMeetingParticipantsController {
             m.RecordTypeId = newParticipantRecordTypeId;
 	    	insert m;
             this.meetingParticipantAccountIds.add(accountId);
-            p('part added');
 	    } catch(Exception e) {
-            p('Exception has occurred: '+e);
 			this.newParticipantRecordTypeId = null;
             this.hasError = true;
 			ApexPages.addMessages(e);
@@ -180,7 +178,6 @@ public with sharing class MERC_AddMeetingParticipantsController {
 	    }
 
         this.newParticipantRecordTypeId = null;
-	    p('resetting hasError?');
         this.hasError = false;
 	    return null;
     }
@@ -195,6 +192,7 @@ public with sharing class MERC_AddMeetingParticipantsController {
     	} catch(Exception e) {
 			this.hasError = true;
 			ApexPages.addMessages(e);
+            return null;
     	}
     	this.hasError = false;
     	return null;
@@ -219,7 +217,4 @@ public with sharing class MERC_AddMeetingParticipantsController {
 			return null;
 		}
 	}
-    static void p(String m) {
-        System.debug('\n\n\nYYZ - '+m+'\n\n\n\n');
-    }
 }
