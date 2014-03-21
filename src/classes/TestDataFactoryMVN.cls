@@ -133,7 +133,7 @@ public class TestDataFactoryMVN {
         address.St_Cd_GLBL__c = 'ca';
         address.Adrs_Cntry_Cd_GLBL__c = 'us';
         address.Account_GLBL__c = acct.Id;
-        address.Phone_GLBL__c = '1111111111';
+//        address.Phone_GLBL__c = '1111111111';
         insert address;
         
         return address;
