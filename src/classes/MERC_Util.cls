@@ -136,6 +136,60 @@ public with sharing class MERC_Util {
 	    return hash;
 	}
 
+// return all terrs and children terrs for these users
+	public static Map<User, Set<Territory>> getUserTerritoriesAndChildrenTerritories(Map<Id, User> users) {
+		Map<User, Set<Territory>> result = new Map<User, Set<Territory>>();
+
+		List<UserTerritory> userTerrs = new List<UserTerritory>([
+			SELECT UserId, TerritoryId FROM UserTerritory WHERE IsActive = true AND UserId in :users.keySet()
+			]);
+
+		// user Ids => terr ids map + List of terr ids
+		Map<Id, Set<Id>> useridToTerrids = new Map<Id, Set<Id>>();
+//		Set<Id> usersTerrIds = new Set<Id>();
+		for (UserTerritory ut : userTerrs)
+		{
+			if (!useridToTerrids.containsKey(ut.UserId)) useridToTerrids.put((ut.UserId), new Set<Id>());
+			useridToTerrids.get(ut.UserId).add(ut.TerritoryId);
+
+//			usersTerrIds.add(ut.TerritoryId);
+		}
+
+		// loop keyset to get User records
+//		Map<Id,User> userMap = new Map<Id,User>([SELECT Id FROM User WHERE Id in :useridToTerrids.keyset()]);
+
+		// loop list to get Terr records
+		Map<Id,Territory> allTerrs = new Map<Id,Territory>([SELECT Id, ParentTerritoryId FROM Territory]);
+
+		for (Id uId : useridToTerrids.keySet()) {
+			if (!result.containsKey(users.get(uId))) result.put(users.get(uId), new Set<Territory>());
+			for (Id tId : useridToTerrids.get(uId)) {
+				result.get(users.get(uId)).add(allTerrs.get(tId));
+			}
+		}
+
+		// get all child terr records of the same set of ids 
+		for (User u : result.keySet()) {
+			Map<Id,Territory> userTerrMap = new Map<Id,Territory>();
+			for (Territory t : result.get(u)) userTerrMap.put(t.Id, t);
+			result.get(u).addAll(getTerrDescendents(userTerrMap,allTerrs).values());
+		}
+
+		return result;
+	}
+
+	public static Map<Id,Territory> getTerrDescendents(Map<Id,Territory> ancestors, Map<Id,Territory> universe) {
+		Map<Id,Territory> childTerrs = new Map<Id,Territory>();
+		for (Territory t : universe.values()) {
+			if (ancestors.keySet().contains(t.ParentTerritoryId)) childTerrs.put(t.Id, t);
+		}
+
+		if (!childTerrs.isEmpty()) {
+			childTerrs.putAll(getTerrDescendents(childTerrs, universe));
+		}
+		return childTerrs;
+	}
+
 	public virtual class RemoteResponse {
 		public Boolean success;
 		public String message;
@@ -145,5 +199,26 @@ public with sharing class MERC_Util {
 			this.message = m;
 			this.contextId = cid;
 		}
+	}
+
+	public class SelectAll {
+	    
+	    public string allfields;
+	    public string SOQL;
+	    
+	    public SelectAll() { }
+	    
+	    public SelectAll(Schema.SobjectType sObjectType, Id recordId){
+	        Schema.DescribeSobjectResult d = sObjectType.getdescribe();
+	        Map<String, Schema.SobjectField> m = d.fields.getmap();
+	        Set<String> s = m.keyset();
+	        string query = '';
+	        for(string f : s) {
+	            query = query+f+', ';
+	        }
+	        query = query.substring(0,query.length()-2);
+	        this.allfields = query;
+	        this.SOQL = 'SELECT ' + query + ' FROM ' + d.getName() + ' WHERE Id = \''+recordId+'\'';
+	    }
 	}
 }
