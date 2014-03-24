@@ -68,6 +68,10 @@
 		table.list.hotels label {
 			font-weight: bold;
 		}
+
+		input.existing-vendors {
+			width:200px;
+		}
 	</style>
 
 	<apex:outputLink target="_blank" style="display:none" styleClass="newAccountVendor" value="{!URLFOR($Action.Account.New)}">
@@ -86,8 +90,8 @@
 				
 				<!-- BUTTONS -->
 				<apex:pageBlockButtons location="top">
-					<apex:commandButton value="Save Meeting Days" action="{!save}" reRender="mainBlock, controllerResponseWrapper, confirmWrapper" 
-						onclick="toggleLoading()" oncomplete="handleControllerResponse();toggleLoading();">
+					<apex:commandButton value="Save Meeting Days" action="{!save}" reRender="mainBlock, controllerResponseWrapper, confirmWrapper, hotelTable" 
+						onclick="toggleLoading()" oncomplete="handleControllerResponse();disableHotelTableHover();toggleLoading();">
 						<apex:param name="retNull" value="1"/>
 					</apex:commandButton>
 					<apex:commandButton value="Back to Meeting" action="{!cancel}"/>
@@ -101,7 +105,7 @@
 								<apex:image value="{!URLFOR($Resource.mercury, '/img/add.png')}" style="width:16px;"/>
 							</apex:commandLink>
 						</apex:facet>
-						<apex:commandLink action="{!remove}" rerender="dayTable" onclick="toggleLoading()" oncomplete="toggleLoading();" immediate="true">
+						<apex:commandLink action="{!remove}" rerender="dayTable, hotelTable" onclick="toggleLoading()" oncomplete="disableHotelTableHover();toggleLoading();" immediate="true">
 							<apex:image value="{!URLFOR($Resource.mercury, '/img/delete.png')}" style="width:16px;"/>
 							<apex:param name="clientHash" value="{!a.hash}" assignTo="{!clientHash}"/>
 						</apex:commandLink>
@@ -123,6 +127,8 @@
 						onclick="toggleLoading()" oncomplete="handleControllerResponse();disableHotelTableHover();bindTypeAhead();toggleLoading();">
 						<apex:param name="retNull" value="1"/>
 					</apex:commandButton>
+
+					<!-- <apex:actionFunction name="saveHotels()" action="{!saveHotels}" oncomplete="handleControllerResponse();disableHotelTableHover();bindTypeAhead();toggleLoading();" reRender="hotelBlock,controllerResponseWrapper,confirmWrapper" -->
 				</apex:pageBlockButtons>
 
 				<!-- TABLE -->
@@ -147,7 +153,7 @@
 							        </td>
 							        <td>
 							        	<apex:inputHidden value="{!a.so['Account_MERC__c']}"/>
-							        	<input type="text" class="existing-vendors" value="{!a.so['Account_MERC__r']['Name']}" />
+							        	<apex:inputText value="{!a.hotelName}" styleClass="existing-vendors"/>
 						        	</td>
 						        </tr>
 								<apex:repeat var="f" value="{!$ObjectType.Meeting_Vendor_MERC__c.FieldSets.Meeting_Day_Manager_MERC}">
@@ -165,7 +171,7 @@
 				        <div>
 		        			<apex:repeat var="allocation" value="{!a.hotelAllocations}">
 		        				<div style="background:#f2f2f2;padding:5px 8px;font-weight:bold;">
-		        					{!allocation.hotelAllocationSObject.Meeting_Day_MERC__r.Name}
+		        					{!allocation.meetingDayName}
 		        				</div>
 		        				<table>
 		        					<tbody>
