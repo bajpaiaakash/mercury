@@ -136,40 +136,105 @@ public with sharing class MERC_Util {
 	    return hash;
 	}
 
-// return all terrs and children terrs for these users
-	public static Map<User, Set<Territory>> getUserTerritoriesAndChildrenTerritories(Map<Id, User> users) {
-		Map<User, Set<Territory>> result = new Map<User, Set<Territory>>();
+	/**
+	 * Wrapper for getCountryPicklistValuesForCurrentUser() to allow for optional addition of 
+	 * a "null" first option in the selectOption list.
+	 *
+	 * @param   includeNullSelectOption  If true AND if the number of generated choices is more than
+	 *                                   one, a --Select-- option is added to the top of the list
+	 * @return  a List of SelectOptions returned from getCountryPicklistValuesForCurrentUser()
+	 * @see     #getCountryPicklistValuesForCurrentUser()
+	 */
+	public static List<SelectOption> getCountryPicklistValuesForCurrentUser(Boolean includeNullSelectOption) {
+
+		List<SelectOption> options = getCountryPicklistValuesForCurrentUser();
+		if (options.size()<2) {
+			return options;
+		}
+
+		if (includeNullSelectOption)
+			options.add(0,new SelectOption('','--Select--'));
+
+		return options;
+	}
+
+	/**
+	 * Provide a form list of countries available to the current running user
+	 *
+	 * @return a List of SelectOptions with a country name as the labels and the 2-letter ISO
+	 *         country code as the value
+	 * @see    #getUserCountriesByTerritory(Id)
+	 */
+	public static List<SelectOption> getCountryPicklistValuesForCurrentUser() {
+		List<SelectOption> options = new List<SelectOption>();
+		Map<String, String> nameToISO = getUserCountriesByTerritory(UserInfo.getUserId());
+
+		List<String> sortedNames = new List<String>(nameToISO.keySet());
+		sortedNames.sort();
+
+		for(String n : sortedNames) {
+			options.add(new SelectOption(nameToISO.get(n), n));
+		}       
+		return options;
+	}
+
+	/**
+	 * Provides a map of country names to ISO codes for the submitted user. Based one the 
+	 * assigment of countries in the Territory hierarchy
+	 * 
+	 * @param  userId  The id of the user of interest
+	 * @return         A Map of names (String) to 2-letter ISO codes (String) 
+	 * @see            #getUserTerritoriesAndChildrenTerritories(List<Id>)
+	 * @see            Territory.ISO_Country_Code_GLBL__c
+	 */
+	public static Map<String, String> getUserCountriesByTerritory(Id userId) {
+		Map<String, String> nameToISO = new Map<String, String>();
+
+		Map<Id, Set<Territory>> userTerrMap = getUserTerritoriesAndChildrenTerritories(new List<Id>{userId});
+		if (userTerrMap.containsKey(userId)) {
+			for (Territory t : userTerrMap.get(userId)) {
+				if (t.ISO_Country_Code_GLBL__c != null) nameToISO.put(t.Name,t.ISO_Country_Code_GLBL__c);
+			}
+		}
+		return nameToISO;
+	}
+
+	/**
+	 * Provides a map of user ids to the territories assigned along with all decendents in the hierarchy.
+	 * <p>
+	 * Intended for Account searching, this method includes custom Terr fields for downstream use.
+	 *
+	 * @param  userIds  List of User ids
+	 * @return          Map of User ids to Set of Territories
+	 * @see             Territory.ISO_Country_Code_GLBL__c
+	 */
+	public static Map<Id, Set<Territory>> getUserTerritoriesAndChildrenTerritories(List<Id> userIds) {
+		Map<Id, Set<Territory>> result = new Map<Id, Set<Territory>>();
 
 		List<UserTerritory> userTerrs = new List<UserTerritory>([
-			SELECT UserId, TerritoryId FROM UserTerritory WHERE IsActive = true AND UserId in :users.keySet()
+			SELECT UserId, TerritoryId FROM UserTerritory WHERE IsActive = true AND UserId in :userIds
 			]);
 
 		// user Ids => terr ids map + List of terr ids
 		Map<Id, Set<Id>> useridToTerrids = new Map<Id, Set<Id>>();
-//		Set<Id> usersTerrIds = new Set<Id>();
 		for (UserTerritory ut : userTerrs)
 		{
 			if (!useridToTerrids.containsKey(ut.UserId)) useridToTerrids.put((ut.UserId), new Set<Id>());
 			useridToTerrids.get(ut.UserId).add(ut.TerritoryId);
-
-//			usersTerrIds.add(ut.TerritoryId);
 		}
 
-		// loop keyset to get User records
-//		Map<Id,User> userMap = new Map<Id,User>([SELECT Id FROM User WHERE Id in :useridToTerrids.keyset()]);
-
 		// loop list to get Terr records
-		Map<Id,Territory> allTerrs = new Map<Id,Territory>([SELECT Id, ParentTerritoryId FROM Territory]);
+		Map<Id,Territory> allTerrs = new Map<Id,Territory>([SELECT Id, Name, ParentTerritoryId, ISO_Country_Code_GLBL__c FROM Territory]);
 
 		for (Id uId : useridToTerrids.keySet()) {
-			if (!result.containsKey(users.get(uId))) result.put(users.get(uId), new Set<Territory>());
+			if (!result.containsKey(uId)) result.put(uId, new Set<Territory>());
 			for (Id tId : useridToTerrids.get(uId)) {
-				result.get(users.get(uId)).add(allTerrs.get(tId));
+				result.get(uId).add(allTerrs.get(tId));
 			}
 		}
 
 		// get all child terr records of the same set of ids 
-		for (User u : result.keySet()) {
+		for (Id u : result.keySet()) {
 			Map<Id,Territory> userTerrMap = new Map<Id,Territory>();
 			for (Territory t : result.get(u)) userTerrMap.put(t.Id, t);
 			result.get(u).addAll(getTerrDescendents(userTerrMap,allTerrs).values());
@@ -178,6 +243,13 @@ public with sharing class MERC_Util {
 		return result;
 	}
 
+	/**
+	 * A recursive method that walks down the hierarchy to provide all the decendents of a given set of Territories.
+	 *
+	 * @param  ancestors  Map of the ancestors to start the search with
+	 * @param  universe   Map of all Territories. Since this method is recursive, the SOQL should be burned upstream
+	 * @return            Map of all decendent Territories
+	 */
 	public static Map<Id,Territory> getTerrDescendents(Map<Id,Territory> ancestors, Map<Id,Territory> universe) {
 		Map<Id,Territory> childTerrs = new Map<Id,Territory>();
 		for (Territory t : universe.values()) {
