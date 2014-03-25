@@ -1156,6 +1156,17 @@ Expired: Access expired before it was reviewed</inlineHelpText>
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
+        <fullName>Last_Status_CUST__c</fullName>
+        <description>The last status for this record. This is used to notify the users of status changes, and is cleared after that notification is sent.</description>
+        <externalId>false</externalId>
+        <label>Last Status</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Manager_Global_ID_CUST__c</fullName>
         <description>The Managers Global ID</description>
         <externalId>false</externalId>

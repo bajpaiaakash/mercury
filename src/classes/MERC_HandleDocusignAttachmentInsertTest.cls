@@ -43,6 +43,6 @@ private class MERC_HandleDocusignAttachmentInsertTest {
 		Test.stopTest();
 
 		List<Attachment> shouldNotBeEmpty = new List<Attachment>([SELECT Id FROM Attachment WHERE ParentId = :meets[0].Id]);
-		System.assert(!shouldNotBeEmpty.isEmpty(),'Attachment not found');
+		System.assert(!shouldNotBeEmpty.isEmpty(),'Attachement not found');
 	}
 }

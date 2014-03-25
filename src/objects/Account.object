@@ -107,7 +107,7 @@ Created by John A Adams 10/2/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
     </fields>
@@ -562,7 +562,7 @@ Created by John A Adams 10/24/2013</description>
         <label>Contract Limitations on Use</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>TextArea</type>
     </fields>
     <fields>
@@ -608,122 +608,6 @@ Created by John A Adams 10/20/2013</description>
         <externalId>false</externalId>
         <label>Country of Residence</label>
         <picklist>
-            <picklistValues>
-                <fullName>ES</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GB</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>RU</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TR</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>AT</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>BE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>BG</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>HR</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CY</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CZ</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>DK</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>EE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>FI</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>HU</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>IE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>LV</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>LT</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MT</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>NL</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>NO</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>PL</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>PT</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>RO</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>RS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SK</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SI</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CH</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>UA</fullName>
-                <default>false</default>
-            </picklistValues>
             <picklistValues>
                 <fullName>AF</fullName>
                 <default>false</default>
@@ -781,6 +665,10 @@ Created by John A Adams 10/20/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>AT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>AZ</fullName>
                 <default>false</default>
             </picklistValues>
@@ -802,6 +690,10 @@ Created by John A Adams 10/20/2013</description>
             </picklistValues>
             <picklistValues>
                 <fullName>BY</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BE</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -850,6 +742,10 @@ Created by John A Adams 10/20/2013</description>
             </picklistValues>
             <picklistValues>
                 <fullName>BN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BG</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -933,11 +829,27 @@ Created by John A Adams 10/20/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>HR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>CU</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>CW</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CY</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CZ</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DK</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -973,6 +885,10 @@ Created by John A Adams 10/20/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>EE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>ET</fullName>
                 <default>false</default>
             </picklistValues>
@@ -986,6 +902,10 @@ Created by John A Adams 10/20/2013</description>
             </picklistValues>
             <picklistValues>
                 <fullName>FJ</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>FI</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1089,6 +1009,10 @@ Created by John A Adams 10/20/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>HU</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>IS</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1106,6 +1030,10 @@ Created by John A Adams 10/20/2013</description>
             </picklistValues>
             <picklistValues>
                 <fullName>IQ</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IE</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1169,6 +1097,10 @@ Created by John A Adams 10/20/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>LV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>LB</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1186,6 +1118,10 @@ Created by John A Adams 10/20/2013</description>
             </picklistValues>
             <picklistValues>
                 <fullName>LI</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>LT</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1218,6 +1154,10 @@ Created by John A Adams 10/20/2013</description>
             </picklistValues>
             <picklistValues>
                 <fullName>ML</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MT</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1293,6 +1233,10 @@ Created by John A Adams 10/20/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>NL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>NC</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1322,6 +1266,10 @@ Created by John A Adams 10/20/2013</description>
             </picklistValues>
             <picklistValues>
                 <fullName>MP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NO</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1365,6 +1313,14 @@ Created by John A Adams 10/20/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>PL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>PR</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1374,6 +1330,14 @@ Created by John A Adams 10/20/2013</description>
             </picklistValues>
             <picklistValues>
                 <fullName>RE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>RO</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>RU</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1429,6 +1393,10 @@ Created by John A Adams 10/20/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>RS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>SC</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1442,6 +1410,14 @@ Created by John A Adams 10/20/2013</description>
             </picklistValues>
             <picklistValues>
                 <fullName>SX</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SK</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SI</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1465,6 +1441,10 @@ Created by John A Adams 10/20/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>ES</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>LK</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1482,6 +1462,14 @@ Created by John A Adams 10/20/2013</description>
             </picklistValues>
             <picklistValues>
                 <fullName>SZ</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CH</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1529,6 +1517,10 @@ Created by John A Adams 10/20/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>TR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>TM</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1545,7 +1537,15 @@ Created by John A Adams 10/20/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>UA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>AE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GB</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1607,7 +1607,7 @@ Created by John A Adams 10/20/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -2091,6 +2091,30 @@ Created by John A Adams 12/18/2013</description>
         <description>A flag that flags an Account for a workflow. That workflow will email a Customer Search Tool manager or user. A value of &quot;MANAGER&quot; sends the manager email, a value of &quot;USER&quot; sends the user or requester email.</description>
         <externalId>false</externalId>
         <label>Flag CST Email</label>
+        <length>60</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Flag_CST_Expire_Email_CUST__c</fullName>
+        <description>Flag&apos;s a manager for the warning email that they have user settings under review.</description>
+        <externalId>false</externalId>
+        <label>Flag CST Expire Email</label>
+        <length>60</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Flag_CST_User_Email_CUST__c</fullName>
+        <description>A flag to send an email to the Customer Search Tool user.</description>
+        <externalId>false</externalId>
+        <label>Flag CST User Email</label>
         <length>60</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -2664,7 +2688,7 @@ Created by John A Adams 10/16/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -3390,7 +3414,7 @@ Created by John A Adams 11/4/2013</description>
     <fields>
         <fullName>Prsnl_Nbr_GLBL__c</fullName>
         <description>Workforce ODS data. Created 10/17/2013 by KLorenti, Mavens Consulting</description>
-        <externalId>false</externalId>
+        <externalId>true</externalId>
         <label>Global ID</label>
         <length>8</length>
         <required>false</required>
@@ -3497,13 +3521,13 @@ Created by John A Adams 10/23/2013</description>
         <fullName>Reserved_CAP_MERC__c</fullName>
         <description>Shows the CAP currently reserved for a Services Provider for current calendar year.  Created by Oliver Dunford 31st Oct 2013.</description>
         <externalId>false</externalId>
-        <inlineHelpText>Hold money for future. Only possible to reserve cap with a with a forecasted meeting in the system.</inlineHelpText>
+        <inlineHelpText>Hold money for future. Only possible to reserve cap with a forecasted meeting in the system.</inlineHelpText>
         <label>Reserved CAP</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -3940,7 +3964,7 @@ Created by John A Adams 12/10/2013</description>
         <description>Captures HCP consent to have their information included in Transparency Reports
 Created by John A Adams 10/22/2013</description>
         <externalId>false</externalId>
-        <inlineHelpText>HCP is not consenting to having their information included in Transparency Reports</inlineHelpText>
+        <inlineHelpText>Whether the HCP consents to having their information included in Transparency Reports</inlineHelpText>
         <label>Transparency Reporting Consent</label>
         <length>6</length>
         <required>false</required>
@@ -4376,18 +4400,35 @@ Created by John A Adams 11/4/2013</description>
             <operation>equals</operation>
             <value>Employee</value>
         </filterItems>
+        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
         <isOptional>false</isOptional>
         <name>Account_Relationship Owner2</name>
     </namedFilters>
     <namedFilters>
+        <fullName>Account_Parent</fullName>
+        <active>true</active>
+        <field>Account.ParentId</field>
+        <filterItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <valueField>$Source.RecordTypeId</valueField>
+        </filterItems>
+        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+        <isOptional>false</isOptional>
+        <name>Account_Parent Account</name>
+        <sourceObject>Account</sourceObject>
+    </namedFilters>
+    <namedFilters>
         <fullName>nf_01I11000000CjwmEAC_00N11000000SoJnEAK</fullName>
         <active>true</active>
+        <errorMessage>To expand your search, select the &apos;All Fields&apos; option and run your search again.</errorMessage>
         <field>Meeting_MERC__c.Sales_Rep_MERC__c</field>
         <filterItems>
             <field>Account.RecordTypeId</field>
             <operation>equals</operation>
             <value>Employee</value>
         </filterItems>
+        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
         <isOptional>false</isOptional>
         <name>Meeting_Sales Rep</name>
     </namedFilters>
@@ -4412,6 +4453,7 @@ Created by John A Adams 11/4/2013</description>
             <operation>equals</operation>
             <value>Venue</value>
         </filterItems>
+        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
         <isOptional>false</isOptional>
         <name>Meeting_Venue</name>
     </namedFilters>
@@ -4424,6 +4466,7 @@ Created by John A Adams 11/4/2013</description>
             <operation>equals</operation>
             <value>Employee</value>
         </filterItems>
+        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
         <isOptional>false</isOptional>
         <name>Team Member_External User</name>
     </namedFilters>
@@ -4436,6 +4479,7 @@ Created by John A Adams 11/4/2013</description>
             <operation>equals</operation>
             <value>Health Care Organization</value>
         </filterItems>
+        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
         <isOptional>false</isOptional>
         <name>Invoice_Health Care Organization</name>
     </namedFilters>
@@ -4448,6 +4492,7 @@ Created by John A Adams 11/4/2013</description>
             <operation>contains</operation>
             <value>Lilly</value>
         </filterItems>
+        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
         <isOptional>false</isOptional>
         <name>Invoice_Lilly Affiliate</name>
     </namedFilters>
@@ -4471,6 +4516,7 @@ Created by John A Adams 11/4/2013</description>
             <operation>equals</operation>
             <value>Employee</value>
         </filterItems>
+        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
         <isOptional>false</isOptional>
         <name>Meeting Participant_Account</name>
     </namedFilters>
@@ -4483,7 +4529,7 @@ Created by John A Adams 11/4/2013</description>
             <operation>equals</operation>
             <value>Employee</value>
         </filterItems>
-        <infoMessage>If you cannot find the Employee you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
         <isOptional>false</isOptional>
         <name>HCP Contract_Lilly Internal Signee</name>
     </namedFilters>
@@ -4507,6 +4553,7 @@ Created by John A Adams 11/4/2013</description>
             <operation>equals</operation>
             <value>Venue</value>
         </filterItems>
+        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
         <isOptional>false</isOptional>
         <name>Meeting Vendor_Account</name>
     </namedFilters>
@@ -12916,11 +12963,13 @@ Created by John A Adams 11/4/2013</description>
         <lookupDialogsAdditionalFields>Primary_Addr_Line1_GLBL__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Primary_Addr_City_GLBL__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Primary_Address_Country_GLBL__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Reserved_CAP_MERC__c</lookupDialogsAdditionalFields>
         <lookupFilterFields>ACCOUNT.NAME</lookupFilterFields>
         <lookupFilterFields>ACCOUNT.RECORDTYPE</lookupFilterFields>
         <lookupFilterFields>00N11000000PFro</lookupFilterFields>
         <lookupFilterFields>00N11000000PFrn</lookupFilterFields>
         <lookupFilterFields>00N11000000PFrq</lookupFilterFields>
+        <lookupFilterFields>00N11000000PFs1</lookupFilterFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.SITE</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>CORE.USERS.ALIAS</lookupPhoneDialogsAdditionalFields>

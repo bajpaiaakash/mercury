@@ -162,6 +162,8 @@
         <fields>Version_Number_MERC__c</fields>
         <fields>UPDATEDBY_USER</fields>
         <relatedList>Budget_Line_Item_MERC__c.Budget_MERC__c</relatedList>
+        <sortField>Type_MERC__c</sortField>
+        <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
         <excludeButtons>New</excludeButtons>

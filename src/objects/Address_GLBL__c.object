@@ -1368,17 +1368,6 @@ Created by John A Adams 11/4/2013</description>
         <type>TextArea</type>
     </fields>
     <fields>
-        <fullName>Fax_GLBL__c</fullName>
-        <description>HCP Fax number (work and or Private depending on type of address)
-Created by John A Adams 10/22/2013</description>
-        <externalId>false</externalId>
-        <label>Fax</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Phone</type>
-    </fields>
-    <fields>
         <fullName>GCO_Party_Physcl_Adrs_Id_GLBL__c</fullName>
         <description>Party Physical Address Id
 Customer ODS to Mercury Mapping
@@ -1861,13 +1850,14 @@ Created by John A Adams 9/27/2013</description>
         <active>true</active>
         <field>Payee_MERC__c.Associated_Address_MERC__c</field>
         <filterItems>
-            <field>Address_GLBL__c.RecordType.Name</field>
+            <field>Address_GLBL__c.Account_GLBL__c</field>
             <operation>equals</operation>
-            <value>Payee Address</value>
+            <valueField>$Source.Account_MERC__c</valueField>
         </filterItems>
-        <infoMessage>Only returns Payee Addresses. To search for an address based upon fields such as Account Name,  select the &apos;All Fields&apos; option and run your search again.</infoMessage>
+        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.select the &apos;All Fields&apos; option and run your search again.</infoMessage>
         <isOptional>false</isOptional>
         <name>Payee_Associated Address</name>
+        <sourceObject>Payee_MERC__c</sourceObject>
     </namedFilters>
     <pluralLabel>Addresses</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>

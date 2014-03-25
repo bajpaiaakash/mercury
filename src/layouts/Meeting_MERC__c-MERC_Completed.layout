@@ -214,20 +214,20 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Venue_MERC__c</field>
+                <behavior>Readonly</behavior>
+                <field>Sourced_Venue_Name_Hist_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Sourced_Venue_Addr1_MERC__c</field>
+                <field>Sourced_Venue_Addr_1_Hist_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Sourced_Venue_Addr_2_MERC__c</field>
+                <field>Sourced_Venue_Addr_2_Hist_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Sourced_Venue_Postal_Code_MERC__c</field>
+                <field>Sourced_Venue_Postal_Code_Hist_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -390,7 +390,7 @@
         <label>Content</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Edit</behavior>
                 <field>Content_Creator_MERC__c</field>
             </layoutItems>
         </layoutColumns>

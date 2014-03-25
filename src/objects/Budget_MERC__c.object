@@ -190,7 +190,7 @@ Created by J Adams 12/10/2013</description>
         <externalId>false</externalId>
         <formula>IF( Master_Budget_Delta_MERC__c  &gt; 0 , ABS(Master_Budget_Delta_MERC__c), 0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <inlineHelpText>Overage in comparison to the Current Budget Used within the Master Budget (does not compare with Budget field on Meeting</inlineHelpText>
+        <inlineHelpText>Overage in comparison to the Current Budget Used within the Master Budget (this is not a comparison with the Planned Budget field)</inlineHelpText>
         <label>Overage</label>
         <precision>18</precision>
         <required>false</required>
@@ -201,9 +201,11 @@ Created by J Adams 12/10/2013</description>
     </fields>
     <fields>
         <fullName>Planned_Budget_MERC__c</fullName>
+        <description>Formula field to pull in Budget amount from Meeting. Modified 03/14/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <formula>Meeting_MERC__r.Planned_Budget_MERC__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>The planned budget for Forecasting</inlineHelpText>
         <label>Planned Budget</label>
         <precision>18</precision>
         <required>false</required>
@@ -230,7 +232,7 @@ Created by J Adams 12/10/2013</description>
         <externalId>false</externalId>
         <formula>IF( Master_Budget_Delta_MERC__c  &lt; 0 , ABS(Master_Budget_Delta_MERC__c), 0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <inlineHelpText>Savings in comparison to the Current Budget Used within the Master Budget (does not compare with Budget field on Meeting</inlineHelpText>
+        <inlineHelpText>Savings in comparison to the Current Budget Used within the Master Budget (this is not a comparison with the Planned Budget field)</inlineHelpText>
         <label>Savings</label>
         <precision>18</precision>
         <required>false</required>

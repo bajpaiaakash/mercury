@@ -187,6 +187,17 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>My_Setup_Product_External_ID_MERC__c</fullName>
+        <externalId>false</externalId>
+        <label>My_Setup_Product_External_ID_MERC</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Product_External_ID_MERC__c</fullName>
         <externalId>false</externalId>
         <formula>Product_MERC__r.Product_Group_External_ID_GLBL__c</formula>
@@ -232,6 +243,17 @@ Created by John Adams on 12/9/2013</description>
         <externalId>false</externalId>
         <formula>Product_MERC__r.Name</formula>
         <label>Product Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product_vod_External_ID_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>Product_MERC__r.Cntry_Cd_GLBL__c &amp; &apos;_&apos; &amp; Product_MERC__r.Product_Group_External_ID_GLBL__c &amp; &apos;_&apos; &amp; Indication_MERC__r.Indctn_Id_GLBL__c</formula>
+        <label>Product_vod_External_ID_MERC</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>

@@ -1124,6 +1124,20 @@ Created by John A Adams 1/7/2014</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Speaking_MERC__c</fullName>
+        <description>Used by Portal to identity service provider as a speaker for a meeting. John Lorenti 2014-03-12</description>
+        <externalId>false</externalId>
+        <formula>OR(
+ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Speaker&apos;),
+ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Speaking</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Speciality_MERC__c</fullName>
         <description>Displays Speciality from Account Object. Created 10/25/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -1540,6 +1554,19 @@ Created by John A Adams 2/18/2014</description>
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>ransparency_Reporting_Consent_MERC__c</fullName>
+        <description>Displays Transparency Reporting Consent from the Account object (which original comes from Preferences and Consent). Created 03/14/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Account_MERC__r.Transparency_Reporting_Opt_Out_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Transparency Reporting Consent</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <label>Meeting Participant</label>
     <listViews>
         <fullName>All</fullName>
@@ -1556,6 +1583,20 @@ Created by John A Adams 2/18/2014</description>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
+    <namedFilters>
+        <fullName>nf_01I110000008cxpEAA_00N11000000PFx1EAG</fullName>
+        <active>true</active>
+        <field>HCP_Contract_MERC__c.Meeting_Participant_MERC__c</field>
+        <filterItems>
+            <field>$Source.Account_MERC__c</field>
+            <operation>equals</operation>
+            <valueField>Meeting_Participant_MERC__c.Account_MERC__c</valueField>
+        </filterItems>
+        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+        <isOptional>false</isOptional>
+        <name>HCP Contract_Meeting Participant</name>
+        <sourceObject>HCP_Contract_MERC__c</sourceObject>
+    </namedFilters>
     <pluralLabel>Meeting Participants</pluralLabel>
     <recordTypeTrackHistory>true</recordTypeTrackHistory>
     <recordTypes>
@@ -1808,6 +1849,10 @@ Created by John A Adams 2/18/2014</description>
             <values>
                 <fullName>Consulting Project</fullName>
                 <default>true</default>
+            </values>
+            <values>
+                <fullName>Medical Research Consultant</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>

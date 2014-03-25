@@ -85,7 +85,7 @@
                 <field>Meeting_Cancellation_Date_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
+                <behavior>Required</behavior>
                 <field>City_of_Meeting_MERC__c</field>
             </layoutItems>
             <layoutItems>

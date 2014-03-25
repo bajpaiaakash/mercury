@@ -72,10 +72,6 @@
                 <behavior>Edit</behavior>
                 <field>Phone_GLBL__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Fax_GLBL__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>

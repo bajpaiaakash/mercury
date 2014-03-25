@@ -302,7 +302,7 @@ Created by John A Adams 1/10/2014</description>
     <recordTypes>
         <fullName>External_User_MERC</fullName>
         <active>true</active>
-        <description>Used to add Sales Reps, Medical Directors</description>
+        <description>Used to add Customer Facing Team members and Medical Directors to grant access to the meeting in Veeva.</description>
         <label>Non-Mercury Users</label>
         <picklistValues>
             <picklist>Access_MERC__c</picklist>

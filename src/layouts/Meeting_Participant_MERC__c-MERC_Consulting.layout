@@ -89,7 +89,7 @@
         <label>Participant Requirements</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Expense_Reimbursment_MERC__c</field>
             </layoutItems>
             <layoutItems>

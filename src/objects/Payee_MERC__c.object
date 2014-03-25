@@ -261,7 +261,7 @@ Created by John A Adams 10/25/2013</description>
         <description>Payee Fax Number
 Created by John A Adams 10/25/2013</description>
         <externalId>false</externalId>
-        <formula>Associated_Address_MERC__r.Fax_GLBL__c</formula>
+        <formula>Associated_Address_MERC__r.Elctrnc_Adrs_Fax_Cntry_Prfx_Cd_GLBL__c  &amp; &apos; &apos; &amp;  Associated_Address_MERC__r.Elctrnc_Adrs_Fax_Txt_GLBL__c &amp; &apos; &apos; &amp;  Associated_Address_MERC__r.Elctrnc_Adrs_Fax_Extnsn_Cd_GLBL__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Payee Fax Number</label>
         <required>false</required>
@@ -469,6 +469,7 @@ Created by John A Adams 2/18/2014</description>
             <operation>equals</operation>
             <valueField>Payee_MERC__c.Account_MERC__c</valueField>
         </filterItems>
+        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
         <isOptional>false</isOptional>
         <name>HCP Contract_Payee</name>
         <sourceObject>HCP_Contract_MERC__c</sourceObject>

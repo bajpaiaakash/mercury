@@ -79,16 +79,8 @@
                 <field>Other_Specialities_GLBL__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Description</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Territories</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>IsExcludedFromRealign</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>

@@ -451,7 +451,7 @@ Created by John A Adams 10/7/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -485,7 +485,7 @@ Created by John A Adams 10/17/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -495,7 +495,7 @@ Created by John A Adams 10/17/2013</description>
         <columns>NAME</columns>
         <columns>Account_MERC__c</columns>
         <columns>RECORDTYPE</columns>
-        <columns>Country_MERC__c</columns>
+        <columns>Country_of_Residence_MERC__c</columns>
         <columns>CREATED_DATE</columns>
         <columns>Contract_Request_Status_MERC__c</columns>
         <filterScope>Everything</filterScope>
