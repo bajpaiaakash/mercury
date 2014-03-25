@@ -9,9 +9,9 @@
 
 public with sharing class GLBL_CustomerSearchToolService {
 	
-	public String accessToken { get; private set; }
-	String baseUrl = 'https://mercury-cst-dev.herokuapp.com'; //TODO: custom setting
-	public Mercury_Settings_MERC__c appSettings {
+	private String baseUrl;
+	public  String accessToken { get; private set; }
+	public  Mercury_Settings_MERC__c appSettings {
 		get {
 			if (appSettings == null) {
 				appSettings = Mercury_Settings_MERC__c.getOrgDefaults();
@@ -21,7 +21,9 @@ public with sharing class GLBL_CustomerSearchToolService {
 		private set;
 	}
 
-	public GLBL_CustomerSearchToolService() { }
+	public GLBL_CustomerSearchToolService() {
+		baseUrl = this.appSettings.CST_URL_GLBL__c;
+	}
 
 	public List<SearchResult> doSearch(SearchRequest req) {
 		String requestJson = JSON.serialize(req);

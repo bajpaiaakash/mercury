@@ -126,8 +126,9 @@ public with sharing class MERC_AddMeetingParticipantsController {
 
     public List<SelectOption> countries {
     	get {
-    		Schema.DescribeFieldResult fieldResult = CST_User_Settings_CUST__c.Country_Code_CUST__c.getDescribe();
-    		return MERC_Util.getPicklistValues(fieldResult, true);
+//    		Schema.DescribeFieldResult fieldResult = CST_User_Settings_CUST__c.Country_Code_CUST__c.getDescribe();
+//    		return MERC_Util.getPicklistValues(fieldResult, true);
+            return MERC_Util.getCountryPicklistValuesForCurrentUser(true);
     	}
     }
 

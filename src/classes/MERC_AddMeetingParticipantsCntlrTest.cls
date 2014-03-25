@@ -1,8 +1,10 @@
 /**
- *  Unit tests for the MERC_AddMeetingParticipantsController extension
- *
+ * Unit tests for the MERC_AddMeetingParticipantsController extension
+ * <p>
  * fyi: the name MERC_AddMeetingParticipantsControllerTest.cls was too long  :-(
- */
+ *
+ * @author  Sean Harrison
+ **/
 @isTest
 private class MERC_AddMeetingParticipantsCntlrTest {
 	
@@ -36,7 +38,8 @@ private class MERC_AddMeetingParticipantsCntlrTest {
 		ApexPages.StandardSetController setCntrlr = new ApexPages.StandardSetController(participants);
 		c = new MERC_AddMeetingParticipantsController(setCntrlr);
 
-		setMockServices();		
+		mockServices = new GLBL_CustomerSearchToolServiceMock();
+		Test.setMock(HttpCalloutMock.class, mockServices);
 	}
 	
 	@isTest
@@ -148,7 +151,7 @@ private class MERC_AddMeetingParticipantsCntlrTest {
 	}
 
 	/*
-	 *  This is covered by other testMethods here but let's test it explicitly so it's easy 
+	 *  This is covered by other testMethods but let's test it explicitly so it's easy 
 	 *  to see if it's ever a problem
 	 */
  	@isTest 
@@ -161,7 +164,9 @@ private class MERC_AddMeetingParticipantsCntlrTest {
 		c = new MERC_AddMeetingParticipantsController(setCntrlr);
 
 		GLBL_CustomerSearchToolService.AccessTokenResponse tokenRespObj = new GLBL_CustomerSearchToolService.AccessTokenResponse();
-		setMockServices(tokenRespObj);
+		tokenRespObj.access_token = 'Alas! Poor Yorick!';
+        String tokenResponse = JSON.serialize(tokenRespObj);
+		Test.setMock(HttpCalloutMock.class, new GLBL_CustomerSearchToolServiceMock(200, 'OK', tokenResponse, new Map<String, String>{'Content-Type'=>'application/json'}));
 		
 		Test.startTest();
 		c.ensureCstToken();
@@ -186,18 +191,5 @@ private class MERC_AddMeetingParticipantsCntlrTest {
 		System.assertNotEquals(null,c.countries,'countries failed to init.');
 		System.assertNotEquals(null,c.dummy,'dummy failed to init.');
 		Test.stopTest();
-	}
-
-	static void setMockServices() { 
-		setMockServices(null); 
-	}
-
-	static void setMockServices(GLBL_CustomerSearchToolService.AccessTokenResponse tokenRespObj) {
-		if (tokenRespObj == null) tokenRespObj = new GLBL_CustomerSearchToolService.AccessTokenResponse();
-		tokenRespObj.access_token = 'Alas! Poor Yorick!';
-        String tokenResponse = JSON.serialize(tokenRespObj);
-        Map<String, String> responseHeaders = new Map<String, String>{'Content-Type'=>'application/json'};
-        mockServices = new GLBL_CustomerSearchToolServiceMock(200, 'OK', tokenResponse, responseHeaders);
-		Test.setMock(HttpCalloutMock.class, mockServices);
 	}
 }

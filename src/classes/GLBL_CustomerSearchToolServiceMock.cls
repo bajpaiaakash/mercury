@@ -14,6 +14,17 @@ global class GLBL_CustomerSearchToolServiceMock implements HttpCalloutMock {
         this.responseHeaders = responseHeaders;
     }
 
+    global GLBL_CustomerSearchToolServiceMock() {
+		GLBL_CustomerSearchToolService.AccessTokenResponse tokenRespObj = new GLBL_CustomerSearchToolService.AccessTokenResponse();
+		tokenRespObj.access_token = 'To sleep... perchance to dream';
+        String tokenResponse = JSON.serialize(tokenRespObj);
+
+        this.code = 200;
+        this.status = 'OK';
+        this.body = tokenResponse;
+        this.responseHeaders = new Map<String, String>{'Content-Type'=>'application/json'};
+    }
+
 	global HTTPResponse respond(HttpRequest req) {
         HttpResponse resp = new HttpResponse();
 		resp.setStatusCode(code);

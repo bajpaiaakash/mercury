@@ -1,3 +1,8 @@
+/**
+ * Unit tests for the GLBL_CustomerSearchToolService
+ *
+ * @author Sean Harrison
+ **/
 @isTest
 private class GLBL_CustomerSearchToolServiceTest {
 	
@@ -11,6 +16,9 @@ private class GLBL_CustomerSearchToolServiceTest {
 		mockServices = new GLBL_CustomerSearchToolServiceMock();
 	}
 
+	/**
+	 * Exercise the token refresh, both it's error state and success
+	 */
 	@isTest 
 	static void testRefreshToken() {
 		Mercury_Settings_MERC__c settings = new Mercury_Settings_MERC__c();
@@ -38,6 +46,10 @@ private class GLBL_CustomerSearchToolServiceTest {
 		Test.stopTest();
 	}
 
+	/**
+	 * Exercise a simple search.
+	 * @see GLBL_CustomerSearchToolServiceMock
+	 **/
  	@isTest
 	static void testSearch() {
 		Test.setMock(HttpCalloutMock.class, mockServices);
@@ -54,6 +66,9 @@ private class GLBL_CustomerSearchToolServiceTest {
 		System.assertEquals((TEST_SET_SIZE),results.size(),'Unexpected search result size.');
 	}
 
+	/**
+	 * Cycle through various possible errors
+	 **/
 	@isTest
 	static void testSearchExceptions() {
 		Test.startTest();
@@ -63,6 +78,12 @@ private class GLBL_CustomerSearchToolServiceTest {
 		Test.stopTest();
 	}
 
+	/**
+	 * Builds an ErrorResult based on the submitted info, initiates a search, then checks for the null result
+	 *
+	 * @errNum    Integer for HTTP error code
+	 * @errStatus HTTP status string
+	 */
 	static void testSearchException(Integer errNum, String errStatus) {
 		GLBL_CustomerSearchToolService.ErrorResult errOjb = new GLBL_CustomerSearchToolService.ErrorResult();
 		errOjb.Error = 'Hamlet';
@@ -79,6 +100,11 @@ private class GLBL_CustomerSearchToolServiceTest {
 		System.assertEquals(null,results,'Unexpected search result List returned after '+errNum);
 	}
 
+	/**
+	 * This method is just embarrassing. Apparently all the calls to JSON.deserialise are not 
+	 * recognized by the test coverage engine even though it does use the SearchResult inner
+	 * class. So, to get official coverage, call each property explicitly...
+	 */
 	@isTest
 	static void testSearchResultClass() {
 
