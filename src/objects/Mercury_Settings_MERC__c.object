@@ -11,6 +11,7 @@
         <externalId>false</externalId>
         <inlineHelpText>When checked, active/archived budgets cannot be modified.</inlineHelpText>
         <label>Budget Edit Validation</label>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -21,6 +22,7 @@
         <label>CST Client Id</label>
         <length>255</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -32,6 +34,7 @@
         <label>CST Client Secret</label>
         <length>255</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -43,6 +46,7 @@
         <label>CST URL</label>
         <length>128</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>

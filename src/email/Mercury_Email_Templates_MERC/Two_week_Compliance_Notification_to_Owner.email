@@ -1,0 +1,10 @@
+Dear {!Meeting_MERC__c.Prmry_Mtng_Ownr_Nm_MERC__c},
+
+This email is to remind you that all compliance information needs to be reviewed and populated for the meeting "{!Meeting_MERC__c.Name}"
+
+Thanks,
+Mercury Administrators
+
+
+More information regarding this meeting can be found at
+{!Meeting_MERC__c.Link}.

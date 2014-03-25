@@ -1,0 +1,17 @@
+<apex:page showHeader="true" sidebar="true" standardController="CST_App_Settings_CUST__c" extensions="CUST_RefreshLOVsController">
+	<apex:sectionHeader title="CST App Settings" subtitle="Refresh List of Values" />
+	<apex:pageBlock title="Multi-select Search Fields">
+		<apex:pageBlockButtons location="top">
+			
+		</apex:pageBlockButtons>
+		<apex:pageBlockSection title="Additional Details">
+			<apex:outputField value="settings.Account_Bnft_Dsgn_Cd_CUST__c" />
+		</apex:pageBlockSection>
+		<apex:pageBlockSection title="Consent">
+
+		</apex:pageBlockSection>
+		<apex:pageBlockSection title="Affiliations">
+
+		</apex:pageBlockSection>
+	</apex:pageBlock>
+</apex:page>

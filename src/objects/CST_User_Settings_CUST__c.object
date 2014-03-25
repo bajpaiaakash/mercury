@@ -5,6 +5,10 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Clone</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -17,11 +21,19 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -32,6 +44,7 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Holds user authorization settings for the Customer Search Tool. Every row reflects a single User/Country/Level combination. Users with access to multiple countries will have multiple rows in this table.</description>
     <enableActivities>false</enableActivities>
@@ -56,6 +69,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -95,6 +109,7 @@ Expired: Access expired before it was reviewed</inlineHelpText>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -104,6 +119,7 @@ Expired: Access expired before it was reviewed</inlineHelpText>
         <inlineHelpText>When the audit began.</inlineHelpText>
         <label>Audit Date</label>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -117,6 +133,7 @@ Expired: Access expired before it was reviewed</inlineHelpText>
         <relationshipLabel>CST User Settings</relationshipLabel>
         <relationshipName>CST_User_Settings</relationshipName>
         <required>true</required>
+        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -1124,6 +1141,7 @@ Expired: Access expired before it was reviewed</inlineHelpText>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1133,6 +1151,7 @@ Expired: Access expired before it was reviewed</inlineHelpText>
         <inlineHelpText>The user&apos;s business case for why they need access.</inlineHelpText>
         <label>Justification for Access</label>
         <length>32768</length>
+        <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -1143,6 +1162,7 @@ Expired: Access expired before it was reviewed</inlineHelpText>
         <label>Last Status</label>
         <length>80</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1154,6 +1174,7 @@ Expired: Access expired before it was reviewed</inlineHelpText>
         <label>Manager Global ID</label>
         <length>8</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1164,6 +1185,7 @@ Expired: Access expired before it was reviewed</inlineHelpText>
         <inlineHelpText>When Access was granted.</inlineHelpText>
         <label>Start Date</label>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -1173,6 +1195,7 @@ Expired: Access expired before it was reviewed</inlineHelpText>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>User Name</label>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
