@@ -5,10 +5,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>CancelEdit</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>Clone</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -21,19 +17,11 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>SaveEdit</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -44,7 +32,6 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Holds application-wide settings for the Customer Search Tool</description>
     <enableActivities>false</enableActivities>
@@ -60,7 +47,6 @@
         <inlineHelpText>Default values for Additional Details: Professional Designation (US Only) multi-select picklist</inlineHelpText>
         <label>Professional Designation (US Only)</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
@@ -71,7 +57,6 @@
         <inlineHelpText>Default values for Classification search control</inlineHelpText>
         <label>Account Classification</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
@@ -81,7 +66,6 @@
         <inlineHelpText>Values for the Additional Details: Status multi-select picklist</inlineHelpText>
         <label>Account Status Types</label>
         <length>32768</length>
-        <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -92,7 +76,6 @@
         <inlineHelpText>Values for the Relationship Information (Affiliations): Relationship Country multi-select picklist</inlineHelpText>
         <label>Affiliation Countries</label>
         <length>32768</length>
-        <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -105,7 +88,6 @@
         <label>Affiliation Priority Rank</label>
         <length>64</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -116,7 +98,6 @@
         <inlineHelpText>Values for the Relationship Information (Affiliations): Relationship Role multi-select picklist</inlineHelpText>
         <label>Affiliation Role Types</label>
         <length>32768</length>
-        <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -127,7 +108,6 @@
         <inlineHelpText>Values for the Additional Details: Alternate Id Type picklist</inlineHelpText>
         <label>Alternate Id Type</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
@@ -138,7 +118,6 @@
         <label>Consent Purpose Code</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -150,7 +129,6 @@
         <label>Consent Status</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -162,7 +140,6 @@
         <label>Employee Record Type</label>
         <length>64</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -174,7 +151,6 @@
         <label>Employee Record Type Id</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -186,7 +162,6 @@
         <label>HCO Record Type Ids</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -198,7 +173,6 @@
         <label>HCO Record Types</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -210,7 +184,6 @@
         <label>Consent Channel</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -221,7 +194,6 @@
         <inlineHelpText>Tool should display a user message to user before allowing any access to data, the user must check a box to accept the terms before they are granted access to data</inlineHelpText>
         <label>Login Message</label>
         <length>32768</length>
-        <trackTrending>false</trackTrending>
         <type>Html</type>
         <visibleLines>25</visibleLines>
     </fields>
@@ -232,7 +204,6 @@
         <inlineHelpText>Do not edit. This field filled programmatically based on the record type names in Record_Types_CUST</inlineHelpText>
         <label>Record Type Ids</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
@@ -242,7 +213,6 @@
         <inlineHelpText>A comma-delimited list of Account record types to include for searching. Entries should match RecordType.DeveloperName when viewing the schema directly or the &quot;Record Type Name&quot; when viewing Record Type Detail UI.  E.g. HCP_GLBL,Non_HCP_GLBL,HCO_GLBL</inlineHelpText>
         <label>Record Types</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
@@ -253,7 +223,6 @@
         <label>Settings Language</label>
         <length>2</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -265,7 +234,6 @@
         <inlineHelpText>Default values for Additional Details:Specialty multi-select picklist</inlineHelpText>
         <label>Specialty</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
@@ -277,7 +245,6 @@
         <label>Specialty Priority Rank</label>
         <length>64</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -304,4 +271,15 @@
         <customTabListAdditionalFields>LAST_UPDATE</customTabListAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
+    <webLinks>
+        <fullName>Refresh</fullName>
+        <availability>online</availability>
+        <description>Refreshes the values of the associated LOV</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Refresh</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>alert(&apos;hello, world&apos;);</url>
+    </webLinks>
 </CustomObject>

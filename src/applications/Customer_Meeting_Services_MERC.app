@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customApplicationComponents>
+        <alignment>right</alignment>
+        <customApplicationComponent>Console.BuiltInComponent.mostRecentlyUsed</customApplicationComponent>
+    </customApplicationComponents>
     <defaultLandingTab>standard-home</defaultLandingTab>
     <description>Used by the Customer Meeting Services team to take advantage of the Service Cloud Console to ensure Cases can efficiently be managed.</description>
     <detailPageRefreshMethod>none</detailPageRefreshMethod>
@@ -106,21 +110,18 @@
             <active>false</active>
             <keyCommand>U</keyCommand>
         </defaultShortcut>
-        <defaultShortcut>
-            <action>HOTKEYS_PANEL</action>
-            <active>false</active>
-            <keyCommand>SHIFT+K</keyCommand>
-        </defaultShortcut>
     </keyboardShortcuts>
     <label>Customer Meeting Services</label>
     <listPlacement>
-        <location>full</location>
+        <location>left</location>
+        <units>percent</units>
+        <width>25</width>
     </listPlacement>
     <listRefreshMethod>none</listRefreshMethod>
     <logo>SharedDocuments/Lilly_Logo_New.png</logo>
-    <saveUserSessions>false</saveUserSessions>
-    <tab>standard-Account</tab>
+    <saveUserSessions>true</saveUserSessions>
     <tab>standard-Case</tab>
+    <tab>standard-Account</tab>
     <tab>Meeting_MERC__c</tab>
     <tab>HCP_Contract_MERC__c</tab>
     <tab>Invoice_MERC__c</tab>
@@ -131,31 +132,33 @@
     <tab>standard-report</tab>
     <tab>standard-File</tab>
     <tab>Travel_Itinerary_MERC__c</tab>
-    <tab>Budget_MERC__c</tab>
     <workspaceMappings>
         <mapping>
+            <fieldName>Account_GLBL__c</fieldName>
             <tab>Preferences_and_Consent_GLBL__c</tab>
         </mapping>
         <mapping>
             <tab>standard-report</tab>
         </mapping>
         <mapping>
+            <fieldName>AccountId</fieldName>
             <tab>standard-Case</tab>
         </mapping>
         <mapping>
+            <fieldName>Meeting_Participant_MERC__c</fieldName>
             <tab>Travel_Itinerary_MERC__c</tab>
         </mapping>
         <mapping>
+            <fieldName>Account_GLBL__c</fieldName>
             <tab>Address_GLBL__c</tab>
         </mapping>
         <mapping>
+            <fieldName>Meeting_Participant_MERC__c</fieldName>
             <tab>Invoice_MERC__c</tab>
         </mapping>
         <mapping>
+            <fieldName>Account_MERC__c</fieldName>
             <tab>HCP_Contract_MERC__c</tab>
-        </mapping>
-        <mapping>
-            <tab>Budget_MERC__c</tab>
         </mapping>
         <mapping>
             <tab>standard-File</tab>
@@ -164,12 +167,14 @@
             <tab>Meeting_MERC__c</tab>
         </mapping>
         <mapping>
+            <fieldName>ParentId</fieldName>
             <tab>standard-Account</tab>
         </mapping>
         <mapping>
             <tab>standard-Dashboard</tab>
         </mapping>
         <mapping>
+            <fieldName>Account_MERC__c</fieldName>
             <tab>Payee_MERC__c</tab>
         </mapping>
     </workspaceMappings>

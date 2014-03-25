@@ -11,11 +11,12 @@ public virtual with sharing class GLBL_BaseEditController {
 	
 	private String sObjectAPIName;
 	private String sObjectRecordType;
-	private transient Component.Apex.Form Form;
 	private Map<String, sObjectField> schemaFields;
 
 	public String title { get; private set; }
 	public String subtitle { get; private set; }
+
+	public Set<String> dynamicFields;
 
 	public GLBL_BaseEditController(ApexPages.StandardController stdController, Schema.SobjectType sotype) {
 		Schema.DescribeSObjectResult sobjectDescribe = sotype.getDescribe();
@@ -41,7 +42,7 @@ public virtual with sharing class GLBL_BaseEditController {
 			sObjectRecordType = (String)mySObject.get('recordtypeid');
 		}
 		
-		this.title = sobjectDescribe.getLabel() + ' edit';
+		this.title = sobjectDescribe.getLabel() + ' Edit';
 		if (mySObject == null || mySObject.Id == null) {
 			this.subtitle = 'New ' + sobjectDescribe.getLabel();
 		} else {
@@ -49,6 +50,10 @@ public virtual with sharing class GLBL_BaseEditController {
 		}		
 	}
 
+	public GLBL_BaseEditController(ApexPages.StandardController stdController, Schema.SobjectType sotype, Set<String> dfs) {
+		this(stdController, sotype);
+		this.dynamicFields = dfs;		
+	}
 
 	public class PageBlockSection {
 		public List<Field> fields { get; set; }
@@ -66,9 +71,60 @@ public virtual with sharing class GLBL_BaseEditController {
 		public Boolean blankSpace { get; set; }
 		public String id { get; set; }
 		public String value { get; set; }
+		public Integer tabOrder { get; set; }
 		public Boolean required { get; set; }
+		public String onBlur { get; set; }
+		public String onChange { get; set; }
+		public Boolean dynamic { get; set; }
 	}
 
+	//returns layouts for a given sobject type and record type (if applicable)
+	public sobjectPartnerSoapSforceCom.DescribeLayoutResult layoutResult {
+		get {
+			if (layoutResult == null) {
+				sobjectPartnerSoapSforceCom.Soap handler = HandlerMetadataInit();
+				layoutResult = handler.describeLayout(this.sObjectAPIName, new list<String>{sObjectRecordType});
+			}
+			return layoutResult;
+		}
+		private set;
+	}
+
+	public Map<String,String> fieldNameToDetailSectionName {
+		get {
+			if (fieldNameToDetailSectionName == null) {
+				fieldNameToDetailSectionName = new Map<String,String>();
+				if (layoutResult != null) {
+	            	//we take the first one because we queried only one recordtype.               
+	                for (sobjectPartnerSoapSforceCom.DescribeLayoutSection LayoutSection : layoutResult.Layouts.get(0).detailLayoutSections) {
+	                   	
+						String layoutSectionHeading = LayoutSection.heading;
+
+	                    for (sobjectPartnerSoapSforceCom.DescribeLayoutRow layoutRow:LayoutSection.layoutRows) {
+	                        for (sobjectPartnerSoapSforceCom.DescribeLayoutItem layoutItem:layoutRow.layoutItems) {
+	                           	if (layoutItem.layoutComponents != null) {
+	                                //fields
+	                                for (sobjectPartnerSoapSforceCom.DescribeLayoutComponent layoutComponent : layoutItem.layoutComponents) {
+	                                	if (
+	                                		layoutComponent.type_x != 'Separator' && 
+	                                		layoutComponent.type_x != 'EmptySpace' &&
+	                                		layoutComponent.value != null
+	                                	) {
+	                                		fieldNameToDetailSectionName.put(layoutComponent.value, layoutSectionHeading); 
+	                                	}
+	                                }
+	                            }
+	                        }
+	                    }
+	                }
+	            }	
+			}
+			return fieldNameToDetailSectionName;
+		}
+		private set;
+	}
+
+	//returns sections/fields for edit layout
 	public List<PageBlockSection> sections { 
 		get {
 			system.debug('getting sections!');
@@ -78,14 +134,9 @@ public virtual with sharing class GLBL_BaseEditController {
 				PageBlockSection pBs;
 		        Field f;
 
-		        sobjectPartnerSoapSforceCom.Soap handler = HandlerMetadataInit();
-
-	        	//sObjectRecordType is the recordtype of the sobject. If the sobject has no recordtype, then it's null and it's still fine.
-	            sobjectPartnerSoapSforceCom.DescribeLayoutResult LayoutResult = handler.describeLayout(this.sObjectAPIName, new list<String>{sObjectRecordType});
-
-	            if (LayoutResult != null) {
+	            if (layoutResult != null) {
 	            	//we take the first one because we queried only one recordtype.               
-	                for (sobjectPartnerSoapSforceCom.DescribeLayoutSection LayoutSection : LayoutResult.Layouts.get(0).editLayoutSections) {
+	                for (sobjectPartnerSoapSforceCom.DescribeLayoutSection LayoutSection : layoutResult.Layouts.get(0).editLayoutSections) {
 	                   	//the different sections.
 	                   	//System.debug('LAYOUT SECTION ---> '+LayoutSection);
 	                   	//System.debug('LAYOUT SECTION HEADING ---> '+LayoutSection.heading);
@@ -97,35 +148,57 @@ public virtual with sharing class GLBL_BaseEditController {
 						}
 
 	                    for (sobjectPartnerSoapSforceCom.DescribeLayoutRow layoutRow:LayoutSection.layoutRows) {
-	                        //System.debug('LAYOUT ROW ---> '+layoutRow);
 	                        for (sobjectPartnerSoapSforceCom.DescribeLayoutItem layoutItem:layoutRow.layoutItems) {
-	                           	//System.debug('LAYOUT ITEM ---> '+layoutItem);
+	                           	System.debug('LAYOUT ITEM ---> '+layoutItem);
 	                           	if (layoutItem.layoutComponents != null) {
 	                                //fields
 	                                for (sobjectPartnerSoapSforceCom.DescribeLayoutComponent layoutComponent : layoutItem.layoutComponents) {
+	                           			System.debug('LAYOUT COMPONENT ---> '+layoutComponent);
+	                                  	
+	                                  	if (dynamicFields != null) {
+	                                  		if (this.dynamicFields.contains(layoutComponent.value)) {
+	                                  			f = new Field();
+	                                  			f.id = layoutComponent.value;
+	                                  			f.readOnly = false;
+	                                  			f.tabOrder = layoutComponent.tabOrder;
+	                                  			f.value = layoutComponent.value;
+	                                  			f.dynamic = true;
+	                                  			pBs.fields.add(f);
+	                                  			continue;	
+	                                  		}
+	                                  	}
+	                                  	
 	                                  	if (layoutComponent.value=='OwnerId' || layoutComponent.value=='RecordTypeId') {
 	                                  		//The user shouldn't change the OwnerId/RecordType this way.
 	                                  		f = new Field();
 	                                  		f.id = layoutComponent.value;
 	                                  		f.readOnly = true;
+	                                  		f.tabOrder = layoutComponent.tabOrder;
 	                                  		f.value = layoutComponent.value;
 	                                  		pBs.fields.add(f);
-	                                  	}
-	                                  	else if (layoutitem.editable == false && layoutComponent.value != null) {
+	                                  	} else if (layoutitem.editable == false && layoutComponent.value != null) {
 											f = new Field();
 											f.id = layoutComponent.value;
 											f.readOnly = true;
+											f.tabOrder = layoutComponent.tabOrder;
 											f.value = layoutComponent.value;
 											pBs.fields.add(f);
-										}
-	                                  	else if (layoutComponent.value != null) {
+										} else if (layoutComponent.type_x == 'EmptySpace') {
+		                                  	f = new Field();
+		                                  	f.blankSpace = true;
+		                                  	f.id = layoutComponent.value;
+		                                  	f.readOnly = layoutItem.editable;
+		                                  	f.tabOrder = layoutComponent.tabOrder;
+		                                  	pBs.fields.add(f);
+							            } else if (layoutComponent.value != null) {
 		                                  	f = new Field();
 		                                  	f.id = layoutComponent.value;
 		                                  	f.readOnly = false;
 		                                  	f.value = layoutComponent.value;
+		                                  	f.tabOrder = layoutComponent.tabOrder;
 		                                  	f.required = layoutItem.required;
 		                                  	pBs.fields.add(f);
-							            }
+							            } 
 	                                }
 	                            }
 	                            else {
@@ -146,7 +219,88 @@ public virtual with sharing class GLBL_BaseEditController {
 		private set; 
 	}
 
+	////returns sections/fields for detail layout
+	//public List<PageBlockSection> detailSections { 
+	//	get {
+	//		if (detailSections == null) {
+	//			detailSections = new List<PageBlockSection>();
+				
+	//			PageBlockSection pBs;
+	//	        Field f;
 
+	//            if (layoutResult != null) {
+	//            	//we take the first one because we queried only one recordtype.               
+	//                for (sobjectPartnerSoapSforceCom.DescribeLayoutSection LayoutSection : layoutResult.Layouts.get(0).detailLayoutSections) {
+	                   	
+	//					pBs = new PageBlockSection(LayoutSection.columns);
+
+	//                   	if (LayoutSection.useHeading==true) {
+	//						pBS.title = LayoutSection.heading;
+	//					}
+
+	//                    for (sobjectPartnerSoapSforceCom.DescribeLayoutRow layoutRow:LayoutSection.layoutRows) {
+	//                        for (sobjectPartnerSoapSforceCom.DescribeLayoutItem layoutItem:layoutRow.layoutItems) {
+	//                           	System.debug('LAYOUT ITEM ---> '+layoutItem);
+	//                           	if (layoutItem.layoutComponents != null) {
+	//                                //fields
+	//                                for (sobjectPartnerSoapSforceCom.DescribeLayoutComponent layoutComponent : layoutItem.layoutComponents) {
+	//                           			System.debug('LAYOUT COMPONENT ---> '+layoutComponent);
+	//                           			System.debug('LAYOUT COMPONENT VALUE ---> '+layoutComponent.value);
+	//                                  	if (layoutComponent.value=='OwnerId' || layoutComponent.value=='RecordTypeId') {
+	//                                  		//The user shouldn't change the OwnerId/RecordType this way.
+	//                                  		f = new Field();
+	//                                  		f.id = layoutComponent.value;
+	//                                  		f.readOnly = true;
+	//                                  		f.tabOrder = layoutComponent.tabOrder;
+	//                                  		f.value = layoutComponent.value;
+	//                                  		pBs.fields.add(f);
+	//									} else if (layoutComponent.type_x == 'Separator') {
+	//										//f = new Field();
+	//										//f.blankspace = true;
+	//										//pBs.fields.add(f);
+	//										continue;
+	//									} else if (layoutitem.editable == false && layoutComponent.value != null) {
+	//										f = new Field();
+	//										f.id = layoutComponent.value;
+	//										f.readOnly = true;
+	//										f.tabOrder = layoutComponent.tabOrder;
+	//										f.value = layoutComponent.value;
+	//										pBs.fields.add(f);
+	//									} else if (layoutComponent.type_x == 'EmptySpace') {
+	//	                                  	f = new Field();
+	//	                                  	f.blankSpace = true;
+	//	                                  	f.id = layoutComponent.value;
+	//	                                  	f.readOnly = layoutItem.editable;
+	//	                                  	f.tabOrder = layoutComponent.tabOrder;
+	//	                                  	pBs.fields.add(f);
+	//						            } else if (layoutComponent.value != null) {
+	//	                                  	f = new Field();
+	//	                                  	f.id = layoutComponent.value;
+	//	                                  	f.readOnly = false;
+	//	                                  	f.value = layoutComponent.value;
+	//	                                  	f.tabOrder = layoutComponent.tabOrder;
+	//	                                  	f.required = layoutItem.required;
+	//	                                  	pBs.fields.add(f);
+	//						            } 
+	//                                }
+	//                            }
+	//                            else {
+	//                            	f = new Field();
+	//                            	f.blankspace = true;
+	//                            	pBs.fields.add(f);
+	//                            }
+	                           
+	//                        }
+	//                    }
+	//                    pBs.index = detailSections.size();
+	//                    detailSections.add(pBs);
+	//                }
+	//            }
+	//		}
+	//		return detailSections;
+	//	} 
+	//	private set; 
+	//}
 
     public static sobjectPartnerSoapSforceCom.Soap handlerMetadataInit() {
         //here the authentication to the soap partner.

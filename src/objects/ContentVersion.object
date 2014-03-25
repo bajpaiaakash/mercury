@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
-    <enableHistory>true</enableHistory>
     <fieldSets>
         <fullName>Account_MERC</fullName>
         <description>Upload Content to Account object</description>
@@ -185,6 +183,11 @@
             <field>Document_Type_MERC__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Approval_Reference_Number_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
             <field>Description</field>

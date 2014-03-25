@@ -11,7 +11,6 @@
         <externalId>false</externalId>
         <inlineHelpText>When checked, active/archived budgets cannot be modified.</inlineHelpText>
         <label>Budget Edit Validation</label>
-        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -22,7 +21,6 @@
         <label>CST Client Id</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -34,7 +32,17 @@
         <label>CST Client Secret</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CST_URL_GLBL__c</fullName>
+        <description>The URL where the Customer Search Tool API is serviced. Used by GLBL_CustomerSearchToolService.cls.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The URL where the Customer Search Tool API is serviced. Used by GLBL_CustomerSearchToolService.cls.</inlineHelpText>
+        <label>CST URL</label>
+        <length>128</length>
+        <required>false</required>
         <type>Text</type>
         <unique>false</unique>
     </fields>

@@ -5,10 +5,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>CancelEdit</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>ChangeStatus</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -33,10 +29,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -52,10 +44,6 @@
         <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>SaveEdit</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>Tab</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -63,11 +51,10 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>true</enableFeeds>
-    <enableHistory>true</enableHistory>
     <fields>
         <fullName>AccountId</fullName>
+        <inlineHelpText>The company that the case is in relation to.  For example, a HCPs Institution or a Meeting Vendor.  Will be the same as the Contact Name if not relevant.</inlineHelpText>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -195,6 +182,7 @@ Created by John Adams on 11/18/2013</description>
     </fields>
     <fields>
         <fullName>ContactId</fullName>
+        <inlineHelpText>The person that the case is in relation to.  For example, the HCP that raised the problem.</inlineHelpText>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -238,6 +226,58 @@ Created by John Adams on 11/18/2013</description>
             </picklistValues>
             <picklistValues>
                 <fullName>ru</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>da</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>no</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>sv</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>fi</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>tr</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>it</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ro</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>nl</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>pl</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>cs</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>hu</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>sk</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>uk</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -387,6 +427,7 @@ Created by J Adams 12/10/2013</description>
         <fullName>Referred_By_GLBL__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
+        <inlineHelpText>The person who transferred the case to the new owner. For example, a CMS Cork user assigning a case to another CMS Cork user.</inlineHelpText>
         <label>Referred By</label>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Cases</relationshipLabel>
@@ -569,11 +610,26 @@ Created by John Adams on 11/18/2013</description>
     </listViews>
     <listViews>
         <fullName>MyCases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>NAME</columns>
+        <columns>CASES.CLOSED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CASES.PRIORITY</columns>
         <filterScope>Mine</filterScope>
         <label>My Cases</label>
+        <language>en_US</language>
     </listViews>
     <listViews>
         <fullName>MyOpenCases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>NAME</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CASES.PRIORITY</columns>
         <filterScope>Mine</filterScope>
         <filters>
             <field>CASES.CLOSED</field>
@@ -581,28 +637,41 @@ Created by John Adams on 11/18/2013</description>
             <value>0</value>
         </filters>
         <label>My Open Cases</label>
+        <language>en_US</language>
     </listViews>
     <searchLayouts>
         <customTabListAdditionalFields>CASES.CASE_NUMBER</customTabListAdditionalFields>
         <customTabListAdditionalFields>CASES.SUBJECT</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CASES.STATUS</customTabListAdditionalFields>
         <customTabListAdditionalFields>CASES.CREATED_DATE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CORE.USERS.ALIAS</customTabListAdditionalFields>
         <customTabListAdditionalFields>CASES.PRIORITY</customTabListAdditionalFields>
         <listViewButtons>Person_Search_List_MVN</listViewButtons>
         <lookupDialogsAdditionalFields>CASES.CASE_NUMBER</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>CASES.SUBJECT</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>CASES.STATUS</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CASES.CREATED_DATE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CORE.USERS.ALIAS</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CASES.PRIORITY</lookupDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>CASES.CASE_NUMBER</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>CASES.SUBJECT</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>CASES.STATUS</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>00N11000000PFvb</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>00N11000000PFvc</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>CASES.CASE_NUMBER</searchFilterFields>
+        <searchFilterFields>CASES.SUBJECT</searchFilterFields>
+        <searchFilterFields>CASES.STATUS</searchFilterFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>CASES.CREATED_DATE</searchFilterFields>
+        <searchFilterFields>CORE.USERS.ALIAS</searchFilterFields>
+        <searchFilterFields>CASES.PRIORITY</searchFilterFields>
         <searchResultsAdditionalFields>CASES.CASE_NUMBER</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CASES.SUBJECT</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CASES.STATUS</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CASES.CREATED_DATE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CASES.PRIORITY</searchResultsAdditionalFields>
     </searchLayouts>
     <webLinks>
         <fullName>Loop__LOOP</fullName>

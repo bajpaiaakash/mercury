@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <alerts>
+        <fullName>Expiring_Auth_to_CST_Manager_CUST</fullName>
+        <ccEmails>sean@mavensconsulting.com,</ccEmails>
+        <ccEmails>sam@mavensconsulting.com</ccEmails>
+        <description>Expiring Auth to CST Manager</description>
+        <protected>false</protected>
+        <recipients>
+            <field>CST_Email_Stamp_CUST__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Customer_Search_Tool_CUST/Expire_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>Send_email_to_CST_User_CUST</fullName>
+        <description>Email requests awaiting to CST User</description>
+        <protected>false</protected>
+        <recipients>
+            <field>CST_Email_Stamp_CUST__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>Customer_Search_Tool_CUST/AccessRequestsAwaitingApproval</template>
+    </alerts>
+    <alerts>
         <fullName>Send_email_to_Manager_CUST</fullName>
         <description>Send email to Manager</description>
         <protected>false</protected>
@@ -9,7 +33,18 @@
             <type>email</type>
         </recipients>
         <senderType>CurrentUser</senderType>
-        <template>Mercury_Email_Templates_MERC/AccessRequestsAwaitingApproval</template>
+        <template>Customer_Search_Tool_CUST/AccessRequestsAwaitingApproval</template>
+    </alerts>
+    <alerts>
+        <fullName>User_Request_Status_Change_CUST</fullName>
+        <description>User Request Status Change</description>
+        <protected>false</protected>
+        <recipients>
+            <field>CST_Email_Stamp_CUST__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>Customer_Search_Tool_CUST/Access_Request_Status_Change_CUST</template>
     </alerts>
     <fieldUpdates>
         <fullName>Clear_Email_Flag_CUST</fullName>
@@ -17,6 +52,33 @@
         <name>Clear Email Flag</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Null</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Clear_Manager_Expire_Email_Flag_CUST</fullName>
+        <description>Clear the manager email flag for records that are under review.</description>
+        <field>Flag_CST_Expire_Email_CUST__c</field>
+        <name>Clear Manager Expire Email Flag</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Clear_User_Email_Flag</fullName>
+        <description>Clear the Customer Search Tool User email flag.</description>
+        <field>Flag_CST_User_Email_CUST__c</field>
+        <name>Clear User Email Flag</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Null</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Copy_Email</fullName>
+        <field>CST_Email_Stamp_CUST__c</field>
+        <formula>PersonEmail</formula>
+        <name>Copy Email</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
@@ -193,6 +255,16 @@ Tier_2_Score_MERC__c &lt;= 5,
 Tier_1_Score_MERC__c &lt;= 5 
 ),3, null))</formula>
         <name>Set Service Provider Tier</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Stamp_User_Email_CUST</fullName>
+        <description>Stamp the Account&apos;s Person Email to this field so it can be used in the workflow email alert.</description>
+        <field>CST_Email_Stamp_CUST__c</field>
+        <formula>PersonEmail</formula>
+        <name>Stamp User Email</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
@@ -614,6 +686,33 @@ IF((TEXT(Regional_Leadership_Role_MERC__c ) = &quot;Yes&quot;) ||  (TEXT(Nationa
         <useDeadLetterQueue>false</useDeadLetterQueue>
     </outboundMessages>
     <rules>
+        <fullName>CST Expire Manager Email CUST</fullName>
+        <actions>
+            <name>Copy_Email</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Flag_CST_Expire_Email_CUST__c</field>
+            <operation>startsWith</operation>
+            <value>MANAGER</value>
+        </criteriaItems>
+        <description>When a User Settings record is changed from &apos;New Request&apos; to &apos;Pending&apos; , The account field &apos;Flag CST Email&apos; is updated and then an email is sent to the manager.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Expiring_Auth_to_CST_Manager_CUST</name>
+                <type>Alert</type>
+            </actions>
+            <actions>
+                <name>Clear_Manager_Expire_Email_Flag_CUST</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>1</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
         <fullName>CST Manager Email CUST</fullName>
         <actions>
             <name>Copy_Email_CUST</name>
@@ -622,7 +721,7 @@ IF((TEXT(Regional_Leadership_Role_MERC__c ) = &quot;Yes&quot;) ||  (TEXT(Nationa
         <active>true</active>
         <criteriaItems>
             <field>Account.Flag_CST_Email_CUST__c</field>
-            <operation>equals</operation>
+            <operation>startsWith</operation>
             <value>MANAGER</value>
         </criteriaItems>
         <description>When a User Settings record is changed from &apos;New Request&apos; to &apos;Pending&apos; , The account field &apos;Flag CST Email&apos; is updated so an email can be sent to the manager.</description>
@@ -639,6 +738,29 @@ IF((TEXT(Regional_Leadership_Role_MERC__c ) = &quot;Yes&quot;) ||  (TEXT(Nationa
             <timeLength>1</timeLength>
             <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>CST User Email CUST</fullName>
+        <actions>
+            <name>User_Request_Status_Change_CUST</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Clear_User_Email_Flag</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Stamp_User_Email_CUST</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Flag_CST_User_Email_CUST__c</field>
+            <operation>startsWith</operation>
+            <value>USER</value>
+        </criteriaItems>
+        <description>When a User Settings record status is changed, other than from &quot;New Request&quot;,  the account field &apos;Flag CST Email&apos; is updated so an email can be sent to the user.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
         <fullName>Clear Calculate Open Meeting Fees_MERC</fullName>
@@ -705,7 +827,7 @@ IF((TEXT(Regional_Leadership_Role_MERC__c ) = &quot;Yes&quot;) ||  (TEXT(Nationa
             <type>OutboundMessage</type>
         </actions>
         <active>true</active>
-        <formula>NOT(ISCHANGED( RTI_Transaction_ID_MERC__c ) )</formula>
+        <formula>&apos;mercuryintegration.veeva@gso1.lly.mercurycfg2&apos; &lt;&gt; LastModifiedBy.Username</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>

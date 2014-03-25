@@ -27,6 +27,18 @@
         <template>Mercury_Email_Templates_MERC/Cancelled_Meeting</template>
     </alerts>
     <alerts>
+        <fullName>Scientific_Exchange_Approval_Request</fullName>
+        <ccEmails>jadams@mavensconsulting.com</ccEmails>
+        <description>Scientific Exchange Approval Request</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Meeting_Owner_Email_MERC__c</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Mercury_Email_Templates_MERC/Scientific_Exchange_Request_for_Approval</template>
+    </alerts>
+    <alerts>
         <fullName>Two_week_compliance_notification_to_Meeting_Owner</fullName>
         <ccEmails>oliver@mavensconsulting.com</ccEmails>
         <ccEmails>katy@mavensconsulting.com</ccEmails>
@@ -67,104 +79,6 @@
         <name>Set Meeting Cancellation Date_MERC</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Set_Queue_Owner_Australia_New_Zealand</fullName>
-        <description>Set Queue Owner - Australia/New Zealand</description>
-        <field>OwnerId</field>
-        <lookupValue>Hub_France</lookupValue>
-        <lookupValueType>Queue</lookupValueType>
-        <name>Set Queue Owner - Australia/New Zealand</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>LookupValue</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Set_Queue_Owner_France_Hub</fullName>
-        <field>OwnerId</field>
-        <lookupValue>Hub_France</lookupValue>
-        <lookupValueType>Queue</lookupValueType>
-        <name>Set Queue Owner - France Hub</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>LookupValue</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Set_Queue_Owner_Germany_Hub</fullName>
-        <description>Sets Queue Owner to Germany Hub</description>
-        <field>OwnerId</field>
-        <lookupValue>Hub_Germany</lookupValue>
-        <lookupValueType>Queue</lookupValueType>
-        <name>Set Queue Owner - Germany Hub</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>LookupValue</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Set_Queue_Owner_Italy_Hub</fullName>
-        <description>Set Queue Owner to Italy Hub</description>
-        <field>OwnerId</field>
-        <lookupValue>Hub_Italy</lookupValue>
-        <lookupValueType>Queue</lookupValueType>
-        <name>Set Queue Owner - Italy Hub</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>LookupValue</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Set_Queue_Owner_Russia</fullName>
-        <description>Sets Queue Owner to Russia</description>
-        <field>OwnerId</field>
-        <lookupValue>Hub_Russia</lookupValue>
-        <lookupValueType>Queue</lookupValueType>
-        <name>Set Queue Owner - Russia</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>LookupValue</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Set_Queue_Owner_Spain_Hub</fullName>
-        <description>Set Queue Owner - Spain Hub</description>
-        <field>OwnerId</field>
-        <lookupValue>Hub_Spain</lookupValue>
-        <lookupValueType>Queue</lookupValueType>
-        <name>Set Queue Owner - Spain Hub</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>LookupValue</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Set_Queue_Owner_Turkey</fullName>
-        <description>Sets Queue Owner to Turkey</description>
-        <field>OwnerId</field>
-        <lookupValue>Hub_Turkey</lookupValue>
-        <lookupValueType>Queue</lookupValueType>
-        <name>Set Queue Owner - Turkey</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>LookupValue</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Set_Queue_Owner_UK_Hub</fullName>
-        <description>Set Queue based on Country of Meeting</description>
-        <field>OwnerId</field>
-        <lookupValue>Hub_UK</lookupValue>
-        <lookupValueType>Queue</lookupValueType>
-        <name>Set Queue Owner - UK Hub</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>LookupValue</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Set_Queue_Owner_Ukraine</fullName>
-        <description>Set Queue Owner to Ukraine</description>
-        <field>OwnerId</field>
-        <lookupValue>Hub_Ukraine</lookupValue>
-        <lookupValueType>Queue</lookupValueType>
-        <name>Set Queue Owner - Ukraine</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>LookupValue</operation>
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
@@ -318,6 +232,66 @@ Name</formula>
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_Sourced_Venue_Address_City_MERC</fullName>
+        <description>Update Source Venue Address City when Sourced Venue is changed.</description>
+        <field>Sourced_Venue_City_Hist_MERC__c</field>
+        <formula>Venue_MERC__r.Primary_Addr_City_GLBL__c</formula>
+        <name>Update Sourced Venue Address City_MERC</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Sourced_Venue_Address_Cntry_MERC</fullName>
+        <description>Update Source Venue Address Country when Sourced Venue is changed.</description>
+        <field>Sourced_Venue_Country_Hist_MERC__c</field>
+        <formula>Venue_MERC__r.Primary_Address_Country_GLBL__c</formula>
+        <name>Update Sourced Venue Address Cntry_MERC</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Sourced_Venue_Address_Line_1_MERC</fullName>
+        <description>Update Source Venue Address Line 1 when Sourced Venue is changed.</description>
+        <field>Sourced_Venue_Addr_1_Hist_MERC__c</field>
+        <formula>Venue_MERC__r.Primary_Addr_Line1_GLBL__c</formula>
+        <name>Update Sourced Venue Address Line 1_MERC</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Sourced_Venue_Address_Line_2_MERC</fullName>
+        <description>Update Source Venue Address Line 2 when Sourced Venue is changed.</description>
+        <field>Sourced_Venue_Addr_2_Hist_MERC__c</field>
+        <formula>Venue_MERC__r.Primary_Addr_Line2_GLBL__c</formula>
+        <name>Update Sourced Venue Address Line 2_MERC</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Sourced_Venue_Name_MERC</fullName>
+        <description>Update Source Venue Name when Sourced Venue is changed.</description>
+        <field>Sourced_Venue_Name_Hist_MERC__c</field>
+        <formula>Venue_MERC__r.Name</formula>
+        <name>Update Sourced Venue Name_MERC</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Sourced_Venue_Postal_Code_MERC</fullName>
+        <description>Update Source Venue Address Postal Code when Sourced Venue is changed.</description>
+        <field>Sourced_Venue_Postal_Code_Hist_MERC__c</field>
+        <formula>Venue_MERC__r.Primary_Pstl_Cd_Extnsn_GLBL__c</formula>
+        <name>Update Sourced Venue Postal Code_MERC</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Updated_Record_Type_to_Registered</fullName>
         <description>When Meeting Status is changed to Registered, update meeting Record Type to Registered</description>
         <field>RecordTypeId</field>
@@ -366,6 +340,9 @@ Name</formula>
         <fields>CreatedById</fields>
         <fields>CreatedDate</fields>
         <fields>CurrencyIsoCode</fields>
+        <fields>Customer_Facing_End_Time_MERC__c</fields>
+        <fields>Customer_Facing_Meeting_Organiser_MERC__c</fields>
+        <fields>Customer_Facing_Start_Time_MERC__c</fields>
         <fields>Date_of_Event_MERC__c</fields>
         <fields>Date_to_Send_Invitations_MERC__c</fields>
         <fields>Days_Until_Meeting_MERC__c</fields>
@@ -382,6 +359,7 @@ Name</formula>
         <fields>Event_Occurred_MERC__c</fields>
         <fields>Event_Website_MERC__c</fields>
         <fields>Event_Website_Needed_MERC__c</fields>
+        <fields>Exclude_from_Open_Meeting_Fee_Calc_MERC__c</fields>
         <fields>Expenses_MERC__c</fields>
         <fields>Expose_on_Portal_MERC__c</fields>
         <fields>External_Delegates_MERC__c</fields>
@@ -475,10 +453,16 @@ Name</formula>
         <fields>Shipping_Address_for_Invitations_MERC__c</fields>
         <fields>Source_MERC__c</fields>
         <fields>Sourced_Venue_Addr1_MERC__c</fields>
+        <fields>Sourced_Venue_Addr_1_Hist_MERC__c</fields>
+        <fields>Sourced_Venue_Addr_2_Hist_MERC__c</fields>
         <fields>Sourced_Venue_Addr_2_MERC__c</fields>
+        <fields>Sourced_Venue_City_Hist_MERC__c</fields>
         <fields>Sourced_Venue_City_MERC__c</fields>
+        <fields>Sourced_Venue_Country_Hist_MERC__c</fields>
         <fields>Sourced_Venue_Country_MERC__c</fields>
+        <fields>Sourced_Venue_Name_Hist_MERC__c</fields>
         <fields>Sourced_Venue_Name_MERC__c</fields>
+        <fields>Sourced_Venue_Postal_Code_Hist_MERC__c</fields>
         <fields>Sourced_Venue_Postal_Code_MERC__c</fields>
         <fields>Speaker_MERC__c</fields>
         <fields>Sponsorship_Category_MERC__c</fields>
@@ -578,11 +562,35 @@ Name</formula>
             <name>Update_Record_Type_to_Completed</name>
             <type>FieldUpdate</type>
         </actions>
+        <actions>
+            <name>Update_Sourced_Venue_Address_City_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Sourced_Venue_Address_Cntry_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Sourced_Venue_Address_Line_1_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Sourced_Venue_Address_Line_2_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Sourced_Venue_Name_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Sourced_Venue_Postal_Code_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
         <active>true</active>
         <criteriaItems>
             <field>Meeting_MERC__c.Meeting_Status_MERC__c</field>
             <operation>equals</operation>
-            <value>Complete - Closed</value>
+            <value>Complete</value>
         </criteriaItems>
         <criteriaItems>
             <field>Meeting_MERC__c.RecordTypeId</field>
@@ -594,7 +602,7 @@ Name</formula>
             <operation>notEqual</operation>
             <value>Consulting Project</value>
         </criteriaItems>
-        <description>When Meeting Status is changed to Complete - Closed updated Record Type to Complete - Closed</description>
+        <description>When Meeting Status is changed to Complete updated Record Type to Complete.</description>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -669,7 +677,7 @@ Name</formula>
             <type>OutboundMessage</type>
         </actions>
         <active>true</active>
-        <formula>AND(NOT(ISCHANGED( RTI_Transaction_ID_MERC__c )),NOT( Source_MERC__c  = &apos;Internal&apos;))</formula>
+        <formula>AND(&apos;mercuryintegration.veeva@gso1.lly.mercurycfg2&apos; &lt;&gt; LastModifiedBy.Username,NOT( Source_MERC__c  = &apos;Internal&apos;))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -698,6 +706,21 @@ Name</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
+        <fullName>Scientific Exchange Request for Approval MERC</fullName>
+        <actions>
+            <name>Scientific_Exchange_Approval_Request</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Meeting_MERC__c.Type_MERC__c</field>
+            <operation>equals</operation>
+            <value>Scientific Exchange</value>
+        </criteriaItems>
+        <description>Triggers email to the Medical Director requesting approval to hold a Scientific Exchange meeting</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
         <fullName>Set Meeting Cancellation Date_MERC</fullName>
         <actions>
             <name>Set_Meeting_Cancellation_Date_MERC</name>
@@ -710,11 +733,7 @@ Name</formula>
     </rules>
     <rules>
         <fullName>Set Queue Owner - France Hub</fullName>
-        <actions>
-            <name>Set_Queue_Owner_France_Hub</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
+        <active>false</active>
         <description>Set Queue Owner - France Hub</description>
         <formula>(ISPICKVAL(Event_Country_MERC__c,&apos;FR&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;NL&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;BE&apos;))&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;) &amp;&amp;
 RecordType.Name &lt;&gt; &apos;Consulting Project&apos;</formula>
@@ -722,11 +741,7 @@ RecordType.Name &lt;&gt; &apos;Consulting Project&apos;</formula>
     </rules>
     <rules>
         <fullName>Set Queue Owner - Germany Hub</fullName>
-        <actions>
-            <name>Set_Queue_Owner_Germany_Hub</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
+        <active>false</active>
         <description>Set Queue Owner - Germany Hub</description>
         <formula>(ISPICKVAL(Event_Country_MERC__c,&apos;DE&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;AT&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;CH&apos;))&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;)  &amp;&amp;
 RecordType.Name &lt;&gt; &apos;Consulting Project&apos;</formula>
@@ -734,11 +749,7 @@ RecordType.Name &lt;&gt; &apos;Consulting Project&apos;</formula>
     </rules>
     <rules>
         <fullName>Set Queue Owner - Italy Hub</fullName>
-        <actions>
-            <name>Set_Queue_Owner_Italy_Hub</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
+        <active>false</active>
         <description>Set Queue Owner - Italy Hub</description>
         <formula>(ISPICKVAL(Event_Country_MERC__c,&apos;IT&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;RO&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;BG&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;HR&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;RS&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;SI&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;CY&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;MT&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;CA&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;HU&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;PL&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;SK&apos;))&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;) &amp;&amp;
 RecordType.Name &lt;&gt; &apos;Consulting Project&apos;</formula>
@@ -746,11 +757,7 @@ RecordType.Name &lt;&gt; &apos;Consulting Project&apos;</formula>
     </rules>
     <rules>
         <fullName>Set Queue Owner - Russia</fullName>
-        <actions>
-            <name>Set_Queue_Owner_Russia</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
+        <active>false</active>
         <description>Set Queue Owner - Russia</description>
         <formula>ISPICKVAL(Event_Country_MERC__c,&apos;RU&apos;)&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;) &amp;&amp;
 RecordType.Name &lt;&gt; &apos;Consulting Project&apos;</formula>
@@ -758,11 +765,7 @@ RecordType.Name &lt;&gt; &apos;Consulting Project&apos;</formula>
     </rules>
     <rules>
         <fullName>Set Queue Owner - Spain Hub</fullName>
-        <actions>
-            <name>Set_Queue_Owner_Spain_Hub</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
+        <active>false</active>
         <description>Set Queue Owner - Spain Hub</description>
         <formula>(ISPICKVAL(Event_Country_MERC__c,&apos;ES&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;PT&apos;))&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;) &amp;&amp;
 RecordType.Name &lt;&gt; &apos;Consulting Project&apos;</formula>
@@ -770,11 +773,7 @@ RecordType.Name &lt;&gt; &apos;Consulting Project&apos;</formula>
     </rules>
     <rules>
         <fullName>Set Queue Owner - Turkey</fullName>
-        <actions>
-            <name>Set_Queue_Owner_Turkey</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
+        <active>false</active>
         <description>Set Queue Owner - Turkey</description>
         <formula>ISPICKVAL(Event_Country_MERC__c,&apos;TR&apos;)&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;) &amp;&amp;
 RecordType.Name &lt;&gt; &apos;Consulting Project&apos;</formula>
@@ -782,11 +781,7 @@ RecordType.Name &lt;&gt; &apos;Consulting Project&apos;</formula>
     </rules>
     <rules>
         <fullName>Set Queue Owner - UK Hub</fullName>
-        <actions>
-            <name>Set_Queue_Owner_UK_Hub</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
+        <active>false</active>
         <description>Set Queue Owner - UK Hub</description>
         <formula>(ISPICKVAL(Event_Country_MERC__c,&apos;GB&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;IE&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;SE&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;NO&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;DK&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;FI&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;LV&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;LT&apos;)|| ISPICKVAL(Event_Country_MERC__c,&apos;EE&apos;))&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot;) &amp;&amp;
 RecordType.Name &lt;&gt; &apos;Consulting Project&apos;</formula>
@@ -794,15 +789,42 @@ RecordType.Name &lt;&gt; &apos;Consulting Project&apos;</formula>
     </rules>
     <rules>
         <fullName>Set Queue Owner - Ukraine</fullName>
-        <actions>
-            <name>Set_Queue_Owner_Ukraine</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
+        <active>false</active>
         <description>Set Queue Owner - Ukraine</description>
         <formula>ISPICKVAL(Event_Country_MERC__c,&apos;UA&apos;)&amp;&amp; ISPICKVAL(Meeting_Status_MERC__c,&quot;Registered&quot; )&amp;&amp;
 RecordType.Name &lt;&gt; &apos;Consulting Project&apos;</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Stamp Sourced Venue Information on Meeting_MERC</fullName>
+        <actions>
+            <name>Update_Sourced_Venue_Address_City_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Sourced_Venue_Address_Cntry_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Sourced_Venue_Address_Line_1_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Sourced_Venue_Address_Line_2_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Sourced_Venue_Name_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Sourced_Venue_Postal_Code_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <description>Stamp all Sourced Venue information when the Source Venue is changed. Created 03/11/2014 by KLorenti, Mavens Consulting</description>
+        <formula>ISCHANGED( RecordTypeId ) &amp;&amp; RecordType.DeveloperName = &apos;Completed&apos;</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Two Week Compliance Notification_MERC</fullName>

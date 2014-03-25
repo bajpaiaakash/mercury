@@ -116,6 +116,26 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Round_Prep_Time_to_Nearest_Half_Hour</fullName>
+        <description>Rounds Preparation Time to nearest half hour upon save.</description>
+        <field>Preparation_Time_Hrs_MERC__c</field>
+        <formula>(ROUND(Preparation_Time_Hrs_MERC__c * 2,0)) / 2</formula>
+        <name>Round Prep Time to Nearest Half Hour</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Rounds_Event_Time_to_Nearest_Half_Hour</fullName>
+        <description>Rounds Event Time to nearest half hour upon save.</description>
+        <field>Event_Time_Hrs_MERC__c</field>
+        <formula>(ROUND(Event_Time_Hrs_MERC__c  * 2,0)) / 2</formula>
+        <name>Rounds Event Time to Nearest Half Hour</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Set_CoPay_Updated_DateTime_MERC</fullName>
         <description>Sets the CoPay Updates Date/Time field to NOW().  Indicating that CoPay has been updated so that AODS can pull the information. Oliver Dunford 11th Feb 2014.</description>
         <field>Participant_CoPay_Updated_Date_MERC__c</field>
@@ -228,6 +248,16 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_Maximum_Fee_MERC</fullName>
+        <description>Updates Maximum Fee based on Maximum Hourly Rate multiplied by Total Hours of Service, Includes Travel Adjustment.</description>
+        <field>Maximum_Fee_MERC__c</field>
+        <formula>Round((Maximum_Rate_MERC__c * Total_Hours_of_Service__c) * (Travel_Adjustment_Percentage_MERC__c + 1),2)</formula>
+        <name>Update Maximum Fee</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Maximum_Fee_to_zero_MERC</fullName>
         <description>When Payment Required is &quot;No&quot;, update Maximum Rate to zero.</description>
         <field>Maximum_Rate_MERC__c</field>
@@ -243,6 +273,16 @@
         <field>Participant_Search_MERC__c</field>
         <formula>Account_MERC__r.FirstName &amp; &quot; &quot; &amp;  Account_MERC__r.LastName &amp; &quot; - &quot; &amp; Meeting_MERC__r.Name</formula>
         <name>Update Meeting Participant Search</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Minimum_Fee_MERC</fullName>
+        <description>Updates the Minimum Fee based on the Minimum Hourly Rate multiplied by the Total Hours of Service incorporating Travel Adjustment.</description>
+        <field>Minimum_Fee_MERC__c</field>
+        <formula>Round((Minimum_Rate_MERC__c * Total_Hours_of_Service__c) * ( Travel_Adjustment_Percentage_MERC__c + 1),2)</formula>
+        <name>Update Minimum Fee</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
@@ -313,6 +353,16 @@
         <targetObject>Account_MERC__c</targetObject>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_Total_Hours_of_Service_MERC</fullName>
+        <description>Calculates the Total Hours of Service based on Event Time + Preparation Time.</description>
+        <field>Total_Hours_of_Service__c</field>
+        <formula>IF(ISBLANK(Preparation_Time_Hrs_MERC__c), 0, Preparation_Time_Hrs_MERC__c) + IF(ISBLANK(Event_Time_Hrs_MERC__c), 0, Event_Time_Hrs_MERC__c)</formula>
+        <name>Update Total Hours of Service</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Travel_Adjustment_Amount</fullName>
         <description>Update when Final Fee is confirmed</description>
         <field>Travel_Adjustment_Amount_MERC__c</field>
@@ -338,6 +388,7 @@
         <endpointUrl>http://ec2-54-227-9-128.compute-1.amazonaws.com/rti-development/v1/genericUpdated</endpointUrl>
         <fields>Account_External_MERC__c</fields>
         <fields>Account_MERC__c</fields>
+        <fields>Additional_Travel_Details_MERC__c</fields>
         <fields>Air_Travel_Required_MERC__c</fields>
         <fields>Amount_to_be_Paid_MERC__c</fields>
         <fields>Cancellation_Notice_Sent_MERC__c</fields>
@@ -362,6 +413,8 @@
         <fields>CreatedDate</fields>
         <fields>CurrencyIsoCode</fields>
         <fields>Customer_Id_GLBL__c</fields>
+        <fields>Date_of_Check_In_MERC__c</fields>
+        <fields>Date_of_Check_Out_MERC__c</fields>
         <fields>Days_Until_Meeting_MERC__c</fields>
         <fields>Description_of_Service_MERC__c</fields>
         <fields>Email_MERC__c</fields>
@@ -389,7 +442,6 @@
         <fields>LastModifiedDate</fields>
         <fields>LastReferencedDate</fields>
         <fields>LastViewedDate</fields>
-        <fields>Max_Fee_Test__c</fields>
         <fields>Maximum_Fee_MERC__c</fields>
         <fields>Maximum_Rate_MERC__c</fields>
         <fields>Meeting_Date_MERC__c</fields>
@@ -410,16 +462,20 @@
         <fields>Payment_Required_MERC__c</fields>
         <fields>Payment_Required_for_Meeting_MERC__c</fields>
         <fields>Person_Contact_Id_MERC__c</fields>
+        <fields>Preferred_Departure_Airport_MERC__c</fields>
+        <fields>Preferred_Departure_Station_MERC__c</fields>
         <fields>Preparation_Time_Hrs_MERC__c</fields>
         <fields>Presentation_Approval_Needed_MERC__c</fields>
         <fields>Proposed_Final_Fee_MERC__c</fields>
         <fields>RecordTypeId</fields>
         <fields>Record_Type_Name_MERC__c</fields>
+        <fields>Registration_Comments_MERC__c</fields>
         <fields>Sales_Rep_MERC__c</fields>
         <fields>Send_HCP_Info_Package_to_Rep__c</fields>
         <fields>Service_Provider_Tier_MERC__c</fields>
         <fields>Services_Rendered_MERC__c</fields>
         <fields>Source_MERC__c</fields>
+        <fields>Speaking_MERC__c</fields>
         <fields>Speciality_MERC__c</fields>
         <fields>Status_MERC__c</fields>
         <fields>SystemModstamp</fields>
@@ -428,12 +484,15 @@
         <fields>Total_Ground_Transporation_ToV_MERC__c</fields>
         <fields>Total_Honorarium_MERC__c</fields>
         <fields>Total_Hotel_ToV_MERC__c</fields>
-        <fields>Total_Hours_of_Service_MERC__c</fields>
+        <fields>Total_Hours_of_Service__c</fields>
         <fields>Total_Registration_ToV_MERC__c</fields>
         <fields>Transparency_Reporting_Consent_MERC__c</fields>
         <fields>Travel_Adjustment_Amount_MERC__c</fields>
         <fields>Travel_Adjustment_Percentage_MERC__c</fields>
         <fields>Travel_Time_Hrs_MERC__c</fields>
+        <fields>Travel_by_Bus_MERC__c</fields>
+        <fields>Travel_by_Car_MERC__c</fields>
+        <fields>Travel_by_Train_MERC__c</fields>
         <fields>Trnsctn_Typ_MERC__c</fields>
         <fields>Trtry_Cd_MERC__c</fields>
         <fields>Trtry_Desc_MERC__c</fields>
@@ -445,11 +504,37 @@
         <fields>WS_Updt_HCP_Global_ID_MERC__c</fields>
         <fields>WS_Updt_HCP_Name_MERC__c</fields>
         <includeSessionId>true</includeSessionId>
-        <integrationUser>helmerdavid@gso1.lly</integrationUser>
+        <integrationUser>dunfordoliver@gso1.lly</integrationUser>
         <name>RTI - Meeting Participant Updated</name>
         <protected>false</protected>
         <useDeadLetterQueue>false</useDeadLetterQueue>
     </outboundMessages>
+    <rules>
+        <fullName>Calculate Min%2FMax Fee and Total Hrs of Service_MERC</fullName>
+        <actions>
+            <name>Update_Maximum_Fee_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Minimum_Fee_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Total_Hours_of_Service_MERC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Calculates the Minimum Fee, Maximum Fee and Total Hours of Service for records based upon Minimum and Maximum Hourly Rates.  Oliver Dunford 20th March 2014.</description>
+        <formula>ISNEW() || 
+(
+	ISCHANGED( Event_Time_Hrs_MERC__c ) || 
+	ISCHANGED( Travel_Time_Hrs_MERC__c ) || 
+	ISCHANGED( Preparation_Time_Hrs_MERC__c ) ||
+	ISCHANGED( Minimum_Rate_MERC__c ) || 
+	ISCHANGED( Maximum_Rate_MERC__c )
+)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
     <rules>
         <fullName>Clear Confirm ToV Change_MERC</fullName>
         <actions>
@@ -571,7 +656,7 @@
         </actions>
         <active>true</active>
         <description>Notifies Meeting Owner when Tiering has been completed and the Proposed Fee may be entered. Created 01/26/2014 by KLorenti, Mavens Consulting</description>
-        <formula>Service_Provider_Tier_MERC__c &gt; 0 &amp;&amp; ISCHANGED(Minimum_Fee_MERC__c) &amp;&amp; Minimum_Fee_MERC__c &gt; 0 &amp;&amp; ISCHANGED(Maximum_Fee_MERC__c) &amp;&amp; Maximum_Fee_MERC__c &gt; 0</formula>
+        <formula>Service_Provider_Tier_MERC__c &gt; 0 &amp;&amp; ISCHANGED(Maximum_Rate_MERC__c) &amp;&amp; Maximum_Rate_MERC__c &gt; 0 &amp;&amp; ISCHANGED(Minimum_Rate_MERC__c) &amp;&amp; Minimum_Rate_MERC__c &gt; 0</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -634,18 +719,16 @@ $Profile.Name &lt;&gt; &apos;Mercury Integration CP&apos;</formula>
             <type>OutboundMessage</type>
         </actions>
         <active>true</active>
-        <formula>NOT(ISCHANGED( RTI_Transaction_ID_MERC__c ) )</formula>
+        <formula>&apos;mercuryintegration.veeva@gso1.lly.mercurycfg2&apos; &lt;&gt; LastModifiedBy.Username</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Reminder - Services Not Rendered</fullName>
         <active>true</active>
-        <criteriaItems>
-            <field>Meeting_Participant_MERC__c.Services_Rendered_MERC__c</field>
-            <operation>equals</operation>
-            <value>No</value>
-        </criteriaItems>
         <description>Notifies Primary Meeting Owner and Customer Facing User, if applicable, to let them know that the Services Rendered is not equal to Yes and it has been 5 days past the end of the meeting.</description>
+        <formula>(ISPICKVAL(Services_Rendered_MERC__c,&apos;No&apos; ) || 
+ISPICKVAL(Services_Rendered_MERC__c,&apos;&apos; )) &amp;&amp; 
+ RecordType.Name  = &apos;Service Provider&apos;</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
@@ -666,6 +749,25 @@ $Profile.Name &lt;&gt; &apos;Mercury Integration CP&apos;</formula>
         <active>true</active>
         <description>Remove Final Fee if Partial Payment is set to zero.  Created 12/19/2013 by KLorenti, Mavens Consulting</description>
         <formula>ISCHANGED(Partial_Payment_Amount_MERC__c) &amp;&amp; Partial_Payment_Amount_MERC__c = 0</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Round to Nearest Half Hour_MERC</fullName>
+        <actions>
+            <name>Round_Prep_Time_to_Nearest_Half_Hour</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Rounds_Event_Time_to_Nearest_Half_Hour</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Round Preparation Time and Event Time to nearest half hour. Created 03/25/2014 by KLorenti, Mavens Consulting</description>
+        <formula>(Preparation_Time_Hrs_MERC__c -  FLOOR(Preparation_Time_Hrs_MERC__c) &lt;&gt; 0.50 &amp;&amp;
+Preparation_Time_Hrs_MERC__c -  FLOOR(Preparation_Time_Hrs_MERC__c) &lt;&gt; 0.00)
+||
+(Event_Time_Hrs_MERC__c  -  FLOOR(Event_Time_Hrs_MERC__c ) &lt;&gt; 0.50 &amp;&amp;
+Event_Time_Hrs_MERC__c  -  FLOOR(Event_Time_Hrs_MERC__c ) &lt;&gt; 0.00)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>

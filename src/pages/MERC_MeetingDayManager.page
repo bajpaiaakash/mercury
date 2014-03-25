@@ -22,7 +22,7 @@
 		        source: function(query, process) {
 	            	Visualforce.remoting.Manager.invokeAction(
         	            '{!$RemoteAction.MERC_MeetingDayManagerController.getVendors}',
-        	            query, 
+        	            query,'{!parent["Event_Country_MERC__c"]}',
         	            function(result, event){
         	                process(result)
         	            }, 
@@ -72,6 +72,15 @@
 		input.existing-vendors {
 			width:200px;
 		}
+
+		table.list.hotels > tbody > tr > td {
+			border-bottom:5px solid #ccc !important;
+			padding-top:10px;
+		}
+
+		table.list.hotels > tbody > tr.last > td {
+			border-bottom:0px solid #ccc !important;
+		}
 	</style>
 
 	<apex:outputLink target="_blank" style="display:none" styleClass="newAccountVendor" value="{!URLFOR($Action.Account.New)}">
@@ -85,6 +94,14 @@
 		</apex:outputPanel>
 		<div class="aeu" style="position:relative;">
 			
+			<apex:pageBlock title="Meeting Information">
+				<apex:pageBlockSection columns="1">
+					<apex:repeat var="f" value="{!$ObjectType.Meeting_MERC__c.FieldSets.Meeting_Day_Manager_MERC}">
+			        	<apex:outputField value="{!parent[f]}" />
+			        </apex:repeat>
+			    </apex:pageBlockSection>
+			</apex:pageBlock>
+
 			<apex:pageBlock title="Meeting Days" mode="edit" id="mainBlock">
 				<apex:pageMessages />
 				
@@ -145,15 +162,18 @@
 						</apex:commandLink>
 					</apex:column>
 					<apex:column headerValue="Hotel Information">
-						<table>
+						<table cellspacing="0">
 							<tbody>
 								<tr>
 						        	<td>
 							        	<apex:outputLabel for="accountTypeAhead" value="Account" />
 							        </td>
 							        <td>
-							        	<apex:inputHidden value="{!a.so['Account_MERC__c']}"/>
-							        	<apex:inputText value="{!a.hotelName}" styleClass="existing-vendors"/>
+							        	<div class="requiredInput">
+							        		<div class="requiredBlock"></div>
+							        		<apex:inputHidden value="{!a.so['Account_MERC__c']}"/>
+							        		<apex:inputText value="{!a.hotelName}" styleClass="existing-vendors"/>
+							        	</div>
 						        	</td>
 						        </tr>
 								<apex:repeat var="f" value="{!$ObjectType.Meeting_Vendor_MERC__c.FieldSets.Meeting_Day_Manager_MERC}">
@@ -170,10 +190,10 @@
 				        </table>
 				        <div>
 		        			<apex:repeat var="allocation" value="{!a.hotelAllocations}">
-		        				<div style="background:#f2f2f2;padding:5px 8px;font-weight:bold;">
+		        				<div style="background:#dde5f4;padding:5px 8px;font-weight:bold;">
 		        					{!allocation.meetingDayName}
 		        				</div>
-		        				<table>
+		        				<table cellspacing="0" style="margin-bottom:10px;">
 		        					<tbody>
 		        						<apex:repeat var="af" value="{!$ObjectType.Hotel_Allocation_MERC__c.FieldSets.Meeting_Day_Manager_MERC}">
 				        	        		<tr>

@@ -177,6 +177,22 @@ public with sharing class MERC_TestFactory {
 		return participants;
 	}
 
+	public static List<Meeting_Participant_MERC__c> insertBulkParticipants(List<Meeting_MERC__c> meets, List<Account> accts) {
+		List<Meeting_Participant_MERC__c> pList = new List<Meeting_Participant_MERC__c>();
+		for (Meeting_MERC__c meeting : meets) {
+			for (Account a : accts) {
+				Meeting_Participant_MERC__c p = new Meeting_Participant_MERC__c();
+				p.Account_MERC__c = a.Id;
+				p.Meeting_MERC__c = meeting.Id;
+				p.Status_MERC__c = 'Invited';
+				pList.add(p);
+			}
+		}
+
+		insert pList;
+		return pList;
+	}
+
 	public static Budget_MERC__c insertBudget(String meetingId) {
 		Budget_MERC__c b = new Budget_MERC__c();
 		b.Meeting_MERC__c = meetingId;

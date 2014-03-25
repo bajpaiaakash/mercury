@@ -135,7 +135,7 @@ global with sharing abstract class GLBL_GenericRelatedListController {
 				return new PageReference('/'+parentId);
 			}
 		} catch (Exception e) {
-			ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getMessage()));
+			ApexPages.addMessages(e);
 			return null;
 		}
 	}
@@ -212,7 +212,7 @@ global with sharing abstract class GLBL_GenericRelatedListController {
 		set;
 	}
 
-	String getSOQLQuery(String fieldString, String fromObject, String whereClause, String orderBy) {
+	public String getSOQLQuery(String fieldString, String fromObject, String whereClause, String orderBy) {
 		String soql;
 		if (this.recordTypeDeveloperNames != null) {
 			soql = 'Select '+fieldString+' From '+childObjectAPIName+' Where '+parentFieldAPIName+' = \''+ApexPages.currentPage().getParameters().get('id')+'\' AND RecordType.DeveloperName in :recordTypeDeveloperNames';

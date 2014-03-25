@@ -202,6 +202,18 @@
 			  						<apex:inputText value="{!searchRequest.custId}" id="custId"/>
 			  					</apex:pageBlockSectionItem>
 
+			  					<!-- COUNTRY OF RESIDENCE -->
+			  					<apex:pageBlockSectionItem >
+			  						<apex:outputLabel for="country" value="Country of Residence"></apex:outputLabel>
+			  						<apex:selectList value="{!searchRequest.country}" size="1" id="country" styleClass="">
+			  							<apex:selectOptions value="{!countries}"/>
+			  						</apex:selectList>
+			  					</apex:pageBlockSectionItem>
+
+			  					<!-- Blank -->
+			  					<apex:pageBlockSectionItem >
+			  					</apex:pageBlockSectionItem>
+
 			  					<!-- EMPLOYEE ONLY -->
 			  					<apex:pageBlockSectionItem >
 			  						<apex:outputLabel for="eonly" value="Search Lilly Employees Only"></apex:outputLabel>
@@ -233,7 +245,7 @@
 			  					<!-- COUNTRY -->
 			  					<apex:pageBlockSectionItem >
 			  						<apex:outputLabel for="country" value="Country"></apex:outputLabel>
-			  						<apex:selectList value="{!searchRequest.country}" size="1" id="country" styleClass="">
+			  						<apex:selectList value="{!searchRequest.acountry}" size="1" id="country" styleClass="">
 			  							<apex:selectOptions value="{!countries}"/>
 			  						</apex:selectList>
 			  					</apex:pageBlockSectionItem>

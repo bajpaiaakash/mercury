@@ -56,10 +56,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Expose_on_Portal_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Lock_Meeting_MERC__c</field>
             </layoutItems>
         </layoutColumns>
@@ -217,28 +213,7 @@
                 <field>Preferred_Venue_Postal_Code_MERC__c</field>
             </layoutItems>
         </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Venue_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Sourced_Venue_Addr1_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Sourced_Venue_Addr_2_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Sourced_Venue_Postal_Code_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Justification_for_Venue_MERC__c</field>
-            </layoutItems>
-        </layoutColumns>
+        <layoutColumns/>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
     <layoutSections>
@@ -403,6 +378,7 @@
     </relatedLists>
     <relatedLists>
         <customButtons>Manage_Daily_Attendance_MERC</customButtons>
+        <customButtons>Manage_Meeting_Days_MERC</customButtons>
         <fields>NAME</fields>
         <fields>Date_Meeting_Time_Zone__c</fields>
         <fields>Daily_Food_Beverage_Amount_MERC__c</fields>

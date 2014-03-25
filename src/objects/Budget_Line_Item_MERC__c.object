@@ -5,10 +5,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>CancelEdit</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>Clone</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -21,19 +17,11 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>SaveEdit</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -44,7 +32,6 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Object to track detailed budget information. Created 9/27/2013 by KLorenti.</description>
     <enableActivities>false</enableActivities>
@@ -52,6 +39,15 @@
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
+    <fields>
+        <fullName>Additional_information_Budget_MERC__c</fullName>
+        <description>Captures notes for additional information about the budget line item. Created 03/14/2014 by J Adams, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Additional information</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
     <fields>
         <fullName>Amount_MERC__c</fullName>
         <description>Tracks amount of Budget Line Item. Created 9/30/2013 by KLorenti.</description>
@@ -62,7 +58,6 @@
         <required>false</required>
         <scale>2</scale>
         <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -73,7 +68,6 @@
         <length>20</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -88,7 +82,6 @@
         <relationshipOrder>0</relationshipOrder>
         <reparentableMasterDetail>false</reparentableMasterDetail>
         <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
@@ -102,7 +95,6 @@
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -115,7 +107,6 @@
         <relationshipName>Child_Budget_Line_Items_MERC</relationshipName>
         <required>false</required>
         <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -129,7 +120,6 @@
         <relationshipName>Budget_Line_Items</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -141,7 +131,6 @@ Created by J Adams 12/10/2013</description>
         <length>150</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -155,7 +144,6 @@ Created by J Adams 12/10/2013</description>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -168,7 +156,6 @@ Created by J Adams 12/10/2013</description>
         <relationshipName>Child_Budget_Line_Item_Versions_MERC</relationshipName>
         <required>false</required>
         <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -181,7 +168,6 @@ Created by J Adams 12/10/2013</description>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -360,7 +346,6 @@ Created by J Adams 12/10/2013</description>
             <sorted>true</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -370,6 +355,26 @@ Created by J Adams 12/10/2013</description>
         <label>Type</label>
         <picklist>
             <picklistValues>
+                <fullName>Assistance On Site</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AV Equipment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Congress Registration</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Graphic Design</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ground Transportation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Honorarium</fullName>
                 <default>false</default>
             </picklistValues>
@@ -378,15 +383,7 @@ Created by J Adams 12/10/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Transportation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Reimbursable Expenses</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Ground Transportation</fullName>
+                <fullName>Management Fee</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -398,15 +395,7 @@ Created by J Adams 12/10/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>AV Equipment</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Technical Assistance</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Assistance On Site</fullName>
+                <fullName>Miscellaneous</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -414,7 +403,7 @@ Created by J Adams 12/10/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Graphic Design</fullName>
+                <fullName>Reimbursable Expenses</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -422,21 +411,16 @@ Created by J Adams 12/10/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Miscellaneous</fullName>
+                <fullName>Technical Assistance</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Management Fee</fullName>
+                <fullName>Transportation</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
-                <fullName>Congress Registration</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
+            <sorted>true</sorted>
         </picklist>
         <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -447,7 +431,6 @@ Created by J Adams 12/10/2013</description>
         <label>Vendor Name</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -460,7 +443,6 @@ Created by J Adams 12/10/2013</description>
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>

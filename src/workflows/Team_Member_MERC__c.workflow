@@ -186,7 +186,7 @@ ISPICKVAL(PRIORVALUE(Role_MERC__c), &quot;Primary Meeting Owner&quot;)
             <type>OutboundMessage</type>
         </actions>
         <active>true</active>
-        <formula>NOT(ISCHANGED( RTI_Transaction_ID_MERC__c ) ) &amp;&amp;  (Account_MERC__r.Prsnl_Nbr_GLBL__c) != &apos;&apos;</formula>
+        <formula>&apos;mercuryintegration.veeva@gso1.lly.mercurycfg2&apos; &lt;&gt; LastModifiedBy.Username &amp;&amp;  (Account_MERC__r.Prsnl_Nbr_GLBL__c) != &apos;&apos;</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>

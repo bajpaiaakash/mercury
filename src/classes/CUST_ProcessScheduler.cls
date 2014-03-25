@@ -2,7 +2,7 @@
   *	   CUST_ProcessScheduler
   *    Created By: Vincent Reeder       
   *    Created Date: 2013-03-03
-  *    Description: Schedled Job 
+  *    Description: Scheduled Job 
  */
 global class CUST_ProcessScheduler implements Schedulable {
 	global void execute(SchedulableContext sc) {
