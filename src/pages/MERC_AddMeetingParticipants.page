@@ -25,19 +25,19 @@
 		})(j);
 
 		function handleAddResponse(el) {
-			console.log(el.id);
+			// console.log(el.id);
 			var controllerHasError = document.getElementById("{!$Component.mainForm.controllerHasError}").innerHTML == "true";
-			console.log(controllerHasError);
+			// console.log(controllerHasError);
 			if (!controllerHasError) {
 				var img = j(escapeVfId(el.id));
-				console.log(img);
+				// console.log(img);
 				img.parent().remove();
 			}
 			toggleLoading();
 		}
 
 		function handleRemoveResponse(el) {
-			console.log(el);
+			// console.log(el);
 			toggleLoading();
 			var controllerHasError = document.getElementById("{!$Component.mainForm.controllerHasError}").innerHTML == "true";
 			if (!controllerHasError) {
@@ -244,8 +244,8 @@
 
 			  					<!-- COUNTRY -->
 			  					<apex:pageBlockSectionItem >
-			  						<apex:outputLabel for="country" value="Country"></apex:outputLabel>
-			  						<apex:selectList value="{!searchRequest.acountry}" size="1" id="country" styleClass="">
+			  						<apex:outputLabel for="acountry" value="Country"></apex:outputLabel>
+			  						<apex:selectList multiselect="true" value="{!searchRequest.acountry}" id="acountry" styleClass="multichosen">
 			  							<apex:selectOptions value="{!countries}"/>
 			  						</apex:selectList>
 			  					</apex:pageBlockSectionItem>
