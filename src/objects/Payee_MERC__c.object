@@ -55,7 +55,6 @@ Created by John A Adams 9/26/2013</description>
     <enableReports>true</enableReports>
     <fields>
         <fullName>Account_MERC__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
         <description>Associate payee information from SAP with Account
 Created by John A Adams 9/27/2013</description>
         <externalId>false</externalId>
@@ -63,10 +62,12 @@ Created by John A Adams 9/27/2013</description>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Payee</relationshipLabel>
         <relationshipName>Payee</relationshipName>
-        <required>false</required>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Lookup</type>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
         <fullName>Associated_Address_MERC__c</fullName>
@@ -486,5 +487,5 @@ Created by John A Adams 2/18/2014</description>
         <searchResultsAdditionalFields>Primary_Payee_MERC__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>SAP_Vendor_ID_MERC__c</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

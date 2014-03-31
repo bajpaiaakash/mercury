@@ -48,8 +48,7 @@ public with sharing class MERC_ParticipantFMVCalculator implements GLBL_TriggerH
 									FROM Meeting_Participant_MERC__c WHERE
 										Final_Fee_MERC__c = null AND 
 										Account_MERC__c in :accountIdsToProcess AND
-										Meeting_MERC__r.Meeting_Status_MERC__c != 'Closed' AND
-										Meeting_MERC__r.Meeting_Status_MERC__c != 'Cancelled'];
+										Meeting_MERC__r.Exclude_from_Open_Meeting_Fee_Calc_MERC__c = false];
 		} else if (this.triggeredSobjectType == Meeting_Participant_MERC__c.SobjectType) {
 			List<Meeting_Participant_MERC__c> triggeredParticipants = (List<Meeting_Participant_MERC__c>)sobjects;
 			participants = new List<Meeting_Participant_MERC__c>();

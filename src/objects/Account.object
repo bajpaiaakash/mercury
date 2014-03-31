@@ -2042,20 +2042,22 @@ Created by John A Adams 12/18/2013</description>
         <fullName>FMV_Criteria_Map_MERC__c</fullName>
         <description>Returns the equivalent mapping based on the Tier of the HCP and their Academic Qualifications.  This is then mapped to the FMV table for the Country of the HCP to return the Maximum and Minimum hourly rates for the HCP.  This logic is picked up by Apex to map to the FMV Custom Settings table. Case Statement not support for multi-select picklist. Oliver Dunford 10th Feb 2014.</description>
         <externalId>false</externalId>
-        <formula>IF ( INCLUDES ( Academic_Qualifications_MERC__c , &quot;MD Specialist&quot; ), 
-	&quot;T&quot; &amp; TEXT(Service_Provider_Tier_MERC__c) &amp; &quot; Specialist&quot;, 
-		IF ( INCLUDES ( Academic_Qualifications_MERC__c , &quot;MD non- specialist or GP&quot;), 
-			&quot;T&quot; &amp; TEXT(Service_Provider_Tier_MERC__c) &amp; &quot; GP&quot;, 
-				IF ( INCLUDES ( Academic_Qualifications_MERC__c , &quot;PhD non-MD&quot; ), 
-					&quot;T&quot; &amp; TEXT(Service_Provider_Tier_MERC__c) &amp; &quot; PhD&quot;, 
-						IF ( INCLUDES ( Academic_Qualifications_MERC__c , &quot;Non-MD Health care professional&quot; ), 
-							&quot;T&quot; &amp; TEXT(Service_Provider_Tier_MERC__c) &amp; &quot; Non-MD&quot;, 
-								IF ( INCLUDES ( Academic_Qualifications_MERC__c , &quot;MSc, BSc&quot; ), 
-									&quot;T&quot; &amp; TEXT(Service_Provider_Tier_MERC__c) &amp; &quot; Non-MD&quot;
-										, NULL) 
-						)
-				)
-		)		
+        <formula>IF(ISBLANK(Academic_Qualifications_MERC__c) &amp;&amp; !ISBLANK(Service_Provider_Tier_MERC__c), &quot;T&quot; &amp; TEXT(Service_Provider_Tier_MERC__c),
+	IF ( INCLUDES ( Academic_Qualifications_MERC__c , &quot;MD Specialist&quot; ), 
+		&quot;T&quot; &amp; TEXT(Service_Provider_Tier_MERC__c) &amp; &quot; Specialist&quot;, 
+			IF ( INCLUDES ( Academic_Qualifications_MERC__c , &quot;MD non- specialist or GP&quot;), 
+				&quot;T&quot; &amp; TEXT(Service_Provider_Tier_MERC__c) &amp; &quot; GP&quot;, 
+					IF ( INCLUDES ( Academic_Qualifications_MERC__c , &quot;PhD non-MD&quot; ), 
+						&quot;T&quot; &amp; TEXT(Service_Provider_Tier_MERC__c) &amp; &quot; PhD&quot;, 
+							IF ( INCLUDES ( Academic_Qualifications_MERC__c , &quot;Non-MD Health care professional&quot; ), 
+								&quot;T&quot; &amp; TEXT(Service_Provider_Tier_MERC__c) &amp; &quot; Non-MD&quot;, 
+									IF ( INCLUDES ( Academic_Qualifications_MERC__c , &quot;MSc, BSc&quot; ), 
+										&quot;T&quot; &amp; TEXT(Service_Provider_Tier_MERC__c) &amp; &quot; Non-MD&quot;
+											, NULL) 
+							)
+					)
+			)		
+	)
 )</formula>
         <inlineHelpText>Returns the primary qualification which is used to determine the HCPs Minimum and Maximum hourly rate from the fair market value criteria.</inlineHelpText>
         <label>FMV Criteria Map</label>
@@ -2471,6 +2473,16 @@ Created by John A Adams 10/22/2013</description>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Institution_Name_GLBL__c</fullName>
+        <description>Name of institution for Designated Individuals. Created by John A Adams 3/19/2014</description>
+        <externalId>false</externalId>
+        <label>Institution Name</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Instructor_Assistant_Clinical_Prof_MERC__c</fullName>

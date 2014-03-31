@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Clear_Search_Results_Button_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Clear Search Results Button</shortDescription>
+        <value>Clear</value>
+    </labels>
+    <labels>
+        <fullName>Create_New_Person_Prompt_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Create New Person Prompt</shortDescription>
+        <value>Complete the information below to create a new person.</value>
+    </labels>
+    <labels>
+        <fullName>Create_Person_Button_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Create Person Button</shortDescription>
+        <value>Create Person</value>
+    </labels>
+    <labels>
+        <fullName>Create_Person_Record_Type_Required_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Create Person Record Type Required</shortDescription>
+        <value>You must select a record type.</value>
+    </labels>
+    <labels>
+        <fullName>Create_Referred_By_Button_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Create Referred By Button</shortDescription>
+        <value>Create Referred By</value>
+    </labels>
+    <labels>
+        <fullName>Create_Requester_Button_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Create Requester Button</shortDescription>
+        <value>Create Requester</value>
+    </labels>
+    <labels>
+        <fullName>Currently_Creating_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Currently Creating</shortDescription>
+        <value>Creating...</value>
+    </labels>
+    <labels>
+        <fullName>Error_Tab_Name_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error Tab Name</shortDescription>
+        <value>An Error occured</value>
+    </labels>
+    <labels>
+        <fullName>Generic_Phone_Field_Label_MVN</fullName>
+        <categories>PersonSearchMVN, SelectedRequesterMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Generic Phone Field Label</shortDescription>
+        <value>Phone</value>
+    </labels>
+    <labels>
+        <fullName>Generic_Search_Button_MVN</fullName>
+        <categories>KnowledgeSearchMVN, PersonSearchMVN, SelectedRequesterMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Generic Search Button</shortDescription>
+        <value>Search</value>
+    </labels>
+    <labels>
+        <fullName>Generic_Search_Status_MVN</fullName>
+        <categories>KnowledgeSearchMVN, PersonSearchMVN, SelectedRequesterMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Generic Search Status</shortDescription>
+        <value>Searching...</value>
+    </labels>
+    <labels>
+        <fullName>Invalid_Email_Address_MVN</fullName>
+        <categories>PersonSearchControllerMVN</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Invalid Email Address</shortDescription>
+        <value>Invalid Email Address</value>
+    </labels>
+    <labels>
+        <fullName>Meeting_Locked_MERC</fullName>
+        <categories>Error Message</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Meeting_Locked_MERC</shortDescription>
+        <value>Operation Failed:  The record is locked due to the meeting being closed.  Please contact Customer Meeting Services for Assistance.</value>
+    </labels>
+    <labels>
+        <fullName>New_Person_Button_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>New Person Button</shortDescription>
+        <value>New Person</value>
+    </labels>
+    <labels>
+        <fullName>No_Search_Results_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error No Search Results</shortDescription>
+        <value>No Search Results.</value>
+    </labels>
+    <labels>
+        <fullName>Person_Search_All_Record_Types_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Person Search All Record Types</shortDescription>
+        <value>All</value>
+    </labels>
+    <labels>
+        <fullName>Person_Search_Results_Record_Type_Column_Label_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Person Search Results Record Type Column Label</shortDescription>
+        <value>Record Type</value>
+    </labels>
+    <labels>
+        <fullName>Person_Search_Tab_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Person Search Tab</shortDescription>
+        <value>Person Search</value>
+    </labels>
+    <labels>
+        <fullName>Please_Select_Requester_or_Referred_By_MVN</fullName>
+        <categories>PersonSearchControllerMVN</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please Select Requester or Referred By</shortDescription>
+        <value>Please select &quot;Create Requester&quot; or &quot;Create Referred By.&quot;</value>
+    </labels>
+    <labels>
+        <fullName>Remove_Person_Button_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Remove Person Button</shortDescription>
+        <value>(remove)</value>
+    </labels>
+    <labels>
+        <fullName>Return_To_Interaction_Button_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Return To Interaction Button</shortDescription>
+        <value>Return To Case</value>
+    </labels>
+    <labels>
+        <fullName>Return_to_Request_MVN</fullName>
+        <categories>KnowledgeSearchMVN</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Return to Request</shortDescription>
+        <value>Return to Request</value>
+    </labels>
+    <labels>
+        <fullName>SOSL_Phone_Search_Min_Char_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error SOSL Phone Search Min Char</shortDescription>
+        <value>Phone searches must have at least 2 numeric characters:</value>
+    </labels>
+    <labels>
+        <fullName>Search_Term_Required_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Search Term Required</shortDescription>
+        <value>Must specify at least one field to begin searching.</value>
+    </labels>
+    <labels>
+        <fullName>Selected_Referrer_MVN</fullName>
+        <categories>SelectedRequesterMVN, PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Selected Referrer</shortDescription>
+        <value>Referred By:</value>
+    </labels>
+    <labels>
+        <fullName>Selected_Reqester_MVN</fullName>
+        <categories>SearchRequesterMVN,PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Selected Reqester</shortDescription>
+        <value>Requester:</value>
+    </labels>
+    <labels>
+        <fullName>Service_Cloud_Knowledge_Search_Cancel_MVN</fullName>
+        <categories>KnowledgeSearchMVN, PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Service Cloud Knowledge Search Cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>Too_Many_Results_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error Too Many Results</shortDescription>
+        <value>Too Many Results.</value>
+    </labels>
+</CustomLabels>

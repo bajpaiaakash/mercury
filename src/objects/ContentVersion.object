@@ -187,6 +187,11 @@
             <isRequired>true</isRequired>
         </displayedFields>
         <displayedFields>
+            <field>Approval_Reference_Number_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
             <field>Description</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>

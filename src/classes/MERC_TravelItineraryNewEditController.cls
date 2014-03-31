@@ -13,12 +13,17 @@ public with sharing class MERC_TravelItineraryNewEditController extends GLBL_Bas
 		super(controller, Travel_Itinerary_MERC__c.SobjectType);
 		//if the time zones have not been set yet, set according to user's locale
 		if (Apexpages.currentPage().getUrl().contains('/apex/MERC_TravelItineraryNewEdit')) {
-		    Schema.DescribeFieldResult meetingTimeZoneFieldDescribe = Meeting_MERC__c.Meeting_Time_Zone_MERC__c.getDescribe();
-		    String userTimeZoneDefault = MERC_Util.getTimeZonePicklistValueForCurrentUser(meetingTimeZoneFieldDescribe);
-		    if (this.mySobject.get('Segment_Begin_Timezone_MERC__c') == null)
-		    	this.mySobject.put('Segment_Begin_Timezone_MERC__c', userTimeZoneDefault);
-		    if (this.mySobject.get('Segment_End_Timezone_MERC__c') == null)
-		    	this.mySobject.put('Segment_End_Timezone_MERC__c', userTimeZoneDefault);
+		    
+            if (MERC_Util.getUrlParam('clone') == '1') {
+                this.mySobject.put('Id', null);
+            }
+
+            Schema.DescribeFieldResult meetingTimeZoneFieldDescribe = Meeting_MERC__c.Meeting_Time_Zone_MERC__c.getDescribe();
+            String userTimeZoneDefault = MERC_Util.getTimeZonePicklistValueForCurrentUser(meetingTimeZoneFieldDescribe);
+            if (this.mySobject.get('Segment_Begin_Timezone_MERC__c') == null)
+                this.mySobject.put('Segment_Begin_Timezone_MERC__c', userTimeZoneDefault);
+            if (this.mySobject.get('Segment_End_Timezone_MERC__c') == null)
+                this.mySobject.put('Segment_End_Timezone_MERC__c', userTimeZoneDefault);
 		}
 	}
 

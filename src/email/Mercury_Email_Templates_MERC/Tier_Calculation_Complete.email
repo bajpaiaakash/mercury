@@ -1,0 +1,7 @@
+Dear {!Meeting_MERC__c.Prmry_Mtng_Ownr_Nm_MERC__c},
+
+The tiering calculation has been completed {!Meeting_Participant_MERC__c.Account_MERC__c} for the meeting "{!Meeting_Participant_MERC__c.Meeting_MERC__c}". The Proposed Fee may be entered,
+
+
+More information regarding this meeting can be found at
+{!Meeting_MERC__c.Link}.

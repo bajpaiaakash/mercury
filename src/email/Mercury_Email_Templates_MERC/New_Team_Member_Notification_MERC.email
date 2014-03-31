@@ -1,0 +1,11 @@
+Hello {!Team_Member_MERC__c.Account_MERC__c}{!Team_Member_MERC__c.User_MERC__c},
+
+You have been added to the meeting,{!Team_Member_MERC__c.Meeting_MERC__c} as a {!Team_Member_MERC__c.Role_MERC__c}.
+
+Thanks
+
+Mercury Administrators.
+
+
+More information regarding this meeting can be found at
+{!Meeting_MERC__c.Link}.

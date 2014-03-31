@@ -10,7 +10,10 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>Clone</actionName>
-        <type>Default</type>
+        <comment>Overridden to provide better Date/Time UX -JFerraro March 24 2014</comment>
+        <content>MERC_TravelItineraryNewEdit</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>Delete</actionName>
@@ -536,7 +539,7 @@ Created by John A Adams 12/13/2013</description>
 Created by John A Adams 12/13/2013</description>
         <externalId>false</externalId>
         <label>Flight Number</label>
-        <length>4</length>
+        <length>6</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>

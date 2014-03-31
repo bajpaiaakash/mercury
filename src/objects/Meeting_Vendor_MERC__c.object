@@ -53,6 +53,16 @@ Created by John A Adams 10/3/2013</description>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
+    <fieldSets>
+        <fullName>Meeting_Day_Manager_MERC</fullName>
+        <description>Used in Meeting Day Manager -JFerraro Mar 21 2014</description>
+        <displayedFields>
+            <field>Room_Rate_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Meeting Day Manager</label>
+    </fieldSets>
     <fields>
         <fullName>Account_MERC__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -209,7 +219,7 @@ Created by John A Adams 10/10/2013</description>
     <pluralLabel>Meeting Vendors</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
-        <fullName>Hotel</fullName>
+        <fullName>Hotel_MERC</fullName>
         <active>true</active>
         <description>Meeting Vendors that are Hotels</description>
         <label>Hotel</label>

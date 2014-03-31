@@ -1044,7 +1044,7 @@ Created by John A Adams 10/4/2013</description>
         <searchResultsAdditionalFields>Meeting_Country_MERC__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Purpose_of_Payment_MERC__c</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>Private</sharingModel>
     <startsWith>Vowel</startsWith>
     <validationRules>
         <fullName>Cost_Center_completed</fullName>

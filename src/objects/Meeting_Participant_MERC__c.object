@@ -18,7 +18,10 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>Edit</actionName>
-        <type>Default</type>
+        <comment>Overridden to provide better fee calculation UX -JFerraro 3/18/2014</comment>
+        <content>MERC_MeetingParticipantNewEdit</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>Follow</actionName>
@@ -30,7 +33,10 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
-        <type>Default</type>
+        <comment>Overridden to provide better fee calculation UX -JFerraro 3/18/2014</comment>
+        <content>MERC_MeetingParticipantNewEdit</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>SaveEdit</actionName>
@@ -77,6 +83,16 @@
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Additional_Travel_Details_MERC__c</fullName>
+        <description>Records additional travel details of the Meeting Participant. Created by John A Adams 3/19/2014</description>
+        <externalId>false</externalId>
+        <label>Additional Travel Details</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Air_Travel_Required_MERC__c</fullName>
@@ -350,6 +366,28 @@ Created by John A Adams 10/31/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Date_of_Check_In_MERC__c</fullName>
+        <description>Date meeting participant of checks into accommodations. 
+Created by John A Adams 3/19/2014</description>
+        <externalId>false</externalId>
+        <label>Date of Check-In</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_of_Check_Out_MERC__c</fullName>
+        <description>The date the meeting participant  checks out of accommodations. 
+Created by John A Adams 3/19/2014</description>
+        <externalId>false</externalId>
+        <label>Date of Check-Out</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Days_Until_Meeting_MERC__c</fullName>
         <description>Calculates days until Meeting start date. Created 01/30/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -416,10 +454,11 @@ Created by John Adams on 12/9/2013</description>
         <fullName>Event_Time_Hrs_MERC__c</fullName>
         <description>Event Time Hours. Created 10/10/2013 by KLorenti.</description>
         <externalId>false</externalId>
+        <inlineHelpText>Rounds Event Time to nearest half hour upon save</inlineHelpText>
         <label>Event Time (hrs)</label>
-        <precision>6</precision>
+        <precision>8</precision>
         <required>false</required>
-        <scale>0</scale>
+        <scale>2</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
@@ -706,25 +745,11 @@ Created by John A Adams 1/7/2014</description>
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
-        <fullName>Max_Fee_Test__c</fullName>
-        <description>Test using a read-only on the page populated by workflow to simplify fee entry for users</description>
-        <externalId>false</externalId>
-        <label>Max Fee Test</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Currency</type>
-    </fields>
-    <fields>
         <fullName>Maximum_Fee_MERC__c</fullName>
-        <description>Calculates the maximum fee possible based on Max Rate and Total Hrs of Service.
-Created by John A Adams 10/31/2013</description>
+        <defaultValue>0</defaultValue>
+        <description>Calculates a service providers maximum fee by multiplying the total hours or service against the maximum hourly rate and incorporating the travel percentage adjustment. Populated by workflow to ensure the field is available on the page in edit mode. Oliver Dunford 20th March 2014.</description>
         <externalId>false</externalId>
-        <formula>Round((Maximum_Rate_MERC__c *  Total_Hours_of_Service_MERC__c) *  (Travel_Adjustment_Percentage_MERC__c + 1),2)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <inlineHelpText>Includes Travel Adjustment</inlineHelpText>
+        <inlineHelpText>Based upon the maximum hourly rate multiplied by total hours of service. Includes Travel Adjustment.</inlineHelpText>
         <label>Maximum Fee</label>
         <precision>18</precision>
         <required>false</required>
@@ -832,12 +857,10 @@ Created by J Adams 12/10/2013</description>
     </fields>
     <fields>
         <fullName>Minimum_Fee_MERC__c</fullName>
-        <description>Calculates the minimum fee possible based on Min Rate and Total Hrs of Service.
-Created by John A Adams 10/31/2013</description>
+        <defaultValue>0</defaultValue>
+        <description>Calculates a service providers minimum fee by multiplying the total hours or service against the minimum hourly rate and incorporating the travel percentage adjustment.  Populated by workflow to ensure the field is available on the page in edit mode.  Oliver Dunford 20th March 2014.</description>
         <externalId>false</externalId>
-        <formula>Round((Minimum_Rate_MERC__c *  Total_Hours_of_Service_MERC__c) * ( Travel_Adjustment_Percentage_MERC__c + 1),2)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <inlineHelpText>Includes Travel Adjustment</inlineHelpText>
+        <inlineHelpText>Based upon the minimum hourly rate multiplied by total hours of service. Includes Travel Adjustment.</inlineHelpText>
         <label>Minimum Fee</label>
         <precision>18</precision>
         <required>false</required>
@@ -982,13 +1005,34 @@ Created by John A Adams 10/31/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Preferred_Departure_Airport_MERC__c</fullName>
+        <description>Records Meeting Participant&apos;s preferred departure airport. Created by John A Adams 3/19/2014</description>
+        <externalId>false</externalId>
+        <label>Preferred Departure Airport</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Preferred_Departure_Station_MERC__c</fullName>
+        <description>Records Meeting Participant&apos;s preferred departure station. Created by John A Adams 3/19/2014</description>
+        <externalId>false</externalId>
+        <label>Preferred Departure Station</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
         <fullName>Preparation_Time_Hrs_MERC__c</fullName>
         <description>Preparation time for patricipant. Created 10/10/2013 by KLorenti.</description>
         <externalId>false</externalId>
+        <inlineHelpText>Rounds Preparation Time to nearest half hour upon save</inlineHelpText>
         <label>Preparation Time (hrs)</label>
-        <precision>6</precision>
+        <precision>8</precision>
         <required>false</required>
-        <scale>0</scale>
+        <scale>2</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
@@ -1016,7 +1060,6 @@ Created by John A Adams 10/31/2013</description>
     </fields>
     <fields>
         <fullName>Proposed_Final_Fee_MERC__c</fullName>
-        <defaultValue>0</defaultValue>
         <description>Stores the Proposed Fee.  Is needs to go through a confirmation process with the HCP and Affiliate if it exceeds the Maximum Amount. Oliver Dunford 6th Nov.</description>
         <externalId>false</externalId>
         <label>Proposed Final Fee</label>
@@ -1049,6 +1092,16 @@ Created by John A Adams 10/31/2013</description>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Registration_Comments_MERC__c</fullName>
+        <description>Records registration comments of the Meeting Participant. Created by John A Adams 3/19/2014</description>
+        <externalId>false</externalId>
+        <label>Registration Comments</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Sales_Rep_MERC__c</fullName>
@@ -1283,6 +1336,21 @@ Created by John A Adams 10/17/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Total_Hours_of_Service__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>Calculated total hours of service based upon Preparation Time + Event Time.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Based upon the Service Providers Preparation Time + Event Time.</inlineHelpText>
+        <label>Total Hours of Service</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Total_Registration_ToV_MERC__c</fullName>
         <description>Stores total registration ToV. Oliver Dunford 10/10/2013</description>
         <externalId>false</externalId>
@@ -1297,10 +1365,11 @@ Created by John A Adams 10/17/2013</description>
     </fields>
     <fields>
         <fullName>Transparency_Reporting_Consent_MERC__c</fullName>
-        <description>Shows the state of the transparency reporting consent flag at the time of ToV updates. Oliver Dunford 7th Nov 2013.</description>
+        <description>Displays Transparency Reporting Consent from the Account object (which original comes from Preferences and Consent). Created 03/14/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
+        <formula>Account_MERC__r.Transparency_Reporting_Opt_Out_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Transparency Reporting Consent</label>
-        <length>10</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -1375,6 +1444,66 @@ IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;),
             </picklistValues>
             <picklistValues>
                 <fullName>More than 20 hrs</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Travel_by_Bus_MERC__c</fullName>
+        <description>Records if the Meeting Participant traveling by bus. Created by John A Adams 3/19/2014</description>
+        <externalId>false</externalId>
+        <label>Travel by Bus</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Travel_by_Car_MERC__c</fullName>
+        <description>Records if the Meeting Participant traveling by car. Created by John A Adams 3/19/2014</description>
+        <externalId>false</externalId>
+        <label>Travel by Car</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Travel_by_Train_MERC__c</fullName>
+        <description>Records if the Meeting Participant traveling by train. Created by John A Adams 3/19/2014</description>
+        <externalId>false</externalId>
+        <label>Travel by Train</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1548,19 +1677,6 @@ Created by John A Adams 2/18/2014</description>
         <externalId>false</externalId>
         <label>Web Service Update HCP Name</label>
         <length>100</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>ransparency_Reporting_Consent_MERC__c</fullName>
-        <description>Displays Transparency Reporting Consent from the Account object (which original comes from Preferences and Consent). Created 03/14/2014 by KLorenti, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <formula>Account_MERC__r.Transparency_Reporting_Opt_Out_MERC__c</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Transparency Reporting Consent</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -1826,6 +1942,39 @@ Created by John A Adams 2/18/2014</description>
             </values>
             <values>
                 <fullName>More than 20 hrs</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Travel_by_Bus_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Travel_by_Car_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Travel_by_Train_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2102,6 +2251,39 @@ Created by John A Adams 2/18/2014</description>
             </values>
             <values>
                 <fullName>More than 20 hrs</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Travel_by_Bus_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Travel_by_Car_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Travel_by_Train_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2410,6 +2592,39 @@ Created by John A Adams 2/18/2014</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Travel_by_Bus_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Travel_by_Car_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Travel_by_Train_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Type_of_Contract_MERC__c</picklist>
             <values>
                 <fullName>MSA</fullName>
@@ -2690,6 +2905,39 @@ Created by John A Adams 2/18/2014</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Travel_by_Bus_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Travel_by_Car_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Travel_by_Train_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Type_of_Contract_MERC__c</picklist>
             <values>
                 <fullName>MSA</fullName>
@@ -2910,6 +3158,18 @@ CoPay_Hotel_MERC__c &lt;0) ||
 (ISCHANGED(CoPay_Registration_MERC__c) &amp;&amp;
 CoPay_Registration_MERC__c &lt;0)</errorConditionFormula>
         <errorMessage>You may not enter a CoPay value less than zero.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Prevent_Zero_Null_in_Proposed_Fee_MERC</fullName>
+        <active>true</active>
+        <description>Prevent Nulls or Zeros from being entered in Proposed Final Fee. Created 0324/2014 by KLorenti, Mavens Consulting</description>
+        <errorConditionFormula>ISCHANGED(Confirm_Final_Fee_MERC__c) &amp;&amp;
+ISPICKVAL(Confirm_Final_Fee_MERC__c,&apos;Confirmed&apos;) &amp;&amp; 
+(ISBLANK(Proposed_Final_Fee_MERC__c) ||
+ISNULL(Proposed_Final_Fee_MERC__c) ||
+Proposed_Final_Fee_MERC__c = 0.00)</errorConditionFormula>
+        <errorDisplayField>Proposed_Final_Fee_MERC__c</errorDisplayField>
+        <errorMessage>The Proposed Final Fee may not be blank or zero when the fee is confirmed</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Proposed_Final_Fee_MERC</fullName>

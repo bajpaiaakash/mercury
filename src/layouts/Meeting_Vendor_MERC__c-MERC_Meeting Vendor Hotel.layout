@@ -90,6 +90,10 @@
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Traveller_Name_MERC__c</fields>
+        <fields>RECORDTYPE</fields>
+        <fields>Sgmnt_Bgin_TS_MERC__c</fields>
+        <fields>Sgmnt_End_TS_MERC__c</fields>
+        <fields>UPDATEDBY_USER</fields>
         <relatedList>Travel_Itinerary_MERC__c.Meeting_Vendor_MERC__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -100,4 +104,10 @@
     <showInteractionLogPanel>false</showInteractionLogPanel>
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
+    <summaryLayout>
+        <masterLabel>00h11000000MwfH</masterLabel>
+        <sizeX>4</sizeX>
+        <sizeY>0</sizeY>
+        <summaryLayoutStyle>Default</summaryLayoutStyle>
+    </summaryLayout>
 </Layout>

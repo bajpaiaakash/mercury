@@ -98,6 +98,26 @@
         </displayedFields>
         <label>Meeting Date Time View (Meeting Time Zone)</label>
     </fieldSets>
+    <fieldSets>
+        <fullName>Meeting_Day_Manager_MERC</fullName>
+        <description>Displays Meeting-related fields on the Meeting Day Manager VF page -JFerraro March 25 2014</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Start_Time_In_Meeting_Time_Zone__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>End_Time_In_Meeting_Time_Zone_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Meeting Day Manager</label>
+    </fieldSets>
     <fields>
         <fullName>Accommodation_Information_MERC__c</fullName>
         <description>Capture additional information on Accommodations. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
@@ -401,6 +421,43 @@ Created by John Adams on 12/9/2013</description>
         <inlineHelpText>Who is creating the content?</inlineHelpText>
         <label>Content Creator</label>
         <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Customer_Facing_End_Time_MERC__c</fullName>
+        <description>Transforms the meeting end time in the timezone of the meeting to ensure a direct mapping to Veeva’s LOV end time field.  Thus removing complexity from the integration and incorporating in configuration. Oliver Dunford 25th March 2014.</description>
+        <externalId>false</externalId>
+        <formula>LEFT(RIGHT(End_Time_In_Meeting_Time_Zone_MERC__c, 9), 5)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Customer Facing End Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Customer_Facing_Meeting_Organiser_MERC__c</fullName>
+        <description>Returns the HCO Account Name for Mercury originating Independent Meetings.  This maps the the Veeva Meeting Organiser field.  For Veeva originating Independent Meetings, the value remains the same. Oliver Dunford 25th March 2014.</description>
+        <externalId>false</externalId>
+        <formula>IF(!ISBLANK(Independent_Meeting_Organiser_MERC__c), Independent_Meeting_Organiser_MERC__c,  HCO_MERC__r.Name )</formula>
+        <label>Customer Facing Meeting Organiser</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Customer_Facing_Start_Time_MERC__c</fullName>
+        <description>Transforms the meeting start time in the timezone of the meeting to ensure a direct mapping to Veeva&apos;s LOV start time field.  Thus removing complexity from the integration and incorporating in configuration. Oliver Dunford 25th March 2014.</description>
+        <externalId>false</externalId>
+        <formula>LEFT(RIGHT(Start_Time_In_Meeting_Time_Zone__c, 9), 5)</formula>
+        <label>Customer Facing Start Time</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -748,6 +805,22 @@ Created by John A Adams 10/24/2013</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Exclude_from_Open_Meeting_Fee_Calc_MERC__c</fullName>
+        <description>Used to prevent completed and locked meetings from being included within the calculation to update a HCPs Minimum and Maximum Hourly rate based upon a new Tier value.  This logic is triggered by CMS Cork on the HCPs profile via the Calculate Open Meeting fees box.  This formula simplifies the code by determining which meetings to ignore. Oliver Dunford 20th March.</description>
+        <externalId>false</externalId>
+        <formula>IF(
+	ISPICKVAL(Meeting_Status_MERC__c, &quot;Complete&quot;) || 
+	ISPICKVAL(Meeting_Status_MERC__c, &quot;Complete - Closed&quot;) || 
+	ISPICKVAL(Meeting_Status_MERC__c, &quot;Complete - Cancelled&quot;) || 
+	(Lock_Meeting_MERC__c = TRUE)	
+
+ , TRUE, FALSE)</formula>
+        <label>Exclude from Open Meeting Fee Calc</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Expenses_MERC__c</fullName>
@@ -1409,15 +1482,11 @@ Created by John Adams 11/6/2013</description>
         <label>Geography</label>
         <picklist>
             <picklistValues>
-                <fullName>Local</fullName>
+                <fullName>Local Affiliate</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>National</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Cluster</fullName>
+                <fullName>Country Grouping</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1426,10 +1495,6 @@ Created by John Adams 11/6/2013</description>
             </picklistValues>
             <picklistValues>
                 <fullName>Customer Facing Team Initiated</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1929,7 +1994,7 @@ Created by John Adams on 12/9/2013</description>
         <fullName>Participant_ToV_Final_MERC__c</fullName>
         <description>The trigger to send ToV values to Activity ODS. Oliver Dunford 5th November.</description>
         <externalId>false</externalId>
-        <inlineHelpText>Mechanism for Meeting Planning company to confirm ToV for participants. Once set to Yes, these will be sent for Reporting.</inlineHelpText>
+        <inlineHelpText>Mechanism for Meeting Planning company and Customer Meeting Services to confirm ToV for participants. Once set to Yes, these will be sent for Reporting.</inlineHelpText>
         <label>Participant ToV Final</label>
         <picklist>
             <picklistValues>
@@ -2926,56 +2991,6 @@ Created by John Adams 11/6/2013</description>
         <language>en_US</language>
     </listViews>
     <listViews>
-        <fullName>France_Hub</fullName>
-        <columns>NAME</columns>
-        <columns>City_of_Meeting_MERC__c</columns>
-        <columns>Event_Country_MERC__c</columns>
-        <columns>Date_of_Event_MERC__c</columns>
-        <columns>End_Date_of_Event_MERC__c</columns>
-        <columns>Meeting_Status_MERC__c</columns>
-        <columns>Meeting_Time_Zone_MERC__c</columns>
-        <columns>Type_MERC__c</columns>
-        <columns>Meeting_Sub_Type_MERC__c</columns>
-        <columns>Meeting_Scope_MERC__c</columns>
-        <filterScope>Queue</filterScope>
-        <label>Hub - France</label>
-        <language>en_US</language>
-        <queue>Hub_France</queue>
-    </listViews>
-    <listViews>
-        <fullName>Germany_Hub</fullName>
-        <columns>NAME</columns>
-        <columns>City_of_Meeting_MERC__c</columns>
-        <columns>Event_Country_MERC__c</columns>
-        <columns>Date_of_Event_MERC__c</columns>
-        <columns>End_Date_of_Event_MERC__c</columns>
-        <columns>Meeting_Status_MERC__c</columns>
-        <columns>Meeting_Time_Zone_MERC__c</columns>
-        <columns>Type_MERC__c</columns>
-        <columns>Meeting_Sub_Type_MERC__c</columns>
-        <columns>Meeting_Scope_MERC__c</columns>
-        <filterScope>Queue</filterScope>
-        <label>Hub - Germany</label>
-        <language>en_US</language>
-        <queue>Hub_Germany</queue>
-    </listViews>
-    <listViews>
-        <fullName>Italy_Hub</fullName>
-        <columns>NAME</columns>
-        <columns>City_of_Meeting_MERC__c</columns>
-        <columns>Event_Country_MERC__c</columns>
-        <columns>Date_of_Event_MERC__c</columns>
-        <columns>End_Date_of_Event_MERC__c</columns>
-        <columns>Meeting_Time_Zone_MERC__c</columns>
-        <columns>Type_MERC__c</columns>
-        <columns>Meeting_Sub_Type_MERC__c</columns>
-        <columns>Meeting_Scope_MERC__c</columns>
-        <filterScope>Queue</filterScope>
-        <label>Hub - Italy</label>
-        <language>en_US</language>
-        <queue>Hub_Italy</queue>
-    </listViews>
-    <listViews>
         <fullName>Meetings_Created_in_the_last_90_Days</fullName>
         <columns>NAME</columns>
         <columns>Parent_Meeting_MERC__c</columns>
@@ -3045,88 +3060,6 @@ Created by John Adams 11/6/2013</description>
         </filters>
         <label>Registered Meetings</label>
         <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>Russia</fullName>
-        <columns>NAME</columns>
-        <columns>City_of_Meeting_MERC__c</columns>
-        <columns>Event_Country_MERC__c</columns>
-        <columns>Date_of_Event_MERC__c</columns>
-        <columns>End_Date_of_Event_MERC__c</columns>
-        <columns>Meeting_Status_MERC__c</columns>
-        <columns>Meeting_Time_Zone_MERC__c</columns>
-        <columns>Type_MERC__c</columns>
-        <columns>Meeting_Sub_Type_MERC__c</columns>
-        <columns>Meeting_Scope_MERC__c</columns>
-        <filterScope>Queue</filterScope>
-        <label>Hub - Russia</label>
-        <language>en_US</language>
-        <queue>Hub_Russia</queue>
-    </listViews>
-    <listViews>
-        <fullName>Spain_Hub</fullName>
-        <columns>NAME</columns>
-        <columns>City_of_Meeting_MERC__c</columns>
-        <columns>Event_Country_MERC__c</columns>
-        <columns>Date_of_Event_MERC__c</columns>
-        <columns>End_Date_of_Event_MERC__c</columns>
-        <columns>Meeting_Status_MERC__c</columns>
-        <columns>Meeting_Time_Zone_MERC__c</columns>
-        <columns>Type_MERC__c</columns>
-        <columns>Meeting_Sub_Type_MERC__c</columns>
-        <columns>Meeting_Scope_MERC__c</columns>
-        <filterScope>Queue</filterScope>
-        <label>Hub - Spain</label>
-        <language>en_US</language>
-        <queue>Hub_Spain</queue>
-    </listViews>
-    <listViews>
-        <fullName>Turkey</fullName>
-        <columns>NAME</columns>
-        <columns>City_of_Meeting_MERC__c</columns>
-        <columns>Event_Country_MERC__c</columns>
-        <columns>Date_of_Event_MERC__c</columns>
-        <columns>End_Date_of_Event_MERC__c</columns>
-        <columns>Meeting_Status_MERC__c</columns>
-        <columns>Meeting_Time_Zone_MERC__c</columns>
-        <columns>Meeting_Sub_Type_MERC__c</columns>
-        <columns>Meeting_Scope_MERC__c</columns>
-        <filterScope>Queue</filterScope>
-        <label>Hub - Turkey</label>
-        <language>en_US</language>
-        <queue>Hub_Turkey</queue>
-    </listViews>
-    <listViews>
-        <fullName>UK_Hub</fullName>
-        <columns>NAME</columns>
-        <columns>City_of_Meeting_MERC__c</columns>
-        <columns>Event_Country_MERC__c</columns>
-        <columns>Date_of_Event_MERC__c</columns>
-        <columns>End_Date_of_Event_MERC__c</columns>
-        <columns>Meeting_Time_Zone_MERC__c</columns>
-        <columns>Type_MERC__c</columns>
-        <columns>Meeting_Sub_Type_MERC__c</columns>
-        <columns>Meeting_Scope_MERC__c</columns>
-        <filterScope>Queue</filterScope>
-        <label>Hub - UK</label>
-        <language>en_US</language>
-        <queue>Hub_UK</queue>
-    </listViews>
-    <listViews>
-        <fullName>Ukraine</fullName>
-        <columns>NAME</columns>
-        <columns>City_of_Meeting_MERC__c</columns>
-        <columns>Event_Country_MERC__c</columns>
-        <columns>Date_of_Event_MERC__c</columns>
-        <columns>End_Date_of_Event_MERC__c</columns>
-        <columns>Meeting_Time_Zone_MERC__c</columns>
-        <columns>Type_MERC__c</columns>
-        <columns>Functional_Area_MERC__c</columns>
-        <columns>Meeting_Scope_MERC__c</columns>
-        <filterScope>Queue</filterScope>
-        <label>Hub - Ukraine</label>
-        <language>en_US</language>
-        <queue>Hub_Ukraine</queue>
     </listViews>
     <nameField>
         <label>Meeting Name</label>
@@ -3639,7 +3572,7 @@ Created by John Adams 11/6/2013</description>
         <picklistValues>
             <picklist>Meeting_Scope_MERC__c</picklist>
             <values>
-                <fullName>Cluster</fullName>
+                <fullName>Country Grouping</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3651,15 +3584,7 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Local</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>National</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
+                <fullName>Local Affiliate</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4464,7 +4389,7 @@ Created by John Adams 11/6/2013</description>
         <picklistValues>
             <picklist>Meeting_Scope_MERC__c</picklist>
             <values>
-                <fullName>Cluster</fullName>
+                <fullName>Country Grouping</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4476,15 +4401,7 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Local</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>National</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
+                <fullName>Local Affiliate</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5321,7 +5238,7 @@ Created by John Adams 11/6/2013</description>
         <picklistValues>
             <picklist>Meeting_Scope_MERC__c</picklist>
             <values>
-                <fullName>Cluster</fullName>
+                <fullName>Country Grouping</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5333,15 +5250,7 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Local</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>National</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
+                <fullName>Local Affiliate</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6178,7 +6087,7 @@ Created by John Adams 11/6/2013</description>
         <picklistValues>
             <picklist>Meeting_Scope_MERC__c</picklist>
             <values>
-                <fullName>Cluster</fullName>
+                <fullName>Country Grouping</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6190,15 +6099,7 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Local</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>National</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
+                <fullName>Local Affiliate</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7003,7 +6904,7 @@ Created by John Adams 11/6/2013</description>
         <picklistValues>
             <picklist>Meeting_Scope_MERC__c</picklist>
             <values>
-                <fullName>Cluster</fullName>
+                <fullName>Country Grouping</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7015,15 +6916,7 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Local</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>National</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
+                <fullName>Local Affiliate</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7860,7 +7753,7 @@ Created by John Adams 11/6/2013</description>
         <picklistValues>
             <picklist>Meeting_Scope_MERC__c</picklist>
             <values>
-                <fullName>Cluster</fullName>
+                <fullName>Country Grouping</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7872,15 +7765,7 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Local</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>National</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
+                <fullName>Local Affiliate</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

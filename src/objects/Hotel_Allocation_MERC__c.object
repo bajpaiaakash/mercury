@@ -52,6 +52,31 @@
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
+    <fieldSets>
+        <fullName>Meeting_Day_Manager_MERC</fullName>
+        <description>Used in Meeting Day Manager -JFerraro Mar 21 2014</description>
+        <displayedFields>
+            <field>Total_Rooms_in_Block_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Room_Block_Release_Date_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Booked_Rooms__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Remaining_Rooms_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Meeting Day Manager</label>
+    </fieldSets>
     <fields>
         <fullName>Booked_Rooms__c</fullName>
         <description>Auto-calculated based on those Meeting Participants using the Room Block. Oliver Dunford 13th Dec 2013.</description>
@@ -99,7 +124,7 @@
         <label>Meeting Vendor</label>
         <referenceTo>Meeting_Vendor_MERC__c</referenceTo>
         <relationshipLabel>Hotel Allocation</relationshipLabel>
-        <relationshipName>Hotel_Allocation</relationshipName>
+        <relationshipName>Hotel_Allocations_MERC</relationshipName>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>

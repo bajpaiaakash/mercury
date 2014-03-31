@@ -113,6 +113,41 @@
         </displayedFields>
         <label>Date Information</label>
     </fieldSets>
+    <fieldSets>
+        <fullName>Meeting_Day_Manager_Columns_MERC</fullName>
+        <description>Used in the Meeting Day Manager -JFerraro Mar 21 2014</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Date_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Daily_Ground_Trans_Amount_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Daily_Food_Beverage_Amount_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Daily_Registration_Amount_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Confirm_ToV_Reporting_Change_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Meeting Day Manager Columns</label>
+    </fieldSets>
     <fields>
         <fullName>Confirm_ToV_Reporting_Change_MERC__c</fullName>
         <defaultValue>false</defaultValue>
@@ -318,6 +353,18 @@ Daily_Registration_Amount_MERC__c &lt; 0)</errorConditionFormula>
         <masterLabel>Manage Daily Attendance</masterLabel>
         <openType>sidebar</openType>
         <page>MERC_DailyAttendance</page>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+    </webLinks>
+    <webLinks>
+        <fullName>Manage_Meeting_Days_MERC</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Manage Meeting Days</masterLabel>
+        <openType>sidebar</openType>
+        <page>MERC_MeetingDayManager</page>
         <protected>false</protected>
         <requireRowSelection>false</requireRowSelection>
     </webLinks>

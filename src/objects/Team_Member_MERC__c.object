@@ -246,6 +246,10 @@ Created by John A Adams 1/10/2014</description>
                 <fullName>Medical Director</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Cross Border Approver</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
@@ -359,6 +363,10 @@ Created by John A Adams 1/10/2014</description>
             </values>
             <values>
                 <fullName>Budget Owner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cross Border Approver</fullName>
                 <default>false</default>
             </values>
             <values>

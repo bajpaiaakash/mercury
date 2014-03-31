@@ -103,22 +103,6 @@ Created by John A Adams 10/8/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>HCP IP in progress</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>HCP IP received</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>FMV in progress</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>FMV completed</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Contract in progress</fullName>
                 <default>false</default>
             </picklistValues>
@@ -562,22 +546,6 @@ Created by John A Adams 10/17/2013</description>
                 <fullName>Contract signed</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>FMV completed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>FMV in progress</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HCP IP in progress</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HCP IP received</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Country_MERC__c</picklist>
@@ -689,22 +657,6 @@ Created by John A Adams 10/17/2013</description>
             </values>
             <values>
                 <fullName>Contract signed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>FMV completed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>FMV in progress</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HCP IP in progress</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HCP IP received</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
