@@ -290,7 +290,8 @@ public with sharing class MERC_Util {
 	        }
 	        query = query.substring(0,query.length()-2);
 	        this.allfields = query;
-	        this.SOQL = 'SELECT ' + query + ' FROM ' + d.getName() + ' WHERE Id = \''+recordId+'\'';
+	        this.SOQL = 'SELECT ' + query + ' FROM ' + d.getName();
+	        this.SOQL += (recordId != null) ? ' WHERE Id = \''+recordId+'\'' : ' LIMIT 1';
 	    }
 	}
 }

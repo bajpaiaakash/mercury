@@ -37,6 +37,7 @@ public with sharing class GLBL_CustomerSearchToolService {
 		r.setMethod('POST');
 		r.setBody(requestJson);
 
+		system.debug('>>>  '+r.getHeader('Authorization'));
 		Http h = new Http();
 		HttpResponse response = h.send(r);
 		String s = response.getBody();
@@ -112,7 +113,7 @@ public with sharing class GLBL_CustomerSearchToolService {
 		public String address { get; set; }
 		public String city { get; set; }
 		public String state { get; set; }
-		public String acountry { get; set; }
+		public List<String> acountry { get; set; }
 		public String pc { get; set; }
 		public List<String> role { get; set; }
 		public String affil { get; set; }
