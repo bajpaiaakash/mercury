@@ -30,10 +30,6 @@
                 <field>Type_of_Contract_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Include_CAP_Roll_Up_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Has_Signed_Contract_MERC__c</field>
             </layoutItems>
@@ -167,7 +163,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Total_Hours_of_Service__c</field>
+                <field>Total_Hours_of_Service_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -486,9 +482,6 @@
         <fields>VERSION.CREATED_DATE</fields>
         <fields>VERSION.LAST_UPDATE</fields>
         <relatedList>ContentVersion.Meeting_Participant_MERC__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <relatedList>RelatedEntityHistoryList</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>

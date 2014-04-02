@@ -52,7 +52,7 @@
                 <field>Event_Country_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Readonly</behavior>
                 <field>City_of_Meeting_MERC__c</field>
             </layoutItems>
             <layoutItems>
@@ -195,6 +195,7 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>Product_Group_GLBL__c.NAME</fields>
+        <fields>Indication_MERC__c</fields>
         <relatedList>Meeting_Products_MERC__c.Meeting_MERC__c</relatedList>
     </relatedLists>
     <relatedLists>

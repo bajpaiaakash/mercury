@@ -1,384 +1,380 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
-    <applicationVisibilities>
-        <application>CST</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>Customer_Meeting_Services_MERC</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>Get_Started</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>Mercury</application>
-        <default>true</default>
-        <visible>true</visible>
-    </applicationVisibilities>
     <classAccesses>
         <apexClass>CUST_MonthlyProcessScheduler</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>CUST_ProcessScheduler</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>CUST_RecordTypeIdLookup</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>CUST_RecordTypeIdLookupTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CUST_RefreshLOVsBatch</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>CUST_RefreshLOVsController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CUST_RefreshLOVsControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CUST_RefreshLOVsUtil</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CUST_TestFactory</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>CUST_UserSettingStatusUpdate</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>CUST_UserSettingsExpireBatchable</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>CUST_UserSettingsStatusChangeBatchable</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>CUST_UserSettingsWillExpireBatchable</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>CreateCaseRedirectControllerMVN</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>CreateCaseRedirectControllerTestMVN</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>GLBL_BaseEditController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>GLBL_CustomerSearchToolService</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>GLBL_CustomerSearchToolServiceMock</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>GLBL_CustomerSearchToolServiceTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>GLBL_DescribeLayoutTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>GLBL_GenericRelatedListController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>GLBL_GlobalIdAccountLookup</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>GLBL_GlobalIdAccountLookupTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>GLBL_SobjectDataLoader</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>GLBL_SobjectDataLoaderTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>GLBL_TriggerHandler</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_AddMeetingParticipantsCntlrTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_AddMeetingParticipantsController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_AgendaBuilderController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_AgendaItemNewEditController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_AgendaItemNewEditControllerTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_BudgetVersionController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_BudgetVersionControllerTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_ConsultingProjectCapCalculator</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_ConsultingProjectCapCalculatorTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_ContentVersionHandler</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_ContentVersionHandlerTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_DailyAttendanceController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_DailyAttendanceControllerStressTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_DailyAttendanceControllerTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_DeleteNotifyMock</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_DeleteNotifyService</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_DeleteNotifyServiceTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_DocusignService</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_DocusignServiceMock</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_DocusignServiceTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_Exception</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_HandleDocusignAttachmentInsert</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_HandleDocusignAttachmentInsertTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_HcpCapActualsCalculator</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_HcpCapActualsCalculatorTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_HcpCapLimitCalculator</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_HcpCapYearlyCalculationJob</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_HcpCapYearlyCalculationScheduler</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_HotelAllocationCalculator</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_InvoiceXmlController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_InvoiceXmlControllerTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_InvoiceXmlWriter</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_InvoiceXmlWriterTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_LockedRecordHandler</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_LockedRecordHandlerTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_MeetingDateManagerController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_MeetingDateTimesController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_MeetingDayManagerController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_MeetingDayNewEditController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_MeetingNewEditController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_MeetingParticipantNewEditController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_MeetingTeamManagerController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_NewContentController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_NewContentControllerTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_ParticipantFMVCalculator</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_ParticipantFMVCalculatorTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_ParticipantStatusCalculator</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_ParticipantTriggerHandler</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_RequestHCPSignatureController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_RequestHCPSignatureControllerTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_TOVCalculator</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_TOVCalculatorTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_TeamMemberShareHandler</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_TeamMemberShareHandlerTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_TestFactory</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_TimeZoneUtility</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_TimestampHandler</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_TravelItineraryNewEditController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_Util</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_XmlWriterCalloutMock</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_XmlWriterRestResource</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_XmlWriterTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>PersonSearchControllerMVN</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>PersonSearchControllerTestMVN</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>PersonSearchResultMockMVN</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>TestDataFactoryMVN</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>sobjectPartnerSoapSforceCom</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>sobjectPartnerSoapSforceComTest</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <fieldPermissions>
         <editable>false</editable>
@@ -468,6 +464,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.CODS_Merge_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.CST_App_Menu_Flag_CUST__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1627,11 +1628,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Address_GLBL__c.Fax_GLBL__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Address_GLBL__c.GCO_Party_Physcl_Adrs_Id_GLBL__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -1713,11 +1709,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Address_GLBL__c.Party_Rcrd_Typ_Cd_GLBL__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Address_GLBL__c.Phone1_GLBL__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2101,6 +2092,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Alternate_Id_GLBL__c.CST_App_Menu_Flag_CUST__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Alternate_Id_GLBL__c.Del_Date_GLBL__c</field>
         <readable>true</readable>
@@ -2334,6 +2330,46 @@
         <editable>false</editable>
         <field>Budget_MERC__c.Version_Number_MERC__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CST_App_Menu_Pool_GLBL__c.App_Settings_CUST__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CST_App_Menu_Pool_GLBL__c.App_Settings_Unique_Check_CUST__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CST_App_Menu_Pool_GLBL__c.Bnft_Dsgn_Cd_Capture_Date_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CST_App_Menu_Pool_GLBL__c.Bnft_Dsgn_Cd_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CST_App_Menu_Pool_GLBL__c.Clsfctn_Cd_Capture_Date_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CST_App_Menu_Pool_GLBL__c.Clsfctn_Cd_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_App_Menu_Pool_GLBL__c.Party_Sts_Cd_Capture_Date_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_App_Menu_Pool_GLBL__c.Party_Sts_Cd_GLBL__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -4767,11 +4803,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Meeting_Participant_MERC__c.Total_Hours_of_Service__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Total_Registration_ToV_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -5206,6 +5237,446 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Account_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cmnctn_Chnl_Cd_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cmnctn_Chnl_Cd_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cmnctn_Chnl_Desc_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cmnctn_Chnl_Desc_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cmnctn_Sub_Chnl_Cd_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cmnctn_Sub_Chnl_Cd_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cmnctn_Sub_Chnl_Desc_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cmnctn_Sub_Chnl_Desc_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cnsnt_Cntct_Dtl_Txt_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cnsnt_Cntct_Dtl_Txt_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cnsnt_Exprtn_Dt_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cnsnt_Exprtn_Dt_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cnsnt_Prps_Cd_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cnsnt_Prps_Cd_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cnsnt_Prps_Desc_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cnsnt_Prps_Desc_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cnsnt_Src_Nm_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cnsnt_Src_Nm_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cnsnt_Sts_Cd_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cnsnt_Sts_Cd_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cnsnt_Sts_Desc_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cnsnt_Sts_Desc_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cnsnt_Typ_Cd_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cnsnt_Typ_Cd_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cnsnt_Typ_Desc_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cnsnt_Typ_Desc_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Combined_ID_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Communication_Preference_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Communication_Preference_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Contract_Delivery_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Contract_Delivery_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Contract_Restrictions_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Contract_Restrictions_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Del_Date_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Del_Date_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Del_Flg_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Del_Flg_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Detailed_Preferences_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Detailed_Preferences_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Efctv_End_Dt_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Efctv_End_Dt_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Efctv_Start_Dt_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Efctv_Start_Dt_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Hotel_Travel_Preferences_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Interaction_Channel_Type_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Interaction_Channel_Type_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Language_Preference_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Language_of_Choice_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Language_of_Choice_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Meals_Allergy_Preferences_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Mercury_External_Id_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Name_as_in_Passport_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.ODS_Ld_Tmstmp_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.ODS_Ld_Tmstmp_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.ODS_Ld_Usr_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.ODS_Ld_Usr_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.ODS_Lst_Updt_Tmstmp_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.ODS_Lst_Updt_Tmstmp_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.ODS_Lst_Updt_Usr_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.ODS_Lst_Updt_Usr_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Party_Cnsnt_External_ID_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Party_Cntry_Cd_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Party_Cntry_Cd_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Party_Rcrd_Typ_Cd_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Party_Rcrd_Typ_Cd_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Payment_Required_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Permission_Status_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Permission_Status_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Preference_Sub_Type_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Preference_Type_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Preference_Value_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Prevent_Duplicate_Preference_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Priority_Rank_Nbr_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Priority_Rank_Nbr_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Record_Type_Id_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Record_Type_Id_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Speaker_Interest_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Speaker_Interest_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Src_Block_Flg_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Src_Block_Flg_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Src_Sys_Cd_Cap_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Src_Sys_Cd_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Transparency_Reporting_Opt_Out_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.WS_Updt_Dt_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.WS_Updt_HCP_Actn_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.WS_Updt_HCP_Global_ID_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.WS_Updt_HCP_Name_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Product_Group_GLBL__c.Cease_Pblsh_Dt_GLBL__c</field>
         <readable>true</readable>
@@ -5294,6 +5765,11 @@
         <editable>false</editable>
         <field>Speciality_MERC__c.Account_GLBL__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Speciality_MERC__c.CST_App_Menu_Flag_CUST__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -6080,6 +6556,9 @@
         <recordType>Budget_MERC__c.MERC_Budget_Final</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>CST_App_Menu_Pool_GLBL__c-CST App Menu Pool Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>CST_App_Settings_CUST__c-CST App Settings Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -6225,6 +6704,10 @@
         <recordType>Meeting_MERC__c.Independent_Sponsorship</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Meeting_MERC__c-MERC_Program</layout>
+        <recordType>Meeting_MERC__c.Meeting_Program</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Meeting_MERC__c-MERC_Registered_Meeting</layout>
         <recordType>Meeting_MERC__c.Registered</recordType>
     </layoutAssignments>
@@ -6301,6 +6784,18 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Preferences_and_Consent_GLBL__c-GLBL_Consent</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Preferences_and_Consent_GLBL__c-GLBL_Consent</layout>
+        <recordType>Preferences_and_Consent_GLBL__c.Consent_EVNT_MVN</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Preferences_and_Consent_GLBL__c-GLBL_Preferences</layout>
+        <recordType>Preferences_and_Consent_GLBL__c.Preferences_EVNT_MVN</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Preferences_and_Consent_GLBL__c-GLBL_Preferences_Private</layout>
+        <recordType>Preferences_and_Consent_GLBL__c.Preferences_Private_EVNT_MVN</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Pricebook2-Price Book Layout</layout>
@@ -6400,131 +6895,131 @@
     </layoutAssignments>
     <pageAccesses>
         <apexPage>CUST_RefreshLOVs</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>CreateCaseRedirectMVN</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>Get_Started</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_ActivateBudget</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_AddMeetingParticipants</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_AgendaBuilder</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_AgendaItemDateTimes</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_AgendaItemNewEdit</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_BudgetHistory</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_DailyAttendance</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_DocusignTagAndSend</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_FinalizeBudgetConfirm</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_InvoiceAFIXML</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_InvoicePDF</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_MeetingDateTimes</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_MeetingDateTimesEdit</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_MeetingDayManager</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_MeetingDayNewEdit</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_MeetingNewEdit</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_MeetingParticipantNewEdit</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_MeetingTeamManager</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_NewAccountContent</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_NewBudgetContent</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_NewBudgetVersion</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_NewHCPContractContent</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_NewInvoiceContent</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_NewMeetingContent</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_NewMeetingParticipantContent</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_RequestHCPSignature</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_TravelItineraryDateTimesDetail</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_TravelItineraryNewEdit</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>PersonSearchMVN</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <recordTypeVisibilities>
         <default>false</default>
@@ -6701,6 +7196,11 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>Meeting_MERC__c.Meeting_Program</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Meeting_MERC__c.Registered</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -6763,6 +7263,22 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>Preferences_and_Consent_GLBL__c.Consent_EVNT_MVN</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
+        <recordType>Preferences_and_Consent_GLBL__c.Preferences_EVNT_MVN</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Preferences_and_Consent_GLBL__c.Preferences_Private_EVNT_MVN</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Team_Member_MERC__c.External_User_MERC</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -6793,58 +7309,6 @@
         <recordType>Travel_Itinerary_MERC__c.Rail_MERC</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
-    <tabVisibilities>
-        <tab>Address_GLBL__c</tab>
-        <visibility>DefaultOff</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>Agenda_Item_MERC__c</tab>
-        <visibility>DefaultOff</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>CST_App_Settings_CUST__c</tab>
-        <visibility>DefaultOff</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>CST_User_Log_CUST__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>CST_User_Settings_CUST__c</tab>
-        <visibility>DefaultOff</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>Consent_Setting_GLBL__c</tab>
-        <visibility>DefaultOff</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>Invoice_MERC__c</tab>
-        <visibility>DefaultOff</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>Meeting_MERC__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>Meeting_Participant_MERC__c</tab>
-        <visibility>DefaultOff</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>Meeting_Vendor_MERC__c</tab>
-        <visibility>DefaultOff</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>Preferences_and_Consent_GLBL__c</tab>
-        <visibility>DefaultOff</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>Product_Group_GLBL__c</tab>
-        <visibility>DefaultOff</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>Team_Member_MERC__c</tab>
-        <visibility>DefaultOff</visibility>
-    </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Account</tab>
         <visibility>DefaultOn</visibility>

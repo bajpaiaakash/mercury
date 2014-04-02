@@ -46,6 +46,10 @@
                 <field>Document_Type_MERC__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Approval_Reference_Number_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Meeting_Start_Date_MERC__c</field>
             </layoutItems>

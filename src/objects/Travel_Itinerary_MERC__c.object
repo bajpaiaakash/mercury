@@ -2245,7 +2245,7 @@ Created by John A Adams 12/13/2013</description>
         <searchResultsAdditionalFields>Segment_End_MERC__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Segment_End_Timezone_MERC__c</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>Private</sharingModel>
     <validationRules>
         <fullName>Confirm_ToV_Reporting_Change_MERC</fullName>
         <active>true</active>

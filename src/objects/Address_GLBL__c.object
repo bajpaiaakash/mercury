@@ -103,122 +103,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Address Country Code</label>
         <picklist>
             <picklistValues>
-                <fullName>ES</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GB</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>RU</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TR</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>AT</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>BE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>BG</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>HR</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CY</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CZ</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>DK</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>EE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>FI</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>HU</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>IE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>LV</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>LT</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MT</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>NL</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>NO</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>PL</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>PT</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>RO</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>RS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SK</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SI</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CH</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>UA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>AF</fullName>
                 <default>false</default>
             </picklistValues>
@@ -275,6 +159,10 @@ Created by John A Adams 11/4/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>AT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>AZ</fullName>
                 <default>false</default>
             </picklistValues>
@@ -296,6 +184,10 @@ Created by John A Adams 11/4/2013</description>
             </picklistValues>
             <picklistValues>
                 <fullName>BY</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BE</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -344,6 +236,10 @@ Created by John A Adams 11/4/2013</description>
             </picklistValues>
             <picklistValues>
                 <fullName>BN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BG</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -427,11 +323,27 @@ Created by John A Adams 11/4/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>HR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>CU</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>CW</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CY</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CZ</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DK</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -467,6 +379,10 @@ Created by John A Adams 11/4/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>EE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>ET</fullName>
                 <default>false</default>
             </picklistValues>
@@ -480,6 +396,10 @@ Created by John A Adams 11/4/2013</description>
             </picklistValues>
             <picklistValues>
                 <fullName>FJ</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>FI</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -583,6 +503,10 @@ Created by John A Adams 11/4/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>HU</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>IS</fullName>
                 <default>false</default>
             </picklistValues>
@@ -600,6 +524,10 @@ Created by John A Adams 11/4/2013</description>
             </picklistValues>
             <picklistValues>
                 <fullName>IQ</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IE</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -663,6 +591,10 @@ Created by John A Adams 11/4/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>LV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>LB</fullName>
                 <default>false</default>
             </picklistValues>
@@ -680,6 +612,10 @@ Created by John A Adams 11/4/2013</description>
             </picklistValues>
             <picklistValues>
                 <fullName>LI</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>LT</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -712,6 +648,10 @@ Created by John A Adams 11/4/2013</description>
             </picklistValues>
             <picklistValues>
                 <fullName>ML</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MT</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -787,6 +727,10 @@ Created by John A Adams 11/4/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>NL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>NC</fullName>
                 <default>false</default>
             </picklistValues>
@@ -816,6 +760,10 @@ Created by John A Adams 11/4/2013</description>
             </picklistValues>
             <picklistValues>
                 <fullName>MP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NO</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -859,6 +807,14 @@ Created by John A Adams 11/4/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>PL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>PR</fullName>
                 <default>false</default>
             </picklistValues>
@@ -868,6 +824,14 @@ Created by John A Adams 11/4/2013</description>
             </picklistValues>
             <picklistValues>
                 <fullName>RE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>RO</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>RU</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -923,6 +887,10 @@ Created by John A Adams 11/4/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>RS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>SC</fullName>
                 <default>false</default>
             </picklistValues>
@@ -936,6 +904,14 @@ Created by John A Adams 11/4/2013</description>
             </picklistValues>
             <picklistValues>
                 <fullName>SX</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SK</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SI</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -959,6 +935,10 @@ Created by John A Adams 11/4/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>ES</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>LK</fullName>
                 <default>false</default>
             </picklistValues>
@@ -976,6 +956,14 @@ Created by John A Adams 11/4/2013</description>
             </picklistValues>
             <picklistValues>
                 <fullName>SZ</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CH</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1023,6 +1011,10 @@ Created by John A Adams 11/4/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>TR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>TM</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1039,7 +1031,15 @@ Created by John A Adams 11/4/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>UA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>AE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GB</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1098,7 +1098,7 @@ Created by John A Adams 11/4/2013</description>
                 <fullName>ZW</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
+            <sorted>true</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -1368,19 +1368,6 @@ Created by John A Adams 11/4/2013</description>
         <type>TextArea</type>
     </fields>
     <fields>
-        <fullName>Fax_GLBL__c</fullName>
-        <description>Concatenated ODS fax fields for display. Created by John A Adams 3/20/2014</description>
-        <externalId>false</externalId>
-        <formula>Elctrnc_Adrs_Fax_Cntry_Prfx_Cd_GLBL__c  &amp; &apos; &apos; &amp; Elctrnc_Adrs_Fax_Txt_GLBL__c &amp; &apos; &apos; &amp; Elctrnc_Adrs_Fax_Extnsn_Cd_GLBL__c</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Fax</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>GCO_Party_Physcl_Adrs_Id_GLBL__c</fullName>
         <description>Party Physical Address Id
 Customer ODS to Mercury Mapping
@@ -1605,19 +1592,6 @@ Created by John A Adams 10/22/2013</description>
         <externalId>false</externalId>
         <label>Party Record Type Code</label>
         <length>10</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Phone1_GLBL__c</fullName>
-        <description>Primary phone number concatenated from multiple ODS fields.  Created by John A Adams 3/20/2014</description>
-        <externalId>false</externalId>
-        <formula>Elctrnc_Adrs_Cntry_Prfx_Cd_GLBL__c &amp; &apos; &apos; &amp; Elctrnc_Adrs_Txt_GLBL__c &amp; &apos; &apos; &amp;  Elctrnc_Adrs_Extnsn_Cd_GLBL__c</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Phone</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>

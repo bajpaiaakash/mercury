@@ -367,6 +367,32 @@ Created by John A Adams 10/23/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>CST_App_Menu_Flag_CUST__c</fullName>
+        <description>Flag for the gathering of distinct values in the identified fields. Entries must match the API name of a field on the Account. see the object CST App Menu Pool for more info.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Flag for the gathering of distinct values in the identified fields. Entries must match the API name of a field on the Account. see the object CST App Menu Pool for more info.</inlineHelpText>
+        <label>CST App Menu Flag</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Bnft_Dsgn_Cd_GLBL__c</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Clsfctn_Cd_GLBL__c</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Party_Sts_Cd_GLBL__c</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>MultiselectPicklist</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
         <fullName>CST_Email_Stamp_CUST__c</fullName>
         <description>The stamp of the Person Email, so it is accessible via the workflow action.</description>
         <externalId>false</externalId>
@@ -4271,6 +4297,23 @@ Created by John A Adams 11/4/2013</description>
         <language>en_US</language>
     </listViews>
     <listViews>
+        <fullName>All_Vendors</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.SITE</columns>
+        <columns>ACCOUNT.ADDRESS1_STATE</columns>
+        <columns>ACCOUNT.PHONE1</columns>
+        <columns>ACCOUNT.TYPE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ACCOUNT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Account.Vendor_GLBL</value>
+        </filters>
+        <label>All Vendors</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
         <fullName>All_Venues</fullName>
         <columns>ACCOUNT.NAME</columns>
         <columns>Venue_Preference_Type_MERC__c</columns>
@@ -4298,6 +4341,10 @@ Created by John A Adams 11/4/2013</description>
         <columns>Allocated_CAP_MERC__c</columns>
         <columns>Speaking_Paid_CAP_MERC__c</columns>
         <columns>Reserved_CAP_MERC__c</columns>
+        <columns>Cust_Id_GLBL__c</columns>
+        <columns>Trtry_Desc_GLBL__c</columns>
+        <columns>Territory_Id_GLBL__c</columns>
+        <columns>Trtry_Cd_GLBL__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>ACCOUNT.RECORDTYPE</field>
@@ -4311,7 +4358,7 @@ Created by John A Adams 11/4/2013</description>
         <fullName>MyAccounts</fullName>
         <columns>ACCOUNT.NAME</columns>
         <columns>ACCOUNT.RECORDTYPE</columns>
-        <filterScope>Mine</filterScope>
+        <filterScope>Everything</filterScope>
         <label>My Accounts</label>
         <language>en_US</language>
     </listViews>
@@ -4620,6 +4667,21 @@ Created by John A Adams 11/4/2013</description>
             </values>
             <values>
                 <fullName>Word of mouth</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>CST_App_Menu_Flag_CUST__c</picklist>
+            <values>
+                <fullName>Bnft_Dsgn_Cd_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Clsfctn_Cd_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Party_Sts_Cd_GLBL%5F%5Fc</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4940,6 +5002,21 @@ Created by John A Adams 11/4/2013</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>CST_App_Menu_Flag_CUST__c</picklist>
+            <values>
+                <fullName>Bnft_Dsgn_Cd_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Clsfctn_Cd_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Party_Sts_Cd_GLBL%5F%5Fc</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6466,6 +6543,21 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>CST_App_Menu_Flag_CUST__c</picklist>
+            <values>
+                <fullName>Bnft_Dsgn_Cd_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Clsfctn_Cd_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Party_Sts_Cd_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Clinical_Trial_PI_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -7988,6 +8080,21 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>CST_App_Menu_Flag_CUST__c</picklist>
+            <values>
+                <fullName>Bnft_Dsgn_Cd_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Clsfctn_Cd_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Party_Sts_Cd_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Clinical_Trial_PI_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -8510,6 +8617,21 @@ Created by John A Adams 11/4/2013</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>CST_App_Menu_Flag_CUST__c</picklist>
+            <values>
+                <fullName>Bnft_Dsgn_Cd_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Clsfctn_Cd_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Party_Sts_Cd_GLBL%5F%5Fc</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10036,6 +10158,21 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>CST_App_Menu_Flag_CUST__c</picklist>
+            <values>
+                <fullName>Bnft_Dsgn_Cd_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Clsfctn_Cd_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Party_Sts_Cd_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Clinical_Trial_PI_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -11550,6 +11687,21 @@ Created by John A Adams 11/4/2013</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>CST_App_Menu_Flag_CUST__c</picklist>
+            <values>
+                <fullName>Bnft_Dsgn_Cd_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Clsfctn_Cd_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Party_Sts_Cd_GLBL%5F%5Fc</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

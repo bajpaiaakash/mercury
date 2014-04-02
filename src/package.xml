@@ -17,22 +17,6 @@
         <name>ApexTrigger</name>
     </types>
     <types>
-        <members>*</members>
-        <name>AssignmentRules</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>CustomApplication</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>CustomApplicationComponent</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>CustomLabels</name>
-    </types>
-    <types>
         <members>Account</members>
         <members>Address_GLBL__c</members>
         <members>Affiliation_GLBL__c</members>
@@ -41,6 +25,7 @@
         <members>Budget_Line_Item_MERC__c</members>
         <members>Budget_MERC__c</members>
         <members>CAP_Settings_MERC__c</members>
+        <members>CST_App_Menu_Pool_GLBL__c</members>
         <members>CST_App_Settings_CUST__c</members>
         <members>CST_User_Log_CUST__c</members>
         <members>CST_User_Settings_CUST__c</members>
@@ -64,6 +49,7 @@
         <members>Participant_Agenda_MERC__c</members>
         <members>Payee_MERC__c</members>
         <members>PersonAccount</members>
+        <members>Preferences_and_Consent_GLBL__c</members>
         <members>Product_Group_GLBL__c</members>
         <members>Service_Cloud_Settings_MVN__c</members>
         <members>Speciality_MERC__c</members>
@@ -73,15 +59,10 @@
         <name>CustomObject</name>
     </types>
     <types>
-        <members>*</members>
-        <name>CustomTab</name>
-    </types>
-    <types>
         <members>Customer_Search_Tool_CUST</members>
         <members>Customer_Search_Tool_CUST/AccessRequestsAwaitingApproval</members>
         <members>Customer_Search_Tool_CUST/Access_Request_Status_Change_CUST</members>
         <members>Customer_Search_Tool_CUST/Expire_Notification</members>
-        <members>Mercury_Email_Templates_MERC</members>
         <members>Mercury_Email_Templates_MERC/Cancelled_Meeting</members>
         <members>Mercury_Email_Templates_MERC/Final_Fee_Calculation_Email</members>
         <members>Mercury_Email_Templates_MERC/Final_Fee_Rejection_Email</members>
@@ -97,19 +78,7 @@
     </types>
     <types>
         <members>*</members>
-        <name>HomePageComponent</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>HomePageLayout</name>
-    </types>
-    <types>
-        <members>*</members>
         <name>Layout</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>PermissionSet</name>
     </types>
     <types>
         <members>*</members>
@@ -117,31 +86,7 @@
     </types>
     <types>
         <members>*</members>
-        <name>Queue</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>RemoteSiteSetting</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>ReportType</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>Role</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>Scontrol</name>
-    </types>
-    <types>
-        <members>*</members>
         <name>StaticResource</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>Settings</name>
     </types>
     <version>29.0</version>
 </Package>

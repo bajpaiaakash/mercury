@@ -190,5 +190,5 @@ Created by J Adams 12/10/2013</description>
     </nameField>
     <pluralLabel>Hotel Allocation</pluralLabel>
     <searchLayouts/>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>Private</sharingModel>
 </CustomObject>

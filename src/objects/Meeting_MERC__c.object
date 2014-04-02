@@ -254,7 +254,7 @@ Created by John Adams on 12/9/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -318,7 +318,7 @@ Created by John Adams on 12/9/2013</description>
         <label>City of Meeting</label>
         <length>40</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -362,7 +362,7 @@ Created by John A Adams 10/24/2013</description>
         <description>When Meeting is Cancelled, validation rule will require this box to be checked to confirm. Created 11/19/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Confirm Meeting Cancellation</label>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -444,7 +444,7 @@ Created by John Adams on 12/9/2013</description>
         <fullName>Customer_Facing_Meeting_Organiser_MERC__c</fullName>
         <description>Returns the HCO Account Name for Mercury originating Independent Meetings.  This maps the the Veeva Meeting Organiser field.  For Veeva originating Independent Meetings, the value remains the same. Oliver Dunford 25th March 2014.</description>
         <externalId>false</externalId>
-        <formula>IF(!ISBLANK(Independent_Meeting_Organiser_MERC__c), Independent_Meeting_Organiser_MERC__c,  HCO_MERC__r.Name )</formula>
+        <formula>IF(!ISBLANK(HCO_MERC__r.Name), HCO_MERC__r.Name, Independent_Meeting_Organiser_MERC__c)</formula>
         <label>Customer Facing Meeting Organiser</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -602,7 +602,7 @@ Created by John A Adams 10/25/2013</description>
         <externalId>false</externalId>
         <label>End Time of Meeting</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
@@ -738,7 +738,7 @@ Created by John A Adams 10/25/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -855,7 +855,7 @@ Created by John Adams 11/6/2013</description>
         <description>Field to indicate if meeting should be exposed on portal. Created 02/03/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Activate Meeting on Web Services</label>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -1271,7 +1271,7 @@ Created by John A Adams 10/28/2013</description>
         <externalId>false</externalId>
         <inlineHelpText>If checked, the meeting and all related records are locked from editing.</inlineHelpText>
         <label>Lock Meeting</label>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -1370,7 +1370,7 @@ Created by John Adams 11/6/2013</description>
         <externalId>false</externalId>
         <label>Meeting Objectives</label>
         <length>32000</length>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>5</visibleLines>
@@ -1679,7 +1679,7 @@ Created by John Adams 11/6/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -1994,7 +1994,7 @@ Created by John Adams on 12/9/2013</description>
         <fullName>Participant_ToV_Final_MERC__c</fullName>
         <description>The trigger to send ToV values to Activity ODS. Oliver Dunford 5th November.</description>
         <externalId>false</externalId>
-        <inlineHelpText>Mechanism for Meeting Planning company and Customer Meeting Services to confirm ToV for participants. Once set to Yes, these will be sent for Reporting.</inlineHelpText>
+        <inlineHelpText>Sends the ToV data to Activity ODS for reporting.  Only check this box when data is final and correct.</inlineHelpText>
         <label>Participant ToV Final</label>
         <picklist>
             <picklistValues>
@@ -2007,7 +2007,7 @@ Created by John Adams on 12/9/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -2575,7 +2575,7 @@ Created by John Adams 11/6/2013</description>
         <inlineHelpText>Enter the start time of the meeting in the TIME ZONE OF THE MEETING</inlineHelpText>
         <label>Start Time of Meeting</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
@@ -2814,7 +2814,7 @@ Created by John Adams 11/6/2013</description>
         <relationshipLabel>Meetings</relationshipLabel>
         <relationshipName>Venues</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -7250,6 +7250,855 @@ Created by John Adams 11/6/2013</description>
         </picklistValues>
     </recordTypes>
     <recordTypes>
+        <fullName>Meeting_Program</fullName>
+        <active>true</active>
+        <description>Meeting Program</description>
+        <label>Meeting Program</label>
+        <picklistValues>
+            <picklist>Agenda_Status_MERC__c</picklist>
+            <values>
+                <fullName>Draft</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Final</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Working</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Approve_Sponsorship_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Approved_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Budget_is_Final_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Business_Unit_MERC__c</picklist>
+            <values>
+                <fullName>Bio-Medicines</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Diabetes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Emerging Markets</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oncology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>CME_Accredited_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Compliant_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Content_Approval_Needed_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Employee_Travel_MERC__c</picklist>
+            <values>
+                <fullName>Individual Cost Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting Budget</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Event_Country_MERC__c</picklist>
+            <values>
+                <fullName>AT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CZ</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DK</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ES</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RU</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SK</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Event_Occurred_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Event_Website_Needed_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Expenses_MERC__c</picklist>
+            <values>
+                <fullName>Accommodation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Registration Fee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>External_Delegates_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Functional_Area_MERC__c</picklist>
+            <values>
+                <fullName>Corporate Affairs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>HCP_Eligibile_for_Sponsorship_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Hospitality_Desk_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Interaction_Type_MERC__c</picklist>
+            <values>
+                <fullName>Ad-hoc Advising</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Face to Face</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Virtual</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Internal_Delegates_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Invitation_Template_MERC__c</picklist>
+            <values>
+                <fullName>Template 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Template 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Template 3</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Invitee_List_Status_MERC__c</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending Approval</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Inviting_Delegates_MERC__c</picklist>
+            <values>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Invoicing_Completed_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>MCP_work_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Applicable</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Materials_to_be_Shipped_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Meeting_Organiser_Type_MERC__c</picklist>
+            <values>
+                <fullName>Healthcare Organisation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Patient Organisation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Meeting_Owner_Sales_Rep_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Meeting_Room_Setup_MERC__c</picklist>
+            <values>
+                <fullName>Boardroom</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cabaret</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Classroom</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Theatre</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U-Shaped</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Meeting_Scope_MERC__c</picklist>
+            <values>
+                <fullName>Country Grouping</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Facing Team Initiated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local Affiliate</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Meeting_Status_MERC__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Complete - Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Complete - Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Forecasted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Registered</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Meeting_Sub_Type_MERC__c</picklist>
+            <values>
+                <fullName>Corporate Affairs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Meeting_Time_Zone_MERC__c</picklist>
+            <values>
+                <fullName>Central European Time %28Europe%2FAmsterdam%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FBerlin%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FBrussels%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FParis%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FPrague%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FRome%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FAthens%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FBucharest%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FHelsinki%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FIstanbul%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Further-eastern European Time %28Europe%2FMinsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28Europe%2FDublin%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28Europe%2FLondon%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28GMT%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moscow Standard Time %28Europe%2FMoscow%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Western European Time %28Europe%2FLisbon%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>On_Site_Support_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Participant_ToV_Final_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Send_Save_the_Date_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Speaker_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sponsorship_Category_MERC__c</picklist>
+            <values>
+                <fullName>Group Sponsorship</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCO Sponsorship</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Individual Sponsorship</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sponsorship_Eligibility_Crit_Met_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sponsorship_WO_Lilly_Assistance_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sponsorship_W_Lilly_Assistance_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Target_Audience_List_MERC__c</picklist>
+            <values>
+                <fullName>General Practitioner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nurse</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PhD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pharmacist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Specialist</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Therapeutic_Area_MERC__c</picklist>
+            <values>
+                <fullName>Autoimmune</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Bone%2C Muscle%2C Joint %28BMJ%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cardiovascular</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Diabetes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Neuroscience</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oncology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Urology</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Transfers_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type_MERC__c</picklist>
+            <values>
+                <fullName>Clinical Trial</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consultant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Independent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Internal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Promotional</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Scientific Exchange</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Speaker Training</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Virtual_Meeting_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
         <fullName>Registered</fullName>
         <active>true</active>
         <description>For registering meeting that were not forecasted</description>
@@ -8208,6 +9057,15 @@ ISPICKVAL(Meeting_Status_MERC__c,&apos;Active&apos;) &amp;&amp;
 ISPICKVAL(PRIORVALUE(Meeting_Status_MERC__c),&apos;Forecasted&apos;)</errorConditionFormula>
         <errorDisplayField>Meeting_Status_MERC__c</errorDisplayField>
         <errorMessage>You may not change the status from Forecasted to Active. Please change status to Registered first.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Participant_ToV_Final_only_if_Meet_over</fullName>
+        <active>true</active>
+        <description>Validate that the meeting end date has passed before allowing the  &apos;Participant ToV Final&apos; field from being checked</description>
+        <errorConditionFormula>ISCHANGED(Participant_ToV_Final_MERC__c) &amp;&amp;
+(TODAY() &lt;  DATEVALUE(End_Time_of_Meeting_MERC__c ))</errorConditionFormula>
+        <errorDisplayField>Participant_ToV_Final_MERC__c</errorDisplayField>
+        <errorMessage>The &apos;Participant ToV Final&apos; field cannot be checked until after the meeting is over</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Prevent_Cancel_Meeting_if_Occurred_MERC</fullName>

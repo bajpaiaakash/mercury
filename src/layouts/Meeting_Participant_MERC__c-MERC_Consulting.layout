@@ -149,10 +149,6 @@
                 <behavior>Edit</behavior>
                 <field>Travel_Time_Hrs_MERC__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Total_Hours_of_Service_MERC__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -357,9 +353,6 @@
         <fields>VERSION.CREATED_DATE</fields>
         <fields>VERSION.LAST_UPDATE</fields>
         <relatedList>ContentVersion.Meeting_Participant_MERC__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <relatedList>RelatedEntityHistoryList</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>

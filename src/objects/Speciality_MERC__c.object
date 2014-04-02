@@ -68,6 +68,27 @@ Created by John A Adams 12/15/2013</description>
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>CST_App_Menu_Flag_CUST__c</fullName>
+        <description>Flag for the gathering of distinct values in the identified fields. Entries must match the API name of a field on this object. See the object CST App Menu Pool for more info.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Flag for the gathering of distinct values in the identified fields. Entries must match the API name of a field on this object. See the object CST App Menu Pool for more info.</inlineHelpText>
+        <label>CST App Menu Flag</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Priority_Rank_Nbr_GLBL__c</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Spclty_Desc_Cd_GLBL__c</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
         <fullName>Del_Date_GLBL__c</fullName>
         <description>Del Date
 Created by John A Adams 12/15/2013</description>

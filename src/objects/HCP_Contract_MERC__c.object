@@ -639,7 +639,7 @@ Created by John A Adams 10/17/2013</description>
     <recordTypes>
         <fullName>Single_Event_Contract_MERC</fullName>
         <active>true</active>
-        <description>A contract for a single meeting event.  Once meeting is over contract expires.</description>
+        <description>A contract for a single meeting event if an MSA is unacceptable.  Once meeting is over the contract expires.</description>
         <label>Single Event Contract</label>
         <picklistValues>
             <picklist>Contract_Request_Status_MERC__c</picklist>

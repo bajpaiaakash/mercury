@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Loop__LOOPlus</customButtons>
+    <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -132,7 +133,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Speaking_Paid_CAP_MERC__c</field>
+                <field>Paid_CAP_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

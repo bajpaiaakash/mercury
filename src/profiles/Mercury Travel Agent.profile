@@ -1,25 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
-    <applicationVisibilities>
-        <application>CST</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>Customer_Meeting_Services_MERC</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>Get_Started</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>Mercury</application>
-        <default>true</default>
-        <visible>true</visible>
-    </applicationVisibilities>
     <classAccesses>
         <apexClass>CUST_MonthlyProcessScheduler</apexClass>
         <enabled>false</enabled>
@@ -37,7 +17,23 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CUST_RefreshLOVsBatch</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>CUST_RefreshLOVsController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CUST_RefreshLOVsControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CUST_RefreshLOVsUtil</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CUST_TestFactory</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -469,6 +465,11 @@
         <editable>true</editable>
         <field>Account.CODS_Merge_MERC__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.CST_App_Menu_Flag_CUST__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -1626,11 +1627,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Address_GLBL__c.Fax_GLBL__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Address_GLBL__c.GCO_Party_Physcl_Adrs_Id_GLBL__c</field>
         <readable>true</readable>
@@ -1713,11 +1709,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Address_GLBL__c.Party_Rcrd_Typ_Cd_GLBL__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Address_GLBL__c.Phone1_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2102,6 +2093,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Alternate_Id_GLBL__c.CST_App_Menu_Flag_CUST__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Alternate_Id_GLBL__c.Del_Date_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2333,6 +2329,46 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Budget_MERC__c.Version_Number_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CST_App_Menu_Pool_GLBL__c.App_Settings_CUST__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CST_App_Menu_Pool_GLBL__c.App_Settings_Unique_Check_CUST__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CST_App_Menu_Pool_GLBL__c.Bnft_Dsgn_Cd_Capture_Date_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CST_App_Menu_Pool_GLBL__c.Bnft_Dsgn_Cd_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CST_App_Menu_Pool_GLBL__c.Clsfctn_Cd_Capture_Date_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CST_App_Menu_Pool_GLBL__c.Clsfctn_Cd_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_App_Menu_Pool_GLBL__c.Party_Sts_Cd_Capture_Date_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_App_Menu_Pool_GLBL__c.Party_Sts_Cd_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4761,13 +4797,8 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Meeting_Participant_MERC__c.Total_Hours_of_Service_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
-        <field>Meeting_Participant_MERC__c.Total_Hours_of_Service__c</field>
+        <field>Meeting_Participant_MERC__c.Total_Hours_of_Service_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5207,6 +5238,446 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Account_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cmnctn_Chnl_Cd_Cap_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cmnctn_Chnl_Cd_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cmnctn_Chnl_Desc_Cap_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cmnctn_Chnl_Desc_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cmnctn_Sub_Chnl_Cd_Cap_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cmnctn_Sub_Chnl_Cd_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cmnctn_Sub_Chnl_Desc_Cap_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cmnctn_Sub_Chnl_Desc_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cnsnt_Cntct_Dtl_Txt_Cap_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cnsnt_Cntct_Dtl_Txt_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cnsnt_Exprtn_Dt_Cap_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cnsnt_Exprtn_Dt_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cnsnt_Prps_Cd_Cap_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cnsnt_Prps_Cd_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cnsnt_Prps_Desc_Cap_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cnsnt_Prps_Desc_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cnsnt_Src_Nm_Cap_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cnsnt_Src_Nm_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cnsnt_Sts_Cd_Cap_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cnsnt_Sts_Cd_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cnsnt_Sts_Desc_Cap_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cnsnt_Sts_Desc_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cnsnt_Typ_Cd_Cap_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cnsnt_Typ_Cd_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cnsnt_Typ_Desc_Cap_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Cnsnt_Typ_Desc_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Combined_ID_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Communication_Preference_Cap_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Communication_Preference_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Contract_Delivery_Cap_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Contract_Delivery_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Contract_Restrictions_Cap_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Contract_Restrictions_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Del_Date_Cap_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Del_Date_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Del_Flg_Cap_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Del_Flg_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Detailed_Preferences_Cap_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Detailed_Preferences_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Efctv_End_Dt_Cap_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Efctv_End_Dt_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Efctv_Start_Dt_Cap_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Efctv_Start_Dt_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Hotel_Travel_Preferences_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Interaction_Channel_Type_Cap_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Interaction_Channel_Type_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Language_Preference_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Language_of_Choice_Cap_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Language_of_Choice_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Meals_Allergy_Preferences_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Mercury_External_Id_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Name_as_in_Passport_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.ODS_Ld_Tmstmp_Cap_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.ODS_Ld_Tmstmp_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.ODS_Ld_Usr_Cap_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.ODS_Ld_Usr_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.ODS_Lst_Updt_Tmstmp_Cap_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.ODS_Lst_Updt_Tmstmp_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.ODS_Lst_Updt_Usr_Cap_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.ODS_Lst_Updt_Usr_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Party_Cnsnt_External_ID_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Party_Cntry_Cd_Cap_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Party_Cntry_Cd_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Party_Rcrd_Typ_Cd_Cap_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Party_Rcrd_Typ_Cd_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Payment_Required_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Permission_Status_Cap_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Permission_Status_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Preference_Sub_Type_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Preference_Type_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Preference_Value_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Prevent_Duplicate_Preference_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Priority_Rank_Nbr_Cap_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Priority_Rank_Nbr_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Record_Type_Id_Cap_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Record_Type_Id_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Speaker_Interest_Cap_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Speaker_Interest_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Src_Block_Flg_Cap_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Src_Block_Flg_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Src_Sys_Cd_Cap_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Src_Sys_Cd_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.Transparency_Reporting_Opt_Out_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.WS_Updt_Dt_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.WS_Updt_HCP_Actn_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.WS_Updt_HCP_Global_ID_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Preferences_and_Consent_GLBL__c.WS_Updt_HCP_Name_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Product_Group_GLBL__c.Cease_Pblsh_Dt_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5293,6 +5764,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Speciality_MERC__c.Account_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Speciality_MERC__c.CST_App_Menu_Flag_CUST__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6080,6 +6556,9 @@
         <recordType>Budget_MERC__c.MERC_Budget_Final</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>CST_App_Menu_Pool_GLBL__c-CST App Menu Pool Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>CST_App_Settings_CUST__c-CST App Settings Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -6222,6 +6701,10 @@
         <recordType>Meeting_MERC__c.Independent_Sponsorship</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Meeting_MERC__c-MERC_Program</layout>
+        <recordType>Meeting_MERC__c.Meeting_Program</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Meeting_MERC__c-MERC_Registered_Meeting</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -6300,7 +6783,19 @@
         <recordType>PersonAccount.PersonAccount</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Preferences_and_Consent_GLBL__c-GLBL_Consent</layout>
+        <recordType>Preferences_and_Consent_GLBL__c.Consent_EVNT_MVN</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Preferences_and_Consent_GLBL__c-GLBL_Preferences</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Preferences_and_Consent_GLBL__c-GLBL_Preferences</layout>
+        <recordType>Preferences_and_Consent_GLBL__c.Preferences_EVNT_MVN</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Preferences_and_Consent_GLBL__c-GLBL_Preferences_Private</layout>
+        <recordType>Preferences_and_Consent_GLBL__c.Preferences_Private_EVNT_MVN</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Pricebook2-Price Book Layout</layout>
@@ -6495,6 +6990,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Payee_MERC__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Preferences_and_Consent_GLBL__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -6811,6 +7315,11 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>Meeting_MERC__c.Meeting_Program</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Meeting_MERC__c.Registered</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -6871,6 +7380,21 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>Preferences_and_Consent_GLBL__c.Consent_EVNT_MVN</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Preferences_and_Consent_GLBL__c.Preferences_EVNT_MVN</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Preferences_and_Consent_GLBL__c.Preferences_Private_EVNT_MVN</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Team_Member_MERC__c.External_User_MERC</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -6899,62 +7423,6 @@
         <recordType>Travel_Itinerary_MERC__c.Rail_MERC</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
-    <tabVisibilities>
-        <tab>Address_GLBL__c</tab>
-        <visibility>DefaultOff</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>Agenda_Item_MERC__c</tab>
-        <visibility>DefaultOff</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>Budget_MERC__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>CST_App_Settings_CUST__c</tab>
-        <visibility>DefaultOff</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>CST_User_Log_CUST__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>CST_User_Settings_CUST__c</tab>
-        <visibility>DefaultOff</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>Consent_Setting_GLBL__c</tab>
-        <visibility>DefaultOff</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>Meeting_MERC__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>Meeting_Participant_MERC__c</tab>
-        <visibility>DefaultOff</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>Meeting_Vendor_MERC__c</tab>
-        <visibility>DefaultOff</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>Preferences_and_Consent_GLBL__c</tab>
-        <visibility>DefaultOff</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>Product_Group_GLBL__c</tab>
-        <visibility>DefaultOff</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>Team_Member_MERC__c</tab>
-        <visibility>DefaultOff</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>Travel_Itinerary_MERC__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Account</tab>
         <visibility>DefaultOn</visibility>

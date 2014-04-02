@@ -557,6 +557,7 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>Product_Group_GLBL__c.NAME</fields>
+        <fields>Indication_MERC__c</fields>
         <relatedList>Meeting_Products_MERC__c.Meeting_MERC__c</relatedList>
     </relatedLists>
     <relatedLists>

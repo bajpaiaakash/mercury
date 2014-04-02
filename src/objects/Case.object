@@ -615,9 +615,9 @@ Created by John Adams on 11/18/2013</description>
         <columns>CASES.CREATED_DATE</columns>
         <columns>CASES.CLOSED_DATE</columns>
         <filterScope>Queue</filterScope>
-        <label>Case Queue</label>
+        <label>CMS Lilly</label>
         <language>en_US</language>
-        <queue>Case_Queue</queue>
+        <queue>CMS_Lilly</queue>
         <sharedTo>
             <allInternalUsers></allInternalUsers>
         </sharedTo>

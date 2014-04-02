@@ -113,6 +113,21 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>CST_App_Menu_Flag_CUST__c</picklist>
+            <values>
+                <fullName>Bnft_Dsgn_Cd_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Clsfctn_Cd_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Party_Sts_Cd_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Clinical_Trial_PI_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -1627,6 +1642,21 @@
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>CST_App_Menu_Flag_CUST__c</picklist>
+            <values>
+                <fullName>Bnft_Dsgn_Cd_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Clsfctn_Cd_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Party_Sts_Cd_GLBL%5F%5Fc</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3161,6 +3191,21 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>CST_App_Menu_Flag_CUST__c</picklist>
+            <values>
+                <fullName>Bnft_Dsgn_Cd_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Clsfctn_Cd_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Party_Sts_Cd_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Clinical_Trial_PI_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -4683,6 +4728,21 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>CST_App_Menu_Flag_CUST__c</picklist>
+            <values>
+                <fullName>Bnft_Dsgn_Cd_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Clsfctn_Cd_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Party_Sts_Cd_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Clinical_Trial_PI_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -6137,6 +6197,21 @@
             </values>
             <values>
                 <fullName>Word of mouth</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>CST_App_Menu_Flag_CUST__c</picklist>
+            <values>
+                <fullName>Bnft_Dsgn_Cd_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Clsfctn_Cd_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Party_Sts_Cd_GLBL%5F%5Fc</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
