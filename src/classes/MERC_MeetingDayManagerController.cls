@@ -25,6 +25,21 @@ global with sharing class MERC_MeetingDayManagerController extends GLBL_GenericR
 		);
 	}
 
+	//public Map<String,Boolean> fieldToIsEditable {
+	//	get {
+	//		if (fieldToIsEditable == null) {
+	//			fieldToIsEditable = new Map<String, Boolean>();
+	//			Map<String, Schema.SObjectField> m = Schema.SObjectType.Meeting_Day_MERC__c.fields.getMap();
+	//			for (String fieldName : m.keySet()) {
+	//				Schema.DescribeFieldResult F = m.get(fieldName).getDescribe();
+	//				fieldToIsEditable.put(F.getName(), F.isUpdateable());
+	//			}
+	//		}
+	//		return fieldToIsEditable;
+	//	}
+	//	private set;
+	//}
+
 	public override PageReference add() {
 		PageReference p = super.add();
 		if (children.size() == 1) {
