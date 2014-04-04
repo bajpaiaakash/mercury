@@ -544,11 +544,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Total_Hours_of_Service_MERC__c</field>
-            <table>Account.Event_Participants__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Total_Ground_Transporation_ToV_MERC__c</field>
             <table>Account.Event_Participants__r</table>
         </columns>

@@ -8,8 +8,12 @@
         <label>Information</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Meeting_Participant_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>Account_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -272,7 +276,6 @@
     </layoutSections>
     <miniLayout>
         <fields>Meeting_Participant_MERC__c</fields>
-        <fields>Last_Name_MERC__c</fields>
         <fields>RecordTypeId</fields>
         <fields>Travel_Detail_Typ_MERC__c</fields>
         <fields>Vendor_Code_MERC__c</fields>

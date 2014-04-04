@@ -419,11 +419,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Total_Hours_of_Service_MERC__c</field>
-            <table>Meeting_MERC__c.Meeting_Participants_del__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Total_Ground_Transporation_ToV_MERC__c</field>
             <table>Meeting_MERC__c.Meeting_Participants_del__r</table>
         </columns>

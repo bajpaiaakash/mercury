@@ -95,15 +95,11 @@ Created by John A Adams 1/10/2014</description>
         <label>Access</label>
         <picklist>
             <picklistValues>
-                <fullName>Private - Read-Only</fullName>
+                <fullName>Can Add Attendees</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Public - Cannot add Attendees</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Public - Can add Attendees</fullName>
+                <fullName>Cannot Add Attendees</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -223,7 +219,7 @@ Created by John A Adams 1/10/2014</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Sales Representative</fullName>
+                <fullName>Customer Facing Team</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -247,7 +243,7 @@ Created by John A Adams 1/10/2014</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Cross Border Approver</fullName>
+                <fullName>International Event Approver</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -311,27 +307,23 @@ Created by John A Adams 1/10/2014</description>
         <picklistValues>
             <picklist>Access_MERC__c</picklist>
             <values>
-                <fullName>Private - Read-Only</fullName>
+                <fullName>Can Add Attendees</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Public - Can add Attendees</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Public - Cannot add Attendees</fullName>
+                <fullName>Cannot Add Attendees</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Role_MERC__c</picklist>
             <values>
-                <fullName>Medical Director</fullName>
-                <default>false</default>
+                <fullName>Customer Facing Team</fullName>
+                <default>true</default>
             </values>
             <values>
-                <fullName>Sales Representative</fullName>
-                <default>true</default>
+                <fullName>Medical Director</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
     </recordTypes>
@@ -343,15 +335,11 @@ Created by John A Adams 1/10/2014</description>
         <picklistValues>
             <picklist>Access_MERC__c</picklist>
             <values>
-                <fullName>Private - Read-Only</fullName>
+                <fullName>Can Add Attendees</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Public - Can add Attendees</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Public - Cannot add Attendees</fullName>
+                <fullName>Cannot Add Attendees</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -366,11 +354,11 @@ Created by John A Adams 1/10/2014</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Cross Border Approver</fullName>
+                <fullName>Final Budget Approver</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Final Budget Approver</fullName>
+                <fullName>International Event Approver</fullName>
                 <default>false</default>
             </values>
             <values>

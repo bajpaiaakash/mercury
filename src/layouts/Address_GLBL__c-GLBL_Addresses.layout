@@ -35,10 +35,6 @@
         <label>Details</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Account_Name_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Line_1_Adrs_Txt_GLBL__c</field>
             </layoutItems>
@@ -77,12 +73,28 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Phone1_GLBL__c</field>
+                <behavior>Edit</behavior>
+                <field>Elctrnc_Adrs_Cntry_Prfx_Cd_GLBL__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Fax_GLBL__c</field>
+                <behavior>Edit</behavior>
+                <field>Elctrnc_Adrs_Txt_GLBL__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Elctrnc_Adrs_Extnsn_Cd_GLBL__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Elctrnc_Adrs_Fax_Cntry_Prfx_Cd_GLBL__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Elctrnc_Adrs_Fax_Txt_GLBL__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Elctrnc_Adrs_Fax_Extnsn_Cd_GLBL__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

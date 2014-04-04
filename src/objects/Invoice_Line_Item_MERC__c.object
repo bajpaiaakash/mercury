@@ -147,7 +147,7 @@ Created by John A Adams 10/21/2013</description>
         <externalId>false</externalId>
         <formula>IF (ISPICKVAL(Cost_Element_MERC__c, &quot;Speaking Services - 9078&quot;), 
 
- (Invoice_MERC__r.Meeting_Participant_MERC__r.Total_Hours_of_Service__c ),
+ (Invoice_MERC__r.Meeting_Participant_MERC__r.Total_Hours_of_Service_MERC__c ),
 
   Null )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>

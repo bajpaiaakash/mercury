@@ -4,6 +4,9 @@
 .bPageBlock .detailList .dataCol {
 	width: 0;
 }
+#description {
+	padding: 10px;
+}
 </style>
 <script>
 	$ = jQuery.noConflict();
@@ -18,47 +21,70 @@
 		}
 		$('input[id$=fieldsToRefresh]').val(fieldNameArray);
 	}
+
+	function toggleCheckboxes(control) {
+		var boxes = $( "form input:checkbox" );
+		for (var i = 0; i < boxes.length; i++) {
+         	boxes[i].checked = control.checked;
+  		}
+	}
 </script>
-<apex:form>
-	<apex:sectionHeader title="CST App Settings" subtitle="Refresh List of Values" />
-		<apex:pageMessages/>
+<apex:form >
+	<apex:sectionHeader title="CST App Settings" subtitle="Refresh List of Values">
+		<div id="description">This utility allows a System Admin to start a comprehensive search and collection of the list of unique values available for many Account and Account-related fields. Use with care.</div>
+	</apex:sectionHeader>
+		<apex:pageMessages />
+		<div id="clientSideErrorMessage" class="message errorM3" role="alert" style="display: none">
+        <table border="0" cellpadding="0" cellspacing="0" class="messageTable" style="padding:0px;margin:0px;">
+            <tbody><tr valign="top">
+                <td>
+                    <img alt="ERROR" class="msgIcon" src="/s.gif" title="ERROR" />
+                </td>
+                <td class="messageCell"><div id="j_id0:j_id3:j_id6:j_id7:j_id8:0:j_id9:j_id10:j_id12" class="messageText"><span id="j_id0:j_id3:j_id6:j_id7:j_id8:0:j_id9:j_id10:j_id13" style="color:#cc0000">
+                                <h4>Error:</h4></span>No fields selected.<br /></div>
+                </td>
+            </tr>
+        </tbody></table>			
+		</div>
 	<apex:pageBlock title="Multi-select Search Fields" rendered="{!settings.Id != null}">
 		<apex:pageBlockButtons location="top">
-			<apex:commandButton value="Refresh Selected LOVs" action="{!refreshSelectedLOVs}"/>
+			<apex:commandButton value="Refresh Selected LOVs" action="{!refreshSelectedLOVs}" onclick="if ($('input[id$=fieldsToRefresh]').val()=='') { $('#clientSideErrorMessage').show(); return false; }"/>
 
 		</apex:pageBlockButtons>
 		<apex:inputText id="fieldsToRefresh" value="{!fieldsToRefresh}" size="255" rendered="true"/>
 		<apex:pageBlockSection title="Additional Details">
 
 		<!-- TODO: these need to be generated automagically from a picklist in appsettings or some such thing. -->
-			<apex:inputCheckbox onchange="collectFieldNames('Bnft_Dsgn_Cd_GLBL__c')"/>
+			<apex:inputCheckbox onchange="collectFieldNames('a.Bnft_Dsgn_Cd_GLBL__c')"/>
 						 <apex:outputField value="{!settings.Account_Bnft_Dsgn_Cd_CUST__c}"/>
-			<apex:inputCheckbox onchange="collectFieldNames('Clsfctn_Cd_GLBL__c')"/>
+			<apex:inputCheckbox onchange="collectFieldNames('a.Clsfctn_Cd_GLBL__c')"/>
 						 <apex:outputField value="{!settings.Account_Clsfctn_Cd_CUST__c}" />
-			<apex:inputCheckbox onchange="collectFieldNames('Party_Sts_Cd_GLBL__c')"/>
+			<apex:inputCheckbox onchange="collectFieldNames('a.Party_Sts_Cd_GLBL__c')"/>
 						 <apex:outputField value="{!settings.Account_Status_Types_CUST__c}" />
-			<apex:inputCheckbox onchange="collectFieldNames('Spclty_Cd_GLBL__c')"/>
+			<apex:inputCheckbox onchange="collectFieldNames('s.Spclty_Desc_Cd_GLBL__c')"/>
 						 <apex:outputField value="{!settings.Specialty_Spclty_Cd_CUST__c}" />
-			<apex:inputCheckbox onchange="collectFieldNames('Specialty_priority_rank_CUST__c')"/>
+			<apex:inputCheckbox onchange="collectFieldNames('s.Priority_Rank_Nbr_GLBL__c')"/>
 						 <apex:outputField value="{!settings.Specialty_priority_rank_CUST__c}" />
-			<apex:inputCheckbox onchange="collectFieldNames('Altid_Altrnt_Id_Typ_Cd_CUST__c')"/>
+			<apex:inputCheckbox onchange="collectFieldNames('alt.Altrnt_Id_Typ_Desc_GLBL__c')"/>
 						 <apex:outputField value="{!settings.Altid_Altrnt_Id_Typ_Cd_CUST__c}" />
 		</apex:pageBlockSection>
 		<apex:pageBlockSection title="Consent">
-			<apex:inputCheckbox onchange="collectFieldNames('Cnsnt_Sts_Cd_CUST__c')"/>
+			<apex:inputCheckbox onchange="collectFieldNames('c.Cnsnt_Sts_Cd_GLBL__c')"/>
 						 <apex:outputField value="{!settings.Cnsnt_Sts_Cd_CUST__c}" />
-			<apex:inputCheckbox onchange="collectFieldNames('Interaction_Channel_Type_CUST__c')"/>
+			<apex:inputCheckbox onchange="collectFieldNames('c.Interaction_Channel_Type_GLBL__c')"/>
 						 <apex:outputField value="{!settings.Interaction_Channel_Type_CUST__c}" />
-			<apex:inputCheckbox onchange="collectFieldNames('Cnsnt_Prps_Cd_CUST__c')"/>
+			<apex:inputCheckbox onchange="collectFieldNames('c.Cnsnt_Prps_Cd_GLBL__c')"/>
 						 <apex:outputField value="{!settings.Cnsnt_Prps_Cd_CUST__c}" />
 		</apex:pageBlockSection>
 		<apex:pageBlockSection title="Affiliations">
-			<apex:inputCheckbox onchange="collectFieldNames('Affiliation_Countries_CUST__c')"/>
-						 <apex:outputField value="{!settings.Affiliation_Countries_CUST__c}" />
-			<apex:inputCheckbox onchange="collectFieldNames('Affiliation_Role_Types_CUST__c')"/>
+			<apex:inputCheckbox onchange="collectFieldNames('aff.Rltnshp_Typ_Desc_GLBL__c')"/>
 						 <apex:outputField value="{!settings.Affiliation_Role_Types_CUST__c}" />
-			<apex:inputCheckbox onchange="collectFieldNames('Affiliation_Priority_Rank_Nbr_CUST__c')"/>
+			<apex:inputCheckbox onchange="collectFieldNames('aff.Priority_Rank_Nbr_GLBL__c')"/>
 						 <apex:outputField value="{!settings.Affiliation_Priority_Rank_Nbr_CUST__c}" />
+		</apex:pageBlockSection>
+		<apex:pageBlockSection >
+			<hr/>
+			<input type="checkbox" name="Select All" value="selectAll" id="selectAll" onChange="toggleCheckboxes(this);" /><span class="labelCol">Select All</span>
 		</apex:pageBlockSection>
 	</apex:pageBlock>
 </apex:form>
