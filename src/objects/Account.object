@@ -367,8 +367,6 @@ Created by John A Adams 10/23/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
-<<<<<<< HEAD
-=======
         <fullName>CST_App_Menu_Flag_Affil_CUST__c</fullName>
         <description>Rollup to assist in LOV scoping. See CST App Menu Pool object for more details.</description>
         <externalId>false</externalId>
@@ -380,7 +378,6 @@ Created by John A Adams 10/23/2013</description>
         <type>Summary</type>
     </fields>
     <fields>
->>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413
         <fullName>CST_App_Menu_Flag_CUST__c</fullName>
         <description>Flag for the gathering of distinct values in the identified fields. Entries must match the API name of a field on the Account. see the object CST App Menu Pool for more info.</description>
         <externalId>false</externalId>
@@ -407,8 +404,6 @@ Created by John A Adams 10/23/2013</description>
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
-<<<<<<< HEAD
-=======
         <fullName>CST_App_Menu_Flag_Consent_CUST__c</fullName>
         <externalId>false</externalId>
         <label>CST App Menu Flag Consent</label>
@@ -418,7 +413,6 @@ Created by John A Adams 10/23/2013</description>
         <type>Summary</type>
     </fields>
     <fields>
->>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413
         <fullName>CST_Email_Stamp_CUST__c</fullName>
         <description>The stamp of the Person Email, so it is accessible via the workflow action.</description>
         <externalId>false</externalId>
@@ -2345,6 +2339,21 @@ Created by John A Adams 11/4/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>HCP_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup relationship to associate Designated Individual to an HCP Account. Created 04/04/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The HCP who indicated this person as their Designated Individual</inlineHelpText>
+        <label>HCP</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Designated Individuals</relationshipLabel>
+        <relationshipName>Accounts1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Has_Contract_MERC__c</fullName>
         <description>If there is an active contract and the contract signed, field displays Yes, otherwise No.</description>
         <externalId>false</externalId>
@@ -2739,18 +2748,6 @@ Created by John A Adams 10/28/2013</description>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Library_Name_MERC__c</fullName>
-        <description>Formulates what the Library name will be that is used to store the output of this objects DDPs. Created by John Adams 4/2/2014.</description>
-        <externalId>false</externalId>
-        <formula>TEXT (Country_of_Residence_GLBL__c) &amp; &quot; - Private&quot;</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Library Name</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Lilly_Company_Code_GLBL__c</fullName>
@@ -4715,6 +4712,18 @@ Created by John A Adams 11/4/2013</description>
         <name>Account_Relationship Owner2</name>
     </namedFilters>
     <namedFilters>
+        <fullName>Account_00N11000000ePSAEA2</fullName>
+        <active>true</active>
+        <field>Account.HCP_MERC__c</field>
+        <filterItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>HCP</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+        <name>Account_Designated Individual</name>
+    </namedFilters>
+    <namedFilters>
         <fullName>Account_Parent</fullName>
         <active>true</active>
         <field>Account.ParentId</field>
@@ -4937,8 +4946,6 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-<<<<<<< HEAD
-=======
             <picklist>Employment_Specification_MERC__c</picklist>
             <values>
                 <fullName>Employed by one or more Institutions</fullName>
@@ -4965,7 +4972,6 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
->>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413
             <picklist>Industry</picklist>
             <values>
                 <fullName>Agriculture</fullName>

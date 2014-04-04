@@ -191,9 +191,5 @@ Created by J Adams 12/10/2013</description>
     </nameField>
     <pluralLabel>Hotel Allocation</pluralLabel>
     <searchLayouts/>
-<<<<<<< HEAD
-    <sharingModel>Private</sharingModel>
-=======
     <sharingModel>ControlledByParent</sharingModel>
->>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413
 </CustomObject>

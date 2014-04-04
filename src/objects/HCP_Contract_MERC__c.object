@@ -287,18 +287,6 @@ Created by John A Adams 10/7/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Library_Name_MERC__c</fullName>
-        <externalId>false</externalId>
-        <formula>Country_of_Residence_MERC__c &amp; &quot; - Private&quot;</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Library Name</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Lilly_Internal_Signee_MERC__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Used to indicate who the Lilly Internal Employee is for the first round of Contract signature. Oliver Dunford 21st Jan 2014.</description>

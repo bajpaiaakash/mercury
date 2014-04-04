@@ -285,11 +285,7 @@ Created by J Adams 12/10/2013</description>
         <searchFilterFields>Meeting_MERC__c</searchFilterFields>
         <searchFilterFields>Date_MERC__c</searchFilterFields>
     </searchLayouts>
-<<<<<<< HEAD
-    <sharingModel>Private</sharingModel>
-=======
     <sharingModel>ControlledByParent</sharingModel>
->>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413
     <validationRules>
         <fullName>Check_if_any_ToV_has_been_reported</fullName>
         <active>true</active>

@@ -2260,11 +2260,7 @@ Created by John A Adams 12/13/2013</description>
         <searchResultsAdditionalFields>Segment_End_MERC__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Segment_End_Timezone_MERC__c</searchResultsAdditionalFields>
     </searchLayouts>
-<<<<<<< HEAD
-    <sharingModel>Private</sharingModel>
-=======
     <sharingModel>ControlledByParent</sharingModel>
->>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413
     <validationRules>
         <fullName>Confirm_ToV_Reporting_Change_MERC</fullName>
         <active>true</active>

@@ -654,8 +654,6 @@ Created by John A Adams 1/7/2014</description>
         <description>Field created to indicate whether or not CAP should be calculated on the Meeting Participant for the Meeting. Created 12/2/2013 by KLorenti, Mavens Consulting.</description>
         <externalId>false</externalId>
         <label>Include CAP Roll Up</label>
-<<<<<<< HEAD
-=======
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -666,7 +664,6 @@ Created by John A Adams 1/7/2014</description>
         <formula>Account_MERC__r.Institutional_Notification_Complete_MERC__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Institutional Notification Complete</label>
->>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -765,18 +762,6 @@ Created by John A Adams 1/7/2014</description>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Library_Name_MERC__c</fullName>
-        <description>Formulates what the Library name will be that is used to store the output of this objects DDPs. Created by John Adams 4/2/2014.</description>
-        <externalId>false</externalId>
-        <formula>Country_of_Residence_MERC__c &amp; &quot; - Private&quot;</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Library Name</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Maximum_Fee_MERC__c</fullName>

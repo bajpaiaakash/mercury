@@ -74,6 +74,32 @@ Created by John A Adams 9/27/2013.  Changed to a Lookup relationship 3/21/14</de
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
+        <fullName>CST_App_Menu_Flag_CUST__c</fullName>
+        <description>Flag for the gathering of distinct values in the identified fields. Entries must match the API name of a field on this object. See the object CST App Menu Pool for more info.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Flag for the gathering of distinct values in the identified fields. Entries must match the API name of a field on this object. See the object CST App Menu Pool for more info.</inlineHelpText>
+        <label>CST App Menu Flag</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Cnsnt_Prps_Cd_GLBL__c</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cnsnt_Sts_Cd_GLBL__c</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Interaction_Channel_Type_GLBL__c</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
         <fullName>Cmnctn_Chnl_Cd_Cap_GLBL__c</fullName>
         <description>Communication Channel Code
 Changes to consent fields captured at Portal. Created by John A Adams 3/22/2014</description>
@@ -563,31 +589,6 @@ Created by John A Adams 10/22/2013</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
-        <visibleLines>3</visibleLines>
-    </fields>
-    <fields>
-        <fullName>CST_App_Menu_Flag_CUST__c</fullName>
-        <description>Flag for the gathering of distinct values in the identified fields. Entries must match the API name of a field on this object. See the object CST App Menu Pool for more info.</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Flag for the gathering of distinct values in the identified fields. Entries must match the API name of a field on this object. See the object CST App Menu Pool for more info.</inlineHelpText>
-        <label>CST App Menu Flag</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Cnsnt_Prps_Cd_GLBL__c</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Cnsnt_Sts_Cd_GLBL__c</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Interaction_Channel_Type_GLBL__c</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>true</sorted>
-        </picklist>
-        <trackTrending>false</trackTrending>
-        <type>MultiselectPicklist</type>
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
@@ -1508,7 +1509,7 @@ Changes to consent fields captured at Portal. Created by John A Adams 3/22/2014<
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Diary Free</fullName>
+                <fullName>Dairy Free</fullName>
                 <controllingFieldValues>Meals Allergy Preferences</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
@@ -2689,7 +2690,7 @@ Created by John A Adams 2/18/2014</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Diary Free</fullName>
+                <fullName>Dairy Free</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3226,7 +3227,7 @@ Created by John A Adams 2/18/2014</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Diary Free</fullName>
+                <fullName>Dairy Free</fullName>
                 <default>false</default>
             </values>
             <values>

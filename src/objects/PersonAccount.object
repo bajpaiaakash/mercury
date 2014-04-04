@@ -6320,8 +6320,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-<<<<<<< HEAD
-=======
             <picklist>Employment_Specification_MERC__c</picklist>
             <values>
                 <fullName>Employed by one or more Institutions</fullName>
@@ -6348,7 +6346,6 @@
             </values>
         </picklistValues>
         <picklistValues>
->>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413
             <picklist>Industry</picklist>
             <values>
                 <fullName>Agriculture</fullName>
