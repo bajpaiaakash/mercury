@@ -13,12 +13,12 @@ private class CUST_RefreshLOVsControllerTest {
 		Test.setCurrentPage(Page.CUST_RefreshLOVs);
 	}
 
-//	@isTest 
+	@isTest 
 	static void testConstructor() {
 		System.assertNotEquals(null, controller.settings,'settings not initiated.');
 	}
 
-//	@isTest
+	@isTest
 	static void testConstructorError() {
 		ApexPages.StandardController noRecordId = new ApexPages.StandardController(new CST_App_Settings_CUST__c());
 		controller = new CUST_RefreshLOVsController(noRecordId);
@@ -61,6 +61,7 @@ private class CUST_RefreshLOVsControllerTest {
 			'SELECT Id, '+fields+','+util.getDateFieldNames(fields)+
 			' FROM CST_App_Menu_Pool_GLBL__c WHERE App_Settings_CUST__c = :settingsId'
 			);
+		util.p('pool:'+poolRecords);
 		System.assert(!poolRecords.isEmpty(),'Pool records not found WHERE App_Settings_CUST__c = '+ settingsId);
 		System.assertEquals(1,poolRecords.size(),'Unexpected # of pool records. Should just be 1 for '+ settingsId + ' but there are '+ poolRecords.size());
 
@@ -78,14 +79,25 @@ private class CUST_RefreshLOVsControllerTest {
 		}
 	}
 
-	@isTest
-	static void refreshAffiliationFields() {
+    @isTest
+	static void refreshAffiliationFieldsWithInitialValues() {
+		Id settingsId = controller.settings.Id;
+		String affFields = 'Rltnshp_Typ_Desc_GLBL__c,Priority_Rank_Nbr_GLBL__c';
+
+		CST_App_Menu_Pool_GLBL__c initialPoolRecord = new CST_App_Menu_Pool_GLBL__c();
+		initialPoolRecord.App_Settings_CUST__c = settingsId;
+		List<String> fList = affFields.split(',');
+		initialPoolRecord.put(fList[0],'Romeo');
+		initialPoolRecord.put(fList[1],'Juliet');
+		insert initialPoolRecord;
+		// reset controller
+		controller = new CUST_RefreshLOVsController(new ApexPages.StandardController(record));
+
 
 		List<Account> accts = MERC_TestFactory.insertAccounts(2);
 		List<String> newValues = new List<String>{'Othello','Desdemona','Iago','Cassio','Emilia','Bianca','Brabantio','Roderigo','the Duke of Venice'};
 		List<Integer> newNumbers = new List<Integer>{3,7,32,42,44};
 
-		String affFields = 'Rltnshp_Typ_Desc_GLBL__c,Priority_Rank_Nbr_GLBL__c';
 		List<Account> affilAccounts = MERC_TestFactory.insertAccounts(2);
 		List<Affiliation_GLBL__c> affils = new List<Affiliation_GLBL__c>();
 		Integer i= 0, j = 0, k = 0;
@@ -114,7 +126,6 @@ private class CUST_RefreshLOVsControllerTest {
 
 		System.assertEquals(null,result,'Unexpected PageRef returned: '+result);
 
-		Id settingsId = controller.settings.Id;
 		String fields = affFields;
 		List<CST_App_Menu_Pool_GLBL__c> poolRecords = Database.query(
 			'SELECT Id, '+fields+','+util.getDateFieldNames(fields)+
@@ -123,14 +134,17 @@ private class CUST_RefreshLOVsControllerTest {
 		System.assert(!poolRecords.isEmpty(),'Pool records not found WHERE App_Settings_CUST__c = '+ settingsId);
 		System.assertEquals(1,poolRecords.size(),'Unexpected # of pool records. Should just be 1 for '+ settingsId + ' but there are '+ poolRecords.size());
 
+		Integer n = 0;
 		for (String f : affFields.split(',')) {
 			System.assert(poolRecords[0].get(f) != null, f+' was null.');
-			if (f != 'Priority_Rank_Nbr_GLBL__c') {
+			String values = (String) poolRecords[0].get(f);
+
+			if (f != 'Priority_Rank_Nbr_GLBL__c') {  // can't group decimals
 				String SQL = 'SELECT '+f+' from Affiliation_GLBL__c where Id in :affils group by '+f; 
 				AggregateResult[] aggResults = Database.query(SQL);
 
 				for (AggregateResult ar : aggResults) {
-					String values = (String) poolRecords[0].get(f);
+					
 					System.assert(values.contains((String) ar.get(f)),
 						'pool record for '+f+' does not contain test value "'+(String) ar.get(f)+'"');
 					System.assertEquals(Date.today(), poolRecords[0].get(util.getDateFieldName(f)), 'pool record not updated to today');
@@ -138,13 +152,17 @@ private class CUST_RefreshLOVsControllerTest {
 			} else {
 				String SQL = 'SELECT '+f+' from Affiliation_GLBL__c where Id in :affils';
 				affils = Database.query(SQL);
-				for (Affiliation_GLBL__c a : affils) {
-					String values = (String) poolRecords[0].get(f);
+
+				for (Affiliation_GLBL__c a : affils) {					
 					System.assert(values.contains(String.valueOf(a.Priority_Rank_Nbr_GLBL__c)),
 						'pool record for '+f+' does not contain test value "'+a.Priority_Rank_Nbr_GLBL__c+'"');
 					System.assertEquals(Date.today(), poolRecords[0].get(util.getDateFieldName(f)), 'pool record not updated to today');					
 				}
 			}
+
+			if (n==0) System.assert(values.contains('Romeo'), f+' field did not retain initial value "Romeo": '+values);
+			if (n==1) System.assert(values.contains('Juliet'),f+' field did not retain initial value "Juliet": '+values);
+			n++;
 		}
 	}
 
@@ -207,11 +225,13 @@ private class CUST_RefreshLOVsControllerTest {
 		Id settingsId = controller.settings.Id;
 		String fields = acctFields +','+ affFields;
 		List<CST_App_Menu_Pool_GLBL__c> poolRecords = Database.query(
-			'SELECT Id, '+fields+','+util.getDateFieldNames(fields)+
+			'SELECT Id, Last_Job_Status_GLBL__c, '+fields+','+util.getDateFieldNames(fields)+
 			' FROM CST_App_Menu_Pool_GLBL__c WHERE App_Settings_CUST__c = :settingsId'
 			);
 		System.assert(!poolRecords.isEmpty(),'Pool records not found WHERE App_Settings_CUST__c = '+ settingsId);
 		System.assertEquals(1,poolRecords.size(),'Unexpected # of pool records. Should just be 1 for '+ settingsId + ' but there are '+ poolRecords.size());
+		System.assert(poolRecords[0].Last_Job_Status_GLBL__c != null,'Status info was empty.');
+		util.p(poolRecords[0].Last_Job_Status_GLBL__c);
 
 		for (String f : acctFields.split(',')) {
 			System.assert(poolRecords[0].get(f) != null, f+' was null.');
@@ -227,20 +247,18 @@ private class CUST_RefreshLOVsControllerTest {
 		}
 
 		for (String f : affFields.split(',')) {
-			System.assert(poolRecords[0].get(f) != null, f+' was null.');
-			String SQL = 'SELECT '+f+' from Affiliation_GLBL__c where Id in :affils group by '+f; 
-			AggregateResult[] aggResults = Database.query(SQL);
+			if (f != 'Priority_Rank_Nbr_GLBL__c') {
+				System.assert(poolRecords[0].get(f) != null, f+' was null.');
+				String SQL = 'SELECT '+f+' from Affiliation_GLBL__c where Id in :affils group by '+f; 
+				AggregateResult[] aggResults = Database.query(SQL);
 
-			for (AggregateResult ar : aggResults) {
-				String values = (String) poolRecords[0].get(f);
-				System.assert(values.contains((String) ar.get(f)),
-					'pool record for '+f+' does not contain test value "'+(String) ar.get(f)+'"');
-				System.assertEquals(Date.today(), poolRecords[0].get(util.getDateFieldName(f)), 'pool record not updated to today');
+				for (AggregateResult ar : aggResults) {
+					String values = (String) poolRecords[0].get(f);
+					System.assert(values.contains((String) ar.get(f)),
+						'pool record for '+f+' does not contain test value "'+(String) ar.get(f)+'"');
+					System.assertEquals(Date.today(), poolRecords[0].get(util.getDateFieldName(f)), 'pool record not updated to today');
+				}
 			}
 		}
-	}
-
-	static void p(String m) {
-		System.debug('\n\n\nYYZ - '+m+'\n\n\n\n');
 	}
 }

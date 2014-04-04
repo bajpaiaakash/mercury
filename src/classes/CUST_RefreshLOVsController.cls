@@ -1,17 +1,17 @@
 public with sharing class CUST_RefreshLOVsController {
 
-	CUST_RefreshLOVsUtil       util;
-	CST_App_Menu_Pool_GLBL__c  pool;
-	final Map<String,String>   prefixes;
+	CUST_RefreshLOVsUtil              util;
+	CST_App_Menu_Pool_GLBL__c         pool;
 	public CST_App_Settings_CUST__c   settings { get; private set; }
 	public String 					  fieldsToRefresh { get; set; }
+	public String                     email { get; set; }
 
 	public CUST_RefreshLOVsController(ApexPages.StandardController controller) {
 
 		CST_App_Settings_CUST__c record = (CST_App_Settings_CUST__c) controller.getRecord();
 
 		if (record.Id != null) {
-			// get all fields in the App Settings record
+			// get all fields in the App Settings record for VF page
 			MERC_Util.SelectAll allSelector = new MERC_Util.SelectAll(CST_App_Settings_CUST__c.sObjectType, record.Id);
 			settings = Database.query(allSelector.SOQL);
 
@@ -25,15 +25,6 @@ public with sharing class CUST_RefreshLOVsController {
 				System.debug(LoggingLevel.WARN, 'When getting pool records: '+qe.getMessage());
 			}
 			
-			// init prefix matching
-			prefixes = new Map<String,String>{
-				'a'=>'Account',
-				'aff'=>'Affiliation_GLBL__c',
-				'alt'=>'Alternate_Id_GLBL__c',
-				'c'=>'Preferences_and_Consent_GLBL__c',
-				's'=>'Specialty_MERC__c'
-			};
-
 			// init helper class
 			util = new CUST_RefreshLOVsUtil();
 		} else {
@@ -42,42 +33,57 @@ public with sharing class CUST_RefreshLOVsController {
 	}
 
 	public PageReference refreshSelectedLOVs() {
-		ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Info, 'fieldsToRefresh: '+fieldsToRefresh));
-		Map<String, List<String>> objectsToFields = new Map<String, List<String>>();
-		for (String field : fieldsToRefresh.split(',')) {
-			util.p('field :'+field+' from '+fieldsToRefresh);
-			processSubmittedField(field, objectsToFields);
+		if (fieldsToRefresh==null || fieldsToRefresh=='') {
+			ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'No fields selected for refresh.'));
+			return null;
 		}
-		util.p('Setting fieldsToRefresh to: '+objectsToFields);
 
-		refresh(objectsToFields, getEarliestModDate(fieldsToRefresh));
+		Map<String, CUST_RefreshLOVsUtil.ObjToken> objMap = new Map<String, CUST_RefreshLOVsUtil.ObjToken>();
+		for (String field : fieldsToRefresh.split(',')) {
+			processSubmittedField(field, objMap);
+		}
 
-		//TODO - !!!! SANITIZE INCOMING FIELD NAMES!!!
+		refresh(objMap, getEarliestModDate(objMap));
 		return null;
 	}
 
-	public void refresh(Map<String, List<String>> objectsToFields, Date d) {
+	public void refresh(Map<String, CUST_RefreshLOVsUtil.ObjToken> objMap, Date d) {
 		CST_App_Menu_Pool_GLBL__c p = (pool != null) ? pool : new CST_App_Menu_Pool_GLBL__c();
-		CUST_RefreshLOVsBatch batch = new CUST_RefreshLOVsBatch(settings, p, objectsToFields, d);
+		p.App_Settings_CUST__c = settings.Id;
+		CUST_RefreshLOVsBatch batch = new CUST_RefreshLOVsBatch(p, objMap, d, email);
 		Database.executeBatch(batch);
+		String message = 'The CST data collection process has been started. An email will be sent to '+UserInfo.getUserEmail()+
+		' when the process is completed. Status can be monitored via the Salesforce administrator UI at Setup > Administration Setup > Monitoring > Apex Jobs';
+		ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Info, message));
 	}
 
-	private void processSubmittedField(String objFieldPair, Map<String, List<String>> objectsToFields) {
+	private void processSubmittedField(String objFieldPair, Map<String, CUST_RefreshLOVsUtil.ObjToken> objectsToFields) {
 		List<String> objNameAndFieldName = objFieldPair.split('\\.');
-		util.p('objNameAndFieldName :'+objNameAndFieldName);
-		String objName = prefixes.get(objNameAndFieldName[0]);
-		if (objName != null) {
-			if (objectsToFields.get(objName)==null) objectsToFields.put(objName, new List<String>());
-			objectsToFields.get(objName).add(objNameAndFieldName[1]);
+		
+		CUST_RefreshLOVsUtil.ObjToken t = new CUST_RefreshLOVsUtil.ObjToken(objNameAndFieldName[0]);
+		if (!t.ABBREVIATIONS.containsKey(objNameAndFieldName[0])) {
+			ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Unable to target object. ('+objNameAndFieldName+')'));
 		} else {
-			ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Unable to target object. ('+objNameAndFieldName[0]+')'));
+			if (objectsToFields.get(t.name)==null) {
+				t.fields = new List<String>();
+				t.values = new Map<String,String>();
+				objectsToFields.put(t.name, t);
+			}
+
+			objectsToFields.get(t.name).fields.add(objNameAndFieldName[1]);
+			if (pool!=null && pool.get(objNameAndFieldName[1])!=null) {
+				objectsToFields.get(t.name).values.put(objNameAndFieldName[1], (String) pool.get(objNameAndFieldName[1]));
+			}
 		}
 	}
 
-	public Date getEarliestModDate(String fields) {
+	public Date getEarliestModDate(Map<String, CUST_RefreshLOVsUtil.ObjToken> objMap) {
+		util.p('objMap'+objMap);
+		List<String> fieldNames = new List<String>();
+		for (CUST_RefreshLOVsUtil.ObjToken t : objMap.values()) fieldNames.addAll(t.fields);
+		util.p('fieldNames'+fieldNames);
 
 		List<String> dateFieldNames = new List<String>();
-		List<String> fieldNames = fields.split(',');
 		for (String s : fieldNames) dateFieldNames.add(util.getDateFieldName(s));
 
 		List<Date> captureDates = new List<Date>();
