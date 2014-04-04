@@ -309,10 +309,11 @@
         <availability>online</availability>
         <description>Refreshes the values of the associated LOV</description>
         <displayType>button</displayType>
-        <linkType>javascript</linkType>
+        <height>600</height>
+        <linkType>page</linkType>
         <masterLabel>Refresh</masterLabel>
-        <openType>onClickJavaScript</openType>
+        <openType>noSidebar</openType>
+        <page>CUST_RefreshLOVs</page>
         <protected>false</protected>
-        <url>alert(&apos;hello, world&apos;);</url>
     </webLinks>
 </CustomObject>
