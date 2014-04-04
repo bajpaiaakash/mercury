@@ -95,8 +95,8 @@ global class CUST_RefreshLOVsUtil {
 				's'=>'Specialities__r'
 		};
 		public final Map<String,String> FILTERS = new Map<String,String> {
-				'aff'=>'CST_App_Menu_Flag_Affil_CUST__c',
-				'c'=>'CST_App_Menu_Flag_Consent_CUST__c'
+				'aff'=>'CST_App_Menu_Flag_Affil_CUST__c'
+			//	'c'=>'CST_App_Menu_Flag_Consent_CUST__c'  // removed by Katy :-(
 		};
 
 		public ObjToken(String s) {
