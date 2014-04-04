@@ -29,6 +29,13 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+<<<<<<< HEAD
+=======
+        <apexClass>CUST_RefreshLOVsReviewController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+>>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413
         <apexClass>CUST_RefreshLOVsUtil</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -468,13 +475,34 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+<<<<<<< HEAD
+=======
+        <field>Account.CST_App_Menu_Flag_Affil_CUST__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+>>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413
         <field>Account.CST_App_Menu_Flag_CUST__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+<<<<<<< HEAD
+=======
+        <editable>false</editable>
+        <field>Account.CST_App_Menu_Flag_Consent_CUST__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+>>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413
         <editable>true</editable>
         <field>Account.CST_Email_Stamp_CUST__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.CV_Upload_Step_Complete_MERC__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -540,6 +568,11 @@
         <editable>true</editable>
         <field>Account.Contract_Limitations_on_Use_MERC__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Contract_Signing_Parties_Complete_MERC__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -727,9 +760,19 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Employment_Specification_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.Exec_Smmry_Note_MERC__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Experience_Step_Complete_MERC__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -803,6 +846,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account.HCP_Info_Package_Status_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account.Has_Contract_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -857,6 +905,16 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Institutional_Notification_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Institutional_Notification_Consent_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.Instructor_Assistant_Clinical_Prof_MERC__c</field>
         <readable>true</readable>
@@ -895,6 +953,16 @@
         <editable>true</editable>
         <field>Account.Last_Review_Date_MERC__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Leadership_Committee_Step_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Library_Name_MERC__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -1040,6 +1108,21 @@
         <editable>true</editable>
         <field>Account.Party_Sts_Desc_GLBL__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Payee_Bank_Information_Consent_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Payee_Info_Step_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Payee_and_Bank_Info_Complete_MERC__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -1197,6 +1280,21 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Qualifications_Experience_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Qualifications_Experience_Consent_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Qualifications_Step_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.Quality_Level_GLBL__c</field>
         <readable>true</readable>
@@ -1225,6 +1323,11 @@
         <editable>false</editable>
         <field>Account.Remaining_CAP_MERC__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Research_Publications_Step_Complete_MERC__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -1367,6 +1470,16 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Tax_Invoices_Step_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Teaching_Advising_Step_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.Territory_Id_GLBL__c</field>
         <readable>true</readable>
@@ -1410,6 +1523,11 @@
         <editable>true</editable>
         <field>Account.Title_Desc_GLBL__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Transfer_Info_Step_Complete_MERC__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -1824,6 +1942,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Affiliation_GLBL__c.Afltn_Src_Sys_Cd_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Affiliation_GLBL__c.CST_App_Menu_Flag_CUST__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2280,6 +2403,11 @@
         <editable>true</editable>
         <field>Budget_MERC__c.Internal_Order_Number_MERC__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Budget_MERC__c.Library_Name_MERC__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -2778,6 +2906,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>ContentVersion.Content_Type_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>ContentVersion.Contract_Archive_Date_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2829,6 +2962,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>ContentVersion.Invoice_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ContentVersion.Library_Name_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3030,6 +3168,11 @@
         <editable>true</editable>
         <field>HCP_Contract_MERC__c.Justification_MERC__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>HCP_Contract_MERC__c.Library_Name_MERC__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -3320,6 +3463,11 @@
         <editable>true</editable>
         <field>Invoice_MERC__c.Invoice_Type_MERC__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Invoice_MERC__c.Library_Name_MERC__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -3883,6 +4031,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Meeting_MERC__c.Library_Name_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Meeting_MERC__c.Lock_Meeting_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4377,6 +4530,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Air_Travel_No_Longer_Required_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Air_Travel_Required_MERC__c</field>
         <readable>true</readable>
@@ -4502,6 +4660,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Dietary_Preferences_Step_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Email_MERC__c</field>
         <readable>true</readable>
@@ -4510,6 +4673,11 @@
         <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Email_to_Invite_HCP_to_Portal_MERC__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Emergency_Contact_Step_Complete_MERC__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -4567,9 +4735,19 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Hotel_No_Longer_Required_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Hotel_Required_MERC__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Hotel_Step_Complete_MERC__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -4580,6 +4758,11 @@
         <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Include_CAP_Roll_Up_MERC__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Institutional_Notification_Complete_MERC__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -4595,6 +4778,11 @@
         <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Justification_MERC__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Library_Name_MERC__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -4678,6 +4866,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Payee_Info_Consent_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Payee_and_Bank_Info_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Payment_Required_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4712,9 +4910,19 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Processing_of_Data_Consent_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Proposed_Final_Fee_MERC__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Qualifications_Experience_Complete_MERC__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -4767,6 +4975,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Sponsorship_Agreement_Consent_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Status_MERC__c</field>
         <readable>true</readable>
@@ -4812,6 +5025,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Transparency_Step_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Travel_Adjustment_Amount_MERC__c</field>
         <readable>true</readable>
@@ -4820,6 +5038,16 @@
         <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Travel_Adjustment_Percentage_MERC__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Travel_No_Longer_Required_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Travel_Step_Complete_MERC__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -5194,11 +5422,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Payee_MERC__c.Payment_Method_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Payee_MERC__c.Primary_Payee_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5925,6 +6148,11 @@
         <editable>true</editable>
         <field>Team_Member_MERC__c.User_MERC__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Travel_Itinerary_MERC__c.Account_MERC__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -6907,6 +7135,10 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>CUST_RefreshLOVsReview</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>CreateCaseRedirectMVN</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -7306,6 +7538,25 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <tabVisibilities>
+<<<<<<< HEAD
+=======
+        <tab>CST_App_Menu_Pool_GLBL__c</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>CST_User_Log_CUST__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Get_Started</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Getting_Started</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+>>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413
         <tab>standard-Account</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>

@@ -367,6 +367,20 @@ Created by John A Adams 10/23/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
+<<<<<<< HEAD
+=======
+        <fullName>CST_App_Menu_Flag_Affil_CUST__c</fullName>
+        <description>Rollup to assist in LOV scoping. See CST App Menu Pool object for more details.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Rollup to assist in LOV scoping. See CST App Menu Pool object for more details.</inlineHelpText>
+        <label>CST App Menu Flag Affil</label>
+        <summaryForeignKey>Affiliation_GLBL__c.Account_GLBL__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+>>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413
         <fullName>CST_App_Menu_Flag_CUST__c</fullName>
         <description>Flag for the gathering of distinct values in the identified fields. Entries must match the API name of a field on the Account. see the object CST App Menu Pool for more info.</description>
         <externalId>false</externalId>
@@ -393,6 +407,18 @@ Created by John A Adams 10/23/2013</description>
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
+<<<<<<< HEAD
+=======
+        <fullName>CST_App_Menu_Flag_Consent_CUST__c</fullName>
+        <externalId>false</externalId>
+        <label>CST App Menu Flag Consent</label>
+        <summaryForeignKey>Preferences_and_Consent_GLBL__c.Account_GLBL__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+>>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413
         <fullName>CST_Email_Stamp_CUST__c</fullName>
         <description>The stamp of the Person Email, so it is accessible via the workflow action.</description>
         <externalId>false</externalId>
@@ -402,6 +428,16 @@ Created by John A Adams 10/23/2013</description>
         <trackHistory>false</trackHistory>
         <type>Email</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CV_Upload_Step_Complete_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal to indicate that the CV Upload sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>CV Upload Step Complete</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Calculate_Open_Meeting_Fees_MERC__c</fullName>
@@ -590,6 +626,16 @@ Created by John A Adams 10/24/2013</description>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Signing_Parties_Complete_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal to indicate that the Contract Signing Parties sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Contract Signing Parties Step Complete</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Cost_Cntr_Nbr_GLBL__c</fullName>
@@ -2053,6 +2099,26 @@ Created by John A Adams 10/22/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Employment_Specification_MERC__c</fullName>
+        <description>Used by portal. Captures what HCP specifies as employment for Institutional Notification. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Employment Specification</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Employed by one or more Institutions</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Self-Employed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Exec_Smmry_Note_MERC__c</fullName>
         <description>Date stamps important information captured for the HCP. This should be date stamped for each post and passed via integration to Veeva.
 Created by John A Adams 12/18/2013</description>
@@ -2063,6 +2129,16 @@ Created by John A Adams 12/18/2013</description>
         <trackHistory>false</trackHistory>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Experience_Step_Complete_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal to indicate that the Experience sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Experience Step Complete</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>FMV_Criteria_Map_MERC__c</fullName>
@@ -2243,6 +2319,30 @@ Created by John A Adams 11/4/2013</description>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>HCP_Info_Package_Status_MERC__c</fullName>
+        <description>Used by portal to capture the status of the HCP&apos;s Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>HCP Info Package Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Not Populated</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Saved but not Submitted</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Submitted</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Has_Contract_MERC__c</fullName>
@@ -2511,6 +2611,26 @@ Created by John A Adams 10/22/2013</description>
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>Institutional_Notification_Complete_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal to indicate that the Institutional Notification step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Institutional Notification Step Complete</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Institutional_Notification_Consent_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal to capture that HCP has consented to gathering data for Institutional Notifications. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Institutional Notification Consent</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Instructor_Assistant_Clinical_Prof_MERC__c</fullName>
         <description>Stores experience as Instructor / Assistant Clinical Professor / Clinical Professor / Assistant Professor</description>
         <externalId>false</externalId>
@@ -2609,6 +2729,28 @@ Created by John A Adams 10/28/2013</description>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Leadership_Committee_Step_Complete_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal to indicate that the Leadership/Committee Info sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Leadership/Committee Step Complete</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Library_Name_MERC__c</fullName>
+        <description>Formulates what the Library name will be that is used to store the output of this objects DDPs. Created by John Adams 4/2/2014.</description>
+        <externalId>false</externalId>
+        <formula>TEXT (Country_of_Residence_GLBL__c) &amp; &quot; - Private&quot;</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Library Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Lilly_Company_Code_GLBL__c</fullName>
@@ -3012,6 +3154,39 @@ Created by John A Adams 12/10/2013</description>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Payee_Bank_Information_Consent_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal to capture that HCP has consented to gathering data for Payee and Bank Information. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Payee and Bank Information Consent</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Payee_Info_Step_Complete_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal to indicate that the Payee Information sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Payee Information Step Complete</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Payee_and_Bank_Info_Complete_MERC__c</fullName>
+        <description>Used by portal to indicate that the Payee and Bank Information overall step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF(Payee_Info_Step_Complete_MERC__c  &amp;&amp;
+ Transfer_Info_Step_Complete_MERC__c &amp;&amp;
+ Contract_Signing_Parties_Complete_MERC__c &amp;&amp; 
+ Tax_Invoices_Step_Complete_MERC__c, true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Payee and Bank Info Complete</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Payment_Required_MERC__c</fullName>
@@ -3462,6 +3637,42 @@ Created by John A Adams 11/4/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Qualifications_Experience_Complete_MERC__c</fullName>
+        <description>Used by portal to indicate that the Qualifications and Experience  overall step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF(Qualifications_Step_Complete_MERC__c &amp;&amp;
+   Experience_Step_Complete_MERC__c &amp;&amp;
+   Research_Publications_Step_Complete_MERC__c &amp;&amp; 
+   Teaching_Advising_Step_Complete_MERC__c &amp;&amp;
+   Leadership_Committee_Step_Complete_MERC__c &amp;&amp;
+      IF(ISPICKVAL(Multiple_Specialties_MERC__c,&quot;Yes&quot;),CV_Upload_Step_Complete_MERC__c,true)
+, true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Qualifications and Experience Complete</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Qualifications_Experience_Consent_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal to capture that HCP has consented to gathering data for Qualifications and Experience. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Qualifications and Experience Consent</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Qualifications_Step_Complete_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal to indicate that the Qualifications sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Qualifications Step Complete</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Quality_Level_GLBL__c</fullName>
         <description>Quality Level
 Customer ODS to Mercury Mapping
@@ -3554,6 +3765,16 @@ Created by John A Adams 10/23/2013</description>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Research_Publications_Step_Complete_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal to indicate that the Qualifications sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Research/Publications Step Complete</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Reserved_CAP_MERC__c</fullName>
@@ -3889,6 +4110,26 @@ Created by John A Adams 12/10/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Tax_Invoices_Step_Complete_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal to indicate that the Tax/Invoices sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Tax/Invoices Step Complete</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Teaching_Advising_Step_Complete_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal to indicate that the Teaching/Advising sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Teaching/Advising Step Complete</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Territory_Id_GLBL__c</fullName>
         <description>Pulled over from Workforce SAD.  To indicate the Territory of Sales Reps. Oliver Dunford 12 Dec 2013.</description>
         <externalId>false</externalId>
@@ -3996,6 +4237,16 @@ Created by John A Adams 12/10/2013</description>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Transfer_Info_Step_Complete_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal to indicate that the Bank Transfer Information sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Transfer Information Step Complete</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Transparency_Reporting_Opt_Out_MERC__c</fullName>
@@ -4686,6 +4937,35 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+<<<<<<< HEAD
+=======
+            <picklist>Employment_Specification_MERC__c</picklist>
+            <values>
+                <fullName>Employed by one or more Institutions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self-Employed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>HCP_Info_Package_Status_MERC__c</picklist>
+            <values>
+                <fullName>Not Populated</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Saved but not Submitted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+>>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413
             <picklist>Industry</picklist>
             <values>
                 <fullName>Agriculture</fullName>
@@ -6042,6 +6322,32 @@ Created by John A Adams 11/4/2013</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Employment_Specification_MERC__c</picklist>
+            <values>
+                <fullName>Employed by one or more Institutions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self-Employed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>HCP_Info_Package_Status_MERC__c</picklist>
+            <values>
+                <fullName>Not Populated</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Saved but not Submitted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7583,6 +7889,32 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Employment_Specification_MERC__c</picklist>
+            <values>
+                <fullName>Employed by one or more Institutions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self-Employed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>HCP_Info_Package_Status_MERC__c</picklist>
+            <values>
+                <fullName>Not Populated</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Saved but not Submitted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Hospital_Leadership_Role_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -8124,6 +8456,32 @@ Created by John A Adams 11/4/2013</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Employment_Specification_MERC__c</picklist>
+            <values>
+                <fullName>Employed by one or more Institutions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self-Employed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>HCP_Info_Package_Status_MERC__c</picklist>
+            <values>
+                <fullName>Not Populated</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Saved but not Submitted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9657,6 +10015,32 @@ Created by John A Adams 11/4/2013</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Employment_Specification_MERC__c</picklist>
+            <values>
+                <fullName>Employed by one or more Institutions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self-Employed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>HCP_Info_Package_Status_MERC__c</picklist>
+            <values>
+                <fullName>Not Populated</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Saved but not Submitted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11198,6 +11582,32 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Employment_Specification_MERC__c</picklist>
+            <values>
+                <fullName>Employed by one or more Institutions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self-Employed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>HCP_Info_Package_Status_MERC__c</picklist>
+            <values>
+                <fullName>Not Populated</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Saved but not Submitted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Hospital_Leadership_Role_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -12727,6 +13137,32 @@ Created by John A Adams 11/4/2013</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Employment_Specification_MERC__c</picklist>
+            <values>
+                <fullName>Employed by one or more Institutions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self-Employed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>HCP_Info_Package_Status_MERC__c</picklist>
+            <values>
+                <fullName>Not Populated</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Saved but not Submitted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

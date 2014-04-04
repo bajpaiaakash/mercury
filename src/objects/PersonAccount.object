@@ -1153,6 +1153,32 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Employment_Specification_MERC__c</picklist>
+            <values>
+                <fullName>Employed by one or more Institutions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self-Employed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>HCP_Info_Package_Status_MERC__c</picklist>
+            <values>
+                <fullName>Not Populated</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Saved but not Submitted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Hospital_Leadership_Role_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -2682,6 +2708,32 @@
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Employment_Specification_MERC__c</picklist>
+            <values>
+                <fullName>Employed by one or more Institutions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self-Employed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>HCP_Info_Package_Status_MERC__c</picklist>
+            <values>
+                <fullName>Not Populated</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Saved but not Submitted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4231,6 +4283,32 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Employment_Specification_MERC__c</picklist>
+            <values>
+                <fullName>Employed by one or more Institutions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self-Employed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>HCP_Info_Package_Status_MERC__c</picklist>
+            <values>
+                <fullName>Not Populated</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Saved but not Submitted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Hospital_Leadership_Role_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -5768,6 +5846,32 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Employment_Specification_MERC__c</picklist>
+            <values>
+                <fullName>Employed by one or more Institutions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self-Employed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>HCP_Info_Package_Status_MERC__c</picklist>
+            <values>
+                <fullName>Not Populated</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Saved but not Submitted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Hospital_Leadership_Role_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -6216,6 +6320,35 @@
             </values>
         </picklistValues>
         <picklistValues>
+<<<<<<< HEAD
+=======
+            <picklist>Employment_Specification_MERC__c</picklist>
+            <values>
+                <fullName>Employed by one or more Institutions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Self-Employed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>HCP_Info_Package_Status_MERC__c</picklist>
+            <values>
+                <fullName>Not Populated</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Saved but not Submitted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+>>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413
             <picklist>Industry</picklist>
             <values>
                 <fullName>Agriculture</fullName>

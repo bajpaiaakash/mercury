@@ -132,6 +132,19 @@ Created by John A Adams 10/11/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Library_Name_MERC__c</fullName>
+        <description>Formulates what the Library name will be that is used to store the output of this objects DDPs. Created by John Adams 4/2/2014.</description>
+        <externalId>false</externalId>
+        <formula>TEXT(Meeting_MERC__r.Event_Country_MERC__c)  &amp; &quot; - Private&quot;</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Library Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Master_Budget_Delta_MERC__c</fullName>
         <externalId>false</externalId>
         <formula>if(Master_Budget_MERC__c != &apos;&apos;, Current_Budget_Used_MERC__c - Master_Budget_MERC__r.Current_Budget_Used_MERC__c, 0)</formula>

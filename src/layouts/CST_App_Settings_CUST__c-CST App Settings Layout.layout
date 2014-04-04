@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customButtons>Refresh</customButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -174,6 +175,10 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
+<<<<<<< HEAD
+=======
+        <excludeButtons>New</excludeButtons>
+>>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413
         <fields>NAME</fields>
         <relatedList>CST_App_Menu_Pool_GLBL__c.App_Settings_CUST__c</relatedList>
     </relatedLists>

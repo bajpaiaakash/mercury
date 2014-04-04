@@ -181,6 +181,10 @@ Created by John A Adams 11/5/2013</description>
             </picklistValues>
             <sorted>true</sorted>
         </picklist>
+<<<<<<< HEAD
+=======
+        <trackHistory>false</trackHistory>
+>>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
         <visibleLines>3</visibleLines>

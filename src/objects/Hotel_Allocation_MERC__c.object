@@ -104,17 +104,18 @@
     </fields>
     <fields>
         <fullName>Meeting_Day_MERC__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>Master Detail Relationship to Meeting Day. Created 12/5/2013 by KLorenti, Mavens Consulting</description>
+        <description>Master Detail Relationship to Meeting Day. Created 12/5/2013 by KLorenti, Mavens Consulting Changed to a Master Detail relationship.  4/2/2014 J Adams</description>
         <externalId>false</externalId>
         <label>Meeting Day</label>
         <referenceTo>Meeting_Day_MERC__c</referenceTo>
         <relationshipLabel>Hotel Allocation</relationshipLabel>
         <relationshipName>Hotel_Allocation</relationshipName>
-        <required>false</required>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Lookup</type>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
         <fullName>Meeting_Vendor_MERC__c</fullName>
@@ -190,5 +191,9 @@ Created by J Adams 12/10/2013</description>
     </nameField>
     <pluralLabel>Hotel Allocation</pluralLabel>
     <searchLayouts/>
+<<<<<<< HEAD
     <sharingModel>Private</sharingModel>
+=======
+    <sharingModel>ControlledByParent</sharingModel>
+>>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413
 </CustomObject>

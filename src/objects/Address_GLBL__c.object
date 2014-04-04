@@ -84,9 +84,13 @@ Created by John A Adams 9/27/2013</description>
     <fields>
         <fullName>Address_Combined_MERC__c</fullName>
         <description>Combines all address lines into one field for Search.
-Created by John Adams 1/13/14</description>
+Created by John Adams 1/13/14  (Modified on 4/2/2014)</description>
         <externalId>false</externalId>
-        <formula>Line_1_Adrs_Txt_GLBL__c &amp;&apos; &apos;&amp; Line_2_Adrs_Txt_GLBL__c</formula>
+        <formula>IF (NOT (ISBLANK(Line_1_Adrs_Txt_GLBL__c)),  Line_1_Adrs_Txt_GLBL__c,&quot;&quot;)&amp; &quot;&quot; &amp;
+IF (NOT (ISBLANK(Line_2_Adrs_Txt_GLBL__c)), &quot;, &quot;&amp; Line_2_Adrs_Txt_GLBL__c, &quot;&quot;) &amp; &quot;&quot; &amp;
+IF (NOT (ISBLANK(Line_3_Adrs_Txt_GLBL__c)),  &quot;, &quot;&amp; Line_3_Adrs_Txt_GLBL__c, &quot;&quot;)&amp; &quot;&quot; &amp;
+IF (NOT (ISBLANK(Line_4_Adrs_Txt_GLBL__c)),  &quot;, &quot;&amp; Line_4_Adrs_Txt_GLBL__c, &quot;&quot;)&amp; &quot;&quot; &amp;
+IF (NOT (ISBLANK(Line_5_Adrs_Txt_GLBL__c)),  &quot;, &quot;&amp; Line_5_Adrs_Txt_GLBL__c, &quot;&quot;)</formula>
         <label>Address Combined</label>
         <required>false</required>
         <trackHistory>false</trackHistory>

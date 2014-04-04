@@ -50,6 +50,10 @@
                 <field>Meeting_Scope_MERC__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Expose_on_Portal_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Meeting_Cancellation_Date_MERC__c</field>
             </layoutItems>

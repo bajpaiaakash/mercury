@@ -18,6 +18,11 @@ public with sharing class MERC_TravelItineraryNewEditController extends GLBL_Bas
                 this.mySobject.put('Id', null);
             }
 
+            if (this.mySobject.get('Meeting_Participant_MERC__c') != null) {
+                String meetingParticipantId = (String)this.mySobject.get('Meeting_Participant_MERC__c');
+                this.mySobject.put('Account_MERC__c', [SELECT Account_MERC__c FROM Meeting_Participant_MERC__c WHERE ID = :meetingParticipantId].Account_MERC__c);
+            }
+
             Schema.DescribeFieldResult meetingTimeZoneFieldDescribe = Meeting_MERC__c.Meeting_Time_Zone_MERC__c.getDescribe();
             String userTimeZoneDefault = MERC_Util.getTimeZonePicklistValueForCurrentUser(meetingTimeZoneFieldDescribe);
             if (this.mySobject.get('Segment_Begin_Timezone_MERC__c') == null)

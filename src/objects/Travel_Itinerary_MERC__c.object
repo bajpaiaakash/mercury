@@ -111,6 +111,20 @@ Created by John A Adams 10/9/2013</description>
         <label>Date/Time Information</label>
     </fieldSets>
     <fields>
+        <fullName>Account_MERC__c</fullName>
+        <description>Master Detail  relationship between Travel Itinerary and the Account.  Created by John Adams 4/2/2014</description>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Travel Itineraries</relationshipLabel>
+        <relationshipName>Travel_Itineraries</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
         <fullName>Account_Number_MERC__c</fullName>
         <description>The PNR back office account number. Oliver Dunford 14th Dec 2013</description>
         <externalId>false</externalId>
@@ -1604,6 +1618,7 @@ Created by John A Adams 12/13/2013</description>
         <columns>Traveller_Name_MERC__c</columns>
         <columns>Vendor_MERC__c</columns>
         <columns>CREATED_DATE</columns>
+        <columns>Account_MERC__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
         <language>en_US</language>
@@ -2245,7 +2260,11 @@ Created by John A Adams 12/13/2013</description>
         <searchResultsAdditionalFields>Segment_End_MERC__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Segment_End_Timezone_MERC__c</searchResultsAdditionalFields>
     </searchLayouts>
+<<<<<<< HEAD
     <sharingModel>Private</sharingModel>
+=======
+    <sharingModel>ControlledByParent</sharingModel>
+>>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413
     <validationRules>
         <fullName>Confirm_ToV_Reporting_Change_MERC</fullName>
         <active>true</active>

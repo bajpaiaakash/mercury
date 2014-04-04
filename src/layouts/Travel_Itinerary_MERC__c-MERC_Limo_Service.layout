@@ -31,8 +31,12 @@
         <label>Fields</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Meeting_Participant_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>Account_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

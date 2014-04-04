@@ -41,6 +41,11 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
+        <displayedFields>
+            <field>Content_Type_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
         <label>Account</label>
     </fieldSets>
     <fieldSets>
@@ -68,6 +73,11 @@
         </displayedFields>
         <displayedFields>
             <field>Code_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Content_Type_MERC__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -126,6 +136,11 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
+        <displayedFields>
+            <field>Content_Type_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
         <label>HCP Contract</label>
     </fieldSets>
     <fieldSets>
@@ -163,6 +178,11 @@
         </displayedFields>
         <displayedFields>
             <field>Invoice_Archive_Date_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Content_Type_MERC__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -216,6 +236,11 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
+        <displayedFields>
+            <field>Content_Type_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
         <label>Meeting_MERC</label>
     </fieldSets>
     <fieldSets>
@@ -238,6 +263,11 @@
         </displayedFields>
         <displayedFields>
             <field>Expose_on_Portal_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Content_Type_MERC__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -351,6 +381,18 @@
 &quot;Proof of Consulting Services&quot;,&quot;MKT100&quot;,
 &quot;None&quot;)</formula>
         <label>Retention Code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Content_Type_MERC__c</fullName>
+        <description>Displays Content Type. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>RecordType.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Content Type</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Text</type>
@@ -610,6 +652,30 @@
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Library_Name_MERC__c</fullName>
+        <description>Populates the name of a Library Field.
+Created on 4/3/2014 by John Adams</description>
+        <externalId>false</externalId>
+        <formula>IF(NOT(ISBLANK(Invoice_MERC__c)),   Invoice_MERC__r.Payee_Country_MERC__c  &amp; &quot; - Private&quot;,
+ IF(NOT(ISBLANK(HCP_Contract_MERC__c)), HCP_Contract_MERC__r.Country_of_Residence_MERC__c &amp; &quot; - Private&quot;,
+  IF(NOT(ISBLANK(Budget_MERC__c )), TEXT(Meeting_MERC__r.Event_Country_MERC__c) &amp; &quot; - Private&quot;,
+   IF(NOT(ISBLANK(Meeting_Participant_MERC__c )),  Meeting_Participant_MERC__r.Country_of_Residence_MERC__c &amp; &quot; - Private&quot;,
+    IF(NOT(ISBLANK(Account_GLBL__c )),  Country_of_Residence_MERC__c &amp; &quot; - Private&quot;,
+     IF(NOT(ISBLANK(Meeting_MERC__c )),  Meeting_Country_MERC__c  &amp; &quot; - Public&quot;,
+      &quot;Mercury&quot;)
+     )
+    )
+  )
+ )
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Library Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Meeting_Archive_Date_MERC__c</fullName>

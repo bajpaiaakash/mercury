@@ -21,7 +21,8 @@ public with sharing class MERC_AgendaBuilderController extends GLBL_GenericRelat
 			new List<String> {  //parentFields
 				'Id', 
 				'Name',
-				'Meeting_Time_Zone_MERC__c'
+				'Meeting_Time_Zone_MERC__c',
+				'Start_Time_of_Meeting_MERC__c'
 			},
 			MERC_Util.getFieldSetFieldList('Agenda_Item_MERC__c', new List<String>{
 				'Agenda_Builder_MERC', 
@@ -30,6 +31,21 @@ public with sharing class MERC_AgendaBuilderController extends GLBL_GenericRelat
 			}), //childFields
 			'Start_Time_MERC__c' //orderChildrenBy
 		);
+	}
+
+	public override PageReference add() {
+		PageReference p = super.add();
+		if (children.size() == 1) {
+			DateTime startTimeOfMeeting = (DateTime)parent.get('Start_Time_of_Meeting_MERC__c');
+			children.get(0).so.put('Start_Time_MERC__c', startTimeOfMeeting);
+			children.get(0).so.put('End_Time_MERC__c', startTimeOfMeeting.addHours(1));
+		} else if (children.size() > 1) {
+			DateTime prevTime = (DateTime)children.get(children.size()-2).so.get('Start_Time_MERC__c');
+			DateTime nextTime = prevTime.addHours(1); 
+			children.get(children.size()-1).so.put('Start_Time_MERC__c', nextTime);
+			children.get(children.size()-1).so.put('End_Time_MERC__c', nextTime.addHours(1));
+		}
+		return p;
 	}
 
 	List<Sobject> getSobjects(List<GLBL_GenericRelatedListController.GenericSobjectWrapper> children) {

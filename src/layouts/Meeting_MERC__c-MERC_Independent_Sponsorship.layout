@@ -267,6 +267,17 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Formatted_Name_MERC__c</fields>
+        <fields>Type_MERC__c</fields>
+        <fields>Date_of_Event_MERC__c</fields>
+        <fields>End_Date_of_Event_MERC__c</fields>
+        <fields>Event_Country_MERC__c</fields>
+        <fields>Meeting_Status_MERC__c</fields>
+        <fields>CREATEDBY_USER</fields>
+        <relatedList>Meeting_MERC__c.Parent_Meeting_MERC__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
         <fields>Budget_Date_MERC__c</fields>
         <fields>Version_Number_MERC__c</fields>
         <fields>Status_MERC__c</fields>

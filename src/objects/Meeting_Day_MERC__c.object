@@ -229,16 +229,18 @@ Created by John A Adams 10/15/2013</description>
     </fields>
     <fields>
         <fullName>Meeting_MERC__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>Lookup relationship to Meeting. Created 10/10/2013 by KLorenti</description>
+        <description>Lookup relationship to Meeting. Created 10/10/2013 by KLorenti 
+Changed to a Master Detail relationship.  4/2/2014 J Adams</description>
         <externalId>false</externalId>
         <label>Meeting</label>
         <referenceTo>Meeting_MERC__c</referenceTo>
         <relationshipLabel>Meeting Days</relationshipLabel>
         <relationshipName>Meeting_Days</relationshipName>
-        <required>false</required>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
         <trackTrending>false</trackTrending>
-        <type>Lookup</type>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
         <fullName>Meeting_Time_Zone_MERC__c</fullName>
@@ -283,7 +285,11 @@ Created by J Adams 12/10/2013</description>
         <searchFilterFields>Meeting_MERC__c</searchFilterFields>
         <searchFilterFields>Date_MERC__c</searchFilterFields>
     </searchLayouts>
+<<<<<<< HEAD
     <sharingModel>Private</sharingModel>
+=======
+    <sharingModel>ControlledByParent</sharingModel>
+>>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413
     <validationRules>
         <fullName>Check_if_any_ToV_has_been_reported</fullName>
         <active>true</active>

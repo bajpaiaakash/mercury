@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <actionOverrides>
         <actionName>Accept</actionName>
         <type>Default</type>
@@ -335,27 +335,6 @@ Created by John A Adams 10/17/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Primary_Payee_MERC__c</fullName>
-        <description>Identifies the payee record as the primary account to be used for payment 
-Created by John A Adams 10/17/2013</description>
-        <externalId>false</externalId>
-        <label>Primary Payee</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>SAP_Vendor_ID_MERC__c</fullName>
         <description>SAP Vender ID number - used to integrate with SAP system
 Created by John A Adams 9/27/2013</description>
@@ -449,7 +428,6 @@ Created by John A Adams 2/18/2014</description>
         <columns>Account_MERC__c</columns>
         <columns>NAME</columns>
         <columns>SAP_Vendor_ID_MERC__c</columns>
-        <columns>Primary_Payee_MERC__c</columns>
         <columns>Payee_Country_MERC__c</columns>
         <columns>CURRENCY_ISO_CODE</columns>
         <filterScope>Everything</filterScope>
@@ -478,13 +456,13 @@ Created by John A Adams 2/18/2014</description>
     <pluralLabel>Payee</pluralLabel>
     <searchLayouts>
         <customTabListAdditionalFields>Account_MERC__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Primary_Payee_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields xsi:nil="true"/>
         <customTabListAdditionalFields>SAP_Vendor_ID_MERC__c</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>Account_MERC__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Primary_Payee_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields xsi:nil="true"/>
         <lookupDialogsAdditionalFields>SAP_Vendor_ID_MERC__c</lookupDialogsAdditionalFields>
         <searchResultsAdditionalFields>Account_MERC__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Primary_Payee_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields xsi:nil="true"/>
         <searchResultsAdditionalFields>SAP_Vendor_ID_MERC__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>

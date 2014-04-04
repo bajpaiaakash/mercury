@@ -12,6 +12,10 @@
                 <field>Meeting_Participant_MERC__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Required</behavior>
+                <field>Account_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>First_Name_MERC__c</field>
             </layoutItems>
@@ -223,7 +227,6 @@
     </layoutSections>
     <miniLayout>
         <fields>Meeting_Participant_MERC__c</fields>
-        <fields>Last_Name_MERC__c</fields>
         <fields>RecordTypeId</fields>
         <fields>Travel_Detail_Typ_MERC__c</fields>
         <fields>Vendor_Name_MERC__c</fields>

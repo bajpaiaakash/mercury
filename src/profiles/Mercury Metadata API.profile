@@ -29,6 +29,13 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+<<<<<<< HEAD:src/profiles/Mercury Metadata API.profile
+=======
+        <apexClass>CUST_RefreshLOVsReviewController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+>>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413:src/permissionsets/Mercury_Meeting_Owner_Edit_OLD.permissionset
         <apexClass>CUST_RefreshLOVsUtil</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -468,6 +475,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+<<<<<<< HEAD:src/profiles/Mercury Metadata API.profile
         <field>Account.CST_App_Menu_Flag_CUST__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -478,6 +486,33 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+=======
+        <field>Account.CST_App_Menu_Flag_Affil_CUST__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.CST_App_Menu_Flag_CUST__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.CST_App_Menu_Flag_Consent_CUST__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.CST_Email_Stamp_CUST__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.CV_Upload_Step_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+>>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413:src/permissionsets/Mercury_Meeting_Owner_Edit_OLD.permissionset
         <field>Account.Calculate_Open_Meeting_Fees_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -542,7 +577,16 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+<<<<<<< HEAD:src/profiles/Mercury Metadata API.profile
         <editable>true</editable>
+=======
+        <editable>false</editable>
+        <field>Account.Contract_Signing_Parties_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+>>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413:src/permissionsets/Mercury_Meeting_Owner_Edit_OLD.permissionset
         <field>Account.Cost_Cntr_Nbr_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -727,9 +771,23 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+<<<<<<< HEAD:src/profiles/Mercury Metadata API.profile
         <editable>true</editable>
+=======
+        <editable>false</editable>
+        <field>Account.Employment_Specification_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+>>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413:src/permissionsets/Mercury_Meeting_Owner_Edit_OLD.permissionset
         <field>Account.Exec_Smmry_Note_MERC__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Experience_Step_Complete_MERC__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -803,6 +861,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account.HCP_Info_Package_Status_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account.Has_Contract_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -857,7 +920,21 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+<<<<<<< HEAD:src/profiles/Mercury Metadata API.profile
         <editable>true</editable>
+=======
+        <editable>false</editable>
+        <field>Account.Institutional_Notification_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Institutional_Notification_Consent_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+>>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413:src/permissionsets/Mercury_Meeting_Owner_Edit_OLD.permissionset
         <field>Account.Instructor_Assistant_Clinical_Prof_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -897,7 +974,21 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+<<<<<<< HEAD:src/profiles/Mercury Metadata API.profile
         <editable>true</editable>
+=======
+        <editable>false</editable>
+        <field>Account.Leadership_Committee_Step_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Library_Name_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+>>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413:src/permissionsets/Mercury_Meeting_Owner_Edit_OLD.permissionset
         <field>Account.Lilly_Company_Code_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1042,7 +1133,26 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+<<<<<<< HEAD:src/profiles/Mercury Metadata API.profile
         <editable>true</editable>
+=======
+        <editable>false</editable>
+        <field>Account.Payee_Bank_Information_Consent_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Payee_Info_Step_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Payee_and_Bank_Info_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+>>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413:src/permissionsets/Mercury_Meeting_Owner_Edit_OLD.permissionset
         <field>Account.Payment_Required_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1197,7 +1307,26 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+<<<<<<< HEAD:src/profiles/Mercury Metadata API.profile
         <editable>true</editable>
+=======
+        <editable>false</editable>
+        <field>Account.Qualifications_Experience_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Qualifications_Experience_Consent_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Qualifications_Step_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+>>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413:src/permissionsets/Mercury_Meeting_Owner_Edit_OLD.permissionset
         <field>Account.Quality_Level_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1227,7 +1356,16 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+<<<<<<< HEAD:src/profiles/Mercury Metadata API.profile
         <editable>true</editable>
+=======
+        <editable>false</editable>
+        <field>Account.Research_Publications_Step_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+>>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413:src/permissionsets/Mercury_Meeting_Owner_Edit_OLD.permissionset
         <field>Account.Reserved_CAP_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1367,7 +1505,21 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+<<<<<<< HEAD:src/profiles/Mercury Metadata API.profile
         <editable>true</editable>
+=======
+        <editable>false</editable>
+        <field>Account.Tax_Invoices_Step_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Teaching_Advising_Step_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+>>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413:src/permissionsets/Mercury_Meeting_Owner_Edit_OLD.permissionset
         <field>Account.Territory_Id_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1412,7 +1564,16 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+<<<<<<< HEAD:src/profiles/Mercury Metadata API.profile
         <editable>true</editable>
+=======
+        <editable>false</editable>
+        <field>Account.Transfer_Info_Step_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+>>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413:src/permissionsets/Mercury_Meeting_Owner_Edit_OLD.permissionset
         <field>Account.Transparency_Reporting_Opt_Out_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1828,6 +1989,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Affiliation_GLBL__c.CST_App_Menu_Flag_CUST__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Affiliation_GLBL__c.Del_Date_GLBL__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2098,6 +2264,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Alternate_Id_GLBL__c.CST_App_Menu_Flag_CUST__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Alternate_Id_GLBL__c.Del_Date_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2279,6 +2450,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Budget_MERC__c.Internal_Order_Number_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Budget_MERC__c.Library_Name_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3033,6 +3209,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>HCP_Contract_MERC__c.Library_Name_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>HCP_Contract_MERC__c.Lilly_Internal_Signee_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -3319,6 +3500,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Invoice_MERC__c.Invoice_Type_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Invoice_MERC__c.Library_Name_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3883,6 +4069,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Meeting_MERC__c.Library_Name_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Meeting_MERC__c.Lock_Meeting_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -4378,6 +4569,14 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+<<<<<<< HEAD:src/profiles/Mercury Metadata API.profile
+=======
+        <field>Meeting_Participant_MERC__c.Air_Travel_No_Longer_Required_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+>>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413:src/permissionsets/Mercury_Meeting_Owner_Edit_OLD.permissionset
         <field>Meeting_Participant_MERC__c.Air_Travel_Required_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -4503,12 +4702,25 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+<<<<<<< HEAD:src/profiles/Mercury Metadata API.profile
+=======
+        <field>Meeting_Participant_MERC__c.Dietary_Preferences_Step_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+>>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413:src/permissionsets/Mercury_Meeting_Owner_Edit_OLD.permissionset
         <field>Meeting_Participant_MERC__c.Email_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Email_to_Invite_HCP_to_Portal_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Emergency_Contact_Step_Complete_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4568,17 +4780,38 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+<<<<<<< HEAD:src/profiles/Mercury Metadata API.profile
+=======
+        <field>Meeting_Participant_MERC__c.Hotel_No_Longer_Required_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+>>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413:src/permissionsets/Mercury_Meeting_Owner_Edit_OLD.permissionset
         <field>Meeting_Participant_MERC__c.Hotel_Required_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+<<<<<<< HEAD:src/profiles/Mercury Metadata API.profile
+=======
+        <field>Meeting_Participant_MERC__c.Hotel_Step_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+>>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413:src/permissionsets/Mercury_Meeting_Owner_Edit_OLD.permissionset
         <field>Meeting_Participant_MERC__c.Immediate_Source_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Include_CAP_Roll_Up_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Institutional_Notification_Complete_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4594,6 +4827,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Justification_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Library_Name_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4678,6 +4916,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Payee_Info_Consent_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Payee_and_Bank_Info_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Payment_Required_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -4713,7 +4961,20 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+<<<<<<< HEAD:src/profiles/Mercury Metadata API.profile
+=======
+        <field>Meeting_Participant_MERC__c.Processing_of_Data_Consent_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+>>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413:src/permissionsets/Mercury_Meeting_Owner_Edit_OLD.permissionset
         <field>Meeting_Participant_MERC__c.Proposed_Final_Fee_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Qualifications_Experience_Complete_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4768,6 +5029,14 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+<<<<<<< HEAD:src/profiles/Mercury Metadata API.profile
+=======
+        <field>Meeting_Participant_MERC__c.Sponsorship_Agreement_Consent_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+>>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413:src/permissionsets/Mercury_Meeting_Owner_Edit_OLD.permissionset
         <field>Meeting_Participant_MERC__c.Status_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -4799,6 +5068,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Total_Hours_of_Service_MERC__c</field>
+<<<<<<< HEAD:src/profiles/Mercury Metadata API.profile
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5234,6 +5504,8 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Payee_MERC__c.WS_Updt_HCP_Name_MERC__c</field>
+=======
+>>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413:src/permissionsets/Mercury_Meeting_Owner_Edit_OLD.permissionset
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5248,7 +5520,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+<<<<<<< HEAD:src/profiles/Mercury Metadata API.profile
         <field>Preferences_and_Consent_GLBL__c.Cmnctn_Chnl_Cd_GLBL__c</field>
+=======
+        <field>Meeting_Participant_MERC__c.Transparency_Step_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Travel_Adjustment_Amount_MERC__c</field>
+>>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413:src/permissionsets/Mercury_Meeting_Owner_Edit_OLD.permissionset
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5258,8 +5539,23 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+<<<<<<< HEAD:src/profiles/Mercury Metadata API.profile
         <field>Preferences_and_Consent_GLBL__c.Cmnctn_Chnl_Desc_GLBL__c</field>
         <readable>false</readable>
+=======
+        <field>Meeting_Participant_MERC__c.Travel_No_Longer_Required_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Travel_Step_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting_Participant_MERC__c.Travel_Time_Hrs_MERC__c</field>
+        <readable>true</readable>
+>>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413:src/permissionsets/Mercury_Meeting_Owner_Edit_OLD.permissionset
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -5633,12 +5929,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+<<<<<<< HEAD:src/profiles/Mercury Metadata API.profile
         <field>Preferences_and_Consent_GLBL__c.Src_Block_Flg_Cap_GLBL__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Preferences_and_Consent_GLBL__c.Src_Block_Flg_GLBL__c</field>
+=======
+        <field>Payee_MERC__c.SAP_Vendor_ID_MERC__c</field>
+>>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413:src/permissionsets/Mercury_Meeting_Owner_Edit_OLD.permissionset
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5770,6 +6070,11 @@
         <editable>true</editable>
         <field>Speciality_MERC__c.CST_App_Menu_Flag_CUST__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Speciality_MERC__c.CST_App_Menu_Flag_CUST__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -5924,6 +6229,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Team_Member_MERC__c.User_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Travel_Itinerary_MERC__c.Account_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7181,6 +7491,10 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>CUST_RefreshLOVsReview</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>CreateCaseRedirectMVN</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -7478,12 +7792,18 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
+<<<<<<< HEAD:src/profiles/Mercury Metadata API.profile
         <default>false</default>
+=======
+>>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413:src/permissionsets/Mercury_Meeting_Owner_Edit_OLD.permissionset
         <recordType>Meeting_MERC__c.Meeting_Program</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
+<<<<<<< HEAD:src/profiles/Mercury Metadata API.profile
         <default>false</default>
+=======
+>>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413:src/permissionsets/Mercury_Meeting_Owner_Edit_OLD.permissionset
         <recordType>Meeting_MERC__c.Registered</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -7593,7 +7913,95 @@
         <recordType>Travel_Itinerary_MERC__c.Rail_MERC</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
+<<<<<<< HEAD:src/profiles/Mercury Metadata API.profile
     <tabVisibilities>
+=======
+    <tabSettings>
+        <tab>Address_GLBL__c</tab>
+        <visibility>None</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>Agenda_Item_MERC__c</tab>
+        <visibility>None</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>Budget_MERC__c</tab>
+        <visibility>None</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>CST_App_Menu_Pool_GLBL__c</tab>
+        <visibility>None</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>CST_App_Settings_CUST__c</tab>
+        <visibility>None</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>CST_User_Log_CUST__c</tab>
+        <visibility>None</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>CST_User_Settings_CUST__c</tab>
+        <visibility>None</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>Consent_Setting_GLBL__c</tab>
+        <visibility>None</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>Get_Started</tab>
+        <visibility>None</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>Getting_Started</tab>
+        <visibility>None</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>HCP_Contract_MERC__c</tab>
+        <visibility>None</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>Invoice_MERC__c</tab>
+        <visibility>None</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>Meeting_Day_MERC__c</tab>
+        <visibility>None</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>Meeting_MERC__c</tab>
+        <visibility>None</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>Meeting_Participant_MERC__c</tab>
+        <visibility>None</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>Meeting_Vendor_MERC__c</tab>
+        <visibility>None</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>Payee_MERC__c</tab>
+        <visibility>None</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>Preferences_and_Consent_GLBL__c</tab>
+        <visibility>None</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>Product_Group_GLBL__c</tab>
+        <visibility>None</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>Team_Member_MERC__c</tab>
+        <visibility>None</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>Travel_Itinerary_MERC__c</tab>
+        <visibility>None</visibility>
+    </tabSettings>
+    <tabSettings>
+>>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413:src/permissionsets/Mercury_Meeting_Owner_Edit_OLD.permissionset
         <tab>standard-Account</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>

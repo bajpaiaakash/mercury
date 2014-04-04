@@ -83,6 +83,7 @@
 						 <apex:outputField value="{!settings.Affiliation_Priority_Rank_Nbr_CUST__c}" />
 		</apex:pageBlockSection>
 		<apex:pageBlockSection>
+
 			<hr/>
 			<input type="checkbox" name="Select All" value="selectAll" id="selectAll" onChange="toggleCheckboxes(this);" /><span class="labelCol">Select All</span>
 		</apex:pageBlockSection>

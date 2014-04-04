@@ -92,6 +92,25 @@
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>Air_Travel_No_Longer_Required_MERC__c</fullName>
+        <description>Used by portal to capture if Meeting Participant no longer requires Air Travel, if Air Travel was previously required. Created 04/02/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Air Travel No Longer Required</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Air_Travel_Required_MERC__c</fullName>
         <description>Created to capture if Air Travel is required for Meeting Participant. Created 11/22/2013 by Mavens Consulting</description>
         <externalId>false</externalId>
@@ -386,6 +405,15 @@ Created by John A Adams 3/19/2014</description>
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
+        <fullName>Dietary_Preferences_Step_Complete_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal. Indicates when Meeting Participant has completed the step of dietary preferences during meeting registration. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Dietary Preferences Step Complete</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Email_MERC__c</fullName>
         <description>Stamped by Apex Trigger</description>
         <externalId>false</externalId>
@@ -405,6 +433,15 @@ Created by John A Adams 3/19/2014</description>
         <trackTrending>false</trackTrending>
         <type>Email</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Emergency_Contact_Step_Complete_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal. Indicates when Meeting Participant has completed the step of Emergency Contact during meeting registration. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Emergency Contact Step Complete</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Event_Customer_Id_MERC__c</fullName>
@@ -561,6 +598,15 @@ Created by John Adams on 12/9/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Hotel_No_Longer_Required_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal to capture if Meeting Participant originally required accommodations, but changed their mind and no longer need them.  Created 04/02/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Hotel No Longer Required</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Hotel_Required_MERC__c</fullName>
         <description>When a Meeting Owner is registering participants manually in Mercury, these attributes may be populated. Created 10/28/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -578,6 +624,16 @@ Created by John Adams on 12/9/2013</description>
         </picklist>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Hotel_Step_Complete_MERC__c</fullName>
+        <description>Used by portal. Determines if Meeting Participant has completed the Accommodations step on the portal when RSVP&apos;ing to a Meeting. Created 04/02/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF((!ISBLANK(Date_of_Check_In_MERC__c) &amp;&amp; !ISBLANK(Date_of_Check_Out_MERC__c)) ||   Hotel_No_Longer_Required_MERC__c , true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Hotel Step Complete</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Immediate_Source_MERC__c</fullName>
@@ -598,6 +654,19 @@ Created by John A Adams 1/7/2014</description>
         <description>Field created to indicate whether or not CAP should be calculated on the Meeting Participant for the Meeting. Created 12/2/2013 by KLorenti, Mavens Consulting.</description>
         <externalId>false</externalId>
         <label>Include CAP Roll Up</label>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Institutional_Notification_Complete_MERC__c</fullName>
+        <description>Used by portal. Pulls from Account record to indicate if Institutional Notification Step is completed by HCP. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Account_MERC__r.Institutional_Notification_Complete_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Institutional Notification Complete</label>
+>>>>>>> faa7014d9f128f8d7365ed0793b314d5d4eb5413
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -696,6 +765,18 @@ Created by John A Adams 1/7/2014</description>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Library_Name_MERC__c</fullName>
+        <description>Formulates what the Library name will be that is used to store the output of this objects DDPs. Created by John Adams 4/2/2014.</description>
+        <externalId>false</externalId>
+        <formula>Country_of_Residence_MERC__c &amp; &quot; - Private&quot;</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Library Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Maximum_Fee_MERC__c</fullName>
@@ -896,6 +977,25 @@ Created by John A Adams 10/31/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Payee_Info_Consent_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal. Indicates when Meeting Participant has completed the Payee Information Consent during meeting registration. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Payee Information Consent</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Payee_and_Bank_Info_Complete_MERC__c</fullName>
+        <description>Used by portal. Pulled from Account to display whether Payee and Bank Information step is complete for HCP Info Package. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Account_MERC__r.Payee_and_Bank_Info_Complete_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Payee and Bank Info Complete</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Payment_Required_MERC__c</fullName>
         <description>Pulls in if the contract is without payment.
 Created by John A Adams 10/31/2013</description>
@@ -989,6 +1089,15 @@ Created by John A Adams 10/31/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Processing_of_Data_Consent_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal to indicate that the Meeting Participant agrees to Lilly gathering this their information related needed for RSVP to meeting. Created 04/02/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Processing of Data Consent</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Proposed_Final_Fee_MERC__c</fullName>
         <description>Stores the Proposed Fee.  Is needs to go through a confirmation process with the HCP and Affiliate if it exceeds the Maximum Amount. Oliver Dunford 6th Nov.</description>
         <externalId>false</externalId>
@@ -998,6 +1107,16 @@ Created by John A Adams 10/31/2013</description>
         <scale>2</scale>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Qualifications_Experience_Complete_MERC__c</fullName>
+        <description>Used by portal. Pulled from Account to display whether Qualifications and Experience Step is complete for HCP Info Package. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Account_MERC__r.Qualifications_Experience_Complete_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Qualifications and Experience Complete</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>RTI_Transaction_ID_MERC__c</fullName>
@@ -1121,6 +1240,15 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sponsorship_Agreement_Consent_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal. Indicates when Meeting Participant has consented to Sponsorship Agreement. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Sponsorship Agreement Consent</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Status_MERC__c</fullName>
@@ -1271,6 +1399,15 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Transparency_Step_Complete_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal. Indicates when Meeting Participant has completed the step of Transparency Reporting Consent during meeting registration. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Transparency Reporting Consent Complete</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Travel_Adjustment_Amount_MERC__c</fullName>
         <description>Stamp with the amount of the Travel Adjustment. Created 01/08/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -1311,6 +1448,25 @@ IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;),
         <scale>0</scale>
         <trackTrending>false</trackTrending>
         <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Travel_No_Longer_Required_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal to capture if Meeting Participant no longer requires travel, when Travel Required was originally set to Yes. Created 04/02/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Travel No Longer Required</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Travel_Step_Complete_MERC__c</fullName>
+        <description>Used by portal. Determines if Meeting Participant has completed Travel step when RSVP&apos;ing on the portal. Created 04/02/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(Travel_by_Bus_MERC__c,&quot;Yes&quot;) || ISPICKVAL(Travel_by_Car_MERC__c,&quot;Yes&quot;) ||  ISPICKVAL(Travel_by_Train_MERC__c,&quot;Yes&quot;) || ISPICKVAL( Air_Travel_No_Longer_Required_MERC__c ,&quot;Yes&quot;) || Travel_No_Longer_Required_MERC__c, true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Travel Step Complete</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Travel_Time_Hrs_MERC__c</fullName>
@@ -1596,6 +1752,17 @@ Created by John A Adams 2/18/2014</description>
         <active>true</active>
         <description>For Consulting Projects with no meeting and no logistical requirements</description>
         <label>Consulting</label>
+        <picklistValues>
+            <picklist>Air_Travel_No_Longer_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Air_Travel_Required_MERC__c</picklist>
             <values>
@@ -1897,6 +2064,17 @@ Created by John A Adams 2/18/2014</description>
         <active>true</active>
         <description>A delegate attending a Lilly meeting or an Independent Meeting as a group.</description>
         <label>Delegate</label>
+        <picklistValues>
+            <picklist>Air_Travel_No_Longer_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Air_Travel_Required_MERC__c</picklist>
             <values>
@@ -2218,6 +2396,17 @@ Created by John A Adams 2/18/2014</description>
         <active>true</active>
         <description>Sponsoring of an individual to attend an Independent Meeting.</description>
         <label>Individual Sponsorship</label>
+        <picklistValues>
+            <picklist>Air_Travel_No_Longer_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Air_Travel_Required_MERC__c</picklist>
             <values>
@@ -2555,6 +2744,17 @@ Created by John A Adams 2/18/2014</description>
         <active>true</active>
         <description>HCP contracted to provide services for a Meeting including  includes Consulting and Advisory Meetings</description>
         <label>Service Provider</label>
+        <picklistValues>
+            <picklist>Air_Travel_No_Longer_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Air_Travel_Required_MERC__c</picklist>
             <values>
