@@ -71,10 +71,9 @@ public with sharing class MERC_RequestHCPSignatureController {
     }
 
     @future
-    static void stampEnvelope(Id hcpContractId, String envelopeId, String envelopeUri) {
+    static void stampEnvelope(Id hcpContractId, String envelopeId) {
         HCP_Contract_MERC__c contract = [SELECT ID FROM HCP_Contract_MERC__c WHERE ID = :hcpContractId];
         contract.Docusign_Envelope_Id_MERC__c = envelopeId;
-        contract.Docusign_Envelope_URL_MERC__c = envelopeUri;
         update contract;
     }
 
@@ -108,7 +107,7 @@ public with sharing class MERC_RequestHCPSignatureController {
                 String returnUrl = 'https://' + System.URL.getSalesforceBaseUrl().getHost().remove('-api' ) + '/apex/MERC_RequestHCPSignature?docusignTasStatus=1&id='+this.contract.Id;
                 MERC_DocusignService.EnvelopeResponse r2 = d.requestSignature(signers, pdfBytes, True); //send as draft mode
                 MERC_DocusignService.TagAndSendResponse tasResponse = d.getTagAndSendUrl(r2, returnUrl); //get tas url
-                stampEnvelope(this.contract.Id, r2.envelopeId, r2.uri);
+                stampEnvelope(this.contract.Id, r2.envelopeId);
                 //redirect to tag and send url                
                 PageReference p = new PageReference(tasResponse.url);
                 return p;
@@ -119,7 +118,7 @@ public with sharing class MERC_RequestHCPSignatureController {
                 return null;
             }
         } else {
-            stampEnvelope(this.contract.Id, r.envelopeId, r.uri);
+            stampEnvelope(this.contract.Id, r.envelopeId);
             this.isSent = true;
             return null;
         }

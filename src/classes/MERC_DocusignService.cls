@@ -39,48 +39,114 @@ public with sharing class MERC_DocusignService {
 	    }
     }
 
-    // void parseResponse(String responseBody, String type) {
-    // 	JSONParser parse = JSON.createParser(responseBody);
-    // 	EnvResponse envstat = (EnvResponse)parse.readValueAs(EnvResponse.class);
-    // }
+    private HttpRequest getRequest(String method, String endpoint) {
+        HttpRequest request = new HttpRequest();
+        request.setMethod(method);
+        request.setHeader('Content-Type', 'application/json'); 
+        request.setHeader('Accept', 'application/json');
+        request.setHeader('X-DocuSign-Authentication', this.authHeader); 
+        request.setEndpoint(endpoint);
+        return request;   
+    }
 
     public void login() {
     	Http httpProtocol = new Http();
-    	HttpRequest request = new HttpRequest();
-    	String endpoint = this.baseUrl + 'login_information';
-		request.setEndPoint(endpoint);
-		request.setMethod('GET');
-		request.setHeader('Content-Type', 'application/json'); 
-		request.setHeader('Accept', 'application/json');
-		request.setHeader('X-DocuSign-Authentication', this.authHeader);
-		HttpResponse response1 = httpProtocol.send(request);
-		JSONParser parser = JSON.createParser(response1.getBody());
-		this.loginInfo = (LoginInformation)parser.readValueAs(LoginInformation.class);
+        String endpoint = this.baseUrl + 'login_information';
+    	HttpRequest request = getRequest('GET', endpoint);
+		HttpResponse response = httpProtocol.send(request);
+		JSONParser parser = JSON.createParser(response.getBody());
+
+        if (response.getStatusCode() < 300) {
+            this.loginInfo = (LoginInformation)parser.readValueAs(LoginInformation.class);
+        } else {
+            DocusignServiceError error = (DocusignServiceError)parser.readValueAs(DocusignServiceError.class);
+            throw new DocusignServiceException(error.errorCode+': '+error.message);
+        }
     }
 
     public EnvelopeResponse requestSignature(List<RequiredSigner> requiredSigners, String pdfBytes) {
         return requestSignature(requiredSigners, pdfBytes, false);
     }
 
+    public EnvelopeDetailResponse getEnvelopeDetail(String envelopeId) {
+        Http httpProtocol = new Http();
+        String endpoint = this.baseUrl + 'accounts/' + this.accountId + '/envelopes/'+envelopeId;
+        HttpRequest request = getRequest('GET', endpoint);
+        
+        HttpResponse response = httpProtocol.send(request);
+        String responseBody = response.getBody();
+        System.debug('EnvelopeDetailResponse =>'+responseBody);
+        JSONParser parser = JSON.createParser(responseBody);
+        if (response.getStatusCode() < 300) {
+            EnvelopeDetailResponse tasResponse = (EnvelopeDetailResponse)parser.readValueAs(EnvelopeDetailResponse.class);
+            system.debug(tasResponse);
+            return tasResponse;
+        } else {
+            DocusignServiceError error = (DocusignServiceError)parser.readValueAs(DocusignServiceError.class);
+            throw new DocusignServiceException(error.errorCode+': '+error.message);
+        }
+    }
+
+    public EnvelopeRecipientDetailResponse getEnvelopeRecipientDetails(String envelopeId) {
+        Http httpProtocol = new Http();
+        String endpoint = this.baseUrl + 'accounts/' + this.accountId + '/envelopes/'+envelopeId+'/recipients';
+        HttpRequest request = getRequest('GET', endpoint);
+        
+        HttpResponse response = httpProtocol.send(request);
+        String responseBody = response.getBody();
+        System.debug('EnvelopeRecipientDetailResponse =>'+responseBody);
+        JSONParser parser = JSON.createParser(responseBody);
+
+        if (response.getStatusCode() < 300) {
+            EnvelopeRecipientDetailResponse tasResponse = (EnvelopeRecipientDetailResponse)parser.readValueAs(EnvelopeRecipientDetailResponse.class);
+            system.debug(tasResponse);
+            return tasResponse;
+        } else {
+            DocusignServiceError error = (DocusignServiceError)parser.readValueAs(DocusignServiceError.class);
+            throw new DocusignServiceException(error.errorCode+': '+error.message);  
+        }
+    }
+
     public TagAndSendResponse getTagAndSendUrl(EnvelopeResponse r, String returnUrl) {
         Http httpProtocol = new Http();
-        HttpRequest request = new HttpRequest();
         String endpoint = this.baseUrl + 'accounts/' + this.accountId + '/envelopes/'+r.envelopeId+'/views/sender';
-        request.setEndPoint(endpoint);
-        request.setMethod('POST');
-        request.setHeader('Content-Type', 'application/json'); 
-        request.setHeader('Accept', 'application/json');
-        request.setHeader('X-DocuSign-Authentication', this.authHeader);
+        HttpRequest request = getRequest('POST', endpoint);
         request.setBody('{ "returnUrl" : "'+returnUrl+'" }');
 
         HttpResponse response = httpProtocol.send(request);
         String responseBody = response.getBody();
         System.debug('response =>'+responseBody);
-        
         JSONParser parser = JSON.createParser(responseBody);
-        TagAndSendResponse tasResponse = (TagAndSendResponse)parser.readValueAs(TagAndSendResponse.class);
-        system.debug(tasResponse);
-        return tasResponse;
+        
+        if (response.getStatusCode() < 300) {
+            TagAndSendResponse tasResponse = (TagAndSendResponse)parser.readValueAs(TagAndSendResponse.class);
+            system.debug(tasResponse);
+            return tasResponse;
+        } else {
+            DocusignServiceError error = (DocusignServiceError)parser.readValueAs(DocusignServiceError.class);
+            throw new DocusignServiceException(error.errorCode+': '+error.message);  
+        }
+    }
+
+    public EmbeddedSignResponse getEmbeddedSignUrl(String envelopeId, Signer signer, String returnUrl) {
+        Http httpProtocol = new Http();
+        String endpoint = this.baseUrl + 'accounts/' + this.accountId + '/envelopes/'+envelopeId+'/views/recipient';
+        HttpRequest request = getRequest('POST', endpoint);
+        request.setBody('{ "returnUrl" : "'+returnUrl+'", "clientUserId" : "'+signer.clientUserId+'", "userName" : "'+signer.name+'", "email" : "'+signer.email+'", "AuthenticationMethod" : "None" }');
+
+        HttpResponse response = httpProtocol.send(request);
+        String responseBody = response.getBody();
+        System.debug('EmbeddedSignResponse =>'+responseBody);
+        JSONParser parser = JSON.createParser(responseBody);
+        
+        if (response.getStatusCode() < 300) {
+            EmbeddedSignResponse tasResponse = (EmbeddedSignResponse)parser.readValueAs(EmbeddedSignResponse.class);
+            system.debug(tasResponse);
+            return tasResponse;
+        } else {
+            DocusignServiceError error = (DocusignServiceError)parser.readValueAs(DocusignServiceError.class);
+            throw new DocusignServiceException(error.errorCode+': '+error.message);     
+        }
     }
 
     public EnvelopeResponse requestSignature(List<RequiredSigner> requiredSigners, String pdfBytes, Boolean isDraft) {
@@ -128,11 +194,16 @@ public with sharing class MERC_DocusignService {
         HttpResponse response = httpProtocol.send(request);
         String responseBody = response.getBody();
         System.debug('response =>'+responseBody);
-        
         JSONParser parser = JSON.createParser(responseBody);
-        EnvelopeResponse envelopeStatus = (EnvelopeResponse)parser.readValueAs(EnvelopeResponse.class);
-        system.debug(envelopeStatus);
-        return envelopeStatus;
+        
+        if (response.getStatusCode() < 300) {
+            EnvelopeResponse envelopeStatus = (EnvelopeResponse)parser.readValueAs(EnvelopeResponse.class);
+            system.debug(envelopeStatus);
+            return envelopeStatus;
+        } else {
+            DocusignServiceError error = (DocusignServiceError)parser.readValueAs(DocusignServiceError.class);
+            throw new DocusignServiceException(error.errorCode+': '+error.message);     
+        }
     }
 
     String lineBreak {
@@ -170,11 +241,13 @@ public with sharing class MERC_DocusignService {
         
         for (RequiredSigner rs : requiredSigners) {
             //add signers
-            Signer s = new Signer(rs.acc.PersonEmail, rs.acc.Name, String.valueOf(rs.order), String.valueOf(rs.order));
+            Signer s;
             if (rs.isLilly) {
+                s = new Signer(rs.acc.PersonEmail, rs.acc.Name, String.valueOf(rs.order), String.valueOf(rs.order));
                 if (!isDraft) 
                     s.tabs = lillyTab;
             } else {
+                s = new Signer(rs.acc.PersonEmail, rs.acc.Name, String.valueOf(rs.order), String.valueOf(rs.order), 'hcp-'+MERC_Util.generateRandomString(20));
                 if (!isDraft) 
                     s.tabs = hcpTab;
             }
@@ -251,13 +324,22 @@ public with sharing class MERC_DocusignService {
         public String recipientId;
         public String routingOrder;
         public Tab tabs;
+        public String clientUserId; //if this is included, it signifies embedded signing [hcps only]
         
         public Signer(String emailAddr, String nam, String recpId, String routId) {
             email = emailAddr;
             name = nam;
             recipientId = recpId;
             routingOrder = routId;      
-        }   
+        }
+
+        public Signer(String emailAddr, String nam, String recpId, String routId, String cuId) {
+            email = emailAddr;
+            name = nam;
+            recipientId = recpId;
+            routingOrder = routId;  
+            clientUserId = cuId;    
+        }    
     }
 
     public class Tab {
@@ -295,4 +377,26 @@ public with sharing class MERC_DocusignService {
         public String errorCode;
         public String message;
     }
+
+    public class DocusignServiceError {
+        public String errorCode;
+        public String message;
+    }
+
+    public class EnvelopeRecipientDetailResponse {
+        public List<Signer> signers;
+        public String currentRoutingOrder;
+        public String recipientCount; 
+    }
+
+    public class EnvelopeDetailResponse {
+        public String createdDateTime;
+        public String status;
+    }
+
+    public class EmbeddedSignResponse {
+        public String url;
+    }
+
+    public class DocusignServiceException extends Exception {}
 }

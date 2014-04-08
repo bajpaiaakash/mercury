@@ -38,6 +38,10 @@
                 <behavior>Required</behavior>
                 <field>Meeting_Participant_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Docusign_Envelope_URL_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

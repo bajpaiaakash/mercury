@@ -2274,6 +2274,13 @@ ISCHANGED( Sgmnt_End_TS_MERC__c )) &amp;&amp;
         <errorMessage>ToV has already been reported this meeting participant. Customer Meeting Services needs to confirm this change before it can be made.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Prevent_Travel_Records_post_ToV_Final</fullName>
+        <active>true</active>
+        <description>Prevent  people from adding a new hotel records or travel records that effect ToV once it is final.  Created by John Adams 4/7/2014</description>
+        <errorConditionFormula>ISPICKVAL( Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c , &quot;Yes&quot;)</errorConditionFormula>
+        <errorMessage>The ToV has already been finalised.  No additional Itinerary items can be created.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Travel_Date_Range</fullName>
         <active>true</active>
         <description>Ensure that a Travel/Segment date is within 3 days +/- of the Meeting Start or End Date.  This is to accommodate shoulder dates but also limit the dates that can be chosen.  Created on 02/17/2014 by KLorenti, Mavens Consulting</description>

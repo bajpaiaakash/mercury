@@ -23,7 +23,7 @@ public with sharing class MERC_InvoiceXmlWriter implements GLBL_TriggerHandler.H
 		String requestBody = gen.getAsString();
 
 		HttpRequest req = new HttpRequest();
-     	req.setEndpoint('https://' + System.URL.getSalesforceBaseURL().getHost()+'/services/apexrest/Invoice/XmlWriter');
+     	req.setEndpoint('https://' + System.URL.getSalesforceBaseURL().getHost()+'/services/apexrest/MERC/Invoice/XmlWriter');
      	req.setMethod('POST');
      	req.setBody(requestBody);
 

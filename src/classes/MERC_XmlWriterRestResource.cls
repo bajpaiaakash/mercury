@@ -1,4 +1,4 @@
-@RestResource(urlMapping='/Invoice/XmlWriter')
+@RestResource(urlMapping='/MERC/Invoice/XmlWriter')
 global with sharing class MERC_XmlWriterRestResource {
 	
 	@HttpPost

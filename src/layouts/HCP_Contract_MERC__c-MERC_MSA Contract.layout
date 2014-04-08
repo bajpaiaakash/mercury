@@ -30,6 +30,10 @@
                 <behavior>Required</behavior>
                 <field>MSA_Start_Date_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Docusign_Envelope_URL_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

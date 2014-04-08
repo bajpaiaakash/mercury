@@ -713,7 +713,8 @@ TEXT(Meeting_Participant_MERC__r.Types_of_Service_MERC__c)  &amp; &quot;-&quot; 
 TEXT(DAY(DATEVALUE( Meeting_Participant_MERC__r.Meeting_MERC__r.Start_Time_of_Meeting_MERC__c  ))) &amp;
 TEXT(MONTH(DATEVALUE(Meeting_Participant_MERC__r.Meeting_MERC__r.Start_Time_of_Meeting_MERC__c  ))) &amp; 
 TEXT(YEAR(DATEVALUE(Meeting_Participant_MERC__r.Meeting_MERC__r.Start_Time_of_Meeting_MERC__c ))) &amp;  &quot;-&quot; &amp; Meeting_Participant_MERC__r.Meeting_MERC__r.City_of_Meeting_MERC__c, 
-&quot;Expenses&quot;  &amp; &quot;-&quot; &amp;
+
+TEXT(Meeting_Participant_MERC__r.Purpose_of_Payment_MERC__c)  &amp; &quot;-&quot; &amp;
 TEXT(DAY(DATEVALUE(Meeting_Participant_MERC__r.Meeting_MERC__r.Start_Time_of_Meeting_MERC__c  ))) &amp;
 TEXT(MONTH(DATEVALUE(Meeting_Participant_MERC__r.Meeting_MERC__r.Start_Time_of_Meeting_MERC__c  ))) &amp; 
 TEXT(YEAR(DATEVALUE(Meeting_Participant_MERC__r.Meeting_MERC__r.Start_Time_of_Meeting_MERC__c ))) &amp;  

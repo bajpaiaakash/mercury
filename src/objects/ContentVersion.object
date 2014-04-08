@@ -579,8 +579,7 @@
         <fullName>HCP_Name_MERC__c</fullName>
         <description>Pull in name of customer/HCP from Account. Created 12/6/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <formula>Account_GLBL__r.Name</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <formula>Account_GLBL__r.FirstName &amp; &quot; &quot; &amp; Account_GLBL__r.LastName</formula>
         <label>HCP Name</label>
         <required>false</required>
         <trackHistory>false</trackHistory>

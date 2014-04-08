@@ -990,6 +990,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Map_Field__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.Mdl_Nm_GLBL__c</field>
         <readable>true</readable>
@@ -3116,6 +3121,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>HCP_Contract_MERC__c.Docusign_Envelope_URL_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>HCP_Contract_MERC__c.Institution_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4857,6 +4867,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Proposed_Final_Fee_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting_Participant_MERC__c.Purpose_of_Payment_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

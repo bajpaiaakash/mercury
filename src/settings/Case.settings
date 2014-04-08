@@ -23,7 +23,7 @@
         </routingAddresses>
         <routingAddresses>
             <addressType>EmailToCase</addressType>
-            <caseOrigin>Email</caseOrigin>
+            <caseOrigin>GBEN</caseOrigin>
             <casePriority>Medium</casePriority>
             <createTask>false</createTask>
             <emailAddress>lorentikaty@gmail.com</emailAddress>
