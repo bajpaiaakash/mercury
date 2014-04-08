@@ -1265,19 +1265,6 @@ Created by John A Adams 10/28/2013</description>
         <type>TextArea</type>
     </fields>
     <fields>
-        <fullName>Library_Name_MERC__c</fullName>
-        <description>Formulates what the Library name will be that is used to store the output of this objects DDPs. Created by John Adams 4/2/2014.</description>
-        <externalId>false</externalId>
-        <formula>TEXT (Event_Country_MERC__c) &amp; &quot; - Public&quot;</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Library Name</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Lock_Meeting_MERC__c</fullName>
         <defaultValue>false</defaultValue>
         <description>If checked, the meeting and all related records are locked from editing. -JFerraro Feb 19, 2014</description>

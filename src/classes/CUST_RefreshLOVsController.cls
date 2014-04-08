@@ -36,8 +36,6 @@ public with sharing class CUST_RefreshLOVsController {
 		if (fieldsToRefresh==null || fieldsToRefresh=='') {
 			ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'No fields selected for refresh.'));
 			return null;
-		} else {
-			ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Info, 'fieldsToRefresh: '+fieldsToRefresh));
 		}
 
 		Map<String, CUST_RefreshLOVsUtil.ObjToken> objMap = new Map<String, CUST_RefreshLOVsUtil.ObjToken>();
@@ -46,7 +44,6 @@ public with sharing class CUST_RefreshLOVsController {
 		}
 
 		refresh(objMap, getEarliestModDate(objMap));
-		//TODO - !!!! SANITIZE INCOMING FIELD NAMES!!!
 		return null;
 	}
 
@@ -55,10 +52,16 @@ public with sharing class CUST_RefreshLOVsController {
 		p.App_Settings_CUST__c = settings.Id;
 		CUST_RefreshLOVsBatch batch = new CUST_RefreshLOVsBatch(p, objMap, d, email);
 		Database.executeBatch(batch);
+		String message = 'The CST data collection process has been started. An email will be sent to '+UserInfo.getUserEmail()+
+		' when the process is completed. Status can be monitored via the Salesforce administrator UI at Setup > Administration Setup > Monitoring > Apex Jobs';
+		ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Info, message));
+
 	}
 
 	private void processSubmittedField(String objFieldPair, Map<String, CUST_RefreshLOVsUtil.ObjToken> objectsToFields) {
 		List<String> objNameAndFieldName = objFieldPair.split('\\.');
+
+
 		CUST_RefreshLOVsUtil.ObjToken t = new CUST_RefreshLOVsUtil.ObjToken(objNameAndFieldName[0]);
 		if (!t.ABBREVIATIONS.containsKey(objNameAndFieldName[0])) {
 			ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Unable to target object. ('+objNameAndFieldName+')'));
@@ -77,6 +80,7 @@ public with sharing class CUST_RefreshLOVsController {
 	}
 
 	public Date getEarliestModDate(Map<String, CUST_RefreshLOVsUtil.ObjToken> objMap) {
+
 		List<String> fieldNames = new List<String>();
 		for (CUST_RefreshLOVsUtil.ObjToken t : objMap.values()) fieldNames.addAll(t.fields);
 

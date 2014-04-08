@@ -404,15 +404,6 @@ Created by John A Adams 10/23/2013</description>
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
-        <fullName>CST_App_Menu_Flag_Consent_CUST__c</fullName>
-        <externalId>false</externalId>
-        <label>CST App Menu Flag Consent</label>
-        <summaryForeignKey>Preferences_and_Consent_GLBL__c.Account_GLBL__c</summaryForeignKey>
-        <summaryOperation>count</summaryOperation>
-        <trackHistory>false</trackHistory>
-        <type>Summary</type>
-    </fields>
-    <fields>
         <fullName>CST_Email_Stamp_CUST__c</fullName>
         <description>The stamp of the Person Email, so it is accessible via the workflow action.</description>
         <externalId>false</externalId>
@@ -2339,6 +2330,21 @@ Created by John A Adams 11/4/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>HCP_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup relationship to associate Designated Individual to an HCP Account. Created 04/04/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The HCP who indicated this person as their Designated Individual</inlineHelpText>
+        <label>HCP</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Designated Individuals</relationshipLabel>
+        <relationshipName>Accounts1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Has_Contract_MERC__c</fullName>
         <description>If there is an active contract and the contract signed, field displays Yes, otherwise No.</description>
         <externalId>false</externalId>
@@ -2733,18 +2739,6 @@ Created by John A Adams 10/28/2013</description>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Library_Name_MERC__c</fullName>
-        <description>Formulates what the Library name will be that is used to store the output of this objects DDPs. Created by John Adams 4/2/2014.</description>
-        <externalId>false</externalId>
-        <formula>TEXT (Country_of_Residence_GLBL__c) &amp; &quot; - Private&quot;</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Library Name</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Lilly_Company_Code_GLBL__c</fullName>
@@ -4707,6 +4701,18 @@ Created by John A Adams 11/4/2013</description>
         <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
         <isOptional>false</isOptional>
         <name>Account_Relationship Owner2</name>
+    </namedFilters>
+    <namedFilters>
+        <fullName>Account_00N11000000ePSAEA2</fullName>
+        <active>true</active>
+        <field>Account.HCP_MERC__c</field>
+        <filterItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>HCP</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+        <name>Account_Designated Individual</name>
     </namedFilters>
     <namedFilters>
         <fullName>Account_Parent</fullName>

@@ -13,12 +13,12 @@ private class CUST_RefreshLOVsControllerTest {
 		Test.setCurrentPage(Page.CUST_RefreshLOVs);
 	}
 
-//	@isTest 
+	@isTest 
 	static void testConstructor() {
 		System.assertNotEquals(null, controller.settings,'settings not initiated.');
 	}
 
-//	@isTest
+	@isTest
 	static void testConstructorError() {
 		ApexPages.StandardController noRecordId = new ApexPages.StandardController(new CST_App_Settings_CUST__c());
 		controller = new CUST_RefreshLOVsController(noRecordId);
@@ -26,7 +26,7 @@ private class CUST_RefreshLOVsControllerTest {
 		System.assert(!ApexPages.getMessages().isEmpty(),'Error message not passed back to page.');
 	}
 
-//	@isTest
+	@isTest
 	static void refreshAccountFields() {
 
 		List<Account> accts = MERC_TestFactory.insertAccounts(2);
@@ -75,6 +75,7 @@ private class CUST_RefreshLOVsControllerTest {
 				System.assert(values.contains((String) ar.get(f)),
 					'pool record for '+f+' does not contain test value "'+(String) ar.get(f)+'"');
 				System.assertEquals(Date.today(), poolRecords[0].get(util.getDateFieldName(f)), 'pool record not updated to today');
+
 			}
 		}
 	}
@@ -166,7 +167,7 @@ private class CUST_RefreshLOVsControllerTest {
 		}
 	}
 
-//	@isTest
+	@isTest
 	static void refreshAllFields() {
 
 		List<Account> accts = MERC_TestFactory.insertAccounts(2);
@@ -260,9 +261,5 @@ private class CUST_RefreshLOVsControllerTest {
 				}
 			}
 		}
-	}
-
-	static void p(String m) {
-		System.debug('\n\n\nYYZ - '+m+'\n\n\n\n');
 	}
 }

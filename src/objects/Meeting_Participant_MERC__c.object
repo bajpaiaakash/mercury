@@ -764,18 +764,6 @@ Created by John A Adams 1/7/2014</description>
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
-        <fullName>Library_Name_MERC__c</fullName>
-        <description>Formulates what the Library name will be that is used to store the output of this objects DDPs. Created by John Adams 4/2/2014.</description>
-        <externalId>false</externalId>
-        <formula>Country_of_Residence_MERC__c &amp; &quot; - Private&quot;</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Library Name</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Maximum_Fee_MERC__c</fullName>
         <defaultValue>0</defaultValue>
         <description>Calculates a service providers maximum fee by multiplying the total hours or service against the maximum hourly rate and incorporating the travel percentage adjustment. Populated by workflow to ensure the field is available on the page in edit mode. Oliver Dunford 20th March 2014.</description>
