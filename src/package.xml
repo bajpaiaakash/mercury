@@ -135,9 +135,5 @@
 		<members>*</members>
 		<name>StaticResource</name>
 	</types>
-	<types>
-		<members>*</members>
-		<name>Settings</name>
-	</types>
 	<version>29.0</version>
 </Package>
