@@ -197,6 +197,14 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_DocusignEmbeddedSignatureService</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_DocusignRecipientStatusHandler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_DocusignService</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -3121,11 +3129,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>HCP_Contract_MERC__c.Docusign_Envelope_URL_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>HCP_Contract_MERC__c.Institution_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4266,6 +4269,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Meeting_MERC__c.Send_Meeting_Team_Cancelled_Email_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Meeting_MERC__c.Send_Save_the_Date_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4617,6 +4625,21 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Dietary_Preferences_Step_Complete_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Docusign_Contract_Status_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting_Participant_MERC__c.Docusign_Envelope_Id_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Email_Formula_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6253,7 +6276,7 @@
         <recordType>Address_GLBL__c.Mastered_Address</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Address_GLBL__c-MERC_Payee Address</layout>
+        <layout>Address_GLBL__c-MERC_Designated_Individual_Address</layout>
         <recordType>Address_GLBL__c.Designated_Individual</recordType>
     </layoutAssignments>
     <layoutAssignments>

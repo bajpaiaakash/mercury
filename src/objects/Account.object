@@ -2341,7 +2341,7 @@ Created by John A Adams 11/4/2013</description>
         <relationshipName>Accounts1</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -4128,17 +4128,6 @@ Created by John A Adams 12/10/2013</description>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Territory_ISO_Code__c</fullName>
-        <externalId>false</externalId>
-        <label>Territory ISO Code</label>
-        <length>100</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Territory_Id_GLBL__c</fullName>

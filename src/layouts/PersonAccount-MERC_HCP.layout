@@ -2,6 +2,7 @@
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Upload_Content_MERC</customButtons>
     <customButtons>Loop__LOOPlus</customButtons>
+    <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -48,10 +49,6 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Transparency_Reporting_Opt_Out_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Map_Field__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

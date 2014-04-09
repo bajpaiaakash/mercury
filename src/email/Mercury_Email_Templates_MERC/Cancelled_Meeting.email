@@ -1,7 +1,0 @@
-Dear {!Meeting_MERC__c.Prmry_Mtng_Ownr_Nm_MERC__c}, <br><br>
-
-The forecasted meeting "{!Meeting_MERC__c.Name}", scheduled for {!Meeting_MERC__c.Date_of_Event_MERC__c} in {!Meeting_MERC__c.Event_Country_MERC__c} has been cancelled.
-
-<br><br>
-More information regarding this meeting can be found at
-{!Meeting_MERC__c.Link}.</br>

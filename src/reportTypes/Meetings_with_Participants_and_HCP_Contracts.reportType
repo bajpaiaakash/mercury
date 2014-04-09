@@ -859,6 +859,11 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Has_Signed_Contract_MERC__c</field>
+            <table>Meeting_MERC__c.Meeting_Participants_del__r</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Final_Fee_MERC__c</field>
             <table>Meeting_MERC__c.Meeting_Participants_del__r</table>
         </columns>
