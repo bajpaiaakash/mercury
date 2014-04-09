@@ -228,7 +228,7 @@ public with sharing class MERC_TestFactory {
 		List<User> users = new List<User>();
 
 		if (profileName == null) {
-			profileName = 'Mercury TCS';
+			profileName = 'Mercury Customer Meeting Services - Read Only';
 		}
 
         Profile p = [SELECT id from Profile WHERE Profile.Name =  :profileName limit 1];   
