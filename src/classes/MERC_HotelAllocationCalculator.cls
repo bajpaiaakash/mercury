@@ -1,3 +1,9 @@
+/**
+ * @author Joseph Ferraro
+ *
+ * Calculates the number of booked rooms based on Travel Itinerary dates for Meeting Participants
+ */
+
 public with sharing class MERC_HotelAllocationCalculator implements GLBL_TriggerHandler.HandlerInterface {
 	
 	Schema.SobjectType triggeredSobjectType;

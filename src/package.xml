@@ -133,10 +133,6 @@
 	</types>
 	<types>
 		<members>*</members>
-		<name>Scontrol</name>
-	</types>
-	<types>
-		<members>*</members>
 		<name>StaticResource</name>
 	</types>
 	<types>
