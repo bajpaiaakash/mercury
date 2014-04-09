@@ -43,6 +43,9 @@ client = MavensMateClient(credentials={
 class MercuryBuildTest(unittest.TestCase):
     
     def test_compile_project(self):
+
+        #scheduled_jobs = client.query("Select Id, JobType, Name from CronJobDetail WHERE JobType = '3']")
+        #client.execute_apex("delete [Select Id, JobType, Name from CronJobDetail WHERE JobType = '3']")
         
         #####################
         ## validate deploy ##

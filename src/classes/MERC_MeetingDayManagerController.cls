@@ -1,3 +1,9 @@
+/** 
+* @author Joseph Ferraro 
+* 
+* Controller for unified interface to manage meeting days and hotels for a meeting
+*/
+
 global with sharing class MERC_MeetingDayManagerController extends GLBL_GenericRelatedListController {
 
 	public Boolean hasError { get; private set; }
@@ -24,21 +30,6 @@ global with sharing class MERC_MeetingDayManagerController extends GLBL_GenericR
 			'Date_MERC__c' //orderChildrenBy
 		);
 	}
-
-	//public Map<String,Boolean> fieldToIsEditable {
-	//	get {
-	//		if (fieldToIsEditable == null) {
-	//			fieldToIsEditable = new Map<String, Boolean>();
-	//			Map<String, Schema.SObjectField> m = Schema.SObjectType.Meeting_Day_MERC__c.fields.getMap();
-	//			for (String fieldName : m.keySet()) {
-	//				Schema.DescribeFieldResult F = m.get(fieldName).getDescribe();
-	//				fieldToIsEditable.put(F.getName(), F.isUpdateable());
-	//			}
-	//		}
-	//		return fieldToIsEditable;
-	//	}
-	//	private set;
-	//}
 
 	public override PageReference add() {
 		PageReference p = super.add();
