@@ -60,7 +60,7 @@ public with sharing class MERC_DocusignService {
             this.loginInfo = (LoginInformation)parser.readValueAs(LoginInformation.class);
         } else {
             DocusignServiceError error = (DocusignServiceError)parser.readValueAs(DocusignServiceError.class);
-            throw new DocusignServiceException(error.errorCode+': '+error.message);
+            throw new DocusignServiceException(error.errorCode, error.message);
         }
     }
 
@@ -83,7 +83,65 @@ public with sharing class MERC_DocusignService {
             return tasResponse;
         } else {
             DocusignServiceError error = (DocusignServiceError)parser.readValueAs(DocusignServiceError.class);
-            throw new DocusignServiceException(error.errorCode+': '+error.message);
+            throw new DocusignServiceException(error.errorCode, error.message);
+        }
+    }
+
+    public Boolean deleteSigner(String envelopeId, Signer signer) {
+        Http httpProtocol = new Http();
+        String endpoint = this.baseUrl + 'accounts/' + this.accountId + '/envelopes/'+envelopeId+'/recipients';
+        HttpRequest request = getRequest('DELETE', endpoint);
+        request.setBody('{ "signers" : [{ "recipientId" : "'+signer.recipientId+'" }] }');
+
+        HttpResponse response = httpProtocol.send(request);
+        String responseBody = response.getBody();
+        System.debug('deleteSignerResponse =>'+responseBody);
+        JSONParser parser = JSON.createParser(responseBody);
+
+        if (response.getStatusCode() == 200) {
+            return true;
+        } else {
+            DocusignServiceError error = (DocusignServiceError)parser.readValueAs(DocusignServiceError.class);
+            throw new DocusignServiceException(error.errorCode, error.message);  
+        }
+    }
+
+    public List<Signer> addSigner(String envelopeId, String accountId, Boolean isRemote, Integer routingOrder) {
+        Http httpProtocol = new Http();
+        String endpoint = this.baseUrl + 'accounts/' + this.accountId + '/envelopes/'+envelopeId+'/recipients';
+        HttpRequest request = getRequest('POST', endpoint);
+        
+        Account a = [SELECT PersonEmail, Name FROM Account WHERE ID = :accountId];
+
+        Signer s;
+        if (!isRemote) {
+            s = new Signer(a.PersonEmail, a.Name, String.valueOf(routingOrder), String.valueOf(routingOrder));
+        } else {
+            s = new Signer(a.PersonEmail, a.Name, String.valueOf(routingOrder), String.valueOf(routingOrder), MERC_Util.generateRandomString(20));
+        }
+
+        List<Signer> signers = new List<Signer>();
+        signers.add(s);
+
+        Recipient r = new Recipient();
+        r.signers = signers;
+
+        String jsonPayload = JSON.serializePretty(r);
+        //String jsonPayload = '{"signers":'+signersPayload+'}';
+        request.setBody(jsonPayload);
+
+        HttpResponse response = httpProtocol.send(request);
+        String responseBody = response.getBody();
+        System.debug('addSignerResponse =>'+responseBody);
+        JSONParser parser = JSON.createParser(responseBody);
+
+        if (response.getStatusCode() < 300) {
+            Recipient recipientResponse = (Recipient)parser.readValueAs(Recipient.class);
+            system.debug(recipientResponse);
+            return recipientResponse.signers;
+        } else {
+            DocusignServiceError error = (DocusignServiceError)parser.readValueAs(DocusignServiceError.class);
+            throw new DocusignServiceException(error.errorCode, error.message);
         }
     }
 
@@ -103,7 +161,7 @@ public with sharing class MERC_DocusignService {
             return tasResponse;
         } else {
             DocusignServiceError error = (DocusignServiceError)parser.readValueAs(DocusignServiceError.class);
-            throw new DocusignServiceException(error.errorCode+': '+error.message);  
+            throw new DocusignServiceException(error.errorCode, error.message);  
         }
     }
 
@@ -124,7 +182,7 @@ public with sharing class MERC_DocusignService {
             return tasResponse;
         } else {
             DocusignServiceError error = (DocusignServiceError)parser.readValueAs(DocusignServiceError.class);
-            throw new DocusignServiceException(error.errorCode+': '+error.message);  
+            throw new DocusignServiceException(error.errorCode, error.message);  
         }
     }
 
@@ -145,7 +203,7 @@ public with sharing class MERC_DocusignService {
             return tasResponse;
         } else {
             DocusignServiceError error = (DocusignServiceError)parser.readValueAs(DocusignServiceError.class);
-            throw new DocusignServiceException(error.errorCode+': '+error.message);     
+            throw new DocusignServiceException(error.errorCode, error.message);     
         }
     }
 
@@ -202,7 +260,7 @@ public with sharing class MERC_DocusignService {
             return envelopeStatus;
         } else {
             DocusignServiceError error = (DocusignServiceError)parser.readValueAs(DocusignServiceError.class);
-            throw new DocusignServiceException(error.errorCode+': '+error.message);     
+            throw new DocusignServiceException(error.errorCode, error.message);     
         }
     }
 
@@ -247,7 +305,8 @@ public with sharing class MERC_DocusignService {
                 if (!isDraft) 
                     s.tabs = lillyTab;
             } else {
-                s = new Signer(rs.acc.PersonEmail, rs.acc.Name, String.valueOf(rs.order), String.valueOf(rs.order), 'hcp-'+MERC_Util.generateRandomString(20));
+                //s = new Signer(rs.acc.PersonEmail, rs.acc.Name, String.valueOf(rs.order), String.valueOf(rs.order), 'hcp-'+MERC_Util.generateRandomString(20));
+                s = new Signer(rs.acc.PersonEmail, rs.acc.Name, String.valueOf(rs.order), String.valueOf(rs.order));
                 if (!isDraft) 
                     s.tabs = hcpTab;
             }
@@ -317,12 +376,13 @@ public with sharing class MERC_DocusignService {
         public Integer order;
         public Boolean isLilly;
     }
-    
+
     public class Signer {
         public String email;
         public String name;
         public String recipientId;
         public String routingOrder;
+        public String status;
         public Tab tabs;
         public String clientUserId; //if this is included, it signifies embedded signing [hcps only]
         
@@ -398,5 +458,13 @@ public with sharing class MERC_DocusignService {
         public String url;
     }
 
-    public class DocusignServiceException extends Exception {}
+    public class DocusignServiceException extends Exception {
+        public String errorCode;
+        public String message;
+        DocusignServiceException(String errorCode, String message) {
+            this(errorCode+': '+message);
+            this.errorCode = errorCode;
+            this.message = message;
+        }
+    }
 }

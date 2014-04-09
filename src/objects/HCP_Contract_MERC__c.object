@@ -211,15 +211,6 @@ Created by John A Adams 10/17/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Docusign_Envelope_URL_MERC__c</fullName>
-        <externalId>false</externalId>
-        <label>Docusign Envelope URL</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Url</type>
-    </fields>
-    <fields>
         <fullName>Institution_MERC__c</fullName>
         <description>Pulls the Veeva Organization name in so that have ability to manually reconfirm a HCP&apos;s affiliated Institutions by asking the question within the Payment Contract.
 Created by John A Adams 10/29/2013</description>

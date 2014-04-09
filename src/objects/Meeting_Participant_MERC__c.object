@@ -414,6 +414,27 @@ Created by John A Adams 3/19/2014</description>
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Docusign_Contract_Status_MERC__c</fullName>
+        <description>Stamped by Docusign Connect</description>
+        <externalId>false</externalId>
+        <label>Docusign Contract Status</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Docusign_Envelope_Id_MERC__c</fullName>
+        <externalId>false</externalId>
+        <label>Docusign Envelope Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Email_MERC__c</fullName>
         <description>Stamped by Apex Trigger</description>
         <externalId>false</externalId>
