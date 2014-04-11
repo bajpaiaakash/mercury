@@ -14,13 +14,45 @@ public with sharing class MERC_TestFactory {
 		List<sObject> timeZoneFieldMappings = Test.loadData(Time_Zone_Field_Mappings_MERC__c.sObjectType, 'TimeZoneMappingTestData_MERC');
 	}
 
+	public static void loadCAPSettings() {
+		List<sObject> capSettings = Test.loadData(CAP_Settings_MERC__c.sObjectType, 'CAP_MERC');
+	}
+
+	public static void loadFMVSettings() {
+		List<sObject> fmvSettings = Test.loadData(FMV_Settings_MERC__c.sObjectType, 'FMV_MERC');
+	}
+
 	public static void loadDeclarativeRollupSummaries() {
 		List<sObject> rollups = Test.loadData(glbl_rollup__LookupRollupSummary__c.sObjectType, 'DeclarativeRollupTestData_MERC');
 	}
 
-	public static void loadFMVSettings() {
-		//TODO when oliver updates fmv settings
-		//List<sObject> rollups = Test.loadData(glbl_rollup__LookupRollupSummary__c.sObjectType, 'DeclarativeRollupTestData_MERC');
+	public static List<Account> insertBusinessAccounts(Integer numberOfAccounts, Id recordTypeId) {
+		List<Account> accs = new List<Account>();
+		for (Integer i = 0; i < numberOfAccounts; i++) {
+			String randomString = MERC_Util.generateRandomString(8);
+			Account a = new Account();
+			a.Name = 'UnitTest'+randomString;
+			a.RecordTypeId = recordTypeId;
+			accs.add(a);
+		}
+		insert accs;
+		return accs;
+	}
+
+	public static List<Opportunity> insertOpportunities(Integer numberOfOpportunities, Id accountId) {
+		List<Opportunity> opps = new List<Opportunity>();
+		for (Integer i = 0; i < numberOfOpportunities; i++) {
+			String randomString = MERC_Util.generateRandomString(8);
+			Opportunity o = new Opportunity();
+			o.Name = 'UnitTest'+randomString;
+			o.StageName = 'Reviewing';
+			o.AccountId = accountId;
+			o.CloseDate = Date.today().addDays(5);
+			o.Amount = 5000;
+			opps.add(o);
+		}
+		insert opps;
+		return opps;
 	}
 
 	public static List<Account> insertAccounts(Integer numberOfAccounts, Id recordTypeId) {
