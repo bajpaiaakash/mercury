@@ -9,8 +9,6 @@
 
 public with sharing class MERC_MeetingCancellationHandler implements GLBL_TriggerHandler.HandlerInterface {
 
-    public class ReservedEmailException extends Exception { }
-
     public void handle()
     {
         List<Meeting_MERC__c> cancelledMeetings = new List<Meeting_MERC__c>();
