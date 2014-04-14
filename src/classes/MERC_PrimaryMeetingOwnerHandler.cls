@@ -12,7 +12,7 @@ public with sharing class MERC_PrimaryMeetingOwnerHandler implements GLBL_Trigge
     	List<Team_Member_MERC__c> primaryOwnerTeamMembers = new List<Team_Member_MERC__c>();
     	for (Meeting_MERC__c m : (List<Meeting_MERC__c>)Trigger.new)
     	{
-    		if (m.Source_MERC__c != 'Veeva')
+    		if (m.Source_MERC__c == 'Mercury')
     		{
 				Team_Member_MERC__c teamMember = new Team_Member_MERC__c();
 				teamMember.User_MERC__c        = m.CreatedById;
