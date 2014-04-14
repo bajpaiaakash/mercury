@@ -29,7 +29,7 @@ private class MERC_PrimaryMeetingOwnerHandlerTest {
 			                         AND Role_MERC__c = 'Primary Meeting Owner']);
 	}
 
-	@isTest static void test_should_not_create_team_members_when_source_is_veeva() {
+	@isTest static void test_should_not_create_team_members_when_source_is_not_mercury() {
 		List<Meeting_MERC__c> mtgs = new List<Meeting_MERC__c>();
 		for (Integer i = 0; i < 200; i++) {
 			Meeting_MERC__c m           = new Meeting_MERC__c();
