@@ -75,6 +75,7 @@ private class CUST_RefreshLOVsControllerTest {
 				System.assert(values.contains((String) ar.get(f)),
 					'pool record for '+f+' does not contain test value "'+(String) ar.get(f)+'"');
 				System.assertEquals(Date.today(), poolRecords[0].get(util.getDateFieldName(f)), 'pool record not updated to today');
+
 			}
 		}
 	}

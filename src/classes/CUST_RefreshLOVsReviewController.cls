@@ -8,6 +8,7 @@ public with sharing class CUST_RefreshLOVsReviewController {
     public CST_App_Settings_CUST__c   settings {get; private set;}
     public String                     fieldsToRefresh {get; set;}
 
+
     public CUST_RefreshLOVsReviewController(ApexPages.StandardController controller) {
 
         CST_App_Menu_Pool_GLBL__c record = (CST_App_Menu_Pool_GLBL__c) controller.getRecord();
@@ -31,6 +32,7 @@ public with sharing class CUST_RefreshLOVsReviewController {
         } else {
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'No App Settings record found.'));
             error = true;
+
         }
 
         util = new CUST_RefreshLOVsUtil();
@@ -39,6 +41,7 @@ public with sharing class CUST_RefreshLOVsReviewController {
     public PageReference applySelectedLOVs() {
         if (fieldsToRefresh==null || fieldsToRefresh=='') {
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'No fields selected for refresh.'));
+
             return null;
         }
         
@@ -48,6 +51,7 @@ public with sharing class CUST_RefreshLOVsReviewController {
             poolToUpdate.put(field,pool.get(field));
             settings.put(util.poolToSettingsFieldMap.get(field),pool.get(field));
             message += util.poolToSettingsFieldMap.get(field)+', ';
+
         }
         poolToUpdate.Id = pool.Id;
         poolToUpdate.App_Settings_CUST__c = pool.App_Settings_CUST__c;
@@ -59,6 +63,7 @@ public with sharing class CUST_RefreshLOVsReviewController {
         redirectLink = pageRef.getUrl();
         message = message.removeEnd(', ')+'<div><a href="'+redirectLink+'">Review updated App Settings record.</a></div>';
         ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.INFO, message));
+
         return null;
     }
 }
