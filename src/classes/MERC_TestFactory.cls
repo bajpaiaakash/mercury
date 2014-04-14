@@ -129,6 +129,12 @@ public with sharing class MERC_TestFactory {
 	}
 
 	public static List<Meeting_MERC__c> insertMeetings(Integer numberOfMeetings) {
+		return insertMeetings(numberOfMeetings, null);
+	}
+
+	public static List<Meeting_MERC__c> insertMeetings(Integer numberOfMeetings, String countryName) {
+		if (countryName == null)
+			countryName = 'GB';
 		List<Meeting_MERC__c> mtgs = new List<Meeting_MERC__c>();
 		for (Integer i = 0; i < numberOfMeetings; i++) {
 			Meeting_MERC__c m = new Meeting_MERC__c();
@@ -136,6 +142,7 @@ public with sharing class MERC_TestFactory {
 			m.End_Date_of_Event_MERC__c = Date.today().addDays(2);
 			m.Name = 'Event Name'+i;
 			m.Meeting_Time_Zone_MERC__c = 'Greenwich Mean Time (Europe/London)';
+			m.Event_Country_MERC__c = countryName;
 			mtgs.add(m);
 		}
 		insert mtgs;

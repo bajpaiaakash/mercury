@@ -31,12 +31,12 @@ public with sharing class MERC_NewContentController {
     }
 
     public void setContentDefaults() {
-        //set to mercury library
-        try {
-            this.file.FirstPublishLocationId = [select Id from ContentWorkspace WHERE Name = 'Mercury'].Id;    
-        } catch(Exception e) {
-            throw new MERC_Exception('Insufficient access to the Mercury Content Workspace. Please contact your system administrator.');
-        }
+        //set to mercury library (replaced by getLibraryId)
+        //try {
+        //    this.file.FirstPublishLocationId = [select Id from ContentWorkspace WHERE Name = 'Mercury'].Id;    
+        //} catch(Exception e) {
+        //    throw new MERC_Exception('Insufficient access to the Mercury Content Workspace. Please contact your system administrator.');
+        //}
 
         //set record type and lookup(s)
         this.recordId = (Id)this.mysObject.get('Id');
@@ -67,6 +67,51 @@ public with sharing class MERC_NewContentController {
             this.file.Budget_MERC__c = this.recordId;
             this.file.RecordTypeId = [Select Id From RecordType WHERE DeveloperName = 'Budget_MERC' AND SobjectType = 'ContentVersion' LIMIT 1].Id;
             this.fieldSetAPIName = 'Budget_MERC';
+        }
+        this.file.FirstPublishLocationId = getLibraryId(this.sobjectAPIName);
+    }
+
+    Id getLibraryId(String objectAPIName) {
+        String libraryName;
+        String country;
+        try {
+            if (objectAPIName == 'Meeting_MERC__c') {
+                country = [SELECT Event_Country_MERC__c FROM Meeting_MERC__c WHERE Id = :recordId].Event_Country_MERC__c;
+                libraryName = country + ' - Public';
+            } else if (objectAPIName == 'HCP_Contract_MERC__c') {
+                country = [SELECT Country_of_Residence_MERC__c FROM HCP_Contract_MERC__c WHERE Id = :recordId].Country_of_Residence_MERC__c;
+                libraryName = country + ' - Private';
+            } else if (objectAPIName == 'Invoice_MERC') {
+                country = [SELECT Payee_Country_MERC__c FROM Invoice_MERC__c WHERE Id = :recordId].Payee_Country_MERC__c;
+                libraryName = country + ' - Private';
+            } else if (objectAPIName == 'Budget_MERC__c') {
+                country = [SELECT Meeting_MERC__r.Event_Country_MERC__c FROM Budget_MERC__c WHERE Id = :recordId].Meeting_MERC__r.Event_Country_MERC__c;
+                libraryName = country + ' - Private';
+            } else if (objectAPIName == 'Meeting_Participant_MERC__c') {
+                country = [SELECT Country_of_Residence_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :recordId].Country_of_Residence_MERC__c;
+                libraryName = country + ' - Private';
+            } else if (objectAPIName == 'Invoice_MERC') {
+                country = [SELECT Payee_Country_MERC__c FROM Invoice_MERC__c WHERE Id = :recordId].Payee_Country_MERC__c;
+                libraryName = country + ' - Private';
+            } else if (objectAPIName == 'Account') {
+                country = [SELECT Country_of_Residence_GLBL__c FROM Account WHERE Id = :recordId].Country_of_Residence_GLBL__c;
+                libraryName = 'Mercury';
+            }
+        } catch(Exception e) {
+            throw new MERC_Exception('Unable to determine the proper country content library. '+e.getMessage());
+        }
+        if (country == null) {
+            throw new MERC_Exception('Unable to determine the appropriate content library because the country has not been set properly for '+getsObjectName()+' ('+objectAPIName+')');
+        }
+        
+        try {
+            return [select Id from ContentWorkspace WHERE Name = :libraryName].Id;
+        } catch(System.QueryException e) {
+            if (e.getMessage().contains('List has no rows for assignment to SObject')) {
+                throw new MERC_Exception('Unable to locate content library with the name: "'+libraryName+'." It either does not exist or you are not a member of the library. Please contact your system administrator.');
+            } else {
+                throw e;
+            }
         }
     }
 
