@@ -404,15 +404,6 @@ Created by John A Adams 10/23/2013</description>
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
-        <fullName>CST_App_Menu_Flag_Consent_CUST__c</fullName>
-        <externalId>false</externalId>
-        <label>CST App Menu Flag Consent</label>
-        <summaryForeignKey>Preferences_and_Consent_GLBL__c.Account_GLBL__c</summaryForeignKey>
-        <summaryOperation>count</summaryOperation>
-        <trackHistory>false</trackHistory>
-        <type>Summary</type>
-    </fields>
-    <fields>
         <fullName>CST_Email_Stamp_CUST__c</fullName>
         <description>The stamp of the Person Email, so it is accessible via the workflow action.</description>
         <externalId>false</externalId>
@@ -2350,7 +2341,7 @@ Created by John A Adams 11/4/2013</description>
         <relationshipName>Accounts1</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -2794,6 +2785,18 @@ Created by John A Adams 12/11/2013</description>
         <summaryOperation>max</summaryOperation>
         <trackHistory>false</trackHistory>
         <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Map_Field__c</fullName>
+        <description>test</description>
+        <externalId>false</externalId>
+        <formula>$Setup.Map_Consent_Fields_MERC__c.Participant_Field_Name_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Map Field</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Mdl_Nm_GLBL__c</fullName>

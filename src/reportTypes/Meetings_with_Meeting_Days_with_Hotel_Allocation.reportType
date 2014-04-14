@@ -864,11 +864,6 @@
             <field>Customer_Facing_Meeting_Organiser_MERC__c</field>
             <table>Meeting_MERC__c</table>
         </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Library_Name_MERC__c</field>
-            <table>Meeting_MERC__c</table>
-        </columns>
         <masterLabel>Meetings</masterLabel>
     </sections>
     <sections>

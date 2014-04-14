@@ -4,7 +4,7 @@
  * Generic controller for VF Pages that need to modify related lists via a unified UI
  */
 
-global with sharing abstract class GLBL_GenericRelatedListController {
+global with sharing virtual class GLBL_GenericRelatedListController {
 	
 	public String clientHash { get; set; } //used to interact with dom elements
 	public ApexPages.StandardSetController controller;

@@ -2207,6 +2207,16 @@ Created by John Adams on 12/9/2013</description>
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Send_Meeting_Team_Cancelled_Email_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Once set to true an email will be sent to all of those Team Members on the Meeting Team object who have the record type &quot;Mercury Users&quot;.  This is an automated trigger email due to the need for multiple recipients and the object model limitations of workflow email.  Oliver Dunford 8th April 2014.</description>
+        <externalId>false</externalId>
+        <label>Send Meeting Team Cancelled Email</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Send_Save_the_Date_MERC__c</fullName>
         <description>Indicate if a &quot;Save to Date&quot; should be sent to delegates?</description>
         <externalId>false</externalId>

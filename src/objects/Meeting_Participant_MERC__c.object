@@ -414,6 +414,39 @@ Created by John A Adams 3/19/2014</description>
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Docusign_Contract_Status_MERC__c</fullName>
+        <description>Stamped by Docusign Connect</description>
+        <externalId>false</externalId>
+        <label>Docusign Contract Status</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Docusign_Envelope_Id_MERC__c</fullName>
+        <externalId>true</externalId>
+        <label>Docusign Envelope Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Email_Formula_MERC__c</fullName>
+        <description>PersonEmail</description>
+        <externalId>false</externalId>
+        <formula>Account_MERC__r.PersonEmail</formula>
+        <inlineHelpText>PersonEmail</inlineHelpText>
+        <label>Email Formula</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Email_MERC__c</fullName>
         <description>Stamped by Apex Trigger</description>
         <externalId>false</externalId>
@@ -1094,6 +1127,21 @@ Created by John A Adams 10/31/2013</description>
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>Purpose_of_Payment_MERC__c</fullName>
+        <description>Purpose of Payment will be &quot;Expenses&quot; if the Meeting Participant type is &quot;Delegate&quot; or &quot;Individual Sponsorship&quot;. Created to allow this value to be translated. Created 04/07/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Purpose of Payment</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Expenses</fullName>
+                <default>true</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Qualifications_Experience_Complete_MERC__c</fullName>
         <description>Used by portal. Pulled from Account to display whether Qualifications and Experience Step is complete for HCP Info Package. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -1633,6 +1681,10 @@ Created by John A Adams 12/12/2013</description>
                 <fullName>Medical Research Consultant</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Expenses</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackTrending>false</trackTrending>
@@ -1905,6 +1957,13 @@ Created by John A Adams 2/18/2014</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Purpose_of_Payment_MERC__c</picklist>
+            <values>
+                <fullName>Expenses</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2221,6 +2280,13 @@ Created by John A Adams 2/18/2014</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Purpose_of_Payment_MERC__c</picklist>
+            <values>
+                <fullName>Expenses</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Services_Rendered_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -2344,24 +2410,8 @@ Created by John A Adams 2/18/2014</description>
         <picklistValues>
             <picklist>Types_of_Service_MERC__c</picklist>
             <values>
-                <fullName>Advisory Board - Chairman</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Consulting Project</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Medical Research Consultant</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Speaking - Chairman Meeting</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Speaking - Speaker</fullName>
-                <default>false</default>
+                <fullName>Expenses</fullName>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -2569,6 +2619,13 @@ Created by John A Adams 2/18/2014</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Purpose_of_Payment_MERC__c</picklist>
+            <values>
+                <fullName>Expenses</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Services_Rendered_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -2692,24 +2749,8 @@ Created by John A Adams 2/18/2014</description>
         <picklistValues>
             <picklist>Types_of_Service_MERC__c</picklist>
             <values>
-                <fullName>Advisory Board - Chairman</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Consulting Project</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Medical Research Consultant</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Speaking - Chairman Meeting</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Speaking - Speaker</fullName>
-                <default>false</default>
+                <fullName>Expenses</fullName>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -2897,6 +2938,13 @@ Created by John A Adams 2/18/2014</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Purpose_of_Payment_MERC__c</picklist>
+            <values>
+                <fullName>Expenses</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

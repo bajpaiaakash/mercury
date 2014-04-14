@@ -4,5 +4,6 @@ config/*
 debug/*
 apex-scripts/*
 deploy/*
+resource-bundles/GlobalAssetsMVN.resource
 
 mercury-force.sublime-workspace

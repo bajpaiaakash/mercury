@@ -1,13 +1,12 @@
 public with sharing class MERC_ParticipantTriggerHandler implements GLBL_TriggerHandler.HandlerInterface {
 
 	public void handle() {
-		if (Trigger.isInsert) {
-	    	execute(Trigger.new);
+		if (Trigger.isInsert && Trigger.isBefore) {
+	    	stampPersonAccountDetails((List<Meeting_Participant_MERC__c>)Trigger.new);
 	   	}
 	}
 
-	public void execute(list<Sobject> sobjects) {        
-		List<Meeting_Participant_MERC__c> participants = (List<Meeting_Participant_MERC__c>)sobjects;
+	public void stampPersonAccountDetails(List<Meeting_Participant_MERC__c> participants) {        
 		Set<Id> accountIds = new Set<Id>();
 		for (Meeting_Participant_MERC__c mp : participants) {
 			if (mp.Account_MERC__c != null) {

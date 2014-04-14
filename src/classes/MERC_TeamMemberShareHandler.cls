@@ -1,3 +1,9 @@
+/**
+ * @author Joseph Ferraro
+ *
+ * Shares meeting records to users associated to a meeting via Team_Member_MERC__c
+ */
+
 public with sharing class MERC_TeamMemberShareHandler implements GLBL_TriggerHandler.HandlerInterface {
 	
 	//TODO: handle modifications to record type

@@ -28,6 +28,7 @@ public with sharing class MERC_RequestHCPSignatureController {
         }
     }
 
+    //determines whether the user is allowed to request signature
     public Boolean getCanRequestSignature() {
 
         Account hcpRecipient = [Select Id, PersonEmail From Account Where Id = :this.contract.Account_MERC__c];
@@ -50,6 +51,7 @@ public with sharing class MERC_RequestHCPSignatureController {
         return true;
     }
 
+    //retrieves the latest contract content attached to this contract 
     public ContentVersion contractContentVersion {
         get {
             try {
@@ -70,14 +72,19 @@ public with sharing class MERC_RequestHCPSignatureController {
         private set;
     }
 
+    //stamp envelopeid on contract and participant
     @future
-    static void stampEnvelopeId(Id hcpContractId, String envelopeId) {
-        HCP_Contract_MERC__c contract = [SELECT ID FROM HCP_Contract_MERC__c WHERE ID = :hcpContractId];
-        contract.Docusign_Envelope_Id_MERC__c = envelopeId;
+    static void stampEnvelope(Id hcpContractId, String envelopeId) {
+        HCP_Contract_MERC__c contract = [SELECT ID, Meeting_Participant_MERC__c FROM HCP_Contract_MERC__c WHERE ID = :hcpContractId];
+        contract.Docusign_Envelope_Id_MERC__c = envelopeId.toLowerCase();
         update contract;
+
+        Meeting_Participant_MERC__c p = [SELECT ID FROM Meeting_Participant_MERC__c WHERE ID = :contract.Meeting_Participant_MERC__c];
+        p.Docusign_Envelope_Id_MERC__c = envelopeId.toLowerCase();
+        update p;
     }
 
-
+    //send contract out for signature via the Docusign API
     public PageReference requestSignature() {
         Blob pdfBlob = [Select VersionData From ContentVersion Where Id = :contractContentVersion.Id].VersionData;
         String pdfBytes = EncodingUtil.base64Encode(pdfBlob);
@@ -100,26 +107,31 @@ public with sharing class MERC_RequestHCPSignatureController {
         signers.add(s2);
 
         MERC_DocusignService d = new MERC_DocusignService();
-        MERC_DocusignService.EnvelopeResponse r = d.requestSignature(signers, pdfBytes);
-        if (r.errorCode != null) {
-            if (r.errorCode == 'ANCHOR_TAB_STRING_NOT_FOUND') {
+        try {
+            MERC_DocusignService.EnvelopeResponse r = d.requestSignature(signers, pdfBytes);
+            stampEnvelope(this.contract.Id, r.envelopeId);
+            this.isSent = true;
+            return null;
+        } catch(MERC_DocusignService.DocusignServiceException e) {
+            if (e.errorCode == 'ANCHOR_TAB_STRING_NOT_FOUND') {
                 //get tag and send url
                 String returnUrl = 'https://' + System.URL.getSalesforceBaseUrl().getHost().remove('-api' ) + '/apex/MERC_RequestHCPSignature?docusignTasStatus=1&id='+this.contract.Id;
                 MERC_DocusignService.EnvelopeResponse r2 = d.requestSignature(signers, pdfBytes, True); //send as draft mode
                 MERC_DocusignService.TagAndSendResponse tasResponse = d.getTagAndSendUrl(r2, returnUrl); //get tas url
-                stampEnvelopeId(this.contract.Id, r2.envelopeId);
+                stampEnvelope(this.contract.Id, r2.envelopeId);
                 //redirect to tag and send url                
                 PageReference p = new PageReference(tasResponse.url);
                 return p;
             } else {
                 //show error on vf page
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Docusign failed to send the contract for signature. Error code: '+r.errorCode));
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Docusign failed to send the contract for signature. Error code: '+e.errorCode));
                 this.isSent = false;
-                return null;
+                return null;      
             }
-        } else {
-            stampEnvelopeId(this.contract.Id, r.envelopeId);
-            this.isSent = true;
+        } catch(Exception e) {
+            //show error on vf page
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Docusign failed to send the contract for signature. Error code: '+e.getMessage()));
+            this.isSent = false;
             return null;
         }
     }

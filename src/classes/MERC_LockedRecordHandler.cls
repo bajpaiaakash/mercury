@@ -2,7 +2,8 @@
  * @author Joseph Ferraro
  *
  * Trigger handler that prevents Trigger actions on locked records
- *	Handles both parent/child scenarios
+ *	> Handles both parent/child scenarios
+ *  > IMPORTANT: we've commented out any "exempt fields" functionality bc its not being used in Mercury
  */
 
 public with sharing class MERC_LockedRecordHandler implements GLBL_TriggerHandler.HandlerInterface {
@@ -22,12 +23,12 @@ public with sharing class MERC_LockedRecordHandler implements GLBL_TriggerHandle
         this.sObjectIsChild = false;
     }
 
-    public MERC_LockedRecordHandler(Schema.SobjectType sObjectType, Set<String> exemptFields) {
-        this.sObjectType = sObjectType;
-        this.lockedFieldAPIName = sObjectToLockedField.get(this.sObjectType).getName();
-        this.exemptFields = exemptFields;
-        this.sObjectIsChild = false;
-    }
+    //public MERC_LockedRecordHandler(Schema.SobjectType sObjectType, Set<String> exemptFields) {
+    //    this.sObjectType = sObjectType;
+    //    this.lockedFieldAPIName = sObjectToLockedField.get(this.sObjectType).getName();
+    //    this.exemptFields = exemptFields;
+    //    this.sObjectIsChild = false;
+    //}
 
     public MERC_LockedRecordHandler(Schema.SobjectType sObjectType, Schema.SobjectType parentType, Schema.DescribeFieldResult parentLookupField) {
         this.sObjectType = sObjectType;
@@ -37,14 +38,14 @@ public with sharing class MERC_LockedRecordHandler implements GLBL_TriggerHandle
         this.sObjectIsChild = true;
     }
 
-    public MERC_LockedRecordHandler(Schema.SobjectType sObjectType, Schema.SobjectType parentType, Schema.DescribeFieldResult parentLookupField, Set<String> exemptFields) {
-        this.sObjectType = sObjectType;
-        this.parentSobjectType = parentType;
-        this.lockedFieldAPIName = sObjectToLockedField.get(this.parentSobjectType).getName();
-        this.exemptFields = exemptFields;
-        this.parentLookupField = parentLookupField;
-        this.sObjectIsChild = true;
-    }
+    //public MERC_LockedRecordHandler(Schema.SobjectType sObjectType, Schema.SobjectType parentType, Schema.DescribeFieldResult parentLookupField, Set<String> exemptFields) {
+    //    this.sObjectType = sObjectType;
+    //    this.parentSobjectType = parentType;
+    //    this.lockedFieldAPIName = sObjectToLockedField.get(this.parentSobjectType).getName();
+    //    this.exemptFields = exemptFields;
+    //    this.parentLookupField = parentLookupField;
+    //    this.sObjectIsChild = true;
+    //}
 
     Map<Schema.SobjectType, Schema.DescribeFieldResult> sObjectToLockedField = new Map<Schema.SobjectType, Schema.DescribeFieldResult> {
     	Meeting_MERC__c.SobjectType => Schema.sObjectType.Meeting_MERC__c.fields.Lock_Meeting_MERC__c
@@ -61,23 +62,23 @@ public with sharing class MERC_LockedRecordHandler implements GLBL_TriggerHandle
         ContentVersion.SobjectType => Label.Meeting_Locked_MERC
     };
 
-    Map<String, Schema.SObjectField> fieldListMap {
-    	get {
-    		if (this.exemptFields != null) {
-    		    Schema.DescribeSObjectResult objectDescribe = this.sObjectType.getDescribe();
-    		    String objectNameString = objectDescribe.getName();
+    //Map<String, Schema.SObjectField> fieldListMap {
+    //	get {
+    //		if (this.exemptFields != null) {
+    //		    Schema.DescribeSObjectResult objectDescribe = this.sObjectType.getDescribe();
+    //		    String objectNameString = objectDescribe.getName();
 
-    		    Map<String, Schema.SObjectType> globalDescription = Schema.getGlobalDescribe();  
-    		    Schema.sObjectType sObjType = globalDescription.get(objectNameString); 
-    		    Schema.DescribeSObjectResult r1 = sObjType.getDescribe();  
-    		    fieldListMap = r1.fields.getMap();  
-    		    return fieldListMap;
-    		} else {
-    			return null;
-    		}	
-    	}
-    	set;
-    }
+    //		    Map<String, Schema.SObjectType> globalDescription = Schema.getGlobalDescribe();  
+    //		    Schema.sObjectType sObjType = globalDescription.get(objectNameString); 
+    //		    Schema.DescribeSObjectResult r1 = sObjType.getDescribe();  
+    //		    fieldListMap = r1.fields.getMap();  
+    //		    return fieldListMap;
+    //		} else {
+    //			return null;
+    //		}	
+    //	}
+    //	set;
+    //}
 
     Map<Id, Sobject> parentMap {
     	get {
@@ -163,82 +164,85 @@ public with sharing class MERC_LockedRecordHandler implements GLBL_TriggerHandle
             }
 
 
-            if (Trigger.isUpdate && this.exemptFields != null) {
-            	Boolean isUpdateOK = true; //this is set to false if user attempts to edit non-exempt field
-            	String fieldName;
-            	String fieldType;
-            	Boolean isCalculated; //whether this is a formula field
+            //if (Trigger.isUpdate && this.exemptFields != null) {
+            //	Boolean isUpdateOK = true; //this is set to false if user attempts to edit non-exempt field
+            //	String fieldName;
+            //	String fieldType;
+            //	Boolean isCalculated; //whether this is a formula field
             	
-            	for (Schema.SObjectField field : fieldListMap.values()) {
+            //	for (Schema.SObjectField field : fieldListMap.values()) {
 
-            	    Schema.DescribeFieldResult fieldDescribe = field.getDescribe(); 
-            	    fieldName = String.valueOf(fieldDescribe.getName());
-            	    fieldType = String.valueOf(fieldDescribe.getSoaptype());
-            	    isCalculated = Boolean.valueOf(fieldDescribe.isCalculated());
+            //	    Schema.DescribeFieldResult fieldDescribe = field.getDescribe(); 
+            //	    fieldName = String.valueOf(fieldDescribe.getName());
+            //	    fieldType = String.valueOf(fieldDescribe.getSoaptype());
+            //	    isCalculated = Boolean.valueOf(fieldDescribe.isCalculated());
 
-            	    if (isCalculated) continue; //we can't control this, so we let it go
+            //	    if (isCalculated) continue; //we can't control this, so we let it go
 
-            	    if (fieldName != this.lockedFieldAPIName){
-            	        if (fieldType == 'DOUBLE') {
-            	            Double oldFieldValue = (Double)Trigger.oldmap.get(recordId).get(fieldName);
-            	            Double newFieldValue = (Double)Trigger.newmap.get(recordId).get(fieldName);
-            	            if (oldFieldValue != newFieldValue && !exemptFields.contains(fieldName)) {
-            	                isUpdateOK = false;
-            	                break;
-            	            }
-            	        } else if (fieldType == 'STRING') {
-            	            String oldFieldValue = (String)Trigger.oldmap.get(recordId).get(fieldName);
-            	            String newFieldValue = (String)Trigger.newmap.get(recordId).get(fieldName);
-            	            if (oldFieldValue != newFieldValue && !exemptFields.contains(fieldName)) {
-            	                isUpdateOK = false;
-            	                break;
-            	            }
-            	        } else if (fieldType == 'DATE') {
-            	            Date oldFieldValue = (Date)Trigger.oldmap.get(recordId).get(fieldName);
-            	            Date newFieldValue = (Date)Trigger.newmap.get(recordId).get(fieldName);
-            	            if (oldFieldValue != newFieldValue && !exemptFields.contains(fieldName)) {
-            	                isUpdateOK = false;
-            	                break;
-            	            }
-            	        } else if (fieldType == 'BOOLEAN') {
-            	            Boolean oldFieldValue = (Boolean)Trigger.oldmap.get(recordId).get(fieldName);
-            	            Boolean newFieldValue = (Boolean)Trigger.newmap.get(recordId).get(fieldName);
-            	            if (oldFieldValue != newFieldValue && !exemptFields.contains(fieldName)) {
-            	                isUpdateOK = false;
-            	                break;
-            	            }
-            	        } else if (fieldType == 'DATETIME') {
-            	            DateTime oldFieldValue = (DateTime)Trigger.oldmap.get(recordId).get(fieldName);
-            	            DateTime newFieldValue = (DateTime)Trigger.newmap.get(recordId).get(fieldName);
-            	            if (oldFieldValue != newFieldValue && !exemptFields.contains(fieldName)) {
-            	                isUpdateOK = false;
-            	                break;
-            	            }
-            	        } else if (fieldType == 'ID') {
-            	            Id oldFieldValue = (Id)Trigger.oldmap.get(recordId).get(fieldName);
-            	            Id newFieldValue = (Id)Trigger.newmap.get(recordId).get(fieldName);
-            	            if (oldFieldValue != newFieldValue && !exemptFields.contains(fieldName)) {
-            	                isUpdateOK = false;
-            	                break;
-            	            }
-            	        }
-            	    }                           
-            	}
+            //	    if (fieldName != this.lockedFieldAPIName){
+            //	        if (fieldType == 'DOUBLE') {
+            //	            Double oldFieldValue = (Double)Trigger.oldmap.get(recordId).get(fieldName);
+            //	            Double newFieldValue = (Double)Trigger.newmap.get(recordId).get(fieldName);
+            //	            if (oldFieldValue != newFieldValue && !exemptFields.contains(fieldName)) {
+            //	                isUpdateOK = false;
+            //	                break;
+            //	            }
+            //	        } else if (fieldType == 'STRING') {
+            //	            String oldFieldValue = (String)Trigger.oldmap.get(recordId).get(fieldName);
+            //	            String newFieldValue = (String)Trigger.newmap.get(recordId).get(fieldName);
+            //	            if (oldFieldValue != newFieldValue && !exemptFields.contains(fieldName)) {
+            //	                isUpdateOK = false;
+            //	                break;
+            //	            }
+            //	        } else if (fieldType == 'DATE') {
+            //	            Date oldFieldValue = (Date)Trigger.oldmap.get(recordId).get(fieldName);
+            //	            Date newFieldValue = (Date)Trigger.newmap.get(recordId).get(fieldName);
+            //	            if (oldFieldValue != newFieldValue && !exemptFields.contains(fieldName)) {
+            //	                isUpdateOK = false;
+            //	                break;
+            //	            }
+            //	        } else if (fieldType == 'BOOLEAN') {
+            //	            Boolean oldFieldValue = (Boolean)Trigger.oldmap.get(recordId).get(fieldName);
+            //	            Boolean newFieldValue = (Boolean)Trigger.newmap.get(recordId).get(fieldName);
+            //	            if (oldFieldValue != newFieldValue && !exemptFields.contains(fieldName)) {
+            //	                isUpdateOK = false;
+            //	                break;
+            //	            }
+            //	        } else if (fieldType == 'DATETIME') {
+            //	            DateTime oldFieldValue = (DateTime)Trigger.oldmap.get(recordId).get(fieldName);
+            //	            DateTime newFieldValue = (DateTime)Trigger.newmap.get(recordId).get(fieldName);
+            //	            if (oldFieldValue != newFieldValue && !exemptFields.contains(fieldName)) {
+            //	                isUpdateOK = false;
+            //	                break;
+            //	            }
+            //	        } else if (fieldType == 'ID') {
+            //	            Id oldFieldValue = (Id)Trigger.oldmap.get(recordId).get(fieldName);
+            //	            Id newFieldValue = (Id)Trigger.newmap.get(recordId).get(fieldName);
+            //	            if (oldFieldValue != newFieldValue && !exemptFields.contains(fieldName)) {
+            //	                isUpdateOK = false;
+            //	                break;
+            //	            }
+            //	        }
+            //	    }                           
+            //	}
             	
-            	system.debug('isupdateOK --> '+isUpdateOK);
-            	system.debug('isLocked --> '+isLocked);
+            //	system.debug('isupdateOK --> '+isUpdateOK);
+            //	system.debug('isLocked --> '+isLocked);
 
-            	if (isLocked && !isUpdateOK) { //if it's locked and the update is not ok (they are not editing exempt fields) throw an error
-            	    system.debug('--> record/parent locked and exempt field is not being updated, so no update allowed');
-            	    s.addError(errorMessage);
-            	} else if (isUpdateOK) {
-            	    system.debug('--> update is ok because only exempt fields are being updated');
-            	    MERC_LockedRecordHandler.overrideLockCheck = true;
-            	}	            	
-            } else {
-            	if (isLocked)
-            		s.addError(errorMessage);
-            }
+            //	if (isLocked && !isUpdateOK) { //if it's locked and the update is not ok (they are not editing exempt fields) throw an error
+            //	    system.debug('--> record/parent locked and exempt field is not being updated, so no update allowed');
+            //	    s.addError(errorMessage);
+            //	} else if (isUpdateOK) {
+            //	    system.debug('--> update is ok because only exempt fields are being updated');
+            //	    MERC_LockedRecordHandler.overrideLockCheck = true;
+            //	}	            	
+            //} else {
+            //	if (isLocked)
+            //		s.addError(errorMessage);
+            //}
+        
+            if (isLocked)
+                s.addError(errorMessage); 
         }
     }
 }
