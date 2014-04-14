@@ -6,6 +6,9 @@ public with sharing class CUST_AdminUtilitiesController {
 
     public static final String STATUS_SUCCESS = 'AdminUtilitiesSuccess';
     public static final String STATUS_ERR = 'AdminUtilitiesError';
+    public Boolean jobsActive {get{ return checkActiveJobs();} set;}
+
+    private List<CronTrigger> jobTriggers;
 
     public PageReference initJobs() {
         initJobsUtil util = new initJobsUtil();
@@ -13,6 +16,41 @@ public with sharing class CUST_AdminUtilitiesController {
         status = util.status;
         message = util.message;
         result = util.result;
+        return null;
+    }
+
+    public Boolean checkActiveJobs() {
+        Mercury_Settings_MERC__c settings = Mercury_Settings_MERC__c.getOrgDefaults();
+        List<String> jobIds = new List<String>();
+        if (settings.CST_Expire_Cron_Id_CUST__c!=null) jobIds.add(settings.CST_Expire_Cron_Id_CUST__c);
+        if (settings.CST_Review_Cron_Id_CUST__c!=null) jobIds.add(settings.CST_Review_Cron_Id_CUST__c);
+        if (settings.CST_Notify_Cron_Id_CUST__c!=null) jobIds.add(settings.CST_Notify_Cron_Id_CUST__c);
+
+        jobTriggers = new List<CronTrigger>([
+            SELECT Id, CreatedBy.Name, CreatedDate, CronJobDetailId, CronJobDetail.Name, NextFireTime, State, TimesTriggered
+            FROM CronTrigger WHERE Id in :jobIds]);
+
+        if (jobTriggers.isEmpty()) {
+            return false;
+        }
+
+        //List<Id> jobDetailIds = new List<Id>();
+        //for (CronTrigger t : jobTriggers) {
+        //    jobDetailIds.add(t.CronJobDetailId);
+        //}
+        //currentJobs = [SELECT Id from CronJobDetail WHERE Id in :jobDetailIds];
+
+        // status = 1;
+        // message = String.valueOf(currentJobs);
+        // result = STATUS_SUCCESS;
+        return true;
+    }
+
+    public PageReference stopJobs() {
+        for (CronTrigger t : jobTriggers) System.abortJob(t.Id);
+        status = 1;
+        message = 'Active Jobs Deleted';
+        result = STATUS_SUCCESS;
         return null;
     }
 
@@ -36,4 +74,5 @@ public with sharing class CUST_AdminUtilitiesController {
             result = STATUS_SUCCESS;
         }
     }
+
 }

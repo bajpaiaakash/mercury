@@ -18,6 +18,7 @@
 			</ul>
 			<apex:pageBlockSectionItem >
 				<apex:commandButton action="{!initJobs}" value="Set Schedule and Queue All Apex Jobs" rerender="initJobsResult"></apex:commandButton>
+				<apex:commandButton action="{!stopJobs}" value="Remove All Apex Jobs from running Queue" rendered="{!jobsActive}" rerender="initJobsResult"></apex:commandButton>
 			</apex:pageBlockSectionItem>
 			<apex:pageBlockSectionItem >
 				<apex:outputPanel id="initJobsResult">
