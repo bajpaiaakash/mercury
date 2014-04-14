@@ -14,8 +14,8 @@ public with sharing class MERC_MeetingCancellationHandler implements GLBL_Trigge
         List<Meeting_MERC__c> cancelledMeetings = new List<Meeting_MERC__c>();
         for (Meeting_MERC__c meeting : (List<Meeting_MERC__c>) Trigger.new)
         {
-            if (meeting.Send_Meeting_Team_Cancelled_Email_MERC__c &&
-                (Trigger.isInsert || !((Meeting_MERC__c)Trigger.oldMap.get(meeting.id)).Send_Meeting_Team_Cancelled_Email_MERC__c))
+            if (meeting.Send_Meeting_Team_Cancelled_Email_MERC__c == 'TRUE' &&
+                (Trigger.isInsert || ((Meeting_MERC__c)Trigger.oldMap.get(meeting.id)).Send_Meeting_Team_Cancelled_Email_MERC__c != 'TRUE'))
             {
                 cancelledMeetings.add( meeting );
             }

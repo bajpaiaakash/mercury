@@ -2,7 +2,7 @@
 	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/jquery.min.js')}"/>
 	<script>$ = jQuery.noConflict();</script>
 	<apex:sectionHeader title="Accounts" subtitle="Merge Related Data" />
-	<apex:form>
+	<apex:form >
 		<apex:pageBlock id="thePageBlock">
 
 			<apex:pageBlockSection title="Merged Accounts" collapsible="false" columns="1">

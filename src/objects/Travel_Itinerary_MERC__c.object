@@ -1788,7 +1788,7 @@ Created by John A Adams 12/13/2013</description>
         <fullName>Car_MERC</fullName>
         <active>true</active>
         <description>Rental Car or Car Service Information</description>
-        <label>Rental Car</label>
+        <label>Car Service</label>
         <picklistValues>
             <picklist>Segment_Begin_Timezone_MERC__c</picklist>
             <values>
@@ -2286,8 +2286,8 @@ ISCHANGED( Sgmnt_End_TS_MERC__c )) &amp;&amp;
         <description>Ensure that a Travel/Segment date is within 3 days +/- of the Meeting Start or End Date.  This is to accommodate shoulder dates but also limit the dates that can be chosen.  Created on 02/17/2014 by KLorenti, Mavens Consulting</description>
         <errorConditionFormula>(Sgmnt_Bgin_TS_MERC__c &gt; ( Meeting_Start_Date_Time_MERC__c  + 3))  ||
 (Sgmnt_Bgin_TS_MERC__c &lt; ( Meeting_Start_Date_Time_MERC__c  - 3)) ||
-(Sgmnt_End_TS_MERC__c &gt; (  Meeting_End_Date_Time_MERC__c   + 3))  ||
-(Sgmnt_End_TS_MERC__c &lt; ( Meeting_End_Date_Time_MERC__c  - 3))</errorConditionFormula>
+(Sgmnt_End_TS_MERC__c &gt; ( Meeting_End_Date_Time_MERC__c + 3)) || 
+(Sgmnt_End_TS_MERC__c &lt; ( Meeting_End_Date_Time_MERC__c - 3))</errorConditionFormula>
         <errorMessage>The Segment Dates selected must be within 3 +/- days of the start or end of the meeting.</errorMessage>
     </validationRules>
 </CustomObject>

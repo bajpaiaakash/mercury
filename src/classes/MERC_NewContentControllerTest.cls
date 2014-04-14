@@ -1,25 +1,35 @@
 /** 
 * @author Sean Harrison 
-* 
+* @TODO: we cannot create workspaces/libraries or add users to libraries via Apex, so we need to query for existing users in these tests
 * This is a unit test class for MERC_NewContentController.cls
 */
 @isTest
 private class MERC_NewContentControllerTest {
 
+
+	static User u;
+	static Profile p;
 	static List<Account> accounts;
 	static Budget_MERC__c budget;
 	static HCP_Contract_MERC__c contract;
 	static List<Invoice_MERC__c> invoices;
 	static List<Meeting_MERC__c> meetings;
 	static List<Meeting_Participant_MERC__c> participants;
+    static User thisUser = [SELECT Id FROM User WHERE Id = :UserInfo.getUserId()];
 
 	static {
-		accounts = MERC_TestFactory.insertAccounts(1);
-		meetings = MERC_TestFactory.insertMeetings(1);
-		participants = MERC_TestFactory.insertParticipants(meetings[0].Id, accounts);
-		invoices = MERC_TestFactory.insertInvoices(participants);
-		budget = MERC_TestFactory.insertBudget(meetings[0].Id);
-		contract = MERC_TestFactory.insertHCPContract(accounts[0].Id);
+		System.runAs(thisUser) {
+			p = [SELECT id FROM profile WHERE name='Standard User'];
+			u = new User(alias = 'Romeo', lastname='Montegue', email='romeo@montegue.com',
+				profileid = p.Id, username='romeo@montegue.com.MERC_NewContentControllerTest',
+				emailencodingkey='UTF-8', languagelocalekey='en_US',localesidkey='en_US', timezonesidkey='America/Chicago');
+			accounts = MERC_TestFactory.insertHcpAccountsInCountry(1, 'GB');
+			meetings = MERC_TestFactory.insertMeetings(1, 'GB');
+			participants = MERC_TestFactory.insertParticipants(meetings[0].Id, accounts);
+			invoices = MERC_TestFactory.insertInvoices(participants);
+			budget = MERC_TestFactory.insertBudget(meetings[0].Id);
+			contract = MERC_TestFactory.insertHCPContract(accounts[0].Id);
+		}
 	}
 
 	// exercise cancel method.
@@ -81,13 +91,11 @@ private class MERC_NewContentControllerTest {
 	// Simulate a problem with the User's access to Content
 	@isTest
 	static void catchWorkspaceException() {
-        Profile p = [SELECT id FROM profile WHERE name='Standard User'];
-		User u = new User(alias = 'Romeo', lastname='Montegue', email='romeo@montegue.com',
-			profileid = p.Id, username='romeo@montegue.com.MERC_NewContentControllerTest',
-			emailencodingkey='UTF-8', languagelocalekey='en_US',localesidkey='en_US', timezonesidkey='America/Chicago');
 		RecordType rt = [SELECT Id FROM RecordType WHERE DeveloperName = 'Business_Account'];
 
 		System.runAs(u) {
+			Test.startTest();
+
 			Account a = new Account();
 			a.Name = 'Capulet';
 			a.RecordTypeId = rt.Id;
@@ -97,7 +105,6 @@ private class MERC_NewContentControllerTest {
 			Test.setCurrentPage(ref);
 			ApexPages.currentPage().getParameters().put('id', (String) a.id);
 
-			Test.startTest();
 			Boolean errThrown = false;
 			try {
 				MERC_NewContentController controller = new MERC_NewContentController();
