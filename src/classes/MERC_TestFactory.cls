@@ -70,6 +70,22 @@ public with sharing class MERC_TestFactory {
 		return accs;
 	}
 
+	public static List<Account> insertHcpAccountsInCountry(Integer numberOfAccounts, String country) {
+		List<Account> accs = new List<Account>();
+		for (Integer i = 0; i < numberOfAccounts; i++) {
+			String randomString = MERC_Util.generateRandomString(8);
+			Account a = new Account();
+			a.FirstName = 'UnitTest';
+			a.LastName = randomString;
+			a.RecordTypeId = hcpRecordTypeId;
+			a.PersonEmail = 'ut-'+randomString+'@gmail.com';
+			a.Country_of_Residence_GLBL__c = country;
+			accs.add(a);
+		}
+		insert accs;
+		return accs;
+	}
+
 	public static List<Account> insertAccounts(Integer numberOfAccounts) {
 		return insertAccounts(numberOfAccounts, hcpRecordTypeId);
 	}

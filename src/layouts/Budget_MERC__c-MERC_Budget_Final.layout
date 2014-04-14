@@ -16,12 +16,12 @@
                 <field>Name</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Budget_Date_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Required</behavior>
                 <field>Meeting_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Budget_Date_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -144,8 +144,8 @@
         <style>CustomLinks</style>
     </layoutSections>
     <miniLayout>
-        <fields>Budget_Date_MERC__c</fields>
         <fields>Meeting_MERC__c</fields>
+        <fields>Budget_Date_MERC__c</fields>
         <fields>Status_MERC__c</fields>
         <fields>CurrencyIsoCode</fields>
         <fields>Current_Budget_Used_MERC__c</fields>

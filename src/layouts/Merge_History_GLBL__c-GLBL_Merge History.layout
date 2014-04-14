@@ -27,6 +27,10 @@
                 <behavior>Edit</behavior>
                 <field>Merge_Date_GLBL__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Merge_Processed_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

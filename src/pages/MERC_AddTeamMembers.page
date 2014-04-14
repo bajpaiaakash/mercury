@@ -1,0 +1,43 @@
+<apex:page showHeader="true" sidebar="true" standardController="Meeting_MERC__c" extensions="MERC_AddTeamMembersController">
+	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/jquery.min.js')}"/>
+	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/chosen.jquery.min.js')}"/>
+	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/bootstrap.tabs.min.js')}"/>
+	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/mercury.js')}"/>
+	<apex:stylesheet value="{!urlfor($Resource.mercury, 'css/style.css')}"/>
+	<apex:stylesheet value="{!urlfor($Resource.mercury, 'css/chosen.css')}"/>
+	<apex:stylesheet value="{!urlfor($Resource.mercury, 'css/bootstrap.tabs.css')}"/>
+	<!-- <apex:sectionHeader title="{!meeting.Name}" subtitle="{!$ObjectType.Meeting_Participant_MERC__c.LabelPlural}" /> -->
+
+	<style>
+	.nav-tabs { border-color: #e23d28; }
+	.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+		border-color: #e23d28;
+		border-bottom-color: transparent;
+	}
+	</style>
+	<span id="statusMessage" class="bootstraplabel info">
+
+	</span>
+	<apex:form id="mainForm">
+		<apex:outputPanel id="responseWrapper">
+			<!-- <apex:outputText style="display:none;" value="{!hasError}" id="controllerHasError"/> -->
+		</apex:outputPanel>
+
+		<!-- Nav tabs -->
+		<ul class="nav nav-tabs" id="myTab">
+			<li class="active"><a href="#search" data-toggle="tab">Search Form</a></li>
+		  	<li>
+		  		<a href="#sr" data-toggle="tab" id="searchResultTabAnchor">
+		  			Search Results &nbsp;&nbsp;
+		  			<apex:outputPanel styleClass="bootstraplabel count" id="srCountWrapper" ></apex:outputPanel>
+		  		</a>
+		  	</li>
+		  	<li>
+		  		<a href="#mp" data-toggle="tab">
+		  			Meeting Team Members &nbsp;&nbsp;
+		  			<apex:outputPanel styleClass="bootstraplabel count" id="mpCountWrapper"></apex:outputPanel>
+		  		</a>
+		  	</li>
+		</ul>
+	</apex:form>
+</apex:page>

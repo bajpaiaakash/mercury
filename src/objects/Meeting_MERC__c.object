@@ -239,6 +239,28 @@ Created by John Adams on 12/9/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Associated_Countries_MERC__c</fullName>
+        <description>Stores all Countries associated with the meeting to ensure the Meeting and related objects are passed to the correct Veeva Orgs.  This field is updated from associated child objects and defaults the Meeting Country. Oliver Dunford 14th April 2014.</description>
+        <externalId>false</externalId>
+        <label>Associated Countries</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Budget_Final_Date_Time_MERC__c</fullName>
+        <description>Stamped by workflow to indicate when Budget became final. Created 04/09/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Budget Final Date/Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>Budget_is_Final_MERC__c</fullName>
         <description>Used for Mercury Manager to indicate that budget is final.  Must be Yes before meeting can be completed.  Created.  Created 11/19/2013 by KLorenti, Mavens Consulting.</description>
         <externalId>false</externalId>
@@ -335,6 +357,17 @@ Created by John A Adams 2/25/2014</description>
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>Compliance_Timeliness_Met_MERC__c</fullName>
+        <description>If # of Days until invoices were reviewed/completed &lt;= 10 then Compliant. Created 04/09/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF(of_Days_Until_Invoice_Reviewed_MERC__c  &lt;= 10.00, true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Compliance Timeliness Met</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Compliant_MERC__c</fullName>
         <description>Flags a meeting as being potentially non-compliant. RMAT require a report or public list to show these occurrences so that an external investigation can take place and the Meeting can be investigated. 
 Created by John A Adams 10/24/2013</description>
@@ -376,6 +409,16 @@ Created by John A Adams 10/24/2013</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Confirmation_Comp_Invoice_Dt_Tm_MERC__c</fullName>
+        <description>Populated via workflow to stamp when the Confirmation of Complete Invoice was checked.  Used for SLA Reporting. Created 04/09/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Confirmation of Complete Invoice Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Confirmed_Attendees_MERC__c</fullName>
@@ -494,6 +537,36 @@ Created by John Adams on 12/9/2013</description>
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Days_Until_Venue_Contracted_MERC__c</fullName>
+        <description>Calculates number of days from Venue Sourcing Team Member added and Venue Contract closed. Created 04/14/2014</description>
+        <externalId>false</externalId>
+        <formula>Venue_Contract_Closed_Date_Time_MERC__c  -  Venue_Sourcing_Team_Date_TIme_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Days Until Venue Contracted</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Days_from_End_Date_to_ToV_Reported_MERC__c</fullName>
+        <description>Number of days from Meeting End Date until Participant ToV is Final. Used for SLA Reporting. Created 04/10/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Participant_ToV_Final_Date_Time_MERC__c  -  End_Time_of_Meeting_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label># of Days from End Date to ToV Reported</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
@@ -1311,6 +1384,16 @@ Created by John A Adams 1/9/2014</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>MPC_Date_Time_MERC__c</fullName>
+        <description>Datetime poplated by workflow to indicate when MPC was added to team members. Used for SLA reporting. Created 04/14/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>MPC Date/Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>Make_Payment_To_MERC__c</fullName>
         <description>Who should be paid if arranged via a third party. Created 01/13/2014 by Mavens Consulting</description>
         <externalId>false</externalId>
@@ -1991,6 +2074,16 @@ Created by John Adams on 12/9/2013</description>
         <type>DateTime</type>
     </fields>
     <fields>
+        <fullName>Participant_ToV_Final_Date_Time_MERC__c</fullName>
+        <description>Updated by workflow when the &quot;Participant ToV Final&quot; field is set to &quot;Yes&quot; on the meeting. Used in SLA Reports. Created 04/10/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Participant ToV Final Date/Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>Participant_ToV_Final_MERC__c</fullName>
         <description>The trigger to send ToV values to Activity ODS. Oliver Dunford 5th November.</description>
         <externalId>false</externalId>
@@ -2208,13 +2301,15 @@ Created by John Adams on 12/9/2013</description>
     </fields>
     <fields>
         <fullName>Send_Meeting_Team_Cancelled_Email_MERC__c</fullName>
-        <defaultValue>false</defaultValue>
         <description>Once set to true an email will be sent to all of those Team Members on the Meeting Team object who have the record type &quot;Mercury Users&quot;.  This is an automated trigger email due to the need for multiple recipients and the object model limitations of workflow email.  Oliver Dunford 8th April 2014.</description>
         <externalId>false</externalId>
         <label>Send Meeting Team Cancelled Email</label>
+        <length>8</length>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Send_Save_the_Date_MERC__c</fullName>
@@ -2814,6 +2909,26 @@ Created by John Adams 11/6/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Venue_Contract_Closed_Date_Time_MERC__c</fullName>
+        <description>Populated by workflow when Venue Contract is Closed. Used for SLA Reporting. Created 04/14/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Venue Contract Closed Date/Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Venue_Contract_Closed_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicates that the Venue Contract has been closed. Used for SLA reporting. Created 04/14/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Venue Contract Closed</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Venue_MERC__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Lookup relationship to Account to select a Venue for the Meeting. Created 12/18/2013 by KLorenti, Mavens Consulting</description>
@@ -2827,6 +2942,16 @@ Created by John Adams 11/6/2013</description>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Venue_Sourcing_Team_Date_TIme_MERC__c</fullName>
+        <description>Populated via workflow to capture the date/time a Venue Sourcing Team Member was added to a meeting. Used for SLA Reporting.</description>
+        <externalId>false</externalId>
+        <label>Venue Sourcing Team Date/Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Virtual_Meeting_MERC__c</fullName>
@@ -2858,6 +2983,21 @@ Created by John Adams 11/6/2013</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>of_Days_Until_Invoice_Reviewed_MERC__c</fullName>
+        <description># of Days it took for the Budget to be reviewed/confirmed. Created 04/09/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Confirmation_Comp_Invoice_Dt_Tm_MERC__c -   Budget_Final_Date_Time_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label># of Days Until Invoice Reviewed</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
         <unique>false</unique>
     </fields>
     <fields>

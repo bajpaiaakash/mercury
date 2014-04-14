@@ -1,0 +1,62 @@
+<apex:page showHeader="true" sidebar="false" tabStyle="Account" controller="MERC_MergedAccountsController">
+	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/jquery.min.js')}"/>
+	<script>$ = jQuery.noConflict();</script>
+	<apex:sectionHeader title="Accounts" subtitle="Merge Related Data" />
+	<apex:form >
+		<apex:pageBlock id="thePageBlock">
+
+			<apex:pageBlockSection title="Merged Accounts" collapsible="false" columns="1">
+				<apex:commandButton value="Mark Selected as Resolved" action="{!markAccountsAsComplete}" rerender="thePageBlock"/>
+				<apex:pageBlockTable value="{!mergedAccounts}" var="acct" rowClasses="clickable">
+					<apex:column headerValue="" html-data-record-id="{!acct.detail.Id}">
+						<apex:inputCheckbox value="{!acct.selected}" styleClass="account-check-box"/>
+					</apex:column>
+					<apex:column headerValue="Name" value="{!acct.detail.Name}"/>
+					<apex:column headerValue="Country of Residence" value="{!acct.detail.Country_of_Residence_GLBL__c}"/>
+				</apex:pageBlockTable>
+			</apex:pageBlockSection>
+
+			<!-- The action function to call when a row is clicked. This is called by a jQuery function below -->
+			<apex:actionFunction name="selectAccount" action="{!selectAccount}" rerender="">
+				<apex:param name="firstParam" assignTo="{!activeAccountId}" value=""/>
+			</apex:actionFunction>
+
+			<!-- iterate over relatedList objects and render each set of related list -->
+			<apex:pageBlockSection title="Related list 1" collapsible="true" columns="2">
+				<!-- this section is two columns, output a blank space to slide the button over to column two -->
+				<apex:outputText value=""/>
+				<apex:commandButton value="Move Selected Records"/>
+
+				<!-- output the two related lists. the first is the list of records for the wining record the second
+				     is the list of records from teh losing record and has checkboxes to select -->
+				<!-- <apex:pageBlockTable value="{!mergedAccounts}" var="acct">
+					<apex:column headerValue="Name" value="{!acct.detail.Name}"/>
+					<apex:column headerValue="Country of Residence" value="{!acct.detail.Country_of_Residence_GLBL__c}"/>
+				</apex:pageBlockTable>
+				<apex:pageBlockTable value="{!mergedAccounts}" var="acct">
+
+					<apex:column headerValue="Name" value="{!acct.detail.Name}"/>
+					<apex:column headerValue="Country of Residence" value="{!acct.detail.Country_of_Residence_GLBL__c}"/>
+				</apex:pageBlockTable> -->
+			</apex:pageBlockSection>
+
+		</apex:pageBlock>
+	</apex:form>
+
+	<script>
+		$(function () {
+			$('input.account-check-box').on('click', function(e){
+				//The checkboxes live inside the clickable rows. prevent the click of a
+				//checkbox from invoking the row click
+				e.stopPropagation();
+			});
+
+			$('tr.clickable').on('click', function(){
+				//When a row is clicked get the account record Id
+				//and call the actionfunction to update the related lists
+				//selectAccount($(this).children().first().data('record-id'));
+
+			});
+		});
+	</script>
+</apex:page>
