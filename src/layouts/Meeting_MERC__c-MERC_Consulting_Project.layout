@@ -113,6 +113,10 @@
                 <behavior>Edit</behavior>
                 <field>Interaction_Type_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Meeting_Objectives_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

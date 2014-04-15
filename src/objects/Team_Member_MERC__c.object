@@ -134,6 +134,18 @@ Created by John A Adams 1/10/2014</description>
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Associated_Countries_MERC__c</fullName>
+        <description>Pulls down Associated Countries from the Meeting.  Ensures Participants end up in the correct Veeva Org(s). Oliver Dunford 14th April 2014.</description>
+        <externalId>false</externalId>
+        <formula>Meeting_MERC__r.Associated_Countries_MERC__c</formula>
+        <label>Associated Countries</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Attendee_Invite_Limit_MERC__c</fullName>
         <description>Created 10/10/2013 by KLorenti.</description>
         <externalId>false</externalId>
@@ -244,6 +256,10 @@ Created by John A Adams 1/10/2014</description>
             </picklistValues>
             <picklistValues>
                 <fullName>International Event Approver</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Venue Sourcing Team</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -379,6 +395,10 @@ Created by John A Adams 1/10/2014</description>
             </values>
             <values>
                 <fullName>Travel Agent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Venue Sourcing Team</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

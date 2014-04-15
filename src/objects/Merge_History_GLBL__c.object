@@ -76,6 +76,16 @@ Created by J Adams 12/10/2013</description>
         <type>DateTime</type>
     </fields>
     <fields>
+        <fullName>Merge_Processed_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicates whether a Mercury Merge has been complete.  This will be set post a Mercury merge process has taken place, this would be in addition to the master data merge that has already taken place.  Oliver Dunford 11th April 2014.</description>
+        <externalId>false</externalId>
+        <label>Merge Processed</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Original_Account_ID_GLBL__c</fullName>
         <description>Capture Original Account Id for Merge History. Created 10/17/2013 by KLorenti, Mavens Consulting</description>
         <externalId>true</externalId>

@@ -12,7 +12,8 @@ public with sharing class MERC_MeetingNewEditController extends GLBL_BaseEditCon
     public MERC_MeetingNewEditController(ApexPages.StandardController controller) {
         super(controller, Meeting_MERC__c.SobjectType);
         //if the time zones have not been set yet, set according to user's locale
-        if (Apexpages.currentPage().getUrl().contains('/apex/MERC_MeetingNewEdit')) {
+        String vfUrl = Apexpages.currentPage().getUrl().toLowerCase();
+        if (vfUrl.contains('/apex/merc_meetingnewedit')) {
             Schema.DescribeFieldResult meetingTimeZoneFieldDescribe = Meeting_MERC__c.Meeting_Time_Zone_MERC__c.getDescribe();
             String userTimeZoneDefault = MERC_Util.getTimeZonePicklistValueForCurrentUser(meetingTimeZoneFieldDescribe);
             if (this.mySobject.get('Meeting_Time_Zone_MERC__c') == null)

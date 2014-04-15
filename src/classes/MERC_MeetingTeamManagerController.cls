@@ -36,12 +36,18 @@ public with sharing class MERC_MeetingTeamManagerController extends GLBL_Generic
 			new List<String> { 'External_User_MERC', 'Mercury_User_MERC' }
 		);
 
+<<<<<<< HEAD
 		if (!childrenMap.containsKey('Mercury_User_MERC')) { childrenMap.put('Mercury_User_MERC', new List<GenericSobjectWrapper>()); }
 		if (!childrenMap.containsKey('External_User_MERC')) { childrenMap.put('External_User_MERC', new List<GenericSobjectWrapper>()); }
 
 		searchAccount  = new Account(RecordTypeId=employeeRecordTypeId);
 		searchResults  = new List<SearchResult>();
 		dummyMember    = new Team_Member_MERC__c(RecordTypeId=externalUsersRecordTypeId);
+=======
+		searchAccount  = new Account(RecordTypeId=employeeRecordTypeId);
+		searchResults  = new List<SearchResult>();
+		dummyMember    = new Team_Member_MERC__c();
+>>>>>>> d098ae0142475ab8ac60e149f56534c0f56965f6
 		searchForUsers = 'field';
 	}
 
@@ -55,19 +61,30 @@ public with sharing class MERC_MeetingTeamManagerController extends GLBL_Generic
 	}
 
 	public void addSelected() {
+<<<<<<< HEAD
 		/*----- loop through search resutlts and determine which ones to add -----*/
+=======
+>>>>>>> d098ae0142475ab8ac60e149f56534c0f56965f6
 		for (SearchResult sr : searchResults) {
 			if (sr.selected) {
 				GenericSobjectWrapper newItem = new GenericSobjectWrapper(sr.member);
 				newItem.index = children.size()+1;
+<<<<<<< HEAD
+=======
+				children.add(newItem);
+>>>>>>> d098ae0142475ab8ac60e149f56534c0f56965f6
 				List<GenericSobjectWrapper> addToList = childrenMap.get('External_User_MERC');
 				addToList.add(newItem);
 			}
 		}
+<<<<<<< HEAD
 		/*----- save the childrenMap -----*/
 		save();
 
 		/*----- redo the search to remove the added memebers from returned results -----*/
+=======
+		save();
+>>>>>>> d098ae0142475ab8ac60e149f56534c0f56965f6
 		doSearch();
 	}
 
@@ -78,7 +95,10 @@ public with sharing class MERC_MeetingTeamManagerController extends GLBL_Generic
 	public void doSearch() {
 		searchResults.clear();
 
+<<<<<<< HEAD
 		/*----- find account Ids of existin team members -----*/
+=======
+>>>>>>> d098ae0142475ab8ac60e149f56534c0f56965f6
 		Set<Id> existingTeamMemberAccountIds = new Set<Id>();
     	for(GenericSobjectWrapper member : childrenMap.get('External_User_MERC')) {
     		existingTeamMemberAccountIds.add(((Team_Member_MERC__c)member.so).Account_MERC__c);
@@ -138,8 +158,12 @@ public with sharing class MERC_MeetingTeamManagerController extends GLBL_Generic
 			this.member   = new Team_Member_MERC__c( Access_MERC__c ='Can Add Attendees'
 								                   , RecordTypeId=MERC_MeetingTeamManagerController.externalUsersRecordTypeId
 								                   , Account_MERC__c = a.Id
+<<<<<<< HEAD
 								                   , Attendee_Invite_Limit_MERC__c = 1
 								                   , Role_MERC__c = 'Customer Facing Team');
+=======
+								                   , Attendee_Invite_Limit_MERC__c = 1);
+>>>>>>> d098ae0142475ab8ac60e149f56534c0f56965f6
 		}
 
     }

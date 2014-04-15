@@ -74,8 +74,48 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableEnhancedLookup>true</enableEnhancedLookup>
-    <enableFeeds>true</enableFeeds>
+    <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
+    <fieldSets>
+        <fullName>Meeting_Team_Manager_Mass_Add</fullName>
+        <description>Meeting Team Manager search Results tab</description>
+        <displayedFields>
+            <field>FirstName</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>LastName</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>PersonEmail</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Country_of_Residence_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Territory_Id_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Trtry_Cd_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Trtry_Desc_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Meeting Team Manager - Mass Add</label>
+    </fieldSets>
     <fields>
         <fullName>Academic_Qualifications_MERC__c</fullName>
         <description>To record academic qualifications of speakers 
@@ -106,7 +146,6 @@ Created by John A Adams 10/2/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
@@ -168,7 +207,6 @@ Created by John A Adams 10/2/2013</description>
         <externalId>false</externalId>
         <label>Account Add Reason</label>
         <length>1000</length>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
@@ -191,7 +229,6 @@ Created by John A Adams 10/16/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
@@ -205,7 +242,6 @@ Created by John A Adams 10/16/2013</description>
         <precision>10</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
@@ -218,7 +254,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Alternate Name</label>
         <length>80</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -231,7 +266,6 @@ Created by John A Adams 11/4/2013</description>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
@@ -256,7 +290,6 @@ Created by John A Adams 10/21/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
@@ -278,7 +311,6 @@ Created by John A Adams 10/16/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
@@ -289,7 +321,6 @@ Created by John A Adams 10/16/2013</description>
         <label>Benefit Designation</label>
         <length>50</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -303,7 +334,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Business Name 2</label>
         <length>80</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -317,7 +347,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Business Name 3</label>
         <length>80</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -329,7 +358,6 @@ Created by John A Adams 10/31/2013</description>
         <externalId>false</externalId>
         <label>CAP Usage Note</label>
         <length>32768</length>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
@@ -341,7 +369,6 @@ Created by John A Adams 10/23/2013</description>
         <externalId>false</externalId>
         <label>CODS End Date</label>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Date</type>
     </fields>
@@ -362,7 +389,6 @@ Created by John A Adams 10/23/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
@@ -398,7 +424,6 @@ Created by John A Adams 10/23/2013</description>
             </picklistValues>
             <sorted>true</sorted>
         </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>3</visibleLines>
@@ -409,7 +434,6 @@ Created by John A Adams 10/23/2013</description>
         <externalId>false</externalId>
         <label>CST Email Stamp</label>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Email</type>
         <unique>false</unique>
@@ -420,7 +444,6 @@ Created by John A Adams 10/23/2013</description>
         <description>Used by portal to indicate that the CV Upload sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>CV Upload Step Complete</label>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -431,7 +454,6 @@ Created by John A Adams 10/23/2013</description>
         <externalId>false</externalId>
         <inlineHelpText>Check this box to update all Meeting Participant Fee calculations based on a new or updated HCP Tier.  This will only update those meetings which do not have a Status of Closed or Cancelled.</inlineHelpText>
         <label>Calculate Open Meeting Fees</label>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -442,7 +464,6 @@ Created by John A Adams 10/23/2013</description>
         <label>Cell Phone Country Code</label>
         <length>9</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -469,7 +490,6 @@ Created by John A Adams 10/16/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
@@ -480,7 +500,6 @@ Created by John A Adams 10/16/2013</description>
         <label>Classification Code</label>
         <length>50</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -494,7 +513,6 @@ Created by John A Adams 12/10/2013</description>
         <label>Classification</label>
         <length>255</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -508,7 +526,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Contract Eligible Status</label>
         <length>80</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -522,7 +539,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Contract Name</label>
         <length>100</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -536,7 +552,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Contract Short Name</label>
         <length>80</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -550,7 +565,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Party Country Code</label>
         <length>2</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -562,7 +576,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Communication Preference</label>
         <length>30</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -575,7 +588,6 @@ Created by John A Adams 11/4/2013</description>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
@@ -608,7 +620,6 @@ Created by John A Adams 10/24/2013</description>
         <inlineHelpText>Used to capture any Contract restrictions.</inlineHelpText>
         <label>Contract Limitations on Use</label>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <type>TextArea</type>
     </fields>
@@ -618,7 +629,6 @@ Created by John A Adams 10/24/2013</description>
         <description>Used by portal to indicate that the Contract Signing Parties sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Contract Signing Parties Step Complete</label>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -629,7 +639,6 @@ Created by John A Adams 10/24/2013</description>
         <label>Cost Center</label>
         <length>30</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -641,7 +650,6 @@ Created by John A Adams 10/24/2013</description>
         <label>Cost Center Name</label>
         <length>255</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -1663,7 +1671,6 @@ Created by John A Adams 10/20/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <type>Picklist</type>
     </fields>
@@ -1675,7 +1682,6 @@ Created by John Adams on 11/18/2013</description>
         <label>Credential Code 2</label>
         <length>50</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -1688,7 +1694,6 @@ Created by John Adams on 11/18/2013</description>
         <label>Credential Code 3</label>
         <length>50</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -1700,7 +1705,6 @@ Created by John Adams on 11/18/2013</description>
         <externalId>false</externalId>
         <label>Credential Level 2</label>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>TextArea</type>
     </fields>
@@ -1711,7 +1715,6 @@ Created by John Adams on 11/18/2013</description>
         <externalId>false</externalId>
         <label>Credential Level 3</label>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>TextArea</type>
     </fields>
@@ -1722,7 +1725,6 @@ Created by John Adams on 11/18/2013</description>
         <externalId>false</externalId>
         <label>Credential Level</label>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>TextArea</type>
     </fields>
@@ -1734,7 +1736,6 @@ Created by John Adams on 11/18/2013</description>
         <label>Credential Type Code 2</label>
         <length>50</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -1747,7 +1748,6 @@ Created by John Adams on 11/18/2013</description>
         <label>Credential Type Code 3</label>
         <length>50</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -1760,7 +1760,6 @@ Created by John Adams on 11/18/2013</description>
         <label>Credential Type Code</label>
         <length>50</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -1773,7 +1772,6 @@ Created by John Adams on 11/18/2013</description>
         <label>Credential Code</label>
         <length>50</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -1787,7 +1785,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Customer Group Code</label>
         <length>50</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -1799,7 +1796,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Customer Id</label>
         <length>40</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -1813,7 +1809,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Customer Type Code</label>
         <length>50</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -1827,7 +1822,6 @@ Created by John A Adams 12/10/2013</description>
         <label>Customer Type</label>
         <length>255</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -1840,7 +1834,6 @@ Customer ODS to Mercury Mapping
 Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
         <label>Deceased Flag</label>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -1852,7 +1845,6 @@ Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
         <label>Delete Date</label>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Date</type>
     </fields>
@@ -1865,7 +1857,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Delete Flag</label>
         <length>50</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -1878,9 +1869,34 @@ Customer ODS to Mercury Mapping
 Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
         <label>Department Flag</label>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Designated_Individual_Count_MERC__c</fullName>
+        <description>test</description>
+        <externalId>false</externalId>
+        <formula>1</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Designated Individual Count</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Designated_Individual_Counter_MERC__c</fullName>
+        <defaultValue>1</defaultValue>
+        <externalId>false</externalId>
+        <label>Designated Individual Counter</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Dspnsng_Acct_Flg_GLBL__c</fullName>
@@ -1890,7 +1906,6 @@ Customer ODS to Mercury Mapping
 Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
         <label>Dispensing Account Flag</label>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -1902,7 +1917,6 @@ Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
         <label>End Date</label>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Date</type>
     </fields>
@@ -1914,7 +1928,6 @@ Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
         <label>Effective Date</label>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Date</type>
     </fields>
@@ -1927,7 +1940,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Phone2 Country Prefix Code</label>
         <length>10</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -1941,7 +1953,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Phone Number 2 Ext</label>
         <length>15</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -1954,7 +1965,6 @@ Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
         <label>Phone Number 2</label>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>TextArea</type>
     </fields>
@@ -1967,7 +1977,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Phone1 Country Prefix Code</label>
         <length>10</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -1980,7 +1989,6 @@ Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
         <label>Email Address</label>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>TextArea</type>
     </fields>
@@ -1993,7 +2001,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Phone Number 1 Ext</label>
         <length>15</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -2007,7 +2014,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Fax Country Prefix Code</label>
         <length>10</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -2021,7 +2027,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Fax Number Ext</label>
         <length>15</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -2034,7 +2039,6 @@ Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
         <label>Fax Number</label>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>TextArea</type>
     </fields>
@@ -2046,7 +2050,6 @@ Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
         <label>Phone Number 1</label>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>TextArea</type>
     </fields>
@@ -2058,7 +2061,6 @@ Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
         <label>Web Address</label>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>TextArea</type>
     </fields>
@@ -2079,7 +2081,6 @@ Created by John A Adams 10/22/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
@@ -2099,7 +2100,6 @@ Created by John A Adams 10/22/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
@@ -2110,7 +2110,6 @@ Created by John A Adams 12/18/2013</description>
         <externalId>false</externalId>
         <label>Executive Summary Note</label>
         <length>32768</length>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
@@ -2121,7 +2120,6 @@ Created by John A Adams 12/18/2013</description>
         <description>Used by portal to indicate that the Experience sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Experience Step Complete</label>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -2159,7 +2157,6 @@ Created by John A Adams 12/18/2013</description>
         <description>Indicates whether a HCP has been Tiered.  If this is the case their Service Provider Tier will be set to 1, 2 or 3.  Passed via interface to Veeva  Oliver Dunford 17th Feb 2014.</description>
         <externalId>false</externalId>
         <label>FMV Tier Exists</label>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -2170,7 +2167,6 @@ Created by John A Adams 12/18/2013</description>
         <label>Fax Phone Country Code</label>
         <length>30</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -2182,7 +2178,6 @@ Created by John A Adams 12/18/2013</description>
         <label>Flag CST Email</label>
         <length>60</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -2194,7 +2189,6 @@ Created by John A Adams 12/18/2013</description>
         <label>Flag CST Expire Email</label>
         <length>60</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -2206,7 +2200,6 @@ Created by John A Adams 12/18/2013</description>
         <label>Flag CST User Email</label>
         <length>60</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -2221,7 +2214,6 @@ Created by John A Adams 11/4/2013</description>
         <precision>15</precision>
         <required>false</required>
         <scale>0</scale>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Number</type>
         <unique>false</unique>
@@ -2235,7 +2227,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Former Name</label>
         <length>80</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -2247,7 +2238,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Full Name</label>
         <length>255</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -2260,7 +2250,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Gender Code</label>
         <length>2</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -2274,7 +2263,6 @@ Created by John A Adams 12/10/2013</description>
         <label>Gender</label>
         <length>255</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -2288,7 +2276,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Governance Level</label>
         <length>30</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -2301,7 +2288,6 @@ Customer ODS to Mercury Mapping
 Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
         <label>Government Flag</label>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -2325,7 +2311,6 @@ Created by John A Adams 11/4/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
@@ -2340,7 +2325,6 @@ Created by John A Adams 11/4/2013</description>
         <relationshipLabel>Designated Individuals</relationshipLabel>
         <relationshipName>Accounts1</relationshipName>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <type>Lookup</type>
     </fields>
@@ -2387,7 +2371,6 @@ Created by John A Adams 10/16/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
@@ -2399,7 +2382,6 @@ Customer ODS to Mercury Mapping
 Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
         <label>Ims Prescriber Flag</label>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -2411,7 +2393,6 @@ Customer ODS to Mercury Mapping
 Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
         <label>Ims Xponent Flag</label>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -2423,7 +2404,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Industry Group Code</label>
         <length>50</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -2572,7 +2552,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Initials</label>
         <length>40</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -2583,7 +2562,6 @@ Created by John A Adams 11/4/2013</description>
         <description>Kicks off the process to calculate HCP Tier. Oliver Dunford 10th Jan 2014.</description>
         <externalId>false</externalId>
         <label>Initiate Tiering</label>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -2595,7 +2573,6 @@ Created by John A Adams 10/22/2013</description>
         <label>Institution Administrator</label>
         <length>80</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -2606,7 +2583,6 @@ Created by John A Adams 10/22/2013</description>
         <externalId>false</externalId>
         <label>Institution Name</label>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>TextArea</type>
     </fields>
@@ -2616,7 +2592,6 @@ Created by John A Adams 10/22/2013</description>
         <description>Used by portal to indicate that the Institutional Notification step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Institutional Notification Step Complete</label>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -2626,7 +2601,6 @@ Created by John A Adams 10/22/2013</description>
         <description>Used by portal to capture that HCP has consented to gathering data for Institutional Notifications. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Institutional Notification Consent</label>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -2647,7 +2621,6 @@ Created by John A Adams 10/22/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
@@ -2673,7 +2646,6 @@ Created by John A Adams 10/16/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
@@ -2683,7 +2655,6 @@ Created by John A Adams 10/16/2013</description>
         <externalId>false</externalId>
         <label>Justification for Preferred Venue</label>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>TextArea</type>
     </fields>
@@ -2704,7 +2675,6 @@ Created by John A Adams 10/28/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
@@ -2715,7 +2685,6 @@ Created by John A Adams 10/28/2013</description>
         <label>Language Preference</label>
         <length>30</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -2726,7 +2695,6 @@ Created by John A Adams 10/28/2013</description>
         <externalId>false</externalId>
         <label>Last Review Date</label>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Date</type>
     </fields>
@@ -2736,7 +2704,6 @@ Created by John A Adams 10/28/2013</description>
         <description>Used by portal to indicate that the Leadership/Committee Info sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Leadership/Committee Step Complete</label>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -2747,7 +2714,6 @@ Created by John A Adams 10/28/2013</description>
         <label>Lilly Company Code</label>
         <length>3</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -2760,7 +2726,6 @@ Created by John A Adams 12/11/2013</description>
         <label>Lilly Company VAT ID</label>
         <length>30</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -2805,7 +2770,6 @@ Created by John A Adams 12/11/2013</description>
         <label>Middle Name</label>
         <length>40</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -2818,7 +2782,6 @@ Created by J Adams 12/10/2013</description>
         <label>Mercury External Id</label>
         <length>150</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -2832,7 +2795,6 @@ Created by John Adams 11/10/2013</description>
         <label>Merge DT</label>
         <length>30</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -2845,7 +2807,6 @@ Customer ODS to Mercury Mapping
 Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
         <label>Military Flag</label>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -2867,7 +2828,6 @@ Created by John A Adams 10/16/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <type>Picklist</type>
     </fields>
@@ -2879,7 +2839,6 @@ Created by John A Adams 10/22/2013</description>
         <label>Name of Institution</label>
         <length>80</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -2902,7 +2861,6 @@ Created by John A Adams 10/16/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
@@ -2914,7 +2872,6 @@ Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
         <label>Source Load Timestamp</label>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>DateTime</type>
     </fields>
@@ -2927,7 +2884,6 @@ Created by John A Adams 11/4/2013</description>
         <label>ODS Load User</label>
         <length>30</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -2940,7 +2896,6 @@ Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
         <label>Source Update Timestamp</label>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>DateTime</type>
     </fields>
@@ -2953,7 +2908,6 @@ Created by John A Adams 11/4/2013</description>
         <label>ODS Last Update User</label>
         <length>30</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -2965,7 +2919,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Organization Unit Code</label>
         <length>30</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -2977,7 +2930,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Organization Unit Description</label>
         <length>150</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -2991,7 +2943,6 @@ Created by John Adams 11/10/2013</description>
         <label>Original Party Record Type Code</label>
         <length>30</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3005,7 +2956,6 @@ Created by John Adams 11/10/2013</description>
         <label>Original Party ID</label>
         <length>30</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3017,7 +2967,6 @@ Created by John A Adams 12/15/2013</description>
         <externalId>false</externalId>
         <label>Other Specialities</label>
         <length>1000</length>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
@@ -3029,7 +2978,6 @@ Created by John A Adams 12/15/2013</description>
         <label>Other Specialty Codes</label>
         <length>255</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3041,7 +2989,6 @@ Created by John A Adams 12/15/2013</description>
         <label>Other Title</label>
         <length>80</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3072,6 +3019,18 @@ Created by John A Adams 12/15/2013</description>
             <sorted>false</sorted>
         </picklist>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>P_Cs_Test__c</fullName>
+        <description>test</description>
+        <externalId>false</externalId>
+        <label># P&amp;Cs Test</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Paid_CAP_MERC__c</fullName>
@@ -3109,7 +3068,6 @@ Created by John A Adams 10/3/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
@@ -3122,7 +3080,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Party Record Type Code</label>
         <length>10</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3136,7 +3093,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Party Status Code</label>
         <length>50</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3150,7 +3106,6 @@ Created by John A Adams 12/10/2013</description>
         <label>Party Status Description</label>
         <length>255</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3161,7 +3116,6 @@ Created by John A Adams 12/10/2013</description>
         <description>Used by portal to capture that HCP has consented to gathering data for Payee and Bank Information. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Payee and Bank Information Consent</label>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -3171,7 +3125,6 @@ Created by John A Adams 12/10/2013</description>
         <description>Used by portal to indicate that the Payee Information sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Payee Information Step Complete</label>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -3204,7 +3157,6 @@ Created by John A Adams 12/10/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <type>Picklist</type>
     </fields>
@@ -3266,7 +3218,6 @@ Created by John A Adams 12/10/2013</description>
         <label>Personal Address City</label>
         <length>255</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3278,7 +3229,6 @@ Created by John A Adams 12/10/2013</description>
         <label>Personal Address Country</label>
         <length>2</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3290,7 +3240,6 @@ Created by John A Adams 12/10/2013</description>
         <label>Personal Address Line 1</label>
         <length>255</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3302,7 +3251,6 @@ Created by John A Adams 12/10/2013</description>
         <label>Personal Address Line 2</label>
         <length>255</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3314,7 +3262,6 @@ Created by John A Adams 12/10/2013</description>
         <label>Personal Postal Code Extension</label>
         <length>32</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3328,7 +3275,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Plan Type Code</label>
         <length>50</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3342,7 +3288,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Payment Name</label>
         <length>80</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3354,7 +3299,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Position Code</label>
         <length>30</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3366,7 +3310,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Position Description</label>
         <length>150</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3397,7 +3340,6 @@ Created by John A Adams 10/3/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
@@ -3407,7 +3349,6 @@ Created by John A Adams 10/3/2013</description>
         <description>Indicate if Venue is a Preferred Venue. Created 10/24/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Preferred Venue</label>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -3420,7 +3361,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Preferred Language</label>
         <length>30</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3431,7 +3371,6 @@ Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
         <label>Preferred Name</label>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>TextArea</type>
     </fields>
@@ -3443,7 +3382,6 @@ Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
         <label>Party Start Date</label>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Date</type>
     </fields>
@@ -3454,7 +3392,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Primary Affiliation Address City</label>
         <length>255</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3466,7 +3403,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Primary Affiliation Address Country</label>
         <length>2</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3479,7 +3415,6 @@ Created by John Adams on 12/9/2013</description>
         <label>Primary Affiliation Address Line 1</label>
         <length>255</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3492,7 +3427,6 @@ Created by John Adams on 12/9/2013</description>
         <label>Primary Affiliation Address Line 2</label>
         <length>255</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3504,7 +3438,6 @@ Created by John Adams on 12/9/2013</description>
         <label>Primary Affiliation HCO Name</label>
         <length>255</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3517,7 +3450,6 @@ Created by John A Adams 12/12/2013</description>
         <label>Primary Affiliate Postal Code Extension</label>
         <length>32</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3530,7 +3462,6 @@ Created by John Adams on 11/13/2013</description>
         <label>Primary Address City</label>
         <length>255</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3543,7 +3474,6 @@ Created by John Adams on 11/13/2013</description>
         <label>Primary Address Line 1</label>
         <length>255</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3556,7 +3486,6 @@ Created by John Adams on 11/13/2013</description>
         <label>Primary Address Line 2</label>
         <length>255</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3569,7 +3498,6 @@ Created by John Adams on 11/13/2013</description>
         <label>Primary Address Country</label>
         <length>2</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3582,7 +3510,6 @@ Created by John Adams on 11/13/2013</description>
         <label>Primary HCO</label>
         <length>255</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3595,7 +3522,6 @@ Created by John A Adams 12/11/2013</description>
         <label>Primary Postal Code Extension</label>
         <length>32</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3609,7 +3535,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Professional Title</label>
         <length>80</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3620,7 +3545,6 @@ Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
         <label>Property Remarks</label>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>TextArea</type>
     </fields>
@@ -3631,7 +3555,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Global ID</label>
         <length>8</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3658,7 +3581,6 @@ Created by John A Adams 11/4/2013</description>
         <description>Used by portal to capture that HCP has consented to gathering data for Qualifications and Experience. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Qualifications and Experience Consent</label>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -3668,7 +3590,6 @@ Created by John A Adams 11/4/2013</description>
         <description>Used by portal to indicate that the Qualifications sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Qualifications Step Complete</label>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -3681,7 +3602,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Quality Level</label>
         <length>30</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3692,7 +3612,6 @@ Created by John A Adams 11/4/2013</description>
         <label>RTI Transaction ID</label>
         <length>255</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3734,7 +3653,6 @@ Created by John A Adams 10/16/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
@@ -3749,7 +3667,6 @@ Created by John A Adams 10/23/2013</description>
         <relationshipLabel>Accounts</relationshipLabel>
         <relationshipName>Accounts</relationshipName>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <type>Lookup</type>
     </fields>
@@ -3772,7 +3689,6 @@ Created by John A Adams 10/23/2013</description>
         <description>Used by portal to indicate that the Qualifications sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Research/Publications Step Complete</label>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -3785,7 +3701,6 @@ Created by John A Adams 10/23/2013</description>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <type>Currency</type>
     </fields>
@@ -3807,7 +3722,6 @@ Created by John A Adams 10/17/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
@@ -3818,7 +3732,6 @@ Created by John A Adams 10/17/2013</description>
         <label>Sales Force Code</label>
         <length>255</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3830,7 +3743,6 @@ Created by John A Adams 10/17/2013</description>
         <label>Sales Force Description</label>
         <length>255</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3844,7 +3756,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Salutation</label>
         <length>80</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3856,7 +3767,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Second Last Name</label>
         <length>80</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3868,7 +3778,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Second Title</label>
         <length>80</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3879,7 +3788,6 @@ Created by John A Adams 11/4/2013</description>
         <description>When an account is chosen as a Service Provider on Meeting, this field will be stamped to indicate they are a Service Provider. Created 11/26/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Service Provider?</label>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -3891,7 +3799,6 @@ Created by John A Adams 11/4/2013</description>
         <precision>2</precision>
         <required>false</required>
         <scale>0</scale>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <type>Number</type>
         <unique>false</unique>
@@ -3905,7 +3812,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Suffix</label>
         <length>40</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3927,7 +3833,6 @@ Created by John A Adams 10/23/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
@@ -3940,7 +3845,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Primary Specialty Code</label>
         <length>10</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3953,7 +3857,6 @@ Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
         <label>Primary Specialty</label>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>TextArea</type>
     </fields>
@@ -3967,7 +3870,6 @@ Created by John A Adams 10/31/2013</description>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
@@ -3980,7 +3882,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Source Block Flag</label>
         <length>1</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -3994,7 +3895,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Source System Code</label>
         <length>10</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -4006,7 +3906,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Status Code</label>
         <length>3</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -4018,7 +3917,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Status</label>
         <length>120</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -4039,7 +3937,6 @@ Created by John A Adams 11/4/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
@@ -4052,7 +3949,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Store Loc Number</label>
         <length>25</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -4066,7 +3962,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Sub Classification Code</label>
         <length>50</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -4080,7 +3975,6 @@ Created by John A Adams 12/10/2013</description>
         <label>Sub Classification</label>
         <length>255</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -4092,7 +3986,6 @@ Created by John A Adams 12/10/2013</description>
         <label>Supervisor Global Id</label>
         <length>8</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -4104,7 +3997,6 @@ Created by John A Adams 12/10/2013</description>
         <label>System Logon Id</label>
         <length>20</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -4115,7 +4007,6 @@ Created by John A Adams 12/10/2013</description>
         <description>Used by portal to indicate that the Tax/Invoices sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Tax/Invoices Step Complete</label>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -4125,7 +4016,6 @@ Created by John A Adams 12/10/2013</description>
         <description>Used by portal to indicate that the Teaching/Advising sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Teaching/Advising Step Complete</label>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -4136,7 +4026,6 @@ Created by John A Adams 12/10/2013</description>
         <label>Territory Id</label>
         <length>150</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -4148,7 +4037,6 @@ Created by John A Adams 12/10/2013</description>
         <label>Tier 1 Criteria Met</label>
         <length>10</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -4170,7 +4058,6 @@ Created by John A Adams 12/10/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <type>Picklist</type>
     </fields>
@@ -4182,7 +4069,6 @@ Created by John A Adams 12/10/2013</description>
         <precision>2</precision>
         <required>false</required>
         <scale>0</scale>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Number</type>
         <unique>false</unique>
@@ -4194,7 +4080,6 @@ Created by John A Adams 12/10/2013</description>
         <label>Tier 2 Criteria Met</label>
         <length>10</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -4207,7 +4092,6 @@ Created by John A Adams 12/10/2013</description>
         <precision>2</precision>
         <required>false</required>
         <scale>0</scale>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Number</type>
         <unique>false</unique>
@@ -4219,7 +4103,6 @@ Created by John A Adams 12/10/2013</description>
         <label>Tier 3 Criteria Met</label>
         <length>10</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -4233,7 +4116,6 @@ Created by John A Adams 12/10/2013</description>
         <label>Title</label>
         <length>255</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -4244,7 +4126,6 @@ Created by John A Adams 12/10/2013</description>
         <description>Used by portal to indicate that the Bank Transfer Information sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Transfer Information Step Complete</label>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -4257,7 +4138,6 @@ Created by John A Adams 10/22/2013</description>
         <label>Transparency Reporting Consent</label>
         <length>6</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -4270,7 +4150,6 @@ Customer ODS to Mercury Mapping
 Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
         <label>Training Account Flag</label>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -4281,7 +4160,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Territory Code</label>
         <length>255</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -4293,7 +4171,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Territory Description</label>
         <length>255</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -4367,7 +4244,6 @@ Created by John Adams 10/28/2013</description>
         <label>Veeva Organization</label>
         <length>40</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -4392,7 +4268,6 @@ Created by John Adams 10/28/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
@@ -4403,7 +4278,6 @@ Created by John Adams 10/28/2013</description>
         <label>VoiceMail Phone Country Code</label>
         <length>30</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -4414,7 +4288,6 @@ Created by John Adams 10/28/2013</description>
         <externalId>false</externalId>
         <label>Voice Mail Phone Number</label>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Phone</type>
     </fields>
@@ -4425,7 +4298,6 @@ Created by John A Adams 2/18/2014</description>
         <externalId>false</externalId>
         <label>Web Service Update Date</label>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Date</type>
     </fields>
@@ -4437,7 +4309,6 @@ Created by John A Adams 2/18/2014</description>
         <label>Web Service Update HCP Action</label>
         <length>255</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -4450,7 +4321,6 @@ Created by John A Adams 2/18/2014</description>
         <label>Web Service Update HCP Global Id</label>
         <length>40</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -4462,7 +4332,6 @@ Created by John A Adams 2/18/2014</description>
         <label>Web Service Update HCP Name</label>
         <length>100</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -4476,7 +4345,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Wholesaler Code</label>
         <length>50</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -4488,7 +4356,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Work Country Code</label>
         <length>9</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -4500,7 +4367,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Work Country Description</label>
         <length>255</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -4512,9 +4378,19 @@ Created by John A Adams 11/4/2013</description>
         <label>Work Phone Country Code</label>
         <length>9</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>of_Designated_Individuals_MERC__c</fullName>
+        <externalId>false</externalId>
+        <label># of Designated Individuals</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
         <unique>false</unique>
     </fields>
     <listViews>
@@ -4528,6 +4404,23 @@ Created by John A Adams 11/4/2013</description>
         <columns>Reserved_CAP_MERC__c</columns>
         <filterScope>Everything</filterScope>
         <label>All Accounts</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>All_Designated_Individuals</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>Primary_Addr_Line1_GLBL__c</columns>
+        <columns>Primary_Addr_Line2_GLBL__c</columns>
+        <columns>Primary_Addr_City_GLBL__c</columns>
+        <columns>Primary_Address_Country_GLBL__c</columns>
+        <columns>Primary_Pstl_Cd_Extnsn_GLBL__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ACCOUNT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>PersonAccount.Designated_Individual_GLBL</value>
+        </filters>
+        <label>All Designated Individuals</label>
         <language>en_US</language>
     </listViews>
     <listViews>
@@ -4603,6 +4496,23 @@ Created by John A Adams 11/4/2013</description>
             <value>PersonAccount.HCP_GLBL</value>
         </filters>
         <label>HCP Accounts</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Lilly_Employees</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>Primary_Addr_Line1_GLBL__c</columns>
+        <columns>Primary_Addr_Line2_GLBL__c</columns>
+        <columns>Primary_Addr_City_GLBL__c</columns>
+        <columns>Primary_Address_Country_GLBL__c</columns>
+        <columns>Primary_Pstl_Cd_Extnsn_GLBL__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ACCOUNT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>PersonAccount.Designated_Individual_GLBL,PersonAccount.Employee_GLBL</value>
+        </filters>
+        <label>Lilly Employees</label>
         <language>en_US</language>
     </listViews>
     <listViews>
@@ -4879,7 +4789,6 @@ Created by John A Adams 11/4/2013</description>
         <isOptional>false</isOptional>
         <name>Meeting Vendor_Account</name>
     </namedFilters>
-    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
         <fullName>Business_Account</fullName>
@@ -13575,10 +13484,6 @@ Created by John A Adams 11/4/2013</description>
         <lookupDialogsAdditionalFields>Reserved_CAP_MERC__c</lookupDialogsAdditionalFields>
         <lookupFilterFields>ACCOUNT.NAME</lookupFilterFields>
         <lookupFilterFields>ACCOUNT.RECORDTYPE</lookupFilterFields>
-        <lookupFilterFields>00N11000000PFro</lookupFilterFields>
-        <lookupFilterFields>00N11000000PFrn</lookupFilterFields>
-        <lookupFilterFields>00N11000000PFrq</lookupFilterFields>
-        <lookupFilterFields>00N11000000PFs1</lookupFilterFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.SITE</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>CORE.USERS.ALIAS</lookupPhoneDialogsAdditionalFields>

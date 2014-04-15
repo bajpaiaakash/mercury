@@ -141,6 +141,17 @@
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>Associated_Countries_MERC__c</fullName>
+        <description>Pulls down Associated Countries from the Meeting.  Ensures Participants end up in the correct Veeva Org(s). Oliver Dunford 14th April 2014.</description>
+        <externalId>false</externalId>
+        <formula>Meeting_MERC__r.Associated_Countries_MERC__c</formula>
+        <label>Associated Countries</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Cancellation_Notice_Sent_MERC__c</fullName>
         <description>Captures when a Cancellation Notice was sent to the meeting participant. Created 11/5/2013 by KLorenti, Mavens Consulting.</description>
         <externalId>false</externalId>
@@ -1985,6 +1996,10 @@ Created by John A Adams 2/18/2014</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Attended</fullName>
                 <default>false</default>
             </values>
@@ -2011,6 +2026,10 @@ Created by John A Adams 2/18/2014</description>
             <values>
                 <fullName>Pending Approval</fullName>
                 <default>true</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -2966,6 +2985,10 @@ Created by John A Adams 2/18/2014</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Attended</fullName>
                 <default>false</default>
             </values>
@@ -2992,6 +3015,10 @@ Created by John A Adams 2/18/2014</description>
             <values>
                 <fullName>Pending Approval</fullName>
                 <default>true</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -3175,6 +3202,15 @@ Partial_Payment_Amount_MERC__c &gt; 0.00 &amp;&amp;
 TEXT(Confirm_Final_Fee_MERC__c) = &quot;Confirmed&quot; &amp;&amp; TEXT(Services_Rendered_MERC__c) = &quot;Yes&quot;</errorConditionFormula>
         <errorDisplayField>Confirm_Partial_Payment_Amount_MERC__c</errorDisplayField>
         <errorMessage>Please confirm the Final Fee should be updated with the Partial Payment Amount.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Description_of_Service_MERC</fullName>
+        <active>true</active>
+        <description>Description of Service may not be blank if the Type of Service = &quot;Consulting Project&quot;. Created 04/10/2014 by KLorenti, Mavens Consulting</description>
+        <errorConditionFormula>ISPICKVAL(Types_of_Service_MERC__c,&apos;Consulting Project&apos;)
+&amp;&amp; ISBLANK( Description_of_Service_MERC__c)</errorConditionFormula>
+        <errorDisplayField>Description_of_Service_MERC__c</errorDisplayField>
+        <errorMessage>The Description of Service must be completed if the Participant&apos;s Type of Service is Consulting Project</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Enter_Blank_If_Not_Reported_MERC</fullName>

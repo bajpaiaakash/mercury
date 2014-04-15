@@ -66,6 +66,7 @@
 					.children('select.accessLevel')
 					.val(jThis.val());
 			});
+<<<<<<< HEAD
 
 			j("div#selectedRoleToggle select.selectRole").on('change',function() {
 				var jThis = j(this);
@@ -75,6 +76,8 @@
 					.children('select.role')
 					.val(jThis.val());
 			});
+=======
+>>>>>>> d098ae0142475ab8ac60e149f56534c0f56965f6
 		}
 
 		function massActionDisplayCheck() {
@@ -218,6 +221,7 @@
 					</apex:actionRegion>
 				</apex:tab>
 
+<<<<<<< HEAD
 				<apex:tab label="Mass Add External Users" switchType="ajax" name="massAdd" id="tabThree" oncomplete="bindDomHandlers();massActionDisplayCheck();">
 					<apex:actionRegion >
 						<apex:pageBlock title="Search for Users" mode="edit" id="MassAddBlock">
@@ -237,10 +241,25 @@
 									{!$ObjectType.Account.Fields.FirstName.label} <apex:inputText value="{!firstName}"/>
 								</apex:pageBlockSectionItem>
 								<apex:pageBlockSectionItem>
+=======
+				<apex:tab label="Mass Add External Users" name="massAdd" id="tabThree">
+					<apex:actionRegion >
+						<apex:pageBlock title="Search for Users" mode="edit" id="MassAddBlock">
+							<apex:pageMessages id="searchMessages"/>
+							<apex:pageBlockButtons >
+								<apex:commandButton value="Search (labelize)" action="{!doSearch}" reRender="searchResults, searchMessages" onclick="toggleLoading()" oncomplete="bindDomHandlers();toggleLoading()"/>
+							</apex:pageBlockButtons>
+							<apex:pageBlockSection columns="2">
+								<apex:pageBlockSectionItem >
+									{!$ObjectType.Account.Fields.FirstName.label} <apex:inputText value="{!firstName}"/>
+								</apex:pageBlockSectionItem>
+								<apex:pageBlockSectionItem >
+>>>>>>> d098ae0142475ab8ac60e149f56534c0f56965f6
 									{!$ObjectType.Account.Fields.LastName.label} <apex:inputText value="{!lastName}"/>
 								</apex:pageBlockSectionItem>
 								<apex:inputField value="{!searchAccount.PersonEmail}"/>
 								<apex:inputField value="{!searchAccount.Country_of_Residence_GLBL__c}"/>
+<<<<<<< HEAD
 								<!-- <apex:pageBlockSectionItem/> -->
 								<apex:inputField value="{!searchAccount.Territory_Id_GLBL__c}"/>
 								<apex:inputField value="{!searchAccount.Trtry_Cd_GLBL__c}"/>
@@ -257,6 +276,22 @@
 									<apex:param name="notify" value="1"/>
 									<apex:param name="msg" value="Team Members added successfully!"/>
 								</apex:commandButton>
+=======
+								<apex:inputField value="{!searchAccount.Territory_Id_GLBL__c}"/>
+								<apex:inputField value="{!searchAccount.Trtry_Cd_GLBL__c}"/>
+								<apex:inputField value="{!searchAccount.Trtry_Desc_GLBL__c}"/>
+								<apex:pageBlockSectionItem >
+									<apex:outputText value=""/>
+									<apex:selectRadio value="{!searchForUsers}">
+										<apex:selectOptions value="{!radioOptions}"/>
+									</apex:selectRadio>
+								</apex:pageBlockSectionItem>
+							</apex:pageBlockSection>
+						</apex:pageBlock>
+						<apex:pageBlock id="searchResults" title="Search Results" >
+							<apex:pageBlockButtons >
+								<apex:commandButton action="{!addSelected}" value="Add Selected Members" onclick="toggleLoading()" oncomplete="bindDomHandlers();toggleLoading()" reRender="searchResults, tabTwo"/>
+>>>>>>> d098ae0142475ab8ac60e149f56534c0f56965f6
 							</apex:pageBlockButtons>
 							<div id="selectedAccessToggle" class="selectActions">
 								<apex:outputText value="Set Access for Selected to "/>
@@ -266,26 +301,38 @@
 								<apex:outputText value="Set Selected Invite Limit To "/>
 								<input id="selectedInviteLimit" type="number" min="0"/>
 							</div>
+<<<<<<< HEAD
 							<div id="selectedRoleToggle" class="selectActions">
 								<apex:outputText value="Set Selected Role To "/>
 								<apex:inputField value="{!dummyMember.Role_MERC__c}" styleClass="selectRole"/>
 							</div>
 							<apex:pageBlockTable value="{!searchResults}" var="result" rendered="{!searchResults.size > 0}">
 								<apex:column>
+=======
+							<apex:pageBlockTable value="{!searchResults}" var="result" rendered="{!searchResults.size > 0}">
+								<apex:column >
+>>>>>>> d098ae0142475ab8ac60e149f56534c0f56965f6
 									<apex:facet name="header">
 										<input type="checkbox" id="selectAllSearchResults"/>
 									</apex:facet>
 									<apex:inputCheckbox value="{!result.selected}" styleClass="chkSelected"/>
 								</apex:column>
 								<apex:column headerValue="{!$ObjectType.Team_Member_MERC__c.Fields.Access_MERC__c.label}">
+<<<<<<< HEAD
 									<apex:inputField value="{!result.member.Access_Merc__c}" styleClass="accessLevel"/>
+=======
+									<apex:inputField value="{!result.member.Access_MERC__c}" styleClass="accessLevel"/>
+>>>>>>> d098ae0142475ab8ac60e149f56534c0f56965f6
 								</apex:column>
 								<apex:column headerValue="{!$ObjectType.Team_Member_MERC__c.Fields.Attendee_Invite_Limit_MERC__c.label}">
 									<apex:inputField value="{!result.member.Attendee_Invite_Limit_MERC__c}" styleClass="attendeeLimit"/>
 								</apex:column>
+<<<<<<< HEAD
 								<apex:column headerValue="{!$ObjectType.Team_Member_MERC__c.Fields.Role_MERC__c.label}">
 									<apex:inputField value="{!result.member.Role_MERC__c}" styleClass="role"/>
 								</apex:column>
+=======
+>>>>>>> d098ae0142475ab8ac60e149f56534c0f56965f6
 								<apex:repeat var="f" value="{!$ObjectType.Account.FieldSets.Meeting_Team_Manager_Mass_Add}">
 						            <apex:column headerValue="{!f.label}">
 						                <apex:outputField value="{!result.acct[f]}"/>
