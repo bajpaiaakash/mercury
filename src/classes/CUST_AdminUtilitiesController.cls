@@ -3,7 +3,7 @@
  * Using inner classes to provide a type of "interface" approach to encourage each utility
  * to provide the same type of info back to the page.
  *
- * Author: Sean Harrison, Mavens 
+ * Author: Sean Harrison, Mavens
  **/
 public with sharing class CUST_AdminUtilitiesController {
 

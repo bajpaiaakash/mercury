@@ -33,14 +33,17 @@ private with sharing class sobjectPartnerSoapSforceComTest {
 		    Object stub, Object request, Map<String, Object> response,
 		    String endpoint, String soapAction, String requestName,
 		    String responseNS, String responseName, String responseType) {
-		    if(request instanceof sobjectPartnerSoapSforceCom.describeLayout_element)
-		        response.put('response_x', new sobjectPartnerSoapSforceCom.describeLayout_element());
+            if(request instanceof sobjectPartnerSoapSforceCom.describeLayout_element) {
+                sobjectPartnerSoapSforceCom.describeLayoutResponse_element el = new sobjectPartnerSoapSforceCom.describeLayoutResponse_element();
+                el.result = new sobjectPartnerSoapSforceCom.DescribeLayoutResult();
+		        response.put('response_x', el);
+            }
 		    return;
 		}
 	}
 
-	//private static testMethod void coverMethods() {
-	//	Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
- //       new sobjectPartnerSoapSforceCom.Soap().describeLayout(null, null);
-	//}
+	private static testMethod void coverMethods() {
+		Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
+        new sobjectPartnerSoapSforceCom.Soap().describeLayout(null, null);
+	}
 }

@@ -126,7 +126,7 @@
 	<apex:sectionHeader subtitle="Team Members" title="{!parent['Name']}"/>
 	<apex:form >
 		<div class="aeu" style="position:relative;">
-			<apex:tabPanel switchType="server" selectedTab="name1" id="theTabPanel" activeTabClass="activeTab" inactiveTabClass="inactiveTab">
+			<apex:tabPanel switchType="server" selectedTab="mercuryUsers" id="theTabPanel" activeTabClass="activeTab" inactiveTabClass="inactiveTab">
 				<apex:tab label="Mercury Users" name="mercuryUsers" id="tabOne">
 					<apex:actionRegion >
 						<apex:pageBlock title="" mode="edit" id="mercuryUserBlock">
@@ -208,6 +208,7 @@
 						</apex:pageBlock>
 					</apex:actionRegion>
 				</apex:tab>
+
 				<apex:tab label="Mass Add External Users" name="massAdd" id="tabThree">
 					<apex:actionRegion >
 						<apex:pageBlock title="Search for Users" mode="edit" id="MassAddBlock">
@@ -237,7 +238,7 @@
 						</apex:pageBlock>
 						<apex:pageBlock id="searchResults" title="Search Results" >
 							<apex:pageBlockButtons >
-								<apex:commandButton action="{!addSelected}" value="Add Selected Members" reRender="searchResults"/>
+								<apex:commandButton action="{!addSelected}" value="Add Selected Members" onclick="toggleLoading()" oncomplete="bindDomHandlers();toggleLoading()" reRender="searchResults, tabTwo"/>
 							</apex:pageBlockButtons>
 							<div id="selectedAccessToggle" class="selectActions">
 								<apex:outputText value="Set Access for Selected to "/>

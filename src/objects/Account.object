@@ -1887,6 +1887,18 @@ Created by John A Adams 11/4/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Designated_Individual_Counter_MERC__c</fullName>
+        <defaultValue>1</defaultValue>
+        <externalId>false</externalId>
+        <label>Designated Individual Counter</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Dspnsng_Acct_Flg_GLBL__c</fullName>
         <defaultValue>false</defaultValue>
         <description>Dispensing Account Flag
@@ -3007,6 +3019,18 @@ Created by John A Adams 12/15/2013</description>
             <sorted>false</sorted>
         </picklist>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>P_Cs_Test__c</fullName>
+        <description>test</description>
+        <externalId>false</externalId>
+        <label># P&amp;Cs Test</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Paid_CAP_MERC__c</fullName>

@@ -57,6 +57,8 @@ public with sharing class MERC_MeetingTeamManagerController extends GLBL_Generic
 				GenericSobjectWrapper newItem = new GenericSobjectWrapper(sr.member);
 				newItem.index = children.size()+1;
 				children.add(newItem);
+				List<GenericSobjectWrapper> addToList = childrenMap.get('External_User_MERC');
+				addToList.add(newItem);
 			}
 		}
 		save();
