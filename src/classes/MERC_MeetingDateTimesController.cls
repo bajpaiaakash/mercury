@@ -14,7 +14,8 @@ public with sharing class MERC_MeetingDateTimesController {
         this.meeting = (Meeting_MERC__c)c.getRecord();
         this.stdController = c;
         //if the meeting time zone hasn't been set yet, set to user's time zone
-        if (this.meeting.Meeting_Time_Zone_MERC__c == null && Apexpages.currentPage().getUrl().contains('/apex/MERC_MeetingDateTimesEdit')) {
+        String vfUrl = Apexpages.currentPage().getUrl().toLowerCase();
+        if (this.meeting.Meeting_Time_Zone_MERC__c == null && vfUrl.contains('/apex/merc_meetingdatetimesedit')) {
             Schema.DescribeFieldResult meetingTimeZoneFieldDescribe = Meeting_MERC__c.Meeting_Time_Zone_MERC__c.getDescribe();
             this.meeting.Meeting_Time_Zone_MERC__c = MERC_Util.getTimeZonePicklistValueForCurrentUser(meetingTimeZoneFieldDescribe);
         }
