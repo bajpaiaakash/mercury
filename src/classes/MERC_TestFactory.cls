@@ -294,7 +294,7 @@ public with sharing class MERC_TestFactory {
 	        User u = new User(profileId = p.id, username = testemail, email = testemail, 
 	                           emailencodingkey = 'UTF-8', localesidkey = 'en_US', 
 	                           languagelocalekey = 'en_US', timezonesidkey = 'America/Los_Angeles', 
-	                           alias='utuser'+i, lastname='lastname');
+	                           alias='utusr'+i, lastname='lastname');
 	        users.add(u);
 	    }
         
