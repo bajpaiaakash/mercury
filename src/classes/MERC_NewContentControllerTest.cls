@@ -55,36 +55,42 @@ private class MERC_NewContentControllerTest {
 	@isTest 
 	static void testUploadAllContentTypes() {
 
-		List<String> ids = new List<String>();
-		ids.add(accounts[0].Id);
-		ids.add(meetings[0].Id);
-		ids.add(participants[0].Id);
-		ids.add(invoices[0].Id);
-		ids.add(budget.Id);
-		ids.add(contract.Id);
+		System.runAs(thisUser) {
+			invoices.get(0).Payee_Country_MERC__c = 'GB';
+			update invoices.get(0);
 
-		PageReference ref = Page.MERC_NewMeetingContent;
-		Test.setCurrentPage(ref);
-		Test.startTest();
+			List<String> ids = new List<String>();
+			ids.add(accounts[0].Id);
+			ids.add(meetings[0].Id);
+			ids.add(participants[0].Id);
+			ids.add(invoices[0].Id);
+			ids.add(budget.Id);
+			ids.add(contract.Id);
 
-		for (String id : ids) {
-			ApexPages.currentPage().getParameters().put('id', id);
+			PageReference ref = Page.MERC_NewMeetingContent;
+			Test.setCurrentPage(ref);
+			Test.startTest();
 
-			MERC_NewContentController controller = new MERC_NewContentController();
-			PageReference returnRef = controller.upload();
+			for (String id : ids) {
+				ApexPages.currentPage().getParameters().put('id', id);
 
-			System.assertEquals(null, returnRef, 'Expected null PageRef but got: '+returnRef);
-			List<ApexPages.Message> messages = ApexPages.getMessages();
-			for (ApexPages.Message m : messages) {
-				System.assert(m.getDetail().contains('Please select a document'));			
+				MERC_NewContentController controller = new MERC_NewContentController();
+				PageReference returnRef = controller.upload();
+
+				System.assertEquals(null, returnRef, 'Expected null PageRef but got: '+returnRef);
+				List<ApexPages.Message> messages = ApexPages.getMessages();
+				for (ApexPages.Message m : messages) {
+					System.assert(m.getDetail().contains('Please select a document'));			
+				}
+
+				controller.file.Title = controller.getsObjectName();
+				controller.file.PathOnClient = controller.getsObjectName();
+				controller.file.VersionData = Blob.valueOf('For naught so vile that on the earth doth live but to the earth some special good doth give.');
+				returnRef = controller.upload();
+				if (returnRef != null) System.debug(returnRef.getUrl());
+				System.assertNotEquals(null,returnRef,'Expected a PageRef but got null');			
 			}
-
-			controller.file.Title = controller.getsObjectName();
-			controller.file.PathOnClient = controller.getsObjectName();
-			controller.file.VersionData = Blob.valueOf('For naught so vile that on the earth doth live but to the earth some special good doth give.');
-			returnRef = controller.upload();
-			if (returnRef != null) System.debug(returnRef.getUrl());
-			System.assertNotEquals(null,returnRef,'Expected a PageRef but got null');			
+			Test.stopTest();
 		}
 	}
 
@@ -109,7 +115,7 @@ private class MERC_NewContentControllerTest {
 			try {
 				MERC_NewContentController controller = new MERC_NewContentController();
 			} catch (Exception e) {
-				System.assert(e.getMessage().contains('Insufficient access'),'Unexpected error thrown: '+e);
+				System.assert(e.getMessage().contains('Unable to determine the appropriate content library'),'Unexpected error thrown: '+e);
 				errThrown = true;
 			}
 			System.assert(errThrown,'Expected error but none thrown!');

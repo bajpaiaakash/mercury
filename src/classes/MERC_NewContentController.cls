@@ -81,7 +81,7 @@ public with sharing class MERC_NewContentController {
             } else if (objectAPIName == 'HCP_Contract_MERC__c') {
                 country = [SELECT Country_of_Residence_MERC__c FROM HCP_Contract_MERC__c WHERE Id = :recordId].Country_of_Residence_MERC__c;
                 libraryName = country + ' - Private';
-            } else if (objectAPIName == 'Invoice_MERC') {
+            } else if (objectAPIName == 'Invoice_MERC__c') {
                 country = [SELECT Payee_Country_MERC__c FROM Invoice_MERC__c WHERE Id = :recordId].Payee_Country_MERC__c;
                 libraryName = country + ' - Private';
             } else if (objectAPIName == 'Budget_MERC__c') {
@@ -89,9 +89,6 @@ public with sharing class MERC_NewContentController {
                 libraryName = country + ' - Private';
             } else if (objectAPIName == 'Meeting_Participant_MERC__c') {
                 country = [SELECT Country_of_Residence_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :recordId].Country_of_Residence_MERC__c;
-                libraryName = country + ' - Private';
-            } else if (objectAPIName == 'Invoice_MERC') {
-                country = [SELECT Payee_Country_MERC__c FROM Invoice_MERC__c WHERE Id = :recordId].Payee_Country_MERC__c;
                 libraryName = country + ' - Private';
             } else if (objectAPIName == 'Account') {
                 country = [SELECT Country_of_Residence_GLBL__c FROM Account WHERE Id = :recordId].Country_of_Residence_GLBL__c;
