@@ -321,14 +321,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>MERC_MeetingDateTimesController</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MERC_MeetingDateTimesControllerTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>MERC_MeetingDayManagerController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -7033,10 +7025,6 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_MeetingDateTimes</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>MERC_MeetingDateTimesEdit</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>

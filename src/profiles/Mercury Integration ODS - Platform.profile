@@ -321,14 +321,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>MERC_MeetingDateTimesController</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MERC_MeetingDateTimesControllerTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>MERC_MeetingDayManagerController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -6793,11 +6785,11 @@
         <layout>WorkThanks-Thanks Layout</layout>
     </layoutAssignments>
     <objectPermissions>
-        <allowCreate>false</allowCreate>
-        <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
+        <modifyAllRecords>true</modifyAllRecords>
         <object>Account</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
@@ -6979,10 +6971,6 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_MeetingDateTimes</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>MERC_MeetingDateTimesEdit</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>

@@ -57,6 +57,15 @@
 					.children('input.attendeeLimit')
 					.val(jThis.val());
 			});
+
+			j("div#selectedAccessToggle select.selectList").on('change',function() {
+				var jThis = j(this);
+				j("table tr input.chkSelected:checked")
+					.parents('tr')
+					.children('td')
+					.children('select.accessLevel')
+					.val(jThis.val());
+			});
 		}
 
 		function massActionDisplayCheck() {
@@ -230,9 +239,9 @@
 							<apex:pageBlockButtons >
 
 							</apex:pageBlockButtons>
-							<div class="selectActions">
-								<apex:commandButton value="Set Selected Access To " action="{!setSelectedToAccess}" onclick="toggleLoading()" oncomplete="bindDomHandlers();massActionDisplayCheck();toggleLoading()" rerender="searchResults"/>
-								<apex:inputField value="{!dummyMember.Access_MERC__c}"/>
+							<div id="selectedAccessToggle" class="selectActions">
+								<apex:outputText value="Set Access for Selected to "/>
+								<apex:inputField value="{!dummyMember.Access_MERC__c}" styleClass="selectList"/>
 							</div>
 							<div class="selectActions">
 								<apex:outputText value="Set Selected Invite Limit To "/>
@@ -246,7 +255,7 @@
 									<apex:inputCheckbox value="{!result.selected}" styleClass="chkSelected"/>
 								</apex:column>
 								<apex:column headerValue="{!$ObjectType.Team_Member_MERC__c.Fields.Access_MERC__c.label}">
-									<apex:inputField value="{!result.member.Access_MERC__c}"/>
+									<apex:inputField value="{!result.member.Access_MERC__c}" styleClass="accessLevel"/>
 								</apex:column>
 								<apex:column headerValue="{!$ObjectType.Team_Member_MERC__c.Fields.Attendee_Invite_Limit_MERC__c.label}">
 									<apex:inputField value="{!result.member.Attendee_Invite_Limit_MERC__c}" styleClass="attendeeLimit"/>
