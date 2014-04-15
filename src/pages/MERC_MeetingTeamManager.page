@@ -1,4 +1,4 @@
-<apex:page showHeader="true" sidebar="true" standardController="Team_Member_MERC__c" recordsetvar="e" extensions="MERC_MeetingTeamManagerController">
+<apex:page showHeader="true" sidebar="false" standardController="Team_Member_MERC__c" recordsetvar="e" extensions="MERC_MeetingTeamManagerController">
 	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/jquery.min.js')}"/>
 	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/mercury.js')}"/>
 	<apex:stylesheet value="{!urlfor($Resource.mercury, 'css/style.css')}"/>
@@ -6,7 +6,7 @@
 	<script>
 		var j = jQuery.noConflict();
 
-		function setFocusOnLoad() {} 
+		function setFocusOnLoad() {}
 
 		j(function() {
 			sortableTable();
@@ -38,6 +38,43 @@
 			    j(this).val(i + 1);
 			});
 		}
+		function bindDomHandlers() {
+			j("table tr input.chkSelected").click(function() {
+				massActionDisplayCheck();
+			});
+
+			j("table tr input#selectAllSearchResults").click(function() {
+				var jthis = j(this);
+				j("table tr input.chkSelected").prop('checked', jthis.prop('checked'));
+				massActionDisplayCheck();
+			});
+
+			j("input#selectedInviteLimit").on('keyup click',function() {
+				var jThis = j(this);
+				j("table tr input.chkSelected:checked")
+					.parents('tr')
+					.children('td')
+					.children('input.attendeeLimit')
+					.val(jThis.val());
+			});
+		}
+
+		function massActionDisplayCheck() {
+			var selectedBoxes = j("table tr input.chkSelected:checked");
+			if (selectedBoxes.size() === 0) {
+				hideMassActions();
+			} else {
+				showMassActions();
+			}
+		}
+
+		function showMassActions() {
+			j("div.selectActions").removeClass("hide").addClass("show");
+		}
+
+		function hideMassActions() {
+			j("div.selectActions").removeClass("show").addClass("hide");
+		}
 	</script>
 	<style>
 		.activeTab {
@@ -51,22 +88,42 @@
 		.inactiveTab {
 			background-color: #fff;
 			padding: 5px 17px;
-			font-size: 16px;	
+			font-size: 16px;
 			background-image: none;
 			opacity: 0.6;
 			cursor: pointer;
 		}
+
+		div.selectActions {
+			padding:5px;
+			background-color: #ffc;
+			border:1px solid #390;
+			margin-bottom: 5px;
+			display: none;
+			margin: 5px;
+			min-height: 24px;
+		}
+
+		div.selectActions.show {
+			display: inline-block;
+		}
+
+		div.selectActions.hide {
+			display: none;
+		}
+
+		input#selectedInviteLimit { width: 40px;}
 	</style>
 	<apex:sectionHeader subtitle="Team Members" title="{!parent['Name']}"/>
 	<apex:form >
 		<div class="aeu" style="position:relative;">
 			<apex:tabPanel switchType="server" selectedTab="name1" id="theTabPanel" activeTabClass="activeTab" inactiveTabClass="inactiveTab">
-				<apex:tab label="Mercury Users" name="name1" id="tabOne">
+				<apex:tab label="Mercury Users" name="mercuryUsers" id="tabOne">
 					<apex:actionRegion >
 						<apex:pageBlock title="" mode="edit" id="mercuryUserBlock">
 							<apex:pageMessages />
 							<apex:pageBlockButtons >
-								<apex:commandButton value="Save" action="{!save}" reRender="mercuryUserBlock" 
+								<apex:commandButton value="Save" action="{!save}" reRender="mercuryUserBlock"
 									onclick="toggleLoading()" oncomplete="toggleLoading()">
 									<apex:param name="rtdn" value="Mercury_User_MERC"/>
 									<apex:param name="notify" value="1"/>
@@ -102,12 +159,12 @@
 					</apex:actionRegion>
 				</apex:tab>
 
-				<apex:tab label="External Users" name="name2" id="tabTwo">
+				<apex:tab label="External Users" name="externalUsers" id="tabTwo">
 					<apex:actionRegion >
 						<apex:pageBlock title="" mode="edit" id="externalUserBlock">
 							<apex:pageMessages />
 							<apex:pageBlockButtons >
-								<apex:commandButton value="Save" action="{!save}" reRender="externalUserBlock" 
+								<apex:commandButton value="Save" action="{!save}" reRender="externalUserBlock"
 									onclick="toggleLoading()" oncomplete="toggleLoading()">
 									<apex:param name="rtdn" value="External_User_MERC"/>
 									<apex:param name="notify" value="1"/>
@@ -136,6 +193,67 @@
 								<apex:repeat var="f" value="{!$ObjectType.Team_Member_MERC__c.FieldSets.Team_External_MERC}">
 						            <apex:column headerValue="{!f.label}">
 						                <apex:inputField value="{!a.so[f]}" required="{!OR(f.required, f.dbrequired)}" />
+						            </apex:column>
+						        </apex:repeat>
+							</apex:pageBlockTable>
+						</apex:pageBlock>
+					</apex:actionRegion>
+				</apex:tab>
+				<apex:tab label="Mass Add External Users" name="massAdd" id="tabThree">
+					<apex:actionRegion >
+						<apex:pageBlock title="Search for Users" mode="edit" id="MassAddBlock">
+							<apex:pageMessages id="searchMessages"/>
+							<apex:pageBlockButtons >
+								<apex:commandButton value="Search (labelize)" action="{!doSearch}" reRender="searchResults, searchMessages" onclick="toggleLoading()" oncomplete="bindDomHandlers();toggleLoading()"/>
+							</apex:pageBlockButtons>
+							<apex:pageBlockSection columns="2">
+								<apex:pageBlockSectionItem >
+									{!$ObjectType.Account.Fields.FirstName.label} <apex:inputText value="{!firstName}"/>
+								</apex:pageBlockSectionItem>
+								<apex:pageBlockSectionItem >
+									{!$ObjectType.Account.Fields.LastName.label} <apex:inputText value="{!lastName}"/>
+								</apex:pageBlockSectionItem>
+								<apex:inputField value="{!searchAccount.PersonEmail}"/>
+								<apex:inputField value="{!searchAccount.Country_of_Residence_GLBL__c}"/>
+								<apex:inputField value="{!searchAccount.Territory_Id_GLBL__c}"/>
+								<apex:inputField value="{!searchAccount.Trtry_Cd_GLBL__c}"/>
+								<apex:inputField value="{!searchAccount.Trtry_Desc_GLBL__c}"/>
+								<apex:pageBlockSectionItem >
+									<apex:outputText value=""/>
+									<apex:selectRadio value="{!searchForUsers}">
+										<apex:selectOptions value="{!radioOptions}"/>
+									</apex:selectRadio>
+								</apex:pageBlockSectionItem>
+							</apex:pageBlockSection>
+						</apex:pageBlock>
+						<apex:pageBlock id="searchResults" title="Search Results" >
+							<apex:pageBlockButtons >
+
+							</apex:pageBlockButtons>
+							<div class="selectActions">
+								<apex:commandButton value="Set Selected Access To " action="{!setSelectedToAccess}" onclick="toggleLoading()" oncomplete="bindDomHandlers();massActionDisplayCheck();toggleLoading()" rerender="searchResults"/>
+								<apex:inputField value="{!dummyMember.Access_MERC__c}"/>
+							</div>
+							<div class="selectActions">
+								<apex:outputText value="Set Selected Invite Limit To "/>
+								<input id="selectedInviteLimit" type="number" min="0"/>
+							</div>
+							<apex:pageBlockTable value="{!searchResults}" var="result" rendered="{!searchResults.size > 0}">
+								<apex:column >
+									<apex:facet name="header">
+										<input type="checkbox" id="selectAllSearchResults"/>
+									</apex:facet>
+									<apex:inputCheckbox value="{!result.selected}" styleClass="chkSelected"/>
+								</apex:column>
+								<apex:column headerValue="{!$ObjectType.Team_Member_MERC__c.Fields.Access_MERC__c.label}">
+									<apex:inputField value="{!result.member.Access_MERC__c}"/>
+								</apex:column>
+								<apex:column headerValue="{!$ObjectType.Team_Member_MERC__c.Fields.Attendee_Invite_Limit_MERC__c.label}">
+									<apex:inputField value="{!result.member.Attendee_Invite_Limit_MERC__c}" styleClass="attendeeLimit"/>
+								</apex:column>
+								<apex:repeat var="f" value="{!$ObjectType.Account.FieldSets.Meeting_Team_Manager_Mass_Add}">
+						            <apex:column headerValue="{!f.label}">
+						                <apex:outputField value="{!result.acct[f]}"/>
 						            </apex:column>
 						        </apex:repeat>
 							</apex:pageBlockTable>

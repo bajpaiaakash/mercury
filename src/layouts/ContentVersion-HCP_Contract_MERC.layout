@@ -43,6 +43,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
+                <field>Contract_Start_Date_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
                 <field>Contract_End_Date_MERC__c</field>
             </layoutItems>
             <layoutItems>

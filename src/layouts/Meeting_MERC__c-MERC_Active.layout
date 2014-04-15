@@ -11,10 +11,6 @@
         <label>Information</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Send_Meeting_Team_Cancelled_Email_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Required</behavior>
                 <field>Name</field>
             </layoutItems>
@@ -139,7 +135,7 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Compliance_Timeliness_Met_MERC__c</field>
+                <field>Compliance_Timeliness_Met_Invoices_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -152,6 +148,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Venue_Sourcing_Team_Date_TIme_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Compliance_Timeliness_Venue_Sourcing_MER__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

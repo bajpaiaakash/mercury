@@ -12,13 +12,14 @@ public with sharing class MERC_TravelItineraryNewEditController extends GLBL_Bas
 	public MERC_TravelItineraryNewEditController(ApexPages.StandardController controller) {
 		super(controller, Travel_Itinerary_MERC__c.SobjectType);
 		//if the time zones have not been set yet, set according to user's locale
-		if (Apexpages.currentPage().getUrl().contains('/apex/MERC_TravelItineraryNewEdit')) {
+        String vfUrl = Apexpages.currentPage().getUrl().toLowerCase();
+        if (vfUrl.contains('/apex/merc_travelitinerarynewedit')) {
 		    
             if (MERC_Util.getUrlParam('clone') == '1') {
                 this.mySobject.put('Id', null);
             }
 
-            if (this.mySobject.get('Meeting_Participant_MERC__c') != null) {
+            if (this.mySobject.get('Meeting_Participant_MERC__c') != null && this.mySobject.get('Account_MERC__c') == null) {
                 String meetingParticipantId = (String)this.mySobject.get('Meeting_Participant_MERC__c');
                 this.mySobject.put('Account_MERC__c', [SELECT Account_MERC__c FROM Meeting_Participant_MERC__c WHERE ID = :meetingParticipantId].Account_MERC__c);
             }

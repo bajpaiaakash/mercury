@@ -168,6 +168,7 @@ public with sharing class MERC_TestFactory {
 		for (Meeting_Participant_MERC__c mp : participants) {
 			Travel_Itinerary_MERC__c ti = new Travel_Itinerary_MERC__c();
 			ti.Meeting_Participant_MERC__c = mp.Id;
+			ti.Account_MERC__c = mp.Account_MERC__c;
 			ti.Sgmnt_Bgin_TS_MERC__c = Datetime.newInstance(startDate, Time.newInstance(12, 0, 0, 0));
 			ti.Sgmnt_End_TS_MERC__c = Datetime.newInstance(endDate, Time.newInstance(15, 0, 0, 0));
 			hotelItineraries.add(ti);

@@ -321,11 +321,11 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>MERC_MeetingDateManagerController</apexClass>
-        <enabled>true</enabled>
+        <apexClass>MERC_MeetingDateTimesController</apexClass>
+        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>MERC_MeetingDateTimesController</apexClass>
+        <apexClass>MERC_MeetingDateTimesControllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -426,6 +426,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_TravelItineraryNewEditController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_TravelItineraryNewEditTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -2950,6 +2954,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>ContentVersion.Contract_Start_Date_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>ContentVersion.Country_of_Residence_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -3800,7 +3809,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Meeting_MERC__c.Compliance_Timeliness_Met_MERC__c</field>
+        <field>Meeting_MERC__c.Compliance_Timeliness_Met_Invoices_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_MERC__c.Compliance_Timeliness_Venue_Sourcing_MER__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
