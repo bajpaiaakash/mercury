@@ -1,4 +1,7 @@
-<apex:page sidebar="false" standardController="Meeting_MERC__c" extensions="MERC_MeetingDateTimesController">
+<!--
+	Embedded in Meeting detail pages to show user-friendly Date/Times
+-->
+<apex:page sidebar="false" standardController="Meeting_MERC__c">
 	<apex:pageBlock mode="maindetail">
 		<apex:pageBlockSection collapsible="false" columns="2">
 			<apex:outputField value="{!Meeting_MERC__c.Meeting_Time_Zone_MERC__c}"/>
