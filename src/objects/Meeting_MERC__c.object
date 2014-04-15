@@ -357,12 +357,23 @@ Created by John A Adams 2/25/2014</description>
         <type>TextArea</type>
     </fields>
     <fields>
-        <fullName>Compliance_Timeliness_Met_MERC__c</fullName>
+        <fullName>Compliance_Timeliness_Met_Invoices_MERC__c</fullName>
         <description>If # of Days until invoices were reviewed/completed &lt;= 10 then Compliant. Created 04/09/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <formula>IF(of_Days_Until_Invoice_Reviewed_MERC__c  &lt;= 10.00, true, false)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Compliance Timeliness Met</label>
+        <label>Compliance Timeliness Met - Invoices</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Compliance_Timeliness_Venue_Sourcing_MER__c</fullName>
+        <description>Determines if Venue was contracted within 30 days or not. Used for SLA reporting. Created 04/14/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF( Days_Until_Venue_Contracted_MERC__c &lt;= 30, true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Compliance Timeliness - Venue Sourcing</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -2225,7 +2236,7 @@ Created by John Adams on 12/9/2013</description>
         <description>Primary Meeting Owner Name that will be stamped on the Meeting when the Team Member is added.  Created by John A Adams 2/27/2014</description>
         <externalId>false</externalId>
         <label>Primary Meeting Owner Name</label>
-        <length>20</length>
+        <length>80</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -9464,17 +9475,6 @@ else
     redirectUrl += &quot;&amp;sessionId={!$Api.Session_ID}&quot;;
         window.location.href = redirectUrl;
 }</url>
-    </webLinks>
-    <webLinks>
-        <fullName>Meeting_Date_Times</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <height>600</height>
-        <linkType>page</linkType>
-        <masterLabel>Meeting Date/Times</masterLabel>
-        <openType>sidebar</openType>
-        <page>MERC_MeetingDateTimesEdit</page>
-        <protected>false</protected>
     </webLinks>
     <webLinks>
         <fullName>Meeting_Report_MERC</fullName>

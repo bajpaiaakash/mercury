@@ -1,3 +1,10 @@
+/**
+ * Drives CUST_AdminUtilities.page to provide multiple admin functions.
+ * Using inner classes to provide a type of "interface" approach to encourage each utility
+ * to provide the same type of info back to the page.
+ *
+ * Author: Sean Harrison, Mavens
+ **/
 public with sharing class CUST_AdminUtilitiesController {
 
     public Integer status  {get; set;}
@@ -6,9 +13,20 @@ public with sharing class CUST_AdminUtilitiesController {
 
     public static final String STATUS_SUCCESS = 'AdminUtilitiesSuccess';
     public static final String STATUS_ERR = 'AdminUtilitiesError';
-    public Boolean jobsActive {get{ return checkActiveJobs();} set;}
+    public Boolean jobsActive {get{ return !checkActiveJobs().isEmpty();}}
 
-    private List<CronTrigger> jobTriggers;
+    public static List<CronTrigger> checkActiveJobs() {
+        Mercury_Settings_MERC__c settings = Mercury_Settings_MERC__c.getOrgDefaults();
+        List<String> jobIds = new List<String>();
+        if (settings.CST_Expire_Cron_Id_CUST__c!=null) jobIds.add(settings.CST_Expire_Cron_Id_CUST__c);
+        if (settings.CST_Review_Cron_Id_CUST__c!=null) jobIds.add(settings.CST_Review_Cron_Id_CUST__c);
+        if (settings.CST_Notify_Cron_Id_CUST__c!=null) jobIds.add(settings.CST_Notify_Cron_Id_CUST__c);
+
+        List<CronTrigger> jobTriggers = new List<CronTrigger>([
+            SELECT Id FROM CronTrigger WHERE Id in :jobIds
+            ]);
+        return jobTriggers;
+    }
 
     public PageReference initJobs() {
         initJobsUtil util = new initJobsUtil();
@@ -16,41 +34,6 @@ public with sharing class CUST_AdminUtilitiesController {
         status = util.status;
         message = util.message;
         result = util.result;
-        return null;
-    }
-
-    public Boolean checkActiveJobs() {
-        Mercury_Settings_MERC__c settings = Mercury_Settings_MERC__c.getOrgDefaults();
-        List<String> jobIds = new List<String>();
-        if (settings.CST_Expire_Cron_Id_CUST__c!=null) jobIds.add(settings.CST_Expire_Cron_Id_CUST__c);
-        if (settings.CST_Review_Cron_Id_CUST__c!=null) jobIds.add(settings.CST_Review_Cron_Id_CUST__c);
-        if (settings.CST_Notify_Cron_Id_CUST__c!=null) jobIds.add(settings.CST_Notify_Cron_Id_CUST__c);
-
-        jobTriggers = new List<CronTrigger>([
-            SELECT Id, CreatedBy.Name, CreatedDate, CronJobDetailId, CronJobDetail.Name, NextFireTime, State, TimesTriggered
-            FROM CronTrigger WHERE Id in :jobIds]);
-
-        if (jobTriggers.isEmpty()) {
-            return false;
-        }
-
-        //List<Id> jobDetailIds = new List<Id>();
-        //for (CronTrigger t : jobTriggers) {
-        //    jobDetailIds.add(t.CronJobDetailId);
-        //}
-        //currentJobs = [SELECT Id from CronJobDetail WHERE Id in :jobDetailIds];
-
-        // status = 1;
-        // message = String.valueOf(currentJobs);
-        // result = STATUS_SUCCESS;
-        return true;
-    }
-
-    public PageReference stopJobs() {
-        for (CronTrigger t : jobTriggers) System.abortJob(t.Id);
-        status = 1;
-        message = 'Active Jobs Deleted';
-        result = STATUS_SUCCESS;
         return null;
     }
 
@@ -75,4 +58,35 @@ public with sharing class CUST_AdminUtilitiesController {
         }
     }
 
+    public PageReference stopJobs() {
+        stopJobsUtil util = new stopJobsUtil();
+        util.runTask();
+        status = util.status;
+        message = util.message;
+        result = util.result;
+        return null;
+    }
+
+    public class stopJobsUtil {
+        public Integer status  {get;set;}
+        public String  message {get;set;}
+        public String  result  {get;set;}
+
+        private List<CronTrigger> jobTriggers;
+
+        public void runTask() {
+            try {
+                List<CronTrigger> jobTriggers = CUST_AdminUtilitiesController.checkActiveJobs();               
+                for (CronTrigger t : jobTriggers) System.abortJob(t.Id);
+            } catch (Exception e) {
+                status = 1;
+                message = e.getMessage();
+                result = STATUS_ERR;
+                return;
+            }
+            status = 1;
+            message = 'Active Jobs Deleted';
+            result = STATUS_SUCCESS;
+        }
+    }
 }

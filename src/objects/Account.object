@@ -76,6 +76,46 @@
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
+    <fieldSets>
+        <fullName>Meeting_Team_Manager_Mass_Add</fullName>
+        <description>Meeting Team Manager search Results tab</description>
+        <displayedFields>
+            <field>FirstName</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>LastName</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>PersonEmail</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Country_of_Residence_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Territory_Id_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Trtry_Cd_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Trtry_Desc_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Meeting Team Manager - Mass Add</label>
+    </fieldSets>
     <fields>
         <fullName>Academic_Qualifications_MERC__c</fullName>
         <description>To record academic qualifications of speakers 
@@ -1833,6 +1873,32 @@ Created by John A Adams 11/4/2013</description>
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Designated_Individual_Count_MERC__c</fullName>
+        <description>test</description>
+        <externalId>false</externalId>
+        <formula>1</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Designated Individual Count</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Designated_Individual_Counter_MERC__c</fullName>
+        <defaultValue>1</defaultValue>
+        <externalId>false</externalId>
+        <label>Designated Individual Counter</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Dspnsng_Acct_Flg_GLBL__c</fullName>
         <defaultValue>false</defaultValue>
         <description>Dispensing Account Flag
@@ -2953,6 +3019,18 @@ Created by John A Adams 12/15/2013</description>
             <sorted>false</sorted>
         </picklist>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>P_Cs_Test__c</fullName>
+        <description>test</description>
+        <externalId>false</externalId>
+        <label># P&amp;Cs Test</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Paid_CAP_MERC__c</fullName>
@@ -4302,6 +4380,17 @@ Created by John A Adams 11/4/2013</description>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>of_Designated_Individuals_MERC__c</fullName>
+        <externalId>false</externalId>
+        <label># of Designated Individuals</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
         <unique>false</unique>
     </fields>
     <listViews>
