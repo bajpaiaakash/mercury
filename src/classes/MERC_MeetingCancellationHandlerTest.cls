@@ -41,7 +41,7 @@ private class MERC_MeetingCancellationHandlerTest {
 			teamMembers.add(member);
 
 			oddNumber = !oddNumber;
-			meeting.Send_Meeting_Team_Cancelled_Email_MERC__c = true;
+			meeting.Send_Meeting_Team_Cancelled_Email_MERC__c = 'TRUE';
 		}
 
 		insert teamMembers;
