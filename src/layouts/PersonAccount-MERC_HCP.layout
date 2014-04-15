@@ -50,6 +50,14 @@
                 <behavior>Readonly</behavior>
                 <field>Transparency_Reporting_Opt_Out_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>of_Designated_Individuals_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Designated_Individual_Count_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

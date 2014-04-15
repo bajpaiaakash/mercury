@@ -755,6 +755,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Designated_Individual_Count_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.Dspnsng_Acct_Flg_GLBL__c</field>
         <readable>true</readable>
@@ -1697,6 +1702,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Work_Phone_Cntry_Cd_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.of_Designated_Individuals_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

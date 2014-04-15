@@ -1873,6 +1873,20 @@ Created by John A Adams 11/4/2013</description>
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Designated_Individual_Count_MERC__c</fullName>
+        <description>test</description>
+        <externalId>false</externalId>
+        <formula>1</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Designated Individual Count</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Dspnsng_Acct_Flg_GLBL__c</fullName>
         <defaultValue>false</defaultValue>
         <description>Dispensing Account Flag
@@ -4342,6 +4356,17 @@ Created by John A Adams 11/4/2013</description>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>of_Designated_Individuals_MERC__c</fullName>
+        <externalId>false</externalId>
+        <label># of Designated Individuals</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
         <unique>false</unique>
     </fields>
     <listViews>

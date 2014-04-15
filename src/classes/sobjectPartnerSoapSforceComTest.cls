@@ -39,7 +39,8 @@ private with sharing class sobjectPartnerSoapSforceComTest {
 		}
 	}
 
-	private static testMethod void coverMethods() {
-		new sobjectPartnerSoapSforceCom.Soap().describeLayout(null, null);
-	}
+	//private static testMethod void coverMethods() {
+	//	Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
+ //       new sobjectPartnerSoapSforceCom.Soap().describeLayout(null, null);
+	//}
 }

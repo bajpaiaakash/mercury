@@ -237,7 +237,7 @@
 						</apex:pageBlock>
 						<apex:pageBlock id="searchResults" title="Search Results" >
 							<apex:pageBlockButtons >
-
+								<apex:commandButton action="{!addSelected}" value="Add Selected Members" reRender="searchResults"/>
 							</apex:pageBlockButtons>
 							<div id="selectedAccessToggle" class="selectActions">
 								<apex:outputText value="Set Access for Selected to "/>

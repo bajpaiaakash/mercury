@@ -90,40 +90,6 @@ public virtual with sharing class GLBL_BaseEditController {
 		private set;
 	}
 
-	public Map<String,String> fieldNameToDetailSectionName {
-		get {
-			if (fieldNameToDetailSectionName == null) {
-				fieldNameToDetailSectionName = new Map<String,String>();
-				if (layoutResult != null) {
-	            	//we take the first one because we queried only one recordtype.               
-	                for (sobjectPartnerSoapSforceCom.DescribeLayoutSection LayoutSection : layoutResult.Layouts.get(0).detailLayoutSections) {
-	                   	
-						String layoutSectionHeading = LayoutSection.heading;
-
-	                    for (sobjectPartnerSoapSforceCom.DescribeLayoutRow layoutRow:LayoutSection.layoutRows) {
-	                        for (sobjectPartnerSoapSforceCom.DescribeLayoutItem layoutItem:layoutRow.layoutItems) {
-	                           	if (layoutItem.layoutComponents != null) {
-	                                //fields
-	                                for (sobjectPartnerSoapSforceCom.DescribeLayoutComponent layoutComponent : layoutItem.layoutComponents) {
-	                                	if (
-	                                		layoutComponent.type_x != 'Separator' && 
-	                                		layoutComponent.type_x != 'EmptySpace' &&
-	                                		layoutComponent.value != null
-	                                	) {
-	                                		fieldNameToDetailSectionName.put(layoutComponent.value, layoutSectionHeading); 
-	                                	}
-	                                }
-	                            }
-	                        }
-	                    }
-	                }
-	            }	
-			}
-			return fieldNameToDetailSectionName;
-		}
-		private set;
-	}
-
 	//returns sections/fields for edit layout
 	public List<PageBlockSection> sections { 
 		get {

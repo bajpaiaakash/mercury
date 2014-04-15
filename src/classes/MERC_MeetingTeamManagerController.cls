@@ -51,6 +51,18 @@ public with sharing class MERC_MeetingTeamManagerController extends GLBL_Generic
 		return null;
 	}
 
+	public void addSelected() {
+		for (SearchResult sr : searchResults) {
+			if (sr.selected) {
+				GenericSobjectWrapper newItem = new GenericSobjectWrapper(sr.member);
+				newItem.index = children.size()+1;
+				children.add(newItem);
+			}
+		}
+		save();
+		doSearch();
+	}
+
 	public List<SelectOption> getRadioOptions() {
 		return new List<SelectOption> { new SelectOption('field','Field Users'), new SelectOption('all', 'All Users') };
 	}
@@ -71,14 +83,6 @@ public with sharing class MERC_MeetingTeamManagerController extends GLBL_Generic
     			searchResults.add( new SearchResult(a));
     		}
     	}
-	}
-
-	public void setSelectedToAccess() {
-		for (SearchResult sr : searchResults) {
-			if (sr.selected) {
-				sr.member.Access_MERC__c = dummyMember.Access_MERC__c;
-			}
-		}
 	}
 
 	private String buildAccountQueryString()
