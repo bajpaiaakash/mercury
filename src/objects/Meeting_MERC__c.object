@@ -357,23 +357,47 @@ Created by John A Adams 2/25/2014</description>
         <type>TextArea</type>
     </fields>
     <fields>
-        <fullName>Compliance_Timeliness_Met_Invoices_MERC__c</fullName>
+        <fullName>Compliance_Met_Invoices_MERC__c</fullName>
         <description>If # of Days until invoices were reviewed/completed &lt;= 10 then Compliant. Created 04/09/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <formula>IF(of_Days_Until_Invoice_Reviewed_MERC__c  &lt;= 10.00, true, false)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Compliance Timeliness Met - Invoices</label>
+        <label>Compliance Met - Invoices</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>Compliance_Timeliness_Venue_Sourcing_MER__c</fullName>
+        <fullName>Compliance_Met_Meeting_Closure_MERC__c</fullName>
+        <description>Displays whether or not a Meeting was closed or cancelled within 60 days or not. Used for SLA Reporting. Created 04/15/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF(End_Date_of_Event_MERC__c &lt; End_Date_of_Event_MERC__c + 60 &amp;&amp;  (ISPICKVAL(Meeting_Status_MERC__c,&apos;Complete - Closed&apos;) ||
+ISPICKVAL(Meeting_Status_MERC__c,&apos;Complete - Cancelled&apos;)) &amp;&amp;
+ Meeting_Errors_MERC__c = 0.00 , true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Compliance Met - Meeting Closure</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Compliance_Met_Meeting_Errors_MERC__c</fullName>
+        <description>Shows whether or not Meeting Errors are zero after 60 days of meeting closure/cancellation. Used for SLA Reporting. Created 04/15/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF(Meeting_Errors_MERC__c &gt; 0, false, true)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Compliance Met - Meeting Errors</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Compliance_Met_Venue_Sourcing_MER__c</fullName>
         <description>Determines if Venue was contracted within 30 days or not. Used for SLA reporting. Created 04/14/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <formula>IF( Days_Until_Venue_Contracted_MERC__c &lt;= 30, true, false)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Compliance Timeliness - Venue Sourcing</label>
+        <label>Compliance Met - Venue Sourcing</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -578,6 +602,21 @@ Created by John Adams on 12/9/2013</description>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Days_from_MPC_to_Venue_Sourcing_Team_MER__c</fullName>
+        <description>Displays number of days from the MPC is added to Team Members to the Venue Sourcing Team being added to Team Members. Used for SLA Reporting. Created 04/15/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Venue_Sourcing_Team_Date_TIme_MERC__c -  MPC_Date_Time_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label># Days from MPC to Venue Sourcing Team</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
@@ -1457,6 +1496,20 @@ Created by John Adams 11/6/2013</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Errors_MERC__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>Used by Account Manager to input number of errors on the meeting. Used for SLA Reporting.</description>
+        <externalId>false</externalId>
+        <label>Meeting Errors</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Meeting_Objectives_MERC__c</fullName>
