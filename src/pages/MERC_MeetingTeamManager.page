@@ -163,7 +163,7 @@
 	<apex:form >
 		<div class="aeu" style="position:relative;">
 			<apex:tabPanel switchType="server" selectedTab="mercuryUsers" id="theTabPanel" activeTabClass="activeTab" inactiveTabClass="inactiveTab">
-				<apex:tab label="Mercury Users" name="mercuryUsers" id="tabOne">
+				<apex:tab label="Mercury Team Members" name="mercuryUsers" id="tabOne">
 					<apex:actionRegion >
 						<apex:pageBlock title="" mode="edit" id="mercuryUserBlock">
 							<apex:pageMessages />
@@ -204,7 +204,7 @@
 					</apex:actionRegion>
 				</apex:tab>
 
-				<apex:tab label="External Users" name="externalUsers" id="tabTwo">
+				<apex:tab label="Customer Facing Users" name="externalUsers" id="tabTwo">
 					<apex:actionRegion >
 						<apex:pageBlock title="" mode="edit" id="externalUserBlock">
 							<apex:pageMessages />
@@ -245,7 +245,7 @@
 					</apex:actionRegion>
 				</apex:tab>
 
-				<apex:tab label="Mass Add External Users" switchType="ajax" name="massAdd" id="tabThree" oncomplete="bindDomHandlers();massActionDisplayCheck();">
+				<apex:tab label="Mass Add Customer Facing Users" switchType="ajax" name="massAdd" id="tabThree" oncomplete="bindDomHandlers();massActionDisplayCheck();">
 					<apex:actionRegion >
 						<span id="searchArea">
 							<apex:pageBlock title="Search for Users" mode="edit" id="MassAddBlock">
