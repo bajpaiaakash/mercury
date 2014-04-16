@@ -15,5 +15,6 @@ trigger MERC_TeamMember on Team_Member_MERC__c (before insert, before update, be
 		.bind(GLBL_TriggerHandler.Evt.afterdelete, new MERC_TeamMemberShareHandler())
 		.bind(GLBL_TriggerHandler.Evt.afterundelete, new MERC_TeamMemberShareHandler())
 		.bind(GLBL_TriggerHandler.Evt.afterdelete, new MERC_DeleteNotifyService())
+		.bind(GLBL_TriggerHandler.Evt.afterdelete, new MERC_TeamMemberDeletePMO())
         .manage();
 }
