@@ -605,7 +605,7 @@ Created by John Adams on 12/9/2013</description>
         <fullName>Has_Signed_Contract_MERC__c</fullName>
         <description>Displays if HCP has an Active Contract. Created 02/13/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <formula>IF (Account_MERC__r.Has_Contract_MERC__c = &quot;Yes&quot;, &quot;Yes&quot;, &quot;No&quot;)</formula>
+        <formula>IF (Docusign_Contract_Status_MERC__c = &quot;Completed&quot;, &quot;Yes&quot;, &quot;No&quot;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <inlineHelpText>Whether the HCP currently has a signed Work Order or Single Event Contract for the Meeting</inlineHelpText>
         <label>Has Signed Contract</label>

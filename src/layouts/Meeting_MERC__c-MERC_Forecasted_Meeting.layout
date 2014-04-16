@@ -244,7 +244,6 @@
     </relatedLists>
     <relatedLists>
         <customButtons>Meeting_Team_Manager_MERC</customButtons>
-        <customButtons>New_Team_Member</customButtons>
         <fields>NAME</fields>
         <fields>User_MERC__c</fields>
         <fields>Account_MERC__c</fields>
