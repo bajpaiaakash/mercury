@@ -1,11 +1,12 @@
 /*
-* PMOs much be USERS!!!!
+* Unit Test to exercise trigger-bound MERC_TeamMemberDeletePMO class
 *
+* Author: Sean Harrison, Mavens
 */
 @isTest
 private class MERC_TeamMemberDeletePMOTest {
 	
-	static final Integer TEST_SET_SIZE = 1;
+	static final Integer TEST_SET_SIZE = 200;
 
 	static List<Account> accounts;
 	static List<User> users;
@@ -24,52 +25,19 @@ private class MERC_TeamMemberDeletePMOTest {
 		for (Meeting_MERC__c m : meetings) {
 			System.assert(m.Meeting_Owner_Email_MERC__c!=null && m.Prmry_Mtng_Ownr_Nm_MERC__c!=null,'Oops:'+m);
 		}
-		//String body = 'Hell is empty and all the devils are here.';
-		//MERC_DeleteNotifyMock mock = new MERC_DeleteNotifyMock(200, 'OK', body, null);
-		MERC_DeleteNotifyService.skipCallout = true;
 
-		//Test.setMock(HttpCalloutMock.class, mock);
 		Test.startTest();
+		MERC_DeleteNotifyService.skipCallout = true;
 		delete members;
 		Test.stopTest();
 
+		meetings = [SELECT Meeting_Owner_Email_MERC__c, Prmry_Mtng_Ownr_Nm_MERC__c FROM Meeting_MERC__c WHERE Id in :meetings];
 		for (Meeting_MERC__c m : meetings) {
 			System.assert(m.Meeting_Owner_Email_MERC__c==null && m.Prmry_Mtng_Ownr_Nm_MERC__c==null,'Meeting fields not getting cleared. e.g. '+m);
 		}
 	}
 
 	static List<Team_Member_MERC__c> insertNewPrimaryMeetingOwners(List<Meeting_MERC__c> meets, List<User> members, String RT) {
-		if (meets.size()!=members.size()) return null;
-
-		List<Team_Member_MERC__c> result = new List<Team_Member_MERC__c>();
-
-		// clear fields to satisfy validation rule
-		meets = [SELECT Meeting_Owner_Email_MERC__c, Prmry_Mtng_Ownr_Nm_MERC__c FROM Meeting_MERC__c WHERE Id in :meets];
-		for (Meeting_MERC__c m : meets) {
-			m.Meeting_Owner_Email_MERC__c = null;
-			m.Prmry_Mtng_Ownr_Nm_MERC__c = null;
-		}
-		update meets;
-
-		Id recTypeId = [Select ID From RecordType Where SObjectType = 'Team_Member_MERC__c' and DeveloperName = :RT].ID;
-		for (Integer n = 0; n<meets.size(); n++) {
-			Team_Member_MERC__c tm = new Team_Member_MERC__c();
-			tm.RecordTypeId = recTypeId;
-			tm.User_MERC__c = members.get(n).Id;
-			tm.Meeting_MERC__c = meets.get(n).Id;
-			tm.Role_MERC__c	= MERC_TeamMemberDeletePMO.PMO;	
-			result.add(tm);
-			
-			meets.get(n).Meeting_Owner_Email_MERC__c = members.get(n).Email;
-			meets.get(n).Prmry_Mtng_Ownr_Nm_MERC__c = members.get(n).FirstName +' '+members.get(n).LastName;
-		}
-		insert result;
-		update meets;
-
-		return result;
-	}
-
-	static List<Team_Member_MERC__c> insertTeamMembers(List<Meeting_MERC__c> meets, List<User> members, String RT) {
 		if (meets.size()!=members.size()) return null;
 
 		List<Team_Member_MERC__c> result = new List<Team_Member_MERC__c>();
