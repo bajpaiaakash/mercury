@@ -159,7 +159,7 @@ private class MERC_MeetingTeamManagerControllerTest {
 		System.runAs(testUser) {
 			Test.startTest();
 			MERC_MeetingTeamManagerController controller = new MERC_MeetingTeamManagerController(ssc);
-			controller.searchAccount.PersonEmail = employeeAccounts.get(0).PersonEmail;
+			controller.email = employeeAccounts.get(0).PersonEmail;
 			controller.doSearch();
 			System.assertEquals(1,controller.searchResults.size());
 			Test.stopTest();
@@ -170,7 +170,7 @@ private class MERC_MeetingTeamManagerControllerTest {
 		System.runAs(testUser) {
 			Test.startTest();
 			MERC_MeetingTeamManagerController controller = new MERC_MeetingTeamManagerController(ssc);
-			controller.searchAccount.PersonEmail = 'bademail@unittest.com';
+			controller.email = 'bademail@unittest.com';
 			controller.doSearch();
 			System.assertEquals(0,controller.searchResults.size());
 			Test.stopTest();
@@ -182,7 +182,7 @@ private class MERC_MeetingTeamManagerControllerTest {
 		System.runAs(testUser) {
 			Test.startTest();
 			MERC_MeetingTeamManagerController controller = new MERC_MeetingTeamManagerController(ssc);
-			controller.searchAccount.Territory_Id_GLBL__c = 'territory Id - ';
+			controller.territoryId = 'territory Id - ';
 			controller.doSearch();
 			System.assertEquals(10,controller.searchResults.size());
 			Test.stopTest();
@@ -193,7 +193,7 @@ private class MERC_MeetingTeamManagerControllerTest {
 		System.runAs(testUser) {
 			Test.startTest();
 			MERC_MeetingTeamManagerController controller = new MERC_MeetingTeamManagerController(ssc);
-			controller.searchAccount.Territory_Id_GLBL__c = 'Not a territory';
+			controller.territoryId = 'Not a territory';
 			controller.doSearch();
 			System.assertEquals(0,controller.searchResults.size());
 			Test.stopTest();
@@ -205,7 +205,7 @@ private class MERC_MeetingTeamManagerControllerTest {
 		System.runAs(testUser) {
 			Test.startTest();
 			MERC_MeetingTeamManagerController controller = new MERC_MeetingTeamManagerController(ssc);
-			controller.searchAccount.Trtry_Cd_GLBL__c = 'territory code - ';
+			controller.territoryCode = 'territory code - ';
 			controller.doSearch();
 			System.assertEquals(10,controller.searchResults.size());
 			Test.stopTest();
@@ -216,7 +216,7 @@ private class MERC_MeetingTeamManagerControllerTest {
 		System.runAs(testUser) {
 			Test.startTest();
 			MERC_MeetingTeamManagerController controller = new MERC_MeetingTeamManagerController(ssc);
-			controller.searchAccount.Trtry_Cd_GLBL__c = 'Not a code';
+			controller.territoryCode = 'Not a code';
 			controller.doSearch();
 			System.assertEquals(0,controller.searchResults.size());
 			Test.stopTest();
@@ -228,7 +228,7 @@ private class MERC_MeetingTeamManagerControllerTest {
 		System.runAs(testUser) {
 			Test.startTest();
 			MERC_MeetingTeamManagerController controller = new MERC_MeetingTeamManagerController(ssc);
-			controller.searchAccount.Trtry_Desc_GLBL__c = 'territory description - ';
+			controller.territoryDesc = 'territory description - ';
 			controller.doSearch();
 			System.assertEquals(10,controller.searchResults.size());
 			Test.stopTest();
@@ -239,7 +239,7 @@ private class MERC_MeetingTeamManagerControllerTest {
 		System.runAs(testUser) {
 			Test.startTest();
 			MERC_MeetingTeamManagerController controller = new MERC_MeetingTeamManagerController(ssc);
-			controller.searchAccount.Trtry_Desc_GLBL__c = 'Not a description';
+			controller.territoryDesc = 'Not a description';
 			controller.doSearch();
 			System.assertEquals(0,controller.searchResults.size());
 			Test.stopTest();
@@ -269,8 +269,13 @@ private class MERC_MeetingTeamManagerControllerTest {
 
 	@isTest static void test_should_only_return_search_results_for_accounts_that_arent_already_team_members() {
 		List<Team_Member_MERC__c> teamMembers = new List<Team_Member_MERC__c>();
+		Id externalUsersRecordTypeId = [SELECT Id
+                                          FROM RecordType
+	                                     WHERE SObjectType = 'Team_Member_MERC__c'
+	                                       AND DeveloperName='External_User_MERC' LIMIT 1].Id;
+
 		for (Integer i=0; i<5; i++) {
-			teamMembers.add(new Team_Member_MERC__c( RecordTypeId    = MERC_AddTeamMembersController.externalUsersRecordTypeId
+			teamMembers.add(new Team_Member_MERC__c( RecordTypeId    = externalUsersRecordTypeId
 				                                   , Account_MERC__c = employeeAccounts.get(i).Id
 				                                   , Meeting_MERC__c = meeting.Id));
 		}
