@@ -379,10 +379,26 @@ Created by John A Adams 10/4/2013</description>
         <fullName>Adding_Invoice_Line_Item</fullName>
         <active>true</active>
         <description>Prevents an Invoice Line Item being added unless services have been rendered or partial payment has been approved. Created by John A Adams 2/5/2014</description>
-        <errorConditionFormula>ISPICKVAL (Invoice_MERC__r.Meeting_Participant_MERC__r.Services_Rendered_MERC__c, &quot;&quot;) || 
+        <errorConditionFormula>(
+   (
+    CONTAINS(Invoice_MERC__r.Meeting_Participant_MERC__r.RecordType.Name, &quot;Consulting&quot;) ||
+    CONTAINS(Invoice_MERC__r.Meeting_Participant_MERC__r.RecordType.Name, &quot;Service Provider&quot;)
+)
+&amp;&amp;
 
-ISPICKVAL (Invoice_MERC__r.Meeting_Participant_MERC__r.Services_Rendered_MERC__c, &quot;NO&quot;)</errorConditionFormula>
+  (
+   ISPICKVAL (Invoice_MERC__r.Meeting_Participant_MERC__r.Services_Rendered_MERC__c, &quot;&quot;) ||
+   ISPICKVAL (Invoice_MERC__r.Meeting_Participant_MERC__r.Services_Rendered_MERC__c, &quot;NO&quot;)
+   )
+)</errorConditionFormula>
         <errorMessage>The Meeting Participant must have rendered services or have agreement for partial payment.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Prevent_Invoice_Line_Item_Activity</fullName>
+        <active>true</active>
+        <description>Prevent a new Invoice Line Item record being created or an existing record edited when the Invoice has been submitted for Payment.</description>
+        <errorConditionFormula>ISPICKVAL(Invoice_MERC__r.Submit_for_Payment_MERC__c, &quot;Yes&quot;)</errorConditionFormula>
+        <errorMessage>The Invoice has already been submitted for payment and no changes can be made.</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>New_Line_Item</fullName>

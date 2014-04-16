@@ -5,7 +5,7 @@
  */
 
 public with sharing class MERC_Util {
-	
+
 	public static void disableBudgetEditValidation() {
 		Mercury_Settings_MERC__c settings = Mercury_Settings_MERC__c.getOrgDefaults();
 		settings.Budget_Edit_Validation_MERC__c = false;
@@ -33,8 +33,8 @@ public with sharing class MERC_Util {
 		List<SelectOption> options = new List<SelectOption>();
 		List<Schema.PicklistEntry> ple = fieldResult.getPicklistValues();
 		for( Schema.PicklistEntry f : ple) {
-			options.add(new SelectOption(f.getLabel(), f.getValue()));
-		}       
+			options.add(new SelectOption(f.getValue(), f.getLabel()));
+		}
 		return options;
 	}
 
@@ -66,11 +66,11 @@ public with sharing class MERC_Util {
 
 	public static Map<String, String> getTimeZoneFieldMapForObject(String objectAPIName) {
 		Map<String, String> dateFieldAPINameToTimeZoneFieldAPIName = new Map<String, String>();
-		for (Time_Zone_Field_Mappings_MERC__c fm : [SELECT 
-														Field_API_Name_MERC__c, 
-														Time_Zone_Field_API_Name_MERC__c 
-															FROM 
-																Time_Zone_Field_Mappings_MERC__c 
+		for (Time_Zone_Field_Mappings_MERC__c fm : [SELECT
+														Field_API_Name_MERC__c,
+														Time_Zone_Field_API_Name_MERC__c
+															FROM
+																Time_Zone_Field_Mappings_MERC__c
 																	WHERE Object_API_Name_MERC__c = :objectAPIName]) {
 			dateFieldAPINameToTimeZoneFieldAPIName.put(fm.Field_API_Name_MERC__c, fm.Time_Zone_Field_API_Name_MERC__c);
 		}
@@ -79,11 +79,11 @@ public with sharing class MERC_Util {
 
 	public static Map<String, String> getStampFieldMapForObject(String objectAPIName) {
 		Map<String, String> dateFieldAPINameToFieldToStampAPIName = new Map<String, String>();
-		for (Time_Zone_Field_Mappings_MERC__c fm : [SELECT 
-														Field_API_Name_MERC__c, 
-														Static_Field_To_Stamp_MERC__c 
-															FROM 
-																Time_Zone_Field_Mappings_MERC__c 
+		for (Time_Zone_Field_Mappings_MERC__c fm : [SELECT
+														Field_API_Name_MERC__c,
+														Static_Field_To_Stamp_MERC__c
+															FROM
+																Time_Zone_Field_Mappings_MERC__c
 																	WHERE Object_API_Name_MERC__c = :objectAPIName]) {
 			dateFieldAPINameToFieldToStampAPIName.put(fm.Field_API_Name_MERC__c, fm.Static_Field_To_Stamp_MERC__c);
 		}
@@ -118,7 +118,7 @@ public with sharing class MERC_Util {
 	}
 
 	public static Map<String, String> getFieldSetLabels(Schema.SObjectType sObjectType, List<String> fieldSetAPINames) {
-		Schema.DescribeSObjectResult r1 = sObjectType.getDescribe(); 
+		Schema.DescribeSObjectResult r1 = sObjectType.getDescribe();
 		Map<String, String> fieldSetNameMap = new Map<String, String>();
 		Map<String, Schema.FieldSet> fieldSetMap = r1.fieldSets.getMap();
 		for (String s : fieldSetAPINames)
@@ -137,7 +137,7 @@ public with sharing class MERC_Util {
 	}
 
 	/**
-	 * Wrapper for getCountryPicklistValuesForCurrentUser() to allow for optional addition of 
+	 * Wrapper for getCountryPicklistValuesForCurrentUser() to allow for optional addition of
 	 * a "null" first option in the selectOption list.
 	 *
 	 * @param   includeNullSelectOption  If true AND if the number of generated choices is more than
@@ -174,16 +174,16 @@ public with sharing class MERC_Util {
 
 		for(String n : sortedNames) {
 			options.add(new SelectOption(nameToISO.get(n), n));
-		}       
+		}
 		return options;
 	}
 
 	/**
-	 * Provides a map of country names to ISO codes for the submitted user. Based one the 
+	 * Provides a map of country names to ISO codes for the submitted user. Based one the
 	 * assigment of countries in the Territory hierarchy
-	 * 
+	 *
 	 * @param  userId  The id of the user of interest
-	 * @return         A Map of names (String) to 2-letter ISO codes (String) 
+	 * @return         A Map of names (String) to 2-letter ISO codes (String)
 	 * @see            #getUserTerritoriesAndChildrenTerritories(List<Id>)
 	 * @see            Territory.ISO_Country_Code_GLBL__c
 	 */
@@ -233,7 +233,7 @@ public with sharing class MERC_Util {
 			}
 		}
 
-		// get all child terr records of the same set of ids 
+		// get all child terr records of the same set of ids
 		for (Id u : result.keySet()) {
 			Map<Id,Territory> userTerrMap = new Map<Id,Territory>();
 			for (Territory t : result.get(u)) userTerrMap.put(t.Id, t);
@@ -274,12 +274,12 @@ public with sharing class MERC_Util {
 	}
 
 	public class SelectAll {
-	    
+
 	    public string allfields;
 	    public string SOQL;
-	    
+
 	    public SelectAll() { }
-	    
+
 	    public SelectAll(Schema.SobjectType sObjectType, Id recordId){
 	        Schema.DescribeSobjectResult d = sObjectType.getdescribe();
 	        Map<String, Schema.SobjectField> m = d.fields.getmap();

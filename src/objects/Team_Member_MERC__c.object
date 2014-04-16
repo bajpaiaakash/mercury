@@ -124,7 +124,7 @@ Created by John A Adams 1/10/2014</description>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Lookup relationship to Account so Person Accounts may be selected as Team Members a Meeting. Created 9/27/2013 by KLorenti</description>
         <externalId>false</externalId>
-        <label>External User</label>
+        <label>Customer Facing Team Member</label>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Team Members</relationshipLabel>
         <relationshipName>Team_Members</relationshipName>
@@ -286,7 +286,7 @@ Created by John A Adams 1/10/2014</description>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Lookup relationship to User object so users may be selected as Team Members for a Meeting. Created 9/27/2013 by KLorenti.</description>
         <externalId>false</externalId>
-        <label>Mercury User</label>
+        <label>Mercury Team Member</label>
         <referenceTo>User</referenceTo>
         <relationshipName>Team_Members</relationshipName>
         <required>false</required>
@@ -449,7 +449,8 @@ Created by John A Adams 1/10/2014</description>
         <description>Should only have one Primary Meeting Owner</description>
         <errorConditionFormula>AND (
 ISPICKVAL( Role_MERC__c,&quot;Primary Meeting Owner&quot;),
-Meeting_MERC__r.Prmry_Mtng_Ownr_Nm_MERC__c  &lt;&gt; &quot;&quot;)</errorConditionFormula>
+OR(ISNULL(Meeting_MERC__r.Prmry_Mtng_Ownr_Nm_MERC__c), 
+Meeting_MERC__r.Prmry_Mtng_Ownr_Nm_MERC__c  &lt;&gt; &quot;&quot;))</errorConditionFormula>
         <errorDisplayField>Role_MERC__c</errorDisplayField>
         <errorMessage>Only one team member can be the Primary Meeting Owner. Please chose a different role for this or existing team member.</errorMessage>
     </validationRules>
@@ -465,24 +466,5 @@ Meeting_MERC__r.Prmry_Mtng_Ownr_Nm_MERC__c  &lt;&gt; &quot;&quot;)</errorConditi
         <page>MERC_MeetingTeamManager</page>
         <protected>false</protected>
         <requireRowSelection>false</requireRowSelection>
-    </webLinks>
-    <webLinks>
-        <fullName>New_Team_Member</fullName>
-        <availability>online</availability>
-        <displayType>massActionButton</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <linkType>url</linkType>
-        <masterLabel>New Meeting Team Member</masterLabel>
-        <openType>replace</openType>
-        <protected>false</protected>
-        <requireRowSelection>true</requireRowSelection>
-        <url>{!URLFOR( 
-$Action.Team_Member_MERC__c.New, 
-null, 
-[saveURL=Meeting_MERC__c.Link+&apos;#&apos;+Meeting_MERC__c.Id+&apos;_00N11000000SbaR_target&apos;, 
-retURL=Meeting_MERC__c.Link, 
-CF00N11000000SbaR=Meeting_MERC__c.Name, 
-CF00N11000000SbaR_lkid=Meeting_MERC__c.Id] 
-)}</url>
     </webLinks>
 </CustomObject>

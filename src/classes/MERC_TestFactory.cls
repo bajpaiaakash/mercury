@@ -1,3 +1,4 @@
+@isTest
 public with sharing class MERC_TestFactory {
 	
 	public static Id hcpRecordTypeId = [Select ID From RecordType Where SObjectType = 'Account' and DeveloperName = 'HCP_GLBL'].ID;
@@ -280,6 +281,37 @@ public with sharing class MERC_TestFactory {
 		return c;
 	}
 
+	public static List<Team_Member_MERC__c> insertNewPrimaryMeetingOwners(List<Meeting_MERC__c> meets, List<User> members, String RT) {
+		if (meets.size()!=members.size()) return null;
+
+		List<Team_Member_MERC__c> result = new List<Team_Member_MERC__c>();
+
+		// clear fields to satisfy validation rule
+		meets = [SELECT Meeting_Owner_Email_MERC__c, Prmry_Mtng_Ownr_Nm_MERC__c FROM Meeting_MERC__c WHERE Id in :meets];
+		for (Meeting_MERC__c m : meets) {
+			m.Meeting_Owner_Email_MERC__c = null;
+			m.Prmry_Mtng_Ownr_Nm_MERC__c = null;
+		}
+		update meets;
+
+		Id recTypeId = [Select ID From RecordType Where SObjectType = 'Team_Member_MERC__c' and DeveloperName = :RT].ID;
+		for (Integer n = 0; n<meets.size(); n++) {
+			Team_Member_MERC__c tm = new Team_Member_MERC__c();
+			tm.RecordTypeId = recTypeId;
+			tm.User_MERC__c = members.get(n).Id;
+			tm.Meeting_MERC__c = meets.get(n).Id;
+			tm.Role_MERC__c	= MERC_TeamMemberDeletePMO.PMO;	
+			result.add(tm);
+			
+			meets.get(n).Meeting_Owner_Email_MERC__c = members.get(n).Email;
+			meets.get(n).Prmry_Mtng_Ownr_Nm_MERC__c = members.get(n).FirstName +' '+members.get(n).LastName;
+		}
+		insert result;
+		update meets;
+
+		return result;
+	}
+
 	public static List<User> insertTestUsers(Integer numberOfUsers, String profileName) {
 		List<User> users = new List<User>();
 
@@ -294,7 +326,7 @@ public with sharing class MERC_TestFactory {
 	        User u = new User(profileId = p.id, username = testemail, email = testemail, 
 	                           emailencodingkey = 'UTF-8', localesidkey = 'en_US', 
 	                           languagelocalekey = 'en_US', timezonesidkey = 'America/Los_Angeles', 
-	                           alias='utuser'+i, lastname='lastname');
+	                           alias='utusr'+i, lastname='lastname');
 	        users.add(u);
 	    }
         

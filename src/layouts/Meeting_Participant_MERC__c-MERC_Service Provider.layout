@@ -10,6 +10,10 @@
         <label>Information</label>
         <layoutColumns>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Docusign_Contract_Status_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Name</field>
             </layoutItems>
@@ -40,6 +44,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Customer_Id_GLBL__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Summary_Comments_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -422,6 +430,14 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Payee_and_Bank_Info_Complete_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Summary_Step_Complete_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Participant_Comments_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

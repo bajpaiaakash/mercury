@@ -605,7 +605,7 @@ Created by John Adams on 12/9/2013</description>
         <fullName>Has_Signed_Contract_MERC__c</fullName>
         <description>Displays if HCP has an Active Contract. Created 02/13/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <formula>IF (Account_MERC__r.Has_Contract_MERC__c = &quot;Yes&quot;, &quot;Yes&quot;, &quot;No&quot;)</formula>
+        <formula>IF (Docusign_Contract_Status_MERC__c = &quot;Completed&quot;, &quot;Yes&quot;, &quot;No&quot;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <inlineHelpText>Whether the HCP currently has a signed Work Order or Single Event Contract for the Meeting</inlineHelpText>
         <label>Has Signed Contract</label>
@@ -984,6 +984,15 @@ Created by John A Adams 10/31/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Participant_Comments_MERC__c</fullName>
+        <description>Used by portal. Captures Participant comments during meeting registration. Created 16/04/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Participant  Comments</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
         <fullName>Participant_Search_MERC__c</fullName>
         <description>Ensures the Meeting Participant is searchable. Oliver Dunford 6th Nov 2013</description>
         <externalId>false</externalId>
@@ -1344,6 +1353,26 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         </picklist>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Summary_Comments_MERC__c</fullName>
+        <description>Used by portal.  Optional comments at the end of the Portal RSVP process.  Created 04/16/2014 by JLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Summary Comments</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Summary_Step_Complete_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal. Indicates when Meeting Participant has completed the Summary Step during meeting registration. Created 04/16/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Summary Step Complete</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Topic_Area_MERC__c</fullName>

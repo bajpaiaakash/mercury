@@ -5,7 +5,7 @@
  */
 
 global with sharing virtual class GLBL_GenericRelatedListController {
-	
+
 	public String clientHash { get; set; } //used to interact with dom elements
 	public ApexPages.StandardSetController controller;
 	String parentObjectAPIName;
@@ -18,9 +18,9 @@ global with sharing virtual class GLBL_GenericRelatedListController {
 	public Id parentId = ApexPages.currentPage().getParameters().get('id');
 
 	public GLBL_GenericRelatedListController(
-		ApexPages.StandardSetController controller, 
-		String parentObjectAPIName, 
-		String childObjectAPIName, 
+		ApexPages.StandardSetController controller,
+		String parentObjectAPIName,
+		String childObjectAPIName,
 		String parentFieldAPIName,
 		List<String> parentFields,
 		List<String> childFields,
@@ -36,9 +36,9 @@ global with sharing virtual class GLBL_GenericRelatedListController {
 	}
 
 	public GLBL_GenericRelatedListController(
-		ApexPages.StandardSetController controller, 
-		String parentObjectAPIName, 
-		String childObjectAPIName, 
+		ApexPages.StandardSetController controller,
+		String parentObjectAPIName,
+		String childObjectAPIName,
 		String parentFieldAPIName,
 		List<String> parentFields,
 		List<String> childFields,
@@ -81,13 +81,13 @@ global with sharing virtual class GLBL_GenericRelatedListController {
 		List<GenericSobjectWrapper> childrenList;
 		if (recordTypeDeveloperNameParam != null) {
 			childrenList = childrenMap.get(recordTypeDeveloperNameParam);
-		} else {	
+		} else {
 			childrenList = children;
 		}
 		for (GenericSobjectWrapper sow : childrenList) {
 			if (sow.hash != clientHash) {
 				newChildList.add(sow);
-			} 
+			}
 			if (sow.hash == clientHash && sow.so.ID != null) {
 				childrenToDelete.add(sow.so);
 			}
@@ -109,17 +109,17 @@ global with sharing virtual class GLBL_GenericRelatedListController {
 			system.debug('>>> '+recordTypeDeveloperNameParam);
 			if (recordTypeDeveloperNameParam != null) {
 				childrenList = childrenMap.get(recordTypeDeveloperNameParam);
-			} else {	
+			} else {
 				childrenList = children;
 			}
 			system.debug('>>> '+childrenList);
 			for (GenericSobjectWrapper sow : childrenList) {
 				system.debug('child so........ '+sow.so);
 				if (sow.so.Id != null) {
-					childrenToUpdate.add(sow.so);	
+					childrenToUpdate.add(sow.so);
 				} else {
 					sow.so.put(parentFieldAPIName, parentId);
-					childrenToInsert.add(sow.so);	
+					childrenToInsert.add(sow.so);
 				}
 			}
 			system.debug('>>> '+childrenToInsert);
@@ -171,7 +171,7 @@ global with sharing virtual class GLBL_GenericRelatedListController {
 				String fieldString = String.join(childFields, ',');
 				Integer i = 1;
 				String query = getSOQLQuery(fieldString, childObjectAPIName, parentFieldAPIName+' = \''+ApexPages.currentPage().getParameters().get('id'), orderChildrenBy);
-				for (Sobject s : Database.query(query)) {	
+				for (Sobject s : Database.query(query)) {
 					if (childrenMap.containsKey((String)s.getSObject('RecordType').get('DeveloperName'))) {
 						List<GenericSobjectWrapper> children = childrenMap.get((String)s.getSObject('RecordType').get('DeveloperName'));
 						GenericSobjectWrapper child = new GenericSobjectWrapper(childObjectAPIName, s);
@@ -188,7 +188,7 @@ global with sharing virtual class GLBL_GenericRelatedListController {
 					i++;
 				}
 			}
-			return childrenMap;	
+			return childrenMap;
 		}
 		set;
 	}
@@ -200,7 +200,7 @@ global with sharing virtual class GLBL_GenericRelatedListController {
 				String fieldString = String.join(childFields, ',');
 				Integer i = 1;
 				String query = getSOQLQuery(fieldString, childObjectAPIName, parentFieldAPIName+' = \''+ApexPages.currentPage().getParameters().get('id'), orderChildrenBy);
-				for (Sobject s : Database.query(query)) {	
+				for (Sobject s : Database.query(query)) {
 					GenericSobjectWrapper child = new GenericSobjectWrapper(childObjectAPIName, s);
 					child.index = i;
 					children.add(new GenericSobjectWrapper(childObjectAPIName, s));
@@ -233,10 +233,10 @@ global with sharing virtual class GLBL_GenericRelatedListController {
 		public GenericSobjectWrapper(String objectAPIName) {
 			InitializeGenericSobjectWrapper(objectAPIName, null, null);
 		}
-		public GenericSobjectWrapper(String objectAPIName, ID recordTypeId) {			
+		public GenericSobjectWrapper(String objectAPIName, ID recordTypeId) {
 			InitializeGenericSobjectWrapper(objectAPIName, recordTypeId, null);
 		}
-		public GenericSobjectWrapper(String objectAPIName, Sobject so) {			
+		public GenericSobjectWrapper(String objectAPIName, Sobject so) {
 			InitializeGenericSobjectWrapper(objectAPIName, null, so);
 		}
 		public GenericSobjectWrapper(Sobject genericObject) {
@@ -250,7 +250,7 @@ global with sharing virtual class GLBL_GenericRelatedListController {
 			} else if (recordTypeId != null){
 				this.so = objType.newSobject(recordTypeId, true);
 			} else {
-				this.so = objType.newSobject();				
+				this.so = objType.newSobject();
 			}
 			this.hash = MERC_Util.generateRandomString(10);
 		}
@@ -258,7 +258,7 @@ global with sharing virtual class GLBL_GenericRelatedListController {
 	        GenericSobjectWrapper item = (GenericSobjectWrapper) compareTo;
 	        if (index == item.index) return 0;
 	        if (index > item.index) return 1;
-	        return -1;        
+	        return -1;
 	    }
 	}
 }

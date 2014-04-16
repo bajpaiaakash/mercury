@@ -39,17 +39,27 @@
 			});
 		}
 		function bindDomHandlers() {
-			j("table tr input.chkSelected").click(function() {
+
+			//kill any old listeners then recreate listener to run the massactiondisplaycheck
+			//whenever a checkbox is clicked.
+			j("table tr input.chkSelected").off('click');
+			j("table tr input.chkSelected").on('click', function() {
 				massActionDisplayCheck();
 			});
 
-			j("table tr input#selectAllSearchResults").click(function() {
+			//kill any old listeners then recreate listener to check all other select boxes
+			//when the select all box is checked.
+			j("table tr input#selectAllSearchResults").off('click');
+			j("table tr input#selectAllSearchResults").on('click', function() {
 				var jthis = j(this);
 				j("table tr input.chkSelected").prop('checked', jthis.prop('checked'));
 				massActionDisplayCheck();
 			});
 
-			j("input#selectedInviteLimit").on('keyup click',function() {
+			//kill any old listeners then recreate listener to update all selected rows
+			//when the invite limit changes in the mass update section
+			j("input#selectedInviteLimit").off('keyup change');
+			j("input#selectedInviteLimit").on('keyup change', function() {
 				var jThis = j(this);
 				j("table tr input.chkSelected:checked")
 					.parents('tr')
@@ -58,13 +68,39 @@
 					.val(jThis.val());
 			});
 
-			j("div#selectedAccessToggle select.selectList").on('change',function() {
+			//kill any old listeners then recreate listener to update all selected rows
+			//when the access picklist changes in the mass update section
+			j("div#selectedAccessToggle select.selectList").off('change');
+			j("div#selectedAccessToggle select.selectList").on('change', function() {
 				var jThis = j(this);
 				j("table tr input.chkSelected:checked")
 					.parents('tr')
 					.children('td')
 					.children('select.accessLevel')
 					.val(jThis.val());
+			});
+
+			//kill any old listeners then recreate listener to update all selected rows
+			//when the invite limit changes in the mass update section
+			j("div#selectedRoleToggle select.selectRole").off('change');
+			j("div#selectedRoleToggle select.selectRole").on('change', function() {
+				var jThis = j(this);
+				j("table tr input.chkSelected:checked")
+					.parents('tr')
+					.children('td')
+					.children('select.role')
+					.val(jThis.val());
+			});
+
+			//kill any old listeners for enter key then recreate listener to click
+			//the search button if enter key is clicked while focus is in search area
+			j('span#searchArea').off('keydown');
+			j('span#searchArea').on('keydown', function(e) {
+				if (e.which == 13 || e.keyCode == 13) {
+					e.preventDefault();
+					e.stopPropagation();
+					j(searchButton).click();
+				}
 			});
 		}
 
@@ -127,7 +163,7 @@
 	<apex:form >
 		<div class="aeu" style="position:relative;">
 			<apex:tabPanel switchType="server" selectedTab="mercuryUsers" id="theTabPanel" activeTabClass="activeTab" inactiveTabClass="inactiveTab">
-				<apex:tab label="Mercury Users" name="mercuryUsers" id="tabOne">
+				<apex:tab label="Mercury Team Members" name="mercuryUsers" id="tabOne">
 					<apex:actionRegion >
 						<apex:pageBlock title="" mode="edit" id="mercuryUserBlock">
 							<apex:pageMessages />
@@ -168,7 +204,7 @@
 					</apex:actionRegion>
 				</apex:tab>
 
-				<apex:tab label="External Users" name="externalUsers" id="tabTwo">
+				<apex:tab label="Customer Facing Users" name="externalUsers" id="tabTwo">
 					<apex:actionRegion >
 						<apex:pageBlock title="" mode="edit" id="externalUserBlock">
 							<apex:pageMessages />
@@ -209,44 +245,80 @@
 					</apex:actionRegion>
 				</apex:tab>
 
-				<apex:tab label="Mass Add External Users" name="massAdd" id="tabThree">
+				<apex:tab label="Mass Add Customer Facing Users" switchType="ajax" name="massAdd" id="tabThree" oncomplete="bindDomHandlers();massActionDisplayCheck();">
 					<apex:actionRegion >
-						<apex:pageBlock title="Search for Users" mode="edit" id="MassAddBlock">
-							<apex:pageMessages id="searchMessages"/>
-							<apex:pageBlockButtons >
-								<apex:commandButton value="Search (labelize)" action="{!doSearch}" reRender="searchResults, searchMessages" onclick="toggleLoading()" oncomplete="bindDomHandlers();toggleLoading()"/>
-							</apex:pageBlockButtons>
-							<apex:pageBlockSection columns="2">
-								<apex:pageBlockSectionItem >
-									{!$ObjectType.Account.Fields.FirstName.label} <apex:inputText value="{!firstName}"/>
-								</apex:pageBlockSectionItem>
-								<apex:pageBlockSectionItem >
-									{!$ObjectType.Account.Fields.LastName.label} <apex:inputText value="{!lastName}"/>
-								</apex:pageBlockSectionItem>
-								<apex:inputField value="{!searchAccount.PersonEmail}"/>
-								<apex:inputField value="{!searchAccount.Country_of_Residence_GLBL__c}"/>
-								<apex:inputField value="{!searchAccount.Territory_Id_GLBL__c}"/>
-								<apex:inputField value="{!searchAccount.Trtry_Cd_GLBL__c}"/>
-								<apex:inputField value="{!searchAccount.Trtry_Desc_GLBL__c}"/>
-								<apex:pageBlockSectionItem >
-									<apex:outputText value=""/>
-									<apex:selectRadio value="{!searchForUsers}">
-										<apex:selectOptions value="{!radioOptions}"/>
-									</apex:selectRadio>
-								</apex:pageBlockSectionItem>
-							</apex:pageBlockSection>
-						</apex:pageBlock>
+						<span id="searchArea">
+							<apex:pageBlock title="Search for Users" mode="edit" id="MassAddBlock">
+								<apex:pageMessages id="searchMessages"/>
+								<apex:pageBlockButtons location="top">
+									<apex:commandButton id="searchButton" value="Search" action="{!doSearch}" reRender="searchResults, searchMessages" onclick="toggleLoading()" oncomplete="bindDomHandlers();toggleLoading()"/>
+									<script>var searchButton = document.getElementById('{!$Component.searchButton}');</script>
+									<apex:commandButton value="Back to Meeting" action="{!cancel}"/>
+								</apex:pageBlockButtons>
+								<apex:pageBlockSection columns="2">
+									<apex:pageBlockSectionItem >
+										<apex:outputText value=""/>
+										<apex:selectRadio value="{!searchForUsers}" tabindex="1">
+											<apex:selectOptions value="{!radioOptions}"/>
+										</apex:selectRadio>
+									</apex:pageBlockSectionItem>
+									<apex:pageBlockSectionItem >
+										{!$ObjectType.Account.Fields.Country_of_Residence_GLBL__c.label}
+										<apex:selectList value="{!countryOfRes}" size="1" tabindex="5">
+											<apex:selectOptions value="{!countryOptions}"/>
+										</apex:selectList>
+									</apex:pageBlockSectionItem>
+									<apex:pageBlockSectionItem >
+										{!$ObjectType.Account.Fields.FirstName.label}
+										<apex:inputText value="{!firstName}" tabindex="2"/>
+									</apex:pageBlockSectionItem>
+									<apex:pageBlockSectionItem >
+										{!$ObjectType.Account.Fields.Territory_Id_GLBL__c.label}
+										<apex:inputText value="{!territoryId}" tabIndex="6"/>
+									</apex:pageBlockSectionItem>
+									<apex:pageBlockSectionItem >
+										{!$ObjectType.Account.Fields.LastName.label}
+										<apex:inputText value="{!lastName}" tabindex="3"/>
+									</apex:pageBlockSectionItem>
+									<apex:pageBlockSectionItem >
+										{!$ObjectType.Account.Fields.Trtry_Cd_GLBL__c.label}
+										<apex:inputText value="{!territoryCode}" tabindex="7"/>
+									</apex:pageBlockSectionItem>
+									<apex:pageBlockSectionItem >
+										{!$ObjectType.Account.Fields.PersonEmail.label}
+										<apex:inputText value="{!email}" tabindex="4"/>
+									</apex:pageBlockSectionItem>
+									<apex:pageBlockSectionItem >
+										{!$ObjectType.Account.Fields.Trtry_Desc_GLBL__c.label}
+										<apex:inputText value="{!territoryDesc}" tabindex="8"/>
+									</apex:pageBlockSectionItem>
+								</apex:pageBlockSection>
+							</apex:pageBlock>
+						</span>
 						<apex:pageBlock id="searchResults" title="Search Results" >
+							<apex:pageMessages id="searchResultMessages"/>
 							<apex:pageBlockButtons >
-								<apex:commandButton action="{!addSelected}" value="Add Selected Members" onclick="toggleLoading()" oncomplete="bindDomHandlers();toggleLoading()" reRender="searchResults, tabTwo"/>
+								<apex:commandButton action="{!addSelected}" value="Add Selected Members"
+								                    onclick="toggleLoading()" oncomplete="toggleLoading();bindDomHandlers();"
+								                    reRender="tabTwo, searchResults" rendered="{!searchResults.size > 0}">
+									<apex:param name="rtdn" value="External_User_MERC"/>
+									<apex:param name="notify" value="1"/>
+									<apex:param name="msg" value="Team Members added successfully!"/>
+								</apex:commandButton>
 							</apex:pageBlockButtons>
-							<div id="selectedAccessToggle" class="selectActions">
-								<apex:outputText value="Set Access for Selected to "/>
-								<apex:inputField value="{!dummyMember.Access_MERC__c}" styleClass="selectList"/>
-							</div>
-							<div class="selectActions">
-								<apex:outputText value="Set Selected Invite Limit To "/>
-								<input id="selectedInviteLimit" type="number" min="0"/>
+							<div style="float:right">
+								<div id="selectedAccessToggle" class="selectActions">
+									<apex:outputText value="Set Access for Selected to "/>
+									<apex:inputField value="{!dummyMember.Access_MERC__c}" styleClass="selectList"/>
+								</div>
+								<div class="selectActions">
+									<apex:outputText value="Set Selected Invite Limit To "/>
+									<input id="selectedInviteLimit" type="number" min="0"/>
+								</div>
+								<div id="selectedRoleToggle" class="selectActions">
+									<apex:outputText value="Set Selected Role To "/>
+									<apex:inputField value="{!dummyMember.Role_MERC__c}" styleClass="selectRole"/>
+								</div>
 							</div>
 							<apex:pageBlockTable value="{!searchResults}" var="result" rendered="{!searchResults.size > 0}">
 								<apex:column >
@@ -255,17 +327,20 @@
 									</apex:facet>
 									<apex:inputCheckbox value="{!result.selected}" styleClass="chkSelected"/>
 								</apex:column>
+								<apex:repeat var="f" value="{!$ObjectType.Account.FieldSets.Meeting_Team_Manager_Mass_Add}">
+						            <apex:column headerValue="{!f.label}">
+						                <apex:outputField value="{!result.acct[f]}"/>
+						            </apex:column>
+						        </apex:repeat>
 								<apex:column headerValue="{!$ObjectType.Team_Member_MERC__c.Fields.Access_MERC__c.label}">
 									<apex:inputField value="{!result.member.Access_MERC__c}" styleClass="accessLevel"/>
 								</apex:column>
 								<apex:column headerValue="{!$ObjectType.Team_Member_MERC__c.Fields.Attendee_Invite_Limit_MERC__c.label}">
 									<apex:inputField value="{!result.member.Attendee_Invite_Limit_MERC__c}" styleClass="attendeeLimit"/>
 								</apex:column>
-								<apex:repeat var="f" value="{!$ObjectType.Account.FieldSets.Meeting_Team_Manager_Mass_Add}">
-						            <apex:column headerValue="{!f.label}">
-						                <apex:outputField value="{!result.acct[f]}"/>
-						            </apex:column>
-						        </apex:repeat>
+								<apex:column headerValue="{!$ObjectType.Team_Member_MERC__c.Fields.Role_MERC__c.label}">
+									<apex:inputField value="{!result.member.Role_MERC__c}" styleClass="role"/>
+								</apex:column>
 							</apex:pageBlockTable>
 						</apex:pageBlock>
 					</apex:actionRegion>

@@ -1,15 +1,19 @@
 /**
- * @author Joseph Ferraro
+ * @author Joseph Ferraro & Kyle Thornton
  *
  * Controller for VF Page that enables users to manage Meeting Team via unified UI
  */
 
 public with sharing class MERC_MeetingTeamManagerController extends GLBL_GenericRelatedListController {
-	/*----  Search Fields & Dummy Account to capture input -----*/
-	public String  firstName      { get; set; }
-	public String  lastName       { get; set; }
-	public Account searchAccount  { get; set; }
-	public String  searchForUsers { get; set; } //indicates the search will ony be for field users
+	/*----  Search Fields to capture input -----*/
+	public String firstName      { get; set; }
+	public String lastName       { get; set; }
+	public String email  		 { get; set; }
+	public String countryOfRes   { get; set; }
+	public String territoryId    { get; set; }
+	public String territoryCode  { get; set; }
+	public String territoryDesc  { get; set; }
+	public String searchForUsers { get; set; } //indicates the search will ony be for field users
 
 	/*----- dummy team member for the set access picklist -----*/
 	public Team_Member_MERC__c dummyMember { get; set; }
@@ -36,9 +40,11 @@ public with sharing class MERC_MeetingTeamManagerController extends GLBL_Generic
 			new List<String> { 'External_User_MERC', 'Mercury_User_MERC' }
 		);
 
-		searchAccount  = new Account(RecordTypeId=employeeRecordTypeId);
+		if (!childrenMap.containsKey('Mercury_User_MERC')) { childrenMap.put('Mercury_User_MERC', new List<GenericSobjectWrapper>()); }
+		if (!childrenMap.containsKey('External_User_MERC')) { childrenMap.put('External_User_MERC', new List<GenericSobjectWrapper>()); }
+
 		searchResults  = new List<SearchResult>();
-		dummyMember    = new Team_Member_MERC__c();
+		dummyMember    = new Team_Member_MERC__c(RecordTypeId=externalUsersRecordTypeId);
 		searchForUsers = 'field';
 	}
 
@@ -52,16 +58,19 @@ public with sharing class MERC_MeetingTeamManagerController extends GLBL_Generic
 	}
 
 	public void addSelected() {
+		/*----- loop through search resutlts and determine which ones to add -----*/
 		for (SearchResult sr : searchResults) {
 			if (sr.selected) {
 				GenericSobjectWrapper newItem = new GenericSobjectWrapper(sr.member);
 				newItem.index = children.size()+1;
-				children.add(newItem);
 				List<GenericSobjectWrapper> addToList = childrenMap.get('External_User_MERC');
 				addToList.add(newItem);
 			}
 		}
+		/*----- save the childrenMap -----*/
 		save();
+
+		/*----- redo the search to remove the added memebers from returned results -----*/
 		doSearch();
 	}
 
@@ -69,9 +78,14 @@ public with sharing class MERC_MeetingTeamManagerController extends GLBL_Generic
 		return new List<SelectOption> { new SelectOption('field','Field Users'), new SelectOption('all', 'All Users') };
 	}
 
+	public List<SelectOption> getCountryOptions() {
+		return MERC_Util.getPicklistValues(Account.Country_of_Residence_GLBL__c.getDescribe(), true);
+	}
+
 	public void doSearch() {
 		searchResults.clear();
 
+		/*----- find account Ids of existin team members -----*/
 		Set<Id> existingTeamMemberAccountIds = new Set<Id>();
     	for(GenericSobjectWrapper member : childrenMap.get('External_User_MERC')) {
     		existingTeamMemberAccountIds.add(((Team_Member_MERC__c)member.so).Account_MERC__c);
@@ -100,13 +114,13 @@ public with sharing class MERC_MeetingTeamManagerController extends GLBL_Generic
     	queryString += ' FROM Account WHERE RecordTypeId = \'' + employeeRecordTypeId + '\'';
 
     	/*----- decide which search terms were entered and build the query appropriately -----*/
-    	queryString += String.isNotBlank(firstName) ? ' AND FirstName LIKE \'' + firstName + '%\'' : '';
-    	queryString += String.isNotBlank(lastName ) ? ' AND LastName LIKE \''  + lastName  + '%\'' : '';
-    	queryString += String.isNotBlank(searchAccount.PersonEmail) ? ' AND PersonEmail=\'' + searchAccount.PersonEmail + '\'' : '';
-    	queryString += String.isNotBlank(searchAccount.Country_of_Residence_GLBL__c) ? ' AND Country_of_Residence_GLBL__c=:searchAccount.Country_of_Residence_GLBL__c' : '';
-    	queryString += String.isNotBlank(searchAccount.Territory_Id_GLBL__c) ? ' AND Territory_Id_GLBL__c LIKE \'%' + searchAccount.Territory_Id_GLBL__c + '%\'' : '';
-    	queryString += String.isNotBlank(searchAccount.Trtry_Cd_GLBL__c) ? ' AND Trtry_Cd_GLBL__c LIKE \'%' + searchAccount.Trtry_Cd_GLBL__c + '%\'' : '';
-    	queryString += String.isNotBlank(searchAccount.Trtry_Desc_GLBL__c) ? ' AND Trtry_Desc_GLBL__c LIKE \'%' + searchAccount.Trtry_Desc_GLBL__c + '%\'' : '';
+    	queryString += String.isNotBlank(firstName)     ? ' AND FirstName LIKE \'' + firstName + '%\'' : '';
+    	queryString += String.isNotBlank(lastName)      ? ' AND LastName LIKE \''  + lastName  + '%\'' : '';
+    	queryString += String.isNotBlank(email)         ? ' AND PersonEmail=\''    + email     + '\''  : '';
+    	queryString += String.isNotBlank(territoryId)   ? ' AND Territory_Id_GLBL__c LIKE \'%' + territoryId   + '%\'' : '';
+    	queryString += String.isNotBlank(territoryCode) ? ' AND Trtry_Cd_GLBL__c LIKE \'%'     + territoryCode + '%\'' : '';
+    	queryString += String.isNotBlank(territoryDesc) ? ' AND Trtry_Desc_GLBL__c LIKE \'%'   + territoryDesc + '%\'' : '';
+    	queryString += String.isNotBlank(countryOfRes)  ? ' AND Country_of_Residence_GLBL__c = \'' + countryOfRes + '\''  : '';
 
     	/*----- return only field employees (defined as having a territory)? -----*/
     	queryString += searchForUsers == 'field' ? ' AND Territory_Id_GLBL__c != null' : '';
@@ -131,7 +145,8 @@ public with sharing class MERC_MeetingTeamManagerController extends GLBL_Generic
 			this.member   = new Team_Member_MERC__c( Access_MERC__c ='Can Add Attendees'
 								                   , RecordTypeId=MERC_MeetingTeamManagerController.externalUsersRecordTypeId
 								                   , Account_MERC__c = a.Id
-								                   , Attendee_Invite_Limit_MERC__c = 1);
+								                   , Attendee_Invite_Limit_MERC__c = 1
+								                   , Role_MERC__c = 'Customer Facing Team');
 		}
 
     }

@@ -7,25 +7,18 @@
  **/
 public with sharing class CUST_AdminUtilitiesController {
 
+    private CUST_Scheduler scheduler;
+
     public Integer status  {get; set;}
     public String  message {get; set;}
     public String  result  {get; set;}
 
     public static final String STATUS_SUCCESS = 'AdminUtilitiesSuccess';
     public static final String STATUS_ERR = 'AdminUtilitiesError';
-    public Boolean jobsActive {get{ return !checkActiveJobs().isEmpty();}}
+    public Boolean jobsActive {get{ return !scheduler.checkActiveJobs().isEmpty();}}
 
-    public static List<CronTrigger> checkActiveJobs() {
-        Mercury_Settings_MERC__c settings = Mercury_Settings_MERC__c.getOrgDefaults();
-        List<String> jobIds = new List<String>();
-        if (settings.CST_Expire_Cron_Id_CUST__c!=null) jobIds.add(settings.CST_Expire_Cron_Id_CUST__c);
-        if (settings.CST_Review_Cron_Id_CUST__c!=null) jobIds.add(settings.CST_Review_Cron_Id_CUST__c);
-        if (settings.CST_Notify_Cron_Id_CUST__c!=null) jobIds.add(settings.CST_Notify_Cron_Id_CUST__c);
-
-        List<CronTrigger> jobTriggers = new List<CronTrigger>([
-            SELECT Id FROM CronTrigger WHERE Id in :jobIds
-            ]);
-        return jobTriggers;
+    public CUST_AdminUtilitiesController() {
+        scheduler = new CUST_Scheduler();
     }
 
     public PageReference initJobs() {
@@ -75,9 +68,9 @@ public with sharing class CUST_AdminUtilitiesController {
         private List<CronTrigger> jobTriggers;
 
         public void runTask() {
+            CUST_Scheduler scheduler = new CUST_Scheduler();
             try {
-                List<CronTrigger> jobTriggers = CUST_AdminUtilitiesController.checkActiveJobs();               
-                for (CronTrigger t : jobTriggers) System.abortJob(t.Id);
+                scheduler.abortAll();
             } catch (Exception e) {
                 status = 1;
                 message = e.getMessage();

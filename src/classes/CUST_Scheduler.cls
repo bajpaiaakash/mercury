@@ -13,6 +13,13 @@ global with sharing class CUST_Scheduler {
 	public static String NOTIFY_NAME = 'CST Set Access To Will Expire';
 	private Boolean useSettings = false;
 	private Mercury_Settings_MERC__c settings;
+	private Map<Id,CronTrigger> jobsToAbort { 
+		get { 
+			if (jobsToAbort==null) jobsToAbort = checkActiveJobs();
+			return jobsToAbort;
+		}
+		set;
+	}
 
 	public CUST_Scheduler() {
 		settings = Mercury_Settings_MERC__c.getOrgDefaults();
@@ -27,10 +34,28 @@ global with sharing class CUST_Scheduler {
 		}
 	}
 
+    public Map<Id,CronTrigger> checkActiveJobs() {
+        List<String> jobIds = new List<String>();
+        if (settings.CST_Expire_Cron_Id_CUST__c!=null) jobIds.add(settings.CST_Expire_Cron_Id_CUST__c);
+        if (settings.CST_Review_Cron_Id_CUST__c!=null) jobIds.add(settings.CST_Review_Cron_Id_CUST__c);
+        if (settings.CST_Notify_Cron_Id_CUST__c!=null) jobIds.add(settings.CST_Notify_Cron_Id_CUST__c);
+
+        Map<Id,CronTrigger> jobTriggers = new Map<Id,CronTrigger>([
+            SELECT Id FROM CronTrigger WHERE Id in :jobIds
+            ]);
+        return jobTriggers;
+    }
+
 	public void cronAll() {
 		cronExpire();
 		cronReview();
 		cronNotify();
+	}
+
+	public void abortAll() {
+		abortExpire();
+		abortReview();
+		abortNotify();
 	}
 
 	public void cronExpire() {
@@ -64,5 +89,17 @@ global with sharing class CUST_Scheduler {
 			settings.CST_Notify_Cron_Id_CUST__c = jobId;
 			update settings;
 		}
+	}
+
+	public void abortExpire() {
+		if (jobsToAbort.containsKey(settings.CST_Expire_Cron_Id_CUST__c)) System.abortJob(settings.CST_Expire_Cron_Id_CUST__c);
+	}
+
+	public void abortReview() {
+		if (jobsToAbort.containsKey(settings.CST_Review_Cron_Id_CUST__c)) System.abortJob(settings.CST_Review_Cron_Id_CUST__c);
+	}
+
+	public void abortNotify() {
+		if (jobsToAbort.containsKey(settings.CST_Notify_Cron_Id_CUST__c)) System.abortJob(settings.CST_Notify_Cron_Id_CUST__c);
 	}
 }
