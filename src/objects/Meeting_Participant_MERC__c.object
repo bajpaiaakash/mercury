@@ -984,15 +984,6 @@ Created by John A Adams 10/31/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Participant_Comments_MERC__c</fullName>
-        <description>Used by portal. Captures Participant comments during meeting registration. Created 16/04/2014 by KLorenti, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <label>Participant  Comments</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>TextArea</type>
-    </fields>
-    <fields>
         <fullName>Participant_Search_MERC__c</fullName>
         <description>Ensures the Meeting Participant is searchable. Oliver Dunford 6th Nov 2013</description>
         <externalId>false</externalId>
@@ -1353,17 +1344,6 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         </picklist>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Summary_Comments_MERC__c</fullName>
-        <description>Used by portal.  Optional comments at the end of the Portal RSVP process.  Created 04/16/2014 by JLorenti, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <label>Summary Comments</label>
-        <length>255</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Summary_Step_Complete_MERC__c</fullName>

@@ -404,6 +404,19 @@ Created by John A Adams 10/23/2013</description>
         <type>Summary</type>
     </fields>
     <fields>
+        <fullName>CST_App_Menu_Flag_AltId_CUST__c</fullName>
+        <description>Rollup to assist in LOV scoping. See CST App Menu Pool object for more details.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Rollup to assist in LOV scoping. See CST App Menu Pool object for more details.</inlineHelpText>
+        <label>CST_App_Menu_Flag_AltId_CUST</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>CST_App_Menu_Flag_CUST__c</fullName>
         <description>Flag for the gathering of distinct values in the identified fields. Entries must match the API name of a field on the Account. see the object CST App Menu Pool for more info.</description>
         <externalId>false</externalId>
@@ -2116,9 +2129,9 @@ Created by John A Adams 12/18/2013</description>
     </fields>
     <fields>
         <fullName>Experience_Step_Complete_MERC__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>Used by portal to indicate that the Experience sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <description>Used by portal to indicate that the Experience sub-step is complete on the HCP Information Package. Created on 04/14/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(Practicing_for_MERC__c,&quot;&quot;) || ISPICKVAL(Multiple_Specialties_MERC__c,&quot;&quot;), false, true)</formula>
         <label>Experience Step Complete</label>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
@@ -3561,9 +3574,9 @@ Created by John A Adams 11/4/2013</description>
     </fields>
     <fields>
         <fullName>Qualifications_Step_Complete_MERC__c</fullName>
-        <defaultValue>false</defaultValue>
         <description>Used by portal to indicate that the Qualifications sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
+        <formula>IF(ISBLANK(Academic_Qualifications_MERC__c) || ISNULL(Academic_Qualifications_MERC__c), false, true)</formula>
         <label>Qualifications Step Complete</label>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
@@ -3660,9 +3673,11 @@ Created by John A Adams 10/23/2013</description>
     </fields>
     <fields>
         <fullName>Research_Publications_Step_Complete_MERC__c</fullName>
-        <defaultValue>false</defaultValue>
         <description>Used by portal to indicate that the Qualifications sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(Journal_Articles_MERC__c,&quot;&quot;) || ISPICKVAL(Reviewer_or_Editor_MERC__c,&quot;&quot;) || 
+ISPICKVAL( Participated_in_Clinical_Trials_MERC__c,&quot;&quot;) || ISPICKVAL(Clinical_Trial_PI_MERC__c,&quot;&quot;)
+,false,true)</formula>
         <label>Research/Publications Step Complete</label>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>

@@ -3,20 +3,18 @@ global class CUST_RefreshLOVsUtil {
 	public final String DATENAME = '_Capture_Date';
 	public final String SUFFIX = '_GLBL__c';
 	public final Map<String,String> poolToSettingsFieldMap = new Map<String,String>{
-																	'Bnft_Dsgn_Cd_GLBL__c'=>'Account_Bnft_Dsgn_Cd_CUST__c',
-																	'Clsfctn_Cd_GLBL__c' => 'Account_Clsfctn_Cd_CUST__c',
-																	'Party_Sts_Cd_GLBL__c' => 'Account_Status_Types_CUST__c',
-																	'Spclty_Desc_Cd_GLBL__c' => 'Specialty_Spclty_Cd_CUST__c',
-																	'Priority_Rank_Nbr_GLBL__c' => 'Specialty_priority_rank_CUST__c',
-																	'Altrnt_Id_Typ_Desc_GLBL__c' => 'Altid_Altrnt_Id_Typ_Cd_CUST__c',
-																	'Cnsnt_Sts_Cd_GLBL__c' => 'Cnsnt_Sts_Cd_CUST__c',
-																	'Interaction_Channel_Type_GLBL__c' => 'Interaction_Channel_Type_CUST__c',
-																	'Cnsnt_Prps_Cd_GLBL__c' => 'Cnsnt_Prps_Cd_CUST__c',
-																	'Rltnshp_Typ_Desc_GLBL__c' => 'Affiliation_Role_Types_CUST__c',
-																	'Priority_Rank_Nbr_GLBL__c' => 'Affiliation_Priority_Rank_Nbr_CUST__c'
-																};
-
-
+								'Bnft_Dsgn_Cd_GLBL__c'=>'Account_Bnft_Dsgn_Cd_CUST__c',
+								'Clsfctn_Cd_GLBL__c' => 'Account_Clsfctn_Cd_CUST__c',
+								'Party_Sts_Cd_GLBL__c' => 'Account_Status_Types_CUST__c',
+								'Spclty_Desc_Cd_GLBL__c' => 'Specialty_Spclty_Cd_CUST__c',
+								'Priority_Rank_Nbr_GLBL__c' => 'Specialty_priority_rank_CUST__c',
+								'Altrnt_Id_Typ_Desc_GLBL__c' => 'Altid_Altrnt_Id_Typ_Cd_CUST__c',
+								'Cnsnt_Sts_Cd_GLBL__c' => 'Cnsnt_Sts_Cd_CUST__c',
+								'Interaction_Channel_Type_GLBL__c' => 'Interaction_Channel_Type_CUST__c',
+								'Cnsnt_Prps_Cd_GLBL__c' => 'Cnsnt_Prps_Cd_CUST__c',
+								'Rltnshp_Typ_Desc_GLBL__c' => 'Affiliation_Role_Types_CUST__c',
+								'Priority_Rank_Nbr_GLBL__c' => 'Affiliation_Priority_Rank_Nbr_CUST__c'
+							};
 
 	public CUST_RefreshLOVsUtil() {}
 

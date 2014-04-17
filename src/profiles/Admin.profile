@@ -481,6 +481,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>glbl_rollup_Alternate_Id_GLBLTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>sobjectPartnerSoapSforceCom</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -581,6 +585,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.CST_App_Menu_Flag_Affil_CUST__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.CST_App_Menu_Flag_AltId_CUST__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -874,7 +883,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account.Experience_Step_Complete_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1394,7 +1403,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account.Qualifications_Step_Complete_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1429,7 +1438,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account.Research_Publications_Step_Complete_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5005,11 +5014,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Meeting_Participant_MERC__c.Participant_Comments_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Participant_Search_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5141,11 +5145,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Status_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Meeting_Participant_MERC__c.Summary_Comments_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

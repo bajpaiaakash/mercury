@@ -380,18 +380,16 @@ Created by John A Adams 10/4/2013</description>
         <active>true</active>
         <description>Prevents an Invoice Line Item being added unless services have been rendered or partial payment has been approved. Created by John A Adams 2/5/2014</description>
         <errorConditionFormula>(
-   (
-    CONTAINS(Invoice_MERC__r.Meeting_Participant_MERC__r.RecordType.Name, &quot;Consulting&quot;) ||
+   (CONTAINS(Invoice_MERC__r.Meeting_Participant_MERC__r.RecordType.Name, &quot;Consulting&quot;) ||
     CONTAINS(Invoice_MERC__r.Meeting_Participant_MERC__r.RecordType.Name, &quot;Service Provider&quot;)
-)
+ )
 &amp;&amp;
-
-  (
-   ISPICKVAL (Invoice_MERC__r.Meeting_Participant_MERC__r.Services_Rendered_MERC__c, &quot;&quot;) ||
-   ISPICKVAL (Invoice_MERC__r.Meeting_Participant_MERC__r.Services_Rendered_MERC__c, &quot;NO&quot;)
-   )
+ (
+  ISPICKVAL (Invoice_MERC__r.Meeting_Participant_MERC__r.Services_Rendered_MERC__c, &quot;&quot;) ||
+  ISPICKVAL (Invoice_MERC__r.Meeting_Participant_MERC__r.Services_Rendered_MERC__c, &quot;NO&quot;)
+ )
 )</errorConditionFormula>
-        <errorMessage>The Meeting Participant must have rendered services or have agreement for partial payment.</errorMessage>
+        <errorMessage>The Meeting Participant must have rendered services</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Prevent_Invoice_Line_Item_Activity</fullName>

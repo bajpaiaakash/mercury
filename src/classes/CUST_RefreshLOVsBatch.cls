@@ -15,7 +15,6 @@ global class CUST_RefreshLOVsBatch implements Database.Batchable<sObject>, Datab
 		objMap = objFieldMap;
 		util = new CUST_RefreshLOVsUtil();
 		useSysmoddate = true;
-		util.p('objMap: '+objMap);
 		setQuery(objMap);
 	}
 	
@@ -45,7 +44,6 @@ global class CUST_RefreshLOVsBatch implements Database.Batchable<sObject>, Datab
 			}
 		}
 		query = query.removeEnd('OR ') + ')';
-		util.p('query: '+query);
 	}
 
 	global Database.QueryLocator start(Database.BatchableContext BC) {
@@ -123,9 +121,4 @@ global class CUST_RefreshLOVsBatch implements Database.Batchable<sObject>, Datab
 		pool.Last_Job_Status_GLBL__c = status;
 		upsert pool;
 	}
-
-//    global void execute(SchedulableContext sc) {
-//        CUST_RefreshLOVsBatch b = new CUST_RefreshLOVsBatch();
-//        Database.executeBatch(b);
-//    }    
 }

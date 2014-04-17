@@ -1,4 +1,4 @@
-public with sharing class MERC_PrefConsentMappingHandler implements GLBL_TriggerHandler.HandlerInterface
+public without sharing class MERC_PrefConsentMappingHandler implements GLBL_TriggerHandler.HandlerInterface
 {
 	public void handle()
 	{
@@ -46,9 +46,12 @@ public with sharing class MERC_PrefConsentMappingHandler implements GLBL_Trigger
 			soqlQuery += ', ' + field;
 		}
 		soqlQuery += ' FROM Account WHERE Id IN (';
+		Boolean first = true;
 		for (Id accountId : accountIds)
 		{
+			if (!first) soqlQuery += ', ';
 			soqlQuery += '\'' + accountId + '\'';
+			if (first) first = false;
 		}
 		soqlQuery += ')';
 
@@ -71,15 +74,18 @@ public with sharing class MERC_PrefConsentMappingHandler implements GLBL_Trigger
 				{
 					if (String.isNotBlank(mapping.Preference_Type_MERC__c) && pAndC.Preference_Type_MERC__c == mapping.Preference_Type_MERC__c)
 					{
-						/*----- this is a preference so map from the preference subtype to the correct field -----*/
+						/*----- handle a preference record -----*/
 						if (pAndC.Preference_Sub_Type_MERC__c != 'Other')
 						{
 							//TODO: expand this to a method to handle oddball mappings
-							a.put(mapping.Account_Destination_Field_MERC__c, pAndC.get(mapping.PC_Source_Field_MERC__c));
+							a.put(mapping.Account_Destination_Field_MERC__c, pAndC.Preference_Sub_Type_MERC__c);
 						} else {
 							a.put(mapping.Account_Destination_Field_MERC__c, pAndC.Preference_Value_MERC__c);
 						}
 						accountsToUpdate.add(a);
+					} else {
+						/*----- handle a consent record -----*/
+
 					}
 
 				}
