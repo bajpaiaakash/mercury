@@ -481,10 +481,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>glbl_rollup_Alternate_Id_GLBLTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>sobjectPartnerSoapSforceCom</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -3850,26 +3846,15 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_MERC__c.Compliance_Met_Meeting_Closure_MERC__c</field>
-<<<<<<< HEAD
-=======
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_MERC__c.Compliance_Met_Meeting_Errors_MERC__c</field>
->>>>>>> 038d9c54d876da9a1530fddfc3f8fbb7b4bdc2f5
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-<<<<<<< HEAD
-        <field>Meeting_MERC__c.Compliance_Met_Meeting_Errors_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-=======
->>>>>>> 038d9c54d876da9a1530fddfc3f8fbb7b4bdc2f5
         <field>Meeting_MERC__c.Compliance_Met_Venue_Sourcing_MER__c</field>
         <readable>true</readable>
     </fieldPermissions>

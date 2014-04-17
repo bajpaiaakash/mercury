@@ -481,10 +481,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>glbl_rollup_Alternate_Id_GLBLTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>sobjectPartnerSoapSforceCom</apexClass>
         <enabled>false</enabled>
     </classAccesses>
