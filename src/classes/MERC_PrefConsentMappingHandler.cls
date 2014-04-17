@@ -2,6 +2,18 @@ public without sharing class MERC_PrefConsentMappingHandler implements GLBL_Trig
 {
 	public void handle()
 	{
+		/*----- Build a map of Pref & Consent record type Ids
+		        to the list of field mappings for that record type -----*/
+		Map<Id, List<PC_to_Account_Mapping_MERC__c>> mappingsByRecordType = new Map<Id, List<PC_to_Account_Mapping_MERC__c>>();
+		for (PC_to_Account_Mapping_MERC__c mapping : PC_to_Account_Mapping_MERC__c.getall().values())
+		{
+			if (mappingsByRecordType.containsKey(mapping.PC_Record_Type_Id_MERC__c))
+			{
+				mappingsByRecordType.get(mapping.PC_Record_Type_Id_MERC__c).add(mapping);
+			} else {
+				mappingsByRecordType.put( mapping.PC_Record_Type_Id_MERC__c, new List<PC_to_Account_Mapping_MERC__c>{mapping});
+			}
+		}
 
 		/*----- loop over pref & consent records in the trigger and figure
 		        out the accounts and record types involved -----*/
@@ -11,34 +23,6 @@ public without sharing class MERC_PrefConsentMappingHandler implements GLBL_Trig
 		{
 			accountIds.add(pAndC.Account_GLBL__c);
 			recordTypeIds.add(pAndC.RecordTypeId);
-		}
-
-		/*----- query for the record types that we care about and get the developername
-		        and add to a map from developername to Id -----*/
-		Map<String, Id> recTypeDevNameToIdMap = new Map<String, Id>();
-		for (RecordType recType : [SELECT Id, DeveloperName FROM RecordType WHERE Id IN :recordTypeIds])
-		{
-			recTypeDevNameToIdMap.put(recType.DeveloperName, recType.Id);
-		}
-
-		/*----- Build a map of Pref & Consent record type developer names
-		        to the list of field mappings for that record type -----*/
-		Map<String, List<PC_to_Account_Mapping_MERC__c>> mappingsByDeveloperName = new Map<String, List<PC_to_Account_Mapping_MERC__c>>();
-		for (PC_to_Account_Mapping_MERC__c mapping : PC_to_Account_Mapping_MERC__c.getall().values())
-		{
-			if (mappingsByDeveloperName.containsKey(mapping.PC_Record_Type_Developer_Name_MERC__c))
-			{
-				mappingsByDeveloperName.get(mapping.PC_Record_Type_Developer_Name_MERC__c).add(mapping);
-			} else {
-				mappingsByDeveloperName.put( mapping.PC_Record_Type_Developer_Name_MERC__c, new List<PC_to_Account_Mapping_MERC__c>{mapping});
-			}
-		}
-
-		/*----- convert the map just created to one that keys off of Record Type Id instead of Record Type Developer Name -----*/
-		Map<Id, List<PC_to_Account_Mapping_MERC__c>> mappingsByRecordType = new Map<Id, List<PC_to_Account_Mapping_MERC__c>>();
-		for (String developerName : mappingsByDeveloperName.keySet())
-		{
-			mappingsByRecordType.put( recTypeDevNameToIdMap.get(developerName), mappingsByDeveloperName.get(developerName));
 		}
 
 		/*----- using the record types, pull out the mappings from
