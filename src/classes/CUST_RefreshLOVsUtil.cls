@@ -46,20 +46,9 @@ global class CUST_RefreshLOVsUtil {
 		return result.removeEnd(',');
 	}
 
-//	public static Boolean sanityCheck(String name) {
-		// only field name characters allowed
-//		return name.remove('_').isAlphanumeric() && validate();
-		// must be an active field
-
-//	}
-
 	public final Set<String> NOTGROUBABLE  = new Set<String>{'Priority_Rank_Nbr_GLBL__c'};
 	public Boolean canGroupBy(String f) {
 		return !NOTGROUBABLE.contains(f);
-	}
-
-	public void p(String m) {
-		System.debug('\n\n\nYYZ - '+m+'\n\n\n\n');
 	}
 
 	global class ObjToken {
