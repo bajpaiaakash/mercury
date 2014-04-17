@@ -82,6 +82,7 @@ public virtual with sharing class GLBL_BaseEditController {
 	public sobjectPartnerSoapSforceCom.DescribeLayoutResult layoutResult {
 		get {
 			if (layoutResult == null) {
+				system.debug('----> CALLLLLLLLLLOUTTTTTTTTTTTTTTT');
 				sobjectPartnerSoapSforceCom.Soap handler = HandlerMetadataInit();
 				layoutResult = handler.describeLayout(this.sObjectAPIName, new list<String>{sObjectRecordType});
 			}

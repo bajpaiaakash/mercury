@@ -1,7 +1,0 @@
-Dear {!Meeting_MERC__c.Prmry_Mtng_Ownr_Nm_MERC__c},
-
-The Final Fee has been rejected having surpassed the maximum threshold for the Service Provider {!Meeting_Participant_MERC__c.Account_MERC__c}.
-
-
-More information regarding this meeting can be found at
-{!Meeting_MERC__c.Link}.

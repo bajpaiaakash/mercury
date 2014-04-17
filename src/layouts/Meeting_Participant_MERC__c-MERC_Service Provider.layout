@@ -427,6 +427,10 @@
                 <behavior>Readonly</behavior>
                 <field>Payee_and_Bank_Info_Complete_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Summary_Step_Complete_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

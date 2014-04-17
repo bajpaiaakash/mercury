@@ -19,7 +19,11 @@ private class MERC_TeamMemberDeletePMOTest {
 
 	@isTest 
 	static void insertNewPrimaryMeetingOwners() {
+<<<<<<< HEAD
 		List<Team_Member_MERC__c> members = insertNewPrimaryMeetingOwners(meetings, users, 'Mercury_User_MERC');
+=======
+		List<Team_Member_MERC__c> members = MERC_TestFactory.insertNewPrimaryMeetingOwners(meetings, users, 'Mercury_User_MERC');
+>>>>>>> 038d9c54d876da9a1530fddfc3f8fbb7b4bdc2f5
 
 		meetings = [SELECT Meeting_Owner_Email_MERC__c, Prmry_Mtng_Ownr_Nm_MERC__c FROM Meeting_MERC__c WHERE Id in :meetings];
 		for (Meeting_MERC__c m : meetings) {
@@ -37,6 +41,7 @@ private class MERC_TeamMemberDeletePMOTest {
 		}
 	}
 
+<<<<<<< HEAD
 	static List<Team_Member_MERC__c> insertNewPrimaryMeetingOwners(List<Meeting_MERC__c> meets, List<User> members, String RT) {
 		if (meets.size()!=members.size()) return null;
 
@@ -67,4 +72,6 @@ private class MERC_TeamMemberDeletePMOTest {
 
 		return result;
 	}
+=======
+>>>>>>> 038d9c54d876da9a1530fddfc3f8fbb7b4bdc2f5
 }

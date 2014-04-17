@@ -29,11 +29,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>HCP_Country_of_Residence_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+                <field>Dietary_Preferences_Complete_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

@@ -377,6 +377,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_PrefConsentMappingHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_PrefConsentMappingHandlerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_PrimaryMeetingOwnerHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -471,6 +479,10 @@
     <classAccesses>
         <apexClass>TestDataFactoryMVN</apexClass>
         <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>glbl_rollup_Alternate_Id_GLBLTest</apexClass>
+        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>sobjectPartnerSoapSforceCom</apexClass>
@@ -573,6 +585,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.CST_App_Menu_Flag_Affil_CUST__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.CST_App_Menu_Flag_AltId_CUST__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -866,7 +883,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account.Experience_Step_Complete_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1069,11 +1086,6 @@
         <editable>false</editable>
         <field>Account.MSA_Contract_Expiration_MERC__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Map_Field__c</field>
-        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -1391,7 +1403,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account.Qualifications_Step_Complete_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1426,7 +1438,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account.Research_Publications_Step_Complete_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3838,15 +3850,26 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_MERC__c.Compliance_Met_Meeting_Closure_MERC__c</field>
+<<<<<<< HEAD
+=======
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_MERC__c.Compliance_Met_Meeting_Errors_MERC__c</field>
+>>>>>>> 038d9c54d876da9a1530fddfc3f8fbb7b4bdc2f5
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+<<<<<<< HEAD
+        <field>Meeting_MERC__c.Compliance_Met_Meeting_Errors_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+=======
+>>>>>>> 038d9c54d876da9a1530fddfc3f8fbb7b4bdc2f5
         <field>Meeting_MERC__c.Compliance_Met_Venue_Sourcing_MER__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -5133,6 +5156,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Status_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting_Participant_MERC__c.Summary_Step_Complete_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6472,6 +6500,10 @@
         <recordType>Address_GLBL__c.Payee_Address</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Address_GLBL__c-MERC_Contracting_Party_Address</layout>
+        <recordType>Address_GLBL__c.Contract_Party_Address</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Address_GLBL__c-MERC_Designated_Individual_Address</layout>
         <recordType>Address_GLBL__c.Designated_Individual</recordType>
     </layoutAssignments>
@@ -6715,6 +6747,10 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Payee_MERC__c-MERC_Payee</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>PersonAccount-MERC_Contracting Parties</layout>
+        <recordType>PersonAccount.Contracting_Party_GLBL</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>PersonAccount-MERC_Employee</layout>
@@ -7125,6 +7161,11 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>Address_GLBL__c.Contract_Party_Address</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Address_GLBL__c.Designated_Individual</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
@@ -7296,6 +7337,11 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Meeting_Vendor_MERC__c.Other</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>PersonAccount.Contracting_Party_GLBL</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>

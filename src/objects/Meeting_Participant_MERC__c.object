@@ -1346,6 +1346,15 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Summary_Step_Complete_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal. Indicates when Meeting Participant has completed the Summary Step during meeting registration. Created 04/16/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Summary Step Complete</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Topic_Area_MERC__c</fullName>
         <description>The topic area chosen by the Service Provider.  Oliver Dunford. 5th Nov 2013.</description>
         <externalId>false</externalId>

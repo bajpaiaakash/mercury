@@ -21,6 +21,10 @@
                 <behavior>Required</behavior>
                 <field>Submit_for_Payment_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Submitted_for_Payment_Date_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -308,9 +312,6 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
-    <relatedLists>
-        <relatedList>RelatedNoteList</relatedList>
-    </relatedLists>
     <relatedLists>
         <customButtons>New_Line_Item</customButtons>
         <excludeButtons>New</excludeButtons>

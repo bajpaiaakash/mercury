@@ -20,6 +20,14 @@ public with sharing class MERC_DeleteNotifyService implements GLBL_TriggerHandle
 
 	@Future(callout=true)
 	public static void execute(String sobjectType, String serializedSobjects, String sessionId) {
+		//as of 29.0, Apex does not like Test.setMock when used with callouts in triggers via @future
+		//we will test notifyRTI separately
+		if (!Test.isRunningTest()) {
+			sendDeletesToRTI(sobjectType, serializedSobjects, sessionId);
+		}
+	}
+
+	public static void sendDeletesToRTI(String sobjectType, String serializedSobjects, String sessionId) {
 		DeleteNotification notification = new DeleteNotification(sobjectType, serializedSobjects, sessionId);
 		String jsonstring = Json.serialize(notification); 
 		system.debug(jsonstring);
