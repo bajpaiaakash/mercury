@@ -59,9 +59,10 @@
         <externalId>false</externalId>
         <inlineHelpText>Default values for Additional Details: Professional Designation (US Only) multi-select picklist</inlineHelpText>
         <label>Professional Designation (US Only)</label>
-        <required>false</required>
+        <length>32768</length>
         <trackTrending>false</trackTrending>
-        <type>TextArea</type>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
     </fields>
     <fields>
         <fullName>Account_Clsfctn_Cd_CUST__c</fullName>
@@ -71,8 +72,10 @@
         <inlineHelpText>Default values for Classification search control</inlineHelpText>
         <label>Account Classification</label>
         <required>false</required>
+        <length>32768</length>
         <trackTrending>false</trackTrending>
-        <type>TextArea</type>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
     </fields>
     <fields>
         <fullName>Account_Status_Types_CUST__c</fullName>
@@ -103,11 +106,10 @@
         <externalId>false</externalId>
         <inlineHelpText>Values for the Relationship Information (Affiliations): Priority Rank multi-select picklist</inlineHelpText>
         <label>Affiliation Priority Rank</label>
-        <length>64</length>
-        <required>false</required>
+        <length>32768</length>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
     </fields>
     <fields>
         <fullName>Affiliation_Role_Types_CUST__c</fullName>
@@ -127,8 +129,10 @@
         <inlineHelpText>Values for the Additional Details: Alternate Id Type picklist</inlineHelpText>
         <label>Alternate Id Type</label>
         <required>false</required>
+        <length>32768</length>
         <trackTrending>false</trackTrending>
-        <type>TextArea</type>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
     </fields>
     <fields>
         <fullName>Cnsnt_Prps_Cd_CUST__c</fullName>
@@ -136,11 +140,10 @@
         <externalId>false</externalId>
         <inlineHelpText>Default values for Consent Purpose Code search control</inlineHelpText>
         <label>Consent Purpose Code</label>
-        <length>255</length>
-        <required>false</required>
+        <length>32768</length>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
     </fields>
     <fields>
         <fullName>Cnsnt_Sts_Cd_CUST__c</fullName>
@@ -148,11 +151,10 @@
         <externalId>false</externalId>
         <inlineHelpText>Default values for Consent Status search control</inlineHelpText>
         <label>Consent Status</label>
-        <length>255</length>
-        <required>false</required>
+        <length>32768</length>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
     </fields>
     <fields>
         <fullName>Employee_Record_Type_CUST__c</fullName>
@@ -208,11 +210,10 @@
         <externalId>false</externalId>
         <inlineHelpText>Default values for Consent Channel search control</inlineHelpText>
         <label>Consent Channel</label>
-        <length>255</length>
-        <required>false</required>
+        <length>32768</length>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
     </fields>
     <fields>
         <fullName>Login_Message_CUST__c</fullName>
@@ -264,9 +265,10 @@
         <externalId>false</externalId>
         <inlineHelpText>Default values for Additional Details:Specialty multi-select picklist</inlineHelpText>
         <label>Specialty</label>
-        <required>false</required>
+        <length>32768</length>
         <trackTrending>false</trackTrending>
-        <type>TextArea</type>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
     </fields>
     <fields>
         <fullName>Specialty_priority_rank_CUST__c</fullName>
@@ -275,11 +277,10 @@
         <externalId>false</externalId>
         <inlineHelpText>Default values for Additional Details:Only Specialty Ranks multi-select picklist</inlineHelpText>
         <label>Specialty Priority Rank</label>
-        <length>64</length>
-        <required>false</required>
+        <length>32768</length>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
     </fields>
     <label>CST App Settings</label>
     <listViews>
