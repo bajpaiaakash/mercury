@@ -38,6 +38,10 @@
                 <field>Has_Signed_Contract_MERC__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Docusign_Contract_Status_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Customer_Id_GLBL__c</field>
             </layoutItems>
@@ -252,6 +256,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Payee_and_Bank_Info_Complete_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Summary_Step_Complete_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

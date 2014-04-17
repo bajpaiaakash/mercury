@@ -50,6 +50,10 @@
                 <behavior>Readonly</behavior>
                 <field>Transparency_Reporting_Opt_Out_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>P_Cs_Test__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

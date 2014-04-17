@@ -70,7 +70,6 @@
         <members>Customer_Search_Tool_CUST/Access_Request_Status_Change_CUST</members>
         <members>Customer_Search_Tool_CUST/Expire_Notification</members>
         <members>Mercury_Email_Templates_MERC/Final_Fee_Calculation_Email</members>
-        <members>Mercury_Email_Templates_MERC/Final_Fee_Rejection_Email</members>
         <members>Mercury_Email_Templates_MERC/New_Team_Member_Notification_MERC</members>
         <members>Mercury_Email_Templates_MERC/New_Work_Order_MERC</members>
         <members>Mercury_Email_Templates_MERC/Non_Compliant_Notification</members>

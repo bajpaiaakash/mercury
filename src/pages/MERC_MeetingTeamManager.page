@@ -262,7 +262,7 @@
 											<apex:selectOptions value="{!radioOptions}"/>
 										</apex:selectRadio>
 									</apex:pageBlockSectionItem>
-									<apex:pageBlockSectionItem>
+									<apex:pageBlockSectionItem >
 										{!$ObjectType.Account.Fields.Country_of_Residence_GLBL__c.label}
 										<apex:selectList value="{!countryOfRes}" size="1" tabindex="5">
 											<apex:selectOptions value="{!countryOptions}"/>
@@ -272,7 +272,7 @@
 										{!$ObjectType.Account.Fields.FirstName.label}
 										<apex:inputText value="{!firstName}" tabindex="2"/>
 									</apex:pageBlockSectionItem>
-									<apex:pageBlockSectionItem>
+									<apex:pageBlockSectionItem >
 										{!$ObjectType.Account.Fields.Territory_Id_GLBL__c.label}
 										<apex:inputText value="{!territoryId}" tabIndex="6"/>
 									</apex:pageBlockSectionItem>
@@ -280,15 +280,15 @@
 										{!$ObjectType.Account.Fields.LastName.label}
 										<apex:inputText value="{!lastName}" tabindex="3"/>
 									</apex:pageBlockSectionItem>
-									<apex:pageBlockSectionItem>
+									<apex:pageBlockSectionItem >
 										{!$ObjectType.Account.Fields.Trtry_Cd_GLBL__c.label}
 										<apex:inputText value="{!territoryCode}" tabindex="7"/>
 									</apex:pageBlockSectionItem>
-									<apex:pageBlockSectionItem>
+									<apex:pageBlockSectionItem >
 										{!$ObjectType.Account.Fields.PersonEmail.label}
 										<apex:inputText value="{!email}" tabindex="4"/>
 									</apex:pageBlockSectionItem>
-									<apex:pageBlockSectionItem>
+									<apex:pageBlockSectionItem >
 										{!$ObjectType.Account.Fields.Trtry_Desc_GLBL__c.label}
 										<apex:inputText value="{!territoryDesc}" tabindex="8"/>
 									</apex:pageBlockSectionItem>
