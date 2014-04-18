@@ -51,7 +51,7 @@ global class CUST_RefreshLOVsUtil {
 		return !NOTGROUBABLE.contains(f);
 	}
 
-	public static void p(String m) {
+	public void p(String m) {
 		System.debug('\n\n\nYYZ - '+m+'\n\n\n\n');
 	}
 
