@@ -1,0 +1,27 @@
+<apex:page showHeader="true" sidebar="true" standardController="Invoice_MERC__c" extensions="MERC_InvoiceCreditNoteController">
+	<apex:pageBlock title="{!invoice.Name} - Create {!newInvoiceRecType.Name}">
+		<apex:pageMessages id="messages"/>
+		<apex:pageBlockButtons location="bottom">
+			<apex:form >
+				<apex:actionStatus id="createStatus">
+					<apex:facet name="stop">
+						<apex:outputPanel >
+							<apex:commandButton action="{!createNewInvoice}" value="Confirm" reRender="messages" status="createStatus"/>
+							<apex:commandButton action="{!cancel}" value="Cancel"/>
+						</apex:outputPanel>
+					</apex:facet>
+					<apex:facet name="start">
+						<c:MERC_LoadingMask />
+					</apex:facet>
+				</apex:actionStatus>
+			</apex:form>
+		</apex:pageBlockButtons>
+
+		<apex:pageBlockSection columns="1" collapsible="false">
+			<apex:outputPanel >
+				You are about to create a{!IF(newInvoiceRecType.Name=='Invoice', 'n', '')} {!newInvoiceRecType.Name} with {!lineItemCount} line item(s)
+				<apex:outputText value=" and {!contentCount} file(s)" rendered="{!newInvoiceRecType.DeveloperName = 'Credit_Note_MERC'}"/>.
+			</apex:outputPanel>
+		</apex:pageBlockSection>
+	</apex:pageBlock>
+</apex:page>
