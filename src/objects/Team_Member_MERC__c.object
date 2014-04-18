@@ -258,10 +258,6 @@ Created by John A Adams 1/10/2014</description>
                 <fullName>International Event Approver</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
-                <fullName>Venue Sourcing Team</fullName>
-                <default>false</default>
-            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
@@ -395,10 +391,6 @@ Created by John A Adams 1/10/2014</description>
             </values>
             <values>
                 <fullName>Travel Agent</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Venue Sourcing Team</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

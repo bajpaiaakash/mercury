@@ -29,6 +29,10 @@
                 <behavior>Required</behavior>
                 <field>Submit_for_Payment_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Days_Until_Invoice_Submitted_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -340,9 +344,6 @@
         <fields>Amount_MERC__c</fields>
         <fields>Tax_Amount_MERC__c</fields>
         <relatedList>Invoice_Line_Item_MERC__c.Invoice_MERC__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <relatedList>RelatedNoteList</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>VERSION.TITLE</fields>

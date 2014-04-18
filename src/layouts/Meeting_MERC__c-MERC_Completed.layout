@@ -514,11 +514,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Venue_Sourcing_Team_Date_TIme_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Days_from_MPC_to_Venue_Sourcing_Team_MER__c</field>
+                <field>Days_from_MPC_to_Initiate_Sourcing_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -534,14 +530,6 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Venue_Contract_Closed_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Venue_Contract_Closed_Date_Time_MERC__c</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Days_Until_Venue_Contracted_MERC__c</field>

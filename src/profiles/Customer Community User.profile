@@ -281,6 +281,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_InvoiceCreditNoteController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_InvoiceXmlController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -3500,6 +3504,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Invoice_MERC__c.Days_Until_Invoice_Submitted_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Invoice_MERC__c.HCO_Beneficiary_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -3840,6 +3849,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Meeting_MERC__c.Compliance_Met_Initiate_Sourcing_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Meeting_MERC__c.Compliance_Met_Invoices_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -3851,6 +3865,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_MERC__c.Compliance_Met_Meeting_Errors_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_MERC__c.Compliance_Met_ToV_Finalized_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3935,7 +3954,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Meeting_MERC__c.Days_from_MPC_to_Venue_Sourcing_Team_MER__c</field>
+        <field>Meeting_MERC__c.Days_from_MPC_to_Initiate_Sourcing_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4091,6 +4110,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_MERC__c.Individual_Sponsorship_Meeting_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_MERC__c.Initiate_Venue_Sourcing_Date_Time_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4610,22 +4634,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Meeting_MERC__c.Venue_Contract_Closed_Date_Time_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Meeting_MERC__c.Venue_Contract_Closed_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Meeting_MERC__c.Venue_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Meeting_MERC__c.Venue_Sourcing_Team_Date_TIme_MERC__c</field>
+        <field>Meeting_MERC__c.Venue_Sourced_Date_Time_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6639,7 +6653,15 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Invoice_MERC__c-MERC_Credit Note</layout>
+        <recordType>Invoice_MERC__c.Credit_Note_Locked_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Invoice_MERC__c-MERC_Credit Note</layout>
         <recordType>Invoice_MERC__c.Credit_Note_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Invoice_MERC__c-MERC_Credit Note</layout>
+        <recordType>Invoice_MERC__c.Invoice_Locked_MERC</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Invoice_MERC__c-MERC_Credit Note</layout>
@@ -6935,6 +6957,10 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>MERC_InvoiceCreditNote</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>MERC_InvoicePDF</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -7147,7 +7173,17 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>Invoice_MERC__c.Credit_Note_Locked_MERC</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Invoice_MERC__c.Credit_Note_MERC</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Invoice_MERC__c.Invoice_Locked_MERC</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>

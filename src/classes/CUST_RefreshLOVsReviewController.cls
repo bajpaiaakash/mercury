@@ -41,17 +41,21 @@ public with sharing class CUST_RefreshLOVsReviewController {
     public PageReference applySelectedLOVs() {
         if (fieldsToRefresh==null || fieldsToRefresh=='') {
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'No fields selected for refresh.'));
-
             return null;
         }
         
         CST_App_Menu_Pool_GLBL__c  poolToUpdate = new CST_App_Menu_Pool_GLBL__c();
         String message = 'The following fields were updated successfully: ';
-        for (String field : fieldsToRefresh.split(',')) {
-            poolToUpdate.put(field,pool.get(field));
-            settings.put(util.poolToSettingsFieldMap.get(field),pool.get(field));
-            message += util.poolToSettingsFieldMap.get(field)+', ';
-
+        try {
+            for (String field : fieldsToRefresh.split(',')) {
+                poolToUpdate.put(field,pool.get(field));
+                settings.put(util.poolToSettingsFieldMap.get(field),pool.get(field));
+                message += util.poolToSettingsFieldMap.get(field)+', ';
+            }
+        } catch (Exception e) {
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 
+                'Unable to refresh fields on App Settings record. '+e.getMessage()));
+            return null;
         }
         poolToUpdate.Id = pool.Id;
         poolToUpdate.App_Settings_CUST__c = pool.App_Settings_CUST__c;
