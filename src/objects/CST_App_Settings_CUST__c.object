@@ -71,7 +71,6 @@
         <externalId>false</externalId>
         <inlineHelpText>Default values for Classification search control</inlineHelpText>
         <label>Account Classification</label>
-        <required>false</required>
         <length>32768</length>
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
@@ -128,7 +127,6 @@
         <externalId>false</externalId>
         <inlineHelpText>Values for the Additional Details: Alternate Id Type picklist</inlineHelpText>
         <label>Alternate Id Type</label>
-        <required>false</required>
         <length>32768</length>
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>

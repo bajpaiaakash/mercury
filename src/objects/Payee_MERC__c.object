@@ -459,10 +459,8 @@ Created by John A Adams 2/18/2014</description>
         <customTabListAdditionalFields xsi:nil="true"/>
         <customTabListAdditionalFields>SAP_Vendor_ID_MERC__c</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>Account_MERC__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields xsi:nil="true"/>
         <lookupDialogsAdditionalFields>SAP_Vendor_ID_MERC__c</lookupDialogsAdditionalFields>
         <searchResultsAdditionalFields>Account_MERC__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields xsi:nil="true"/>
         <searchResultsAdditionalFields>SAP_Vendor_ID_MERC__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>

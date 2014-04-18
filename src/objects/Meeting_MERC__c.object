@@ -357,6 +357,17 @@ Created by John A Adams 2/25/2014</description>
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>Compliance_Met_Initiate_Sourcing_MERC__c</fullName>
+        <description>Shows whether was handed off from MPC to Initiate Sourcing within 3 days. Used for SLA Reporting. Created 04/17/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF(Days_from_MPC_to_Initiate_Sourcing_MERC__c &lt;= 3,true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Compliance Met - Initiate Sourcing</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Compliance_Met_Invoices_MERC__c</fullName>
         <description>If # of Days until invoices were reviewed/completed &lt;= 10 then Compliant. Created 04/09/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -387,6 +398,24 @@ ISPICKVAL(Meeting_Status_MERC__c,&apos;Complete - Cancelled&apos;)) &amp;&amp;
         <formula>IF(Meeting_Errors_MERC__c &gt; 0, false, true)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Compliance Met - Meeting Errors</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Compliance_Met_ToV_Finalized_MERC__c</fullName>
+        <description>Calculates if ToV was finalized within 20 days of the Meeting End Date. Created 04/17/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF(
+!ISPICKVAL(Meeting_Scope_MERC__c,&quot;Customer Facing Team&quot;) &amp;&amp; 
+Participant_ToV_Final_Date_Time_MERC__c &lt;= ( End_Time_of_Meeting_MERC__c   + 20 )
+||
+ISPICKVAL(Meeting_Scope_MERC__c,&quot;Customer Facing Team&quot;) &amp;&amp; 
+Participant_ToV_Final_Date_Time_MERC__c &lt;= ( End_Time_of_Meeting_MERC__c   + 5 )
+
+, true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Compliance Met - ToV Finalized</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -579,9 +608,10 @@ Created by John Adams on 12/9/2013</description>
     </fields>
     <fields>
         <fullName>Days_Until_Venue_Contracted_MERC__c</fullName>
-        <description>Calculates number of days from Venue Sourcing Team Member added and Venue Contract closed. Created 04/14/2014</description>
+        <description>Calculates number of days from venue sourcing being initiated to venue being sourced.
+Created 04/14/2014</description>
         <externalId>false</externalId>
-        <formula>Venue_Contract_Closed_Date_Time_MERC__c  -  Venue_Sourcing_Team_Date_TIme_MERC__c</formula>
+        <formula>Venue_Sourced_Date_Time_MERC__c  -  Initiate_Venue_Sourcing_Date_Time_MERC__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Days Until Venue Contracted</label>
         <precision>18</precision>
@@ -608,12 +638,12 @@ Created by John Adams on 12/9/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Days_from_MPC_to_Venue_Sourcing_Team_MER__c</fullName>
-        <description>Displays number of days from the MPC is added to Team Members to the Venue Sourcing Team being added to Team Members. Used for SLA Reporting. Created 04/15/2014 by KLorenti, Mavens Consulting</description>
+        <fullName>Days_from_MPC_to_Initiate_Sourcing_MERC__c</fullName>
+        <description>Displays number of days from the MPC is added to Team Members to the Initiate Sourcing being checked. Used for SLA Reporting. Created 04/15/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <formula>Venue_Sourcing_Team_Date_TIme_MERC__c -  MPC_Date_Time_MERC__c</formula>
+        <formula>Initiate_Venue_Sourcing_Date_Time_MERC__c  -  MPC_Date_Time_MERC__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label># Days from MPC to Venue Sourcing Team</label>
+        <label># Days from MPC to Initiate Sourcing</label>
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
@@ -1224,6 +1254,16 @@ Created by John A Adams 1/7/2014</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Initiate_Venue_Sourcing_Date_Time_MERC__c</fullName>
+        <description>Stamped via workflow when &quot;Initiate Sourcing&quot; is checked. Used for SLA Reporting. Created 04/17/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Initiate Venue Sourcing Date/Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Interaction_Type_MERC__c</fullName>
@@ -2973,26 +3013,6 @@ Created by John Adams 11/6/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Venue_Contract_Closed_Date_Time_MERC__c</fullName>
-        <description>Populated by workflow when Venue Contract is Closed. Used for SLA Reporting. Created 04/14/2014 by KLorenti, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <label>Venue Contract Closed Date/Time</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>DateTime</type>
-    </fields>
-    <fields>
-        <fullName>Venue_Contract_Closed_MERC__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>Indicates that the Venue Contract has been closed. Used for SLA reporting. Created 04/14/2014 by KLorenti, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <label>Venue Contract Closed</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>Venue_MERC__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Lookup relationship to Account to select a Venue for the Meeting. Created 12/18/2013 by KLorenti, Mavens Consulting</description>
@@ -3008,10 +3028,10 @@ Created by John Adams 11/6/2013</description>
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Venue_Sourcing_Team_Date_TIme_MERC__c</fullName>
-        <description>Populated via workflow to capture the date/time a Venue Sourcing Team Member was added to a meeting. Used for SLA Reporting.</description>
+        <fullName>Venue_Sourced_Date_Time_MERC__c</fullName>
+        <description>Stamped via workflow when the Venue is Sourced. Created 04/17/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <label>Venue Sourcing Team Date/Time</label>
+        <label>Venue Sourced Date/Time</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
