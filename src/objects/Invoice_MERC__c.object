@@ -1590,13 +1590,16 @@ An invoice record cannot be submitted for payment if the total is not greater th
         <description>Generates content for the Invoice
 Created by John Adams on 11/13/2013</description>
         <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <height>600</height>
-        <linkType>url</linkType>
+        <linkType>javascript</linkType>
         <masterLabel>Generate Content</masterLabel>
-        <openType>sidebar</openType>
+        <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>/apex/loop__looplus?eid={!Invoice_MERC__c.Id}&amp;sessionId={!$Api.Session_ID}</url>
+        <url>if ({!Invoice_MERC__c.Line_Items_MERC__c}&lt;1) {
+ if (confirm(&apos;There appear to be no Line Items. Continue anyway?&apos;)) {
+location.replace(&apos;/apex/loop__looplus?eid={!Invoice_MERC__c.Id}&amp;sessionId={!$Api.Session_ID}&apos;);
+
+}
+}</url>
     </webLinks>
     <webLinks>
         <fullName>Upload_Content_MERC</fullName>

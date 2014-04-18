@@ -285,6 +285,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_InvoiceCreditNoteControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_InvoiceXmlController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -492,6 +496,10 @@
         <apexClass>sobjectPartnerSoapSforceComTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>testsfdc</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Academic_Qualifications_MERC__c</field>
@@ -686,6 +694,11 @@
         <editable>true</editable>
         <field>Account.Cost_Cntr_Nm_GLBL__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Count_Bank_Transfer_MERC__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -1225,6 +1238,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Payee_Bank_Information_Consent_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Payee_Count_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2995,6 +3013,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>ContentVersion.Country_of_Residence_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ContentVersion.Credit_Note_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5620,6 +5643,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Payee_MERC__c.Tax_Id_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Payee_MERC__c.Transfer_Information_Complete_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

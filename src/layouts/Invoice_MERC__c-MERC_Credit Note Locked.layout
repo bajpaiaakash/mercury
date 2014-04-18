@@ -356,15 +356,12 @@
         <sortField>VERSION.LAST_UPDATE</sortField>
         <sortOrder>Desc</sortOrder>
     </relatedLists>
-<<<<<<< HEAD
     <relatedLists>
         <fields>VERSION.TITLE</fields>
         <fields>VERSION.CREATED_DATE</fields>
         <fields>VERSION.LAST_UPDATE</fields>
         <relatedList>ContentVersion.Credit_Note_MERC__c</relatedList>
     </relatedLists>
-=======
->>>>>>> 828e4725e2b95e1366edccc53b0a185dfee83071
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>

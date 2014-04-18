@@ -349,9 +349,7 @@
         <fields>VERSION.TITLE</fields>
         <fields>VERSION.CREATED_DATE</fields>
         <fields>VERSION.LAST_UPDATE</fields>
-        <relatedList>ContentVersion.Invoice_MERC__c</relatedList>
-        <sortField>VERSION.LAST_UPDATE</sortField>
-        <sortOrder>Desc</sortOrder>
+        <relatedList>ContentVersion.Credit_Note_MERC__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>

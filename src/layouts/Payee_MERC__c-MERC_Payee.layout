@@ -19,6 +19,10 @@
                 <behavior>Edit</behavior>
                 <field>Tax_Id_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Transfer_Information_Complete_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

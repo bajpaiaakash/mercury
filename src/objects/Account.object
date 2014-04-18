@@ -668,6 +668,21 @@ Created by John A Adams 10/24/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Count_Bank_Transfer_MERC__c</fullName>
+        <description>Counts the number of Payee records where the Bank Transfer information is completed. Created 04/18/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Count Bank Transfer</label>
+        <summaryFilterItems>
+            <field>Payee_MERC__c.Transfer_Information_Complete_MERC__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Payee_MERC__c.Account_MERC__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
         <fullName>Country_Code_MERC__c</fullName>
         <description>Country Code of Residence pulled from User to be used in the Meeting - Worker Country Code.  Created by John Adams on 12/9/2013</description>
         <externalId>false</externalId>
@@ -2700,9 +2715,13 @@ Created by John A Adams 10/28/2013</description>
     </fields>
     <fields>
         <fullName>Leadership_Committee_Step_Complete_MERC__c</fullName>
-        <defaultValue>false</defaultValue>
         <description>Used by portal to indicate that the Leadership/Committee Info sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(Hospital_Leadership_Role_MERC__c,&quot;&quot;) || 
+ISPICKVAL(Regional_Leadership_Role_MERC__c,&quot;&quot;) || 
+ISPICKVAL(National_Inter_Leadership_Role_MERC__c,&quot;&quot;) 
+,false,true)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Leadership/Committee Step Complete</label>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
@@ -3108,10 +3127,21 @@ Created by John A Adams 12/10/2013</description>
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>Payee_Info_Step_Complete_MERC__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>Used by portal to indicate that the Payee Information sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <fullName>Payee_Count_MERC__c</fullName>
+        <description>Count how many payee records exist for Account. Created 04/18/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
+        <label>Payee Count</label>
+        <summaryForeignKey>Payee_MERC__c.Account_MERC__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Payee_Info_Step_Complete_MERC__c</fullName>
+        <description>Used by portal to indicate that the Payee Information sub-step is complete on the HCP Information Package. Created on 04/18/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF(Payee_Count_MERC__c &gt; 0, true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Payee Information Step Complete</label>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
@@ -4002,9 +4032,13 @@ Created by John A Adams 12/10/2013</description>
     </fields>
     <fields>
         <fullName>Teaching_Advising_Step_Complete_MERC__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>Used by portal to indicate that the Teaching/Advising sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <description>Used by portal to indicate that the Teaching/Advising sub-step is complete on the HCP Information Package. Created on 04/18/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
+        <formula>IF(ISPICKVAL( Associate_or_Full_Professor_MERC__c ,&quot;&quot;) || 
+ISPICKVAL( Instructor_Assistant_Clinical_Prof_MERC__c ,&quot;&quot;) ||  
+ISPICKVAL( Advisory_Board_Experience_MERC__c ,&quot;&quot;)
+,false,true)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Teaching/Advising Step Complete</label>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
@@ -4112,9 +4146,10 @@ Created by John A Adams 12/10/2013</description>
     </fields>
     <fields>
         <fullName>Transfer_Info_Step_Complete_MERC__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>Used by portal to indicate that the Bank Transfer Information sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <description>Used by portal to indicate that the Bank Transfer Information sub-step is complete on the HCP Information Package. Created on 04/18/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
+        <formula>IF (Count_Bank_Transfer_MERC__c &gt; 0, true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Transfer Information Step Complete</label>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>

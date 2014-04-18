@@ -17,11 +17,7 @@
 			</apex:form>
 		</apex:pageBlockButtons>
 
-<<<<<<< HEAD
 		<apex:pageBlockSection columns="1" collapsible="false" rendered="{!newInvoiceRecType != null}">
-=======
-		<apex:pageBlockSection columns="1" collapsible="false">
->>>>>>> 828e4725e2b95e1366edccc53b0a185dfee83071
 			<apex:outputPanel >
 				You are about to create a{!IF(newInvoiceRecType.Name=='Invoice', 'n', '')} {!newInvoiceRecType.Name} with {!lineItemCount} line item(s)
 				<apex:outputText value=" and {!contentCount} file(s)" rendered="{!newInvoiceRecType.DeveloperName = 'Credit_Note_MERC'}"/>.
