@@ -20,6 +20,7 @@ public with sharing class GLBL_CustomerSearchToolService {
 		}
 		private set;
 	}
+	public ErrorResult error {get; private set;}
 
 	public GLBL_CustomerSearchToolService() {
 		baseUrl = this.appSettings.CST_URL_GLBL__c;
@@ -38,21 +39,27 @@ public with sharing class GLBL_CustomerSearchToolService {
 		r.setBody(requestJson);
 
 		system.debug('>>>  '+r.getHeader('Authorization'));
+		error = null;
 		Http h = new Http();
 		HttpResponse response = h.send(r);
 		String s = response.getBody();
 		system.debug('>>> response from search tool: '+s);
 		if (response.getStatusCode() == 400) {
-			ErrorResult res = (ErrorResult)JSON.deserialize(s, ErrorResult.class);
+			error = (ErrorResult)JSON.deserialize(s, ErrorResult.class);
 			return null;
 		} else if (response.getStatusCode() == 401) {
-			//todo dml operation with callout is 			
+			// TODO - instead of throwing an error we need to retry authorization (See class comments above)
+			error = (ErrorResult)JSON.deserialize(s, ErrorResult.class);
+			return null;
 		} else if (response.getStatusCode() == 200) {
 			s = s.replaceAll('__c"','"');
 			List<SearchResult> results = (List<SearchResult>)JSON.deserialize(s, List<SearchResult>.class);
-			system.debug(results);
+			system.debug('>>> results from search tool: '+results);
 			return results;
 		}
+		error = new ErrorResult();
+		error.Error = 'UNEXPECTED';
+		error.Message = s;
 		return null;
 	}
 
@@ -68,12 +75,20 @@ public with sharing class GLBL_CustomerSearchToolService {
 		String s = response.getBody();
 		system.debug('>>> response from search tool: '+s);
 		AccessTokenResponse tokenResponse = (AccessTokenResponse)JSON.deserialize(s, AccessTokenResponse.class);
+		String today = DateTime.now().formatGmt('MMM d, hh:mm:ss z');
 		if (tokenResponse.access_token != null) {
 			this.accessToken = tokenResponse.access_token;
-			update appSettings;
+			recordResult(today+': last response successful');
 		} else if (tokenResponse.error != null) {
-			//TODO: raise
+			recordResult(today+': '+ tokenResponse.error +' - '+tokenResponse.error_description);
 		}
+	}
+
+	@future
+	private static void recordResult(String s) {
+		Mercury_Settings_MERC__c mercSettings = Mercury_Settings_MERC__c.getOrgDefaults();
+		mercSettings.CST_Client_Auth_Error_MERC__c = s.left(254);
+// 		update mercSettings;
 	}
 
 	public class AccessTokenResponse {

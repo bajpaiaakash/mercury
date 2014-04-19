@@ -1,6 +1,6 @@
 @isTest
 public with sharing class MERC_TestFactory {
-	
+
 	public static Id hcpRecordTypeId = [Select ID From RecordType Where SObjectType = 'Account' and DeveloperName = 'HCP_GLBL'].ID;
 	public static Id employeeRecordTypeId = [Select ID From RecordType Where SObjectType = 'Account' and DeveloperName = 'Employee_GLBL'].ID;
 	public static Id vendorRecordTypeId = [Select ID From RecordType Where SObjectType = 'Account' and DeveloperName = 'Vendor_GLBL'].ID;
@@ -227,6 +227,7 @@ public with sharing class MERC_TestFactory {
 			p.Account_MERC__c = accounts.get(i).Id;
 			p.Meeting_MERC__c = meetingId;
 			p.Status_MERC__c = pStatus;
+			p.Services_Rendered_MERC__c = 'Yes';
 			participants.add(p);
 		}
 
@@ -300,9 +301,9 @@ public with sharing class MERC_TestFactory {
 			tm.RecordTypeId = recTypeId;
 			tm.User_MERC__c = members.get(n).Id;
 			tm.Meeting_MERC__c = meets.get(n).Id;
-			tm.Role_MERC__c	= MERC_TeamMemberDeletePMO.PMO;	
+			tm.Role_MERC__c	= MERC_TeamMemberDeletePMO.PMO;
 			result.add(tm);
-			
+
 			meets.get(n).Meeting_Owner_Email_MERC__c = members.get(n).Email;
 			meets.get(n).Prmry_Mtng_Ownr_Nm_MERC__c = members.get(n).FirstName +' '+members.get(n).LastName;
 		}
@@ -319,17 +320,17 @@ public with sharing class MERC_TestFactory {
 			profileName = 'Mercury Customer Meeting Services - Read Only';
 		}
 
-        Profile p = [SELECT id from Profile WHERE Profile.Name =  :profileName limit 1];   
-        
+        Profile p = [SELECT id from Profile WHERE Profile.Name =  :profileName limit 1];
+
         for (Integer i = 0; i < numberOfUsers; i++) {
 	        String testemail = 'testuser'+i+'@unittest.com';
-	        User u = new User(profileId = p.id, username = testemail, email = testemail, 
-	                           emailencodingkey = 'UTF-8', localesidkey = 'en_US', 
-	                           languagelocalekey = 'en_US', timezonesidkey = 'America/Los_Angeles', 
+	        User u = new User(profileId = p.id, username = testemail, email = testemail,
+	                           emailencodingkey = 'UTF-8', localesidkey = 'en_US',
+	                           languagelocalekey = 'en_US', timezonesidkey = 'America/Los_Angeles',
 	                           alias='utusr'+i, lastname='lastname');
 	        users.add(u);
 	    }
-        
+
         Database.insert(users);
         return users;
 	}
