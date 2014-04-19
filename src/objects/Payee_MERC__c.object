@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>Accept</actionName>
         <type>Default</type>
@@ -360,6 +360,26 @@ Created by John A Adams 9/27/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Transfer_Information_Complete_MERC__c</fullName>
+        <description>Indicates whether all bank information has been populated on a payee record. Created 04/18/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF (
+ISPICKVAL(Payment_Method_MERC__c,&quot;&quot;) ||
+ISBLANK(Bank_Name_MERC__c) ||
+ISBLANK(Bank_Street_MERC__c) ||
+ISBLANK(Bank_City_MERC__c) ||
+ISBLANK(Bank_Country_MERC__c) ||
+ISBLANK(Bank_Zip_Postal_Code_MERC__c) ||
+ISBLANK(Bank_Sort_Code_MERC__c) ||
+ISBLANK(Bank_IBAN_MERC__c) ||
+ISBLANK(Bank_Account_Number_MERC__c), false, true)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Transfer Information Complete</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>VAT_ID_MERC__c</fullName>
         <description>A value added tax identification number or VAT identification number (VATIN) is an identifier used in many countries, including the countries of the European Union, for value added tax purposes.
 Moved from Account to Payee 11/22/2013 by KLorenti, Mavens Consulting</description>
@@ -456,7 +476,6 @@ Created by John A Adams 2/18/2014</description>
     <pluralLabel>Payee</pluralLabel>
     <searchLayouts>
         <customTabListAdditionalFields>Account_MERC__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields xsi:nil="true"/>
         <customTabListAdditionalFields>SAP_Vendor_ID_MERC__c</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>Account_MERC__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>SAP_Vendor_ID_MERC__c</lookupDialogsAdditionalFields>

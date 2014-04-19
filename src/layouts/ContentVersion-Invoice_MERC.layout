@@ -45,13 +45,12 @@
                 <behavior>Readonly</behavior>
                 <field>Invoice_Archive_Date_MERC__c</field>
             </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Meeting_MERC__c</field>
+                <field>Credit_Note_MERC__c</field>
             </layoutItems>
         </layoutColumns>
+        <layoutColumns/>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
     <layoutSections>

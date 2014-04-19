@@ -401,6 +401,19 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Credit_Note_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Indicates a link to a credit note. This should only be populated via the API when an Invoice is cloned to be a credit note.</description>
+        <externalId>false</externalId>
+        <label>Credit Note</label>
+        <referenceTo>Invoice_MERC__c</referenceTo>
+        <relationshipLabel>Content</relationshipLabel>
+        <relationshipName>Content_CN</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Customer_Id_MERC__c</fullName>
         <description>Pull in Customer ID for HCP that document will be attached to. Created 12/6/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
