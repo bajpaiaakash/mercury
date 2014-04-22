@@ -78,18 +78,18 @@ public with sharing class GLBL_CustomerSearchToolService {
 		String today = DateTime.now().formatGmt('MMM d, hh:mm:ss z');
 		if (tokenResponse.access_token != null) {
 			this.accessToken = tokenResponse.access_token;
-			recordResult(today+': last response successful');
+//			recordResult(today+': last response successful');
 		} else if (tokenResponse.error != null) {
-			recordResult(today+': '+ tokenResponse.error +' - '+tokenResponse.error_description);
+//			recordResult(today+': '+ tokenResponse.error +' - '+tokenResponse.error_description);
 		}
 	}
 
-	@future
-	private static void recordResult(String s) {
-		Mercury_Settings_MERC__c mercSettings = Mercury_Settings_MERC__c.getOrgDefaults();
-		mercSettings.CST_Client_Auth_Error_MERC__c = s.left(254);
+//	@future
+//	private static void recordResult(String s) {
+//		Mercury_Settings_MERC__c mercSettings = Mercury_Settings_MERC__c.getOrgDefaults();
+//		mercSettings.CST_Client_Auth_Error_MERC__c = s.left(254);
 // 		update mercSettings;
-	}
+//	}
 
 	public class AccessTokenResponse {
 		public String token_type;
@@ -119,11 +119,11 @@ public with sharing class GLBL_CustomerSearchToolService {
 		public String custId  { get; set; } //customer id
 		public String country { get; set; } //country of residence
 		public List<String> prod  { get; set; } //professional designation
-		public String classifation { get; set; }
+		public List<String> classifation { get; set; }
 		public List<String> status { get; set; }
 		public List<String> specialty { get; set; }
 		public List<String> specialtyRank { get; set; }
-		public String aIDType { get; set; }
+		public List<String> aIDType { get; set; }
 		public String aId { get; set; }
 		public String address { get; set; }
 		public String city { get; set; }
