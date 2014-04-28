@@ -324,7 +324,7 @@
 			  					<!-- Classification -->
 			  					<apex:pageBlockSectionItem >
 			  						<apex:outputLabel for="classifation" value="Classification"></apex:outputLabel>
-			  						<apex:selectList size="1" value="{!searchRequest.classifation}" id="classifation" styleClass="single">
+			  						<apex:selectList multiselect="true" value="{!searchRequest.classifation}" id="classifation" styleClass="multichosen">
 			  							<apex:selectOptions value="{!accountClassifications}"/>
 			  						</apex:selectList>
 			  					</apex:pageBlockSectionItem>
@@ -348,7 +348,7 @@
 			  					<!-- Alternate Id Type -->
 			  					<apex:pageBlockSectionItem >
 			  						<apex:outputLabel for="aIDType" value="Alternate Id Type"></apex:outputLabel>
-			  						<apex:selectList size="1" value="{!searchRequest.aIDType}" id="aIDType" styleClass="single">
+			  						<apex:selectList multiselect="true" value="{!searchRequest.aIDType}" id="aIDType" styleClass="multichosen">
 			  							<apex:selectOptions value="{!alternateIdTypes}"/>
 			  						</apex:selectList>
 			  					</apex:pageBlockSectionItem>

@@ -2,7 +2,6 @@
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
-    <enableHistory>true</enableHistory>
     <fieldSets>
         <fullName>Account_MERC</fullName>
         <description>Upload Content to Account object</description>
@@ -371,7 +370,9 @@
         <fullName>Contract_End_Date_MERC__c</fullName>
         <description>Capture End Date of Contract when uploading documents to HCP Contract. Created 12/3/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <formula>HCP_Contract_MERC__r.Contract_Expiration_Date_MERC__c</formula>
+        <formula>IF(HCP_Contract_MERC__r.RecordType.Name = &quot;Master Service Agreement&quot;, 
+HCP_Contract_MERC__r.MSA_End_Date_MERC__c, 
+HCP_Contract_MERC__r.Contract_Expiration_Date_MERC__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Contract End Date</label>
         <required>false</required>
@@ -380,8 +381,10 @@
     </fields>
     <fields>
         <fullName>Contract_Start_Date_MERC__c</fullName>
+        <description>Populate the Contract Start Date based on the type of Contract.  If a MSA then use the MSA Start Date.  If a Single Event to Work Order then populate with the Meeting Start Date.  Created by John A Adams 4/21/2014</description>
         <externalId>false</externalId>
-        <formula>Meeting_Start_Date_MERC__c</formula>
+        <formula>IF(HCP_Contract_MERC__r.RecordType.Name = &quot;Master Service Agreement&quot;, 
+HCP_Contract_MERC__r.MSA_Start_Date_MERC__c,  HCP_Contract_MERC__r.Meeting_Name_MERC__r.Date_of_Event_MERC__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Contract Start Date</label>
         <required>false</required>
@@ -392,13 +395,26 @@
         <fullName>Country_of_Residence_MERC__c</fullName>
         <description>Capture Country of Residence for HCP. Created 12/3/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <formula>TEXT(Account_GLBL__r.Country_of_Residence_GLBL__c)</formula>
+        <formula>TEXT(HCP_Contract_MERC__r.Account_MERC__r.Country_of_Residence_GLBL__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Country of Residence</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Credit_Note_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Indicates a link to a credit note. This should only be populated via the API when an Invoice is cloned to be a credit note.</description>
+        <externalId>false</externalId>
+        <label>Credit Note</label>
+        <referenceTo>Invoice_MERC__c</referenceTo>
+        <relationshipLabel>Content</relationshipLabel>
+        <relationshipName>Content_CN</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Customer_Id_MERC__c</fullName>
@@ -580,7 +596,7 @@
         <fullName>HCP_Name_MERC__c</fullName>
         <description>Pull in name of customer/HCP from Account. Created 12/6/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <formula>Account_GLBL__r.FirstName &amp; &quot; &quot; &amp; Account_GLBL__r.LastName</formula>
+        <formula>HCP_Contract_MERC__r.Account_MERC__r.FirstName &amp; &quot; &quot; &amp;  HCP_Contract_MERC__r.Account_MERC__r.LastName</formula>
         <label>HCP Name</label>
         <required>false</required>
         <trackHistory>false</trackHistory>

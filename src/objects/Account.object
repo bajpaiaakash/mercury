@@ -668,6 +668,33 @@ Created by John A Adams 10/24/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Count_Bank_Transfer_MERC__c</fullName>
+        <description>Counts the number of Payee records where the Bank Transfer information is completed. Created 04/18/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Count Bank Transfer</label>
+        <summaryFilterItems>
+            <field>Payee_MERC__c.Transfer_Information_Complete_MERC__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Payee_MERC__c.Account_MERC__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Count_Dietary_Preferences_MERC__c</fullName>
+        <description>Field needed to determine if Dietary Preferences/Meals Allergies step has been completed. Used by portal. Created 04/24/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label># Dietary Preferences</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Country_Code_MERC__c</fullName>
         <description>Country Code of Residence pulled from User to be used in the Meeting - Worker Country Code.  Created by John Adams on 12/9/2013</description>
         <externalId>false</externalId>
@@ -2700,9 +2727,13 @@ Created by John A Adams 10/28/2013</description>
     </fields>
     <fields>
         <fullName>Leadership_Committee_Step_Complete_MERC__c</fullName>
-        <defaultValue>false</defaultValue>
         <description>Used by portal to indicate that the Leadership/Committee Info sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(Hospital_Leadership_Role_MERC__c,&quot;&quot;) || 
+ISPICKVAL(Regional_Leadership_Role_MERC__c,&quot;&quot;) || 
+ISPICKVAL(National_Inter_Leadership_Role_MERC__c,&quot;&quot;) 
+,false,true)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Leadership/Committee Step Complete</label>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
@@ -3009,18 +3040,6 @@ Created by John A Adams 12/15/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>P_Cs_Test__c</fullName>
-        <description>test</description>
-        <externalId>false</externalId>
-        <label># P&amp;Cs Test</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackHistory>false</trackHistory>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Paid_CAP_MERC__c</fullName>
         <description>Consolidates Paid CAP from Invoices for Consulting Projects or Speaker Engagements. Oliver Dunford 20th Jan 2014.</description>
         <externalId>false</externalId>
@@ -3108,10 +3127,21 @@ Created by John A Adams 12/10/2013</description>
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>Payee_Info_Step_Complete_MERC__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>Used by portal to indicate that the Payee Information sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <fullName>Payee_Count_MERC__c</fullName>
+        <description>Count how many payee records exist for Account. Created 04/18/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
+        <label>Payee Count</label>
+        <summaryForeignKey>Payee_MERC__c.Account_MERC__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Payee_Info_Step_Complete_MERC__c</fullName>
+        <description>Used by portal to indicate that the Payee Information sub-step is complete on the HCP Information Package. Created on 04/18/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF(Payee_Count_MERC__c &gt; 0, true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Payee Information Step Complete</label>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
@@ -4002,9 +4032,13 @@ Created by John A Adams 12/10/2013</description>
     </fields>
     <fields>
         <fullName>Teaching_Advising_Step_Complete_MERC__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>Used by portal to indicate that the Teaching/Advising sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <description>Used by portal to indicate that the Teaching/Advising sub-step is complete on the HCP Information Package. Created on 04/18/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
+        <formula>IF(ISPICKVAL( Associate_or_Full_Professor_MERC__c ,&quot;&quot;) || 
+ISPICKVAL( Instructor_Assistant_Clinical_Prof_MERC__c ,&quot;&quot;) ||  
+ISPICKVAL( Advisory_Board_Experience_MERC__c ,&quot;&quot;)
+,false,true)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Teaching/Advising Step Complete</label>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
@@ -4112,9 +4146,10 @@ Created by John A Adams 12/10/2013</description>
     </fields>
     <fields>
         <fullName>Transfer_Info_Step_Complete_MERC__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>Used by portal to indicate that the Bank Transfer Information sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <description>Used by portal to indicate that the Bank Transfer Information sub-step is complete on the HCP Information Package. Created on 04/18/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
+        <formula>IF (Count_Bank_Transfer_MERC__c &gt; 0, true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Transfer Information Step Complete</label>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
@@ -4374,6 +4409,7 @@ Created by John A Adams 11/4/2013</description>
     </fields>
     <fields>
         <fullName>of_Designated_Individuals_MERC__c</fullName>
+        <defaultValue>1</defaultValue>
         <externalId>false</externalId>
         <label># of Designated Individuals</label>
         <precision>4</precision>
@@ -13769,6 +13805,174 @@ var url = &apos;https://et4ae.cs18.visual.force.com/apex/exacttargetswitchboard?
         <protected>false</protected>
         <url>{!REQUIRESCRIPT(&quot;/apex/dsfs__DocuSign_JavaScript&quot;)}
 DocuSign_CreateEnvelope();</url>
+    </webLinks>
+    <webLinks>
+        <fullName>et4ae5__ExactTarget_Resubscribe</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>ExactTarget Resubscribe</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)}
+var pacId, didResub;
+try
+{
+pacId=sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;getPACId&quot;, {acctId:&quot;{!CASESAFEID( Account.Id )}&quot;}); 
+didResub=sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;performResub&quot;, {subscriberKey:pacId,objectType:&quot;contact&quot;});
+}
+catch (e)
+{
+pacId=sforce.apex.execute(&quot;jsButtonMethods&quot;,&quot;getPACId&quot;, {acctId:&quot;{!CASESAFEID( Account.Id )}&quot;}); 
+didResub=sforce.apex.execute(&quot;jsButtonMethods&quot;,&quot;performResub&quot;, {subscriberKey:pacId,objectType:&quot;contact&quot;});
+}
+if (didResub==&quot;connection error&quot;)
+{
+alert(&quot;The connection to ExactTarget is currently unavailable. Try your request again later. If the problem persists, please contact your system administrator.&quot;);
+}
+else if (didResub==&quot;not found&quot;)
+{
+alert(&quot;This subscriber could not be found in the All Subscriber List in ExactTarget. The Email Opt Out flag will not be updated.&quot;);
+}
+else if (didResub==&quot;other error&quot;)
+{
+alert(&quot;An unexpected error has been encountered. The Email Opt Out flag will not be updated.&quot;);
+}
+else if (didResub==&quot;not integrated&quot;)
+{
+alert(&quot;You must be integrated with ExactTarget to update an ExactTarget subscriber.&quot;);
+}
+else if (didResub==&quot;success&quot;)
+{
+alert(&quot;{!Account.Name} was resubscribed successfully.&quot;);
+} 
+var theUrl=&quot;/{!Account.Id}&quot;;
+parent.location.href=theUrl;</url>
+    </webLinks>
+    <webLinks>
+        <fullName>et4ae5__ExactTarget_Unsubscribe</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>ExactTarget Unsubscribe</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)}
+var pacId, didUnsub;
+try
+{
+pacId=sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;getPACId&quot;, {acctId:&quot;{!CASESAFEID( Account.Id )}&quot;}); 
+didUnsub=sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;performUnsub&quot;, {subscriberKey:pacId,objectType:&quot;contact&quot;});
+}
+catch (e)
+{
+pacId=sforce.apex.execute(&quot;jsButtonMethods&quot;,&quot;getPACId&quot;, {acctId:&quot;{!CASESAFEID( Account.Id )}&quot;}); 
+didUnsub=sforce.apex.execute(&quot;jsButtonMethods&quot;,&quot;performUnsub&quot;, {subscriberKey:pacId,objectType:&quot;contact&quot;});
+}
+if (didUnsub==&quot;connection error&quot;)
+{
+alert(&quot;The connection to ExactTarget is currently unavailable. Try your request again later. If the problem persists, please contact your system administrator.&quot;);
+}
+else if (didUnsub==&quot;not found&quot;)
+{
+alert(&quot;This subscriber could not be found in the All Subscriber List in ExactTarget. The Email Opt Out flag will not be updated.&quot;);
+}
+else if (didUnsub==&quot;other error&quot;)
+{
+alert(&quot;An unexpected error has been encountered. The Email Opt Out flag will not be updated.&quot;);
+}
+else if (didUnsub==&quot;not integrated&quot;)
+{
+alert(&quot;You must be integrated with ExactTarget to update an ExactTarget subscriber.&quot;);
+}
+else if (didUnsub==&quot;success&quot;)
+{
+alert(&quot;{!Account.Name} was unsubscribed successfully.&quot;);
+} 
+var theUrl=&quot;/{!Account.Id}&quot;;
+parent.location.href=theUrl;</url>
+    </webLinks>
+    <webLinks>
+        <fullName>et4ae5__Send_ExactTarget_Email</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Send ExactTarget Email</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)}
+try
+{
+var urlPrefix = sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;namespace&quot;, {});
+var pacId=sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;getPACId&quot;, {acctId:&quot;{!CASESAFEID( Account.Id )}&quot;});
+var theUrl = &quot;https://et4ae5.&quot;+urlPrefix+&quot;/apex/singleSendETEmail?contactId=&quot;+pacId;
+var npaUrl = parent.location.href;
+if(pacId==&quot;error&quot;)
+{
+parent.location.href = npaUrl;
+}
+else
+{
+parent.location.href = theUrl;
+}
+}
+catch(e)
+{
+var pacId=sforce.apex.execute(&quot;jsButtonMethods&quot;,&quot;getPACId&quot;, {acctId:&quot;{!CASESAFEID( Account.Id )}&quot;});
+var theUrl = &quot;/apex/singleSendETEmail?contactId=&quot;+pacId;
+var npaUrl = parent.location.href;
+if(pacId==&quot;error&quot;)
+{
+parent.location.href = npaUrl;
+}
+else
+{
+parent.location.href = theUrl;
+}
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>et4ae5__View_ExactTarget_Analytics</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>View ExactTarget Analytics</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)}
+try
+{
+var urlPrefix = sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;namespace&quot;, {});
+var pacId=sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;getPACId&quot;, {acctId:&quot;{!CASESAFEID( Account.Id )}&quot;});
+var theUrl = &quot;https://et4ae5.&quot;+urlPrefix+&quot;/apex/SubscriberAnalytics?id=&quot;+pacId+&quot;&amp;obj=contact&quot;;
+var npaUrl = parent.location.href;
+if(pacId==&quot;error&quot;)
+{
+parent.location.href = npaUrl;
+}
+else
+{
+parent.location.href = theUrl;
+}
+}
+catch(e)
+{
+var pacId=sforce.apex.execute(&quot;jsButtonMethods&quot;,&quot;getPACId&quot;, {acctId:&quot;{!CASESAFEID( Account.Id )}&quot;});
+var theUrl = &quot;/apex/SubscriberAnalytics?id=&quot;+pacId+&quot;&amp;obj=contact&quot;;
+var npaUrl = parent.location.href;
+if(pacId==&quot;error&quot;)
+{
+parent.location.href = npaUrl;
+}
+else
+{
+parent.location.href = theUrl;
+}
+}</url>
     </webLinks>
     <webLinks>
         <fullName>primest__Countdown</fullName>
