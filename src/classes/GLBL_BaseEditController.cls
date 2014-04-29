@@ -19,6 +19,7 @@ public virtual with sharing class GLBL_BaseEditController {
 	public Set<String> dynamicFields;
 
 	public GLBL_BaseEditController(ApexPages.StandardController stdController, Schema.SobjectType sotype) {
+		Apexpages.currentPage().getHeaders().put('X-UA-Compatible', 'IE=Edge'); //IE compatibility mode hack
 		Schema.DescribeSObjectResult sobjectDescribe = sotype.getDescribe();
 		this.schemaFields = sobjectDescribe.fields.getMap();
 		if (!Test.isRunningTest()) {
