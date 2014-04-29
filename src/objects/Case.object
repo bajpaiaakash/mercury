@@ -673,7 +673,7 @@ Created by John Adams on 11/18/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Transparency Reporting Opt Out</fullName>
+                <fullName>Transparency Consent Follow Up</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>

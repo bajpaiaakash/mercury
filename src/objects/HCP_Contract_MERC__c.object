@@ -82,6 +82,17 @@ Created by John A Adams 10/17/2013</description>
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
+        <fullName>Compliance_Met_Contract_Sent_MERC__c</fullName>
+        <description>Contract should be sent more than1 week in Advance from Meeting Start Date</description>
+        <externalId>false</externalId>
+        <formula>IF (Days_from_Contract_Sent_to_Mtg_Date_MERC__c &gt; 7, true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Compliance Met - Contract Sent</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Contract_Expiration_Date_MERC__c</fullName>
         <description>Capture the expiration date of the contract. Created 11/19/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -214,6 +225,21 @@ Created by John A Adams 10/4/2013</description>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Days_from_Contract_Sent_to_Mtg_Date_MERC__c</fullName>
+        <description>Calculates number of days Contract was Sent before the Start Date of the Meeting. Created 04/28/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Meeting_Start_Date_MERC__c  -  DATEVALUE(Contract_Sent_Date_Time_MERC__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Days from Contract Sent to Meeting Date</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>

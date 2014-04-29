@@ -169,6 +169,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_AgendaBuilderControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_AgendaItemNewEditController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -337,6 +341,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_MeetingDayNewEditControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_MeetingNewEditController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -362,6 +370,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_MeetingTeamManagerControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_MergedAccountApex</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -1041,6 +1053,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Institution_Name_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Institutional_Notif_Info_Exists_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3214,6 +3231,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>HCP_Contract_MERC__c.Compliance_Met_Contract_Sent_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>HCP_Contract_MERC__c.Contract_Expiration_Date_MERC__c</field>
         <readable>true</readable>
@@ -3256,6 +3278,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>HCP_Contract_MERC__c.Days_Until_Contract_Signed_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>HCP_Contract_MERC__c.Days_from_Contract_Sent_to_Mtg_Date_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

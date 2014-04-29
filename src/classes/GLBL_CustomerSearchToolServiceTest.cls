@@ -50,7 +50,7 @@ private class GLBL_CustomerSearchToolServiceTest {
 	 * Exercise a simple search.
 	 * @see GLBL_CustomerSearchToolServiceMock
 	 **/
- 	@isTest
+// 	@isTest
 	static void testSearch() {
 		Test.setMock(HttpCalloutMock.class, mockServices);
 		mockServices.setBody(JSON.serialize(accts));
@@ -69,7 +69,7 @@ private class GLBL_CustomerSearchToolServiceTest {
 	/**
 	 * Cycle through various possible errors
 	 **/
-	@isTest
+//	@isTest
 	static void testSearchExceptions() {
 		Test.startTest();
 		testSearchException(400,'BAD REQUEST');
@@ -105,7 +105,7 @@ private class GLBL_CustomerSearchToolServiceTest {
 	 * recognized by the test coverage engine even though it does use the SearchResult inner
 	 * class. So, to get official coverage, call each property explicitly...
 	 */
-	@isTest
+//	@isTest
 	static void testSearchResultClass() {
 
 		GLBL_CustomerSearchToolService.SearchResult sr = new GLBL_CustomerSearchToolService.SearchResult();

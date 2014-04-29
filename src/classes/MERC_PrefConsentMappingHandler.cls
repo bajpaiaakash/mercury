@@ -2,96 +2,67 @@ public without sharing class MERC_PrefConsentMappingHandler implements GLBL_Trig
 {
 	public void handle()
 	{
-		/*----- Build a map of Pref & Consent record type Ids
-		        to the list of field mappings for that record type -----*/
-		Map<Id, List<PC_to_Account_Mapping_MERC__c>> mappingsByRecordType = new Map<Id, List<PC_to_Account_Mapping_MERC__c>>();
-		for (PC_to_Account_Mapping_MERC__c mapping : PC_to_Account_Mapping_MERC__c.getall().values())
-		{
-			if (mappingsByRecordType.containsKey(mapping.PC_Record_Type_Id_MERC__c))
-			{
-				mappingsByRecordType.get(mapping.PC_Record_Type_Id_MERC__c).add(mapping);
-			} else {
-				mappingsByRecordType.put( mapping.PC_Record_Type_Id_MERC__c, new List<PC_to_Account_Mapping_MERC__c>{mapping});
-			}
-		}
 
 		/*----- loop over pref & consent records in the trigger and figure
-		        out the accounts and record types involved -----*/
-		Set<Id> accountIds    = new Set<Id>();
-		Set<Id> recordTypeIds = new Set<Id>();
+		        out which ones need to be processed -----*/
+		Set<Preferences_and_Consent_GLBL__c> pAndCsToProcess = new Set<Preferences_and_Consent_GLBL__c>();
+		Set<String> accountFieldsToQuery = new Set<String>();
+		Set<Id> accountIds = new Set<Id>();
 		for (Preferences_and_Consent_GLBL__c pAndC : (List<Preferences_and_Consent_GLBL__c>) Trigger.new)
 		{
-			accountIds.add(pAndC.Account_GLBL__c);
-			recordTypeIds.add(pAndC.RecordTypeId);
-		}
-
-		/*----- using the record types, pull out the mappings from
-		        mappingsByRecordType so we can get the fields we need to query -----*/
-		Set<String> accountFieldApiNames = new Set<String>();
-		for (Id recTypeId : recordTypeIds)
-		{
-			if (mappingsByRecordType.containsKey(recTypeId))
+			if (String.isNotBlank(pAndC.Account_Field_Update_MERC__c)
+				&& ( Trigger.isInsert ||
+					(Trigger.isUpdate && ((Preferences_and_Consent_GLBL__c)Trigger.oldMap.get(pAndC.Id)).Account_Field_Update_MERC__c != pAndC.Account_Field_Update_MERC__c)))
 			{
-				for (PC_to_Account_Mapping_MERC__c pref : mappingsByRecordType.get(recTypeId))
-				{
-					accountFieldApiNames.add(pref.Account_Destination_Field_MERC__c);
-				}
+				pAndCsToProcess.add(pAndC);
+				accountFieldsToQuery.add(pAndC.Account_Field_Update_MERC__c.left(pAndC.Account_Field_Update_MERC__c.indexOf('=')).trim());
+				accountIds.add(pAndC.Account_GLBL__c);
 			}
 		}
 
-		/*----- build an account query from the fields that were extracted in the previous step -----*/
-		String soqlQuery = 'SELECT Id';
-		for (String field : accountFieldApiNames)
+		/*----- if nothing to process then return -----*/
+		if (pAndCsToProcess.isEmpty())
 		{
-			soqlQuery += ', ' + field;
+			return;
+		}
+
+		/*----- build a queryString to query the parent accounts -----*/
+		String soqlQuery = 'SELECT Id ';
+		for (String field : accountFieldsToQuery)
+		{
+			soqlQuery += ',' + field;
 		}
 		soqlQuery += ' FROM Account WHERE Id IN (';
-		Boolean first = true;
-		for (Id accountId : accountIds)
+		for (Id acctId : accountIds)
 		{
-			if (!first) soqlQuery += ', ';
-			soqlQuery += '\'' + accountId + '\'';
-			if (first) first = false;
+			soqlQuery += '\'' + acctId + '\',';
 		}
+ 		/*----- remove the last comma -----*/
+		soqlQuery = soqlQuery.left(soqlQuery.length()-1);
 		soqlQuery += ')';
 
-		System.debug('\n\n\n>>>>>soqlQuery string is : ' + soqlQuery);
+		/*----- query the accounts into a map -----*/
+		Map<Id, Account> acctMap = new Map<Id, Account>((List<Account>)Database.query(soqlQuery));
 
-		/*----- query for the accounts and add them to a map -----*/
-		Map<Id, Account> accountMap = new Map<Id, Account>( (List<Account>) Database.query(soqlQuery));
-
-		/*----- loop over the pref & consent records in the trigger again, check recod type in mapping and for each
-		        mapping copy the value from the P&C record to the associated field on the account-----*/
-		List<Account> accountsToUpdate = new List<Account>();
-		for (Preferences_and_Consent_GLBL__c pAndC : (List<Preferences_and_Consent_GLBL__c>) Trigger.new)
+		/*----- loop over the Pref and Consent records, parse the Account_Field_Update_MERC__c and update the correct account -----*/
+		for (Preferences_and_Consent_GLBL__c pAndC : pAndCsToProcess)
 		{
-			/*----- only process a record if a mapping exists for the record type and the account exists -----*/
-			if (mappingsByRecordType.containsKey(pAndC.RecordTypeId) && accountMap.containsKey(pAndC.Account_GLBL__c))
+			if (acctMap.containsKey(pAndC.Account_GLBL__c))
 			{
-				Account a = accountMap.get(pAndC.Account_GLBL__c);
-				/*----- for each mapping copy the Pref & Consent field value to the right account field -----*/
-				for (PC_to_Account_Mapping_MERC__c mapping : mappingsByRecordType.get(pAndC.RecordTypeId))
-				{
-					if (String.isNotBlank(mapping.Preference_Type_MERC__c) && pAndC.Preference_Type_MERC__c == mapping.Preference_Type_MERC__c)
-					{
-						/*----- handle a preference record -----*/
-						if (pAndC.Preference_Sub_Type_MERC__c != 'Other')
-						{
-							//TODO: expand this to a method to handle oddball mappings
-							a.put(mapping.Account_Destination_Field_MERC__c, pAndC.Preference_Sub_Type_MERC__c);
-						} else {
-							a.put(mapping.Account_Destination_Field_MERC__c, pAndC.Preference_Value_MERC__c);
-						}
-						accountsToUpdate.add(a);
-					} else {
-						/*----- handle a consent record -----*/
-
-					}
-
-				}
+				String field = pAndC.Account_Field_Update_MERC__c.left(pAndC.Account_Field_Update_MERC__c.indexOf('=')).trim();
+				String value = pAndC.Account_Field_Update_MERC__c.substring(pAndC.Account_Field_Update_MERC__c.indexOf('=')+1).trim();
+				acctMap.get(pAndC.Account_GLBL__c).put(field, value);
 			}
 		}
-		/*----- update the account records -----*/
-		update accountsToUpdate;
+
+		try
+		{
+			update acctMap.values();
+		}
+		catch (System.DMLException ex)
+		{
+			System.debug('\n\n\n' + ex + '\n\n\n');
+			throw new MERC_Exception('An error has occurred updating an associated account.\n' + ex);
+		}
 	}
 }
