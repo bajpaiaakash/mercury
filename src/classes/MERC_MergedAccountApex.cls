@@ -21,17 +21,11 @@ public class MERC_MergedAccountApex {
 			soqlQuery += s + ', ';
 		}
 		/*----- remove the last comma -----*/
-<<<<<<< HEAD
 		soqlQuery = soqlQuery.left(soqlQuery.length() - 2);
 		soqlQuery += ' FROM Account WHERE Id = \'' + winnerId +'\' LIMIT 1';
 
 		System.debug(soqlQuery);
 
-=======
-		soqlQuery.left(soqlQuery.length() - 2);
-		soqlQuery += ' FROM Account WHERE Id = \'' + winnerId +'\' LIMIT 1';
-
->>>>>>> FETCH_HEAD
 		/*----- Use the query string to get the winning and losing account -----*/
 		if (String.isNotBlank(winnerId))
 		{
@@ -71,12 +65,9 @@ public class MERC_MergedAccountApex {
 
 	public class RelatedListGroup
 	{
-<<<<<<< HEAD
 		public List<Schema.FieldSetMember> winningFields { get; private set; }
 		public List<Schema.FieldSetMember> losingFields  { get; private set; }
 
-=======
->>>>>>> FETCH_HEAD
 		private String winningListSoql;
 		private String losingListSoql;
 		private String sObjectName;
@@ -92,19 +83,13 @@ public class MERC_MergedAccountApex {
 
 		public void createWinningListSoql(List<Schema.FieldSetMember> fields)
 		{
-<<<<<<< HEAD
 			winningFields = fields;
-=======
->>>>>>> FETCH_HEAD
 			winningListSoql = MERC_MergedAccountApex.buildSoqlString(fields, sObjectName, parentField, parentId);
 		}
 
 		public void createLosingListSoql(List<Schema.FieldSetMember> fields)
 		{
-<<<<<<< HEAD
 			losingFields = fields;
-=======
->>>>>>> FETCH_HEAD
 			losingListSoql = MERC_MergedAccountApex.buildSoqlString(fields, sObjectName, parentField, parentId);
 		}
 
