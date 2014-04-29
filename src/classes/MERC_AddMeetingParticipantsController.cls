@@ -32,7 +32,7 @@ public with sharing class MERC_AddMeetingParticipantsController {
 	public ApexPages.StandardSetController setCon {
         get {
             setCon = new ApexPages.StandardSetController(Database.getQueryLocator(
-            	[SELECT ID, Account_MERC__c, Services_Rendered_MERC__c, Account_MERC__r.Name FROM Meeting_Participant_MERC__c WHERE Meeting_MERC__c = :ApexPages.currentPage().getParameters().get('id')]));
+            	[SELECT ID, Account_MERC__c, Services_Rendered_MERC__c, Account_MERC__r.Name, Status_MERC__c FROM Meeting_Participant_MERC__c WHERE Meeting_MERC__c = :ApexPages.currentPage().getParameters().get('id')]));
             return setCon;
         }
         set;
@@ -40,7 +40,7 @@ public with sharing class MERC_AddMeetingParticipantsController {
 
     public Integer getMpCount() {
         return [SELECT count() FROM Meeting_Participant_MERC__c WHERE Meeting_MERC__c = :meeting.Id];
-    }
+    }   
 
     public Integer getSrCount() {
         if (this.searchResults == null)
@@ -78,49 +78,49 @@ public with sharing class MERC_AddMeetingParticipantsController {
 
     public List<SelectOption> specialtyPriorityRanks {
         get {
-            return MERC_Util.getCSTPicklistValuesForFieldName('Specialty_priority_rank_CUST__c', true);
+            return MERC_Util.getCSTPicklistValuesForFieldName('Specialty_priority_rank_CUST__c', false);
         }
     }
 
     public List<SelectOption> affiliationPriorityRanks {
         get {
-            return MERC_Util.getCSTPicklistValuesForFieldName('Affiliation_Priority_Rank_Nbr_CUST__c', true);
+            return MERC_Util.getCSTPicklistValuesForFieldName('Affiliation_Priority_Rank_Nbr_CUST__c', false);
         }
     }
 
     public List<SelectOption> affiliationRoleTypes {
         get {
-            return MERC_Util.getCSTPicklistValuesForFieldName('Affiliation_Role_Types_CUST__c', true);
+            return MERC_Util.getCSTPicklistValuesForFieldName('Affiliation_Role_Types_CUST__c', false);
         }
     }
 
     public List<SelectOption> accountClassifications {
         get {
-            return MERC_Util.getCSTPicklistValuesForFieldName('Account_Clsfctn_Cd_CUST__c', true);
+            return MERC_Util.getCSTPicklistValuesForFieldName('Account_Clsfctn_Cd_CUST__c', false);
         }
     }
 
     public List<SelectOption> accountStatusTypes {
         get {
-            return MERC_Util.getCSTPicklistValuesForFieldName('Account_Status_Types_CUST__c', true);
+            return MERC_Util.getCSTPicklistValuesForFieldName('Account_Status_Types_CUST__c', false);
         }
     }
 
     public List<SelectOption> professionalDesignations {
         get {
-            return MERC_Util.getCSTPicklistValuesForFieldName('Account_Bnft_Dsgn_Cd_CUST__c', true);
+            return MERC_Util.getCSTPicklistValuesForFieldName('Account_Bnft_Dsgn_Cd_CUST__c', false);
         }
     }
 
     public List<SelectOption> specialties {
         get {
-            return MERC_Util.getCSTPicklistValuesForFieldName('Specialty_Spclty_Cd_CUST__c', true);
+            return MERC_Util.getCSTPicklistValuesForFieldName('Specialty_Spclty_Cd_CUST__c', false);
         }
     }
 
     public List<SelectOption> alternateIdTypes {
         get {
-            return MERC_Util.getCSTPicklistValuesForFieldName('Altid_Altrnt_Id_Typ_Cd_CUST__c', true);
+            return MERC_Util.getCSTPicklistValuesForFieldName('Altid_Altrnt_Id_Typ_Cd_CUST__c', false);
         }
     }
 
@@ -186,10 +186,12 @@ public with sharing class MERC_AddMeetingParticipantsController {
     public PageReference removeFromMeeting() {
     	try {
     		String meetingParticipantId = MERC_Util.getUrlParam('pid');
-            Meeting_Participant_MERC__c mp = [SELECT Id, Account_MERC__c FROM Meeting_Participant_MERC__c WHERE ID = :meetingParticipantId];
-            String accountId = mp.Account_MERC__c;
-            delete mp;
-            this.meetingParticipantAccountIds.remove(accountId);
+            Meeting_Participant_MERC__c mp = [SELECT Id, Account_MERC__c, Status_MERC__c FROM Meeting_Participant_MERC__c WHERE ID = :meetingParticipantId];
+            mp.Status_MERC__c = 'Cancelled';
+            update mp;
+            //String accountId = mp.Account_MERC__c;
+            //delete mp;
+            //this.meetingParticipantAccountIds.remove(accountId);
     	} catch(Exception e) {
 			this.hasError = true;
 			ApexPages.addMessages(e);

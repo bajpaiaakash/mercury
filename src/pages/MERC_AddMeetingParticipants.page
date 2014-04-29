@@ -15,11 +15,17 @@
 			$(function() {
 				$(".bPageBlock.brandSecondaryBrd.bEditBlock.secondaryPalette").css("border-top-color", "transparent");
 
-				$(".multichosen").chosen({width: "65%"})
+				$(".multichosen").chosen({width: "65%"});
 
 				$('#myTab a').click(function (e) {
 					e.preventDefault()
 				  	$(this).tab('show')
+				})
+
+				$("form[id$='mainForm'] input[type='text']").each(function(){
+					$(this).keypress(function(event){
+						noenter(event);
+					});
 				})
 		  	});
 		})(j);
@@ -33,12 +39,12 @@
 				// console.log(img);
 				img.parent().remove();
 			}
-			toggleLoading();
+			hideLoading();
 		}
 
 		function handleRemoveResponse(el) {
 			// console.log(el);
-			toggleLoading();
+			hideLoading();
 			var controllerHasError = document.getElementById("{!$Component.mainForm.controllerHasError}").innerHTML == "true";
 			if (!controllerHasError) {
 				
@@ -72,6 +78,34 @@
 
 		function hideAddPopovers() {
 			j("div.addToMeetingPopover").hide();
+		}
+
+		function noenter(ev)  {
+			if ((window.event && window.event.keyCode == 13 || ev.which == 13) && ev.type != "change") {
+				ev.preventDefault();
+				//toggleLoading();
+				j("input[id$='searchParticipants']").click();
+				showLoading();
+				return false;
+			} else {
+				//ev.preventDefault();
+				return true;
+			}
+		}
+		function showLoading() {
+			try {
+				$("div.merc-loading").show()
+			} catch(e) {
+				j("div.merc-loading").show()
+			}
+		}
+
+		function hideLoading() {
+			try {
+				$("div.merc-loading").hide()
+			} catch(e) {
+				j("div.merc-loading").hide()
+			}
 		}
 	</script>
 	<style>
@@ -152,7 +186,6 @@
 		<apex:outputPanel id="responseWrapper">
 			<apex:outputText style="display:none;" value="{!hasError}" id="controllerHasError"/>
 		</apex:outputPanel>
-		
 		<!-- Nav tabs -->
 		<ul class="nav nav-tabs" id="myTab">
 			<li class="active"><a href="#search" data-toggle="tab">Search Form</a></li>
@@ -178,8 +211,8 @@
 			  			<apex:pageBlock title="" mode="edit" id="mercuryUserBlock">
 			  				<apex:pageMessages ></apex:pageMessages>
 			  				<apex:pageBlockButtons >
-			  					<apex:commandButton onclick="toggleLoading()" oncomplete="toggleLoading();j('#searchResultTabAnchor').click()" 
-			  						action="{!doSearch}" value="Search" rerender="resultTableWrapper, srCountWrapper"/>
+			  					<apex:commandButton onclick="showLoading()" oncomplete="hideLoading();j('#searchResultTabAnchor').click()" 
+			  						action="{!doSearch}" value="Search" rerender="resultTableWrapper, srCountWrapper" id="searchParticipants"/>
 			  					<apex:commandButton action="{!cancel}" value="Back to Meeting"/>
 			  				</apex:pageBlockButtons>
 			  				<apex:pageBlockSection title="Basic Information">
@@ -394,7 +427,7 @@
 						  									<apex:selectOptions value="{!recordTypeOptions}"/>
 						  								</apex:selectList>
 						  								<div style="margin-top:5px;">
-							  								<apex:commandLink styleClass="btn" value="Add To Meeting" action="{!addToMeeting}" onclick="hideAddPopovers();toggleLoading();" oncomplete="handleAddResponse(this);showMessage('Participant Successfully Added');" rerender="meetingParticipantTableWrapper, responseWrapper, resultTableWrapper, mpCountWrapper">
+							  								<apex:commandLink styleClass="btn" value="Add To Meeting" action="{!addToMeeting}" onclick="hideAddPopovers();showLoading();" oncomplete="handleAddResponse(this);showMessage('Participant Successfully Added');" rerender="meetingParticipantTableWrapper, responseWrapper, resultTableWrapper, mpCountWrapper">
 							  									<apex:param name="aid" value="{!r.sfid}"/>
 							  								</apex:commandLink>
 							  								<apex:outputLink value="javascript:void(0)" styleClass="btn" onclick="hideAddPopovers()">
@@ -445,14 +478,18 @@
 			  				<apex:outputPanel id="meetingParticipantTableWrapper">
 				  				<apex:pageBlockTable value="{!meetingParticipants}" var="p">
 				  					<apex:column width="30">
-				  						<apex:commandLink action="{!removeFromMeeting}" onclick="toggleLoading()" oncomplete="handleRemoveResponse(this);showMessage('Participant Successfully Removed')" rerender="meetingParticipantTableWrapper, responseWrapper, resultTableWrapper, mpCountWrapper">
+				  						<apex:commandLink action="{!removeFromMeeting}" onclick="showLoading()" oncomplete="handleRemoveResponse(this);showMessage('Participant Successfully Cancelled')" rerender="meetingParticipantTableWrapper, responseWrapper, resultTableWrapper, mpCountWrapper" rendered="{!p.Status_MERC__c != 'Cancelled'}">
 				  							<apex:image value="{!urlfor($Resource.mercury, 'img/delete.png')}" style="width:12px;"/>
 				  							<apex:param name="pid" value="{!p.Id}"/>
 				  						</apex:commandLink>
 				  					</apex:column>
+				  					<apex:column width="100">
+				  						<apex:outputLink value="/{!p.Id}/e" target="_blank">Edit Participant</apex:outputLink>
+				  					</apex:column>
 				  					<apex:column value="{!p.Id}"/>
 				  					<apex:column value="{!p.Account_MERC__c}"/>
 				  					<apex:column value="{!p.Account_MERC__r.Name}"/>
+				  					<apex:column value="{!p.Status_MERC__c}"/>
 				  				</apex:pageBlockTable>
 				  			</apex:outputPanel>
 			  			</apex:pageBlock>
