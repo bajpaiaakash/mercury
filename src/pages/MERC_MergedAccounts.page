@@ -11,16 +11,24 @@
 				<apex:commandButton value="Next" action="{!ssc.next}" rendered="{!ssc.hasNext}" reRender="thePageBlock"/>
 			</apex:pageBlockButtons>
 			<apex:pageBlockSection title="Merged Accounts" collapsible="false" columns="1">
+<<<<<<< HEAD
 				<apex:pageBlockTable value="{!accounts}" var="acct" rowClasses="clickable" id="accountTable">
 					<apex:column html-data-record-id="{!acct.detail.id}">
 						<apex:inputCheckbox value="{!acct.selected}"/>
 					</apex:column>
 					<apex:repeat value="{!$ObjectType.Account.FieldSets.Merge_Account_Page_Main_List}" var="f">
         				<apex:column value="{!acct.detail[f]}"/>
+=======
+				<!-- <apex:commandButton value="Mark Selected as Resolved" action="{!markAccountsAsComplete}" rerender="thePageBlock"/> -->
+				<apex:pageBlockTable value="{!accounts}" var="acct" rowClasses="clickable" id="accountTable">
+					<apex:repeat value="{!$ObjectType.Account.FieldSets.Merge_Account_Page_Main_List}" var="f">
+        				<apex:column value="{!acct[f]}"/>
+>>>>>>> FETCH_HEAD
     				</apex:repeat>
 				</apex:pageBlockTable>
 			</apex:pageBlockSection>
 		</apex:pageBlock>
+<<<<<<< HEAD
 
 		<!-- JAVASCRIPT METHOD TO UPDATE THE RELATED LISTS -->
 		<apex:actionFunction name="updateMergeObject" action="{!updateMergeObject}" reRender="relatedLists">
@@ -37,6 +45,10 @@
 				</apex:repeat>
 			</apex:repeat>
 		</apex:outputPanel>
+=======
+		<apex:commandButton value="Previous" action="{!ssc.previous}" reRender="accountTable"/>
+		<apex:commandButton value="Next" action="{!ssc.next}" reRender="accountTable"/>
+>>>>>>> FETCH_HEAD
 	</apex:form>
 
 	<script>

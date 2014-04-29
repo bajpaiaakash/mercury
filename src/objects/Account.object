@@ -130,7 +130,11 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
+<<<<<<< HEAD
             <field>Prsnl_Nbr_GLBL__c</field>
+=======
+            <field>IsPersonAccount</field>
+>>>>>>> FETCH_HEAD
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>

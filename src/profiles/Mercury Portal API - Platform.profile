@@ -341,6 +341,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_MeetingDayNewEditControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_MeetingNewEditController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -366,6 +370,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_MeetingTeamManagerControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_MergedAccountApex</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -3227,6 +3235,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>HCP_Contract_MERC__c.Compliance_Met_Contract_Sent_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>HCP_Contract_MERC__c.Contract_Expiration_Date_MERC__c</field>
         <readable>true</readable>
@@ -3272,6 +3285,14 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+<<<<<<< HEAD
+=======
+        <editable>false</editable>
+        <field>HCP_Contract_MERC__c.Days_from_Contract_Sent_to_Mtg_Date_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+>>>>>>> FETCH_HEAD
         <editable>true</editable>
         <field>HCP_Contract_MERC__c.Description_of_Service_MERC__c</field>
         <readable>true</readable>

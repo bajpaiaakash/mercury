@@ -1,61 +1,178 @@
-!! CUST_MonthlyProcessScheduler: 0% (0/6)
-!! CUST_ProcessScheduler: 0% (0/12)
-CUST_RecordTypeIdLookup: 100% (59/59)
-CUST_RefreshLOVsBatch: 89% (70/79)
-CUST_RefreshLOVsController: 95% (53/56)
-!! CUST_RefreshLOVsReviewController: 0% (0/69)
-CUST_RefreshLOVsUtil: 83% (44/53)
-!! CUST_UserSettingStatusUpdate: 0% (0/26)
-!! CUST_UserSettingsExpireBatchable: 0% (0/25)
-!! CUST_UserSettingsStatusChangeBatchable: 0% (0/83)
-!! CUST_UserSettingsWillExpireBatchable: 0% (0/58)
-CreateCaseRedirectControllerMVN: 100% (15/15)
-GLBL_BaseEditController: 64% (67/105)
-GLBL_CustomerSearchToolService: 100% (109/109)
-GLBL_GenericRelatedListController: 37% (56/153)
-GLBL_GlobalIdAccountLookup: 100% (33/33)
-GLBL_SobjectDataLoader: 94% (162/173)
-GLBL_TriggerHandler: 93% (26/28)
-MERC_AddMeetingParticipantsController: 100% (93/93)
-MERC_AgendaBuilderController: 19% (13/70)
-MERC_AgendaItemNewEditController: 78% (21/27)
-MERC_BudgetVersionController: 71% (45/63)
-MERC_ConsultingProjectCapCalculator: 94% (32/34)
-MERC_ContentVersionHandler: 100% (22/22)
-MERC_DailyAttendanceController: 76% (89/117)
-MERC_DeleteNotifyService: 100% (31/31)
-!! MERC_DocusignEmbeddedSignatureService: 0% (0/69)
-MERC_DocusignRecipientStatusHandler: 67% (14/21)
-MERC_DocusignService: 66% (192/290)
-!! MERC_Exception: 0% (0/3)
-MERC_HandleDocusignAttachmentInsert: 100% (18/18)
-MERC_HcpCapActualsCalculator: 100% (24/24)
-MERC_HcpCapLimitCalculator: 57% (20/35)
-!! MERC_HcpCapYearlyCalculationJob: 0% (0/21)
-!! MERC_HcpCapYearlyCalculationScheduler: 0% (0/12)
-!! MERC_HotelAllocationCalculator: 0% (0/107)
-MERC_InvoiceXmlController: 100% (35/35)
-MERC_InvoiceXmlWriter: 100% (44/44)
-MERC_LockedRecordHandler: 42% (57/135)
-!! MERC_MeetingDateManagerController: 0% (0/15)
-!! MERC_MeetingDateTimesController: 0% (0/42)
-!! MERC_MeetingDayManagerController: 0% (0/253)
-!! MERC_MeetingDayNewEditController: 0% (0/66)
-!! MERC_MeetingNewEditController: 0% (0/59)
-!! MERC_MeetingParticipantNewEditController: 0% (0/74)
-!! MERC_MeetingTeamManagerController: 0% (0/28)
-MERC_NewContentController: 97% (58/60)
-MERC_ParticipantFMVCalculator: 96% (46/48)
-MERC_ParticipantStatusCalculator: 100% (26/26)
-MERC_ParticipantTriggerHandler: 100% (13/13)
-MERC_RequestHCPSignatureController: 78% (62/79)
-MERC_TOVCalculator: 63% (50/80)
-!! MERC_TeamMemberShareHandler: 0% (0/153)
-MERC_TimeZoneUtility: 93% (79/85)
-MERC_TimestampHandler: 92% (22/24)
-!! MERC_TravelItineraryNewEditController: 0% (0/72)
-MERC_Util: 61% (89/147)
-MERC_XmlWriterRestResource: 17% (2/12)
-PersonSearchControllerMVN: 96% (369/386)
-PersonSearchResultMockMVN: 97% (57/59)
-sobjectPartnerSoapSforceCom: 100% (191/191)
+Apex Classes:
+   - CUST_AdminUtilitiesController.cls:
+      - coverage: [          ] 0%	(0/85) !!
+   - CUST_MonthlyProcessScheduler.cls:
+      - coverage: [          ] 0%	(0/6) !!
+   - CUST_ProcessScheduler.cls:
+      - coverage: [          ] 0%	(0/12) !!
+   - CUST_RecordTypeIdLookup.cls:
+      - coverage: [==========] 100%	(59/59)
+   - CUST_RefreshLOVsBatch.cls:
+      - coverage: [========= ] 88%	(68/77)
+   - CUST_RefreshLOVsController.cls:
+      - coverage: [==========] 95%	(53/56)
+   - CUST_RefreshLOVsReviewController.cls:
+      - coverage: [          ] 0%	(0/73) !!
+   - CUST_RefreshLOVsUtil.cls:
+      - coverage: [========  ] 83%	(44/53)
+   - CUST_Scheduler.cls:
+      - coverage: [          ] 0%	(0/105) !!
+   - CUST_UserSettingStatusUpdate.cls:
+      - coverage: [          ] 0%	(0/26) !!
+   - CUST_UserSettingsExpireBatchable.cls:
+      - coverage: [          ] 0%	(0/25) !!
+   - CUST_UserSettingsStatusChangeBatchable.cls:
+      - coverage: [          ] 0%	(0/83) !!
+   - CUST_UserSettingsWillExpireBatchable.cls:
+      - coverage: [          ] 0%	(0/58) !!
+   - CreateCaseRedirectControllerMVN.cls:
+      - coverage: [==========] 100%	(15/15)
+   - GLBL_BaseEditController.cls:
+      - coverage: [=======   ] 67%	(67/100) !
+   - GLBL_CustomerSearchToolService.cls:
+      - coverage: [=====     ] 47%	(54/116) !
+   - GLBL_GenericRelatedListController.cls:
+      - coverage: [======    ] 63%	(96/153) !
+   - GLBL_GlobalIdAccountLookup.cls:
+      - coverage: [==========] 100%	(33/33)
+   - GLBL_SobjectDataLoader.cls:
+      - coverage: [========= ] 94%	(162/173)
+   - GLBL_TriggerHandler.cls:
+      - coverage: [========= ] 93%	(26/28)
+   - MERC_AccountDesignatedIndividualsCounter.cls:
+      - coverage: [=======   ] 71%	(5/7) !
+   - MERC_AccountPreferenceRollupManager.cls:
+      - coverage: [=======   ] 71%	(5/7) !
+   - MERC_AddMeetingParticipantsController.cls:
+      - coverage: [====      ] 39%	(36/93) !
+   - MERC_AgendaBuilderController.cls:
+      - coverage: [==        ] 19%	(13/70) !
+   - MERC_AgendaItemNewEditController.cls:
+      - coverage: [========  ] 78%	(21/27)
+   - MERC_BudgetVersionController.cls:
+      - coverage: [=======   ] 71%	(45/63) !
+   - MERC_ConsultingProjectCapCalculator.cls:
+      - coverage: [========= ] 94%	(32/34)
+   - MERC_ContentVersionHandler.cls:
+      - coverage: [==========] 100%	(22/22)
+   - MERC_DailyAttendanceController.cls:
+      - coverage: [========  ] 76%	(89/117)
+   - MERC_DeleteNotifyService.cls:
+      - coverage: [==========] 97%	(33/34)
+   - MERC_DocusignEmbeddedSignatureService.cls:
+      - coverage: [          ] 0%	(0/69) !!
+   - MERC_DocusignRecipientStatusHandler.cls:
+      - coverage: [=======   ] 67%	(14/21) !
+   - MERC_DocusignService.cls:
+      - coverage: [=======   ] 66%	(192/290) !
+   - MERC_Exception.cls:
+      - coverage: [          ] 0%	(0/3) !!
+   - MERC_HandleDocusignAttachmentInsert.cls:
+      - coverage: [==========] 100%	(18/18)
+   - MERC_HcpCapActualsCalculator.cls:
+      - coverage: [========= ] 92%	(22/24)
+   - MERC_HcpCapLimitCalculator.cls:
+      - coverage: [========= ] 89%	(31/35)
+   - MERC_HcpCapYearlyCalculationJob.cls:
+      - coverage: [          ] 0%	(0/21) !!
+   - MERC_HcpCapYearlyCalculationScheduler.cls:
+      - coverage: [          ] 0%	(0/12) !!
+   - MERC_HotelAllocationCalculator.cls:
+      - coverage: [========= ] 92%	(44/48)
+   - MERC_InvoiceCreditNoteController.cls:
+      - coverage: [==========] 96%	(64/67)
+   - MERC_InvoiceXmlController.cls:
+      - coverage: [==========] 100%	(35/35)
+   - MERC_InvoiceXmlWriter.cls:
+      - coverage: [==========] 100%	(44/44)
+   - MERC_LockedRecordHandler.cls:
+      - coverage: [==========] 97%	(60/62)
+   - MERC_MeetingCancellationHandler.cls:
+      - coverage: [==========] 100%	(36/36)
+   - MERC_MeetingDayManagerController.cls:
+      - coverage: [          ] 0%	(0/253) !!
+   - MERC_MeetingDayNewEditController.cls:
+      - coverage: [          ] 0%	(0/66) !!
+   - MERC_MeetingNewEditController.cls:
+      - coverage: [==========] 100%	(26/26)
+   - MERC_MeetingParticipantNewEditController.cls:
+      - coverage: [========  ] 79%	(30/38)
+   - MERC_MeetingTeamManagerController.cls:
+      - coverage: [          ] 0%	(0/132) !!
+   - MERC_MergedAccountsController.cls:
+      - coverage: [          ] 0%	(0/104) !!
+   - MERC_NewContentController.cls:
+      - coverage: [========= ] 93%	(83/89)
+   - MERC_ParticipantFMVCalculator.cls:
+      - coverage: [==========] 96%	(46/48)
+   - MERC_ParticipantStatusCalculator.cls:
+      - coverage: [==========] 100%	(26/26)
+   - MERC_ParticipantTriggerHandler.cls:
+      - coverage: [==========] 100%	(13/13)
+   - MERC_PrefConsentMappingHandler.cls:
+      - coverage: [==========] 100%	(44/44)
+   - MERC_PrimaryMeetingOwnerHandler.cls:
+      - coverage: [==========] 100%	(10/10)
+   - MERC_RequestHCPSignatureController.cls:
+      - coverage: [========  ] 81%	(65/80)
+   - MERC_TOVCalculator.cls:
+      - coverage: [==========] 95%	(76/80)
+   - MERC_TeamMemberDeletePMO.cls:
+      - coverage: [==========] 100%	(13/13)
+   - MERC_TeamMemberShareHandler.cls:
+      - coverage: [==========] 100%	(91/91)
+   - MERC_TimeZoneUtility.cls:
+      - coverage: [==========] 95%	(81/85)
+   - MERC_TimestampHandler.cls:
+      - coverage: [========= ] 92%	(22/24)
+   - MERC_TravelItineraryNewEditController.cls:
+      - coverage: [========  ] 79%	(26/33)
+   - MERC_Util.cls:
+      - coverage: [========  ] 84%	(123/147)
+   - MERC_XmlWriterRestResource.cls:
+      - coverage: [==========] 100%	(12/12)
+   - PersonSearchControllerMVN.cls:
+      - coverage: [==========] 96%	(369/386)
+   - PersonSearchResultMockMVN.cls:
+      - coverage: [==========] 97%	(57/59)
+   - sobjectPartnerSoapSforceCom.cls:
+      - coverage: [==========] 100%	(191/191)
+Apex Triggers:
+   - CUST_CSTAppSettings.trigger:
+      - coverage: [==========] 100%	(4/4)
+   - CUST_CSTUserLog.trigger:
+      - coverage: [==========] 100%	(4/4)
+   - CUST_CSTUserSettings.trigger:
+      - coverage: [          ] 0%	(0/5) !!
+   - MERC_Account.trigger:
+      - coverage: [==========] 100%	(9/9)
+   - MERC_AgendaItem.trigger:
+      - coverage: [==========] 100%	(10/10)
+   - MERC_Attachment.trigger:
+      - coverage: [==========] 100%	(3/3)
+   - MERC_ContentVersion.trigger:
+      - coverage: [==========] 100%	(9/9)
+   - MERC_DailyAttendanceTOV.trigger:
+      - coverage: [==========] 100%	(12/12)
+   - MERC_DocusignRecipientStatus.trigger:
+      - coverage: [==========] 100%	(4/4)
+   - MERC_Invoice.trigger:
+      - coverage: [==========] 100%	(8/8)
+   - MERC_InvoiceLineItem.trigger:
+      - coverage: [==========] 100%	(6/6)
+   - MERC_Meeting.trigger:
+      - coverage: [==========] 100%	(11/11)
+   - MERC_MeetingDay.trigger:
+      - coverage: [==========] 100%	(14/14)
+   - MERC_MeetingParticipant.trigger:
+      - coverage: [==========] 100%	(16/16)
+   - MERC_MeetingProducts.trigger:
+      - coverage: [          ] 0%	(0/16) !!
+   - MERC_MeetingVendor.trigger:
+      - coverage: [==========] 100%	(9/9)
+   - MERC_PreferencesAndConsent.trigger:
+      - coverage: [==========] 100%	(8/8)
+   - MERC_TeamMember.trigger:
+      - coverage: [==========] 100%	(14/14)
+   - MERC_TravelItinerary.trigger:
+      - coverage: [==========] 100%	(9/9)
