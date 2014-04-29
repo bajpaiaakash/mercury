@@ -5,10 +5,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>CancelEdit</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>Clone</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -24,10 +20,6 @@
         <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -39,10 +31,6 @@
         <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>SaveEdit</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>Tab</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -50,7 +38,6 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Object to store Meeting Participants. Created 9/27/2013 by KLorenti.</description>
     <enableActivities>false</enableActivities>
@@ -64,7 +51,6 @@
         <formula>Account_MERC__r.Cust_Id_GLBL__c</formula>
         <label>Account External</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -78,7 +64,6 @@
         <relationshipName>Event_Participants</relationshipName>
         <relationshipOrder>0</relationshipOrder>
         <reparentableMasterDetail>false</reparentableMasterDetail>
-        <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
@@ -88,7 +73,6 @@
         <externalId>false</externalId>
         <label>Additional Travel Details</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
@@ -107,7 +91,6 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -126,7 +109,6 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -137,7 +119,6 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -147,7 +128,6 @@
         <formula>Meeting_MERC__r.Associated_Countries_MERC__c</formula>
         <label>Associated Countries</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -157,7 +137,6 @@
         <externalId>false</externalId>
         <label>Cancellation Notice Sent</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -168,7 +147,6 @@
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Classification</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -181,7 +159,6 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -193,7 +170,6 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -205,7 +181,6 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -217,7 +192,6 @@
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
-        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -229,7 +203,6 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -240,7 +213,6 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -251,7 +223,6 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -262,7 +233,6 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -273,7 +243,6 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -284,7 +253,6 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -303,7 +271,6 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -312,7 +279,6 @@
         <description>HCP Care to confirm they want to update the Final Fee with the Partial Payment Amount. Created 12/18/2013 by KLorenti, Mavens Consulting.</description>
         <externalId>false</externalId>
         <label>Confirm Partial Payment Amount</label>
-        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -321,7 +287,6 @@
         <description>Only HCP Care can update ToV values after ToV has already been reported. Only HCP Care will have access to this field. Created 02/04/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Confirm ToV Reporting Change</label>
-        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -332,7 +297,6 @@
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Contract Limitations on Use</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -343,7 +307,6 @@
         <externalId>false</externalId>
         <inlineHelpText>CoPay values must be entered as positive amounts.</inlineHelpText>
         <label>Copay Required?</label>
-        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -355,7 +318,6 @@ Created by John A Adams 10/31/2013</description>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Country of Residence</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -367,7 +329,6 @@ Created by John A Adams 10/31/2013</description>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Customer Id</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -378,7 +339,6 @@ Created by John A Adams 3/19/2014</description>
         <externalId>false</externalId>
         <label>Date of Check-In</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -388,7 +348,6 @@ Created by John A Adams 3/19/2014</description>
         <externalId>false</externalId>
         <label>Date of Check-Out</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -401,7 +360,6 @@ Created by John A Adams 3/19/2014</description>
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
-        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -411,7 +369,6 @@ Created by John A Adams 3/19/2014</description>
         <externalId>false</externalId>
         <label>Description of Service</label>
         <length>32768</length>
-        <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -421,7 +378,6 @@ Created by John A Adams 3/19/2014</description>
         <description>Used by portal. Indicates when Meeting Participant has completed the step of dietary preferences during meeting registration. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Dietary Preferences Step Complete</label>
-        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -431,7 +387,6 @@ Created by John A Adams 3/19/2014</description>
         <label>Docusign Contract Status</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -441,7 +396,6 @@ Created by John A Adams 3/19/2014</description>
         <label>Docusign Envelope Id</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -453,7 +407,6 @@ Created by John A Adams 3/19/2014</description>
         <inlineHelpText>PersonEmail</inlineHelpText>
         <label>Email Formula</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -463,7 +416,6 @@ Created by John A Adams 3/19/2014</description>
         <externalId>false</externalId>
         <label>Email</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Email</type>
         <unique>false</unique>
     </fields>
@@ -474,7 +426,6 @@ Created by John A Adams 3/19/2014</description>
         <inlineHelpText>Not required if “Service provider” box is checked on HCP profile. You must ask HCP to provide this data to you for the purposes of logistics and for web services.</inlineHelpText>
         <label>Email to Invite HCP to Web Service</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Email</type>
         <unique>false</unique>
     </fields>
@@ -484,7 +435,6 @@ Created by John A Adams 3/19/2014</description>
         <description>Used by portal. Indicates when Meeting Participant has completed the step of Emergency Contact during meeting registration. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Emergency Contact Step Complete</label>
-        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -496,7 +446,6 @@ Created by John Adams on 12/9/2013</description>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Event Customer Id</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -509,7 +458,6 @@ Created by John Adams on 12/9/2013</description>
         <precision>8</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -529,7 +477,6 @@ Created by John Adams on 12/9/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -539,7 +486,6 @@ Created by John Adams on 12/9/2013</description>
         <formula>Account_MERC__r.FMV_Criteria_Map_MERC__c</formula>
         <label>FMV Criteria Map</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -551,7 +497,6 @@ Created by John Adams on 12/9/2013</description>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -562,7 +507,6 @@ Created by John Adams on 12/9/2013</description>
         <label>Force Unique Participant</label>
         <length>120</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>true</unique>
     </fields>
@@ -573,7 +517,6 @@ Created by John Adams on 12/9/2013</description>
         <formula>IF(Account_MERC__r.RecordType.Name = &quot;Employee&quot;, Account_MERC__r.Prsnl_Nbr_GLBL__c,&quot;&quot;)</formula>
         <label>Global Id</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -585,7 +528,6 @@ Created by John Adams on 12/9/2013</description>
         <label>HCP Info Package Communication Details</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -597,7 +539,6 @@ Created by John Adams on 12/9/2013</description>
         <inlineHelpText>Whether the HCP currently has an Active MSA agreement with Lilly</inlineHelpText>
         <label>Has Active MSA</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -610,7 +551,6 @@ Created by John Adams on 12/9/2013</description>
         <inlineHelpText>Whether the HCP currently has a signed Work Order or Single Event Contract for the Meeting</inlineHelpText>
         <label>Has Signed Contract</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -638,7 +578,6 @@ Created by John Adams on 12/9/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -647,7 +586,6 @@ Created by John Adams on 12/9/2013</description>
         <description>Used by portal to capture if Meeting Participant originally required accommodations, but changed their mind and no longer need them.  Created 04/02/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Hotel No Longer Required</label>
-        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -666,7 +604,6 @@ Created by John Adams on 12/9/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -676,7 +613,6 @@ Created by John Adams on 12/9/2013</description>
         <formula>IF((!ISBLANK(Date_of_Check_In_MERC__c) &amp;&amp; !ISBLANK(Date_of_Check_Out_MERC__c)) ||   Hotel_No_Longer_Required_MERC__c , true, false)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Hotel Step Complete</label>
-        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -688,7 +624,6 @@ Created by John A Adams 1/7/2014</description>
         <label>Immediate Source</label>
         <length>20</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -698,7 +633,6 @@ Created by John A Adams 1/7/2014</description>
         <description>Field created to indicate whether or not CAP should be calculated on the Meeting Participant for the Meeting. Created 12/2/2013 by KLorenti, Mavens Consulting.</description>
         <externalId>false</externalId>
         <label>Include CAP Roll Up</label>
-        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -708,7 +642,6 @@ Created by John A Adams 1/7/2014</description>
         <formula>Account_MERC__r.Institutional_Notification_Complete_MERC__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Institutional Notification Complete</label>
-        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -727,7 +660,6 @@ Created by John A Adams 1/7/2014</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -758,7 +690,6 @@ Created by John A Adams 1/7/2014</description>
             </picklistValues>
             <sorted>true</sorted>
         </picklist>
-        <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -803,7 +734,6 @@ Created by John A Adams 1/7/2014</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
     </fields>
@@ -817,7 +747,6 @@ Created by John A Adams 1/7/2014</description>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -829,7 +758,6 @@ Created by John A Adams 10/31/2013</description>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -839,7 +767,6 @@ Created by John A Adams 10/31/2013</description>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Meeting Date</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -849,7 +776,6 @@ Created by John A Adams 10/31/2013</description>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Meeting End Date</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -858,7 +784,6 @@ Created by John A Adams 10/31/2013</description>
         <formula>Meeting_MERC__r.Mercury_External_Id_MERC__c</formula>
         <label>Meeting External</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -872,7 +797,6 @@ Created by John A Adams 10/31/2013</description>
         <relationshipName>Meeting_Participants_del</relationshipName>
         <relationshipOrder>1</relationshipOrder>
         <reparentableMasterDetail>false</reparentableMasterDetail>
-        <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
@@ -882,7 +806,6 @@ Created by John A Adams 10/31/2013</description>
         <externalId>false</externalId>
         <label>Meeting Owner Email</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Email</type>
         <unique>false</unique>
     </fields>
@@ -893,7 +816,6 @@ Created by John A Adams 10/31/2013</description>
         <formula>IF(ISBLANK( Meeting_MERC__r.Sales_Rep_MERC__c ), Meeting_MERC__r.Meeting_Owner_MERC__r.Prsnl_Nbr_GLBL__c , Meeting_MERC__r.Sales_Rep_MERC__r.Prsnl_Nbr_GLBL__c )</formula>
         <label>Meeting Owner Global Id</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -905,7 +827,6 @@ Created by J Adams 12/10/2013</description>
         <label>Mercury External Id</label>
         <length>50</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -919,7 +840,6 @@ Created by J Adams 12/10/2013</description>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -931,7 +851,6 @@ Created by John A Adams 10/31/2013</description>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -942,7 +861,6 @@ Created by John A Adams 10/31/2013</description>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -961,7 +879,6 @@ Created by John A Adams 10/31/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -980,7 +897,6 @@ Created by John A Adams 10/31/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -990,7 +906,6 @@ Created by John A Adams 10/31/2013</description>
         <label>Participant Search</label>
         <length>120</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1001,7 +916,6 @@ Created by John A Adams 10/31/2013</description>
         <label>Participant Type</label>
         <length>16</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1011,7 +925,6 @@ Created by John A Adams 10/31/2013</description>
         <description>Used by portal. Indicates when Meeting Participant has completed the Payee Information Consent during meeting registration. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Payee Information Consent</label>
-        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -1021,7 +934,6 @@ Created by John A Adams 10/31/2013</description>
         <formula>Account_MERC__r.Payee_and_Bank_Info_Complete_MERC__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Payee and Bank Info Complete</label>
-        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -1033,7 +945,6 @@ Created by John A Adams 10/31/2013</description>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Payment Required</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1053,7 +964,6 @@ Created by John A Adams 10/31/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1063,7 +973,6 @@ Created by John A Adams 10/31/2013</description>
         <label>Contact Id</label>
         <length>18</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1073,7 +982,6 @@ Created by John A Adams 10/31/2013</description>
         <externalId>false</externalId>
         <label>Preferred Departure Airport</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
@@ -1082,7 +990,6 @@ Created by John A Adams 10/31/2013</description>
         <externalId>false</externalId>
         <label>Preferred Departure Station</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
@@ -1094,7 +1001,6 @@ Created by John A Adams 10/31/2013</description>
         <precision>8</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -1114,7 +1020,6 @@ Created by John A Adams 10/31/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1123,7 +1028,6 @@ Created by John A Adams 10/31/2013</description>
         <description>Used by portal to indicate that the Meeting Participant agrees to Lilly gathering this their information related needed for RSVP to meeting. Created 04/02/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Processing of Data Consent</label>
-        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -1134,7 +1038,6 @@ Created by John A Adams 10/31/2013</description>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -1149,7 +1052,6 @@ Created by John A Adams 10/31/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1159,7 +1061,6 @@ Created by John A Adams 10/31/2013</description>
         <formula>Account_MERC__r.Qualifications_Experience_Complete_MERC__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Qualifications and Experience Complete</label>
-        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -1168,7 +1069,6 @@ Created by John A Adams 10/31/2013</description>
         <label>RTI Transaction ID</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1179,7 +1079,6 @@ Created by John A Adams 10/31/2013</description>
         <formula>RecordType.DeveloperName</formula>
         <label>Record Type Name</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1189,7 +1088,6 @@ Created by John A Adams 10/31/2013</description>
         <externalId>false</externalId>
         <label>Registration Comments</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
@@ -1199,7 +1097,6 @@ Created by John A Adams 10/31/2013</description>
         <label>Customer Facing User</label>
         <length>40</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1210,7 +1107,6 @@ Created by John A Adams 10/31/2013</description>
         <externalId>false</externalId>
         <inlineHelpText>Diverts paper information package to Meeting Owner, not HCP.</inlineHelpText>
         <label>Send HCP Info Package to Meeting Owner</label>
-        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -1222,7 +1118,6 @@ Created by John A Adams 10/31/2013</description>
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
-        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -1244,7 +1139,6 @@ Created by John A Adams 10/24/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1256,7 +1150,6 @@ Created by John A Adams 1/7/2014</description>
         <label>Source</label>
         <length>20</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1270,7 +1163,6 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
 )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Speaking</label>
-        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -1281,7 +1173,6 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Speciality</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1291,7 +1182,6 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <description>Used by portal. Indicates when Meeting Participant has consented to Sponsorship Agreement. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Sponsorship Agreement Consent</label>
-        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -1342,7 +1232,6 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1351,7 +1240,6 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <description>Used by portal. Indicates when Meeting Participant has completed the Summary Step during meeting registration. Created 04/16/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Summary Step Complete</label>
-        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -1361,7 +1249,6 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <inlineHelpText>Name of presentation or service.</inlineHelpText>
         <label>Topic Area</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
@@ -1372,7 +1259,6 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -1384,7 +1270,6 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -1398,7 +1283,6 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -1409,7 +1293,6 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -1423,7 +1306,6 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -1435,7 +1317,6 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -1447,7 +1328,6 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Transparency Reporting Consent</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1457,7 +1337,6 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <description>Used by portal. Indicates when Meeting Participant has completed the step of Transparency Reporting Consent during meeting registration. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Transparency Reporting Consent Complete</label>
-        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -1468,7 +1347,6 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -1499,7 +1377,6 @@ IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;),
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
-        <trackTrending>false</trackTrending>
         <type>Percent</type>
     </fields>
     <fields>
@@ -1508,7 +1385,6 @@ IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;),
         <description>Used by portal to capture if Meeting Participant no longer requires travel, when Travel Required was originally set to Yes. Created 04/02/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Travel No Longer Required</label>
-        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -1518,7 +1394,6 @@ IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;),
         <formula>IF(ISPICKVAL(Travel_by_Bus_MERC__c,&quot;Yes&quot;) || ISPICKVAL(Travel_by_Car_MERC__c,&quot;Yes&quot;) ||  ISPICKVAL(Travel_by_Train_MERC__c,&quot;Yes&quot;) || ISPICKVAL( Air_Travel_No_Longer_Required_MERC__c ,&quot;Yes&quot;) || Travel_No_Longer_Required_MERC__c, true, false)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Travel Step Complete</label>
-        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -1549,7 +1424,6 @@ IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;),
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1568,7 +1442,6 @@ IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;),
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1587,7 +1460,6 @@ IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;),
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1606,7 +1478,6 @@ IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;),
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1617,7 +1488,6 @@ Created by John A Adams 12/12/2013</description>
         <label>Transaction Type</label>
         <length>80</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1628,7 +1498,6 @@ Created by John A Adams 12/12/2013</description>
         <label>Territory Code</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1639,7 +1508,6 @@ Created by John A Adams 12/12/2013</description>
         <label>Territory Description</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1664,7 +1532,6 @@ Created by John A Adams 12/12/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1708,7 +1575,6 @@ Created by John A Adams 12/12/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1727,7 +1593,6 @@ Created by John A Adams 12/12/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1737,7 +1602,6 @@ Created by John A Adams 2/18/2014</description>
         <externalId>false</externalId>
         <label>Web Service Update Date</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -1748,7 +1612,6 @@ Created by John A Adams 2/18/2014</description>
         <label>Web Service Update HCP Action</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1760,7 +1623,6 @@ Created by John A Adams 2/18/2014</description>
         <label>Web Service Update HCP Global Id</label>
         <length>40</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1771,7 +1633,6 @@ Created by John A Adams 2/18/2014</description>
         <label>Web Service Update HCP Name</label>
         <length>100</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>

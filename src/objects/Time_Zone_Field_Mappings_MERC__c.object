@@ -10,7 +10,6 @@
         <label>Field API Name</label>
         <length>255</length>
         <required>true</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -20,7 +19,6 @@
         <label>Object API Name</label>
         <length>255</length>
         <required>true</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -30,7 +28,6 @@
         <label>Static Field To Stamp</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -40,7 +37,6 @@
         <label>Time Zone Field API Name</label>
         <length>255</length>
         <required>true</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>

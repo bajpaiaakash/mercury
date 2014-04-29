@@ -341,13 +341,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-<<<<<<< HEAD
-=======
         <apexClass>MERC_MeetingDayNewEditControllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
->>>>>>> FETCH_HEAD
         <apexClass>MERC_MeetingNewEditController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -376,13 +373,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-<<<<<<< HEAD
-=======
         <apexClass>MERC_MergedAccountApex</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
->>>>>>> FETCH_HEAD
         <apexClass>MERC_MergedAccountsController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -499,13 +493,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-<<<<<<< HEAD
-        <apexClass>MergedAccountApexMVN</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-=======
->>>>>>> FETCH_HEAD
         <apexClass>PersonSearchControllerMVN</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -3244,14 +3231,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-<<<<<<< HEAD
-=======
         <editable>false</editable>
         <field>HCP_Contract_MERC__c.Compliance_Met_Contract_Sent_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
->>>>>>> FETCH_HEAD
         <editable>true</editable>
         <field>HCP_Contract_MERC__c.Contract_Expiration_Date_MERC__c</field>
         <readable>true</readable>
@@ -3297,14 +3281,11 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-<<<<<<< HEAD
-=======
         <editable>false</editable>
         <field>HCP_Contract_MERC__c.Days_from_Contract_Sent_to_Mtg_Date_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
->>>>>>> FETCH_HEAD
         <editable>true</editable>
         <field>HCP_Contract_MERC__c.Description_of_Service_MERC__c</field>
         <readable>true</readable>
@@ -7164,6 +7145,11 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>Account.Meeting_Planning_Company_GLBL</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Account.Third_Party_Organization_GLBL</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -7502,16 +7488,4 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <userLicense>Salesforce Platform</userLicense>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ApiEnabled</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ChatterInternalUser</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ViewHelpLink</name>
-    </userPermissions>
 </Profile>

@@ -50,8 +50,6 @@
                 <behavior>Readonly</behavior>
                 <field>Days_Until_Contract_Signed_MERC__c</field>
             </layoutItems>
-<<<<<<< HEAD
-=======
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Days_from_Contract_Sent_to_Mtg_Date_MERC__c</field>
@@ -60,7 +58,6 @@
                 <behavior>Readonly</behavior>
                 <field>Compliance_Met_Contract_Sent_MERC__c</field>
             </layoutItems>
->>>>>>> FETCH_HEAD
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
