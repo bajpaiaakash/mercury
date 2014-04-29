@@ -464,6 +464,15 @@ Created by J Adams 12/10/2013</description>
         <errorConditionFormula>$Setup.Mercury_Settings_MERC__c.Budget_Edit_Validation_MERC__c &amp;&amp; NOT(ISCHANGED(RecordTypeId)) &amp;&amp; (RecordType.DeveloperName == &apos;MERC_Budget_Final&apos;)</errorConditionFormula>
         <errorMessage>You cannot modify a finalised budget.</errorMessage>
     </validationRules>
+    <validationRules>
+        <fullName>Only_one_Draft_Budget_at_a_Time</fullName>
+        <active>true</active>
+        <description>Only allow there to be one draft budget per meeting at any given time</description>
+        <errorConditionFormula>(ISNEW() &amp;&amp; Meeting_MERC__r.Number_of_Draft_Budgets_MERC__c == 1) 
+||
+Meeting_MERC__r.Number_of_Draft_Budgets_MERC__c &gt; 1</errorConditionFormula>
+        <errorMessage>A draft budget is already in process for this meeting.</errorMessage>
+    </validationRules>
     <webLinks>
         <fullName>Finalise_Budget_MERC</fullName>
         <availability>online</availability>

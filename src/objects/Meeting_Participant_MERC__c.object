@@ -426,7 +426,7 @@ Created by John A Adams 3/19/2014</description>
     </fields>
     <fields>
         <fullName>Docusign_Contract_Status_MERC__c</fullName>
-        <description>Stamped by Docusign Connect</description>
+        <description>Stamped by Docusign Connect for the related HCP Contract.</description>
         <externalId>false</externalId>
         <label>Docusign Contract Status</label>
         <length>255</length>
@@ -1647,6 +1647,7 @@ Created by John A Adams 12/12/2013</description>
         <fullName>Type_of_Contract_MERC__c</fullName>
         <description>Created to capture type of contract on Meeting Participant. Created 12/3/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
+        <inlineHelpText>MSA is Master Service Agreement. If the HCP does not want to sign MSA, please select Single Event Contract.</inlineHelpText>
         <label>Type of Contract</label>
         <picklist>
             <picklistValues>

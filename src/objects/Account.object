@@ -116,6 +116,26 @@
         </displayedFields>
         <label>Meeting Team Manager - Mass Add</label>
     </fieldSets>
+    <fieldSets>
+        <fullName>Merge_Account_Page_Main_List</fullName>
+        <description>Fields shown in the Account List at the top of the Merge Account functionality (MERC_MergedAccounts.page)</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>RecordTypeId</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Prsnl_Nbr_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Merge Account Page Main List</label>
+    </fieldSets>
     <fields>
         <fullName>Academic_Qualifications_MERC__c</fullName>
         <description>To record academic qualifications of speakers 
@@ -681,6 +701,18 @@ Created by John A Adams 10/24/2013</description>
         <summaryOperation>count</summaryOperation>
         <trackHistory>false</trackHistory>
         <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Count_Dietary_Preferences_MERC__c</fullName>
+        <description>Field needed to determine if Dietary Preferences/Meals Allergies step has been completed. Used by portal. Created 04/24/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label># Dietary Preferences</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Country_Code_MERC__c</fullName>
@@ -2602,6 +2634,15 @@ Created by John A Adams 10/22/2013</description>
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>Institutional_Notif_Info_Exists_MERC__c</fullName>
+        <description>If designated individuals have been captured or a HCP is Self Employed, the Institutional Notification Information has been gathered.  This field is shown to Meeting Owners and sent back to Veeva.  Oliver Dunford 28th April 2014.</description>
+        <externalId>false</externalId>
+        <formula>IF((of_Designated_Individuals_MERC__c &gt; 0) || ( TEXT(Employment_Specification_MERC__c) = &quot;Self-Employed&quot;), TRUE, FALSE)</formula>
+        <label>Institutional Notification Info Exists</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Institutional_Notification_Complete_MERC__c</fullName>
         <defaultValue>false</defaultValue>
         <description>Used by portal to indicate that the Institutional Notification step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
@@ -3026,18 +3067,6 @@ Created by John A Adams 12/15/2013</description>
             <sorted>false</sorted>
         </picklist>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>P_Cs_Test__c</fullName>
-        <description>test</description>
-        <externalId>false</externalId>
-        <label># P&amp;Cs Test</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackHistory>false</trackHistory>
-        <type>Number</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Paid_CAP_MERC__c</fullName>
@@ -4161,7 +4190,7 @@ Created by John A Adams 10/22/2013</description>
         <externalId>false</externalId>
         <inlineHelpText>Whether the HCP consents to having their information included in Transparency Reports</inlineHelpText>
         <label>Transparency Reporting Consent</label>
-        <length>6</length>
+        <length>30</length>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <type>Text</type>
@@ -4409,6 +4438,7 @@ Created by John A Adams 11/4/2013</description>
     </fields>
     <fields>
         <fullName>of_Designated_Individuals_MERC__c</fullName>
+        <defaultValue>1</defaultValue>
         <externalId>false</externalId>
         <label># of Designated Individuals</label>
         <precision>4</precision>
@@ -13804,6 +13834,174 @@ var url = &apos;https://et4ae.cs18.visual.force.com/apex/exacttargetswitchboard?
         <protected>false</protected>
         <url>{!REQUIRESCRIPT(&quot;/apex/dsfs__DocuSign_JavaScript&quot;)}
 DocuSign_CreateEnvelope();</url>
+    </webLinks>
+    <webLinks>
+        <fullName>et4ae5__ExactTarget_Resubscribe</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>ExactTarget Resubscribe</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)}
+var pacId, didResub;
+try
+{
+pacId=sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;getPACId&quot;, {acctId:&quot;{!CASESAFEID( Account.Id )}&quot;}); 
+didResub=sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;performResub&quot;, {subscriberKey:pacId,objectType:&quot;contact&quot;});
+}
+catch (e)
+{
+pacId=sforce.apex.execute(&quot;jsButtonMethods&quot;,&quot;getPACId&quot;, {acctId:&quot;{!CASESAFEID( Account.Id )}&quot;}); 
+didResub=sforce.apex.execute(&quot;jsButtonMethods&quot;,&quot;performResub&quot;, {subscriberKey:pacId,objectType:&quot;contact&quot;});
+}
+if (didResub==&quot;connection error&quot;)
+{
+alert(&quot;The connection to ExactTarget is currently unavailable. Try your request again later. If the problem persists, please contact your system administrator.&quot;);
+}
+else if (didResub==&quot;not found&quot;)
+{
+alert(&quot;This subscriber could not be found in the All Subscriber List in ExactTarget. The Email Opt Out flag will not be updated.&quot;);
+}
+else if (didResub==&quot;other error&quot;)
+{
+alert(&quot;An unexpected error has been encountered. The Email Opt Out flag will not be updated.&quot;);
+}
+else if (didResub==&quot;not integrated&quot;)
+{
+alert(&quot;You must be integrated with ExactTarget to update an ExactTarget subscriber.&quot;);
+}
+else if (didResub==&quot;success&quot;)
+{
+alert(&quot;{!Account.Name} was resubscribed successfully.&quot;);
+} 
+var theUrl=&quot;/{!Account.Id}&quot;;
+parent.location.href=theUrl;</url>
+    </webLinks>
+    <webLinks>
+        <fullName>et4ae5__ExactTarget_Unsubscribe</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>ExactTarget Unsubscribe</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)}
+var pacId, didUnsub;
+try
+{
+pacId=sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;getPACId&quot;, {acctId:&quot;{!CASESAFEID( Account.Id )}&quot;}); 
+didUnsub=sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;performUnsub&quot;, {subscriberKey:pacId,objectType:&quot;contact&quot;});
+}
+catch (e)
+{
+pacId=sforce.apex.execute(&quot;jsButtonMethods&quot;,&quot;getPACId&quot;, {acctId:&quot;{!CASESAFEID( Account.Id )}&quot;}); 
+didUnsub=sforce.apex.execute(&quot;jsButtonMethods&quot;,&quot;performUnsub&quot;, {subscriberKey:pacId,objectType:&quot;contact&quot;});
+}
+if (didUnsub==&quot;connection error&quot;)
+{
+alert(&quot;The connection to ExactTarget is currently unavailable. Try your request again later. If the problem persists, please contact your system administrator.&quot;);
+}
+else if (didUnsub==&quot;not found&quot;)
+{
+alert(&quot;This subscriber could not be found in the All Subscriber List in ExactTarget. The Email Opt Out flag will not be updated.&quot;);
+}
+else if (didUnsub==&quot;other error&quot;)
+{
+alert(&quot;An unexpected error has been encountered. The Email Opt Out flag will not be updated.&quot;);
+}
+else if (didUnsub==&quot;not integrated&quot;)
+{
+alert(&quot;You must be integrated with ExactTarget to update an ExactTarget subscriber.&quot;);
+}
+else if (didUnsub==&quot;success&quot;)
+{
+alert(&quot;{!Account.Name} was unsubscribed successfully.&quot;);
+} 
+var theUrl=&quot;/{!Account.Id}&quot;;
+parent.location.href=theUrl;</url>
+    </webLinks>
+    <webLinks>
+        <fullName>et4ae5__Send_ExactTarget_Email</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Send ExactTarget Email</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)}
+try
+{
+var urlPrefix = sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;namespace&quot;, {});
+var pacId=sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;getPACId&quot;, {acctId:&quot;{!CASESAFEID( Account.Id )}&quot;});
+var theUrl = &quot;https://et4ae5.&quot;+urlPrefix+&quot;/apex/singleSendETEmail?contactId=&quot;+pacId;
+var npaUrl = parent.location.href;
+if(pacId==&quot;error&quot;)
+{
+parent.location.href = npaUrl;
+}
+else
+{
+parent.location.href = theUrl;
+}
+}
+catch(e)
+{
+var pacId=sforce.apex.execute(&quot;jsButtonMethods&quot;,&quot;getPACId&quot;, {acctId:&quot;{!CASESAFEID( Account.Id )}&quot;});
+var theUrl = &quot;/apex/singleSendETEmail?contactId=&quot;+pacId;
+var npaUrl = parent.location.href;
+if(pacId==&quot;error&quot;)
+{
+parent.location.href = npaUrl;
+}
+else
+{
+parent.location.href = theUrl;
+}
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>et4ae5__View_ExactTarget_Analytics</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>View ExactTarget Analytics</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)}
+try
+{
+var urlPrefix = sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;namespace&quot;, {});
+var pacId=sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;getPACId&quot;, {acctId:&quot;{!CASESAFEID( Account.Id )}&quot;});
+var theUrl = &quot;https://et4ae5.&quot;+urlPrefix+&quot;/apex/SubscriberAnalytics?id=&quot;+pacId+&quot;&amp;obj=contact&quot;;
+var npaUrl = parent.location.href;
+if(pacId==&quot;error&quot;)
+{
+parent.location.href = npaUrl;
+}
+else
+{
+parent.location.href = theUrl;
+}
+}
+catch(e)
+{
+var pacId=sforce.apex.execute(&quot;jsButtonMethods&quot;,&quot;getPACId&quot;, {acctId:&quot;{!CASESAFEID( Account.Id )}&quot;});
+var theUrl = &quot;/apex/SubscriberAnalytics?id=&quot;+pacId+&quot;&amp;obj=contact&quot;;
+var npaUrl = parent.location.href;
+if(pacId==&quot;error&quot;)
+{
+parent.location.href = npaUrl;
+}
+else
+{
+parent.location.href = theUrl;
+}
+}</url>
     </webLinks>
     <webLinks>
         <fullName>primest__Countdown</fullName>

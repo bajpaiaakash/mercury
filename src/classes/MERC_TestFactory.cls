@@ -141,6 +141,8 @@ public with sharing class MERC_TestFactory {
 			Meeting_MERC__c m = new Meeting_MERC__c();
 			m.Date_of_Event_MERC__c = Date.today().addDays(2);
 			m.End_Date_of_Event_MERC__c = Date.today().addDays(2);
+			m.Start_Time_of_Meeting_MERC__c = DateTime.newInstance(Date.today().addDays(2), Time.newInstance(10, 0, 0, 0));
+			m.End_Time_of_Meeting_MERC__c = DateTime.newInstance(Date.today().addDays(2), Time.newInstance(14, 0, 0, 0));
 			m.Name = 'Event Name'+i;
 			m.Meeting_Time_Zone_MERC__c = 'Greenwich Mean Time (Europe/London)';
 			m.Event_Country_MERC__c = countryName;
