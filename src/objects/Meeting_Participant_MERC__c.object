@@ -58,6 +58,46 @@
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
+    <fieldSets>
+        <fullName>Mass_Approve_Meeting_Participants_MERC</fullName>
+        <description>MERC_MassApproveParticipants.page</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Account_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Participant_Typ_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>RecordTypeId</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Country_of_Residence_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Speciality_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Classification_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Mass Approve Meeting Participants</label>
+    </fieldSets>
     <fields>
         <fullName>Account_External_MERC__c</fullName>
         <externalId>false</externalId>
@@ -426,7 +466,7 @@ Created by John A Adams 3/19/2014</description>
     </fields>
     <fields>
         <fullName>Docusign_Contract_Status_MERC__c</fullName>
-        <description>Stamped by Docusign Connect</description>
+        <description>Stamped by Docusign Connect for the related HCP Contract.</description>
         <externalId>false</externalId>
         <label>Docusign Contract Status</label>
         <length>255</length>
@@ -702,6 +742,21 @@ Created by John A Adams 1/7/2014</description>
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Inst_Notification_Lead_Time_MERC__c</fullName>
+        <description>Shows number of days before meeting that the institutional notification was sent. Created 04/29/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>DATEVALUE(Meeting_MERC__r.Start_Time_of_Meeting_MERC__c) - Institutional_Notification_Sent_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>The number of days before meeting that the institutional notification was sent.</inlineHelpText>
+        <label>Institutional Notification Lead Time</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Institutional_Notification_Complete_MERC__c</fullName>
         <description>Used by portal. Pulls from Account record to indicate if Institutional Notification Step is completed by HCP. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -710,6 +765,16 @@ Created by John A Adams 1/7/2014</description>
         <label>Institutional Notification Complete</label>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Institutional_Notification_Sent_MERC__c</fullName>
+        <description>Used to input date the institutional notifications were sent out for the meeting participant. Also needed for reporting. Created 04/29/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date Institutional Notification was sent to Designated Individuals</inlineHelpText>
+        <label>Institutional Notification Sent</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Invoice_Template_Needed_MERC__c</fullName>
@@ -1647,6 +1712,7 @@ Created by John A Adams 12/12/2013</description>
         <fullName>Type_of_Contract_MERC__c</fullName>
         <description>Created to capture type of contract on Meeting Participant. Created 12/3/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
+        <inlineHelpText>MSA is Master Service Agreement. If the HCP does not want to sign MSA, please select Single Event Contract.</inlineHelpText>
         <label>Type of Contract</label>
         <picklist>
             <picklistValues>
@@ -3385,6 +3451,17 @@ Created by John Adams on 11/13/2013</description>
         <openType>sidebar</openType>
         <protected>false</protected>
         <url>/apex/loop__looplus?sessionId={!$Api.Session_ID}&amp;eid={!Meeting_Participant_MERC__c.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Mass_Approve_Participants_MERC</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Mass Approve Participants</masterLabel>
+        <openType>replace</openType>
+        <page>MERC_MassApproveParticipants</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
     </webLinks>
     <webLinks>
         <fullName>Mass_LOOP_Plus</fullName>

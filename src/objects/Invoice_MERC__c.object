@@ -1594,11 +1594,20 @@ Created by John Adams on 11/13/2013</description>
         <masterLabel>Generate Content</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>if ({!Invoice_MERC__c.Line_Items_MERC__c}&lt;1) {
- if (confirm(&apos;There appear to be no Line Items. Continue anyway?&apos;)) {
-location.replace(&apos;/apex/loop__looplus?eid={!Invoice_MERC__c.Id}&amp;sessionId={!$Api.Session_ID}&apos;);
+        <url>if ({!Invoice_MERC__c.Line_Items_MERC__c}&gt;=1)
 
+ {
+   location.replace(&apos;/apex/loop__looplus?eid={!Invoice_MERC__c.Id}&amp;sessionId={!$Api.Session_ID}&apos;);
 }
+
+else
+ 
+  {
+   if (confirm(&apos;There appear to be no Line Items. Continue anyway?&apos;)) 
+    {
+     location.replace(&apos;/apex/loop__looplus?eid={!Invoice_MERC__c.Id}&amp;sessionId= {!$Api.Session_ID}&apos;);
+     }
+
 }</url>
     </webLinks>
     <webLinks>

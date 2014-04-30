@@ -73,8 +73,11 @@ public with sharing class MERC_RequestHCPSignatureController {
     }
 
     //stamp envelopeid on contract and participant
-    @future
+    //@future
     static void stampEnvelope(Id hcpContractId, String envelopeId) {
+        system.debug('------->');
+        system.debug(envelopeId);
+
         HCP_Contract_MERC__c contract = [SELECT ID, Meeting_Participant_MERC__c FROM HCP_Contract_MERC__c WHERE ID = :hcpContractId];
         contract.Docusign_Envelope_Id_MERC__c = envelopeId.toLowerCase();
         update contract;

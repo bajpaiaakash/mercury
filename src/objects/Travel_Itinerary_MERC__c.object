@@ -2283,20 +2283,31 @@ ISCHANGED( Sgmnt_End_TS_MERC__c )) &amp;&amp;
     <validationRules>
         <fullName>Travel_Date_Range</fullName>
         <active>true</active>
-        <description>Ensure that a Travel/Segment date is within 3 days +/- of the Meeting Start or End Date.  This is to accommodate shoulder dates but also limit the dates that can be chosen.  Created on 02/17/2014 by KLorenti.  Modified 4/18/2014 J Adams</description>
-        <errorConditionFormula>/* Segment starts in within 6 days shoulder of Meeting start */
-(
- (Sgmnt_Bgin_TS_MERC__c &gt;= ( Meeting_Start_Date_Time_MERC__c + 3)) || 
- (Sgmnt_Bgin_TS_MERC__c &lt;= ( Meeting_Start_Date_Time_MERC__c - 4)) ||
+        <description>Ensure that a Travel/Segment date is within 3 days +/- of the Meeting Start or End Date.  This is to accommodate shoulder dates but also limit the dates that can be chosen.  Created on 02/17/2014 by KLorenti.  Modified 4/21/2014 J Adams</description>
+        <errorConditionFormula>(
 
-/* Segment ends no later than three days after  Meeting end  —- Check OUT &gt;= Start Meet + ((End Meet +3)  - Start Meet)) */
-  (Sgmnt_End_TS_MERC__c &gt;= 
+/* Rail-Flight Segment starts in within 3 days of Meeting start */
+ ((RecordType.Name&lt;&gt;&quot;Hotel&quot;) &amp;&amp; Sgmnt_Bgin_TS_MERC__c &lt; ( Meeting_Start_Date_Time_MERC__c - 4))||
+
+/* Rail-Flight Segment ends within 3 days shoulder of Meeting end */
+ ((RecordType.Name&lt;&gt;&quot;Hotel&quot;) &amp;&amp; Sgmnt_End_TS_MERC__c &gt; ( Meeting_End_Date_Time_MERC__c + 4)) ||
+
+/* Hotel Segment starts in within 6 days of Meeting start */
+ ((RecordType.Name=&quot;Hotel&quot;) &amp;&amp; Sgmnt_Bgin_TS_MERC__c &lt; ( Meeting_Start_Date_Time_MERC__c - 4))||
+ ((RecordType.Name=&quot;Hotel&quot;) &amp;&amp; Sgmnt_Bgin_TS_MERC__c &gt; ( Meeting_Start_Date_Time_MERC__c + 3))||
+
+/* Hotel Segment ends sooner than in within 3 days shoulder of Meeting end  */
+( (RecordType.Name=&quot;Hotel&quot;) &amp;&amp; (Sgmnt_End_TS_MERC__c &lt;( Meeting_End_Date_Time_MERC__c  - 3))) ||
+
+/* Hotel Segment ends no later than 3 days after Meeting end */
+  (RecordType.Name=&quot;Hotel&quot;) &amp;&amp;
+    (Sgmnt_End_TS_MERC__c &gt;
       ( Meeting_Start_Date_Time_MERC__c +
         (
-           ( Meeting_End_Date_Time_MERC__c - Meeting_Start_Date_Time_MERC__c ) 
-        +3 )
+           ( Meeting_End_Date_Time_MERC__c - Meeting_Start_Date_Time_MERC__c )
+        +4 )
       )
-  )
+   )
 )</errorConditionFormula>
         <errorMessage>The Segment Dates selected must be within 3 +/- days of the start or end of the meeting.</errorMessage>
     </validationRules>

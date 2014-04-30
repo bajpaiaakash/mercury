@@ -141,6 +141,8 @@ public with sharing class MERC_TestFactory {
 			Meeting_MERC__c m = new Meeting_MERC__c();
 			m.Date_of_Event_MERC__c = Date.today().addDays(2);
 			m.End_Date_of_Event_MERC__c = Date.today().addDays(2);
+			m.Start_Time_of_Meeting_MERC__c = DateTime.newInstance(Date.today().addDays(2), Time.newInstance(10, 0, 0, 0));
+			m.End_Time_of_Meeting_MERC__c = DateTime.newInstance(Date.today().addDays(2), Time.newInstance(14, 0, 0, 0));
 			m.Name = 'Event Name'+i;
 			m.Meeting_Time_Zone_MERC__c = 'Greenwich Mean Time (Europe/London)';
 			m.Event_Country_MERC__c = countryName;
@@ -176,6 +178,26 @@ public with sharing class MERC_TestFactory {
 		}
 		insert hotelItineraries;
 		return hotelItineraries;
+	}
+
+	public static List<Preferences_and_Consent_GLBL__c> insertPreferenceForAccounts(List<Account> accounts, String type, String value, Boolean isPrivate) {
+		Id recordTypeId;
+		if (isPrivate)
+			recordTypeId = [SELECT ID FROM RecordType WHERE SobjectType = 'Preferences_and_Consent_GLBL__c' AND DeveloperName = 'Preferences_Private_EVNT_MVN'].Id;
+		else
+			recordTypeId = [SELECT ID FROM RecordType WHERE SobjectType = 'Preferences_and_Consent_GLBL__c' AND DeveloperName = 'Preferences_EVNT_MVN'].Id;
+
+		List<Preferences_and_Consent_GLBL__c> pcs = new List<Preferences_and_Consent_GLBL__c>();
+		for (Account a : accounts) {
+			Preferences_and_Consent_GLBL__c pc = new Preferences_and_Consent_GLBL__c();
+			pc.Account_GLBL__c = a.Id;
+			pc.RecordTypeId = recordTypeId;
+			pc.Preference_Type_MERC__c = type;
+			pc.Preference_Sub_Type_MERC__c = value;
+			pcs.add(pc);
+		}
+		insert pcs;
+		return pcs;
 	}
 
 	public static List<Meeting_Vendor_MERC__c> insertHotelsForMeeting(Integer numberOfHotels, String meetingId) {

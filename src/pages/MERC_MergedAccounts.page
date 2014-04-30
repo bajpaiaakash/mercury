@@ -5,41 +5,52 @@
 	<apex:form >
 		<apex:pageBlock id="thePageBlock">
 
+			<!-- TOP SECTION SHOWING ACCOUNTS -->
+			<apex:pageBlockButtons location="top">
+				<apex:commandButton value="Previous" action="{!ssc.previous}" rendered="{!ssc.hasPrevious}" reRender="thePageBlock"/>
+				<apex:commandButton value="Next" action="{!ssc.next}" rendered="{!ssc.hasNext}" reRender="thePageBlock"/>
+			</apex:pageBlockButtons>
 			<apex:pageBlockSection title="Merged Accounts" collapsible="false" columns="1">
-				<apex:commandButton value="Mark Selected as Resolved" action="{!markAccountsAsComplete}" rerender="thePageBlock"/>
-				<apex:pageBlockTable value="{!mergedAccounts}" var="acct" rowClasses="clickable">
-					<apex:column headerValue="" html-data-record-id="{!acct.detail.Id}">
-						<apex:inputCheckbox value="{!acct.selected}" styleClass="account-check-box"/>
+				<apex:pageBlockTable value="{!accounts}" var="acct" rowClasses="clickable" id="accountTable">
+					<apex:column html-data-record-id="{!acct.detail.id}">
+						<apex:inputCheckbox value="{!acct.selected}"/>
 					</apex:column>
-					<apex:column headerValue="Name" value="{!acct.detail.Name}"/>
-					<apex:column headerValue="Country of Residence" value="{!acct.detail.Country_of_Residence_GLBL__c}"/>
+					<apex:repeat value="{!$ObjectType.Account.FieldSets.Merge_Account_Page_Main_List}" var="f">
+        				<apex:column value="{!acct.detail[f]}"/>
+    				</apex:repeat>
 				</apex:pageBlockTable>
 			</apex:pageBlockSection>
+		</apex:pageBlock>
 
-			<!-- The action function to call when a row is clicked. This is called by a jQuery function below -->
-			<apex:actionFunction name="selectAccount" action="{!selectAccount}" rerender="">
-				<apex:param name="firstParam" assignTo="{!activeAccountId}" value=""/>
-			</apex:actionFunction>
+		<!-- JAVASCRIPT METHOD TO UPDATE THE RELATED LISTS -->
+		<apex:actionFunction name="updateMergeObject" action="{!updateMergeObject}" reRender="relatedLists">
+			<apex:param assignTo="{!activeAccountId}" name="selectedAccount" value=""/>
+		</apex:actionFunction>
 
-			<!-- iterate over relatedList objects and render each set of related list -->
-			<apex:pageBlockSection title="Related list 1" collapsible="true" columns="2">
-				<!-- this section is two columns, output a blank space to slide the button over to column two -->
-				<apex:outputText value=""/>
-				<apex:commandButton value="Move Selected Records"/>
+		<!-- THE RELATED LISTS -->
+		<apex:pageBlock id="relatedLists">
+			<apex:outputText value="{!NOW()}"/>
+			<apex:repeat value="{!mergeObject.allRelatedLists}" var="rl">
+				<apex:pageBlockSection title="{!rl.sObjectLabel}" collapsible="true" columns="2">
+					<apex:pageBlockTable value="{!rl.winningList}" var="object">
+						<apex:column rendered="{!rl.settings.Allow_Winning_Account_Deletes__c}">
+							<apex:inputCheckbox value="{!object.selected}"/>
+						</apex:column>
+						<apex:repeat value="{!rl.winningFields}" var="field">
+							<apex:column value="{!object.detail[field]}" />
+						</apex:repeat>
+					</apex:pageBlockTable>
 
-				<!-- output the two related lists. the first is the list of records for the wining record the second
-				     is the list of records from teh losing record and has checkboxes to select -->
-				<!-- <apex:pageBlockTable value="{!mergedAccounts}" var="acct">
-					<apex:column headerValue="Name" value="{!acct.detail.Name}"/>
-					<apex:column headerValue="Country of Residence" value="{!acct.detail.Country_of_Residence_GLBL__c}"/>
-				</apex:pageBlockTable>
-				<apex:pageBlockTable value="{!mergedAccounts}" var="acct">
-
-					<apex:column headerValue="Name" value="{!acct.detail.Name}"/>
-					<apex:column headerValue="Country of Residence" value="{!acct.detail.Country_of_Residence_GLBL__c}"/>
-				</apex:pageBlockTable> -->
-			</apex:pageBlockSection>
-
+					<apex:pageBlockTable value="{!rl.losingList}" var="object">
+						<apex:column >
+							<apex:inputCheckbox value="{!object.selected}"/>
+						</apex:column>
+						<apex:repeat value="{!rl.losingFields}" var="field">
+							<apex:column value="{!object.detail[field]}" />
+						</apex:repeat>
+					</apex:pageBlockTable>
+				</apex:pageBlockSection>
+			</apex:repeat>
 		</apex:pageBlock>
 	</apex:form>
 
@@ -54,7 +65,7 @@
 			$('tr.clickable').on('click', function(){
 				//When a row is clicked get the account record Id
 				//and call the actionfunction to update the related lists
-				//selectAccount($(this).children().first().data('record-id'));
+				updateMergeObject($(this).children().first().data('record-id'));
 
 			});
 		});

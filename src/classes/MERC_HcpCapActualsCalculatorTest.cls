@@ -44,6 +44,11 @@ private class MERC_HcpCapActualsCalculatorTest {
 
 		system.assertEquals(100, [Select Allocated_CAP_MERC__c FROM Account WHERE Id = :p1.Account_MERC__c].Allocated_CAP_MERC__c); 
 
+		m.Meeting_Status_MERC__c = 'Active';
+		m.Content_Approval_Needed_MERC__c = 'No';
+		m.Meeting_Objectives_MERC__c = 'some objectives';
+		update m;
+
 		m.Meeting_Status_MERC__c = 'Complete';
 		m.Compliant_MERC__c = 'Yes';
 		m.Budget_is_Final_MERC__c = 'Yes';

@@ -423,7 +423,7 @@ Created by John A Adams 2/18/2014</description>
 Created by John A Adams 2/18/2014</description>
         <externalId>false</externalId>
         <label>Web Service Update HCP Global Id</label>
-        <length>8</length>
+        <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>

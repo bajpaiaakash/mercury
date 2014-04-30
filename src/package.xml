@@ -72,7 +72,6 @@
         <members>Mercury_Email_Templates_MERC/Final_Fee_Calculation_Email</members>
         <members>Mercury_Email_Templates_MERC/New_Team_Member_Notification_MERC</members>
         <members>Mercury_Email_Templates_MERC/New_Work_Order_MERC</members>
-        <members>Mercury_Email_Templates_MERC/Non_Compliant_Notification</members>
         <members>Mercury_Email_Templates_MERC/Non_HCP_Approval_MERC</members>
         <members>Mercury_Email_Templates_MERC/Notify_Meeting_Manager_Invoicing_Complete</members>
         <members>Mercury_Email_Templates_MERC/Reminder_Services_Not_Rendered</members>

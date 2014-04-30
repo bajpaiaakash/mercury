@@ -31,6 +31,7 @@ public with sharing class MERC_AgendaBuilderController extends GLBL_GenericRelat
 			}), //childFields
 			'Start_Time_MERC__c' //orderChildrenBy
 		);
+		this.hasError = false;
 	}
 
 	public override PageReference add() {

@@ -38,10 +38,6 @@
                 <field>Has_Signed_Contract_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Docusign_Contract_Status_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Customer_Id_GLBL__c</field>
             </layoutItems>
