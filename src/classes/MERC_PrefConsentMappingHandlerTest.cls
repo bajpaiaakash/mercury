@@ -1,3 +1,8 @@
+/**
+* @author Kyle Thornton
+*
+* This is the unit test class for MERC_PrefConsentMappingHandler.cls
+*/
 @isTest
 public with sharing class MERC_PrefConsentMappingHandlerTest {
 

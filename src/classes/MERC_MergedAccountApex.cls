@@ -1,3 +1,11 @@
+/**
+* @author Kyle Thornton
+*
+* Represents a single Merge History record and the related lists associated to the accounts in the merge history.
+* This class will gather up all of the related lists that can be merged (configured on the Account_Merge_Related_Lists_MERC__c
+* custom setting) and display the records for the winning and losing account side by side. Losing account related list
+* records can then be selected and reparented over to the winning record.
+*/
 public class MERC_MergedAccountApex {
 
 	private Account winningAccount = new Account();

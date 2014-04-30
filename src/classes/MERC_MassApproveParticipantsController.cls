@@ -1,3 +1,19 @@
+/**
+* @author Kyle Thornton
+*
+* Controller for the MERC_MassApproveParticipants page. There are two inner classes to help organize the structure
+* of the page. First there is "SelectableParticipant" which simply wraps a particpant with a boolean. Next there is
+* the "ParticipantGroup" class which contains a list of SelectableParticipant objects and methods to update the status
+* of each participant contained in the list that has been selected.
+*
+* There are three groups 1. Pending Approval 2. Approved 3. Rejected. each group is lazy loaded and can be forced into
+* a refresh by calling refreshTables() which will null each object out and force them to reload.
+*
+* updateSinglParticipant() uses activeparticipantId and activeparticipantstatus values to update a single meeting
+* participant status.
+*
+* Finally, there are two public variables with getters for use on the visualforce page: 1. meeting 2. statusoptions
+*/
 public with sharing class MERC_MassApproveParticipantsController {
 
     /*----- variables set by the updateSingleParticipant actionFunction on MERC_MassApproveParticipants.page -----*/

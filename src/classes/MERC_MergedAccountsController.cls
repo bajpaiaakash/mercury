@@ -1,3 +1,12 @@
+/**
+* @author Kyle Thornton
+*
+* This is the controller for MergedAccounts.page. This controller makes use of the MERC_MergedAccountsApex.cls
+* to display the related lists for a Merge_History_GLBL__c record (represented by the winning account info as the
+* losing account info will have already been wiped by the integration) when it is selected. This will allow a user
+* to select the items from the losing records related lists that should be reparented and move them over to the
+* winning record. The user can then mark then entire record as complete when they are done.
+*/
 public with sharing class MERC_MergedAccountsController {
 
     public Id activeAccountId { get; set; }

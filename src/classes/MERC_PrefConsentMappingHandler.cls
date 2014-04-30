@@ -1,3 +1,14 @@
+/**
+* @author Kyle Thornton
+*
+* This trigger handler is responsible for parsing a value placed in Account_Field_Update_MERC__c in the format
+* <api_name>=<value> where api_name is the api name of the account field on the parent account to write to and
+* value is the actual value to write to that field.
+*
+* The purpose of this functionality is to allow for Preference and Consent values to be written to the account.
+* This trigger remains "dumb" to business process and allows for workflows to be configured to handle the
+* business logic that defines what values should be copied to which fields.
+*/
 public without sharing class MERC_PrefConsentMappingHandler implements GLBL_TriggerHandler.HandlerInterface
 {
 	public void handle()

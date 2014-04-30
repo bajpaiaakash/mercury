@@ -1,3 +1,8 @@
+/**
+* @author Kyle Thornton
+*
+* Unit test class for MERC_PrimaryMeetingOwnerHandler.cls
+*/
 @isTest
 private class MERC_PrimaryMeetingOwnerHandlerTest {
 

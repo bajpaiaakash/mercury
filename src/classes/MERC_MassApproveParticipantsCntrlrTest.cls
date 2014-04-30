@@ -1,3 +1,11 @@
+/**
+* @author Kyle Thornton
+*
+* This is the test class for the MERC_MassApproveParticipants controller that executes
+* tests against the methods to ensure everything is working as expected.
+*/
+
+
 @isTest
 private class MERC_MassApproveParticipantsCntrlrTest
 {
