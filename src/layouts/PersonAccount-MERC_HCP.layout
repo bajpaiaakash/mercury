@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customButtons>Upload_Content_MERC</customButtons>
     <customButtons>Loop__LOOPlus</customButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
@@ -61,6 +62,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Cust_Id_GLBL__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Source_Block_GLBL__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -181,11 +186,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Emergency_Contact_Name_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Emergency_Contact_Phone_Number_MERC__c</field>
+                <field>Primary_Address_Country_GLBL__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -246,6 +247,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Academic_Qualifications_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>FMV_Criteria_Map_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -433,7 +438,6 @@
         <fields>Name</fields>
         <fields>Relationship_Owner_MERC__c</fields>
         <fields>CurrencyIsoCode</fields>
-        <fields>RecordTypeId</fields>
         <fields>Cust_Id_GLBL__c</fields>
         <fields>Country_of_Residence_GLBL__c</fields>
     </miniLayout>
@@ -486,6 +490,8 @@
         <relatedList>Affiliation_GLBL__c.Account_GLBL__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <customButtons>New_Address</customButtons>
+        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Line_1_Adrs_Txt_GLBL__c</fields>
         <fields>Line_2_Adrs_Txt_GLBL__c</fields>
@@ -504,7 +510,6 @@
         <relatedList>Preferences_and_Consent_GLBL__c.Account_GLBL__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <excludeButtons>New</excludeButtons>
         <fields>ACCOUNT.NAME</fields>
         <fields>ACCOUNT.RECORDTYPE</fields>
         <fields>Primary_Addr_Line1_GLBL__c</fields>
@@ -518,19 +523,46 @@
         <fields>VERSION.LAST_UPDATE</fields>
         <relatedList>ContentVersion.Account_GLBL__c</relatedList>
     </relatedLists>
-    <relatedLists>
-        <relatedList>RelatedEntityHistoryList</relatedList>
-    </relatedLists>
     <runAssignmentRulesDefault>true</runAssignmentRulesDefault>
     <showEmailCheckbox>false</showEmailCheckbox>
-    <showHighlightsPanel>false</showHighlightsPanel>
+    <showHighlightsPanel>true</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>
     <showRunAssignmentRulesCheckbox>true</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h11000000Mwfy</masterLabel>
+        <masterLabel>00h11000000Mwfx</masterLabel>
         <sizeX>4</sizeX>
-        <sizeY>0</sizeY>
+        <sizeY>2</sizeY>
+        <summaryLayoutItems>
+            <field>Name</field>
+            <posX>0</posX>
+            <posY>0</posY>
+        </summaryLayoutItems>
+        <summaryLayoutItems>
+            <field>Cust_Id_GLBL__c</field>
+            <posX>0</posX>
+            <posY>1</posY>
+        </summaryLayoutItems>
+        <summaryLayoutItems>
+            <field>Service_Provider_MERC__c</field>
+            <posX>1</posX>
+            <posY>0</posY>
+        </summaryLayoutItems>
+        <summaryLayoutItems>
+            <field>Service_Provider_Tier_MERC__c</field>
+            <posX>1</posX>
+            <posY>1</posY>
+        </summaryLayoutItems>
+        <summaryLayoutItems>
+            <field>PersonEmail</field>
+            <posX>2</posX>
+            <posY>0</posY>
+        </summaryLayoutItems>
+        <summaryLayoutItems>
+            <field>Phone</field>
+            <posX>2</posX>
+            <posY>1</posY>
+        </summaryLayoutItems>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
     </summaryLayout>
 </Layout>

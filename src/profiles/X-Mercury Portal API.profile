@@ -157,10 +157,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>MERC_AccountPreferenceRollupManagerTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>MERC_AddMeetingParticipantsCntlrTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -326,14 +322,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_LockedRecordHandlerTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MERC_MassApproveParticipantsCntrlrTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MERC_MassApproveParticipantsController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -916,16 +904,6 @@
         <editable>true</editable>
         <field>Account.Elctrnc_Adrs_Web_Txt_GLBL__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Emergency_Contact_Name_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Emergency_Contact_Phone_Number_MERC__c</field>
-        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -5034,17 +5012,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Meeting_Participant_MERC__c.Inst_Notification_Lead_Time_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Institutional_Notification_Complete_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Meeting_Participant_MERC__c.Institutional_Notification_Sent_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6871,16 +6839,16 @@
         <layout>Payee_MERC__c-MERC_Payee</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>PersonAccount-MERC_CMS%3A HCP Account</layout>
-        <recordType>PersonAccount.HCP_GLBL</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>PersonAccount-MERC_Contracting Parties</layout>
         <recordType>PersonAccount.Contracting_Party_GLBL</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>PersonAccount-MERC_Employee</layout>
         <recordType>PersonAccount.Employee_GLBL</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>PersonAccount-MERC_HCP</layout>
+        <recordType>PersonAccount.HCP_GLBL</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>PersonAccount-MERC_Non-HCP</layout>
@@ -7255,10 +7223,6 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>MERC_MassApproveParticipants</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>MERC_MeetingDateTimes</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -7344,6 +7308,11 @@
         <default>false</default>
         <recordType>Account.Lilly_Affiliate_Business_GLBL</recordType>
         <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Account.Meeting_Planning_Company_GLBL</recordType>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -7685,76 +7654,4 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <userLicense>Force.com - App Subscription</userLicense>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>AllowUniversalSearch</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ApiEnabled</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>AssignTopics</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ChatterInternalUser</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>CreateCustomizeFilters</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>CreateTopics</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>DistributeFromPersWksp</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>EditEvent</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>EditPublicDocuments</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>EditTask</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>EditTopics</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>EmailMass</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>EmailSingle</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>EnableNotifications</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ExportReport</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>PasswordNeverExpires</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>RunReports</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ViewHelpLink</name>
-    </userPermissions>
 </Profile>
