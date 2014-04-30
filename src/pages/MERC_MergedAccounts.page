@@ -1,58 +1,149 @@
 <apex:page showHeader="true" sidebar="false" tabStyle="Account" controller="MERC_MergedAccountsController">
 	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/jquery.min.js')}"/>
-	<script>$ = jQuery.noConflict();</script>
+	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/mercury.js')}"/>
+	<apex:stylesheet value="{!urlfor($Resource.mercury, 'css/style.css')}"/>
 	<apex:sectionHeader title="Accounts" subtitle="Merge Related Data" />
 	<apex:form >
-		<apex:pageBlock id="thePageBlock">
-
+		<div style="position:relative;">
 			<!-- TOP SECTION SHOWING ACCOUNTS -->
-			<apex:pageBlockButtons location="top">
-				<apex:commandButton value="Previous" action="{!ssc.previous}" rendered="{!ssc.hasPrevious}" reRender="thePageBlock"/>
-				<apex:commandButton value="Next" action="{!ssc.next}" rendered="{!ssc.hasNext}" reRender="thePageBlock"/>
-			</apex:pageBlockButtons>
-			<apex:pageBlockSection title="Merged Accounts" collapsible="false" columns="1">
+			<apex:pageBlock id="accountsBlock" title="Merged Accounts">
+				<apex:pageMessages/>
+				<apex:pageMessage summary="Click on an account to view related objects for merging." severity="Info" strength="3" rendered="{!accounts.size > 0}"/>
+				<apex:pageBlockButtons location="top">
+					<apex:commandButton value="Previous" action="{!ssc.previous}" rendered="{!ssc.hasPrevious}" reRender="accountTable"/>
+					<apex:commandButton value="Next" action="{!ssc.next}" rendered="{!ssc.hasNext}" reRender="accountTable"/>
+				</apex:pageBlockButtons>
 				<apex:pageBlockTable value="{!accounts}" var="acct" rowClasses="clickable" id="accountTable">
-					<apex:column html-data-record-id="{!acct.detail.id}">
-						<apex:inputCheckbox value="{!acct.selected}"/>
-					</apex:column>
 					<apex:repeat value="{!$ObjectType.Account.FieldSets.Merge_Account_Page_Main_List}" var="f">
-        				<apex:column value="{!acct.detail[f]}"/>
+        				<apex:column value="{!acct[f]}"/>
     				</apex:repeat>
+    				<apex:column html-data-record-id="{!acct.id}" width="100px;">
+						<apex:commandButton value="Mark Complete"
+						                    styleClass="complete-button"
+						                    onclick="if(!confirmComplete('{!acct.id}')) return;"
+						                    reRender="dummy"/>
+					</apex:column>
 				</apex:pageBlockTable>
-			</apex:pageBlockSection>
-		</apex:pageBlock>
+			</apex:pageBlock>
 
-		<!-- JAVASCRIPT METHOD TO UPDATE THE RELATED LISTS -->
-		<apex:actionFunction name="updateMergeObject" action="{!updateMergeObject}" reRender="relatedLists">
-			<apex:param assignTo="{!activeAccountId}" name="selectedAccount" value=""/>
-		</apex:actionFunction>
+			<!-- The Mark Complete button needs a target to rerender otherwise it will do a full page refresh.
+			     this is a lightest weight target for the rerender to increase response time -->
+			<apex:outputPanel id="dummy"/>
 
-		<!-- THE RELATED LISTS -->
-		<apex:outputPanel id="relatedLists">
-			<apex:repeat value="{!mergeObject.allRelatedLists}" var="rl">
-				<apex:repeat value="{!rl.winningFields}" var="field">
-					<apex:repeat value="{!rl.winningList}" var="object">
-						<apex:outputText value="object[field]" />
+			<!-- JAVASCRIPT METHOD TO MARK ACCOUNT ROW AS COMPLETED -->
+			<apex:actionFunction name="markMergeObjectComplete" action="{!markMergeObjectComplete}" oncomplete="toggleLoading();bindDomHandlers();" reRender="accountTable,relatedLists">
+				<apex:param assignTo="{!completedMergeId}" name="completedRowId" value=""/>
+			</apex:actionFunction>
+
+			<!-- JAVASCRIPT METHOD TO UPDATE THE RELATED LISTS -->
+			<apex:actionFunction name="updateMergeObject" action="{!updateMergeObject}" oncomplete="toggleLoading();bindDomHandlers();" reRender="relatedLists">
+				<apex:param assignTo="{!activeAccountId}" name="selectedAccount" value=""/>
+			</apex:actionFunction>
+
+
+			<!-- THE RELATED LISTS -->
+			<apex:outputPanel id="relatedLists">
+				<apex:pageBlock title="{!mergeObject.account.name}" rendered="{!mergeObject != null}">
+					<apex:repeat value="{!mergeObject.allRelatedLists}" var="rl">
+						<apex:pageBlockSection title="{!rl.sObjectLabel}" collapsible="true" columns="2">
+
+							<!-- FIRST COLUMN -->
+							<apex:outputPanel id="winningList">
+								<div style="text-align:center;width:100%;font-weight:bold;">Winning Account {!rl.sObjectLabel} Records</div>
+								<div style="min-height:25px;">
+									<apex:commandButton value="Delete Selected Records"
+									                    action="{!rl.deleteSelectedWinningRecords}"
+									                    rendered="{!rl.settings.Allow_Winning_Account_Deletes__c && rl.winningList.size > 0}"
+									                    onclick="toggleLoading();"
+									                    oncomplete="toggleLoading();bindDomHandlers();"
+									                    reRender="winningList, losingList"/>
+								</div>
+								<apex:pageMessage summary="No {!rl.sObjectLabel} records exist for this account" severity="Info" strength="1" rendered="{!rl.winningList.size == 0}"/>
+								<apex:pageBlockTable value="{!rl.winningList}" var="object" rendered="{!rl.winningList.size > 0}">
+									<apex:column rendered="{!rl.settings.Allow_Winning_Account_Deletes__c}">
+										<apex:facet name="header">
+											<input type="checkbox" id="{!rl.sObjectName}-win-select" class="select-all"/>
+										</apex:facet>
+										<apex:inputCheckbox value="{!object.selected}" styleClass="{!rl.sObjectName}-win-select"/>
+									</apex:column>
+									<apex:repeat value="{!rl.winningFields}" var="wField">
+										<apex:column value="{!object.detail[wField]}" />
+									</apex:repeat>
+								</apex:pageBlockTable>
+							</apex:outputPanel>
+
+							<!-- SECOND COLUMN -->
+							<apex:outputPanel id="losingList">
+								<div style="text-align:center;width:100%;font-weight:bold;">Losing Account {!rl.sObjectLabel} Records</div>
+								<div style="min-height:25px;">
+									<apex:commandButton value="Merge Selected Records"
+									                    action="{!rl.mergeSelectedRecords}"
+									                    onclick="toggleLoading();"
+									                    oncomplete="toggleLoading();bindDomHandlers();"
+									                    reRender="winningList, losingList"
+									                    rendered="{!rl.losingList.size > 0}"/>
+								</div>
+								<apex:pageMessage summary="No {!rl.sObjectLabel} records exist for this account" severity="Info" strength="1" rendered="{!rl.losingList.size == 0}"/>
+								<apex:pageBlockTable value="{!rl.losingList}" var="object" rendered="{!rl.losingList.size > 0}">
+									<apex:column>
+										<apex:facet name="header">
+											<input type="checkbox" id="{!rl.sObjectName}-lose-select" class="select-all"/>
+										</apex:facet>
+										<apex:inputCheckbox value="{!object.selected}" styleClass="{!rl.sObjectName}-lose-select"/>
+									</apex:column>
+									<apex:repeat value="{!rl.losingFields}" var="lField">
+										<apex:column value="{!object.detail[lField]}" />
+									</apex:repeat>
+								</apex:pageBlockTable>
+							</apex:outputPanel>
+						</apex:pageBlockSection>
 					</apex:repeat>
-				</apex:repeat>
-			</apex:repeat>
-		</apex:outputPanel>
+				</apex:pageBlock>
+			</apex:outputPanel>
+		</div>
+		<c:MERC_LoadingMask />
 	</apex:form>
 
 	<script>
-		$(function () {
-			$('input.account-check-box').on('click', function(e){
-				//The checkboxes live inside the clickable rows. prevent the click of a
-				//checkbox from invoking the row click
+		j = jQuery.noConflict();
+
+		function confirmComplete(acctId)
+		{
+			if (confirm('Marking a record as complete will delete all related objects for the losing account.\n\nAre you sure?'))
+			{
+				toggleLoading();
+				markMergeObjectComplete(acctId);
+			} else {
+				return false;
+			}
+		}
+
+		function bindDomHandlers() {
+			j('.complete-button').off('click');
+			j('.complete-button').on('click', function(e){
+				//The buttons live inside the clickable rows. prevent the click of a
+				//button from invoking the row click
 				e.stopPropagation();
 			});
 
-			$('tr.clickable').on('click', function(){
+			j('tr.clickable').off('click');
+			j('tr.clickable').on('click', function(){
 				//When a row is clicked get the account record Id
 				//and call the actionfunction to update the related lists
-				updateMergeObject($(this).children().first().data('record-id'));
+				toggleLoading();
+				updateMergeObject(j(this).children().last().data('record-id'));
 
 			});
+
+			j('input.select-all').off('click');
+			j('input.select-all').on('click', function() {
+				var jThis = j(this);
+				j('.' + jThis.attr('id')).prop('checked', jThis.prop('checked'));
+			});
+		}
+
+		j(function () {
+			bindDomHandlers();
 		});
 	</script>
 </apex:page>
