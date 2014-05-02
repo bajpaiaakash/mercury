@@ -46,7 +46,7 @@ public with sharing class MERC_MergedAccountsController {
             mergeHistoryByWinningAccount.put(mh.Winning_Id_GLBL__c, mh);
         }
         ssc = new ApexPages.StandardSetController(mergeHistoryByWinningAccount.values());
-        //ssc.setPageSize(1);
+        ssc.setPageSize(10);
     }
 
     /*----- return the accounts based on the current record set in the set controller ------*/
@@ -74,6 +74,7 @@ public with sharing class MERC_MergedAccountsController {
         return Database.query(soqlQuery);
     }
 
+    /*----- based on activeAccountId get the related mergehistory record and create a MERC_MergedAccountApex object -----*/
     public void updateMergeObject()
     {
         if (mergeHistoryByWinningAccount.containsKey(activeAccountId))
@@ -87,6 +88,12 @@ public with sharing class MERC_MergedAccountsController {
         }
     }
 
+    /*----- use the id stored in completeMergeId to get the correct merge history record. use that record to create a new
+            MERC_MergedAccountApex record and call the destoryLosingRecords() method. This will delete all objects still
+            related to the losing account.
+            set the merge history record to processed. get the current page number, reinitialize the standard set controller
+            and then set the page back to that number.
+            if any error occurs roll everything back and pass the messge onto the page -----*/
     public void markMergeObjectComplete()
     {
         System.Savepoint sp = Database.setSavePoint();
@@ -114,9 +121,13 @@ public with sharing class MERC_MergedAccountsController {
                 initializeSetController();
                 ssc.setPageNumber(currentPageNumber);
             }
+            else
+            {
+                throw new MERC_Exception('Unable to process this row. Please contact an administrator.');
+            }
 
         }
-        catch (System.Exception ex)
+        catch (Exception ex)
         {
             Database.rollback(sp);
             ApexPages.addMessages(ex);
