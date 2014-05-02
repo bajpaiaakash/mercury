@@ -2659,7 +2659,7 @@ Created by John A Adams 10/22/2013</description>
         <fullName>Institutional_Notif_Info_Exists_MERC__c</fullName>
         <description>If designated individuals have been captured or a HCP is Self Employed, the Institutional Notification Information has been gathered.  This field is shown to Meeting Owners and sent back to Veeva.  Oliver Dunford 28th April 2014.</description>
         <externalId>false</externalId>
-        <formula>IF((of_Designated_Individuals_MERC__c &gt; 0) || ( TEXT(Employment_Specification_MERC__c) = &quot;Self-Employed&quot;), TRUE, FALSE)</formula>
+        <formula>IF(( Designated_Individual_Counter_MERC__c  &gt; 0) || ( TEXT(Employment_Specification_MERC__c) = &quot;Self-Employed&quot;), TRUE, FALSE)</formula>
         <inlineHelpText>If the HCP has provided designated individuals for notification or they&apos;re self-employed, this field will be checked.</inlineHelpText>
         <label>Institutional Notification Info Exists</label>
         <trackHistory>false</trackHistory>

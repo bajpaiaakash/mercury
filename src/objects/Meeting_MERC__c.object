@@ -739,6 +739,17 @@ Created by John A Adams 10/25/2013</description>
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>End_Date_of_Meeting_plus_60_Days_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>End_Date_of_Event_MERC__c + 60.00</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>End Date of Meeting plus 60 Days</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>End_Time_In_Meeting_Time_Zone_MERC__c</fullName>
         <externalId>false</externalId>
         <label>End Time (Meeting Time Zone)</label>
@@ -1542,6 +1553,7 @@ Created by John Adams 11/6/2013</description>
         <defaultValue>0</defaultValue>
         <description>Used by Account Manager to input number of errors on the meeting. Used for SLA Reporting.</description>
         <externalId>false</externalId>
+        <inlineHelpText>All meeting financial data is complete and without errors.  Affiliate Account Managers include the number of errors encountered within this field to drive SLA reporting.</inlineHelpText>
         <label>Meeting Errors</label>
         <precision>6</precision>
         <required>false</required>
@@ -9614,7 +9626,7 @@ else
     <webLinks>
         <fullName>Meeting_Report_MERC</fullName>
         <availability>online</availability>
-        <description>Displays List of Meeting Particpants</description>
+        <description>Displays List of Meeting Participants</description>
         <displayType>link</displayType>
         <encodingKey>UTF-8</encodingKey>
         <hasMenubar>false</hasMenubar>

@@ -9,26 +9,17 @@
 */
 public with sharing class MERC_MergedAccountsController {
 
-    public Id activeAccountId { get; set; }
-    public ApexPages.StandardSetController ssc { get; set; }
-    public MERC_MergedAccountApex mergeObject { get; set; }
+    public Id                              activeAccountId  { get; set; }
+    public Id                              completedMergeId { get; set; }
+    public ApexPages.StandardSetController ssc              { get; set; }
+    public MERC_MergedAccountApex          mergeObject      { get; set; }
 
     private String                         baseAcctSoqlQuery;
     private Map<Id, Merge_History_GLBL__c> mergeHistoryByWinningAccount;
 
     public MERC_MergedAccountsController() {
-        mergeHistoryByWinningAccount = new Map<Id, Merge_History_GLBL__c>();
-        for (Merge_History_GLBL__c mh : [SELECT Id
-                                              , Winning_Id_GLBL__c
-                                              , Original_Account_ID_GLBL__c
-                                              , Merge_Processed_MERC__c
-                                          FROM Merge_History_GLBL__c
-                                          WHERE Merge_Processed_MERC__c = false])
-        {
-            mergeHistoryByWinningAccount.put(mh.Winning_Id_GLBL__c, mh);
-        }
-        ssc = new ApexPages.StandardSetController(mergeHistoryByWinningAccount.values());
-        //ssc.setPageSize(1);
+        /*----- initialize the standard set contorller -----*/
+        initializeSetController();
 
         /*----- set up the base query for the accounts so we don't need to build this in getAccounts
                 every time a navigation button is clicked -----*/
@@ -42,38 +33,54 @@ public with sharing class MERC_MergedAccountsController {
         baseAcctSoqlQuery += ' FROM Account WHERE Id IN (';
     }
 
+    private void initializeSetController()
+    {
+        mergeHistoryByWinningAccount = new Map<Id, Merge_History_GLBL__c>();
+        for (Merge_History_GLBL__c mh : [SELECT Id
+                                              , Winning_Id_GLBL__c
+                                              , Original_Account_ID_GLBL__c
+                                              , Merge_Processed_MERC__c
+                                          FROM Merge_History_GLBL__c
+                                          WHERE Merge_Processed_MERC__c = false])
+        {
+            mergeHistoryByWinningAccount.put(mh.Winning_Id_GLBL__c, mh);
+        }
+        ssc = new ApexPages.StandardSetController(mergeHistoryByWinningAccount.values());
+        ssc.setPageSize(10);
+    }
+
     /*----- return the accounts based on the current record set in the set controller ------*/
-    public List<SelectableAccount> getAccounts()
+    public List<Account> getAccounts()
     {
         if (ssc.getRecords().isEmpty())
         {
-            return new List<SelectableAccount>();
+            return new List<Account>();
         }
         String soqlQuery =  baseAcctSoqlQuery;
         Boolean afterFirst = false;
         for (SObject mh : ssc.getRecords())
         {
-            soqlQuery += afterFirst ? ',' : '';
-            soqlQuery += '\'' + mh.get('Winning_Id_GLBL__c') + '\'';
-            afterFirst = true;
+            /*----- If either lookup is null it will cause errors later, also can't merge if we don't
+                    have two objects to merge so pointless to grab it anyway -----*/
+            if (mh.get('Winning_Id_GLBL__c') != null && mh.get('Original_Account_ID_GLBL__c') != null)
+            {
+                soqlQuery += afterFirst ? ',' : '';
+                soqlQuery += '\'' + mh.get('Winning_Id_GLBL__c') + '\'';
+                afterFirst = true;
+            }
         }
         soqlQuery += ')';
 
-        List<SelectableAccount> wrappedAccts = new List<SelectableAccount>();
-        for (Account acct : Database.query(soqlQuery))
-        {
-            wrappedAccts.add(new SelectableAccount(acct));
-        }
-        return wrappedAccts;
+        return Database.query(soqlQuery);
     }
 
+    /*----- based on activeAccountId get the related mergehistory record and create a MERC_MergedAccountApex object -----*/
     public void updateMergeObject()
     {
         if (mergeHistoryByWinningAccount.containsKey(activeAccountId))
         {
             Merge_History_GLBL__c activeMH = mergeHistoryByWinningAccount.get(activeAccountId);
             mergeObject = new MERC_MergedAccountApex(activeMH.Winning_Id_GLBL__c, activeMH.Original_Account_ID_GLBL__c);
-            System.debug(mergeObject.getAllRelatedLists());
         }
         else
         {
@@ -81,15 +88,49 @@ public with sharing class MERC_MergedAccountsController {
         }
     }
 
-    public class SelectableAccount
+    /*----- use the id stored in completeMergeId to get the correct merge history record. use that record to create a new
+            MERC_MergedAccountApex record and call the destoryLosingRecords() method. This will delete all objects still
+            related to the losing account.
+            set the merge history record to processed. get the current page number, reinitialize the standard set controller
+            and then set the page back to that number.
+            if any error occurs roll everything back and pass the messge onto the page -----*/
+    public void markMergeObjectComplete()
     {
-        public Account detail   { get; private set; }
-        public Boolean selected { get; set; }
-
-        public SelectableAccount(Account acct)
+        System.Savepoint sp = Database.setSavePoint();
+        try
         {
-            detail = acct;
-            selected = false;
+            if (mergeHistoryByWinningAccount.containsKey(completedMergeId))
+            {
+                Merge_History_GLBL__c activeMH = mergeHistoryByWinningAccount.get(completedMergeId);
+                MERC_MergedAccountApex deleteObject = new MERC_MergedAccountApex(activeMH.Winning_Id_GLBL__c, activeMH.Original_Account_ID_GLBL__c);
+
+                /*----- delete all child records associated with the losing account -----*/
+                deleteObject.destroyLosingRecords();
+
+                /*----- set the merge history object to processed -----*/
+                activeMH.Merge_Processed_MERC__c = true;
+                update activeMH;
+
+                /*----- clear the mergeObject so there is no confusion which account related lists belong to
+                        after clicking a "completed" button for a row in the account table -----*/
+                mergeObject = null;
+
+                /*----- reinitialize the set controller to make sure the item marked as complete is
+                        removed and make sure the same page is shown -----*/
+                Integer currentPageNumber = ssc.getPageNumber();
+                initializeSetController();
+                ssc.setPageNumber(currentPageNumber);
+            }
+            else
+            {
+                throw new MERC_Exception('Unable to process this row. Please contact an administrator.');
+            }
+
+        }
+        catch (Exception ex)
+        {
+            Database.rollback(sp);
+            ApexPages.addMessages(ex);
         }
     }
 }

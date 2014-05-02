@@ -138,15 +138,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Total_Food_Beverage_ToV_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Total_Ground_Transporation_ToV_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Total_Registration_ToV_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Total_Food_Beverage_ToV_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -217,6 +217,10 @@
                 <behavior>Edit</behavior>
                 <field>Preferred_Departure_Airport_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Preferred_Departure_Depot_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -235,6 +239,10 @@
                 <behavior>Edit</behavior>
                 <field>Additional_Travel_Details_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Sponsorship_Agreement_Consent_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -247,10 +255,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Processing_of_Data_Consent_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Sponsorship_Agreement_Consent_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

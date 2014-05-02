@@ -278,6 +278,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
+                <field>Total_Food_Beverage_ToV_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
                 <field>Total_Ground_Transporation_ToV_MERC__c</field>
             </layoutItems>
             <layoutItems>
@@ -375,6 +379,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Preferred_Departure_Airport_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Preferred_Departure_Depot_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

@@ -162,25 +162,44 @@ public with sharing class MERC_AddMeetingParticipantsController {
     	return null;
     }
 
-    public PageReference addToMeeting() {
-    	try {
-    		String accountId = MERC_Util.getUrlParam('aid');
-	    	Meeting_Participant_MERC__c m = new Meeting_Participant_MERC__c();
-	    	m.Account_MERC__c = accountId;
-	    	m.Meeting_MERC__c = meeting.Id;
-            m.RecordTypeId = newParticipantRecordTypeId;
-	    	insert m;
-            this.meetingParticipantAccountIds.add(accountId);
-	    } catch(Exception e) {
-			this.newParticipantRecordTypeId = null;
-            this.hasError = true;
-			ApexPages.addMessages(e);
+    public PageReference addToMeetingAndRedirect(){
+        Id participantId = addAcctToMeeting();
+        System.debug('Participant Id: ' + participantId);
+        if(participantId != null){
+            PageReference page = new PageReference('/' + participantId + '/e');
+            return page;
+        } else{
             return null;
-	    }
+        }
+    }
+
+    public PageReference addToMeeting() {
+    	addAcctToMeeting();
+	    return null;
+    }
+
+    public Id addAcctToMeeting(){
+        Meeting_Participant_MERC__c m = new Meeting_Participant_MERC__c();
+        try {
+            String accountId = MERC_Util.getUrlParam('aid');
+            System.debug('SELECTED RECORD TYPE: ' + newParticipantRecordTypeId);
+            m.Account_MERC__c = accountId;
+            m.Meeting_MERC__c = meeting.Id;
+            m.RecordTypeId = newParticipantRecordTypeId;
+            System.debug(m);
+            insert m;
+            this.meetingParticipantAccountIds.add(accountId);
+        } catch(Exception e) {
+            System.debug(e);
+            this.newParticipantRecordTypeId = null;
+            this.hasError = true;
+            ApexPages.addMessages(e);
+            return null;
+        }
 
         this.newParticipantRecordTypeId = null;
         this.hasError = false;
-	    return null;
+        return m.Id;
     }
 
     public PageReference removeFromMeeting() {

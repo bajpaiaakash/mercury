@@ -1,6 +1,6 @@
 Hello,
 
-You have been added to the Meeting {!Team_Member_MERC__c.Meeting_MERC__c}, {!Meeting_MERC__c.Date_of_Event_MERC__c} - {!Meeting_MERC__c.End_Date_of_Event_MERC__c}
+You have been added to the Meeting {!Meeting_MERC__c.Name}, {!IF(Meeting_MERC__c.End_Date_Meeting_Time_Zone_MERC__c <> Meeting_MERC__c.Start_Date_Meeting_Time_Zone_MERC__c, Meeting_MERC__c.Start_Date_Meeting_Time_Zone_MERC__c + " - " + Meeting_MERC__c.End_Date_Meeting_Time_Zone_MERC__c, Meeting_MERC__c.Start_Date_Meeting_Time_Zone_MERC__c) }
 
 {!Meeting_MERC__c.OwnerFullName} is the key business contact for this meeting. You have been added with the role of {!Team_Member_MERC__c.Role_MERC__c}. 
 

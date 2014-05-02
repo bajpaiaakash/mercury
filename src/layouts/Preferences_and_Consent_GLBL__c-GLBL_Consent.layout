@@ -44,10 +44,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Interaction_Channel_Type_GLBL__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
                 <field>Cmnctn_Chnl_Desc_GLBL__c</field>
             </layoutItems>
             <layoutItems>

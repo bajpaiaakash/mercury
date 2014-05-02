@@ -430,6 +430,9 @@
 							  								<apex:commandLink styleClass="btn" value="Add To Meeting" action="{!addToMeeting}" onclick="hideAddPopovers();showLoading();" oncomplete="handleAddResponse(this);showMessage('Participant Successfully Added');" rerender="meetingParticipantTableWrapper, responseWrapper, resultTableWrapper, mpCountWrapper">
 							  									<apex:param name="aid" value="{!r.sfid}"/>
 							  								</apex:commandLink>
+							  								<apex:commandLink styleClass="btn" value="Add To Meeting and Edit" action="{!addToMeetingAndRedirect}" onclick="hideAddPopovers();showLoading();" oncomplete="handleAddResponse(this);showMessage('Participant Successfully Added');">
+							  									<apex:param name="aid" value="{!r.sfid}"/>
+							  								</apex:commandLink>
 							  								<apex:outputLink value="javascript:void(0)" styleClass="btn" onclick="hideAddPopovers()">
 							  									Cancel
 							  								</apex:outputLink>

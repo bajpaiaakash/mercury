@@ -8,8 +8,9 @@
 */
 public class MERC_MergedAccountApex {
 
+
     private Account winningAccount = new Account();
-    private Id      losingAccountId;
+    @TestVisible private Id      losingAccountId;
     private List<RelatedListGroup> relatedLists;
     private static Map<String, Account_Merge_Related_Lists_MERC__c> relatedListSettings = Account_Merge_Related_Lists_MERC__c.getAll();
 
@@ -18,7 +19,7 @@ public class MERC_MergedAccountApex {
         losingAccountId = loserId;
 
         /*----- Build the query string for the winning account from the field set -----*/
-        Set<String> acctFieldSet = new Set<String>{'Id'};
+        Set<String> acctFieldSet = new Set<String>{'Id', 'Name'};
         for(Schema.FieldSetMember fsm : Schema.SObjectType.Account.fieldSets.Merge_Account_Page_Main_List.getFields())
         {
             acctFieldSet.add(fsm.getFieldPath());
@@ -49,19 +50,27 @@ public class MERC_MergedAccountApex {
         }
     }
 
+    public Account getAccount()
+    {
+        return winningAccount;
+    }
+
     public List<RelatedListGroup> getAllRelatedLists()
     {
         if (relatedLists == null)
         {
             relatedLists = new List<RelatedListGroup>();
 
+            /*----- Loop over the custom settings to determine the Describes we need to perform -----*/
             List<String> objectsForSchema = new List<String>();
             for (Account_Merge_Related_Lists_MERC__c rl : relatedListSettings.values())
             {
                 objectsForSchema.add(rl.Name);
             }
+            /*----- get a list of describe objects -----*/
             List<Schema.DescribeSObjectResult> descResults = Schema.describeSObjects(objectsForSchema);
 
+            /*----- loop over the describe objects and create the RelatedListGroup objects for each one -----*/
             for(Schema.DescribeSObjectResult dr : descResults)
             {
                 Account_Merge_Related_Lists_MERC__c settings = relatedListSettings.get(dr.getName());
@@ -80,16 +89,47 @@ public class MERC_MergedAccountApex {
         return relatedLists;
     }
 
+    /*----- when a losing record is marked complete we can destroy all of the data that is not needed -----*/
+    public void destroyLosingRecords()
+    {
+        /*----- loop over each of the related list groups and unwrap each sObject
+                from the losingList and add it to a list of sObjects -----*/
+        List<SObject> sObjectsToDelete = new List<SObject>();
+        for (RelatedListGroup rl : getAllRelatedLists())
+        {
+            for (SelectableSObject so : rl.losingList)
+            {
+                sObjectsToDelete.add(so.detail);
+            }
+        }
+        try
+        {
+            delete sObjectsToDelete;
+            /*----- once the objects are successfully deleted, clear each losing list -----*/
+            for (RelatedListGroup rl : getAllRelatedLists())
+            {
+                rl.losingList = null;
+            }
+        }
+        catch (System.Exception ex)
+        {
+            System.debug('\n\n\nException: ' + ex + '\n\n\n');
+            ApexPages.addMessages(ex);
+        }
+
+
+    }
+
     public class RelatedListGroup
     {
-        public List<Schema.FieldSetMember> winningFields    { get; private set; }
-        public List<Schema.FieldSetMember> losingFields     { get; private set; }
-        public String                      sObjectLabel     { get; private set; }
-        public Account_Merge_Related_Lists_MERC__c settings { get; private set; }
+        public List<Schema.FieldSetMember>         winningFields { get; private set; }
+        public List<Schema.FieldSetMember>         losingFields  { get; private set; }
+        public String                              sObjectLabel  { get; private set; }
+        public String                              sObjectName   { get; private set; }
+        public Account_Merge_Related_Lists_MERC__c settings      { get; private set; }
 
         private String winningListSoql;
         private String losingListSoql;
-        private String sObjectName;
         private String winningAccountId;
         private String losingAccountId;
 
@@ -119,6 +159,8 @@ public class MERC_MergedAccountApex {
             return MERC_MergedAccountApex.buildSoqlString(fields, sObjectName, settings.Parent_Account_Field_MERC__c, accountId);
         }
 
+        /*----- lazy load the winning and losing lists as singletons.
+                This allows us to refresh each list by setting it to null -----*/
         public List<SelectableSObject> winningList
         {
             get
@@ -145,6 +187,7 @@ public class MERC_MergedAccountApex {
             private set;
         }
 
+        /*----- query for sObject using the passed in soql query string and wrap the results in a SelectableSObject -----*/
         private List<SelectableSObject> queryAndWrapSObjects(String query)
         {
             List<SelectableSObject> results = new List<SelectableSObject>();
@@ -155,10 +198,35 @@ public class MERC_MergedAccountApex {
             return results;
         }
 
+        /*----- loop over the winning records and add the selected items to a list.
+               delete that list and null the winningList to force a refresh -----*/
+        public void deleteSelectedWinningRecords()
+        {
+            List<SObject> objectsToDelete = new List<SObject>();
+            for (SelectableSObject so : winningList)
+            {
+                if (so.selected)
+                {
+                    objectsToDelete.add(so.detail);
+                }
+            }
+            try
+            {
+                delete objectsToDelete;
+                /*----- force a refresh of the winning list -----*/
+                winningList = null;
+            }
+            catch(System.Exception ex)
+            {
+                ApexPages.addMessages(ex);
+            }
+        }
+
+        /*----- loop over the losing list, set the parent account to be the winning account
+                and then update that list. null out the winning and losing lists to force a refresh -----*/
         public void mergeSelectedRecords()
         {
-            List<SObject> objectsToUpdate              = new List<SObject>();
-            List<SelectableSObject> nonSelectedObjects = new List<SelectableSObject>();
+            List<SObject> objectsToUpdate = new List<SObject>();
 
             for (SelectableSObject so : losingList)
             {
@@ -168,19 +236,17 @@ public class MERC_MergedAccountApex {
                     so.detail.put(settings.Parent_Account_Field_MERC__c, winningAccountId);
                     objectsToUpdate.add(so.detail);
                 }
-                else
-                {
-                    nonSelectedObjects.add(so);
-                }
             }
 
             try
             {
                 update objectsToUpdate;
-                /*----- update the losing list to only the non-reparented items -----*/
-                losingList = nonSelectedObjects;
+                /*----- force a refresh of the lists -----*/
+                winningList = null;
+                losingList = null;
+
             }
-            catch(System.DMLException ex)
+            catch(System.Exception ex)
             {
                 ApexPages.addMessages(ex);
             }

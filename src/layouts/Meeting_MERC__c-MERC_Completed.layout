@@ -63,11 +63,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Lock_Meeting_MERC__c</field>
+                <field>Meeting_Errors_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Meeting_Errors_MERC__c</field>
+                <field>Lock_Meeting_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>End_Date_of_Meeting_plus_60_Days_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

@@ -1,9 +1,9 @@
 <apex:page showHeader="true" sidebar="true" tabStyle="Meeting_Participant_MERC__c" standardController="Meeting_Participant_MERC__c" recordSetVar="a" extensions="MERC_MassApproveParticipantsController">
 	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/jquery.min.js')}"/>
 	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/mercury.js')}"/>
-	<apex:includeScript value="{!urlfor($Resource.DataTables, 'js/jquery.dataTables.min.js')}"/>
+	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/jquery.dataTables.min.js')}"/>
 	<apex:stylesheet value="{!urlfor($Resource.mercury, 'css/style.css')}"/>
-	<apex:stylesheet value="{!urlfor($Resource.DataTables, 'css/jquery.dataTables.css')}"/>
+	<apex:stylesheet value="{!urlfor($Resource.mercury, 'css/jquery.dataTables.css')}"/>
 	<apex:sectionHeader title="{!meeting.Name}" subtitle="{!$ObjectType.Meeting_Participant_MERC__c.labelPlural}" />
 	<style>
 		.activeTab {
