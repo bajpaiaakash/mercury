@@ -13,7 +13,11 @@
 			margin-top: 20px;
 		}
 
-		.collapse-section { cursor: pointer; }
+		.collapse-section {
+			cursor: pointer;
+			position: relative;
+			top: 2px;
+		}
 
 		.show { display: inline;}
 		.hide { display: none; }
