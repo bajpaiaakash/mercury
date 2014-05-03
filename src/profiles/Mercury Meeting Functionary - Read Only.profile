@@ -97,6 +97,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ETAuthorizer</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ETObject</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -159,6 +163,10 @@
     <classAccesses>
         <apexClass>GLBL_TriggerHandler</apexClass>
         <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_AccountDesignatedIndividualCntrTest</apexClass>
+        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_AccountDesignatedIndividualsCounter</apexClass>
@@ -1043,6 +1051,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Govt_Flg_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.HCP_Country_of_Residence_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

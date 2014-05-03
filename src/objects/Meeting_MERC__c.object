@@ -9663,6 +9663,17 @@ else
         <url>http://lillynet.global.lilly.com/sites/CandE/GeneralResources/Pages/MeetingsWithHCPs.aspx</url>
     </webLinks>
     <webLinks>
+        <fullName>Send_Email</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Send Email</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/apex/MeetingEmailSend?id={!Meeting_MERC__c.Id}</url>
+    </webLinks>
+    <webLinks>
         <fullName>Upload_Content_MERC</fullName>
         <availability>online</availability>
         <displayType>button</displayType>

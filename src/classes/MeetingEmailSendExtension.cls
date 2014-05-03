@@ -1,8 +1,23 @@
 public with sharing class MeetingEmailSendExtension {
     public MeetingEmailSendExtension(ApexPages.StandardController stdController) {
         this.meeting = (Meeting_MERC__c)stdController.getRecord();
-        FromAddress = 'donotreply@lilly.com';
+        if (meeting == null || meeting.Id == null) {
+            AddErrorMessage('You must specify a meeting id.');
+        }
+
         emails = new List<ETObject.EmailFolder>();
+        callControl = new etCallControl();
+
+        Sonoma_ET_Config__c config = Sonoma_ET_Config__c.getInstance();
+        if (config == null) {
+            AddErrorMessage('No configuration object was found. Please contact your administrator.');
+        }
+        else if (config.Default_From_Email__c == null) {
+            AddErrorMessage('Invalid email from email address. Please contact your administrator to correct this.');
+        }
+        else {
+            FromAddress = config.Default_From_Email__c;
+        }
     }
 
     public boolean IsAllChecked { get; set; }
@@ -35,6 +50,10 @@ public with sharing class MeetingEmailSendExtension {
         // TODO
     }
 
+    public boolean getHasErrors() {
+        return ApexPages.hasMessages(ApexPages.Severity.ERROR);
+    }
+
     private class SelectedWrapper
     {
         public SelectedWrapper(Meeting_Participant_MERC__c p) {
@@ -46,6 +65,10 @@ public with sharing class MeetingEmailSendExtension {
         public boolean IsSelected { get; set; }
     }
 
+    private void AddErrorMessage(String message) {
+        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, message));
+    }
+
     /* FROM ET */
     public boolean showEmailChooser { get; set; }
     public List<ETObject.EmailFolder> emails { get; set; }
@@ -54,20 +77,8 @@ public with sharing class MeetingEmailSendExtension {
 
     public void listExactTargetEmails()
     {
-        //if ([SELECT integration_type__c FROM configuration__c WHERE isdeleted=false][0].integration_type__c=='Enterprise2.0')
-        //{
-        //    list<business_unit__c> selectedBU=[SELECT business_unit_id__c FROM business_unit__c WHERE id=:send.business_unit__c];
-        //    if (selectedBU.size() == 1)
-        //    {
-        //        emails=callControl.getExactTargetEmails(selectedBU[0].business_unit_id__c);
-        //        showEmailChooser=true;
-        //    }
-        //}
-        //else 
-        //{
-        //    emails=callControl.getExactTargetEmails(null);
-        //    showEmailChooser=true;
-        //}
+        emails=callControl.getExactTargetEmails(null);
+        showEmailChooser=true;
     }
 
     public void selectEmailCancel()
@@ -78,12 +89,12 @@ public with sharing class MeetingEmailSendExtension {
     public void expandFolder()
     {
         //string searchId=apexPages.currentPage().getParameters().get('folderId');
-        //configuration__c c=[SELECT integration_type__c,username__c,password__c,auth_api_url__c,retry__c,root_rest_api_url__c FROM configuration__c LIMIT 1];
+        //et4ae5__configuration__c c=[SELECT integration_type__c,username__c,password__c,auth_api_url__c,retry__c,root_rest_api_url__c FROM et4ae5__configuration__c LIMIT 1];
         //string ceScope=[SELECT exacttarget_oauth_token__c FROM user WHERE id=:userInfo.getUserId() LIMIT 1].exacttarget_oauth_token__c;
         //string token='';
         //if(c.integration_type__c=='Enterprise2.0')
         //{
-        //    string mid=[SELECT business_unit_id__c FROM business_unit__c WHERE id=:send.business_unit__c][0].business_unit_id__c;
+        //    string mid=[SELECT et4ae5__Business_Unit_ID__c FROM et4ae5__Business_Unit__c WHERE id=:send.et4ae5__Business_Unit__c][0].et4ae5__Business_Unit_ID__c;
         //    system.debug('mid: '+mid);
         //    token=callControl.oauthScoped(c.username__c,c.password__c,ceScope,mid,c.auth_api_url__c);
         //}

@@ -72,6 +72,10 @@
                 <behavior>Readonly</behavior>
                 <field>Primary_Address_Country_GLBL__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>HCP_Country_of_Residence_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns/>
         <style>TwoColumnsLeftToRight</style>

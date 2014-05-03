@@ -2,6 +2,7 @@
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Generate_Content_MERC</customButtons>
     <customButtons>Upload_Content_MERC</customButtons>
+    <customButtons>Send_Email</customButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -192,6 +193,7 @@
     </layoutSections>
     <relatedLists>
         <customButtons>Meeting_Team_Manager_MERC</customButtons>
+        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>User_MERC__c</fields>
         <fields>Account_MERC__c</fields>

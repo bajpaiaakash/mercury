@@ -497,9 +497,10 @@ Created by John A Adams 3/19/2014</description>
     </fields>
     <fields>
         <fullName>Dietary_Preferences_Step_Complete_MERC__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>Used by portal. Indicates when Meeting Participant has completed the step of dietary preferences during meeting registration. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <description>If Dietary Preference Values exist, then this step is considered completed. Created 05/02/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
+        <formula>IF(Account_MERC__r.Count_Dietary_Preferences_MERC__c &gt; 0, true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Dietary Preferences Step Complete</label>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>

@@ -1,5 +1,6 @@
 <apex:page showHeader="true" sidebar="false" standardController="Meeting_MERC__c" extensions="MeetingEmailSendExtension">
-    <apex:form >
+    <apex:pageMessages />
+    <apex:form rendered="{!NOT(HasErrors)}">
     	<apex:pageBlock id="block">
             <apex:pageBlockButtons location="bottom">
                 <apex:commandButton value="Send" disabled="{!!OptIn}"/>
