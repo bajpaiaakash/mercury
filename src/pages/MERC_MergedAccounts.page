@@ -27,7 +27,7 @@
 		<div style="position:relative;">
 			<!-- TOP SECTION SHOWING ACCOUNTS -->
 			<apex:pageBlock id="accountsBlock" title="Merged Accounts">
-				<apex:pageMessages />
+				<apex:pageMessages/>
 				<apex:pageMessage summary="Click on an account to view related objects for merging." severity="Info" strength="3" rendered="{!accounts.size > 0}"/>
 				<apex:pageBlockButtons location="top">
 					<apex:commandButton value="Previous" action="{!ssc.previous}" rendered="{!ssc.hasPrevious}" onclick="toggleLoading();" oncomplete="toggleLoading();bindDomHandlers();" reRender="accountsBlock"/>
@@ -94,7 +94,7 @@
 											</apex:facet>
 											<apex:inputCheckbox value="{!object.selected}" styleClass="{!rl.sObjectName}-win-select"/>
 										</apex:column>
-										<apex:column ><a href="/{!object.detail.id}" target="_blank">View</a></apex:column>
+										<apex:column><a href="/{!object.detail.id}" target="_blank">View</a></apex:column>
 										<apex:repeat value="{!rl.winningFields}" var="field">
 											<apex:column value="{!object.detail[field]}">
 												<apex:facet name="header">{!field.label}</apex:facet>
@@ -117,13 +117,13 @@
 									</div>
 									<apex:pageMessage summary="No {!rl.sObjectLabel} records exist for this account" severity="Info" strength="1" rendered="{!rl.losingList.size == 0}"/>
 									<apex:pageBlockTable value="{!rl.losingList}" var="object" rendered="{!rl.losingList.size > 0}">
-										<apex:column >
+										<apex:column>
 											<apex:facet name="header">
 												<input type="checkbox" id="{!rl.sObjectName}-lose-select" class="select-all"/>
 											</apex:facet>
 											<apex:inputCheckbox value="{!object.selected}" styleClass="{!rl.sObjectName}-lose-select"/>
 										</apex:column>
-										<apex:column ><a href="/{!object.detail.id}" target="_blank">View</a></apex:column>
+										<apex:column><a href="/{!object.detail.id}" target="_blank">View</a></apex:column>
 										<apex:repeat value="{!rl.losingFields}" var="field">
 											<apex:column value="{!object.detail[field]}">
 												<apex:facet name="header">{!field.label}</apex:facet>
