@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
-        <actionName>CallHighlightAction</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>CancelEdit</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>Delete</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -17,15 +9,7 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>EmailHighlightAction</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>EnableCustomerPortalUser</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Follow</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -37,23 +21,11 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>MapHighlightAction</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>New</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>NewsHighlightAction</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>RequestUpdate</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>SaveEdit</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -68,14 +40,8 @@
         <actionName>ViewCustomerPortalUser</actionName>
         <type>Default</type>
     </actionOverrides>
-    <actionOverrides>
-        <actionName>WebsiteHighlightAction</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
-    <enableHistory>true</enableHistory>
     <fieldSets>
         <fullName>Meeting_Team_Manager_Mass_Add</fullName>
         <description>Meeting Team Manager search Results tab</description>
@@ -232,6 +198,15 @@ Created by John A Adams 10/2/2013</description>
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
+        <fullName>Account_Auto_Number_GLBL__c</fullName>
+        <description>Unique Auto Number field used by Web Services to create a secure/obfuscated Account Id. Created by John Lorenti 2014-05-05.</description>
+        <displayFormat>A-{000000}</displayFormat>
+        <externalId>true</externalId>
+        <label>Account_Auto_Number</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
         <fullName>Advisory_Board_Experience_MERC__c</fullName>
         <description>Stores experience in advisory boards
 Created by John A Adams 10/16/2013</description>
@@ -288,6 +263,16 @@ Created by John A Adams 11/4/2013</description>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Anonymize_Record_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicates that this record is related to a non-hcp meeting participant and should be anonymized (via workflows)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates that this record is related to a non-hcp meeting participant and should be anonymized (via workflows)</inlineHelpText>
+        <label>Anonymize Record</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Approval_MERC__c</fullName>
@@ -666,6 +651,18 @@ Created by John A Adams 10/24/2013</description>
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Contracting_Parties_Counter_MERC__c</fullName>
+        <description>Count of the number of Contracting Parties assigned to this HCP is calculated by trigger. Created 05/04/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Contracting Parties Counter</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Cost_Cntr_Nbr_GLBL__c</fullName>
         <description>Workforce ODS data. Created 10/17/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -713,6 +710,26 @@ Created by John A Adams 10/24/2013</description>
         <trackHistory>false</trackHistory>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Count_Tax_Invoices_Info_MERC__c</fullName>
+        <description>Counts the number of payee records where the VAT ID and Tax ID are populated. Used by Portal to determine if Tax/Invoice ID step is complete. Created 05/04/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Count Tax/Invoices Info</label>
+        <summaryFilterItems>
+            <field>Payee_MERC__c.Tax_Id_MERC__c</field>
+            <operation>notEqual</operation>
+            <value>&quot;&quot;</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Payee_MERC__c.VAT_ID_MERC__c</field>
+            <operation>notEqual</operation>
+            <value>&quot;&quot;</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Payee_MERC__c.Account_MERC__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
     </fields>
     <fields>
         <fullName>Country_Code_MERC__c</fullName>
@@ -2374,6 +2391,19 @@ Created by John A Adams 11/4/2013</description>
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>HCP_Contracting_Party_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup relationship to associate Contracting Party to an HCP Account. Created 04/04/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>HCP for Contracting Party</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Contracting Parties</relationshipLabel>
+        <relationshipName>HCPs_Contracting_Party</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>HCP_Country_of_Residence_MERC__c</fullName>
         <description>Stamped from HCP Country of Residence onto Designated Individuals and Contracting Party accounts to handle visibility by territory based on HCP&apos;s country of residence. Created 05/02/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -2383,6 +2413,20 @@ Created by John A Adams 11/4/2013</description>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>HCP_Designated_Individuals_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup relationship to associate Designated Individual to an HCP Account. Created 04/04/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The HCP who indicated this person as their Designated Individual</inlineHelpText>
+        <label>HCP for Designated Individual</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Designated Individuals</relationshipLabel>
+        <relationshipName>Designated_Individuals</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>HCP_Info_Package_Status_MERC__c</fullName>
@@ -2406,20 +2450,6 @@ Created by John A Adams 11/4/2013</description>
         </picklist>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>HCP_MERC__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>Lookup relationship to associate Designated Individual to an HCP Account. Created 04/04/2014 by KLorenti, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <inlineHelpText>The HCP who indicated this person as their Designated Individual</inlineHelpText>
-        <label>HCP</label>
-        <referenceTo>Account</referenceTo>
-        <relationshipLabel>Designated Individuals</relationshipLabel>
-        <relationshipName>Designated_Individuals</relationshipName>
-        <required>false</required>
-        <trackHistory>true</trackHistory>
-        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Has_MSA_Contract_MERC__c</fullName>
@@ -3216,7 +3246,7 @@ Created by John A Adams 12/10/2013</description>
         <formula>IF(Payee_Info_Step_Complete_MERC__c  &amp;&amp;
  Transfer_Info_Step_Complete_MERC__c &amp;&amp;
  Contract_Signing_Parties_Complete_MERC__c &amp;&amp; 
- Tax_Invoices_Step_Complete_MERC__c, true, false)</formula>
+ Tax_Invoices_Step_Complete_OLD__c, true, false)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Payee and Bank Info Complete</label>
         <trackHistory>false</trackHistory>
@@ -4086,10 +4116,20 @@ Created by John A Adams 12/10/2013</description>
     </fields>
     <fields>
         <fullName>Tax_Invoices_Step_Complete_MERC__c</fullName>
+        <description>Used by portal to indicate that the Tax/Invoices sub-step is complete on the HCP Information Package. Created on 05/04/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>true</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Tax/Invoices Step Complete</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Tax_Invoices_Step_Complete_OLD__c</fullName>
         <defaultValue>false</defaultValue>
         <description>Used by portal to indicate that the Tax/Invoices sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <label>Tax/Invoices Step Complete</label>
+        <label>Tax/Invoices Step Complete_OLD</label>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -4736,7 +4776,7 @@ Created by John A Adams 11/4/2013</description>
     <namedFilters>
         <fullName>Account_00N11000000ePSAEA2</fullName>
         <active>true</active>
-        <field>Account.HCP_MERC__c</field>
+        <field>Account.HCP_Designated_Individuals_MERC__c</field>
         <filterItems>
             <field>Account.RecordTypeId</field>
             <operation>equals</operation>
@@ -4744,6 +4784,18 @@ Created by John A Adams 11/4/2013</description>
         </filterItems>
         <isOptional>false</isOptional>
         <name>Account_Designated Individual</name>
+    </namedFilters>
+    <namedFilters>
+        <fullName>Account_00N11000000fVQlEAM</fullName>
+        <active>true</active>
+        <field>Account.HCP_Contracting_Party_MERC__c</field>
+        <filterItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>HCP</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+        <name>Account_HCP</name>
     </namedFilters>
     <namedFilters>
         <fullName>Account_Parent</fullName>

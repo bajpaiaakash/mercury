@@ -5,10 +5,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>CancelEdit</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>Clone</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -21,19 +17,11 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>SaveEdit</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -44,7 +32,6 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Junction object between Meeting Participant and Agenda. Created by John A Adams 10/3/2013</description>
     <enableActivities>false</enableActivities>
@@ -53,6 +40,15 @@
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
     <fields>
+        <fullName>Anonymize_Record_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicates that this record is related to a non-hcp meeting participant and should be anonymized (via workflows)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates that this record is related to a non-hcp meeting participant and should be anonymized (via workflows)</inlineHelpText>
+        <label>Anonymize Record</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Assigned_Topic_MERC__c</fullName>
         <description>Track topic assigned to speaker. Created 10/08/2013 by KLorenti.</description>
         <externalId>false</externalId>
@@ -60,7 +56,6 @@
         <label>Assigned Topic</label>
         <length>100</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -72,7 +67,6 @@
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Meeting Day</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -84,7 +78,6 @@
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Meeting ID</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -99,7 +92,6 @@ Created by John A Adams 10/3/2013</description>
         <relationshipLabel>Participant Agendas Items</relationshipLabel>
         <relationshipName>Participant_Sessions</relationshipName>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -110,7 +102,6 @@ Created by J Adams 12/10/2013</description>
         <label>Mercury External Id</label>
         <length>150</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -125,7 +116,6 @@ Meeting_Participant_MERC__r.Account_MERC__r.FirstName
 Meeting_Participant_MERC__r.Account_MERC__r.LastName</formula>
         <label>Name</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -140,7 +130,6 @@ Created by John A Adams 10/3/2013</description>
         <relationshipName>Participant_Sessions</relationshipName>
         <relationshipOrder>0</relationshipOrder>
         <reparentableMasterDetail>false</reparentableMasterDetail>
-        <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
@@ -152,7 +141,6 @@ Created by John A Adams 10/3/2013</description>
         <label>Speaker Topic Title</label>
         <length>100</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
