@@ -29,17 +29,17 @@ private class MERC_AccountRollupHandlerTest {
 			for (Account a : hcpAccounts)
 			{
 				String randomString = MERC_Util.generateRandomString(8);
-				relatedAccounts.add( new Account( FirstName    = 'UnitTestDI'
-					                       , LastName     = randomString + 'di'
-					                       , RecordTypeId = desIndvRecTypeId
-					                       , PersonEmail  = 'ut-'+randomString+'@gmail.com'
-					                       , HCP_MERC__c  = a.Id)
+				relatedAccounts.add( new Account( FirstName  = 'UnitTestDI'
+					                       , LastName        = randomString + 'di'
+					                       , RecordTypeId    = desIndvRecTypeId
+					                       , PersonEmail     = 'ut-'+randomString+'@gmail.com'
+					                       , HCP_Designated_Individuals_MERC__c  = a.Id)
 				);
-				relatedAccounts.add( new Account( FirstName    = 'UnitTestCP'
-					                       , LastName     = randomString + 'cp'
-					                       , RecordTypeId = contrPartyTypeId
-					                       , PersonEmail  = 'ut-'+randomString+'@gmail.com'
-					                       , HCP_MERC__c  = a.Id)
+				relatedAccounts.add( new Account( FirstName = 'UnitTestCP'
+					                       , LastName       = randomString + 'cp'
+					                       , RecordTypeId   = contrPartyTypeId
+					                       , PersonEmail    = 'ut-'+randomString+'@gmail.com'
+					                       , HCP_Contracting_Party_MERC__c  = a.Id)
 				);
 			}
 
@@ -66,17 +66,17 @@ private class MERC_AccountRollupHandlerTest {
 			for (Integer i=0; i<100; i++)
 			{
 				String randomString = MERC_Util.generateRandomString(8);
-				relatedAccounts.add( new Account( FirstName    = 'UnitTest'
-					                       , LastName     = randomString + 'di'
-					                       , RecordTypeId = desIndvRecTypeId
-					                       , PersonEmail  = 'ut-'+randomString+'@gmail.com'
-					                       , HCP_MERC__c  = hcpAccounts[0].Id)
+				relatedAccounts.add( new Account( FirstName = 'UnitTest'
+					                       , LastName       = randomString + 'di'
+					                       , RecordTypeId   = desIndvRecTypeId
+					                       , PersonEmail    = 'ut-'+randomString+'@gmail.com'
+					                       , HCP_Designated_Individuals_MERC__c  = hcpAccounts[0].Id)
 				);
-				relatedAccounts.add( new Account( FirstName    = 'UnitTest'
-					                       , LastName     = randomString + 'cp'
-					                       , RecordTypeId = contrPartyTypeId
-					                       , PersonEmail  = 'ut-'+randomString+'@gmail.com'
-					                       , HCP_MERC__c  = hcpAccounts[0].Id)
+				relatedAccounts.add( new Account( FirstName = 'UnitTest'
+					                       , LastName       = randomString + 'cp'
+					                       , RecordTypeId   = contrPartyTypeId
+					                       , PersonEmail    = 'ut-'+randomString+'@gmail.com'
+					                       , HCP_Contracting_Party_MERC__c  = hcpAccounts[0].Id)
 				);
 			}
 			insert relatedAccounts;
@@ -95,17 +95,17 @@ private class MERC_AccountRollupHandlerTest {
 			for (Integer i=0; i<100; i++)
 			{
 				String randomString = MERC_Util.generateRandomString(8);
-				relatedAccounts.add( new Account( FirstName    = 'UnitTest'
-					                       , LastName     = randomString + 'di'
-					                       , RecordTypeId = desIndvRecTypeId
-					                       , PersonEmail  = 'ut-'+randomString+'@gmail.com'
-					                       , HCP_MERC__c  = hcpAccounts[0].Id)
+				relatedAccounts.add( new Account( FirstName = 'UnitTest'
+					                       , LastName       = randomString + 'di'
+					                       , RecordTypeId   = desIndvRecTypeId
+					                       , PersonEmail    = 'ut-'+randomString+'@gmail.com'
+					                       , HCP_Designated_Individuals_MERC__c = hcpAccounts[0].Id)
 				);
-				relatedAccounts.add( new Account( FirstName    = 'UnitTest'
-					                       , LastName     = randomString + 'cp'
-					                       , RecordTypeId = contrPartyTypeId
-					                       , PersonEmail  = 'ut-'+randomString+'@gmail.com'
-					                       , HCP_MERC__c  = hcpAccounts[0].Id)
+				relatedAccounts.add( new Account( FirstName = 'UnitTest'
+					                       , LastName       = randomString + 'cp'
+					                       , RecordTypeId   = contrPartyTypeId
+					                       , PersonEmail    = 'ut-'+randomString+'@gmail.com'
+					                       , HCP_Contracting_Party_MERC__c  = hcpAccounts[0].Id)
 				);
 			}
 			insert relatedAccounts;
@@ -114,14 +114,18 @@ private class MERC_AccountRollupHandlerTest {
 			Test.startTest();
 			for (Account a : relatedAccounts)
 			{
-				a.HCP_MERC__c = hcpAccounts[1].Id;
+				if (String.isNotBlank(a.HCP_Designated_Individuals_MERC__c))
+					a.HCP_Designated_Individuals_MERC__c = hcpAccounts[1].Id;
+				if (String.isNotBlank(a.HCP_Contracting_Party_MERC__c))
+					a.HCP_Contracting_Party_MERC__c      = hcpAccounts[1].Id;
 			}
 			update relatedAccounts;
 			Test.stopTest();
 
-			/*----- verify that the count has gone down to 0 for the first account and up to 200 for the second -----*/
+			/*----- verify that the count has gone down to 0 for the first account and up to 100 for the second -----*/
 			System.assertEquals(0  , [SELECT Id, Designated_Individual_Counter_MERC__c FROM Account WHERE Id =:hcpAccounts[0].Id].Designated_Individual_Counter_MERC__c);
 			System.assertEquals(100, [SELECT Id, Designated_Individual_Counter_MERC__c FROM Account WHERE Id =:hcpAccounts[1].Id].Designated_Individual_Counter_MERC__c);
+
 			System.assertEquals(0  , [SELECT Id, Contracting_Parties_Counter_MERC__c FROM Account WHERE Id =:hcpAccounts[0].Id].Contracting_Parties_Counter_MERC__c);
 			System.assertEquals(100, [SELECT Id, Contracting_Parties_Counter_MERC__c FROM Account WHERE Id =:hcpAccounts[1].Id].Contracting_Parties_Counter_MERC__c);
 		}
@@ -135,17 +139,17 @@ private class MERC_AccountRollupHandlerTest {
 			for (Integer i=0; i<100; i++)
 			{
 				String randomString = MERC_Util.generateRandomString(8);
-				relatedAccounts.add( new Account( FirstName    = 'UnitTest'
-					                       , LastName     = randomString + 'di'
-					                       , RecordTypeId = desIndvRecTypeId
-					                       , PersonEmail  = 'ut-'+randomString+'@gmail.com'
-					                       , HCP_MERC__c  = hcpAccounts[0].Id)
+				relatedAccounts.add( new Account( FirstName = 'UnitTest'
+					                       , LastName       = randomString + 'di'
+					                       , RecordTypeId   = desIndvRecTypeId
+					                       , PersonEmail    = 'ut-'+randomString+'@gmail.com'
+					                       , HCP_Designated_Individuals_MERC__c  = hcpAccounts[0].Id)
 				);
-				relatedAccounts.add( new Account( FirstName    = 'UnitTest'
-					                       , LastName     = randomString + 'cp'
-					                       , RecordTypeId = contrPartyTypeId
-					                       , PersonEmail  = 'ut-'+randomString+'@gmail.com'
-					                       , HCP_MERC__c  = hcpAccounts[0].Id)
+				relatedAccounts.add( new Account( FirstName = 'UnitTest'
+					                       , LastName       = randomString + 'cp'
+					                       , RecordTypeId   = contrPartyTypeId
+					                       , PersonEmail    = 'ut-'+randomString+'@gmail.com'
+					                       , HCP_Contracting_Party_MERC__c  = hcpAccounts[0].Id)
 				);
 			}
 			insert relatedAccounts;

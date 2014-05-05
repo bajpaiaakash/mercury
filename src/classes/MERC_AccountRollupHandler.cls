@@ -34,46 +34,32 @@ public with sharing class MERC_AccountRollupHandler implements GLBL_TriggerHandl
 		{
 			if (acct.RecordTypeId == designatedIndividualRTId || acct.RecordTypeId == contractingPartyRTId)
 			{
-				parentAccountIds.add(acct.HCP_MERC__c);
+				parentAccountIds.add(acct.HCP_Designated_Individuals_MERC__c);
+				parentAccountIds.add(acct.HCP_Contracting_Party_MERC__c);
 				/*----- If the oldmap was passed in then we are updating and need to also recalcuate the
 				        value on any potential old parents in the event that the DI was reparented  -----*/
 				if (sobjectsOld != null && sobjectsOld.containsKey(acct.Id))
 				{
-					parentAccountIds.add( ((Account)sobjectsOld.get(acct.Id)).HCP_MERC__c);
+					parentAccountIds.add( ((Account)sobjectsOld.get(acct.Id)).HCP_Designated_Individuals_MERC__c);
+					parentAccountIds.add( ((Account)sobjectsOld.get(acct.Id)).HCP_Contracting_Party_MERC__c);
 				}
 			}
 		}
 
-		/*----- query for all of the parent accounts retrieving all of the "designated individuals" -----*/
+		/*----- query for all of the parent accounts retrieving all of the "designated individuals" and "Contractying Parties" -----*/
 		List<Account> parentAccounts = [SELECT Id
 		                                     , Designated_Individual_Counter_MERC__c
+		                                     , (SELECT Id FROM Designated_Individuals__r)
 		                                     , Contracting_Parties_Counter_MERC__c
-		                                     , (SELECT Id, RecordTypeId FROM Designated_Individuals__r)
+		                                     , (SELECT Id FROM HCPs_Contracting_Party__r)
 		                                  FROM Account
 		                                 WHERE Id IN :parentAccountIds];
 
-		/*----- loop over the designated individual records for each account and count up the number of
-		        designated individuals and contracting parties -----*/
+		/*----- loop over the parent accounts and set the number of designated individuals and contracting parties for each -----*/
 		for (Account acct : parentAccounts)
 		{
-			Integer designatedIndvidualCounter = 0;
-			Integer contractingPartyCounter    = 0;
-
-			for (Account relatedAccount : acct.Designated_Individuals__r)
-			{
-				if (relatedAccount.RecordTypeId == designatedIndividualRTId)
-				{
-					designatedIndvidualCounter++;
-				}
-				else if (relatedAccount.RecordTypeId == contractingPartyRTId)
-				{
-					contractingPartyCounter++;
-				}
-
-			}
-
-			acct.Designated_Individual_Counter_MERC__c = designatedIndvidualCounter;
-			acct.Contracting_Parties_Counter_MERC__c   = contractingPartyCounter;
+			acct.Designated_Individual_Counter_MERC__c = acct.Designated_Individuals__r.size();
+			acct.Contracting_Parties_Counter_MERC__c   = acct.HCPs_Contracting_Party__r.size();
 		}
 		update parentAccounts;
 	}
