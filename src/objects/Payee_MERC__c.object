@@ -5,10 +5,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>CancelEdit</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>Clone</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -21,19 +17,11 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>SaveEdit</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -44,7 +32,6 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Captures payee information for account lookup
 Created by John A Adams 9/26/2013</description>
@@ -65,7 +52,6 @@ Created by John A Adams 9/27/2013</description>
         <relationshipOrder>0</relationshipOrder>
         <reparentableMasterDetail>false</reparentableMasterDetail>
         <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
@@ -81,7 +67,6 @@ Created by John A Adams 10/17/2013</description>
         <relationshipName>Payee</relationshipName>
         <required>false</required>
         <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -93,7 +78,6 @@ Created by John A Adams 10/17/2013</description>
         <length>80</length>
         <required>false</required>
         <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -106,7 +90,6 @@ Created by John A Adams 10/21/2013</description>
         <length>80</length>
         <required>false</required>
         <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -119,7 +102,6 @@ Created by John A Adams 10/21/2013</description>
         <length>80</length>
         <required>false</required>
         <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -132,7 +114,6 @@ Created by John A Adams 10/17/2013</description>
         <length>34</length>
         <required>false</required>
         <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -145,7 +126,6 @@ Created by John A Adams 10/17/2013</description>
         <length>80</length>
         <required>false</required>
         <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -159,7 +139,6 @@ Created by John A Adams 10/17/2013</description>
         <length>16</length>
         <required>false</required>
         <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -172,7 +151,6 @@ Created by John A Adams 10/21/2013</description>
         <length>80</length>
         <required>false</required>
         <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -185,7 +163,6 @@ Created by John A Adams 10/21/2013</description>
         <length>80</length>
         <required>false</required>
         <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -198,7 +175,6 @@ Created by John A Adams 10/21/2013</description>
         <length>20</length>
         <required>false</required>
         <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -211,9 +187,17 @@ Created by J Adams 12/10/2013</description>
         <length>150</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Payee_Auto_Number_MERC__c</fullName>
+        <description>Unique Auto Number field used by Web Services to create a secure/obfuscated Payee Id. Created by John Lorenti 2014-05-05.</description>
+        <displayFormat>P-{00000}</displayFormat>
+        <externalId>true</externalId>
+        <label>Payee Auto Number</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
     </fields>
     <fields>
         <fullName>Payee_City_MERC__c</fullName>
@@ -225,7 +209,6 @@ Created by John A Adams 10/21/2013</description>
         <label>Payee City</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -239,7 +222,6 @@ Created by John A Adams 10/21/2013</description>
         <label>Payee Country</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -253,7 +235,6 @@ Created by John A Adams 10/25/2013</description>
         <label>Payee Email</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -267,7 +248,6 @@ Created by John A Adams 10/25/2013</description>
         <label>Payee Fax Number</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -281,7 +261,6 @@ Created by John A Adams 10/21/2013</description>
         <label>Payee State /Province</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -295,7 +274,6 @@ Created by John A Adams 10/17/2013</description>
         <label>Payee Street</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -309,7 +287,6 @@ Created by John A Adams 10/21/2013</description>
         <label>Payee Zip / Postal Code</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -331,8 +308,19 @@ Created by John A Adams 10/17/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Priority_Rank_Nbr_MERC__c</fullName>
+        <description>Only one Payee with Priority Rank Number of 1 will be displayed on the portal. Created 05/05/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Priority Rank Number</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>SAP_Vendor_ID_MERC__c</fullName>
@@ -343,7 +331,6 @@ Created by John A Adams 9/27/2013</description>
         <length>40</length>
         <required>false</required>
         <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -355,7 +342,6 @@ Created by John A Adams 9/27/2013</description>
         <length>18</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -376,7 +362,6 @@ ISBLANK(Bank_Account_Number_MERC__c), false, true)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Transfer Information Complete</label>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -389,7 +374,6 @@ Moved from Account to Payee 11/22/2013 by KLorenti, Mavens Consulting</descripti
         <length>18</length>
         <required>false</required>
         <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -401,7 +385,6 @@ Created by John A Adams 2/18/2014</description>
         <label>Web Service Update Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -413,7 +396,6 @@ Created by John A Adams 2/18/2014</description>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -426,7 +408,6 @@ Created by John A Adams 2/18/2014</description>
         <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -438,7 +419,6 @@ Created by John A Adams 2/18/2014</description>
         <length>100</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>

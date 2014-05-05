@@ -5,10 +5,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>CancelEdit</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>Clone</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -21,19 +17,11 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>SaveEdit</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -44,7 +32,6 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Contains contract details between Lilly and event speakers. 
 Created by John A Adams 10/2/2013</description>
@@ -65,7 +52,6 @@ Created by John A Adams 10/9/2013</description>
         <relationshipOrder>0</relationshipOrder>
         <reparentableMasterDetail>false</reparentableMasterDetail>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
@@ -77,7 +63,6 @@ Created by John A Adams 10/17/2013</description>
         <label>Additional Contract or Payment Condition</label>
         <length>32768</length>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -89,7 +74,6 @@ Created by John A Adams 10/17/2013</description>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Compliance Met - Contract Sent</label>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -99,7 +83,6 @@ Created by John A Adams 10/17/2013</description>
         <label>Contract Expiration Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -128,7 +111,6 @@ Created by John A Adams 10/8/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -139,7 +121,6 @@ Created by John A Adams 10/8/2013</description>
         <length>120</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -150,7 +131,6 @@ Created by John A Adams 10/8/2013</description>
         <label>Contract Sent Date/Time</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -160,7 +140,6 @@ Created by John A Adams 10/8/2013</description>
         <label>Contract Signed Date/Time</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -185,7 +164,6 @@ Created by John A Adams 10/4/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -196,7 +174,6 @@ Created by John A Adams 10/4/2013</description>
         <label>Country</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -211,7 +188,6 @@ Created by John A Adams 10/4/2013</description>
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -226,7 +202,6 @@ Created by John A Adams 10/4/2013</description>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -241,7 +216,6 @@ Created by John A Adams 10/4/2013</description>
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -254,7 +228,6 @@ Created by John A Adams 10/17/2013</description>
         <label>Description of Service</label>
         <length>32768</length>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -267,7 +240,6 @@ Created by John A Adams 10/17/2013</description>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -281,7 +253,6 @@ Created by John A Adams 10/29/2013</description>
         <label>Institution</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -293,7 +264,6 @@ Created by John A Adams 10/29/2013</description>
         <label>Internal Lilly Signee Email</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -344,7 +314,6 @@ Created by John A Adams 10/7/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -358,7 +327,6 @@ Created by John A Adams 10/7/2013</description>
         <relationshipName>Lilly_Internal_Signee</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -369,7 +337,6 @@ Created by John A Adams 10/28/2013</description>
         <label>MSA End Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -383,7 +350,6 @@ Created by John A Adams 10/28/2013</description>
         <relationshipName>HCP_Contracts</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -394,7 +360,6 @@ Created by John A Adams 10/28/2013</description>
         <label>MSA Start Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -409,7 +374,6 @@ Created by John A Adams 12/19/2013</description>
         <relationshipName>HCP_Contracts</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -424,7 +388,6 @@ Created by John Adams 1/15/14</description>
         <relationshipName>HCP_Contracts</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -437,7 +400,6 @@ Created by John A Adams 12/19/2013</description>
         <label>Meeting Start Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -449,7 +411,6 @@ Created by J Adams 12/10/2013</description>
         <length>150</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -461,7 +422,6 @@ Created by John A Adams 10/7/2013</description>
         <label>Other Details</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
@@ -476,7 +436,6 @@ Created by John A Adams 10/7/2013</description>
         <relationshipName>ContractXs</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -497,7 +456,6 @@ Created by John A Adams 10/7/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -531,7 +489,6 @@ Created by John A Adams 10/17/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <label>HCP Contract</label>
@@ -948,6 +905,23 @@ Created by John A Adams 10/17/2013</description>
         <encodingKey>UTF-8</encodingKey>
         <linkType>url</linkType>
         <masterLabel>Create HCP Contract</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/apex/GLBL_NewButtonPrepopulator?cObj=HCP_Contract_MERC__c&amp;cObjURL={!URLENCODE(URLFOR($Action.HCP_Contract_MERC__c.New))}&amp;cf_Contract_Expiration_Date_MERC__c={!Meeting_Participant_MERC__c.Meeting_End_Date_MERC__c}&amp;cf_Meeting_Participant_MERC__c={!Meeting_Participant_MERC__c.Name}&amp;
+cf_Meeting_Participant_MERC__c_lkid={!Meeting_Participant_MERC__c.Id}&amp;
+cf_Account_MERC__c={!URLENCODE(Account.Name)}&amp;
+cf_Account_MERC__c_lkid={!Account.Id}&amp;
+cf_Meeting_Name_MERC__c={!URLENCODE( Meeting_Participant_MERC__c.Meeting_MERC__c )}&amp;
+cf_Meeting_Name_MERC__c_lkid={!Meeting_Participant_MERC__c.Meeting_MERCId__c}&amp;cObjParent=Meeting_Participant_MERC__c&amp;cObjParentId={!Meeting_Participant_MERC__c.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Create_HCP_Contract_Backup</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Create HCP Contract Backup</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
         <requireRowSelection>false</requireRowSelection>
