@@ -1,11 +1,7 @@
-Hello {!Team_Member_MERC__c.Account_MERC__c}{!Team_Member_MERC__c.User_MERC__c},
+Hello,
 
-You have been added to the meeting,{!Team_Member_MERC__c.Meeting_MERC__c} as a {!Team_Member_MERC__c.Role_MERC__c}.
+You have been added to the Meeting {!Meeting_MERC__c.Name}, {!IF(Meeting_MERC__c.End_Date_Meeting_Time_Zone_MERC__c <> Meeting_MERC__c.Start_Date_Meeting_Time_Zone_MERC__c, Meeting_MERC__c.Start_Date_Meeting_Time_Zone_MERC__c + " - " + Meeting_MERC__c.End_Date_Meeting_Time_Zone_MERC__c, Meeting_MERC__c.Start_Date_Meeting_Time_Zone_MERC__c) }
 
-Thanks
+{!Meeting_MERC__c.OwnerFullName} is the key business contact for this meeting. You have been added with the role of {!Team_Member_MERC__c.Role_MERC__c}. 
 
-Mercury Administrators.
-
-
-More information regarding this meeting can be found at
-{!Meeting_MERC__c.Link}.
+Should you have any questions, please contact your local Customer Meeting Services team. This is an auto-generated email; please do not reply.

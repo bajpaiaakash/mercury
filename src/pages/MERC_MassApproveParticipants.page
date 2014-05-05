@@ -106,7 +106,7 @@
 	<apex:form >
 		<div class="loading-wrapper" style="position:relative;">
 			<apex:pageBlock title="Meeting Participants" id="mainBlock">
-				<apex:pageBlockButtons>
+				<apex:pageBlockButtons >
 					<apex:commandButton value="Back to Meeting" action="{!cancel}"/>
 				</apex:pageBlockButtons>
 

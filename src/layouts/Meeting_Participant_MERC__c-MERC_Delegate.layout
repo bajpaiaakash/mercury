@@ -38,10 +38,6 @@
                 <field>Has_Signed_Contract_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Docusign_Contract_Status_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Customer_Id_GLBL__c</field>
             </layoutItems>
@@ -202,6 +198,10 @@
                 <behavior>Edit</behavior>
                 <field>Preferred_Departure_Airport_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Preferred_Departure_Depot_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -220,6 +220,10 @@
                 <behavior>Edit</behavior>
                 <field>Additional_Travel_Details_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Sponsorship_Agreement_Consent_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -232,10 +236,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Processing_of_Data_Consent_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Sponsorship_Agreement_Consent_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -284,7 +284,7 @@
                 <field>Hotel_No_Longer_Required_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Dietary_Preferences_Step_Complete_MERC__c</field>
             </layoutItems>
             <layoutItems>

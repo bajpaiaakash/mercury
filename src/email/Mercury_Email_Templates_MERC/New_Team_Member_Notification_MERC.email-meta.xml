@@ -5,6 +5,6 @@
     <encodingKey>ISO-8859-1</encodingKey>
     <name>New Team Member Notification</name>
     <style>none</style>
-    <subject>You have been added to a Meeting</subject>
+    <subject>Meeting Team Confirmation: {!Meeting_MERC__c.Name}</subject>
     <type>text</type>
 </EmailTemplate>

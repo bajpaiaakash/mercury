@@ -6,7 +6,6 @@
  * -Because of Apex constraints re: DML/calling out, we retrieve a new access token each time the page is loaded
  * 		-we can refactor in the future to possibly implement a @future method which updates an expired access token on a 401 response
  */
-
 public with sharing class GLBL_CustomerSearchToolService {
 	
 	private String baseUrl;
@@ -37,6 +36,7 @@ public with sharing class GLBL_CustomerSearchToolService {
 		r.setEndpoint(this.baseUrl+'/search'); 
 		r.setMethod('POST');
 		r.setBody(requestJson);
+		r.setTimeout(30000); //match heroku timeout
 
 		system.debug('>>>  '+r.getHeader('Authorization'));
 		error = null;
@@ -124,7 +124,7 @@ public with sharing class GLBL_CustomerSearchToolService {
 		public List<String> specialty { get; set; }
 		public List<String> specialtyRank { get; set; }
 		public List<String> aIDType { get; set; }
-		public String aId { get; set; }
+		public String aID { get; set; }
 		public String address { get; set; }
 		public String city { get; set; }
 		public String state { get; set; }

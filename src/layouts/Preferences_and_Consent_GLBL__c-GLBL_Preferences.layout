@@ -24,10 +24,6 @@
                 <field>Preference_Sub_Type_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Preference_Value_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Dietary_Preferences_Complete_MERC__c</field>
             </layoutItems>
@@ -82,7 +78,6 @@
         <fields>Account_GLBL__c</fields>
         <fields>Preference_Type_MERC__c</fields>
         <fields>Preference_Sub_Type_MERC__c</fields>
-        <fields>Preference_Value_MERC__c</fields>
         <fields>RecordTypeId</fields>
     </miniLayout>
     <showEmailCheckbox>false</showEmailCheckbox>

@@ -180,6 +180,26 @@ public with sharing class MERC_TestFactory {
 		return hotelItineraries;
 	}
 
+	public static List<Preferences_and_Consent_GLBL__c> insertPreferenceForAccounts(List<Account> accounts, String type, String value, Boolean isPrivate) {
+		Id recordTypeId;
+		if (isPrivate)
+			recordTypeId = [SELECT ID FROM RecordType WHERE SobjectType = 'Preferences_and_Consent_GLBL__c' AND DeveloperName = 'Preferences_Private_EVNT_MVN'].Id;
+		else
+			recordTypeId = [SELECT ID FROM RecordType WHERE SobjectType = 'Preferences_and_Consent_GLBL__c' AND DeveloperName = 'Preferences_EVNT_MVN'].Id;
+
+		List<Preferences_and_Consent_GLBL__c> pcs = new List<Preferences_and_Consent_GLBL__c>();
+		for (Account a : accounts) {
+			Preferences_and_Consent_GLBL__c pc = new Preferences_and_Consent_GLBL__c();
+			pc.Account_GLBL__c = a.Id;
+			pc.RecordTypeId = recordTypeId;
+			pc.Preference_Type_MERC__c = type;
+			pc.Preference_Sub_Type_MERC__c = value;
+			pcs.add(pc);
+		}
+		insert pcs;
+		return pcs;
+	}
+
 	public static List<Meeting_Vendor_MERC__c> insertHotelsForMeeting(Integer numberOfHotels, String meetingId) {
 		List<Account> accounts = new List<Account>();
 		for (Integer i = 0; i < numberOfHotels; i++) {

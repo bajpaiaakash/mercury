@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -142,12 +141,6 @@
         <label>Custom Links</label>
         <layoutColumns>
             <layoutItems>
-                <customLink>Send_ET_Email</customLink>
-            </layoutItems>
-            <layoutItems>
-                <customLink>ET4AE__SendExactTargetEmail</customLink>
-            </layoutItems>
-            <layoutItems>
                 <customLink>GoogleSearch</customLink>
             </layoutItems>
             <layoutItems>
@@ -201,22 +194,14 @@
             <quickActionName>FeedItem.PollPost</quickActionName>
         </quickActionListItems>
     </quickActionList>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>ET4AE__SendStatus__c</fields>
-        <fields>ET4AE__BusinessUnits__c</fields>
-        <fields>ET4AE__FromName__c</fields>
-        <fields>ET4AE__EmailName__c</fields>
-        <fields>ET4AE__Subject__c</fields>
-        <fields>ET4AE__SendTime__c</fields>
-        <fields>CREATEDBY_USER</fields>
-        <fields>CREATED_DATE</fields>
-        <relatedList>ET4AE__SendDefinition__c.ET4AE__Lead__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>ET4AE__IndividualEmailResult__c.ET4AE__Lead__c</relatedList>
-    </relatedLists>
+    <relatedContent>
+        <relatedContentItems>
+            <layoutItem>
+                <behavior>Readonly</behavior>
+                <field>CampaignId</field>
+            </layoutItem>
+        </relatedContentItems>
+    </relatedContent>
     <relatedLists>
         <fields>TASK.SUBJECT</fields>
         <fields>ACTIVITY.TASK</fields>
@@ -257,4 +242,10 @@
     <showInteractionLogPanel>false</showInteractionLogPanel>
     <showRunAssignmentRulesCheckbox>true</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
+    <summaryLayout>
+        <masterLabel>00hb00000014QYp</masterLabel>
+        <sizeX>4</sizeX>
+        <sizeY>0</sizeY>
+        <summaryLayoutStyle>Default</summaryLayoutStyle>
+    </summaryLayout>
 </Layout>
