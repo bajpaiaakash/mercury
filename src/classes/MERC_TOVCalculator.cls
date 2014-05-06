@@ -78,8 +78,9 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 			Map<Id, List<Travel_Itinerary_MERC__c>> participantIdToHotelItineraries = new Map <Id, List<Travel_Itinerary_MERC__c>>();
 			for (Meeting_Participant_MERC__c mp : [SELECT ID, Name,
 														(SELECT
-															ID, Sgmnt_Bgin_TS_MERC__c,
-															Sgmnt_End_TS_MERC__c, Room_Rate_excl_VAT_MERC__c
+															ID, Sgmnt_Bgin_TS_MERC__c, Sgmnt_End_TS_MERC__c,
+															Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c,
+															Room_Rate_excl_VAT_MERC__c
 																FROM Travel_Itineraries_MERC__r
 																	WHERE RecordType.DeveloperName = 'Hotel_MERC')
 														FROM Meeting_Participant_MERC__c WHERE Meeting_MERC__c in :meetingIds]) {
@@ -92,22 +93,22 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 			for (Daily_Attendance_TOV_MERC__c tov : [SELECT ID, Status_MERC__c, Meeting_Day_MERC__c, Meeting_Participant_MERC__c FROM
 				Daily_Attendance_TOV_MERC__c WHERE Meeting_Participant_MERC__c in :participantIdToHotelItineraries.keySet()]) {
 
-				if (tov.Status_MERC__c == 'Attended' || tov.Status_MERC__c == 'No Show') {
-					if (participantIdToHotelItineraries.containsKey(tov.Meeting_Participant_MERC__c)) {
-						Date meetingDayDate = meetingDays.get(tov.Meeting_Day_MERC__c).Date_MERC__c;
-						List<Travel_Itinerary_MERC__c> hotelTravelItinerariesForParticipant = participantIdToHotelItineraries.get(tov.Meeting_Participant_MERC__c);
-						for (Travel_Itinerary_MERC__c t : hotelTravelItinerariesForParticipant) {
-							Date timestampStart = t.Sgmnt_Bgin_TS_MERC__c.date();
-							Date timestampEnd = t.Sgmnt_End_TS_MERC__c.date();
-							if (meetingDayDate >= timestampStart && meetingDayDate <= timestampEnd.addDays(-1)) {
-								tov.Est_Hotel_ToV_MERC__c = t.Room_Rate_excl_VAT_MERC__c;
+				if (participantIdToHotelItineraries.containsKey(tov.Meeting_Participant_MERC__c)) {
+					Date meetingDayDate = meetingDays.get(tov.Meeting_Day_MERC__c).Date_MERC__c;
+					List<Travel_Itinerary_MERC__c> hotelTravelItinerariesForParticipant = participantIdToHotelItineraries.get(tov.Meeting_Participant_MERC__c);
+					for (Travel_Itinerary_MERC__c t : hotelTravelItinerariesForParticipant) {
+						Date timestampStart = t.Sgmnt_Bgin_TS_MERC__c.date();
+						Date timestampEnd = t.Sgmnt_End_TS_MERC__c.date();
+						if (meetingDayDate >= timestampStart && meetingDayDate <= timestampEnd.addDays(-1)) {
+							tov.Est_Hotel_ToV_MERC__c = t.Room_Rate_excl_VAT_MERC__c;
+						} else {
+							if (t.Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c == 'Yes') {
+								tov.Est_Hotel_ToV_MERC__c = 0.0;
 							} else {
 								tov.Est_Hotel_ToV_MERC__c = null;
 							}
 						}
 					}
-				} else {
-					tov.Est_Hotel_ToV_MERC__c = null;
 				}
 				tovRecordsToUpdate.add(tov);
 			}
@@ -139,8 +140,9 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 			Map<Id, List<Travel_Itinerary_MERC__c>> participantIdToHotelItineraries = new Map <Id, List<Travel_Itinerary_MERC__c>>();
 			for (Meeting_Participant_MERC__c mp : [SELECT ID, Name,
 														(SELECT
-															ID, Sgmnt_Bgin_TS_MERC__c,
-															Sgmnt_End_TS_MERC__c, Room_Rate_excl_VAT_MERC__c
+															ID, Sgmnt_Bgin_TS_MERC__c, Sgmnt_End_TS_MERC__c,
+															Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c,
+															Room_Rate_excl_VAT_MERC__c
 																FROM Travel_Itineraries_MERC__r
 																	WHERE RecordType.DeveloperName = 'Hotel_MERC')
 														FROM Meeting_Participant_MERC__c WHERE Id in :meetingParticipantIds]) {
@@ -148,22 +150,22 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 			}
 
 			for (Daily_Attendance_TOV_MERC__c tov : (List<Daily_Attendance_TOV_MERC__c>)sobjects) {
-				if (tov.Status_MERC__c == 'Attended' || tov.Status_MERC__c == 'No Show') {
-					if (participantIdToHotelItineraries.containsKey(tov.Meeting_Participant_MERC__c)) {
-						Date meetingDayDate = meetingDays.get(tov.Meeting_Day_MERC__c).Date_MERC__c;
-						List<Travel_Itinerary_MERC__c> hotelTravelItinerariesForParticipant = participantIdToHotelItineraries.get(tov.Meeting_Participant_MERC__c);
-						for (Travel_Itinerary_MERC__c t : hotelTravelItinerariesForParticipant) {
-							Date timestampStart = t.Sgmnt_Bgin_TS_MERC__c.date();
-							Date timestampEnd = t.Sgmnt_End_TS_MERC__c.date();
-							if (meetingDayDate >= timestampStart && meetingDayDate <= timestampEnd.addDays(-1)) {
-								tov.Est_Hotel_ToV_MERC__c = t.Room_Rate_excl_VAT_MERC__c;
+				if (participantIdToHotelItineraries.containsKey(tov.Meeting_Participant_MERC__c)) {
+					Date meetingDayDate = meetingDays.get(tov.Meeting_Day_MERC__c).Date_MERC__c;
+					List<Travel_Itinerary_MERC__c> hotelTravelItinerariesForParticipant = participantIdToHotelItineraries.get(tov.Meeting_Participant_MERC__c);
+					for (Travel_Itinerary_MERC__c t : hotelTravelItinerariesForParticipant) {
+						Date timestampStart = t.Sgmnt_Bgin_TS_MERC__c.date();
+						Date timestampEnd = t.Sgmnt_End_TS_MERC__c.date();
+						if (meetingDayDate >= timestampStart && meetingDayDate <= timestampEnd.addDays(-1)) {
+							tov.Est_Hotel_ToV_MERC__c = t.Room_Rate_excl_VAT_MERC__c;
+						} else {
+							if (t.Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c == 'Yes') {
+								tov.Est_Hotel_ToV_MERC__c = 0.0;
 							} else {
 								tov.Est_Hotel_ToV_MERC__c = null;
 							}
 						}
 					}
-				} else {
-					tov.Est_Hotel_ToV_MERC__c = null;
 				}
 			}
 		}
