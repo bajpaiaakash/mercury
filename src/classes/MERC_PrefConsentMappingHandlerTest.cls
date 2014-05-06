@@ -6,21 +6,26 @@
 @isTest
 public with sharing class MERC_PrefConsentMappingHandlerTest {
 
+	static User testUser;
+	static {
+		System.runAs(new User(Id=UserInfo.getUserId()))
+		{
+			testUser = MERC_TestFactory.insertTestUsers(1, 'Mercury Customer Meeting Services - Read Only').get(0);
+			testUser.UserPermissionsSupportUser = true;
+			testUser.UserRoleId = [SELECT Id FROM UserRole WHERE Name='Global' limit 1].Id;
+			update testUser;
+
+			List<PermissionSetAssignment> pSetAssignments = new List<PermissionSetAssignment>();
+			for (PermissionSet ps : [SELECT Id FROM PermissionSet WHERE Name IN ('DDP_Admin_Mercury','DocuSign_User','Mercury_Customer_Meeting_Services_Edit')])
+			{
+				pSetAssignments.add(new PermissionSetAssignment(PermissionSetId=ps.Id, AssigneeId=testUser.Id));
+			}
+			insert pSetAssignments;
+		}
+	}
+
 	static final Integer NUM_TEST_ACCTS = 200;
 	static List<Account> acctsList      = MERC_TestFactory.insertAccounts(NUM_TEST_ACCTS);
-	static User testUser                = MERC_TestFactory.insertTestUsers(1, 'Mercury Customer Meeting Services - Read Only').get(0);
-	static {
-		testUser.UserPermissionsSupportUser = true;
-		testUser.UserRoleId = [SELECT Id FROM UserRole WHERE Name='Global' limit 1].Id;
-		update testUser;
-
-		List<PermissionSetAssignment> pSetAssignments = new List<PermissionSetAssignment>();
-		for (PermissionSet ps : [SELECT Id FROM PermissionSet WHERE Name IN ('DDP_Admin_Mercury','DocuSign_User','Mercury_Customer_Meeting_Services_Edit')])
-		{
-			pSetAssignments.add(new PermissionSetAssignment(PermissionSetId=ps.Id, AssigneeId=testUser.Id));
-		}
-		insert pSetAssignments;
-	}
 
 	@isTest static void test_should_copy_preference_info_to_account_for_private_preference() {
 		System.runAs(testUser) {

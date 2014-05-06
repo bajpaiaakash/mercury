@@ -7,19 +7,23 @@
 
 @isTest
 private class MERC_AccountRollupHandlerTest {
-	static List<Account> hcpAccounts      = MERC_TestFactory.insertAccounts(100, Schema.SObjectType.Account.getRecordTypeInfosByName().get('HCP').getRecordTypeId());
-	static User          testUser         = MERC_TestFactory.insertTestUsers(1, null).get(0);
-	static String        desIndvRecTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Designated Individual').getRecordTypeId();
-	static String        contrPartyTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Contracting Party').getRecordTypeId();
-
+	static User testUser;
 	static
 	{
-		PermissionSet ps = [SELECT Id FROM PermissionSet WHERE Name='Mercury_Customer_Meeting_Services_Edit' limit 1];
-		insert new PermissionSetAssignment( PermissionSetId=ps.Id
-			                              , AssigneeId=testUser.id);
-		update new User( id=testUser.Id
-			           , UserRoleId=[SELECT Id FROM UserRole WHERE Name='Global' limit 1].id);
+		System.runAs(new User(Id=UserInfo.getUserId()))
+		{
+			testUser = MERC_TestFactory.insertTestUsers(1, null).get(0);
+			PermissionSet ps = [SELECT Id FROM PermissionSet WHERE Name='Mercury_Customer_Meeting_Services_Edit' limit 1];
+			insert new PermissionSetAssignment( PermissionSetId=ps.Id
+				                              , AssigneeId=testUser.id);
+			update new User( id=testUser.Id
+				           , UserRoleId=[SELECT Id FROM UserRole WHERE Name='Global' limit 1].id);
+		}
 	}
+
+	static List<Account> hcpAccounts      = MERC_TestFactory.insertAccounts(100, Schema.SObjectType.Account.getRecordTypeInfosByName().get('HCP').getRecordTypeId());
+	static String        desIndvRecTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Designated Individual').getRecordTypeId();
+	static String        contrPartyTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Contracting Party').getRecordTypeId();
 
 	@isTest static void test_should_on_insert_increment_account_counters_by_1()
 	{

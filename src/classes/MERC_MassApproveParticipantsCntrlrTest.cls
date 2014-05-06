@@ -10,19 +10,24 @@
 private class MERC_MassApproveParticipantsCntrlrTest
 {
 
+	static User testUser;
+	static
+	{
+		System.runAs(new User(Id=UserInfo.getUserId()))
+		{
+			testUser =  MERC_TestFactory.insertTestUsers(1,null).get(0);
+			UserRole globalRole = [SELECT Id FROM UserRole WHERE Name='Global' limit 1];
+			update new User(id=testUser.Id, UserRoleId=globalRole.Id);
+
+			PermissionSet ps = [SELECT Id FROM PermissionSet WHERE Name='Mercury_Customer_Meeting_Services_Edit' limit 1];
+			insert new PermissionSetAssignment(AssigneeId=testUser.Id, PermissionSetId=ps.Id);
+		}
+	}
+
 	static List<Account> accounts  = MERC_TestFactory.insertAccounts(200);
 	static Meeting_MERC__c meeting = MERC_TestFactory.insertMeetings(1).get(0);
 	static List<Meeting_Participant_MERC__c> participants = MERC_TestFactory.insertParticipants(meeting.Id, accounts, 'Pending Approval');
 	static ApexPages.StandardSetController ssc = new ApexPages.StandardSetController(new List<Meeting_MERC__c>{meeting});
-	static User testUser =  MERC_TestFactory.insertTestUsers(1,null).get(0);
-	static
-	{
-		UserRole globalRole = [SELECT Id FROM UserRole WHERE Name='Global' limit 1];
-		update new User(id=testUser.Id, UserRoleId=globalRole.Id);
-
-		PermissionSet ps = [SELECT Id FROM PermissionSet WHERE Name='Mercury_Customer_Meeting_Services_Edit' limit 1];
-		insert new PermissionSetAssignment(AssigneeId=testUser.Id, PermissionSetId=ps.Id);
-	}
 
 	@isTest static void test_should_return_meeting_from_getter()
 	{

@@ -8,18 +8,24 @@
 @isTest
 private class MERC_MergedAccountsControllerTest {
 
+    static User testUser;
+    static {
+        System.runAs(new User(Id=UserInfo.getUserId()))
+        {
+            testUser = MERC_TestFactory.insertTestUsers(1, null).get(0);
+            PermissionSet ps = [SELECT Id FROM PermissionSet WHERE Name='Mercury_Customer_Meeting_Services_Edit' limit 1];
+            insert new PermissionSetAssignment(PermissionSetId=ps.Id, AssigneeId=testUser.id);
+            update new User(id=testUser.Id, UserRoleId=[SELECT Id FROM UserRole WHERE Name='Global' limit 1].id);
+        }
+    }
     static final Integer TEST_ACCT_SIZE  = 30;
     static List<Account> winningAccounts = MERC_TestFactory.insertHcpAccountsInCountry(TEST_ACCT_SIZE, 'GB');
     static List<Account> losingAccounts  = MERC_TestFactory.insertHcpAccountsInCountry(TEST_ACCT_SIZE, 'GB');
-    static User          testUser        = MERC_TestFactory.insertTestUsers(1, null).get(0);
 
     static List<Merge_History_GLBL__c> mergeHistory = new List<Merge_History_GLBL__c>();
 
-    static {
-        PermissionSet ps = [SELECT Id FROM PermissionSet WHERE Name='Mercury_Customer_Meeting_Services_Edit' limit 1];
-        insert new PermissionSetAssignment(PermissionSetId=ps.Id, AssigneeId=testUser.id);
-        update new User(id=testUser.Id, UserRoleId=[SELECT Id FROM UserRole WHERE Name='Global' limit 1].id);
-
+    static
+    {
         for (Integer i=0; i<TEST_ACCT_SIZE; i++)
         {
             mergeHistory.add( new Merge_History_GLBL__c(Winning_Id_GLBL__c=winningAccounts[i].Id, Original_Account_ID_GLBL__c=losingAccounts[i].Id ));

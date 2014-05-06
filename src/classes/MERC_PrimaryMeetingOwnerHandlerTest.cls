@@ -6,7 +6,14 @@
 @isTest
 private class MERC_PrimaryMeetingOwnerHandlerTest {
 
-	static User testUser = MERC_TestFactory.insertTestUsers(1, 'Mercury Integration RTI - Platform').get(0);
+	static User testUser;
+	static
+	{
+		System.runAs(new User(Id=UserInfo.getUserId()))
+		{
+			testUser = MERC_TestFactory.insertTestUsers(1, null).get(0);
+		}
+	}
 
 	@isTest static void test_should_create_team_member_for_meeting_when_source_is_Mercury() {
 
