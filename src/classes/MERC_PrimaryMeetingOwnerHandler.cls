@@ -23,5 +23,22 @@ public with sharing class MERC_PrimaryMeetingOwnerHandler implements GLBL_Trigge
     	}
 
     	insert primaryOwnerTeamMembers;
+
+
+        // sean is testing something...
+        //List<String> potms = new List<String>();
+        //for (Team_Member_MERC__c tm : primaryOwnerTeamMembers) {
+        //    potms.add(JSON.serialize(tm));
+        //}
+        // insertThePOTMs(JSON.serialize(primaryOwnerTeamMembers));
+    }
+
+    // sean is testing something...
+    @future
+    static void insertThePOTMs(String potmString)
+    {
+        List<Team_Member_MERC__c> primaryOwnerTeamMembers = new List<Team_Member_MERC__c>();
+        primaryOwnerTeamMembers.addAll((List<Team_Member_MERC__c>) JSON.deserialize(potmString, List<Team_Member_MERC__c>.class));
+        insert primaryOwnerTeamMembers;
     }
 }
