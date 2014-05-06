@@ -10,5 +10,7 @@ trigger MERC_Meeting on Meeting_MERC__c (before insert, before update, before de
 		.bind(GLBL_TriggerHandler.Evt.afterinsert,  new MERC_MeetingCancellationHandler())
 		.bind(GLBL_TriggerHandler.Evt.afterupdate,  new MERC_MeetingCancellationHandler())
 		.bind(GLBL_TriggerHandler.Evt.afterinsert,  new MERC_PrimaryMeetingOwnerHandler())
+		.bind(GLBL_TriggerHandler.Evt.afterinsert, new MERC_AnonymizeNonHCPDataHandler())
+		.bind(GLBL_TriggerHandler.Evt.afterupdate, new MERC_AnonymizeNonHCPDataHandler())
         .manage();
 }

@@ -22,7 +22,7 @@
 				  	$(this).tab('show')
 				})
 
-				$("form[id$='mainForm'] input[type='text']").each(function(){
+				$("form[id$='mainForm'] input[type='text'], form[id$='mainForm'] input[type='checkbox'], form[id$='mainForm'] select").each(function(){
 					$(this).keypress(function(event){
 						noenter(event);
 					});
@@ -47,7 +47,7 @@
 			hideLoading();
 			var controllerHasError = document.getElementById("{!$Component.mainForm.controllerHasError}").innerHTML == "true";
 			if (!controllerHasError) {
-				
+
 			}
 		}
 
@@ -211,12 +211,12 @@
 			  			<apex:pageBlock title="" mode="edit" id="mercuryUserBlock">
 			  				<apex:pageMessages ></apex:pageMessages>
 			  				<apex:pageBlockButtons >
-			  					<apex:commandButton onclick="showLoading()" oncomplete="hideLoading();j('#searchResultTabAnchor').click()" 
+			  					<apex:commandButton onclick="showLoading()" oncomplete="hideLoading();j('#searchResultTabAnchor').click()"
 			  						action="{!doSearch}" value="Search" rerender="resultTableWrapper, srCountWrapper" id="searchParticipants"/>
 			  					<apex:commandButton action="{!cancel}" value="Back to Meeting"/>
 			  				</apex:pageBlockButtons>
 			  				<apex:pageBlockSection title="Basic Information">
-			  					
+
 			  					<!-- FIRST NAME -->
 			  					<apex:pageBlockSectionItem >
 			  						<apex:outputLabel for="fn" value="First Name"></apex:outputLabel>
@@ -256,7 +256,7 @@
 			  				</apex:pageBlockSection>
 
 			  				<apex:pageBlockSection title="Address Information" collapsible="true">
-			  					
+
 			  					<!-- ADDRESS -->
 			  					<apex:pageBlockSectionItem >
 			  						<apex:outputLabel for="add" value="Address"></apex:outputLabel>
@@ -456,8 +456,8 @@
 
 					  					<apex:column headerValue="{!$ObjectType.Account.fields.Primary_Addr_City_GLBL__c.label}" value="{!r.primary_addr_city_glbl}"/>
 					  					<apex:column headerValue="{!$ObjectType.Account.fields.Primary_Address_Country_GLBL__c.label}" value="{!r.primary_address_country_glbl}"/>
-					  					<apex:column headerValue="{!$ObjectType.Account.fields.Primary_Pstl_Cd_Extnsn_GLBL__c.label}" value="{!r.primary_pstl_cd_extnsn_glbl}"/>			
-					  					
+					  					<apex:column headerValue="{!$ObjectType.Account.fields.Primary_Pstl_Cd_Extnsn_GLBL__c.label}" value="{!r.primary_pstl_cd_extnsn_glbl}"/>
+
 					  				</apex:pageBlockTable>
 
 					  				<apex:outputPanel rendered="{!searchResults != null && searchResults.size == 0}">

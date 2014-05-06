@@ -4,8 +4,16 @@ public without sharing class ETAuthorizer {
         fuelAuthToken = '';
     }
 
-    public String soapAuthToken { get; private set; }
-    public String requestSoapAuthToken() {
+    public String soapAuthToken { 
+        get {
+            if (soapAuthToken == null) {
+                soapAuthToken = requestSoapAuthToken();
+            }
+            return soapAuthToken;
+        }
+        private set;
+    }
+    private String requestSoapAuthToken() {
         // retrieve the config information necessary for this call
         et4ae5__Configuration__c configInfo = [SELECT et4ae5__UserName__c, et4ae5__Password__c, et4ae5__Auth_API_URL__c 
                                                FROM et4ae5__Configuration__c
@@ -42,16 +50,24 @@ public without sharing class ETAuthorizer {
         Http h = new Http();
         HttpResponse res = h.send(req);
 
-        soapAuthToken = '';
+        String authToken = '';
         if (res.getStatusCode() >= 200 && res.getStatusCode() < 300) {
             soapAuthToken = res.getBody().split('<a:AccessToken')[1].split('</a:AccessToken>')[0];
         }
 
-        return soapAuthToken;
+        return authToken;
     }
 
-    public String fuelAuthToken { get; private set; }
-    public String requestFuelAuthToken() {
+    public String fuelAuthToken { 
+        get {
+            if (fuelAuthToken == null) {
+                fuelAuthToken = requestFuelAuthToken();
+            }
+            return fuelAuthToken;
+        }
+        private set;
+    }
+    private String requestFuelAuthToken() {
         // get root rest api config info
         et4ae5__Configuration__c configInfo = [SELECT et4ae5__Root_Rest_API_URL__c
                                                FROM et4ae5__Configuration__c
@@ -89,13 +105,53 @@ public without sharing class ETAuthorizer {
         Http h = new Http();
         HttpResponse res = h.send(req);
 
-        fuelAuthToken = '';
+        String authToken = '';
         if (res.getStatusCode() >= 200 && res.getStatusCode() < 300) {
             FuelResponseBody fuelResBody = (FuelResponseBody)JSON.deserialize(res.getBody(), FuelResponseBody.class);
-            fuelAuthToken = fuelResBody.accessToken;
+            authToken = fuelResBody.accessToken;
         }
 
-        return fuelAuthToken;
+        return authToken;
+    }
+
+    public ETDataExtension.DataExtensionResponse createDataExtensionWithKey(String deKey) {
+        String deName = Datetime.now().format('yyyy-MM-dd\'T\'HH:mm:ss') + ' Data Extension';
+        ETDataExtension de = new ETDataExtension(deName, deName, deKey);
+
+        Integer numFields = 3;
+        List<ETDataExtension.Field> fields = new List<ETDataExtension.Field>();
+        for (Integer fieldCount = 0; fieldCount < numFields; fieldCount++) {
+            ETDataExtension.Field f = new ETDataExtension.Field();
+            f.fieldName = 'Field Number ' + fieldCount;
+            f.fieldType = '0';
+            f.id = null;
+            f.nullable = true;
+            f.isPrimaryKey = false;
+            f.length = String.valueOf(50);
+            f.scale = null;
+            fields.add(f);
+        }
+        fields[0].nullable = false;
+        fields[0].isPrimaryKey = true;
+        de.sendableDataExtensionField = fields[0].fieldName;
+        de.field.addAll(fields);
+
+        et4ae5__Configuration__c configInfo = [SELECT et4ae5__Root_Rest_API_URL__c FROM et4ae5__Configuration__c LIMIT 1];
+        String endPoint = configInfo.et4ae5__Root_Rest_API_URL__c + '/rest/beta/object/?oauth_token=' + soapAuthToken;
+
+        HttpRequest req = new HttpRequest();
+        req.setTimeout(120000);
+        req.setEndpoint(endPoint);
+        req.setMethod('POST');
+        req.setHeader('Content-Type', 'application/json; charset=UTF-8');
+        req.setHeader('Accept', 'application/json');
+        req.setBody(JSON.serialize(de));
+
+        Http h = new Http();
+        HttpResponse res = h.send(req);
+
+        ETDataExtension.DataExtensionResponse deResponse = (ETDataExtension.DataExtensionResponse)JSON.deserialize(res.getBody(), ETDataExtension.DataExtensionResponse.class);
+        return deResponse;
     }
 
     // private class to simplify serializing the fuel authorization request

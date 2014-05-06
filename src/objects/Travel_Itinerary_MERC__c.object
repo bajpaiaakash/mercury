@@ -162,6 +162,16 @@ Created by John A Adams 12/13/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Anonymize_Record_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicates that this record is related to a non-hcp meeting participant and should be anonymized (via workflows)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates that this record is related to a non-hcp meeting participant and should be anonymized (via workflows)</inlineHelpText>
+        <label>Anonymize Record</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Arcrft_Typ_Cd_MERC__c</fullName>
         <description>The code identifying the type of equipment servicing the flight (model of plane).   Examples:  747, 727, L10.
 Created by John A Adams 12/13/2013</description>

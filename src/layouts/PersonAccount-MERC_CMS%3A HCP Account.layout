@@ -66,6 +66,10 @@
                 <behavior>Edit</behavior>
                 <field>Count_Dietary_Preferences_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Account_Auto_Number_GLBL__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -99,6 +103,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Designated_Individual_Counter_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Contracting_Parties_Counter_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -407,6 +415,10 @@
                 <behavior>Readonly</behavior>
                 <field>Payee_and_Bank_Info_Complete_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Tax_Invoices_Step_Complete_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -523,7 +535,15 @@
         <fields>Primary_Addr_Line1_GLBL__c</fields>
         <fields>Primary_Addr_City_GLBL__c</fields>
         <fields>Primary_Address_Country_GLBL__c</fields>
-        <relatedList>Account.HCP_MERC__c</relatedList>
+        <relatedList>Account.HCP_Designated_Individuals_MERC__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>ACCOUNT.NAME</fields>
+        <fields>ACCOUNT.RECORDTYPE</fields>
+        <fields>Primary_Addr_Line1_GLBL__c</fields>
+        <fields>Primary_Addr_City_GLBL__c</fields>
+        <fields>Primary_Address_Country_GLBL__c</fields>
+        <relatedList>Account.HCP_Contracting_Party_MERC__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>VERSION.TITLE</fields>
@@ -534,11 +554,10 @@
     <relatedLists>
         <relatedList>RelatedEntityHistoryList</relatedList>
     </relatedLists>
-    <runAssignmentRulesDefault>true</runAssignmentRulesDefault>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>
-    <showRunAssignmentRulesCheckbox>true</showRunAssignmentRulesCheckbox>
+    <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
         <masterLabel>00h11000000Mwfy</masterLabel>

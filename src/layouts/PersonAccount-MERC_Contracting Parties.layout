@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -17,7 +18,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>HCP_MERC__c</field>
+                <field>HCP_Contracting_Party_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Contracting_Parties_Counter_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

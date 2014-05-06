@@ -221,6 +221,16 @@
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>Anonymize_Record_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicates that this record is related to a non-hcp meeting participant and should be anonymized (via workflows)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates that this record is related to a non-hcp meeting participant and should be anonymized (via workflows)</inlineHelpText>
+        <label>Anonymize Record</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Associated_Countries_MERC__c</fullName>
         <description>Pulls down Associated Countries from the Meeting.  Ensures Participants end up in the correct Veeva Org(s). Oliver Dunford 14th April 2014.</description>
         <externalId>false</externalId>
@@ -561,9 +571,10 @@ Created by John A Adams 3/19/2014</description>
     </fields>
     <fields>
         <fullName>Emergency_Contact_Step_Complete_MERC__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>Used by portal. Indicates when Meeting Participant has completed the step of Emergency Contact during meeting registration. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <description>Determines if Emergency Contact information exists and indicates completion of that step on the portal. Created 05/04/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
+        <formula>IF (!ISBLANK(Account_MERC__r.Emergency_Contact_Name_MERC__c) &amp;&amp; !ISBLANK(Account_MERC__r.Emergency_Contact_Phone_Number_MERC__c), true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Emergency Contact Step Complete</label>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -1569,9 +1580,10 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
     </fields>
     <fields>
         <fullName>Transparency_Step_Complete_MERC__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>Used by portal. Indicates when Meeting Participant has completed the step of Transparency Reporting Consent during meeting registration. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <description>Used by portal. Indicates when Meeting Participant has completed the step of Transparency Reporting Consent during meeting registration. Created 05/04/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
+        <formula>IF( !ISBLANK(Account_MERC__r.Transparency_Reporting_Opt_Out_MERC__c), true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Transparency Reporting Consent Complete</label>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>

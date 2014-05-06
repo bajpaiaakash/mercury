@@ -539,13 +539,7 @@ Created by John A Adams 10/4/2013</description>
         <openType>replace</openType>
         <protected>false</protected>
         <requireRowSelection>false</requireRowSelection>
-        <url>{!URLFOR( 
-$Action.Invoice_Line_Item_MERC__c.New, 
-null, 
-[saveURL=Invoice_MERC__c.Link+&apos;#&apos;+Invoice_MERC__c.Id+&apos;_00N11000000PFpW_target&apos;,
-retURL=Invoice_MERC__c.Link,
-CF00N11000000PFpW=Invoice_MERC__c.Name,
-CF00N11000000PFpW_lkid=Invoice_MERC__c.Id] 
-)}</url>
+        <url>/apex/GLBL_NewButtonPrepopulator?cObj=Invoice_Line_Item_MERC__c&amp;cObjURL={!URLENCODE(URLFOR($Action.Invoice_Line_Item_MERC__c.New))}&amp;cf_Invoice_MERC__c={!Invoice_MERC__c.Name}&amp;
+cf_Invoice_MERC__c_lkid={!Invoice_MERC__c.Id}&amp;cObjParent=Invoice_MERC__c&amp;cObjParentId={!Invoice_MERC__c.Id}</url>
     </webLinks>
 </CustomObject>

@@ -420,7 +420,7 @@
                 <field>Sponsorship_Agreement_Consent_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Transparency_Step_Complete_MERC__c</field>
             </layoutItems>
             <layoutItems>
@@ -470,7 +470,7 @@
                 <field>Dietary_Preferences_Step_Complete_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Emergency_Contact_Step_Complete_MERC__c</field>
             </layoutItems>
         </layoutColumns>

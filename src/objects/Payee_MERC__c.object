@@ -216,6 +216,16 @@ Created by J Adams 12/10/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Payee_Auto_Number_MERC__c</fullName>
+        <description>Unique Auto Number field used by Web Services to create a secure/obfuscated Payee Id. Created by John Lorenti 2014-05-05.</description>
+        <displayFormat>P-{00000}</displayFormat>
+        <externalId>true</externalId>
+        <label>Payee Auto Number</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
         <fullName>Payee_City_MERC__c</fullName>
         <description>Payee City address
 Created by John A Adams 10/21/2013</description>
@@ -333,6 +343,19 @@ Created by John A Adams 10/17/2013</description>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Priority_Rank_Nbr_MERC__c</fullName>
+        <description>Only one Payee with Priority Rank Number of 1 will be displayed on the portal. Created 05/05/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Priority Rank Number</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>SAP_Vendor_ID_MERC__c</fullName>
