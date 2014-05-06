@@ -18,14 +18,14 @@ private class MERC_AddMeetingParticipantsCntlrTest {
 	static MERC_AddMeetingParticipantsController c;
 
 	static {
-		//settings = new Mercury_Settings_MERC__c();
-		//settings.CST_Client_Id_MERC__c = 'Guildenstern';
-		//settings.CST_Client_Secret_MERC__c = 'Rosencrantz';
-		//insert settings;
+		settings = new Mercury_Settings_MERC__c();
+		settings.CST_Client_Id_MERC__c = 'Guildenstern';
+		settings.CST_Client_Secret_MERC__c = 'Rosencrantz';
+		insert settings;
 
-//		accts = MERC_TestFactory.insertAccounts(TEST_SET_SIZE);
-		meetings = MERC_TestFactory.insertMeetings(10);
-//		participants = MERC_TestFactory.insertParticipants(meetings[0].Id, accts);
+		accts = insertAccounts(TEST_SET_SIZE);
+		meetings = insertMeetings(10);
+		participants = insertParticipants(meetings[0].Id, accts);
 	}
 
 	/*
@@ -35,8 +35,8 @@ private class MERC_AddMeetingParticipantsCntlrTest {
 		PageReference ref = Page.MERC_AddMeetingParticipants;
 		Test.setCurrentPage(ref);
 
-//	UNDO	ApexPages.StandardSetController setCntrlr = new ApexPages.StandardSetController(participants);
-		ApexPages.StandardSetController setCntrlr = new ApexPages.StandardSetController(new List<Meeting_Participant_MERC__c>());
+		ApexPages.StandardSetController setCntrlr = new ApexPages.StandardSetController(participants);
+//		ApexPages.StandardSetController setCntrlr = new ApexPages.StandardSetController(new List<Meeting_Participant_MERC__c>());
 		c = new MERC_AddMeetingParticipantsController(setCntrlr);
 
 		mockServices = new GLBL_CustomerSearchToolServiceMock();
@@ -193,4 +193,60 @@ private class MERC_AddMeetingParticipantsCntlrTest {
 		System.assertNotEquals(null,c.dummy,'dummy failed to init.');
 		Test.stopTest();
 	}
+
+	/*
+	 * Due to setMock bug, have to perform inserts in this class
+	 */
+	static List<Account> insertAccounts(Integer numberOfAccounts) {
+		Id hcpRecordTypeId = [Select ID From RecordType Where SObjectType = 'Account' and DeveloperName = 'HCP_GLBL'].ID;
+		List<Account> accs = new List<Account>();
+		for (Integer i = 0; i < numberOfAccounts; i++) {
+			String randomString = MERC_Util.generateRandomString(8);
+			Account a = new Account();
+			a.FirstName = 'UnitTest';
+			a.LastName = randomString;
+			a.RecordTypeId = hcpRecordTypeId;
+			a.PersonEmail = 'ut-'+randomString+'@gmail.com';
+			accs.add(a);
+		}
+		insert accs;
+		return accs;
+	}
+	static List<Meeting_MERC__c> insertMeetings(Integer numberOfMeetings) {
+		String countryName = 'GB';
+		List<Meeting_MERC__c> mtgs = new List<Meeting_MERC__c>();
+		for (Integer i = 0; i < numberOfMeetings; i++) {
+			Meeting_MERC__c m = new Meeting_MERC__c();
+			m.Date_of_Event_MERC__c = Date.today().addDays(2);
+			m.End_Date_of_Event_MERC__c = Date.today().addDays(2);
+			m.Start_Time_of_Meeting_MERC__c = DateTime.newInstance(Date.today().addDays(2), Time.newInstance(10, 0, 0, 0));
+			m.End_Time_of_Meeting_MERC__c = DateTime.newInstance(Date.today().addDays(2), Time.newInstance(14, 0, 0, 0));
+			m.Name = 'Event Name'+i;
+			m.Meeting_Time_Zone_MERC__c = 'Greenwich Mean Time (Europe/London)';
+			m.Event_Country_MERC__c = countryName;
+			mtgs.add(m);
+		}
+		insert mtgs;
+		return mtgs;
+	}
+	static List<Meeting_Participant_MERC__c> insertParticipants(String meetingId, List<Account> accounts) {
+		String pStatus = 'Invited';
+		List<Meeting_Participant_MERC__c> mps = new List<Meeting_Participant_MERC__c>();
+		for (Integer i = 0; i < accounts.size(); i++) {
+			Meeting_Participant_MERC__c p = new Meeting_Participant_MERC__c();
+			p.Account_MERC__c = accounts.get(i).Id;
+			p.Meeting_MERC__c = meetingId;
+			p.Status_MERC__c = pStatus;
+			p.Services_Rendered_MERC__c = 'Yes';
+			mps.add(p);
+		}
+
+		insert mps;
+		return mps;
+	}
+	/*
+	 * Finish setMock bug workaround
+	 */
+
+
 }

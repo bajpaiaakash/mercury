@@ -154,10 +154,14 @@ public with sharing class MERC_AddMeetingParticipantsController {
         } 
     }
 
-
     public PageReference doSearch() {
     	system.debug('>>>>>> '+this.searchRequest);
-        this.searchResults = this.cstService.doSearch(this.searchRequest);
+        this.searchResults = this.cstService.doSearch(this.searchRequest);   
+        // if error, returns null & cstService.error will be available
+        if (this.searchResults==null && this.cstService.error != null) {
+            this.hasError = true;
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, this.cstService.error.Error+': '+this.cstService.error.Message));
+        }
         this.searchRequest = new GLBL_CustomerSearchToolService.SearchRequest();
     	return null;
     }
