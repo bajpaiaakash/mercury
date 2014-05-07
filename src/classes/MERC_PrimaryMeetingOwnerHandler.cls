@@ -22,15 +22,7 @@ public with sharing class MERC_PrimaryMeetingOwnerHandler implements GLBL_Trigge
     		}
     	}
 
-    	insert primaryOwnerTeamMembers;
-
-
-        // sean is testing something...
-        //List<String> potms = new List<String>();
-        //for (Team_Member_MERC__c tm : primaryOwnerTeamMembers) {
-        //    potms.add(JSON.serialize(tm));
-        //}
-        // insertThePOTMs(JSON.serialize(primaryOwnerTeamMembers));
+    	if (MERC_TestFactory.adjustForSFDCSetMockBug) {insertThePOTMs(JSON.serialize(primaryOwnerTeamMembers));} else {insert primaryOwnerTeamMembers;}
     }
 
     // sean is testing something...

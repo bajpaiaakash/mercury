@@ -16,29 +16,25 @@ private class MERC_AddMeetingParticipantsCntlrTest {
 	static List<Meeting_Participant_MERC__c> participants;
 	static GLBL_CustomerSearchToolServiceMock mockServices;
 	static MERC_AddMeetingParticipantsController c;
-
 	static User testUser;
-       static {
-               System.runas(new User(Id=UserInfo.getUserId()))
-               {
-                       testUser = MERC_TestFactory.insertTestUsers(1, null).get(0);
-                       PermissionSet ps = [SELECT Id FROM PermissionSet WHERE Name='Mercury_Customer_Meeting_Services_Edit' limit 1];
-                       insert new PermissionSetAssignment(PermissionSetId=ps.Id, AssigneeId=testUser.id);
-                       update new User(id=testUser.Id, UserRoleId=[SELECT Id FROM UserRole WHERE Name='Global' limit 1].id);
-               }
-       }    
+
     static {
 		settings = new Mercury_Settings_MERC__c();
 		settings.CST_Client_Id_MERC__c = 'Guildenstern';
 		settings.CST_Client_Secret_MERC__c = 'Rosencrantz';
 		insert settings;
 
-		// accts = insertAccounts(TEST_SET_SIZE);
-       System.runas(new User(Id=UserInfo.getUserId()))
-       {
-		meetings = insertMeetings(10);
-	}
-		// participants = insertParticipants(meetings[0].Id, accts);
+		MERC_TestFactory.adjustForSFDCSetMockBug = true;
+		accts = MERC_TestFactory.insertAccounts(TEST_SET_SIZE);
+		meetings = MERC_TestFactory.insertMeetings(10);
+		participants = MERC_TestFactory.insertParticipants(meetings[0].Id, accts);
+
+		System.runAs(new User(Id=UserInfo.getUserId())) {
+			testUser = MERC_TestFactory.insertTestUsers(1, null).get(0);
+			PermissionSet ps = [SELECT Id FROM PermissionSet WHERE Name='Mercury_Customer_Meeting_Services_Edit' limit 1];
+			insert new PermissionSetAssignment(PermissionSetId=ps.Id, AssigneeId=testUser.id);
+			update new User(id=testUser.Id, UserRoleId=[SELECT Id FROM UserRole WHERE Name='Global' limit 1].id);
+		}
 	}
 
 	/*
@@ -49,14 +45,13 @@ private class MERC_AddMeetingParticipantsCntlrTest {
 		Test.setCurrentPage(ref);
 
 		ApexPages.StandardSetController setCntrlr = new ApexPages.StandardSetController(participants);
-//		ApexPages.StandardSetController setCntrlr = new ApexPages.StandardSetController(new List<Meeting_Participant_MERC__c>());
 		c = new MERC_AddMeetingParticipantsController(setCntrlr);
 
 		mockServices = new GLBL_CustomerSearchToolServiceMock();
 		Test.setMock(HttpCalloutMock.class, mockServices);
 	}
 	
-//	@isTest
+	@isTest
 	static void doSearch() {
 		Test.startTest();
 		init();
@@ -91,7 +86,7 @@ private class MERC_AddMeetingParticipantsCntlrTest {
 		System.assertEquals(TEST_SET_SIZE,selectableCount,'Unexpected # of selectable result rows.');
 	}
 
-//	@isTest
+	@isTest
 	static void addParticipant() {
 		init();
 
@@ -114,7 +109,7 @@ private class MERC_AddMeetingParticipantsCntlrTest {
 		System.assertEquals(currentParticipants.size(), c.getMpCount(), 'Somehow the controller disagrees with my participant query.');
 	}
 
-//	@isTest 
+	@isTest 
 	static void testAddParticipantException() {
 		init();
 
@@ -130,7 +125,7 @@ private class MERC_AddMeetingParticipantsCntlrTest {
 		System.assertEquals(TEST_SET_SIZE,currentParticipants.size(),'# of participants should have remained the same.');
 	}
 
-//	@isTest 
+	@isTest 
 	static void removeParticipant() {
 		init();
 
@@ -148,7 +143,7 @@ private class MERC_AddMeetingParticipantsCntlrTest {
 		System.assertEquals(TEST_SET_SIZE-1,currentParticipants.size(),'Unexpected # of participants after removal.');
 	}
 
-//	@isTest 
+	@isTest 
 	static void testRemoveParticipantException() {
 		init();
 
@@ -168,7 +163,7 @@ private class MERC_AddMeetingParticipantsCntlrTest {
 	 *  This is covered by other testMethods but let's test it explicitly so it's easy 
 	 *  to see if it's ever a problem
 	 */
- 	//@isTest 
+ 	@isTest 
 	static void instantiateAndGetCSTToken() {
 		PageReference ref = Page.MERC_AddMeetingParticipants;
 		Test.setCurrentPage(ref);
@@ -190,32 +185,31 @@ private class MERC_AddMeetingParticipantsCntlrTest {
 	}
 
 	/*
-	 *  This is covered by other testMethods but let's test it explicitly so it's easy 
-	 *  to see if it's ever a problem
+	 *  Testing...
 	 */
- 	@isTest 
-	static void instantiateAndGetCSTTokenTEST0848() {
-		System.runAs(testUser) {
-			PageReference ref = Page.MERC_AddMeetingParticipants;
-			Test.setCurrentPage(ref);
+ //	@isTest 
+	//static void instantiateAndGetCSTTokenTEST0848() {
+	//	System.runAs(testUser) {
+	//		PageReference ref = Page.MERC_AddMeetingParticipants;
+	//		Test.setCurrentPage(ref);
 
-			List<Meeting_Participant_MERC__c> pList = new List<Meeting_Participant_MERC__c>();
-			ApexPages.StandardSetController setCntrlr = new ApexPages.StandardSetController(pList);
-			c = new MERC_AddMeetingParticipantsController(setCntrlr);
+	//		List<Meeting_Participant_MERC__c> pList = new List<Meeting_Participant_MERC__c>();
+	//		ApexPages.StandardSetController setCntrlr = new ApexPages.StandardSetController(pList);
+	//		c = new MERC_AddMeetingParticipantsController(setCntrlr);
 
-			GLBL_CustomerSearchToolService.AccessTokenResponse tokenRespObj = new GLBL_CustomerSearchToolService.AccessTokenResponse();
-			tokenRespObj.access_token = 'Alas! Poor Yorick!';
-	        String tokenResponse = JSON.serialize(tokenRespObj);
-			Test.startTest();
-			Test.setMock(HttpCalloutMock.class, new GLBL_CustomerSearchToolServiceMock(200, 'OK', tokenResponse, new Map<String, String>{'Content-Type'=>'application/json'}));
-			c.ensureCstToken();
-			Test.stopTest();
+	//		GLBL_CustomerSearchToolService.AccessTokenResponse tokenRespObj = new GLBL_CustomerSearchToolService.AccessTokenResponse();
+	//		tokenRespObj.access_token = 'Alas! Poor Yorick!';
+	//        String tokenResponse = JSON.serialize(tokenRespObj);
+	//		Test.startTest();
+	//		Test.setMock(HttpCalloutMock.class, new GLBL_CustomerSearchToolServiceMock(200, 'OK', tokenResponse, new Map<String, String>{'Content-Type'=>'application/json'}));
+	//		c.ensureCstToken();
+	//		Test.stopTest();
 
-		System.assertEquals(tokenRespObj.access_token,c.cstService.accessToken,'Unexpected value for access token: '+c.cstService.accessToken);
-		}
-	}
+	//	System.assertEquals(tokenRespObj.access_token,c.cstService.accessToken,'Unexpected value for access token: '+c.cstService.accessToken);
+	//	}
+	//}
 
-//	@isTest
+	@isTest
 	static void testAllMenuSelects() {
 		init();
 
@@ -232,83 +226,4 @@ private class MERC_AddMeetingParticipantsCntlrTest {
 		System.assertNotEquals(null,c.dummy,'dummy failed to init.');
 		Test.stopTest();
 	}
-
-	/*
-	 * Due to setMock bug, have to perform inserts in this class
-	 */
-	static List<Account> insertAccounts(Integer numberOfAccounts) {
-		Id hcpRecordTypeId = [Select ID From RecordType Where SObjectType = 'Account' and DeveloperName = 'HCP_GLBL'].ID;
-		List<Account> accs = new List<Account>();
-		for (Integer i = 0; i < numberOfAccounts; i++) {
-			String randomString = MERC_Util.generateRandomString(8);
-			Account a = new Account();
-			a.FirstName = 'UnitTest';
-			a.LastName = randomString;
-			a.RecordTypeId = hcpRecordTypeId;
-			a.PersonEmail = 'ut-'+randomString+'@gmail.com';
-			accs.add(a);
-		}
-		insert accs;
-		return accs;
-	}
-	static List<Meeting_MERC__c> insertMeetings(Integer numberOfMeetings) {
-		String countryName = 'GB';
-		List<Meeting_MERC__c> mtgs = new List<Meeting_MERC__c>();
-		for (Integer i = 0; i < numberOfMeetings; i++) {
-			Meeting_MERC__c m = new Meeting_MERC__c();
-			//m.Date_of_Event_MERC__c = Date.today().addDays(2);
-			//m.End_Date_of_Event_MERC__c = Date.today().addDays(2);
-			//m.Start_Time_of_Meeting_MERC__c = DateTime.newInstance(Date.today().addDays(2), Time.newInstance(10, 0, 0, 0));
-			//m.End_Time_of_Meeting_MERC__c = DateTime.newInstance(Date.today().addDays(2), Time.newInstance(14, 0, 0, 0));
-			//m.Name = 'Event Name'+i;
-			//m.Meeting_Time_Zone_MERC__c = 'Greenwich Mean Time (Europe/London)';
-			//m.Event_Country_MERC__c = countryName;
-			mtgs.add(m);
-		}
-		insert mtgs;
-//		return mtgs;
-
-//Alternate_Id_GLBL__c alt = new Alternate_Id_GLBL__c();
-//insert alt;
-
-//		List<Alternate_Id_GLBL__c> alts = new List<Alternate_Id_GLBL__c>();
-//		for (Integer i = 0; i < numberOfMeetings; i++) {
-//			Alternate_Id_GLBL__c a = new Alternate_Id_GLBL__c();
-//			alts.add(a);
-//		}
-//		insert alts;
-
-//		List<Account> accs = new List<Account>();
-//		for (Integer i = 0; i < 10; i++) {
-//			String randomString = MERC_Util.generateRandomString(8);
-//			Account a = new Account();
-//			a.Name = 'UnitTest'+randomString;
-//			accs.add(a);
-//		}
-//		insert accs;
-
-return new List<Meeting_MERC__c>();
-
-
-	}
-	static List<Meeting_Participant_MERC__c> insertParticipants(String meetingId, List<Account> accounts) {
-		String pStatus = 'Invited';
-		List<Meeting_Participant_MERC__c> mps = new List<Meeting_Participant_MERC__c>();
-		for (Integer i = 0; i < accounts.size(); i++) {
-			Meeting_Participant_MERC__c p = new Meeting_Participant_MERC__c();
-			p.Account_MERC__c = accounts.get(i).Id;
-			p.Meeting_MERC__c = meetingId;
-			p.Status_MERC__c = pStatus;
-			p.Services_Rendered_MERC__c = 'Yes';
-			mps.add(p);
-		}
-
-		insert mps;
-		return mps;
-	}
-	/*
-	 * Finish setMock bug workaround
-	 */
-
-
 }
