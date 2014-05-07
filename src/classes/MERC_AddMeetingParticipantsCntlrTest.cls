@@ -53,7 +53,6 @@ private class MERC_AddMeetingParticipantsCntlrTest {
 	
 	@isTest
 	static void doSearch() {
-		Test.startTest();
 		init();
 
 		// setup a pretend result list to be returned by the mock CST service
@@ -72,6 +71,7 @@ private class MERC_AddMeetingParticipantsCntlrTest {
 		System.assertEquals(null,c.results,'Result list should be empty before execution.');
 		System.assertEquals(0,c.getSrCount(),'Result size should have been 0 before execution.');
 
+		Test.startTest();
 		// meeting id is passed at request time
 		ApexPages.currentPage().getParameters().put('id',meetings[0].Id);
 		c.doSearch();
