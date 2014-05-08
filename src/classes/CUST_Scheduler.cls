@@ -5,12 +5,12 @@
 global with sharing class CUST_Scheduler {
 
 	// Seconds Minutes Hours Day_of_month Month Day_of_week optional_year
-	public static String EXPIRE_CRON = '0 0 13 1 * ?';
-	public static String REVIEW_CRON = '0 0 13 15 * ?';
-	public static String NOTIFY_CRON = '0 0 * * * ?';
-	public static String EXPIRE_NAME = 'CST Set Access To Expired';
-	public static String REVIEW_NAME = 'CST Set Access To Under Review';
-	public static String NOTIFY_NAME = 'CST Set Access To Will Expire';
+	public String EXPIRE_CRON = '0 0 13 1 * ?';
+	public String REVIEW_CRON = '0 0 * * * ?';
+	public String NOTIFY_CRON = '0 0 13 15 * ?';
+	public String EXPIRE_NAME = 'CST Set Access To Expired';
+	public String REVIEW_NAME = 'CST Set Access To Under Review';
+	public String NOTIFY_NAME = 'CST Set Access To Will Expire';
 	private Boolean useSettings = false;
 	private Mercury_Settings_MERC__c settings;
 	private Map<Id,CronTrigger> jobsToAbort { 
@@ -70,9 +70,9 @@ global with sharing class CUST_Scheduler {
 	}
 
 	public void cronReview() {
-		// CUST_ProcessScheduler  // day 15 montly  //  CST_Access_To_Under_Review
-		CUST_ProcessScheduler monthlySetAccessToUnderReview = new CUST_ProcessScheduler();
-		String jobID = system.schedule(REVIEW_NAME, REVIEW_CRON, monthlySetAccessToUnderReview);
+		// CUST_ProcessScheduler  // hourly //  CST_Access_To_Under_Review
+		CUST_ProcessScheduler hourlySetAccessToUnderReview = new CUST_ProcessScheduler();
+		String jobID = system.schedule(REVIEW_NAME, REVIEW_CRON, hourlySetAccessToUnderReview);
 
 		if (useSettings) {
 			settings.CST_Review_Cron_Id_CUST__c = jobId;
@@ -81,9 +81,9 @@ global with sharing class CUST_Scheduler {
 	}
 
 	public void cronNotify() {
-		// CUST_UserSettingsWillExpireBatchable  // hourly
-		CUST_UserSettingsWillExpireBatchable hourlyNotifyAccessToExpired = new CUST_UserSettingsWillExpireBatchable();
-		String jobID = system.schedule(NOTIFY_NAME, NOTIFY_CRON, hourlyNotifyAccessToExpired);		
+		// CUST_UserSettingsWillExpireBatchable  // day 15 montly  
+		CUST_UserSettingsWillExpireBatchable monthlyNotifyAccessToExpired = new CUST_UserSettingsWillExpireBatchable();
+		String jobID = system.schedule(NOTIFY_NAME, NOTIFY_CRON, monthlyNotifyAccessToExpired);		
 
 		if (useSettings) {
 			settings.CST_Notify_Cron_Id_CUST__c = jobId;

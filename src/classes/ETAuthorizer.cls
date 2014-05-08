@@ -6,7 +6,7 @@ public without sharing class ETAuthorizer {
 
     public String soapAuthToken { 
         get {
-            if (soapAuthToken == null) {
+            if (soapAuthToken == null || soapAuthToken == '') {
                 soapAuthToken = requestSoapAuthToken();
             }
             return soapAuthToken;
@@ -52,7 +52,9 @@ public without sharing class ETAuthorizer {
 
         String authToken = '';
         if (res.getStatusCode() >= 200 && res.getStatusCode() < 300) {
-            soapAuthToken = res.getBody().split('<a:AccessToken')[1].split('</a:AccessToken>')[0];
+            List<String> splits = res.getBody().split('<a:AccessToken>');
+            splits = splits[1].split('</a:AccessToken>');
+            authToken = splits[0];
         }
 
         return authToken;
@@ -60,7 +62,7 @@ public without sharing class ETAuthorizer {
 
     public String fuelAuthToken { 
         get {
-            if (fuelAuthToken == null) {
+            if (fuelAuthToken == null || fuelAuthToken == '') {
                 fuelAuthToken = requestFuelAuthToken();
             }
             return fuelAuthToken;
@@ -152,6 +154,45 @@ public without sharing class ETAuthorizer {
 
         ETDataExtension.DataExtensionResponse deResponse = (ETDataExtension.DataExtensionResponse)JSON.deserialize(res.getBody(), ETDataExtension.DataExtensionResponse.class);
         return deResponse;
+    }
+
+    public String createDummyDataExtensionDataForKey(String deKey) {
+        JSONGenerator gen = JSON.createGenerator(true);
+        gen.writeStartArray();
+            gen.writeStartObject();
+                gen.writeFieldName('keys');
+                gen.writeStartObject();
+                    gen.writeStringField('Field Number 0', 'Test Field 0 Data');
+                gen.writeEndObject();
+                gen.writeFieldName('values');
+                gen.writeStartObject();
+                    gen.writeStringField('Field Number 1', 'Test Field 1 Data');
+                    gen.writeStringField('Field Number 2', 'Test Field 2 Data');
+                gen.writeEndObject();
+            gen.writeEndObject();
+        gen.writeEndArray();
+
+        HttpRequest req = new HttpRequest();
+        req.setTimeout(120000);
+        req.setEndpoint('https://www.exacttargetapis.com/hub/v1/dataevents/key:' + deKey + '/rowset');
+        req.setMethod('POST');
+        req.setHeader('Content-Type', 'application/json');
+        req.setHeader('Accept', 'application/json');
+        req.setHeader('authorization', 'Bearer ' + fuelAuthToken);
+        req.setBody(gen.getAsString());
+
+        Http h = new Http();
+        HttpResponse res = h.send(req);
+
+        return res.getStatus() + ' ' + res.getStatusCode() + ' ' + res.getBody();
+    }
+
+    public void createETSendForDataExtensionId(String deId) {
+        et4ae5__SendDefinition__c send = new et4ae5__SendDefinition__c();
+        //send.et4ae5__Campaign__c = Id.valueOf('70111000000B2aN');
+        send.et4ae5__DataExtensionId__c = deId;
+        send.et4ae5__SyncId__c = Datetime.now().format('yyyyMMdd');
+        insert send;
     }
 
     // private class to simplify serializing the fuel authorization request

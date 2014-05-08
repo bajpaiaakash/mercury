@@ -265,12 +265,12 @@ Created by John A Adams 11/4/2013</description>
         <type>Currency</type>
     </fields>
     <fields>
-        <fullName>Anonymize_Record_MERC__c</fullName>
+        <fullName>Anonymise_Record_MERC__c</fullName>
         <defaultValue>false</defaultValue>
-        <description>Indicates that this record is related to a non-hcp meeting participant and should be anonymized (via workflows)</description>
+        <description>Indicates that this record is related to a non-hcp meeting participant and should be anonymised (via workflows)</description>
         <externalId>false</externalId>
-        <inlineHelpText>Indicates that this record is related to a non-hcp meeting participant and should be anonymized (via workflows)</inlineHelpText>
-        <label>Anonymize Record</label>
+        <inlineHelpText>Indicates that this record is related to a non-hcp meeting participant and should be anonymised (via workflows)</inlineHelpText>
+        <label>Anonymise Record</label>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -643,6 +643,16 @@ Created by John A Adams 10/24/2013</description>
     </fields>
     <fields>
         <fullName>Contract_Signing_Parties_Complete_MERC__c</fullName>
+        <description>Used by portal to indicate that the Contract Signing Parties sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF (Contracting_Parties_Counter_MERC__c &gt; 0, true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contract Signing Parties Step Complete</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Signing_Parties_Complete_OLD__c</fullName>
         <defaultValue>false</defaultValue>
         <description>Used by portal to indicate that the Contract Signing Parties sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -3203,6 +3213,7 @@ Created by John A Adams 11/4/2013</description>
 Customer ODS to Mercury Mapping
 Created by John A Adams 12/10/2013</description>
         <externalId>false</externalId>
+        <inlineHelpText>Indicates Account Status from Customer ODS</inlineHelpText>
         <label>Party Status Description</label>
         <length>255</length>
         <required>false</required>
@@ -3245,7 +3256,7 @@ Created by John A Adams 12/10/2013</description>
         <externalId>false</externalId>
         <formula>IF(Payee_Info_Step_Complete_MERC__c  &amp;&amp;
  Transfer_Info_Step_Complete_MERC__c &amp;&amp;
- Contract_Signing_Parties_Complete_MERC__c &amp;&amp; 
+  Contract_Signing_Parties_Complete_MERC__c  &amp;&amp; 
  Tax_Invoices_Step_Complete_OLD__c, true, false)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Payee and Bank Info Complete</label>
@@ -4511,8 +4522,22 @@ Created by John A Adams 11/4/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>of_Contracting_Parties_MERC__c</fullName>
+        <defaultValue>1</defaultValue>
+        <description>Calculates # of Contracting Parties for HCP using Lookup Summary Tool. Created 05/06/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label># of Contracting Parties</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>of_Designated_Individuals_MERC__c</fullName>
         <defaultValue>1</defaultValue>
+        <description>Calculates # of Designated Individual for HCP using Lookup Summary Tool. Created 05/06/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label># of Designated Individuals</label>
         <precision>4</precision>
@@ -4521,6 +4546,21 @@ Created by John A Adams 11/4/2013</description>
         <trackHistory>false</trackHistory>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>of_Payees_with_Priority_Rank_1_MERC__c</fullName>
+        <description>Counts the number of Payees with Priority Rank 1. Created 05/06/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label># of Payees with Priority Rank 1</label>
+        <summaryFilterItems>
+            <field>Payee_MERC__c.Priority_Rank_Nbr_MERC__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Payee_MERC__c.Account_MERC__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
     </fields>
     <listViews>
         <fullName>AllAccounts</fullName>
@@ -13894,7 +13934,7 @@ var qr = sforce.connection.query(&quot;SELECT PersonContactId FROM Account where
 
  var perContactID = qr[&quot;records&quot;].PersonContactId;
 
-var url = &apos;https://et4ae.cs18.visual.force.com/apex/exacttargetswitchboard?contactId=&apos; + perContactID ;
+var url = &apos;https://et4ae5.cs18.visual.force.com/apex/exacttargetswitchboard?contactId=&apos; + perContactID ;
 
  window.open (url,&apos;_self&apos;,false);</url>
     </webLinks>

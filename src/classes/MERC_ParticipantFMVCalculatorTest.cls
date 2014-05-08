@@ -1,9 +1,3 @@
-/**
-* @author Kyle Thornton
-*
-* Unit tests for MERC_ParticipantFMVCalculator
-*
-*/
 @isTest
 private class MERC_ParticipantFMVCalculatorTest {
 

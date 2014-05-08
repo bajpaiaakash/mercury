@@ -414,10 +414,7 @@ Created by John A Adams 1/10/2014</description>
         <fullName>Single_Primary_Meeting_Owner_MERC</fullName>
         <active>true</active>
         <description>Should only have one Primary Meeting Owner</description>
-        <errorConditionFormula>AND (
-ISPICKVAL( Role_MERC__c,&quot;Primary Meeting Owner&quot;),
-OR(ISNULL(Meeting_MERC__r.Prmry_Mtng_Ownr_Nm_MERC__c), 
-Meeting_MERC__r.Prmry_Mtng_Ownr_Nm_MERC__c  &lt;&gt; &quot;&quot;))</errorConditionFormula>
+        <errorConditionFormula>ISPICKVAL( Role_MERC__c,&quot;Primary Meeting Owner&quot; ) &amp;&amp; Meeting_MERC__r.Prmry_Mtng_Ownr_Nm_MERC__c  &lt;&gt; &quot;&quot; &amp;&amp;  Meeting_MERC__r.Meeting_Owner_Email_MERC__c  &lt;&gt;  User_MERC__r.Email</errorConditionFormula>
         <errorDisplayField>Role_MERC__c</errorDisplayField>
         <errorMessage>Only one team member can be the Primary Meeting Owner. Please chose a different role for this or existing team member.</errorMessage>
     </validationRules>

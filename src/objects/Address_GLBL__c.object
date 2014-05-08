@@ -1105,12 +1105,12 @@ Created by John A Adams 11/4/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Anonymize_Record_MERC__c</fullName>
+        <fullName>Anonymise_Record_MERC__c</fullName>
         <defaultValue>false</defaultValue>
-        <description>Indicates that this record is related to a non-hcp meeting participant and should be anonymized (via workflows)</description>
+        <description>Indicates that this record is related to a non-hcp meeting participant and should be anonymised (via workflows)</description>
         <externalId>false</externalId>
-        <inlineHelpText>Indicates that this record is related to a non-hcp meeting participant and should be anonymized (via workflows)</inlineHelpText>
-        <label>Anonymize Record</label>
+        <inlineHelpText>Indicates that this record is related to a non-hcp meeting participant and should be anonymised (via workflows)</inlineHelpText>
+        <label>Anonymise Record</label>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -6940,13 +6940,7 @@ Created by John A Adams 9/27/2013</description>
         <openType>replace</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!URLFOR( 
-$Action.Address_GLBL__c.New, 
-null, 
-[saveURL=Account.Link+&apos;#&apos;+Account.Id+&apos;_00N11000000PFpO_target&apos;, 
-retURL=Account.Link, 
-CF00N11000000PFpO=Account.Name, 
-CF00N11000000PFpO_lkid=Account.Id] 
-)}</url>
+        <url>/apex/GLBL_NewButtonPrepopulator?cObj=Address_GLBL__c&amp;cObjURL={!URLENCODE(URLFOR($Action.Address_GLBL__c.New))}&amp;cObjParent=Account&amp;cObjParentId={!Account.Id}&amp;cf_Account_GLBL__c={!Account.Name}&amp;
+cf_Account_GLBL__c_lkid={!Account.Id}</url>
     </webLinks>
 </CustomObject>

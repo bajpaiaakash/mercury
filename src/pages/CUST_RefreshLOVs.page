@@ -96,7 +96,8 @@
 		<apex:pageBlockSection >
 
 			<hr/>
-			<input type="checkbox" name="Select All" value="selectAll" id="selectAll" onChange="toggleCheckboxes(this);" /><span class="labelCol">Select All</span>
+			<input type="checkbox" name="Select All" value="selectAll" id="selectAll" onChange="toggleCheckboxes(this);" /><span class="labelCol">Select All</span><br />
+			<input type="checkbox" name="Retain" value="{!retainCurrentValues}" id="retain" /><span class="labelCol">Retain current values</span>
 		</apex:pageBlockSection>
 	</apex:pageBlock>
 </apex:form>

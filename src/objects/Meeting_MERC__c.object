@@ -1467,6 +1467,7 @@ Created by John Adams 11/6/2013</description>
         <fullName>Meeting_Objectives_MERC__c</fullName>
         <description>Capture of Meeting Objectives. Created 10/16/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
+        <inlineHelpText>Record the meeting overview and objectives, excluding the agenda.  This information will be displayed on the web service and must be professional and compliant.</inlineHelpText>
         <label>Meeting Objectives</label>
         <length>32000</length>
         <trackHistory>true</trackHistory>
@@ -2639,15 +2640,6 @@ Created by John Adams 11/6/2013</description>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <type>DateTime</type>
-    </fields>
-    <fields>
-        <fullName>Submit_for_Contracting_MERC__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>Indicate when planned meeting is ready to be submitted for contracting. Created 01/06/2014 by KLorenti, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <label>Initiate HCP Services Contracting</label>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Target_Audience_List_MERC__c</fullName>
@@ -9231,7 +9223,8 @@ ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
 ISPICKVAL(Meeting_Status_MERC__c,&apos;Complete - Canceled&apos;) &amp;&amp; 
 ISPICKVAL(PRIORVALUE(Meeting_Status_MERC__c),&apos;Complete&apos;)
 )</errorConditionFormula>
-        <errorMessage>This Status progression is not permitted.</errorMessage>
+        <errorDisplayField>Meeting_Status_MERC__c</errorDisplayField>
+        <errorMessage>NOTE: Meetings must follow the correct Status process (Forecasted - Registered - Active - Complete - etc). You cannot skip Status steps (e.g. from Forecasted to Active).  Please set the Status to the next Status in the process to continue.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Validate_Active_Content_Approval_MERC</fullName>

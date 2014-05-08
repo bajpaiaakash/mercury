@@ -52,6 +52,11 @@
         <type>Default</type>
     </actionOverrides>
     <enableFeeds>true</enableFeeds>
+    <fieldSets>
+        <fullName>Account_Field_Set_MERC</fullName>
+        <description>Used on the MERC_MergedAccounts page. Oliver Dunford 8th May 2014.</description>
+        <label>Account Field Set</label>
+    </fieldSets>
     <fields>
         <fullName>AccountId</fullName>
         <inlineHelpText>The company that the case is in relation to.  For example, a HCPs Institution or a Meeting Vendor.  Will be the same as the Contact Name if not relevant.</inlineHelpText>
@@ -127,12 +132,12 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Anonymize_Record_MERC__c</fullName>
+        <fullName>Anonymise_Record_MERC__c</fullName>
         <defaultValue>false</defaultValue>
-        <description>Indicates that this record is related to a non-hcp meeting participant and should be anonymized (via workflows)</description>
+        <description>Indicates that this record is related to a non-hcp meeting participant and should be anonymised (via workflows)</description>
         <externalId>false</externalId>
-        <inlineHelpText>Indicates that this record is related to a non-hcp meeting participant and should be anonymized (via workflows)</inlineHelpText>
-        <label>Anonymize Record</label>
+        <inlineHelpText>Indicates that this record is related to a non-hcp meeting participant and should be anonymised (via workflows)</inlineHelpText>
+        <label>Anonymise Record</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>

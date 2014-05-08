@@ -1,0 +1,32 @@
+<apex:page controller="ETAuthTestPageController" showHeader="true" sidebar="true">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection collapsible="false" columns="1" id="authSection">
+                <apex:pageBlockSectionItem >
+                    <apex:commandButton action="{!toggleShowSoapAuthString}" value="Get Soap Auth Token" reRender="authSection" immediate="true" />
+                    <apex:outputPanel rendered="{!showSoapAuthString}">
+                        <apex:outputText value="{!authorizer.soapAuthToken}" />
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:commandButton action="{!toggleShowFuelAuthString}" value="Get Fuel Auth Token" reRender="authSection" immediate="true" />
+                    <apex:outputPanel rendered="{!showFuelAuthString}">
+                        <apex:outputText value="{!authorizer.fuelAuthToken}" />
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:commandButton action="{!toggleShowDEResponse}" value="Create Data Extension" reRender="authSection" immediate="true" />
+                    <apex:outputPanel rendered="{!showDEResponse}">
+                        <apex:outputText value="{!deResponse}" />
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:commandButton action="{!toggleShowDataCreateResponseBody}" value="Create Data Extension Data" reRender="authSection" immediate="true" />
+                    <apex:outputPanel rendered="{!showDataCreateResponseBody}">
+                        <apex:outputText value="{!dataCreateResponseBody}" />
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

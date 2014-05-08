@@ -47,9 +47,10 @@ private class MERC_MergedAccountApexTest
 		        we need to make assumptions about existing metadata like field sets -----*/
 		insert new Account_Merge_Related_Lists_MERC__c( Name                         = 'Preferences_and_Consent_GLBL__c'
 													  , Parent_Account_Field_MERC__c = 'Account_GLBL__c'
-													  , Winning_Acct_Related_List_Field_Set_MERC__c = 'Account_Merge_Fields'
-													  , Losing_Acct_Related_List_Field_Set_MERC__c	= 'Account_Merge_Fields'
-													  , Allow_Winning_Account_Deletes__c            = true);
+													  , Winning_Acct_Related_List_Field_Set_MERC__c = 'Account_Merge_Pref_and_Consent_MERC'
+													  , Losing_Acct_Related_List_Field_Set_MERC__c	= 'Account_Merge_Pref_and_Consent_MERC'
+													  , Allow_Winning_Account_Deletes__c            = true
+													  , Related_Object_API_Name__c                  = 'Preferences_and_Consent_GLBL__c');
 	}
 
 	@isTest static void test_should_initialize_object_and_related_lists()

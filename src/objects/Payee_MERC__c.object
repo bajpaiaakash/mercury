@@ -70,6 +70,18 @@ Created by John A Adams 10/17/2013</description>
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Bank_Account_Number_Encrypted__c</fullName>
+        <description>test</description>
+        <externalId>false</externalId>
+        <label>Bank Account Number (Encrypted)</label>
+        <length>150</length>
+        <maskChar>asterisk</maskChar>
+        <maskType>lastFour</maskType>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>EncryptedText</type>
+    </fields>
+    <fields>
         <fullName>Bank_Account_Number_MERC__c</fullName>
         <description>Stores payee bank account number
 Created by John A Adams 10/17/2013</description>
@@ -314,6 +326,7 @@ Created by John A Adams 10/17/2013</description>
         <fullName>Priority_Rank_Nbr_MERC__c</fullName>
         <description>Only one Payee with Priority Rank Number of 1 will be displayed on the portal. Created 05/05/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
+        <inlineHelpText>Priority Rank Number 1 is maintained on the Web Service.  There may only be one Payee with a Priority Rank Number of 1.</inlineHelpText>
         <label>Priority Rank Number</label>
         <precision>5</precision>
         <required>false</required>
@@ -463,4 +476,18 @@ Created by John A Adams 2/18/2014</description>
         <searchResultsAdditionalFields>SAP_Vendor_ID_MERC__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Check_Priority_Rank_Number_MERC</fullName>
+        <active>true</active>
+        <description>Prevent Account from having more than one Payee with a Priority Rank Number = 1</description>
+        <errorConditionFormula>(ISCHANGED(Priority_Rank_Nbr_MERC__c) &amp;&amp; Priority_Rank_Nbr_MERC__c = 1 &amp;&amp;
+Account_MERC__r.of_Payees_with_Priority_Rank_1_MERC__c &gt;= 1)
+
+||
+
+(ISNEW()&amp;&amp; Priority_Rank_Nbr_MERC__c = 1 &amp;&amp;
+Account_MERC__r.of_Payees_with_Priority_Rank_1_MERC__c &gt;= 1)</errorConditionFormula>
+        <errorDisplayField>Priority_Rank_Nbr_MERC__c</errorDisplayField>
+        <errorMessage>There may only be one Payee with Priority Rank Number = 1 at a time</errorMessage>
+    </validationRules>
 </CustomObject>
