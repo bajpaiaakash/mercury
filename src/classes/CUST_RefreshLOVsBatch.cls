@@ -18,23 +18,22 @@ global class CUST_RefreshLOVsBatch implements Database.Batchable<sObject>, Datab
 		setQuery(objMap);
 	}
 	
-	void setQuery(Map<String, CUST_RefreshLOVsUtil.ObjToken> objMap) {
+	void setQuery(Map<String, CUST_RefreshLOVsUtil.ObjToken> objTokenMap) {
 
 		query = 'SELECT ';
 
-		CUST_RefreshLOVsUtil.ObjToken aTk = objMap.get('Account');
+		CUST_RefreshLOVsUtil.ObjToken aTk = objTokenMap.get('Account');
 		if (aTk!=null && aTk.fieldsCSV!=null) query += aTk.fieldsCSV+', ';
-		for (String name : objMap.keySet()) {
-			if (name != 'Account') {
-				CUST_RefreshLOVsUtil.ObjToken tk = objMap.get(name);
-				query += ' (SELECT '+tk.fieldsCSV+' FROM '+tk.relation+'), ';
-
-			}
-		}
+		//for (String name : objTokenMap.keySet()) {
+		//	if (name != 'Account') {
+		//		CUST_RefreshLOVsUtil.ObjToken tk = objTokenMap.get(name);
+		//		query += ' (SELECT '+tk.fieldsCSV+' FROM '+tk.relation+'), ';
+		//	}
+		//}
 		query = query.removeEnd(', ') + ' FROM Account WHERE RecordType.DeveloperName = \'HCP_GLBL\' AND ';
 		query += (useSysmoddate) ? 'SYSTEMMODSTAMP > :sysmoddate AND (': '(';
-		for (String name : objMap.keySet()) {
-			CUST_RefreshLOVsUtil.ObjToken tk = objMap.get(name);
+		for (String name : objTokenMap.keySet()) {
+			CUST_RefreshLOVsUtil.ObjToken tk = objTokenMap.get(name);
 			if (name == 'Account' && tk.fields!=null) {
 				for (String f : tk.fields) {
 					query += f + ' != null OR ';
@@ -47,6 +46,7 @@ global class CUST_RefreshLOVsBatch implements Database.Batchable<sObject>, Datab
 	}
 
 	global Database.QueryLocator start(Database.BatchableContext BC) {
+		p(query);
 		return Database.getQueryLocator(query);
 	}
 
@@ -54,18 +54,18 @@ global class CUST_RefreshLOVsBatch implements Database.Batchable<sObject>, Datab
 		List<Account> accts = (List<Account>) scope;
 		for (Account a : accts) {
 			for (String objName : objMap.keySet()) {
-				if (objMap.containsKey(objName) && objMap.get(objName).fields!=null) {
+				if (objMap.get(objName).fields!=null) {
 					CUST_RefreshLOVsUtil.ObjToken tk = objMap.get(objName);
 					
 					for (String fName : objMap.get(objName).fields) {
 						if (tk.name=='Account') {
 							addNewValues(fName, a, tk);
 						} else {
-								if (a.getSObjects(tk.relation) != null) {
-								for (sObject obj : (List<sObject>) a.getSObjects(tk.relation)) {
-									addNewValues(fName, obj, tk);
-								}
-							}
+							//	if (a.getSObjects(tk.relation) != null) {
+							//	for (sObject obj : (List<sObject>) a.getSObjects(tk.relation)) {
+							//		addNewValues(fName, obj, tk);
+							//	}
+							//}
 						}
 					}
 				}
@@ -121,4 +121,8 @@ global class CUST_RefreshLOVsBatch implements Database.Batchable<sObject>, Datab
 		pool.Last_Job_Status_GLBL__c = status;
 		upsert pool;
 	}
+
+		static void p(String m) {
+			System.debug('\n\n\nYYZ - '+m+'\n\n\n\n');
+		}
 }

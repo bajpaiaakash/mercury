@@ -5,6 +5,7 @@ public with sharing class CUST_RefreshLOVsController {
 	public CST_App_Settings_CUST__c   settings { get; private set; }
 	public String 					  fieldsToRefresh { get; set; }
 	public String                     email { get; set; }
+	public Boolean                    retainCurrentValues { get{if (retainCurrentValues!=null){return retainCurrentValues;}else{return false;}} set; }
 
 	public CUST_RefreshLOVsController(ApexPages.StandardController controller) {
 
@@ -73,7 +74,7 @@ public with sharing class CUST_RefreshLOVsController {
 			}
 
 			objectsToFields.get(t.name).fields.add(objNameAndFieldName[1]);
-			if (pool!=null && pool.get(objNameAndFieldName[1])!=null) {
+			if (retainCurrentValues && pool!=null && pool.get(objNameAndFieldName[1])!=null) {
 				objectsToFields.get(t.name).values.put(objNameAndFieldName[1], (String) pool.get(objNameAndFieldName[1]));
 			}
 		}

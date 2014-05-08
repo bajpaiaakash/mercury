@@ -6,7 +6,7 @@ public with sharing class MERC_TestFactory {
 	public static Id vendorRecordTypeId = [Select ID From RecordType Where SObjectType = 'Account' and DeveloperName = 'Vendor_GLBL'].ID;
 
 	// Sean is testing something...
-	public static Boolean adjustForSFDCSetMockBug {get{if (!adjustForSFDCSetMockBug) return false; else return adjustForSFDCSetMockBug;}
+	public static Boolean adjustForSFDCSetMockBug {get{if (adjustForSFDCSetMockBug==null) return false; else return adjustForSFDCSetMockBug;}
 												   set{adjustForSFDCSetMockBug = value&&Test.isRunningTest();}}
 
 	public static void insertMercuryCustomSettings() {
