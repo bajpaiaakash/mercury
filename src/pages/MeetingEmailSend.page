@@ -1,5 +1,5 @@
 <apex:page showHeader="true" sidebar="false" standardController="Meeting_MERC__c" extensions="MeetingEmailSendExtension">
-    <apex:pageMessages />
+    <apex:pageMessages id="messages" />
     <apex:sectionHeader title="{!Meeting_MERC__c.Name}" subtitle="Configure Email Send"/>
     <apex:form rendered="{!NOT(HasErrors)}">
         <apex:pageBlock id="participantBlock" title="Select Recipients" rendered="{!ShowParticipantGrid}">
@@ -38,7 +38,7 @@
                                 <img class="spinnerLarge" src="{!URLFOR( $Resource.ExactTargetImages, 'spinEMAIL.GIF' )}" />
                             </apex:facet>
                             <apex:facet name="stop">
-                                <apex:commandButton value="Find" status="listEmailsStatus" action="{!listExactTargetEmails}" reRender="exactTargetEmails"/>
+                                <apex:commandButton value="Find" status="listEmailsStatus" action="{!listExactTargetEmails}" reRender="exactTargetEmails, messages"/>
                             </apex:facet>
                         </apex:actionStatus>
                         <img style="vertical-align:middle;" height="18px" src="{!URLFOR( $Resource.ExactTargetImages, 'reqEmail.png' )}" />
@@ -77,101 +77,103 @@
                                                 folderDiv.className = newFolderClass;
                                             }
                                         </script>
-                                        <apex:pageBlock >
-                                            <apex:pageBlockButtons location="both">
-                                                <apex:commandButton action="{!selectEmailCancel}" value="Cancel" rerender="exactTargetEmails" status="clickEmailStatus" />
-                                            </apex:pageBlockButtons>
-                                            <apex:repeat value="{!emails}" var="emailFolder1">
-                                                +
-                                                <a href="#" onclick="javascript:getFolderInfo('{!emailFolder1.Id}'); javascript:toggleFolderDisplay( 'emailFolder_{!emailFolder1.Id}' )">
-                                                    <b> 
-                                                        {!emailFolder1.name} 
-                                                    </b> 
-                                                </a>
-                                                <br />
-                                                <div class="emailFolder closed" id="emailFolder_{!emailFolder1.Id}">
-                                                    <apex:repeat value="{!emailFolder1.subfolders}" var="emailFolder2" rendered="{!NOT( ISBLANK( emailFolder1.subfolders ) )}">
-                                                        +
-                                                        <a href="#" onclick="javascript:getFolderInfo('{!emailFolder2.Id}'); javascript:toggleFolderDisplay( 'emailFolder_{!emailFolder2.Id}' )">
-                                                            <b>
-                                                                {!emailFolder2.name} 
-                                                            </b> 
-                                                        </a>
-                                                        <br />
-                                                        <div class="emailFolder closed" id="emailFolder_{!emailFolder2.Id}">
-                                                            <apex:repeat value="{!emailFolder2.subfolders}" var="emailFolder3" rendered="{!NOT( ISBLANK( emailFolder2.subfolders ) )}">
-                                                                +
-                                                                <a href="#" onclick="javascript:getFolderInfo('{!emailFolder3.Id}'); javascript:toggleFolderDisplay( 'emailFolder_{!emailFolder3.Id}' )">
-                                                                    <b> 
-                                                                        {!emailFolder3.name} 
-                                                                    </b> 
-                                                                </a>
-                                                                <br />
-                                                                <div class="emailFolder closed" id="emailFolder_{!emailFolder3.Id}">
-                                                                    <apex:repeat value="{!emailFolder3.subfolders}" var="emailFolder4" rendered="{!NOT( ISBLANK( emailFolder3.subfolders ) )}">
-                                                                        +
-                                                                        <a href="#" onclick="javascript:getFolderInfo('{!emailFolder4.Id}'); javascript:toggleFolderDisplay( 'emailFolder_{!emailFolder4.Id}' )">
-                                                                            <b> 
-                                                                                {!emailFolder4.name} 
-                                                                            </b> 
-                                                                        </a>
-                                                                        <br />
-                                                                        <div class="emailFolder closed" id="emailFolder_{!emailFolder4.Id}">
-                                                                            <apex:repeat value="{!emailFolder4.subfolders}" var="emailFolder5" rendered="{!NOT( ISBLANK( emailFolder4.subfolders ) )}">
-                                                                                +
-                                                                                <a href="#" onclick="javascript:getFolderInfo('{!emailFolder5.Id}'); javascript:toggleFolderDisplay( 'emailFolder_{!emailFolder5.Id}' )">
-                                                                                    <b> 
-                                                                                        {!emailFolder5.name} 
-                                                                                    </b> 
-                                                                                </a>
-                                                                                <br />
-                                                                                <div class="emailFolder closed" id="emailFolder_{!emailFolder5.Id}">
-                                                                                    <apex:repeat value="{!emailFolder5.emails}" var="email5">
-                                                                                        &nbsp;-&nbsp;
-                                                                                        <a href="#" onclick="javascript:selectEmailJS( '{!email5.id}', '{!email5.encName}', '{!email5.encTitle}' );subscriberPreview.setEmailId('{!email5.id}');" status="sendButtonStatus">    
-                                                                                            {!email5.name} 
-                                                                                        </a>
-                                                                                        <br />
-                                                                                    </apex:repeat>
-                                                                                </div>
-                                                                            </apex:repeat> 
-                                                                            <apex:repeat value="{!emailFolder4.emails}" var="email4">
-                                                                                &nbsp;-&nbsp;
-                                                                                <a href="#" onclick="javascript:selectEmailJS( '{!email4.id}', '{!email4.encName}', '{!email4.encTitle}' );subscriberPreview.setEmailId('{!email4.id}');" status="sendButtonStatus"> 
-                                                                                    {!email4.name} 
-                                                                                </a>
-                                                                                <br />
-                                                                            </apex:repeat>
-                                                                        </div>
-                                                                    </apex:repeat> 
-                                                                    <apex:repeat value="{!emailFolder3.emails}" var="email3">
-                                                                        &nbsp;-&nbsp;
-                                                                        <a href="#" onclick="javascript:selectEmailJS( '{!email3.id}', '{!email3.encName}', '{!email3.encTitle}' );subscriberPreview.setEmailId('{!email3.id}');" status="sendButtonStatus"> 
-                                                                            {!email3.name} 
-                                                                        </a>
-                                                                        <br />
-                                                                    </apex:repeat>
-                                                                </div>
-                                                            </apex:repeat> 
-                                                            <apex:repeat value="{!emailFolder2.emails}" var="email2">
-                                                                &nbsp;-&nbsp;
-                                                                <a href="#" onclick="javascript:selectEmailJS( '{!email2.id}', '{!email2.encName}', '{!email2.encTitle}' );subscriberPreview.setEmailId('{!email2.id}');" status="sendButtonStatus"> 
-                                                                    {!email2.name} 
-                                                                </a>
-                                                                <br />
-                                                            </apex:repeat>
-                                                        </div>
-                                                    </apex:repeat> 
-                                                    <apex:repeat value="{!emailFolder1.emails}" var="email1">
-                                                        &nbsp;-&nbsp;
-                                                        <a href="#" onclick="javascript:selectEmailJS( '{!email1.id}', '{!email1.encName}', '{!email1.encTitle}' );subscriberPreview.setEmailId('{!email1.id}');" status="sendButtonStatus"> 
-                                                            {!email1.name} 
-                                                        </a>
-                                                        <br />
-                                                    </apex:repeat>
-                                                </div>
-                                            </apex:repeat>
-                                        </apex:pageBlock>
+                                        <div class="container">
+                                            <apex:pageBlock >
+                                                <apex:pageBlockButtons location="both">
+                                                    <apex:commandButton action="{!selectEmailCancel}" value="Cancel" rerender="exactTargetEmails" status="clickEmailStatus" />
+                                                </apex:pageBlockButtons>
+                                                <apex:repeat value="{!emails}" var="emailFolder1">
+                                                    +
+                                                    <a href="#" onclick="javascript:getFolderInfo('{!emailFolder1.Id}'); javascript:toggleFolderDisplay( 'emailFolder_{!emailFolder1.Id}' )">
+                                                        <b> 
+                                                            {!emailFolder1.name} 
+                                                        </b> 
+                                                    </a>
+                                                    <br />
+                                                    <div class="emailFolder closed" id="emailFolder_{!emailFolder1.Id}">
+                                                        <apex:repeat value="{!emailFolder1.subfolders}" var="emailFolder2" rendered="{!NOT( ISBLANK( emailFolder1.subfolders ) )}">
+                                                            +
+                                                            <a href="#" onclick="javascript:getFolderInfo('{!emailFolder2.Id}'); javascript:toggleFolderDisplay( 'emailFolder_{!emailFolder2.Id}' )">
+                                                                <b>
+                                                                    {!emailFolder2.name} 
+                                                                </b> 
+                                                            </a>
+                                                            <br />
+                                                            <div class="emailFolder closed" id="emailFolder_{!emailFolder2.Id}">
+                                                                <apex:repeat value="{!emailFolder2.subfolders}" var="emailFolder3" rendered="{!NOT( ISBLANK( emailFolder2.subfolders ) )}">
+                                                                    +
+                                                                    <a href="#" onclick="javascript:getFolderInfo('{!emailFolder3.Id}'); javascript:toggleFolderDisplay( 'emailFolder_{!emailFolder3.Id}' )">
+                                                                        <b> 
+                                                                            {!emailFolder3.name} 
+                                                                        </b> 
+                                                                    </a>
+                                                                    <br />
+                                                                    <div class="emailFolder closed" id="emailFolder_{!emailFolder3.Id}">
+                                                                        <apex:repeat value="{!emailFolder3.subfolders}" var="emailFolder4" rendered="{!NOT( ISBLANK( emailFolder3.subfolders ) )}">
+                                                                            +
+                                                                            <a href="#" onclick="javascript:getFolderInfo('{!emailFolder4.Id}'); javascript:toggleFolderDisplay( 'emailFolder_{!emailFolder4.Id}' )">
+                                                                                <b> 
+                                                                                    {!emailFolder4.name} 
+                                                                                </b> 
+                                                                            </a>
+                                                                            <br />
+                                                                            <div class="emailFolder closed" id="emailFolder_{!emailFolder4.Id}">
+                                                                                <apex:repeat value="{!emailFolder4.subfolders}" var="emailFolder5" rendered="{!NOT( ISBLANK( emailFolder4.subfolders ) )}">
+                                                                                    +
+                                                                                    <a href="#" onclick="javascript:getFolderInfo('{!emailFolder5.Id}'); javascript:toggleFolderDisplay( 'emailFolder_{!emailFolder5.Id}' )">
+                                                                                        <b> 
+                                                                                            {!emailFolder5.name} 
+                                                                                        </b> 
+                                                                                    </a>
+                                                                                    <br />
+                                                                                    <div class="emailFolder closed" id="emailFolder_{!emailFolder5.Id}">
+                                                                                        <apex:repeat value="{!emailFolder5.emails}" var="email5">
+                                                                                            &nbsp;-&nbsp;
+                                                                                            <a href="#" onclick="javascript:selectEmailJS( '{!email5.id}', '{!email5.encName}', '{!email5.encTitle}' );subscriberPreview.setEmailId('{!email5.id}');" status="sendButtonStatus">    
+                                                                                                {!email5.name} 
+                                                                                            </a>
+                                                                                            <br />
+                                                                                        </apex:repeat>
+                                                                                    </div>
+                                                                                </apex:repeat> 
+                                                                                <apex:repeat value="{!emailFolder4.emails}" var="email4">
+                                                                                    &nbsp;-&nbsp;
+                                                                                    <a href="#" onclick="javascript:selectEmailJS( '{!email4.id}', '{!email4.encName}', '{!email4.encTitle}' );subscriberPreview.setEmailId('{!email4.id}');" status="sendButtonStatus"> 
+                                                                                        {!email4.name} 
+                                                                                    </a>
+                                                                                    <br />
+                                                                                </apex:repeat>
+                                                                            </div>
+                                                                        </apex:repeat> 
+                                                                        <apex:repeat value="{!emailFolder3.emails}" var="email3">
+                                                                            &nbsp;-&nbsp;
+                                                                            <a href="#" onclick="javascript:selectEmailJS( '{!email3.id}', '{!email3.encName}', '{!email3.encTitle}' );subscriberPreview.setEmailId('{!email3.id}');" status="sendButtonStatus"> 
+                                                                                {!email3.name} 
+                                                                            </a>
+                                                                            <br />
+                                                                        </apex:repeat>
+                                                                    </div>
+                                                                </apex:repeat> 
+                                                                <apex:repeat value="{!emailFolder2.emails}" var="email2">
+                                                                    &nbsp;-&nbsp;
+                                                                    <a href="#" onclick="javascript:selectEmailJS( '{!email2.id}', '{!email2.encName}', '{!email2.encTitle}' );subscriberPreview.setEmailId('{!email2.id}');" status="sendButtonStatus"> 
+                                                                        {!email2.name} 
+                                                                    </a>
+                                                                    <br />
+                                                                </apex:repeat>
+                                                            </div>
+                                                        </apex:repeat> 
+                                                        <apex:repeat value="{!emailFolder1.emails}" var="email1">
+                                                            &nbsp;-&nbsp;
+                                                            <a href="#" onclick="javascript:selectEmailJS( '{!email1.id}', '{!email1.encName}', '{!email1.encTitle}' );subscriberPreview.setEmailId('{!email1.id}');" status="sendButtonStatus"> 
+                                                                {!email1.name} 
+                                                            </a>
+                                                            <br />
+                                                        </apex:repeat>
+                                                    </div>
+                                                </apex:repeat>
+                                            </apex:pageBlock>
+                                        </div>
                                     </apex:outputPanel>
                                 </apex:facet>
                             </apex:actionStatus>
@@ -181,7 +183,7 @@
                 </apex:pageBlockSectionItem>
                 <apex:inputText value="{!Email.title}" label="Subject"/>
                 <apex:outputText label="Recipients" value="{!ParticipantNames}" />
-                <apex:outputText label="From" value="{!FromAddress}" />
+                <apex:outputField label="From" value="{!Config.Default_From_Email__c}" />
                 <apex:inputCheckbox label="Dedupe Subscribers" value="{!DeDup}" />
                 <apex:inputCheckbox label="Disabled Individual Level Tracking" value="{!DisableIndividualTracking}" />
                 <apex:selectList value="{!SendTime}" size="1" label="Send Date and Time">

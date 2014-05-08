@@ -337,6 +337,9 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
+        <relatedList>RelatedEntityHistoryList</relatedList>
+    </relatedLists>
+    <relatedLists>
         <customButtons>New_Line_Item</customButtons>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>

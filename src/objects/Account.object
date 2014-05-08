@@ -77,6 +77,86 @@
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <fieldSets>
+        <fullName>Account_Merge_Contracting_Parties_MERC</fullName>
+        <description>MERC_MergedAccounts.page / MERC_MergedAccountsApex.cls / Custom Setting: Account Merge - Contracting Parties .Oliver Dunford 8th May 2014</description>
+        <displayedFields>
+            <field>Salutation</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Full_Nm_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Addr_Line1_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Addr_Line2_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Addr_City_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Address_Country_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>PersonEmail</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Account Merge - Contracting Parties</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Account_Merge_Desig_Individuals_MERC</fullName>
+        <description>MERC_MergedAccounts.page / MERC_MergedAccountsApex.cls / Custom Setting: Account Merge - Designated Individuals .Oliver Dunford 8th May 2014</description>
+        <displayedFields>
+            <field>Salutation</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Full_Nm_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Addr_Line1_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Addr_Line2_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Addr_City_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Address_Country_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>PersonEmail</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Account Merge - Designated Individuals</label>
+    </fieldSets>
+    <fieldSets>
         <fullName>Meeting_Team_Manager_Mass_Add</fullName>
         <description>Meeting Team Manager search Results tab</description>
         <displayedFields>
@@ -674,6 +754,29 @@ Created by John A Adams 10/24/2013</description>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Signatory_MERC__c</fullName>
+        <description>Used to indicate type of Contract Signatory. Created 05/08/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Contract Signatory</label>
+        <picklist>
+            <picklistValues>
+                <fullName>My Name (self)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>My Legal Entity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>My Institution</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Contract_Signing_Parties_Complete_MERC__c</fullName>
@@ -5093,6 +5196,21 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Contract_Signatory_MERC__c</picklist>
+            <values>
+                <fullName>My Institution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Legal Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Name %28self%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Employment_Specification_MERC__c</picklist>
             <values>
                 <fullName>Employed by one or more Institutions</fullName>
@@ -5465,6 +5583,21 @@ Created by John A Adams 11/4/2013</description>
             </values>
             <values>
                 <fullName>Yes - 2 or more</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Contract_Signatory_MERC__c</picklist>
+            <values>
+                <fullName>My Institution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Legal Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Name %28self%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7032,6 +7165,21 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Contract_Signatory_MERC__c</picklist>
+            <values>
+                <fullName>My Institution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Legal Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Name %28self%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Country_of_Residence_GLBL__c</picklist>
             <values>
                 <fullName>AD</fullName>
@@ -8595,6 +8743,21 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Contract_Signatory_MERC__c</picklist>
+            <values>
+                <fullName>My Institution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Legal Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Name %28self%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Country_of_Residence_GLBL__c</picklist>
             <values>
                 <fullName>US</fullName>
@@ -9158,6 +9321,21 @@ Created by John A Adams 11/4/2013</description>
             </values>
             <values>
                 <fullName>Yes - 2 or more</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Contract_Signatory_MERC__c</picklist>
+            <values>
+                <fullName>My Institution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Legal Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Name %28self%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10725,6 +10903,21 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Contract_Signatory_MERC__c</picklist>
+            <values>
+                <fullName>My Institution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Legal Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Name %28self%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Country_of_Residence_GLBL__c</picklist>
             <values>
                 <fullName>AD</fullName>
@@ -12280,6 +12473,21 @@ Created by John A Adams 11/4/2013</description>
             </values>
             <values>
                 <fullName>Yes - 2 or more</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Contract_Signatory_MERC__c</picklist>
+            <values>
+                <fullName>My Institution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Legal Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Name %28self%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

@@ -8,12 +8,9 @@ public with sharing class MeetingEmailSendExtension {
         emails = new List<ETObject.EmailFolder>();
         callControl = new etCallControl();
 
-        Sonoma_ET_Config__c config = Sonoma_ET_Config__c.getInstance();
-        if (config == null) {
+        Config = Sonoma_ET_Config__c.getInstance();
+        if (Config == null) {
             AddErrorMessage('No configuration object was found. Please contact your administrator.');
-        }
-        else {
-            FromAddress = config.Default_From_Email__c;
         }
 
         ShowParticipantGrid = false;
@@ -22,7 +19,6 @@ public with sharing class MeetingEmailSendExtension {
     }
 
     public boolean IsAllChecked { get; set; }
-    public String FromAddress { get; private set; }
     public boolean DeDup { get; set; }
     public boolean DisableIndividualTracking { get; set; }
     public String SendTime { get; set; }
@@ -30,6 +26,7 @@ public with sharing class MeetingEmailSendExtension {
     public boolean ShowParticipantGrid { get; set; }
 
     private final Meeting_MERC__c meeting;
+    public Sonoma_ET_Config__c Config { get; private set; }
 
     public String getParticipantNames() {
         List<String> names = new List<String>();
@@ -101,9 +98,9 @@ public with sharing class MeetingEmailSendExtension {
         get
         {
             if (BusinessUnit == null) {
-                List<et4ae5__Business_Unit__c> bus = [SELECT et4ae5__Business_Unit_ID__c FROM et4ae5__Business_Unit__c LIMIT 1];
+                List<et4ae5__Business_Unit__c> bus = [SELECT et4ae5__Business_Unit_ID__c FROM et4ae5__Business_Unit__c WHERE Name = :Config.ET_BU_Name__c LIMIT 1];
                 if (bus.size() == 0) {
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'No ET Business Units were defined.'));
+                    ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, String.format('No ET Business Units with name {0} were defined.', new List<String> { Config.ET_BU_Name__c })));
                 }
                 else {
                     BusinessUnit = bus[0];

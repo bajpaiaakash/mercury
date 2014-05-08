@@ -188,10 +188,21 @@ public without sharing class ETAuthorizer {
     }
 
     public void createETSendForDataExtensionId(String deId) {
+        Id testCampaignId = Id.valueOf('70111000000B2aN');
+
         et4ae5__SendDefinition__c send = new et4ae5__SendDefinition__c();
-        //send.et4ae5__Campaign__c = Id.valueOf('70111000000B2aN');
         send.et4ae5__DataExtensionId__c = deId;
         send.et4ae5__SyncId__c = Datetime.now().format('yyyyMMdd');
+        send.et4ae5__Campaigns__c = '<a target="_self" href="/' + testCampaignId + '">Test</a><br>';
+        send.et4ae5__SendStatus__c = 'New';
+        send.et4ae5__FromName__c = 'Sonoma Partners Test';
+        send.et4ae5__FromEmail__c = 'sf-elililly@sonomapartners.com';
+        send.et4ae5__RecipientsOptedIn__c = true;
+        send.et4ae5__Reply_to__c = 'Sonoma Partners <sf-elililly@sonomapartners.com>';
+        send.et4ae5__EmailId__c = '12588';
+        send.et4ae5__EmailName__c = 'Sonoma Test Template';
+        send.et4ae5__Subject__c = 'Test Subject';
+        send.et4ae5__SubjectLine__c = 'Test Subject';
         insert send;
     }
 

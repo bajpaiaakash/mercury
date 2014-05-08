@@ -53,6 +53,46 @@ Created by John A Adams 9/26/2013</description>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
+    <fieldSets>
+        <fullName>Account_Merge_Payee_MERC</fullName>
+        <description>MERC_MergedAccounts.page / MERC_MergedAccountsApex.cls / Custom Setting: Account Merge - HCP Contracts .Oliver Dunford 8th May 2014</description>
+        <displayedFields>
+            <field>Account_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Payee_Street_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Payee_Country_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SAP_Vendor_ID_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Bank_Name_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Bank_Street_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Account Merge - Payee</label>
+    </fieldSets>
     <fields>
         <fullName>Account_MERC__c</fullName>
         <description>Associate payee information from SAP with Account
@@ -94,10 +134,7 @@ Created by John A Adams 10/17/2013</description>
         <maskType>lastFour</maskType>
         <required>false</required>
         <trackHistory>false</trackHistory>
-<<<<<<< HEAD
-=======
         <trackTrending>false</trackTrending>
->>>>>>> FETCH_HEAD
         <type>EncryptedText</type>
     </fields>
     <fields>
@@ -404,7 +441,6 @@ Created by John A Adams 9/27/2013</description>
         <description>Indicates whether all bank information has been populated on a payee record. Created 04/18/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <formula>IF (
-ISPICKVAL(Payment_Method_MERC__c,&quot;&quot;) ||
 ISBLANK(Bank_Name_MERC__c) ||
 ISBLANK(Bank_Street_MERC__c) ||
 ISBLANK(Bank_City_MERC__c) ||

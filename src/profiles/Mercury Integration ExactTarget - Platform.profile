@@ -109,6 +109,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ETDataExtensionProcessor</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ETObject</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -221,19 +225,11 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-<<<<<<< HEAD
         <apexClass>MERC_AnonymiseNonHCPDataHandler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_AnonymiseNonHCPDataHandlerTest</apexClass>
-=======
-        <apexClass>MERC_AnonymizeNonHCPDataHandler</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MERC_AnonymizeNonHCPDataHandlerTest</apexClass>
->>>>>>> FETCH_HEAD
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -402,6 +398,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_MeetingContentStampHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_MeetingContentStampHandlerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -809,6 +809,11 @@
         <editable>true</editable>
         <field>Account.Contract_Limitations_on_Use_MERC__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Contract_Signatory_MERC__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -7382,11 +7387,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Account.Meeting_Planning_Company_GLBL</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
         <recordType>Account.Third_Party_Organization_GLBL</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -7725,8 +7725,6 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <userLicense>Salesforce Platform</userLicense>
-<<<<<<< HEAD
-=======
     <userPermissions>
         <enabled>true</enabled>
         <name>ApiEnabled</name>
@@ -7747,5 +7745,4 @@
         <enabled>true</enabled>
         <name>ViewHelpLink</name>
     </userPermissions>
->>>>>>> FETCH_HEAD
 </Profile>

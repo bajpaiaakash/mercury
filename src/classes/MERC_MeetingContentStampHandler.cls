@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /**
  * @author Kyle Thornton
  *
@@ -45,10 +44,4 @@ public with sharing class MERC_MeetingContentStampHandler implements GLBL_Trigge
 		}
 	}
 
-=======
-public with sharing class MERC_MeetingContentStampHandler {
-	public MERC_MeetingContentStampHandler() {
-		
-	}
->>>>>>> FETCH_HEAD
 }

@@ -110,6 +110,11 @@
             <active>false</active>
             <keyCommand>U</keyCommand>
         </defaultShortcut>
+        <defaultShortcut>
+            <action>HOTKEYS_PANEL</action>
+            <active>false</active>
+            <keyCommand>SHIFT+K</keyCommand>
+        </defaultShortcut>
     </keyboardShortcuts>
     <label>Customer Meeting Services</label>
     <listPlacement>

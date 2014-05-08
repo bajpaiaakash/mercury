@@ -57,14 +57,9 @@
         <defaultValue>false</defaultValue>
         <description>Indicates that this record is related to a non-hcp meeting participant and should be anonymised (via workflows)</description>
         <externalId>false</externalId>
-<<<<<<< HEAD
         <inlineHelpText>Indicates that this record is related to a non-hcp meeting participant and should be anonymised (via workflows)</inlineHelpText>
         <label>Anonymise Record</label>
-=======
-        <inlineHelpText>Indicates that this record is related to a non-hcp meeting participant and should be anonymized (via workflows)</inlineHelpText>
-        <label>Anonymize Record</label>
         <trackTrending>false</trackTrending>
->>>>>>> FETCH_HEAD
         <type>Checkbox</type>
     </fields>
     <fields>
