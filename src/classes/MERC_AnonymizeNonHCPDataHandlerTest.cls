@@ -45,18 +45,20 @@ private class MERC_AnonymizeNonHCPDataHandlerTest {
 		insert agendaItems;
 	}
 
-
-
-	static User testUser = MERC_TestFactory.insertTestUsers(1, null).get(0);
+	static User testUser;
 	static
 	{
-		PermissionSet ps = [SELECT Id FROM PermissionSet WHERE Name='Mercury_Customer_Meeting_Services_Edit' limit 1];
-		insert new PermissionSetAssignment( PermissionSetId=ps.Id
-			                              , AssigneeId=testUser.id);
-		update new User( id=testUser.Id
-			           , UserRoleId=[SELECT Id FROM UserRole WHERE Name='Global' limit 1].id);
-
-
+		System.runAs(new User(Id=UserInfo.getUserId()))
+		{
+			testUser = MERC_TestFactory.insertTestUsers(1, null).get(0);
+			testUser.userRoleId = [SELECT Id FROM UserRole Where Name = 'Global' LIMIT 1].Id;
+			update testUser;
+			PermissionSet ps = [SELECT Id FROM PermissionSet WHERE Name='Mercury_Customer_Meeting_Services_Edit' limit 1];
+			insert new PermissionSetAssignment( PermissionSetId=ps.Id
+				                              , AssigneeId=testUser.id);
+			update new User( id=testUser.Id
+				           , UserRoleId=[SELECT Id FROM UserRole WHERE Name='Global' limit 1].id);
+		}
 	}
 
 	@isTest static void test_should_set_anonymize_flag_when_meeting_completed() {

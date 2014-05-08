@@ -97,6 +97,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ETAuthTestPageController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ETAuthorizer</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -173,6 +177,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_AccountDesignatedIndividualsCounter</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_AccountPreferenceRollupManager</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -243,6 +251,10 @@
     <classAccesses>
         <apexClass>MERC_ContentVersionHandlerTest</apexClass>
         <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_CreateBulkSAPData</apexClass>
+        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_DailyAttendanceController</apexClass>
@@ -379,6 +391,10 @@
     <classAccesses>
         <apexClass>MERC_MeetingCancellationHandlerTest</apexClass>
         <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_MeetingContentStampHandler</apexClass>
+        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_MeetingDayManagerController</apexClass>
@@ -569,7 +585,19 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>TestUtils</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Test_MeetingEmailSendExtension</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>etCallControl</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>parseString</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -777,6 +805,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Contract_Signing_Parties_Complete_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Contract_Signing_Parties_Complete_OLD__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1891,7 +1924,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account.of_Contracting_Parties_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account.of_Designated_Individuals_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.of_Payees_with_Priority_Rank_1_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4781,11 +4824,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Meeting_MERC__c.Submit_for_Contracting_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Meeting_MERC__c.Target_Audience_List_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -5747,6 +5785,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Payee_MERC__c.Associated_Address_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Payee_MERC__c.Bank_Account_Number_Encrypted__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7146,6 +7189,10 @@
     <pageAccesses>
         <apexPage>CreateCaseRedirectMVN</apexPage>
         <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>ETAuthTestPage</apexPage>
+        <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>GLBL_NewButtonPrepopulator</apexPage>

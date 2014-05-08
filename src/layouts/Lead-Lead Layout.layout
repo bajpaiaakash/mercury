@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -158,6 +159,12 @@
         <layoutColumns>
             <layoutItems>
                 <customLink>SendGmail</customLink>
+            </layoutItems>
+            <layoutItems>
+                <customLink>Send_ET_Email</customLink>
+            </layoutItems>
+            <layoutItems>
+                <customLink>et4ae5__Send_ExactTarget_Email</customLink>
             </layoutItems>
         </layoutColumns>
         <style>CustomLinks</style>

@@ -1,9 +1,34 @@
 <apex:page showHeader="true" sidebar="false" standardController="Meeting_MERC__c" extensions="MeetingEmailSendExtension">
     <apex:pageMessages />
+    <apex:sectionHeader title="{!Meeting_MERC__c.Name}" subtitle="Configure Email Send"/>
     <apex:form rendered="{!NOT(HasErrors)}">
-    	<apex:pageBlock id="block">
-            <apex:pageBlockButtons location="bottom">
-                <apex:commandButton value="Send" disabled="{!!OptIn}"/>
+        <apex:pageBlock id="participantBlock" title="Select Recipients" rendered="{!ShowParticipantGrid}">
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Update Recipients" action="{!HideGrid}" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection columns="1">
+                <apex:pageBlockTable value="{!Participants}" var="participant" id="participantGrid">
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:inputCheckbox value="{!IsAllChecked}">
+                                <apex:actionSupport event="onclick" action="{!SelectAllClicked}" reRender="participantGrid" />
+                            </apex:inputCheckbox>
+                        </apex:facet>
+                        <apex:inputCheckbox value="{!participant.IsSelected}" />
+                    </apex:column>
+                    <apex:column headerValue="Full Name" value="{!participant.Participant.Account_MERC__r.Name}" />
+                    <apex:column headerValue="Status" value="{!participant.Participant.Status_MERC__c}" />
+                    <apex:column headerValue="Docusign Contract Status" value="{!participant.Participant.Docusign_Contract_Status_MERC__c}" />
+                    <apex:column headerValue="Participant Type" value="{!participant.Participant.Participant_Typ_MERC__c}" />
+                    <apex:column headerValue="Communication Preference" value="{!participant.Participant.Account_MERC__r.Communication_Preference_MERC__c}" />
+                    <apex:column headerValue="Has Signed Contract" value="{!participant.Participant.Has_Signed_Contract_MERC__c}" />
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    	<apex:pageBlock id="block" title="Email Options" rendered="{!NOT(ShowParticipantGrid)}">
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Send" disabled="{!!OptIn}" />
+                <apex:commandButton value="Select Participants" action="{!ShowGrid}" />
             </apex:pageBlockButtons>
             <apex:pageBlockSection columns="1">
                 <apex:pageBlockSectionItem >
@@ -60,7 +85,7 @@
                                                 +
                                                 <a href="#" onclick="javascript:getFolderInfo('{!emailFolder1.Id}'); javascript:toggleFolderDisplay( 'emailFolder_{!emailFolder1.Id}' )">
                                                     <b> 
-                                                        { !emailFolder1.name} 
+                                                        {!emailFolder1.name} 
                                                     </b> 
                                                 </a>
                                                 <br />
@@ -154,24 +179,8 @@
                     </apex:outputPanel>
                     <apex:outputText />
                 </apex:pageBlockSectionItem>
-                <apex:inputText value="{!Subject}" label="Subject"/>
-                <apex:pageBlockTable value="{!Participants}" var="participant" id="participantGrid">
-                    <apex:facet name="caption">Recipients</apex:facet>
-                    <apex:column >
-                        <apex:facet name="header">
-                            <apex:inputCheckbox value="{!IsAllChecked}">
-                                <apex:actionSupport event="onclick" action="{!SelectAllClicked}" reRender="participantGrid" />
-                            </apex:inputCheckbox>
-                        </apex:facet>
-                        <apex:inputCheckbox value="{!participant.IsSelected}" />
-                    </apex:column>
-                    <apex:column headerValue="Full Name" />
-                    <apex:column headerValue="Status" />
-                    <apex:column headerValue="Docusign Contract Status" />
-                    <apex:column headerValue="Participant Type" />
-                    <apex:column headerValue="Communication Preference" />
-                    <apex:column headerValue="Has Signed Contract" />
-                </apex:pageBlockTable>
+                <apex:inputText value="{!Email.title}" label="Subject"/>
+                <apex:outputText label="Recipients" value="{!ParticipantNames}" />
                 <apex:outputText label="From" value="{!FromAddress}" />
                 <apex:inputCheckbox label="Dedupe Subscribers" value="{!DeDup}" />
                 <apex:inputCheckbox label="Disabled Individual Level Tracking" value="{!DisableIndividualTracking}" />
@@ -186,4 +195,7 @@
             </apex:pageBlockSection>
         </apex:pageBlock>
     </apex:form>
+
+    <apex:stylesheet value="https://{!urlRoot}.exacttarget.com/FuelUX/css/fuel-all.css" /> 
+    <apex:stylesheet value="https://{!urlRoot}.exacttarget.com/FuelUX/css/ie8.css" /> 
 </apex:page>

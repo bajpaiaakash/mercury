@@ -5,6 +5,10 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Clone</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -17,11 +21,19 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -32,6 +44,7 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Contains Health Care Provider speciality information 
 Created by John A Adams 12/15/2013</description>
@@ -51,6 +64,7 @@ Created by John A Adams 12/15/2013</description>
         <relationshipLabel>Specialities</relationshipLabel>
         <relationshipName>Specialities</relationshipName>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -70,6 +84,7 @@ Created by John A Adams 12/15/2013</description>
             </picklistValues>
             <sorted>true</sorted>
         </picklist>
+        <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -80,6 +95,7 @@ Created by John A Adams 12/15/2013</description>
         <externalId>false</externalId>
         <label>Del Date</label>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -90,6 +106,7 @@ Created by John A Adams 12/15/2013</description>
         <label>Del Flag</label>
         <length>50</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -101,6 +118,7 @@ Created by John A Adams 12/15/2013</description>
         <label>Educational Specialty Flag</label>
         <length>1</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -111,6 +129,7 @@ Created by John A Adams 12/15/2013</description>
         <externalId>false</externalId>
         <label>End Date</label>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -120,6 +139,7 @@ Created by John A Adams 12/15/2013</description>
         <externalId>false</externalId>
         <label>Effective Date</label>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -130,6 +150,7 @@ Created by John A Adams 1/10/2014</description>
         <label>Mercury External Id</label>
         <length>50</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -140,6 +161,7 @@ Created by John A Adams 12/15/2013</description>
         <externalId>false</externalId>
         <label>Source Load Timestamp</label>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -150,6 +172,7 @@ Created by John A Adams 12/15/2013</description>
         <label>ODS Load User</label>
         <length>30</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -160,6 +183,7 @@ Created by John A Adams 12/15/2013</description>
         <externalId>false</externalId>
         <label>Source Update Timestamp</label>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -170,6 +194,7 @@ Created by John A Adams 12/15/2013</description>
         <label>ODS Last Update User</label>
         <length>30</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -181,6 +206,7 @@ Created by John A Adams 12/15/2013</description>
         <label>Party Country Code</label>
         <length>2</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -192,6 +218,7 @@ Created by John A Adams 12/15/2013</description>
         <label>Party Record Type Code</label>
         <length>10</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -203,6 +230,7 @@ Created by John A Adams 12/15/2013</description>
         <label>Professional Specialty Flag</label>
         <length>1</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -215,6 +243,7 @@ Created by John A Adams 12/15/2013</description>
         <precision>5</precision>
         <required>false</required>
         <scale>0</scale>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -226,6 +255,7 @@ Created by John A Adams 12/15/2013</description>
         <label>Speciality Code</label>
         <length>50</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -237,6 +267,7 @@ Created by John A Adams 12/15/2013</description>
         <label>Speciality</label>
         <length>255</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -248,6 +279,7 @@ Created by John A Adams 12/15/2013</description>
         <label>Speciality Type Code</label>
         <length>50</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -258,6 +290,7 @@ Created by John A Adams 12/15/2013</description>
         <label>Speciality External ID</label>
         <length>250</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -269,6 +302,7 @@ Created by John A Adams 12/15/2013</description>
         <label>Source Block Flag</label>
         <length>1</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -280,6 +314,7 @@ Created by John A Adams 12/15/2013</description>
         <label>Source System Code</label>
         <length>10</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>

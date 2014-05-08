@@ -6,18 +6,14 @@
 public with sharing class MERC_CreateBulkSAPData {
 
 	static final Integer TEST_SET_SIZE = 1;
-	List<Account> accounts;
-	List<Meeting_MERC__c> meetings;
-	List<Meeting_Participant_MERC__c> participants;
-	List<Invoice_MERC__c> invoices;
-	List<Invoice_Line_Item_MERC__c> lineItems;
-	Integer numOfLineItems;
+	static List<Account> accounts;
+	static List<Meeting_MERC__c> meetings;
+	static List<Meeting_Participant_MERC__c> participants;
+	static List<Invoice_MERC__c> invoices;
+	static List<Invoice_Line_Item_MERC__c> lineItems;
+	static Integer numOfLineItems;
 
 	static Id hcpRecordTypeId = [Select ID From RecordType Where SObjectType = 'Account' and DeveloperName = 'HCP_GLBL'].ID;
-
-	public MERC_CreateBulkSAPData() {
-
-	}
 
 	public static void insertTestData() {
 		accounts = insertAccounts(1, hcpRecordTypeId);
@@ -110,29 +106,4 @@ public with sharing class MERC_CreateBulkSAPData {
 		return lis;
 	}
 
-/*
-select Id, Name
-from Account
-WHERE FirstName = 'SAPLoadTest'
-
-select Id, Name
- from Meeting_MERC__c
-WHERE Name LIKE 'SAPLoadTest%'
-
-select Id, Name
- from Meeting_Participant_MERC__c
-WHERE Meeting_MERC__c in (select Id
- from Meeting_MERC__c
-WHERE Name LIKE 'SAPLoadTest%')
-
-select Id, Name
-from Invoice_MERC__c
-where Meeting_Participant_MERC__c in 
-(select Id
- from Meeting_Participant_MERC__c
-WHERE Meeting_MERC__r.Name LIKE 'SAPLoadTest%')
-
-
-
-*/
 }

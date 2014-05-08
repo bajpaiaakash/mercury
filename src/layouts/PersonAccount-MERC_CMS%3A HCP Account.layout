@@ -2,6 +2,7 @@
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Upload_Content_MERC</customButtons>
     <customButtons>Loop__LOOPlus</customButtons>
+    <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>EnableSelfService</excludeButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
     <excludeButtons>RequestUpdate</excludeButtons>
@@ -79,6 +80,10 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Cust_Id_GLBL__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Party_Sts_Desc_GLBL__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -394,6 +399,10 @@
                 <field>Institutional_Notification_Consent_MERC__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Contract_Signing_Parties_Complete_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Qualifications_Experience_Consent_MERC__c</field>
             </layoutItems>
@@ -500,6 +509,7 @@
         <fields>Bank_City_MERC__c</fields>
         <fields>Bank_Country_MERC__c</fields>
         <fields>Payment_Method_MERC__c</fields>
+        <fields>Priority_Rank_Nbr_MERC__c</fields>
         <relatedList>Payee_MERC__c.Account_MERC__c</relatedList>
     </relatedLists>
     <relatedLists>
