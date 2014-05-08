@@ -5,6 +5,10 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Clone</actionName>
         <comment>Overridden to provide better Date/Time UX -JFerraro March 24 2014</comment>
         <content>MERC_TravelItineraryNewEdit</content>
@@ -22,6 +26,10 @@
         <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -32,6 +40,10 @@
         <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Tab</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -39,6 +51,7 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Details of travel arrangements - child of Meeting Participant object.
 Created by John A Adams 10/9/2013</description>
@@ -107,6 +120,7 @@ Created by John A Adams 10/9/2013</description>
         <relationshipName>Travel_Itineraries</relationshipName>
         <relationshipOrder>0</relationshipOrder>
         <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
@@ -117,6 +131,7 @@ Created by John A Adams 10/9/2013</description>
         <label>Account Number</label>
         <length>20</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -128,6 +143,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Allowance Distance Description</label>
         <length>6</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -141,6 +157,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Allowance Distance Type</label>
         <length>10</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -149,8 +166,14 @@ Created by John A Adams 12/13/2013</description>
         <defaultValue>false</defaultValue>
         <description>Indicates that this record is related to a non-hcp meeting participant and should be anonymised (via workflows)</description>
         <externalId>false</externalId>
+<<<<<<< HEAD
         <inlineHelpText>Indicates that this record is related to a non-hcp meeting participant and should be anonymised (via workflows)</inlineHelpText>
         <label>Anonymise Record</label>
+=======
+        <inlineHelpText>Indicates that this record is related to a non-hcp meeting participant and should be anonymized (via workflows)</inlineHelpText>
+        <label>Anonymize Record</label>
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -161,6 +184,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Aircraft Type Code</label>
         <length>3</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -172,6 +196,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Arrival Terminal Name</label>
         <length>60</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -183,6 +208,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Begin Airport Code</label>
         <length>3</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -194,6 +220,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Begin City</label>
         <length>3</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -205,6 +232,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Begin Station Code</label>
         <length>20</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -216,6 +244,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Begin Station Name</label>
         <length>50</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -225,6 +254,7 @@ Created by John A Adams 12/13/2013</description>
         <externalId>false</externalId>
         <label>Booking Date</label>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -245,6 +275,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Car Class Code</label>
         <length>3</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -269,6 +300,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Car Equipment Code</label>
         <length>20</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -280,6 +312,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Car Rate Code</label>
         <length>6</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -305,6 +338,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Car Type Code</label>
         <length>1</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -316,6 +350,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Code Share Remark</label>
         <length>80</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -327,6 +362,7 @@ Created by John A Adams 12/13/2013</description>
         <label>City</label>
         <length>80</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -338,6 +374,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Class of Service Code</label>
         <length>1</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -348,6 +385,7 @@ Created by John A Adams 12/13/2013</description>
 Created by John A Adams 12/13/2013</description>
         <externalId>false</externalId>
         <label>Connection Type</label>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -356,6 +394,7 @@ Created by John A Adams 12/13/2013</description>
         <description>HCP Care to confirm the change if ToV has already been reported for this meeting participant. Created 01/08/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Confirm ToV Reporting Change</label>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -365,6 +404,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Confirmation Number</label>
         <length>30</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -376,6 +416,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Daily Extra Amount Description</label>
         <length>20</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -387,6 +428,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Departure Terminal Name</label>
         <length>60</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -398,6 +440,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Drop off Location Description</label>
         <length>50</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -409,6 +452,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Distance Charge Amount Desc</label>
         <length>20</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -420,6 +464,7 @@ Created by John A Adams 12/13/2013</description>
         <label>End Airport Code</label>
         <length>3</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -431,6 +476,7 @@ Created by John A Adams 12/13/2013</description>
         <label>End City</label>
         <length>3</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -442,6 +488,7 @@ Created by John A Adams 12/13/2013</description>
         <label>End Station Code</label>
         <length>20</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -453,6 +500,7 @@ Created by John A Adams 12/13/2013</description>
         <label>End Station Name</label>
         <length>50</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -463,6 +511,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Exchange Transaction Flag</label>
         <length>10</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -474,6 +523,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Fare Basis Code</label>
         <length>15</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -485,6 +535,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Field Name</label>
         <length>30</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -495,6 +546,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Field Value Description</label>
         <length>86</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -506,6 +558,7 @@ Created by John A Adams 12/13/2013</description>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>First Name</label>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -517,6 +570,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Flight Number</label>
         <length>6</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -528,6 +582,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Gauge Change Airport Code</label>
         <length>5</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -539,6 +594,7 @@ Created by John A Adams 12/13/2013</description>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Hotel Name</label>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -550,6 +606,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Hourly Extra Charge Amount Description</label>
         <length>10</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -561,6 +618,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Hotel Address Type</label>
         <length>10</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -572,6 +630,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Hotel City Code</label>
         <length>10</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -583,6 +642,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Hotel Fax Number</label>
         <length>14</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -594,6 +654,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Hotel Phone Number</label>
         <length>14</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -605,6 +666,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Hotel Property Code</label>
         <length>10</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -616,6 +678,7 @@ Created by John A Adams 12/13/2013</description>
         <label>In Flight Meal Description</label>
         <length>80</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -625,6 +688,7 @@ Created by John A Adams 12/13/2013</description>
         <description>A flag that indicates whether the travel crosses international boundaries. Oliver Dunford Dec 14th 2013</description>
         <externalId>false</externalId>
         <label>International Flag</label>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -633,6 +697,7 @@ Created by John A Adams 12/13/2013</description>
         <externalId>false</externalId>
         <label>Issued GTM Timestamp</label>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -643,6 +708,7 @@ Created by John A Adams 12/13/2013</description>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Last Name</label>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -654,6 +720,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Line1</label>
         <length>80</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -666,6 +733,7 @@ Created by John A Adams 12/13/2013</description>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -675,6 +743,7 @@ Created by John A Adams 12/13/2013</description>
         <description>A flag that indicates whether this segment was manually booked. 14th Dec 2013.</description>
         <externalId>false</externalId>
         <label>Manual Booking Flag</label>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -685,6 +754,7 @@ Created by John A Adams 12/13/2013</description>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Meeting End Date/Time</label>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -694,6 +764,7 @@ Created by John A Adams 12/13/2013</description>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Meeting Id</label>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -707,6 +778,7 @@ Created by John A Adams 12/13/2013</description>
         <relationshipLabel>Travel Itineraries</relationshipLabel>
         <relationshipName>Travel_Itineraries_MERC</relationshipName>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -717,6 +789,7 @@ Created by John A Adams 12/13/2013</description>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Meeting Start Date/Time</label>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -726,6 +799,7 @@ Created by John A Adams 12/13/2013</description>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Meeting Status</label>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -735,6 +809,7 @@ Created by John A Adams 12/13/2013</description>
         <formula>text(Meeting_Participant_MERC__r.Meeting_MERC__r.Meeting_Time_Zone_MERC__c)</formula>
         <label>Meeting Time Zone</label>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -748,6 +823,7 @@ Created by John A Adams 12/13/2013</description>
         <relationshipLabel>Travel Itineraries</relationshipLabel>
         <relationshipName>Travel_Itineraries</relationshipName>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -757,6 +833,7 @@ Created by John A Adams 12/13/2013</description>
         <formula>Meeting_Vendor_MERC__r.Account_MERC__r.Name</formula>
         <label>Meeting Vendor Name</label>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -768,6 +845,7 @@ Created by J Adams 12/10/2013</description>
         <label>Mercury External Id</label>
         <length>150</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -779,6 +857,7 @@ Created by J Adams 12/10/2013</description>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Middle Name</label>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -789,6 +868,7 @@ Created by J Adams 12/10/2013</description>
         <label>Missed Reason Code</label>
         <length>10</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -800,6 +880,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Message Version</label>
         <length>80</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -810,6 +891,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Passenger Name Record #</label>
         <length>12</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -821,6 +903,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Pick Up Location Description</label>
         <length>50</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -833,6 +916,7 @@ Created by John A Adams 12/13/2013</description>
         <precision>2</precision>
         <required>false</required>
         <scale>0</scale>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -844,6 +928,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Property Name</label>
         <length>50</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -854,6 +939,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Pseudo City</label>
         <length>86</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -867,6 +953,7 @@ Oliver Dunford 14th Dec</description>
         <label>Pseudo City Type</label>
         <length>10</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -878,6 +965,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Rail Fare Basis Code</label>
         <length>15</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -889,6 +977,7 @@ Created by John A Adams 12/13/2013</description>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -899,6 +988,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Reservation Type</label>
         <length>10</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -911,6 +1001,7 @@ Created by John A Adams 12/13/2013</description>
         <precision>2</precision>
         <required>false</required>
         <scale>0</scale>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -923,6 +1014,7 @@ Created by John A Adams 12/13/2013</description>
         <precision>2</precision>
         <required>false</required>
         <scale>0</scale>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -935,6 +1027,7 @@ Created by John A Adams 12/13/2013</description>
         <precision>2</precision>
         <required>false</required>
         <scale>0</scale>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -947,6 +1040,7 @@ Created by John A Adams 12/13/2013</description>
         <precision>2</precision>
         <required>false</required>
         <scale>0</scale>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -958,6 +1052,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Room Type Code</label>
         <length>10</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -971,6 +1066,7 @@ Created by John A Adams 12/13/2013</description>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -982,6 +1078,7 @@ Created by John A Adams 12/13/2013</description>
         <precision>10</precision>
         <required>false</required>
         <scale>0</scale>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -993,6 +1090,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Seat Number</label>
         <length>5</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1002,6 +1100,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Segment Begin</label>
         <length>255</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1076,6 +1175,7 @@ Created by John A Adams 12/13/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1084,6 +1184,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Segment End</label>
         <length>255</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1158,6 +1259,7 @@ Created by John A Adams 12/13/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1168,6 +1270,7 @@ Created by John A Adams 12/13/2013</description>
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -1185,6 +1288,7 @@ Oliver Dunford 14th Dec</description>
         <label>Segment Type Description</label>
         <length>30</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1195,6 +1299,7 @@ Created by John A Adams 12/13/2013</description>
         <externalId>false</externalId>
         <label>Segment Begin Timestamp</label>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -1204,6 +1309,7 @@ Created by John A Adams 12/13/2013</description>
         <externalId>false</externalId>
         <label>Segment End Timestamp</label>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -1214,6 +1320,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Segment Travel Duration Value</label>
         <length>20</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1225,6 +1332,7 @@ Created by John A Adams 12/13/2013</description>
         <label>State Province</label>
         <length>3</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1241,6 +1349,7 @@ Oliver Dunford 14th Dec 2013.</description>
         <label>Supplier Service</label>
         <length>20</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1255,6 +1364,7 @@ Oliver Dunford 14th Dec 2013</description>
         <label>Supplier Status Code</label>
         <length>2</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1265,6 +1375,7 @@ Oliver Dunford 14th Dec 2013</description>
         <label>Tag Name</label>
         <length>30</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1275,6 +1386,7 @@ Oliver Dunford 14th Dec 2013</description>
         <label>Ticket Number</label>
         <length>20</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1286,6 +1398,7 @@ Oliver Dunford 14th Dec 2013</description>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -1296,6 +1409,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Transaction Id</label>
         <length>80</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1306,6 +1420,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Transaction Type</label>
         <length>100</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1338,6 +1453,7 @@ Created by John A Adams 10/31/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1347,6 +1463,7 @@ Created by John A Adams 10/31/2013</description>
         <label>Traveler Ref Id</label>
         <length>18</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1362,6 +1479,7 @@ Meeting_Participant_MERC__r.Account_MERC__r.LastName</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Traveller Name</label>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1373,6 +1491,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Train Coach Number</label>
         <length>20</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1384,6 +1503,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Train Number</label>
         <length>12</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1396,6 +1516,7 @@ Created by John A Adams 12/13/2013</description>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -1407,6 +1528,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Traveler Id Reference</label>
         <length>255</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1425,6 +1547,7 @@ Oliver Dunford 14th Dec 2013.</description>
         <precision>1</precision>
         <required>false</required>
         <scale>0</scale>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -1441,6 +1564,7 @@ Oliver Dunford 14 Dec 2013.</description>
         <label>Vendor Classification</label>
         <length>10</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1451,6 +1575,7 @@ Oliver Dunford 14 Dec 2013.</description>
         <label>Vendor Code</label>
         <length>10</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1462,6 +1587,7 @@ Created by John A Adams 10/10/2013</description>
         <label>Vendor</label>
         <length>80</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1472,6 +1598,7 @@ Created by John A Adams 10/10/2013</description>
         <label>Vendor Name</label>
         <length>40</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1483,6 +1610,7 @@ Created by John A Adams 12/13/2013</description>
         <label>Zip Postal Code</label>
         <length>20</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1493,6 +1621,7 @@ Created by John A Adams 12/13/2013</description>
 Created by John A Adams 12/13/2013</description>
         <externalId>false</externalId>
         <label>eTicket Flag</label>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <label>Travel Itinerary</label>

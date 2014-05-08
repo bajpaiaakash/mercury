@@ -221,11 +221,19 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+<<<<<<< HEAD
         <apexClass>MERC_AnonymiseNonHCPDataHandler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_AnonymiseNonHCPDataHandlerTest</apexClass>
+=======
+        <apexClass>MERC_AnonymizeNonHCPDataHandler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_AnonymizeNonHCPDataHandlerTest</apexClass>
+>>>>>>> FETCH_HEAD
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -7717,4 +7725,27 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <userLicense>Salesforce Platform</userLicense>
+<<<<<<< HEAD
+=======
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ApiEnabled</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ChatterInternalUser</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>EditTask</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>EmailSingle</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ViewHelpLink</name>
+    </userPermissions>
+>>>>>>> FETCH_HEAD
 </Profile>

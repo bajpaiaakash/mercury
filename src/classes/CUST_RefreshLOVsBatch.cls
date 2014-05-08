@@ -56,6 +56,7 @@ global class CUST_RefreshLOVsBatch implements Database.Batchable<sObject>, Datab
 		List<String> childObjects = new List<String>();
 
 		for (Account a : accts) {
+<<<<<<< HEAD
 			aIds.add(a.Id);
 			CUST_RefreshLOVsUtil.ObjToken tk = objMap.get('Account');
 //			for (String objName : objMap.keySet()) {
@@ -64,12 +65,26 @@ global class CUST_RefreshLOVsBatch implements Database.Batchable<sObject>, Datab
 //						if (tk.name=='Account') {
 							addNewValues(fName, a, tk);
 //						} else {
+=======
+			for (String objName : objMap.keySet()) {
+				if (objMap.get(objName).fields!=null) {
+					CUST_RefreshLOVsUtil.ObjToken tk = objMap.get(objName);
+					
+					for (String fName : objMap.get(objName).fields) {
+						if (tk.name=='Account') {
+							addNewValues(fName, a, tk);
+						} else {
+>>>>>>> FETCH_HEAD
 							//	if (a.getSObjects(tk.relation) != null) {
 							//	for (sObject obj : (List<sObject>) a.getSObjects(tk.relation)) {
 							//		addNewValues(fName, obj, tk);
 							//	}
 							//}
+<<<<<<< HEAD
 //						}
+=======
+						}
+>>>>>>> FETCH_HEAD
 					}
 				}
 //			}

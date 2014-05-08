@@ -5,6 +5,10 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Clone</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -20,6 +24,10 @@
         <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -31,6 +39,10 @@
         <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Tab</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -38,6 +50,7 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Primary object to store meeting information.  Created on 9/27/2013 by KLorenti.</description>
     <enableActivities>true</enableActivities>
@@ -112,6 +125,7 @@
         <label>Accommodation Information</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
@@ -121,6 +135,7 @@
         <label>Activities</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
@@ -131,6 +146,7 @@ Created by John A Adams 2/25/2014</description>
         <label>Address &amp; Contact Person Information</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
@@ -154,6 +170,7 @@ Created by John A Adams 2/25/2014</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -165,6 +182,7 @@ Created by John Adams on 12/9/2013</description>
         <length>80</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -177,6 +195,7 @@ Created by John Adams on 12/9/2013</description>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -196,6 +215,7 @@ Created by John Adams on 12/9/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -215,6 +235,7 @@ Created by John Adams on 12/9/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -225,6 +246,7 @@ Created by John Adams on 12/9/2013</description>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -235,6 +257,7 @@ Created by John Adams on 12/9/2013</description>
         <label>Budget Final Date/Time</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -254,6 +277,7 @@ Created by John Adams on 12/9/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -286,6 +310,7 @@ Created by John Adams on 12/9/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -305,6 +330,7 @@ Created by John Adams on 12/9/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -315,6 +341,7 @@ Created by John Adams on 12/9/2013</description>
         <length>40</length>
         <required>false</required>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -326,6 +353,7 @@ Created by John A Adams 2/25/2014</description>
         <label>Comments</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
@@ -336,6 +364,7 @@ Created by John A Adams 2/25/2014</description>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Compliance Met - Initiate Sourcing</label>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -346,6 +375,7 @@ Created by John A Adams 2/25/2014</description>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Compliance Met - Invoices</label>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -358,6 +388,7 @@ ISPICKVAL(Meeting_Status_MERC__c,&apos;Complete - Cancelled&apos;)) &amp;&amp;
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Compliance Met - Meeting Closure</label>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -368,6 +399,7 @@ ISPICKVAL(Meeting_Status_MERC__c,&apos;Complete - Cancelled&apos;)) &amp;&amp;
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Compliance Met - Meeting Errors</label>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -385,6 +417,7 @@ Participant_ToV_Final_Date_Time_MERC__c &lt;= ( End_Time_of_Meeting_MERC__c   + 
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Compliance Met - ToV Finalized</label>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -395,6 +428,7 @@ Participant_ToV_Final_Date_Time_MERC__c &lt;= ( End_Time_of_Meeting_MERC__c   + 
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Compliance Met - Venue Sourcing</label>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -416,6 +450,7 @@ Created by John A Adams 10/24/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -425,6 +460,7 @@ Created by John A Adams 10/24/2013</description>
         <externalId>false</externalId>
         <label>Confirm Meeting Cancellation</label>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -435,6 +471,7 @@ Created by John A Adams 10/24/2013</description>
         <inlineHelpText>I agree to and confirm the meeting date change.</inlineHelpText>
         <label>Confirm Meeting Date/Time Change</label>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -444,6 +481,7 @@ Created by John A Adams 10/24/2013</description>
         <label>Confirmation of Complete Invoice Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -460,6 +498,7 @@ Created by John Adams on 12/9/2013</description>
         <summaryForeignKey>Meeting_Participant_MERC__c.Meeting_MERC__c</summaryForeignKey>
         <summaryOperation>count</summaryOperation>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Summary</type>
     </fields>
     <fields>
@@ -479,6 +518,7 @@ Created by John Adams on 12/9/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -490,6 +530,7 @@ Created by John Adams on 12/9/2013</description>
         <length>80</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -502,6 +543,7 @@ Created by John Adams on 12/9/2013</description>
         <label>Customer Facing End Time</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -513,6 +555,7 @@ Created by John Adams on 12/9/2013</description>
         <label>Customer Facing Meeting Organiser</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -524,6 +567,7 @@ Created by John Adams on 12/9/2013</description>
         <label>Customer Facing Start Time</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -534,6 +578,7 @@ Created by John Adams on 12/9/2013</description>
         <label>Meeting Start Date</label>
         <required>false</required>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -543,6 +588,7 @@ Created by John Adams on 12/9/2013</description>
         <label>Date to Send Invitations</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -556,6 +602,7 @@ Created by John Adams on 12/9/2013</description>
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -571,6 +618,7 @@ Created 04/14/2014</description>
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -585,6 +633,7 @@ Created 04/14/2014</description>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -599,6 +648,7 @@ Created 04/14/2014</description>
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -609,6 +659,7 @@ Created 04/14/2014</description>
         <externalId>false</externalId>
         <label>Disable Portal Registration</label>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -628,6 +679,7 @@ Created 04/14/2014</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -649,6 +701,7 @@ Created by John Adams on 12/9/2013</description>
         <summaryForeignKey>Meeting_Participant_MERC__c.Meeting_MERC__c</summaryForeignKey>
         <summaryOperation>count</summaryOperation>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Summary</type>
     </fields>
     <fields>
@@ -658,6 +711,7 @@ Created by John Adams on 12/9/2013</description>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -669,6 +723,7 @@ Created by John Adams on 12/9/2013</description>
         <label>End Date Year</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -680,6 +735,7 @@ Created by John A Adams 10/25/2013</description>
         <label>Meeting End Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -690,6 +746,7 @@ Created by John A Adams 10/25/2013</description>
         <label>End Date of Meeting plus 60 Days</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -699,6 +756,7 @@ Created by John A Adams 10/25/2013</description>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -709,6 +767,7 @@ Created by John A Adams 10/25/2013</description>
         <label>End Time of Meeting</label>
         <required>false</required>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -844,6 +903,7 @@ Created by John A Adams 10/25/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -854,6 +914,7 @@ Created by John A Adams 10/25/2013</description>
         <length>20</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -875,6 +936,7 @@ Created by John A Adams 10/24/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -884,6 +946,7 @@ Created by John A Adams 10/24/2013</description>
         <label>Meeting Website</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Url</type>
     </fields>
     <fields>
@@ -904,6 +967,7 @@ Created by John A Adams 10/24/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -919,6 +983,7 @@ Created by John A Adams 10/24/2013</description>
  , TRUE, FALSE)</formula>
         <label>Exclude from Open Meeting Fee Calc</label>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -944,6 +1009,7 @@ Created by John Adams 11/6/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -954,6 +1020,7 @@ Created by John Adams 11/6/2013</description>
         <externalId>false</externalId>
         <label>Activate Meeting on Web Services</label>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -973,6 +1040,7 @@ Created by John Adams 11/6/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -983,6 +1051,7 @@ Created by John Adams 11/6/2013</description>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -993,6 +1062,7 @@ Created by John Adams 11/6/2013</description>
         <label>Forecasting Information</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
@@ -1003,6 +1073,7 @@ Created by John Adams 11/6/2013</description>
         <length>200</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1035,6 +1106,7 @@ Created by John Adams 11/6/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1046,6 +1118,7 @@ Created by John Adams 11/6/2013</description>
         <inlineHelpText>This box is checked if there are Meeting Participants added to the meeting of type &quot;Delegate&quot;</inlineHelpText>
         <label>Group Sponsorship Meeting</label>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -1062,6 +1135,7 @@ Created by John Adams 11/6/2013</description>
         <relationshipName>Meetings1</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -1073,6 +1147,7 @@ Created by John Adams 11/6/2013</description>
         <inlineHelpText>This box is checked if an HCO is selected on the Meeting.</inlineHelpText>
         <label>HCO Sponsorship</label>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -1095,6 +1170,7 @@ Created by John Adams 11/6/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1115,6 +1191,7 @@ Created by John Adams 11/6/2013</description>
         <summaryForeignKey>Meeting_Participant_MERC__c.Meeting_MERC__c</summaryForeignKey>
         <summaryOperation>count</summaryOperation>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Summary</type>
     </fields>
     <fields>
@@ -1134,6 +1211,7 @@ Created by John Adams 11/6/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1145,6 +1223,7 @@ Created by John Adams 11/6/2013</description>
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -1158,6 +1237,7 @@ Created by John A Adams 1/7/2014</description>
         <length>20</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1170,6 +1250,7 @@ Created by John A Adams 1/7/2014</description>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1182,6 +1263,7 @@ Created by John A Adams 1/7/2014</description>
         <inlineHelpText>This box is checked if there are Meeting Participants added to the meeting of type &quot;Individual Sponsorship&quot;</inlineHelpText>
         <label>Individual Sponsorship Meeting</label>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -1191,6 +1273,7 @@ Created by John A Adams 1/7/2014</description>
         <label>Initiate Venue Sourcing Date/Time</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -1214,6 +1297,7 @@ Created by John A Adams 1/7/2014</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1233,6 +1317,7 @@ Created by John A Adams 1/7/2014</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1256,6 +1341,7 @@ Created by John A Adams 1/7/2014</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1279,6 +1365,7 @@ Created by John A Adams 1/7/2014</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1306,6 +1393,7 @@ Created by John A Adams 1/7/2014</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1316,6 +1404,7 @@ Created by John A Adams 1/7/2014</description>
         <label>Other Comments</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
@@ -1336,6 +1425,7 @@ Created by John A Adams 10/28/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1345,6 +1435,7 @@ Created by John A Adams 10/28/2013</description>
         <label>Justification for Sourced Venue</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
@@ -1355,6 +1446,7 @@ Created by John A Adams 10/28/2013</description>
         <inlineHelpText>If checked, the meeting and all related records are locked from editing.</inlineHelpText>
         <label>Lock Meeting</label>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -1364,6 +1456,7 @@ Created by John A Adams 10/28/2013</description>
         <label>Logistics Information</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
@@ -1388,6 +1481,7 @@ Created by John A Adams 1/9/2014</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1397,6 +1491,7 @@ Created by John A Adams 1/9/2014</description>
         <label>MPC Date/Time</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -1407,6 +1502,7 @@ Created by John A Adams 1/9/2014</description>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1429,6 +1525,7 @@ Created by John Adams 11/6/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1438,6 +1535,7 @@ Created by John Adams 11/6/2013</description>
         <externalId>false</externalId>
         <label>Meeting Auto Number</label>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>AutoNumber</type>
     </fields>
     <fields>
@@ -1447,6 +1545,7 @@ Created by John Adams 11/6/2013</description>
         <label>Meeting Cancellation Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -1460,6 +1559,7 @@ Created by John Adams 11/6/2013</description>
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -1471,6 +1571,7 @@ Created by John Adams 11/6/2013</description>
         <label>Meeting Objectives</label>
         <length>32000</length>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>5</visibleLines>
     </fields>
@@ -1495,6 +1596,7 @@ Created by John Adams 11/6/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1504,6 +1606,7 @@ Created by John Adams 11/6/2013</description>
         <label>Meeting Owner Email</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Email</type>
         <unique>false</unique>
     </fields>
@@ -1517,6 +1620,7 @@ Created by John Adams 11/6/2013</description>
         <relationshipName>Meetings</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -1536,6 +1640,7 @@ Created by John Adams 11/6/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1567,6 +1672,7 @@ Created by John Adams 11/6/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1594,6 +1700,7 @@ Created by John Adams 11/6/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1629,6 +1736,7 @@ Created by John Adams 11/6/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1697,6 +1805,7 @@ Created by John Adams 11/6/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1771,6 +1880,7 @@ Created by John Adams 11/6/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1807,6 +1917,7 @@ CASE(  Meeting_Scope_MERC__c   ,
         <label>Meeting Type Abbreviation</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1818,6 +1929,7 @@ CASE(  Meeting_Scope_MERC__c   ,
         <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1829,6 +1941,7 @@ CASE(  Meeting_Scope_MERC__c   ,
         <length>10</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1840,6 +1953,7 @@ CASE(  Meeting_Scope_MERC__c   ,
         <length>2</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1857,6 +1971,7 @@ Created by John Adams on 12/9/2013</description>
         <summaryForeignKey>Meeting_Participant_MERC__c.Meeting_MERC__c</summaryForeignKey>
         <summaryOperation>count</summaryOperation>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Summary</type>
     </fields>
     <fields>
@@ -1877,6 +1992,7 @@ Created by John Adams on 12/9/2013</description>
         <summaryForeignKey>Meeting_Participant_MERC__c.Meeting_MERC__c</summaryForeignKey>
         <summaryOperation>count</summaryOperation>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Summary</type>
     </fields>
     <fields>
@@ -1888,6 +2004,7 @@ Created by John Adams on 12/9/2013</description>
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -1900,6 +2017,7 @@ Created by John Adams on 12/9/2013</description>
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -1916,6 +2034,7 @@ Created by John Adams on 12/9/2013</description>
         <summaryForeignKey>Budget_MERC__c.Meeting_MERC__c</summaryForeignKey>
         <summaryOperation>count</summaryOperation>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Summary</type>
     </fields>
     <fields>
@@ -1927,6 +2046,7 @@ Created by John Adams on 12/9/2013</description>
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -1939,6 +2059,7 @@ Created by John Adams on 12/9/2013</description>
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -1951,6 +2072,7 @@ Created by John Adams on 12/9/2013</description>
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -1963,6 +2085,7 @@ Created by John Adams on 12/9/2013</description>
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -1975,6 +2098,7 @@ Created by John Adams on 12/9/2013</description>
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -1987,6 +2111,7 @@ Created by John Adams on 12/9/2013</description>
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -2007,6 +2132,7 @@ Created by John Adams on 12/9/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -2017,6 +2143,7 @@ Created by John Adams on 12/9/2013</description>
         <length>10</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -2028,6 +2155,7 @@ Created by John Adams on 12/9/2013</description>
         <length>15</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -2039,6 +2167,7 @@ Created by John Adams on 12/9/2013</description>
         <label>Parent Meeting Event Id</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -2049,6 +2178,7 @@ Created by John Adams on 12/9/2013</description>
         <label>Parent Meeting External</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -2063,6 +2193,7 @@ Created by John Adams on 12/9/2013</description>
         <relationshipName>Meetings</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -2072,6 +2203,7 @@ Created by John Adams on 12/9/2013</description>
         <label>Participant CoPay Updated Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -2081,6 +2213,7 @@ Created by John Adams on 12/9/2013</description>
         <label>Participant ToV Final Date/Time</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -2101,6 +2234,7 @@ Created by John Adams on 12/9/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -2110,6 +2244,7 @@ Created by John Adams on 12/9/2013</description>
         <label>Participant ToV Updated Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -2126,6 +2261,7 @@ Created by John Adams on 12/9/2013</description>
         <summaryForeignKey>Meeting_Participant_MERC__c.Meeting_MERC__c</summaryForeignKey>
         <summaryOperation>count</summaryOperation>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Summary</type>
     </fields>
     <fields>
@@ -2137,6 +2273,7 @@ Created by John Adams on 12/9/2013</description>
         <summaryForeignKey>Meeting_Participant_MERC__c.Meeting_MERC__c</summaryForeignKey>
         <summaryOperation>count</summaryOperation>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Summary</type>
     </fields>
     <fields>
@@ -2149,6 +2286,7 @@ Created by John Adams on 12/9/2013</description>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -2159,6 +2297,7 @@ Created by John Adams on 12/9/2013</description>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -2171,6 +2310,7 @@ Created by John Adams on 12/9/2013</description>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -2183,6 +2323,7 @@ Created by John Adams on 12/9/2013</description>
         <length>200</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -2195,6 +2336,7 @@ Created by John Adams on 12/9/2013</description>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -2207,6 +2349,7 @@ Created by John Adams on 12/9/2013</description>
         <length>20</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -2218,6 +2361,7 @@ Created by John Adams on 12/9/2013</description>
         <length>80</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -2228,6 +2372,7 @@ Created by John Adams on 12/9/2013</description>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -2238,6 +2383,7 @@ Created by John Adams on 12/9/2013</description>
         <externalId>false</externalId>
         <label>Initiate Sourcing</label>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -2248,6 +2394,7 @@ Created by John Adams on 12/9/2013</description>
         <length>7</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -2258,6 +2405,7 @@ Created by John Adams on 12/9/2013</description>
         <label>Responses Due Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -2267,6 +2415,7 @@ Created by John Adams on 12/9/2013</description>
         <label>Restaurant Information</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
@@ -2280,6 +2429,7 @@ Created by John Adams on 12/9/2013</description>
         <relationshipName>Meetings</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -2290,6 +2440,7 @@ Created by John Adams on 12/9/2013</description>
         <length>8</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -2311,6 +2462,7 @@ Created by John Adams on 12/9/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -2321,6 +2473,7 @@ Created by John Adams on 12/9/2013</description>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -2334,6 +2487,7 @@ Created by John A Adams 1/7/2014</description>
         <length>20</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -2346,6 +2500,7 @@ Created by John A Adams 1/7/2014</description>
         <label>Sourced Venue Addr 1</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -2358,6 +2513,7 @@ Created by John A Adams 1/7/2014</description>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -2370,6 +2526,7 @@ Created by John A Adams 1/7/2014</description>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -2382,6 +2539,7 @@ Created by John A Adams 1/7/2014</description>
         <label>Sourced Venue Addr 2</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -2394,6 +2552,7 @@ Created by John A Adams 1/7/2014</description>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -2407,6 +2566,7 @@ Created by John A Adams 1/7/2014</description>
         <label>Sourced Venue City</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -2419,6 +2579,7 @@ Created by John A Adams 1/7/2014</description>
         <length>2</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -2432,6 +2593,7 @@ Created by John A Adams 1/7/2014</description>
         <label>Sourced Venue Country</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -2444,6 +2606,7 @@ Created by John A Adams 1/7/2014</description>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -2457,6 +2620,7 @@ Created by John A Adams 1/7/2014</description>
         <label>Sourced Venue Name</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -2469,6 +2633,7 @@ Created by John A Adams 1/7/2014</description>
         <length>32</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -2481,6 +2646,7 @@ Created by John A Adams 1/7/2014</description>
         <label>Sourced Venue Postal Code</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -2501,6 +2667,7 @@ Created by John A Adams 1/7/2014</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -2524,6 +2691,7 @@ Created by John A Adams 1/7/2014</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -2544,6 +2712,7 @@ Created by John A Adams 1/7/2014</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -2553,6 +2722,7 @@ Created by John A Adams 1/7/2014</description>
         <externalId>false</externalId>
         <label>Sponsorship Processed</label>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -2566,6 +2736,7 @@ Created by John Adams 11/6/2013</description>
         <length>100</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -2588,6 +2759,7 @@ Created by John Adams 11/6/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -2609,6 +2781,7 @@ Created by John Adams 11/6/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -2618,6 +2791,7 @@ Created by John Adams 11/6/2013</description>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -2628,6 +2802,7 @@ Created by John Adams 11/6/2013</description>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -2639,6 +2814,7 @@ Created by John Adams 11/6/2013</description>
         <label>Start Time of Meeting</label>
         <required>false</required>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -2674,6 +2850,7 @@ Created by John Adams 11/6/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -2686,6 +2863,7 @@ Created by John Adams 11/6/2013</description>
         <length>100</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -2697,6 +2875,7 @@ Created by John Adams 11/6/2013</description>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -2708,6 +2887,7 @@ Created by John Adams 11/6/2013</description>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -2719,6 +2899,7 @@ Created by John Adams 11/6/2013</description>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -2759,6 +2940,7 @@ Created by John Adams 11/6/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -2768,6 +2950,7 @@ Created by John Adams 11/6/2013</description>
         <label>Time for Restaurant Booking</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -2787,6 +2970,7 @@ Created by John Adams 11/6/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -2796,6 +2980,7 @@ Created by John Adams 11/6/2013</description>
         <label>Travel Information</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
@@ -2843,6 +3028,7 @@ Created by John Adams 11/6/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -2857,6 +3043,7 @@ Created by John Adams 11/6/2013</description>
         <relationshipName>Venues</relationshipName>
         <required>false</required>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -2866,6 +3053,7 @@ Created by John Adams 11/6/2013</description>
         <label>Venue Sourced Date/Time</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -2885,6 +3073,7 @@ Created by John Adams 11/6/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -2895,6 +3084,7 @@ Created by John Adams 11/6/2013</description>
         <length>2</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -2909,6 +3099,7 @@ Created by John Adams 11/6/2013</description>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -2925,6 +3116,7 @@ Created by John Adams 11/6/2013</description>
         <summaryForeignKey>Meeting_Participant_MERC__c.Meeting_MERC__c</summaryForeignKey>
         <summaryOperation>count</summaryOperation>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Summary</type>
     </fields>
     <fields>
@@ -2940,6 +3132,7 @@ Created by John Adams 11/6/2013</description>
         <summaryForeignKey>Meeting_Participant_MERC__c.Meeting_MERC__c</summaryForeignKey>
         <summaryOperation>count</summaryOperation>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Summary</type>
     </fields>
     <label>Meeting</label>

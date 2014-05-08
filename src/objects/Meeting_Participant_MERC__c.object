@@ -5,6 +5,10 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Clone</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -20,6 +24,10 @@
         <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -31,6 +39,10 @@
         <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Tab</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -38,6 +50,7 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Object to store Meeting Participants. Created 9/27/2013 by KLorenti.</description>
     <enableActivities>false</enableActivities>
@@ -132,6 +145,10 @@
         <label>Account External</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -146,6 +163,10 @@
         <relationshipOrder>0</relationshipOrder>
         <reparentableMasterDetail>true</reparentableMasterDetail>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
@@ -156,6 +177,10 @@
         <label>Additional Travel Details</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>TextArea</type>
     </fields>
     <fields>
@@ -175,6 +200,10 @@
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Picklist</type>
     </fields>
     <fields>
@@ -194,6 +223,10 @@
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Picklist</type>
     </fields>
     <fields>
@@ -205,6 +238,10 @@
         <required>false</required>
         <scale>2</scale>
         <trackHistory>true</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Currency</type>
     </fields>
     <fields>
@@ -212,9 +249,16 @@
         <defaultValue>false</defaultValue>
         <description>Indicates that this record is related to a non-hcp meeting participant and should be anonymised (via workflows)</description>
         <externalId>false</externalId>
+<<<<<<< HEAD
         <inlineHelpText>Indicates that this record is related to a non-hcp meeting participant and should be anonymised (via workflows)</inlineHelpText>
         <label>Anonymise Record</label>
         <trackHistory>false</trackHistory>
+=======
+        <inlineHelpText>Indicates that this record is related to a non-hcp meeting participant and should be anonymized (via workflows)</inlineHelpText>
+        <label>Anonymize Record</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -225,6 +269,10 @@
         <label>Associated Countries</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -235,6 +283,10 @@
         <label>Cancellation Notice Sent</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Date</type>
     </fields>
     <fields>
@@ -246,6 +298,10 @@
         <label>Classification</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -259,6 +315,10 @@
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Currency</type>
     </fields>
     <fields>
@@ -271,6 +331,10 @@
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Currency</type>
     </fields>
     <fields>
@@ -283,6 +347,10 @@
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Currency</type>
     </fields>
     <fields>
@@ -295,6 +363,10 @@
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Currency</type>
     </fields>
     <fields>
@@ -307,6 +379,10 @@
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Currency</type>
     </fields>
     <fields>
@@ -318,6 +394,10 @@
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Currency</type>
     </fields>
     <fields>
@@ -329,6 +409,10 @@
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Currency</type>
     </fields>
     <fields>
@@ -340,6 +424,10 @@
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Currency</type>
     </fields>
     <fields>
@@ -351,6 +439,10 @@
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Currency</type>
     </fields>
     <fields>
@@ -362,6 +454,10 @@
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Currency</type>
     </fields>
     <fields>
@@ -381,6 +477,10 @@
             <sorted>false</sorted>
         </picklist>
         <trackHistory>true</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Picklist</type>
     </fields>
     <fields>
@@ -390,6 +490,10 @@
         <externalId>false</externalId>
         <label>Confirm Partial Payment Amount</label>
         <trackHistory>true</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -399,6 +503,10 @@
         <externalId>false</externalId>
         <label>Confirm ToV Reporting Change</label>
         <trackHistory>true</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -410,6 +518,10 @@
         <label>Contract Limitations on Use</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -421,6 +533,10 @@
         <inlineHelpText>CoPay values must be entered as positive amounts.</inlineHelpText>
         <label>Copay Required?</label>
         <trackHistory>true</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -433,6 +549,10 @@ Created by John A Adams 10/31/2013</description>
         <label>Country of Residence</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -445,6 +565,10 @@ Created by John A Adams 10/31/2013</description>
         <label>Customer Id</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -456,6 +580,10 @@ Created by John A Adams 3/19/2014</description>
         <label>Date of Check-In</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Date</type>
     </fields>
     <fields>
@@ -466,6 +594,10 @@ Created by John A Adams 3/19/2014</description>
         <label>Date of Check-Out</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Date</type>
     </fields>
     <fields>
@@ -479,6 +611,10 @@ Created by John A Adams 3/19/2014</description>
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -489,6 +625,10 @@ Created by John A Adams 3/19/2014</description>
         <label>Description of Service</label>
         <length>32768</length>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -500,6 +640,10 @@ Created by John A Adams 3/19/2014</description>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Dietary Preferences Step Complete</label>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -510,6 +654,10 @@ Created by John A Adams 3/19/2014</description>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -520,6 +668,10 @@ Created by John A Adams 3/19/2014</description>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -532,6 +684,10 @@ Created by John A Adams 3/19/2014</description>
         <label>Email Formula</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -542,6 +698,10 @@ Created by John A Adams 3/19/2014</description>
         <label>Email</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Email</type>
         <unique>false</unique>
     </fields>
@@ -553,6 +713,10 @@ Created by John A Adams 3/19/2014</description>
         <label>Email to Invite HCP to Web Service</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Email</type>
         <unique>false</unique>
     </fields>
@@ -564,6 +728,10 @@ Created by John A Adams 3/19/2014</description>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Emergency Contact Step Complete</label>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -576,6 +744,10 @@ Created by John Adams on 12/9/2013</description>
         <label>Event Customer Id</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -589,6 +761,10 @@ Created by John Adams on 12/9/2013</description>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>true</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -609,6 +785,10 @@ Created by John Adams on 12/9/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Picklist</type>
     </fields>
     <fields>
@@ -619,6 +799,10 @@ Created by John Adams on 12/9/2013</description>
         <label>FMV Criteria Map</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -631,6 +815,10 @@ Created by John Adams on 12/9/2013</description>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>true</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Currency</type>
     </fields>
     <fields>
@@ -642,6 +830,10 @@ Created by John Adams on 12/9/2013</description>
         <length>120</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Text</type>
         <unique>true</unique>
     </fields>
@@ -653,6 +845,10 @@ Created by John Adams on 12/9/2013</description>
         <label>Global Id</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -665,6 +861,10 @@ Created by John Adams on 12/9/2013</description>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -677,6 +877,10 @@ Created by John Adams on 12/9/2013</description>
         <label>Has Active MSA</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -690,6 +894,10 @@ Created by John Adams on 12/9/2013</description>
         <label>Has Signed Contract</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -718,6 +926,10 @@ Created by John Adams on 12/9/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>true</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Picklist</type>
     </fields>
     <fields>
@@ -727,6 +939,10 @@ Created by John Adams on 12/9/2013</description>
         <externalId>false</externalId>
         <label>Hotel No Longer Required</label>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -746,6 +962,10 @@ Created by John Adams on 12/9/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Picklist</type>
     </fields>
     <fields>
@@ -756,6 +976,10 @@ Created by John Adams on 12/9/2013</description>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Hotel Step Complete</label>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -768,6 +992,10 @@ Created by John A Adams 1/7/2014</description>
         <length>20</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -778,6 +1006,10 @@ Created by John A Adams 1/7/2014</description>
         <externalId>false</externalId>
         <label>Include CAP Roll Up</label>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -792,6 +1024,10 @@ Created by John A Adams 1/7/2014</description>
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -803,6 +1039,10 @@ Created by John A Adams 1/7/2014</description>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Institutional Notification Complete</label>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -813,6 +1053,10 @@ Created by John A Adams 1/7/2014</description>
         <label>Institutional Notification Sent</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Date</type>
     </fields>
     <fields>
@@ -832,6 +1076,10 @@ Created by John A Adams 1/7/2014</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Picklist</type>
     </fields>
     <fields>
@@ -863,6 +1111,10 @@ Created by John A Adams 1/7/2014</description>
             <sorted>true</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>MultiselectPicklist</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -908,6 +1160,10 @@ Created by John A Adams 1/7/2014</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
     </fields>
@@ -922,6 +1178,10 @@ Created by John A Adams 1/7/2014</description>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Currency</type>
     </fields>
     <fields>
@@ -934,6 +1194,10 @@ Created by John A Adams 10/31/2013</description>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Currency</type>
     </fields>
     <fields>
@@ -944,6 +1208,10 @@ Created by John A Adams 10/31/2013</description>
         <label>Meeting Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Date</type>
     </fields>
     <fields>
@@ -954,6 +1222,10 @@ Created by John A Adams 10/31/2013</description>
         <label>Meeting End Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Date</type>
     </fields>
     <fields>
@@ -963,6 +1235,10 @@ Created by John A Adams 10/31/2013</description>
         <label>Meeting External</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -977,6 +1253,10 @@ Created by John A Adams 10/31/2013</description>
         <relationshipOrder>1</relationshipOrder>
         <reparentableMasterDetail>false</reparentableMasterDetail>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
@@ -987,6 +1267,10 @@ Created by John A Adams 10/31/2013</description>
         <label>Meeting Owner Email</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Email</type>
         <unique>false</unique>
     </fields>
@@ -998,6 +1282,10 @@ Created by John A Adams 10/31/2013</description>
         <label>Meeting Owner Global Id</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1010,6 +1298,10 @@ Created by J Adams 12/10/2013</description>
         <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1024,6 +1316,10 @@ Created by J Adams 12/10/2013</description>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Currency</type>
     </fields>
     <fields>
@@ -1036,6 +1332,10 @@ Created by John A Adams 10/31/2013</description>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Currency</type>
     </fields>
     <fields>
@@ -1047,6 +1347,10 @@ Created by John A Adams 10/31/2013</description>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>true</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Currency</type>
     </fields>
     <fields>
@@ -1066,6 +1370,10 @@ Created by John A Adams 10/31/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>true</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1085,6 +1393,10 @@ Created by John A Adams 10/31/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>true</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1095,6 +1407,10 @@ Created by John A Adams 10/31/2013</description>
         <length>120</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1106,6 +1422,10 @@ Created by John A Adams 10/31/2013</description>
         <length>16</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1116,6 +1436,10 @@ Created by John A Adams 10/31/2013</description>
         <externalId>false</externalId>
         <label>Payee Information Consent</label>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -1126,6 +1450,10 @@ Created by John A Adams 10/31/2013</description>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Payee and Bank Info Complete</label>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -1138,6 +1466,10 @@ Created by John A Adams 10/31/2013</description>
         <label>Payment Required</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1158,6 +1490,10 @@ Created by John A Adams 10/31/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>true</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1168,6 +1504,10 @@ Created by John A Adams 10/31/2013</description>
         <length>18</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1178,6 +1518,10 @@ Created by John A Adams 10/31/2013</description>
         <label>Preferred Departure Airport</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>TextArea</type>
     </fields>
     <fields>
@@ -1187,6 +1531,10 @@ Created by John A Adams 10/31/2013</description>
         <label>Preferred Departure Depot</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>TextArea</type>
     </fields>
     <fields>
@@ -1196,6 +1544,10 @@ Created by John A Adams 10/31/2013</description>
         <label>Preferred Departure Station</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>TextArea</type>
     </fields>
     <fields>
@@ -1208,6 +1560,10 @@ Created by John A Adams 10/31/2013</description>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>true</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -1228,6 +1584,10 @@ Created by John A Adams 10/31/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1237,6 +1597,10 @@ Created by John A Adams 10/31/2013</description>
         <externalId>false</externalId>
         <label>Processing of Data Consent</label>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -1248,6 +1612,10 @@ Created by John A Adams 10/31/2013</description>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>true</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Currency</type>
     </fields>
     <fields>
@@ -1263,6 +1631,10 @@ Created by John A Adams 10/31/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1273,6 +1645,10 @@ Created by John A Adams 10/31/2013</description>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Qualifications and Experience Complete</label>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -1282,6 +1658,10 @@ Created by John A Adams 10/31/2013</description>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1293,6 +1673,10 @@ Created by John A Adams 10/31/2013</description>
         <label>Record Type Name</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1303,6 +1687,10 @@ Created by John A Adams 10/31/2013</description>
         <label>Registration Comments</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>TextArea</type>
     </fields>
     <fields>
@@ -1313,6 +1701,10 @@ Created by John A Adams 10/31/2013</description>
         <length>40</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1324,6 +1716,10 @@ Created by John A Adams 10/31/2013</description>
         <inlineHelpText>Diverts paper information package to Meeting Owner, not HCP.</inlineHelpText>
         <label>Send HCP Info Package to Meeting Owner</label>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -1336,6 +1732,10 @@ Created by John A Adams 10/31/2013</description>
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -1358,6 +1758,10 @@ Created by John A Adams 10/24/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>true</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1370,6 +1774,10 @@ Created by John A Adams 1/7/2014</description>
         <length>20</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1384,6 +1792,10 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Speaking</label>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -1395,6 +1807,10 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <label>Speciality</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1406,6 +1822,10 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <inlineHelpText>Checked by CMS Cork if a paper copy of the Sponsorship Agreement has been received.  The agreement should also be uploaded against the Meeting Participant.  This will complete this step for the HCP in the RSVP section of the web service.</inlineHelpText>
         <label>Sponsorship Agreement Consent</label>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -1457,6 +1877,10 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
             <sorted>false</sorted>
         </picklist>
         <trackHistory>true</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1466,6 +1890,10 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <externalId>false</externalId>
         <label>Summary Step Complete</label>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -1476,6 +1904,10 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <label>Topic Area</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>TextArea</type>
     </fields>
     <fields>
@@ -1487,6 +1919,10 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -1499,6 +1935,10 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -1513,6 +1953,10 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Currency</type>
     </fields>
     <fields>
@@ -1524,6 +1968,10 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -1538,6 +1986,10 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -1550,6 +2002,10 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -1562,6 +2018,10 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <label>Transparency Reporting Consent</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1573,6 +2033,10 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Transparency Reporting Consent Complete</label>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -1584,6 +2048,10 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Currency</type>
     </fields>
     <fields>
@@ -1615,6 +2083,10 @@ IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;),
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Percent</type>
     </fields>
     <fields>
@@ -1624,6 +2096,10 @@ IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;),
         <externalId>false</externalId>
         <label>Travel No Longer Required</label>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -1634,6 +2110,10 @@ IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;),
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Travel Step Complete</label>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -1665,6 +2145,10 @@ IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;),
             <sorted>false</sorted>
         </picklist>
         <trackHistory>true</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1684,6 +2168,10 @@ IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;),
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1703,6 +2191,10 @@ IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;),
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1722,6 +2214,10 @@ IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;),
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1733,6 +2229,10 @@ Created by John A Adams 12/12/2013</description>
         <length>80</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1744,6 +2244,10 @@ Created by John A Adams 12/12/2013</description>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1755,6 +2259,10 @@ Created by John A Adams 12/12/2013</description>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1780,6 +2288,10 @@ Created by John A Adams 12/12/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1824,6 +2336,10 @@ Created by John A Adams 12/12/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1843,6 +2359,10 @@ Created by John A Adams 12/12/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1853,6 +2373,10 @@ Created by John A Adams 2/18/2014</description>
         <label>Web Service Update Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Date</type>
     </fields>
     <fields>
@@ -1864,6 +2388,10 @@ Created by John A Adams 2/18/2014</description>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1876,6 +2404,10 @@ Created by John A Adams 2/18/2014</description>
         <length>40</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1887,6 +2419,10 @@ Created by John A Adams 2/18/2014</description>
         <length>100</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+<<<<<<< HEAD
+=======
+        <trackTrending>false</trackTrending>
+>>>>>>> FETCH_HEAD
         <type>Text</type>
         <unique>false</unique>
     </fields>
