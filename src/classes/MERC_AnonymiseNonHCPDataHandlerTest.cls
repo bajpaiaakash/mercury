@@ -1,11 +1,11 @@
 /**
  * @author Kyle Thornton
  *
- * test methods for the MERC_AnonymizeNonHCPDataHandler class
+ * test methods for the MERC_AnonymiseNonHCPDataHandler class
  */
 
 @isTest
-private class MERC_AnonymizeNonHCPDataHandlerTest {
+private class MERC_AnonymiseNonHCPDataHandlerTest {
 
 	static List<Account> nonHcpAccounts    = MERC_TestFactory.insertAccounts(200, Schema.SObjectType.Account.getRecordTypeInfosByName().get('Non-HCP').getRecordTypeId());
 	static List<Case> cases                = new List<Case>();
@@ -61,7 +61,7 @@ private class MERC_AnonymizeNonHCPDataHandlerTest {
 		}
 	}
 
-	@isTest static void test_should_set_anonymize_flag_when_meeting_completed() {
+	@isTest static void test_should_set_Anonymise_flag_when_meeting_completed() {
 		System.runAs(testUser)
 		{
 			List<Meeting_MERC__c> meetingsToClose = new List<Meeting_MERC__c>();
@@ -78,12 +78,12 @@ private class MERC_AnonymizeNonHCPDataHandlerTest {
 			update meetingsToClose;
 			Test.stopTest();
 
-			System.assertEquals(200, [SELECT COUNT() FROM Account WHERE Id IN :nonHcpAccounts AND Anonymize_Record_MERC__c = true]);
-			System.assertEquals(200, [SELECT COUNT() FROM Case WHERE Id IN :cases AND Anonymize_Record_MERC__c = true]);
-			System.assertEquals(200, [SELECT COUNT() FROM Address_GLBL__c WHERE Id IN :addresses AND Anonymize_Record_MERC__c = true]);
-			System.assertEquals(200, [SELECT COUNT() FROM Meeting_Participant_MERC__c WHERE Id IN :participants AND Anonymize_Record_MERC__c = true]);
-			System.assertEquals(200, [SELECT COUNT() FROM Travel_Itinerary_MERC__c WHERE Id IN :itineraries AND Anonymize_Record_MERC__c = true]);
-			System.assertEquals(200, [SELECT COUNT() FROM Participant_Agenda_MERC__c WHERE Id IN :agendaItems AND Anonymize_Record_MERC__c = true]);
+			System.assertEquals(200, [SELECT COUNT() FROM Account WHERE Id IN :nonHcpAccounts AND Anonymise_Record_MERC__c = true]);
+			System.assertEquals(200, [SELECT COUNT() FROM Case WHERE Id IN :cases AND Anonymise_Record_MERC__c = true]);
+			System.assertEquals(200, [SELECT COUNT() FROM Address_GLBL__c WHERE Id IN :addresses AND Anonymise_Record_MERC__c = true]);
+			System.assertEquals(200, [SELECT COUNT() FROM Meeting_Participant_MERC__c WHERE Id IN :participants AND Anonymise_Record_MERC__c = true]);
+			System.assertEquals(200, [SELECT COUNT() FROM Travel_Itinerary_MERC__c WHERE Id IN :itineraries AND Anonymise_Record_MERC__c = true]);
+			System.assertEquals(200, [SELECT COUNT() FROM Participant_Agenda_MERC__c WHERE Id IN :agendaItems AND Anonymise_Record_MERC__c = true]);
 		}
 	}
 
