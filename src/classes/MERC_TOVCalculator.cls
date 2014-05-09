@@ -153,7 +153,7 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 			}
 
 			for (Daily_Attendance_TOV_MERC__c tov : (List<Daily_Attendance_TOV_MERC__c>)sobjects) {
-				if (participantIdToHotelItineraries.containsKey(tov.Meeting_Participant_MERC__c)) {
+				if (participantIdToHotelItineraries.containsKey(tov.Meeting_Participant_MERC__c) && meetingDays.containsKey(tov.Meeting_Day_MERC__c)) {
 					Date meetingDayDate = meetingDays.get(tov.Meeting_Day_MERC__c).Date_MERC__c;
 					List<Travel_Itinerary_MERC__c> hotelTravelItinerariesForParticipant = participantIdToHotelItineraries.get(tov.Meeting_Participant_MERC__c);
 					for (Travel_Itinerary_MERC__c t : hotelTravelItinerariesForParticipant) {
