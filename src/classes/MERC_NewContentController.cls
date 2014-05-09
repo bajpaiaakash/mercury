@@ -72,7 +72,7 @@ public with sharing class MERC_NewContentController {
     }
 
     Id getLibraryId(String objectAPIName) {
-        String libraryName;
+        String libraryName = 'Mercury'; //default to Mercury, overwrite below.
         String country;
         try {
             if (objectAPIName == 'Meeting_MERC__c') {
@@ -92,7 +92,7 @@ public with sharing class MERC_NewContentController {
                 libraryName = country + ' - Private';
             } else if (objectAPIName == 'Account') {
                 country = [SELECT Country_of_Residence_GLBL__c FROM Account WHERE Id = :recordId].Country_of_Residence_GLBL__c;
-                libraryName = 'Mercury';
+                libraryName = country + ' - Private';
             }
         } catch(Exception e) {
             throw new MERC_Exception('Unable to determine the proper country content library. '+e.getMessage());
