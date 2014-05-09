@@ -52,25 +52,43 @@ global class CUST_RefreshLOVsBatch implements Database.Batchable<sObject>, Datab
 
    	global void execute(Database.BatchableContext BC, List<sObject> scope) {
 		List<Account> accts = (List<Account>) scope;
+		List<Id> aIds = new List<Id>();
+		List<String> childObjects = new List<String>();
+
 		for (Account a : accts) {
-			for (String objName : objMap.keySet()) {
-				if (objMap.get(objName).fields!=null) {
-					CUST_RefreshLOVsUtil.ObjToken tk = objMap.get(objName);
-					
-					for (String fName : objMap.get(objName).fields) {
-						if (tk.name=='Account') {
+			aIds.add(a.Id);
+			CUST_RefreshLOVsUtil.ObjToken tk = objMap.get('Account');
+//			for (String objName : objMap.keySet()) {
+				if (tk.fields!=null) {
+					for (String fName : tk.fields) {
+//						if (tk.name=='Account') {
 							addNewValues(fName, a, tk);
-						} else {
+//						} else {
 							//	if (a.getSObjects(tk.relation) != null) {
 							//	for (sObject obj : (List<sObject>) a.getSObjects(tk.relation)) {
 							//		addNewValues(fName, obj, tk);
 							//	}
 							//}
-						}
+//						}
 					}
+				}
+//			}
+		}
+
+		for (String objName : objMap.keySet()) {
+			if (objName!='Account' && objMap.get(objName).fields!=null) {
+				CUST_RefreshLOVsUtil.ObjToken tk = objMap.get(objName);
+				
+				for (String fName : objMap.get(objName).fields) {
+					//	if (a.getSObjects(tk.relation) != null) {
+					//	for (sObject obj : (List<sObject>) a.getSObjects(tk.relation)) {
+					//		addNewValues(fName, obj, tk);
+					//	}
+					//}
 				}
 			}
 		}
+
 	}
 
 	void addNewValues(String f, sObject o, CUST_RefreshLOVsUtil.ObjToken tk) { 

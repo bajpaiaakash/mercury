@@ -11,6 +11,15 @@ public with sharing class MERC_InvoiceXmlController {
 	public Invoice_MERC__c invoice { get; private set; }
 	public String now { get{return Datetime.now().format('dd.MM.yyyy');}}
 	public String invoiceDate { get { if (invoiceDate == null) return Datetime.now().format('dd.MM.yyyy'); else return invoiceDate; } set; }
+	public String filePrefix {
+        get {
+        	Mercury_Settings_MERC__c settings = Mercury_Settings_MERC__c.getOrgDefaults();
+			if (settings.Id != null) {
+				if (settings.Invoice_File_Prefix_MERC__c != null) return settings.Invoice_File_Prefix_MERC__c;
+			}
+			return '';
+		}
+	}
 
 	/*
 	 * Setup controller and its variables
@@ -104,7 +113,7 @@ public with sharing class MERC_InvoiceXmlController {
 				if (tifObj != null && !tifObj.isEmpty()) {
 					// write out XML				
 					scannedTifSection = '<ArchiveFile><ID /><EXTID>'+invoice.Mercury_Transaction_Id_MERC__c+'</EXTID><SYSTEM_ID />'+
-	    			'<SYSTEM_NAME /><STATUS /><ARCID /><SAPID /><FILENAME>'+invoice.Mercury_Transaction_Id_MERC__c+'.TIF</FILENAME>'+
+	    			'<SYSTEM_NAME /><STATUS /><ARCID /><SAPID /><FILENAME>'+filePrefix+invoice.Mercury_Transaction_Id_MERC__c+'.TIF</FILENAME>'+
 	    			'<DOKTYP>TIF</DOKTYP></ArchiveFile>';
 				}
 			}
