@@ -7,7 +7,7 @@
 	<apex:includeScript value="{!URLFOR($Resource.mercury, '/js/bootstrap.typeahead.js')}"/>
 	<apex:includeScript value="{!URLFOR($Resource.mercury, '/js/jquery.placeholder.min.js')}"/>
 	<script>
-		function setFocusOnLoad() {} 
+		function setFocusOnLoad() {}
 
 		$(function() {
 			bindTypeAhead();
@@ -25,7 +25,7 @@
         	            query,'{!parent["Event_Country_MERC__c"]}',
         	            function(result, event){
         	                process(result)
-        	            }, 
+        	            },
         	            {escape: true}
         	        );
 	            }
@@ -33,16 +33,17 @@
 
     		//when the user selects the "create new vendor..." action, new vendor form is shown
 		    $('input.existing-vendors').on('newVendorEvent', function(event, val) {
-		    	$(".newAccountVendor")[0].click();	
+		    	$(".newAccountVendor")[0].click();
 		    })
 
 		    $('input.existing-vendors').on('setEditLink', function(event, id) {
-		    	$(this).parent().find("span.edit-wrapper a").attr('href', '/'+id)
-		    	$(this).parent().find("span.edit-wrapper a").attr('target', '_blank')
+		    	$(this).parent().find("span.edit-wrapper a").attr('href', '/'+id);
+		    	$(this).parent().find("span.edit-wrapper a").attr('target', '_blank');
+		    	$(saveHotelsButton).click();
 		    })
 
 		    $('input.existing-vendors').attr('placeholder', 'Start typing Vendor name')
-		    $('input.existing-vendors').placeholder();	
+		    $('input.existing-vendors').placeholder();
 		}
 
 		function disableHotelTableHover() {
@@ -93,125 +94,132 @@
 			<apex:outputText value="{!hasError}" id="controllerHasError" style="display:none;"/>
 		</apex:outputPanel>
 		<div class="aeu" style="position:relative;">
-			
-			<apex:pageBlock title="Meeting Information">
-				<apex:pageBlockSection columns="1">
-					<apex:repeat var="f" value="{!$ObjectType.Meeting_MERC__c.FieldSets.Meeting_Day_Manager_MERC}">
-			        	<apex:outputField value="{!parent[f]}" />
-			        </apex:repeat>
-			    </apex:pageBlockSection>
-			</apex:pageBlock>
 
-			<apex:pageBlock title="Meeting Days" mode="edit" id="mainBlock">
-				<apex:pageMessages />
-				
-				<!-- BUTTONS -->
-				<apex:pageBlockButtons location="top">
-					<apex:commandButton value="Save Meeting Days" action="{!save}" reRender="mainBlock, controllerResponseWrapper, confirmWrapper, hotelTable" 
-						onclick="toggleLoading()" oncomplete="handleControllerResponse();disableHotelTableHover();toggleLoading();">
-						<apex:param name="retNull" value="1"/>
-					</apex:commandButton>
-					<apex:commandButton value="Back to Meeting" action="{!cancel}"/>
-				</apex:pageBlockButtons>
+			<!--========= MEETING DAYS =========-->
+			<apex:actionRegion>
+				<apex:pageBlock title="Meeting Information">
+					<apex:pageBlockSection columns="1">
+						<apex:repeat var="f" value="{!$ObjectType.Meeting_MERC__c.FieldSets.Meeting_Day_Manager_MERC}">
+				        	<apex:outputField value="{!parent[f]}" />
+				        </apex:repeat>
+				    </apex:pageBlockSection>
+				</apex:pageBlock>
 
-				<!-- TABLE -->
-				<apex:pageBlockTable value="{!children}" var="a" id="dayTable" styleClass="days">
-					<apex:column width="30" style="text-align:center;">
-						<apex:facet name="footer">
-							<apex:commandLink action="{!add}" style="text-align:center;display:block;" onclick="toggleLoading()" rerender="dayTable"  oncomplete="toggleLoading();">
-								<apex:image value="{!URLFOR($Resource.mercury, '/img/add.png')}" style="width:16px;"/>
+				<apex:pageBlock title="Meeting Days" mode="edit" id="mainBlock">
+					<apex:pageMessages id="meetingMessages"/>
+
+					<!-- BUTTONS -->
+					<apex:pageBlockButtons location="top">
+						<apex:commandButton value="Save Meeting Days" action="{!save}" reRender="mainBlock, controllerResponseWrapper, confirmWrapper, hotelTable"
+							onclick="toggleLoading()" oncomplete="handleControllerResponse();disableHotelTableHover();toggleLoading();bindTypeAhead();">
+							<apex:param name="retNull" value="1"/>
+						</apex:commandButton>
+						<apex:commandButton value="Back to Meeting" action="{!cancel}"/>
+					</apex:pageBlockButtons>
+
+					<!-- TABLE -->
+					<apex:pageBlockTable value="{!children}" var="a" id="dayTable" styleClass="days">
+						<apex:column width="30" style="text-align:center;">
+							<apex:facet name="footer">
+								<apex:commandLink action="{!add}" style="text-align:center;display:block;" onclick="toggleLoading()" rerender="dayTable, hotelTable, meetingMessages"  oncomplete="toggleLoading();bindTypeAhead();">
+									<apex:image value="{!URLFOR($Resource.mercury, '/img/add.png')}" style="width:16px;"/>
+								</apex:commandLink>
+							</apex:facet>
+							<apex:commandLink action="{!remove}" rerender="dayTable, hotelTable, meetingMessages" onclick="toggleLoading()" oncomplete="disableHotelTableHover();toggleLoading();bindTypeAhead();" immediate="true">
+								<apex:image value="{!URLFOR($Resource.mercury, '/img/delete.png')}" style="width:16px;"/>
+								<apex:param name="clientHash" value="{!a.hash}" assignTo="{!clientHash}"/>
 							</apex:commandLink>
-						</apex:facet>
-						<apex:commandLink action="{!remove}" rerender="dayTable, hotelTable" onclick="toggleLoading()" oncomplete="disableHotelTableHover();toggleLoading();" immediate="true">
-							<apex:image value="{!URLFOR($Resource.mercury, '/img/delete.png')}" style="width:16px;"/>
-							<apex:param name="clientHash" value="{!a.hash}" assignTo="{!clientHash}"/>
-						</apex:commandLink>
-					</apex:column>
-					<apex:repeat var="f" value="{!$ObjectType.Meeting_Day_MERC__c.FieldSets.Meeting_Day_Manager_Columns_MERC}">
-			            <apex:column headerValue="{!f.label}" >
-			                <apex:inputField value="{!a.so[f]}" required="{!OR(f.required, f.dbrequired)}" />
-			            </apex:column>
-			        </apex:repeat>
-				</apex:pageBlockTable>
-			</apex:pageBlock>
+						</apex:column>
+						<apex:repeat var="f" value="{!$ObjectType.Meeting_Day_MERC__c.FieldSets.Meeting_Day_Manager_Columns_MERC}">
+				            <apex:column headerValue="{!f.label}" >
+				                <apex:inputField value="{!a.so[f]}" required="{!OR(f.required, f.dbrequired)}" />
+				            </apex:column>
+				        </apex:repeat>
+					</apex:pageBlockTable>
+				</apex:pageBlock>
+			</apex:actionRegion>
 
-			<apex:pageBlock title="Hotels" mode="edit" id="hotelBlock">
-				<apex:pageMessages />
-				
-				<!-- BUTTONS -->
-				<apex:pageBlockButtons location="top">
-					<apex:commandButton value="Save Hotels" action="{!saveHotels}" reRender="hotelBlock, controllerResponseWrapper, confirmWrapper" 
-						onclick="toggleLoading()" oncomplete="handleControllerResponse();disableHotelTableHover();bindTypeAhead();toggleLoading();">
-						<apex:param name="retNull" value="1"/>
-					</apex:commandButton>
+			<!--========= HOTELS =========-->
+			<apex:actionRegion>
+				<apex:pageBlock title="Hotels" mode="edit" id="hotelBlock">
+					<apex:pageMessages id="hotelMessages"/>
 
-					<!-- <apex:actionFunction name="saveHotels()" action="{!saveHotels}" oncomplete="handleControllerResponse();disableHotelTableHover();bindTypeAhead();toggleLoading();" reRender="hotelBlock,controllerResponseWrapper,confirmWrapper" -->
-				</apex:pageBlockButtons>
+					<!-- BUTTONS -->
+					<apex:pageBlockButtons >
+						<apex:commandButton id="saveHotelsButton" value="Save Hotels" action="{!saveHotels}" reRender="hotelBlock, controllerResponseWrapper, confirmWrapper"
+							onclick="toggleLoading()" oncomplete="handleControllerResponse();disableHotelTableHover();bindTypeAhead();toggleLoading();">
+							<apex:param name="retNull" value="1"/>
+						</apex:commandButton>
+						<script>var saveHotelsButton = document.getElementById('{!$Component.saveHotelsButton}');</script>
 
-				<!-- TABLE -->
-				<apex:pageBlockTable value="{!hotels}" var="a" id="hotelTable" styleClass="days hotels">
-					<apex:column width="30" style="text-align:center;">
-						<apex:facet name="footer">
-							<apex:commandLink action="{!addHotel}" style="text-align:center;display:block;" onclick="toggleLoading()" rerender="hotelTable"  oncomplete="disableHotelTableHover();bindTypeAhead();toggleLoading();">
-								<apex:image value="{!URLFOR($Resource.mercury, '/img/add.png')}" style="width:16px;"/>
+						<!-- <apex:actionFunction name="saveHotels()" action="{!saveHotels}" oncomplete="handleControllerResponse();disableHotelTableHover();bindTypeAhead();toggleLoading();" reRender="hotelBlock,controllerResponseWrapper,confirmWrapper" -->
+					</apex:pageBlockButtons>
+
+					<!-- TABLE -->
+					<apex:pageBlockTable value="{!hotels}" var="a" id="hotelTable" styleClass="days hotels">
+						<apex:column width="30" style="text-align:center;">
+							<apex:facet name="footer">
+								<apex:commandLink action="{!addHotel}" style="text-align:center;display:block;" onclick="toggleLoading()" rerender="hotelTable"  oncomplete="disableHotelTableHover();bindTypeAhead();toggleLoading();">
+									<apex:image value="{!URLFOR($Resource.mercury, '/img/add.png')}" style="width:16px;"/>
+								</apex:commandLink>
+							</apex:facet>
+							<apex:commandLink action="{!removeHotel}" rerender="hotelTable, hotelMessages" onclick="toggleLoading()" oncomplete="disableHotelTableHover();bindTypeAhead();toggleLoading();" immediate="true">
+								<apex:image value="{!URLFOR($Resource.mercury, '/img/delete.png')}" style="width:16px;"/>
+								<apex:param name="clientHash" value="{!a.hash}" assignTo="{!clientHash}"/>
 							</apex:commandLink>
-						</apex:facet>
-						<apex:commandLink action="{!removeHotel}" rerender="hotelTable" onclick="toggleLoading()" oncomplete="disableHotelTableHover();bindTypeAhead();toggleLoading();" immediate="true">
-							<apex:image value="{!URLFOR($Resource.mercury, '/img/delete.png')}" style="width:16px;"/>
-							<apex:param name="clientHash" value="{!a.hash}" assignTo="{!clientHash}"/>
-						</apex:commandLink>
-					</apex:column>
-					<apex:column headerValue="Hotel Information">
-						<table cellspacing="0">
-							<tbody>
-								<tr>
-						        	<td>
-							        	<apex:outputLabel for="accountTypeAhead" value="Account" />
-							        </td>
-							        <td>
-							        	<div class="requiredInput">
-							        		<div class="requiredBlock"></div>
-							        		<apex:inputHidden value="{!a.so['Account_MERC__c']}"/>
-							        		<apex:inputText value="{!a.hotelName}" styleClass="existing-vendors"/>
-							        	</div>
-						        	</td>
-						        </tr>
-								<apex:repeat var="f" value="{!$ObjectType.Meeting_Vendor_MERC__c.FieldSets.Meeting_Day_Manager_MERC}">
-						        	<tr>
+						</apex:column>
+						<apex:column headerValue="Hotel Information">
+							<table cellspacing="0">
+								<tbody>
+									<tr>
 							        	<td>
-								        	<apex:outputLabel for="hotelField" value="{!$ObjectType.Meeting_Vendor_MERC__c.Fields[f].Label}" />
+								        	<apex:outputLabel for="accountTypeAhead" value="Account" />
 								        </td>
 								        <td>
-								        	<apex:inputField id="hotelField" value="{!a.so[f]}" required="{!OR(f.required, f.dbrequired)}" />
+								        	<div class="requiredInput">
+								        		<div class="requiredBlock"></div>
+								        		<apex:inputHidden value="{!a.so['Account_MERC__c']}"/>
+								        		<apex:inputText label="Account" value="{!a.hotelName}" styleClass="existing-vendors"/>
+								        	</div>
 							        	</td>
 							        </tr>
-						        </apex:repeat>
-					       	</tbody>
-				        </table>
-				        <div>
-		        			<apex:repeat var="allocation" value="{!a.hotelAllocations}">
-		        				<div style="background:#dde5f4;padding:5px 8px;font-weight:bold;">
-		        					{!allocation.meetingDayName}
-		        				</div>
-		        				<table cellspacing="0" style="margin-bottom:10px;">
-		        					<tbody>
-		        						<apex:repeat var="af" value="{!$ObjectType.Hotel_Allocation_MERC__c.FieldSets.Meeting_Day_Manager_MERC}">
-				        	        		<tr>
-				        	        			<td>
-				        	        				<apex:outputLabel for="allField" value="{!$ObjectType.Hotel_Allocation_MERC__c.Fields[af].Label}" />
-				        	        			</td>
-				        	        			<td>
-				        	        				<apex:inputField id="allField" value="{!allocation.hotelAllocationSObject[af]}" required="{!OR(af.required, af.dbrequired)}" />
-				        	        			</td>
-				        	        		</tr>
-		        	        			</apex:repeat>
-		        	        		</tbody>
-		        	        	</table>
-		        	        </apex:repeat>
-				        </div>
-				    </apex:column>
-				</apex:pageBlockTable>
-			</apex:pageBlock>
+									<apex:repeat var="f" value="{!$ObjectType.Meeting_Vendor_MERC__c.FieldSets.Meeting_Day_Manager_MERC}">
+							        	<tr>
+								        	<td>
+									        	<apex:outputLabel for="hotelField" value="{!$ObjectType.Meeting_Vendor_MERC__c.Fields[f].Label}" />
+									        </td>
+									        <td>
+									        	<apex:inputField id="hotelField" value="{!a.so[f]}" required="{!OR(f.required, f.dbrequired)}" />
+								        	</td>
+								        </tr>
+							        </apex:repeat>
+						       	</tbody>
+					        </table>
+					        <div>
+			        			<apex:repeat var="allocation" value="{!a.hotelAllocations}">
+			        				<div style="background:#dde5f4;padding:5px 8px;font-weight:bold;">
+			        					{!allocation.meetingDayName}
+			        				</div>
+			        				<table cellspacing="0" style="margin-bottom:10px;">
+			        					<tbody>
+			        						<apex:repeat var="af" value="{!$ObjectType.Hotel_Allocation_MERC__c.FieldSets.Meeting_Day_Manager_MERC}">
+					        	        		<tr>
+					        	        			<td>
+					        	        				<apex:outputLabel for="allField" value="{!$ObjectType.Hotel_Allocation_MERC__c.Fields[af].Label}" />
+					        	        			</td>
+					        	        			<td>
+					        	        				<apex:inputField id="allField" value="{!allocation.hotelAllocationSObject[af]}" required="{!OR(af.required, af.dbrequired)}" />
+					        	        			</td>
+					        	        		</tr>
+			        	        			</apex:repeat>
+			        	        		</tbody>
+			        	        	</table>
+			        	        </apex:repeat>
+					        </div>
+					    </apex:column>
+					</apex:pageBlockTable>
+				</apex:pageBlock>
+			</apex:actionRegion>
 			<c:MERC_LoadingMask />
 		</div>
 	</apex:form>
