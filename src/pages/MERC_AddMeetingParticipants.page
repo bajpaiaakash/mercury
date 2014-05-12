@@ -408,7 +408,7 @@
 			  		<!-- SEARCH RESULTS -->
 			  		<apex:actionRegion >
 				  		<apex:outputPanel id="resultBlockWrapper">
-				  			<apex:pageMessages />
+				  			<apex:pageMessages id="searchMessages" />
 				  			<apex:pageBlock title="Search Results" id="resultBlock">
 				  				<apex:pageBlockButtons >
 				  					<apex:commandButton action="{!cancel}" value="Back to Meeting"/>
@@ -423,11 +423,11 @@
 					  							<div class="addToMeetingPopoverBody">
 						  							<apex:actionRegion >
 						  								<apex:outputLabel for="nrtid" value="Record Type"/>
-						  								<apex:selectList id="nrtid" value="{!newParticipantRecordTypeId}" size="1">
+						  								<apex:selectList id="nrtid" value="{!newParticipantRecordTypeId}" size="1" required="true">
 						  									<apex:selectOptions value="{!recordTypeOptions}"/>
 						  								</apex:selectList>
 						  								<div style="margin-top:5px;">
-							  								<apex:commandLink styleClass="btn" value="Add To Meeting" action="{!addToMeeting}" onclick="hideAddPopovers();showLoading();" oncomplete="handleAddResponse(this);showMessage('Participant Successfully Added');" rerender="meetingParticipantTableWrapper, responseWrapper, resultTableWrapper, mpCountWrapper">
+							  								<apex:commandLink styleClass="btn" value="Add To Meeting" action="{!addToMeeting}" onclick="hideAddPopovers();showLoading();" oncomplete="handleAddResponse(this);showMessage('Participant Successfully Added');" rerender="meetingParticipantTableWrapper, responseWrapper, resultTableWrapper, mpCountWrapper, searchMessages">
 							  									<apex:param name="aid" value="{!r.sfid}"/>
 							  								</apex:commandLink>
 							  								<apex:commandLink styleClass="btn" value="Add To Meeting and Edit" action="{!addToMeetingAndRedirect}" onclick="hideAddPopovers();showLoading();" oncomplete="handleAddResponse(this);showMessage('Participant Successfully Added');">

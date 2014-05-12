@@ -5,7 +5,7 @@
  */
 
 public with sharing class MERC_AddMeetingParticipantsController {
-    
+
     public GLBL_CustomerSearchToolService cstService = new GLBL_CustomerSearchToolService();
 	public GLBL_CustomerSearchToolService.SearchRequest searchRequest { get; set; }
     public Boolean hasError { get; private set; }
@@ -40,7 +40,7 @@ public with sharing class MERC_AddMeetingParticipantsController {
 
     public Integer getMpCount() {
         return [SELECT count() FROM Meeting_Participant_MERC__c WHERE Meeting_MERC__c = :meeting.Id];
-    }   
+    }
 
     public Integer getSrCount() {
         if (this.searchResults == null)
@@ -140,7 +140,7 @@ public with sharing class MERC_AddMeetingParticipantsController {
     	}
     }
 
-    public List<GLBL_CustomerSearchToolService.SearchResult> searchResults { 
+    public List<GLBL_CustomerSearchToolService.SearchResult> searchResults {
         get {
             if (searchResults != null) {
                 for (GLBL_CustomerSearchToolService.SearchResult result : searchResults) {
@@ -148,15 +148,15 @@ public with sharing class MERC_AddMeetingParticipantsController {
                 }
             }
             return searchResults;
-        } 
+        }
         private set {
             searchResults = value;
-        } 
+        }
     }
 
     public PageReference doSearch() {
     	system.debug('>>>>>> '+this.searchRequest);
-        this.searchResults = this.cstService.doSearch(this.searchRequest);   
+        this.searchResults = this.cstService.doSearch(this.searchRequest);
         // if error, returns null & cstService.error will be available
         if (this.searchResults==null && this.cstService.error != null) {
             this.hasError = true;
