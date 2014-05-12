@@ -82,8 +82,12 @@ public with sharing class MERC_NewContentController {
                 country = [SELECT Country_of_Residence_MERC__c FROM HCP_Contract_MERC__c WHERE Id = :recordId].Country_of_Residence_MERC__c;
                 libraryName = country + ' - Private';
             } else if (objectAPIName == 'Invoice_MERC__c') {
-                country = [SELECT Payee_Country_MERC__c FROM Invoice_MERC__c WHERE Id = :recordId].Payee_Country_MERC__c;
-                libraryName = country + ' - Private';
+                Invoice_MERC__c invoice = [SELECT Meeting_Participant_MERC__r.Country_of_Residence_MERC__c FROM Invoice_MERC__c WHERE Id = :recordId];
+                if (invoice.Meeting_Participant_MERC__r.Country_of_Residence_MERC__c != null)
+                {
+                    country = invoice.Meeting_Participant_MERC__r.Country_of_Residence_MERC__c;
+                    libraryName = country + ' - Private';
+                }
             } else if (objectAPIName == 'Budget_MERC__c') {
                 country = [SELECT Meeting_MERC__r.Event_Country_MERC__c FROM Budget_MERC__c WHERE Id = :recordId].Meeting_MERC__r.Event_Country_MERC__c;
                 libraryName = country + ' - Private';

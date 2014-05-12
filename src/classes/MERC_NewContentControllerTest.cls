@@ -1,5 +1,5 @@
-/** 
-* @author Sean Harrison 
+/**
+* @author Sean Harrison
 * @TODO: we cannot create workspaces/libraries or add users to libraries via Apex, so we need to query for existing users in these tests
 * This is a unit test class for MERC_NewContentController.cls
 */
@@ -24,6 +24,11 @@ private class MERC_NewContentControllerTest {
 				profileid = p.Id, username='romeo@montegue.com.MERC_NewContentControllerTest',
 				emailencodingkey='UTF-8', languagelocalekey='en_US',localesidkey='en_US', timezonesidkey='America/Chicago');
 			accounts = MERC_TestFactory.insertHcpAccountsInCountry(1, 'GB');
+			for (Account a : accounts)
+			{
+				a.Country_of_Residence_GLBL__c = 'GB';
+			}
+			update accounts;
 			meetings = MERC_TestFactory.insertMeetings(1, 'GB');
 			participants = MERC_TestFactory.insertParticipants(meetings[0].Id, accounts);
 			invoices = MERC_TestFactory.insertInvoices(participants);
@@ -33,7 +38,7 @@ private class MERC_NewContentControllerTest {
 	}
 
 	// exercise cancel method.
-	@isTest 
+	@isTest
 	static void userCancels() {
 
 		PageReference ref = Page.MERC_NewMeetingContent;
@@ -45,14 +50,14 @@ private class MERC_NewContentControllerTest {
 		PageReference returnRef = controller.cancel();
 		Test.stopTest();
 
-		System.assert(returnRef.getUrl().contains((String) meetings[0].id), 
+		System.assert(returnRef.getUrl().contains((String) meetings[0].id),
 			'Expected a return to the object detail but got: '+returnRef.getUrl());
 	}
-	
+
 	/*
 	 * Loop through all expected content types and try the upload
 	 */
-	@isTest 
+	@isTest
 	static void testUploadAllContentTypes() {
 
 		System.runAs(thisUser) {
@@ -80,7 +85,7 @@ private class MERC_NewContentControllerTest {
 				System.assertEquals(null, returnRef, 'Expected null PageRef but got: '+returnRef);
 				List<ApexPages.Message> messages = ApexPages.getMessages();
 				for (ApexPages.Message m : messages) {
-					System.assert(m.getDetail().contains('Please select a document'));			
+					System.assert(m.getDetail().contains('Please select a document'));
 				}
 
 				controller.file.Title = controller.getsObjectName();
@@ -88,7 +93,7 @@ private class MERC_NewContentControllerTest {
 				controller.file.VersionData = Blob.valueOf('For naught so vile that on the earth doth live but to the earth some special good doth give.');
 				returnRef = controller.upload();
 				if (returnRef != null) System.debug(returnRef.getUrl());
-				System.assertNotEquals(null,returnRef,'Expected a PageRef but got null');			
+				System.assertNotEquals(null,returnRef,'Expected a PageRef but got null');
 			}
 			Test.stopTest();
 		}
@@ -141,7 +146,7 @@ private class MERC_NewContentControllerTest {
 		System.assertEquals(null, returnRef, 'Expected null PageRef but got: '+returnRef);
 		List<ApexPages.Message> messages = ApexPages.getMessages();
 		for (ApexPages.Message m : messages) {
-			System.assertEquals(ApexPages.Severity.Error,m.getSeverity(),'Unexpected error thrown: '+m);			
+			System.assertEquals(ApexPages.Severity.Error,m.getSeverity(),'Unexpected error thrown: '+m);
 		}
 	}
 }
