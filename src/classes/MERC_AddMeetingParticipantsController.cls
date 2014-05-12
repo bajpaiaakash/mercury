@@ -187,9 +187,14 @@ public with sharing class MERC_AddMeetingParticipantsController {
         try {
             String accountId = MERC_Util.getUrlParam('aid');
             System.debug('SELECTED RECORD TYPE: ' + newParticipantRecordTypeId);
+            if (String.isBlank(newParticipantRecordTypeId))
+            {
+                throw new MERC_Exception('A Record Type is required to add an account to the meeting.');
+            }
             m.Account_MERC__c = accountId;
             m.Meeting_MERC__c = meeting.Id;
             m.RecordTypeId = newParticipantRecordTypeId;
+            m.CST_Validation_Bypass_MERC__c = true; //bypass configured validation rules
             System.debug(m);
             insert m;
             this.meetingParticipantAccountIds.add(accountId);
