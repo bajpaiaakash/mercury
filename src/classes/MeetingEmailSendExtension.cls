@@ -2,7 +2,7 @@ public with sharing class MeetingEmailSendExtension {
     public MeetingEmailSendExtension(ApexPages.StandardController stdController) {
         this.meeting = (Meeting_MERC__c)stdController.getRecord();
         if (meeting == null || meeting.Id == null) {
-            AddFatalMessage('You must specify a meeting id.');
+            AddErrorMessage('You must specify a meeting id.');
         }
 
         emails = new List<ETObject.EmailFolder>();
@@ -10,7 +10,7 @@ public with sharing class MeetingEmailSendExtension {
 
         Config = Sonoma_ET_Config__c.getInstance();
         if (Config == null) {
-            AddFatalMessage('No configuration object was found. Please contact your administrator.');
+            AddErrorMessage('No configuration object was found. Please contact your administrator.');
         }
 
         ShowParticipantGrid = false;
@@ -35,43 +35,6 @@ public with sharing class MeetingEmailSendExtension {
                 names.add(w.Participant.Account_MERC__r.Name);
         }
         return String.join(names, '; ');
-    }
-
-    public PageReference Send() {
-        List<Meeting_Participant_MERC__c> parts = new List<Meeting_Participant_MERC__c>();
-        for (SelectedWrapper w : Participants) {
-            if (w.IsSelected) {
-                parts.Add(w.Participant);
-            }
-        }
-
-        if (parts.size() == 0) {
-            AddErrorMessage('You must select at least 1 Recipient.');
-        }
-        if (SendTime == 'none') {
-            AddErrorMessage('You must select a send date and time.');
-        }
-        if (email.Id == null) {
-            AddErrorMessage('You must select an email template.');
-        }
-        else if (email.title == null) {
-            AddErrorMessage('The subject must be filled in.');
-        }
-
-        if (ApexPages.hasMessages(ApexPages.Severity.ERROR)) {
-            return null;
-        }
-
-        SendEmailWrapper wrapper = new SendEmailWrapper(Email, parts, Config.Default_From_Email__c, DeDup, DisableIndividualTracking, SendTime);
-        ETDataExtensionProcessor processor = new ETDataExtensionProcessor();
-        try {
-            processor.createDataExtensionForSendEmail(wrapper);
-            return new PageReference('/' + meeting.Id);
-        }
-        catch (Exception e) {
-            ApexPages.addMessages(e);
-            return null;
-        }
     }
 
     /* Region: participants */
@@ -101,7 +64,6 @@ public with sharing class MeetingEmailSendExtension {
             w.IsSelected = IsAllChecked;
     }
 
-    @TestVisible
     private class SelectedWrapper
     {
         public SelectedWrapper(Meeting_Participant_MERC__c p) {
@@ -123,11 +85,7 @@ public with sharing class MeetingEmailSendExtension {
     /* End region: participants */
 
     public boolean getHasErrors() {
-        return ApexPages.hasMessages(ApexPages.Severity.FATAL);
-    }
-
-    private void AddFatalMessage(String message) {
-        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.FATAL, message));
+        return ApexPages.hasMessages(ApexPages.Severity.ERROR);
     }
 
     private void AddErrorMessage(String message) {
@@ -314,8 +272,11 @@ public with sharing class MeetingEmailSendExtension {
             system.debug('subj: '+apexPages.currentPage().getParameters().get('emailSubject'));
             email.title=EncodingUtil.urlDecode(apexPages.currentPage().getParameters().get('emailSubject'),'UTF-8').replace('\\"','"');
         }
+        if (apexPages.currentPage().getParameters().get('xEmail')==null)
+        {
+            this.email=email;
+        }
         showEmailChooser=false;
-        System.debug('Email = ' + email);
     }
 
     public string getSyncPayload()

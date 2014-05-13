@@ -96,7 +96,7 @@
 		<div class="aeu" style="position:relative;">
 
 			<!--========= MEETING DAYS =========-->
-			<apex:actionRegion >
+			<apex:actionRegion>
 				<apex:pageBlock title="Meeting Information">
 					<apex:pageBlockSection columns="1">
 						<apex:repeat var="f" value="{!$ObjectType.Meeting_MERC__c.FieldSets.Meeting_Day_Manager_MERC}">
@@ -140,7 +140,7 @@
 			</apex:actionRegion>
 
 			<!--========= HOTELS =========-->
-			<apex:actionRegion >
+			<apex:actionRegion>
 				<apex:pageBlock title="Hotels" mode="edit" id="hotelBlock">
 					<apex:pageMessages id="hotelMessages"/>
 

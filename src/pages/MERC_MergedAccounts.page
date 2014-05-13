@@ -62,77 +62,77 @@
 			<apex:outputPanel id="relatedLists">
 				<apex:pageBlock title="{!mergeObject.account.name}" rendered="{!mergeObject != null}">
 					<apex:repeat value="{!mergeObject.allRelatedLists}" var="rl">
+						<!-- <apex:pageBlockSection title="{!rl.sObjectLabel}" collapsible="true" columns="2"> -->
 
-						<div data-object-class="{!rl.sObjectName}" style="height:20px;background-color:#B0C4DE;margin-top:20px;font-size:18px;font-weight:bold;clear:both;">
-							<div style="margin:0 10px;" class="collapse-section show">
-								<apex:image url="{!URLFOR($Resource.mercury, 'img/minus.png')}" height="16px;"/>
-							</div>
-							<div style="margin:0 10px;" class="collapse-section hide">
-								<apex:image url="{!URLFOR($Resource.mercury, 'img/add.png')}" height="16px;"/>
-							</div>
-							{!rl.settings.Name}
-						</div>
 
-						<apex:pageMessages id="messages"/>
-
-						<div style="position:relative;display:inline-block;width:100%;" id="{!rl.sObjectName}-body">
-							<!-- FIRST COLUMN -->
-							<apex:outputPanel id="winningList" layout="block" styleClass="table-div" style="margin-right:1%;float:left;">
-								<div style="text-align:center;width:100%;font-weight:bold;font-size:16px"><span style="font-style:italic;color:green;">Winning Account</span> {!rl.settings.Name} Records</div>
-								<div style="min-height:25px;">
-									<apex:commandButton value="Delete Selected Records"
-									                    action="{!rl.deleteSelectedWinningRecords}"
-									                    rendered="{!rl.settings.Allow_Winning_Account_Deletes__c && rl.winningList.size > 0}"
-									                    onclick="if( !confirm('Are you sure you want to delete these {!rl.sObjectLabel} records?') ) return false; toggleLoading();"
-									                    oncomplete="toggleLoading();bindDomHandlers();"
-									                    reRender="winningList"/>
+							<div data-object-class="{!rl.sObjectName}" style="height:20px;background-color:#B0C4DE;margin-top:20px;font-size:18px;font-weight:bold;">
+								<div style="margin:0 10px;" class="collapse-section show">
+									<apex:image url="{!URLFOR($Resource.mercury, 'img/minus.png')}" height="16px;"/>
 								</div>
-								<apex:pageMessage summary="No {!rl.sObjectLabel} records exist for this account" severity="Info" strength="1" rendered="{!rl.winningList.size == 0}"/>
-								<apex:pageBlockTable value="{!rl.winningList}" var="object" rendered="{!rl.winningList.size > 0}">
-									<apex:column rendered="{!rl.settings.Allow_Winning_Account_Deletes__c}">
-										<apex:facet name="header">
-											<input type="checkbox" id="{!rl.sObjectName}-win-select" class="select-all"/>
-										</apex:facet>
-										<apex:inputCheckbox value="{!object.selected}" styleClass="{!rl.sObjectName}-win-select"/>
-									</apex:column>
-									<apex:column ><a href="/{!object.detail.id}" target="_blank">View</a></apex:column>
-									<apex:repeat value="{!rl.winningFields}" var="field">
-										<apex:column value="{!object.detail[field]}">
-											<apex:facet name="header">{!field.label}</apex:facet>
-										</apex:column>
-									</apex:repeat>
-								</apex:pageBlockTable>
-							</apex:outputPanel>
-
-
-							<!-- SECOND COLUMN -->
-							<apex:outputPanel id="losingList" layout="block" styleClass="table-div" style="margin-left:1%;">
-								<div style="text-align:center;width:100%;font-weight:bold;font-size:16px"><span style="font-style:italic;color:red;">Losing Account</span> {!rl.settings.Name} Records</div>
-								<div style="min-height:25px;">
-									<apex:commandButton value="Merge Selected Records"
-									                    action="{!rl.mergeSelectedRecords}"
-									                    onclick="toggleLoading();"
-									                    oncomplete="toggleLoading();bindDomHandlers();"
-									                    reRender="winningList, losingList, messages"
-									                    rendered="{!rl.losingList.size > 0}"/>
+								<div style="margin:0 10px;" class="collapse-section hide">
+									<apex:image url="{!URLFOR($Resource.mercury, 'img/add.png')}" height="16px;"/>
 								</div>
-								<apex:pageMessage summary="No {!rl.sObjectLabel} records exist for this account" severity="Info" strength="1" rendered="{!rl.losingList.size == 0}"/>
-								<apex:pageBlockTable value="{!rl.losingList}" var="object" rendered="{!rl.losingList.size > 0}">
-									<apex:column >
-										<apex:facet name="header">
-											<input type="checkbox" id="{!rl.sObjectName}-lose-select" class="select-all"/>
-										</apex:facet>
-										<apex:inputCheckbox value="{!object.selected}" styleClass="{!rl.sObjectName}-lose-select"/>
-									</apex:column>
-									<apex:column ><a href="/{!object.detail.id}" target="_blank">View</a></apex:column>
-									<apex:repeat value="{!rl.losingFields}" var="field">
-										<apex:column value="{!object.detail[field]}">
-											<apex:facet name="header">{!field.label}</apex:facet>
+								{!rl.settings.Name}
+							</div>
+							<div style="position:relative;" id="{!rl.sObjectName}-body">
+								<!-- FIRST COLUMN -->
+								<apex:outputPanel id="winningList" layout="block" styleClass="table-div" style="margin-right:1%;">
+									<div style="text-align:center;width:100%;font-weight:bold;font-size:16px"><span style="font-style:italic;color:green;">Winning Account</span> {!rl.settings.Name} Records</div>
+									<div style="min-height:25px;">
+										<apex:commandButton value="Delete Selected Records"
+										                    action="{!rl.deleteSelectedWinningRecords}"
+										                    rendered="{!rl.settings.Allow_Winning_Account_Deletes__c && rl.winningList.size > 0}"
+										                    onclick="if( !confirm('Are you sure you want to delete these {!rl.sObjectLabel} records?') ) return false; toggleLoading();"
+										                    oncomplete="toggleLoading();bindDomHandlers();"
+										                    reRender="winningList"/>
+									</div>
+									<apex:pageMessage summary="No {!rl.sObjectLabel} records exist for this account" severity="Info" strength="1" rendered="{!rl.winningList.size == 0}"/>
+									<apex:pageBlockTable value="{!rl.winningList}" var="object" rendered="{!rl.winningList.size > 0}">
+										<apex:column rendered="{!rl.settings.Allow_Winning_Account_Deletes__c}">
+											<apex:facet name="header">
+												<input type="checkbox" id="{!rl.sObjectName}-win-select" class="select-all"/>
+											</apex:facet>
+											<apex:inputCheckbox value="{!object.selected}" styleClass="{!rl.sObjectName}-win-select"/>
 										</apex:column>
-									</apex:repeat>
-								</apex:pageBlockTable>
-							</apex:outputPanel>
-						</div>
+										<apex:column ><a href="/{!object.detail.id}" target="_blank">View</a></apex:column>
+										<apex:repeat value="{!rl.winningFields}" var="field">
+											<apex:column value="{!object.detail[field]}">
+												<apex:facet name="header">{!field.label}</apex:facet>
+											</apex:column>
+										</apex:repeat>
+									</apex:pageBlockTable>
+								</apex:outputPanel>
+
+
+								<!-- SECOND COLUMN -->
+								<apex:outputPanel id="losingList" layout="block" styleClass="table-div" style="margin-left:1%;position:absolute;">
+									<div style="text-align:center;width:100%;font-weight:bold;font-size:16px"><span style="font-style:italic;color:red;">Losing Account</span> {!rl.settings.Name} Records</div>
+									<div style="min-height:25px;">
+										<apex:commandButton value="Merge Selected Records"
+										                    action="{!rl.mergeSelectedRecords}"
+										                    onclick="toggleLoading();"
+										                    oncomplete="toggleLoading();bindDomHandlers();"
+										                    reRender="winningList, losingList"
+										                    rendered="{!rl.losingList.size > 0}"/>
+									</div>
+									<apex:pageMessage summary="No {!rl.sObjectLabel} records exist for this account" severity="Info" strength="1" rendered="{!rl.losingList.size == 0}"/>
+									<apex:pageBlockTable value="{!rl.losingList}" var="object" rendered="{!rl.losingList.size > 0}">
+										<apex:column >
+											<apex:facet name="header">
+												<input type="checkbox" id="{!rl.sObjectName}-lose-select" class="select-all"/>
+											</apex:facet>
+											<apex:inputCheckbox value="{!object.selected}" styleClass="{!rl.sObjectName}-lose-select"/>
+										</apex:column>
+										<apex:column ><a href="/{!object.detail.id}" target="_blank">View</a></apex:column>
+										<apex:repeat value="{!rl.losingFields}" var="field">
+											<apex:column value="{!object.detail[field]}">
+												<apex:facet name="header">{!field.label}</apex:facet>
+											</apex:column>
+										</apex:repeat>
+									</apex:pageBlockTable>
+								</apex:outputPanel>
+							</div>
+						<!-- </apex:pageBlockSection> -->
 					</apex:repeat>
 				</apex:pageBlock>
 			</apex:outputPanel>

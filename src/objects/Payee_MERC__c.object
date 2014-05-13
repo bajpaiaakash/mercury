@@ -103,7 +103,7 @@ Created by John A Adams 9/27/2013</description>
         <relationshipLabel>Payee</relationshipLabel>
         <relationshipName>Payee</relationshipName>
         <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>true</reparentableMasterDetail>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
@@ -440,21 +440,15 @@ Created by John A Adams 9/27/2013</description>
         <fullName>Transfer_Information_Complete_MERC__c</fullName>
         <description>Indicates whether all bank information has been populated on a payee record. Created 04/18/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <formula>IF(
-(!ISBLANK(Bank_Name_MERC__c) &amp;&amp;
-!ISBLANK(Bank_Street_MERC__c) &amp;&amp;
-!ISBLANK(Bank_City_MERC__c) &amp;&amp;
-!ISBLANK(Bank_Country_MERC__c) &amp;&amp;
-!ISBLANK(Bank_Zip_Postal_Code_MERC__c) &amp;&amp;
-!ISBLANK(Bank_Account_Number_MERC__c) &amp;&amp;
-!ISBLANK(Bank_Sort_Code_MERC__c) 
-)
-
-||
-
-(!ISBLANK(Bank_IBAN_MERC__c)) 
-
-, true, false)</formula>
+        <formula>IF (
+ISBLANK(Bank_Name_MERC__c) ||
+ISBLANK(Bank_Street_MERC__c) ||
+ISBLANK(Bank_City_MERC__c) ||
+ISBLANK(Bank_Country_MERC__c) ||
+ISBLANK(Bank_Zip_Postal_Code_MERC__c) ||
+ISBLANK(Bank_Sort_Code_MERC__c) ||
+ISBLANK(Bank_IBAN_MERC__c) ||
+ISBLANK(Bank_Account_Number_MERC__c), false, true)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Transfer Information Complete</label>
         <trackHistory>false</trackHistory>
@@ -482,7 +476,7 @@ Created by John A Adams 2/18/2014</description>
         <externalId>false</externalId>
         <label>Web Service Update Date</label>
         <required>false</required>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -494,7 +488,7 @@ Created by John A Adams 2/18/2014</description>
         <label>Web Service Update HCP Action</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -507,7 +501,7 @@ Created by John A Adams 2/18/2014</description>
         <label>Web Service Update HCP Global Id</label>
         <length>50</length>
         <required>false</required>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -519,7 +513,7 @@ Created by John A Adams 2/18/2014</description>
         <label>Web Service Update HCP Name</label>
         <length>100</length>
         <required>false</required>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
