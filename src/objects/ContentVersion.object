@@ -566,6 +566,10 @@ HCP_Contract_MERC__r.MSA_Start_Date_MERC__c,  HCP_Contract_MERC__r.Meeting_Name_
                 <fullName>Proof of Consulting Services</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Meeting Exceptions</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
@@ -632,18 +636,19 @@ HCP_Contract_MERC__r.MSA_Start_Date_MERC__c,  HCP_Contract_MERC__r.Meeting_Name_
         <description>Populates the name of a Library Field.
 Created on 4/3/2014 by John Adams</description>
         <externalId>false</externalId>
-        <formula>IF(CONTAINS(RecordType.Name,&quot;Invoice_MERC&quot;),Invoice_MERC__r.Payee_Country_MERC__c     &amp; &quot; - Private&quot;,
+        <formula>IF(CONTAINS(RecordType.Name,&quot;Invoice_MERC&quot;), Invoice_MERC__r.Meeting_Participant_MERC__r.Country_of_Residence_MERC__c &amp; &quot; - Private&quot;,  
  IF(CONTAINS(RecordType.Name,&quot;HCP_Contract_MERC&quot;), HCP_Contract_MERC__r.Country_of_Residence_MERC__c &amp; &quot; - Private&quot;,
    IF(CONTAINS(RecordType.Name,&quot;Budget_MERC&quot;), TEXT(Meeting_MERC__r.Event_Country_MERC__c) &amp; &quot; - Private&quot;,
   
     IF(CONTAINS(RecordType.Name,&quot;Meeting_Participant_MERC&quot;), Meeting_Participant_MERC__r.Country_of_Residence_MERC__c &amp; &quot; - Private&quot;,
 
       IF(CONTAINS(RecordType.Name,&quot;Meeting_MERC&quot;), Meeting_Country_MERC__c  &amp; &quot; - Public&quot;,
-&quot;Mercury&quot;)
+        IF(CONTAINS(RecordType.Name,&quot;Account_MERC&quot;), Account_GLBL__r.Country_Code_MERC__c  &amp; &quot; - Private&quot;,&quot;Mercury&quot;)
       )
      )
     )
-  )</formula>
+  )
+)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Library Name</label>
         <required>false</required>
@@ -936,6 +941,10 @@ Created on 4/3/2014 by John Adams</description>
             </values>
             <values>
                 <fullName>Meeting Documents</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting Exceptions</fullName>
                 <default>false</default>
             </values>
             <values>

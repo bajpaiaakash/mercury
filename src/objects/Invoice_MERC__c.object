@@ -53,6 +53,41 @@
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
     <fieldSets>
+        <fullName>Account_Merge_Invoices_MERC</fullName>
+        <description>MERC_MergedAccounts.page / MERC_MergedAccountsApex.cls / Custom Setting: Account Merge - Invoices .Oliver Dunford 8th May 2014</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Invoice_Type_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Invoice_Date_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Payee_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Participant_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Submit_for_Payment_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Account Merge - Invoices</label>
+    </fieldSets>
+    <fieldSets>
         <fullName>Invoice_Clone_Field_Set</fullName>
         <description>MERC_InvoiceCreditNoteController</description>
         <displayedFields>
@@ -423,6 +458,19 @@
         <label>Invoice Clone Field Set</label>
     </fieldSets>
     <fields>
+        <fullName>Bank_Account_Number_Encrypted_MERC__c</fullName>
+        <description>Bank Account Number encrypted and stamped from the Payee when the Invoice is created.</description>
+        <externalId>false</externalId>
+        <label>Bank Account Number (Encrypted)</label>
+        <length>80</length>
+        <maskChar>asterisk</maskChar>
+        <maskType>lastFour</maskType>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>EncryptedText</type>
+    </fields>
+    <fields>
         <fullName>Bank_Account_Number_MERC__c</fullName>
         <description>Bank Account Number loaded from payee by Workflow.
 Created by John A Adams 1/9/2014</description>
@@ -675,6 +723,20 @@ Created by John A Adams 10/30/2013</description>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Invoices</relationshipLabel>
         <relationshipName>Invoices</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>HCP_Account_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup Relationship from Invoice to Account. Created 05/13/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>HCP Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Invoices (HCP Account)</relationshipLabel>
+        <relationshipName>HCP_Invoices</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -1148,9 +1210,10 @@ Created by John A Adams 10/7/2013.</description>
     </fields>
     <fields>
         <fullName>Submitted_for_Payment_Date_MERC__c</fullName>
-        <description>Date the integrators can stamp a datetime when the record was successfully picked up and processed.
+        <description>Date the integrators can stamp a datetime when the record was successfully picked up and processed. This value is modified by the Informatica integration. Do not change, update, or add validation rules to this field.
 Created by John Adams 11/11/2013</description>
         <externalId>false</externalId>
+        <inlineHelpText>Stamped automatically by SAP integration. Do not edit.</inlineHelpText>
         <label>Submitted for Payment</label>
         <required>false</required>
         <trackHistory>false</trackHistory>

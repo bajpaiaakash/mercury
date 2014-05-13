@@ -109,6 +109,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ETDataExtensionProcessor</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ETObject</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -221,11 +225,11 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>MERC_AnonymizeNonHCPDataHandler</apexClass>
+        <apexClass>MERC_AnonymiseNonHCPDataHandler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>MERC_AnonymizeNonHCPDataHandlerTest</apexClass>
+        <apexClass>MERC_AnonymiseNonHCPDataHandlerTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -397,6 +401,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_MeetingContentStampHandlerTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_MeetingDayManagerController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -426,6 +434,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_MeetingParticipantStressTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_MeetingProductNewEdit</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -470,6 +482,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_ParticipantStatusCalculator</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_ParticipantStatusCalculatorTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -545,6 +561,14 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_TravelItineraryStampMtgHandler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_TravelItineraryStampMtgHandlerTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_Util</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -569,6 +593,22 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>Mock_DataExtensionCallout</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Mock_DataExtensionPopulateCallout</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Mock_ETAuthorizerCallout</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Mock_EndToEndDataExtensionCallouts</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>PersonSearchControllerMVN</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -581,6 +621,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>SendEmailWrapper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>TestDataFactoryMVN</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -589,11 +633,23 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>Test_ETAuthorizer</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Test_ETDataExtensionProcessor</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>Test_MeetingEmailSendExtension</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>etCallControl</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>mockHttpResponseGenerator</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -664,7 +720,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.Anonymize_Record_MERC__c</field>
+        <field>Account.Anonymise_Record_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -800,6 +856,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Contract_Limitations_on_Use_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Contract_Signatory_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1898,6 +1959,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Web_Service_Logic_Key_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.Website</field>
         <readable>true</readable>
@@ -1964,7 +2030,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Address_GLBL__c.Anonymize_Record_MERC__c</field>
+        <field>Address_GLBL__c.Anonymise_Record_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2984,7 +3050,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Case.Anonymize_Record_MERC__c</field>
+        <field>Case.Anonymise_Record_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3654,6 +3720,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Invoice_MERC__c.Bank_Account_Number_Encrypted_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Invoice_MERC__c.Bank_Account_Number_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3745,6 +3816,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Invoice_MERC__c.HCO_Beneficiary_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Invoice_MERC__c.HCP_Account_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4138,16 +4214,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Meeting_MERC__c.Content_Approval_Needed_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Meeting_MERC__c.Content_Creator_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_MERC__c.Customer_Facing_End_Time_MERC__c</field>
         <readable>true</readable>
@@ -4195,6 +4261,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Meeting_MERC__c.Disable_Portal_Registration_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting_MERC__c.Employee_Accommodation_Covered_By_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4939,12 +5010,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Meeting_Participant_MERC__c.Anonymize_Record_MERC__c</field>
+        <field>Meeting_Participant_MERC__c.Anonymise_Record_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Associated_Countries_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting_Participant_MERC__c.CST_Validation_Bypass_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5559,6 +5635,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Web_Service_Logic_Key_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Meeting_Products_MERC__c.Associated_Countries_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5734,7 +5815,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Participant_Agenda_MERC__c.Anonymize_Record_MERC__c</field>
+        <field>Participant_Agenda_MERC__c.Anonymise_Record_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6209,7 +6290,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Travel_Itinerary_MERC__c.Anonymize_Record_MERC__c</field>
+        <field>Travel_Itinerary_MERC__c.Anonymise_Record_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6245,6 +6326,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Travel_Itinerary_MERC__c.Booking_Date_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Travel_Itinerary_MERC__c.Bus_Nmbr_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6872,7 +6958,7 @@
         <layout>ContentVersion-General</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>ContentVersion-Invoice_MERC</layout>
+        <layout>ContentVersion-HCP_Contract_MERC</layout>
         <recordType>ContentVersion.HCP_Contract_MERC</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -7112,6 +7198,10 @@
         <recordType>Travel_Itinerary_MERC__c.Air_MERC</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Travel_Itinerary_MERC__c-MERC_Bus</layout>
+        <recordType>Travel_Itinerary_MERC__c.Bus</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Travel_Itinerary_MERC__c-MERC_Car</layout>
         <recordType>Travel_Itinerary_MERC__c.Car_MERC</recordType>
     </layoutAssignments>
@@ -7128,6 +7218,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>User-User Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Web_Service_Logic_MERC__c-MERC_RSVP</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>WorkAccess-Access Layout</layout>
@@ -7540,6 +7633,10 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>MERC_MeetingProductNewEdit</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>MERC_MeetingTeamManager</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -7866,6 +7963,11 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>Travel_Itinerary_MERC__c.Bus</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Travel_Itinerary_MERC__c.Car_MERC</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -7965,6 +8067,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Travel_Itinerary_MERC__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Web_Service_Logic_MERC__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>

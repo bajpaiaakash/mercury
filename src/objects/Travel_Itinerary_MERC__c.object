@@ -162,12 +162,12 @@ Created by John A Adams 12/13/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Anonymize_Record_MERC__c</fullName>
+        <fullName>Anonymise_Record_MERC__c</fullName>
         <defaultValue>false</defaultValue>
-        <description>Indicates that this record is related to a non-hcp meeting participant and should be anonymized (via workflows)</description>
+        <description>Indicates that this record is related to a non-hcp meeting participant and should be anonymised (via workflows)</description>
         <externalId>false</externalId>
-        <inlineHelpText>Indicates that this record is related to a non-hcp meeting participant and should be anonymized (via workflows)</inlineHelpText>
-        <label>Anonymize Record</label>
+        <inlineHelpText>Indicates that this record is related to a non-hcp meeting participant and should be anonymised (via workflows)</inlineHelpText>
+        <label>Anonymise Record</label>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -251,6 +251,17 @@ Created by John A Adams 12/13/2013</description>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Bus_Nmbr_MERC__c</fullName>
+        <description>Identifies a specific Bus from one station to another. Created by Katy Lorenti 05/13/2014</description>
+        <externalId>false</externalId>
+        <label>Bus Number</label>
+        <length>12</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Car_Clss_Cd_MERC__c</fullName>
@@ -1790,6 +1801,169 @@ Created by John A Adams 12/13/2013</description>
             </values>
             <values>
                 <fullName>Outbound Leg</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Bus</fullName>
+        <active>true</active>
+        <description>Bus Travel Information</description>
+        <label>Bus</label>
+        <picklistValues>
+            <picklist>Segment_Begin_Timezone_MERC__c</picklist>
+            <values>
+                <fullName>Central European Time %28Europe%2FAmsterdam%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FBerlin%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FBrussels%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FParis%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FPrague%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FRome%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FAthens%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FBucharest%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FHelsinki%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FIstanbul%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Further-eastern European Time %28Europe%2FMinsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28Europe%2FDublin%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28Europe%2FLondon%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28GMT%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moscow Standard Time %28Europe%2FMoscow%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Western European Time %28Europe%2FLisbon%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Segment_End_Timezone_MERC__c</picklist>
+            <values>
+                <fullName>Central European Time %28Europe%2FAmsterdam%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FBerlin%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FBrussels%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FParis%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FPrague%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central European Time %28Europe%2FRome%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FAthens%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FBucharest%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FHelsinki%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Eastern European Time %28Europe%2FIstanbul%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Further-eastern European Time %28Europe%2FMinsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28Europe%2FDublin%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28Europe%2FLondon%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Greenwich Mean Time %28GMT%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Moscow Standard Time %28Europe%2FMoscow%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Western European Time %28Europe%2FLisbon%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Travel_Detail_Typ_MERC__c</picklist>
+            <values>
+                <fullName>Accommodation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Connection Leg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inbound Leg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outbound Leg</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle Rental</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

@@ -39,8 +39,16 @@
                 <field>Cnsnt_Sts_Desc_GLBL__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Cnsnt_Sts_Desc_Cap_GLBL__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Cmnctn_Chnl_Cd_GLBL__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Cmnctn_Chnl_Cd_Cap_GLBL__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>

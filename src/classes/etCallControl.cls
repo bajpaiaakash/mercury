@@ -61,16 +61,9 @@ public virtual with sharing class etCallControl {
     // obtain token using saved scope token
     public virtual string oAuthScoped(string sExactTargetUsername,string sExactTargetPassword,string scope,string memberId,string authApiUrl)
     {
-        try
-        {
-            sExactTargetUsername=sExactTargetUsername.replace('&','&amp;').replace('<','&lt;').replace('>','&gt;').replace('"','&quot;').replace('\'','&apos;');
-            sExactTargetPassword=sExactTargetPassword.replace('&','&amp;').replace('<','&lt;').replace('>','&gt;').replace('"','&quot;').replace('\'','&apos;');
-            if (test.isRunningTest())
-            {
-                throw new EliException();
-            }
-        }
-        catch (exception e) {}
+        sExactTargetUsername=sExactTargetUsername.replace('&','&amp;').replace('<','&lt;').replace('>','&gt;').replace('"','&quot;').replace('\'','&apos;');
+        sExactTargetPassword=sExactTargetPassword.replace('&','&amp;').replace('<','&lt;').replace('>','&gt;').replace('"','&quot;').replace('\'','&apos;');
+        
         string xml='';
         xml='<?xml version="1.0" encoding="UTF-8"?><SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"';
         xml+=' xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> <SOAP-ENV:Header> <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"';
@@ -227,7 +220,9 @@ public virtual with sharing class etCallControl {
         httpResponse res=new httpResponse();
         try
         {
+            System.debug('sending call emails');
             res=h.send(req);        
+            System.debug('call emails response = ' + res);
             if (test.isRunningTest())
             {
                 if (parentFolderId=='e')
@@ -236,7 +231,9 @@ public virtual with sharing class etCallControl {
                 }
             }
         }
-        catch(exception e){}
+        catch(exception e) { 
+            System.debug(e);
+        }
         return res;
     }   
 }

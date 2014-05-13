@@ -61,29 +61,50 @@ public class MERC_MergedAccountApex {
         {
             relatedLists = new List<RelatedListGroup>();
 
-            /*----- Loop over the custom settings to determine the Describes we need to perform -----*/
-            List<String> objectsForSchema = new List<String>();
+            /*----- Loop over the custom settings to determine the Describes we need to perform and
+                    add the custom settings to a map of Object name to list of settings. -----*/
+            Set<String> objectsForSchemaSet = new Set<String>();
+            Map<String, List<Account_Merge_Related_Lists_MERC__c>> objectToRelatedListsMap =  new Map<String, List<Account_Merge_Related_Lists_MERC__c>>();
             for (Account_Merge_Related_Lists_MERC__c rl : relatedListSettings.values())
             {
-                objectsForSchema.add(rl.Name);
+                objectsForSchemaSet.add(rl.Related_Object_API_Name__c);
+                if (objectToRelatedListsMap.containsKey(rl.Related_Object_API_Name__c))
+                {
+                    objectToRelatedListsMap.get(rl.Related_Object_API_Name__c).add(rl);
+                }
+                else
+                {
+                    objectToRelatedListsMap.put(rl.Related_Object_API_Name__c, new List<Account_Merge_Related_Lists_MERC__c>{rl});
+                }
             }
+            List<String> objectsForSchemaList = new List<String>();
+            objectsForSchemaList.addAll(objectsForSchemaSet);
+
             /*----- get a list of describe objects -----*/
-            List<Schema.DescribeSObjectResult> descResults = Schema.describeSObjects(objectsForSchema);
+            List<Schema.DescribeSObjectResult> descResults = Schema.describeSObjects(objectsForSchemaList);
 
             /*----- loop over the describe objects and create the RelatedListGroup objects for each one -----*/
             for(Schema.DescribeSObjectResult dr : descResults)
             {
-                Account_Merge_Related_Lists_MERC__c settings = relatedListSettings.get(dr.getName());
-                RelatedListGroup thisRL = new RelatedListGroup( settings
-                                                              , dr.getLabel()
-                                                              , dr.getName()
-                                                              , winningAccount.Id
-                                                              , losingAccountId
-                                                              , dr.fieldSets.getMap().get(settings.Winning_Acct_Related_List_Field_Set_MERC__c).getFields()
-                                                              , dr.fieldSets.getMap().get(settings.Losing_Acct_Related_List_Field_Set_MERC__c).getFields()
-                );
+                if (objectToRelatedListsMap.containsKey(dr.getName()))
+                {
+                    for (Account_Merge_Related_Lists_MERC__c settings : objectToRelatedListsMap.get(dr.getName()))
+                    {
+                        System.debug(settings.Winning_Acct_Related_List_Field_Set_MERC__c);
+                        System.debug(dr.fieldSets.getMap().get(settings.Winning_Acct_Related_List_Field_Set_MERC__c));
+                        System.debug(dr.fieldSets.getMap().get(settings.Winning_Acct_Related_List_Field_Set_MERC__c).getFields());
+                        RelatedListGroup thisRL = new RelatedListGroup( settings
+                                                                      , dr.getLabel()
+                                                                      , dr.getName()
+                                                                      , winningAccount.Id
+                                                                      , losingAccountId
+                                                                      , dr.fieldSets.getMap().get(settings.Winning_Acct_Related_List_Field_Set_MERC__c).getFields()
+                                                                      , dr.fieldSets.getMap().get(settings.Losing_Acct_Related_List_Field_Set_MERC__c).getFields()
+                        );
 
-                relatedLists.add(thisRL);
+                        relatedLists.add(thisRL);
+                    }
+                }
             }
         }
         return relatedLists;

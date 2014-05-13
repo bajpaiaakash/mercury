@@ -3,6 +3,8 @@
     <customButtons>Generate_Content_MERC</customButtons>
     <customButtons>Upload_Content_MERC</customButtons>
     <customButtons>Send_Email</customButtons>
+    <excludeButtons>Clone</excludeButtons>
+    <excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>

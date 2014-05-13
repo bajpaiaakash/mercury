@@ -97,7 +97,11 @@
     <fields>
         <fullName>Est_Reg_Amt_ToV_MERC__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Status_MERC__c,&quot;Attended&quot;), Meeting_Day_MERC__r.Daily_Registration_Amount_MERC__c, 0)</formula>
+        <formula>IF(
+    TEXT( Meeting_Participant_MERC__r.Status_MERC__c ) == &quot;Attended&quot;
+    , Meeting_Day_MERC__r.Daily_Registration_Amount_MERC__c
+    , 0
+)</formula>
         <label>Registration Amount ToV</label>
         <precision>18</precision>
         <required>false</required>

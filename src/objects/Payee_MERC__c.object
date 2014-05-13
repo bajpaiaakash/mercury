@@ -53,6 +53,46 @@ Created by John A Adams 9/26/2013</description>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
+    <fieldSets>
+        <fullName>Account_Merge_Payee_MERC</fullName>
+        <description>MERC_MergedAccounts.page / MERC_MergedAccountsApex.cls / Custom Setting: Account Merge - HCP Contracts .Oliver Dunford 8th May 2014</description>
+        <displayedFields>
+            <field>Account_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Payee_Street_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Payee_Country_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SAP_Vendor_ID_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Bank_Name_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Bank_Street_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Account Merge - Payee</label>
+    </fieldSets>
     <fields>
         <fullName>Account_MERC__c</fullName>
         <description>Associate payee information from SAP with Account
@@ -63,7 +103,7 @@ Created by John A Adams 9/27/2013</description>
         <relationshipLabel>Payee</relationshipLabel>
         <relationshipName>Payee</relationshipName>
         <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
@@ -400,16 +440,21 @@ Created by John A Adams 9/27/2013</description>
         <fullName>Transfer_Information_Complete_MERC__c</fullName>
         <description>Indicates whether all bank information has been populated on a payee record. Created 04/18/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <formula>IF (
-ISPICKVAL(Payment_Method_MERC__c,&quot;&quot;) ||
-ISBLANK(Bank_Name_MERC__c) ||
-ISBLANK(Bank_Street_MERC__c) ||
-ISBLANK(Bank_City_MERC__c) ||
-ISBLANK(Bank_Country_MERC__c) ||
-ISBLANK(Bank_Zip_Postal_Code_MERC__c) ||
-ISBLANK(Bank_Sort_Code_MERC__c) ||
-ISBLANK(Bank_IBAN_MERC__c) ||
-ISBLANK(Bank_Account_Number_MERC__c), false, true)</formula>
+        <formula>IF(
+(!ISBLANK(Bank_Name_MERC__c) &amp;&amp;
+!ISBLANK(Bank_Street_MERC__c) &amp;&amp;
+!ISBLANK(Bank_City_MERC__c) &amp;&amp;
+!ISBLANK(Bank_Country_MERC__c) &amp;&amp;
+!ISBLANK(Bank_Zip_Postal_Code_MERC__c) &amp;&amp;
+!ISBLANK(Bank_Account_Number_MERC__c) &amp;&amp;
+!ISBLANK(Bank_Sort_Code_MERC__c) 
+)
+
+||
+
+(!ISBLANK(Bank_IBAN_MERC__c)) 
+
+, true, false)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Transfer Information Complete</label>
         <trackHistory>false</trackHistory>
@@ -437,7 +482,7 @@ Created by John A Adams 2/18/2014</description>
         <externalId>false</externalId>
         <label>Web Service Update Date</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -449,7 +494,7 @@ Created by John A Adams 2/18/2014</description>
         <label>Web Service Update HCP Action</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -462,7 +507,7 @@ Created by John A Adams 2/18/2014</description>
         <label>Web Service Update HCP Global Id</label>
         <length>50</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -474,7 +519,7 @@ Created by John A Adams 2/18/2014</description>
         <label>Web Service Update HCP Name</label>
         <length>100</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>

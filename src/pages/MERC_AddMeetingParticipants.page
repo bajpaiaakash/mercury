@@ -36,8 +36,9 @@
 			// console.log(controllerHasError);
 			if (!controllerHasError) {
 				var img = j(escapeVfId(el.id));
-				// console.log(img);
+				//console.log(img);
 				img.parent().remove();
+				showMessage('Participant Successfully Added');
 			}
 			hideLoading();
 		}
@@ -47,7 +48,7 @@
 			hideLoading();
 			var controllerHasError = document.getElementById("{!$Component.mainForm.controllerHasError}").innerHTML == "true";
 			if (!controllerHasError) {
-
+				showMessage('Participant Successfully Cancelled');
 			}
 		}
 
@@ -408,7 +409,7 @@
 			  		<!-- SEARCH RESULTS -->
 			  		<apex:actionRegion >
 				  		<apex:outputPanel id="resultBlockWrapper">
-				  			<apex:pageMessages />
+				  			<apex:pageMessages id="searchMessages" />
 				  			<apex:pageBlock title="Search Results" id="resultBlock">
 				  				<apex:pageBlockButtons >
 				  					<apex:commandButton action="{!cancel}" value="Back to Meeting"/>
@@ -427,10 +428,10 @@
 						  									<apex:selectOptions value="{!recordTypeOptions}"/>
 						  								</apex:selectList>
 						  								<div style="margin-top:5px;">
-							  								<apex:commandLink styleClass="btn" value="Add To Meeting" action="{!addToMeeting}" onclick="hideAddPopovers();showLoading();" oncomplete="handleAddResponse(this);showMessage('Participant Successfully Added');" rerender="meetingParticipantTableWrapper, responseWrapper, resultTableWrapper, mpCountWrapper">
+							  								<apex:commandLink styleClass="btn" value="Add To Meeting" action="{!addToMeeting}" onclick="hideAddPopovers();showLoading();" oncomplete="handleAddResponse(this);" rerender="meetingParticipantTableWrapper, responseWrapper, resultTableWrapper, mpCountWrapper, searchMessages">
 							  									<apex:param name="aid" value="{!r.sfid}"/>
 							  								</apex:commandLink>
-							  								<apex:commandLink styleClass="btn" value="Add To Meeting and Edit" action="{!addToMeetingAndRedirect}" onclick="hideAddPopovers();showLoading();" oncomplete="handleAddResponse(this);showMessage('Participant Successfully Added');">
+							  								<apex:commandLink styleClass="btn" value="Add To Meeting and Edit" action="{!addToMeetingAndRedirect}" onclick="hideAddPopovers();showLoading();" oncomplete="handleAddResponse(this);">
 							  									<apex:param name="aid" value="{!r.sfid}"/>
 							  								</apex:commandLink>
 							  								<apex:outputLink value="javascript:void(0)" styleClass="btn" onclick="hideAddPopovers()">
@@ -481,7 +482,7 @@
 			  				<apex:outputPanel id="meetingParticipantTableWrapper">
 				  				<apex:pageBlockTable value="{!meetingParticipants}" var="p">
 				  					<apex:column width="30">
-				  						<apex:commandLink action="{!removeFromMeeting}" onclick="showLoading()" oncomplete="handleRemoveResponse(this);showMessage('Participant Successfully Cancelled')" rerender="meetingParticipantTableWrapper, responseWrapper, resultTableWrapper, mpCountWrapper" rendered="{!p.Status_MERC__c != 'Cancelled'}">
+				  						<apex:commandLink action="{!removeFromMeeting}" onclick="showLoading()" oncomplete="handleRemoveResponse(this);" rerender="meetingParticipantBlock, responseWrapper, resultTableWrapper, mpCountWrapper" rendered="{!p.Status_MERC__c != 'Cancelled'}">
 				  							<apex:image value="{!urlfor($Resource.mercury, 'img/delete.png')}" style="width:12px;"/>
 				  							<apex:param name="pid" value="{!p.Id}"/>
 				  						</apex:commandLink>

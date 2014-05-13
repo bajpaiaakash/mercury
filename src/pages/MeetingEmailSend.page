@@ -1,5 +1,5 @@
 <apex:page showHeader="true" sidebar="false" standardController="Meeting_MERC__c" extensions="MeetingEmailSendExtension">
-    <apex:pageMessages />
+    <apex:pageMessages id="messages" />
     <apex:sectionHeader title="{!Meeting_MERC__c.Name}" subtitle="Configure Email Send"/>
     <apex:form rendered="{!NOT(HasErrors)}">
         <apex:pageBlock id="participantBlock" title="Select Recipients" rendered="{!ShowParticipantGrid}">
@@ -26,32 +26,32 @@
             </apex:pageBlockSection>
         </apex:pageBlock>
     	<apex:pageBlock id="block" title="Email Options" rendered="{!NOT(ShowParticipantGrid)}">
+            <apex:actionFunction name="getFolderInfo" action="{!expandFolder}" rerender="exactTargetEmails,messages" status="listEmailsStatus">
+                <apex:param name="folderId" value="" />
+            </apex:actionFunction>
+            <apex:actionFunction name="selectEmailJS" action="{!selectEmail}" onComplete="setSyncRequest({!syncPayload});" rerender="block,messages" status="listEmailsStatus">
+                <apex:param name="emailId" value="" />
+                <apex:param name="emailName" value="" />
+                <apex:param name="emailSubject" value="" />
+            </apex:actionFunction>
             <apex:pageBlockButtons >
-                <apex:commandButton value="Send" disabled="{!!OptIn}" />
+                <apex:commandButton value="Send" disabled="{!!OptIn}" action="{!Send}" />
                 <apex:commandButton value="Select Participants" action="{!ShowGrid}" />
             </apex:pageBlockButtons>
             <apex:pageBlockSection columns="1">
                 <apex:pageBlockSectionItem >
+                    <apex:outputText />
                     <apex:outputPanel >
                         <apex:actionStatus id="listEmailsStatus">
                             <apex:facet name="start">
                                 <img class="spinnerLarge" src="{!URLFOR( $Resource.ExactTargetImages, 'spinEMAIL.GIF' )}" />
                             </apex:facet>
                             <apex:facet name="stop">
-                                <apex:commandButton value="Find" status="listEmailsStatus" action="{!listExactTargetEmails}" reRender="exactTargetEmails"/>
+                                <apex:commandButton value="Find" status="listEmailsStatus" action="{!listExactTargetEmails}" reRender="exactTargetEmails, messages"/>
                             </apex:facet>
                         </apex:actionStatus>
                         <img style="vertical-align:middle;" height="18px" src="{!URLFOR( $Resource.ExactTargetImages, 'reqEmail.png' )}" />
                         <apex:outputPanel id="exactTargetEmails" layout="block">
-                            <apex:actionFunction name="getFolderInfo" action="{!expandFolder}" rerender="exactTargetEmails" status="listEmailsStatus">
-                                <apex:param name="folderId" value="" />
-                            </apex:actionFunction>
-                            <apex:actionFunction name="selectEmailJS" action="{!selectEmail}" onComplete="setSyncRequest({!syncPayload});" rerender="exactTargetEmails" status="listEmailsStatus">
-                                <apex:param name="emailId" value="" />
-                                <apex:param name="emailName" value="" />
-                                <apex:param name="emailSubject" value="" />
-                            </apex:actionFunction>
-
                             <apex:actionStatus id="clickEmailStatus">
                                 <apex:facet name="start">
                                     <img class="spinnerLarge" src="{!URLFOR( $Resource.ExactTargetImages, 'spinEMAIL.GIF' )}" />
@@ -77,111 +77,112 @@
                                                 folderDiv.className = newFolderClass;
                                             }
                                         </script>
-                                        <apex:pageBlock >
-                                            <apex:pageBlockButtons location="both">
-                                                <apex:commandButton action="{!selectEmailCancel}" value="Cancel" rerender="exactTargetEmails" status="clickEmailStatus" />
-                                            </apex:pageBlockButtons>
-                                            <apex:repeat value="{!emails}" var="emailFolder1">
-                                                +
-                                                <a href="#" onclick="javascript:getFolderInfo('{!emailFolder1.Id}'); javascript:toggleFolderDisplay( 'emailFolder_{!emailFolder1.Id}' )">
-                                                    <b> 
-                                                        {!emailFolder1.name} 
-                                                    </b> 
-                                                </a>
-                                                <br />
-                                                <div class="emailFolder closed" id="emailFolder_{!emailFolder1.Id}">
-                                                    <apex:repeat value="{!emailFolder1.subfolders}" var="emailFolder2" rendered="{!NOT( ISBLANK( emailFolder1.subfolders ) )}">
-                                                        +
-                                                        <a href="#" onclick="javascript:getFolderInfo('{!emailFolder2.Id}'); javascript:toggleFolderDisplay( 'emailFolder_{!emailFolder2.Id}' )">
-                                                            <b>
-                                                                {!emailFolder2.name} 
-                                                            </b> 
-                                                        </a>
-                                                        <br />
-                                                        <div class="emailFolder closed" id="emailFolder_{!emailFolder2.Id}">
-                                                            <apex:repeat value="{!emailFolder2.subfolders}" var="emailFolder3" rendered="{!NOT( ISBLANK( emailFolder2.subfolders ) )}">
-                                                                +
-                                                                <a href="#" onclick="javascript:getFolderInfo('{!emailFolder3.Id}'); javascript:toggleFolderDisplay( 'emailFolder_{!emailFolder3.Id}' )">
-                                                                    <b> 
-                                                                        {!emailFolder3.name} 
-                                                                    </b> 
-                                                                </a>
-                                                                <br />
-                                                                <div class="emailFolder closed" id="emailFolder_{!emailFolder3.Id}">
-                                                                    <apex:repeat value="{!emailFolder3.subfolders}" var="emailFolder4" rendered="{!NOT( ISBLANK( emailFolder3.subfolders ) )}">
-                                                                        +
-                                                                        <a href="#" onclick="javascript:getFolderInfo('{!emailFolder4.Id}'); javascript:toggleFolderDisplay( 'emailFolder_{!emailFolder4.Id}' )">
-                                                                            <b> 
-                                                                                {!emailFolder4.name} 
-                                                                            </b> 
-                                                                        </a>
-                                                                        <br />
-                                                                        <div class="emailFolder closed" id="emailFolder_{!emailFolder4.Id}">
-                                                                            <apex:repeat value="{!emailFolder4.subfolders}" var="emailFolder5" rendered="{!NOT( ISBLANK( emailFolder4.subfolders ) )}">
-                                                                                +
-                                                                                <a href="#" onclick="javascript:getFolderInfo('{!emailFolder5.Id}'); javascript:toggleFolderDisplay( 'emailFolder_{!emailFolder5.Id}' )">
-                                                                                    <b> 
-                                                                                        {!emailFolder5.name} 
-                                                                                    </b> 
-                                                                                </a>
-                                                                                <br />
-                                                                                <div class="emailFolder closed" id="emailFolder_{!emailFolder5.Id}">
-                                                                                    <apex:repeat value="{!emailFolder5.emails}" var="email5">
-                                                                                        &nbsp;-&nbsp;
-                                                                                        <a href="#" onclick="javascript:selectEmailJS( '{!email5.id}', '{!email5.encName}', '{!email5.encTitle}' );subscriberPreview.setEmailId('{!email5.id}');" status="sendButtonStatus">    
-                                                                                            {!email5.name} 
-                                                                                        </a>
-                                                                                        <br />
-                                                                                    </apex:repeat>
-                                                                                </div>
-                                                                            </apex:repeat> 
-                                                                            <apex:repeat value="{!emailFolder4.emails}" var="email4">
-                                                                                &nbsp;-&nbsp;
-                                                                                <a href="#" onclick="javascript:selectEmailJS( '{!email4.id}', '{!email4.encName}', '{!email4.encTitle}' );subscriberPreview.setEmailId('{!email4.id}');" status="sendButtonStatus"> 
-                                                                                    {!email4.name} 
-                                                                                </a>
-                                                                                <br />
-                                                                            </apex:repeat>
-                                                                        </div>
-                                                                    </apex:repeat> 
-                                                                    <apex:repeat value="{!emailFolder3.emails}" var="email3">
-                                                                        &nbsp;-&nbsp;
-                                                                        <a href="#" onclick="javascript:selectEmailJS( '{!email3.id}', '{!email3.encName}', '{!email3.encTitle}' );subscriberPreview.setEmailId('{!email3.id}');" status="sendButtonStatus"> 
-                                                                            {!email3.name} 
-                                                                        </a>
-                                                                        <br />
-                                                                    </apex:repeat>
-                                                                </div>
-                                                            </apex:repeat> 
-                                                            <apex:repeat value="{!emailFolder2.emails}" var="email2">
-                                                                &nbsp;-&nbsp;
-                                                                <a href="#" onclick="javascript:selectEmailJS( '{!email2.id}', '{!email2.encName}', '{!email2.encTitle}' );subscriberPreview.setEmailId('{!email2.id}');" status="sendButtonStatus"> 
-                                                                    {!email2.name} 
-                                                                </a>
-                                                                <br />
-                                                            </apex:repeat>
-                                                        </div>
-                                                    </apex:repeat> 
-                                                    <apex:repeat value="{!emailFolder1.emails}" var="email1">
-                                                        &nbsp;-&nbsp;
-                                                        <a href="#" onclick="javascript:selectEmailJS( '{!email1.id}', '{!email1.encName}', '{!email1.encTitle}' );subscriberPreview.setEmailId('{!email1.id}');" status="sendButtonStatus"> 
-                                                            {!email1.name} 
-                                                        </a>
-                                                        <br />
-                                                    </apex:repeat>
-                                                </div>
-                                            </apex:repeat>
-                                        </apex:pageBlock>
+                                        <div class="container">
+                                            <apex:pageBlock >
+                                                <apex:pageBlockButtons location="both">
+                                                    <apex:commandButton action="{!selectEmailCancel}" value="Cancel" rerender="exactTargetEmails" status="clickEmailStatus" />
+                                                </apex:pageBlockButtons>
+                                                <apex:repeat value="{!emails}" var="emailFolder1">
+                                                    +
+                                                    <a href="#" onclick="javascript:getFolderInfo('{!emailFolder1.Id}'); javascript:toggleFolderDisplay( 'emailFolder_{!emailFolder1.Id}' )">
+                                                        <b> 
+                                                            {!emailFolder1.name} 
+                                                        </b> 
+                                                    </a>
+                                                    <br />
+                                                    <div class="emailFolder closed" id="emailFolder_{!emailFolder1.Id}">
+                                                        <apex:repeat value="{!emailFolder1.subfolders}" var="emailFolder2" rendered="{!NOT( ISBLANK( emailFolder1.subfolders ) )}">
+                                                            +
+                                                            <a href="#" onclick="javascript:getFolderInfo('{!emailFolder2.Id}'); javascript:toggleFolderDisplay( 'emailFolder_{!emailFolder2.Id}' )">
+                                                                <b>
+                                                                    {!emailFolder2.name} 
+                                                                </b> 
+                                                            </a>
+                                                            <br />
+                                                            <div class="emailFolder closed" id="emailFolder_{!emailFolder2.Id}">
+                                                                <apex:repeat value="{!emailFolder2.subfolders}" var="emailFolder3" rendered="{!NOT( ISBLANK( emailFolder2.subfolders ) )}">
+                                                                    +
+                                                                    <a href="#" onclick="javascript:getFolderInfo('{!emailFolder3.Id}'); javascript:toggleFolderDisplay( 'emailFolder_{!emailFolder3.Id}' )">
+                                                                        <b> 
+                                                                            {!emailFolder3.name} 
+                                                                        </b> 
+                                                                    </a>
+                                                                    <br />
+                                                                    <div class="emailFolder closed" id="emailFolder_{!emailFolder3.Id}">
+                                                                        <apex:repeat value="{!emailFolder3.subfolders}" var="emailFolder4" rendered="{!NOT( ISBLANK( emailFolder3.subfolders ) )}">
+                                                                            +
+                                                                            <a href="#" onclick="javascript:getFolderInfo('{!emailFolder4.Id}'); javascript:toggleFolderDisplay( 'emailFolder_{!emailFolder4.Id}' )">
+                                                                                <b> 
+                                                                                    {!emailFolder4.name} 
+                                                                                </b> 
+                                                                            </a>
+                                                                            <br />
+                                                                            <div class="emailFolder closed" id="emailFolder_{!emailFolder4.Id}">
+                                                                                <apex:repeat value="{!emailFolder4.subfolders}" var="emailFolder5" rendered="{!NOT( ISBLANK( emailFolder4.subfolders ) )}">
+                                                                                    +
+                                                                                    <a href="#" onclick="javascript:getFolderInfo('{!emailFolder5.Id}'); javascript:toggleFolderDisplay( 'emailFolder_{!emailFolder5.Id}' )">
+                                                                                        <b> 
+                                                                                            {!emailFolder5.name} 
+                                                                                        </b> 
+                                                                                    </a>
+                                                                                    <br />
+                                                                                    <div class="emailFolder closed" id="emailFolder_{!emailFolder5.Id}">
+                                                                                        <apex:repeat value="{!emailFolder5.emails}" var="email5">
+                                                                                            &nbsp;-&nbsp;
+                                                                                            <a href="#" onclick="javascript:selectEmailJS( '{!email5.id}', '{!email5.encName}', '{!email5.encTitle}' );subscriberPreview.setEmailId('{!email5.id}');" status="sendButtonStatus">    
+                                                                                                {!email5.name} 
+                                                                                            </a>
+                                                                                            <br />
+                                                                                        </apex:repeat>
+                                                                                    </div>
+                                                                                </apex:repeat> 
+                                                                                <apex:repeat value="{!emailFolder4.emails}" var="email4">
+                                                                                    &nbsp;-&nbsp;
+                                                                                    <a href="#" onclick="javascript:selectEmailJS( '{!email4.id}', '{!email4.encName}', '{!email4.encTitle}' );subscriberPreview.setEmailId('{!email4.id}');" status="sendButtonStatus"> 
+                                                                                        {!email4.name} 
+                                                                                    </a>
+                                                                                    <br />
+                                                                                </apex:repeat>
+                                                                            </div>
+                                                                        </apex:repeat> 
+                                                                        <apex:repeat value="{!emailFolder3.emails}" var="email3">
+                                                                            &nbsp;-&nbsp;
+                                                                            <a href="#" onclick="javascript:selectEmailJS( '{!email3.id}', '{!email3.encName}', '{!email3.encTitle}' );subscriberPreview.setEmailId('{!email3.id}');" status="sendButtonStatus"> 
+                                                                                {!email3.name} 
+                                                                            </a>
+                                                                            <br />
+                                                                        </apex:repeat>
+                                                                    </div>
+                                                                </apex:repeat> 
+                                                                <apex:repeat value="{!emailFolder2.emails}" var="email2">
+                                                                    &nbsp;-&nbsp;
+                                                                    <a href="#" onclick="javascript:selectEmailJS( '{!email2.id}', '{!email2.encName}', '{!email2.encTitle}' );subscriberPreview.setEmailId('{!email2.id}');" status="sendButtonStatus"> 
+                                                                        {!email2.name} 
+                                                                    </a>
+                                                                    <br />
+                                                                </apex:repeat>
+                                                            </div>
+                                                        </apex:repeat> 
+                                                        <apex:repeat value="{!emailFolder1.emails}" var="email1">
+                                                            &nbsp;-&nbsp;
+                                                            <a href="#" onclick="javascript:selectEmailJS( '{!email1.id}', '{!email1.encName}', '{!email1.encTitle}' );subscriberPreview.setEmailId('{!email1.id}');" status="sendButtonStatus"> 
+                                                                {!email1.name} 
+                                                            </a>
+                                                            <br />
+                                                        </apex:repeat>
+                                                    </div>
+                                                </apex:repeat>
+                                            </apex:pageBlock>
+                                        </div>
                                     </apex:outputPanel>
                                 </apex:facet>
                             </apex:actionStatus>
                         </apex:outputPanel>
                     </apex:outputPanel>
-                    <apex:outputText />
                 </apex:pageBlockSectionItem>
                 <apex:inputText value="{!Email.title}" label="Subject"/>
                 <apex:outputText label="Recipients" value="{!ParticipantNames}" />
-                <apex:outputText label="From" value="{!FromAddress}" />
+                <apex:outputField label="From" value="{!Config.Default_From_Email__c}" />
                 <apex:inputCheckbox label="Dedupe Subscribers" value="{!DeDup}" />
                 <apex:inputCheckbox label="Disabled Individual Level Tracking" value="{!DisableIndividualTracking}" />
                 <apex:selectList value="{!SendTime}" size="1" label="Send Date and Time">
@@ -198,4 +199,150 @@
 
     <apex:stylesheet value="https://{!urlRoot}.exacttarget.com/FuelUX/css/fuel-all.css" /> 
     <apex:stylesheet value="https://{!urlRoot}.exacttarget.com/FuelUX/css/ie8.css" /> 
+    <style type="text/css">
+        /* Integrated Users */
+        div.integratedUsersBlock div {
+            float: left;
+        }
+
+        div[id*=selectedUsersButtons] {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        [id*=integratedUsersSelector] select {
+            width: 150px;
+        }
+
+        /* Tabs */
+        .rich-tab-active {
+            background: #F1F1F1;
+        }
+
+        .rich-tab-inactive {
+            background: #DEDEDE;
+        }
+
+        /* Popups and hideable DIVs */
+        .popupBlocker {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: none;
+        }
+
+        .popupBlockerHidden {
+            display: none;
+        }
+
+        .popup {
+            position: absolute;
+            display: block;
+            overflow: auto;
+            width: 450px;
+            max-height: 300px;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            border: 2px #ccc solid;
+        }
+
+        .popup .detailList td {
+            width: 100% !important;
+            text-align: left;
+            font-size: 12px;
+        }
+
+        .orangebutton {
+            background-color: #E28C05;
+            color: white;
+            background-image:none;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+
+        .spinnerLarge {
+            display: inline;
+            width: 100px;
+        }
+
+        .spinnerSmall {
+            display: inline;
+            width: 20px;
+            padding: 0 10px 0 10px;
+        }
+
+        /* Send Email */
+        [id*=emailSubject] {
+            width: 300px;
+        }
+
+        div[id*=audienceSection] label {
+            margin-left: -6px;
+        }
+
+        div.emailFolder {
+            padding-left: 10px;
+        }
+
+        div.closed {
+            display: block;
+        }
+
+        div.open {
+            display: block;
+        }
+
+        div.emailFolder {
+            padding-left: 10px;
+        }
+
+        /* Business Units Console */
+        [id*=businessUnitsBlock] {
+            width: 80%;
+        }
+
+        .buItem {
+            float: left;
+            width: 200px;
+            margin-right: 30px;
+        }
+
+        div.clear {
+            clear: both;
+        }
+
+        /* Dashboard table */
+        tr.even {
+            background-color: #eee;
+        }
+
+        /* Error display */
+        .errors * {
+            color: #600;
+            font-weight: bold;
+        }
+
+        .errors ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .errors input {
+            border: 2px #600 solid;
+        }
+
+        .unavailable-feature {
+            color: #999;
+            font-style: italic;
+        }
+    </style>
 </apex:page>

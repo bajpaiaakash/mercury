@@ -10,6 +10,29 @@ public class TestUtils {
         return rtMap.get(compositeKey);
     }
 
+    private static Map<String, Profile> profileMap = new Map<String, Profile>();
+    public static Profile GetProfile(String name) {
+        if (!profileMap.containsKey(name)) {
+            Profile p = [SELECT Id FROM Profile WHERE Name = :name];
+            profileMap.put(name, p);
+        }
+        return profileMap.get(name);
+    }
+
+    public static User CreateUser(String profileName) {
+        return new User(
+            Alias = 'newUser', 
+            Email='newuser@testorg.com', 
+            EmailEncodingKey='UTF-8', 
+            LastName='Testing', 
+            LanguageLocaleKey='en_US', 
+            LocaleSidKey='en_US', 
+            ProfileId = GetProfile(profileName).Id, 
+            TimeZoneSidKey='America/Los_Angeles', 
+            UserName='newuser@testorg.com'
+        );
+    }
+
     private static integer meetingCounter = 0;
     public static List<Meeting_MERC__c> CreateMeetings(integer numMeetings) {
         List<Meeting_MERC__c> meetings = new List<Meeting_MERC__c>();
@@ -26,23 +49,58 @@ public class TestUtils {
 
     public static Sonoma_ET_Config__c CreateConfig() {
         return new Sonoma_ET_Config__c(
-            Default_From_Email__c = 'test@test.com'
+            Default_From_Email__c = 'test@test.com',
+            ET_BU_Name__c = 'Test'
+        );
+    }
+
+    public static et4ae5__configuration__c CreateETConfig() {
+        return new et4ae5__configuration__c(
+            et4ae5__integration_type__c = 'Enterprise2.0'
+        );
+    }
+
+    public static et4ae5__Business_Unit__c CreateETBU(Sonoma_ET_Config__c config) {
+        return new et4ae5__Business_Unit__c(
+            Name = config.ET_BU_Name__c
         );
     }
 
     private static integer accountCounter = 0;
-    public static List<Account> CreatePersonAccounts(integer numAccounts) {
+    public static List<Account> CreateAccounts(integer numAccounts) {
         List<Account> accts = new List<Account>();
 
         for (integer i = 0; i < numAccounts; i++) {
             integer localCounter = accountCounter++;
             accts.add(new Account(
-                Name = 'Test Account ' + String.valueOf(localCounter),
-                RecordTypeId = GetRecordType('Person Account', 'Account').Id
+                Name = 'Test Account ' + String.valueOf(localCounter)
             ));
         }
 
         return accts;
+    }
+
+    public static List<Account> CreatePersonAccountsWithRecordType(String recordTypeName, Integer numAccounts) {
+        List<Account> accounts = new List<Account>();
+        RecordType rt = TestUtils.GetRecordType(recordTypeName, 'Account');
+
+        for (Integer i = 0; i < numAccounts; i++) {
+            Integer localCounter = accountCounter++;
+            Account a = new Account(
+                RecordTypeId = rt.Id,
+                FirstName = 'Test',
+                LastName = 'A ' + String.valueOf(localCounter),
+                PersonMailingStreet = 'Test street',
+                PersonMailingPostalCode = '12345',
+                PersonMailingCity = 'SFO',
+                PersonEmail = 'test@testy.com',
+                PersonHomePhone = '1234567',
+                PersonMobilePhone = '2345678'
+            );
+            accounts.add(a);
+        }
+        
+        return accounts;
     }
 
     public static List<Meeting_Participant_MERC__c> CreateParticipants(Meeting_MERC__c meeting, List<Account> personAccounts) {

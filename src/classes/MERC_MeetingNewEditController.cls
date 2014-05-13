@@ -6,7 +6,7 @@
  */
 
 public with sharing class MERC_MeetingNewEditController extends GLBL_BaseEditController {
-    
+
     MERC_TimeZoneUtility tz = new MERC_TimeZoneUtility(Meeting_MERC__c.sObjectType);
 
     public MERC_MeetingNewEditController(ApexPages.StandardController controller) {
@@ -25,7 +25,7 @@ public with sharing class MERC_MeetingNewEditController extends GLBL_BaseEditCon
         get {
             if (fieldSetLabels == null) {
                 fieldSetLabels = MERC_Util.getFieldSetLabels(
-                    Meeting_MERC__c.SobjectType, 
+                    Meeting_MERC__c.SobjectType,
                     new List<String> {
                         'Meeting_Date_Time_Edit_MERC'
                     }
@@ -46,7 +46,7 @@ public with sharing class MERC_MeetingNewEditController extends GLBL_BaseEditCon
             if (this.mySobject.Id == null) {
                 insert this.mySobject;
             } else {
-                update this.mySobject; 
+                update this.mySobject;
             }
         } catch(Exception e) {
             setTimeZones();

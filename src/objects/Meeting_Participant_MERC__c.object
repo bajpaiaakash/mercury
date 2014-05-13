@@ -227,12 +227,12 @@
         <type>Currency</type>
     </fields>
     <fields>
-        <fullName>Anonymize_Record_MERC__c</fullName>
+        <fullName>Anonymise_Record_MERC__c</fullName>
         <defaultValue>false</defaultValue>
-        <description>Indicates that this record is related to a non-hcp meeting participant and should be anonymized (via workflows)</description>
+        <description>Indicates that this record is related to a non-hcp meeting participant and should be anonymised (via workflows)</description>
         <externalId>false</externalId>
-        <inlineHelpText>Indicates that this record is related to a non-hcp meeting participant and should be anonymized (via workflows)</inlineHelpText>
-        <label>Anonymize Record</label>
+        <inlineHelpText>Indicates that this record is related to a non-hcp meeting participant and should be anonymised (via workflows)</inlineHelpText>
+        <label>Anonymise Record</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -248,6 +248,16 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CST_Validation_Bypass_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Field used to bypass validation rules. KT 2014/05/12</description>
+        <externalId>false</externalId>
+        <label>CST Validation Bypass</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Cancellation_Notice_Sent_MERC__c</fullName>
@@ -867,7 +877,7 @@ Created by John A Adams 1/7/2014</description>
         <fullName>Institutional_Notification_Complete_MERC__c</fullName>
         <description>Used by portal. Pulls from Account record to indicate if Institutional Notification Step is completed by HCP. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <formula>Account_MERC__r.Institutional_Notification_Complete_MERC__c</formula>
+        <formula>Account_MERC__r.Institutional_Notif_Info_Exists_MERC__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Institutional Notification Complete</label>
         <trackHistory>false</trackHistory>
@@ -1074,7 +1084,7 @@ Created by John A Adams 10/31/2013</description>
         <fullName>Meeting_Owner_Global_Id_MERC__c</fullName>
         <description>Oliver Dunford 6th Jan: Pulls the Meeting Owner&apos;s Global Id from the Meeting Owner on the Meeting Object. Needed for AODS Interface.</description>
         <externalId>false</externalId>
-        <formula>IF(ISBLANK( Meeting_MERC__r.Sales_Rep_MERC__c ), Meeting_MERC__r.Meeting_Owner_MERC__r.Prsnl_Nbr_GLBL__c , Meeting_MERC__r.Sales_Rep_MERC__r.Prsnl_Nbr_GLBL__c )</formula>
+        <formula>Meeting_MERC__r.Owner_Master_Id_MERC__c</formula>
         <label>Meeting Owner Global Id</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1695,7 +1705,7 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <externalId>false</externalId>
         <formula>IF( !ISBLANK(Account_MERC__r.Transparency_Reporting_Opt_Out_MERC__c), true, false)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Transparency Reporting Consent Complete</label>
+        <label>Transparency Reporting Step Complete</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -1793,7 +1803,7 @@ IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;),
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -1991,7 +2001,7 @@ Created by John A Adams 2/18/2014</description>
         <externalId>false</externalId>
         <label>Web Service Update Date</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -2003,7 +2013,7 @@ Created by John A Adams 2/18/2014</description>
         <label>Web Service Update HCP Action</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -2016,7 +2026,7 @@ Created by John A Adams 2/18/2014</description>
         <label>Web Service Update HCP Global Id</label>
         <length>40</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -2027,6 +2037,34 @@ Created by John A Adams 2/18/2014</description>
         <externalId>false</externalId>
         <label>Web Service Update HCP Name</label>
         <length>100</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Web_Service_Logic_Key_MERC__c</fullName>
+        <description>Maps back to the Web Service Logic.Key for Lookup Field for the RSVP Record Type. This then determines a HCPs view of the Meeting Registration Information. Oliver Dunford 13th May 2014.</description>
+        <externalId>false</externalId>
+        <formula>TEXT(Account_MERC__r.Country_of_Residence_GLBL__c) &amp; &quot;;&quot; &amp;
+RecordType.Name &amp; &quot;;&quot; &amp;
+Account_MERC__r.RecordType.Name &amp; &quot;;&quot; &amp;
+	CASE(Meeting_MERC__r.RecordType.Name,
+		&quot;Meeting - Forecasted&quot;,&quot;Meeting Standard Process&quot;,
+		&quot;Meeting - Registered&quot;, &quot;Meeting Standard Process&quot;,
+		&quot;Meeting - Active&quot;, &quot;Meeting Standard Process&quot;, 
+		&quot;Meeting - Completed&quot;,&quot;Meeting Standard Process&quot;, 
+		&quot;Meeting Program&quot;,&quot;Meeting Standard Process&quot;,
+	Meeting_MERC__r.RecordType.Name) &amp; &quot;;&quot; &amp;
+TEXT(Hotel_Required_MERC__c) &amp; &quot;;&quot; &amp;
+TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
+	CASE(Transparency_Reporting_Consent_MERC__c,
+		&quot;PERMISSION WITHDRAWN&quot;,&quot;Yes&quot;,
+		&quot;PERMISSION GIVEN&quot;,&quot;Yes&quot;,
+	&quot;No&quot;)</formula>
+        <inlineHelpText>Maps to the web service logic object to determine a HCPs view of the Meeting Registration Information.</inlineHelpText>
+        <label>Web Service Logic Key</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -2064,7 +2102,7 @@ Created by John A Adams 2/18/2014</description>
         <sourceObject>HCP_Contract_MERC__c</sourceObject>
     </namedFilters>
     <pluralLabel>Meeting Participants</pluralLabel>
-    <recordTypeTrackHistory>true</recordTypeTrackHistory>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
         <fullName>Consulting</fullName>
         <active>true</active>
@@ -3478,7 +3516,8 @@ TEXT(Confirm_Final_Fee_MERC__c) = &quot;Confirmed&quot; &amp;&amp; TEXT(Services
         <active>true</active>
         <description>Description of Service may not be blank if the Type of Service = &quot;Consulting Project&quot;. Created 04/10/2014 by KLorenti, Mavens Consulting</description>
         <errorConditionFormula>ISPICKVAL(Types_of_Service_MERC__c,&apos;Consulting Project&apos;)
-&amp;&amp; ISBLANK( Description_of_Service_MERC__c)</errorConditionFormula>
+&amp;&amp; ISBLANK( Description_of_Service_MERC__c)
+&amp;&amp; NOT(CST_Validation_Bypass_MERC__c)</errorConditionFormula>
         <errorDisplayField>Description_of_Service_MERC__c</errorDisplayField>
         <errorMessage>The Description of Service must be completed if the Participant&apos;s Type of Service is Consulting Project</errorMessage>
     </validationRules>

@@ -428,6 +428,14 @@
                 <behavior>Readonly</behavior>
                 <field>Tax_Invoices_Step_Complete_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Count_Bank_Transfer_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Transfer_Info_Step_Complete_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -447,6 +455,10 @@
                 <behavior>Readonly</behavior>
                 <field>LastModifiedById</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>PersonHasOptedOutOfEmail</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -458,6 +470,9 @@
         <layoutColumns>
             <layoutItems>
                 <customLink>Send_ET_Email</customLink>
+            </layoutItems>
+            <layoutItems>
+                <customLink>et4ae5__Send_ExactTarget_Email</customLink>
             </layoutItems>
         </layoutColumns>
         <layoutColumns/>
@@ -563,6 +578,18 @@
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedEntityHistoryList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Invoice_Date_MERC__c</fields>
+        <fields>RECORDTYPE</fields>
+        <fields>Meeting_Participant_MERC__c</fields>
+        <fields>Payee_MERC__c</fields>
+        <fields>Participant_MERC__c</fields>
+        <fields>Meeting_Name_MERC__c</fields>
+        <fields>Meeting_Country_MERC__c</fields>
+        <fields>Purpose_of_Payment_MERC__c</fields>
+        <relatedList>Invoice_MERC__c.HCP_Account_MERC__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>

@@ -36,6 +36,11 @@ public with sharing class ETDataExtension {
         public Object scale;
     }
 
+    public class FieldEntry {
+        public String fieldName;
+        public String fieldValue;
+    }
+
     public class RetentionPolicy {
         public RetentionPolicy(Boolean deleteAtEnd, Boolean resetOnImport, String until, Boolean rowBased) {
             this.DeleteAtEndOfRetentionPeriod = deleteAtEnd;
@@ -51,5 +56,10 @@ public with sharing class ETDataExtension {
 
     public class DataExtensionResponse {
         public String id;
+    }
+
+    public class DataExtensionEntry {
+        public FieldEntry keys;
+        public List<FieldEntry> values;
     }
 }

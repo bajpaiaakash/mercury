@@ -3,6 +3,8 @@
     <customButtons>Generate_Content_MERC</customButtons>
     <customButtons>Upload_Content_MERC</customButtons>
     <customButtons>Send_Email</customButtons>
+    <excludeButtons>Clone</excludeButtons>
+    <excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -169,6 +171,10 @@
                 <behavior>Edit</behavior>
                 <field>CME_Accredited_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Hours_for_Education_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -315,10 +321,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Hours_for_Education_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Hospitality_Desk_Required_MERC__c</field>
             </layoutItems>
             <layoutItems>
@@ -360,6 +362,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Employee_Travel_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Employee_Accommodation_Covered_By_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -412,25 +418,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Inviting_Delegates_Other_MERC__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <style>TwoColumnsLeftToRight</style>
-    </layoutSections>
-    <layoutSections>
-        <customLabel>true</customLabel>
-        <detailHeading>true</detailHeading>
-        <editHeading>true</editHeading>
-        <label>Content</label>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Content_Creator_MERC__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Content_Approval_Needed_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

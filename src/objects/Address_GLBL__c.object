@@ -53,6 +53,36 @@ Created by John A Adams 9/26/2013</description>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
+    <fieldSets>
+        <fullName>Account_Merge_Addresses_MERC</fullName>
+        <description>MERC_MergedAccounts.page / MERC_MergedAccountsApex.cls / Custom Setting: Account Merge - Addresses .Oliver Dunford 8th May 2014</description>
+        <displayedFields>
+            <field>Line_1_Adrs_Txt_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Line_2_Adrs_Txt_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>City_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Cnty_Nm_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Adrs_Cntry_Cd_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Account Merge - Addresses</label>
+    </fieldSets>
     <fields>
         <fullName>Account_GLBL__c</fullName>
         <description>Lookup between addresses and accounts
@@ -1123,12 +1153,12 @@ Created by John A Adams 11/4/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Anonymize_Record_MERC__c</fullName>
+        <fullName>Anonymise_Record_MERC__c</fullName>
         <defaultValue>false</defaultValue>
-        <description>Indicates that this record is related to a non-hcp meeting participant and should be anonymized (via workflows)</description>
+        <description>Indicates that this record is related to a non-hcp meeting participant and should be anonymised (via workflows)</description>
         <externalId>false</externalId>
-        <inlineHelpText>Indicates that this record is related to a non-hcp meeting participant and should be anonymized (via workflows)</inlineHelpText>
-        <label>Anonymize Record</label>
+        <inlineHelpText>Indicates that this record is related to a non-hcp meeting participant and should be anonymised (via workflows)</inlineHelpText>
+        <label>Anonymise Record</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -1772,7 +1802,7 @@ Created by John A Adams 2/18/2014</description>
         <externalId>false</externalId>
         <label>Web Service Update Date</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -1784,7 +1814,7 @@ Created by John A Adams 2/18/2014</description>
         <label>Web Service Update HCP Action</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1797,7 +1827,7 @@ Created by John A Adams 2/18/2014</description>
         <label>Web Service Update HCP Global Id</label>
         <length>40</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1810,7 +1840,7 @@ Created by John A Adams 2/18/2014</description>
         <label>Web Service Update HCP Name</label>
         <length>100</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>

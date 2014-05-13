@@ -143,6 +143,21 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Contract_Signatory_MERC__c</picklist>
+            <values>
+                <fullName>My Institution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Legal Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Name %28self%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Country_of_Residence_GLBL__c</picklist>
             <values>
                 <fullName>AD</fullName>
@@ -1702,6 +1717,21 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Contract_Signatory_MERC__c</picklist>
+            <values>
+                <fullName>My Institution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Legal Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Name %28self%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Country_of_Residence_GLBL__c</picklist>
             <values>
                 <fullName>AD</fullName>
@@ -3257,6 +3287,21 @@
             </values>
             <values>
                 <fullName>Yes - 2 or more</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Contract_Signatory_MERC__c</picklist>
+            <values>
+                <fullName>My Institution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Legal Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Name %28self%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4832,6 +4877,21 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Contract_Signatory_MERC__c</picklist>
+            <values>
+                <fullName>My Institution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Legal Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Name %28self%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Country_of_Residence_GLBL__c</picklist>
             <values>
                 <fullName>AD</fullName>
@@ -6395,6 +6455,21 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Contract_Signatory_MERC__c</picklist>
+            <values>
+                <fullName>My Institution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Legal Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Name %28self%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Country_of_Residence_GLBL__c</picklist>
             <values>
                 <fullName>AD</fullName>
@@ -7875,6 +7950,21 @@
             </values>
             <values>
                 <fullName>Party_Sts_Cd_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Contract_Signatory_MERC__c</picklist>
+            <values>
+                <fullName>My Institution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Legal Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Name %28self%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
