@@ -48,7 +48,7 @@
 			hideLoading();
 			var controllerHasError = document.getElementById("{!$Component.mainForm.controllerHasError}").innerHTML == "true";
 			if (!controllerHasError) {
-
+				showMessage('Participant Successfully Cancelled');
 			}
 		}
 
@@ -482,7 +482,7 @@
 			  				<apex:outputPanel id="meetingParticipantTableWrapper">
 				  				<apex:pageBlockTable value="{!meetingParticipants}" var="p">
 				  					<apex:column width="30">
-				  						<apex:commandLink action="{!removeFromMeeting}" onclick="showLoading()" oncomplete="handleRemoveResponse(this);showMessage('Participant Successfully Cancelled')" rerender="meetingParticipantTableWrapper, responseWrapper, resultTableWrapper, mpCountWrapper" rendered="{!p.Status_MERC__c != 'Cancelled'}">
+				  						<apex:commandLink action="{!removeFromMeeting}" onclick="showLoading()" oncomplete="handleRemoveResponse(this);" rerender="meetingParticipantBlock, responseWrapper, resultTableWrapper, mpCountWrapper" rendered="{!p.Status_MERC__c != 'Cancelled'}">
 				  							<apex:image value="{!urlfor($Resource.mercury, 'img/delete.png')}" style="width:12px;"/>
 				  							<apex:param name="pid" value="{!p.Id}"/>
 				  						</apex:commandLink>
