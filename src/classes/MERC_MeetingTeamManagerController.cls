@@ -85,6 +85,20 @@ public with sharing class MERC_MeetingTeamManagerController extends GLBL_Generic
 		return MERC_Util.getPicklistValues(Account.Country_of_Residence_GLBL__c.getDescribe(), true);
 	}
 
+	public override PageReference save()
+	{
+		try {
+			return super.doSave();
+		} catch (System.Exception e) {
+			if (e.getMessage().contains('INSUFFICIENT_ACCESS_ON_CROSS_REFERENCE_ENTITY')) {
+				Apexpages.addMessage( new Apexpages.Message( Apexpages.severity.ERROR, Label.Team_Member_Access_MERC));
+			} else {
+				ApexPages.addMessages(e);
+			}
+			return null;
+		}
+	}
+
 	public void doSearch() {
 		searchResults.clear();
 
