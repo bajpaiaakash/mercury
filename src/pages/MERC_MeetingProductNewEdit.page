@@ -1,0 +1,68 @@
+<apex:page showHeader="true" sidebar="true" standardController="Meeting_Products_MERC__c" extensions="MERC_MeetingProductNewEdit">
+	<apex:includeScript value="{!urlFor($Resource.PersonSearchMVN, 'JQuery/jquery-latest.js')}" />
+	<apex:sectionHeader title="{!title}" subtitle="{!subtitle}"/>
+	<apex:form id="theForm">
+		<apex:pageBlock mode="edit" title="{!title}">
+			<apex:pageBlockButtons >
+				<apex:commandButton value="Save" action="{!save}"/>
+				<apex:commandButton value="Cancel" action="{!cancel}"/>
+			</apex:pageBlockButtons>
+			<apex:pagemessages id="pageMessage"/>
+
+			<apex:repeat value="{!sections}" var="section">
+				<apex:pageBlockSection title="{!section.title}" columns="{!section.columns}">
+					<apex:repeat value="{!section.fields}" var="field">
+						<apex:pageBlockSectionItem>
+							<apex:outputLabel value="{!field.label}"/>
+							<apex:actionRegion>
+								<apex:inputField required="{!field.required}"
+								                 value="{!Meeting_Products_MERC__c[field.value]}"
+								                 rendered="{!field.readOnly == false && not(field.blankSpace) && not(field.isChildField)}"
+								                 onchange="{!field.onChange}">
+								</apex:inputField>
+								<apex:outputpanel id="selectblock" layout="block" styleClass="requiredInput">
+									<apex:outputPanel layout="block" styleClass="requiredBlock" rendered="{!field.required}"/>
+									<apex:selectList required="{!field.required}"
+									                 value="{!Meeting_Products_MERC__c[field.value]}"
+									                 size="1"
+									                 rendered="{!field.readOnly == false && not(field.blankSpace) && field.isChildField}"
+									                 styleClass="{!field.target}">
+										<apex:selectOption itemValue="" itemLabel="-- Select --"/>
+										<!-- <apex:selectOptions value="{!field.options}"/> -->
+									</apex:selectList>
+								</apex:outputpanel>
+								<apex:outputField value="{!Meeting_Products_MERC__c[field.value]}" rendered="{!field.readOnly}"/>
+								<apex:pageBlockSection rendered="{!field.blankSpace}">&nbsp;</apex:pageBlockSection>
+							</apex:actionRegion>
+						</apex:pageBlockSectionItem>
+					</apex:repeat>
+				</apex:pageBlockSection>
+			</apex:repeat>
+		</apex:pageBlock>
+	</apex:form>
+	<script>
+		var j$ = jQuery.noConflict();
+
+		function updatePicklist(targetElement, callingElement) {
+			// Get the id of the calling element, escape all colons and then set up ref
+			// to be the css selector for the associated lookup id (hidden input field)
+			// for the calling element
+			var idVal = j$(callingElement).attr('id');
+			var re = new RegExp(':', 'g');
+			var ref = '#' + idVal.replace(re, '\\:') + '_lkid';
+
+            // Make a call to the @remoteAction getOptions on the MERC_MeetingProductNewEdit controller
+            // note that the definition of this method is actually in GLBL_BaseEditController
+            MERC_MeetingProductNewEdit.getOptions(
+            	'Meeting_Products_MERC__c', // the name of this object
+            	targetElement,              // the id of the custom setting used to define the values for the child picklist
+            	j$(ref).val(),				// the id value of the parent lookup
+            	function(result, event) {   // callback function to inject the returned html into the correct select list
+            		j$('.'+targetElement).html(
+            			j$('<textarea/>').html(result).text() //this line converts the result sting into actual html
+            		);
+            	}
+            );
+		}
+	</script>
+</apex:page>
