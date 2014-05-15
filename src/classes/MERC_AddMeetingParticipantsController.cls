@@ -10,6 +10,7 @@ public with sharing class MERC_AddMeetingParticipantsController {
 	public GLBL_CustomerSearchToolService.SearchRequest searchRequest { get; set; }
     public Boolean hasError { get; private set; }
     public String newParticipantRecordTypeId { get; set; }
+    public Meeting_Participant_MERC__c meetingParticipant { get; set; }
 
 	public MERC_AddMeetingParticipantsController(ApexPages.StandardSetController controller) {
         Apexpages.currentPage().getHeaders().put('X-UA-Compatible', 'IE=9'); //IE compatibility mode hack
@@ -167,6 +168,42 @@ public with sharing class MERC_AddMeetingParticipantsController {
     	return null;
     }
 
+    public List<Schema.FieldSetMember> requiredFields
+    {
+        get {
+            // new page or record type changed so reset the meeting participant
+            meetingParticipant = new Meeting_Participant_MERC__c();
+            List<Schema.FieldSetMember> requiredFields = new List<Schema.FieldSetMember>();
+
+            // get the developer name for the record type that has been selected
+            List<RecordType> recType = [SELECT Id
+                                             , DeveloperName
+                                          FROM RecordType
+                                         WHERE Id=:newParticipantRecordTypeId
+                                           AND SobjectType = 'Meeting_Participant_MERC__c'];
+            System.debug('\n\n\nrecType: ' + recType + '\n\n\n');
+
+            if (!recType.isEmpty()) {
+                // find the custom setting that is configured for the record type by developer name
+                List<Add_Participant_Rec_Type_Req_Fields_MERC__c> reqFields = [SELECT Id
+                                                                                    , Meeting_Participant_Field_Set_MERC__c
+                                                                                FROM Add_Participant_Rec_Type_Req_Fields_MERC__c
+                                                                                WHERE Record_Type_Developer_Name_MERC__c =: recType.get(0).DeveloperName];
+
+                System.debug('\n\n\nrecFields: ' + reqFields + '\n\n\n');
+
+                // if we have a custom setting, find the configured field set and return those fields.
+                if (!reqFields.isEmpty()) {
+                    for (Schema.FieldSetMember fsm : Schema.SObjectType.Meeting_Participant_MERC__c.fieldSets.getMap().get(reqFields.get(0).Meeting_Participant_Field_Set_MERC__c).getFields()) {
+                        requiredFields.add(fsm);
+                    }
+                }
+            }
+            return requiredFields;
+        }
+        set;
+    }
+
     public PageReference addToMeetingAndRedirect(){
         Id participantId = addAcctToMeeting();
         System.debug('Participant Id: ' + participantId);
@@ -184,20 +221,20 @@ public with sharing class MERC_AddMeetingParticipantsController {
     }
 
     public Id addAcctToMeeting(){
-        Meeting_Participant_MERC__c m = new Meeting_Participant_MERC__c();
         try {
+            meetingParticipant = new Meeting_Participant_MERC__c();
             String accountId = MERC_Util.getUrlParam('aid');
             System.debug('SELECTED RECORD TYPE: ' + newParticipantRecordTypeId);
             if (String.isBlank(newParticipantRecordTypeId))
             {
                 throw new MERC_Exception('A Record Type is required to add an account to the meeting.');
             }
-            m.Account_MERC__c = accountId;
-            m.Meeting_MERC__c = meeting.Id;
-            m.RecordTypeId = newParticipantRecordTypeId;
-            m.CST_Validation_Bypass_MERC__c = true; //bypass configured validation rules
-            System.debug(m);
-            insert m;
+            meetingParticipant.Account_MERC__c = accountId;
+            meetingParticipant.Meeting_MERC__c = meeting.Id;
+            meetingParticipant.RecordTypeId = newParticipantRecordTypeId;
+            //m.CST_Validation_Bypass_MERC__c = true; //bypass configured validation rules
+            System.debug(meetingParticipant);
+            insert meetingParticipant;
             this.meetingParticipantAccountIds.add(accountId);
         } catch(Exception e) {
             System.debug(e);
@@ -209,7 +246,7 @@ public with sharing class MERC_AddMeetingParticipantsController {
 
         this.newParticipantRecordTypeId = null;
         this.hasError = false;
-        return m.Id;
+        return meetingParticipant.Id;
     }
 
     public PageReference removeFromMeeting() {
