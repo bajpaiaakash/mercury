@@ -61,13 +61,25 @@ public class MERC_MergedAccountApex {
         {
             relatedLists = new List<RelatedListGroup>();
 
-            /*----- Loop over the custom settings to determine the Describes we need to perform and
-                    add the custom settings to a map of Object name to list of settings. -----*/
+            /*----- Loop over the custom settings to determine the Describes we need to perform-----*/
             Set<String> objectsForSchemaSet = new Set<String>();
             Map<String, List<Account_Merge_Related_Lists_MERC__c>> objectToRelatedListsMap =  new Map<String, List<Account_Merge_Related_Lists_MERC__c>>();
+            Map<Decimal, List<String>> relatedListsOrder = new Map<Decimal, List<String>>();
+
             for (Account_Merge_Related_Lists_MERC__c rl : relatedListSettings.values())
             {
                 objectsForSchemaSet.add(rl.Related_Object_API_Name__c);
+                /*----- Add the related list name to a map of order to name for future sorting -----*/
+                if (relatedListsOrder.containsKey(rl.Order_MERC__c))
+                {
+                    relatedListsOrder.get(rl.Order_MERC__c).add(rl.Related_Object_API_Name__c);
+                }
+                else
+                {
+                    relatedListsOrder.put(rl.Order_MERC__c, new List<String>{ rl.Related_Object_API_Name__c });
+                }
+
+                /*----- add the custom settings to a map of Object name to list of settings.  -----*/
                 if (objectToRelatedListsMap.containsKey(rl.Related_Object_API_Name__c))
                 {
                     objectToRelatedListsMap.get(rl.Related_Object_API_Name__c).add(rl);
@@ -84,6 +96,7 @@ public class MERC_MergedAccountApex {
             List<Schema.DescribeSObjectResult> descResults = Schema.describeSObjects(objectsForSchemaList);
 
             /*----- loop over the describe objects and create the RelatedListGroup objects for each one -----*/
+            Map<String, RelatedListGroup> unorderedRelatedLists = new Map<String, RelatedListGroup>();
             for(Schema.DescribeSObjectResult dr : descResults)
             {
                 if (objectToRelatedListsMap.containsKey(dr.getName()))
@@ -102,7 +115,29 @@ public class MERC_MergedAccountApex {
                                                                       , dr.fieldSets.getMap().get(settings.Losing_Acct_Related_List_Field_Set_MERC__c).getFields()
                         );
 
-                        relatedLists.add(thisRL);
+                        unorderedRelatedLists.put(dr.getName(), thisRL);
+                    }
+                }
+            }
+
+            /*----- get the order values into a list and sort them -----*/
+            List<Decimal> orderValues = new List<Decimal>();
+            orderValues.addAll(relatedListsOrder.keySet());
+            orderValues.sort();
+
+            /*----- loop over the sorted order values and extract the related list names from the map -----*/
+            for (Decimal order : orderValues)
+            {
+                /*----- sort the related list names alphabetically in case there are more than one with the same order value -----*/
+                List<String> thisIndexRelatedLists = relatedListsOrder.get(order);
+                thisIndexRelatedLists.sort();
+
+                /*---- get the related lists by name and add them to the relatedLists list to return -----*/
+                for (String relatedListName : thisIndexRelatedLists)
+                {
+                    if (unorderedRelatedLists.containsKey(relatedListName))
+                    {
+                        relatedLists.add(unorderedRelatedLists.get(relatedListName));
                     }
                 }
             }
