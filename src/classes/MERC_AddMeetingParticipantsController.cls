@@ -232,7 +232,6 @@ public with sharing class MERC_AddMeetingParticipantsController {
             meetingParticipant.Account_MERC__c = accountId;
             meetingParticipant.Meeting_MERC__c = meeting.Id;
             meetingParticipant.RecordTypeId = newParticipantRecordTypeId;
-            //m.CST_Validation_Bypass_MERC__c = true; //bypass configured validation rules
             System.debug(meetingParticipant);
             insert meetingParticipant;
             this.meetingParticipantAccountIds.add(accountId);
