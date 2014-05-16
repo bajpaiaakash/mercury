@@ -64,7 +64,7 @@ public class MERC_MergedAccountApex {
             /*----- Loop over the custom settings to determine the Describes we need to perform-----*/
             Set<String> objectsForSchemaSet = new Set<String>();
             Map<String, List<Account_Merge_Related_Lists_MERC__c>> objectToRelatedListsMap =  new Map<String, List<Account_Merge_Related_Lists_MERC__c>>();
-            Map<Decimal, List<String>> relatedListsOrder = new Map<Decimal, List<String>>();
+            Map<Decimal, List<Account_Merge_Related_Lists_MERC__c>> relatedListsOrder = new Map<Decimal, List<Account_Merge_Related_Lists_MERC__c>>();
 
             for (Account_Merge_Related_Lists_MERC__c rl : relatedListSettings.values())
             {
@@ -72,11 +72,11 @@ public class MERC_MergedAccountApex {
                 /*----- Add the related list name to a map of order to name for future sorting -----*/
                 if (relatedListsOrder.containsKey(rl.Order_MERC__c))
                 {
-                    relatedListsOrder.get(rl.Order_MERC__c).add(rl.Related_Object_API_Name__c);
+                    relatedListsOrder.get(rl.Order_MERC__c).add(rl);
                 }
                 else
                 {
-                    relatedListsOrder.put(rl.Order_MERC__c, new List<String>{ rl.Related_Object_API_Name__c });
+                    relatedListsOrder.put(rl.Order_MERC__c, new List<Account_Merge_Related_Lists_MERC__c>{ rl });
                 }
 
                 /*----- add the custom settings to a map of Object name to list of settings.  -----*/
@@ -89,56 +89,44 @@ public class MERC_MergedAccountApex {
                     objectToRelatedListsMap.put(rl.Related_Object_API_Name__c, new List<Account_Merge_Related_Lists_MERC__c>{rl});
                 }
             }
-            List<String> objectsForSchemaList = new List<String>();
-            objectsForSchemaList.addAll(objectsForSchemaSet);
-
-            /*----- get a list of describe objects -----*/
-            List<Schema.DescribeSObjectResult> descResults = Schema.describeSObjects(objectsForSchemaList);
-
-            /*----- loop over the describe objects and create the RelatedListGroup objects for each one -----*/
-            Map<String, RelatedListGroup> unorderedRelatedLists = new Map<String, RelatedListGroup>();
-            for(Schema.DescribeSObjectResult dr : descResults)
-            {
-                if (objectToRelatedListsMap.containsKey(dr.getName()))
-                {
-                    for (Account_Merge_Related_Lists_MERC__c settings : objectToRelatedListsMap.get(dr.getName()))
-                    {
-                        System.debug(settings.Winning_Acct_Related_List_Field_Set_MERC__c);
-                        System.debug(dr.fieldSets.getMap().get(settings.Winning_Acct_Related_List_Field_Set_MERC__c));
-                        System.debug(dr.fieldSets.getMap().get(settings.Winning_Acct_Related_List_Field_Set_MERC__c).getFields());
-                        RelatedListGroup thisRL = new RelatedListGroup( settings
-                                                                      , dr.getLabel()
-                                                                      , dr.getName()
-                                                                      , winningAccount.Id
-                                                                      , losingAccountId
-                                                                      , dr.fieldSets.getMap().get(settings.Winning_Acct_Related_List_Field_Set_MERC__c).getFields()
-                                                                      , dr.fieldSets.getMap().get(settings.Losing_Acct_Related_List_Field_Set_MERC__c).getFields()
-                        );
-
-                        unorderedRelatedLists.put(dr.getName(), thisRL);
-                    }
-                }
-            }
 
             /*----- get the order values into a list and sort them -----*/
             List<Decimal> orderValues = new List<Decimal>();
             orderValues.addAll(relatedListsOrder.keySet());
             orderValues.sort();
 
-            /*----- loop over the sorted order values and extract the related list names from the map -----*/
+            List<Account_Merge_Related_Lists_MERC__c> sortedRelatedLists = new List<Account_Merge_Related_Lists_MERC__c>();
             for (Decimal order : orderValues)
             {
-                /*----- sort the related list names alphabetically in case there are more than one with the same order value -----*/
-                List<String> thisIndexRelatedLists = relatedListsOrder.get(order);
-                thisIndexRelatedLists.sort();
+                sortedRelatedLists.addAll(relatedListsOrder.get(order));
+            }
 
-                /*---- get the related lists by name and add them to the relatedLists list to return -----*/
-                for (String relatedListName : thisIndexRelatedLists)
+            /*----- get the describe objects need and add them to a map from object api name to describe -----*/
+            List<String> objectsForSchemaList = new List<String>();
+            objectsForSchemaList.addAll(objectsForSchemaSet);
+
+            /*----- get a list of describe objects -----*/
+            Map<String, Schema.DescribeSObjectResult> descResults = new Map<String, Schema.DescribeSObjectResult>();
+            for (Schema.DescribeSObjectResult dso : Schema.describeSObjects(objectsForSchemaList))
+            {
+                descResults.put(dso.getName(), dso);
+            }
+
+            /*----- loop over the sorted related lists and create the RelatedListGroup objects for each one -----*/
+            for (Account_Merge_Related_Lists_MERC__c settings : sortedRelatedLists)
+            {
+                if (descResults.containsKey(settings.Related_Object_API_Name__c))
                 {
-                    if (unorderedRelatedLists.containsKey(relatedListName))
-                    {
-                        relatedLists.add(unorderedRelatedLists.get(relatedListName));
-                    }
+                    Schema.DescribeSObjectResult dr = descResults.get(settings.Related_Object_API_Name__c);
+                    RelatedListGroup thisRL = new RelatedListGroup( settings
+                                                                  , dr.getLabel()
+                                                                  , dr.getName()
+                                                                  , winningAccount.Id
+                                                                  , losingAccountId
+                                                                  , dr.fieldSets.getMap().get(settings.Winning_Acct_Related_List_Field_Set_MERC__c).getFields()
+                                                                  , dr.fieldSets.getMap().get(settings.Losing_Acct_Related_List_Field_Set_MERC__c).getFields()
+                    );
+                    relatedLists.add(thisRL);
                 }
             }
         }
