@@ -37,11 +37,11 @@
 			$('table.attendanceTable tr td.accountNameCell').bind('selectstart', function(event) {
 			    event.preventDefault();
 			});
-			
+
 			$("table.attendanceTable tr td.selectCell").click(function() {
-				var attendedCheckbox = $(this).parent().find('input[type="checkbox"]')
+				var attendedCheckbox = $(this).parent().find('input[type="checkbox"].chkSelected')
 				attendedCheckbox.prop("checked", !attendedCheckbox.prop("checked"))
-			})	
+			})
 
 			$("input#chkSelectAll").click(function() {
 				var isSelectAllChecked = $(this).prop("checked")
@@ -52,10 +52,10 @@
 					$("input.chkSelected").prop("checked", false)
 					hideMassActions()
 				}
-			})	
+			})
 
 			$("table.attendanceTable tr input.chkSelected").click(function() {
-				var selectedBoxes = $("table.attendanceTable tr input.chkSelected:checked"); 
+				var selectedBoxes = $("table.attendanceTable tr input.chkSelected:checked");
 				if (selectedBoxes.size() === 0) {
 					hideMassActions()
 				} else {
@@ -108,6 +108,13 @@
 					<apex:column value="{!p.tov.Est_Grnd_Transp_MERC__c}" styleClass="selectCell"/>
 					<apex:column value="{!p.tov.Est_Reg_Amt_ToV_MERC__c}" styleClass="selectCell"/>
 					<apex:column value="{!p.tov.Est_Hotel_ToV_MERC__c}" styleClass="selectCell"/>
+					<apex:column headerValue="{!$ObjectType.Daily_Attendance_TOV_MERC__c.Fields.Confirm_ToV_Reporting_Change_MERC__c.label}">
+						<apex:inputField value="{!p.tov.Confirm_ToV_Reporting_Change_MERC__c}">
+							<apex:actionSupport action="{!updateTov}" event="onchange" reRender="mainBlock" oncomplete="bindDomHandlers();toggleLoading()" onsubmit="toggleLoading()">
+								<apex:param value="{!p.tov.Id}" name="tovRecordId"/>
+							</apex:actionSupport>
+						</apex:inputField>
+					</apex:column>
 				</apex:pageBlockTable>
 			</apex:pageBlock>
 			<c:MERC_LoadingMask />

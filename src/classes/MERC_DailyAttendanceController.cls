@@ -204,7 +204,8 @@ public with sharing class MERC_DailyAttendanceController {
 																	Est_Hotel_ToV_MERC__c,
 																	Status_MERC__c, External_ID_MERC__c,
 																	Meeting_Participant_Record_Type_MERC__c,
-																	Meeting_Participant_Account_Name_MERC__c
+																	Meeting_Participant_Account_Name_MERC__c,
+																	Confirm_ToV_Reporting_Change_MERC__c
 																		FROM Daily_Attendance_TOV_MERC__c
 																		WHERE Meeting_Day_MERC__c = :this.selectedMeetingDayId
 																		ORDER BY Meeting_Participant_Account_Name_MERC__c])
