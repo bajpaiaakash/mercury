@@ -156,6 +156,19 @@ public with sharing class MERC_DailyAttendanceController {
 		return null;
 	}
 
+	public PageReference saveAll() {
+		try {
+			List<Daily_Attendance_TOV_MERC__c> tovsToSave = new List<Daily_Attendance_TOV_MERC__c>();
+			for (ParticipantWrapper p : participants) {
+				tovsToSave.add(p.tov);
+			}
+			upsert tovsToSave;
+		} catch(Exception e) {
+			ApexPages.addMessages(e); //doesn't show ugly error text
+		}
+		return null;
+	}
+
 	public PageReference updateTov() {
 		try {
 			String tovRecordId = ApexPages.currentPage().getParameters().get('tovRecordId');
