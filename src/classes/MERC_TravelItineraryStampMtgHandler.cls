@@ -19,10 +19,15 @@ public with sharing class MERC_TravelItineraryStampMtgHandler implements GLBL_Tr
 		}
 
 		List<Meeting_MERC__c> meetings = new List<Meeting_MERC__c>();
-		for (Meeting_MERC__c meeting : [SELECT Id, Participant_ToV_Updated_Date_MERC__c FROM Meeting_MERC__c WHERE ID IN :meetingIdsToStamp])
+		for (Meeting_MERC__c meeting : [SELECT Id, Participant_ToV_Updated_Date_MERC__c, Participant_Tov_Final_MERC__c
+			                              FROM Meeting_MERC__c
+			                             WHERE ID IN :meetingIdsToStamp
+			                               AND Participant_Tov_Final_MERC__c = 'Yes'])
 		{
-			meeting.Participant_ToV_Updated_Date_MERC__c = DateTime.now();
-			meetings.add(meeting);
+			if (meeting.Participant_Tov_Final_MERC__c == 'Yes') {
+				meeting.Participant_ToV_Updated_Date_MERC__c = DateTime.now();
+				meetings.add(meeting);
+			}
 		}
 
 		update meetings;
