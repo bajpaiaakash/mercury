@@ -10,11 +10,13 @@ public with sharing class MERC_AddMeetingParticipantsController {
 	public GLBL_CustomerSearchToolService.SearchRequest searchRequest { get; set; }
     public Boolean hasError { get; private set; }
     public String newParticipantRecordTypeId { get; set; }
+    private String oldParticipantRecordTypeId { get; set; }
     public Meeting_Participant_MERC__c meetingParticipant { get; set; }
 
 	public MERC_AddMeetingParticipantsController(ApexPages.StandardSetController controller) {
         Apexpages.currentPage().getHeaders().put('X-UA-Compatible', 'IE=9'); //IE compatibility mode hack
         this.searchRequest = new GLBL_CustomerSearchToolService.SearchRequest();
+        meetingParticipant = new Meeting_Participant_MERC__c();
 	}
 
     public void ensureCstToken() {
@@ -168,11 +170,14 @@ public with sharing class MERC_AddMeetingParticipantsController {
     	return null;
     }
 
-    public List<Schema.FieldSetMember> requiredFields
-    {
+    public List<Schema.FieldSetMember> requiredFields {
         get {
             // new page or record type changed so reset the meeting participant
-            meetingParticipant = new Meeting_Participant_MERC__c();
+            if (String.isBlank(newParticipantRecordTypeId) || newParticipantRecordTypeId != oldParticipantRecordTypeId) {
+                meetingParticipant = new Meeting_Participant_MERC__c();
+                oldParticipantRecordTypeId = newParticipantRecordTypeId;
+            }
+
             List<Schema.FieldSetMember> requiredFields = new List<Schema.FieldSetMember>();
 
             // get the developer name for the record type that has been selected
@@ -222,7 +227,6 @@ public with sharing class MERC_AddMeetingParticipantsController {
 
     public Id addAcctToMeeting(){
         try {
-            meetingParticipant = new Meeting_Participant_MERC__c();
             String accountId = MERC_Util.getUrlParam('aid');
             System.debug('SELECTED RECORD TYPE: ' + newParticipantRecordTypeId);
             if (String.isBlank(newParticipantRecordTypeId))
@@ -237,15 +241,18 @@ public with sharing class MERC_AddMeetingParticipantsController {
             this.meetingParticipantAccountIds.add(accountId);
         } catch(Exception e) {
             System.debug(e);
-            this.newParticipantRecordTypeId = null;
+            //this.newParticipantRecordTypeId = null;
             this.hasError = true;
             ApexPages.addMessages(e);
             return null;
         }
 
+        Id meetingParticipantId = meetingParticipant.Id;
+
         this.newParticipantRecordTypeId = null;
+        this.meetingParticipant = new Meeting_Participant_MERC__c();
         this.hasError = false;
-        return meetingParticipant.Id;
+        return meetingParticipantId;
     }
 
     public PageReference removeFromMeeting() {
