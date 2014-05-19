@@ -3,6 +3,7 @@ public with sharing class GLBL_NewButtonPrepopController {
 	String cObjName {get; private set;}
 	Map<String,String> submittedParams = new Map<String,String>();
 	Map<String,String> newParams = new Map<String,String>();
+	Boolean toRecordTypeSelect {get; set;}
 
 	public static final String PREFIX = 'cf_';
 	public static final String SUFFIX = '_lkid';
@@ -19,11 +20,13 @@ public with sharing class GLBL_NewButtonPrepopController {
 
 		String saveNewURL;
 		if (!Apexpages.currentPage().getParameters().get('cObjURL').contains('recordtypeselect')) {
+			toRecordTypeSelect = false;
 			List<Schema.DescribeSObjectResult> descResults = Schema.describeSObjects(new List<String>{cObjName});
 			for (Schema.DescribeSObjectResult dsr : descResults) {
-				saveNewURL = '/'+dsr.getKeyPrefix()+'/e?nooverride=1';
+				saveNewURL = '/'+dsr.getKeyPrefix()+'/e';
 			}
 		} else {
+			toRecordTypeSelect = true;
 			saveNewURL = getSimpleSaveURLFromURL(Apexpages.currentPage().getParameters().get('cObjURL'));
 		}
 
@@ -44,17 +47,25 @@ public with sharing class GLBL_NewButtonPrepopController {
 		}
 		newParams.put('save_new_url', saveNewURL+saveParamString);
 
-		ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.INFO, String.valueOf(newParams)));
+		// ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.INFO, String.valueOf(newParams)));
 
 	}
 
 	public PageReference redirect() {
-		PageReference toRecordTypeSelect = new PageReference('/setup/ui/recordtypeselect.jsp');
-		for (String key : newParams.keySet()) {
-			toRecordTypeSelect.getParameters().put(key, newParams.get(key));
+		PageReference pageRef;
+		if (toRecordTypeSelect) {
+			pageRef = new PageReference('/setup/ui/recordtypeselect.jsp');
+			for (String key : newParams.keySet()) {
+				pageRef.getParameters().put(key, newParams.get(key));
+			}
+		//	return pageRef;
+		} else {
+			pageRef = new PageReference(newParams.get('save_new_url'));
 		}
-		return toRecordTypeSelect;
-		// return null;
+//		 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.INFO, String.valueOf(newParams.get('save_new_url'))));
+//		 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.INFO, String.valueOf(pageRef.getParameters())));
+//		 return null;
+		 return pageRef;
 	}
 
 	public static String getCustomObjectIdFromURL(String defaultObjectNewURL) {
