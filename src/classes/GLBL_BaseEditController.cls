@@ -1,8 +1,11 @@
 /**
- * @author Joseph Ferraro
+ * @author Joseph Ferraro & Kyle Thornton
  *
  * Base controller that builds an edit page layout dynamically via the Metadata API
  * We use this for Meeting and Travel Itinerary new/edit pages because it allows us to provide a better UX when dealing with Date/Times
+ *
+ * Also included is functionality that allows for lookups to be dependent on other lookups. The child lookup is rendered as a selectlist
+ * limited to the records that match those configured. e.g. the indication options of a meeting product will be only those of the selected prodcut.
  */
 
 global virtual with sharing class GLBL_BaseEditController {
@@ -20,9 +23,16 @@ global virtual with sharing class GLBL_BaseEditController {
 
 	private List<Lookup_Picklist_Settings_MERC__c> lps;
 
+	public GLBL_BaseEditController getTheExtController() {
+		return this;
+	}
+
+	public GLBL_BaseEditController(ApexPages.StandardController stdController, Schema.SobjectType sotype, Set<String> dfs) {
+		this(stdController, sotype);
+		this.dynamicFields = dfs;
+	}
 
 	public GLBL_BaseEditController(ApexPages.StandardController stdController, Schema.SobjectType sotype) {
-		Apexpages.currentPage().getHeaders().put('X-UA-Compatible', 'IE=9'); //IE compatibility mode hack
 		Schema.DescribeSObjectResult sobjectDescribe = sotype.getDescribe();
 		this.schemaFields = sobjectDescribe.fields.getMap();
 		if (!Test.isRunningTest()) {
@@ -31,11 +41,21 @@ global virtual with sharing class GLBL_BaseEditController {
 		    ));
 		}
 
-		this.mySobject = (Sobject)stdController.getRecord();
+		finishInitialization(sobjectDescribe, stdController);
+	}
+
+	public GLBL_BaseEditController(ApexPages.StandardController stdController) {
+		Schema.DescribeSObjectResult sobjectDescribe = stdController.getRecord().getSObjectType().getDescribe();
+		this.schemaFields = sobjectDescribe.fields.getMap();
+
+		finishInitialization(sobjectDescribe, stdController);
+	}
+
+	private void finishInitialization(Schema.DescribeSObjectResult sobjectDescribe, ApexPages.StandardController stdController) {
+		Apexpages.currentPage().getHeaders().put('X-UA-Compatible', 'IE=9'); //IE compatibility mode hack
 		String myId = stdController.getId();
-
 		this.sObjectAPIName = sobjectDescribe.getName();
-
+		this.mySobject = (Sobject)stdController.getRecord();
 		/* Check for any custom settings for this object to render lookups as picklists */
 		lps = [SELECT Id
                     , Controlling_Object_MERC__c
@@ -43,10 +63,11 @@ global virtual with sharing class GLBL_BaseEditController {
                     , Child_Field_MERC__c
                     , Picklist_Object_Relationship_MERC__c
                     , Filter_Criteria_MERC__c
+                    , Parent_Object_API_Name_MERC__c
                  FROM Lookup_Picklist_Settings_MERC__c
-                WHERE Controlling_Object_MERC__c = :sObjectAPIName];
+                WHERE Controlling_Object_MERC__c = :this.sObjectAPIName];
 
-		Set<String> FieldssObject = new Set<String>(this.schemaFields.keySet());
+        Set<String> FieldssObject = new Set<String>(this.schemaFields.keySet());
 
 		//set record type
 		if (ApexPages.currentPage().getParameters().containsKey('RecordType')) {
@@ -62,11 +83,6 @@ global virtual with sharing class GLBL_BaseEditController {
 		} else {
 			this.subtitle = (String)mySObject.get('name');
 		}
-	}
-
-	public GLBL_BaseEditController(ApexPages.StandardController stdController, Schema.SobjectType sotype, Set<String> dfs) {
-		this(stdController, sotype);
-		this.dynamicFields = dfs;
 	}
 
 	private Map<String, Lookup_Picklist_Settings_MERC__c> lookupParentFields {
@@ -117,6 +133,9 @@ global virtual with sharing class GLBL_BaseEditController {
 											                   , Child_Field_MERC__c
 											                   , Picklist_Object_Relationship_MERC__c
 											                   , Filter_Criteria_MERC__c
+											                   , Parent_Object_API_Name_MERC__c
+											                   , Parent_Object_Id_Relationship_MERC__c
+											                   , Picklist_Label_Source_MERC__c
 											                FROM Lookup_Picklist_Settings_MERC__c
 											               WHERE Id =:customSettingId];
 
@@ -124,22 +143,58 @@ global virtual with sharing class GLBL_BaseEditController {
 		{
 			Map<String, Schema.SObjectField> theFields = Schema.describeSObjects(new String[]{objectName}).get(0).fields.getMap();
 
-			String optionsSoql = 'SELECT Id, (SELECT Id, Name FROM '
+			//If the Parent_Object_Id_Relationship_MERC__c has been configured then referenceId does not refer to the controlling object
+			//we need to get the id of the controlling object in this case
+			if (String.isNotBlank(thisLps[0].Parent_Object_Id_Relationship_MERC__c))
+			{
+				//In order to query the controlling object we need to determine which object the parent field is pointing to
+				//in order to get the related object name to build the query
+				String relatedObject;
+				if (theFields.containsKey(thisLps[0].Parent_Field_MERC__c)) {
+					relatedObject = theFields.get(thisLps[0].Parent_Field_MERC__c).getDescribe().getReferenceTo().get(0).getDescribe().getName();
+				} else {
+					//we won't be able to build the query
+					return options;
+				}
+
+				//The referenceId needs to be updated to get the ID at the Parent_Object_Id_Relationship_MERC__c path
+				String newRefQuery = 'SELECT Id, '
+                                   + thisLps[0].Parent_Object_Id_Relationship_MERC__c
+                                   + ' FROM ' + relatedObject
+                                   + ' WHERE Id =\'' + referenceId + '\'';
+
+                System.debug(newRefQuery);
+				List<SObject> refList = Database.query( newRefQuery );
+				if (!refList.isEmpty()) {
+					referenceId = (String)refList.get(0).get(thisLps[0].Parent_Object_Id_Relationship_MERC__c);
+				} else {
+					// no point in continuing on, we have nothing to find
+					return options;
+				}
+			}
+
+			String optionsSoql = 'SELECT Id, (SELECT Id, '
+				                    + (String.isNotBlank(thisLps[0].Picklist_Label_Source_MERC__c) ? thisLps[0].Picklist_Label_Source_MERC__c + '.' : '')
+				                    + 'Name FROM '
 					                + thisLps[0].Picklist_Object_Relationship_MERC__c
 					                + (String.isNotBlank(thisLps[0].Filter_Criteria_MERC__c) ? ' WHERE ' + thisLps[0].Filter_Criteria_MERC__c : '')
 					                + ' ORDER BY Name) FROM '
-	                                + theFields.get(thisLps[0].Parent_Field_MERC__c).getDescribe().getReferenceTo().get(0).getDescribe().getName()
+	                                + thisLps[0].Parent_Object_API_Name_MERC__c
 	                                + ' WHERE Id = \'' + referenceId + '\'';
 
 
-			if (String.isNotBlank(referenceId))
-			{
+			System.debug('###\n\n\nOptions SOQL: ' + optionsSoql );
+			if (String.isNotBlank(referenceId)) {
 				List<SObject> soList = Database.query(optionsSoql);
-				if (!soList.isEmpty())
-				{
-					for (SObject so : soList[0].getSObjects(thisLps[0].Picklist_Object_Relationship_MERC__c))
-					{
-						options += '<option value="' + String.valueOf(so.get('Id')) + '">' + String.valueOf(so.get('Name')) +'</option>';
+				if (!soList.isEmpty()) {
+					for (SObject so : soList[0].getSObjects(thisLps[0].Picklist_Object_Relationship_MERC__c)) {
+						options += '<option value="' + String.valueOf(so.get('Id')) + '">';
+						if (String.isNotBlank(thisLps[0].Picklist_Label_Source_MERC__c)) {
+							options += String.valueOf(so.getSObject(thisLps[0].Picklist_Label_Source_MERC__c).get('Name'));
+						} else {
+							options += String.valueOf(so.get('Name'));
+						}
+						options +=  +'</option>';
 					}
 				}
 			}
@@ -159,6 +214,7 @@ global virtual with sharing class GLBL_BaseEditController {
 		public String onBlur { get; set; }
 		public String onChange { get; set; }
 		public Boolean dynamic { get; set; }
+		public String styleClass { get; set; }
 
 		/*----- Lookup picklist functionality : these values will be set if a lookup is part of a dependency where
 		        values should be filtered and displayed as a picklist rather than a generic lookup.-----*/
@@ -238,13 +294,21 @@ global virtual with sharing class GLBL_BaseEditController {
 												f.isParentField = true;
 												//assumed that there is a javascript function called updatePicklist that we need to pass the id of the custom setting
 												//and the element triggering the onchange event.
-												f.onChange = 'updatePicklist(\'' + lookupParentFields.get(layoutComponent.value).Id + '\', this);';
+												f.onChange   = 'updatePicklist(\'' + lookupParentFields.get(layoutComponent.value).Id + '\', this);';
+												f.styleClass = lookupParentFields.get(layoutComponent.value).Parent_Field_MERC__c;
 	                                  		}
 	                                  		if (lookupChildFields.containsKey(layoutComponent.value)) {
 												//target is the id of the custom setting that defines how this value is set. it will be set as a styleclass
 												//on the page so that we an target it in javascript.
 												f.isChildField = true;
 												f.target       = lookupChildFields.get(layoutComponent.value).Id;
+
+												//this javascript will be called when the page loads. it will trigger the change action on the selectlist forcing
+												//the child select options to be udpated. We only want to call the onchange of inputs and spans. Salesforce will apply
+												//the class name to an anchor tag assoiated with a lookup as well. The spans is rendered in place of an input when the
+												//field is on the child side of a master-detail relationship in edit mode (and reparenting is not allowed)
+												String clsName = lookupChildFields.get(layoutComponent.value).Parent_Field_MERC__c;
+												f.onChange     = 'j$("input.' + clsName + ', span.' + clsName +'").change()';
 	                                  		}
 	                                  	} else if (layoutitem.editable == false && layoutComponent.value != null) {
 											f.readOnly = true;

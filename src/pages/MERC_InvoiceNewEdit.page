@@ -1,9 +1,8 @@
-<apex:page showHeader="true" sidebar="true" standardController="Meeting_Products_MERC__c" extensions="GLBL_BaseEditController">
+<apex:page showHeader="true" sidebar="true" standardController="Invoice_MERC__c" extensions="GLBL_BaseEditController">
 	<apex:includeScript value="{!urlFor($Resource.PersonSearchMVN, 'JQuery/jquery-latest.js')}" />
 	<apex:includeScript value="{!urlFor($Resource.mercury, 'js/mercury.js')}" />
 
-	<c:GLBL_NewEditJavascript objectName="Meeting_Products_MERC__c"
-	                          extControllerName="GLBL_BaseEditController"/>
+	<c:GLBL_NewEditJavascript objectName="Invoice_MERC__c" extControllerName="GLBL_BaseEditController"/>
 
 	<apex:sectionHeader title="{!title}" subtitle="{!subtitle}"/>
 	<apex:form id="theForm">
