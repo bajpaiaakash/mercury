@@ -9,13 +9,13 @@
 */
 public with sharing class MERC_MergedAccountsController {
 
-    public Id                              activeAccountId  { get; set; }
-    public Id                              completedMergeId { get; set; }
+    public String                          activeAccountId  { get; set; }
+    public String                          completedMergeId { get; set; }
     public ApexPages.StandardSetController ssc              { get; set; }
     public MERC_MergedAccountApex          mergeObject      { get; set; }
 
     private String                         baseAcctSoqlQuery;
-    private Map<Id, Merge_History_GLBL__c> mergeHistoryByWinningAccount;
+    private Map<String, Merge_History_GLBL__c> mergeHistoryByWinningAccount;
 
     public MERC_MergedAccountsController() {
         /*----- initialize the standard set contorller -----*/
@@ -24,18 +24,18 @@ public with sharing class MERC_MergedAccountsController {
         /*----- set up the base query for the accounts so we don't need to build this in getAccounts
                 every time a navigation button is clicked -----*/
         Schema.FieldSet acctFieldSet = Schema.SObjectType.Account.fieldsets.Merge_Account_Page_Main_List;
-        baseAcctSoqlQuery = 'SELECT Id';
+        baseAcctSoqlQuery = 'SELECT Id, Cust_Id_GLBL__c';
         for (Schema.FieldSetMember fsm : acctFieldSet.getFields())
         {
-            if (fsm.getFieldPath() != 'Id')
+            if (fsm.getFieldPath() != 'Id' && fsm.getFieldPath() != 'Cust_Id_GLBL__c')
                 baseAcctSoqlQuery += ', ' + fsm.getFieldPath();
         }
-        baseAcctSoqlQuery += ' FROM Account WHERE Id IN (';
+        baseAcctSoqlQuery += ' FROM Account WHERE Cust_Id_GLBL__c IN (';
     }
 
     private void initializeSetController()
     {
-        mergeHistoryByWinningAccount = new Map<Id, Merge_History_GLBL__c>();
+        mergeHistoryByWinningAccount = new Map<String, Merge_History_GLBL__c>();
         for (Merge_History_GLBL__c mh : [SELECT Id
                                               , Winning_Id_GLBL__c
                                               , Original_Account_ID_GLBL__c

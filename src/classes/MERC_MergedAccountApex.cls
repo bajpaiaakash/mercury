@@ -10,16 +10,16 @@ public class MERC_MergedAccountApex {
 
 
     private Account winningAccount = new Account();
-    @TestVisible private Id      losingAccountId;
+    @TestVisible private String    losingAccountId;
     private List<RelatedListGroup> relatedLists;
     private static Map<String, Account_Merge_Related_Lists_MERC__c> relatedListSettings = Account_Merge_Related_Lists_MERC__c.getAll();
 
-    public MERC_MergedAccountApex(Id winnerId, Id loserId)
+    public MERC_MergedAccountApex(String winnerId, String loserId)
     {
         losingAccountId = loserId;
 
         /*----- Build the query string for the winning account from the field set -----*/
-        Set<String> acctFieldSet = new Set<String>{'Id', 'Name'};
+        Set<String> acctFieldSet = new Set<String>{'Id', 'Name', 'Cust_Id_GLBL__c'};
         for(Schema.FieldSetMember fsm : Schema.SObjectType.Account.fieldSets.Merge_Account_Page_Main_List.getFields())
         {
             acctFieldSet.add(fsm.getFieldPath());
@@ -31,7 +31,7 @@ public class MERC_MergedAccountApex {
         }
         /*----- remove the last comma -----*/
         soqlQuery = soqlQuery.left(soqlQuery.length() - 2);
-        soqlQuery += ' FROM Account WHERE Id = \'' + winnerId +'\' LIMIT 1';
+        soqlQuery += ' FROM Account WHERE Cust_Id_GLBL__c = \'' + winnerId +'\' LIMIT 1';
 
         System.debug(soqlQuery);
 
@@ -121,7 +121,7 @@ public class MERC_MergedAccountApex {
                     RelatedListGroup thisRL = new RelatedListGroup( settings
                                                                   , dr.getLabel()
                                                                   , dr.getName()
-                                                                  , winningAccount.Id
+                                                                  , winningAccount.Cust_Id_GLBL__c
                                                                   , losingAccountId
                                                                   , dr.fieldSets.getMap().get(settings.Winning_Acct_Related_List_Field_Set_MERC__c).getFields()
                                                                   , dr.fieldSets.getMap().get(settings.Losing_Acct_Related_List_Field_Set_MERC__c).getFields()
@@ -169,9 +169,10 @@ public class MERC_MergedAccountApex {
         public List<Schema.FieldSetMember>         winningFields { get; private set; }
         public List<Schema.FieldSetMember>         losingFields  { get; private set; }
         public String                              sObjectLabel  { get; private set; }
-        public String                              sObjectName   { get; private set; }
+        public String                              sObjectClass  { get; private set; }
         public Account_Merge_Related_Lists_MERC__c settings      { get; private set; }
 
+        private String sObjectName;
         private String winningListSoql;
         private String losingListSoql;
         private String winningAccountId;
@@ -189,6 +190,7 @@ public class MERC_MergedAccountApex {
             this.settings         = settings;
             this.sObjectLabel     = label;
             this.sObjectName      = name;
+            this.sObjectClass     = settings.Name.replaceAll(' ','-');
             this.winningAccountId = winningAccountId;
             this.losingAccountId  = losingAccountId;
             this.winningFields    = winningFields;
@@ -198,9 +200,9 @@ public class MERC_MergedAccountApex {
             losingListSoql  = createListSoql( losingFields,  losingAccountId );
         }
 
-        private String createListSoql(List<Schema.FieldSetMember> fields, Id accountId)
+        private String createListSoql(List<Schema.FieldSetMember> fields, String accountId)
         {
-            return MERC_MergedAccountApex.buildSoqlString(fields, sObjectName, settings.Parent_Account_Field_MERC__c, accountId);
+            return MERC_MergedAccountApex.buildSoqlString(fields, sObjectName, settings.Path_to_Cust_Id_MERC__c, accountId);
         }
 
         /*----- lazy load the winning and losing lists as singletons.
@@ -271,13 +273,19 @@ public class MERC_MergedAccountApex {
         public void mergeSelectedRecords()
         {
             List<SObject> objectsToUpdate = new List<SObject>();
+            List<Account> winningAcct = [SELECT Id FROM Account WHERE Cust_Id_GLBL__c = :winningAccountId limit 1];
+
+            if (winningAcct.isEmpty())
+            {
+                throw new MERC_Exception('Unable to locate the winning account.');
+            }
 
             for (SelectableSObject so : losingList)
             {
                 if (so.selected)
                 {
                     /*----- reparent to the winning record parent id -----*/
-                    so.detail.put(settings.Parent_Account_Field_MERC__c, winningAccountId);
+                    so.detail.put(settings.Parent_Account_Field_MERC__c, winningAcct[0].Id);
                     objectsToUpdate.add(so.detail);
                 }
             }

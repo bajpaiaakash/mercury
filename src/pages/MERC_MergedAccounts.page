@@ -34,7 +34,7 @@
 					<apex:commandButton value="Next" action="{!ssc.next}" rendered="{!ssc.hasNext}" onclick="toggleLoading();" oncomplete="toggleLoading();bindDomHandlers();" reRender="accountsBlock"/>
 				</apex:pageBlockButtons>
 				<apex:pageBlockTable value="{!accounts}" var="acct" rowClasses="clickable" id="accountTable">
-					<apex:column html-data-record-id="{!acct.id}" width="130px;">
+					<apex:column html-data-record-id="{!acct.Cust_Id_GLBL__c}" width="130px;">
 						<a href="/{!acct.id}" target="_blank" class="row-link">View</a>
 						<apex:outputText value=" | "/>
 						<apex:commandLink value="Mark Complete"
@@ -43,7 +43,7 @@
 					                      oncomplete="toggleLoading();bindDomHandlers();"
 					                      reRender="accountTable,relatedLists"
 					                      action="{!markMergeObjectComplete}">
-						    <apex:param assignTo="{!completedMergeId}" name="completedRowId" value="{!acct.id}"/>
+						    <apex:param assignTo="{!completedMergeId}" name="completedRowId" value="{!acct.Cust_Id_GLBL__c}"/>
 						</apex:commandLink>
 					</apex:column>
 					<apex:repeat value="{!$ObjectType.Account.FieldSets.Merge_Account_Page_Main_List}" var="f">
@@ -63,7 +63,7 @@
 				<apex:pageBlock title="{!mergeObject.account.name}" rendered="{!mergeObject != null}">
 					<apex:repeat value="{!mergeObject.allRelatedLists}" var="rl">
 
-						<div data-object-class="{!rl.sObjectName}" style="height:20px;background-color:#B0C4DE;margin-top:20px;font-size:18px;font-weight:bold;clear:both;">
+						<div data-object-class="{!rl.sObjectClass}" style="height:20px;background-color:#B0C4DE;margin-top:20px;font-size:18px;font-weight:bold;clear:both;">
 							<div style="margin:0 10px;" class="collapse-section show">
 								<apex:image url="{!URLFOR($Resource.mercury, 'img/minus.png')}" height="16px;"/>
 							</div>
@@ -75,7 +75,7 @@
 
 						<apex:pageMessages id="messages"/>
 
-						<div style="position:relative;display:inline-block;width:100%;" id="{!rl.sObjectName}-body">
+						<div style="position:relative;display:inline-block;width:100%;" id="{!rl.sObjectClass}-body">
 							<!-- FIRST COLUMN -->
 							<apex:outputPanel id="winningList" layout="block" styleClass="table-div" style="margin-right:1%;float:left;">
 								<div style="text-align:center;width:100%;font-weight:bold;font-size:16px"><span style="font-style:italic;color:green;">Winning Account</span> {!rl.settings.Name} Records</div>
@@ -91,9 +91,9 @@
 								<apex:pageBlockTable value="{!rl.winningList}" var="object" rendered="{!rl.winningList.size > 0}">
 									<apex:column rendered="{!rl.settings.Allow_Winning_Account_Deletes__c}">
 										<apex:facet name="header">
-											<input type="checkbox" id="{!rl.sObjectName}-win-select" class="select-all"/>
+											<input type="checkbox" id="{!rl.sObjectClass}-win-select" class="select-all"/>
 										</apex:facet>
-										<apex:inputCheckbox value="{!object.selected}" styleClass="{!rl.sObjectName}-win-select"/>
+										<apex:inputCheckbox value="{!object.selected}" styleClass="{!rl.sObjectClass}-win-select"/>
 									</apex:column>
 									<apex:column ><a href="/{!object.detail.id}" target="_blank">View</a></apex:column>
 									<apex:repeat value="{!rl.winningFields}" var="field">
@@ -120,9 +120,9 @@
 								<apex:pageBlockTable value="{!rl.losingList}" var="object" rendered="{!rl.losingList.size > 0}">
 									<apex:column >
 										<apex:facet name="header">
-											<input type="checkbox" id="{!rl.sObjectName}-lose-select" class="select-all"/>
+											<input type="checkbox" id="{!rl.sObjectClass}-lose-select" class="select-all"/>
 										</apex:facet>
-										<apex:inputCheckbox value="{!object.selected}" styleClass="{!rl.sObjectName}-lose-select"/>
+										<apex:inputCheckbox value="{!object.selected}" styleClass="{!rl.sObjectClass}-lose-select"/>
 									</apex:column>
 									<apex:column ><a href="/{!object.detail.id}" target="_blank">View</a></apex:column>
 									<apex:repeat value="{!rl.losingFields}" var="field">

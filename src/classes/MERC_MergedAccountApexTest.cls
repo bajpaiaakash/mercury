@@ -19,11 +19,11 @@ private class MERC_MergedAccountApexTest
 			update new User(id=testUser.Id, UserRoleId=[SELECT Id FROM UserRole WHERE Name='Global' limit 1].id);
 		}
 	}
-	static Account winningAccount = MERC_TestFactory.insertHcpAccountsInCountry(1, 'GB').get(0);
-	static Account losingAccount  = MERC_TestFactory.insertHcpAccountsInCountry(1, 'GB').get(0);
+	static Account winningAccount = MERC_TestFactory.insertMasterAccountsInCountry(1, 'GB').get(0);
+	static Account losingAccount  = MERC_TestFactory.insertMasterAccountsInCountry(1, 'GB').get(0);
 	static
 	{
-		insert new Merge_History_GLBL__c( Winning_Id_GLBL__c=winningAccount.Id, Original_Account_ID_GLBL__c=losingAccount.Id );
+		insert new Merge_History_GLBL__c( Winning_Id_GLBL__c=winningAccount.Cust_Id_GLBL__c, Original_Account_ID_GLBL__c=losingAccount.Cust_Id_GLBL__c );
 
 		List<Preferences_and_Consent_GLBL__c> prefConsentRecords = new List<Preferences_and_Consent_GLBL__c>();
 		List<String> prefTypes  = new List<String>{'Language Preference','Communication Preference','Speaker Interest', 'Contract Delivery', 'Payment Required'};
@@ -47,6 +47,7 @@ private class MERC_MergedAccountApexTest
 		        we need to make assumptions about existing metadata like field sets -----*/
 		insert new Account_Merge_Related_Lists_MERC__c( Name                         = 'Preferences_and_Consent_GLBL__c'
 													  , Parent_Account_Field_MERC__c = 'Account_GLBL__c'
+                                                      , Path_to_Cust_Id_MERC__c      = 'Account_GLBL__r.Cust_Id_GLBL__c'
 													  , Winning_Acct_Related_List_Field_Set_MERC__c = 'Account_Merge_Pref_and_Consent_MERC'
 													  , Losing_Acct_Related_List_Field_Set_MERC__c	= 'Account_Merge_Pref_and_Consent_MERC'
 													  , Allow_Winning_Account_Deletes__c            = true
@@ -57,7 +58,7 @@ private class MERC_MergedAccountApexTest
 	{
 		System.runAs(testUser)
 		{
-			MERC_MergedAccountApex maa = new MERC_MergedAccountApex(winningAccount.Id, losingAccount.Id);
+			MERC_MergedAccountApex maa = new MERC_MergedAccountApex(winningAccount.Cust_Id_GLBL__c, losingAccount.Cust_Id_GLBL__c);
 			System.assertEquals(1, maa.getAllRelatedLists().size());
 			System.assertEquals(5, maa.getAllRelatedLists().get(0).winningList.size());
 			System.assertEquals(5, maa.getAllRelatedLists().get(0).losingList.size());
@@ -73,7 +74,7 @@ private class MERC_MergedAccountApexTest
 			Boolean exceptionCaught = false;
 			try
 			{
-				MERC_MergedAccountApex maa = new MERC_MergedAccountApex(winningAccount.Id, losingAccount.Id);
+				MERC_MergedAccountApex maa = new MERC_MergedAccountApex(winningAccount.Cust_Id_GLBL__c, losingAccount.Cust_Id_GLBL__c);
 			}
 			catch(MERC_Exception ex)
 			{
@@ -88,7 +89,7 @@ private class MERC_MergedAccountApexTest
 	{
 		System.runAs(testUser)
 		{
-			MERC_MergedAccountApex maa = new MERC_MergedAccountApex(winningAccount.Id, losingAccount.Id);
+			MERC_MergedAccountApex maa = new MERC_MergedAccountApex(winningAccount.Cust_Id_GLBL__c, losingAccount.Cust_Id_GLBL__c);
 			System.assertEquals(winningAccount.Id, maa.getAccount().Id);
 		}
 	}
@@ -97,7 +98,7 @@ private class MERC_MergedAccountApexTest
 	{
 		System.runAs(testUser)
 		{
-			MERC_MergedAccountApex maa = new MERC_MergedAccountApex(winningAccount.Id, losingAccount.Id);
+			MERC_MergedAccountApex maa = new MERC_MergedAccountApex(winningAccount.Cust_Id_GLBL__c, losingAccount.Cust_Id_GLBL__c);
 			maa.destroyLosingRecords();
 			System.assertEquals(0, maa.getAllRelatedLists().get(0).losingList.size());
 		}
@@ -107,7 +108,7 @@ private class MERC_MergedAccountApexTest
 	{
 		System.runAs(testUser)
 		{
-			MERC_MergedAccountApex maa = new MERC_MergedAccountApex(winningAccount.Id, losingAccount.Id);
+			MERC_MergedAccountApex maa = new MERC_MergedAccountApex(winningAccount.Cust_Id_GLBL__c, losingAccount.Cust_Id_GLBL__c);
 			for (MERC_MergedAccountApex.SelectableSObject so : maa.getAllRelatedLists().get(0).winningList)
 			{
 				so.selected = true;
@@ -124,7 +125,7 @@ private class MERC_MergedAccountApexTest
 
 		System.runAs(testUser)
 		{
-			MERC_MergedAccountApex maa = new MERC_MergedAccountApex(winningAccount.Id, losingAccount.Id);
+			MERC_MergedAccountApex maa = new MERC_MergedAccountApex(winningAccount.Cust_Id_GLBL__c, losingAccount.Cust_Id_GLBL__c);
 			for (MERC_MergedAccountApex.SelectableSObject so : maa.getAllRelatedLists().get(0).losingList)
 			{
 				so.selected = true;
@@ -139,7 +140,7 @@ private class MERC_MergedAccountApexTest
 	{
 		System.runAs(testUser)
 		{
-			MERC_MergedAccountApex maa = new MERC_MergedAccountApex(winningAccount.Id, losingAccount.Id);
+			MERC_MergedAccountApex maa = new MERC_MergedAccountApex(winningAccount.Cust_Id_GLBL__c, losingAccount.Cust_Id_GLBL__c);
 
 			/*----- setting to readOnlyApplicationMode will lock the system and prevent updates -----*/
 			Test.setReadOnlyApplicationMode(true);
