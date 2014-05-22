@@ -55,6 +55,9 @@ public with sharing class MERC_NewContentController {
             this.file.Invoice_MERC__c = this.recordId;
             this.file.RecordTypeId = [Select Id From RecordType WHERE DeveloperName = 'Invoice_MERC' AND SobjectType = 'ContentVersion' LIMIT 1].Id;
             this.fieldSetAPIName = 'Invoice_MERC';
+            if (ApexPages.currentPage().getParameters().containsKey('tif') && ApexPages.currentPage().getParameters().get('tif') == '1') {
+                this.file.Title = Mercury_Settings_MERC__c.getOrgDefaults().Invoice_File_Prefix_MERC__c + String.valueOf(this.recordId).substring(0,15) + '.tif';
+            }
         } else if (objectAPIName == 'Account') {
             this.file.Account_GLBL__c = this.recordId;
             this.file.RecordTypeId = [Select Id From RecordType WHERE DeveloperName = 'Account_MERC' AND SobjectType = 'ContentVersion' LIMIT 1].Id;
@@ -122,6 +125,12 @@ public with sharing class MERC_NewContentController {
             return null;
         }
         try {
+            //for the SAP integration the file needs to be named just right.
+            if (sObjectAPIName == 'Invoice_MERC__c'
+                  && ApexPages.currentPage().getParameters().containsKey('tif')
+                  && ApexPages.currentPage().getParameters().get('tif') == '1') {
+                this.file.PathOnClient = Mercury_Settings_MERC__c.getOrgDefaults().Invoice_File_Prefix_MERC__c + String.valueOf(this.recordId).substring(0,15) + '.tif';
+            }
             insert this.file;
         } catch (Exception e) {
             this.file.versionData = null;
