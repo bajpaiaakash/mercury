@@ -11,8 +11,8 @@
 global virtual with sharing class GLBL_BaseEditController {
 
 	public Sobject mySobject { get; set; }
+	public String sObjectAPIName { get; set; }
 
-	private String sObjectAPIName;
 	private String sObjectRecordType;
 	private Map<String, sObjectField> schemaFields;
 
@@ -23,16 +23,12 @@ global virtual with sharing class GLBL_BaseEditController {
 
 	private List<Lookup_Picklist_Settings_MERC__c> lps;
 
-	public GLBL_BaseEditController getTheExtController() {
-		return this;
-	}
-
-	public GLBL_BaseEditController(ApexPages.StandardController stdController, Schema.SobjectType sotype, Set<String> dfs) {
-		this(stdController, sotype);
-		this.dynamicFields = dfs;
+	public String getClassName() {
+		return this.toString().split(':')[0];
 	}
 
 	public GLBL_BaseEditController(ApexPages.StandardController stdController, Schema.SobjectType sotype) {
+		Apexpages.currentPage().getHeaders().put('X-UA-Compatible', 'IE=9'); //IE compatibility mode hack
 		Schema.DescribeSObjectResult sobjectDescribe = sotype.getDescribe();
 		this.schemaFields = sobjectDescribe.fields.getMap();
 		if (!Test.isRunningTest()) {
@@ -41,21 +37,11 @@ global virtual with sharing class GLBL_BaseEditController {
 		    ));
 		}
 
-		finishInitialization(sobjectDescribe, stdController);
-	}
-
-	public GLBL_BaseEditController(ApexPages.StandardController stdController) {
-		Schema.DescribeSObjectResult sobjectDescribe = stdController.getRecord().getSObjectType().getDescribe();
-		this.schemaFields = sobjectDescribe.fields.getMap();
-
-		finishInitialization(sobjectDescribe, stdController);
-	}
-
-	private void finishInitialization(Schema.DescribeSObjectResult sobjectDescribe, ApexPages.StandardController stdController) {
-		Apexpages.currentPage().getHeaders().put('X-UA-Compatible', 'IE=9'); //IE compatibility mode hack
-		String myId = stdController.getId();
-		this.sObjectAPIName = sobjectDescribe.getName();
 		this.mySobject = (Sobject)stdController.getRecord();
+		String myId = stdController.getId();
+
+		this.sObjectAPIName = sobjectDescribe.getName();
+
 		/* Check for any custom settings for this object to render lookups as picklists */
 		lps = [SELECT Id
                     , Controlling_Object_MERC__c
@@ -67,7 +53,7 @@ global virtual with sharing class GLBL_BaseEditController {
                  FROM Lookup_Picklist_Settings_MERC__c
                 WHERE Controlling_Object_MERC__c = :this.sObjectAPIName];
 
-        Set<String> FieldssObject = new Set<String>(this.schemaFields.keySet());
+		Set<String> FieldssObject = new Set<String>(this.schemaFields.keySet());
 
 		//set record type
 		if (ApexPages.currentPage().getParameters().containsKey('RecordType')) {
@@ -85,6 +71,13 @@ global virtual with sharing class GLBL_BaseEditController {
 		}
 	}
 
+	public GLBL_BaseEditController(ApexPages.StandardController stdController, Schema.SobjectType sotype, Set<String> dfs) {
+		this(stdController, sotype);
+		this.dynamicFields = dfs;
+	}
+
+	// A Map of parent field names to Lookup_Picklist_Settings_MERC__c for dependent lookups as picklists.
+	// the parent fields are the controlling fields.
 	private Map<String, Lookup_Picklist_Settings_MERC__c> lookupParentFields {
 		get {
 			if (lookupParentFields == null){
@@ -98,6 +91,8 @@ global virtual with sharing class GLBL_BaseEditController {
 		set;
 	}
 
+	// A Map of parent field names to Lookup_Picklist_Settings_MERC__c for dependent lookups as picklists.
+	// the child fields are the dependent fields, driven by the parent fields.
 	private Map<String, Lookup_Picklist_Settings_MERC__c> lookupChildFields {
 		get {
 			if (lookupChildFields == null){
@@ -123,8 +118,10 @@ global virtual with sharing class GLBL_BaseEditController {
 	}
 
 
-	@RemoteAction global static String getOptions(String objectName, String customSettingId, String referenceId)
-	{
+	// This method is called from javascript on the page. It take the name of the object being created/edited, the
+	// custom setting id that drives the dependent lookup functionality and a referenceId for the parent field that
+	// allows the method to get the related items to display is piclist items.
+	@RemoteAction global static String getOptions(String objectName, String customSettingId, String referenceId) {
 		String options = '<option value="">-- Select --</option>';
 
 		List<Lookup_Picklist_Settings_MERC__c> thisLps = [SELECT Id
@@ -139,14 +136,12 @@ global virtual with sharing class GLBL_BaseEditController {
 											                FROM Lookup_Picklist_Settings_MERC__c
 											               WHERE Id =:customSettingId];
 
-		if (!thisLps.isEmpty())
-		{
+		if (!thisLps.isEmpty()) {
 			Map<String, Schema.SObjectField> theFields = Schema.describeSObjects(new String[]{objectName}).get(0).fields.getMap();
 
 			//If the Parent_Object_Id_Relationship_MERC__c has been configured then referenceId does not refer to the controlling object
 			//we need to get the id of the controlling object in this case
-			if (String.isNotBlank(thisLps[0].Parent_Object_Id_Relationship_MERC__c))
-			{
+			if (String.isNotBlank(thisLps[0].Parent_Object_Id_Relationship_MERC__c)) {
 				//In order to query the controlling object we need to determine which object the parent field is pointing to
 				//in order to get the related object name to build the query
 				String relatedObject;

@@ -1,9 +1,8 @@
-<apex:page showHeader="true" sidebar="true" standardController="Participant_Agenda_MERC__c" extensions="GLBL_BaseEditController">
+<apex:page showHeader="true" sidebar="true" standardController="Participant_Agenda_MERC__c" extensions="MERC_ParticipantAgendaNewEditController">
 	<apex:includeScript value="{!urlFor($Resource.PersonSearchMVN, 'JQuery/jquery-latest.js')}" />
 	<apex:includeScript value="{!urlFor($Resource.mercury, 'js/mercury.js')}" />
 
-	<c:GLBL_NewEditJavascript objectName="Participant_Agenda_MERC__c"
-	                          extControllerName="GLBL_BaseEditController"/>
+	<c:GLBL_NewEditJavascript objectName="{!sObjectAPIName}" extControllerName="{!className}"/>
 
 	<apex:sectionHeader title="{!title}" subtitle="{!subtitle}"/>
 	<apex:form id="theForm">
