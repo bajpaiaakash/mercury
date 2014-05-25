@@ -1,3 +1,9 @@
+/**
+ *
+ *
+ *
+ * If a field on Account changes, change the name on CUST_RefreshLOVs.page
+ **/
 public with sharing class CUST_RefreshLOVsController {
 
 	CUST_RefreshLOVsUtil              util;
@@ -52,9 +58,11 @@ public with sharing class CUST_RefreshLOVsController {
 		CST_App_Menu_Pool_GLBL__c p = (pool != null) ? pool : new CST_App_Menu_Pool_GLBL__c();
 		p.App_Settings_CUST__c = settings.Id;
 		CUST_RefreshLOVsBatch batch = new CUST_RefreshLOVsBatch(p, objMap, d, email);
-		Database.executeBatch(batch);
-		String message = 'The CST data collection process has been started. An email will be sent to '+UserInfo.getUserEmail()+
-		' when the process is completed. Status can be monitored via the Salesforce administrator UI at Setup > Administration Setup > Monitoring > Apex Jobs';
+		Id jobId = Database.executeBatch(batch);
+		String message = 'The CST data collection process has been started at '+Datetime.now().format('MMM dd HH:mm')+'. An email will be sent to '+UserInfo.getUserEmail()+
+		' when the process is completed. Status can be monitored via the Salesforce administrator UI at: <a href="/apexpages/setup/listAsyncApexJobs.apexp">'+
+		'Setup > Administration Setup > Monitoring > Apex Jobs</a><p>'+
+		'<p>When the apex job is finished, review the new value sets in the <a href="/'+p.Id+'">related menu LOV pool record, "'+p.Name+'"</a>.';
 		ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Info, message));
 
 	}
@@ -82,6 +90,8 @@ public with sharing class CUST_RefreshLOVsController {
 
 	public Date getEarliestModDate(Map<String, CUST_RefreshLOVsUtil.ObjToken> objMap) {
 
+		Date earliestRecordDateToInclude = Date.today().addMonths(-6);  //TODO make this a custom setting
+
 		List<String> fieldNames = new List<String>();
 		for (CUST_RefreshLOVsUtil.ObjToken t : objMap.values()) fieldNames.addAll(t.fields);
 
@@ -90,7 +100,7 @@ public with sharing class CUST_RefreshLOVsController {
 
 		List<Date> captureDates = new List<Date>();
 		for (String dateField : dateFieldNames) {
-			Date d = (pool != null && pool.get(dateField)!=null) ? (Date) pool.get(dateField) : Date.today().addMonths(-6);
+			Date d = (pool != null && pool.get(dateField)!=null) ? (Date) pool.get(dateField) : earliestRecordDateToInclude;
 			captureDates.add(d);
 		}
 		captureDates.sort();

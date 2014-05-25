@@ -38,6 +38,7 @@ public with sharing class MERC_TravelItineraryNewEditController extends GLBL_Bas
 
         // need Custom Object ID to redirect user to Record Type selection screen
         provideSaveAndNew = Apexpages.currentPage().getParameters().keySet().contains('ent');
+        customObjectId = Apexpages.currentPage().getParameters().get('ent');
 	}
 
 	public Map<String,String> fieldSetLabels {

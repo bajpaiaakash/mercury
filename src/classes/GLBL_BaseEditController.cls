@@ -1,15 +1,18 @@
 /**
- * @author Joseph Ferraro
+ * @author Joseph Ferraro & Kyle Thornton
  *
  * Base controller that builds an edit page layout dynamically via the Metadata API
  * We use this for Meeting and Travel Itinerary new/edit pages because it allows us to provide a better UX when dealing with Date/Times
+ *
+ * Also included is functionality that allows for lookups to be dependent on other lookups. The child lookup is rendered as a selectlist
+ * limited to the records that match those configured. e.g. the indication options of a meeting product will be only those of the selected prodcut.
  */
 
-public virtual with sharing class GLBL_BaseEditController {
+global virtual with sharing class GLBL_BaseEditController {
 
 	public Sobject mySobject { get; set; }
+	public String sObjectAPIName { get; set; }
 
-	private String sObjectAPIName;
 	private String sObjectRecordType;
 	private Map<String, sObjectField> schemaFields;
 
@@ -20,9 +23,12 @@ public virtual with sharing class GLBL_BaseEditController {
 
 	private List<Lookup_Picklist_Settings_MERC__c> lps;
 
+	public String getClassName() {
+		return this.toString().split(':')[0];
+	}
 
 	public GLBL_BaseEditController(ApexPages.StandardController stdController, Schema.SobjectType sotype) {
-		Apexpages.currentPage().getHeaders().put('X-UA-Compatible', 'IE=Edge'); //IE compatibility mode hack
+		Apexpages.currentPage().getHeaders().put('X-UA-Compatible', 'IE=9'); //IE compatibility mode hack
 		Schema.DescribeSObjectResult sobjectDescribe = sotype.getDescribe();
 		this.schemaFields = sobjectDescribe.fields.getMap();
 		if (!Test.isRunningTest()) {
@@ -43,8 +49,9 @@ public virtual with sharing class GLBL_BaseEditController {
                     , Child_Field_MERC__c
                     , Picklist_Object_Relationship_MERC__c
                     , Filter_Criteria_MERC__c
+                    , Parent_Object_API_Name_MERC__c
                  FROM Lookup_Picklist_Settings_MERC__c
-                WHERE Controlling_Object_MERC__c = :sObjectAPIName];
+                WHERE Controlling_Object_MERC__c = :this.sObjectAPIName];
 
 		Set<String> FieldssObject = new Set<String>(this.schemaFields.keySet());
 
@@ -69,6 +76,8 @@ public virtual with sharing class GLBL_BaseEditController {
 		this.dynamicFields = dfs;
 	}
 
+	// A Map of parent field names to Lookup_Picklist_Settings_MERC__c for dependent lookups as picklists.
+	// the parent fields are the controlling fields.
 	private Map<String, Lookup_Picklist_Settings_MERC__c> lookupParentFields {
 		get {
 			if (lookupParentFields == null){
@@ -82,6 +91,8 @@ public virtual with sharing class GLBL_BaseEditController {
 		set;
 	}
 
+	// A Map of parent field names to Lookup_Picklist_Settings_MERC__c for dependent lookups as picklists.
+	// the child fields are the dependent fields, driven by the parent fields.
 	private Map<String, Lookup_Picklist_Settings_MERC__c> lookupChildFields {
 		get {
 			if (lookupChildFields == null){
@@ -106,6 +117,87 @@ public virtual with sharing class GLBL_BaseEditController {
 		}
 	}
 
+
+	// This method is called from javascript on the page. It take the name of the object being created/edited, the
+	// custom setting id that drives the dependent lookup functionality and a referenceId for the parent field that
+	// allows the method to get the related items to display is piclist items.
+	@RemoteAction global static String getOptions(String objectName, String customSettingId, String referenceId) {
+		String options = '<option value="">-- Select --</option>';
+
+		List<Lookup_Picklist_Settings_MERC__c> thisLps = [SELECT Id
+											                   , Controlling_Object_MERC__c
+											                   , Parent_Field_MERC__c
+											                   , Child_Field_MERC__c
+											                   , Picklist_Object_Relationship_MERC__c
+											                   , Filter_Criteria_MERC__c
+											                   , Parent_Object_API_Name_MERC__c
+											                   , Parent_Object_Id_Relationship_MERC__c
+											                   , Picklist_Label_Source_MERC__c
+											                FROM Lookup_Picklist_Settings_MERC__c
+											               WHERE Id =:customSettingId];
+
+		if (!thisLps.isEmpty()) {
+			Map<String, Schema.SObjectField> theFields = Schema.describeSObjects(new String[]{objectName}).get(0).fields.getMap();
+
+			//If the Parent_Object_Id_Relationship_MERC__c has been configured then referenceId does not refer to the controlling object
+			//we need to get the id of the controlling object in this case
+			if (String.isNotBlank(thisLps[0].Parent_Object_Id_Relationship_MERC__c)) {
+				//In order to query the controlling object we need to determine which object the parent field is pointing to
+				//in order to get the related object name to build the query
+				String relatedObject;
+				if (theFields.containsKey(thisLps[0].Parent_Field_MERC__c)) {
+					relatedObject = theFields.get(thisLps[0].Parent_Field_MERC__c).getDescribe().getReferenceTo().get(0).getDescribe().getName();
+				} else {
+					//we won't be able to build the query
+					return options;
+				}
+
+				//The referenceId needs to be updated to get the ID at the Parent_Object_Id_Relationship_MERC__c path
+				String newRefQuery = 'SELECT Id, '
+                                   + thisLps[0].Parent_Object_Id_Relationship_MERC__c
+                                   + ' FROM ' + relatedObject
+                                   + ' WHERE Id =\'' + referenceId + '\'';
+
+                System.debug(newRefQuery);
+				List<SObject> refList = Database.query( newRefQuery );
+				if (!refList.isEmpty()) {
+					referenceId = (String)refList.get(0).get(thisLps[0].Parent_Object_Id_Relationship_MERC__c);
+				} else {
+					// no point in continuing on, we have nothing to find
+					return options;
+				}
+			}
+
+			String optionsSoql = 'SELECT Id, (SELECT Id, '
+				                    + (String.isNotBlank(thisLps[0].Picklist_Label_Source_MERC__c) ? thisLps[0].Picklist_Label_Source_MERC__c + '.' : '')
+				                    + 'Name FROM '
+					                + thisLps[0].Picklist_Object_Relationship_MERC__c
+					                + (String.isNotBlank(thisLps[0].Filter_Criteria_MERC__c) ? ' WHERE ' + thisLps[0].Filter_Criteria_MERC__c : '')
+					                + ' ORDER BY Name) FROM '
+	                                + thisLps[0].Parent_Object_API_Name_MERC__c
+	                                + ' WHERE Id = \'' + referenceId + '\'';
+
+
+			System.debug('###\n\n\nOptions SOQL: ' + optionsSoql );
+			if (String.isNotBlank(referenceId)) {
+				List<SObject> soList = Database.query(optionsSoql);
+				if (!soList.isEmpty()) {
+					for (SObject so : soList[0].getSObjects(thisLps[0].Picklist_Object_Relationship_MERC__c)) {
+						options += '<option value="' + String.valueOf(so.get('Id')) + '">';
+						if (String.isNotBlank(thisLps[0].Picklist_Label_Source_MERC__c)) {
+							options += String.valueOf(so.getSObject(thisLps[0].Picklist_Label_Source_MERC__c).get('Name'));
+						} else {
+							options += String.valueOf(so.get('Name'));
+						}
+						options +=  +'</option>';
+					}
+				}
+			}
+		}
+
+		return options;
+	}
+
 	public class Field {
 		public Boolean readOnly { get; set; }
 		public Boolean blankSpace { get; set; }
@@ -117,37 +209,13 @@ public virtual with sharing class GLBL_BaseEditController {
 		public String onBlur { get; set; }
 		public String onChange { get; set; }
 		public Boolean dynamic { get; set; }
+		public String styleClass { get; set; }
 
 		/*----- Lookup picklist functionality : these values will be set if a lookup is part of a dependency where
 		        values should be filtered and displayed as a picklist rather than a generic lookup.-----*/
 		public Boolean isParentField { get; set; }
 		public Boolean isChildField { get; set; }
-		public Id picklistSettingId { get; set; }
 		public String target { get; set; }
-
-		public List<SelectOption> getOptions() {
-			List<SelectOption> options = new List<SelectOption>();
-			//String optionsSoql = 'SELECT Id, (SELECT Id, Name FROM '
-			//	                + picklistRelationship
-			//	                + (String.isNotBlank(whereClause) ? ' WHERE ' + whereClause : '')
-			//	                + ' ORDER BY Name) FROM '
-   //                             + lookupParentObject
-   //                             + ' WHERE Id = \'' + referenceId + '\'';
-
-			//System.debug('\n\n\nSOQL : ' + optionsSoql + '\n\n\n');
-			//if (String.isNotBlank(referenceId))
-			//{
-			//	List<SObject> soList = Database.query(optionsSoql);
-			//	if (!soList.isEmpty())
-			//	{
-			//		for (SObject so : soList[0].getSObjects(picklistRelationship))
-			//		{
-			//			options.add( new SelectOption(String.valueOf(so.get('Id')), String.valueOf(so.get('Name'))));
-			//		}
-			//	}
-			//}
-			return options;
-		}
 	}
 
 	//returns layouts for a given sobject type and record type (if applicable)
@@ -214,17 +282,28 @@ public virtual with sharing class GLBL_BaseEditController {
 	                                  		f.readOnly = true;
 	                                  	} else if (lookupParentFields.containsKey(layoutComponent.value) || lookupChildFields.containsKey(layoutComponent.value)) {
 	                                  		f.readOnly = false;
+
+	                                  		//set up the field correctly. if parent field we need to set up the onchange property to make a call to a javasript function
+	                                  		//to trigger the call to the @RemoteAction get options
 	                                  		if (lookupParentFields.containsKey(layoutComponent.value)) {
-												f.isParentField     = true;
-												f.picklistSettingId = lookupParentFields.get(layoutComponent.value).Id;
+												f.isParentField = true;
+												//assumed that there is a javascript function called updatePicklist that we need to pass the id of the custom setting
+												//and the element triggering the onchange event.
+												f.onChange   = 'updatePicklist(\'' + lookupParentFields.get(layoutComponent.value).Id + '\', this);';
+												f.styleClass = lookupParentFields.get(layoutComponent.value).Parent_Field_MERC__c;
 	                                  		}
 	                                  		if (lookupChildFields.containsKey(layoutComponent.value)) {
-													f.isChildField      = true;
-													f.picklistSettingId = lookupChildFields.get(layoutComponent.value).Id;
-													//f.picklistRelationship = lookupChildFields.get(layoutComponent.value).Picklist_Object_Relationship_MERC__c;
-													//f.lookupParentObject   = schemaFields.get( lookupChildFields.get(layoutComponent.value).Parent_Field_MERC__c ).getDescribe().getReferenceTo().get(0).getDescribe().getName();
-													//f.referenceId          = String.valueOf(mySObject.get(lookupChildFields.get(layoutComponent.value).Parent_Field_MERC__c));
-													//f.whereClause          = lookupChildFields.get(layoutComponent.value).Filter_Criteria_MERC__c;
+												//target is the id of the custom setting that defines how this value is set. it will be set as a styleclass
+												//on the page so that we an target it in javascript.
+												f.isChildField = true;
+												f.target       = lookupChildFields.get(layoutComponent.value).Id;
+
+												//this javascript will be called when the page loads. it will trigger the change action on the selectlist forcing
+												//the child select options to be udpated. We only want to call the onchange of inputs and spans. Salesforce will apply
+												//the class name to an anchor tag assoiated with a lookup as well. The spans is rendered in place of an input when the
+												//field is on the child side of a master-detail relationship in edit mode (and reparenting is not allowed)
+												String clsName = lookupChildFields.get(layoutComponent.value).Parent_Field_MERC__c;
+												f.onChange     = 'j$("input.' + clsName + ', span.' + clsName +'").change()';
 	                                  		}
 	                                  	} else if (layoutitem.editable == false && layoutComponent.value != null) {
 											f.readOnly = true;

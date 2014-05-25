@@ -55,6 +55,14 @@ public with sharing class MERC_NewContentController {
             this.file.Invoice_MERC__c = this.recordId;
             this.file.RecordTypeId = [Select Id From RecordType WHERE DeveloperName = 'Invoice_MERC' AND SobjectType = 'ContentVersion' LIMIT 1].Id;
             this.fieldSetAPIName = 'Invoice_MERC';
+            if (ApexPages.currentPage().getParameters().containsKey('tif') && ApexPages.currentPage().getParameters().get('tif') == '1') {
+                this.file.Title = Mercury_Settings_MERC__c.getOrgDefaults().Invoice_File_Prefix_MERC__c + String.valueOf(this.recordId).substring(0,15) + '.tif';
+                MERC_InvoiceDocFilterController.deleteOldDocsInContent(new List<Id>{this.recordId},'TIFF');
+            }
+            if (ApexPages.currentPage().getParameters().containsKey('pdf') && ApexPages.currentPage().getParameters().get('pdf') == '1') {
+                this.file.Title = Mercury_Settings_MERC__c.getOrgDefaults().Invoice_File_Prefix_MERC__c + String.valueOf(this.recordId).substring(0,15) + '.pdf';
+                MERC_InvoiceDocFilterController.deleteOldDocsInContent(new List<Id>{this.recordId},'PDF');
+            }
         } else if (objectAPIName == 'Account') {
             this.file.Account_GLBL__c = this.recordId;
             this.file.RecordTypeId = [Select Id From RecordType WHERE DeveloperName = 'Account_MERC' AND SobjectType = 'ContentVersion' LIMIT 1].Id;
@@ -122,6 +130,15 @@ public with sharing class MERC_NewContentController {
             return null;
         }
         try {
+            //for the SAP integration the file needs to be named just right.
+            if (sObjectAPIName == 'Invoice_MERC__c') {
+                String fileName = Mercury_Settings_MERC__c.getOrgDefaults().Invoice_File_Prefix_MERC__c + String.valueOf(this.recordId).substring(0,15);
+                if (ApexPages.currentPage().getParameters().containsKey('tif') && ApexPages.currentPage().getParameters().get('tif') == '1') {
+                    this.file.PathOnClient =  fileName + '.tif';
+                } else if (ApexPages.currentPage().getParameters().containsKey('pdf') && ApexPages.currentPage().getParameters().get('pdf') == '1') {
+                    this.file.PathOnClient =  fileName + '.pdf';
+                } 
+            }
             insert this.file;
         } catch (Exception e) {
             this.file.versionData = null;
