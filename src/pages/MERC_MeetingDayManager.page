@@ -44,6 +44,8 @@
 
 		    $('input.existing-vendors').attr('placeholder', 'Start typing Vendor name')
 		    $('input.existing-vendors').placeholder();
+
+		    enableSaveOnEnter();
 		}
 
 		function disableHotelTableHover() {
@@ -52,8 +54,27 @@
 			$("table.list.hotels tr").removeAttr("onfocus");
 		}
 
+		function enableSaveOnEnter() {
+			$("form[id$='mainForm'] input[type='text'], form[id$='mainForm'] input[type='checkbox'], form[id$='mainForm'] select").each(function(){
+				$(this).keypress(function(event){
+					noenter(event);
+				});
+			})
+		}
+
 		function handleControllerResponse() {
 			var controllerHasError = document.getElementById("{!$Component.mainForm.controllerHasError}").innerHTML;
+		}
+
+		function noenter(ev)  {
+			if ((window.event && window.event.keyCode == 13 || ev.which == 13) && ev.type != "change") {
+				ev.preventDefault();
+				$(saveMeetingDays).click();
+				return false;
+			} else {
+				//ev.preventDefault();
+				return true;
+			}
 		}
 	</script>
 	<style>
@@ -96,7 +117,7 @@
 		<div class="aeu" style="position:relative;">
 
 			<!--========= MEETING DAYS =========-->
-			<apex:actionRegion>
+			<apex:actionRegion >
 				<apex:pageBlock title="Meeting Information">
 					<apex:pageBlockSection columns="1">
 						<apex:repeat var="f" value="{!$ObjectType.Meeting_MERC__c.FieldSets.Meeting_Day_Manager_MERC}">
@@ -110,11 +131,13 @@
 
 					<!-- BUTTONS -->
 					<apex:pageBlockButtons location="top">
-						<apex:commandButton value="Save Meeting Days" action="{!save}" reRender="mainBlock, controllerResponseWrapper, confirmWrapper, hotelTable"
+						<apex:commandButton id="saveMeetingDays" value="Save Meeting Days" action="{!save}" reRender="mainBlock, controllerResponseWrapper, confirmWrapper, hotelTable"
 							onclick="toggleLoading()" oncomplete="handleControllerResponse();disableHotelTableHover();toggleLoading();bindTypeAhead();">
 							<apex:param name="retNull" value="1"/>
 						</apex:commandButton>
+						<script>var saveMeetingDays = document.getElementById('{!$Component.saveMeetingDays}');</script>
 						<apex:commandButton value="Back to Meeting" action="{!cancel}"/>
+
 					</apex:pageBlockButtons>
 
 					<!-- TABLE -->
@@ -131,7 +154,7 @@
 							</apex:commandLink>
 						</apex:column>
 						<apex:repeat var="f" value="{!$ObjectType.Meeting_Day_MERC__c.FieldSets.Meeting_Day_Manager_Columns_MERC}">
-				            <apex:column headerValue="{!f.label}" >
+				            <apex:column headerValue="{!f.label}" rendered="{!$ObjectType.Meeting_Day_MERC__c.fields[f].accessible}">
 				                <apex:inputField value="{!a.so[f]}" required="{!OR(f.required, f.dbrequired)}" />
 				            </apex:column>
 				        </apex:repeat>
@@ -140,7 +163,7 @@
 			</apex:actionRegion>
 
 			<!--========= HOTELS =========-->
-			<apex:actionRegion>
+			<apex:actionRegion >
 				<apex:pageBlock title="Hotels" mode="edit" id="hotelBlock">
 					<apex:pageMessages id="hotelMessages"/>
 

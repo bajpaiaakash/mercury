@@ -19,8 +19,8 @@ private class MERC_MergedAccountsControllerTest {
         }
     }
     static final Integer TEST_ACCT_SIZE  = 30;
-    static List<Account> winningAccounts = MERC_TestFactory.insertHcpAccountsInCountry(TEST_ACCT_SIZE, 'GB');
-    static List<Account> losingAccounts  = MERC_TestFactory.insertHcpAccountsInCountry(TEST_ACCT_SIZE, 'GB');
+    static List<Account> winningAccounts = MERC_TestFactory.insertMasterAccountsInCountry(TEST_ACCT_SIZE, 'GB');
+    static List<Account> losingAccounts  = MERC_TestFactory.insertMasterAccountsInCountry(TEST_ACCT_SIZE, 'GB');
 
     static List<Merge_History_GLBL__c> mergeHistory = new List<Merge_History_GLBL__c>();
 
@@ -28,7 +28,7 @@ private class MERC_MergedAccountsControllerTest {
     {
         for (Integer i=0; i<TEST_ACCT_SIZE; i++)
         {
-            mergeHistory.add( new Merge_History_GLBL__c(Winning_Id_GLBL__c=winningAccounts[i].Id, Original_Account_ID_GLBL__c=losingAccounts[i].Id ));
+            mergeHistory.add( new Merge_History_GLBL__c(Winning_Id_GLBL__c=winningAccounts[i].Cust_ID_GLBL__c, Original_Account_ID_GLBL__c=losingAccounts[i].Cust_ID_GLBL__c ));
         }
         insert mergeHistory;
 
@@ -57,9 +57,11 @@ private class MERC_MergedAccountsControllerTest {
         /*----- create a custom setting for pref and consent records.
                 we need to make assumptions about existing metadata like field sets -----*/
         insert new Account_Merge_Related_Lists_MERC__c( Name                         = 'Preferences_and_Consent_GLBL__c'
+                                                      , Related_Object_API_Name__c   = 'Preferences_and_Consent_GLBL__c'
                                                       , Parent_Account_Field_MERC__c = 'Account_GLBL__c'
-                                                      , Winning_Acct_Related_List_Field_Set_MERC__c = 'Account_Merge_Fields'
-                                                      , Losing_Acct_Related_List_Field_Set_MERC__c  = 'Account_Merge_Fields'
+                                                      , Path_to_Cust_Id_MERC__c      = 'Account_GLBL__r.Cust_Id_GLBL__c'
+                                                      , Winning_Acct_Related_List_Field_Set_MERC__c = 'Account_Merge_Pref_and_Consent_MERC'
+                                                      , Losing_Acct_Related_List_Field_Set_MERC__c  = 'Account_Merge_Pref_and_Consent_MERC'
                                                       , Allow_Winning_Account_Deletes__c            = true);
     }
 
@@ -115,7 +117,7 @@ private class MERC_MergedAccountsControllerTest {
             controller.activeAccountId = mergeHistory.get(0).Winning_Id_GLBL__c;
             controller.updateMergeObject();
             Test.stopTest();
-            System.assertEquals(mergeHistory.get(0).Winning_Id_GLBL__c, controller.mergeObject.getAccount().Id);
+            System.assertEquals(mergeHistory.get(0).Winning_Id_GLBL__c, controller.mergeObject.getAccount().Cust_ID_GLBL__c);
             System.assertEquals(mergeHistory.get(0).Original_Account_ID_GLBL__c, controller.mergeObject.losingAccountId);
         }
     }

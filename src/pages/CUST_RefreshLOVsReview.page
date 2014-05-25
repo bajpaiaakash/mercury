@@ -118,7 +118,7 @@
 
 			<apex:inputCheckbox onchange="collectFieldNames('Interaction_Channel_Type_GLBL__c')">Apply:</apex:inputCheckbox>
 		</apex:pageBlockSectionItem>
-			<apex:inputTextarea label="New Content" value="{!pool.Interaction_Channel_Type_GLBL__c}" rows="4" cols="140"/>
+			<apex:inputTextarea label="New Content" value="{!pool.Cmnctn_Chnl_Cd_GLBL__c}" rows="4" cols="140"/>
 
 		<apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
 			<apex:outputField value="{!settings.Cnsnt_Prps_Cd_CUST__c}" />

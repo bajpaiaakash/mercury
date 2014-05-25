@@ -100,7 +100,7 @@
 			<hr/>
 			<input type="checkbox" name="Select All" value="selectAll" id="selectAll" onChange="toggleCheckboxes(this);" /><span class="labelCol">Select All</span>
 		</apex:pageBlockSection>
-		<apex:pageBlockSection>
+		<apex:pageBlockSection >
 			<apex:selectRadio value="{!retainCurrentValues}">
             	<apex:selectOption itemValue="true" itemLabel="Retain current values"/>
             	<apex:selectOption itemValue="false" itemLabel="Clear and reset all values" html-selected="selected"/>

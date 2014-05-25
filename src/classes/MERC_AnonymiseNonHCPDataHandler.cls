@@ -42,7 +42,8 @@ public with sharing class MERC_AnonymiseNonHCPDataHandler implements GLBL_Trigge
                                                                , (SELECT Id, Anonymise_Record_MERC__c FROM Travel_Itineraries_MERC__r)
                                                                , (SELECT Id, Anonymise_Record_MERC__c FROM Participant_Sessions__r)
                                                             FROM Meeting_Participant_MERC__c
-                                                           WHERE Meeting_MERC__c IN :meetings];
+                                                           WHERE Meeting_MERC__c IN :meetings
+                                                             AND Participant_Typ_MERC__c = 'Non-HCP'];
 
 
         Set<Id> accountIdsToAnonymise = new Set<Id>();

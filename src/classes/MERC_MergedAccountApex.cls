@@ -10,16 +10,16 @@ public class MERC_MergedAccountApex {
 
 
     private Account winningAccount = new Account();
-    @TestVisible private Id      losingAccountId;
+    @TestVisible private String    losingAccountId;
     private List<RelatedListGroup> relatedLists;
     private static Map<String, Account_Merge_Related_Lists_MERC__c> relatedListSettings = Account_Merge_Related_Lists_MERC__c.getAll();
 
-    public MERC_MergedAccountApex(Id winnerId, Id loserId)
+    public MERC_MergedAccountApex(String winnerId, String loserId)
     {
         losingAccountId = loserId;
 
         /*----- Build the query string for the winning account from the field set -----*/
-        Set<String> acctFieldSet = new Set<String>{'Id', 'Name'};
+        Set<String> acctFieldSet = new Set<String>{'Id', 'Name', 'Cust_Id_GLBL__c'};
         for(Schema.FieldSetMember fsm : Schema.SObjectType.Account.fieldSets.Merge_Account_Page_Main_List.getFields())
         {
             acctFieldSet.add(fsm.getFieldPath());
@@ -31,7 +31,7 @@ public class MERC_MergedAccountApex {
         }
         /*----- remove the last comma -----*/
         soqlQuery = soqlQuery.left(soqlQuery.length() - 2);
-        soqlQuery += ' FROM Account WHERE Id = \'' + winnerId +'\' LIMIT 1';
+        soqlQuery += ' FROM Account WHERE Cust_Id_GLBL__c = \'' + winnerId +'\' LIMIT 1';
 
         System.debug(soqlQuery);
 
@@ -61,13 +61,25 @@ public class MERC_MergedAccountApex {
         {
             relatedLists = new List<RelatedListGroup>();
 
-            /*----- Loop over the custom settings to determine the Describes we need to perform and
-                    add the custom settings to a map of Object name to list of settings. -----*/
+            /*----- Loop over the custom settings to determine the Describes we need to perform-----*/
             Set<String> objectsForSchemaSet = new Set<String>();
             Map<String, List<Account_Merge_Related_Lists_MERC__c>> objectToRelatedListsMap =  new Map<String, List<Account_Merge_Related_Lists_MERC__c>>();
+            Map<Decimal, List<Account_Merge_Related_Lists_MERC__c>> relatedListsOrder = new Map<Decimal, List<Account_Merge_Related_Lists_MERC__c>>();
+
             for (Account_Merge_Related_Lists_MERC__c rl : relatedListSettings.values())
             {
                 objectsForSchemaSet.add(rl.Related_Object_API_Name__c);
+                /*----- Add the related list name to a map of order to name for future sorting -----*/
+                if (relatedListsOrder.containsKey(rl.Order_MERC__c))
+                {
+                    relatedListsOrder.get(rl.Order_MERC__c).add(rl);
+                }
+                else
+                {
+                    relatedListsOrder.put(rl.Order_MERC__c, new List<Account_Merge_Related_Lists_MERC__c>{ rl });
+                }
+
+                /*----- add the custom settings to a map of Object name to list of settings.  -----*/
                 if (objectToRelatedListsMap.containsKey(rl.Related_Object_API_Name__c))
                 {
                     objectToRelatedListsMap.get(rl.Related_Object_API_Name__c).add(rl);
@@ -77,33 +89,44 @@ public class MERC_MergedAccountApex {
                     objectToRelatedListsMap.put(rl.Related_Object_API_Name__c, new List<Account_Merge_Related_Lists_MERC__c>{rl});
                 }
             }
+
+            /*----- get the order values into a list and sort them -----*/
+            List<Decimal> orderValues = new List<Decimal>();
+            orderValues.addAll(relatedListsOrder.keySet());
+            orderValues.sort();
+
+            List<Account_Merge_Related_Lists_MERC__c> sortedRelatedLists = new List<Account_Merge_Related_Lists_MERC__c>();
+            for (Decimal order : orderValues)
+            {
+                sortedRelatedLists.addAll(relatedListsOrder.get(order));
+            }
+
+            /*----- get the describe objects need and add them to a map from object api name to describe -----*/
             List<String> objectsForSchemaList = new List<String>();
             objectsForSchemaList.addAll(objectsForSchemaSet);
 
             /*----- get a list of describe objects -----*/
-            List<Schema.DescribeSObjectResult> descResults = Schema.describeSObjects(objectsForSchemaList);
-
-            /*----- loop over the describe objects and create the RelatedListGroup objects for each one -----*/
-            for(Schema.DescribeSObjectResult dr : descResults)
+            Map<String, Schema.DescribeSObjectResult> descResults = new Map<String, Schema.DescribeSObjectResult>();
+            for (Schema.DescribeSObjectResult dso : Schema.describeSObjects(objectsForSchemaList))
             {
-                if (objectToRelatedListsMap.containsKey(dr.getName()))
-                {
-                    for (Account_Merge_Related_Lists_MERC__c settings : objectToRelatedListsMap.get(dr.getName()))
-                    {
-                        System.debug(settings.Winning_Acct_Related_List_Field_Set_MERC__c);
-                        System.debug(dr.fieldSets.getMap().get(settings.Winning_Acct_Related_List_Field_Set_MERC__c));
-                        System.debug(dr.fieldSets.getMap().get(settings.Winning_Acct_Related_List_Field_Set_MERC__c).getFields());
-                        RelatedListGroup thisRL = new RelatedListGroup( settings
-                                                                      , dr.getLabel()
-                                                                      , dr.getName()
-                                                                      , winningAccount.Id
-                                                                      , losingAccountId
-                                                                      , dr.fieldSets.getMap().get(settings.Winning_Acct_Related_List_Field_Set_MERC__c).getFields()
-                                                                      , dr.fieldSets.getMap().get(settings.Losing_Acct_Related_List_Field_Set_MERC__c).getFields()
-                        );
+                descResults.put(dso.getName(), dso);
+            }
 
-                        relatedLists.add(thisRL);
-                    }
+            /*----- loop over the sorted related lists and create the RelatedListGroup objects for each one -----*/
+            for (Account_Merge_Related_Lists_MERC__c settings : sortedRelatedLists)
+            {
+                if (descResults.containsKey(settings.Related_Object_API_Name__c))
+                {
+                    Schema.DescribeSObjectResult dr = descResults.get(settings.Related_Object_API_Name__c);
+                    RelatedListGroup thisRL = new RelatedListGroup( settings
+                                                                  , dr.getLabel()
+                                                                  , dr.getName()
+                                                                  , winningAccount.Cust_Id_GLBL__c
+                                                                  , losingAccountId
+                                                                  , dr.fieldSets.getMap().get(settings.Winning_Acct_Related_List_Field_Set_MERC__c).getFields()
+                                                                  , dr.fieldSets.getMap().get(settings.Losing_Acct_Related_List_Field_Set_MERC__c).getFields()
+                    );
+                    relatedLists.add(thisRL);
                 }
             }
         }
@@ -146,9 +169,10 @@ public class MERC_MergedAccountApex {
         public List<Schema.FieldSetMember>         winningFields { get; private set; }
         public List<Schema.FieldSetMember>         losingFields  { get; private set; }
         public String                              sObjectLabel  { get; private set; }
-        public String                              sObjectName   { get; private set; }
+        public String                              sObjectClass  { get; private set; }
         public Account_Merge_Related_Lists_MERC__c settings      { get; private set; }
 
+        private String sObjectName;
         private String winningListSoql;
         private String losingListSoql;
         private String winningAccountId;
@@ -166,6 +190,7 @@ public class MERC_MergedAccountApex {
             this.settings         = settings;
             this.sObjectLabel     = label;
             this.sObjectName      = name;
+            this.sObjectClass     = settings.Name.replaceAll(' ','-');
             this.winningAccountId = winningAccountId;
             this.losingAccountId  = losingAccountId;
             this.winningFields    = winningFields;
@@ -175,9 +200,9 @@ public class MERC_MergedAccountApex {
             losingListSoql  = createListSoql( losingFields,  losingAccountId );
         }
 
-        private String createListSoql(List<Schema.FieldSetMember> fields, Id accountId)
+        private String createListSoql(List<Schema.FieldSetMember> fields, String accountId)
         {
-            return MERC_MergedAccountApex.buildSoqlString(fields, sObjectName, settings.Parent_Account_Field_MERC__c, accountId);
+            return MERC_MergedAccountApex.buildSoqlString(fields, sObjectName, settings.Path_to_Cust_Id_MERC__c, accountId);
         }
 
         /*----- lazy load the winning and losing lists as singletons.
@@ -248,13 +273,19 @@ public class MERC_MergedAccountApex {
         public void mergeSelectedRecords()
         {
             List<SObject> objectsToUpdate = new List<SObject>();
+            List<Account> winningAcct = [SELECT Id FROM Account WHERE Cust_Id_GLBL__c = :winningAccountId limit 1];
+
+            if (winningAcct.isEmpty())
+            {
+                throw new MERC_Exception('Unable to locate the winning account.');
+            }
 
             for (SelectableSObject so : losingList)
             {
                 if (so.selected)
                 {
                     /*----- reparent to the winning record parent id -----*/
-                    so.detail.put(settings.Parent_Account_Field_MERC__c, winningAccountId);
+                    so.detail.put(settings.Parent_Account_Field_MERC__c, winningAcct[0].Id);
                     objectsToUpdate.add(so.detail);
                 }
             }

@@ -115,4 +115,59 @@ public class TestUtils {
 
         return participants;
     }
+
+    public static List<et4ae5__SendDefinition__c> CreateETSend(Integer count) {
+        
+        List<et4ae5__SendDefinition__c> etSends = new List<et4ae5__SendDefinition__c>();
+
+        for (Integer i = 0; i < count; i++) {
+            etSends.add(new et4ae5__SendDefinition__c());
+        }
+
+        return etSends;
+    }
+
+    public static List<et4ae5__IndividualEmailResult__c> CreateEtIndividualTrackingResult(Id personContactId, 
+        List<et4ae5__SendDefinition__c> etSends) {
+
+        List<et4ae5__IndividualEmailResult__c> individualTracking = new List<et4ae5__IndividualEmailResult__c>();
+        
+        for (et4ae5__SendDefinition__c etSend: etSends) {
+            individualTracking.add( new et4ae5__IndividualEmailResult__c(
+                et4ae5__Contact__c = personContactId, 
+                et4ae5__SendDefinition__c = etSend.id
+            ));
+        }
+
+        return individualTracking;
+    }
+
+    public static List<Meeting_Email_Send_MERC__c> CreateMeetingEmailSend(Id meetingId, List<et4ae5__SendDefinition__c> etSends) {
+        
+        List<Meeting_Email_Send_MERC__c> meetingEmailSends = new List<Meeting_Email_Send_MERC__c>();
+
+        for (et4ae5__SendDefinition__c etSend: etSends) {
+            meetingEmailSends.add(new Meeting_Email_Send_MERC__c(
+                Email_Send_Number_MERC__c=etSend.id, 
+                Meeting_MERC__c=meetingId
+            ));
+        }
+
+        return meetingEmailSends;
+    }
+
+    public static List<Meeting_Participant_Email_Send_MERC__c> CreateMeetingParticipantEmailSend(Id meetingParticipantId, 
+        List<Meeting_Email_Send_MERC__c> meetingEmailSends) {
+        
+        List<Meeting_Participant_Email_Send_MERC__c> meetingParticipantEmailSends = new List<Meeting_Participant_Email_Send_MERC__c>();
+
+        for (Meeting_Email_Send_MERC__c meetingEmailSend: meetingEmailSends) {
+            meetingParticipantEmailSends.add(new Meeting_Participant_Email_Send_MERC__c(
+                Meeting_Email_Send__c = meetingEmailSend.id, 
+                Meeting_Participant__c=meetingParticipantId
+            ));
+        }
+
+        return meetingParticipantEmailSends;
+    }
 }

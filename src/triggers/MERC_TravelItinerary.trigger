@@ -7,7 +7,7 @@ trigger MERC_TravelItinerary on Travel_Itinerary_MERC__c (before insert, before 
 		.bind(GLBL_TriggerHandler.Evt.afterdelete, new MERC_HotelAllocationCalculator(Travel_Itinerary_MERC__c.SobjectType))
 		.bind(GLBL_TriggerHandler.Evt.afterundelete, new MERC_HotelAllocationCalculator(Travel_Itinerary_MERC__c.SobjectType))
 		.bind(GLBL_TriggerHandler.Evt.afterupdate, new MERC_TOVCalculator(Travel_Itinerary_MERC__c.SobjectType))
-        .bind(GLBL_TriggerHandler.Evt.afterinsert, new MERC_TravelItineraryStampMtgHandler())
-        .bind(GLBL_TriggerHandler.Evt.afterupdate, new MERC_TravelItineraryStampMtgHandler())
+        .bind(GLBL_TriggerHandler.Evt.afterinsert, new MERC_ParticipantTovStampHandler(Travel_Itinerary_MERC__c.SobjectType))
+        .bind(GLBL_TriggerHandler.Evt.afterupdate, new MERC_ParticipantTovStampHandler(Travel_Itinerary_MERC__c.SobjectType))
         .manage();
 }

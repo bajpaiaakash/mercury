@@ -1,7 +1,7 @@
 public with sharing class ETDataExtension {
     public ETDataExtension() {}
 
-    public ETDataExtension(String name, String des, String key) {
+    public ETDataExtension(String name, String des, String key, Datetime expireIn) {
         this.dataExtensionName = name;
         this.description = des;
         this.key = key;
@@ -12,7 +12,7 @@ public with sharing class ETDataExtension {
 
         this.field = new List<Field>();
         this.retentionPolicy = new List<RetentionPolicy>();
-        this.retentionPolicy.add(new RetentionPolicy(false, false, String.valueOf(Datetime.now().addDays(1)), false));
+        this.retentionPolicy.add(new RetentionPolicy(false, false, String.valueOf(expireIn), false));
     }
 
     public String dataExtensionName;

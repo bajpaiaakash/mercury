@@ -1,314 +1,345 @@
 @isTest
 private class Test_MeetingEmailSendExtension {
 
-    //@isTest
-    //public static void Test_Constructor() {
-    //    Meeting_MERC__c meeting = TestUtils.CreateMeetings(1)[0];
-    //    insert meeting;
+    @isTest
+    public static void Test_Constructor() {
+        Meeting_MERC__c meeting = TestUtils.CreateMeetings(1)[0];
+        insert meeting;
 
-    //    Sonoma_ET_Config__c config = TestUtils.CreateConfig();
-    //    insert config;
+        Sonoma_ET_Config__c config = TestUtils.CreateConfig();
+        insert config;
 
-    //    ApexPages.StandardController controller = new ApexPages.StandardController(meeting);
+        ApexPages.StandardController controller = new ApexPages.StandardController(meeting);
 
-    //    Test.startTest();
-    //    MeetingEmailSendExtension ext = new MeetingEmailSendExtension(controller);
-    //    Test.stopTest();
+        Test.startTest();
+        MeetingEmailSendExtension ext = new MeetingEmailSendExtension(controller);
+        Test.stopTest();
 
-    //    System.assertEquals(false, ext.getHasErrors());
-    //}
+        System.assertEquals(false, ext.getHasErrors());
+    }
 
-    //@isTest
-    //public static void Test_Constructor_NoMeeting() {
-    //    Sonoma_ET_Config__c config = TestUtils.CreateConfig();
-    //    insert config;
+    @isTest
+    public static void Test_Constructor_NoMeeting() {
+        Sonoma_ET_Config__c config = TestUtils.CreateConfig();
+        insert config;
 
-    //    Meeting_MERC__c meeting = TestUtils.CreateMeetings(1)[0];
+        Meeting_MERC__c meeting = TestUtils.CreateMeetings(1)[0];
 
-    //    ApexPages.StandardController controller = new ApexPages.StandardController(meeting);
+        ApexPages.StandardController controller = new ApexPages.StandardController(meeting);
 
-    //    Test.startTest();
-    //    MeetingEmailSendExtension ext = new MeetingEmailSendExtension(controller);
-    //    Test.stopTest();
+        Test.startTest();
+        MeetingEmailSendExtension ext = new MeetingEmailSendExtension(controller);
+        Test.stopTest();
 
-    //    System.assertEquals(true, ext.getHasErrors());
-    //}
+        System.assertEquals(true, ext.getHasErrors());
+    }
 
-    //@isTest
-    //public static void Test_SelectAllClicked() {
-    //    Meeting_MERC__c meeting = TestUtils.CreateMeetings(1)[0];
-    //    insert meeting;
+    @isTest
+    public static void Test_SelectAllClicked() {
+        Meeting_MERC__c meeting = TestUtils.CreateMeetings(1)[0];
+        insert meeting;
 
-    //    Sonoma_ET_Config__c config = TestUtils.CreateConfig();
-    //    insert config;
+        Sonoma_ET_Config__c config = TestUtils.CreateConfig();
+        insert config;
 
 
-    //    List<Account> accts = TestUtils.CreatePersonAccountsWithRecordType('HCP_GLBL', 100);
-    //    insert accts;
+        List<Account> accts = TestUtils.CreatePersonAccountsWithRecordType('HCP_GLBL', 100);
+        insert accts;
 
-    //    List<Meeting_Participant_MERC__c> participants = TestUtils.CreateParticipants(meeting, accts);
-    //    insert participants;
+        List<Meeting_Participant_MERC__c> participants = TestUtils.CreateParticipants(meeting, accts);
+        insert participants;
 
-    //    Test.startTest();
-    //    ApexPages.StandardController controller = new ApexPages.StandardController(meeting);
-    //    MeetingEmailSendExtension ext = new MeetingEmailSendExtension(controller);
-    //    ext.IsAllChecked = true;
-    //    System.assertEquals(accts.size(), ext.Participants.size());
-    //    ext.SelectAllClicked();
-    //    for (MeetingEmailSendExtension.SelectedWrapper p : ext.Participants) {
-    //        System.assert(p.IsSelected);
-    //    }
-    //    Test.stopTest();
-    //}
+        Test.startTest();
+        ApexPages.StandardController controller = new ApexPages.StandardController(meeting);
+        MeetingEmailSendExtension ext = new MeetingEmailSendExtension(controller);
+        ext.IsAllChecked = true;
+        System.assertEquals(accts.size(), ext.Participants.size());
+        ext.SelectAllClicked();
+        for (MeetingEmailSendExtension.SelectedWrapper p : ext.Participants) {
+            System.assert(p.IsSelected);
+        }
+        Test.stopTest();
+    }
 
-    //@isTest
-    //public static void Test_ShowHideGrid() {
-    //    Sonoma_ET_Config__c config = TestUtils.CreateConfig();
-    //    insert config;
+    @isTest
+    public static void Test_ShowHideGrid() {
+        Sonoma_ET_Config__c config = TestUtils.CreateConfig();
+        insert config;
 
-    //    Meeting_MERC__c meeting = TestUtils.CreateMeetings(1)[0];
+        Meeting_MERC__c meeting = TestUtils.CreateMeetings(1)[0];
 
-    //    ApexPages.StandardController controller = new ApexPages.StandardController(meeting);
+        ApexPages.StandardController controller = new ApexPages.StandardController(meeting);
 
-    //    Test.startTest();
-    //    MeetingEmailSendExtension ext = new MeetingEmailSendExtension(controller);
-    //    ext.ShowGrid();
-    //    System.assert(ext.ShowParticipantGrid);
-    //    ext.HideGrid();
-    //    System.assert(!ext.ShowParticipantGrid);
-    //    Test.stopTest();
-    //}
+        Test.startTest();
+        MeetingEmailSendExtension ext = new MeetingEmailSendExtension(controller);
+        ext.ShowGrid();
+        System.assert(ext.ShowParticipantGrid);
+        ext.HideGrid();
+        System.assert(!ext.ShowParticipantGrid);
+        Test.stopTest();
+    }
 
-    //@isTest
-    //public static void Test_UrlRoot() {
-    //    Meeting_MERC__c meeting = TestUtils.CreateMeetings(1)[0];
-    //    insert meeting;
+    @isTest
+    public static void Test_UrlRoot() {
+        Meeting_MERC__c meeting = TestUtils.CreateMeetings(1)[0];
+        insert meeting;
 
-    //    et4ae5__configuration__c etConfig = TestUtils.CreateEtConfig();
-    //    insert etConfig;
+        et4ae5__configuration__c etConfig = TestUtils.CreateEtConfig();
+        insert etConfig;
 
-    //    ApexPages.StandardController controller = new ApexPages.StandardController(meeting);
+        ApexPages.StandardController controller = new ApexPages.StandardController(meeting);
 
-    //    Test.startTest();
-    //    MeetingEmailSendExtension ext = new MeetingEmailSendExtension(controller);
-    //    System.assertEquals('mc', ext.urlroot); // for whatever reason, that is the default value
-    //    etConfig = [SELECT Id, et4ae5__url_root__c FROM et4ae5__configuration__c WHERE Id = :etConfig.Id];
-    //    etConfig.et4ae5__url_root__c = 'urlroot';
-    //    update etConfig;
-    //    ext = new MeetingEmailSendExtension(controller);
-    //    System.assert(ext.urlroot.containsIgnoreCase('urlroot'));
-    //    Test.stopTest();
-    //}
+        Test.startTest();
+        MeetingEmailSendExtension ext = new MeetingEmailSendExtension(controller);
+        System.assertEquals('mc', ext.urlroot); // for whatever reason, that is the default value
+        etConfig = [SELECT Id, et4ae5__url_root__c FROM et4ae5__configuration__c WHERE Id = :etConfig.Id];
+        etConfig.et4ae5__url_root__c = 'urlroot';
+        update etConfig;
+        ext = new MeetingEmailSendExtension(controller);
+        System.assert(ext.urlroot.containsIgnoreCase('urlroot'));
+        Test.stopTest();
+    }
 
-    //@isTest
-    //public static void Test_Send_NoRecipients() {
-    //    Meeting_MERC__c meeting = TestUtils.CreateMeetings(1)[0];
-    //    insert meeting;
+    @isTest
+    public static void Test_Send_NoRecipients() {
+        Meeting_MERC__c meeting = TestUtils.CreateMeetings(1)[0];
+        insert meeting;
 
-    //    ApexPages.StandardController controller = new ApexPages.StandardController(meeting);
-    //    MeetingEmailSendExtension ext = new MeetingEmailSendExtension(controller);
-    //    ext.SendTime = 'none';
+        ApexPages.StandardController controller = new ApexPages.StandardController(meeting);
+        MeetingEmailSendExtension ext = new MeetingEmailSendExtension(controller);
+        ext.SendTime = 'none';
 
-    //    Test.startTest();
-    //    PageReference ref = ext.Send();
-    //    Test.stopTest();
+        Test.startTest();
+        PageReference ref = ext.Send();
+        Test.stopTest();
 
-    //    System.assertEquals(null, ref);
-    //    System.assert(ApexPages.hasMessages(ApexPages.Severity.ERROR));
-    //}
+        System.assertEquals(null, ref);
+        System.assert(ApexPages.hasMessages(ApexPages.Severity.ERROR));
+    }
 
-    //@isTest
-    //public static void Test_Send_NoSubject() {
-    //    Meeting_MERC__c meeting = TestUtils.CreateMeetings(1)[0];
-    //    insert meeting;
+    @isTest
+    public static void Test_Send_NoSubject() {
+        Meeting_MERC__c meeting = TestUtils.CreateMeetings(1)[0];
+        insert meeting;
 
-    //    ApexPages.StandardController controller = new ApexPages.StandardController(meeting);
-    //    MeetingEmailSendExtension ext = new MeetingEmailSendExtension(controller);
-    //    FolderedEmail email = new FolderedEmail();
-    //    email.Id = 'test';
-    //    ext.email = email;
+        ApexPages.StandardController controller = new ApexPages.StandardController(meeting);
+        MeetingEmailSendExtension ext = new MeetingEmailSendExtension(controller);
+        FolderedEmail email = new FolderedEmail();
+        email.Id = 'test';
+        ext.email = email;
 
-    //    Test.startTest();
-    //    PageReference ref = ext.Send();
-    //    Test.stopTest();
+        Test.startTest();
+        PageReference ref = ext.Send();
+        Test.stopTest();
 
-    //    System.assertEquals(null, ref);
-    //    System.assert(ApexPages.hasMessages(ApexPages.Severity.ERROR));   
-    //}
+        System.assertEquals(null, ref);
+        System.assert(ApexPages.hasMessages(ApexPages.Severity.ERROR));   
+    }
 
-    //@isTest
-    //public static void Test_Send() {
-    //    Meeting_MERC__c meeting = TestUtils.CreateMeetings(1)[0];
-    //    insert meeting;
+    @isTest
+    public static void Test_Send() {
+        Test.setMock(HttpCalloutMock.class, new Mock_EndToEndDataExtensionCallouts());
+        MERC_TestFactory.adjustForSFDCSetMockBug = true;
 
-    //    Sonoma_ET_Config__c config = TestUtils.CreateConfig();
-    //    insert config;
+        Meeting_MERC__c meeting = TestUtils.CreateMeetings(1)[0];
+        meeting.RecordTypeId = TestUtils.GetRecordType('Ad_Hoc_Consulting', 'Meeting_MERC__c').Id;
+        meeting.City_of_Meeting_MERC__c = 'test city';
+        meeting.Preferred_Venue_MERC__c = 'test venue';
+        meeting.Start_Time_of_Meeting_MERC__c = Datetime.now();
+        meeting.End_Time_of_Meeting_MERC__c = Datetime.now().addDays(5);
+        meeting.Event_Id_MERC__c = 'test id';
+        insert meeting;
 
-    //    List<Account> accts = TestUtils.CreatePersonAccountsWithRecordType('HCP_GLBL', 100);
-    //    insert accts;
-    //    accts = [SELECT Id, Name FROM Account WHERE Id IN :accts];
-    //    Set<String> accountNames = new Set<String>();
-    //    for (Account a : accts) {
-    //        accountNames.add(a.Name);
-    //    }
+        List<Account> accts = TestUtils.CreatePersonAccountsWithRecordType('HCP_GLBL', 5);
+        insert accts;
 
-    //    List<Meeting_Participant_MERC__c> participants = TestUtils.CreateParticipants(meeting, accts);
-    //    insert participants;
+        List<Meeting_Participant_MERC__c> participants = TestUtils.CreateParticipants(meeting, accts);
+        insert participants;
 
-    //    ApexPages.StandardController controller = new ApexPages.StandardController(meeting);
-    //    MeetingEmailSendExtension ext = new MeetingEmailSendExtension(controller);
+        Sonoma_ET_Config__c config = TestUtils.CreateConfig();
+        insert config;
+
+        et4ae5__Configuration__c etConfig = TestUtils.CreateETConfig();
+        etConfig.et4ae5__UserName__c = 'testusername';
+        etConfig.et4ae5__Password__c = 'testuserpassword';
+        etConfig.et4ae5__Auth_API_URL__c = 'www.testauthurl.com/Auth.svc';
+        etConfig.et4ae5__Root_Rest_API_URL__c = 'www.testrootrest.com';
+        insert etConfig;
+
+        et4ae5__Business_Unit__c etBU = TestUtils.CreateETBU(config);
+        etBU.et4ae5__Enabled__c = true;
+        insert etBU;
+
+        ApexPages.StandardController controller = new ApexPages.StandardController(meeting);
+        MeetingEmailSendExtension ext = new MeetingEmailSendExtension(controller);
+        ext.DeDup = true;
+        ext.OptIn = true;
+        ext.DisableIndividualTracking = true;
         
-    //    FolderedEmail email = new FolderedEmail();
-    //    email.Id = 'test';
-    //    email.Title = 'test subject';
-    //    ext.email = email;
+        FolderedEmail email = new FolderedEmail();
+        email.Id = 'test';
+        email.name = 'test email name';
+        email.Title = 'test subject';
+        ext.email = email;
 
-    //    for (MeetingEmailSendExtension.SelectedWrapper w : ext.Participants) {
-    //        w.IsSelected = true;
-    //    }
+        System.assertEquals(participants.size(), ext.Participants.size());
+        for (MeetingEmailSendExtension.SelectedWrapper w : ext.Participants) {
+            w.IsSelected = true;
+        }
 
-    //    Test.startTest();
-    //    PageReference ref = ext.Send();
-    //    Test.stopTest();
+        /**
+         * The entire test must be wrapped in a try/catch.  The reason being that when we insert the
+         * et4ae5__SendDefinition__c object at the end of our process, the ET integration sets up a future method that
+         * makes a web service callout.  However, the ET integration does not expose a webservice mock or method to set
+         * up a mock for us to properly catch this callout.  As such, SFDC throws 
+         * "System.TypeException: Methods defined as TestMethod do not support Web service callouts, test skipped" when
+         * the web service call is not sent to a mock.  Therefore, we are just catching and ensuring that happens.
+         */
+        try {
+            Test.startTest();
+            PageReference ref = ext.Send();
+            Test.stopTest();
+            
+            System.assertNotEquals(null, ref);
+            System.assert(!ApexPages.hasMessages(ApexPages.Severity.ERROR));
+        } catch (Exception e) {
+            System.debug('exception : ' + e);
+            System.assert(e.getMessage().containsIgnoreCase('Methods defined as TestMethod do not support Web service callouts, test skipped'));
+        }
 
-    //    System.assertNotEquals(null, ref);
-    //    System.assert(!ApexPages.hasMessages(ApexPages.Severity.ERROR));
-    //}
+    }
 
-    //@isTest
-    //public static void Test_GetParticipantNames() {
-    //    Meeting_MERC__c meeting = TestUtils.CreateMeetings(1)[0];
-    //    insert meeting;
+    @isTest
+    public static void Test_GetParticipantCount() {
+        Meeting_MERC__c meeting = TestUtils.CreateMeetings(1)[0];
+        insert meeting;
 
-    //    Sonoma_ET_Config__c config = TestUtils.CreateConfig();
-    //    insert config;
+        Sonoma_ET_Config__c config = TestUtils.CreateConfig();
+        insert config;
 
 
-    //    List<Account> accts = TestUtils.CreatePersonAccountsWithRecordType('HCP_GLBL', 100);
-    //    insert accts;
-    //    accts = [SELECT Id, Name FROM Account WHERE Id IN :accts];
-    //    Set<String> accountNames = new Set<String>();
-    //    for (Account a : accts) {
-    //        accountNames.add(a.Name);
-    //    }
+        List<Account> accts = TestUtils.CreatePersonAccountsWithRecordType('HCP_GLBL', 100);
+        insert accts;
+        accts = [SELECT Id, Name FROM Account WHERE Id IN :accts];
+        Set<String> accountNames = new Set<String>();
+        for (Account a : accts) {
+            accountNames.add(a.Name);
+        }
 
-    //    List<Meeting_Participant_MERC__c> participants = TestUtils.CreateParticipants(meeting, accts);
-    //    insert participants;
+        List<Meeting_Participant_MERC__c> participants = TestUtils.CreateParticipants(meeting, accts);
+        insert participants;
 
-    //    Test.startTest();
-    //    ApexPages.StandardController controller = new ApexPages.StandardController(meeting);
-    //    MeetingEmailSendExtension ext = new MeetingEmailSendExtension(controller);
-    //    System.assertEquals(accts.size(), ext.Participants.size());
-    //    String participantNames = ext.getParticipantNames();
-    //    System.assertEquals('', participantNames);
-    //    ext.IsAllChecked = true;
-    //    ext.SelectAllClicked();
-    //    participantNames = ext.getParticipantNames();
-    //    Test.stopTest();
+        Test.startTest();
+        ApexPages.StandardController controller = new ApexPages.StandardController(meeting);
+        MeetingEmailSendExtension ext = new MeetingEmailSendExtension(controller);
+        System.assertEquals(accts.size(), ext.Participants.size());
+        Integer participantCount = ext.getParticipantCount();
+        System.assertEquals(0, participantCount);
+        ext.IsAllChecked = true;
+        ext.SelectAllClicked();
+        participantCount = ext.getParticipantCount();
+        Test.stopTest();
 
-    //    List<String> names = participantNames.split('; ');
-    //    System.debug('names : ' + names);
-    //    System.debug('accountNames : ' + accountNames);
-    //    for (String n : names) {
-    //        System.assert(accountNames.contains(n));
-    //    }
-    //}
+        System.assertEquals(participants.size(), participantCount);
+    }
 
-    //@isTest
-    //public static void Test_GetSyncPayload() {
-    //    Meeting_MERC__c meeting = TestUtils.CreateMeetings(1)[0];
-    //    insert meeting;
+    @isTest
+    public static void Test_GetSyncPayload() {
+        Meeting_MERC__c meeting = TestUtils.CreateMeetings(1)[0];
+        insert meeting;
 
-    //    et4ae5__configuration__c etConfig = TestUtils.CreateEtConfig();
-    //    insert etConfig;
+        et4ae5__configuration__c etConfig = TestUtils.CreateEtConfig();
+        insert etConfig;
 
-    //    ApexPages.StandardController controller = new ApexPages.StandardController(meeting);
+        ApexPages.StandardController controller = new ApexPages.StandardController(meeting);
 
-    //    Test.startTest();
-    //    MeetingEmailSendExtension ext = new MeetingEmailSendExtension(controller);
-    //    String payload = ext.getSyncPayload();
-    //    System.assertNotEquals(null, payload);
-    //    Test.stopTest();
-    //}
+        Test.startTest();
+        MeetingEmailSendExtension ext = new MeetingEmailSendExtension(controller);
+        String payload = ext.getSyncPayload();
+        System.assertNotEquals(null, payload);
+        Test.stopTest();
+    }
 
-    //@isTest
-    //public static void Test_ListExactTargetEmails() {
-    //    Meeting_MERC__c meeting = TestUtils.CreateMeetings(1)[0];
-    //    insert meeting;
+    @isTest
+    public static void Test_ListExactTargetEmails() {
+        Meeting_MERC__c meeting = TestUtils.CreateMeetings(1)[0];
+        insert meeting;
 
-    //    Sonoma_ET_Config__c config = TestUtils.CreateConfig();
-    //    insert config;
+        Sonoma_ET_Config__c config = TestUtils.CreateConfig();
+        insert config;
 
-    //    et4ae5__configuration__c etConfig = TestUtils.CreateEtConfig();
-    //    etConfig.et4ae5__username__c = 'testusername';
-    //    etConfig.et4ae5__password__c = 'testpassword';
-    //    etConfig.et4ae5__auth_api_url__c = 'www.testauthurl.com';
-    //    insert etConfig;
+        et4ae5__configuration__c etConfig = TestUtils.CreateEtConfig();
+        etConfig.et4ae5__username__c = 'testusername';
+        etConfig.et4ae5__password__c = 'testpassword';
+        etConfig.et4ae5__auth_api_url__c = 'www.testauthurl.com';
+        insert etConfig;
 
-    //    et4ae5__Business_Unit__c etBU = TestUtils.CreateETBU(config);
-    //    insert etBU;
+        et4ae5__Business_Unit__c etBU = TestUtils.CreateETBU(config);
+        insert etBU;
 
-    //    User u = TestUtils.CreateUser('Standard User');
-    //    u.et4ae5__exacttarget_Oauth_token__c = '';
-    //    insert u;
+        User u = TestUtils.CreateUser('Standard User');
+        u.et4ae5__exacttarget_Oauth_token__c = '';
+        insert u;
 
-    //    ApexPages.StandardController stdController = new ApexPages.StandardController(meeting);
-    //    MeetingEmailSendExtension ext = new MeetingEmailSendExtension(stdController);
+        ApexPages.StandardController stdController = new ApexPages.StandardController(meeting);
+        MeetingEmailSendExtension ext = new MeetingEmailSendExtension(stdController);
 
-    //    EtObject.emailfolder testFolderA=new etObject.emailfolder();
-    //    EtObject.emailfolder testFolderB=new etObject.emailfolder();
-    //    EtObject.emailfolder testFolderC=new etObject.emailfolder();
-    //    EtObject.emailfolder testFolderD=new etObject.emailfolder();
-    //    EtObject.emailfolder testFolderE=new etObject.emailfolder();
-    //    testFolderA.id = 'testFolderA';
-    //    testFolderB.id = 'testFolderB';
-    //    testFolderC.id = 'testFolderC';
-    //    testFolderD.id = 'testFolderD';
-    //    testFolderE.id = 'testFolderE';
-    //    testFolderA.subfolders=new list<etObject.emailfolder>();
-    //    testFolderB.subfolders=new list<etObject.emailfolder>();
-    //    testFolderC.subfolders=new list<etObject.emailfolder>();
-    //    testFolderD.subfolders=new list<etObject.emailfolder>();
-    //    testFolderD.subfolders.add(testFolderE);
-    //    testFolderC.subfolders.add(testFolderD);
-    //    testFolderB.subfolders.add(testFolderC);
-    //    testFolderA.subfolders.add(testFolderB);
-    //    ext.emails=new list<etObject.emailfolder>();
-    //    ext.emails.add(testFolderA);
+        EtObject.emailfolder testFolderA=new etObject.emailfolder();
+        EtObject.emailfolder testFolderB=new etObject.emailfolder();
+        EtObject.emailfolder testFolderC=new etObject.emailfolder();
+        EtObject.emailfolder testFolderD=new etObject.emailfolder();
+        EtObject.emailfolder testFolderE=new etObject.emailfolder();
+        testFolderA.id = 'testFolderA';
+        testFolderB.id = 'testFolderB';
+        testFolderC.id = 'testFolderC';
+        testFolderD.id = 'testFolderD';
+        testFolderE.id = 'testFolderE';
+        testFolderA.subfolders=new list<etObject.emailfolder>();
+        testFolderB.subfolders=new list<etObject.emailfolder>();
+        testFolderC.subfolders=new list<etObject.emailfolder>();
+        testFolderD.subfolders=new list<etObject.emailfolder>();
+        testFolderD.subfolders.add(testFolderE);
+        testFolderC.subfolders.add(testFolderD);
+        testFolderB.subfolders.add(testFolderC);
+        testFolderA.subfolders.add(testFolderB);
+        ext.emails=new list<etObject.emailfolder>();
+        ext.emails.add(testFolderA);
 
-    //    EtObject.CallEmailFolderResponse cefr= new EtObject.CallEmailFolderResponse();
-    //    Test.startTest();
+        EtObject.CallEmailFolderResponse cefr= new EtObject.CallEmailFolderResponse();
+        Test.startTest();
 
-    //    System.runAs(u) {
-    //        cefr.entry = testFolderA.subfolders;
-    //        Test.setMock(HttpCalloutMock.class, new MockHttpResponseGenerator(JSON.serialize(cefr)));
-    //        ApexPages.currentPage().getParameters().put('folderId','testFolderA');
-    //        ext.listExactTargetEmails();
-    //        System.assertEquals(null, ext.emails);
-    //    }
+        System.runAs(u) {
+            cefr.entry = testFolderA.subfolders;
+            Test.setMock(HttpCalloutMock.class, new MockHttpResponseGenerator(JSON.serialize(cefr)));
+            ApexPages.currentPage().getParameters().put('folderId','testFolderA');
+            ext.listExactTargetEmails();
+            System.assertEquals(null, ext.emails);
+        }
 
-    //    Test.stopTest();
-    //}
+        Test.stopTest();
+    }
 
-    //@isTest
-    //public static void Test_SelectEmailCancel() {
-    //    Meeting_MERC__c meeting = TestUtils.CreateMeetings(1)[0];
-    //    insert meeting;
+    @isTest
+    public static void Test_SelectEmailCancel() {
+        Meeting_MERC__c meeting = TestUtils.CreateMeetings(1)[0];
+        insert meeting;
 
-    //    et4ae5__configuration__c etConfig = TestUtils.CreateEtConfig();
-    //    insert etConfig;
+        et4ae5__configuration__c etConfig = TestUtils.CreateEtConfig();
+        insert etConfig;
 
-    //    ApexPages.StandardController controller = new ApexPages.StandardController(meeting);
+        ApexPages.StandardController controller = new ApexPages.StandardController(meeting);
 
-    //    Test.startTest();
-    //    MeetingEmailSendExtension ext = new MeetingEmailSendExtension(controller);
-    //    ext.selectEmailCancel();
-    //    System.assertEquals(false, ext.showEmailChooser);
-    //    Test.stopTest();
-    //}
+        Test.startTest();
+        MeetingEmailSendExtension ext = new MeetingEmailSendExtension(controller);
+        ext.selectEmailCancel();
+        System.assertEquals(false, ext.showEmailChooser);
+        Test.stopTest();
+    }
 
     @isTest
     public static void testExpandFolder() {
+        MERC_TestFactory.adjustForSFDCSetMockBug = true;
+
         Meeting_MERC__c meeting = TestUtils.CreateMeetings(1)[0];
         insert meeting;
 
@@ -326,8 +357,6 @@ private class Test_MeetingEmailSendExtension {
         insert etBU;
 
         User u = TestUtils.CreateUser('System Administrator');
-        u.et4ae5__exactTargetForAppExchangeAdmin__c=true;
-        u.et4ae5__exactTargetForAppExchangeUser__c=true;
         u.et4ae5__exactTarget_OAuth_Token__c='testToken';
         u.et4ae5__exactTargetUsername__c='testUser';
         insert u;
@@ -372,6 +401,9 @@ private class Test_MeetingEmailSendExtension {
                 }
             }
             System.assert(!containsMessage);
+
+            cefr.entry = testFolderE.subfolders;
+            Test.setMock(HttpCalloutMock.class, new MockHttpResponseGenerator(JSON.serialize(cefr)));
             ApexPages.currentPage().getParameters().put('folderId','testFolderE');
             ext.expandFolder();
             containsMessage = false;
@@ -385,78 +417,80 @@ private class Test_MeetingEmailSendExtension {
         }
     }
 
-    //@isTest
-    //public static void Test_SelectEmail() {
-    //    Meeting_MERC__c meeting = TestUtils.CreateMeetings(1)[0];
-    //    insert meeting;
+    @isTest
+    public static void Test_SelectEmail() {
+        MERC_TestFactory.adjustForSFDCSetMockBug = true;
 
-    //    Sonoma_ET_Config__c config = TestUtils.CreateConfig();
-    //    insert config;
+        Meeting_MERC__c meeting = TestUtils.CreateMeetings(1)[0];
+        insert meeting;
 
-    //    et4ae5__configuration__c etConfig = TestUtils.CreateEtConfig();
-    //    etConfig.et4ae5__username__c = 'testusername';
-    //    etConfig.et4ae5__password__c = 'testpassword';
-    //    etConfig.et4ae5__auth_api_url__c = 'www.testauthurl.com';
-    //    insert etConfig;
+        Sonoma_ET_Config__c config = TestUtils.CreateConfig();
+        insert config;
 
-    //    et4ae5__Business_Unit__c etBU = TestUtils.CreateETBU(config);
-    //    insert etBU;
+        et4ae5__configuration__c etConfig = TestUtils.CreateEtConfig();
+        etConfig.et4ae5__username__c = 'testusername';
+        etConfig.et4ae5__password__c = 'testpassword';
+        etConfig.et4ae5__auth_api_url__c = 'www.testauthurl.com';
+        insert etConfig;
 
-    //    User u = TestUtils.CreateUser('Standard User');
-    //    u.et4ae5__exacttarget_Oauth_token__c = '';
-    //    insert u;
+        et4ae5__Business_Unit__c etBU = TestUtils.CreateETBU(config);
+        insert etBU;
 
-    //    ApexPages.StandardController stdController = new ApexPages.StandardController(meeting);
-    //    MeetingEmailSendExtension ext = new MeetingEmailSendExtension(stdController);
+        User u = TestUtils.CreateUser('Standard User');
+        u.et4ae5__exacttarget_Oauth_token__c = '';
+        insert u;
 
-    //    EtObject.emailfolder testFolderA=new etObject.emailfolder();
-    //    EtObject.emailfolder testFolderB=new etObject.emailfolder();
-    //    EtObject.emailfolder testFolderC=new etObject.emailfolder();
-    //    EtObject.emailfolder testFolderD=new etObject.emailfolder();
-    //    EtObject.emailfolder testFolderE=new etObject.emailfolder();
-    //    testFolderA.id = 'testFolderA';
-    //    testFolderB.id = 'testFolderB';
-    //    testFolderC.id = 'testFolderC';
-    //    testFolderD.id = 'testFolderD';
-    //    testFolderE.id = 'testFolderE';
-    //    testFolderA.subfolders=new list<etObject.emailfolder>();
-    //    testFolderB.subfolders=new list<etObject.emailfolder>();
-    //    testFolderC.subfolders=new list<etObject.emailfolder>();
-    //    testFolderD.subfolders=new list<etObject.emailfolder>();
-    //    testFolderD.subfolders.add(testFolderE);
-    //    testFolderC.subfolders.add(testFolderD);
-    //    testFolderB.subfolders.add(testFolderC);
-    //    testFolderA.subfolders.add(testFolderB);
-    //    ext.emails=new list<etObject.emailfolder>();
-    //    ext.emails.add(testFolderA);
+        ApexPages.StandardController stdController = new ApexPages.StandardController(meeting);
+        MeetingEmailSendExtension ext = new MeetingEmailSendExtension(stdController);
 
-    //    EtObject.CallEmailFolderResponse cefr= new EtObject.CallEmailFolderResponse();
-    //    Test.startTest();
+        EtObject.emailfolder testFolderA=new etObject.emailfolder();
+        EtObject.emailfolder testFolderB=new etObject.emailfolder();
+        EtObject.emailfolder testFolderC=new etObject.emailfolder();
+        EtObject.emailfolder testFolderD=new etObject.emailfolder();
+        EtObject.emailfolder testFolderE=new etObject.emailfolder();
+        testFolderA.id = 'testFolderA';
+        testFolderB.id = 'testFolderB';
+        testFolderC.id = 'testFolderC';
+        testFolderD.id = 'testFolderD';
+        testFolderE.id = 'testFolderE';
+        testFolderA.subfolders=new list<etObject.emailfolder>();
+        testFolderB.subfolders=new list<etObject.emailfolder>();
+        testFolderC.subfolders=new list<etObject.emailfolder>();
+        testFolderD.subfolders=new list<etObject.emailfolder>();
+        testFolderD.subfolders.add(testFolderE);
+        testFolderC.subfolders.add(testFolderD);
+        testFolderB.subfolders.add(testFolderC);
+        testFolderA.subfolders.add(testFolderB);
+        ext.emails=new list<etObject.emailfolder>();
+        ext.emails.add(testFolderA);
 
-    //    String eId = 'testEmailId';
-    //    String eName = 'testEmailName';
-    //    String eSubject = 'testEmailSubject';
+        EtObject.CallEmailFolderResponse cefr= new EtObject.CallEmailFolderResponse();
+        Test.startTest();
 
-    //    System.runAs(u) {
-    //        cefr.entry = testFolderA.subfolders;
-    //        Test.setMock(HttpCalloutMock.class, new MockHttpResponseGenerator(JSON.serialize(cefr)));
+        String eId = 'testEmailId';
+        String eName = 'testEmailName';
+        String eSubject = 'testEmailSubject';
 
-    //        ext.selectEmail();
-    //        System.assertEquals(null, ext.email.id);
-    //        System.assertEquals(null, ext.email.name);
-    //        System.assertEquals(null, ext.email.title);
+        System.runAs(u) {
+            cefr.entry = testFolderA.subfolders;
+            Test.setMock(HttpCalloutMock.class, new MockHttpResponseGenerator(JSON.serialize(cefr)));
 
-    //        ApexPages.currentPage().getParameters().put('emailId', eId);
-    //        ApexPages.currentPage().getParameters().put('emailName', eName);
-    //        ApexPages.currentPage().getParameters().put('emailSubject', eSubject);
+            ext.selectEmail();
+            System.assertEquals(null, ext.email.id);
+            System.assertEquals(null, ext.email.name);
+            System.assertEquals(null, ext.email.title);
 
-    //        ext.selectEmail();
-    //        System.assertEquals(eId, ext.email.id);
-    //        System.assertEquals(eName, ext.email.name);
-    //        System.assertEquals(eSubject, ext.email.title);
-    //    }
+            ApexPages.currentPage().getParameters().put('emailId', eId);
+            ApexPages.currentPage().getParameters().put('emailName', eName);
+            ApexPages.currentPage().getParameters().put('emailSubject', eSubject);
 
-    //    Test.stopTest();
-    //}
+            ext.selectEmail();
+            System.assertEquals(eId, ext.email.id);
+            System.assertEquals(eName, ext.email.name);
+            System.assertEquals(eSubject, ext.email.title);
+        }
+
+        Test.stopTest();
+    }
 
 }

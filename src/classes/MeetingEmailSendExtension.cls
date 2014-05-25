@@ -2,7 +2,7 @@ public with sharing class MeetingEmailSendExtension {
     public MeetingEmailSendExtension(ApexPages.StandardController stdController) {
         this.meeting = (Meeting_MERC__c)stdController.getRecord();
         if (meeting == null || meeting.Id == null) {
-            AddErrorMessage('You must specify a meeting id.');
+            AddFatalMessage('You must specify a meeting id.');
         }
 
         emails = new List<ETObject.EmailFolder>();
@@ -10,12 +10,14 @@ public with sharing class MeetingEmailSendExtension {
 
         Config = Sonoma_ET_Config__c.getInstance();
         if (Config == null) {
-            AddErrorMessage('No configuration object was found. Please contact your administrator.');
+            AddFatalMessage('No configuration object was found. Please contact your administrator.');
         }
 
         ShowParticipantGrid = false;
         parser = new parseString();
         email = new folderedEmail();
+
+        SendTime = 'now';
     }
 
     public boolean IsAllChecked { get; set; }
@@ -25,16 +27,68 @@ public with sharing class MeetingEmailSendExtension {
     public boolean OptIn { get; set; }
     public boolean ShowParticipantGrid { get; set; }
 
+    // this opportunity is just to hold the future send date of the email send, so that we can get the standard sfdc
+    // date time picker.
+    public Event sendDateEvent {
+        get {
+            if (sendDateEvent == null) {
+                sendDateEvent = new Event();
+            }
+            return sendDateEvent;
+        }
+        set;
+    }
+
     private final Meeting_MERC__c meeting;
     public Sonoma_ET_Config__c Config { get; private set; }
 
-    public String getParticipantNames() {
-        List<String> names = new List<String>();
+    public Integer getParticipantCount() {
+        Integer totalParticipants = 0;
         for (SelectedWrapper w : Participants) {
             if (w.IsSelected)
-                names.add(w.Participant.Account_MERC__r.Name);
+                totalParticipants++;
         }
-        return String.join(names, '; ');
+        return totalParticipants;
+    }
+
+    public PageReference Send() {
+        List<Meeting_Participant_MERC__c> parts = new List<Meeting_Participant_MERC__c>();
+        for (SelectedWrapper w : Participants) {
+            if (w.IsSelected) {
+                parts.Add(w.Participant);
+            }
+        }
+
+        if (parts.size() == 0) {
+            AddErrorMessage('You must select at least 1 Recipient.');
+        }
+        if (SendTime == 'none') {
+            AddErrorMessage('You must select a send date and time.');
+        }
+        if (email.Id == null) {
+            AddErrorMessage('You must select an email template.');
+        }
+        else if (email.title == null) {
+            AddErrorMessage('The subject must be filled in.');
+        }
+        if (SendTime != 'now' && (sendDateEvent.ActivityDateTime == null || sendDateEvent.ActivityDateTime <= Datetime.now())) {
+            AddErrorMessage('The send date must be in the future.');
+        }
+
+        if (ApexPages.hasMessages(ApexPages.Severity.ERROR)) {
+            return null;
+        }
+
+        SendEmailWrapper wrapper = new SendEmailWrapper(Email, parts, Config.Default_From_Email__c, DeDup, DisableIndividualTracking, SendTime, sendDateEvent.ActivityDateTime);
+        ETDataExtensionProcessor processor = new ETDataExtensionProcessor();
+        try {
+            processor.createDataExtensionForSendEmail(wrapper);
+            return new PageReference('/' + meeting.Id);
+        }
+        catch (Exception e) {
+            ApexPages.addMessages(e);
+            return null;
+        }
     }
 
     /* Region: participants */
@@ -44,7 +98,7 @@ public with sharing class MeetingEmailSendExtension {
             if (Participants == null) {
                 List<Meeting_Participant_MERC__c> ps = [SELECT Id, Status_MERC__c, Docusign_Contract_Status_MERC__c, 
                                                             Participant_Typ_MERC__c, Has_Signed_Contract_MERC__c,
-                                                            Account_MERC__r.Name,
+                                                            Account_MERC__r.Name, Account_MERC__r.PersonEmail,
                                                             Account_MERC__r.Communication_Preference_MERC__c
                                                         FROM Meeting_Participant_MERC__c 
                                                         WHERE Meeting_MERC__c = :meeting.Id];
@@ -64,6 +118,7 @@ public with sharing class MeetingEmailSendExtension {
             w.IsSelected = IsAllChecked;
     }
 
+    @TestVisible
     private class SelectedWrapper
     {
         public SelectedWrapper(Meeting_Participant_MERC__c p) {
@@ -85,7 +140,11 @@ public with sharing class MeetingEmailSendExtension {
     /* End region: participants */
 
     public boolean getHasErrors() {
-        return ApexPages.hasMessages(ApexPages.Severity.ERROR);
+        return ApexPages.hasMessages(ApexPages.Severity.FATAL);
+    }
+
+    private void AddFatalMessage(String message) {
+        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.FATAL, message));
     }
 
     private void AddErrorMessage(String message) {
@@ -272,11 +331,8 @@ public with sharing class MeetingEmailSendExtension {
             system.debug('subj: '+apexPages.currentPage().getParameters().get('emailSubject'));
             email.title=EncodingUtil.urlDecode(apexPages.currentPage().getParameters().get('emailSubject'),'UTF-8').replace('\\"','"');
         }
-        if (apexPages.currentPage().getParameters().get('xEmail')==null)
-        {
-            this.email=email;
-        }
         showEmailChooser=false;
+        System.debug('Email = ' + email);
     }
 
     public string getSyncPayload()

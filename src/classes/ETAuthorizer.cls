@@ -49,6 +49,7 @@ public without sharing class ETAuthorizer {
 
         Http h = new Http();
         HttpResponse res = h.send(req);
+        System.debug('res.body : ' + res.getBody());
 
         String authToken = '';
         if (res.getStatusCode() >= 200 && res.getStatusCode() < 300) {
@@ -116,97 +117,8 @@ public without sharing class ETAuthorizer {
         return authToken;
     }
 
-    public ETDataExtension.DataExtensionResponse createDataExtensionWithKey(String deKey) {
-        String deName = Datetime.now().format('yyyy-MM-dd\'T\'HH:mm:ss') + ' Data Extension';
-        ETDataExtension de = new ETDataExtension(deName, deName, deKey);
-
-        Integer numFields = 3;
-        List<ETDataExtension.Field> fields = new List<ETDataExtension.Field>();
-        for (Integer fieldCount = 0; fieldCount < numFields; fieldCount++) {
-            ETDataExtension.Field f = new ETDataExtension.Field();
-            f.fieldName = 'Field Number ' + fieldCount;
-            f.fieldType = '0';
-            f.id = null;
-            f.nullable = true;
-            f.isPrimaryKey = false;
-            f.length = String.valueOf(50);
-            f.scale = null;
-            fields.add(f);
-        }
-        fields[0].nullable = false;
-        fields[0].isPrimaryKey = true;
-        de.sendableDataExtensionField = fields[0].fieldName;
-        de.field.addAll(fields);
-
-        et4ae5__Configuration__c configInfo = [SELECT et4ae5__Root_Rest_API_URL__c FROM et4ae5__Configuration__c LIMIT 1];
-        String endPoint = configInfo.et4ae5__Root_Rest_API_URL__c + '/rest/beta/object/?oauth_token=' + soapAuthToken;
-
-        HttpRequest req = new HttpRequest();
-        req.setTimeout(120000);
-        req.setEndpoint(endPoint);
-        req.setMethod('POST');
-        req.setHeader('Content-Type', 'application/json; charset=UTF-8');
-        req.setHeader('Accept', 'application/json');
-        req.setBody(JSON.serialize(de));
-
-        Http h = new Http();
-        HttpResponse res = h.send(req);
-
-        ETDataExtension.DataExtensionResponse deResponse = (ETDataExtension.DataExtensionResponse)JSON.deserialize(res.getBody(), ETDataExtension.DataExtensionResponse.class);
-        return deResponse;
-    }
-
-    public String createDummyDataExtensionDataForKey(String deKey) {
-        JSONGenerator gen = JSON.createGenerator(true);
-        gen.writeStartArray();
-            gen.writeStartObject();
-                gen.writeFieldName('keys');
-                gen.writeStartObject();
-                    gen.writeStringField('Field Number 0', 'Test Field 0 Data');
-                gen.writeEndObject();
-                gen.writeFieldName('values');
-                gen.writeStartObject();
-                    gen.writeStringField('Field Number 1', 'Test Field 1 Data');
-                    gen.writeStringField('Field Number 2', 'Test Field 2 Data');
-                gen.writeEndObject();
-            gen.writeEndObject();
-        gen.writeEndArray();
-
-        HttpRequest req = new HttpRequest();
-        req.setTimeout(120000);
-        req.setEndpoint('https://www.exacttargetapis.com/hub/v1/dataevents/key:' + deKey + '/rowset');
-        req.setMethod('POST');
-        req.setHeader('Content-Type', 'application/json');
-        req.setHeader('Accept', 'application/json');
-        req.setHeader('authorization', 'Bearer ' + fuelAuthToken);
-        req.setBody(gen.getAsString());
-
-        Http h = new Http();
-        HttpResponse res = h.send(req);
-
-        return res.getStatus() + ' ' + res.getStatusCode() + ' ' + res.getBody();
-    }
-
-    public void createETSendForDataExtensionId(String deId) {
-        Id testCampaignId = Id.valueOf('70111000000B2aN');
-
-        et4ae5__SendDefinition__c send = new et4ae5__SendDefinition__c();
-        send.et4ae5__DataExtensionId__c = deId;
-        send.et4ae5__SyncId__c = Datetime.now().format('yyyyMMdd');
-        send.et4ae5__Campaigns__c = '<a target="_self" href="/' + testCampaignId + '">Test</a><br>';
-        send.et4ae5__SendStatus__c = 'New';
-        send.et4ae5__FromName__c = 'Sonoma Partners Test';
-        send.et4ae5__FromEmail__c = 'sf-elililly@sonomapartners.com';
-        send.et4ae5__RecipientsOptedIn__c = true;
-        send.et4ae5__Reply_to__c = 'Sonoma Partners <sf-elililly@sonomapartners.com>';
-        send.et4ae5__EmailId__c = '12588';
-        send.et4ae5__EmailName__c = 'Sonoma Test Template';
-        send.et4ae5__Subject__c = 'Test Subject';
-        send.et4ae5__SubjectLine__c = 'Test Subject';
-        insert send;
-    }
-
     // private class to simplify serializing the fuel authorization request
+    @TestVisible
     private class FuelRequestBody {
         public String clientId { get; private set; }
         public String clientSecret { get; private set; }
@@ -226,6 +138,7 @@ public without sharing class ETAuthorizer {
     }
 
     // private class to simplify deserializing the fuel authorization response
+    @TestVisible
     private class FuelResponseBody {
         public String accessToken { get; set; }
         public Integer expiresIn { get; set; }

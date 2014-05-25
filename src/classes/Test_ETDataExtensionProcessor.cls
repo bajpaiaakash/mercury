@@ -1,9 +1,11 @@
 @isTest
 private class Test_ETDataExtensionProcessor {
-/*
+
     public static testmethod void test_ETDataExtensionProcessor_CreateDataExtension_Success() {
         String authToken = '1234token';
         String deKey = '1234key';
+        String deName = '1234name';
+        DateTime deExpiresIn = Datetime.now().addDays(3);
         List<ETDataExtension.Field> fields = new List<ETDataExtension.Field>();
         for (Integer count = 0; count < 3; count++) {
             ETDataExtension.Field f = new ETDataExtension.Field();
@@ -24,7 +26,7 @@ private class Test_ETDataExtensionProcessor {
             Test.setMock(HttpCalloutMock.class, new Mock_DataExtensionCallout());
 
             ETDataExtensionProcessor processor = new ETDataExtensionProcessor();
-            ETDataExtension.DataExtensionResponse deRes = processor.createDataExtensionWithKeyFieldsAndSoapAuth(deKey, fields, authToken);
+            ETDataExtension.DataExtensionResponse deRes = processor.createDataExtensionWithNameKeyFieldsAndSoapAuth(deName, deKey, fields, authToken, deExpiresIn);
         Test.stopTest();
 
         System.assertNotEquals(null, deRes.id);
@@ -33,6 +35,8 @@ private class Test_ETDataExtensionProcessor {
     public static testmethod void test_ETDataExtensionProcessor_CreateDataExtension_Failure() {
         String authToken = '1234token';
         String deKey = '1234key';
+        String deName = '1234name';
+        DateTime deExpiresIn = Datetime.now().addDays(3);
         List<ETDataExtension.Field> fields = new List<ETDataExtension.Field>();
         for (Integer count = 0; count < 3; count++) {
             ETDataExtension.Field f = new ETDataExtension.Field();
@@ -52,7 +56,7 @@ private class Test_ETDataExtensionProcessor {
             Test.setMock(HttpCalloutMock.class, new Mock_DataExtensionCallout());
             
             ETDataExtensionProcessor processor = new ETDataExtensionProcessor();
-            ETDataExtension.DataExtensionResponse deRes = processor.createDataExtensionWithKeyFieldsAndSoapAuth(deKey, fields, authToken);
+            ETDataExtension.DataExtensionResponse deRes = processor.createDataExtensionWithNameKeyFieldsAndSoapAuth(deName, deKey, fields, authToken, deExpiresIn);
         Test.stopTest();
 
         System.assertEquals(null, deRes.id);
@@ -98,49 +102,73 @@ private class Test_ETDataExtensionProcessor {
         System.assertEquals('OK', res.getStatus());
         System.assertNotEquals(null, res.getBody());
     }
-*/
-    public static testmethod void test_ETDataExtensionProcessor_CreateDataExtensionForSendEmail_Success() {
+
+    @isTest
+    public static void test_ETDataExtensionProcessor_CreateDataExtensionForSendEmail_Success() {
+        Test.setMock(HttpCalloutMock.class, new Mock_EndToEndDataExtensionCallouts());
+        MERC_TestFactory.adjustForSFDCSetMockBug = true;
+
         FolderedEmail fe = new FolderedEmail();
-        fe.id = 'foldered email id';
+        fe.id = 'folderedid';
         fe.name = 'folder email name';
         fe.title = 'folder email title';
 
-        //List<Meeting_MERC__c> meetings = TestUtils.CreateMeetings(1);
-        //for (Meeting_MERC__c m : meetings) {
-        //    m.City_of_Meeting_MERC__c = 'test city';
-        //    m.Preferred_Venue_MERC__c = 'test venue';
-        //    m.Date_of_Event_MERC__c = Date.today();
-        //    m.End_Date_of_Event_MERC__c = Date.today().addDays(5);
-        //    m.Event_Id_MERC__c = 'test id';
-        //}
-        //insert meetings;
+        List<Meeting_MERC__c> meetings = TestUtils.CreateMeetings(1);
+        for (Meeting_MERC__c m : meetings) {
+            m.RecordTypeId = TestUtils.GetRecordType('Ad_Hoc_Consulting', 'Meeting_MERC__c').Id;
+            m.City_of_Meeting_MERC__c = 'test city';
+            m.Preferred_Venue_MERC__c = 'test venue';
+            m.Start_Time_of_Meeting_MERC__c = Datetime.now();
+            m.End_Time_of_Meeting_MERC__c = Datetime.now().addDays(5);
+            m.Event_Id_MERC__c = 'test id';
+        }
+        insert meetings;
 
         List<Account> personAccounts = TestUtils.CreatePersonAccountsWithRecordType('HCP_GLBL', 5);
         insert personAccounts;
 
-        //List<Meeting_Participant_MERC__c> participants = TestUtils.CreateParticipants(meetings[0], personAccounts);
-        //insert participants;
+        List<Meeting_Participant_MERC__c> participants = TestUtils.CreateParticipants(meetings[0], personAccounts);
+        insert participants;
 
-        //SendEmailWrapper sew = new SendEmailWrapper(fe, participants, 'fromAddress@test.com', true, true, 'now');
-        SendEmailWrapper sew = new SendEmailWrapper(fe, null, 'fromAddress@test.com', true, true, 'now');
+        SendEmailWrapper sew = new SendEmailWrapper(fe, participants, 'fromAddress@test.com', true, true, 'now', null);
 
         et4ae5__Configuration__c etConfig = TestUtils.CreateETConfig();
         etConfig.et4ae5__UserName__c = 'testusername';
         etConfig.et4ae5__Password__c = 'testuserpassword';
         etConfig.et4ae5__Auth_API_URL__c = 'www.testauthurl.com/Auth.svc';
+        etConfig.et4ae5__Root_Rest_API_URL__c = 'www.testrootrest.com';
         insert etConfig;
 
-        Test.startTest();
-            System.debug('test.startTest');
-            Test.setMock(HttpCalloutMock.class, new Mock_EndToEndDataExtensionCallouts());
-            try {
-                ETDataExtensionProcessor processor = new ETDataExtensionProcessor();
-                processor.createDataExtensionForSendEmail(sew);
-                System.assert(true);
-            } catch (Exception e) {
-                System.assert(false, 'this method should pass, but the exception is : ' + e);
-            }
-            System.debug('test.stopTest');
-        Test.stopTest();
+        Sonoma_ET_Config__c config = TestUtils.CreateConfig();
+        insert config;
+
+        et4ae5__Business_Unit__c etBU = TestUtils.CreateETBU(config);
+        etBU.et4ae5__Enabled__c = true;
+        insert etBU;
+
+        /**
+         * The entire test must be wrapped in a try/catch.  The reason being that when we insert the
+         * et4ae5__SendDefinition__c object at the end of our process, the ET integration sets up a future method that
+         * makes a web service callout.  However, the ET integration does not expose a webservice mock or method to set
+         * up a mock for us to properly catch this callout.  As such, SFDC throws 
+         * "System.TypeException: Methods defined as TestMethod do not support Web service callouts, test skipped" when
+         * the web service call is not sent to a mock.  Therefore, we are just catching and ensuring that happens.
+         */
+        try {
+            Test.startTest();
+                System.debug('test.startTest');
+                try {
+                    ETDataExtensionProcessor processor = new ETDataExtensionProcessor();
+                    processor.createDataExtensionForSendEmail(sew);
+                    System.assert(true);
+                } catch (Exception e) {
+                    System.assert(false, 'this method should pass, but the exception is : ' + e.getMessage() + '\n' + e.getStackTraceString());
+                }
+                System.debug('test.stopTest');
+            Test.stopTest();
+        } catch (Exception e) {
+            System.debug('exception : ' + e);
+            System.assert(e.getMessage().containsIgnoreCase('Methods defined as TestMethod do not support Web service callouts, test skipped'));
+        }
     }
 }

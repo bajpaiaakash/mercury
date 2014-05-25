@@ -103,42 +103,49 @@ global with sharing virtual class GLBL_GenericRelatedListController {
 
 	public virtual PageReference save() {
 		try {
-			List<Sobject> childrenToInsert = new List<Sobject>();
-			List<Sobject> childrenToUpdate = new List<Sobject>();
-			List<GenericSobjectWrapper> childrenList;
-			system.debug('>>> '+recordTypeDeveloperNameParam);
-			if (recordTypeDeveloperNameParam != null) {
-				childrenList = childrenMap.get(recordTypeDeveloperNameParam);
-			} else {
-				childrenList = children;
-			}
-			system.debug('>>> '+childrenList);
-			for (GenericSobjectWrapper sow : childrenList) {
-				system.debug('child so........ '+sow.so);
-				if (sow.so.Id != null) {
-					childrenToUpdate.add(sow.so);
-				} else {
-					sow.so.put(parentFieldAPIName, parentId);
-					childrenToInsert.add(sow.so);
-				}
-			}
-			system.debug('>>> '+childrenToInsert);
-			system.debug('>>> '+childrenToUpdate);
-			insert childrenToInsert;
-			update childrenToUpdate;
-			if (MERC_Util.getUrlParam('notify') == '1') {
-				ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.CONFIRM, MERC_Util.getUrlParam('msg')));
-				return null;
-			} else if (MERC_Util.getUrlParam('retNull') == '1') {
-				return null;
-			} else {
-				return new PageReference('/'+parentId);
-			}
+			//logic moved to doSave method so that controllers exetending this class can implement their
+			//own try catch logic by overriding the save method.
+			return doSave();
 		} catch (Exception e) {
 			ApexPages.addMessages(e);
 			return null;
 		}
 	}
+
+	public virtual PageReference doSave() {
+		List<Sobject> childrenToInsert = new List<Sobject>();
+		List<Sobject> childrenToUpdate = new List<Sobject>();
+		List<GenericSobjectWrapper> childrenList;
+		system.debug('>>> '+recordTypeDeveloperNameParam);
+		if (recordTypeDeveloperNameParam != null) {
+			childrenList = childrenMap.get(recordTypeDeveloperNameParam);
+		} else {
+			childrenList = children;
+		}
+		system.debug('>>> '+childrenList);
+		for (GenericSobjectWrapper sow : childrenList) {
+			system.debug('child so........ '+sow.so);
+			if (sow.so.Id != null) {
+				childrenToUpdate.add(sow.so);
+			} else {
+				sow.so.put(parentFieldAPIName, parentId);
+				childrenToInsert.add(sow.so);
+			}
+		}
+		system.debug('>>> '+childrenToInsert);
+		system.debug('>>> '+childrenToUpdate);
+		insert childrenToInsert;
+		update childrenToUpdate;
+		if (MERC_Util.getUrlParam('notify') == '1') {
+			ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.CONFIRM, MERC_Util.getUrlParam('msg')));
+			return null;
+		} else if (MERC_Util.getUrlParam('retNull') == '1') {
+			return null;
+		} else {
+			return new PageReference('/'+parentId);
+		}
+	}
+
 
 	//empty form method for ajax
 	public PageReference goToServer() {

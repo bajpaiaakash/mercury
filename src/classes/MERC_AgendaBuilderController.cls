@@ -5,7 +5,7 @@
  */
 
 public with sharing class MERC_AgendaBuilderController extends GLBL_GenericRelatedListController {
-	
+
 	public Boolean confirmAgendaChange { get; set; }
 	public Boolean hasError { get; private set; }
 	public String pageMessage { get; private set; }
@@ -14,23 +14,24 @@ public with sharing class MERC_AgendaBuilderController extends GLBL_GenericRelat
 
 	public MERC_AgendaBuilderController(ApexPages.StandardSetController controller) {
 		super (
-			controller, 
+			controller,
 			'Meeting_MERC__c', //parentObjectAPIName
-			'Agenda_Item_MERC__c', //childObjectAPIName 
+			'Agenda_Item_MERC__c', //childObjectAPIName
 			'Meeting_MERC__c', //parentFieldAPIName
 			new List<String> {  //parentFields
-				'Id', 
+				'Id',
 				'Name',
 				'Meeting_Time_Zone_MERC__c',
 				'Start_Time_of_Meeting_MERC__c'
 			},
 			MERC_Util.getFieldSetFieldList('Agenda_Item_MERC__c', new List<String>{
-				'Agenda_Builder_MERC', 
-				'Agenda_Item_Date_Time_View_MERC', 
+				'Agenda_Builder_MERC',
+				'Agenda_Item_Date_Time_View_MERC',
 				'Agenda_Builder_Non_UI_Fields_MERC'
 			}), //childFields
 			'Start_Time_MERC__c' //orderChildrenBy
 		);
+		Apexpages.currentPage().getHeaders().put('X-UA-Compatible', 'IE=9'); //IE compatibility mode hack
 		this.hasError = false;
 	}
 
@@ -42,7 +43,7 @@ public with sharing class MERC_AgendaBuilderController extends GLBL_GenericRelat
 			children.get(0).so.put('End_Time_MERC__c', startTimeOfMeeting.addHours(1));
 		} else if (children.size() > 1) {
 			DateTime prevTime = (DateTime)children.get(children.size()-2).so.get('Start_Time_MERC__c');
-			DateTime nextTime = prevTime.addHours(1); 
+			DateTime nextTime = prevTime.addHours(1);
 			children.get(children.size()-1).so.put('Start_Time_MERC__c', nextTime);
 			children.get(children.size()-1).so.put('End_Time_MERC__c', nextTime.addHours(1));
 		}
@@ -92,17 +93,17 @@ public with sharing class MERC_AgendaBuilderController extends GLBL_GenericRelat
 			List<GenericSobjectWrapper> childrenList;
 			if (recordTypeDeveloperNameParam != null) {
 				childrenList = childrenMap.get(recordTypeDeveloperNameParam);
-			} else {	
+			} else {
 				childrenList = children;
 			}
 			for (GenericSobjectWrapper sow : childrenList) {
 				if (sow.so.Id != null) {
 					sow.so.put('Cnfrm_Chg_Fnl_Agnd_MERC__c', true);
-					childrenToUpdate.add(sow.so);	
+					childrenToUpdate.add(sow.so);
 				} else {
 					sow.so.put('Cnfrm_Chg_Fnl_Agnd_MERC__c', true);
 					sow.so.put(parentFieldAPIName, parentId);
-					childrenToInsert.add(sow.so);	
+					childrenToInsert.add(sow.so);
 				}
 			}
 			insert childrenToInsert;

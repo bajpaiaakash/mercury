@@ -4,16 +4,17 @@
  * controller for Meeting Daily Attendance UI
  * -when the page loads, any missing daily attendance tov records for the participants are inserted with a blank "status" value
  *  @TODO: this operation could be costly in larger meetings, so we may need to re-assess where this actually happens
- * -we're also reloading MP status when their status updates to show real-time TOV numbers. if this isn't necessary, 
+ * -we're also reloading MP status when their status updates to show real-time TOV numbers. if this isn't necessary,
  *  we could save some processing time
  */
 public with sharing class MERC_DailyAttendanceController {
-	
+
 	public String selectedMeetingDayId { get; set; }
 	public Boolean refreshParticipants { get; set; }
 	public Boolean hasError { get; private set; }
 
 	public MERC_DailyAttendanceController(ApexPages.StandardSetController c) {
+		Apexpages.currentPage().getHeaders().put('X-UA-Compatible', 'IE=9'); //IE compatibility mode hack
 		this.refreshParticipants = false;
 		this.hasError = false;
 		validate();
@@ -24,7 +25,7 @@ public with sharing class MERC_DailyAttendanceController {
 	public PageReference upsertMissingTovRecords() {
 		try {
 			List<Daily_Attendance_TOV_MERC__c> tovsToUpsert = new List<Daily_Attendance_TOV_MERC__c>();
-			
+
 			for (Meeting_Day_MERC__c day : [SELECT ID, (SELECT ID, Meeting_Participant_MERC__c FROM Daily_Attendance_TOV__r) FROM Meeting_Day_MERC__c WHERE Meeting_MERC__c = :meeting.Id]) {
 				Set<Id> participantIdsWithTovsForThisDay = new Set<Id>();
 				for (Daily_Attendance_TOV_MERC__c tov : day.Daily_Attendance_TOV__r) {
@@ -36,7 +37,7 @@ public with sharing class MERC_DailyAttendanceController {
 						tovRecord.Meeting_Participant_MERC__c = participantId;
 						tovRecord.Meeting_Day_MERC__c = day.Id;
 						tovRecord.External_ID_MERC__c = participantId+'_'+day.Id;
-						tovsToUpsert.add(tovRecord);	
+						tovsToUpsert.add(tovRecord);
 					}
 				}
 			}
@@ -61,9 +62,9 @@ public with sharing class MERC_DailyAttendanceController {
 				participantIds = new Set<Id>();
 				Id employeeRecordTypeId = [SELECT ID FROM RecordType WHERE SobjectType = 'Account' and DeveloperName = 'Employee_GLBL'].ID;
 				List<String> excludedStatuses = new List<String>{ 'Pending Approval', 'Declined', 'Interested in Meeting', 'Cancelled' };
-				for (Meeting_Participant_MERC__c p : [SELECT ID FROM 
-																	Meeting_Participant_MERC__c 
-																		WHERE 
+				for (Meeting_Participant_MERC__c p : [SELECT ID FROM
+																	Meeting_Participant_MERC__c
+																		WHERE
 																			Meeting_MERC__c = :meeting.Id AND
 																			Account_MERC__r.RecordTypeId != :employeeRecordTypeId AND
 																			Status_MERC__c NOT IN :excludedStatuses
@@ -152,7 +153,20 @@ public with sharing class MERC_DailyAttendanceController {
 		} catch(Exception e) {
 			ApexPages.addMessages(e); //doesn't show ugly error text
 		}
-		return null;	
+		return null;
+	}
+
+	public PageReference saveAll() {
+		try {
+			List<Daily_Attendance_TOV_MERC__c> tovsToSave = new List<Daily_Attendance_TOV_MERC__c>();
+			for (ParticipantWrapper p : participants) {
+				tovsToSave.add(p.tov);
+			}
+			upsert tovsToSave;
+		} catch(Exception e) {
+			ApexPages.addMessages(e); //doesn't show ugly error text
+		}
+		return null;
 	}
 
 	public PageReference updateTov() {
@@ -193,20 +207,21 @@ public with sharing class MERC_DailyAttendanceController {
 		get {
 			if (participants == null || refreshParticipants) {
 				participants = new List<ParticipantWrapper>();
-				for (Daily_Attendance_TOV_MERC__c tovRecord : [SELECT 
-																	Id, Name, 
-																	Meeting_Day_MERC__c, 
-																	Meeting_Participant_MERC__c, 
+				for (Daily_Attendance_TOV_MERC__c tovRecord : [SELECT
+																	Id, Name,
+																	Meeting_Day_MERC__c,
+																	Meeting_Participant_MERC__c,
 																	Est_Food_Bev_ToV_MERC__c,
 																	Est_Grnd_Transp_MERC__c,
 																	Est_Reg_Amt_ToV_MERC__c,
 																	Est_Hotel_ToV_MERC__c,
-																	Status_MERC__c, External_ID_MERC__c, 
+																	Status_MERC__c, External_ID_MERC__c,
 																	Meeting_Participant_Record_Type_MERC__c,
-																	Meeting_Participant_Account_Name_MERC__c 
-																		FROM Daily_Attendance_TOV_MERC__c 
-																		WHERE Meeting_Day_MERC__c = :this.selectedMeetingDayId 
-																		ORDER BY Meeting_Participant_Account_Name_MERC__c]) 
+																	Meeting_Participant_Account_Name_MERC__c,
+																	Confirm_ToV_Reporting_Change_MERC__c
+																		FROM Daily_Attendance_TOV_MERC__c
+																		WHERE Meeting_Day_MERC__c = :this.selectedMeetingDayId
+																		ORDER BY Meeting_Participant_Account_Name_MERC__c])
 				{
 					participants.add(new ParticipantWrapper(tovRecord));
 				}
@@ -226,5 +241,5 @@ public with sharing class MERC_DailyAttendanceController {
 			this.tov = tov;
 			this.selected = false;
 		}
-	} 
+	}
 }

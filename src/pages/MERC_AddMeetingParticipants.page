@@ -31,16 +31,18 @@
 		})(j);
 
 		function handleAddResponse(el) {
+			hideLoading();
 			// console.log(el.id);
 			var controllerHasError = document.getElementById("{!$Component.mainForm.controllerHasError}").innerHTML == "true";
-			// console.log(controllerHasError);
-			if (!controllerHasError) {
+			console.log(controllerHasError);
+			console.log(j('.errorMsg'));
+			if (!controllerHasError && j('.errorMsg').size() == 0) {
 				var img = j(escapeVfId(el.id));
 				//console.log(img);
-				img.parent().remove();
+				img.parents('td').first().children('a').remove();
+				hideAddPopovers();
 				showMessage('Participant Successfully Added');
 			}
-			hideLoading();
 		}
 
 		function handleRemoveResponse(el) {
@@ -221,7 +223,7 @@
 			  					<!-- FIRST NAME -->
 			  					<apex:pageBlockSectionItem >
 			  						<apex:outputLabel for="fn" value="First Name"></apex:outputLabel>
-			  						<apex:inputText value="{!searchRequest.fn}" id="fn"/>
+			  						<apex:inputText value="{!searchRequest.fn}" id="fn" styleClass="firstname"/>
 			  					</apex:pageBlockSectionItem>
 
 			  					<!-- LAST NAME -->
@@ -423,22 +425,44 @@
 					  						<div class="addToMeetingPopover" id="{!r.sfid}popover">
 					  							<div class="addToMeetingPopoverBody">
 						  							<apex:actionRegion >
-						  								<apex:outputLabel for="nrtid" value="Record Type"/>
-						  								<apex:selectList id="nrtid" value="{!newParticipantRecordTypeId}" size="1">
-						  									<apex:selectOptions value="{!recordTypeOptions}"/>
-						  								</apex:selectList>
-						  								<div style="margin-top:5px;">
-							  								<apex:commandLink styleClass="btn" value="Add To Meeting" action="{!addToMeeting}" onclick="hideAddPopovers();showLoading();" oncomplete="handleAddResponse(this);" rerender="meetingParticipantTableWrapper, responseWrapper, resultTableWrapper, mpCountWrapper, searchMessages">
-							  									<apex:param name="aid" value="{!r.sfid}"/>
-							  								</apex:commandLink>
-							  								<apex:commandLink styleClass="btn" value="Add To Meeting and Edit" action="{!addToMeetingAndRedirect}" onclick="hideAddPopovers();showLoading();" oncomplete="handleAddResponse(this);">
-							  									<apex:param name="aid" value="{!r.sfid}"/>
-							  								</apex:commandLink>
-							  								<apex:outputLink value="javascript:void(0)" styleClass="btn" onclick="hideAddPopovers()">
-							  									Cancel
-							  								</apex:outputLink>
-							  							</div>
-						  							</apex:actionRegion>
+														<apex:outputLabel for="nrtid" value="Record Type"/>
+														<apex:actionRegion >
+															<apex:selectList id="nrtid" value="{!newParticipantRecordTypeId}" size="1">
+																<apex:selectOptions value="{!recordTypeOptions}"/>
+																<apex:actionSupport event="onchange" reRender="moreinfo"/>
+															</apex:selectList>
+														</apex:actionRegion>
+														<apex:outputPanel id="moreinfo">
+															<apex:outputPanel layout="block" style="margin-top:5px;" rendered="{!newParticipantRecordTypeId != null}">
+																<apex:pageBlockSection columns="2" title="Required Fields" id="requiredFields" collapsible="false" rendered="{!requiredFields.size > 0}">
+																	<apex:repeat value="{!requiredFields}" var="field">
+																		<apex:inputField value="{!meetingParticipant[field]}" required="{!field.required || field.dbrequired}"/>
+																	</apex:repeat>
+																</apex:pageBlockSection>
+															</apex:outputPanel>
+															<div style="margin-top:5px;">
+																<apex:commandLink styleClass="btn"
+																                  value="Add To Meeting"
+																                  action="{!addToMeeting}"
+																                  onclick="showLoading();"
+																                  oncomplete="handleAddResponse(this);"
+																                  rerender="moreinfo, responseWrapper, searchMessages, meetingParticipantTableWrapper, mpCountWrapper">
+																	<apex:param name="aid" value="{!r.sfid}"/>
+																</apex:commandLink>
+																<apex:commandLink styleClass="btn"
+																                  value="Add To Meeting and Edit"
+																                  action="{!addToMeetingAndRedirect}"
+																                  onclick="showLoading();"
+																                  oncomplete="handleAddResponse(this);"
+																                  rerender="moreinfo, responseWrapper, searchMessages, meetingParticipantTableWrapper, mpCountWrapper">
+																	<apex:param name="aid" value="{!r.sfid}"/>
+																</apex:commandLink>
+																<apex:outputLink value="javascript:void(0)" styleClass="btn" onclick="hideAddPopovers()">
+																	Cancel
+																</apex:outputLink>
+															</div>
+														</apex:outputPanel>
+													</apex:actionRegion>
 						  						</div>
 					  						</div>
 					  					</apex:column>
