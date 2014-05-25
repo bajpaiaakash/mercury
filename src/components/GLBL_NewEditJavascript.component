@@ -1,4 +1,4 @@
-<apex:component >
+<apex:component>
 	<!-- <apex:attribute name="controller" description="the controller" type="GLBL_BaseEditController" required="true"/> -->
 	<apex:attribute name="objectName" description="This is the API name of the controller object" type="String" required="true"/>
 	<apex:attribute name="extControllerName" description="This is the name of the extension controller" type="String" required="true"/>

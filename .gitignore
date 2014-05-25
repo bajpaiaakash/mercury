@@ -7,3 +7,5 @@ deploy/*
 resource-bundles/*
 
 mercury-force.sublime-workspace
+
+mercury-force.sublime-settings
