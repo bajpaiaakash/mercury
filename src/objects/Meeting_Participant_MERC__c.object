@@ -99,6 +99,56 @@
         <label>Account Merge Fields</label>
     </fieldSets>
     <fieldSets>
+        <fullName>Consultant_Required_Fields_MERC</fullName>
+        <description>Used on the MERC_AddMeetingParticipants page to indicate the fields required in order to add an account as a Meeting participant with record type consultant.</description>
+        <displayedFields>
+            <field>Air_Travel_Required_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Hotel_Required_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Description_of_Service_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <label>Consultant Required Fields</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Delegate_Required_Fields_MERC</fullName>
+        <description>Used on the MERC_AddMeetingParticipants page to indicate the fields required in order to add an account as a Meeting participant with record type Delegate.</description>
+        <displayedFields>
+            <field>Air_Travel_Required_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Hotel_Required_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <label>Delegate Required Fields</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Individual_Sponsor_Required_Fields_MERC</fullName>
+        <description>Used on the MERC_AddMeetingParticipants page to indicate the fields required in order to add an account as a Meeting participant with record type Individual Sponsorship.</description>
+        <displayedFields>
+            <field>Air_Travel_Required_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Hotel_Required_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <label>Individual Sponsorship Required Fields</label>
+    </fieldSets>
+    <fieldSets>
         <fullName>Mass_Approve_Meeting_Participants_MERC</fullName>
         <description>MERC_MassApproveParticipants.page</description>
         <displayedFields>
@@ -138,6 +188,21 @@
         </displayedFields>
         <label>Mass Approve Meeting Participants</label>
     </fieldSets>
+    <fieldSets>
+        <fullName>Service_Provider_Required_Fields_MERC</fullName>
+        <description>Used on the MERC_AddMeetingParticipants page to indicate the fields required in order to add an account as a Meeting participant with record type Service Provider.</description>
+        <displayedFields>
+            <field>Air_Travel_Required_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Hotel_Required_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <label>Service Provider Required Fields</label>
+    </fieldSets>
     <fields>
         <fullName>Account_External_MERC__c</fullName>
         <externalId>false</externalId>
@@ -163,6 +228,21 @@
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Active_on_Web_Service_MERC__c</fullName>
+        <description>Indicates whether or not the Meeting Participant should be available on the Web Service.  Created 05/15/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>CASE(Status_MERC__c,
+&apos;Invited&apos;, 1,
+&apos;Accepted&apos;, 1,
+&apos;Declined&apos;, 1, 
+0) == 1</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Active on Web Service</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Additional_Travel_Details_MERC__c</fullName>
@@ -248,16 +328,6 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>CST_Validation_Bypass_MERC__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>Field used to bypass validation rules. KT 2014/05/12</description>
-        <externalId>false</externalId>
-        <label>CST Validation Bypass</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Cancellation_Notice_Sent_MERC__c</fullName>
@@ -754,7 +824,7 @@ Created by John Adams on 12/9/2013</description>
         <fullName>Has_Signed_Contract_MERC__c</fullName>
         <description>Displays if HCP has an Active Contract. Created 02/13/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <formula>IF (Docusign_Contract_Status_MERC__c = &quot;Completed&quot;, &quot;Yes&quot;, &quot;No&quot;)</formula>
+        <formula>IF ( Number_of_Completed_Contracts_MERC__c &gt; 0, &quot;Yes&quot;, &quot;No&quot;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <inlineHelpText>Whether the HCP currently has a signed Work Order or Single Event Contract for the Meeting</inlineHelpText>
         <label>Has Signed Contract</label>
@@ -1131,6 +1201,34 @@ Created by John A Adams 10/31/2013</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Number_of_Completed_Contracts_MERC__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>Populated via a lookup rollup summary trigger. Indicates the number of completed HCP Contract records related to this meeting participant. Used to indicate if the MP has a signed contract. - KT: 2014/05/15</description>
+        <externalId>false</externalId>
+        <label>Number of Completed Contracts</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Contracts_MERC__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>Populated via a lookup rollup summary trigger. Indicates the number of HCP Contract records related to this meeting participant. Used to ensure no more than one contract can be created for a meeting participant. - KT: 2014/05/15</description>
+        <externalId>false</externalId>
+        <label>Number of Contracts</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Partial_Payment_Amount_MERC__c</fullName>
@@ -2062,13 +2160,26 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
 	CASE(Transparency_Reporting_Consent_MERC__c,
 		&quot;PERMISSION WITHDRAWN&quot;,&quot;Yes&quot;,
 		&quot;PERMISSION GIVEN&quot;,&quot;Yes&quot;,
-	&quot;No&quot;)</formula>
+	&quot;No&quot;) &amp; &quot;;&quot;</formula>
         <inlineHelpText>Maps to the web service logic object to determine a HCPs view of the Meeting Registration Information.</inlineHelpText>
         <label>Web Service Logic Key</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>of_Locked_Invoices_MERC__c</fullName>
+        <description>Used by Lookup Rollup Summary Tool to count the number of Locked Invoices/Credit Notes.  Needed to prevent deletion of Locked Invoices/Credit Notes. Created 05/23/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label># of Locked Invoices</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
         <unique>false</unique>
     </fields>
     <label>Meeting Participant</label>
@@ -3516,8 +3627,7 @@ TEXT(Confirm_Final_Fee_MERC__c) = &quot;Confirmed&quot; &amp;&amp; TEXT(Services
         <active>true</active>
         <description>Description of Service may not be blank if the Type of Service = &quot;Consulting Project&quot;. Created 04/10/2014 by KLorenti, Mavens Consulting</description>
         <errorConditionFormula>ISPICKVAL(Types_of_Service_MERC__c,&apos;Consulting Project&apos;)
-&amp;&amp; ISBLANK( Description_of_Service_MERC__c)
-&amp;&amp; NOT(CST_Validation_Bypass_MERC__c)</errorConditionFormula>
+&amp;&amp; ISBLANK( Description_of_Service_MERC__c)</errorConditionFormula>
         <errorDisplayField>Description_of_Service_MERC__c</errorDisplayField>
         <errorMessage>The Description of Service must be completed if the Participant&apos;s Type of Service is Consulting Project</errorMessage>
     </validationRules>

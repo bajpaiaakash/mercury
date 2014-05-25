@@ -344,7 +344,7 @@ Daily_Ground_Trans_Amount_MERC__c &lt; 0 ) ||
 
 (ISCHANGED(Daily_Registration_Amount_MERC__c ) &amp;&amp;
 Daily_Registration_Amount_MERC__c &lt; 0)</errorConditionFormula>
-        <errorMessage>You man not enter a value less than zero.</errorMessage>
+        <errorMessage>You may not enter a value less than zero.</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>Manage_Daily_Attendance_MERC</fullName>

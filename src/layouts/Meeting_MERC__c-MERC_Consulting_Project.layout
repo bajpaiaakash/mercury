@@ -2,7 +2,7 @@
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Generate_Content_MERC</customButtons>
     <customButtons>Upload_Content_MERC</customButtons>
-    <customButtons>Send_Email</customButtons>
+    <customButtons>Send_ExactTarget_Email_MERC</customButtons>
     <excludeButtons>Clone</excludeButtons>
     <excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
@@ -173,12 +173,13 @@
         <fields>NAME</fields>
         <fields>Account.NAME</fields>
         <fields>RECORDTYPE</fields>
-        <fields>Services_Rendered_MERC__c</fields>
-        <fields>Country_of_Residence_MERC__c</fields>
-        <fields>Speciality_MERC__c</fields>
-        <fields>Classification_MERC__c</fields>
         <fields>Status_MERC__c</fields>
         <fields>Has_Signed_Contract_MERC__c</fields>
+        <fields>Classification_MERC__c</fields>
+        <fields>Speciality_MERC__c</fields>
+        <fields>Country_of_Residence_MERC__c</fields>
+        <fields>Participant_Typ_MERC__c</fields>
+        <fields>Services_Rendered_MERC__c</fields>
         <relatedList>Meeting_Participant_MERC__c.Meeting_MERC__c</relatedList>
         <sortField>RECORDTYPE</sortField>
         <sortOrder>Desc</sortOrder>
@@ -210,6 +211,20 @@
         <fields>Meeting_Status_MERC__c</fields>
         <fields>CREATEDBY_USER</fields>
         <relatedList>Meeting_MERC__c.Parent_Meeting_MERC__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <excludeButtons>New</excludeButtons>
+        <fields>Email_Send_Number_MERC__c</fields>
+        <fields>Date_Sent_MERC__c</fields>
+        <fields>Email_Name__c</fields>
+        <fields>Deliverability_Rate_MERC__c</fields>
+        <fields>Open_Rate_MERC__c</fields>
+        <fields>Click_Through_Rate_MERC__c</fields>
+        <fields>Unsubscribe_Rate_MERC__c</fields>
+        <fields>Bounce_Rate_MERC__c</fields>
+        <relatedList>Meeting_Email_Send_MERC__c.Meeting_MERC__c</relatedList>
+        <sortField>Date_Sent_MERC__c</sortField>
+        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedEntityHistoryList</relatedList>

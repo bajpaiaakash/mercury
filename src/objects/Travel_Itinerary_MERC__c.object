@@ -213,7 +213,7 @@ Created by John A Adams 12/13/2013</description>
 Created by John A Adams 12/13/2013</description>
         <externalId>false</externalId>
         <label>Begin City</label>
-        <length>3</length>
+        <length>40</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -480,7 +480,7 @@ Created by John A Adams 12/13/2013</description>
 Created by John A Adams 12/13/2013</description>
         <externalId>false</externalId>
         <label>End City</label>
-        <length>3</length>
+        <length>40</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>

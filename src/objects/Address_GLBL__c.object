@@ -57,6 +57,11 @@ Created by John A Adams 9/26/2013</description>
         <fullName>Account_Merge_Addresses_MERC</fullName>
         <description>MERC_MergedAccounts.page / MERC_MergedAccountsApex.cls / Custom Setting: Account Merge - Addresses .Oliver Dunford 8th May 2014</description>
         <displayedFields>
+            <field>RecordTypeId</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
             <field>Line_1_Adrs_Txt_GLBL__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -93,7 +98,7 @@ Created by John A Adams 9/27/2013</description>
         <relationshipLabel>Addresses</relationshipLabel>
         <relationshipName>Addresses_GLBL</relationshipName>
         <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>

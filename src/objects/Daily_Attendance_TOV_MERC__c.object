@@ -158,6 +158,17 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Meeting_Id_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>Meeting_Day_MERC__r.Meeting_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting Id</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Meeting_Participant_Account_Name_MERC__c</fullName>
         <externalId>false</externalId>
         <formula>Meeting_Participant_MERC__r.Account_MERC__r.FirstName &amp; &apos; &apos; &amp; Meeting_Participant_MERC__r.Account_MERC__r.LastName</formula>

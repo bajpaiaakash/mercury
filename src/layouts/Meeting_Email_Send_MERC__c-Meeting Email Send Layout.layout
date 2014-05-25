@@ -19,6 +19,10 @@
                 <behavior>Required</behavior>
                 <field>Email_Send_Number_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Email_Name__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

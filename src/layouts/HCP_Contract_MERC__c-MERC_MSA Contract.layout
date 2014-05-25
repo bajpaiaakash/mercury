@@ -52,6 +52,10 @@
                 <behavior>Readonly</behavior>
                 <field>Days_Since_Last_Modified_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Invoice_Template_Required_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>

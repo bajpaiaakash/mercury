@@ -10,7 +10,10 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>Clone</actionName>
-        <type>Default</type>
+        <comment>Overridden for Date/Time UX purposes. Layout still edited in standard way via Page Layouts. - K Thornton (2014/05/13)</comment>
+        <content>MERC_MeetingNewEdit</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>Delete</actionName>
@@ -123,16 +126,6 @@
         <description>Capture additional information on Accommodations. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Accommodation Information</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>TextArea</type>
-    </fields>
-    <fields>
-        <fullName>Activities_MERC__c</fullName>
-        <description>Description of Activities for Meeting. Created 10/29/2013 by KLorenti, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <label>Activities</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -502,43 +495,18 @@ Created by John Adams on 12/9/2013</description>
         <type>Summary</type>
     </fields>
     <fields>
-        <fullName>Content_Approval_Needed_MERC__c</fullName>
-        <description>Will content need to be approved? Created 10/2/2013 by KLorenti</description>
-        <externalId>false</externalId>
-        <label>Content Approval Needed</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Content_Creator_MERC__c</fullName>
-        <description>Who will be creating the content? Created 10/3/2013 by KLorenti.</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Who is creating the content?</inlineHelpText>
-        <label>Content Creator</label>
-        <length>80</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Customer_Facing_End_Time_MERC__c</fullName>
         <description>Transforms the meeting end time in the timezone of the meeting to ensure a direct mapping to Veeva’s LOV end time field.  Thus removing complexity from the integration and incorporating in configuration. Oliver Dunford 25th March 2014.</description>
         <externalId>false</externalId>
-        <formula>LEFT(RIGHT(End_Time_In_Meeting_Time_Zone_MERC__c, 9), 5)</formula>
+        <formula>IF
+  (LEN
+    (TRIM
+      (RIGHT(End_Time_In_Meeting_Time_Zone_MERC__c,4)
+    )
+  )== 3,
+LEFT(RIGHT(End_Time_In_Meeting_Time_Zone_MERC__c, 9), 5),
+LEFT(RIGHT(End_Time_In_Meeting_Time_Zone_MERC__c, 10), 5)
+)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Customer Facing End Time</label>
         <required>false</required>
@@ -563,7 +531,15 @@ Created by John Adams on 12/9/2013</description>
         <fullName>Customer_Facing_Start_Time_MERC__c</fullName>
         <description>Transforms the meeting start time in the timezone of the meeting to ensure a direct mapping to Veeva&apos;s LOV start time field.  Thus removing complexity from the integration and incorporating in configuration. Oliver Dunford 25th March 2014.</description>
         <externalId>false</externalId>
-        <formula>LEFT(RIGHT(Start_Time_In_Meeting_Time_Zone__c, 9), 5)</formula>
+        <formula>IF
+  (LEN
+    (TRIM
+      (RIGHT(Start_Time_In_Meeting_Time_Zone__c,4)
+    )
+  )== 3,
+LEFT(RIGHT(Start_Time_In_Meeting_Time_Zone__c, 9), 5),
+LEFT(RIGHT(Start_Time_In_Meeting_Time_Zone__c, 10), 5)
+)</formula>
         <label>Customer Facing Start Time</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -661,6 +637,26 @@ Created 04/14/2014</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Employee_Accommodation_Covered_By_MERC__c</fullName>
+        <description>How will the accommodation expenses for Lilly Employees be covered? Created 05/12/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Employee Accommodation Covered by</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Meeting Budget</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Individual Cost Center</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Employee_Travel_MERC__c</fullName>
@@ -943,6 +939,7 @@ Created by John A Adams 10/24/2013</description>
         <fullName>Event_Website_MERC__c</fullName>
         <description>Capture URL of the Web Address for the Meeting, if one exists. Created 10/16/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
+        <inlineHelpText>Official congress website for independent meetings or website for Lilly originated meetings</inlineHelpText>
         <label>Meeting Website</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -2012,7 +2009,8 @@ Created by John Adams on 12/9/2013</description>
         <fullName>Number_of_Conference_Rooms_MERC__c</fullName>
         <description>Indicate number of Conference rooms needed. Created 10/3/2013 by KLorenti.</description>
         <externalId>false</externalId>
-        <label># of Conference Rooms</label>
+        <inlineHelpText>Total number including break out rooms</inlineHelpText>
+        <label># of Meeting Rooms</label>
         <precision>10</precision>
         <required>false</required>
         <scale>0</scale>
@@ -2280,7 +2278,7 @@ Created by John Adams on 12/9/2013</description>
         <fullName>Planned_Budget_MERC__c</fullName>
         <description>Enter planned budget amount for meeting, to be pulled into Budget record. Created 11/18/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <inlineHelpText>Include total meeting spend, including travel and HCP fees. Exclude recoverable taxes where practical.</inlineHelpText>
+        <inlineHelpText>Include total meeting spend. Exclude recoverable taxes where practical</inlineHelpText>
         <label>Budget</label>
         <precision>18</precision>
         <required>false</required>
@@ -2293,6 +2291,7 @@ Created by John Adams on 12/9/2013</description>
         <fullName>Preferred_Location_MERC__c</fullName>
         <description>Preferred location of Accommodations. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
+        <inlineHelpText>Used during forecasting to indicate the desired meeting location</inlineHelpText>
         <label>Preferred Location</label>
         <length>255</length>
         <required>false</required>
@@ -3439,13 +3438,13 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Content_Approval_Needed_MERC__c</picklist>
+            <picklist>Employee_Accommodation_Covered_By_MERC__c</picklist>
             <values>
-                <fullName>No</fullName>
+                <fullName>Individual Cost Center</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes</fullName>
+                <fullName>Meeting Budget</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4256,13 +4255,13 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Content_Approval_Needed_MERC__c</picklist>
+            <picklist>Employee_Accommodation_Covered_By_MERC__c</picklist>
             <values>
-                <fullName>No</fullName>
+                <fullName>Individual Cost Center</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes</fullName>
+                <fullName>Meeting Budget</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5105,13 +5104,13 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Content_Approval_Needed_MERC__c</picklist>
+            <picklist>Employee_Accommodation_Covered_By_MERC__c</picklist>
             <values>
-                <fullName>No</fullName>
+                <fullName>Individual Cost Center</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes</fullName>
+                <fullName>Meeting Budget</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5954,13 +5953,13 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Content_Approval_Needed_MERC__c</picklist>
+            <picklist>Employee_Accommodation_Covered_By_MERC__c</picklist>
             <values>
-                <fullName>No</fullName>
+                <fullName>Individual Cost Center</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes</fullName>
+                <fullName>Meeting Budget</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6771,13 +6770,13 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Content_Approval_Needed_MERC__c</picklist>
+            <picklist>Employee_Accommodation_Covered_By_MERC__c</picklist>
             <values>
-                <fullName>No</fullName>
+                <fullName>Individual Cost Center</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes</fullName>
+                <fullName>Meeting Budget</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7620,13 +7619,13 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Content_Approval_Needed_MERC__c</picklist>
+            <picklist>Employee_Accommodation_Covered_By_MERC__c</picklist>
             <values>
-                <fullName>No</fullName>
+                <fullName>Individual Cost Center</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes</fullName>
+                <fullName>Meeting Budget</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8469,13 +8468,13 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Content_Approval_Needed_MERC__c</picklist>
+            <picklist>Employee_Accommodation_Covered_By_MERC__c</picklist>
             <values>
-                <fullName>No</fullName>
+                <fullName>Individual Cost Center</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes</fullName>
+                <fullName>Meeting Budget</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9277,8 +9276,9 @@ ISPICKVAL(Meeting_Status_MERC__c,&apos;Complete&apos;)</errorConditionFormula>
     <validationRules>
         <fullName>Confirm_Budget_is_Final_MERC</fullName>
         <active>true</active>
-        <description>Budget must be final before Meeting can be completed. Created 11/19/2013 by KLorenti, Mavens Consulting</description>
-        <errorConditionFormula>(RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
+        <description>Budget must be final before Meeting can be completed. This is only applicable for Mercury meetings. Created 11/19/2013 by KLorenti, Mavens Consulting</description>
+        <errorConditionFormula>( Source_MERC__c &lt;&gt; &apos;Veeva&apos; &amp;&amp;
+RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
 RecordType.Name &lt;&gt; &apos;Consulting Project&apos; &amp;&amp; 
 RecordType.Name &lt;&gt; &apos;Meeting Program&apos;) &amp;&amp; 
 !ISPICKVAL(Budget_is_Final_MERC__c,&apos;Yes&apos;) &amp;&amp; 
@@ -9290,8 +9290,9 @@ ISPICKVAL(Meeting_Status_MERC__c,&apos;Complete - Closed&apos;))</errorCondition
     <validationRules>
         <fullName>Confirm_MCP_Evaluation_MERC</fullName>
         <active>true</active>
-        <description>The MPC has been evaluated before the Meeting can be Completed.</description>
-        <errorConditionFormula>RecordType.Name &lt;&gt; &apos;Independent Meeting&apos;
+        <description>The MPC has been evaluated before the Meeting can be Completed.  Not applicable for Veeva initiated meetings.</description>
+        <errorConditionFormula>Source_MERC__c &lt;&gt; &apos;Veeva&apos; &amp;&amp;
+RecordType.Name &lt;&gt; &apos;Independent Meeting&apos;
 &amp;&amp; RecordType.Name &lt;&gt; &apos;Consulting Project&apos;
 &amp;&amp; RecordType.Name &lt;&gt; &apos;Meeting Program&apos;
 &amp;&amp; ISPICKVAL( MCP_work_MERC__c , &quot;&quot;)
@@ -9334,16 +9335,6 @@ NOT ISPICKVAL(Event_Occurred_MERC__c,&apos;Yes&apos;)&amp;&amp; ISCHANGED(Meetin
 ISPICKVAL(Meeting_Status_MERC__c,&apos;Complete - Closed&apos;)</errorConditionFormula>
         <errorDisplayField>Event_Occurred_MERC__c</errorDisplayField>
         <errorMessage>The Meeting must have occurred in order to Complete the Meeting.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>No_Jumping_from_Forecasted_to_Active</fullName>
-        <active>false</active>
-        <description>Status may not be changed from Forecasted to Active. Must go through Registered first.</description>
-        <errorConditionFormula>ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
-ISPICKVAL(Meeting_Status_MERC__c,&apos;Active&apos;) &amp;&amp;
-ISPICKVAL(PRIORVALUE(Meeting_Status_MERC__c),&apos;Forecasted&apos;)</errorConditionFormula>
-        <errorDisplayField>Meeting_Status_MERC__c</errorDisplayField>
-        <errorMessage>You may not change the status from Forecasted to Active. Please change status to Registered first.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Participant_ToV_Final_only_if_Meet_over</fullName>
@@ -9420,24 +9411,6 @@ ISPICKVAL(PRIORVALUE(Meeting_Status_MERC__c),&apos;Complete&apos;)
         <errorMessage>NOTE: Meetings must follow the correct Status process (Forecasted - Registered - Active - Complete - etc). You cannot skip Status steps (e.g. from Forecasted to Active).  Please set the Status to the next Status in the process to continue.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Validate_Active_Content_Approval_MERC</fullName>
-        <active>true</active>
-        <description>Check the required fields based on the Status selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
-        <errorConditionFormula>IF(RecordType.Name = &apos;Meeting Program&apos; ||
-   RecordType.Name = &apos;Independent Meeting&apos; ||
-   RecordType.Name = &apos;Consulting Project&apos;
-,false, 
-
- IF(ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
-   ISPICKVAL(PRIORVALUE(Meeting_Status_MERC__c),&apos;Registered&apos;) &amp;&amp;
-   TEXT(Meeting_Status_MERC__c) = &apos;Active&apos; &amp;&amp;
-   ISBLANK(TEXT(Content_Approval_Needed_MERC__c ))
-   ,true, false)
-)</errorConditionFormula>
-        <errorDisplayField>Content_Approval_Needed_MERC__c</errorDisplayField>
-        <errorMessage>The Content Approval Needed is required before status can be changed to Active</errorMessage>
-    </validationRules>
-    <validationRules>
         <fullName>Validate_Active_Meeting_Obj_MERC</fullName>
         <active>true</active>
         <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
@@ -9477,6 +9450,16 @@ LEN (Meeting_Objectives_MERC__c) = 0
 End_Time_of_Meeting_MERC__c</errorConditionFormula>
         <errorDisplayField>End_Time_of_Meeting_MERC__c</errorDisplayField>
         <errorMessage>The  End Time of Meeting must be after the Start Time of Meeting</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Validate_Positive_Planned_Participants</fullName>
+        <active>true</active>
+        <description>Validate that the number entered in the Planned Participants fields are a positive Number</description>
+        <errorConditionFormula>Number_of_Expected_Deletgates_MERC__c &lt; 0 ||
+Number_of_Expected_Employees_MERC__c &lt; 0 ||
+Number_of_Expected_Non_HCP_MERC__c &lt; 0 ||
+Number_of_Expected_Speakers_MERC__c &lt; 0</errorConditionFormula>
+        <errorMessage>The number of expected participants must be a positive number</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Validate_Registered_City_of_Meeting_MERC</fullName>
@@ -9655,12 +9638,13 @@ else
         <url>http://lillynet.global.lilly.com/sites/CandE/GeneralResources/Pages/MeetingsWithHCPs.aspx</url>
     </webLinks>
     <webLinks>
-        <fullName>Send_Email</fullName>
+        <fullName>Send_ExactTarget_Email_MERC</fullName>
         <availability>online</availability>
+        <description>Displays ExactTarget Email Send page for Meetings</description>
         <displayType>button</displayType>
         <encodingKey>UTF-8</encodingKey>
         <linkType>url</linkType>
-        <masterLabel>Send Email</masterLabel>
+        <masterLabel>Send ExactTarget Email</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
         <url>/apex/MeetingEmailSend?id={!Meeting_MERC__c.Id}</url>

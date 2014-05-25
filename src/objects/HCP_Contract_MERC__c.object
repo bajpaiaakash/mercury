@@ -333,6 +333,26 @@ Created by John A Adams 10/29/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Invoice_Template_Required_MERC__c</fullName>
+        <description>Per Appendix R creating field on HCP Contract. Created 05/19/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Invoice Template Required</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Justification_MERC__c</fullName>
         <description>Multi-Picklist created to identify reason to select the HCP for this service of work.
 Created by John A Adams 10/7/2013</description>
@@ -659,6 +679,17 @@ Created by John A Adams 10/17/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Invoice_Template_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Justification_MERC__c</picklist>
             <values>
                 <fullName>Other %28please explain%29</fullName>
@@ -772,6 +803,17 @@ Created by John A Adams 10/17/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Invoice_Template_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Justification_MERC__c</picklist>
             <values>
                 <fullName>Other %28please explain%29</fullName>
@@ -881,6 +923,17 @@ Created by John A Adams 10/17/2013</description>
             </values>
             <values>
                 <fullName>UK</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Invoice_Template_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

@@ -571,6 +571,18 @@ Created by John A Adams 10/23/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>CV_Upload_File_Name_MERC__c</fullName>
+        <description>Set by the portal when the HCP uploads his/her CV</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Set by the portal when the HCP uploads his/her CV</inlineHelpText>
+        <label>CV_Upload_File_Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>CV_Upload_Step_Complete_MERC__c</fullName>
         <defaultValue>false</defaultValue>
         <description>Used by portal to indicate that the CV Upload sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
@@ -2489,6 +2501,15 @@ Created by John A Adams 11/4/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Global_Consent_Authorization_GLBL__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Populated by Portal/Web Service when a Portal user goes to manage their global consent; to indicate they agree to the processing of their information. Created 05/20/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Global Consent Authorization</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Gndr_Cd_GLBL__c</fullName>
         <description>Gender Code 
 Created by John A Adams 11/4/2013</description>
@@ -3586,15 +3607,34 @@ Created by John A Adams 10/3/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>5-10 Years</fullName>
+                <fullName>6-10 Years</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>10-20 Years</fullName>
+                <fullName>11-20 Years</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>20+ Years</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Preferred_Contact_Method_MERC__c</fullName>
+        <description>Used by Portal to capture preferred contact method for designated individuals. Created 05/14/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Preferred Contact Method</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Postal Address</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -3780,6 +3820,17 @@ Created by John A Adams 12/11/2013</description>
         <externalId>false</externalId>
         <label>Primary Postal Code Extension</label>
         <length>32</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Primary_St_Cd_GLBL__c</fullName>
+        <description>State/Region code stamped from Region Code on Address. Created 05/09/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Primary Region Code</label>
+        <length>80</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Text</type>
@@ -4244,7 +4295,7 @@ Created by John A Adams 12/10/2013</description>
         <fullName>Supervisor_Prsnl_Nbr_GLBL__c</fullName>
         <description>Workforce ODS data. Created 10/18/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <label>Supervisor Global Id</label>
+        <label>Sponsor or Supervisor Global ID</label>
         <length>8</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -5395,6 +5446,17 @@ Created by John A Adams 11/4/2013</description>
             </values>
             <values>
                 <fullName>Subsidiary</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preferred_Contact_Method_MERC__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postal Address</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6898,7 +6960,7 @@ Created by John A Adams 11/4/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>10-20 Years</fullName>
+                <fullName>11-20 Years</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6906,7 +6968,18 @@ Created by John A Adams 11/4/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5-10 Years</fullName>
+                <fullName>6-10 Years</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preferred_Contact_Method_MERC__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postal Address</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8476,7 +8549,7 @@ Created by John A Adams 11/4/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>10-20 Years</fullName>
+                <fullName>11-20 Years</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8484,7 +8557,18 @@ Created by John A Adams 11/4/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5-10 Years</fullName>
+                <fullName>6-10 Years</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preferred_Contact_Method_MERC__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postal Address</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9062,7 +9146,7 @@ Created by John A Adams 11/4/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>10-20 Years</fullName>
+                <fullName>11-20 Years</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9070,7 +9154,18 @@ Created by John A Adams 11/4/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5-10 Years</fullName>
+                <fullName>6-10 Years</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preferred_Contact_Method_MERC__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postal Address</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10636,7 +10731,7 @@ Created by John A Adams 11/4/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>10-20 Years</fullName>
+                <fullName>11-20 Years</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10644,7 +10739,18 @@ Created by John A Adams 11/4/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5-10 Years</fullName>
+                <fullName>6-10 Years</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preferred_Contact_Method_MERC__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postal Address</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12214,7 +12320,7 @@ Created by John A Adams 11/4/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>10-20 Years</fullName>
+                <fullName>11-20 Years</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12222,7 +12328,18 @@ Created by John A Adams 11/4/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5-10 Years</fullName>
+                <fullName>6-10 Years</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preferred_Contact_Method_MERC__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postal Address</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13788,7 +13905,7 @@ Created by John A Adams 11/4/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>10-20 Years</fullName>
+                <fullName>11-20 Years</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13796,7 +13913,18 @@ Created by John A Adams 11/4/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5-10 Years</fullName>
+                <fullName>6-10 Years</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preferred_Contact_Method_MERC__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postal Address</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

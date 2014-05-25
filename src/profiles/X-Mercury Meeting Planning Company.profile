@@ -233,6 +233,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_BudgetLineItemNewEditController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_BudgetVersionController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -309,6 +313,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_HCPContractRollupManager</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_HandleDocusignAttachmentInsert</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -357,6 +365,18 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_InvoiceDocFilterController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_InvoiceInvalidationController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_InvoiceNewEditController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_InvoiceXmlController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -378,6 +398,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_LockedRecordHandlerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_LookupRollupTriggerHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -437,7 +461,7 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>MERC_MeetingProductNewEdit</apexClass>
+        <apexClass>MERC_MeetingProductNewEditController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -473,6 +497,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_ParticipantAgendaNewEditController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_ParticipantFMVCalculator</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -486,6 +514,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_ParticipantStatusCalculatorTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_ParticipantTovStampHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_ParticipantTovStampHandlerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -561,14 +597,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>MERC_TravelItineraryStampMtgHandler</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MERC_TravelItineraryStampMtgHandlerTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>MERC_Util</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -590,6 +618,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MeetingEmailSendExtension</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MeetingParticipantTrackingControllerExt</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -642,6 +674,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>Test_MeetingEmailSendExtension</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Test_MeetingParticipantTrackingCtrlerExt</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -786,6 +822,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.CST_Email_Stamp_CUST__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.CV_Upload_File_Name_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1164,6 +1205,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Global_Consent_Authorization_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.Gndr_Cd_GLBL__c</field>
         <readable>true</readable>
@@ -1539,6 +1585,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Preferred_Contact_Method_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.Preferred_Venue_MERC__c</field>
         <readable>true</readable>
@@ -1617,6 +1668,11 @@
         <editable>true</editable>
         <field>Account.Primary_Pstl_Cd_Extnsn_GLBL__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Primary_St_Cd_GLBL__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -3415,6 +3471,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Daily_Attendance_TOV_MERC__c.Meeting_Id_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Daily_Attendance_TOV_MERC__c.Meeting_Participant_Account_Name_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3532,6 +3593,11 @@
         <editable>false</editable>
         <field>HCP_Contract_MERC__c.Internal_Lilly_Signee_Email_MERC__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>HCP_Contract_MERC__c.Invoice_Template_Required_MERC__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -3819,11 +3885,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Invoice_MERC__c.HCP_Account_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Invoice_MERC__c.IBAN_MERC__c</field>
         <readable>true</readable>
@@ -4086,11 +4147,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Meeting_MERC__c.Accommodation_Information_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Meeting_MERC__c.Activities_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4989,6 +5045,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Active_on_Web_Service_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Additional_Travel_Details_MERC__c</field>
         <readable>true</readable>
@@ -5016,11 +5077,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Associated_Countries_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Meeting_Participant_MERC__c.CST_Validation_Bypass_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5340,6 +5396,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Number_of_Completed_Contracts_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Number_of_Contracts_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Partial_Payment_Amount_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -5636,6 +5702,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Web_Service_Logic_Key_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.of_Locked_Invoices_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7041,6 +7112,10 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Invoice_MERC__c-MERC_Invoice_Locked</layout>
+        <recordType>Invoice_MERC__c.Invoice_Invalid_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Invoice_MERC__c-MERC_Invoice_Locked</layout>
         <recordType>Invoice_MERC__c.Invoice_Locked_MERC</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -7491,6 +7566,10 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>MERC_BudgetLineItemNewEdit</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>MERC_DailyAttendance</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -7508,6 +7587,18 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_InvoiceCreditNote</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>MERC_InvoiceDocFilter</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>MERC_InvoiceInvalidation</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>MERC_InvoiceNewEdit</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -7579,6 +7670,10 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>MERC_ParticipantAgendaNewEdit</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>MERC_RequestHCPSignature</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -7592,6 +7687,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>MeetingEmailSend</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>MeetingParticipantTracking</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -7743,6 +7842,11 @@
         <default>false</default>
         <recordType>Invoice_MERC__c.Credit_Note_MERC</recordType>
         <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Invoice_MERC__c.Invoice_Invalid_MERC</recordType>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
