@@ -117,7 +117,7 @@ public with sharing class MERC_InvoiceCreditNoteController
             newInvoice.Submitted_for_Payment_Date_MERC__c = null;
             newInvoice.RecordTypeId                       = newInvoiceRecType.Id;
             newInvoice.Credit_Note_Invoice_MERC__c        = newInvoiceRecType.DeveloperName == 'Credit_Note_MERC' ? invoice.Id : null;
-
+            newInvoice.OwnerId                            = UserInfo.getUserId();
 
             insert newInvoice;
         }
