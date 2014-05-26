@@ -83,6 +83,7 @@ public with sharing class MERC_InvoiceCreditNoteController
         catch (MERC_Exception ex)
         {
             Database.rollback(sp);
+            ApexPages.addMessage( new ApexPages.Message( ApexPages.Severity.ERROR, 'Unable to clone record. Please contact an administrator.'));
             return null;
         }
 
