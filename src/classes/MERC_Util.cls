@@ -275,13 +275,28 @@ public with sharing class MERC_Util {
 
 	public class SelectAll {
 
-	    public string allfields;
-	    public string SOQL;
+	    public String allfields;
+	    public String SOQL;
+	    public Schema.DescribeSobjectResult d;
 
 	    public SelectAll() { }
 
-	    public SelectAll(Schema.SobjectType sObjectType, Id recordId){
-	        Schema.DescribeSobjectResult d = sObjectType.getdescribe();
+	    public SelectAll(Schema.SobjectType sObjectType, Id recordId) {
+	        this.d = sObjectType.getdescribe();
+	        Map<String, Schema.SobjectField> m = this.d.fields.getmap();
+	        Set<String> s = m.keyset();
+	        string query = '';
+	        for(string f : s) {
+	            query = query+f+', ';
+	        }
+	        query = query.substring(0,query.length()-2);
+	        this.allfields = query;
+	        this.SOQL = 'SELECT ' + query + ' FROM ' + this.d.getName();
+	        this.SOQL += (recordId != null) ? ' WHERE Id = \''+recordId+'\'' : ' LIMIT 1';
+	    }
+
+	    public SelectAll(Schema.SobjectType sObjectType) {
+	        this.d = sObjectType.getdescribe();
 	        Map<String, Schema.SobjectField> m = d.fields.getmap();
 	        Set<String> s = m.keyset();
 	        string query = '';
@@ -290,8 +305,18 @@ public with sharing class MERC_Util {
 	        }
 	        query = query.substring(0,query.length()-2);
 	        this.allfields = query;
-	        this.SOQL = 'SELECT ' + query + ' FROM ' + d.getName();
-	        this.SOQL += (recordId != null) ? ' WHERE Id = \''+recordId+'\'' : ' LIMIT 1';
+	    }
+
+	    public String byId(Id recordId) {
+	    	this.SOQL = 'SELECT ' + this.allfields + ' FROM ' + d.getName();
+	    	this.SOQL += ' WHERE Id = \''+recordId+'\'';
+	    	return this.SOQL;
+	    }
+
+	    public String byList(String listName) {
+	    	this.SOQL = 'SELECT ' + this.allfields + ' FROM ' + d.getName();
+	    	this.SOQL += ' WHERE Id in :'+listName+'';
+	    	return this.SOQL;
 	    }
 	}
 }

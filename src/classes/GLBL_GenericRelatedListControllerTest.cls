@@ -1,8 +1,15 @@
+/**
+ * @author Joseph Ferraro
+ *
+ * Tests GLBL_GenericRelatedListController
+ */
+
 @isTest (SeeAllData=false)
 public class GLBL_GenericRelatedListControllerTest {
 	
 	static ApexPages.StandardSetController setController;
 
+	//we choose a generic case here so it can be used in any org
 	@isTest static void test_opportunities_for_accounts() {
 		List<Account> accounts = MERC_TestFactory.insertBusinessAccounts(1, [SELECT ID FROM RecordType WHERE SObjectType = 'Account' and DeveloperName = 'Vendor_GLBL'].ID);
 		Id accountId = accounts.get(0).Id;

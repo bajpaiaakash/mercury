@@ -134,13 +134,48 @@ global with sharing class GLBL_RollupService
 	/**
 	 * Added by Joseph Ferraro to enable developer to explicitly define sobjects to process
 	*/
-	global static void triggerHandler(List<SObject> sobjects) {
+	global static void triggerHandler(List<SObject> sobjects) 
+	{
 		triggerHandler(false, sobjects);
 	}
 
 	global static void triggerHandler()
 	{	
 		triggerHandler(true, null);
+	}
+
+	global static void asyncTriggerHandler(List<Sobject> sobjects)
+	{
+		List<Id> recordIds = new List<Id>();
+		for (Sobject s : sobjects) {
+			recordIds.add((Id)s.get('Id'));
+		}
+		asyncTriggerHandler(recordIds);
+	}
+
+	@future
+	global static void asyncTriggerHandler(List<Id> childRecordIds)
+	{
+		//List<Id> childRecordIdlist = new List<Id>();
+		//childRecordIdlist.addAll(childRecordIds);
+		if (childRecordIds.size() == 0)
+			return;
+		SObjectType childObjectType = childRecordIds[0].getSObjectType();		
+		List<LookupRollupSummary_GLBL__c> lookups = describeRollups(childObjectType);
+		if(lookups.size()==0)
+			return; // Nothing to see here! :)
+
+		MERC_Util.SelectAll allSelector = new MERC_Util.SelectAll(childObjectType);
+		List<Sobject> childRecords = Database.query(allSelector.byList('childRecordIds'));
+
+		system.debug('CHILD RECORDS ---> '+childRecords);
+
+		Set<Id> masterRecordIds = new Set<Id>();
+		for(SObject childRecord : childRecords)
+			for(LookupRollupSummary_GLBL__c lookup : lookups)
+				if(childRecord.get(lookup.RelationShipField_GLBL__c)!=null)
+					masterRecordIds.add((Id)childRecord.get(lookup.RelationShipField_GLBL__c));
+		updateRecords(updateMasterRollupsTrigger(lookups, masterRecordIds), false, true);
 	}
 	
 	/**

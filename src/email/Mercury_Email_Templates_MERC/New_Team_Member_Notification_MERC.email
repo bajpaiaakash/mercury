@@ -1,7 +1,0 @@
-Hello,
-
-You have been added to the Meeting {!Meeting_MERC__c.Name}, {!IF(Meeting_MERC__c.End_Date_Meeting_Time_Zone_MERC__c <> Meeting_MERC__c.Start_Date_Meeting_Time_Zone_MERC__c, Meeting_MERC__c.Start_Date_Meeting_Time_Zone_MERC__c + " - " + Meeting_MERC__c.End_Date_Meeting_Time_Zone_MERC__c, Meeting_MERC__c.Start_Date_Meeting_Time_Zone_MERC__c) }
-
-{!Meeting_MERC__c.OwnerFullName} is the key business contact for this meeting. You have been added with the role of {!Team_Member_MERC__c.Role_MERC__c}. 
-
-Should you have any questions, please contact your local Customer Meeting Services team. This is an auto-generated email; please do not reply.

@@ -1,5 +1,5 @@
 /**
- * @author Joseph Ferraro
+ * @author Joseph Ferraro and Sean Harrison
  *
  * Controller for VF page that searches CST and enables user to add Accounts to Meeting as Participants
  */
@@ -19,6 +19,7 @@ public with sharing class MERC_AddMeetingParticipantsController {
         meetingParticipant = new Meeting_Participant_MERC__c();
 	}
 
+    //if cst token is expired, it will grab a new one
     public void ensureCstToken() {
         this.cstService.refreshToken();
     }
@@ -79,6 +80,8 @@ public with sharing class MERC_AddMeetingParticipantsController {
     	}
     	set;
     }
+
+    /* the following set up the select options based on CST settings */
 
     public List<SelectOption> specialtyPriorityRanks {
         get {
@@ -158,6 +161,7 @@ public with sharing class MERC_AddMeetingParticipantsController {
         }
     }
 
+    //performs the search against the CST
     public PageReference doSearch() {
     	system.debug('>>>>>> '+this.searchRequest);
         this.searchResults = this.cstService.doSearch(this.searchRequest);
@@ -170,6 +174,7 @@ public with sharing class MERC_AddMeetingParticipantsController {
     	return null;
     }
 
+    //returns a list of required fields to be used in the UI
     public List<Schema.FieldSetMember> requiredFields {
         get {
             // new page or record type changed so reset the meeting participant

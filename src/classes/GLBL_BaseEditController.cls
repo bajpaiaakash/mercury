@@ -16,12 +16,12 @@ global virtual with sharing class GLBL_BaseEditController {
 	private String sObjectRecordType;
 	private Map<String, sObjectField> schemaFields;
 
-	public String title { get; private set; }
-	public String subtitle { get; private set; }
+	public String title { get; private set; } //title of the page
+	public String subtitle { get; private set; } //subtitle of the page
 
-	public Set<String> dynamicFields;
+	public Set<String> dynamicFields; //any fields that may need to trigger other actions via javascript events, etc.
 
-	private List<Lookup_Picklist_Settings_MERC__c> lps;
+	private List<Lookup_Picklist_Settings_MERC__c> lps; //list of dynamic lookup picklists
 
 	public String getClassName() {
 		return this.toString().split(':')[0];
@@ -106,6 +106,7 @@ global virtual with sharing class GLBL_BaseEditController {
 		set;
 	}
 
+	//represents a Visualforce page block section
 	public class PageBlockSection {
 		public List<Field> fields { get; set; }
 		public String title { get; set; }
@@ -115,6 +116,28 @@ global virtual with sharing class GLBL_BaseEditController {
 			this.columns = columns;
 			this.fields = new List<Field>();
 		}
+	}
+
+	//represents a field within a page block section
+	//has added functionality for javascript events and dynamic lookups
+	public class Field {
+		public Boolean readOnly { get; set; }
+		public Boolean blankSpace { get; set; }
+		public String id { get; set; }
+		public String value { get; set; }
+		public String label { get; set; }
+		public Integer tabOrder { get; set; }
+		public Boolean required { get; set; }
+		public String onBlur { get; set; }
+		public String onChange { get; set; }
+		public Boolean dynamic { get; set; }
+		public String styleClass { get; set; }
+
+		/*----- Lookup picklist functionality : these values will be set if a lookup is part of a dependency where
+		        values should be filtered and displayed as a picklist rather than a generic lookup.-----*/
+		public Boolean isParentField { get; set; }
+		public Boolean isChildField { get; set; }
+		public String target { get; set; }
 	}
 
 
@@ -198,31 +221,10 @@ global virtual with sharing class GLBL_BaseEditController {
 		return options;
 	}
 
-	public class Field {
-		public Boolean readOnly { get; set; }
-		public Boolean blankSpace { get; set; }
-		public String id { get; set; }
-		public String value { get; set; }
-		public String label { get; set; }
-		public Integer tabOrder { get; set; }
-		public Boolean required { get; set; }
-		public String onBlur { get; set; }
-		public String onChange { get; set; }
-		public Boolean dynamic { get; set; }
-		public String styleClass { get; set; }
-
-		/*----- Lookup picklist functionality : these values will be set if a lookup is part of a dependency where
-		        values should be filtered and displayed as a picklist rather than a generic lookup.-----*/
-		public Boolean isParentField { get; set; }
-		public Boolean isChildField { get; set; }
-		public String target { get; set; }
-	}
-
 	//returns layouts for a given sobject type and record type (if applicable)
 	public sobjectPartnerSoapSforceCom.DescribeLayoutResult layoutResult {
 		get {
 			if (layoutResult == null) {
-				system.debug('----> CALLLLLLLLLLOUTTTTTTTTTTTTTTT');
 				sobjectPartnerSoapSforceCom.Soap handler = HandlerMetadataInit();
 				layoutResult = handler.describeLayout(this.sObjectAPIName, new list<String>{sObjectRecordType});
 			}
@@ -334,12 +336,8 @@ global virtual with sharing class GLBL_BaseEditController {
 		private set;
 	}
 
+	//initiates connection with the salesforce.com metadata API via soap bindings
     public static sobjectPartnerSoapSforceCom.Soap handlerMetadataInit() {
-        //here the authentication to the soap partner.
-        //we build something quite dynamic which does not depend on any url (like cs17.salesforce.com)
-        //therefore, should work for production like for sandbox, however the remote site settings
-        //needs to be updated in Salesforce in Order to allow this outbound communication.
-
         sobjectPartnerSoapSforceCom.Soap handler = new sobjectPartnerSoapSforceCom.Soap();
 
         handler.endpoint_x = 'https://' + System.URL.getSalesforceBaseURL().getHost().split('\\.')[1]  + '-api.salesforce.com/services/Soap/u/27.0/' + UserInfo.getOrganizationId();

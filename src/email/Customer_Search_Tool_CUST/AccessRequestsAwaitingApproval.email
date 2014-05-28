@@ -1,3 +1,0 @@
-Dear {!NullValue(Contact.FirstName, "Manager")},
-Please go here to approve or deny the following access requests: 
-http://localhost:3000/grantaccess

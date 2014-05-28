@@ -1,3 +1,8 @@
+/**
+ * @author Joseph Ferraro
+ *
+ * Controller for vf page override of Meeting Participant New/Edit Pages
+ */
 public with sharing class MERC_MeetingParticipantNewEditController extends GLBL_BaseEditController {
 
 	public Meeting_Participant_MERC__c meetingParticipant { get; set; }
@@ -7,7 +12,7 @@ public with sharing class MERC_MeetingParticipantNewEditController extends GLBL_
 		get {
 			if (meetingParticipantSelectAllSoql == null) {
 				meetingParticipantSelectAllSoql =
-					new MERC_Util.SelectAll( Meeting_Participant_MERC__c.SobjectType, this.controller.getId() ).soql;
+					new MERC_Util.SelectAll( Meeting_Participant_MERC__c.SobjectType, (ID)this.controller.getId() ).soql;
 			}
 			return meetingParticipantSelectAllSoql;
 		}
@@ -26,6 +31,7 @@ public with sharing class MERC_MeetingParticipantNewEditController extends GLBL_
 			if (!Test.isRunningTest()) {
 				for (GLBL_BaseEditController.PageBlockSection section : sections) {
 					for (GLBL_BaseEditController.Field field : section.fields) {
+						//adds javascript event handlers to dynamic input fields
 						if (dynamicInputFieldNames.contains(field.value)) {
 							field.onBlur = 'toggleLoading();'+submitFormViaAjaxJavaScriptMethod+'()';
 							field.onChange = 'toggleLoading();'+submitFormViaAjaxJavaScriptMethod+'()';
@@ -45,6 +51,7 @@ public with sharing class MERC_MeetingParticipantNewEditController extends GLBL_
 		'Confirm_Final_Fee_MERC__c'
 	};
 
+	//dynamic javascript function name so the vf page can submit form via ajax
 	public String submitFormViaAjaxJavaScriptMethod {
 		get {
 			return 'submitFormViaAjax';

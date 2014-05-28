@@ -2,6 +2,7 @@
  * @author Joseph Ferraro
  *
  * Controller for VF Page that enables users to build/modify Agenda via a unified UI
+ * See GLBL_GenericRelatedListController for detailed documentation
  */
 
 public with sharing class MERC_AgendaBuilderController extends GLBL_GenericRelatedListController {

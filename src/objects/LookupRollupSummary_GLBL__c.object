@@ -224,14 +224,14 @@
         <fullName>All</fullName>
         <columns>NAME</columns>
         <columns>Active_GLBL__c</columns>
+        <columns>ParentObject_GLBL__c</columns>
+        <columns>ChildObject_GLBL__c</columns>
         <columns>AggregateOperation_GLBL__c</columns>
         <columns>AggregateResultField_GLBL__c</columns>
         <columns>CalculateJobId_GLBL__c</columns>
         <columns>CalculationMode_GLBL__c</columns>
-        <columns>ChildObject_GLBL__c</columns>
         <columns>FieldToAggregate_GLBL__c</columns>
         <columns>OverrideTriggerValidation_GLBL__c</columns>
-        <columns>ParentObject_GLBL__c</columns>
         <columns>RelationshipCriteria_GLBL__c</columns>
         <columns>RelationshipCriteriaFields_GLBL__c</columns>
         <columns>RelationshipField_GLBL__c</columns>

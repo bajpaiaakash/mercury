@@ -52,10 +52,6 @@
                 <behavior>Required</behavior>
                 <field>Contract_Expiration_Date_MERC__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Invoice_Template_Required_MERC__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>

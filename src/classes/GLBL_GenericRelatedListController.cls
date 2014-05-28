@@ -2,19 +2,20 @@
  * @author Joseph Ferraro
  *
  * Generic controller for VF Pages that need to modify related lists via a unified UI
+ * For example, is used to manage agenda items for a meeting
  */
 
 global with sharing virtual class GLBL_GenericRelatedListController {
 
 	public String clientHash { get; set; } //used to interact with dom elements
 	public ApexPages.StandardSetController controller;
-	String parentObjectAPIName;
-	String childObjectAPIName;
-	public String parentFieldAPIName;
-	List<String> parentFields;
-	List<String> childFields;
+	String parentObjectAPIName; //e.g. Account
+	String childObjectAPIName; //e.g. Opportunity
+	public String parentFieldAPIName; //AccountId
+	List<String> parentFields; //Id, Name
+	List<String> childFields; //Id, Name, Amount, CloseDate
 	List<String> recordTypeDeveloperNames;
-	String orderChildrenBy;
+	String orderChildrenBy; //Amount (controls the way theyre displayed in the list)
 	public Id parentId = ApexPages.currentPage().getParameters().get('id');
 
 	public GLBL_GenericRelatedListController(
@@ -58,6 +59,7 @@ global with sharing virtual class GLBL_GenericRelatedListController {
 		}
 	}
 
+	//adds a record to our generic sobject list (does not insert it)
 	public virtual PageReference add() {
 		GenericSobjectWrapper newItem;
 		if (recordTypeDeveloperNameParam != null) {
@@ -75,6 +77,8 @@ global with sharing virtual class GLBL_GenericRelatedListController {
 		}
 	}
 
+	//removes a record from our generic sobject list
+	//if the reocrd has an id, it is deleted immediately, if not it's erased from the list
 	public virtual PageReference remove() {
 		List<GenericSobjectWrapper> newChildList = new List<GenericSobjectWrapper>();
 		List<Sobject> childrenToDelete = new List<Sobject>();
@@ -112,19 +116,17 @@ global with sharing virtual class GLBL_GenericRelatedListController {
 		}
 	}
 
+	//loops through our generic sobject list and inserts/update records appropriately 
 	public virtual PageReference doSave() {
 		List<Sobject> childrenToInsert = new List<Sobject>();
 		List<Sobject> childrenToUpdate = new List<Sobject>();
 		List<GenericSobjectWrapper> childrenList;
-		system.debug('>>> '+recordTypeDeveloperNameParam);
 		if (recordTypeDeveloperNameParam != null) {
 			childrenList = childrenMap.get(recordTypeDeveloperNameParam);
 		} else {
 			childrenList = children;
 		}
-		system.debug('>>> '+childrenList);
 		for (GenericSobjectWrapper sow : childrenList) {
-			system.debug('child so........ '+sow.so);
 			if (sow.so.Id != null) {
 				childrenToUpdate.add(sow.so);
 			} else {
@@ -132,8 +134,6 @@ global with sharing virtual class GLBL_GenericRelatedListController {
 				childrenToInsert.add(sow.so);
 			}
 		}
-		system.debug('>>> '+childrenToInsert);
-		system.debug('>>> '+childrenToUpdate);
 		insert childrenToInsert;
 		update childrenToUpdate;
 		if (MERC_Util.getUrlParam('notify') == '1') {
@@ -152,6 +152,7 @@ global with sharing virtual class GLBL_GenericRelatedListController {
 		return null;
 	}
 
+	//the parent object. for example, if we're editing agenda items, the parent is Meeting_MERC__c
 	public Sobject parent {
 		get {
 			if (parent == null) {
@@ -163,6 +164,7 @@ global with sharing virtual class GLBL_GenericRelatedListController {
 		private set;
 	}
 
+	//a map of the record type developer name to the children 
 	public Map<String, List<GenericSobjectWrapper>> childrenMap {
 		get {
 			if (childrenMap == null) {
@@ -200,6 +202,7 @@ global with sharing virtual class GLBL_GenericRelatedListController {
 		set;
 	}
 
+	//the list of children records (agenda items, for example)
 	public List<GenericSobjectWrapper> children {
 		get {
 			if (children == null) {

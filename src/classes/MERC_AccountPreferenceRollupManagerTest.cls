@@ -6,10 +6,14 @@
 @isTest
 private class MERC_AccountPreferenceRollupManagerTest {
 	
-	@isTest static void test_should_rollup_dietary_preferences_to_account() {
-		MERC_TestFactory.loadDeclarativeRollupSummaries();
-		List<Account> accounts = MERC_TestFactory.insertAccounts(100);
+	static List<Account> accounts;
 
+	static {
+		MERC_TestFactory.loadDeclarativeRollupSummaries();
+		accounts = MERC_TestFactory.insertAccounts(100);
+	}
+
+	@isTest static void test_should_rollup_dietary_preferences_to_account() {
 		//insert a preference
 		MERC_TestFactory.insertPreferenceForAccounts(accounts, 'Meals Allergy Preferences', 'Halal', false);
 

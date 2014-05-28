@@ -1,3 +1,9 @@
+/**
+ * @author Joseph Ferraro
+ *
+ * Tests for MERC_AgendaBuilderController
+ */
+
 @isTest
 private class MERC_AgendaBuilderControllerTest {
 	

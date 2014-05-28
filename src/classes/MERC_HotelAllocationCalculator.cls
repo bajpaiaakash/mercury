@@ -5,7 +5,7 @@
  */
 
 public with sharing class MERC_HotelAllocationCalculator implements GLBL_TriggerHandler.HandlerInterface {
-	
+
 	Schema.SobjectType triggeredSobjectType;
 
 	public MERC_HotelAllocationCalculator(Schema.SobjectType sobjectType) {
@@ -13,7 +13,7 @@ public with sharing class MERC_HotelAllocationCalculator implements GLBL_Trigger
 	}
 
 	public Boolean isActive() {
-	    return true;
+	    return MERC_TriggerHandlerStateManager.isActive(MERC_HotelAllocationCalculator.class);
 	}
 
 	public void handle() {
@@ -22,21 +22,21 @@ public with sharing class MERC_HotelAllocationCalculator implements GLBL_Trigger
 	    		rollupHotelAllocations(Trigger.new);
 		   	} else if (Trigger.isDelete) {
 		   		rollupHotelAllocations(Trigger.old);
-		   	}	
+		   	}
 		}
 	}
 
 	void rollupHotelAllocations(List<SObject> sobjects) {
-		
+
 		Id hotelItineraryRecordTypeId = [SELECT ID FROM RecordType WHERE DeveloperName = 'Hotel_MERC' AND SObjectType = 'Travel_Itinerary_MERC__c'].Id;
 
 		if ( this.triggeredSobjectType == Travel_Itinerary_MERC__c.SobjectType ) {
-			
+
 			system.debug('processing hotel itinerary ----->');
 
 			List<Travel_Itinerary_MERC__c> itineraries = (List<Travel_Itinerary_MERC__c>)sobjects;
 			Map<Id, List<Meeting_Vendor_MERC__c>> meetingIdToListOfHotels = new Map<Id, List<Meeting_Vendor_MERC__c>>();
-			
+
 			Map<Id, Set<Date>> travelItineraryIdToHotelDates = new Map<Id, Set<Date>>();
 			Map<Id, Id> travelItineraryIdToMeetingVendorId = new Map<Id, Id>();
 
@@ -56,15 +56,15 @@ public with sharing class MERC_HotelAllocationCalculator implements GLBL_Trigger
 			if (meetingIds.size() == 0) return;
 
 			//retrieve all hotel itineraries for all associated meetings
-			List<Travel_Itinerary_MERC__c> hotelItineraries = [SELECT ID, Sgmnt_Bgin_TS_MERC__c, Sgmnt_End_TS_MERC__c, Meeting_Vendor_MERC__c, Meeting_Id_MERC__c  
-																		FROM Travel_Itinerary_MERC__c WHERE 
+			List<Travel_Itinerary_MERC__c> hotelItineraries = [SELECT ID, Sgmnt_Bgin_TS_MERC__c, Sgmnt_End_TS_MERC__c, Meeting_Vendor_MERC__c, Meeting_Id_MERC__c
+																		FROM Travel_Itinerary_MERC__c WHERE
 																			Meeting_Participant_MERC__r.Meeting_MERC__c in :meetingIds AND
 																			RecordTypeId = :hotelItineraryRecordTypeId];
 
 			system.debug('-----> hotelItineraries: '+hotelItineraries);
 
 			for (Travel_Itinerary_MERC__c t : hotelItineraries) {
-				
+
 				String vendorId = t.Meeting_Vendor_MERC__c;
 				String meetingId = t.Meeting_Id_MERC__c;
 
@@ -90,11 +90,11 @@ public with sharing class MERC_HotelAllocationCalculator implements GLBL_Trigger
 
 			system.debug('-----> dateMeetingVendorToNumberOfTravelItineraries: '+dateMeetingVendorToNumberOfTravelItineraries);
 
-			List<Hotel_Allocation_MERC__c> hotelAllocations = [SELECT ID, Booked_Rooms__c, Meeting_Day_MERC__r.Meeting_MERC__c, Meeting_Day_Date_MERC__c, Meeting_Day_MERC__c, Meeting_Vendor_MERC__c 
-																		FROM Hotel_Allocation_MERC__c WHERE 
+			List<Hotel_Allocation_MERC__c> hotelAllocations = [SELECT ID, Booked_Rooms__c, Meeting_Day_MERC__r.Meeting_MERC__c, Meeting_Day_Date_MERC__c, Meeting_Day_MERC__c, Meeting_Vendor_MERC__c
+																		FROM Hotel_Allocation_MERC__c WHERE
 																			Meeting_Day_MERC__r.Meeting_MERC__c in :meetingIds AND Meeting_Day_MERC__c != null];
 
-			
+
 			system.debug('-----> hotelAllocations: '+hotelAllocations);
 
 			if (hotelAllocations.size() > 0) {
@@ -111,8 +111,8 @@ public with sharing class MERC_HotelAllocationCalculator implements GLBL_Trigger
 						allocation.Booked_Rooms__c = 0;
 					}
 				}
-				
-				update hotelAllocations;	
+
+				update hotelAllocations;
 			}
 		}
 	}

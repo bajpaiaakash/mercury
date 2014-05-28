@@ -1,3 +1,0 @@
-Dear {!NullValue(Contact.FirstName, "Sir/Madam")},
-There is a status update on your access request. Please go here to view: 
-https://mercury-cst.herokuapp.com/newaccess

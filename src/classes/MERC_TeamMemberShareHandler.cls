@@ -65,7 +65,11 @@ public with sharing class MERC_TeamMemberShareHandler implements GLBL_TriggerHan
 					}
 				}
 			}
-			insert shareRecordsToInsert;
+			try {
+				insert shareRecordsToInsert;
+			} catch (DmlException dmle) {
+				System.debug(LoggingLevel.WARN, 'Unable to insert Meeting Share: '+dmle.getMessage());
+			}
 
 		} else if (Trigger.isUpdate) {
 
@@ -134,7 +138,11 @@ public with sharing class MERC_TeamMemberShareHandler implements GLBL_TriggerHan
 						}
 					}
 				}
-				insert shareRecordsToInsert;
+				try {
+					insert shareRecordsToInsert;
+				} catch (DmlException dmle) {
+					System.debug(LoggingLevel.WARN, 'Unable to insert Meeting Share during update: '+dmle.getMessage());
+				}
 			}
 
 		} else if (Trigger.isDelete) {
