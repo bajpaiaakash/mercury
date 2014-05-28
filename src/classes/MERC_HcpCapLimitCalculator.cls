@@ -7,8 +7,12 @@
 
 public with sharing class MERC_HcpCapLimitCalculator implements GLBL_TriggerHandler.HandlerInterface {
 
+	public Boolean isActive() {
+		return MERC_TriggerHandlerStateManager.isActive(MERC_HcpCapLimitCalculator.class);
+	}
+
 	public void handle() {
-		if (Trigger.isInsert || Trigger.isUpdate ) {
+		if (Trigger.isInsert || Trigger.isUpdate) {
 	    	execute(Trigger.new);
 	   	}
 	}

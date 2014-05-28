@@ -25,16 +25,16 @@
                 <field>Relationship_Owner_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>CurrencyIsoCode</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Service_Provider_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>FMV_Tier_Exists_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Employment_Specification_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -64,10 +64,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Source_Block_GLBL__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Clsfctn_Desc_GLBL__c</field>
             </layoutItems>
             <layoutItems>
@@ -81,10 +77,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Other_Specialities_GLBL__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Description</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -187,10 +179,6 @@
                 <behavior>Edit</behavior>
                 <field>Country_of_Residence_GLBL__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Primary_Address_Country_GLBL__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -224,49 +212,6 @@
         <layoutColumns/>
         <layoutColumns/>
         <style>TwoColumnsTopToBottom</style>
-    </layoutSections>
-    <layoutSections>
-        <customLabel>true</customLabel>
-        <detailHeading>true</detailHeading>
-        <editHeading>true</editHeading>
-        <label>Portal Information</label>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>HCP_Info_Package_Status_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Institutional_Notification_Consent_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Qualifications_Experience_Consent_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Payee_Bank_Information_Consent_MERC__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Employment_Specification_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Institutional_Notification_Complete_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Qualifications_Experience_Complete_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Payee_and_Bank_Info_Complete_MERC__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <style>TwoColumnsLeftToRight</style>
     </layoutSections>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -304,7 +249,6 @@
     <miniLayout>
         <fields>Name</fields>
         <fields>Relationship_Owner_MERC__c</fields>
-        <fields>CurrencyIsoCode</fields>
         <fields>RecordTypeId</fields>
         <fields>Cust_Id_GLBL__c</fields>
         <fields>Country_of_Residence_GLBL__c</fields>
@@ -346,6 +290,7 @@
         <fields>Bank_City_MERC__c</fields>
         <fields>Bank_Country_MERC__c</fields>
         <fields>Payment_Method_MERC__c</fields>
+        <fields>Priority_Rank_Nbr_MERC__c</fields>
         <relatedList>Payee_MERC__c.Account_MERC__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -376,13 +321,20 @@
         <relatedList>Preferences_and_Consent_GLBL__c.Account_GLBL__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <excludeButtons>New</excludeButtons>
         <fields>ACCOUNT.NAME</fields>
         <fields>ACCOUNT.RECORDTYPE</fields>
         <fields>Primary_Addr_Line1_GLBL__c</fields>
         <fields>Primary_Addr_City_GLBL__c</fields>
         <fields>Primary_Address_Country_GLBL__c</fields>
-        <relatedList>Account.HCP_MERC__c</relatedList>
+        <relatedList>Account.HCP_Designated_Individuals_MERC__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>ACCOUNT.NAME</fields>
+        <fields>ACCOUNT.RECORDTYPE</fields>
+        <fields>Primary_Addr_Line1_GLBL__c</fields>
+        <fields>Primary_Addr_City_GLBL__c</fields>
+        <fields>Primary_Address_Country_GLBL__c</fields>
+        <relatedList>Account.HCP_Contracting_Party_MERC__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>VERSION.TITLE</fields>

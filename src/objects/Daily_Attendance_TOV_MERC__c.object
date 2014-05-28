@@ -97,7 +97,11 @@
     <fields>
         <fullName>Est_Reg_Amt_ToV_MERC__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Status_MERC__c,&quot;Attended&quot;), Meeting_Day_MERC__r.Daily_Registration_Amount_MERC__c, 0)</formula>
+        <formula>IF(
+    TEXT( Meeting_Participant_MERC__r.Status_MERC__c ) == &quot;Attended&quot;
+    , Meeting_Day_MERC__r.Daily_Registration_Amount_MERC__c
+    , 0
+)</formula>
         <label>Registration Amount ToV</label>
         <precision>18</precision>
         <required>false</required>
@@ -148,6 +152,17 @@
         <externalId>false</externalId>
         <formula>Meeting_Day_MERC__r.Meeting_MERC__r.Event_Id_MERC__c</formula>
         <label>Meeting Event Id</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Meeting_Id_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>Meeting_Day_MERC__r.Meeting_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting Id</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -265,8 +280,8 @@ Created by John A Adams 10/10/2013</description>
         <fullName>Confirm_ToV_Reporting_Change_MERC</fullName>
         <active>true</active>
         <description>If a change is made to a Daily Attendance &amp; ToV record and the ToV is already reported, HCP Care needs to confirm the change. Created 01/07/2014 by KLorenti, Mavens Consulting</description>
-        <errorConditionFormula>ISPICKVAL( Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c , &quot;Yes&quot;) &amp;&amp;
-ISCHANGED(  Status_MERC__c ) &amp;&amp;  !Confirm_ToV_Reporting_Change_MERC__c</errorConditionFormula>
+        <errorConditionFormula>ISPICKVAL(Meeting_Day_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c,&quot;Yes&quot;) &amp;&amp;
+(ISCHANGED(Status_MERC__c ) || ISCHANGED( Est_Hotel_ToV_MERC__c )) &amp;&amp;  !Confirm_ToV_Reporting_Change_MERC__c</errorConditionFormula>
         <errorDisplayField>Confirm_ToV_Reporting_Change_MERC__c</errorDisplayField>
         <errorMessage>ToV has already been reported for this meeting participant. Customer Meeting Services needs to confirm this change before it can be made.</errorMessage>
     </validationRules>

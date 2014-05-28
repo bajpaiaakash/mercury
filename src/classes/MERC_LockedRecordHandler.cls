@@ -120,6 +120,10 @@ public with sharing class MERC_LockedRecordHandler implements GLBL_TriggerHandle
     	}
     }
 
+    public Boolean isActive() {
+        return MERC_TriggerHandlerStateManager.isActive(MERC_LockedRecordHandler.class);
+    }
+
     public void handle() {
         if (!MERC_LockedRecordHandler.overrideLockCheck) {
             if (Trigger.isBefore) {

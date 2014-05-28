@@ -1,5 +1,9 @@
 public with sharing class MERC_ParticipantTriggerHandler implements GLBL_TriggerHandler.HandlerInterface {
 
+	public Boolean isActive() {
+		return MERC_TriggerHandlerStateManager.isActive(MERC_ParticipantTriggerHandler.class);
+	}
+
 	public void handle() {
 		if (Trigger.isInsert && Trigger.isBefore) {
 	    	stampPersonAccountDetails((List<Meeting_Participant_MERC__c>)Trigger.new);

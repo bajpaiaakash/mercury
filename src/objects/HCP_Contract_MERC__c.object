@@ -53,6 +53,41 @@ Created by John A Adams 10/2/2013</description>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
+    <fieldSets>
+        <fullName>Merge_HCP_Contracts_MERC</fullName>
+        <description>MERC_MergedAccounts.page / MERC_MergedAccountsApex.cls / Custom Setting: Account Merge Field Set - HCP Contracts .Oliver Dunford 8th May 2014</description>
+        <displayedFields>
+            <field>Account_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Contract_Request_Status_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>RecordTypeId</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Meeting_Start_Date_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>MSA_Start_Date_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>MSA_End_Date_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Account Merge Contracts</label>
+    </fieldSets>
     <fields>
         <fullName>Account_MERC__c</fullName>
         <description>Lookup relationship between HCP Contracts and Accounts
@@ -63,7 +98,7 @@ Created by John A Adams 10/9/2013</description>
         <relationshipLabel>HCP Contracts</relationshipLabel>
         <relationshipName>HCP_Contracts</relationshipName>
         <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
@@ -110,19 +145,19 @@ Created by John A Adams 10/8/2013</description>
         <label>Contract Request Status</label>
         <picklist>
             <picklistValues>
-                <fullName>Contract request submitted</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Contract in progress</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Contract signed</fullName>
+                <fullName>Contract cancelled</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Contract cancelled</fullName>
+                <fullName>Sent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -298,6 +333,26 @@ Created by John A Adams 10/29/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Invoice_Template_Required_MERC__c</fullName>
+        <description>Per Appendix R creating field on HCP Contract. Created 05/19/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Invoice Template Required</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Justification_MERC__c</fullName>
         <description>Multi-Picklist created to identify reason to select the HCP for this service of work.
 Created by John A Adams 10/7/2013</description>
@@ -353,6 +408,16 @@ Created by John A Adams 10/7/2013</description>
         <description>Used to indicate who the Lilly Internal Employee is for the first round of Contract signature. Oliver Dunford 21st Jan 2014.</description>
         <externalId>false</externalId>
         <label>Lilly Internal Signee</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.RecordType.Name</field>
+                <operation>equals</operation>
+                <value>Employee</value>
+            </filterItems>
+            <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>HCP Contracts (Lilly Internal Signee)</relationshipLabel>
         <relationshipName>Lilly_Internal_Signee</relationshipName>
@@ -378,6 +443,15 @@ Created by John A Adams 10/28/2013</description>
         <description>Lookup relationship to associate a Work Order to an MSA. Oliver Dunford 12th Nov.</description>
         <externalId>false</externalId>
         <label>MSA</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>HCP_Contract_MERC__c.RecordType.Name</field>
+                <operation>equals</operation>
+                <value>Master Service Agreement</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>HCP_Contract_MERC__c</referenceTo>
         <relationshipLabel>Work Orders</relationshipLabel>
         <relationshipName>HCP_Contracts</relationshipName>
@@ -419,6 +493,16 @@ Created by John A Adams 12/19/2013</description>
 Created by John Adams 1/15/14</description>
         <externalId>false</externalId>
         <label>Meeting Participant</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>$Source.Account_MERC__c</field>
+                <operation>equals</operation>
+                <valueField>Meeting_Participant_MERC__c.Account_MERC__c</valueField>
+            </filterItems>
+            <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Meeting_Participant_MERC__c</referenceTo>
         <relationshipLabel>HCP Contracts</relationshipLabel>
         <relationshipName>HCP_Contracts</relationshipName>
@@ -471,6 +555,16 @@ Created by John A Adams 10/7/2013</description>
 Created by John A Adams 10/7/2013</description>
         <externalId>false</externalId>
         <label>Payee</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>$Source.Account_MERC__c</field>
+                <operation>equals</operation>
+                <valueField>Payee_MERC__c.Account_MERC__c</valueField>
+            </filterItems>
+            <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Payee_MERC__c</referenceTo>
         <relationshipLabel>HCP Contracts</relationshipLabel>
         <relationshipName>ContractXs</relationshipName>
@@ -570,18 +664,6 @@ Created by John A Adams 10/17/2013</description>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
-    <namedFilters>
-        <fullName>nf_01I11000000Ck6cEAC_00N11000000T7RqEAK</fullName>
-        <active>true</active>
-        <field>HCP_Contract_MERC__c.MSA_MERC__c</field>
-        <filterItems>
-            <field>HCP_Contract_MERC__c.RecordType.Name</field>
-            <operation>equals</operation>
-            <value>Master Service Agreement</value>
-        </filterItems>
-        <isOptional>false</isOptional>
-        <name>HCP Contract_MSA</name>
-    </namedFilters>
     <pluralLabel>HCP Contracts</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
@@ -592,19 +674,19 @@ Created by John A Adams 10/17/2013</description>
         <picklistValues>
             <picklist>Contract_Request_Status_MERC__c</picklist>
             <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Contract cancelled</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Contract in progress</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
-                <fullName>Contract request submitted</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Contract signed</fullName>
+                <fullName>Sent</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -620,6 +702,17 @@ Created by John A Adams 10/17/2013</description>
             </values>
             <values>
                 <fullName>UK</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Invoice_Template_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -705,19 +798,19 @@ Created by John A Adams 10/17/2013</description>
         <picklistValues>
             <picklist>Contract_Request_Status_MERC__c</picklist>
             <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Contract cancelled</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Contract in progress</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
-                <fullName>Contract request submitted</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Contract signed</fullName>
+                <fullName>Sent</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -733,6 +826,17 @@ Created by John A Adams 10/17/2013</description>
             </values>
             <values>
                 <fullName>UK</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Invoice_Template_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -818,6 +922,10 @@ Created by John A Adams 10/17/2013</description>
         <picklistValues>
             <picklist>Contract_Request_Status_MERC__c</picklist>
             <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Contract cancelled</fullName>
                 <default>false</default>
             </values>
@@ -826,7 +934,7 @@ Created by John A Adams 10/17/2013</description>
                 <default>true</default>
             </values>
             <values>
-                <fullName>Contract signed</fullName>
+                <fullName>Sent</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -842,6 +950,17 @@ Created by John A Adams 10/17/2013</description>
             </values>
             <values>
                 <fullName>UK</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Invoice_Template_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -936,6 +1055,13 @@ Created by John A Adams 10/17/2013</description>
         <searchResultsAdditionalFields>Contract_Request_Status_MERC__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Prevents_creating_more_than_one_HCP_Cont</fullName>
+        <active>true</active>
+        <description>Prevents creating more than one HCP Contract for a meeting participant.</description>
+        <errorConditionFormula>(ISNEW()  &amp;&amp; Meeting_Participant_MERC__r.Number_of_Contracts_MERC__c &gt; 0.00)</errorConditionFormula>
+        <errorMessage>There is already a contract created for this Meeting Participant.</errorMessage>
+    </validationRules>
     <webLinks>
         <fullName>Create_HCP_Contract</fullName>
         <availability>online</availability>
@@ -947,7 +1073,29 @@ Created by John A Adams 10/17/2013</description>
         <openType>replace</openType>
         <protected>false</protected>
         <requireRowSelection>false</requireRowSelection>
-        <url>/setup/ui/recordtypeselect.jsp?ent=01I110000008cxp&amp;save_new_url=%2Fa0t%2Fe%3FCF00N11000000PFx1={!Meeting_Participant_MERC__c.Name}%2600N11000000PFwm={!Meeting_Participant_MERC__c.Meeting_End_Date_MERC__c}%26CF00N11000000PFx1_lkid={!Meeting_Participant_MERC__c.Id}%26CF00N11000000PFpU={!URLENCODE(Account.Name)}%26CF00N11000000PFpU_lkid={!Account.Id}%26CF00N11000000PFx0={!URLENCODE( Meeting_Participant_MERC__c.Meeting_MERC__c )}%26CF00N11000000PFx0_lkid={!Meeting_Participant_MERC__c.Meeting_MERCId__c}%26retURL=%252F{!Meeting_Participant_MERC__c.Id}</url>
+        <url>/apex/GLBL_NewButtonPrepopulator?cObj=HCP_Contract_MERC__c&amp;cObjURL={!URLENCODE(URLFOR($Action.HCP_Contract_MERC__c.New))}&amp;cf_Contract_Expiration_Date_MERC__c={!Meeting_Participant_MERC__c.Meeting_End_Date_MERC__c}&amp;cf_Meeting_Participant_MERC__c={!Meeting_Participant_MERC__c.Name}&amp;
+cf_Meeting_Participant_MERC__c_lkid={!Meeting_Participant_MERC__c.Id}&amp;
+cf_Account_MERC__c={!URLENCODE(Account.Name)}&amp;
+cf_Account_MERC__c_lkid={!Account.Id}&amp;
+cf_Meeting_Name_MERC__c={!URLENCODE( Meeting_Participant_MERC__c.Meeting_MERC__c )}&amp;
+cf_Meeting_Name_MERC__c_lkid={!Meeting_Participant_MERC__c.Meeting_MERCId__c}&amp;cObjParent=Meeting_Participant_MERC__c&amp;cObjParentId={!Meeting_Participant_MERC__c.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Create_HCP_Contract_Backup</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Create HCP Contract Backup</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/apex/GLBL_NewButtonPrepopulator?cObj=HCP_Contract_MERC__c&amp;cObjURL={!URLENCODE(URLFOR($Action.HCP_Contract_MERC__c.New))}&amp;cf_Contract_Expiration_Date_MERC__c={!Meeting_Participant_MERC__c.Meeting_End_Date_MERC__c}&amp;cf_Meeting_Participant_MERC__c={!Meeting_Participant_MERC__c.Name}&amp;
+cf_Meeting_Participant_MERC__c_lkid={!Meeting_Participant_MERC__c.Id}&amp;
+cf_Account_MERC__c={!URLENCODE(Account.Name)}&amp;
+cf_Account_MERC__c_lkid={!Account.Id}&amp;
+cf_Meeting_Name_MERC__c={!URLENCODE( Meeting_Participant_MERC__c.Meeting_MERC__c )}&amp;
+cf_Meeting_Name_MERC__c_lkid={!Meeting_Participant_MERC__c.Meeting_MERCId__c}&amp;cObjParent=Meeting_Participant_MERC__c&amp;cObjParentId={!Meeting_Participant_MERC__c.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>Generate_Content_MERC</fullName>

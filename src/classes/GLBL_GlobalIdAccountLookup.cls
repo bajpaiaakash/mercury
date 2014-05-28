@@ -42,6 +42,10 @@ public with sharing class GLBL_GlobalIdAccountLookup implements GLBL_TriggerHand
     	this(guidField,empField,false);
     }
 
+    public Boolean isActive() {
+        return true;
+    }
+
     // Sets the handler to respond to both inserts and updates with same execute method
     public void handle() {
         if (Trigger.isInsert || Trigger.isUpdate ) {

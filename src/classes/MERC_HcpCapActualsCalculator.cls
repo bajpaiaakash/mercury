@@ -8,6 +8,10 @@ public with sharing class MERC_HcpCapActualsCalculator implements GLBL_TriggerHa
 	
 	Schema.SobjectType triggeredSobjectType;
 
+	public Boolean isActive() {
+	    return MERC_TriggerHandlerStateManager.isActive(MERC_HcpCapActualsCalculator.class);
+	}
+
 	public MERC_HcpCapActualsCalculator(Schema.SobjectType sobjectType) {
 		this.triggeredSobjectType = sObjectType;
 	}
@@ -46,6 +50,6 @@ public with sharing class MERC_HcpCapActualsCalculator implements GLBL_TriggerHa
 		}
 
 		if (participantsToRollup.size() > 0)
-			GLBL_Rollup.RollupService.triggerHandler(participantsToRollup);
+			GLBL_RollupService.triggerHandler(sobjects);
 	}
 }

@@ -170,5 +170,18 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>Invoice_File_Prefix_MERC__c</fullName>
+        <defaultValue>&quot;MercuryInvoice-&quot;</defaultValue>
+        <description>Determines the prefix of file names sent for processing. This value is expected &amp; used by the Informatica &amp; SAP integrations.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Determines the prefix of file names sent for processing. Used by the Informatica &amp; SAP integrations.</inlineHelpText>
+        <label>Invoice File Prefix</label>
+        <length>32</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <label>Mercury Settings</label>
 </CustomObject>

@@ -24,7 +24,14 @@ private class MERC_MeetingCancellationHandlerTest {
 		nonMercuryUserRecordTypeId = [SELECT ID FROM RecordType WHERE DeveloperName = 'External_User_MERC' AND SobjectType = 'Team_Member_MERC__c'].ID;
 
 		/* insert a dummy contact for the workaround in the trigger */
-		insert new Contact(LastName='Dummy', Email='dummy@dummy.com');
+		Contact dummyContact = new Contact(LastName='Dummy', Email='dummy@dummy.com');
+		insert dummyContact;
+
+	   	/* set up sosl serach results */
+	   	Id [] fixedSearchResults= new Id[1];
+       	fixedSearchResults[0] = dummyContact.Id;
+       	Test.setFixedSearchResults(fixedSearchResults);
+
 		meetings  = MERC_TestFactory.insertMeetings(200);
 	}
 

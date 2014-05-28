@@ -53,6 +53,46 @@ Created by John A Adams 9/26/2013</description>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
+    <fieldSets>
+        <fullName>Account_Merge_Payee_MERC</fullName>
+        <description>MERC_MergedAccounts.page / MERC_MergedAccountsApex.cls / Custom Setting: Account Merge - HCP Contracts .Oliver Dunford 8th May 2014</description>
+        <displayedFields>
+            <field>Account_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Payee_Street_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Payee_Country_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SAP_Vendor_ID_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Bank_Name_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Bank_Street_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Account Merge - Payee</label>
+    </fieldSets>
     <fields>
         <fullName>Account_MERC__c</fullName>
         <description>Associate payee information from SAP with Account
@@ -63,7 +103,7 @@ Created by John A Adams 9/27/2013</description>
         <relationshipLabel>Payee</relationshipLabel>
         <relationshipName>Payee</relationshipName>
         <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
@@ -76,6 +116,16 @@ Created by John A Adams 9/27/2013</description>
 Created by John A Adams 10/17/2013</description>
         <externalId>false</externalId>
         <label>Associated Address</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Address_GLBL__c.Account_GLBL__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.Account_MERC__c</valueField>
+            </filterItems>
+            <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.select the &apos;All Fields&apos; option and run your search again.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Address_GLBL__c</referenceTo>
         <relationshipLabel>Payee</relationshipLabel>
         <relationshipName>Payee</relationshipName>
@@ -83,6 +133,19 @@ Created by John A Adams 10/17/2013</description>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Bank_Account_Number_Encrypted__c</fullName>
+        <description>test</description>
+        <externalId>false</externalId>
+        <label>Bank Account Number (Encrypted)</label>
+        <length>150</length>
+        <maskChar>asterisk</maskChar>
+        <maskType>lastFour</maskType>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>EncryptedText</type>
     </fields>
     <fields>
         <fullName>Bank_Account_Number_MERC__c</fullName>
@@ -216,6 +279,16 @@ Created by J Adams 12/10/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Payee_Auto_Number_MERC__c</fullName>
+        <description>Unique Auto Number field used by Web Services to create a secure/obfuscated Payee Id. Created by John Lorenti 2014-05-05.</description>
+        <displayFormat>P-{00000}</displayFormat>
+        <externalId>true</externalId>
+        <label>Payee Auto Number</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
         <fullName>Payee_City_MERC__c</fullName>
         <description>Payee City address
 Created by John A Adams 10/21/2013</description>
@@ -335,6 +408,20 @@ Created by John A Adams 10/17/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Priority_Rank_Nbr_MERC__c</fullName>
+        <description>Only one Payee with Priority Rank Number of 1 will be displayed on the portal. Created 05/05/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Priority Rank Number 1 is maintained on the Web Service.  There may only be one Payee with a Priority Rank Number of 1.</inlineHelpText>
+        <label>Priority Rank Number</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>SAP_Vendor_ID_MERC__c</fullName>
         <description>SAP Vender ID number - used to integrate with SAP system
 Created by John A Adams 9/27/2013</description>
@@ -363,16 +450,21 @@ Created by John A Adams 9/27/2013</description>
         <fullName>Transfer_Information_Complete_MERC__c</fullName>
         <description>Indicates whether all bank information has been populated on a payee record. Created 04/18/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <formula>IF (
-ISPICKVAL(Payment_Method_MERC__c,&quot;&quot;) ||
-ISBLANK(Bank_Name_MERC__c) ||
-ISBLANK(Bank_Street_MERC__c) ||
-ISBLANK(Bank_City_MERC__c) ||
-ISBLANK(Bank_Country_MERC__c) ||
-ISBLANK(Bank_Zip_Postal_Code_MERC__c) ||
-ISBLANK(Bank_Sort_Code_MERC__c) ||
-ISBLANK(Bank_IBAN_MERC__c) ||
-ISBLANK(Bank_Account_Number_MERC__c), false, true)</formula>
+        <formula>IF(
+(!ISBLANK(Bank_Name_MERC__c) &amp;&amp;
+!ISBLANK(Bank_Street_MERC__c) &amp;&amp;
+!ISBLANK(Bank_City_MERC__c) &amp;&amp;
+!ISBLANK(Bank_Country_MERC__c) &amp;&amp;
+!ISBLANK(Bank_Zip_Postal_Code_MERC__c) &amp;&amp;
+!ISBLANK(Bank_Account_Number_MERC__c) &amp;&amp;
+!ISBLANK(Bank_Sort_Code_MERC__c) 
+)
+
+||
+
+(!ISBLANK(Bank_IBAN_MERC__c)) 
+
+, true, false)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Transfer Information Complete</label>
         <trackHistory>false</trackHistory>
@@ -400,7 +492,7 @@ Created by John A Adams 2/18/2014</description>
         <externalId>false</externalId>
         <label>Web Service Update Date</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -412,7 +504,7 @@ Created by John A Adams 2/18/2014</description>
         <label>Web Service Update HCP Action</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -425,7 +517,7 @@ Created by John A Adams 2/18/2014</description>
         <label>Web Service Update HCP Global Id</label>
         <length>50</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -437,7 +529,7 @@ Created by John A Adams 2/18/2014</description>
         <label>Web Service Update HCP Name</label>
         <length>100</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -459,20 +551,6 @@ Created by John A Adams 2/18/2014</description>
         <trackHistory>true</trackHistory>
         <type>Text</type>
     </nameField>
-    <namedFilters>
-        <fullName>nf_01I11000000Ck6cEAC_00N11000000SgtJEAS</fullName>
-        <active>true</active>
-        <field>HCP_Contract_MERC__c.Payee_MERC__c</field>
-        <filterItems>
-            <field>$Source.Account_MERC__c</field>
-            <operation>equals</operation>
-            <valueField>Payee_MERC__c.Account_MERC__c</valueField>
-        </filterItems>
-        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
-        <isOptional>false</isOptional>
-        <name>HCP Contract_Payee</name>
-        <sourceObject>HCP_Contract_MERC__c</sourceObject>
-    </namedFilters>
     <pluralLabel>Payee</pluralLabel>
     <searchLayouts>
         <customTabListAdditionalFields>Account_MERC__c</customTabListAdditionalFields>
@@ -483,4 +561,18 @@ Created by John A Adams 2/18/2014</description>
         <searchResultsAdditionalFields>SAP_Vendor_ID_MERC__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Check_Priority_Rank_Number_MERC</fullName>
+        <active>true</active>
+        <description>Prevent Account from having more than one Payee with a Priority Rank Number = 1</description>
+        <errorConditionFormula>(ISCHANGED(Priority_Rank_Nbr_MERC__c) &amp;&amp; Priority_Rank_Nbr_MERC__c = 1 &amp;&amp;
+Account_MERC__r.of_Payees_with_Priority_Rank_1_MERC__c &gt;= 1)
+
+||
+
+(ISNEW()&amp;&amp; Priority_Rank_Nbr_MERC__c = 1 &amp;&amp;
+Account_MERC__r.of_Payees_with_Priority_Rank_1_MERC__c &gt;= 1)</errorConditionFormula>
+        <errorDisplayField>Priority_Rank_Nbr_MERC__c</errorDisplayField>
+        <errorMessage>There may only be one Payee with Priority Rank Number = 1 at a time</errorMessage>
+    </validationRules>
 </CustomObject>

@@ -9,6 +9,11 @@
 
 public with sharing class MERC_MeetingCancellationHandler implements GLBL_TriggerHandler.HandlerInterface {
 
+    public Boolean isActive() 
+    {
+        return MERC_TriggerHandlerStateManager.isActive(MERC_MeetingCancellationHandler.class);
+    }
+
     public void handle()
     {
         List<Meeting_MERC__c> cancelledMeetings = new List<Meeting_MERC__c>();
@@ -44,10 +49,7 @@ public with sharing class MERC_MeetingCancellationHandler implements GLBL_Trigge
 
         /* select a dummy contact. This is a workaround to a gap in salesforce functionality
            per: http://www.opfocus.com/blog/sending-emails-in-salesforce-to-non-contacts-using-apex/ */
-        Contact dummyContact = [SELECT Id
-                                  FROM Contact
-                                 WHERE Email != null
-                                 LIMIT 1];
+        Contact dummyContact = (Contact)([FIND '*co*' IN EMAIL FIELDS RETURNING contact(Id, Email WHERE Email LIKE '%co%') limit 1][0][0]);
 
         List<Messaging.SingleEmailMessage> emailsToPopulateList = new List<Messaging.SingleEmailMessage>();
         for (Meeting_MERC__c meeting : cancelledMeetings)

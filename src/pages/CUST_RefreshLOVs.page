@@ -44,7 +44,7 @@
 	<apex:sectionHeader title="CST App Settings" subtitle="Refresh List of Values">
 		<div id="description">This utility allows a System Admin to start a comprehensive search and collection of the list of unique values available for many Account and Account-related fields. Use with care.</div>
 	</apex:sectionHeader>
-		<apex:pageMessages />
+		<apex:pageMessages escape="false"/>
 		<div id="clientSideErrorMessage" class="message errorM3" role="alert" style="display: none">
         <table border="0" cellpadding="0" cellspacing="0" class="messageTable" style="padding:0px;margin:0px;">
             <tbody><tr valign="top">
@@ -60,7 +60,10 @@
 	<apex:pageBlock title="Multi-select Search Fields" rendered="{!settings.Id != null}">
 		<apex:pageBlockButtons location="top">
 			<apex:commandButton value="Refresh Selected LOVs" action="{!refreshSelectedLOVs}" onclick="return getSelections();"/>
-
+			<apex:selectRadio value="{!retainCurrentValues}">
+            	<apex:selectOption itemValue="true" itemLabel="Retain current values"/>
+            	<apex:selectOption itemValue="false" itemLabel="Clear and reset all values" html-selected="selected"/>
+            </apex:selectRadio>
 		</apex:pageBlockButtons>
 		<apex:inputText id="fieldsToRefresh" value="{!fieldsToRefresh}" style="display: none"/>
 		<apex:pageBlockSection title="Additional Details">
@@ -82,7 +85,7 @@
 		<apex:pageBlockSection title="Consent">
 			<apex:inputCheckbox html-targetField="c.Cnsnt_Sts_Cd_GLBL__c"/>
 						 <apex:outputField value="{!settings.Cnsnt_Sts_Cd_CUST__c}" />
-			<apex:inputCheckbox html-targetField="c.Interaction_Channel_Type_GLBL__c"/>
+			<apex:inputCheckbox html-targetField="c.Cmnctn_Chnl_Cd_GLBL__c"/>
 						 <apex:outputField value="{!settings.Interaction_Channel_Type_CUST__c}" />
 			<apex:inputCheckbox html-targetField="c.Cnsnt_Prps_Cd_GLBL__c"/>
 						 <apex:outputField value="{!settings.Cnsnt_Prps_Cd_CUST__c}" />
@@ -94,10 +97,15 @@
 						 <apex:outputField value="{!settings.Affiliation_Priority_Rank_Nbr_CUST__c}" />
 		</apex:pageBlockSection>
 		<apex:pageBlockSection >
-
 			<hr/>
 			<input type="checkbox" name="Select All" value="selectAll" id="selectAll" onChange="toggleCheckboxes(this);" /><span class="labelCol">Select All</span>
 		</apex:pageBlockSection>
+		<apex:pageBlockSection >
+			<apex:selectRadio value="{!retainCurrentValues}">
+            	<apex:selectOption itemValue="true" itemLabel="Retain current values"/>
+            	<apex:selectOption itemValue="false" itemLabel="Clear and reset all values" html-selected="selected"/>
+            </apex:selectRadio>
+        </apex:pageBlockSection>
 	</apex:pageBlock>
 </apex:form>
 </apex:page>

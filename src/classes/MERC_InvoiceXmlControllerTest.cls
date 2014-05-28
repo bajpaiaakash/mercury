@@ -82,6 +82,6 @@ private class MERC_InvoiceXmlControllerTest {
 		Test.startTest();
 		MERC_InvoiceXmlController controller = new MERC_InvoiceXmlController(new ApexPages.StandardController(invoices[0]));
 
-		System.assert(controller.scannedTifSection!=null,'There should be a TIF section but there it is null');
+		System.assert(controller.scannedTifSection!=null,'There should be a TIF section but it is null');
 	}
 }

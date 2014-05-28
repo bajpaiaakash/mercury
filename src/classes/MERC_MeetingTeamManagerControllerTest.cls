@@ -1,22 +1,29 @@
 @isTest
 private class MERC_MeetingTeamManagerControllerTest {
 
+	static User testUser;
+	static {
+		System.runAs(new User(Id=UserInfo.getUserId()))
+		{
+			testUser = MERC_TestFactory.insertTestUsers(1, 'Mercury Meeting Functionary - Read Only').get(0);
+			testUser.userRoleId = [SELECT Id FROM UserRole Where Name = 'Global' LIMIT 1].Id;
+			update testUser;
+
+			List<PermissionSetAssignment> psa = new List<PermissionSetAssignment>();
+			for (PermissionSet ps : [SELECT Id FROM PermissionSet WHERE name ='Mercury_Meeting_Owner_Edit' OR name = 'DDP_Admin_Mercury']) {
+				psa.add(new PermissionSetAssignment(AssigneeId=testUser.Id, PermissionSetId=ps.Id));
+			}
+			insert psa;
+		}
+	}
 	static Meeting_MERC__c meeting = MERC_TestFactory.insertMeetings(1).get(0);
 	static ApexPages.StandardSetController ssc = new ApexPages.StandardSetController(new List<Meeting_MERC__c>{meeting});
 	static List<Account> employeeAccounts = insertEmployeeAccounts(10);
-	static User testUser = MERC_TestFactory.insertTestUsers(1, 'Mercury Meeting Functionary - Read Only').get(0);
-	static {
-		testUser.userRoleId = [SELECT Id FROM UserRole Where Name = 'Global' LIMIT 1].Id;
-		update testUser;
-
+	static
+	{
 		PageReference testPage = Page.MERC_MeetingTeamManager;
 		testPage.getParameters().put('id', meeting.Id);
 		Test.setCurrentPage(testPage);
-		List<PermissionSetAssignment> psa = new List<PermissionSetAssignment>();
-		for (PermissionSet ps : [SELECT Id FROM PermissionSet WHERE name ='Mercury_Meeting_Owner_Edit' OR name = 'DDP_Admin_Mercury']) {
-			psa.add(new PermissionSetAssignment(AssigneeId=testUser.Id, PermissionSetId=ps.Id));
-		}
-		insert psa;
 	}
 
 	@isTest static void test_should_be_able_to_add_mercury_user_as_team_member() {

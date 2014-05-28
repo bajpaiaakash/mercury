@@ -15,6 +15,7 @@ private class MERC_InvoiceXmlWriterTest {
 	static Integer numOfLineItems;
 
 	static {
+		MERC_TestFactory.adjustForSFDCSetMockBug = true;
 		accounts = MERC_TestFactory.insertAccounts(1);
 		meetings = MERC_TestFactory.insertMeetings(1);
 		participants = MERC_TestFactory.insertParticipants(meetings[0].Id, accounts);

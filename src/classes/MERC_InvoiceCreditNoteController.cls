@@ -17,12 +17,14 @@ public with sharing class MERC_InvoiceCreditNoteController
     public MERC_InvoiceCreditNoteController(ApexPages.StandardController stdController)
     {
         invoice = (Invoice_MERC__c)stdController.getRecord();
+        p('invoice='+invoice);
         invoice = [Select Id, RecordTypeId, Name FROM Invoice_MERC__c WHERE Id =:invoice.Id];
 
         /*----- a map from the current record type to the type that should be created -----*/
         Map<String, String> existingToNewRecTypeMap
                             = new Map<String, String>{ 'Invoice_Locked_MERC'     => 'Credit_Note_MERC',
-                                                       'Credit_Note_Locked_MERC' => 'Invoice_MERC'};
+                                                       'Credit_Note_Locked_MERC' => 'Invoice_MERC',
+                                                       'Invoice_Invalid_MERC'    => 'Invoice_MERC'};
 
         /*----- create a map of Invoice record types by Id-----*/
         Map<Id, RecordType> recordTypeMap
@@ -46,7 +48,9 @@ public with sharing class MERC_InvoiceCreditNoteController
             ApexPages.addMessage( new ApexPages.Message( ApexPages.Severity.ERROR, 'This invoice/credit note cannot be cloned. Please contact an administrator.'));
         }
     }
-
+    static void p(String m) {
+        System.debug('\n\n\nYYZ - '+m+'\n\n\n\n');
+    }
     public Integer getLineItemCount()
     {
         return [SELECT COUNT() FROM Invoice_Line_Item_MERC__c WHERE Invoice_MERC__c = :invoice.Id];
@@ -79,6 +83,7 @@ public with sharing class MERC_InvoiceCreditNoteController
         catch (MERC_Exception ex)
         {
             Database.rollback(sp);
+            ApexPages.addMessage( new ApexPages.Message( ApexPages.Severity.ERROR, 'Unable to clone record. Please contact an administrator.'));
             return null;
         }
 
@@ -112,7 +117,7 @@ public with sharing class MERC_InvoiceCreditNoteController
             newInvoice.Submitted_for_Payment_Date_MERC__c = null;
             newInvoice.RecordTypeId                       = newInvoiceRecType.Id;
             newInvoice.Credit_Note_Invoice_MERC__c        = newInvoiceRecType.DeveloperName == 'Credit_Note_MERC' ? invoice.Id : null;
-
+            newInvoice.OwnerId                            = UserInfo.getUserId();
 
             insert newInvoice;
         }

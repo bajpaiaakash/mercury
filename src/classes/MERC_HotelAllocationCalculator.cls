@@ -12,6 +12,10 @@ public with sharing class MERC_HotelAllocationCalculator implements GLBL_Trigger
 		this.triggeredSobjectType = sObjectType;
 	}
 
+	public Boolean isActive() {
+	    return true;
+	}
+
 	public void handle() {
 		if (Trigger.isAfter) {
 			if (Trigger.isInsert || Trigger.isUpdate || Trigger.isUndelete) {

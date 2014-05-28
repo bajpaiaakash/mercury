@@ -18,7 +18,10 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>Edit</actionName>
-        <type>Default</type>
+        <comment>Overridden to allow for dependent lookups as picklists - K. Thornton 2014/05/22</comment>
+        <content>MERC_BudgetLineItemNewEdit</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>Follow</actionName>
@@ -30,7 +33,10 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
-        <type>Default</type>
+        <comment>Overridden to allow for dependent lookups as picklists - K. Thornton 2014/05/22</comment>
+        <content>MERC_BudgetLineItemNewEdit</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>SaveEdit</actionName>
@@ -520,13 +526,7 @@ Budget_MERC__r.RecordType.DeveloperName == &apos;MERC_Budget_Archived&apos;
         <openType>replace</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!URLFOR( 
-$Action.Budget_Line_Item_MERC__c.New, 
-null, 
-[saveURL=Budget_MERC__c.Link+&apos;#&apos;+Budget_MERC__c.Id+&apos;_00N11000000PFpR_target&apos;, 
-retURL=Budget_MERC__c.Link, 
-CF00N11000000PFpR=Budget_MERC__c.Name, 
-CF00N11000000PFpR_lkid=Budget_MERC__c.Id] 
-)}</url>
+        <url>/apex/GLBL_NewButtonPrepopulator?cObj=Budget_Line_Item_MERC__c&amp;cObjURL={!URLENCODE(URLFOR($Action.Budget_Line_Item_MERC__c.New))}&amp;cf_Budget_MERC__c={!Budget_MERC__c.Name}&amp;
+cf_Budget_MERC__c_lkid={!Budget_MERC__c.Id}&amp;cObjParent=Budget_MERC__c&amp;cObjParentId={!Budget_MERC__c.Id}</url>
     </webLinks>
 </CustomObject>

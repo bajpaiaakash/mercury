@@ -308,7 +308,7 @@
                 <field>Sponsorship_Agreement_Consent_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Transparency_Step_Complete_MERC__c</field>
             </layoutItems>
             <layoutItems>
@@ -354,11 +354,11 @@
                 <field>Hotel_No_Longer_Required_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Dietary_Preferences_Step_Complete_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Emergency_Contact_Step_Complete_MERC__c</field>
             </layoutItems>
         </layoutColumns>
@@ -393,6 +393,22 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
+        <label>Individual Email Results</label>
+        <layoutColumns>
+            <layoutItems>
+                <height>150</height>
+                <page>MeetingParticipantTracking</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>true</showScrollbars>
+                <width>100%</width>
+            </layoutItems>
+        </layoutColumns>
+        <style>OneColumn</style>
+    </layoutSections>
     <relatedLists>
         <fields>NAME</fields>
         <fields>Session_MERC__c</fields>
@@ -424,6 +440,9 @@
         <fields>VERSION.CREATED_DATE</fields>
         <fields>VERSION.LAST_UPDATE</fields>
         <relatedList>ContentVersion.Meeting_Participant_MERC__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <relatedList>RelatedEntityHistoryList</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>

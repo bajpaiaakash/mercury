@@ -1,5 +1,5 @@
-/** 
-* @author Sean Harrison 
+/**
+* @author Sean Harrison
 * @TODO: we cannot create workspaces/libraries or add users to libraries via Apex, so we need to query for existing users in these tests
 * This is a unit test class for MERC_NewContentController.cls
 */
@@ -17,13 +17,30 @@ private class MERC_NewContentControllerTest {
 	static List<Meeting_Participant_MERC__c> participants;
     static User thisUser = [SELECT Id FROM User WHERE Id = :UserInfo.getUserId()];
 
+    static User testUser;
+    static
+    {
+    	System.runAs(new User(Id=UserInfo.getUserId()))
+    	{
+    		testUser = MERC_TestFactory.insertTestUsers(1, null).get(0);
+    		testUser.userRoleId = [SELECT Id FROM UserRole Where Name = 'Global' LIMIT 1].Id;
+    		update testUser;
+    		PermissionSet ps = [SELECT Id FROM PermissionSet WHERE Name='Mercury_Customer_Meeting_Services_Edit' limit 1];
+    		insert new PermissionSetAssignment( PermissionSetId=ps.Id
+    			                              , AssigneeId=testUser.id);
+    		update new User( id=testUser.Id
+    			           , UserRoleId=[SELECT Id FROM UserRole WHERE Name='Global' limit 1].id);
+    	}
+    }
+
 	static {
 		System.runAs(thisUser) {
-			p = [SELECT id FROM profile WHERE name='Standard User'];
-			u = new User(alias = 'Romeo', lastname='Montegue', email='romeo@montegue.com',
-				profileid = p.Id, username='romeo@montegue.com.MERC_NewContentControllerTest',
-				emailencodingkey='UTF-8', languagelocalekey='en_US',localesidkey='en_US', timezonesidkey='America/Chicago');
 			accounts = MERC_TestFactory.insertHcpAccountsInCountry(1, 'GB');
+			for (Account a : accounts)
+			{
+				a.Country_of_Residence_GLBL__c = 'GB';
+			}
+			update accounts;
 			meetings = MERC_TestFactory.insertMeetings(1, 'GB');
 			participants = MERC_TestFactory.insertParticipants(meetings[0].Id, accounts);
 			invoices = MERC_TestFactory.insertInvoices(participants);
@@ -33,7 +50,7 @@ private class MERC_NewContentControllerTest {
 	}
 
 	// exercise cancel method.
-	@isTest 
+	@isTest
 	static void userCancels() {
 
 		PageReference ref = Page.MERC_NewMeetingContent;
@@ -45,14 +62,14 @@ private class MERC_NewContentControllerTest {
 		PageReference returnRef = controller.cancel();
 		Test.stopTest();
 
-		System.assert(returnRef.getUrl().contains((String) meetings[0].id), 
+		System.assert(returnRef.getUrl().contains((String) meetings[0].id),
 			'Expected a return to the object detail but got: '+returnRef.getUrl());
 	}
-	
+
 	/*
 	 * Loop through all expected content types and try the upload
 	 */
-	@isTest 
+	@isTest
 	static void testUploadAllContentTypes() {
 
 		System.runAs(thisUser) {
@@ -80,7 +97,7 @@ private class MERC_NewContentControllerTest {
 				System.assertEquals(null, returnRef, 'Expected null PageRef but got: '+returnRef);
 				List<ApexPages.Message> messages = ApexPages.getMessages();
 				for (ApexPages.Message m : messages) {
-					System.assert(m.getDetail().contains('Please select a document'));			
+					System.assert(m.getDetail().contains('Please select a document'));
 				}
 
 				controller.file.Title = controller.getsObjectName();
@@ -88,7 +105,7 @@ private class MERC_NewContentControllerTest {
 				controller.file.VersionData = Blob.valueOf('For naught so vile that on the earth doth live but to the earth some special good doth give.');
 				returnRef = controller.upload();
 				if (returnRef != null) System.debug(returnRef.getUrl());
-				System.assertNotEquals(null,returnRef,'Expected a PageRef but got null');			
+				System.assertNotEquals(null,returnRef,'Expected a PageRef but got null');
 			}
 			Test.stopTest();
 		}
@@ -99,7 +116,7 @@ private class MERC_NewContentControllerTest {
 	static void catchWorkspaceException() {
 		RecordType rt = [SELECT Id FROM RecordType WHERE DeveloperName = 'Business_Account'];
 
-		System.runAs(u) {
+		System.runAs(testUser) {
 			Test.startTest();
 
 			Account a = new Account();
@@ -141,7 +158,7 @@ private class MERC_NewContentControllerTest {
 		System.assertEquals(null, returnRef, 'Expected null PageRef but got: '+returnRef);
 		List<ApexPages.Message> messages = ApexPages.getMessages();
 		for (ApexPages.Message m : messages) {
-			System.assertEquals(ApexPages.Severity.Error,m.getSeverity(),'Unexpected error thrown: '+m);			
+			System.assertEquals(ApexPages.Severity.Error,m.getSeverity(),'Unexpected error thrown: '+m);
 		}
 	}
 }

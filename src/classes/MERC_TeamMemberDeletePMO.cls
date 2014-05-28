@@ -2,6 +2,10 @@ public class MERC_TeamMemberDeletePMO  implements GLBL_TriggerHandler.HandlerInt
 
     public static final String PMO = 'Primary Meeting Owner';
 
+    public Boolean isActive() {
+        return true;
+    }
+
     public void handle() {
         if (Trigger.isDelete) {
             execute(Trigger.old);

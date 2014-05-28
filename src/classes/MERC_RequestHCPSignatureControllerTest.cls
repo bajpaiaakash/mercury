@@ -61,7 +61,7 @@ private class MERC_RequestHCPSignatureControllerTest {
         Test.startTest();
         PageReference result = controller.requestSignature();
         Test.stopTest();
-
+        System.debug('FOO APEX MESSAGES: '+ApexPages.getMessages());
 		System.assert(result != null,'Expected non-null value but PageReference was null');
 		System.assertEquals(false, controller.isSent,'Expected isSent property to be false but it was '+controller.isSent);
 	}	

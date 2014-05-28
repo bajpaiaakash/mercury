@@ -13,7 +13,11 @@ public with sharing class MERC_ParticipantFMVCalculator implements GLBL_TriggerH
 		this.triggeredSobjectType = sObjectType;
 	}
 
-	public void handle() {
+	public Boolean isActive() {
+		return MERC_TriggerHandlerStateManager.isActive(MERC_ParticipantFMVCalculator.class);
+	}
+
+	public void handle() {	
 		if (Trigger.isInsert || Trigger.isUpdate ) {
 	    	execute(Trigger.new);
 	   	}

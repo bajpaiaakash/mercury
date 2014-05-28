@@ -5,6 +5,10 @@ public with sharing class MERC_TestFactory {
 	public static Id employeeRecordTypeId = [Select ID From RecordType Where SObjectType = 'Account' and DeveloperName = 'Employee_GLBL'].ID;
 	public static Id vendorRecordTypeId = [Select ID From RecordType Where SObjectType = 'Account' and DeveloperName = 'Vendor_GLBL'].ID;
 
+	// Sean is testing something...
+	public static Boolean adjustForSFDCSetMockBug {get{if (adjustForSFDCSetMockBug==null) return false; else return adjustForSFDCSetMockBug;}
+												   set{adjustForSFDCSetMockBug = value&&Test.isRunningTest();}}
+
 	public static void insertMercuryCustomSettings() {
 		Mercury_Settings_MERC__c settings = Mercury_Settings_MERC__c.getOrgDefaults();
 		settings.Budget_Edit_Validation_MERC__c = true;
@@ -24,7 +28,7 @@ public with sharing class MERC_TestFactory {
 	}
 
 	public static void loadDeclarativeRollupSummaries() {
-		List<sObject> rollups = Test.loadData(glbl_rollup__LookupRollupSummary__c.sObjectType, 'DeclarativeRollupTestData_MERC');
+		List<sObject> rollups = Test.loadData(LookupRollupSummary_GLBL__c.sObjectType, 'DeclarativeRollupTestData_MERC');
 	}
 
 	public static List<Account> insertBusinessAccounts(Integer numberOfAccounts, Id recordTypeId) {
@@ -65,6 +69,23 @@ public with sharing class MERC_TestFactory {
 			a.LastName = randomString;
 			a.RecordTypeId = recordTypeId;
 			a.PersonEmail = 'ut-'+randomString+'@gmail.com';
+			accs.add(a);
+		}
+		insert accs;
+		return accs;
+	}
+
+	public static List<Account> insertMasterAccountsInCountry(Integer numberOfAccounts, String country) {
+		List<Account> accs = new List<Account>();
+		for (Integer i = 0; i < numberOfAccounts; i++) {
+			String randomString = MERC_Util.generateRandomString(8);
+			Account a = new Account();
+			a.FirstName = 'UnitTest';
+			a.LastName = randomString;
+			a.RecordTypeId = hcpRecordTypeId;
+			a.PersonEmail = 'ut-'+randomString+'@gmail.com';
+			a.Cust_Id_GLBL__c = randomString;
+			a.Country_of_Residence_GLBL__c = country;
 			accs.add(a);
 		}
 		insert accs;
@@ -178,6 +199,26 @@ public with sharing class MERC_TestFactory {
 		}
 		insert hotelItineraries;
 		return hotelItineraries;
+	}
+
+	public static List<Preferences_and_Consent_GLBL__c> insertPreferenceForAccounts(List<Account> accounts, String type, String value, Boolean isPrivate) {
+		Id recordTypeId;
+		if (isPrivate)
+			recordTypeId = [SELECT ID FROM RecordType WHERE SobjectType = 'Preferences_and_Consent_GLBL__c' AND DeveloperName = 'Preferences_Private_EVNT_MVN'].Id;
+		else
+			recordTypeId = [SELECT ID FROM RecordType WHERE SobjectType = 'Preferences_and_Consent_GLBL__c' AND DeveloperName = 'Preferences_EVNT_MVN'].Id;
+
+		List<Preferences_and_Consent_GLBL__c> pcs = new List<Preferences_and_Consent_GLBL__c>();
+		for (Account a : accounts) {
+			Preferences_and_Consent_GLBL__c pc = new Preferences_and_Consent_GLBL__c();
+			pc.Account_GLBL__c = a.Id;
+			pc.RecordTypeId = recordTypeId;
+			pc.Preference_Type_MERC__c = type;
+			pc.Preference_Sub_Type_MERC__c = value;
+			pcs.add(pc);
+		}
+		insert pcs;
+		return pcs;
 	}
 
 	public static List<Meeting_Vendor_MERC__c> insertHotelsForMeeting(Integer numberOfHotels, String meetingId) {

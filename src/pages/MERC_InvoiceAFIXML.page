@@ -105,7 +105,7 @@
 	    <STATUS />
 	    <ARCID />
 	    <SAPID />
-	    <FILENAME>{!Invoice_MERC__c.Mercury_Transaction_Id_MERC__c}.PDF</FILENAME>
+	    <FILENAME>{!filePrefix}{!Invoice_MERC__c.Mercury_Transaction_Id_MERC__c}.PDF</FILENAME>
 	    <DOKTYP>PDF</DOKTYP>
 	  </ArchiveFile>
 		{!scannedTifSection}

@@ -18,7 +18,10 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>Edit</actionName>
-        <type>Default</type>
+        <comment>Overridden to allow for dependent lookups as picklists - K. Thornton 2014/05/22</comment>
+        <content>MERC_InvoiceNewEdit</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>Follow</actionName>
@@ -30,7 +33,10 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
-        <type>Default</type>
+        <comment>Overridden to allow for dependent lookups as picklists - K. Thornton 2014/05/22</comment>
+        <content>MERC_InvoiceNewEdit</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>SaveEdit</actionName>
@@ -52,6 +58,41 @@
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
+    <fieldSets>
+        <fullName>Account_Merge_Invoices_MERC</fullName>
+        <description>MERC_MergedAccounts.page / MERC_MergedAccountsApex.cls / Custom Setting: Account Merge - Invoices .Oliver Dunford 8th May 2014</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Invoice_Type_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Invoice_Date_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Payee_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Participant_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Submit_for_Payment_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Account Merge - Invoices</label>
+    </fieldSets>
     <fieldSets>
         <fullName>Invoice_Clone_Field_Set</fullName>
         <description>MERC_InvoiceCreditNoteController</description>
@@ -423,6 +464,19 @@
         <label>Invoice Clone Field Set</label>
     </fieldSets>
     <fields>
+        <fullName>Bank_Account_Number_Encrypted_MERC__c</fullName>
+        <description>Bank Account Number encrypted and stamped from the Payee when the Invoice is created.</description>
+        <externalId>false</externalId>
+        <label>Bank Account Number (Encrypted)</label>
+        <length>80</length>
+        <maskChar>asterisk</maskChar>
+        <maskType>lastFour</maskType>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>EncryptedText</type>
+    </fields>
+    <fields>
         <fullName>Bank_Account_Number_MERC__c</fullName>
         <description>Bank Account Number loaded from payee by Workflow.
 Created by John A Adams 1/9/2014</description>
@@ -588,6 +642,15 @@ Created by John A Adams 10/30/2013</description>
         <description>Created by John A Adams 11/5/2013</description>
         <externalId>false</externalId>
         <label>Credit Note Invoice</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Invoice_MERC__c.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Invoice, Invoice Locked</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Invoice_MERC__c</referenceTo>
         <relationshipLabel>Invoices</relationshipLabel>
         <relationshipName>Invoices</relationshipName>
@@ -672,6 +735,16 @@ Created by John A Adams 10/20/2013</description>
 Created by John A Adams 10/30/2013</description>
         <externalId>false</externalId>
         <label>HCO Beneficiary</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Health Care Organization</value>
+            </filterItems>
+            <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Invoices</relationshipLabel>
         <relationshipName>Invoices</relationshipName>
@@ -815,6 +888,16 @@ Created by John A Adams 10/24/2013</description>
 Created by John Adams 1/14/14</description>
         <externalId>false</externalId>
         <label>Lilly Affiliate</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.Name</field>
+                <operation>contains</operation>
+                <value>Lilly</value>
+            </filterItems>
+            <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Invoices (Lilly Affiliate)</relationshipLabel>
         <relationshipName>Invoices1</relationshipName>
@@ -1148,9 +1231,10 @@ Created by John A Adams 10/7/2013.</description>
     </fields>
     <fields>
         <fullName>Submitted_for_Payment_Date_MERC__c</fullName>
-        <description>Date the integrators can stamp a datetime when the record was successfully picked up and processed.
+        <description>Date the integrators can stamp a datetime when the record was successfully picked up and processed. This value is modified by the Informatica integration. Do not change, update, or add validation rules to this field.
 Created by John Adams 11/11/2013</description>
         <externalId>false</externalId>
+        <inlineHelpText>Stamped automatically by SAP integration. Do not edit.</inlineHelpText>
         <label>Submitted for Payment</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1287,18 +1371,6 @@ Created by John A Adams 10/4/2013</description>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
-    <namedFilters>
-        <fullName>nf_01I11000000CjxfEAC_00N11000000T4aQEAS</fullName>
-        <active>true</active>
-        <field>Invoice_MERC__c.Credit_Note_Invoice_MERC__c</field>
-        <filterItems>
-            <field>Invoice_MERC__c.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Invoice, Invoice Locked</value>
-        </filterItems>
-        <isOptional>false</isOptional>
-        <name>Invoice_Credit Note Invoice</name>
-    </namedFilters>
     <pluralLabel>Invoices</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
@@ -1358,6 +1430,57 @@ Created by John A Adams 10/4/2013</description>
             <values>
                 <fullName>CR</fullName>
                 <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Submit_for_Payment_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Terms_of_Payment_MERC__c</picklist>
+            <values>
+                <fullName>Net 10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Net 14</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Net 30</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Net 45</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Net 60</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Invoice_Invalid_MERC</fullName>
+        <active>true</active>
+        <description>Invoice record no longer valid, never submitted successfully for processing</description>
+        <label>Invoice Invalid</label>
+        <picklistValues>
+            <picklist>Invoice_Type_MERC__c</picklist>
+            <values>
+                <fullName>CR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IN</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -1536,6 +1659,14 @@ Created by John A Adams 10/4/2013</description>
         <errorMessage>The Cost Center must be seven digits long.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Prevent_Line_Item_Changes_if_Locked</fullName>
+        <active>true</active>
+        <description>Prevents changes to Invoice Line Items if the Invoice/Credit Note is locked.</description>
+        <errorConditionFormula>ISCHANGED(Line_Items_MERC__c) &amp;&amp;
+(RecordType.Name = &quot;Invoice Locked&quot; || RecordType.Name = &quot;Credit Note Locked&quot;)</errorConditionFormula>
+        <errorMessage>This Invoice/Credit Note is locked and cannot be edited.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Submit_for_Payment</fullName>
         <active>false</active>
         <description>Prevent an invoice being submitted for payment if the total value is less than zero or if there has not been a PDF generated and attached. Created by John A Adams 2/5/2014</description>
@@ -1594,12 +1725,45 @@ Created by John Adams on 11/13/2013</description>
         <masterLabel>Generate Content</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>if ({!Invoice_MERC__c.Line_Items_MERC__c}&lt;1) {
- if (confirm(&apos;There appear to be no Line Items. Continue anyway?&apos;)) {
-location.replace(&apos;/apex/loop__looplus?eid={!Invoice_MERC__c.Id}&amp;sessionId={!$Api.Session_ID}&apos;);
+        <url>if ({!Invoice_MERC__c.Line_Items_MERC__c}&gt;=1)
 
+ {
+   location.replace(&apos;/apex/loop__looplus?eid={!Invoice_MERC__c.Id}&amp;sessionId={!$Api.Session_ID}&apos;);
 }
+
+else
+ 
+  {
+   if (confirm(&apos;There appear to be no Line Items. Continue anyway?&apos;)) 
+    {
+     location.replace(&apos;/apex/loop__looplus?eid={!Invoice_MERC__c.Id}&amp;sessionId= {!$Api.Session_ID}&apos;);
+     }
+
 }</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Generate_PDF</fullName>
+        <availability>online</availability>
+        <description>Just for invoices and PDFs to trigger a deletion of any other PDFs before generating.</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Generate PDF</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>if ({!Invoice_MERC__c.Line_Items_MERC__c}&gt;=1 || confirm(&apos;There appear to be no Line Items. Continue anyway?&apos;)) { 
+location.replace(&apos;/apex/MERC_InvoiceDocFilter?type=PDF&amp;eid={!Invoice_MERC__c.Id}&amp;sessionId={!$Api.Session_ID}&amp;loopurl=/apex/loop__looplus&apos;); 
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Invalidate_Invoice_MERC</fullName>
+        <availability>online</availability>
+        <description>Used to cancel an Invoice record in case of error and/or failure to be processed and start a new record for resubmission.</description>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Invalidate Invoice</masterLabel>
+        <openType>replace</openType>
+        <page>MERC_InvoiceInvalidation</page>
+        <protected>false</protected>
     </webLinks>
     <webLinks>
         <fullName>Upload_Content_MERC</fullName>
@@ -1611,5 +1775,18 @@ location.replace(&apos;/apex/loop__looplus?eid={!Invoice_MERC__c.Id}&amp;session
         <openType>sidebar</openType>
         <page>MERC_NewInvoiceContent</page>
         <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>Upload_TIF</fullName>
+        <availability>online</availability>
+        <description>Used to upload a digital scan in TIFF format</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Upload TIF</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/MERC_NewInvoiceContent?id={!Invoice_MERC__c.Id}&amp;tif=1</url>
     </webLinks>
 </CustomObject>

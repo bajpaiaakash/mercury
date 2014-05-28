@@ -8,6 +8,7 @@
     <description>Used by the Customer Meeting Services team to take advantage of the Service Cloud Console to ensure Cases can efficiently be managed.</description>
     <detailPageRefreshMethod>none</detailPageRefreshMethod>
     <enableKeyboardShortcuts>false</enableKeyboardShortcuts>
+    <enableMultiMonitorComponents>false</enableMultiMonitorComponents>
     <isServiceCloudConsole>true</isServiceCloudConsole>
     <keyboardShortcuts>
         <defaultShortcut>

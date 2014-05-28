@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -131,6 +130,12 @@
             <layoutItems>
                 <customLink>HooversProfile</customLink>
             </layoutItems>
+            <layoutItems>
+                <customLink>Send_ET_Email</customLink>
+            </layoutItems>
+            <layoutItems>
+                <customLink>SendExactTargetEmail</customLink>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -160,10 +165,6 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
-        <fields>Communication_Preference_GLBL__c</fields>
-        <fields>Interaction_Channel_Type_GLBL__c</fields>
-        <fields>Speaker_Interest_GLBL__c</fields>
-        <fields>Permission_Status_GLBL__c</fields>
         <relatedList>Preferences_and_Consent_GLBL__c.Account_GLBL__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -183,4 +184,10 @@
     <showInteractionLogPanel>false</showInteractionLogPanel>
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
+    <summaryLayout>
+        <masterLabel>00hb0000000KO0H</masterLabel>
+        <sizeX>4</sizeX>
+        <sizeY>0</sizeY>
+        <summaryLayoutStyle>Default</summaryLayoutStyle>
+    </summaryLayout>
 </Layout>

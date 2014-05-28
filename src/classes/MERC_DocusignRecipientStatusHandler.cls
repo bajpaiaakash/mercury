@@ -6,6 +6,10 @@
 
 public with sharing class MERC_DocusignRecipientStatusHandler implements GLBL_TriggerHandler.HandlerInterface {
 	
+	public Boolean isActive() {
+	    return true;
+	}
+	
 	public void handle() {
 		if ((Trigger.isInsert || Trigger.isUpdate) && Trigger.isAfter) {
 	    	stampMeetingParticipantRecipientStatus((List<dsfs__DocuSign_Recipient_Status__c>)Trigger.new);

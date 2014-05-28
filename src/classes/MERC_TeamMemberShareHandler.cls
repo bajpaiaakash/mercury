@@ -5,8 +5,12 @@
  */
 
 public with sharing class MERC_TeamMemberShareHandler implements GLBL_TriggerHandler.HandlerInterface {
-	
+
 	//TODO: handle modifications to record type
+
+	public Boolean isActive() {
+		return true;
+	}
 
 	public void handle() {
 		if (Trigger.isInsert || Trigger.isUpdate) {
@@ -32,14 +36,14 @@ public with sharing class MERC_TeamMemberShareHandler implements GLBL_TriggerHan
 		return meetingIdToUserIds;
 	}
 
-	public void execute(list<Sobject> sobjects) {        
+	public void execute(list<Sobject> sobjects) {
 		Id mercuryUserRecordTypeId = [SELECT ID FROM RecordType WHERE DeveloperName = 'Mercury_User_MERC' AND SobjectType = 'Team_Member_MERC__c'].ID;
 		List<Team_Member_MERC__c> teamMembers = (List<Team_Member_MERC__c>)sobjects;
 		List<Team_Member_MERC__c> teamMembersToProcess = new List<Team_Member_MERC__c>();
 		Set<Id> meetingIds = new Set<Id>();
 		for (Team_Member_MERC__c tm : teamMembers) {
 			if (tm.RecordTypeId == mercuryUserRecordTypeId) {
-				teamMembersToProcess.add(tm);	
+				teamMembersToProcess.add(tm);
 				meetingIds.add(tm.Meeting_MERC__c);
 			}
 		}
@@ -47,7 +51,7 @@ public with sharing class MERC_TeamMemberShareHandler implements GLBL_TriggerHan
 
 		if (Trigger.isInsert || Trigger.isUndelete) {
 			Map<Id, Set<Id>> meetingIdToNewUserIds = getMeetingIdToTriggerUserIds(teamMembersToProcess);
-			
+
 			List<Meeting_MERC__Share> shareRecordsToInsert = new List<Meeting_MERC__Share>();
 			for (Id meetingId : meetingIdToNewUserIds.keySet()) {
 				Set<Id> userIdsToAddToShareTable = meetingIdToNewUserIds.get(meetingId);
@@ -64,7 +68,7 @@ public with sharing class MERC_TeamMemberShareHandler implements GLBL_TriggerHan
 			insert shareRecordsToInsert;
 
 		} else if (Trigger.isUpdate) {
-			
+
 			Map<Id, Set<Id>> meetingIdToRemovedUserIds = new Map<Id, Set<Id>>();
 			Map<Id, Set<Id>> meetingIdToNewUserIds = new Map<Id, Set<Id>>();
 
@@ -135,7 +139,7 @@ public with sharing class MERC_TeamMemberShareHandler implements GLBL_TriggerHan
 
 		} else if (Trigger.isDelete) {
 			Map<Id, Set<Id>> meetingIdToRemovedUserIds = getMeetingIdToTriggerUserIds(teamMembersToProcess);
-			
+
 			List<Meeting_MERC__Share> shareRecordsToDelete = new List<Meeting_MERC__Share>();
 			for (Meeting_MERC__Share share : [SELECT ID, UserOrGroupId, ParentId From Meeting_MERC__Share WHERE ParentId in :meetingIdToRemovedUserIds.keySet()]) {
 				if (meetingIdToRemovedUserIds.get(share.ParentId) != null) {
@@ -147,7 +151,7 @@ public with sharing class MERC_TeamMemberShareHandler implements GLBL_TriggerHan
 			}
 			delete shareRecordsToDelete;
 		}
-		
+
 	}
 
 }

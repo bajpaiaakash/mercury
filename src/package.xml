@@ -41,6 +41,7 @@
 		<members>Hotel_Allocation_MERC__c</members>
 		<members>Invoice_Line_Item_MERC__c</members>
 		<members>Invoice_MERC__c</members>
+		<members>LookupRollupSummary_GLBL__c</members>
 		<members>Meeting_Day_MERC__c</members>
 		<members>Meeting_MERC__c</members>
 		<members>Meeting_Participant_MERC__c</members>
@@ -53,6 +54,7 @@
 		<members>Payee_MERC__c</members>
 		<members>PersonAccount</members>
 		<members>Product_Group_GLBL__c</members>
+		<members>Preferences_and_Consent_GLBL__c</members>
 		<members>Service_Cloud_Settings_MVN__c</members>
 		<members>Speciality_MERC__c</members>
 		<members>Team_Member_MERC__c</members>
@@ -93,5 +95,5 @@
 		<members>*</members>
 		<name>StaticResource</name>
 	</types>
-	<version>29.0</version>
+	<version>30.0</version>
 </Package>

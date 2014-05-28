@@ -1,12 +1,17 @@
 /**
  * @author Joseph Ferraro
  *
- * Service which notifies the Real-Time Integration listener of deletes
+ * Service which notifies the Real-Time Integration listener of deletes.
+ * Updated: SHH
  */
 
 public with sharing class MERC_DeleteNotifyService implements GLBL_TriggerHandler.HandlerInterface {
 	
 	public static Boolean skipCallout = false;
+
+	public Boolean isActive() {
+	    return MERC_TriggerHandlerStateManager.isActive(MERC_DeleteNotifyService.class);
+	}
 
 	public void handle() {
 		List<Sobject> sobjects = Trigger.old;
@@ -34,7 +39,8 @@ public with sharing class MERC_DeleteNotifyService implements GLBL_TriggerHandle
 
 		HttpRequest r = new HttpRequest();
 		r.setHeader('Content-type', 'text/json');
-		r.setEndpoint('http://ec2-54-227-9-128.compute-1.amazonaws.com/rti-development/v1/genericDeleted'); //todo custom setting
+// 		r.setEndpoint('https://gso1integration.xh1.lilly.com/rti/v1/genericUpdated'); //todo custom setting
+		r.setEndpoint('http://ec2-54-227-9-128.compute-1.amazonaws.com/rti-development/v1/genericDeleted');
 		r.setMethod('POST');
 		r.setBody(jsonstring);
 

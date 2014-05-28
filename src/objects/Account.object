@@ -77,6 +77,86 @@
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <fieldSets>
+        <fullName>Account_Merge_Contracting_Parties_MERC</fullName>
+        <description>MERC_MergedAccounts.page / MERC_MergedAccountsApex.cls / Custom Setting: Account Merge - Contracting Parties .Oliver Dunford 8th May 2014</description>
+        <displayedFields>
+            <field>Salutation</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Full_Nm_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Addr_Line1_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Addr_Line2_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Addr_City_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Address_Country_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>PersonEmail</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Account Merge - Contracting Parties</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Account_Merge_Desig_Individuals_MERC</fullName>
+        <description>MERC_MergedAccounts.page / MERC_MergedAccountsApex.cls / Custom Setting: Account Merge - Designated Individuals .Oliver Dunford 8th May 2014</description>
+        <displayedFields>
+            <field>Salutation</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Full_Nm_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Addr_Line1_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Addr_Line2_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Addr_City_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Primary_Address_Country_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>PersonEmail</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Account Merge - Designated Individuals</label>
+    </fieldSets>
+    <fieldSets>
         <fullName>Meeting_Team_Manager_Mass_Add</fullName>
         <description>Meeting Team Manager search Results tab</description>
         <displayedFields>
@@ -219,6 +299,7 @@ Created by John A Adams 10/2/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -230,6 +311,15 @@ Created by John A Adams 10/2/2013</description>
         <trackHistory>false</trackHistory>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Account_Auto_Number_GLBL__c</fullName>
+        <description>Unique Auto Number field used by Web Services to create a secure/obfuscated Account Id. Created by John Lorenti 2014-05-05.</description>
+        <displayFormat>A-{000000}</displayFormat>
+        <externalId>true</externalId>
+        <label>Account_Auto_Number</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
     </fields>
     <fields>
         <fullName>Advisory_Board_Experience_MERC__c</fullName>
@@ -288,6 +378,16 @@ Created by John A Adams 11/4/2013</description>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Anonymise_Record_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicates that this record is related to a non-hcp meeting participant and should be anonymised (via workflows)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates that this record is related to a non-hcp meeting participant and should be anonymised (via workflows)</inlineHelpText>
+        <label>Anonymise Record</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Approval_MERC__c</fullName>
@@ -469,6 +569,18 @@ Created by John A Adams 10/23/2013</description>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CV_Upload_File_Name_MERC__c</fullName>
+        <description>Set by the portal when the HCP uploads his/her CV</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Set by the portal when the HCP uploads his/her CV</inlineHelpText>
+        <label>CV_Upload_File_Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -657,13 +769,58 @@ Created by John A Adams 10/24/2013</description>
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>Contract_Signatory_MERC__c</fullName>
+        <description>Used to indicate type of Contract Signatory. Created 05/08/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Contract Signatory</label>
+        <picklist>
+            <picklistValues>
+                <fullName>My Name (self)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>My Legal Entity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>My Institution</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Contract_Signing_Parties_Complete_MERC__c</fullName>
-        <defaultValue>false</defaultValue>
         <description>Used by portal to indicate that the Contract Signing Parties sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
+        <formula>IF (Contracting_Parties_Counter_MERC__c &gt; 0, true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Contract Signing Parties Step Complete</label>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Signing_Parties_Complete_OLD__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal to indicate that the Contract Signing Parties sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Contract Signing Parties Step CompletOLD</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Contracting_Parties_Counter_MERC__c</fullName>
+        <description>Count of the number of Contracting Parties assigned to this HCP is calculated by trigger. Created 05/04/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Contracting Parties Counter</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Cost_Cntr_Nbr_GLBL__c</fullName>
@@ -713,6 +870,26 @@ Created by John A Adams 10/24/2013</description>
         <trackHistory>false</trackHistory>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Count_Tax_Invoices_Info_MERC__c</fullName>
+        <description>Counts the number of payee records where the VAT ID and Tax ID are populated. Used by Portal to determine if Tax/Invoice ID step is complete. Created 05/04/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Count Tax/Invoices Info</label>
+        <summaryFilterItems>
+            <field>Payee_MERC__c.Tax_Id_MERC__c</field>
+            <operation>notEqual</operation>
+            <value>&quot;&quot;</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Payee_MERC__c.VAT_ID_MERC__c</field>
+            <operation>notEqual</operation>
+            <value>&quot;&quot;</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Payee_MERC__c.Account_MERC__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
     </fields>
     <fields>
         <fullName>Country_Code_MERC__c</fullName>
@@ -1948,7 +2125,7 @@ Created by John A Adams 11/4/2013</description>
     </fields>
     <fields>
         <fullName>Designated_Individual_Counter_MERC__c</fullName>
-        <defaultValue>1</defaultValue>
+        <defaultValue>0</defaultValue>
         <externalId>false</externalId>
         <label>Designated Individual Counter</label>
         <precision>4</precision>
@@ -2123,6 +2300,28 @@ Created by John A Adams 11/4/2013</description>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Emergency_Contact_Name_MERC__c</fullName>
+        <description>Name of Emergency Contact for Account.  Created 04/29/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Emergency Contact Name</label>
+        <length>130</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Emergency_Contact_Phone_Number_MERC__c</fullName>
+        <description>Emergency Contact Information Phone Number for Account. Created 04/29/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Emergency Contact Phone Number</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Employed_by_Government_Institution_GLBL__c</fullName>
@@ -2303,6 +2502,15 @@ Created by John A Adams 11/4/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Global_Consent_Authorization_GLBL__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Populated by Portal/Web Service when a Portal user goes to manage their global consent; to indicate they agree to the processing of their information. Created 05/20/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Global Consent Authorization</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Gndr_Cd_GLBL__c</fullName>
         <description>Gender Code 
 Created by John A Adams 11/4/2013</description>
@@ -2352,6 +2560,73 @@ Created by John A Adams 11/4/2013</description>
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>HCP_Contracting_Party_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup relationship to associate Contracting Party to an HCP Account. Created 04/04/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>HCP for Contracting Party</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>HCP</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Contracting Parties</relationshipLabel>
+        <relationshipName>HCPs_Contracting_Party</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>HCP_Country_of_Residence2_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(HCP_Designated_Individuals_MERC__r.Country_of_Residence_GLBL__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>HCP Country of Residence2</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>HCP_Country_of_Residence_MERC__c</fullName>
+        <description>Stamped from HCP Country of Residence onto Designated Individuals and Contracting Party accounts to handle visibility by territory based on HCP&apos;s country of residence. Created 05/02/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>HCP Country of Residence</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>HCP_Designated_Individuals_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup relationship to associate Designated Individual to an HCP Account. Created 04/04/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The HCP who indicated this person as their Designated Individual</inlineHelpText>
+        <label>HCP for Designated Individual</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>HCP</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Designated Individuals</relationshipLabel>
+        <relationshipName>Designated_Individuals</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>HCP_Info_Package_Status_MERC__c</fullName>
         <description>Used by portal to capture the status of the HCP&apos;s Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -2373,20 +2648,6 @@ Created by John A Adams 11/4/2013</description>
         </picklist>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>HCP_MERC__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>Lookup relationship to associate Designated Individual to an HCP Account. Created 04/04/2014 by KLorenti, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <inlineHelpText>The HCP who indicated this person as their Designated Individual</inlineHelpText>
-        <label>HCP</label>
-        <referenceTo>Account</referenceTo>
-        <relationshipLabel>Designated Individuals</relationshipLabel>
-        <relationshipName>Accounts1</relationshipName>
-        <required>false</required>
-        <trackHistory>true</trackHistory>
-        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Has_MSA_Contract_MERC__c</fullName>
@@ -2588,6 +2849,7 @@ Created by John A Adams 11/4/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -2637,7 +2899,8 @@ Created by John A Adams 10/22/2013</description>
         <fullName>Institutional_Notif_Info_Exists_MERC__c</fullName>
         <description>If designated individuals have been captured or a HCP is Self Employed, the Institutional Notification Information has been gathered.  This field is shown to Meeting Owners and sent back to Veeva.  Oliver Dunford 28th April 2014.</description>
         <externalId>false</externalId>
-        <formula>IF((of_Designated_Individuals_MERC__c &gt; 0) || ( TEXT(Employment_Specification_MERC__c) = &quot;Self-Employed&quot;), TRUE, FALSE)</formula>
+        <formula>IF(( Designated_Individual_Counter_MERC__c  &gt; 0) || ( TEXT(Employment_Specification_MERC__c) = &quot;Self-Employed&quot;), TRUE, FALSE)</formula>
+        <inlineHelpText>If the HCP has provided designated individuals for notification or they&apos;re self-employed, this field will be checked.</inlineHelpText>
         <label>Institutional Notification Info Exists</label>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
@@ -2804,7 +3067,7 @@ Created by John A Adams 12/11/2013</description>
         <summaryFilterItems>
             <field>HCP_Contract_MERC__c.Contract_Request_Status_MERC__c</field>
             <operation>equals</operation>
-            <value>Contract signed</value>
+            <value>Completed</value>
         </summaryFilterItems>
         <summaryForeignKey>HCP_Contract_MERC__c.Account_MERC__c</summaryForeignKey>
         <summaryOperation>max</summaryOperation>
@@ -3043,6 +3306,7 @@ Created by John A Adams 12/15/2013</description>
     </fields>
     <fields>
         <fullName>OwnerId</fullName>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -3066,6 +3330,7 @@ Created by John A Adams 12/15/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -3084,6 +3349,17 @@ Created by John A Adams 12/15/2013</description>
     </fields>
     <fields>
         <fullName>ParentId</fullName>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.RecordTypeId</field>
+                <operation>equals</operation>
+                <valueField>$Source.RecordTypeId</valueField>
+            </filterItems>
+            <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -3139,6 +3415,7 @@ Created by John A Adams 11/4/2013</description>
 Customer ODS to Mercury Mapping
 Created by John A Adams 12/10/2013</description>
         <externalId>false</externalId>
+        <inlineHelpText>Indicates Account Status from Customer ODS</inlineHelpText>
         <label>Party Status Description</label>
         <length>255</length>
         <required>false</required>
@@ -3181,7 +3458,7 @@ Created by John A Adams 12/10/2013</description>
         <externalId>false</externalId>
         <formula>IF(Payee_Info_Step_Complete_MERC__c  &amp;&amp;
  Transfer_Info_Step_Complete_MERC__c &amp;&amp;
- Contract_Signing_Parties_Complete_MERC__c &amp;&amp; 
+  Contract_Signing_Parties_Complete_MERC__c  &amp;&amp; 
  Tax_Invoices_Step_Complete_MERC__c, true, false)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Payee and Bank Info Complete</label>
@@ -3256,6 +3533,7 @@ Created by John A Adams 12/10/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -3374,15 +3652,34 @@ Created by John A Adams 10/3/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>5-10 Years</fullName>
+                <fullName>6-10 Years</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>10-20 Years</fullName>
+                <fullName>11-20 Years</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>20+ Years</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Preferred_Contact_Method_MERC__c</fullName>
+        <description>Used by Portal to capture preferred contact method for designated individuals. Created 05/14/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Preferred Contact Method</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Postal Address</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -3574,6 +3871,17 @@ Created by John A Adams 12/11/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Primary_St_Cd_GLBL__c</fullName>
+        <description>State/Region code stamped from Region Code on Address. Created 05/09/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Primary Region Code</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Prof_Title_Txt_GLBL__c</fullName>
         <description>Professional Title
 Customer ODS to Mercury Mapping
@@ -3680,6 +3988,7 @@ Created by John A Adams 11/4/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -3710,6 +4019,16 @@ Created by John A Adams 10/16/2013</description>
 Created by John A Adams 10/23/2013</description>
         <externalId>false</externalId>
         <label>Relationship Owner</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Employee</value>
+            </filterItems>
+            <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Accounts</relationshipLabel>
         <relationshipName>Accounts</relationshipName>
@@ -4032,7 +4351,7 @@ Created by John A Adams 12/10/2013</description>
         <fullName>Supervisor_Prsnl_Nbr_GLBL__c</fullName>
         <description>Workforce ODS data. Created 10/18/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <label>Supervisor Global Id</label>
+        <label>Sponsor or Supervisor Global ID</label>
         <length>8</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -4052,10 +4371,20 @@ Created by John A Adams 12/10/2013</description>
     </fields>
     <fields>
         <fullName>Tax_Invoices_Step_Complete_MERC__c</fullName>
+        <description>Used by portal to indicate that the Tax/Invoices sub-step is complete on the HCP Information Package. Created on 05/04/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>true</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Tax/Invoices Step Complete</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Tax_Invoices_Step_Complete_OLD__c</fullName>
         <defaultValue>false</defaultValue>
         <description>Used by portal to indicate that the Tax/Invoices sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <label>Tax/Invoices Step Complete</label>
+        <label>Tax/Invoices Step Complete_OLD</label>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -4192,7 +4521,7 @@ Created by John A Adams 10/22/2013</description>
         <label>Transparency Reporting Consent</label>
         <length>30</length>
         <required>false</required>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -4274,6 +4603,7 @@ Created by John A Adams 11/4/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -4352,7 +4682,7 @@ Created by John A Adams 2/18/2014</description>
         <externalId>false</externalId>
         <label>Web Service Update Date</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Date</type>
     </fields>
     <fields>
@@ -4363,7 +4693,7 @@ Created by John A Adams 2/18/2014</description>
         <label>Web Service Update HCP Action</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -4375,7 +4705,7 @@ Created by John A Adams 2/18/2014</description>
         <label>Web Service Update HCP Global Id</label>
         <length>40</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -4385,6 +4715,18 @@ Created by John A Adams 2/18/2014</description>
         <externalId>false</externalId>
         <label>Web Service Update HCP Name</label>
         <length>100</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Web_Service_Logic_Key_MERC__c</fullName>
+        <description>Maps back to the Web Service Logic.Key for Lookup Field for the HCP Info Package Record Type.  This then determines a HCPs view of the Meeting Profile Information. Oliver Dunford 13th May 2014.</description>
+        <externalId>false</externalId>
+        <formula>TEXT(Country_of_Residence_GLBL__c) &amp; &quot;;&quot;</formula>
+        <inlineHelpText>Maps to the web service logic object to determine a HCPs view of the Meetings Profile.</inlineHelpText>
+        <label>Web Service Logic Key</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Text</type>
@@ -4437,8 +4779,22 @@ Created by John A Adams 11/4/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>of_Contracting_Parties_MERC__c</fullName>
+        <defaultValue>1</defaultValue>
+        <description>Calculates # of Contracting Parties for HCP using Lookup Summary Tool. Created 05/06/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label># of Contracting Parties</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>of_Designated_Individuals_MERC__c</fullName>
         <defaultValue>1</defaultValue>
+        <description>Calculates # of Designated Individual for HCP using Lookup Summary Tool. Created 05/06/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label># of Designated Individuals</label>
         <precision>4</precision>
@@ -4447,6 +4803,21 @@ Created by John A Adams 11/4/2013</description>
         <trackHistory>false</trackHistory>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>of_Payees_with_Priority_Rank_1_MERC__c</fullName>
+        <description>Counts the number of Payees with Priority Rank 1. Created 05/06/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label># of Payees with Priority Rank 1</label>
+        <summaryFilterItems>
+            <field>Payee_MERC__c.Priority_Rank_Nbr_MERC__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Payee_MERC__c.Account_MERC__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
     </fields>
     <listViews>
         <fullName>AllAccounts</fullName>
@@ -4462,6 +4833,25 @@ Created by John A Adams 11/4/2013</description>
         <language>en_US</language>
     </listViews>
     <listViews>
+        <fullName>All_Contracting_Party</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>ACCOUNT.SITE</columns>
+        <columns>ACCOUNT.ADDRESS1_STATE</columns>
+        <columns>ACCOUNT.PHONE1</columns>
+        <columns>ACCOUNT.TYPE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>Country_of_Residence_GLBL__c</columns>
+        <columns>HCP_Country_of_Residence_MERC__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ACCOUNT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>PersonAccount.Contracting_Party_GLBL</value>
+        </filters>
+        <label>All Contracting Party</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
         <fullName>All_Designated_Individuals</fullName>
         <columns>ACCOUNT.NAME</columns>
         <columns>Primary_Addr_Line1_GLBL__c</columns>
@@ -4469,6 +4859,7 @@ Created by John A Adams 11/4/2013</description>
         <columns>Primary_Addr_City_GLBL__c</columns>
         <columns>Primary_Address_Country_GLBL__c</columns>
         <columns>Primary_Pstl_Cd_Extnsn_GLBL__c</columns>
+        <columns>HCP_Country_of_Residence_MERC__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>ACCOUNT.RECORDTYPE</field>
@@ -4666,184 +5057,6 @@ Created by John A Adams 11/4/2013</description>
         <label>Web Service Test Users</label>
         <language>en_US</language>
     </listViews>
-    <namedFilters>
-        <fullName>Account_00N11000000SwsqEAC</fullName>
-        <active>true</active>
-        <field>Account.Relationship_Owner_MERC__c</field>
-        <filterItems>
-            <field>Account.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Employee</value>
-        </filterItems>
-        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
-        <isOptional>false</isOptional>
-        <name>Account_Relationship Owner2</name>
-    </namedFilters>
-    <namedFilters>
-        <fullName>Account_00N11000000ePSAEA2</fullName>
-        <active>true</active>
-        <field>Account.HCP_MERC__c</field>
-        <filterItems>
-            <field>Account.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>HCP</value>
-        </filterItems>
-        <isOptional>false</isOptional>
-        <name>Account_Designated Individual</name>
-    </namedFilters>
-    <namedFilters>
-        <fullName>Account_Parent</fullName>
-        <active>true</active>
-        <field>Account.ParentId</field>
-        <filterItems>
-            <field>Account.RecordTypeId</field>
-            <operation>equals</operation>
-            <valueField>$Source.RecordTypeId</valueField>
-        </filterItems>
-        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
-        <isOptional>false</isOptional>
-        <name>Account_Parent Account</name>
-        <sourceObject>Account</sourceObject>
-    </namedFilters>
-    <namedFilters>
-        <fullName>nf_01I11000000CjwmEAC_00N11000000SoJnEAK</fullName>
-        <active>true</active>
-        <errorMessage>To expand your search, select the &apos;All Fields&apos; option and run your search again.</errorMessage>
-        <field>Meeting_MERC__c.Sales_Rep_MERC__c</field>
-        <filterItems>
-            <field>Account.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Employee</value>
-        </filterItems>
-        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
-        <isOptional>false</isOptional>
-        <name>Meeting_Sales Rep</name>
-    </namedFilters>
-    <namedFilters>
-        <fullName>nf_01I11000000CjwmEAC_00N11000000T5hSEAS</fullName>
-        <active>true</active>
-        <field>Meeting_MERC__c.HCO_MERC__c</field>
-        <filterItems>
-            <field>Account.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Health Care Organization</value>
-        </filterItems>
-        <isOptional>false</isOptional>
-        <name>Meeting_HCO</name>
-    </namedFilters>
-    <namedFilters>
-        <fullName>nf_01I11000000CjwmEAC_00N11000000TFuMEAW</fullName>
-        <active>true</active>
-        <field>Meeting_MERC__c.Venue_MERC__c</field>
-        <filterItems>
-            <field>Account.RecordType.Name</field>
-            <operation>equals</operation>
-            <value>Venue</value>
-        </filterItems>
-        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
-        <isOptional>false</isOptional>
-        <name>Meeting_Venue</name>
-    </namedFilters>
-    <namedFilters>
-        <fullName>nf_01I11000000Cjx1EAC_00N11000000SbagEAC</fullName>
-        <active>true</active>
-        <field>Team_Member_MERC__c.Account_MERC__c</field>
-        <filterItems>
-            <field>Account.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Employee</value>
-        </filterItems>
-        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
-        <isOptional>false</isOptional>
-        <name>Team Member_External User</name>
-    </namedFilters>
-    <namedFilters>
-        <fullName>nf_01I11000000CjxfEAC_00N11000000T0zREAS</fullName>
-        <active>true</active>
-        <field>Invoice_MERC__c.HCO_Beneficiary_MERC__c</field>
-        <filterItems>
-            <field>Account.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Health Care Organization</value>
-        </filterItems>
-        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
-        <isOptional>false</isOptional>
-        <name>Invoice_Health Care Organization</name>
-    </namedFilters>
-    <namedFilters>
-        <fullName>nf_01I11000000CjxfEAC_00N11000000TQdMEAW</fullName>
-        <active>true</active>
-        <field>Invoice_MERC__c.Lilly_Affiliate_MERC__c</field>
-        <filterItems>
-            <field>Account.Name</field>
-            <operation>contains</operation>
-            <value>Lilly</value>
-        </filterItems>
-        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
-        <isOptional>false</isOptional>
-        <name>Invoice_Lilly Affiliate</name>
-    </namedFilters>
-    <namedFilters>
-        <fullName>nf_01I11000000CjxpEAC_00N11000000SbwOEAS</fullName>
-        <active>true</active>
-        <booleanFilter>1 OR 2 OR 3</booleanFilter>
-        <field>Meeting_Participant_MERC__c.Account_MERC__c</field>
-        <filterItems>
-            <field>Account.RecordType.Name</field>
-            <operation>equals</operation>
-            <value>HCP</value>
-        </filterItems>
-        <filterItems>
-            <field>Account.RecordType.Name</field>
-            <operation>equals</operation>
-            <value>Non-HCP</value>
-        </filterItems>
-        <filterItems>
-            <field>Account.RecordType.Name</field>
-            <operation>equals</operation>
-            <value>Employee</value>
-        </filterItems>
-        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
-        <isOptional>false</isOptional>
-        <name>Meeting Participant_Account</name>
-    </namedFilters>
-    <namedFilters>
-        <fullName>nf_01I11000000Ck6cEAC_00N11000000TYIWEA4</fullName>
-        <active>true</active>
-        <field>HCP_Contract_MERC__c.Lilly_Internal_Signee_MERC__c</field>
-        <filterItems>
-            <field>Account.RecordType.Name</field>
-            <operation>equals</operation>
-            <value>Employee</value>
-        </filterItems>
-        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
-        <isOptional>false</isOptional>
-        <name>HCP Contract_Lilly Internal Signee</name>
-    </namedFilters>
-    <namedFilters>
-        <fullName>nf_01I11000000CkBhEAK_00N11000000Sf1fEAC</fullName>
-        <active>true</active>
-        <booleanFilter>1 OR 2 OR 3</booleanFilter>
-        <field>Meeting_Vendor_MERC__c.Account_MERC__c</field>
-        <filterItems>
-            <field>Account.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Vendor</value>
-        </filterItems>
-        <filterItems>
-            <field>Account.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Third Party Organization</value>
-        </filterItems>
-        <filterItems>
-            <field>Account.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Venue</value>
-        </filterItems>
-        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
-        <isOptional>false</isOptional>
-        <name>Meeting Vendor_Account</name>
-    </namedFilters>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
         <fullName>Business_Account</fullName>
@@ -4909,6 +5122,21 @@ Created by John A Adams 11/4/2013</description>
             </values>
             <values>
                 <fullName>Party_Sts_Cd_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Contract_Signatory_MERC__c</picklist>
+            <values>
+                <fullName>My Institution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Legal Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Name %28self%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5085,6 +5313,17 @@ Created by John A Adams 11/4/2013</description>
             </values>
             <values>
                 <fullName>Subsidiary</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preferred_Contact_Method_MERC__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postal Address</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5285,6 +5524,21 @@ Created by John A Adams 11/4/2013</description>
             </values>
             <values>
                 <fullName>Yes - 2 or more</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Contract_Signatory_MERC__c</picklist>
+            <values>
+                <fullName>My Institution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Legal Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Name %28self%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6573,7 +6827,7 @@ Created by John A Adams 11/4/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>10-20 Years</fullName>
+                <fullName>11-20 Years</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6581,7 +6835,18 @@ Created by John A Adams 11/4/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5-10 Years</fullName>
+                <fullName>6-10 Years</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preferred_Contact_Method_MERC__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postal Address</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6852,6 +7117,21 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Contract_Signatory_MERC__c</picklist>
+            <values>
+                <fullName>My Institution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Legal Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Name %28self%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Country_of_Residence_GLBL__c</picklist>
             <values>
                 <fullName>AD</fullName>
@@ -8136,7 +8416,7 @@ Created by John A Adams 11/4/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>10-20 Years</fullName>
+                <fullName>11-20 Years</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8144,7 +8424,18 @@ Created by John A Adams 11/4/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5-10 Years</fullName>
+                <fullName>6-10 Years</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preferred_Contact_Method_MERC__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postal Address</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8415,6 +8706,21 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Contract_Signatory_MERC__c</picklist>
+            <values>
+                <fullName>My Institution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Legal Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Name %28self%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Country_of_Residence_GLBL__c</picklist>
             <values>
                 <fullName>US</fullName>
@@ -8707,7 +9013,7 @@ Created by John A Adams 11/4/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>10-20 Years</fullName>
+                <fullName>11-20 Years</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8715,7 +9021,18 @@ Created by John A Adams 11/4/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5-10 Years</fullName>
+                <fullName>6-10 Years</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preferred_Contact_Method_MERC__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postal Address</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8978,6 +9295,21 @@ Created by John A Adams 11/4/2013</description>
             </values>
             <values>
                 <fullName>Yes - 2 or more</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Contract_Signatory_MERC__c</picklist>
+            <values>
+                <fullName>My Institution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Legal Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Name %28self%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10266,7 +10598,7 @@ Created by John A Adams 11/4/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>10-20 Years</fullName>
+                <fullName>11-20 Years</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10274,7 +10606,18 @@ Created by John A Adams 11/4/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5-10 Years</fullName>
+                <fullName>6-10 Years</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preferred_Contact_Method_MERC__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postal Address</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10545,6 +10888,21 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Contract_Signatory_MERC__c</picklist>
+            <values>
+                <fullName>My Institution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Legal Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Name %28self%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Country_of_Residence_GLBL__c</picklist>
             <values>
                 <fullName>AD</fullName>
@@ -11829,7 +12187,7 @@ Created by John A Adams 11/4/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>10-20 Years</fullName>
+                <fullName>11-20 Years</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11837,7 +12195,18 @@ Created by John A Adams 11/4/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5-10 Years</fullName>
+                <fullName>6-10 Years</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preferred_Contact_Method_MERC__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postal Address</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12104,6 +12473,21 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Contract_Signatory_MERC__c</picklist>
+            <values>
+                <fullName>My Institution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Legal Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Name %28self%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Country_of_Residence_GLBL__c</picklist>
             <values>
                 <fullName>AD</fullName>
@@ -13388,7 +13772,7 @@ Created by John A Adams 11/4/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>10-20 Years</fullName>
+                <fullName>11-20 Years</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13396,7 +13780,18 @@ Created by John A Adams 11/4/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5-10 Years</fullName>
+                <fullName>6-10 Years</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preferred_Contact_Method_MERC__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postal Address</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13559,6 +13954,7 @@ Created by John A Adams 11/4/2013</description>
         <searchResultsAdditionalFields>Primary_Addr_City_GLBL__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Primary_Address_Country_GLBL__c</searchResultsAdditionalFields>
     </searchLayouts>
+    <sharingModel>Private</sharingModel>
     <validationRules>
         <fullName>Confirm_Tier_1_HCP_CV_MERC</fullName>
         <active>true</active>
@@ -13570,6 +13966,28 @@ Created by John A Adams 11/4/2013</description>
 )</errorConditionFormula>
         <errorDisplayField>Tier_1_HCP_CV_Checked_MERC__c</errorDisplayField>
         <errorMessage>You cannot update the Tier 1 HCP CV Checked field unless the HCP Tier 1 Criteria are met and therefore the HCP is eligible to be a Tier 1 HCP.  Set this value back to blank to continue.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Prevent_Editing_of_Account_Name</fullName>
+        <active>true</active>
+        <description>Prevent Editing the Account name if HCP, HCO, or Employee</description>
+        <errorConditionFormula>(ISCHANGED( FirstName )
+|| ISCHANGED( LastName )
+|| ISCHANGED ( Salutation ) 
+)
+&amp;&amp;  
+(
+RecordType.DeveloperName = &apos;HCP_GLBL&apos; 
+|| RecordType.Name = &apos;Health_Care_Organization_GLBL&apos; 
+|| RecordType.Name = &apos;Employee_GLBL&apos;
+)
+&amp;&amp;
+(
+$Profile.Name = &quot;Mercury Meeting Functionary - Read Only&quot;
+||  $Profile.Name = &quot;Mercury Meeting Functionary - Salesforce.com - Read Only&quot; 
+|| $Profile.Name = &apos;Mercury Customer Meeting Services - Read Only&apos;
+)</errorConditionFormula>
+        <errorMessage>You may not edit the Account Name of an HCP, HCO, or Employee.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Verify_Service_Provider_Tier_Value_MERC</fullName>
@@ -13780,17 +14198,37 @@ else
         <masterLabel>Send ET Email</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/26.0/connection.js&quot;)}
-
- var value = &apos;{!Account.Id}&apos;;
-
-var qr = sforce.connection.query(&quot;SELECT PersonContactId FROM Account where id=&apos;&quot; + value+&quot;&apos;&quot;);
-
- var perContactID = qr[&quot;records&quot;].PersonContactId;
-
-var url = &apos;https://et4ae.cs18.visual.force.com/apex/exacttargetswitchboard?contactId=&apos; + perContactID ;
-
- window.open (url,&apos;_self&apos;,false);</url>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)}
+try
+{
+var urlPrefix = sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;namespace&quot;, {});
+var pacId=sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;getPACId&quot;, {acctId:&quot;{!CASESAFEID( Account.Id )}&quot;});
+var theUrl = &quot;https://&quot;+urlPrefix+&quot;/apex/singleSendETEmail?contactId=&quot;+pacId;
+var npaUrl = parent.location.href;
+if(pacId==&quot;error&quot;)
+{
+parent.location.href = npaUrl;
+}
+else
+{
+parent.location.href = theUrl;
+}
+}
+catch(e)
+{
+var pacId=sforce.apex.execute(&quot;jsButtonMethods&quot;,&quot;getPACId&quot;, {acctId:&quot;{!CASESAFEID( Account.Id )}&quot;});
+var theUrl = &quot;/apex/singleSendETEmail?contactId=&quot;+pacId;
+var npaUrl = parent.location.href;
+if(pacId==&quot;error&quot;)
+{
+parent.location.href = npaUrl;
+}
+else
+{
+parent.location.href = theUrl;
+}
+}</url>
     </webLinks>
     <webLinks>
         <fullName>Upload_Content_MERC</fullName>

@@ -165,10 +165,6 @@
     <relatedLists>
         <fields>RECORDTYPE</fields>
         <fields>NAME</fields>
-        <fields>Communication_Preference_GLBL__c</fields>
-        <fields>Interaction_Channel_Type_GLBL__c</fields>
-        <fields>Permission_Status_GLBL__c</fields>
-        <fields>Speaker_Interest_GLBL__c</fields>
         <relatedList>Preferences_and_Consent_GLBL__c.Account_GLBL__c</relatedList>
     </relatedLists>
     <relatedLists>

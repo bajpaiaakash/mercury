@@ -2,7 +2,12 @@
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Upload_Content_MERC</customButtons>
     <customButtons>Loop__LOOPlus</customButtons>
+    <excludeButtons>EnableSelfService</excludeButtons>
+    <excludeButtons>IncludeOffline</excludeButtons>
+    <excludeButtons>RequestUpdate</excludeButtons>
+    <excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
+    <excludeButtons>ViewSelfService</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
         <detailHeading>false</detailHeading>
@@ -38,6 +43,10 @@
                 <field>FMV_Tier_Exists_MERC__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Employment_Specification_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Institutional_Notif_Info_Exists_MERC__c</field>
             </layoutItems>
@@ -65,7 +74,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Source_Block_GLBL__c</field>
+                <field>Party_Sts_Desc_GLBL__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -186,7 +195,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Primary_Address_Country_GLBL__c</field>
+                <field>Emergency_Contact_Name_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Emergency_Contact_Phone_Number_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -247,10 +260,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Academic_Qualifications_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>FMV_Criteria_Map_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -370,7 +379,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Global_Consent_Authorization_GLBL__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Institutional_Notification_Consent_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Contract_Signing_Parties_Complete_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -383,20 +400,24 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Employment_Specification_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Institutional_Notification_Complete_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Qualifications_Experience_Complete_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Payee_and_Bank_Info_Complete_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Tax_Invoices_Step_Complete_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Count_Bank_Transfer_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Transfer_Info_Step_Complete_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -417,6 +438,10 @@
                 <behavior>Readonly</behavior>
                 <field>LastModifiedById</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>PersonHasOptedOutOfEmail</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -429,6 +454,9 @@
             <layoutItems>
                 <customLink>Send_ET_Email</customLink>
             </layoutItems>
+            <layoutItems>
+                <customLink>et4ae5__Send_ExactTarget_Email</customLink>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns/>
         <layoutColumns/>
@@ -438,6 +466,7 @@
         <fields>Name</fields>
         <fields>Relationship_Owner_MERC__c</fields>
         <fields>CurrencyIsoCode</fields>
+        <fields>RecordTypeId</fields>
         <fields>Cust_Id_GLBL__c</fields>
         <fields>Country_of_Residence_GLBL__c</fields>
     </miniLayout>
@@ -478,6 +507,7 @@
         <fields>Bank_City_MERC__c</fields>
         <fields>Bank_Country_MERC__c</fields>
         <fields>Payment_Method_MERC__c</fields>
+        <fields>Priority_Rank_Nbr_MERC__c</fields>
         <relatedList>Payee_MERC__c.Account_MERC__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -490,8 +520,6 @@
         <relatedList>Affiliation_GLBL__c.Account_GLBL__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <customButtons>New_Address</customButtons>
-        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Line_1_Adrs_Txt_GLBL__c</fields>
         <fields>Line_2_Adrs_Txt_GLBL__c</fields>
@@ -515,7 +543,22 @@
         <fields>Primary_Addr_Line1_GLBL__c</fields>
         <fields>Primary_Addr_City_GLBL__c</fields>
         <fields>Primary_Address_Country_GLBL__c</fields>
-        <relatedList>Account.HCP_MERC__c</relatedList>
+        <relatedList>Account.HCP_Designated_Individuals_MERC__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>ACCOUNT.NAME</fields>
+        <fields>ACCOUNT.RECORDTYPE</fields>
+        <fields>Primary_Addr_Line1_GLBL__c</fields>
+        <fields>Primary_Addr_City_GLBL__c</fields>
+        <fields>Primary_Address_Country_GLBL__c</fields>
+        <relatedList>Account.HCP_Contracting_Party_MERC__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Party_Alternate_External_ID_GLBL__c</fields>
+        <fields>Party_Rcrd_Typ_Cd_GLBL__c</fields>
+        <fields>Src_Sys_Cd_GLBL__c</fields>
+        <relatedList>Alternate_Id_GLBL__c.Account_GLBL__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>VERSION.TITLE</fields>
@@ -523,46 +566,18 @@
         <fields>VERSION.LAST_UPDATE</fields>
         <relatedList>ContentVersion.Account_GLBL__c</relatedList>
     </relatedLists>
-    <runAssignmentRulesDefault>true</runAssignmentRulesDefault>
+    <relatedLists>
+        <relatedList>RelatedEntityHistoryList</relatedList>
+    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
-    <showHighlightsPanel>true</showHighlightsPanel>
+    <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>
-    <showRunAssignmentRulesCheckbox>true</showRunAssignmentRulesCheckbox>
+    <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h11000000Mwfx</masterLabel>
+        <masterLabel>00h11000000Mwfy</masterLabel>
         <sizeX>4</sizeX>
-        <sizeY>2</sizeY>
-        <summaryLayoutItems>
-            <field>Name</field>
-            <posX>0</posX>
-            <posY>0</posY>
-        </summaryLayoutItems>
-        <summaryLayoutItems>
-            <field>Cust_Id_GLBL__c</field>
-            <posX>0</posX>
-            <posY>1</posY>
-        </summaryLayoutItems>
-        <summaryLayoutItems>
-            <field>Service_Provider_MERC__c</field>
-            <posX>1</posX>
-            <posY>0</posY>
-        </summaryLayoutItems>
-        <summaryLayoutItems>
-            <field>Service_Provider_Tier_MERC__c</field>
-            <posX>1</posX>
-            <posY>1</posY>
-        </summaryLayoutItems>
-        <summaryLayoutItems>
-            <field>PersonEmail</field>
-            <posX>2</posX>
-            <posY>0</posY>
-        </summaryLayoutItems>
-        <summaryLayoutItems>
-            <field>Phone</field>
-            <posX>2</posX>
-            <posY>1</posY>
-        </summaryLayoutItems>
+        <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
     </summaryLayout>
 </Layout>

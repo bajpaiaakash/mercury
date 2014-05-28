@@ -7,6 +7,10 @@
 
 public with sharing class MERC_ContentVersionHandler implements GLBL_TriggerHandler.HandlerInterface {
 
+	public Boolean isActive() {
+	    return true;
+	}
+
 	public void handle() {
 		if (Trigger.isInsert) {
 	    	execute(Trigger.new);

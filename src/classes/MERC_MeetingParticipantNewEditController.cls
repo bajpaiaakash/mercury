@@ -1,14 +1,14 @@
 public with sharing class MERC_MeetingParticipantNewEditController extends GLBL_BaseEditController {
-	
+
 	public Meeting_Participant_MERC__c meetingParticipant { get; set; }
 	private ApexPages.StandardController controller;
 
 	private String meetingParticipantSelectAllSoql {
 		get {
 			if (meetingParticipantSelectAllSoql == null) {
-				meetingParticipantSelectAllSoql = 
+				meetingParticipantSelectAllSoql =
 					new MERC_Util.SelectAll( Meeting_Participant_MERC__c.SobjectType, this.controller.getId() ).soql;
-			} 
+			}
 			return meetingParticipantSelectAllSoql;
 		}
 		set;
@@ -21,7 +21,7 @@ public with sharing class MERC_MeetingParticipantNewEditController extends GLBL_
 
 		if (this.meetingParticipant.Id != null) {
 			this.meetingParticipant = Database.query(meetingParticipantSelectAllSoql);
-			
+
 			//we can't run this code during a test because of quirkiness with setMock and test data creation -JFERRARO
 			if (!Test.isRunningTest()) {
 				for (GLBL_BaseEditController.PageBlockSection section : sections) {
@@ -53,20 +53,24 @@ public with sharing class MERC_MeetingParticipantNewEditController extends GLBL_
 
 	public PageReference ajaxUpdate() {
 		try {
-			update this.meetingParticipant; 
+			update this.meetingParticipant;
 			this.meetingParticipant = Database.query(meetingParticipantSelectAllSoql);
 		} catch(Exception e) {
 		    ApexPages.addMessages(e); //doesn't show ugly error text
 		}
-		return null;	
+		return null;
 	}
 
 	public PageReference save() {
 		try {
+		    if (ApexPages.currentPage().getParameters().containsKey('RecordType')) {
+		    	this.meetingParticipant.RecordTypeId = ApexPages.currentPage().getParameters().get('RecordType');
+		    }
+
 		    if (this.meetingParticipant.Id == null) {
 		        insert this.meetingParticipant;
 		    } else {
-		        update this.meetingParticipant; 
+		        update this.meetingParticipant;
 		    }
 		} catch(Exception e) {
 		    ApexPages.addMessages(e); //doesn't show ugly error text

@@ -66,6 +66,11 @@
             <isRequired>true</isRequired>
         </displayedFields>
         <displayedFields>
+            <field>Access_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
             <field>Attendee_Invite_Limit_MERC__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -125,6 +130,16 @@ Created by John A Adams 1/10/2014</description>
         <description>Lookup relationship to Account so Person Accounts may be selected as Team Members a Meeting. Created 9/27/2013 by KLorenti</description>
         <externalId>false</externalId>
         <label>Customer Facing Team Member</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Employee</value>
+            </filterItems>
+            <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Team Members</relationshipLabel>
         <relationshipName>Team_Members</relationshipName>
@@ -439,10 +454,7 @@ Created by John A Adams 1/10/2014</description>
         <fullName>Single_Primary_Meeting_Owner_MERC</fullName>
         <active>true</active>
         <description>Should only have one Primary Meeting Owner</description>
-        <errorConditionFormula>AND (
-ISPICKVAL( Role_MERC__c,&quot;Primary Meeting Owner&quot;),
-OR(ISNULL(Meeting_MERC__r.Prmry_Mtng_Ownr_Nm_MERC__c), 
-Meeting_MERC__r.Prmry_Mtng_Ownr_Nm_MERC__c  &lt;&gt; &quot;&quot;))</errorConditionFormula>
+        <errorConditionFormula>ISPICKVAL( Role_MERC__c,&quot;Primary Meeting Owner&quot; ) &amp;&amp; Meeting_MERC__r.Prmry_Mtng_Ownr_Nm_MERC__c  &lt;&gt; &quot;&quot; &amp;&amp;  Meeting_MERC__r.Meeting_Owner_Email_MERC__c  &lt;&gt;  User_MERC__r.Email</errorConditionFormula>
         <errorDisplayField>Role_MERC__c</errorDisplayField>
         <errorMessage>Only one team member can be the Primary Meeting Owner. Please chose a different role for this or existing team member.</errorMessage>
     </validationRules>

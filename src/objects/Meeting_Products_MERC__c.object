@@ -18,7 +18,10 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>Edit</actionName>
-        <type>Default</type>
+        <comment>Overridden to allow for dependent lookups as picklists - K. Thornton 2014/05/22</comment>
+        <content>MERC_MeetingProductNewEdit</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>Follow</actionName>
@@ -30,7 +33,10 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
-        <type>Default</type>
+        <comment>Overridden to allow for dependent lookups as picklists - K. Thornton 2014/05/22</comment>
+        <content>MERC_MeetingProductNewEdit</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>SaveEdit</actionName>
@@ -264,7 +270,7 @@ Created by John Adams on 12/9/2013</description>
     <fields>
         <fullName>Product_vod_External_ID_MERC__c</fullName>
         <externalId>false</externalId>
-        <formula>Product_MERC__r.Cntry_Cd_GLBL__c &amp; &apos;_&apos; &amp; Product_MERC__r.Product_Group_External_ID_GLBL__c &amp; &apos;_&apos; &amp; Indication_MERC__r.Indctn_Id_GLBL__c</formula>
+        <formula>Product_MERC__r.Cntry_Cd_GLBL__c &amp; &apos;_&apos; &amp; Product_MERC__r.Product_Group_Id_GLBL__c &amp; &apos;-&apos; &amp; Indication_MERC__r.Indctn_Id_GLBL__c</formula>
         <label>Product_vod_External_ID_MERC</label>
         <required>false</required>
         <trackHistory>false</trackHistory>

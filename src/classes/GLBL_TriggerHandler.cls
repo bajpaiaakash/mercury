@@ -29,8 +29,17 @@ public class GLBL_TriggerHandler
      */
     public interface HandlerInterface
     {
-        void handle();          
+        Boolean isActive(); //added to allow developers to toggle handlers on/off, especially useful for unit testing to avoid governor limits
+        void handle();
     } 
+
+    //public virtual class BaseHandler implements HandlerInterface
+    //{
+    //    void handle();
+    //    virtual Boolean isActive() {
+    //        return true;
+    //    }
+    //}
 
     // Internal mapping of handlers
     map<String, list<HandlerInterface>> eventHandlerMapping = new map<String, list<HandlerInterface>>();
@@ -91,7 +100,8 @@ public class GLBL_TriggerHandler
         {
             for (HandlerInterface h : handlers) 
             {
-                h.handle();
+                if (h.isActive())
+                    h.handle();
             }
         }
     }

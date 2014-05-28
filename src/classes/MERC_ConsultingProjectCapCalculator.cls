@@ -5,11 +5,15 @@
  */
 
 public with sharing class MERC_ConsultingProjectCapCalculator implements GLBL_TriggerHandler.HandlerInterface {
-	
+
 	Schema.SobjectType triggeredSobjectType;
 
 	public MERC_ConsultingProjectCapCalculator(Schema.SobjectType sobjectType) {
 		this.triggeredSobjectType = sObjectType;
+	}
+
+	public Boolean isActive() {
+	    return true;
 	}
 
 	public void handle() {
@@ -42,13 +46,14 @@ public with sharing class MERC_ConsultingProjectCapCalculator implements GLBL_Tr
 
 		System.debug('>>>> '+accountIds);
 
-		List<AggregateResult> results = [SELECT 
-											Meeting_Participant_MERC__r.Account_MERC__c, 
-											Sum(Consulting_Project_Amount_excl_VAT_MERC__c) lre0 
-												FROM Invoice_MERC__c 
-													WHERE 
-														Meeting_Participant_MERC__r.Account_MERC__c IN :accountIds AND 
-														Invoice_Date_MERC__c = THIS_YEAR 
+		List<AggregateResult> results = [SELECT
+											Meeting_Participant_MERC__r.Account_MERC__c,
+											Sum(Consulting_Project_Amount_excl_VAT_MERC__c) lre0
+												FROM Invoice_MERC__c
+													WHERE
+														Meeting_Participant_MERC__r.Account_MERC__c IN :accountIds AND
+														Invoice_Date_MERC__c = THIS_YEAR AND
+														Submit_for_Payment_MERC__c = 'Yes'
 															GROUP BY Meeting_Participant_MERC__r.Account_MERC__c];
 
 		System.debug('>>>> '+results);
@@ -66,7 +71,7 @@ public with sharing class MERC_ConsultingProjectCapCalculator implements GLBL_Tr
 		    Account a = new Account();
 		    a.Id = masterRecId;
 		    a.Consulting_Project_Paid_CAP_MERC__c = (Decimal)aggregatedDetailVal;
-			accounts.add(a);		    
+			accounts.add(a);
 		}
 
 		update accounts;

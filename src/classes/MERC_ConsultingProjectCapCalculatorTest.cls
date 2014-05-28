@@ -21,7 +21,7 @@ private class MERC_ConsultingProjectCapCalculatorTest {
 		participants2 = MERC_TestFactory.insertParticipants(meetings.get(1).Id, accounts); //insert 5 participants
 		MERC_TestFactory.loadDeclarativeRollupSummaries();
 	}
-	
+
 	@isTest static void basic_test() {
 		Test.startTest();
 
@@ -46,13 +46,17 @@ private class MERC_ConsultingProjectCapCalculatorTest {
 		lineItem.RecordTypeId = [SELECT ID FROM RecordType WHERE SobjectType = 'Invoice_Line_Item_MERC__c' AND DeveloperName = 'Consulting_Project_MERC'].Id;
 		insert lineItem;
 
+		i.Submit_for_Payment_MERC__c = 'Yes';
+		i.Invoice_Attached_MERC__c = true; //simulate pdf being attached.
+		update i;
+
 		System.assertEquals(20, [SELECT Consulting_Project_Amount_excl_VAT_MERC__c FROM Invoice_MERC__c WHERE Id = :i.Id].Consulting_Project_Amount_excl_VAT_MERC__c);
 
 		i.Invoice_Date_MERC__c = Date.today();
 		update i;
 
 		System.assertEquals(20, [SELECT Consulting_Project_Paid_CAP_MERC__c FROM Account WHERE Id = :p1.Account_MERC__c].Consulting_Project_Paid_CAP_MERC__c);
-		
+
 		Test.stopTest();
 	}
 

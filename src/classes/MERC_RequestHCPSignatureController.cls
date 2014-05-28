@@ -82,9 +82,12 @@ public with sharing class MERC_RequestHCPSignatureController {
         contract.Docusign_Envelope_Id_MERC__c = envelopeId.toLowerCase();
         update contract;
 
-        Meeting_Participant_MERC__c p = [SELECT ID FROM Meeting_Participant_MERC__c WHERE ID = :contract.Meeting_Participant_MERC__c];
-        p.Docusign_Envelope_Id_MERC__c = envelopeId.toLowerCase();
-        update p;
+        //only stamp the envelope id on the mp if this is a mp-related contract (non-MSA)
+        if (contract.Meeting_Participant_MERC__c != null) {
+            Meeting_Participant_MERC__c p = [SELECT ID FROM Meeting_Participant_MERC__c WHERE ID = :contract.Meeting_Participant_MERC__c];
+            p.Docusign_Envelope_Id_MERC__c = envelopeId.toLowerCase();
+            update p;
+        }
     }
 
     //send contract out for signature via the Docusign API

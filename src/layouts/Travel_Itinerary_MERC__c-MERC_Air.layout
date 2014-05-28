@@ -97,7 +97,7 @@
         <label>Transportation Company</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Edit</behavior>
                 <field>Vendor_Code_MERC__c</field>
             </layoutItems>
         </layoutColumns>

@@ -2,6 +2,9 @@
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Generate_Content_MERC</customButtons>
     <customButtons>Upload_Content_MERC</customButtons>
+    <customButtons>Send_ExactTarget_Email_MERC</customButtons>
+    <excludeButtons>Clone</excludeButtons>
+    <excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -58,10 +61,6 @@
                 <field>Ready_for_Sourcing_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Submit_for_Contracting_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Days_Until_Meeting_MERC__c</field>
             </layoutItems>
@@ -71,10 +70,18 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Meeting_Errors_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Lock_Meeting_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Source_MERC__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Meeting_Status_MERC__c</field>
@@ -167,6 +174,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>CME_Accredited_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Hours_for_Education_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -314,19 +325,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Hours_for_Education_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Hospitality_Desk_Required_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Time_for_Restaurant_Booking_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Activities_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -359,6 +362,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Employee_Travel_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Employee_Accommodation_Covered_By_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -411,25 +418,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Inviting_Delegates_Other_MERC__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <style>TwoColumnsLeftToRight</style>
-    </layoutSections>
-    <layoutSections>
-        <customLabel>true</customLabel>
-        <detailHeading>true</detailHeading>
-        <editHeading>true</editHeading>
-        <label>Content</label>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Content_Creator_MERC__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Content_Approval_Needed_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -533,7 +521,7 @@
     </layoutSections>
     <layoutSections>
         <customLabel>true</customLabel>
-        <detailHeading>false</detailHeading>
+        <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
         <label>Custom Links</label>
         <layoutColumns>
@@ -579,21 +567,25 @@
     </layoutSections>
     <relatedLists>
         <customButtons>Add_Participants_MERC</customButtons>
+        <customButtons>Mass_Approve_Participants_MERC</customButtons>
+        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Account.NAME</fields>
         <fields>RECORDTYPE</fields>
-        <fields>Services_Rendered_MERC__c</fields>
-        <fields>Country_of_Residence_MERC__c</fields>
-        <fields>Speciality_MERC__c</fields>
-        <fields>Classification_MERC__c</fields>
         <fields>Status_MERC__c</fields>
         <fields>Has_Signed_Contract_MERC__c</fields>
+        <fields>Classification_MERC__c</fields>
+        <fields>Speciality_MERC__c</fields>
+        <fields>Country_of_Residence_MERC__c</fields>
+        <fields>Participant_Typ_MERC__c</fields>
+        <fields>Services_Rendered_MERC__c</fields>
         <relatedList>Meeting_Participant_MERC__c.Meeting_MERC__c</relatedList>
         <sortField>RECORDTYPE</sortField>
         <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <customButtons>Meeting_Team_Manager_MERC</customButtons>
+        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>User_MERC__c</fields>
         <fields>Account_MERC__c</fields>
@@ -621,6 +613,7 @@
     <relatedLists>
         <customButtons>Manage_Meeting_Days_MERC</customButtons>
         <customButtons>Manage_Daily_Attendance_MERC</customButtons>
+        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Date_Meeting_Time_Zone__c</fields>
         <fields>Daily_Food_Beverage_Amount_MERC__c</fields>
@@ -630,6 +623,7 @@
     </relatedLists>
     <relatedLists>
         <customButtons>Agenda_Builder_MERC</customButtons>
+        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Agenda_Item_Description_MERC__c</fields>
         <fields>Start_Time_in_Meeting_Time_Zone_MERC__c</fields>
@@ -664,6 +658,20 @@
         <relatedList>Milestone_MERC__c.Meeting_MERC__c</relatedList>
         <sortField>Due_Date_MERC__c</sortField>
         <sortOrder>Asc</sortOrder>
+    </relatedLists>
+    <relatedLists>
+        <excludeButtons>New</excludeButtons>
+        <fields>Email_Send_Number_MERC__c</fields>
+        <fields>Date_Sent_MERC__c</fields>
+        <fields>Email_Name__c</fields>
+        <fields>Deliverability_Rate_MERC__c</fields>
+        <fields>Open_Rate_MERC__c</fields>
+        <fields>Click_Through_Rate_MERC__c</fields>
+        <fields>Unsubscribe_Rate_MERC__c</fields>
+        <fields>Bounce_Rate_MERC__c</fields>
+        <relatedList>Meeting_Email_Send_MERC__c.Meeting_MERC__c</relatedList>
+        <sortField>Date_Sent_MERC__c</sortField>
+        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>CASES.CASE_NUMBER</fields>

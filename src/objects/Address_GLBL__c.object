@@ -53,6 +53,41 @@ Created by John A Adams 9/26/2013</description>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
+    <fieldSets>
+        <fullName>Account_Merge_Addresses_MERC</fullName>
+        <description>MERC_MergedAccounts.page / MERC_MergedAccountsApex.cls / Custom Setting: Account Merge - Addresses .Oliver Dunford 8th May 2014</description>
+        <displayedFields>
+            <field>RecordTypeId</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Line_1_Adrs_Txt_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Line_2_Adrs_Txt_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>City_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Cnty_Nm_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Adrs_Cntry_Cd_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Account Merge - Addresses</label>
+    </fieldSets>
     <fields>
         <fullName>Account_GLBL__c</fullName>
         <description>Lookup between addresses and accounts
@@ -63,7 +98,7 @@ Created by John A Adams 9/27/2013</description>
         <relationshipLabel>Addresses</relationshipLabel>
         <relationshipName>Addresses_GLBL</relationshipName>
         <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
@@ -1123,6 +1158,17 @@ Created by John A Adams 11/4/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Anonymise_Record_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicates that this record is related to a non-hcp meeting participant and should be anonymised (via workflows)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates that this record is related to a non-hcp meeting participant and should be anonymised (via workflows)</inlineHelpText>
+        <label>Anonymise Record</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Care_Of_Nm_GLBL__c</fullName>
         <description>Care of NM
 Customer ODS to Mercury Mapping
@@ -1761,7 +1807,7 @@ Created by John A Adams 2/18/2014</description>
         <externalId>false</externalId>
         <label>Web Service Update Date</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -1773,7 +1819,7 @@ Created by John A Adams 2/18/2014</description>
         <label>Web Service Update HCP Action</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1786,7 +1832,7 @@ Created by John A Adams 2/18/2014</description>
         <label>Web Service Update HCP Global Id</label>
         <length>40</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1799,7 +1845,7 @@ Created by John A Adams 2/18/2014</description>
         <label>Web Service Update HCP Name</label>
         <length>100</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1838,20 +1884,6 @@ Created by John A Adams 9/27/2013</description>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
-    <namedFilters>
-        <fullName>nf_01I11000000Cjv1EAC_00N11000000SqLMEA0</fullName>
-        <active>true</active>
-        <field>Payee_MERC__c.Associated_Address_MERC__c</field>
-        <filterItems>
-            <field>Address_GLBL__c.Account_GLBL__c</field>
-            <operation>equals</operation>
-            <valueField>$Source.Account_MERC__c</valueField>
-        </filterItems>
-        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.select the &apos;All Fields&apos; option and run your search again.</infoMessage>
-        <isOptional>false</isOptional>
-        <name>Payee_Associated Address</name>
-        <sourceObject>Payee_MERC__c</sourceObject>
-    </namedFilters>
     <pluralLabel>Addresses</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
@@ -6999,13 +7031,7 @@ Created by John A Adams 9/27/2013</description>
         <openType>replace</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!URLFOR( 
-$Action.Address_GLBL__c.New, 
-null, 
-[saveURL=Account.Link+&apos;#&apos;+Account.Id+&apos;_00N11000000SbZi_target&apos;, 
-retURL=Account.Link, 
-CF00N11000000SbZi=Account.Name, 
-CF00N11000000SbZi_lkid=Account.Id] 
-)}</url>
+        <url>/apex/GLBL_NewButtonPrepopulator?cObj=Address_GLBL__c&amp;cObjURL={!URLENCODE(URLFOR($Action.Address_GLBL__c.New))}&amp;cObjParent=Account&amp;cObjParentId={!Account.Id}&amp;cf_Account_GLBL__c={!Account.Name}&amp;
+cf_Account_GLBL__c_lkid={!Account.Id}</url>
     </webLinks>
 </CustomObject>

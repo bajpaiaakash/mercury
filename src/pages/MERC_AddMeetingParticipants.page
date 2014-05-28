@@ -15,33 +15,42 @@
 			$(function() {
 				$(".bPageBlock.brandSecondaryBrd.bEditBlock.secondaryPalette").css("border-top-color", "transparent");
 
-				$(".multichosen").chosen({width: "65%"})
+				$(".multichosen").chosen({width: "65%"});
 
 				$('#myTab a').click(function (e) {
 					e.preventDefault()
 				  	$(this).tab('show')
 				})
+
+				$("form[id$='mainForm'] input[type='text'], form[id$='mainForm'] input[type='checkbox'], form[id$='mainForm'] select").each(function(){
+					$(this).keypress(function(event){
+						noenter(event);
+					});
+				})
 		  	});
 		})(j);
 
 		function handleAddResponse(el) {
+			hideLoading();
 			// console.log(el.id);
 			var controllerHasError = document.getElementById("{!$Component.mainForm.controllerHasError}").innerHTML == "true";
-			// console.log(controllerHasError);
-			if (!controllerHasError) {
+			console.log(controllerHasError);
+			console.log(j('.errorMsg'));
+			if (!controllerHasError && j('.errorMsg').size() == 0) {
 				var img = j(escapeVfId(el.id));
-				// console.log(img);
-				img.parent().remove();
+				//console.log(img);
+				img.parents('td').first().children('a').remove();
+				hideAddPopovers();
+				showMessage('Participant Successfully Added');
 			}
-			toggleLoading();
 		}
 
 		function handleRemoveResponse(el) {
 			// console.log(el);
-			toggleLoading();
+			hideLoading();
 			var controllerHasError = document.getElementById("{!$Component.mainForm.controllerHasError}").innerHTML == "true";
 			if (!controllerHasError) {
-				
+				showMessage('Participant Successfully Cancelled');
 			}
 		}
 
@@ -72,6 +81,34 @@
 
 		function hideAddPopovers() {
 			j("div.addToMeetingPopover").hide();
+		}
+
+		function noenter(ev)  {
+			if ((window.event && window.event.keyCode == 13 || ev.which == 13) && ev.type != "change") {
+				ev.preventDefault();
+				//toggleLoading();
+				j("input[id$='searchParticipants']").click();
+				showLoading();
+				return false;
+			} else {
+				//ev.preventDefault();
+				return true;
+			}
+		}
+		function showLoading() {
+			try {
+				$("div.merc-loading").show()
+			} catch(e) {
+				j("div.merc-loading").show()
+			}
+		}
+
+		function hideLoading() {
+			try {
+				$("div.merc-loading").hide()
+			} catch(e) {
+				j("div.merc-loading").hide()
+			}
 		}
 	</script>
 	<style>
@@ -152,7 +189,6 @@
 		<apex:outputPanel id="responseWrapper">
 			<apex:outputText style="display:none;" value="{!hasError}" id="controllerHasError"/>
 		</apex:outputPanel>
-		
 		<!-- Nav tabs -->
 		<ul class="nav nav-tabs" id="myTab">
 			<li class="active"><a href="#search" data-toggle="tab">Search Form</a></li>
@@ -178,16 +214,16 @@
 			  			<apex:pageBlock title="" mode="edit" id="mercuryUserBlock">
 			  				<apex:pageMessages ></apex:pageMessages>
 			  				<apex:pageBlockButtons >
-			  					<apex:commandButton onclick="toggleLoading()" oncomplete="toggleLoading();j('#searchResultTabAnchor').click()" 
-			  						action="{!doSearch}" value="Search" rerender="resultTableWrapper, srCountWrapper"/>
+			  					<apex:commandButton onclick="showLoading()" oncomplete="hideLoading();j('#searchResultTabAnchor').click()"
+			  						action="{!doSearch}" value="Search" rerender="resultTableWrapper, srCountWrapper" id="searchParticipants"/>
 			  					<apex:commandButton action="{!cancel}" value="Back to Meeting"/>
 			  				</apex:pageBlockButtons>
 			  				<apex:pageBlockSection title="Basic Information">
-			  					
+
 			  					<!-- FIRST NAME -->
 			  					<apex:pageBlockSectionItem >
 			  						<apex:outputLabel for="fn" value="First Name"></apex:outputLabel>
-			  						<apex:inputText value="{!searchRequest.fn}" id="fn"/>
+			  						<apex:inputText value="{!searchRequest.fn}" id="fn" styleClass="firstname"/>
 			  					</apex:pageBlockSectionItem>
 
 			  					<!-- LAST NAME -->
@@ -223,7 +259,7 @@
 			  				</apex:pageBlockSection>
 
 			  				<apex:pageBlockSection title="Address Information" collapsible="true">
-			  					
+
 			  					<!-- ADDRESS -->
 			  					<apex:pageBlockSectionItem >
 			  						<apex:outputLabel for="add" value="Address"></apex:outputLabel>
@@ -375,7 +411,7 @@
 			  		<!-- SEARCH RESULTS -->
 			  		<apex:actionRegion >
 				  		<apex:outputPanel id="resultBlockWrapper">
-				  			<apex:pageMessages />
+				  			<apex:pageMessages id="searchMessages" />
 				  			<apex:pageBlock title="Search Results" id="resultBlock">
 				  				<apex:pageBlockButtons >
 				  					<apex:commandButton action="{!cancel}" value="Back to Meeting"/>
@@ -389,19 +425,44 @@
 					  						<div class="addToMeetingPopover" id="{!r.sfid}popover">
 					  							<div class="addToMeetingPopoverBody">
 						  							<apex:actionRegion >
-						  								<apex:outputLabel for="nrtid" value="Record Type"/>
-						  								<apex:selectList id="nrtid" value="{!newParticipantRecordTypeId}" size="1">
-						  									<apex:selectOptions value="{!recordTypeOptions}"/>
-						  								</apex:selectList>
-						  								<div style="margin-top:5px;">
-							  								<apex:commandLink styleClass="btn" value="Add To Meeting" action="{!addToMeeting}" onclick="hideAddPopovers();toggleLoading();" oncomplete="handleAddResponse(this);showMessage('Participant Successfully Added');" rerender="meetingParticipantTableWrapper, responseWrapper, resultTableWrapper, mpCountWrapper">
-							  									<apex:param name="aid" value="{!r.sfid}"/>
-							  								</apex:commandLink>
-							  								<apex:outputLink value="javascript:void(0)" styleClass="btn" onclick="hideAddPopovers()">
-							  									Cancel
-							  								</apex:outputLink>
-							  							</div>
-						  							</apex:actionRegion>
+														<apex:outputLabel for="nrtid" value="Record Type"/>
+														<apex:actionRegion >
+															<apex:selectList id="nrtid" value="{!newParticipantRecordTypeId}" size="1">
+																<apex:selectOptions value="{!recordTypeOptions}"/>
+																<apex:actionSupport event="onchange" reRender="moreinfo"/>
+															</apex:selectList>
+														</apex:actionRegion>
+														<apex:outputPanel id="moreinfo">
+															<apex:outputPanel layout="block" style="margin-top:5px;" rendered="{!newParticipantRecordTypeId != null}">
+																<apex:pageBlockSection columns="2" title="Required Fields" id="requiredFields" collapsible="false" rendered="{!requiredFields.size > 0}">
+																	<apex:repeat value="{!requiredFields}" var="field">
+																		<apex:inputField value="{!meetingParticipant[field]}" required="{!field.required || field.dbrequired}"/>
+																	</apex:repeat>
+																</apex:pageBlockSection>
+															</apex:outputPanel>
+															<div style="margin-top:5px;">
+																<apex:commandLink styleClass="btn"
+																                  value="Add To Meeting"
+																                  action="{!addToMeeting}"
+																                  onclick="showLoading();"
+																                  oncomplete="handleAddResponse(this);"
+																                  rerender="moreinfo, responseWrapper, searchMessages, meetingParticipantTableWrapper, mpCountWrapper">
+																	<apex:param name="aid" value="{!r.sfid}"/>
+																</apex:commandLink>
+																<apex:commandLink styleClass="btn"
+																                  value="Add To Meeting and Edit"
+																                  action="{!addToMeetingAndRedirect}"
+																                  onclick="showLoading();"
+																                  oncomplete="handleAddResponse(this);"
+																                  rerender="moreinfo, responseWrapper, searchMessages, meetingParticipantTableWrapper, mpCountWrapper">
+																	<apex:param name="aid" value="{!r.sfid}"/>
+																</apex:commandLink>
+																<apex:outputLink value="javascript:void(0)" styleClass="btn" onclick="hideAddPopovers()">
+																	Cancel
+																</apex:outputLink>
+															</div>
+														</apex:outputPanel>
+													</apex:actionRegion>
 						  						</div>
 					  						</div>
 					  					</apex:column>
@@ -420,8 +481,8 @@
 
 					  					<apex:column headerValue="{!$ObjectType.Account.fields.Primary_Addr_City_GLBL__c.label}" value="{!r.primary_addr_city_glbl}"/>
 					  					<apex:column headerValue="{!$ObjectType.Account.fields.Primary_Address_Country_GLBL__c.label}" value="{!r.primary_address_country_glbl}"/>
-					  					<apex:column headerValue="{!$ObjectType.Account.fields.Primary_Pstl_Cd_Extnsn_GLBL__c.label}" value="{!r.primary_pstl_cd_extnsn_glbl}"/>			
-					  					
+					  					<apex:column headerValue="{!$ObjectType.Account.fields.Primary_Pstl_Cd_Extnsn_GLBL__c.label}" value="{!r.primary_pstl_cd_extnsn_glbl}"/>
+
 					  				</apex:pageBlockTable>
 
 					  				<apex:outputPanel rendered="{!searchResults != null && searchResults.size == 0}">
@@ -445,14 +506,18 @@
 			  				<apex:outputPanel id="meetingParticipantTableWrapper">
 				  				<apex:pageBlockTable value="{!meetingParticipants}" var="p">
 				  					<apex:column width="30">
-				  						<apex:commandLink action="{!removeFromMeeting}" onclick="toggleLoading()" oncomplete="handleRemoveResponse(this);showMessage('Participant Successfully Removed')" rerender="meetingParticipantTableWrapper, responseWrapper, resultTableWrapper, mpCountWrapper">
+				  						<apex:commandLink action="{!removeFromMeeting}" onclick="showLoading()" oncomplete="handleRemoveResponse(this);" rerender="meetingParticipantBlock, responseWrapper, resultTableWrapper, mpCountWrapper" rendered="{!p.Status_MERC__c != 'Cancelled'}">
 				  							<apex:image value="{!urlfor($Resource.mercury, 'img/delete.png')}" style="width:12px;"/>
 				  							<apex:param name="pid" value="{!p.Id}"/>
 				  						</apex:commandLink>
 				  					</apex:column>
+				  					<apex:column width="100">
+				  						<apex:outputLink value="/{!p.Id}/e" target="_blank">Edit Participant</apex:outputLink>
+				  					</apex:column>
 				  					<apex:column value="{!p.Id}"/>
 				  					<apex:column value="{!p.Account_MERC__c}"/>
 				  					<apex:column value="{!p.Account_MERC__r.Name}"/>
+				  					<apex:column value="{!p.Status_MERC__c}"/>
 				  				</apex:pageBlockTable>
 				  			</apex:outputPanel>
 			  			</apex:pageBlock>

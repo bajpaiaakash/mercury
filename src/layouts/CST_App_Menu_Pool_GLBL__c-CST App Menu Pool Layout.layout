@@ -106,11 +106,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Interaction_Channel_Type_GLBL__c</field>
+                <field>Cmnctn_Chnl_Cd_GLBL__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>InteractionChannelTypeDate_GLBL__c</field>
+                <field>Cmnctn_Chnl_Cd_Capture_Date_GLBL__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

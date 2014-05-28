@@ -1,6 +1,6 @@
-/** 
-* @author Joseph Ferraro 
-* 
+/**
+* @author Joseph Ferraro
+*
 * Controller for unified interface to manage meeting days and hotels for a meeting
 */
 
@@ -8,18 +8,18 @@ global with sharing class MERC_MeetingDayManagerController extends GLBL_GenericR
 
 	public Boolean hasError { get; private set; }
 	public String pageMessage { get; private set; }
-	String hotelVendorRecordTypeId = [SELECT ID FROM RecordType WHERE 
-																	SObjectType = 'Meeting_Vendor_MERC__c' AND 
+	String hotelVendorRecordTypeId = [SELECT ID FROM RecordType WHERE
+																	SObjectType = 'Meeting_Vendor_MERC__c' AND
 																	DeveloperName = 'Hotel_MERC'].ID;
 
 	public MERC_MeetingDayManagerController(ApexPages.StandardSetController controller) {
 		super (
-			controller, 
+			controller,
 			'Meeting_MERC__c', //parentObjectAPIName
-			'Meeting_Day_MERC__c', //childObjectAPIName 
+			'Meeting_Day_MERC__c', //childObjectAPIName
 			'Meeting_MERC__c', //parentFieldAPIName
 			new List<String> {  //parentFields
-				'Id', 
+				'Id',
 				'Name',
 				'Start_Time_In_Meeting_Time_Zone__c',
 				'End_Time_In_Meeting_Time_Zone_MERC__c',
@@ -29,6 +29,9 @@ global with sharing class MERC_MeetingDayManagerController extends GLBL_GenericR
 			MERC_Util.getFieldSetFieldList('Meeting_Day_MERC__c', new List<String>{'Meeting_Day_Manager_Columns_MERC'}),
 			'Date_MERC__c' //orderChildrenBy
 		);
+
+		//IE9 compatibility mode hack
+   		Apexpages.currentPage().getHeaders().put('X-UA-Compatible', 'IE=Edge');
 	}
 
 	public override PageReference add() {
@@ -39,10 +42,22 @@ global with sharing class MERC_MeetingDayManagerController extends GLBL_GenericR
 			children.get(0).so.put('Name', startDateOfMeeting.format());
 		} else if (children.size() > 1) {
 			Date prevDate = (Date)children.get(children.size()-2).so.get('Date_MERC__c');
-			Date nextDate = prevDate.addDays(1); 
+			Date nextDate = prevDate.addDays(1);
 			children.get(children.size()-1).so.put('Date_MERC__c', nextDate);
 			children.get(children.size()-1).so.put('Name', nextDate.format());
 		}
+
+		/*----- k. thornton: update to insert the new record immediately and set hotel allocations
+		        otherwise the user could end up not setting up hotel blocks for meeting days -----*/
+		children.get(children.size()-1).so.put('Meeting_MERC__c', parentId);
+		try {
+			insert children.get(children.size()-1).so;
+		} catch(Exception e) {
+			ApexPages.addMessages(e);
+			return null;
+		}
+		ensureHotelAllocationsForMeetingDays();
+
 		return p;
 	}
 
@@ -67,21 +82,16 @@ global with sharing class MERC_MeetingDayManagerController extends GLBL_GenericR
 	}
 
 	void deleteReferencesToRemovedMeetingDay(Meeting_Day_MERC__c meetingDay) {
-		List<Hotel_Allocation_MERC__c> hotelAllocationsToDelete = new List<Hotel_Allocation_MERC__c>();
 		for (HotelWrapper h : hotels) {
 			List<AllocationWrapper> newAllocationList = new List<AllocationWrapper>();
 			List<AllocationWrapper> existingHotelAllocations = h.hotelAllocations; //get current hotel allocations for each hotel
 			for (AllocationWrapper aw : existingHotelAllocations) {
-				if (aw.hotelAllocationSObject.Meeting_Day_MERC__c == meetingDay.Id && aw.hotelAllocationSObject.Id != null)
-					hotelAllocationsToDelete.add(aw.hotelAllocationSObject);
 				if (aw.hotelAllocationSObject.Meeting_Day_MERC__c == meetingDay.Id)
 					continue;
 				newAllocationList.add(aw);
 			}
 			h.hotelAllocations = newAllocationList;
 		}
-		if (hotelAllocationsToDelete.size() > 0)	
-			delete hotelAllocationsToDelete;
 	}
 
 	public void ensureHotelAllocationsForMeetingDays() {
@@ -151,7 +161,7 @@ global with sharing class MERC_MeetingDayManagerController extends GLBL_GenericR
 				String fieldString = String.join(fieldList, ',');
 				Integer i = 1;
 				String query = getHotelSOQLQuery(fieldString, 'Meeting_Vendor_MERC__c', parentFieldAPIName+' = \''+parentId, 'Name');
-				for (Sobject s : Database.query(query)) {	
+				for (Sobject s : Database.query(query)) {
 					HotelWrapper child = new HotelWrapper(s);
 					child.index = i;
 					hotels.add(new HotelWrapper(s));
@@ -170,15 +180,16 @@ global with sharing class MERC_MeetingDayManagerController extends GLBL_GenericR
 		newItem.index = hotels.size()+1;
 		newItem.so.put('Meeting_MERC__c',parentId);
 		newItem.so.put('RecordTypeId', hotelVendorRecordTypeId);
-		try {
-			insert newItem.so;
-		} catch(Exception e) {
-			Database.rollback(sp);
-			ApexPages.addMessages(e);
-			return null;
-		}
+		/*----- k. thornton: we don't want to insert the hotel until there is an account selected -----*/
+		//try {
+		//	insert newItem.so;
+		//} catch(Exception e) {
+		//	Database.rollback(sp);
+		//	ApexPages.addMessages(e);
+		//	return null;
+		//}
 		hotels.add(newItem);
-		ensureHotelAllocationsForMeetingDays();
+		//ensureHotelAllocationsForMeetingDays();
 		return null;
 	}
 
@@ -186,12 +197,12 @@ global with sharing class MERC_MeetingDayManagerController extends GLBL_GenericR
 		Savepoint sp = Database.setSavepoint();
 		List<HotelWrapper> newChildList = new List<HotelWrapper>();
 		List<Sobject> childrenToDelete = new List<Sobject>();
-		List<HotelWrapper> childrenList;	
+		List<HotelWrapper> childrenList;
 		childrenList = hotels;
 		for (HotelWrapper sow : childrenList) {
 			if (sow.hash != clientHash) {
 				newChildList.add(sow);
-			} 
+			}
 			if (sow.hash == clientHash && sow.so.ID != null) {
 				childrenToDelete.add(sow.so);
 			}
@@ -219,11 +230,11 @@ global with sharing class MERC_MeetingDayManagerController extends GLBL_GenericR
 		List<Hotel_Allocation_MERC__c> hotelAllocationsToInsert = new List<Hotel_Allocation_MERC__c>();
 		List<Hotel_Allocation_MERC__c> hotelAllocationsToUpdate = new List<Hotel_Allocation_MERC__c>();
 		try {
-			List<Sobject> hotelsToUpdate = new List<Sobject>();
+			List<Meeting_Vendor_MERC__c> hotelsToUpdate = new List<Meeting_Vendor_MERC__c>();
 			system.debug('>>> '+hotels);
 			for (HotelWrapper sow : hotels) {
 				system.debug('child so........ '+sow.so);
-				hotelsToUpdate.add(sow.so);	
+				hotelsToUpdate.add((Meeting_Vendor_MERC__c)sow.so);
 				for (AllocationWrapper aw : sow.hotelAllocations) {
 					if (aw.hotelAllocationSObject.Id == null) {
 						hotelAllocationsToInsert.add(aw.hotelAllocationSObject);
@@ -233,20 +244,22 @@ global with sharing class MERC_MeetingDayManagerController extends GLBL_GenericR
 				}
 			}
 			system.debug('>>> '+hotelsToUpdate);
+			upsert hotelsToUpdate;
+
 			system.debug('>>> '+hotelAllocationsToUpdate);
-			update hotelsToUpdate;
 			insert hotelAllocationsToInsert;
 			update hotelAllocationsToUpdate;
 		} catch (Exception e) {
 			Database.rollback(sp);
 			ApexPages.addMessages(e);
 		}
+		ensureHotelAllocationsForMeetingDays();
 		return null;
 	}
 
 	@RemoteAction
     global static List<Account> getVendors(String token, String country) {
-        List<Account> vendors = Database.query('SELECT Id, Name, Primary_Addr_City_GLBL__c, Primary_Addr_Line1_GLBL__c, Primary_Addr_Line2_GLBL__c, Primary_Address_Country_GLBL__c, Primary_Pstl_Cd_Extnsn_GLBL__c FROM Account WHERE RecordType.DeveloperName in (\'Vendor_GLBL\',\'Venue_GLBL\') AND Name LIKE \'%'+token+'%\' AND Primary_Address_Country_GLBL__c = \''+country+'\' order by Name Limit 100');
+        List<Account> vendors = Database.query('SELECT Id, Name, Primary_Addr_City_GLBL__c, Primary_Addr_Line1_GLBL__c, Primary_Addr_Line2_GLBL__c, Primary_Address_Country_GLBL__c, Primary_Pstl_Cd_Extnsn_GLBL__c FROM Account WHERE RecordType.DeveloperName in (\'Vendor_GLBL\',\'Venue_GLBL\') AND Name LIKE \''+token+'%\' AND Primary_Address_Country_GLBL__c = \''+country+'\' order by Name Limit 100');
         return vendors;
     }
 

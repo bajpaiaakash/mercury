@@ -62,7 +62,8 @@ private class MERC_MeetingDayNewEditControllerTest {
 		existingMeetingDay.Daily_Food_Beverage_Amount_MERC__c = -10000;
 		controller.save();
 		System.assert(!ApexPages.getMessages().isEmpty());
-		System.assert(ApexPages.getMessages()[0].getSummary().contains('You man not enter a value less than zero'));
+		//system.debug(ApexPages.getMessages()[0]);
+		System.assert(ApexPages.getMessages()[0].getSummary().contains('You may not enter a value less than zero'));
 	}
 	
 }

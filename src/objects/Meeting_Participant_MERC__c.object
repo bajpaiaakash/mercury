@@ -56,14 +56,160 @@
     <enableActivities>false</enableActivities>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
-    <enableHistory>false</enableHistory>
+    <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
+    <fieldSets>
+        <fullName>Account_Merge_Fields_MP</fullName>
+        <description>Used on the MERC_MergedAccounts page</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Meeting_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Participant_Typ_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>RecordTypeId</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Country_of_Residence_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Speciality_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Classification_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Account Merge Fields</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Consultant_Required_Fields_MERC</fullName>
+        <description>Used on the MERC_AddMeetingParticipants page to indicate the fields required in order to add an account as a Meeting participant with record type consultant.</description>
+        <displayedFields>
+            <field>Air_Travel_Required_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Hotel_Required_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Description_of_Service_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <label>Consultant Required Fields</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Delegate_Required_Fields_MERC</fullName>
+        <description>Used on the MERC_AddMeetingParticipants page to indicate the fields required in order to add an account as a Meeting participant with record type Delegate.</description>
+        <displayedFields>
+            <field>Air_Travel_Required_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Hotel_Required_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <label>Delegate Required Fields</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Individual_Sponsor_Required_Fields_MERC</fullName>
+        <description>Used on the MERC_AddMeetingParticipants page to indicate the fields required in order to add an account as a Meeting participant with record type Individual Sponsorship.</description>
+        <displayedFields>
+            <field>Air_Travel_Required_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Hotel_Required_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <label>Individual Sponsorship Required Fields</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Mass_Approve_Meeting_Participants_MERC</fullName>
+        <description>MERC_MassApproveParticipants.page</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Account_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Participant_Typ_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>RecordTypeId</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Country_of_Residence_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Speciality_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Classification_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Mass Approve Meeting Participants</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Service_Provider_Required_Fields_MERC</fullName>
+        <description>Used on the MERC_AddMeetingParticipants page to indicate the fields required in order to add an account as a Meeting participant with record type Service Provider.</description>
+        <displayedFields>
+            <field>Air_Travel_Required_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Hotel_Required_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <label>Service Provider Required Fields</label>
+    </fieldSets>
     <fields>
         <fullName>Account_External_MERC__c</fullName>
         <externalId>false</externalId>
         <formula>Account_MERC__r.Cust_Id_GLBL__c</formula>
         <label>Account External</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -73,14 +219,51 @@
         <description>Lookup to Account from Event Participant. Created 9/28/2013 by KLorenti.</description>
         <externalId>false</externalId>
         <label>Account</label>
+        <lookupFilter>
+            <active>true</active>
+            <booleanFilter>1 OR 2 OR 3</booleanFilter>
+            <filterItems>
+                <field>Account.RecordType.Name</field>
+                <operation>equals</operation>
+                <value>HCP</value>
+            </filterItems>
+            <filterItems>
+                <field>Account.RecordType.Name</field>
+                <operation>equals</operation>
+                <value>Non-HCP</value>
+            </filterItems>
+            <filterItems>
+                <field>Account.RecordType.Name</field>
+                <operation>equals</operation>
+                <value>Employee</value>
+            </filterItems>
+            <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Meeting Participants</relationshipLabel>
         <relationshipName>Event_Participants</relationshipName>
         <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Active_on_Web_Service_MERC__c</fullName>
+        <description>Indicates whether or not the Meeting Participant should be available on the Web Service.  Created 05/15/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>CASE(Status_MERC__c,
+&apos;Invited&apos;, 1,
+&apos;Accepted&apos;, 1,
+&apos;Declined&apos;, 1, 
+0) == 1</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Active on Web Service</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Additional_Travel_Details_MERC__c</fullName>
@@ -88,6 +271,7 @@
         <externalId>false</externalId>
         <label>Additional Travel Details</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
@@ -107,6 +291,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -126,6 +311,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -137,8 +323,20 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Anonymise_Record_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicates that this record is related to a non-hcp meeting participant and should be anonymised (via workflows)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates that this record is related to a non-hcp meeting participant and should be anonymised (via workflows)</inlineHelpText>
+        <label>Anonymise Record</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Associated_Countries_MERC__c</fullName>
@@ -147,6 +345,7 @@
         <formula>Meeting_MERC__r.Associated_Countries_MERC__c</formula>
         <label>Associated Countries</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -157,6 +356,7 @@
         <externalId>false</externalId>
         <label>Cancellation Notice Sent</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -168,6 +368,7 @@
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Classification</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -181,6 +382,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
@@ -193,6 +395,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
@@ -205,6 +408,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
@@ -217,6 +421,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
@@ -229,6 +434,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
@@ -240,6 +446,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
@@ -251,6 +458,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
@@ -262,6 +470,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
@@ -273,6 +482,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
@@ -284,6 +494,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
@@ -303,6 +514,7 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -312,6 +524,7 @@
         <description>HCP Care to confirm they want to update the Final Fee with the Partial Payment Amount. Created 12/18/2013 by KLorenti, Mavens Consulting.</description>
         <externalId>false</externalId>
         <label>Confirm Partial Payment Amount</label>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -321,6 +534,7 @@
         <description>Only HCP Care can update ToV values after ToV has already been reported. Only HCP Care will have access to this field. Created 02/04/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Confirm ToV Reporting Change</label>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -332,6 +546,7 @@
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Contract Limitations on Use</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -343,6 +558,7 @@
         <externalId>false</externalId>
         <inlineHelpText>CoPay values must be entered as positive amounts.</inlineHelpText>
         <label>Copay Required?</label>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -355,6 +571,7 @@ Created by John A Adams 10/31/2013</description>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Country of Residence</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -367,6 +584,7 @@ Created by John A Adams 10/31/2013</description>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Customer Id</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -378,6 +596,7 @@ Created by John A Adams 3/19/2014</description>
         <externalId>false</externalId>
         <label>Date of Check-In</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -388,6 +607,7 @@ Created by John A Adams 3/19/2014</description>
         <externalId>false</externalId>
         <label>Date of Check-Out</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -401,6 +621,7 @@ Created by John A Adams 3/19/2014</description>
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
@@ -411,16 +632,19 @@ Created by John A Adams 3/19/2014</description>
         <externalId>false</externalId>
         <label>Description of Service</label>
         <length>32768</length>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
         <fullName>Dietary_Preferences_Step_Complete_MERC__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>Used by portal. Indicates when Meeting Participant has completed the step of dietary preferences during meeting registration. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <description>If Dietary Preference Values exist, then this step is considered completed. Created 05/02/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
+        <formula>IF(Account_MERC__r.Count_Dietary_Preferences_MERC__c &gt; 0, true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Dietary Preferences Step Complete</label>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -431,6 +655,7 @@ Created by John A Adams 3/19/2014</description>
         <label>Docusign Contract Status</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -441,6 +666,7 @@ Created by John A Adams 3/19/2014</description>
         <label>Docusign Envelope Id</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -453,6 +679,7 @@ Created by John A Adams 3/19/2014</description>
         <inlineHelpText>PersonEmail</inlineHelpText>
         <label>Email Formula</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -463,6 +690,7 @@ Created by John A Adams 3/19/2014</description>
         <externalId>false</externalId>
         <label>Email</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Email</type>
         <unique>false</unique>
@@ -474,16 +702,19 @@ Created by John A Adams 3/19/2014</description>
         <inlineHelpText>Not required if “Service provider” box is checked on HCP profile. You must ask HCP to provide this data to you for the purposes of logistics and for web services.</inlineHelpText>
         <label>Email to Invite HCP to Web Service</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Email</type>
         <unique>false</unique>
     </fields>
     <fields>
         <fullName>Emergency_Contact_Step_Complete_MERC__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>Used by portal. Indicates when Meeting Participant has completed the step of Emergency Contact during meeting registration. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <description>Determines if Emergency Contact information exists and indicates completion of that step on the portal. Created 05/04/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
+        <formula>IF (!ISBLANK(Account_MERC__r.Emergency_Contact_Name_MERC__c) &amp;&amp; !ISBLANK(Account_MERC__r.Emergency_Contact_Phone_Number_MERC__c), true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Emergency Contact Step Complete</label>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -496,6 +727,7 @@ Created by John Adams on 12/9/2013</description>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Event Customer Id</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -509,6 +741,7 @@ Created by John Adams on 12/9/2013</description>
         <precision>8</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
@@ -529,6 +762,7 @@ Created by John Adams on 12/9/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -539,6 +773,7 @@ Created by John Adams on 12/9/2013</description>
         <formula>Account_MERC__r.FMV_Criteria_Map_MERC__c</formula>
         <label>FMV Criteria Map</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -551,6 +786,7 @@ Created by John Adams on 12/9/2013</description>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
@@ -562,6 +798,7 @@ Created by John Adams on 12/9/2013</description>
         <label>Force Unique Participant</label>
         <length>120</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>true</unique>
@@ -573,6 +810,7 @@ Created by John Adams on 12/9/2013</description>
         <formula>IF(Account_MERC__r.RecordType.Name = &quot;Employee&quot;, Account_MERC__r.Prsnl_Nbr_GLBL__c,&quot;&quot;)</formula>
         <label>Global Id</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -585,6 +823,7 @@ Created by John Adams on 12/9/2013</description>
         <label>HCP Info Package Communication Details</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -597,6 +836,7 @@ Created by John Adams on 12/9/2013</description>
         <inlineHelpText>Whether the HCP currently has an Active MSA agreement with Lilly</inlineHelpText>
         <label>Has Active MSA</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -605,11 +845,12 @@ Created by John Adams on 12/9/2013</description>
         <fullName>Has_Signed_Contract_MERC__c</fullName>
         <description>Displays if HCP has an Active Contract. Created 02/13/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <formula>IF (Docusign_Contract_Status_MERC__c = &quot;Completed&quot;, &quot;Yes&quot;, &quot;No&quot;)</formula>
+        <formula>IF ( Number_of_Completed_Contracts_MERC__c &gt; 0, &quot;Yes&quot;, &quot;No&quot;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <inlineHelpText>Whether the HCP currently has a signed Work Order or Single Event Contract for the Meeting</inlineHelpText>
         <label>Has Signed Contract</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -638,6 +879,7 @@ Created by John Adams on 12/9/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -647,6 +889,7 @@ Created by John Adams on 12/9/2013</description>
         <description>Used by portal to capture if Meeting Participant originally required accommodations, but changed their mind and no longer need them.  Created 04/02/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Hotel No Longer Required</label>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -666,6 +909,7 @@ Created by John Adams on 12/9/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -676,6 +920,7 @@ Created by John Adams on 12/9/2013</description>
         <formula>IF((!ISBLANK(Date_of_Check_In_MERC__c) &amp;&amp; !ISBLANK(Date_of_Check_Out_MERC__c)) ||   Hotel_No_Longer_Required_MERC__c , true, false)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Hotel Step Complete</label>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -688,6 +933,7 @@ Created by John A Adams 1/7/2014</description>
         <label>Immediate Source</label>
         <length>20</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -698,18 +944,47 @@ Created by John A Adams 1/7/2014</description>
         <description>Field created to indicate whether or not CAP should be calculated on the Meeting Participant for the Meeting. Created 12/2/2013 by KLorenti, Mavens Consulting.</description>
         <externalId>false</externalId>
         <label>Include CAP Roll Up</label>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Inst_Notification_Lead_Time_MERC__c</fullName>
+        <description>Shows number of days before meeting that the institutional notification was sent. Created 04/29/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>DATEVALUE(Meeting_MERC__r.Start_Time_of_Meeting_MERC__c) - Institutional_Notification_Sent_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>The number of days before meeting that the institutional notification was sent.</inlineHelpText>
+        <label>Institutional Notification Lead Time</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Institutional_Notification_Complete_MERC__c</fullName>
         <description>Used by portal. Pulls from Account record to indicate if Institutional Notification Step is completed by HCP. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <formula>Account_MERC__r.Institutional_Notification_Complete_MERC__c</formula>
+        <formula>Account_MERC__r.Institutional_Notif_Info_Exists_MERC__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Institutional Notification Complete</label>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Institutional_Notification_Sent_MERC__c</fullName>
+        <description>Used to input date the institutional notifications were sent out for the meeting participant. Also needed for reporting. Created 04/29/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date Institutional Notification was sent to Designated Individuals</inlineHelpText>
+        <label>Institutional Notification Sent</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Invoice_Template_Needed_MERC__c</fullName>
@@ -727,6 +1002,7 @@ Created by John A Adams 1/7/2014</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -758,6 +1034,7 @@ Created by John A Adams 1/7/2014</description>
             </picklistValues>
             <sorted>true</sorted>
         </picklist>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
         <visibleLines>3</visibleLines>
@@ -803,6 +1080,7 @@ Created by John A Adams 1/7/2014</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
@@ -817,6 +1095,7 @@ Created by John A Adams 1/7/2014</description>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
@@ -829,6 +1108,7 @@ Created by John A Adams 10/31/2013</description>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
@@ -839,6 +1119,7 @@ Created by John A Adams 10/31/2013</description>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Meeting Date</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -849,6 +1130,7 @@ Created by John A Adams 10/31/2013</description>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Meeting End Date</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -858,6 +1140,7 @@ Created by John A Adams 10/31/2013</description>
         <formula>Meeting_MERC__r.Mercury_External_Id_MERC__c</formula>
         <label>Meeting External</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -872,6 +1155,7 @@ Created by John A Adams 10/31/2013</description>
         <relationshipName>Meeting_Participants_del</relationshipName>
         <relationshipOrder>1</relationshipOrder>
         <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
@@ -882,6 +1166,7 @@ Created by John A Adams 10/31/2013</description>
         <externalId>false</externalId>
         <label>Meeting Owner Email</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Email</type>
         <unique>false</unique>
@@ -890,9 +1175,10 @@ Created by John A Adams 10/31/2013</description>
         <fullName>Meeting_Owner_Global_Id_MERC__c</fullName>
         <description>Oliver Dunford 6th Jan: Pulls the Meeting Owner&apos;s Global Id from the Meeting Owner on the Meeting Object. Needed for AODS Interface.</description>
         <externalId>false</externalId>
-        <formula>IF(ISBLANK( Meeting_MERC__r.Sales_Rep_MERC__c ), Meeting_MERC__r.Meeting_Owner_MERC__r.Prsnl_Nbr_GLBL__c , Meeting_MERC__r.Sales_Rep_MERC__r.Prsnl_Nbr_GLBL__c )</formula>
+        <formula>Meeting_MERC__r.Owner_Master_Id_MERC__c</formula>
         <label>Meeting Owner Global Id</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -905,6 +1191,7 @@ Created by J Adams 12/10/2013</description>
         <label>Mercury External Id</label>
         <length>50</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -919,6 +1206,7 @@ Created by J Adams 12/10/2013</description>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
@@ -931,8 +1219,37 @@ Created by John A Adams 10/31/2013</description>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Number_of_Completed_Contracts_MERC__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>Populated via a lookup rollup summary trigger. Indicates the number of completed HCP Contract records related to this meeting participant. Used to indicate if the MP has a signed contract. - KT: 2014/05/15</description>
+        <externalId>false</externalId>
+        <label>Number of Completed Contracts</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Contracts_MERC__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>Populated via a lookup rollup summary trigger. Indicates the number of HCP Contract records related to this meeting participant. Used to ensure no more than one contract can be created for a meeting participant. - KT: 2014/05/15</description>
+        <externalId>false</externalId>
+        <label>Number of Contracts</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Partial_Payment_Amount_MERC__c</fullName>
@@ -942,6 +1259,7 @@ Created by John A Adams 10/31/2013</description>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
@@ -961,6 +1279,7 @@ Created by John A Adams 10/31/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -980,6 +1299,7 @@ Created by John A Adams 10/31/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -990,6 +1310,7 @@ Created by John A Adams 10/31/2013</description>
         <label>Participant Search</label>
         <length>120</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1001,6 +1322,7 @@ Created by John A Adams 10/31/2013</description>
         <label>Participant Type</label>
         <length>16</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1011,6 +1333,7 @@ Created by John A Adams 10/31/2013</description>
         <description>Used by portal. Indicates when Meeting Participant has completed the Payee Information Consent during meeting registration. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Payee Information Consent</label>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -1021,6 +1344,7 @@ Created by John A Adams 10/31/2013</description>
         <formula>Account_MERC__r.Payee_and_Bank_Info_Complete_MERC__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Payee and Bank Info Complete</label>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -1033,6 +1357,7 @@ Created by John A Adams 10/31/2013</description>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Payment Required</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1053,6 +1378,7 @@ Created by John A Adams 10/31/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -1063,6 +1389,7 @@ Created by John A Adams 10/31/2013</description>
         <label>Contact Id</label>
         <length>18</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1073,15 +1400,27 @@ Created by John A Adams 10/31/2013</description>
         <externalId>false</externalId>
         <label>Preferred Departure Airport</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Preferred_Departure_Depot_MERC__c</fullName>
+        <description>Records Meeting Participant&apos;s preferred departure bus depot. Created by John Lorenti 2014-05-02</description>
+        <externalId>false</externalId>
+        <label>Preferred Departure Depot</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Preferred_Departure_Station_MERC__c</fullName>
-        <description>Records Meeting Participant&apos;s preferred departure station. Created by John A Adams 3/19/2014</description>
+        <description>Records Meeting Participant&apos;s preferred departure train station. Created by John A Adams 3/19/2014</description>
         <externalId>false</externalId>
         <label>Preferred Departure Station</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
@@ -1094,6 +1433,7 @@ Created by John A Adams 10/31/2013</description>
         <precision>8</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
@@ -1114,6 +1454,7 @@ Created by John A Adams 10/31/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -1123,6 +1464,7 @@ Created by John A Adams 10/31/2013</description>
         <description>Used by portal to indicate that the Meeting Participant agrees to Lilly gathering this their information related needed for RSVP to meeting. Created 04/02/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Processing of Data Consent</label>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -1134,6 +1476,7 @@ Created by John A Adams 10/31/2013</description>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
@@ -1149,6 +1492,7 @@ Created by John A Adams 10/31/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -1159,6 +1503,7 @@ Created by John A Adams 10/31/2013</description>
         <formula>Account_MERC__r.Qualifications_Experience_Complete_MERC__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Qualifications and Experience Complete</label>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -1168,6 +1513,7 @@ Created by John A Adams 10/31/2013</description>
         <label>RTI Transaction ID</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1179,6 +1525,7 @@ Created by John A Adams 10/31/2013</description>
         <formula>RecordType.DeveloperName</formula>
         <label>Record Type Name</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1189,6 +1536,7 @@ Created by John A Adams 10/31/2013</description>
         <externalId>false</externalId>
         <label>Registration Comments</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
@@ -1199,6 +1547,7 @@ Created by John A Adams 10/31/2013</description>
         <label>Customer Facing User</label>
         <length>40</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1210,6 +1559,7 @@ Created by John A Adams 10/31/2013</description>
         <externalId>false</externalId>
         <inlineHelpText>Diverts paper information package to Meeting Owner, not HCP.</inlineHelpText>
         <label>Send HCP Info Package to Meeting Owner</label>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -1222,6 +1572,7 @@ Created by John A Adams 10/31/2013</description>
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
@@ -1244,6 +1595,7 @@ Created by John A Adams 10/24/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -1256,6 +1608,7 @@ Created by John A Adams 1/7/2014</description>
         <label>Source</label>
         <length>20</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1270,6 +1623,7 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
 )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Speaking</label>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -1281,6 +1635,7 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Speciality</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1290,7 +1645,9 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <defaultValue>false</defaultValue>
         <description>Used by portal. Indicates when Meeting Participant has consented to Sponsorship Agreement. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
+        <inlineHelpText>Checked by CMS Cork if a paper copy of the Sponsorship Agreement has been received.  The agreement should also be uploaded against the Meeting Participant.  This will complete this step for the HCP in the RSVP section of the web service.</inlineHelpText>
         <label>Sponsorship Agreement Consent</label>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -1342,6 +1699,7 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -1351,6 +1709,7 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <description>Used by portal. Indicates when Meeting Participant has completed the Summary Step during meeting registration. Created 04/16/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Summary Step Complete</label>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -1361,6 +1720,7 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <inlineHelpText>Name of presentation or service.</inlineHelpText>
         <label>Topic Area</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
@@ -1372,6 +1732,7 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
@@ -1384,6 +1745,7 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
@@ -1398,6 +1760,7 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
@@ -1409,6 +1772,7 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
@@ -1423,6 +1787,7 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
@@ -1435,6 +1800,7 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
@@ -1447,16 +1813,19 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Transparency Reporting Consent</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
         <fullName>Transparency_Step_Complete_MERC__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>Used by portal. Indicates when Meeting Participant has completed the step of Transparency Reporting Consent during meeting registration. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <description>Used by portal. Indicates when Meeting Participant has completed the step of Transparency Reporting Consent during meeting registration. Created 05/04/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <label>Transparency Reporting Consent Complete</label>
+        <formula>IF( !ISBLANK(Account_MERC__r.Transparency_Reporting_Opt_Out_MERC__c), true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Transparency Reporting Step Complete</label>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -1468,6 +1837,7 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
@@ -1499,6 +1869,7 @@ IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;),
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Percent</type>
     </fields>
@@ -1508,6 +1879,7 @@ IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;),
         <description>Used by portal to capture if Meeting Participant no longer requires travel, when Travel Required was originally set to Yes. Created 04/02/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Travel No Longer Required</label>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -1518,6 +1890,7 @@ IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;),
         <formula>IF(ISPICKVAL(Travel_by_Bus_MERC__c,&quot;Yes&quot;) || ISPICKVAL(Travel_by_Car_MERC__c,&quot;Yes&quot;) ||  ISPICKVAL(Travel_by_Train_MERC__c,&quot;Yes&quot;) || ISPICKVAL( Air_Travel_No_Longer_Required_MERC__c ,&quot;Yes&quot;) || Travel_No_Longer_Required_MERC__c, true, false)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Travel Step Complete</label>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -1549,6 +1922,7 @@ IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;),
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -1568,6 +1942,7 @@ IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;),
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -1587,6 +1962,7 @@ IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;),
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -1606,6 +1982,7 @@ IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;),
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -1617,6 +1994,7 @@ Created by John A Adams 12/12/2013</description>
         <label>Transaction Type</label>
         <length>80</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1628,6 +2006,7 @@ Created by John A Adams 12/12/2013</description>
         <label>Territory Code</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1639,6 +2018,7 @@ Created by John A Adams 12/12/2013</description>
         <label>Territory Description</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1664,6 +2044,7 @@ Created by John A Adams 12/12/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -1708,6 +2089,7 @@ Created by John A Adams 12/12/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -1727,6 +2109,7 @@ Created by John A Adams 12/12/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -1737,6 +2120,7 @@ Created by John A Adams 2/18/2014</description>
         <externalId>false</externalId>
         <label>Web Service Update Date</label>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -1748,6 +2132,7 @@ Created by John A Adams 2/18/2014</description>
         <label>Web Service Update HCP Action</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1760,6 +2145,7 @@ Created by John A Adams 2/18/2014</description>
         <label>Web Service Update HCP Global Id</label>
         <length>40</length>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1771,8 +2157,50 @@ Created by John A Adams 2/18/2014</description>
         <label>Web Service Update HCP Name</label>
         <length>100</length>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Web_Service_Logic_Key_MERC__c</fullName>
+        <description>Maps back to the Web Service Logic.Key for Lookup Field for the RSVP Record Type. This then determines a HCPs view of the Meeting Registration Information. Oliver Dunford 13th May 2014.</description>
+        <externalId>false</externalId>
+        <formula>TEXT(Account_MERC__r.Country_of_Residence_GLBL__c) &amp; &quot;;&quot; &amp;
+RecordType.Name &amp; &quot;;&quot; &amp;
+Account_MERC__r.RecordType.Name &amp; &quot;;&quot; &amp;
+	CASE(Meeting_MERC__r.RecordType.Name,
+		&quot;Meeting - Forecasted&quot;,&quot;Meeting Standard Process&quot;,
+		&quot;Meeting - Registered&quot;, &quot;Meeting Standard Process&quot;,
+		&quot;Meeting - Active&quot;, &quot;Meeting Standard Process&quot;, 
+		&quot;Meeting - Completed&quot;,&quot;Meeting Standard Process&quot;, 
+		&quot;Meeting Program&quot;,&quot;Meeting Standard Process&quot;,
+	Meeting_MERC__r.RecordType.Name) &amp; &quot;;&quot; &amp;
+TEXT(Hotel_Required_MERC__c) &amp; &quot;;&quot; &amp;
+TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
+	CASE(Transparency_Reporting_Consent_MERC__c,
+		&quot;PERMISSION WITHDRAWN&quot;,&quot;Yes&quot;,
+		&quot;PERMISSION GIVEN&quot;,&quot;Yes&quot;,
+	&quot;No&quot;) &amp; &quot;;&quot;</formula>
+        <inlineHelpText>Maps to the web service logic object to determine a HCPs view of the Meeting Registration Information.</inlineHelpText>
+        <label>Web Service Logic Key</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>of_Locked_Invoices_MERC__c</fullName>
+        <description>Used by Lookup Rollup Summary Tool to count the number of Locked Invoices/Credit Notes.  Needed to prevent deletion of Locked Invoices/Credit Notes. Created 05/23/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label># of Locked Invoices</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
         <unique>false</unique>
     </fields>
     <label>Meeting Participant</label>
@@ -1788,23 +2216,11 @@ Created by John A Adams 2/18/2014</description>
     <nameField>
         <displayFormat>MP-{000000}</displayFormat>
         <label>Meeting Participant #</label>
+        <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
-    <namedFilters>
-        <fullName>nf_01I110000008cxpEAA_00N11000000PFx1EAG</fullName>
-        <active>true</active>
-        <field>HCP_Contract_MERC__c.Meeting_Participant_MERC__c</field>
-        <filterItems>
-            <field>$Source.Account_MERC__c</field>
-            <operation>equals</operation>
-            <valueField>Meeting_Participant_MERC__c.Account_MERC__c</valueField>
-        </filterItems>
-        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
-        <isOptional>false</isOptional>
-        <name>HCP Contract_Meeting Participant</name>
-        <sourceObject>HCP_Contract_MERC__c</sourceObject>
-    </namedFilters>
     <pluralLabel>Meeting Participants</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
         <fullName>Consulting</fullName>
         <active>true</active>
@@ -3386,6 +3802,17 @@ Created by John Adams on 11/13/2013</description>
         <openType>sidebar</openType>
         <protected>false</protected>
         <url>/apex/loop__looplus?sessionId={!$Api.Session_ID}&amp;eid={!Meeting_Participant_MERC__c.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Mass_Approve_Participants_MERC</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Mass Approve Participants</masterLabel>
+        <openType>replace</openType>
+        <page>MERC_MassApproveParticipants</page>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
     </webLinks>
     <webLinks>
         <fullName>Mass_LOOP_Plus</fullName>

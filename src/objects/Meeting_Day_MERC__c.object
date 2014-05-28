@@ -162,7 +162,7 @@
         <description>Food and Beverage 
 Created by John A Adams 10/15/2013</description>
         <externalId>false</externalId>
-        <inlineHelpText>Please leave this field blank if no ToV is to be reported for Food &amp; Beverage for this meeting.</inlineHelpText>
+        <inlineHelpText>Values per day per person. Please leave this field blank if no ToV is to be reported for Food &amp; Beverage for this meeting.</inlineHelpText>
         <label>Daily Food &amp; Beverage Amount</label>
         <precision>18</precision>
         <required>false</required>
@@ -175,7 +175,7 @@ Created by John A Adams 10/15/2013</description>
         <description>Daily ground transportation
 Created by John A Adams 10/15/2013</description>
         <externalId>false</externalId>
-        <inlineHelpText>Please leave this field blank if no ToV is to be reported for Ground Transportation for this meeting.</inlineHelpText>
+        <inlineHelpText>Values per day per person. Please leave this field blank if no ToV is to be reported for Ground Transportation for this meeting.</inlineHelpText>
         <label>Daily Ground Transportation Amount</label>
         <precision>18</precision>
         <required>false</required>
@@ -344,7 +344,7 @@ Daily_Ground_Trans_Amount_MERC__c &lt; 0 ) ||
 
 (ISCHANGED(Daily_Registration_Amount_MERC__c ) &amp;&amp;
 Daily_Registration_Amount_MERC__c &lt; 0)</errorConditionFormula>
-        <errorMessage>You man not enter a value less than zero.</errorMessage>
+        <errorMessage>You may not enter a value less than zero.</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>Manage_Daily_Attendance_MERC</fullName>
