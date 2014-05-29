@@ -6,7 +6,7 @@
 
 
 public with sharing class MERC_ParticipantFMVCalculator implements GLBL_TriggerHandler.HandlerInterface {
-	
+
 	Schema.SobjectType triggeredSobjectType;
 
 	public MERC_ParticipantFMVCalculator(Schema.SobjectType sobjectType) {
@@ -17,7 +17,7 @@ public with sharing class MERC_ParticipantFMVCalculator implements GLBL_TriggerH
 		return MERC_TriggerHandlerStateManager.isActive(MERC_ParticipantFMVCalculator.class);
 	}
 
-	public void handle() {	
+	public void handle() {
 		if (Trigger.isInsert || Trigger.isUpdate ) {
 	    	execute(Trigger.new);
 	   	}
@@ -25,7 +25,7 @@ public with sharing class MERC_ParticipantFMVCalculator implements GLBL_TriggerH
 
 	void execute(List<Sobject> sobjects) {
 		List<Meeting_Participant_MERC__c> participants;
-		
+
 		if (this.triggeredSobjectType == Account.SobjectType) {
 			List<Account> accounts = (List<Account>)sobjects;
 			Set<Id> accountIdsToProcess = new Set<Id>();
@@ -48,9 +48,9 @@ public with sharing class MERC_ParticipantFMVCalculator implements GLBL_TriggerH
 						accountIdsToProcess.add(a.Id);
 				}
 			}
-			participants = [SELECT ID, Country_of_Residence_MERC__c, Service_Provider_Tier_MERC__c, FMV_Criteria_Map_MERC__c 
+			participants = [SELECT ID, Country_of_Residence_MERC__c, Service_Provider_Tier_MERC__c, FMV_Criteria_Map_MERC__c
 									FROM Meeting_Participant_MERC__c WHERE
-										Final_Fee_MERC__c = null AND 
+										Final_Fee_MERC__c = null AND
 										Account_MERC__c in :accountIdsToProcess AND
 										Meeting_MERC__r.Exclude_from_Open_Meeting_Fee_Calc_MERC__c = false];
 		} else if (this.triggeredSobjectType == Meeting_Participant_MERC__c.SobjectType) {
@@ -68,12 +68,12 @@ public with sharing class MERC_ParticipantFMVCalculator implements GLBL_TriggerH
 		}
 
 		Map<String, List<FMV_Settings_MERC__c>> fmvMap = new Map<String, List<FMV_Settings_MERC__c>>();
-		for (FMV_Settings_MERC__c fmvSetting : [SELECT 
-													Country_Code_MERC__c, 
+		for (FMV_Settings_MERC__c fmvSetting : [SELECT
+													Country_Code_MERC__c,
 													Tier_Value_MERC__c,
-													Minimum_Hourly_Rate_MERC__c, 
+													Minimum_Hourly_Rate_MERC__c,
 													Maximum_Hourly_Rate_MERC__c
-														FROM FMV_Settings_MERC__c 
+														FROM FMV_Settings_MERC__c
 															WHERE Country_Code_MERC__c in :countries]) {
 			if (fmvMap.containsKey(fmvSetting.Country_Code_MERC__c)) {
 				List<FMV_Settings_MERC__c> fmvList = fmvMap.get(fmvSetting.Country_Code_MERC__c);
@@ -91,7 +91,7 @@ public with sharing class MERC_ParticipantFMVCalculator implements GLBL_TriggerH
 
 			String participantTierValue = p.FMV_Criteria_Map_MERC__c;
 			List<FMV_Settings_MERC__c> fmvSettings = fmvMap.get(p.Country_of_Residence_MERC__c);
-			
+
 			if (fmvSettings != null) {
 				for (FMV_Settings_MERC__c fmvSetting : fmvSettings) {
 					String fmvTierValue = fmvSetting.Tier_Value_MERC__c;
@@ -103,6 +103,10 @@ public with sharing class MERC_ParticipantFMVCalculator implements GLBL_TriggerH
 				}
 			}
 		}
+
+		//prevent the meeting participant validation from firing when the lookup rollup summary fields hit it and try to
+		//update it without checking the Confirm_ToV_Reporting_Change_MERC__c boolean.
+		MERC_MeetingParticipantTovValidation.tovValidationByPass = true;
 
 		if (this.triggeredSobjectType == Account.SobjectType) {
 			update participants;

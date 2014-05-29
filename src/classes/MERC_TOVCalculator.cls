@@ -179,6 +179,10 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 	}
 
 	void rollupTovValues(List<SObject> sobjects) {
+		//prevent the meeting participant validation from firing when the lookup rollup summary fields hit it and try to
+		//update it without checking the Confirm_ToV_Reporting_Change_MERC__c boolean.
+		MERC_MeetingParticipantTovValidation.tovValidationByPass = true;
+
 		List<Sobject> detailSobjects; //these should be Daily_Attendance_TOV_MERC__c records
 
 		if (this.triggeredSobjectType == Meeting_Day_MERC__c.SobjectType) {
