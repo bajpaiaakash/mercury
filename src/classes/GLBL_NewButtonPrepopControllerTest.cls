@@ -1,3 +1,10 @@
+/**
+ * @author Kyle Thornton
+ *
+ * Test class for the GLBL_NewButtonPrepopController.
+ *
+ **/
+
 @isTest
 private class GLBL_NewButtonPrepopControllerTest
 {
