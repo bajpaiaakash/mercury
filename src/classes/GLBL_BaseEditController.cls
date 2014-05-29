@@ -27,6 +27,8 @@ global virtual with sharing class GLBL_BaseEditController {
 		return this.toString().split(':')[0];
 	}
 
+	// it is necessary here to take an SobjectType parameter due to the limitation that we cannot call the getRecord()
+	// method on the standard controller (to use for a describe) and then call the addFields() method after that.
 	public GLBL_BaseEditController(ApexPages.StandardController stdController, Schema.SobjectType sotype) {
 		Apexpages.currentPage().getHeaders().put('X-UA-Compatible', 'IE=9'); //IE compatibility mode hack
 		Schema.DescribeSObjectResult sobjectDescribe = sotype.getDescribe();
