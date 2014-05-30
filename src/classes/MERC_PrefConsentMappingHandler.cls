@@ -8,17 +8,23 @@
 * The purpose of this functionality is to allow for Preference and Consent values to be written to the account.
 * This trigger remains "dumb" to business process and allows for workflows to be configured to handle the
 * business logic that defines what values should be copied to which fields.
+*
+* This trigger also fires on delete. It will remove all values from the account and then retrigger the remaining
+* pref and consent records to write their values back to the account.
 */
 public without sharing class MERC_PrefConsentMappingHandler implements GLBL_TriggerHandler.HandlerInterface
 {
-	public Boolean isActive() 
+	public Boolean isActive()
 	{
 		return true;
 	}
 
 	public void handle()
 	{
-		executeCopy();
+		if (Trigger.isInsert || Trigger.isUpdate || Trigger.isUndelete)
+			executeCopy();
+		else if (Trigger.isDelete)
+			executeDelete();
 	}
 
 	private void executeCopy()
@@ -30,9 +36,7 @@ public without sharing class MERC_PrefConsentMappingHandler implements GLBL_Trig
 		Set<Id> accountIds = new Set<Id>();
 		for (Preferences_and_Consent_GLBL__c pAndC : (List<Preferences_and_Consent_GLBL__c>) Trigger.new)
 		{
-			if (String.isNotBlank(pAndC.Account_Field_Update_MERC__c)
-				&& ( Trigger.isInsert ||
-					(Trigger.isUpdate && ((Preferences_and_Consent_GLBL__c)Trigger.oldMap.get(pAndC.Id)).Account_Field_Update_MERC__c != pAndC.Account_Field_Update_MERC__c)))
+			if (String.isNotBlank(pAndC.Account_Field_Update_MERC__c))
 			{
 				pAndCsToProcess.add(pAndC);
 				accountFieldsToQuery.add(pAndC.Account_Field_Update_MERC__c.left(pAndC.Account_Field_Update_MERC__c.indexOf('=')).trim());
@@ -84,5 +88,44 @@ public without sharing class MERC_PrefConsentMappingHandler implements GLBL_Trig
 			System.debug('\n\n\n' + ex + '\n\n\n');
 			throw new MERC_Exception('An error has occurred updating an associated account.\n' + ex);
 		}
+	}
+
+	private void executeDelete()
+	{
+		/*----- find any accounts for deleted pref and consent records -----*/
+		Set<Id> accountIds = new Set<Id>();
+		for (SObject pAndC : Trigger.old)
+		{
+			accountIds.add((Id)pAndC.get('Account_GLBL__c'));
+		}
+
+		/*----- query for the fields to clear out on the account ----*/
+		Schema.FieldSet fieldsToClear = Schema.SObjectType.Account.fieldSets.Pref_Consent_Mapped_Fields;
+		String soql = 'SELECT ';
+		for (Schema.FieldSetMember fsm : fieldsToClear.getFields())
+		{
+			soql += fsm.getFieldPath() + ', ';
+		}
+		soql += 'Id FROM Account WHERE Id IN (';
+		for (Id acctId : accountIds)
+		{
+			soql += '\'' + acctId + '\',';
+		}
+		soql = soql.substring(0, soql.length()-1) + ')';
+
+		/*----- loop over the accounts and null out the values for the mapped fields -----*/
+		List<Account> accounts = Database.query(soql);
+		for (Account a : accounts)
+		{
+			for (FieldSetMember fsm : fieldsToClear.getFields())
+			{
+				a.put(fsm.getFieldPath(), null);
+			}
+		}
+		update accounts;
+
+		/*----- update the pref and consent records to get the workflow/trigger to refire and repopulate values on account -----*/
+		update [SELECT Id FROM Preferences_and_Consent_GLBL__c WHERE Account_GLBL__c IN :accountIds];
+
 	}
 }
