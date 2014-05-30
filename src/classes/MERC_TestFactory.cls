@@ -356,6 +356,18 @@ public with sharing class MERC_TestFactory {
 		return result;
 	}
 
+	public static User getRunningUser() {
+		User rUser;
+		System.runAs(new User(Id=UserInfo.getUserId())) {
+			rUser = insertTestUsers(1, null).get(0);
+			PermissionSet ps = [SELECT Id FROM PermissionSet WHERE Name='Mercury_Customer_Meeting_Services_Edit' limit 1];
+			insert new PermissionSetAssignment(PermissionSetId=ps.Id, AssigneeId=rUser.id);
+			update new User(id=rUser.Id, UserRoleId=[SELECT Id FROM UserRole WHERE Name='Global' limit 1].id);
+		}
+
+		return rUser;
+	}
+
 	public static List<User> insertTestUsers(Integer numberOfUsers, String profileName) {
 		List<User> users = new List<User>();
 
