@@ -642,6 +642,15 @@ Created by John A Adams 10/30/2013</description>
         <description>Created by John A Adams 11/5/2013</description>
         <externalId>false</externalId>
         <label>Credit Note Invoice</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Invoice_MERC__c.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Invoice, Invoice Locked</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Invoice_MERC__c</referenceTo>
         <relationshipLabel>Invoices</relationshipLabel>
         <relationshipName>Invoices</relationshipName>
@@ -726,6 +735,16 @@ Created by John A Adams 10/20/2013</description>
 Created by John A Adams 10/30/2013</description>
         <externalId>false</externalId>
         <label>HCO Beneficiary</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Health Care Organization</value>
+            </filterItems>
+            <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Invoices</relationshipLabel>
         <relationshipName>Invoices</relationshipName>
@@ -869,6 +888,16 @@ Created by John A Adams 10/24/2013</description>
 Created by John Adams 1/14/14</description>
         <externalId>false</externalId>
         <label>Lilly Affiliate</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.Name</field>
+                <operation>contains</operation>
+                <value>Lilly</value>
+            </filterItems>
+            <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Invoices (Lilly Affiliate)</relationshipLabel>
         <relationshipName>Invoices1</relationshipName>
@@ -1342,18 +1371,6 @@ Created by John A Adams 10/4/2013</description>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
-    <namedFilters>
-        <fullName>nf_01I11000000CjxfEAC_00N11000000T4aQEAS</fullName>
-        <active>true</active>
-        <field>Invoice_MERC__c.Credit_Note_Invoice_MERC__c</field>
-        <filterItems>
-            <field>Invoice_MERC__c.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Invoice, Invoice Locked</value>
-        </filterItems>
-        <isOptional>false</isOptional>
-        <name>Invoice_Credit Note Invoice</name>
-    </namedFilters>
     <pluralLabel>Invoices</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>

@@ -1127,6 +1127,15 @@ Created by John Adams 11/6/2013</description>
         <externalId>false</externalId>
         <inlineHelpText>Beneficiary for Transparency Reporting Purposes.</inlineHelpText>
         <label>HCO</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Health Care Organization</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Meetings (HCO)</relationshipLabel>
         <relationshipName>Meetings1</relationshipName>
@@ -2423,6 +2432,17 @@ Created by John Adams on 12/9/2013</description>
         <description>Created Lookup to Account to select Sales Rep if it is a Sales Rep initiated meeting. Created 10/16/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Customer Facing User</label>
+        <lookupFilter>
+            <active>true</active>
+            <errorMessage>To expand your search, select the &apos;All Fields&apos; option and run your search again.</errorMessage>
+            <filterItems>
+                <field>Account.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Employee</value>
+            </filterItems>
+            <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Meetings</relationshipLabel>
         <relationshipName>Meetings</relationshipName>
@@ -3037,6 +3057,16 @@ Created by John Adams 11/6/2013</description>
         <externalId>false</externalId>
         <inlineHelpText>Populate for Meetings created in Mercury.</inlineHelpText>
         <label>Sourced Venue</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.RecordType.Name</field>
+                <operation>equals</operation>
+                <value>Venue</value>
+            </filterItems>
+            <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Meetings</relationshipLabel>
         <relationshipName>Venues</relationshipName>

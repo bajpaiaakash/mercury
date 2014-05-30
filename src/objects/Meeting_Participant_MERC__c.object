@@ -203,51 +203,6 @@
         </displayedFields>
         <label>Service Provider Required Fields</label>
     </fieldSets>
-    <fieldSets>
-        <fullName>ToV_Validation_Fields</fullName>
-        <description>Used in the MERC_MeetingParticipantTovValidation class. These are the fields that will be checked for changes if the ToV has already been reported for the related meeting.</description>
-        <displayedFields>
-            <field>Total_Registration_ToV_MERC__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Total_Ground_Transporation_ToV_MERC__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Total_Food_Beverage_ToV_MERC__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>CoPay_Hotel_MERC__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>CoPay_Ground_Transport_MERC__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>CoPay_Registration_MERC__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>CoPay_Food_Beverage_MERC__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>CoPay_Flight_Rail_MERC__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <label>ToV Validation Fields</label>
-    </fieldSets>
     <fields>
         <fullName>Account_External_MERC__c</fullName>
         <externalId>false</externalId>
@@ -264,6 +219,27 @@
         <description>Lookup to Account from Event Participant. Created 9/28/2013 by KLorenti.</description>
         <externalId>false</externalId>
         <label>Account</label>
+        <lookupFilter>
+            <active>true</active>
+            <booleanFilter>1 OR 2 OR 3</booleanFilter>
+            <filterItems>
+                <field>Account.RecordType.Name</field>
+                <operation>equals</operation>
+                <value>HCP</value>
+            </filterItems>
+            <filterItems>
+                <field>Account.RecordType.Name</field>
+                <operation>equals</operation>
+                <value>Non-HCP</value>
+            </filterItems>
+            <filterItems>
+                <field>Account.RecordType.Name</field>
+                <operation>equals</operation>
+                <value>Employee</value>
+            </filterItems>
+            <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Meeting Participants</relationshipLabel>
         <relationshipName>Event_Participants</relationshipName>
@@ -2243,20 +2219,6 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
-    <namedFilters>
-        <fullName>nf_01I110000008cxpEAA_00N11000000PFx1EAG</fullName>
-        <active>true</active>
-        <field>HCP_Contract_MERC__c.Meeting_Participant_MERC__c</field>
-        <filterItems>
-            <field>$Source.Account_MERC__c</field>
-            <operation>equals</operation>
-            <valueField>Meeting_Participant_MERC__c.Account_MERC__c</valueField>
-        </filterItems>
-        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
-        <isOptional>false</isOptional>
-        <name>HCP Contract_Meeting Participant</name>
-        <sourceObject>HCP_Contract_MERC__c</sourceObject>
-    </namedFilters>
     <pluralLabel>Meeting Participants</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
@@ -3631,7 +3593,7 @@ ISCHANGED(Partial_Payment_Amount_MERC__c) &amp;&amp; !ISBLANK(Partial_Payment_Am
     </validationRules>
     <validationRules>
         <fullName>Check_if_any_ToV_has_been_reported</fullName>
-        <active>false</active>
+        <active>true</active>
         <description>Checks to see if any Meeting Participants have had ToV reported. Created 01/08/2014 by KLorenti, Mavens Consulting</description>
         <errorConditionFormula>ISPICKVAL( Meeting_MERC__r.Participant_ToV_Final_MERC__c,&quot;Yes&quot;) &amp;&amp;
 (

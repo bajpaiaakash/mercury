@@ -11,17 +11,14 @@
 */
 public without sharing class MERC_PrefConsentMappingHandler implements GLBL_TriggerHandler.HandlerInterface
 {
-	public Boolean isActive()
+	public Boolean isActive() 
 	{
 		return true;
 	}
 
 	public void handle()
 	{
-		if (Trigger.isInsert || Trigger.isUpdate || Trigger.isUndelete)
-			executeCopy();
-		else if (Trigger.isDelete)
-			executeDelete();
+		executeCopy();
 	}
 
 	private void executeCopy()
@@ -87,25 +84,5 @@ public without sharing class MERC_PrefConsentMappingHandler implements GLBL_Trig
 			System.debug('\n\n\n' + ex + '\n\n\n');
 			throw new MERC_Exception('An error has occurred updating an associated account.\n' + ex);
 		}
-	}
-
-	private void executeDelete()
-	{
-		Set<Id> accountIds = new Set<Id>();
-		for (SObject pAndC : Trigger.old)
-		{
-			accountIds.add((Id)pAndC.get('Account_GLBL__c'));
-		}
-
-		List<Preferences_and_Consent_GLBL__c> pAndCsToReevaluate = [SELECT Id, Account_Field_Update_MERC__c
-		                                                              FROM Preferences_and_Consent_GLBL__c
-		                                                             WHERE Account_GLBL__c IN :accountIds];
-
-		for (Preferences_and_Consent_GLBL__c p : pAndCsToReevaluate)
-		{
-			p.Account_Field_Update_MERC__c = null;
-		}
-
-		update pAndCsToReevaluate;
 	}
 }

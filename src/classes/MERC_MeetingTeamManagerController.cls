@@ -40,6 +40,9 @@ public with sharing class MERC_MeetingTeamManagerController extends GLBL_Generic
 			new List<String> { 'External_User_MERC', 'Mercury_User_MERC' }
 		);
 
+		//IE9 compatibility mode hack
+		Apexpages.currentPage().getHeaders().put('X-UA-Compatible', 'IE=Edge');
+
 		if (!childrenMap.containsKey('Mercury_User_MERC')) { childrenMap.put('Mercury_User_MERC', new List<GenericSobjectWrapper>()); }
 		if (!childrenMap.containsKey('External_User_MERC')) { childrenMap.put('External_User_MERC', new List<GenericSobjectWrapper>()); }
 

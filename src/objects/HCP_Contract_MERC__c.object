@@ -408,6 +408,16 @@ Created by John A Adams 10/7/2013</description>
         <description>Used to indicate who the Lilly Internal Employee is for the first round of Contract signature. Oliver Dunford 21st Jan 2014.</description>
         <externalId>false</externalId>
         <label>Lilly Internal Signee</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.RecordType.Name</field>
+                <operation>equals</operation>
+                <value>Employee</value>
+            </filterItems>
+            <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>HCP Contracts (Lilly Internal Signee)</relationshipLabel>
         <relationshipName>Lilly_Internal_Signee</relationshipName>
@@ -433,6 +443,15 @@ Created by John A Adams 10/28/2013</description>
         <description>Lookup relationship to associate a Work Order to an MSA. Oliver Dunford 12th Nov.</description>
         <externalId>false</externalId>
         <label>MSA</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>HCP_Contract_MERC__c.RecordType.Name</field>
+                <operation>equals</operation>
+                <value>Master Service Agreement</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>HCP_Contract_MERC__c</referenceTo>
         <relationshipLabel>Work Orders</relationshipLabel>
         <relationshipName>HCP_Contracts</relationshipName>
@@ -474,6 +493,16 @@ Created by John A Adams 12/19/2013</description>
 Created by John Adams 1/15/14</description>
         <externalId>false</externalId>
         <label>Meeting Participant</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>$Source.Account_MERC__c</field>
+                <operation>equals</operation>
+                <valueField>Meeting_Participant_MERC__c.Account_MERC__c</valueField>
+            </filterItems>
+            <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Meeting_Participant_MERC__c</referenceTo>
         <relationshipLabel>HCP Contracts</relationshipLabel>
         <relationshipName>HCP_Contracts</relationshipName>
@@ -526,6 +555,16 @@ Created by John A Adams 10/7/2013</description>
 Created by John A Adams 10/7/2013</description>
         <externalId>false</externalId>
         <label>Payee</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>$Source.Account_MERC__c</field>
+                <operation>equals</operation>
+                <valueField>Payee_MERC__c.Account_MERC__c</valueField>
+            </filterItems>
+            <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Payee_MERC__c</referenceTo>
         <relationshipLabel>HCP Contracts</relationshipLabel>
         <relationshipName>ContractXs</relationshipName>
@@ -625,18 +664,6 @@ Created by John A Adams 10/17/2013</description>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
-    <namedFilters>
-        <fullName>nf_01I11000000Ck6cEAC_00N11000000T7RqEAK</fullName>
-        <active>true</active>
-        <field>HCP_Contract_MERC__c.MSA_MERC__c</field>
-        <filterItems>
-            <field>HCP_Contract_MERC__c.RecordType.Name</field>
-            <operation>equals</operation>
-            <value>Master Service Agreement</value>
-        </filterItems>
-        <isOptional>false</isOptional>
-        <name>HCP Contract_MSA</name>
-    </namedFilters>
     <pluralLabel>HCP Contracts</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>

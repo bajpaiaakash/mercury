@@ -32,6 +32,7 @@ public with sharing class MERC_AgendaBuilderController extends GLBL_GenericRelat
 			}), //childFields
 			'Start_Time_MERC__c' //orderChildrenBy
 		);
+		Apexpages.currentPage().getHeaders().put('X-UA-Compatible', 'IE=9'); //IE compatibility mode hack
 		this.hasError = false;
 	}
 

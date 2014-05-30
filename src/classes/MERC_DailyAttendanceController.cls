@@ -14,6 +14,7 @@ public with sharing class MERC_DailyAttendanceController {
 	public Boolean hasError { get; private set; }
 
 	public MERC_DailyAttendanceController(ApexPages.StandardSetController c) {
+		Apexpages.currentPage().getHeaders().put('X-UA-Compatible', 'IE=9'); //IE compatibility mode hack
 		this.refreshParticipants = false;
 		this.hasError = false;
 		validate();
