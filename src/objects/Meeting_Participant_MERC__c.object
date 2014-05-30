@@ -203,6 +203,51 @@
         </displayedFields>
         <label>Service Provider Required Fields</label>
     </fieldSets>
+    <fieldSets>
+        <fullName>ToV_Validation_Fields</fullName>
+        <description>Used in the MERC_MeetingParticipantTovValidation class. These are the fields that will be checked for changes if the ToV has already been reported for the related meeting.</description>
+        <displayedFields>
+            <field>Total_Registration_ToV_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Total_Ground_Transporation_ToV_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Total_Food_Beverage_ToV_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CoPay_Hotel_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CoPay_Ground_Transport_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CoPay_Registration_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CoPay_Food_Beverage_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CoPay_Flight_Rail_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>ToV Validation Fields</label>
+    </fieldSets>
     <fields>
         <fullName>Account_External_MERC__c</fullName>
         <externalId>false</externalId>
@@ -3586,7 +3631,7 @@ ISCHANGED(Partial_Payment_Amount_MERC__c) &amp;&amp; !ISBLANK(Partial_Payment_Am
     </validationRules>
     <validationRules>
         <fullName>Check_if_any_ToV_has_been_reported</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Checks to see if any Meeting Participants have had ToV reported. Created 01/08/2014 by KLorenti, Mavens Consulting</description>
         <errorConditionFormula>ISPICKVAL( Meeting_MERC__r.Participant_ToV_Final_MERC__c,&quot;Yes&quot;) &amp;&amp;
 (

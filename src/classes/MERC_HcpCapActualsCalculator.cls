@@ -5,8 +5,12 @@
  */
 
 public with sharing class MERC_HcpCapActualsCalculator implements GLBL_TriggerHandler.HandlerInterface {
-	
+
 	Schema.SobjectType triggeredSobjectType;
+
+	public Boolean isActive() {
+	    return MERC_TriggerHandlerStateManager.isActive(MERC_HcpCapActualsCalculator.class);
+	}
 
 	public MERC_HcpCapActualsCalculator(Schema.SobjectType sobjectType) {
 		this.triggeredSobjectType = sObjectType;
@@ -22,7 +26,7 @@ public with sharing class MERC_HcpCapActualsCalculator implements GLBL_TriggerHa
 
 	void execute(List<SObject> sobjects) {
 		List<Sobject> participantsToRollup;
-		
+
 		if (this.triggeredSobjectType == Meeting_MERC__c.SobjectType) {
 			List<Meeting_MERC__c> meetings = (List<Meeting_MERC__c>)sobjects;
 			Set<Id> meetingIdsToProcess = new Set<Id>();
@@ -35,9 +39,9 @@ public with sharing class MERC_HcpCapActualsCalculator implements GLBL_TriggerHa
 				}
 			}
 			if (meetingIdsToProcess.size() > 0) {
-				participantsToRollup = [SELECT ID, Account_MERC__c, Meeting_MERC__c FROM Meeting_Participant_MERC__c WHERE 
+				participantsToRollup = [SELECT ID, Account_MERC__c, Meeting_MERC__c FROM Meeting_Participant_MERC__c WHERE
 											Meeting_MERC__c in :meetingIdsToProcess];
-	
+
 			} else {
 				participantsToRollup = new List<Meeting_Participant_MERC__c>();
 			}
@@ -46,6 +50,6 @@ public with sharing class MERC_HcpCapActualsCalculator implements GLBL_TriggerHa
 		}
 
 		if (participantsToRollup.size() > 0)
-			GLBL_Rollup.RollupService.triggerHandler(participantsToRollup);
+			GLBL_RollupService.asyncTriggerHandler(participantsToRollup);
 	}
 }

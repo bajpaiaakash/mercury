@@ -28,7 +28,7 @@ public with sharing class MERC_TestFactory {
 	}
 
 	public static void loadDeclarativeRollupSummaries() {
-		List<sObject> rollups = Test.loadData(glbl_rollup__LookupRollupSummary__c.sObjectType, 'DeclarativeRollupTestData_MERC');
+		List<sObject> rollups = Test.loadData(LookupRollupSummary_GLBL__c.sObjectType, 'DeclarativeRollupTestData_MERC');
 	}
 
 	public static List<Account> insertBusinessAccounts(Integer numberOfAccounts, Id recordTypeId) {

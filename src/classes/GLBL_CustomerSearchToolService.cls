@@ -25,6 +25,7 @@ public with sharing class GLBL_CustomerSearchToolService {
 		baseUrl = this.appSettings.CST_URL_GLBL__c;
 	}
 
+	//performs search against the CST
 	public List<SearchResult> doSearch(SearchRequest req) {
 		String requestJson = JSON.serialize(req);
 		system.debug('>>> '+requestJson);
@@ -63,6 +64,7 @@ public with sharing class GLBL_CustomerSearchToolService {
 		return null;
 	}
 
+	//retrieves a token if it expires
 	public void refreshToken() {
 		HttpRequest r = new HttpRequest();
 		r.setHeader('Content-type', 'application/x-www-form-urlencoded');

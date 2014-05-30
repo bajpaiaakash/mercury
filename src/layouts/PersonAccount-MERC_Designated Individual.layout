@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -20,6 +19,10 @@
                 <behavior>Required</behavior>
                 <field>HCP_Designated_Individuals_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>HCP_Country_of_Residence2_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -29,6 +32,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Institution_Name_GLBL__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Territories</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>

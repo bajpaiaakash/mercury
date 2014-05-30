@@ -17,12 +17,24 @@ private class MERC_NewContentControllerTest {
 	static List<Meeting_Participant_MERC__c> participants;
     static User thisUser = [SELECT Id FROM User WHERE Id = :UserInfo.getUserId()];
 
+    static User testUser;
+    static
+    {
+    	System.runAs(new User(Id=UserInfo.getUserId()))
+    	{
+    		testUser = MERC_TestFactory.insertTestUsers(1, null).get(0);
+    		testUser.userRoleId = [SELECT Id FROM UserRole Where Name = 'Global' LIMIT 1].Id;
+    		update testUser;
+    		PermissionSet ps = [SELECT Id FROM PermissionSet WHERE Name='Mercury_Customer_Meeting_Services_Edit' limit 1];
+    		insert new PermissionSetAssignment( PermissionSetId=ps.Id
+    			                              , AssigneeId=testUser.id);
+    		update new User( id=testUser.Id
+    			           , UserRoleId=[SELECT Id FROM UserRole WHERE Name='Global' limit 1].id);
+    	}
+    }
+
 	static {
 		System.runAs(thisUser) {
-			p = [SELECT id FROM profile WHERE name='Standard User'];
-			u = new User(alias = 'Romeo', lastname='Montegue', email='romeo@montegue.com',
-				profileid = p.Id, username='romeo@montegue.com.MERC_NewContentControllerTest',
-				emailencodingkey='UTF-8', languagelocalekey='en_US',localesidkey='en_US', timezonesidkey='America/Chicago');
 			accounts = MERC_TestFactory.insertHcpAccountsInCountry(1, 'GB');
 			for (Account a : accounts)
 			{
@@ -104,7 +116,7 @@ private class MERC_NewContentControllerTest {
 	static void catchWorkspaceException() {
 		RecordType rt = [SELECT Id FROM RecordType WHERE DeveloperName = 'Business_Account'];
 
-		System.runAs(u) {
+		System.runAs(testUser) {
 			Test.startTest();
 
 			Account a = new Account();

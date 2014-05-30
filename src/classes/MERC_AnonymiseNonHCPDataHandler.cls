@@ -8,6 +8,11 @@
 
 public with sharing class MERC_AnonymiseNonHCPDataHandler implements GLBL_TriggerHandler.HandlerInterface
 {
+    public Boolean isActive()
+    {
+        return MERC_TriggerHandlerStateManager.isActive(MERC_AnonymiseNonHCPDataHandler.class);
+    }
+
     public void handle()
     {
         List<sObject> toProcess = new List<sObject>();
@@ -114,6 +119,8 @@ public with sharing class MERC_AnonymiseNonHCPDataHandler implements GLBL_Trigge
         {
             so.put('Anonymise_Record_MERC__c', true);
         }
+
+        MERC_LockedRecordHandler.overrideLockCheck = true;
         update sObjectsToAnonymise;
     }
 }

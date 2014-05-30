@@ -20,6 +20,10 @@
                 <behavior>Required</behavior>
                 <field>HCP_Contracting_Party_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>HCP_Country_of_Residence2_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

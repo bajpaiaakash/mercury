@@ -1,5 +1,9 @@
 public class CUST_UserSettingStatusUpdate implements GLBL_TriggerHandler.HandlerInterface
 {
+    public Boolean isActive() {
+        return true;
+    }
+
     public void handle() {
         if (Trigger.isUpdate || Trigger.isInsert) {
             execute(Trigger.new);

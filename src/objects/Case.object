@@ -847,8 +847,8 @@ Created by John Adams on 11/18/2013</description>
         <lookupPhoneDialogsAdditionalFields>CASES.SUBJECT</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>CASES.STATUS</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>00N11000000PFvb</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>00N11000000PFvc</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Account_Fax_GLBL__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Account_Phone_GLBL__c</lookupPhoneDialogsAdditionalFields>
         <searchFilterFields>CASES.CASE_NUMBER</searchFilterFields>
         <searchFilterFields>CASES.SUBJECT</searchFilterFields>
         <searchFilterFields>CASES.STATUS</searchFilterFields>

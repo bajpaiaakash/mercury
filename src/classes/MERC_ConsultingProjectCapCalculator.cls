@@ -12,6 +12,10 @@ public with sharing class MERC_ConsultingProjectCapCalculator implements GLBL_Tr
 		this.triggeredSobjectType = sObjectType;
 	}
 
+	public Boolean isActive() {
+	    return true;
+	}
+
 	public void handle() {
 		if (Trigger.isUpdate || Trigger.isUndelete) {
 	    	execute(Trigger.new);

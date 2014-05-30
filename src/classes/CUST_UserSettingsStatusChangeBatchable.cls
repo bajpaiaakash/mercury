@@ -68,7 +68,7 @@ global class CUST_UserSettingsStatusChangeBatchable implements Database.Batchabl
 	
 	global void finish(Database.BatchableContext BC) {
 		Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
-        String[] toAddresses = new String[] {'vincent@mavensconsulting.com'}; 
+        String[] toAddresses = new String[] {'mercury@mavensconsulting.com'}; 
 
         mail.setToAddresses(toAddresses);
         mail.setSenderDisplayName('CST Batch');

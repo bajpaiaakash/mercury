@@ -9,6 +9,10 @@ public with sharing class MERC_DeleteNotifyService implements GLBL_TriggerHandle
 	
 	public static Boolean skipCallout = false;
 
+	public Boolean isActive() {
+	    return MERC_TriggerHandlerStateManager.isActive(MERC_DeleteNotifyService.class);
+	}
+
 	public void handle() {
 		List<Sobject> sobjects = Trigger.old;
 		String sobjectTypeAPIName = MERC_Util.getSobjectAPIName(sobjects.get(0));

@@ -12,6 +12,10 @@ public with sharing class MERC_InvoiceXmlWriter implements GLBL_TriggerHandler.H
 
 	private final Id ACTIVE_INVOICE_RECTYPE = [SELECT Id FROM RecordType WHERE SObjectType = 'Invoice_MERC__c' AND DeveloperName = 'Invoice_MERC' LIMIT 1].Id;
 
+	public Boolean isActive() {
+	    return true;
+	}
+
 	public void handle() {
 		if (Trigger.isAfter) {
 			if (Trigger.isInsert || Trigger.isUpdate) {

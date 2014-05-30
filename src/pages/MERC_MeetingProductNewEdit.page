@@ -16,9 +16,9 @@
 			<apex:repeat value="{!sections}" var="section">
 				<apex:pageBlockSection title="{!section.title}" columns="{!section.columns}">
 					<apex:repeat value="{!section.fields}" var="field">
-						<apex:pageBlockSectionItem>
+						<apex:pageBlockSectionItem >
 							<apex:outputLabel value="{!field.label}"/>
-							<apex:actionRegion>
+							<apex:actionRegion >
 								<apex:inputField required="{!field.required}"
 								                 value="{!mySobject[field.value]}"
 								                 rendered="{!field.readOnly == false && not(field.blankSpace) && not(field.isChildField)}"

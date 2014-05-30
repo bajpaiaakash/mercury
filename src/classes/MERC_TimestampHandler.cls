@@ -11,6 +11,10 @@ public with sharing class MERC_TimestampHandler implements GLBL_TriggerHandler.H
 		this.triggeredSobjectType = sObjectType;
 	}
 
+	public Boolean isActive() {
+		return MERC_TriggerHandlerStateManager.isActive(MERC_TimestampHandler.class);
+	}
+
 	public void handle() {
 		if (Trigger.isInsert || Trigger.isUpdate || Trigger.isUndelete) {
 	    	execute(Trigger.new);

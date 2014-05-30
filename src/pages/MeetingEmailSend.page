@@ -64,12 +64,14 @@
                         </apex:facet>
                         <apex:inputCheckbox value="{!participant.IsSelected}" id="selectParticipant" onclick="updateSelectAllCheckBox(this)" />
                     </apex:column>
-                    <apex:column headerValue="Full Name" value="{!participant.Participant.Account_MERC__r.Name}" />
+                    <!-- <apex:column headerValue="Full Name" value="{!participant.Participant.Account_MERC__r.Name}" /> -->
+                    <apex:column headerValue="Full Name" value="{!participant.Participant.Account_MERC__r.LastName}, {!participant.Participant.Account_MERC__r.FirstName}" />
                     <apex:column headerValue="Email" value="{!participant.Participant.Account_MERC__r.PersonEmail}" />
                     <apex:column headerValue="Status" value="{!participant.Participant.Status_MERC__c}" />
-                    <apex:column headerValue="Docusign Contract Status" value="{!participant.Participant.Docusign_Contract_Status_MERC__c}" />
+                    <!-- <apex:column headerValue="Docusign Contract Status" value="{!participant.Participant.Docusign_Contract_Status_MERC__c}" /> -->
                     <apex:column headerValue="Participant Type" value="{!participant.Participant.Participant_Typ_MERC__c}" />
                     <apex:column headerValue="Communication Preference" value="{!participant.Participant.Account_MERC__r.Communication_Preference_MERC__c}" />
+                    <apex:column headerValue="Preferred Language" value="{!participant.Participant.Account_MERC__r.Prfrd_Lang_Cd_GLBL__c}" />
                     <apex:column headerValue="Has Signed Contract" value="{!participant.Participant.Has_Signed_Contract_MERC__c}" />
                 </apex:pageBlockTable>
             </apex:pageBlockSection>

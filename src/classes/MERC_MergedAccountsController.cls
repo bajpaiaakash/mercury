@@ -41,7 +41,8 @@ public with sharing class MERC_MergedAccountsController {
                                               , Original_Account_ID_GLBL__c
                                               , Merge_Processed_MERC__c
                                           FROM Merge_History_GLBL__c
-                                          WHERE Merge_Processed_MERC__c = false])
+                                          WHERE Merge_Processed_MERC__c = false
+                                          LIMIT 300])
         {
             mergeHistoryByWinningAccount.put(mh.Winning_Id_GLBL__c, mh);
         }

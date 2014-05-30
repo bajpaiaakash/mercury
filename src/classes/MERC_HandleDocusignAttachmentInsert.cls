@@ -8,6 +8,9 @@
 
 public with sharing class MERC_HandleDocusignAttachmentInsert implements GLBL_TriggerHandler.HandlerInterface {
 	
+	public Boolean isActive() {
+	    return true;
+	}
 
 	public void handle() {
 		if (Trigger.isInsert && Trigger.isAfter && Trigger.new.size() == 1) {

@@ -8,7 +8,11 @@
 
 public with sharing class MERC_MeetingContentStampHandler implements GLBL_TriggerHandler.HandlerInterface
 {
-
+	public Boolean isActive()
+	{
+		return true;
+	}
+	
 	public void handle()
 	{
 		Id contentTypeId = [Select Id From RecordType WHERE DeveloperName = 'Meeting_MERC' AND SobjectType = 'ContentVersion' LIMIT 1].Id;

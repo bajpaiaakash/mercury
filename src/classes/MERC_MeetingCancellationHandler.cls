@@ -9,6 +9,11 @@
 
 public with sharing class MERC_MeetingCancellationHandler implements GLBL_TriggerHandler.HandlerInterface {
 
+    public Boolean isActive() 
+    {
+        return MERC_TriggerHandlerStateManager.isActive(MERC_MeetingCancellationHandler.class);
+    }
+
     public void handle()
     {
         List<Meeting_MERC__c> cancelledMeetings = new List<Meeting_MERC__c>();

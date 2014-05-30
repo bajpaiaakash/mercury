@@ -1,3 +1,8 @@
+/**
+ * @author Sean Harrison
+ *
+ * Mocks callouts to the Customer Search Tool Endpoint
+ */
 @isTest
 global class GLBL_CustomerSearchToolServiceMock implements HttpCalloutMock {
 

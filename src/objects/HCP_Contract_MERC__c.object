@@ -1028,6 +1028,13 @@ Created by John A Adams 10/17/2013</description>
         <searchResultsAdditionalFields>Contract_Request_Status_MERC__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Prevents_creating_more_than_one_HCP_Cont</fullName>
+        <active>true</active>
+        <description>Prevents creating more than one HCP Contract for a meeting participant.</description>
+        <errorConditionFormula>(ISNEW()  &amp;&amp; Meeting_Participant_MERC__r.Number_of_Contracts_MERC__c &gt; 0.00)</errorConditionFormula>
+        <errorMessage>There is already a contract created for this Meeting Participant.</errorMessage>
+    </validationRules>
     <webLinks>
         <fullName>Create_HCP_Contract</fullName>
         <availability>online</availability>

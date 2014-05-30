@@ -21,6 +21,6 @@
     <tab>Meeting_Participant_MERC__c</tab>
     <tab>Travel_Itinerary_MERC__c</tab>
     <tab>Consent_Setting_GLBL__c</tab>
-    <tab>Merged_Accounts</tab>
+    <tab>Merged_Accounts_GLBL</tab>
     <tab>Web_Service_Logic_MERC__c</tab>
 </CustomApplication>

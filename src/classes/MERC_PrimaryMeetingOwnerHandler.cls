@@ -7,9 +7,14 @@
 
 public with sharing class MERC_PrimaryMeetingOwnerHandler implements GLBL_TriggerHandler.HandlerInterface{
 
+    public Boolean isActive() 
+    {
+        return MERC_TriggerHandlerStateManager.isActive(MERC_PrimaryMeetingOwnerHandler.class);
+    }
+
 	public void handle()
     {
-    	List<Team_Member_MERC__c> primaryOwnerTeamMembers = new List<Team_Member_MERC__c>();
+        List<Team_Member_MERC__c> primaryOwnerTeamMembers = new List<Team_Member_MERC__c>();
     	for (Meeting_MERC__c m : (List<Meeting_MERC__c>)Trigger.new)
     	{
     		if (m.Source_MERC__c == 'Mercury')

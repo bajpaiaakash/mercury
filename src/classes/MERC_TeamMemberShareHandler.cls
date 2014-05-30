@@ -8,6 +8,10 @@ public with sharing class MERC_TeamMemberShareHandler implements GLBL_TriggerHan
 
 	//TODO: handle modifications to record type
 
+	public Boolean isActive() {
+		return true;
+	}
+
 	public void handle() {
 		if (Trigger.isInsert || Trigger.isUpdate) {
 	    	execute(Trigger.new);
@@ -61,7 +65,11 @@ public with sharing class MERC_TeamMemberShareHandler implements GLBL_TriggerHan
 					}
 				}
 			}
-			insert shareRecordsToInsert;
+			try {
+				insert shareRecordsToInsert;
+			} catch (DmlException dmle) {
+				System.debug(LoggingLevel.WARN, 'Unable to insert Meeting Share: '+dmle.getMessage());
+			}
 
 		} else if (Trigger.isUpdate) {
 
@@ -130,7 +138,11 @@ public with sharing class MERC_TeamMemberShareHandler implements GLBL_TriggerHan
 						}
 					}
 				}
-				insert shareRecordsToInsert;
+				try {
+					insert shareRecordsToInsert;
+				} catch (DmlException dmle) {
+					System.debug(LoggingLevel.WARN, 'Unable to insert Meeting Share during update: '+dmle.getMessage());
+				}
 			}
 
 		} else if (Trigger.isDelete) {

@@ -98,8 +98,10 @@ public with sharing class MeetingEmailSendExtension {
             if (Participants == null) {
                 List<Meeting_Participant_MERC__c> ps = [SELECT Id, Status_MERC__c, Docusign_Contract_Status_MERC__c, 
                                                             Participant_Typ_MERC__c, Has_Signed_Contract_MERC__c,
-                                                            Account_MERC__r.Name, Account_MERC__r.PersonEmail,
-                                                            Account_MERC__r.Communication_Preference_MERC__c
+                                                            Account_MERC__r.Name, Account_MERC__r.FirstName,
+                                                            Account_MERC__r.PersonEmail, Account_MERC__r.LastName,
+                                                            Account_MERC__r.Communication_Preference_MERC__c,
+                                                            Account_MERC__r.Prfrd_Lang_Cd_GLBL__c
                                                         FROM Meeting_Participant_MERC__c 
                                                         WHERE Meeting_MERC__c = :meeting.Id];
 

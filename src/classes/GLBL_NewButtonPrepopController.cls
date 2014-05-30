@@ -90,7 +90,7 @@ public with sharing class GLBL_NewButtonPrepopController {
 		}
 	}
 
-	public static Map<String,String> getCFIds(Map<String,String> namesToData, String cObjName) {	
+	public static Map<String,String> getCFIds(Map<String,String> namesToData, String cObjName) {
 
 		Map<String,String> namesToCFIDs = new Map<String,String>();
 		try {
@@ -114,7 +114,14 @@ public with sharing class GLBL_NewButtonPrepopController {
 			Map<String,String> htmlToCFIDs = new Map<String,String>();
 
 			PageReference savePageRef = new PageReference(saveURL);
-			String content = savePageRef.getContent().toString();
+
+			//can't call getContent() in a testing context
+			String content;
+			if (!Test.isRunningTest()) {
+				content = savePageRef.getContent().toString();
+			} else {
+				content ='<label for="CF00N11000000PFpR">Budget</label>';
+			}
 			Pattern labelId = Pattern.compile('<label for="([^"]+)">(.+?)</label>');
 			Matcher m = labelId.matcher(content);
 			while (m.find()) {

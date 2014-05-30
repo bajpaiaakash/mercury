@@ -12,8 +12,20 @@ private class MERC_TOVCalculatorTest {
 		Set up 1 meeting with 3 meeting days and 5 participants
 	*/
 	static {
+		MERC_TriggerHandlerStateManager.deactivate(MERC_LockedRecordHandler.class);
+		MERC_TriggerHandlerStateManager.deactivate(MERC_HcpCapLimitCalculator.class);
+		MERC_TriggerHandlerStateManager.deactivate(MERC_ParticipantFMVCalculator.class);
+		MERC_TriggerHandlerStateManager.deactivate(MERC_AccountDesignatedIndividualsCounter.class);
+		MERC_TriggerHandlerStateManager.deactivate(MERC_TimestampHandler.class);
+		MERC_TriggerHandlerStateManager.deactivate(MERC_HcpCapActualsCalculator.class);
+		MERC_TriggerHandlerStateManager.deactivate(MERC_DeleteNotifyService.class);
+		MERC_TriggerHandlerStateManager.deactivate(MERC_MeetingCancellationHandler.class);
+		MERC_TriggerHandlerStateManager.deactivate(MERC_PrimaryMeetingOwnerHandler.class);
+		MERC_TriggerHandlerStateManager.deactivate(MERC_AnonymiseNonHCPDataHandler.class);
+		
 		MERC_TestFactory.loadDeclarativeRollupSummaries();
-		accounts = MERC_TestFactory.insertAccounts(5);
+
+		accounts = MERC_TestFactory.insertAccounts(3);
 		meetings = MERC_TestFactory.insertMeetings(1);
 		meetingDays = MERC_TestFactory.insertMeetingDays(meetings.get(0).Id, 3);
 		participants = MERC_TestFactory.insertParticipants(meetings.get(0).Id, accounts);
@@ -21,6 +33,9 @@ private class MERC_TOVCalculatorTest {
 	}
 
 	@isTest static void testShouldCalculateHotelTovOnRoomRateChange() {
+		Test.startTest();
+		System.debug(LoggingLevel.INFO, 'QUERY LIMIT BEFORE TEST EXECUTION: '+Limits.getQueries());
+		System.assertEquals(0, Limits.getQueries());
 
 		Id hotelItineraryRecordTypeId = [SELECT ID FROM RecordType WHERE DeveloperName = 'Hotel_MERC' AND SObjectType = 'Travel_Itinerary_MERC__c'].Id;
 
@@ -48,6 +63,8 @@ private class MERC_TOVCalculatorTest {
 
 		insert allocations;
 
+		System.debug(LoggingLevel.INFO, 'QUERIES: '+Limits.getQueries());
+
 		Travel_Itinerary_MERC__c t = new Travel_Itinerary_MERC__c();
 		t.Meeting_Participant_MERC__c = participants.get(0).Id;
 		t.Sgmnt_Bgin_TS_MERC__c = meetingDays.get(0).Date_MERC__c; //check in day 1
@@ -57,7 +74,8 @@ private class MERC_TOVCalculatorTest {
 		t.Meeting_Vendor_MERC__c = hotel1.Id;
 		insert t;
 
-		Test.startTest();
+		System.debug(LoggingLevel.INFO, 'QUERIES: '+Limits.getQueries());
+
 		//set participant 1 to attending on day 1
 		Daily_Attendance_TOV_MERC__c tovForParticipant1Day1 = MERC_TestFactory.insertTov(meetingDays.get(0).Id, participants.get(0).Id, 'Attended');
 
@@ -66,6 +84,7 @@ private class MERC_TOVCalculatorTest {
 		update hotel1;
 		Test.stopTest();
 
+		System.debug('QUERY LIMIT AFTER TEST EXECUTION: '+Limits.getQueries());
 
 		Meeting_Day_MERC__c day1 = [SELECT Id,
 										Daily_Ground_Trans_Amount_MERC__c,
@@ -77,8 +96,6 @@ private class MERC_TOVCalculatorTest {
 
 		//assert that meeting day 1's food bev estimate rolled up up to the participant total
 		System.assertEquals(600, participant1.Total_Hotel_ToV_MERC__c);
-
-
 	}
 
 	@isTest static void testShouldEnsureDeletesRecalculateRollups() {

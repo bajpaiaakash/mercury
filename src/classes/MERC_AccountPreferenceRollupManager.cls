@@ -4,6 +4,11 @@
  * Trigger handler that ensures preference rollups are run on preference/consent DML operations
  */
 public with sharing class MERC_AccountPreferenceRollupManager implements GLBL_TriggerHandler.HandlerInterface {
+	
+	public Boolean isActive() {
+	    return true;
+	}
+
 	public void handle() {
 		if (Trigger.isInsert || Trigger.isUpdate || Trigger.isUndelete) {
 	    	execute(Trigger.new);
@@ -13,6 +18,6 @@ public with sharing class MERC_AccountPreferenceRollupManager implements GLBL_Tr
 	}
 
 	public void execute(List<SObject> sobjects) {
-		GLBL_Rollup.RollupService.triggerHandler(sobjects);
+		GLBL_RollupService.triggerHandler(sobjects);
 	}
 }

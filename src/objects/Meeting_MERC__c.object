@@ -9616,7 +9616,7 @@ else
         <protected>false</protected>
         <showsLocation>false</showsLocation>
         <showsStatus>false</showsStatus>
-        <url>/00O11000000L2DY?pv0={!Meeting_MERC__c.Id}</url>
+        <url>/{!$Setup.Mercury_Settings_MERC__c.Meeting_Participant_Report_Id_MERC__c}?pv0={!Meeting_MERC__c.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>Meetings_with_HCPs_Resources_MERC</fullName>

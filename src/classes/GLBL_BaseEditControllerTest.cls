@@ -1,3 +1,10 @@
+/**
+ * @author Joseph Ferraro & Kyle Thornton
+ *
+ * Exercises the appropriate coverage for the GLBL_BaseEditController controller via the Account page
+ * Note: this does not test the callouts, those are tested in GLBL_DescribeLayoutTest
+ */
+
 @isTest
 private class GLBL_BaseEditControllerTest {
 

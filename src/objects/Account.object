@@ -2572,6 +2572,17 @@ Created by John A Adams 11/4/2013</description>
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>HCP_Country_of_Residence2_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(HCP_Designated_Individuals_MERC__r.Country_of_Residence_GLBL__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>HCP Country of Residence2</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>HCP_Country_of_Residence_MERC__c</fullName>
         <description>Stamped from HCP Country of Residence onto Designated Individuals and Contracting Party accounts to handle visibility by territory based on HCP&apos;s country of residence. Created 05/02/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -14076,7 +14087,7 @@ Created by John A Adams 11/4/2013</description>
         <lookupPhoneDialogsAdditionalFields>PC_PHONE4</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>PC_PHONE5</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>PC_PHONE6</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>00N11000000PFsh</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Voicemail_Phone_Nbr_GLBL__c</lookupPhoneDialogsAdditionalFields>
         <searchFilterFields>ACCOUNT.NAME</searchFilterFields>
         <searchFilterFields>ACCOUNT.RECORDTYPE</searchFilterFields>
         <searchFilterFields>Primary_Addr_City_GLBL__c</searchFilterFields>
@@ -14098,6 +14109,28 @@ Created by John A Adams 11/4/2013</description>
 )</errorConditionFormula>
         <errorDisplayField>Tier_1_HCP_CV_Checked_MERC__c</errorDisplayField>
         <errorMessage>You cannot update the Tier 1 HCP CV Checked field unless the HCP Tier 1 Criteria are met and therefore the HCP is eligible to be a Tier 1 HCP.  Set this value back to blank to continue.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Prevent_Editing_of_Account_Name</fullName>
+        <active>true</active>
+        <description>Prevent Editing the Account name if HCP, HCO, or Employee</description>
+        <errorConditionFormula>(ISCHANGED( FirstName )
+|| ISCHANGED( LastName )
+|| ISCHANGED ( Salutation ) 
+)
+&amp;&amp;  
+(
+RecordType.DeveloperName = &apos;HCP_GLBL&apos; 
+|| RecordType.Name = &apos;Health_Care_Organization_GLBL&apos; 
+|| RecordType.Name = &apos;Employee_GLBL&apos;
+)
+&amp;&amp;
+(
+$Profile.Name = &quot;Mercury Meeting Functionary - Read Only&quot;
+||  $Profile.Name = &quot;Mercury Meeting Functionary - Salesforce.com - Read Only&quot; 
+|| $Profile.Name = &apos;Mercury Customer Meeting Services - Read Only&apos;
+)</errorConditionFormula>
+        <errorMessage>You may not edit the Account Name of an HCP, HCO, or Employee.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Verify_Service_Provider_Tier_Value_MERC</fullName>

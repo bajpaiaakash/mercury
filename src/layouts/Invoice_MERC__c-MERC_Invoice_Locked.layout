@@ -33,10 +33,6 @@
                 <behavior>Readonly</behavior>
                 <field>Days_Until_Invoice_Submitted_MERC__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Bank_Account_Number_Encrypted_MERC__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

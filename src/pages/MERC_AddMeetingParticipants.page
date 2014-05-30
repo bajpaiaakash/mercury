@@ -426,7 +426,7 @@
 					  							<div class="addToMeetingPopoverBody">
 						  							<apex:actionRegion >
 														<apex:outputLabel for="nrtid" value="Record Type"/>
-														<apex:actionRegion>
+														<apex:actionRegion >
 															<apex:selectList id="nrtid" value="{!newParticipantRecordTypeId}" size="1">
 																<apex:selectOptions value="{!recordTypeOptions}"/>
 																<apex:actionSupport event="onchange" reRender="moreinfo"/>

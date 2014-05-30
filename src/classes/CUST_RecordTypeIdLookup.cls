@@ -8,11 +8,15 @@
 */
 public with sharing class CUST_RecordTypeIdLookup implements GLBL_TriggerHandler.HandlerInterface {
 	
+	public Boolean isActive() {
+		return true;
+	}
+
 	public void handle() {
 		if (Trigger.isInsert || Trigger.isUpdate ) {
 	    	execute(Trigger.new);
 	   	}
-	}
+	} 
 
 	void execute(List<Sobject> sobjects) {
 		List<CST_App_Settings_CUST__c> settings = (List<CST_App_Settings_CUST__c>)sobjects;

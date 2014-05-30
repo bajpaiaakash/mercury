@@ -16,6 +16,11 @@ public with sharing class MERC_ParticipantTovStampHandler implements GLBL_Trigge
 	   	}
 	}
 
+	public Boolean isActive()
+	{
+		return MERC_TriggerHandlerStateManager.isActive(MERC_ParticipantTovStampHandler.class);
+	}
+
 	public void handle()
 	{
 		if (Trigger.isInsert || Trigger.isUpdate ) {
