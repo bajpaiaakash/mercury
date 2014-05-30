@@ -29,9 +29,6 @@ global with sharing class MERC_MeetingDayManagerController extends GLBL_GenericR
 			MERC_Util.getFieldSetFieldList('Meeting_Day_MERC__c', new List<String>{'Meeting_Day_Manager_Columns_MERC'}),
 			'Date_MERC__c' //orderChildrenBy
 		);
-
-		//IE9 compatibility mode hack
-   		Apexpages.currentPage().getHeaders().put('X-UA-Compatible', 'IE=Edge');
 	}
 
 	public override PageReference add() {

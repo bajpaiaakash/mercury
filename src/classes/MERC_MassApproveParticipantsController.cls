@@ -23,7 +23,6 @@ public with sharing class MERC_MassApproveParticipantsController {
     private final String theMeetingId;
 
     public MERC_MassApproveParticipantsController(ApexPages.StandardSetController stdSetController) {
-        Apexpages.currentPage().getHeaders().put('X-UA-Compatible', 'IE=9'); //IE compatibility mode hack
         theMeetingId = ApexPages.currentPage().getParameters().get('id');
     }
 
