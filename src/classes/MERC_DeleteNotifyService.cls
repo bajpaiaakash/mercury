@@ -6,7 +6,7 @@
  */
 
 public with sharing class MERC_DeleteNotifyService implements GLBL_TriggerHandler.HandlerInterface {
-	
+
 	public static Boolean skipCallout = false;
 
 	public Boolean isActive() {
@@ -16,7 +16,7 @@ public with sharing class MERC_DeleteNotifyService implements GLBL_TriggerHandle
 	public void handle() {
 		List<Sobject> sobjects = Trigger.old;
 		String sobjectTypeAPIName = MERC_Util.getSobjectAPIName(sobjects.get(0));
-		String serializedSobjects = Json.serialize(sobjects); 
+		String serializedSobjects = Json.serialize(sobjects);
 		String sessionId = UserInfo.getSessionId();
 		//we need to send primitives because execute method is @future
 		if (!MERC_DeleteNotifyService.skipCallout)
@@ -34,13 +34,13 @@ public with sharing class MERC_DeleteNotifyService implements GLBL_TriggerHandle
 
 	public static void sendDeletesToRTI(String sobjectType, String serializedSobjects, String sessionId) {
 		DeleteNotification notification = new DeleteNotification(sobjectType, serializedSobjects, sessionId);
-		String jsonstring = Json.serialize(notification); 
+		String jsonstring = Json.serialize(notification);
 		system.debug(jsonstring);
 
+		Mercury_Settings_MERC__c settings = Mercury_Settings_MERC__c.getOrgDefaults();
 		HttpRequest r = new HttpRequest();
 		r.setHeader('Content-type', 'text/json');
-// 		r.setEndpoint('https://gso1integration.xh1.lilly.com/rti/v1/genericUpdated'); //todo custom setting
-		r.setEndpoint('http://ec2-54-227-9-128.compute-1.amazonaws.com/rti-development/v1/genericDeleted');
+		r.setEndpoint(settings.MVI_Service_Endpoint_MERC__c);
 		r.setMethod('POST');
 		r.setBody(jsonstring);
 
