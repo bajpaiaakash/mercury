@@ -7,7 +7,7 @@
  * 		-we can refactor in the future to possibly implement a @future method which updates an expired access token on a 401 response
  */
 public with sharing class GLBL_CustomerSearchToolService {
-	
+
 	private String baseUrl;
 	public  String accessToken { get; private set; }
 	public  Mercury_Settings_MERC__c appSettings {
@@ -30,11 +30,15 @@ public with sharing class GLBL_CustomerSearchToolService {
 		String requestJson = JSON.serialize(req);
 		system.debug('>>> '+requestJson);
 
+		return processResponse(tryCallout(requestJson), requestJson);
+	}
+
+	private HttpResponse tryCallout(String requestJson) {
 		HttpRequest r = new HttpRequest();
 		r.setHeader('Content-type', 'application/json');
 		r.setHeader('Authorization', 'Bearer '+this.accessToken);
 		r.setHeader('Accept', 'application/json');
-		r.setEndpoint(this.baseUrl+'/search'); 
+		r.setEndpoint(this.baseUrl+'/search');
 		r.setMethod('POST');
 		r.setBody(requestJson);
 		r.setTimeout(30000); //match heroku timeout
@@ -42,33 +46,39 @@ public with sharing class GLBL_CustomerSearchToolService {
 		system.debug('>>>  '+r.getHeader('Authorization'));
 		error = null;
 		Http h = new Http();
-		HttpResponse response = h.send(r);
-		String s = response.getBody();
-		system.debug('>>> response from search tool: '+s);
+		return h.send(r);
+	}
+
+	private List<SearchResult> processResponse(HttpResponse response, String requestJson) {
+		List<SearchResult> results;
 		if (response.getStatusCode() == 400) {
-			error = (ErrorResult)JSON.deserialize(s, ErrorResult.class);
-			return null;
+			error = (ErrorResult)JSON.deserialize(response.getBody(), ErrorResult.class);
 		} else if (response.getStatusCode() == 401) {
-			// TODO - instead of throwing an error we need to retry authorization (See class comments above)
-			error = (ErrorResult)JSON.deserialize(s, ErrorResult.class);
-			return null;
+			/** if the user is unauthorized refresh the token and try again, only one more time**/
+			if (String.isNotBlank(requestJson)) {
+				refreshToken();
+				HttpResponse retryResponse = tryCallout(requestJson);
+				results = processResponse(retryResponse, ''); //pass empty string this time so we won't try again if we get another 401 response.
+				return results;
+			}
+			error = (ErrorResult)JSON.deserialize(response.getBody(), ErrorResult.class);
 		} else if (response.getStatusCode() == 200) {
-			s = s.replaceAll('__c"','"');
-			List<SearchResult> results = (List<SearchResult>)JSON.deserialize(s, List<SearchResult>.class);
+			String s = response.getBody().replaceAll('__c"','"');
+			results = (List<SearchResult>)JSON.deserialize(s, List<SearchResult>.class);
 			system.debug('>>> results from search tool: '+results);
-			return results;
+		} else {
+			error = new ErrorResult();
+			error.Error = 'UNEXPECTED';
+			error.Message = response.getBody();
 		}
-		error = new ErrorResult();
-		error.Error = 'UNEXPECTED';
-		error.Message = s;
-		return null;
+		return results;
 	}
 
 	//retrieves a token if it expires
 	public void refreshToken() {
 		HttpRequest r = new HttpRequest();
 		r.setHeader('Content-type', 'application/x-www-form-urlencoded');
-		r.setEndpoint(this.baseUrl+'/oauth/token'); 
+		r.setEndpoint(this.baseUrl+'/oauth/token');
 		r.setBody('grant_type=client_credentials&client_id='+this.appSettings.CST_Client_Id_MERC__c+'&client_secret='+this.appSettings.CST_Client_Secret_MERC__c);
 		r.setMethod('POST');
 
@@ -80,18 +90,10 @@ public with sharing class GLBL_CustomerSearchToolService {
 		String today = DateTime.now().formatGmt('MMM d, hh:mm:ss z');
 		if (tokenResponse.access_token != null) {
 			this.accessToken = tokenResponse.access_token;
-//			recordResult(today+': last response successful');
 		} else if (tokenResponse.error != null) {
-//			recordResult(today+': '+ tokenResponse.error +' - '+tokenResponse.error_description);
+			System.debug('\n\n\n>>>> ERROR DURING TOKEN REFRESH ' + today+ ': '+ tokenResponse.error +' - '+tokenResponse.error_description);
 		}
 	}
-
-//	@future
-//	private static void recordResult(String s) {
-//		Mercury_Settings_MERC__c mercSettings = Mercury_Settings_MERC__c.getOrgDefaults();
-//		mercSettings.CST_Client_Auth_Error_MERC__c = s.left(254);
-// 		update mercSettings;
-//	}
 
 	public class AccessTokenResponse {
 		public String token_type;

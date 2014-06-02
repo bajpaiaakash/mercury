@@ -5,7 +5,7 @@
  **/
 @isTest
 private class GLBL_CustomerSearchToolServiceTest {
-	
+
 	static final Integer TEST_SET_SIZE = 200;
 
 	static List<Account> accts;
@@ -19,7 +19,7 @@ private class GLBL_CustomerSearchToolServiceTest {
 	/**
 	 * Exercise the token refresh, both it's error state and success
 	 */
-	@isTest 
+	@isTest
 	static void testRefreshToken() {
 		Mercury_Settings_MERC__c settings = new Mercury_Settings_MERC__c();
 		settings.CST_Client_Id_MERC__c = 'Guildenstern';
@@ -50,7 +50,7 @@ private class GLBL_CustomerSearchToolServiceTest {
 	 * Exercise a simple search.
 	 * @see GLBL_CustomerSearchToolServiceMock
 	 **/
-// 	@isTest
+    @isTest
 	static void testSearch() {
 		Test.setMock(HttpCalloutMock.class, mockServices);
 		mockServices.setBody(JSON.serialize(accts));
@@ -69,7 +69,7 @@ private class GLBL_CustomerSearchToolServiceTest {
 	/**
 	 * Cycle through various possible errors
 	 **/
-//	@isTest
+	@isTest
 	static void testSearchExceptions() {
 		Test.startTest();
 		testSearchException(400,'BAD REQUEST');
@@ -101,11 +101,11 @@ private class GLBL_CustomerSearchToolServiceTest {
 	}
 
 	/**
-	 * This method is just embarrassing. Apparently all the calls to JSON.deserialise are not 
+	 * This method is just embarrassing. Apparently all the calls to JSON.deserialise are not
 	 * recognized by the test coverage engine even though it does use the SearchResult inner
 	 * class. So, to get official coverage, call each property explicitly...
 	 */
-//	@isTest
+ 	@isTest
 	static void testSearchResultClass() {
 
 		GLBL_CustomerSearchToolService.SearchResult sr = new GLBL_CustomerSearchToolService.SearchResult();
@@ -144,5 +144,5 @@ private class GLBL_CustomerSearchToolServiceTest {
 	    if (sr.primary_addr_city_glbl == null) sr.primary_addr_city_glbl = 'primary_addr_city_glbl';
 	    if (sr.prim_affil_addr_city_glbl == null) sr.prim_affil_addr_city_glbl = 'prim_affil_addr_city_glbl';
 	    if (sr.recordtypeid == null) sr.recordtypeid = 'recordtypeid';
-	}	
+	}
 }
