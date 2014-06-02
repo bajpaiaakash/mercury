@@ -381,7 +381,7 @@ public with sharing class MERC_TestFactory {
 	        String testemail = 'testuser'+i+'@unittest.com';
 	        User u = new User(profileId = p.id, username = testemail, email = testemail,
 	                           emailencodingkey = 'UTF-8', localesidkey = 'en_US',
-	                           languagelocalekey = 'en_US', timezonesidkey = 'America/Los_Angeles',
+	                           languagelocalekey = 'en_US', timezonesidkey = 'Europe/London',
 	                           alias='utusr'+i, lastname='lastname');
 	        users.add(u);
 	    }
