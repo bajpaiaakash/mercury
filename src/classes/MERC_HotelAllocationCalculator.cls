@@ -68,13 +68,14 @@ public with sharing class MERC_HotelAllocationCalculator implements GLBL_Trigger
 				String vendorId = t.Meeting_Vendor_MERC__c;
 				String meetingId = t.Meeting_Id_MERC__c;
 
-				Date firstDay = t.Sgmnt_Bgin_TS_MERC__c.date();
-				Date lastDay = t.Sgmnt_End_TS_MERC__c.date();
+				Date firstDay = t.Sgmnt_Bgin_TS_MERC__c.dateGMT();
+				Date lastDay = t.Sgmnt_End_TS_MERC__c.dateGMT();
 				Integer daysBetween = firstDay.daysBetween(lastDay);
 
 				//Set<Date> travelItineraryDates = new Set<Date>();
 				for (Integer i = 0; i < daysBetween; i++) {
 					Date d = firstDay.addDays(i);
+
 					String dString = d.year()+'-'+d.month()+'-'+d.day();
 					//travelItineraryDates.add(d);
 					if (dateMeetingVendorToNumberOfTravelItineraries.containsKey(dString+';'+meetingId+';'+vendorId)) {

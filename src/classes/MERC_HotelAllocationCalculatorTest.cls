@@ -1,6 +1,11 @@
+/**
+ * @author Joseph Ferraro
+ *
+ * Description: This is the unit test for the MERC_HotelAllocationCalculator class
+ */
 @isTest
 private class MERC_HotelAllocationCalculatorTest {
-	
+
 	static List<Meeting_MERC__c> meetings;
 	static List<Account> accounts;
 	static List<Meeting_Day_MERC__c> meetingDays;
@@ -34,19 +39,19 @@ private class MERC_HotelAllocationCalculatorTest {
 
 		Hotel_Allocation_MERC__c hotel1Day1Allocation = new Hotel_Allocation_MERC__c();
 		hotel1Day1Allocation.Meeting_Vendor_MERC__c = hotel1.Id;
-		hotel1Day1Allocation.Meeting_Day_MERC__c = meetingDays.get(0).Id;
+		hotel1Day1Allocation.Meeting_Day_MERC__c = day1.Id;
 		hotel1Day1Allocation.Total_Rooms_in_Block_MERC__c = 50;
 		insert hotel1Day1Allocation;
 
 		Hotel_Allocation_MERC__c hotel1Day2Allocation = new Hotel_Allocation_MERC__c();
 		hotel1Day2Allocation.Meeting_Vendor_MERC__c = hotel1.Id;
-		hotel1Day2Allocation.Meeting_Day_MERC__c = meetingDays.get(1).Id;
+		hotel1Day2Allocation.Meeting_Day_MERC__c = day2.Id;
 		hotel1Day2Allocation.Total_Rooms_in_Block_MERC__c = 50;
 		insert hotel1Day2Allocation;
 
 		Hotel_Allocation_MERC__c hotel1Day3Allocation = new Hotel_Allocation_MERC__c();
 		hotel1Day3Allocation.Meeting_Vendor_MERC__c = hotel1.Id;
-		hotel1Day3Allocation.Meeting_Day_MERC__c = meetingDays.get(2).Id;
+		hotel1Day3Allocation.Meeting_Day_MERC__c = day3.Id;
 		hotel1Day3Allocation.Total_Rooms_in_Block_MERC__c = 50;
 		insert hotel1Day3Allocation;
 
@@ -65,5 +70,5 @@ private class MERC_HotelAllocationCalculatorTest {
 		system.assertEquals(1, [SELECT Booked_Rooms__c FROM Hotel_Allocation_MERC__c WHERE Id = :hotel1Day2Allocation.Id].Booked_Rooms__c);
 		system.assertEquals(0, [SELECT Booked_Rooms__c FROM Hotel_Allocation_MERC__c WHERE Id = :hotel1Day3Allocation.Id].Booked_Rooms__c);
 	}
-	
+
 }
