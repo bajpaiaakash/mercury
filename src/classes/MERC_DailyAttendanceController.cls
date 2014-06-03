@@ -14,7 +14,6 @@ public with sharing class MERC_DailyAttendanceController {
 	public Boolean hasError { get; private set; }
 
 	public MERC_DailyAttendanceController(ApexPages.StandardSetController c) {
-		Apexpages.currentPage().getHeaders().put('X-UA-Compatible', 'IE=9'); //IE compatibility mode hack
 		this.refreshParticipants = false;
 		this.hasError = false;
 		validate();
@@ -61,7 +60,7 @@ public with sharing class MERC_DailyAttendanceController {
 			if (participantIds == null) {
 				participantIds = new Set<Id>();
 				Id employeeRecordTypeId = [SELECT ID FROM RecordType WHERE SobjectType = 'Account' and DeveloperName = 'Employee_GLBL'].ID;
-				List<String> excludedStatuses = new List<String>{ 'Pending Approval', 'Declined', 'Interested in Meeting', 'Cancelled' };
+				List<String> excludedStatuses = new List<String>{ 'Pending Approval', 'Declined', 'Interested in Meeting', 'Cancelled', 'Rejected' };
 				for (Meeting_Participant_MERC__c p : [SELECT ID FROM
 																	Meeting_Participant_MERC__c
 																		WHERE
@@ -85,7 +84,7 @@ public with sharing class MERC_DailyAttendanceController {
 		if (!this.hasError)
 			this.selectedMeetingDayId = meetingDays.get(0).Id;
 		if (participants.size() == 0) {
-			ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Only those Meeting Participants that are allocated to attend (e.g. Not Declined, Interested in Meeting, Rejected, Cancelled or Pending Approval) will appear in this list.  Please ensure Meeting Participants have been added to the Meeting and all Meeting Participants have the correct Status.'));
+			ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Only those Meeting Participants that are allocated to attend (with a status of Approved, Accepted, Attended or No Show) will appear in this list. Please ensure Meeting Participants have been added to the Meeting and all Meeting Participants have the correct Status.'));
 			this.hasError = true;
 		}
 		if (!this.hasError) {
