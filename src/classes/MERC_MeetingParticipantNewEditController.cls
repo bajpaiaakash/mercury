@@ -68,7 +68,7 @@ public with sharing class MERC_MeetingParticipantNewEditController extends GLBL_
 		return null;
 	}
 
-	public PageReference save() {
+	public override PageReference save() {
 		try {
 		    if (ApexPages.currentPage().getParameters().containsKey('RecordType')) {
 		    	this.meetingParticipant.RecordTypeId = ApexPages.currentPage().getParameters().get('RecordType');

@@ -13,6 +13,7 @@ global virtual with sharing class GLBL_BaseEditController {
 	public Sobject mySobject { get; set; }
 	public String sObjectAPIName { get; set; }
 
+	private ApexPages.StandardController stdController;
 	private String sObjectRecordType;
 	private Map<String, sObjectField> schemaFields;
 
@@ -30,7 +31,7 @@ global virtual with sharing class GLBL_BaseEditController {
 	// it is necessary here to take an SobjectType parameter due to the limitation that we cannot call the getRecord()
 	// method on the standard controller (to use for a describe) and then call the addFields() method after that.
 	public GLBL_BaseEditController(ApexPages.StandardController stdController, Schema.SobjectType sotype) {
-		Apexpages.currentPage().getHeaders().put('X-UA-Compatible', 'IE=9'); //IE compatibility mode hack
+		this.stdController = stdController;
 		Schema.DescribeSObjectResult sobjectDescribe = sotype.getDescribe();
 		this.schemaFields = sobjectDescribe.fields.getMap();
 		if (!Test.isRunningTest()) {
@@ -76,6 +77,20 @@ global virtual with sharing class GLBL_BaseEditController {
 	public GLBL_BaseEditController(ApexPages.StandardController stdController, Schema.SobjectType sotype, Set<String> dfs) {
 		this(stdController, sotype);
 		this.dynamicFields = dfs;
+	}
+
+	public virtual PageReference save() {
+		//by overriding the standard controller we lose the ability to use the standard saveURL functionality. this mimics that functionality
+		PageReference pageRef = stdController.save();
+		if (ApexPages.currentPage().getParameters().containsKey('saveURL')) {
+			//if the saveURL param exists, get it, decode it and split it at '#'. if an anchor exists we will get two strings
+			List<String> saveURL = EncodingUtil.urlDecode(ApexPages.currentPage().getParameters().get('saveURL'), 'UTF-8').split('#');
+			pageRef = new PageReference(saveURL.get(0));
+			if (saveURL.size()>1) {
+				pageRef.setAnchor(saveURL.get(1));
+			}
+		}
+		return pageRef;
 	}
 
 	// A Map of parent field names to Lookup_Picklist_Settings_MERC__c for dependent lookups as picklists.

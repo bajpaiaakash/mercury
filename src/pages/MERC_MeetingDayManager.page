@@ -123,6 +123,7 @@
 						<apex:repeat var="f" value="{!$ObjectType.Meeting_MERC__c.FieldSets.Meeting_Day_Manager_MERC}">
 				        	<apex:outputField value="{!parent[f]}" />
 				        </apex:repeat>
+				        <apex:outputText value="*All ToV is captured in the Meeting Currency."/>
 				    </apex:pageBlockSection>
 				</apex:pageBlock>
 
