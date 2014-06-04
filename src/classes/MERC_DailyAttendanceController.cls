@@ -36,6 +36,7 @@ public with sharing class MERC_DailyAttendanceController {
 						tovRecord.Meeting_Participant_MERC__c = participantId;
 						tovRecord.Meeting_Day_MERC__c = day.Id;
 						tovRecord.External_ID_MERC__c = participantId+'_'+day.Id;
+						tovRecord.CurrencyIsoCode = meeting.CurrencyIsoCode;
 						tovsToUpsert.add(tovRecord);
 					}
 				}
@@ -95,7 +96,7 @@ public with sharing class MERC_DailyAttendanceController {
 	public Meeting_MERC__c meeting {
 		get {
 			if (meeting == null) {
-				meeting = [Select Id, Name From Meeting_MERC__c Where Id = :ApexPages.currentPage().getParameters().get('id')];
+				meeting = [Select Id, Name, CurrencyIsoCode From Meeting_MERC__c Where Id = :ApexPages.currentPage().getParameters().get('id')];
 			}
 			return meeting;
 		}
