@@ -14,7 +14,6 @@ public with sharing class MERC_AddMeetingParticipantsController {
     public Meeting_Participant_MERC__c meetingParticipant { get; set; }
 
 	public MERC_AddMeetingParticipantsController(ApexPages.StandardSetController controller) {
-        Apexpages.currentPage().getHeaders().put('X-UA-Compatible', 'IE=9'); //IE compatibility mode hack
         this.searchRequest = new GLBL_CustomerSearchToolService.SearchRequest();
         meetingParticipant = new Meeting_Participant_MERC__c();
 	}
