@@ -1,6 +1,7 @@
 @isTest
 private class MERC_HcpCapYearlyCalculationJobTest {
 
+	static User testUser = MERC_TestFactory.getRunningUser();
 	static List<Account> accounts = MERC_TestFactory.insertAccounts(200);
 	static Meeting_MERC__c meeting = MERC_TestFactory.insertMeetings(1).get(0);
 	static List<Meeting_Participant_MERC__c> participants = MERC_TestFactory.insertParticipants(meeting.Id, accounts);
@@ -53,14 +54,14 @@ private class MERC_HcpCapYearlyCalculationJobTest {
 
 		//System.assertEquals(1,[SELECT COUNT() FROM Account WHERE Allocated_CAP_MERC__c=null]);
 
-		Test.startTest();
-       	MERC_HcpCapYearlyCalculationJob m = new MERC_HcpCapYearlyCalculationJob();
-       	Database.executeBatch(m);
-       	Test.stopTest();
+		System.runAs(testUser) {
+			Test.startTest();
+	       	MERC_HcpCapYearlyCalculationJob m = new MERC_HcpCapYearlyCalculationJob();
+	       	Database.executeBatch(m);
+	       	Test.stopTest();
+	    }
 
        	System.debug([select Allocated_CAP_MERC__c from account]);
        	System.assertEquals(200,[SELECT COUNT() FROM Account WHERE Allocated_CAP_MERC__c=100.0], [select Allocated_CAP_MERC__c from account]);
 	}
 }
-
-
