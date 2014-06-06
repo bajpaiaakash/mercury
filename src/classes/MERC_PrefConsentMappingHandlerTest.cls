@@ -92,4 +92,39 @@ public with sharing class MERC_PrefConsentMappingHandlerTest {
 			System.assert(capturedException);
 		}
 	}
+
+	@isTest static void test_should_keep_account_in_sync_on_delete() {
+		System.runAs(testUser) {
+			List<Preferences_and_Consent_GLBL__c> prefList1 = new List<Preferences_and_Consent_GLBL__c>();
+			List<Preferences_and_Consent_GLBL__c> prefList2 = new List<Preferences_and_Consent_GLBL__c>();
+			Id recordTypeId = [SELECT Id FROM RecordType WHERE sObjectType = 'Preferences_and_Consent_GLBL__c' and DeveloperName = 'Preferences_EVNT_MVN' limit 1].Id;
+			for (Account acct : acctsList) {
+				prefList1.add( new Preferences_and_Consent_GLBL__c(
+								Account_GLBL__c             = acct.Id,
+								RecordTypeId                = recordTypeId,
+								Preference_Type_MERC__c     = 'Communication Preference',
+								Preference_Sub_Type_MERC__c = 'E-mail')
+				);
+
+				prefList2.add( new Preferences_and_Consent_GLBL__c(
+								Account_GLBL__c             = acct.Id,
+								RecordTypeId                = recordTypeId,
+								Preference_Type_MERC__c     = 'Language Preference',
+								Preference_Sub_Type_MERC__c = 'en')
+				);
+			}
+
+			insert prefList1;
+			insert prefList2;
+			System.assertEquals(NUM_TEST_ACCTS, [SELECT COUNT() FROM Account WHERE Communication_Preference_MERC__c = 'E-mail' AND Id IN :acctsList]);
+			System.assertEquals(NUM_TEST_ACCTS, [SELECT COUNT() FROM Account WHERE Language_Preference_MERC__c = 'en' AND Id IN :acctsList]);
+
+			Test.startTest();
+			delete prefList2;
+			Test.stopTest();
+
+			System.assertEquals(NUM_TEST_ACCTS, [SELECT COUNT() FROM Account WHERE Communication_Preference_MERC__c = 'E-mail' AND Id IN :acctsList]);
+			System.assertEquals(0, [SELECT COUNT() FROM Account WHERE Language_Preference_MERC__c = 'en' AND Id IN :acctsList]);
+		}
+	}
 }

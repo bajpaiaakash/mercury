@@ -7,6 +7,18 @@
 The name of the record should be the api name of the object.</description>
     <enableFeeds>false</enableFeeds>
     <fields>
+        <fullName>Account_Relationship_Name__c</fullName>
+        <description>The value representing the parent child relationship between Account and this object. e.g. Meeting Participants is represented as &apos;Event_Participants__r&apos;</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The value representing the parent child relationship between Account and this object. e.g. Meeting Participants is represented as &apos;Event_Participants__r&apos;</inlineHelpText>
+        <label>Account Relationship Name</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Allow_Winning_Account_Deletes__c</fullName>
         <defaultValue>false</defaultValue>
         <description>Checking this box indicates that objects related to the winning account may be deleted.</description>

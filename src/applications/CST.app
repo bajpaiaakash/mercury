@@ -9,4 +9,5 @@
     <tab>CST_App_Settings_CUST__c</tab>
     <tab>CST_App_Menu_Pool_GLBL__c</tab>
     <tab>CST_Admin_Utilities</tab>
+    <tab>CST_Picklist_CUST__c</tab>
 </CustomApplication>

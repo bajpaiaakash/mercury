@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customButtons>Loop__LOOPlus</customButtons>
+    <customButtons>Upload_Content_MERC</customButtons>
+    <customButtons>Generate_Content_MERC</customButtons>
+    <excludeButtons>DataDotComClean</excludeButtons>
+    <excludeButtons>RequestUpdate</excludeButtons>
+    <excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -63,19 +67,19 @@
                 <field>Cust_Id_GLBL__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Clsfctn_Desc_GLBL__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Key_Opinion_Leader_GLBL__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Spclty_Desc_GLBL__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Other_Specialities_GLBL__c</field>
             </layoutItems>
             <layoutItems>
@@ -92,11 +96,11 @@
         <label>Contractual Information</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Payment_Required_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Contract_Limitations_on_Use_MERC__c</field>
             </layoutItems>
         </layoutColumns>
@@ -141,7 +145,7 @@
                 <field>Utilised_CAP_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>CAP_Usage_Note_MERC__c</field>
             </layoutItems>
             <layoutItems>
@@ -295,12 +299,12 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Account_Cust_Id_GLBL__c</fields>
+        <fields>Account_GLBL__c</fields>
         <fields>Afltn_Party_Rcrd_Typ_Cd_GLBL__c</fields>
         <fields>Afltn_Clsfctn_Cd_GLBL__c</fields>
         <fields>Afltn_Role_Cd_GLBL__c</fields>
         <fields>Priority_Rank_Nbr_GLBL__c</fields>
-        <relatedList>Affiliation_GLBL__c.Account_GLBL__c</relatedList>
+        <relatedList>Affiliation_GLBL__c.Account_Cust_Id_GLBL__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -335,6 +339,12 @@
         <fields>Primary_Addr_City_GLBL__c</fields>
         <fields>Primary_Address_Country_GLBL__c</fields>
         <relatedList>Account.HCP_Contracting_Party_MERC__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Party_Alternate_External_ID_GLBL__c</fields>
+        <fields>Party_Rcrd_Typ_Cd_GLBL__c</fields>
+        <relatedList>Alternate_Id_GLBL__c.Account_GLBL__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>VERSION.TITLE</fields>

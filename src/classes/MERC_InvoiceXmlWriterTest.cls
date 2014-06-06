@@ -1,20 +1,27 @@
-/** 
-* @author Sean Harrison 
-* 
-* This is a unit test class for MERC_InvoiceXmlWriter.cls which is intended 
+/**
+* @author Sean Harrison
+*
+* This is a unit test class for MERC_InvoiceXmlWriter.cls which is intended
 * as a trigger on Invoice_MERC__c
 */
 @isTest
 private class MERC_InvoiceXmlWriterTest {
-	
+
 	static List<Account> accounts;
 	static List<Meeting_MERC__c> meetings;
 	static List<Meeting_Participant_MERC__c> participants;
 	static List<Invoice_MERC__c> invoices;
 	static List<Invoice_Line_Item_MERC__c> lineItems;
 	static Integer numOfLineItems;
+	static User testUser = MERC_TestFactory.getRunningUser();
 
-	static {
+	// exercise the addition (and deletion) of xml files to associated content
+	@isTest
+	static void createXMLFiles() {
+
+		//set up the data. Normally this would be done in a static block outside of the test class but that causes
+		//the error 'You have uncommitted work pending. Please commit or rollback before calling out site:developer.salesforce.com'
+		//to to be thrown for the testCallOut method below
 		MERC_TestFactory.adjustForSFDCSetMockBug = true;
 		accounts = MERC_TestFactory.insertAccounts(1);
 		meetings = MERC_TestFactory.insertMeetings(1);
@@ -27,11 +34,11 @@ private class MERC_InvoiceXmlWriterTest {
 		}
 		update participants;
 		lineItems = MERC_TestFactory.insertInvoiceLineItems(invoices[0].Id,numOfLineItems);
-	}
 
-	// exercise the addition (and deletion) of xml files to associated content
-	@isTest 
-	static void createXMLFiles() {
+
+		//start the test
+		//the call to MERC_InvoiceXmlWriter.writeXml() queries for a content library so we can't use
+		//System.runas(testUser) since we have no way of associating that user to the Mercury content library
 		RecordType rt = [SELECT Id FROM RecordType WHERE Sobjecttype = 'Invoice_Line_Item_MERC__c' AND DeveloperName = 'Consulting_Project_MERC'];
 		lineitems = [SELECT Id, Amount_MERC__c, Consulting_Amount_MERC__c, Invoice_MERC__c FROM Invoice_Line_Item_MERC__c WHERE Id in :lineItems];
 		for (Invoice_Line_Item_MERC__c item : lineitems) {
@@ -48,10 +55,11 @@ private class MERC_InvoiceXmlWriterTest {
 		for (Invoice_MERC__c invoice : invoices) {
 			invoiceIds.add(invoice.Id);
 			invoice.Submit_for_Payment_MERC__c = 'Yes';
-			invoice.Invoice_Attached_MERC__c = true;  // tell it a PDF is already present.  "Lie to me and tell me everything is all right" - Jonny Lang 		
+			invoice.Invoice_Attached_MERC__c = true;  // tell it a PDF is already present.  "Lie to me and tell me everything is all right" - Jonny Lang
 		}
 		update invoices;
 
+		//if this fails make sure the running user is added to the mercury library.
 		MERC_InvoiceXmlWriter.writeXml(invoiceIds);
 
 		List<ContentVersion> contentVers = new List<ContentVersion>(
@@ -77,23 +85,23 @@ private class MERC_InvoiceXmlWriterTest {
 	}
 
 	// exercise callout in  MERC_InvoiceXmlWriter.execute()
-	@isTest 
+	@isTest
 	static void testCallout() {
 
-		Set<Id> invoiceIds = new Set<Id>();
-		for (Invoice_MERC__c invoice : invoices) {
-			invoiceIds.add(invoice.Id);
+		System.runAs(testUser) {
+			//since we are simply exercising the code we don't need to setup any dummy data. the dummy data setup was
+			//removed to avoid getting the You have uncommitted work pending. Please commit or rollback before calling out site:developer.salesforce.com error
+			//everything is hard coded here and our code is exercised.
+			MERC_XmlWriterRestResource.RemoteXmlWriterResponse response = new MERC_XmlWriterRestResource.RemoteXmlWriterResponse();
+			response.success = true;
+			response.message = 'XML writer job successfully queued 1 jobs';
+			String responseString = JSON.serialize(response);
+			MERC_XmlWriterCalloutMock mock = new MERC_XmlWriterCalloutMock(200, 'OK', responseString, null);
+
+			Test.startTest();
+			Test.setMock(HttpCalloutMock.class, mock);
+			MERC_InvoiceXmlWriter.execute(new Set<ID>(), UserInfo.getSessionId());
+			Test.stopTest();
 		}
-
-		MERC_XmlWriterRestResource.RemoteXmlWriterResponse response = new MERC_XmlWriterRestResource.RemoteXmlWriterResponse();
-		response.success = true;
-		response.message = 'XML writer job successfully queued '+invoiceIds.size()+' jobs';	
-		String responseString = JSON.serialize(response);	
-		MERC_XmlWriterCalloutMock mock = new MERC_XmlWriterCalloutMock(200, 'OK', responseString, null);
-
-		Test.setMock(HttpCalloutMock.class, mock);
-		Test.startTest();
-		MERC_InvoiceXmlWriter.execute(invoiceIds, UserInfo.getSessionId());
-		Test.stopTest();
 	}
 }

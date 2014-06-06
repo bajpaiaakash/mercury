@@ -22,19 +22,35 @@ global with sharing class MERC_DocusignEmbeddedSignatureService {
 			MERC_DocusignService docService = new MERC_DocusignService();
 			MERC_DocusignService.EnvelopeRecipientDetailResponse envelopeDetail = docService.getEnvelopeRecipientDetails(envelopeId);
 
+			system.debug('envelopeDetail -->');
+			system.debug(envelopeDetail);
+
 			MERC_DocusignService.Signer s;
 			for (MERC_DocusignService.Signer signer : envelopeDetail.signers) {
+				system.debug('signer -->');
+				system.debug(signer);
+
 				if (signer.status != 'completed' && signer.routingOrder != '1') { //get signer who hasn't completed (this is our HCP)
 					s = signer;
 					break;
 				}
 			}
 
+			system.debug('signer to delete -->');
+			system.debug(s);
+
 			if (s == null)
 				throw new MERC_Exception('Unable to find valid embedded signer');
 
+			MERC_DocusignService.Tab tabsForDeactivatedSigner = docService.getTabsForRecipient(envelopeId, s.recipientId);
+
+			MERC_DocusignService.Signer signerToDeactivate = s;
+			signerToDeactivate.email = 'NOTAVALIDEMAIL@NOTAVALIDEMAIL.COM';
+			signerToDeactivate.name = 'NA';
+			docService.updateSigner(envelopeId, signerToDeactivate); //deactivate the "remote signer" HCP
+
+			docService.addSigner(envelopeId, mp.Account_MERC__c, true, 3, tabsForDeactivatedSigner); //add the HCP back as an embedded signer
 			docService.deleteSigner(envelopeId, s); //delete the "remote signer" HCP
-			docService.addSigner(envelopeId, mp.Account_MERC__c, true, 2); //add the HCP back as an embedded signer
 
 			envelopeDetail = docService.getEnvelopeRecipientDetails(envelopeId); //retrieve the update envelope details
 

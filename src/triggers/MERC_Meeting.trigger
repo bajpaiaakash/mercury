@@ -18,5 +18,7 @@ trigger MERC_Meeting on Meeting_MERC__c (before insert, before update, before de
 
         .bind(GLBL_TriggerHandler.Evt.afterinsert,  new MERC_AnonymiseNonHCPDataHandler())
         .bind(GLBL_TriggerHandler.Evt.afterupdate,  new MERC_AnonymiseNonHCPDataHandler())
+
+        .bind(GLBL_TriggerHandler.Evt.afterupdate,  new MERC_MeetingCurrencyUpdateHandler())
         .manage();
 }

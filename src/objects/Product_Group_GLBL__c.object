@@ -274,6 +274,18 @@ Created by John A Adams 11/1/2013</description>
         <trackHistory>false</trackHistory>
         <type>Text</type>
     </nameField>
+    <namedFilters>
+        <fullName>nf_01I110000008cxxEAA_00N11000000PFpYEAW</fullName>
+        <active>true</active>
+        <field>Meeting_Products_MERC__c.Product_MERC__c</field>
+        <filterItems>
+            <field>Product_Group_GLBL__c.Cntry_Cd_GLBL__c</field>
+            <operation>equals</operation>
+            <value>ZZ</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+        <name>Meeting Product_Product</name>
+    </namedFilters>
     <pluralLabel>Product Group</pluralLabel>
     <searchLayouts>
         <customTabListAdditionalFields>Prod_Grp_Desc_Txt_GLBL__c</customTabListAdditionalFields>

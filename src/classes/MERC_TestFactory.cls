@@ -187,6 +187,22 @@ public with sharing class MERC_TestFactory {
 		return tov;
 	}
 
+	public static List<Daily_Attendance_TOV_MERC__c> insertBulkTovs(List<Meeting_Day_MERC__c> meetingDays, List<Meeting_Participant_MERC__c> meetingParicipants) {
+		List<Daily_Attendance_TOV_MERC__c> tovs = new List<Daily_Attendance_TOV_MERC__c>();
+		for (Meeting_Day_MERC__c meetingDay : meetingDays) {
+			for (Meeting_Participant_MERC__c meetingParticipant : meetingParicipants) {
+				if (meetingParticipant.Meeting_MERC__c == meetingDay.Meeting_MERC__c) {
+					Daily_Attendance_TOV_MERC__c tov = new Daily_Attendance_TOV_MERC__c();
+					tov.Meeting_Day_MERC__c = meetingDay.Id;
+					tov.Meeting_Participant_MERC__c = meetingParticipant.Id;
+					tovs.add(tov);
+				}
+			}
+		}
+		insert tovs;
+		return tovs;
+	}
+
 	public static List<Travel_Itinerary_MERC__c> insertHotelItineraries(List<Meeting_Participant_MERC__c> participants, Date startDate, Date endDate) {
 		List<Travel_Itinerary_MERC__c> hotelItineraries = new List<Travel_Itinerary_MERC__c>();
 		for (Meeting_Participant_MERC__c mp : participants) {
@@ -222,6 +238,10 @@ public with sharing class MERC_TestFactory {
 	}
 
 	public static List<Meeting_Vendor_MERC__c> insertHotelsForMeeting(Integer numberOfHotels, String meetingId) {
+		return insertHotelsForMeetings(numberOfHotels, new List<Meeting_MERC__c>{ new Meeting_MERC__c(Id=meetingId)});
+	}
+
+	public static List<Meeting_Vendor_MERC__c> insertHotelsForMeetings(Integer numberOfHotels, List<Meeting_MERC__c> meetings) {
 		List<Account> accounts = new List<Account>();
 		for (Integer i = 0; i < numberOfHotels; i++) {
 			Account a = new Account();
@@ -232,28 +252,38 @@ public with sharing class MERC_TestFactory {
 		insert accounts;
 
 		List<Meeting_Vendor_MERC__c> hotels = new List<Meeting_Vendor_MERC__c>();
-		for (Integer i = 0; i < accounts.size(); i++) {
-			Meeting_Vendor_MERC__c v = new Meeting_Vendor_MERC__c();
-			v.Account_MERC__c = accounts.get(i).Id;
-			v.Room_Rate_MERC__c = (i+1)*50;
-			v.Meeting_MERC__c = meetingId;
-			hotels.add(v);
+
+		for (Meeting_MERC__c meeting : meetings) {
+			for (Integer i = 0; i < accounts.size(); i++) {
+				Meeting_Vendor_MERC__c v = new Meeting_Vendor_MERC__c();
+				v.Account_MERC__c = accounts.get(i).Id;
+				v.Room_Rate_MERC__c = (i+1)*50;
+				v.Meeting_MERC__c = meeting.Id;
+				hotels.add(v);
+			}
 		}
 		insert hotels;
 		return hotels;
 	}
 
 	public static List<Meeting_Day_MERC__c> insertMeetingDays(String meetingId, Integer numberOfDays) {
+		return insertBulkMeetingDays(new List<Meeting_MERC__c>{new Meeting_MERC__c(Id=meetingId)}, numberOfDays);
+	}
+
+	public static List<Meeting_Day_MERC__c> insertBulkMeetingDays(List<Meeting_MERC__c> meetings, Integer numberOfDays) {
 		List<Meeting_Day_MERC__c> mtgDays = new List<Meeting_Day_MERC__c>();
-		for (Integer i = 0; i < numberOfDays; i++) {
-			Meeting_Day_MERC__c m = new Meeting_Day_MERC__c();
-			m.Date_MERC__c = Date.today().addDays(i);
-			m.Meeting_MERC__c = meetingId;
-			m.Daily_Food_Beverage_Amount_MERC__c = 100;
-			m.Daily_Ground_Trans_Amount_MERC__c = 100;
-			m.Daily_Registration_Amount_MERC__c = 100;
-			mtgDays.add(m);
+		for (Meeting_MERC__c meeting : meetings) {
+			for (Integer i = 0; i < numberOfDays; i++) {
+				Meeting_Day_MERC__c m = new Meeting_Day_MERC__c();
+				m.Date_MERC__c = Date.today().addDays(i);
+				m.Meeting_MERC__c = meeting.Id;
+				m.Daily_Food_Beverage_Amount_MERC__c = 100;
+				m.Daily_Ground_Trans_Amount_MERC__c = 100;
+				m.Daily_Registration_Amount_MERC__c = 100;
+				mtgDays.add(m);
+			}
 		}
+
 		insert mtgDays;
 		return mtgDays;
 	}
@@ -295,23 +325,40 @@ public with sharing class MERC_TestFactory {
 	}
 
 	public static Budget_MERC__c insertBudget(String meetingId) {
-		Budget_MERC__c b = new Budget_MERC__c();
-		b.Meeting_MERC__c = meetingId;
-		b.Status_MERC__c = 'Draft';
-		b.Cost_Center_MERC__c = '1234567';
-        b.RecordTypeId = [Select ID From RecordType Where SobjectType = 'Budget_MERC__c' AND DeveloperName = 'MERC_Budget_Draft'].ID;
-        insert b;
-        return b;
+
+        return insertBulkBudgets(new List<Meeting_MERC__c>{new Meeting_MERC__c(Id=meetingId)}).get(0);
+	}
+
+	public static List<Budget_MERC__c> insertBulkBudgets(List<Meeting_MERC__c> meetings) {
+		List<Budget_MERC__c> budgets = new List<Budget_MERC__c>();
+		Id budgetRecordTypeId = [Select ID From RecordType Where SobjectType = 'Budget_MERC__c' AND DeveloperName = 'MERC_Budget_Draft'].Id;
+		for (Meeting_MERC__c meeting : meetings) {
+			Budget_MERC__c b      = new Budget_MERC__c();
+			b.Meeting_MERC__c     = meeting.Id;
+			b.Status_MERC__c      = 'Draft';
+			b.Cost_Center_MERC__c = '1234567';
+			b.RecordTypeId        = budgetRecordTypeId;
+			budgets.add(b);
+		}
+		insert budgets;
+		return budgets;
 	}
 
 	public static List<Budget_Line_Item_MERC__c> insertBudgetLineItems(String budgetId, Integer numberOfLineItems) {
+
+		return insertBulkBudgetLineItems(new List<Budget_MERC__c>{new Budget_MERC__c(Id=budgetId)}, numberOfLineItems);
+	}
+
+	public static List<Budget_Line_Item_MERC__c> insertBulkBudgetLineItems(List<Budget_MERC__c> budgets, Integer numberOfLineItems) {
 		List<Budget_Line_Item_MERC__c> lineItems = new List<Budget_Line_Item_MERC__c>();
-		for (Integer i = 0; i < numberOfLineItems; i++) {
-			Budget_Line_Item_MERC__c lineItem = new Budget_Line_Item_MERC__c();
-			lineItem.Amount_MERC__c = i+100;
-			lineItem.Type_MERC__c = 'some type';
-			lineItem.Budget_MERC__c = budgetId;
-			lineItems.add(lineItem);
+		for (Budget_MERC__c budget : budgets) {
+			for (Integer i = 0; i < numberOfLineItems; i++) {
+				Budget_Line_Item_MERC__c lineItem = new Budget_Line_Item_MERC__c();
+				lineItem.Amount_MERC__c = i+100;
+				lineItem.Type_MERC__c = 'some type';
+				lineItem.Budget_MERC__c = budget.Id;
+				lineItems.add(lineItem);
+			}
 		}
 		insert lineItems;
 		return lineItems;
@@ -356,6 +403,18 @@ public with sharing class MERC_TestFactory {
 		return result;
 	}
 
+	public static User getRunningUser() {
+		User rUser;
+		System.runAs(new User(Id=UserInfo.getUserId())) {
+			rUser = insertTestUsers(1, null).get(0);
+			PermissionSet ps = [SELECT Id FROM PermissionSet WHERE Name='Mercury_Customer_Meeting_Services_Edit' limit 1];
+			insert new PermissionSetAssignment(PermissionSetId=ps.Id, AssigneeId=rUser.id);
+			update new User(id=rUser.Id, UserRoleId=[SELECT Id FROM UserRole WHERE Name='Global' limit 1].id);
+		}
+
+		return rUser;
+	}
+
 	public static List<User> insertTestUsers(Integer numberOfUsers, String profileName) {
 		List<User> users = new List<User>();
 
@@ -369,7 +428,7 @@ public with sharing class MERC_TestFactory {
 	        String testemail = 'testuser'+i+'@unittest.com';
 	        User u = new User(profileId = p.id, username = testemail, email = testemail,
 	                           emailencodingkey = 'UTF-8', localesidkey = 'en_US',
-	                           languagelocalekey = 'en_US', timezonesidkey = 'America/Los_Angeles',
+	                           languagelocalekey = 'en_US', timezonesidkey = 'Europe/London',
 	                           alias='utusr'+i, lastname='lastname');
 	        users.add(u);
 	    }

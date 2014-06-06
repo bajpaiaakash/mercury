@@ -429,7 +429,7 @@
 														<apex:actionRegion >
 															<apex:selectList id="nrtid" value="{!newParticipantRecordTypeId}" size="1">
 																<apex:selectOptions value="{!recordTypeOptions}"/>
-																<apex:actionSupport event="onchange" reRender="moreinfo"/>
+																<apex:actionSupport event="onchange" reRender="moreinfo" status="loading"/>
 															</apex:selectList>
 														</apex:actionRegion>
 														<apex:outputPanel id="moreinfo">
@@ -441,22 +441,31 @@
 																</apex:pageBlockSection>
 															</apex:outputPanel>
 															<div style="margin-top:5px;">
-																<apex:commandLink styleClass="btn"
-																                  value="Add To Meeting"
-																                  action="{!addToMeeting}"
-																                  onclick="showLoading();"
-																                  oncomplete="handleAddResponse(this);"
-																                  rerender="moreinfo, responseWrapper, searchMessages, meetingParticipantTableWrapper, mpCountWrapper">
-																	<apex:param name="aid" value="{!r.sfid}"/>
-																</apex:commandLink>
-																<apex:commandLink styleClass="btn"
-																                  value="Add To Meeting and Edit"
-																                  action="{!addToMeetingAndRedirect}"
-																                  onclick="showLoading();"
-																                  oncomplete="handleAddResponse(this);"
-																                  rerender="moreinfo, responseWrapper, searchMessages, meetingParticipantTableWrapper, mpCountWrapper">
-																	<apex:param name="aid" value="{!r.sfid}"/>
-																</apex:commandLink>
+																<apex:actionStatus id="loading">
+																	<apex:facet name="stop">
+																		<apex:outputPanel >
+																			<apex:commandLink styleClass="btn"
+																			                  value="Add To Meeting"
+																			                  action="{!addToMeeting}"
+																			                  onclick="showLoading();"
+																			                  oncomplete="handleAddResponse(this);"
+																			                  rerender="moreinfo, responseWrapper, searchMessages, meetingParticipantTableWrapper, mpCountWrapper">
+																				<apex:param name="aid" value="{!r.sfid}"/>
+																			</apex:commandLink>
+																			<apex:commandLink styleClass="btn"
+																			                  value="Add To Meeting and Edit"
+																			                  action="{!addToMeetingAndRedirect}"
+																			                  onclick="showLoading();"
+																			                  oncomplete="handleAddResponse(this);"
+																			                  rerender="moreinfo, responseWrapper, searchMessages, meetingParticipantTableWrapper, mpCountWrapper">
+																				<apex:param name="aid" value="{!r.sfid}"/>
+																			</apex:commandLink>
+																		</apex:outputPanel>
+																	</apex:facet>
+																	<apex:facet name="start">
+																		Loading...
+																	</apex:facet>
+																</apex:actionStatus>
 																<apex:outputLink value="javascript:void(0)" styleClass="btn" onclick="hideAddPopovers()">
 																	Cancel
 																</apex:outputLink>

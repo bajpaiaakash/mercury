@@ -1,5 +1,5 @@
 public with sharing class MERC_TriggerHandlerStateManager {
-	
+
 	public static Map<Type,Boolean> typeToIsActive = new Map<Type,Boolean>();
 
 	public static void activate(Type myType) {
@@ -15,7 +15,7 @@ public with sharing class MERC_TriggerHandlerStateManager {
 			if (typeToIsActive.get(myType) == null) {
 				return true;
 			} else {
-				return typeToIsActive.get(myType);	
+				return typeToIsActive.get(myType);
 			}
 		} catch (Exception e) {
 			return true;
@@ -49,6 +49,7 @@ public with sharing class MERC_TriggerHandlerStateManager {
 		'MERC_AnonymiseNonHCPDataHandler',
 		'MERC_ParticipantTriggerHandler',
 		'MERC_ParticipantFMVCalculator',
-		'MERC_TOVCalculator'
+		'MERC_TOVCalculator',
+		'MERC_MeetingCurrencyUpdateHandler'
 	};
 }

@@ -61,6 +61,7 @@ public with sharing class GLBL_NewButtonPrepopController {
 		//	return pageRef;
 		} else {
 			pageRef = new PageReference(newParams.get('save_new_url'));
+			pageRef.getParameters().put('saveURL', newParams.get('saveURL'));
 		}
 //		 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.INFO, String.valueOf(newParams.get('save_new_url'))));
 //		 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.INFO, String.valueOf(pageRef.getParameters())));

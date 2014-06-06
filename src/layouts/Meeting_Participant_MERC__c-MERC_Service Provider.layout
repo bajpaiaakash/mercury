@@ -356,6 +356,10 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
+                <field>ToV_Currency_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
                 <field>Total_Honorarium_MERC__c</field>
             </layoutItems>
             <layoutItems>

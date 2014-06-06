@@ -6,7 +6,7 @@
  */
 
 public with sharing class MERC_TravelItineraryNewEditController extends GLBL_BaseEditController {
-	
+
 	MERC_TimeZoneUtility tz = new MERC_TimeZoneUtility(Travel_Itinerary_MERC__c.sObjectType);
     String customObjectId;
 
@@ -18,7 +18,7 @@ public with sharing class MERC_TravelItineraryNewEditController extends GLBL_Bas
 		// if the time zones have not been set yet, set according to user's locale
         String vfUrl = Apexpages.currentPage().getUrl().toLowerCase();
         if (vfUrl.contains('/apex/merc_travelitinerarynewedit')) {
-		    
+
             if (MERC_Util.getUrlParam('clone') == '1') {
                 this.mySobject.put('Id', null);
             }
@@ -45,7 +45,7 @@ public with sharing class MERC_TravelItineraryNewEditController extends GLBL_Bas
     	get {
     		if (fieldSetLabels == null) {
     			fieldSetLabels = MERC_Util.getFieldSetLabels(
-	    			Travel_Itinerary_MERC__c.SobjectType, 
+	    			Travel_Itinerary_MERC__c.SobjectType,
 	    			new List<String> {
 	    				'Date_Time_Information_Edit_MERC',
 	    				'Date_Time_Information_View_MERC'
@@ -61,8 +61,8 @@ public with sharing class MERC_TravelItineraryNewEditController extends GLBL_Bas
         tz.convertDateTimes(new List<Sobject>{this.mySobject}, false); //sets date/times based on meeting time/zone, for UX purposes
     }
 
-    public PageReference save() {
-        return insertTheSObject(false);        
+    public override PageReference save() {
+        return insertTheSObject(false);
     }
 
     public PageReference saveAndNew() {
@@ -75,17 +75,17 @@ public with sharing class MERC_TravelItineraryNewEditController extends GLBL_Bas
             if (this.mySobject.Id == null) {
                 insert this.mySobject;
             } else {
-                update this.mySobject; 
+                update this.mySobject;
             }
         } catch(Exception e) {
             setTimeZones();
             ApexPages.addMessages(e); //TODO: doesn't show ugly error text
             return null;
         }
-        PageReference p = (saveAndNew) 
-            ? buildSaveAndNewURL() 
+        PageReference p = (saveAndNew)
+            ? buildSaveAndNewURL()
             : new PageReference('/'+this.mySobject.Id);
-        return p;    
+        return p;
     }
 
     /*
@@ -101,7 +101,7 @@ public with sharing class MERC_TravelItineraryNewEditController extends GLBL_Bas
             if (key.startsWith('CF') || keys.contains(key))
                 save_new_url += key+'='+Apexpages.currentPage().getParameters().get(key)+'&';
         }
-        
+
         save_new_url = '&save_new_url='+EncodingUtil.urlEncode(save_new_url.removeEnd('&'), 'UTF-8');
         PageReference pageRef = new PageReference(recTypeSelectURL+save_new_url);
         return pageRef;

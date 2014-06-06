@@ -134,6 +134,10 @@
                 <behavior>Edit</behavior>
                 <field>Participant_ToV_Final_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Participant_ToV_Updated_Date_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>

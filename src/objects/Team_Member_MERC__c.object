@@ -130,16 +130,6 @@ Created by John A Adams 1/10/2014</description>
         <description>Lookup relationship to Account so Person Accounts may be selected as Team Members a Meeting. Created 9/27/2013 by KLorenti</description>
         <externalId>false</externalId>
         <label>Customer Facing Team Member</label>
-        <lookupFilter>
-            <active>true</active>
-            <filterItems>
-                <field>Account.RecordTypeId</field>
-                <operation>equals</operation>
-                <value>Employee</value>
-            </filterItems>
-            <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
-            <isOptional>false</isOptional>
-        </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Team Members</relationshipLabel>
         <relationshipName>Team_Members</relationshipName>
@@ -254,7 +244,11 @@ Created by John A Adams 1/10/2014</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Account Manager</fullName>
+                <fullName>Local CMS Team</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Local CMS Manager</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -267,6 +261,10 @@ Created by John A Adams 1/10/2014</description>
             </picklistValues>
             <picklistValues>
                 <fullName>Medical Director</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Medical Liaison</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -352,6 +350,10 @@ Created by John A Adams 1/10/2014</description>
                 <fullName>Medical Director</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>Medical Liaison</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
     </recordTypes>
     <recordTypes>
@@ -373,10 +375,6 @@ Created by John A Adams 1/10/2014</description>
         <picklistValues>
             <picklist>Role_MERC__c</picklist>
             <values>
-                <fullName>Account Manager</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Budget Owner</fullName>
                 <default>false</default>
             </values>
@@ -386,6 +384,14 @@ Created by John A Adams 1/10/2014</description>
             </values>
             <values>
                 <fullName>International Event Approver</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local CMS Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local CMS Team</fullName>
                 <default>false</default>
             </values>
             <values>

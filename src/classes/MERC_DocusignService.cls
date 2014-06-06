@@ -106,7 +106,30 @@ public with sharing class MERC_DocusignService {
         }
     }
 
+    public Boolean updateSigner(String envelopeId, Signer signer) {
+        Http httpProtocol = new Http();
+        String endpoint = this.baseUrl + 'accounts/' + this.accountId + '/envelopes/'+envelopeId+'/recipients';
+        HttpRequest request = getRequest('PUT', endpoint);
+        request.setBody('{ "signers" : [{ "recipientId" : "'+signer.recipientId+'", "email" : "'+signer.email+'", "name" : "'+signer.name+'" }] }');
+
+        HttpResponse response = httpProtocol.send(request);
+        String responseBody = response.getBody();
+        System.debug('deleteSignerResponse =>'+responseBody);
+        JSONParser parser = JSON.createParser(responseBody);
+
+        if (response.getStatusCode() == 200) {
+            return true;
+        } else {
+            DocusignServiceError error = (DocusignServiceError)parser.readValueAs(DocusignServiceError.class);
+            throw new DocusignServiceException(error.errorCode, error.message);  
+        }   
+    }
+
     public List<Signer> addSigner(String envelopeId, String accountId, Boolean isRemote, Integer routingOrder) {
+        return addSigner(envelopeId, accountId, isRemote, routingOrder, null);
+    }
+
+    public List<Signer> addSigner(String envelopeId, String accountId, Boolean isRemote, Integer routingOrder, Tab t) {
         Http httpProtocol = new Http();
         String endpoint = this.baseUrl + 'accounts/' + this.accountId + '/envelopes/'+envelopeId+'/recipients';
         HttpRequest request = getRequest('POST', endpoint);
@@ -119,6 +142,9 @@ public with sharing class MERC_DocusignService {
         } else {
             s = new Signer(a.PersonEmail, a.Name, String.valueOf(routingOrder), String.valueOf(routingOrder), MERC_Util.generateRandomString(20));
         }
+
+        if (t != null)
+            s.tabs = t;
 
         List<Signer> signers = new List<Signer>();
         signers.add(s);
@@ -163,6 +189,26 @@ public with sharing class MERC_DocusignService {
             DocusignServiceError error = (DocusignServiceError)parser.readValueAs(DocusignServiceError.class);
             throw new DocusignServiceException(error.errorCode, error.message);  
         }
+    }
+
+    public Tab getTabsForRecipient(String envelopeId, String recipientId) {
+        Http httpProtocol = new Http();
+        String endpoint = this.baseUrl + 'accounts/' + this.accountId + '/envelopes/'+envelopeId+'/recipients/'+recipientId+'/tabs';
+        HttpRequest request = getRequest('GET', endpoint);
+        
+        HttpResponse response = httpProtocol.send(request);
+        String responseBody = response.getBody();
+        System.debug('Tab response =>'+responseBody);
+        JSONParser parser = JSON.createParser(responseBody);
+        if (response.getStatusCode() < 300) {
+            Tab tabResponse = (Tab)parser.readValueAs(Tab.class);
+            system.debug(tabResponse);
+            return tabResponse;
+        } else {
+            DocusignServiceError error = (DocusignServiceError)parser.readValueAs(DocusignServiceError.class);
+            throw new DocusignServiceException(error.errorCode, error.message);
+        }
+   
     }
 
     public TagAndSendResponse getTagAndSendUrl(EnvelopeResponse r, String returnUrl) {

@@ -1,6 +1,6 @@
 /**
  * Unit tests for the MERC_AddMeetingParticipantsController extension
- * <p>
+ *
  * fyi: the name MERC_AddMeetingParticipantsControllerTest.cls was too long  :-(
  *
  * @author  Sean Harrison
@@ -16,7 +16,7 @@ private class MERC_AddMeetingParticipantsCntlrTest {
 	static List<Meeting_Participant_MERC__c> participants;
 	static GLBL_CustomerSearchToolServiceMock mockServices;
 	static MERC_AddMeetingParticipantsController c;
-	static User testUser;
+	static User testUser = MERC_TestFactory.getRunningUser();
 
     static {
 		settings = new Mercury_Settings_MERC__c();
@@ -28,13 +28,6 @@ private class MERC_AddMeetingParticipantsCntlrTest {
 		accts = MERC_TestFactory.insertAccounts(TEST_SET_SIZE);
 		meetings = MERC_TestFactory.insertMeetings(10);
 		participants = MERC_TestFactory.insertParticipants(meetings[0].Id, accts);
-
-		System.runAs(new User(Id=UserInfo.getUserId())) {
-			testUser = MERC_TestFactory.insertTestUsers(1, null).get(0);
-			PermissionSet ps = [SELECT Id FROM PermissionSet WHERE Name='Mercury_Customer_Meeting_Services_Edit' limit 1];
-			insert new PermissionSetAssignment(PermissionSetId=ps.Id, AssigneeId=testUser.id);
-			update new User(id=testUser.Id, UserRoleId=[SELECT Id FROM UserRole WHERE Name='Global' limit 1].id);
-		}
 	}
 
 	/*

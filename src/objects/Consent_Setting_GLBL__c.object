@@ -74,6 +74,18 @@ Created by John Lorenti on 20/12/2013.</description>
         <visibleLines>30</visibleLines>
     </fields>
     <fields>
+        <fullName>Consent_Duration_GLBL__c</fullName>
+        <description>The number of years a consent, once provided, is valid for. A zero or null value indicates a non-expiring consent.</description>
+        <externalId>false</externalId>
+        <label>Consent Duration</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Consent_Translation_GLBL__c</fullName>
         <description>JSON definition of consent field label translations for the one or more languages associated with a country.</description>
         <externalId>false</externalId>

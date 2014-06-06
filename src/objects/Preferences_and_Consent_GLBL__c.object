@@ -215,7 +215,7 @@ Created by John A Adams 11/5/2013</description>
         <label>Channel (CMS)</label>
         <picklist>
             <picklistValues>
-                <fullName>DS0001</fullName>
+                <fullName>D022</fullName>
                 <default>true</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1327,6 +1327,18 @@ Created by John A Adams 11/5/2013</description>
         <unique>true</unique>
     </fields>
     <fields>
+        <fullName>Prior_Parent_Id_GLBL__c</fullName>
+        <description>The Global Id of the account which this record was merged from. This field is set when an account merge occurs and the record belonged to the losing account.</description>
+        <externalId>false</externalId>
+        <label>Prior Parent Id</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Priority_Rank_Nbr_Cap_GLBL__c</fullName>
         <description>Priority Rank Number 
 Changes to consent fields captured at Portal. Created by John A Adams 3/22/2014</description>
@@ -1424,7 +1436,7 @@ Created by John A Adams 11/5/2013</description>
     </fields>
     <fields>
         <fullName>Sub_Status_Cap_GLBL__c</fullName>
-        <defaultValue>&quot;Explicit&quot;</defaultValue>
+        <defaultValue>&quot;EXPLICIT&quot;</defaultValue>
         <description>Hard coded with Explicit, flows through into Veeva but does not get refreshed or set by the ODS information.</description>
         <externalId>false</externalId>
         <label>Sub Status (Capture)</label>
@@ -1566,7 +1578,7 @@ Created by John A Adams 2/18/2014</description>
         <picklistValues>
             <picklist>Cmnctn_Chnl_Desc_CMS_MERC__c</picklist>
             <values>
-                <fullName>DS0001</fullName>
+                <fullName>D022</fullName>
                 <default>true</default>
             </values>
         </picklistValues>
@@ -1706,7 +1718,7 @@ Created by John A Adams 2/18/2014</description>
         <picklistValues>
             <picklist>Cmnctn_Chnl_Desc_CMS_MERC__c</picklist>
             <values>
-                <fullName>DS0001</fullName>
+                <fullName>D022</fullName>
                 <default>true</default>
             </values>
         </picklistValues>
@@ -1946,7 +1958,7 @@ Created by John A Adams 2/18/2014</description>
         <picklistValues>
             <picklist>Cmnctn_Chnl_Desc_CMS_MERC__c</picklist>
             <values>
-                <fullName>DS0001</fullName>
+                <fullName>D022</fullName>
                 <default>true</default>
             </values>
         </picklistValues>

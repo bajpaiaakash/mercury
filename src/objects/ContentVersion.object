@@ -739,7 +739,6 @@ Created on 4/3/2014 by John Adams</description>
     </fields>
     <fields>
         <fullName>OwnerId</fullName>
-        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>

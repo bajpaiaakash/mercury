@@ -216,6 +216,26 @@
         </displayedFields>
         <label>Merge Account Page Main List</label>
     </fieldSets>
+    <fieldSets>
+        <fullName>Pref_Consent_Mapped_Fields</fullName>
+        <description>These fields are the ones that will be cleared out when a preference and consent record is deleted. MERC_PrefConsentMappingHandler will remove the values from these fields and then retrigger all preference and consent record workflows to put the most up to date values back on the account.</description>
+        <displayedFields>
+            <field>Language_Preference_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Transparency_Reporting_Opt_Out_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Communication_Preference_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Pref &amp; Consent Mapped Fields</label>
+    </fieldSets>
     <fields>
         <fullName>Academic_Qualifications_MERC__c</fullName>
         <description>To record academic qualifications of speakers 
@@ -299,7 +319,6 @@ Created by John A Adams 10/2/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -560,6 +579,18 @@ Created by John A Adams 10/23/2013</description>
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>CST_Approver_ID_GLBL__c</fullName>
+        <description>Determines if Supervisor Global ID or if Sponsor ID is the CST Approver. Created 06/04/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF ((ISNULL(Supervisor_Prsnl_Nbr_GLBL__c) || ISBLANK(Supervisor_Prsnl_Nbr_GLBL__c)), Sponsor_Prsnl_Nbr_GLBL__c, Supervisor_Prsnl_Nbr_GLBL__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>CST Approver Global ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>CST_Email_Stamp_CUST__c</fullName>
@@ -2565,15 +2596,6 @@ Created by John A Adams 11/4/2013</description>
         <description>Lookup relationship to associate Contracting Party to an HCP Account. Created 04/04/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>HCP for Contracting Party</label>
-        <lookupFilter>
-            <active>true</active>
-            <filterItems>
-                <field>Account.RecordTypeId</field>
-                <operation>equals</operation>
-                <value>HCP</value>
-            </filterItems>
-            <isOptional>false</isOptional>
-        </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Contracting Parties</relationshipLabel>
         <relationshipName>HCPs_Contracting_Party</relationshipName>
@@ -2610,15 +2632,6 @@ Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
         <inlineHelpText>The HCP who indicated this person as their Designated Individual</inlineHelpText>
         <label>HCP for Designated Individual</label>
-        <lookupFilter>
-            <active>true</active>
-            <filterItems>
-                <field>Account.RecordTypeId</field>
-                <operation>equals</operation>
-                <value>HCP</value>
-            </filterItems>
-            <isOptional>false</isOptional>
-        </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Designated Individuals</relationshipLabel>
         <relationshipName>Designated_Individuals</relationshipName>
@@ -2849,7 +2862,6 @@ Created by John A Adams 11/4/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -3306,7 +3318,6 @@ Created by John A Adams 12/15/2013</description>
     </fields>
     <fields>
         <fullName>OwnerId</fullName>
-        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -3330,7 +3341,6 @@ Created by John A Adams 12/15/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -3349,17 +3359,6 @@ Created by John A Adams 12/15/2013</description>
     </fields>
     <fields>
         <fullName>ParentId</fullName>
-        <lookupFilter>
-            <active>true</active>
-            <filterItems>
-                <field>Account.RecordTypeId</field>
-                <operation>equals</operation>
-                <valueField>$Source.RecordTypeId</valueField>
-            </filterItems>
-            <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
-            <isOptional>false</isOptional>
-        </lookupFilter>
-        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -3533,7 +3532,6 @@ Created by John A Adams 12/10/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -3882,6 +3880,17 @@ Created by John A Adams 12/11/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Prior_Parent_Id_GLBL__c</fullName>
+        <description>The Global Id of the account which this record was merged from. This field is set when an account merge occurs and the record belonged to the losing account.</description>
+        <externalId>false</externalId>
+        <label>Prior Parent Id</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Prof_Title_Txt_GLBL__c</fullName>
         <description>Professional Title
 Customer ODS to Mercury Mapping
@@ -3988,7 +3997,6 @@ Created by John A Adams 11/4/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -4019,16 +4027,6 @@ Created by John A Adams 10/16/2013</description>
 Created by John A Adams 10/23/2013</description>
         <externalId>false</externalId>
         <label>Relationship Owner</label>
-        <lookupFilter>
-            <active>true</active>
-            <filterItems>
-                <field>Account.RecordTypeId</field>
-                <operation>equals</operation>
-                <value>Employee</value>
-            </filterItems>
-            <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
-            <isOptional>false</isOptional>
-        </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Accounts</relationshipLabel>
         <relationshipName>Accounts</relationshipName>
@@ -4242,6 +4240,17 @@ Created by John A Adams 10/31/2013</description>
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>Sponsor_Prsnl_Nbr_GLBL__c</fullName>
+        <description>Workforce ODS Data. Created 06/04/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Sponsor Global ID</label>
+        <length>8</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Src_Block_Flg_GLBL__c</fullName>
         <description>Source Block Flag
 Customer ODS to Mercury Mapping
@@ -4351,7 +4360,7 @@ Created by John A Adams 12/10/2013</description>
         <fullName>Supervisor_Prsnl_Nbr_GLBL__c</fullName>
         <description>Workforce ODS data. Created 10/18/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <label>Sponsor or Supervisor Global ID</label>
+        <label>Supervisor Global ID</label>
         <length>8</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -4603,7 +4612,6 @@ Created by John A Adams 11/4/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -5057,6 +5065,196 @@ Created by John A Adams 11/4/2013</description>
         <label>Web Service Test Users</label>
         <language>en_US</language>
     </listViews>
+    <namedFilters>
+        <fullName>Account_00N11000000SwsqEAC</fullName>
+        <active>true</active>
+        <field>Account.Relationship_Owner_MERC__c</field>
+        <filterItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Employee</value>
+        </filterItems>
+        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+        <isOptional>false</isOptional>
+        <name>Account_Relationship Owner2</name>
+    </namedFilters>
+    <namedFilters>
+        <fullName>Account_00N11000000ePSAEA2</fullName>
+        <active>true</active>
+        <field>Account.HCP_Designated_Individuals_MERC__c</field>
+        <filterItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>HCP</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+        <name>Account_Designated Individual</name>
+    </namedFilters>
+    <namedFilters>
+        <fullName>Account_00N11000000fVQlEAM</fullName>
+        <active>true</active>
+        <field>Account.HCP_Contracting_Party_MERC__c</field>
+        <filterItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>HCP</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+        <name>Account_HCP</name>
+    </namedFilters>
+    <namedFilters>
+        <fullName>Account_Parent</fullName>
+        <active>true</active>
+        <field>Account.ParentId</field>
+        <filterItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <valueField>$Source.RecordTypeId</valueField>
+        </filterItems>
+        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+        <isOptional>false</isOptional>
+        <name>Account_Parent Account</name>
+        <sourceObject>Account</sourceObject>
+    </namedFilters>
+    <namedFilters>
+        <fullName>nf_01I11000000CjwmEAC_00N11000000SoJnEAK</fullName>
+        <active>true</active>
+        <errorMessage>To expand your search, select the &apos;All Fields&apos; option and run your search again.</errorMessage>
+        <field>Meeting_MERC__c.Sales_Rep_MERC__c</field>
+        <filterItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Employee</value>
+        </filterItems>
+        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+        <isOptional>false</isOptional>
+        <name>Meeting_Sales Rep</name>
+    </namedFilters>
+    <namedFilters>
+        <fullName>nf_01I11000000CjwmEAC_00N11000000T5hSEAS</fullName>
+        <active>true</active>
+        <field>Meeting_MERC__c.HCO_MERC__c</field>
+        <filterItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Health Care Organization</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+        <name>Meeting_HCO</name>
+    </namedFilters>
+    <namedFilters>
+        <fullName>nf_01I11000000CjwmEAC_00N11000000TFuMEAW</fullName>
+        <active>true</active>
+        <field>Meeting_MERC__c.Venue_MERC__c</field>
+        <filterItems>
+            <field>Account.RecordType.Name</field>
+            <operation>equals</operation>
+            <value>Venue</value>
+        </filterItems>
+        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+        <isOptional>false</isOptional>
+        <name>Meeting_Venue</name>
+    </namedFilters>
+    <namedFilters>
+        <fullName>nf_01I11000000Cjx1EAC_00N11000000SbagEAC</fullName>
+        <active>true</active>
+        <field>Team_Member_MERC__c.Account_MERC__c</field>
+        <filterItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Employee</value>
+        </filterItems>
+        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+        <isOptional>false</isOptional>
+        <name>Team Member_External User</name>
+    </namedFilters>
+    <namedFilters>
+        <fullName>nf_01I11000000CjxfEAC_00N11000000T0zREAS</fullName>
+        <active>true</active>
+        <field>Invoice_MERC__c.HCO_Beneficiary_MERC__c</field>
+        <filterItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Health Care Organization</value>
+        </filterItems>
+        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+        <isOptional>false</isOptional>
+        <name>Invoice_Health Care Organization</name>
+    </namedFilters>
+    <namedFilters>
+        <fullName>nf_01I11000000CjxfEAC_00N11000000TQdMEAW</fullName>
+        <active>true</active>
+        <field>Invoice_MERC__c.Lilly_Affiliate_MERC__c</field>
+        <filterItems>
+            <field>Account.Name</field>
+            <operation>contains</operation>
+            <value>Lilly</value>
+        </filterItems>
+        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+        <isOptional>false</isOptional>
+        <name>Invoice_Lilly Affiliate</name>
+    </namedFilters>
+    <namedFilters>
+        <fullName>nf_01I11000000CjxpEAC_00N11000000SbwOEAS</fullName>
+        <active>true</active>
+        <booleanFilter>1 OR 2 OR 3</booleanFilter>
+        <field>Meeting_Participant_MERC__c.Account_MERC__c</field>
+        <filterItems>
+            <field>Account.RecordType.Name</field>
+            <operation>equals</operation>
+            <value>HCP</value>
+        </filterItems>
+        <filterItems>
+            <field>Account.RecordType.Name</field>
+            <operation>equals</operation>
+            <value>Non-HCP</value>
+        </filterItems>
+        <filterItems>
+            <field>Account.RecordType.Name</field>
+            <operation>equals</operation>
+            <value>Employee</value>
+        </filterItems>
+        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+        <isOptional>false</isOptional>
+        <name>Meeting Participant_Account</name>
+    </namedFilters>
+    <namedFilters>
+        <fullName>nf_01I11000000Ck6cEAC_00N11000000TYIWEA4</fullName>
+        <active>true</active>
+        <field>HCP_Contract_MERC__c.Lilly_Internal_Signee_MERC__c</field>
+        <filterItems>
+            <field>Account.RecordType.Name</field>
+            <operation>equals</operation>
+            <value>Employee</value>
+        </filterItems>
+        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+        <isOptional>false</isOptional>
+        <name>HCP Contract_Lilly Internal Signee</name>
+    </namedFilters>
+    <namedFilters>
+        <fullName>nf_01I11000000CkBhEAK_00N11000000Sf1fEAC</fullName>
+        <active>true</active>
+        <booleanFilter>1 OR 2 OR 3</booleanFilter>
+        <field>Meeting_Vendor_MERC__c.Account_MERC__c</field>
+        <filterItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Vendor</value>
+        </filterItems>
+        <filterItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Third Party Organization</value>
+        </filterItems>
+        <filterItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Venue</value>
+        </filterItems>
+        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+        <isOptional>false</isOptional>
+        <name>Meeting Vendor_Account</name>
+    </namedFilters>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
         <fullName>Business_Account</fullName>
@@ -13943,7 +14141,7 @@ Created by John A Adams 11/4/2013</description>
         <lookupPhoneDialogsAdditionalFields>PC_PHONE4</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>PC_PHONE5</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>PC_PHONE6</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>00N11000000PFsh</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Voicemail_Phone_Nbr_GLBL__c</lookupPhoneDialogsAdditionalFields>
         <searchFilterFields>ACCOUNT.NAME</searchFilterFields>
         <searchFilterFields>ACCOUNT.RECORDTYPE</searchFilterFields>
         <searchFilterFields>Primary_Addr_City_GLBL__c</searchFilterFields>
@@ -13954,7 +14152,6 @@ Created by John A Adams 11/4/2013</description>
         <searchResultsAdditionalFields>Primary_Addr_City_GLBL__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Primary_Address_Country_GLBL__c</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>Private</sharingModel>
     <validationRules>
         <fullName>Confirm_Tier_1_HCP_CV_MERC</fullName>
         <active>true</active>
@@ -14017,6 +14214,19 @@ Service_Provider_Tier_MERC__c &gt; 5.0)</errorConditionFormula>
         <showsLocation>true</showsLocation>
         <showsStatus>true</showsStatus>
         <url>http://news.altavista.com/search?nc=0&amp;q={!Account_Name}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Generate_Content_MERC</fullName>
+        <availability>online</availability>
+        <description>Replaces the LOOP Plus button from the LOOP Plus managed package</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Generate Content</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/loop__looplus?eid={!Account.Id}&amp;sessionId={!$Api.Session_ID}</url>
     </webLinks>
     <webLinks>
         <fullName>GoogleMaps</fullName>

@@ -523,6 +523,14 @@ Created by John A Adams 10/4/2013</description>
         <errorMessage>The Meeting Participant must have rendered services</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Invoice_Line_Item_Currency</fullName>
+        <active>true</active>
+        <description>Invoice Line Item Currency must match that of Invoice.  Created by J Adams July 4, 2014</description>
+        <errorConditionFormula>TEXT(CurrencyIsoCode) &lt;&gt;  TEXT(Invoice_MERC__r.CurrencyIsoCode)</errorConditionFormula>
+        <errorDisplayField>CurrencyIsoCode</errorDisplayField>
+        <errorMessage>The currency of the line item must match that of the Invoice.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Prevent_Invoice_Line_Item_Activity</fullName>
         <active>true</active>
         <description>Prevent a new Invoice Line Item record being created or an existing record edited when the Invoice has been submitted for Payment.</description>

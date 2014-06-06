@@ -119,6 +119,11 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
+        <displayedFields>
+            <field>CurrencyIsoCode</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
         <label>Meeting Day Manager</label>
     </fieldSets>
     <fields>
@@ -1127,15 +1132,6 @@ Created by John Adams 11/6/2013</description>
         <externalId>false</externalId>
         <inlineHelpText>Beneficiary for Transparency Reporting Purposes.</inlineHelpText>
         <label>HCO</label>
-        <lookupFilter>
-            <active>true</active>
-            <filterItems>
-                <field>Account.RecordTypeId</field>
-                <operation>equals</operation>
-                <value>Health Care Organization</value>
-            </filterItems>
-            <isOptional>false</isOptional>
-        </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Meetings (HCO)</relationshipLabel>
         <relationshipName>Meetings1</relationshipName>
@@ -2432,17 +2428,6 @@ Created by John Adams on 12/9/2013</description>
         <description>Created Lookup to Account to select Sales Rep if it is a Sales Rep initiated meeting. Created 10/16/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Customer Facing User</label>
-        <lookupFilter>
-            <active>true</active>
-            <errorMessage>To expand your search, select the &apos;All Fields&apos; option and run your search again.</errorMessage>
-            <filterItems>
-                <field>Account.RecordTypeId</field>
-                <operation>equals</operation>
-                <value>Employee</value>
-            </filterItems>
-            <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
-            <isOptional>false</isOptional>
-        </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Meetings</relationshipLabel>
         <relationshipName>Meetings</relationshipName>
@@ -3057,16 +3042,6 @@ Created by John Adams 11/6/2013</description>
         <externalId>false</externalId>
         <inlineHelpText>Populate for Meetings created in Mercury.</inlineHelpText>
         <label>Sourced Venue</label>
-        <lookupFilter>
-            <active>true</active>
-            <filterItems>
-                <field>Account.RecordType.Name</field>
-                <operation>equals</operation>
-                <value>Venue</value>
-            </filterItems>
-            <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
-            <isOptional>false</isOptional>
-        </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Meetings</relationshipLabel>
         <relationshipName>Venues</relationshipName>
@@ -9291,6 +9266,22 @@ PRIORVALUE(Expose_on_Portal_MERC__c) = true</errorConditionFormula>
         <errorMessage>Once the Meeting has been activated on Web Service, it cannot be changed.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Amount_to_be_paid_cannot_be_Negative_MER</fullName>
+        <active>true</active>
+        <description>Ensure Amount to be Paid is not entered &lt; 0</description>
+        <errorConditionFormula>Amount_to_be_Paid_MERC__c &lt; 0</errorConditionFormula>
+        <errorDisplayField>Amount_to_be_Paid_MERC__c</errorDisplayField>
+        <errorMessage>The Amount to be Paid cannot be less than zero</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Budget_Cannot_be_Negative_MERC</fullName>
+        <active>true</active>
+        <description>Ensure value entered in Budget field is &gt;= 0</description>
+        <errorConditionFormula>Planned_Budget_MERC__c &lt; 0</errorConditionFormula>
+        <errorDisplayField>Planned_Budget_MERC__c</errorDisplayField>
+        <errorMessage>The Budget amount must be a positive number.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Compliance_Risk_before_Complete_MERC</fullName>
         <active>true</active>
         <description>The Compliance Risk field must be set to yes before the Meeting can be Completed.  Created 12/18/2013 by KLorenti, Mavens Consulting</description>
@@ -9368,7 +9359,7 @@ ISPICKVAL(Meeting_Status_MERC__c,&apos;Complete - Closed&apos;)</errorConditionF
     </validationRules>
     <validationRules>
         <fullName>Participant_ToV_Final_only_if_Meet_over</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Validate that the meeting end date has passed before allowing the  &apos;Participant ToV Final&apos; field from being checked</description>
         <errorConditionFormula>ISCHANGED(Participant_ToV_Final_MERC__c) &amp;&amp;
 (TODAY() &lt;  DATEVALUE(End_Time_of_Meeting_MERC__c ))</errorConditionFormula>

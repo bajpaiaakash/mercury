@@ -102,17 +102,22 @@
         <fullName>Consultant_Required_Fields_MERC</fullName>
         <description>Used on the MERC_AddMeetingParticipants page to indicate the fields required in order to add an account as a Meeting participant with record type consultant.</description>
         <displayedFields>
-            <field>Air_Travel_Required_MERC__c</field>
+            <field>Justification_MERC__c</field>
             <isFieldManaged>false</isFieldManaged>
-            <isRequired>true</isRequired>
+            <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Hotel_Required_MERC__c</field>
+            <field>Expense_Reimbursment_MERC__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>true</isRequired>
         </displayedFields>
         <displayedFields>
             <field>Description_of_Service_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Types_of_Service_MERC__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>true</isRequired>
         </displayedFields>
@@ -201,7 +206,77 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>true</isRequired>
         </displayedFields>
+        <displayedFields>
+            <field>Justification_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Expense_Reimbursment_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Types_of_Service_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Description_of_Service_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Topic_Area_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
         <label>Service Provider Required Fields</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>ToV_Validation_Fields</fullName>
+        <description>Used in the MERC_MeetingParticipantTovValidation class. These are the fields that will be checked for changes if the ToV has already been reported for the related meeting.</description>
+        <displayedFields>
+            <field>Total_Registration_ToV_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Total_Ground_Transporation_ToV_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Total_Food_Beverage_ToV_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CoPay_Hotel_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CoPay_Ground_Transport_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CoPay_Registration_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CoPay_Food_Beverage_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CoPay_Flight_Rail_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>ToV Validation Fields</label>
     </fieldSets>
     <fields>
         <fullName>Account_External_MERC__c</fullName>
@@ -219,27 +294,6 @@
         <description>Lookup to Account from Event Participant. Created 9/28/2013 by KLorenti.</description>
         <externalId>false</externalId>
         <label>Account</label>
-        <lookupFilter>
-            <active>true</active>
-            <booleanFilter>1 OR 2 OR 3</booleanFilter>
-            <filterItems>
-                <field>Account.RecordType.Name</field>
-                <operation>equals</operation>
-                <value>HCP</value>
-            </filterItems>
-            <filterItems>
-                <field>Account.RecordType.Name</field>
-                <operation>equals</operation>
-                <value>Non-HCP</value>
-            </filterItems>
-            <filterItems>
-                <field>Account.RecordType.Name</field>
-                <operation>equals</operation>
-                <value>Employee</value>
-            </filterItems>
-            <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
-            <isOptional>false</isOptional>
-        </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Meeting Participants</relationshipLabel>
         <relationshipName>Event_Participants</relationshipName>
@@ -1459,6 +1513,18 @@ Created by John A Adams 10/31/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Prior_Parent_Id_GLBL__c</fullName>
+        <description>The Global Id of the account which this record was merged from. This field is set when an account merge occurs and the record belonged to the losing account.</description>
+        <externalId>false</externalId>
+        <label>Prior Parent Id</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Processing_of_Data_Consent_MERC__c</fullName>
         <defaultValue>false</defaultValue>
         <description>Used by portal to indicate that the Meeting Participant agrees to Lilly gathering this their information related needed for RSVP to meeting. Created 04/02/2014 by KLorenti, Mavens Consulting</description>
@@ -1714,6 +1780,19 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>ToV_Currency_MERC__c</fullName>
+        <description>Pulls down the Currency of the Meeting.  This is the currency in which all ToV will be entered and reported. Oliver Dunford 4th June 2014.</description>
+        <externalId>false</externalId>
+        <formula>TEXT(Meeting_MERC__r.CurrencyIsoCode)</formula>
+        <inlineHelpText>ToV Currency reflects the currency of the meeting, all ToV should be entered in the currency of the meeting.  The Service Provider Fee can be managed in a different currency. This can be set by editing the record and changing the Currency field.</inlineHelpText>
+        <label>ToV Currency</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Topic_Area_MERC__c</fullName>
         <description>The topic area chosen by the Service Provider.  Oliver Dunford. 5th Nov 2013.</description>
         <externalId>false</externalId>
@@ -1752,7 +1831,7 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
     </fields>
     <fields>
         <fullName>Total_Honorarium_MERC__c</fullName>
-        <description>Pulls in the Final Fee from the Meeting Participant record.  This is the final value that should get sent to Activity ODS. Created by Oliver Dunford 4th November 2013.</description>
+        <description>Pulls in the Final Fee from the Meeting Participant record.  This is the final value for reference.  This is not picked up by AODS as the Honorarium is managed and picked up through SAP. Created by Oliver Dunford 4th November 2013.</description>
         <externalId>false</externalId>
         <formula>Final_Fee_MERC__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
@@ -2192,6 +2271,7 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
     </fields>
     <fields>
         <fullName>of_Locked_Invoices_MERC__c</fullName>
+        <defaultValue>0</defaultValue>
         <description>Used by Lookup Rollup Summary Tool to count the number of Locked Invoices/Credit Notes.  Needed to prevent deletion of Locked Invoices/Credit Notes. Created 05/23/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label># of Locked Invoices</label>
@@ -2219,6 +2299,20 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
+    <namedFilters>
+        <fullName>nf_01I110000008cxpEAA_00N11000000PFx1EAG</fullName>
+        <active>true</active>
+        <field>HCP_Contract_MERC__c.Meeting_Participant_MERC__c</field>
+        <filterItems>
+            <field>$Source.Account_MERC__c</field>
+            <operation>equals</operation>
+            <valueField>Meeting_Participant_MERC__c.Account_MERC__c</valueField>
+        </filterItems>
+        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+        <isOptional>false</isOptional>
+        <name>HCP Contract_Meeting Participant</name>
+        <sourceObject>HCP_Contract_MERC__c</sourceObject>
+    </namedFilters>
     <pluralLabel>Meeting Participants</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
@@ -3593,7 +3687,7 @@ ISCHANGED(Partial_Payment_Amount_MERC__c) &amp;&amp; !ISBLANK(Partial_Payment_Am
     </validationRules>
     <validationRules>
         <fullName>Check_if_any_ToV_has_been_reported</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Checks to see if any Meeting Participants have had ToV reported. Created 01/08/2014 by KLorenti, Mavens Consulting</description>
         <errorConditionFormula>ISPICKVAL( Meeting_MERC__r.Participant_ToV_Final_MERC__c,&quot;Yes&quot;) &amp;&amp;
 (
@@ -3628,15 +3722,6 @@ Partial_Payment_Amount_MERC__c &gt; 0.00 &amp;&amp;
 TEXT(Confirm_Final_Fee_MERC__c) = &quot;Confirmed&quot; &amp;&amp; TEXT(Services_Rendered_MERC__c) = &quot;Yes&quot;</errorConditionFormula>
         <errorDisplayField>Confirm_Partial_Payment_Amount_MERC__c</errorDisplayField>
         <errorMessage>Please confirm the Final Fee should be updated with the Partial Payment Amount.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Description_of_Service_MERC</fullName>
-        <active>true</active>
-        <description>Description of Service may not be blank if the Type of Service = &quot;Consulting Project&quot;. Created 04/10/2014 by KLorenti, Mavens Consulting</description>
-        <errorConditionFormula>ISPICKVAL(Types_of_Service_MERC__c,&apos;Consulting Project&apos;)
-&amp;&amp; ISBLANK( Description_of_Service_MERC__c)</errorConditionFormula>
-        <errorDisplayField>Description_of_Service_MERC__c</errorDisplayField>
-        <errorMessage>The Description of Service must be completed if the Participant&apos;s Type of Service is Consulting Project</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Enter_Blank_If_Not_Reported_MERC</fullName>
@@ -3709,6 +3794,14 @@ Text(Confirm_Final_Fee_MERC__c) &lt;&gt; &quot;Confirmed&quot;)</errorConditionF
 ISPICKVAL( Meeting_MERC__r.Participant_ToV_Final_MERC__c ,&quot;Yes&quot;)</errorConditionFormula>
         <errorDisplayField>Status_MERC__c</errorDisplayField>
         <errorMessage>You cannot change the Participant&apos;s status if the Participant ToV is final.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Prevent_Delete_Locked_Invoices_MERC</fullName>
+        <active>true</active>
+        <description>Prevent deletion of locked invoices or credit notes.</description>
+        <errorConditionFormula>ISCHANGED( of_Locked_Invoices_MERC__c ) &amp;&amp;
+(of_Locked_Invoices_MERC__c &lt; PRIORVALUE(of_Locked_Invoices_MERC__c))</errorConditionFormula>
+        <errorMessage>You many not delete Invoices or Credit Notes that are locked.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Prevent_Negative_Amount_in_CoPay_MERC</fullName>

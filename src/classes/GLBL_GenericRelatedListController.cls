@@ -17,6 +17,7 @@ global with sharing virtual class GLBL_GenericRelatedListController {
 	List<String> recordTypeDeveloperNames;
 	String orderChildrenBy; //Amount (controls the way theyre displayed in the list)
 	public Id parentId = ApexPages.currentPage().getParameters().get('id');
+	public String meetingCurrency = [SELECT CurrencyIsoCode FROM Meeting_MERC__c WHERE Id = :parentId].CurrencyIsoCode;
 
 	public GLBL_GenericRelatedListController(
 		ApexPages.StandardSetController controller,
@@ -116,7 +117,7 @@ global with sharing virtual class GLBL_GenericRelatedListController {
 		}
 	}
 
-	//loops through our generic sobject list and inserts/update records appropriately 
+	//loops through our generic sobject list and inserts/update records appropriately
 	public virtual PageReference doSave() {
 		List<Sobject> childrenToInsert = new List<Sobject>();
 		List<Sobject> childrenToUpdate = new List<Sobject>();
@@ -164,7 +165,7 @@ global with sharing virtual class GLBL_GenericRelatedListController {
 		private set;
 	}
 
-	//a map of the record type developer name to the children 
+	//a map of the record type developer name to the children
 	public Map<String, List<GenericSobjectWrapper>> childrenMap {
 		get {
 			if (childrenMap == null) {

@@ -37,7 +37,7 @@
                 <field>Event_Country_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>City_of_Meeting_MERC__c</field>
             </layoutItems>
             <layoutItems>
@@ -282,6 +282,7 @@
     </layoutSections>
     <relatedLists>
         <customButtons>Add_Participants_MERC</customButtons>
+        <customButtons>Mass_Approve_Participants_MERC</customButtons>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Account.NAME</fields>
