@@ -40,7 +40,7 @@ public with sharing class MERC_MeetingNewEditController extends GLBL_BaseEditCon
         tz.convertDateTimes(new List<Sobject>{this.mySobject}, false); //sets date/times based on meeting time/zone, for UX purposes
     }
 
-    public PageReference save() {
+    public override PageReference save() {
         try {
             tz.convertDateTimes(new List<Sobject>{this.mySobject}, true); //sets date/times based on UTC
             if (this.mySobject.Id == null) {

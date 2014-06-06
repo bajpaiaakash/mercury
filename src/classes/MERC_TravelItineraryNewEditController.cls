@@ -61,7 +61,7 @@ public with sharing class MERC_TravelItineraryNewEditController extends GLBL_Bas
         tz.convertDateTimes(new List<Sobject>{this.mySobject}, false); //sets date/times based on meeting time/zone, for UX purposes
     }
 
-    public PageReference save() {
+    public override PageReference save() {
         return insertTheSObject(false);
     }
 
