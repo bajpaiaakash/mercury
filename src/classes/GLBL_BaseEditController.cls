@@ -82,6 +82,9 @@ global virtual with sharing class GLBL_BaseEditController {
 	public virtual PageReference save() {
 		//by overriding the standard controller we lose the ability to use the standard saveURL functionality. this mimics that functionality
 		PageReference pageRef = stdController.save();
+		if (pageRef==null) {
+			return pageRef;
+		}
 		if (ApexPages.currentPage().getParameters().containsKey('saveURL')) {
 			//if the saveURL param exists, get it, decode it and split it at '#'. if an anchor exists we will get two strings
 			List<String> saveURL = EncodingUtil.urlDecode(ApexPages.currentPage().getParameters().get('saveURL'), 'UTF-8').split('#');
