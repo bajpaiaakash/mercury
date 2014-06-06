@@ -154,8 +154,8 @@
 								<apex:param name="clientHash" value="{!a.hash}" assignTo="{!clientHash}"/>
 							</apex:commandLink>
 						</apex:column>
-						<apex:repeat var="f" value="{!$ObjectType.Meeting_Day_MERC__c.FieldSets.Meeting_Day_Manager_Columns_MERC}">
-				            <apex:column headerValue="{!f.label}" rendered="{!$ObjectType.Meeting_Day_MERC__c.fields[f].accessible}">
+						<apex:repeat var="f" value="{!MeetingDayFields}">
+				            <apex:column headerValue="{!f.label}">
 				                <apex:inputField value="{!a.so[f]}" required="{!OR(f.required, f.dbrequired)}" />
 				            </apex:column>
 				        </apex:repeat>
