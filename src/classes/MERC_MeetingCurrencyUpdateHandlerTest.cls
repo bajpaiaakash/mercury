@@ -12,8 +12,6 @@ private class MERC_MeetingCurrencyUpdateHandlerTest {
 	static List<Meeting_MERC__c> meetings;
 	static List<Meeting_Participant_MERC__c> participants;
 	static List<Meeting_Day_MERC__c> meetingDays;
-	static List<Budget_MERC__c> budgets;
-	static List<Budget_Line_Item_MERC__c> budgetLineItems;
 	static List<Daily_Attendance_TOV_MERC__c> tovs;
 	static List<Meeting_Vendor_MERC__c> hotels;
 	static List<Hotel_Allocation_MERC__c> hotelAllocations;
@@ -25,8 +23,6 @@ private class MERC_MeetingCurrencyUpdateHandlerTest {
 		meetings        = MERC_TestFactory.insertMeetings(10);
 		participants    = MERC_TestFactory.insertBulkParticipants(meetings, accounts);
 		meetingDays     = MERC_TestFactory.insertBulkMeetingDays(meetings, 2);
-		budgets         = MERC_TestFactory.insertBulkBudgets(meetings);
-		budgetLineItems = MERC_TestFactory.insertBulkBudgetLineItems(budgets, 2);
 		tovs            = MERC_TestFactory.insertBulkTovs(meetingDays, participants);
 		hotels          = MERC_TestFactory.insertHotelsForMeetings(1, meetings);
 		hotelAllocations= new List<Hotel_Allocation_MERC__c>();
@@ -55,8 +51,6 @@ private class MERC_MeetingCurrencyUpdateHandlerTest {
 			System.assertEquals(10, [SELECT COUNT() FROM Meeting_MERC__c WHERE CurrencyIsoCode='DKK']);
 			System.assertEquals(50, [SELECT COUNT() FROM Meeting_Participant_MERC__c WHERE CurrencyIsoCode='DKK']);
 			System.assertEquals(20, [SELECT COUNT() FROM Meeting_Day_MERC__c WHERE CurrencyIsoCode='DKK']);
-			System.assertEquals(10, [SELECT COUNT() FROM Budget_MERC__c WHERE CurrencyIsoCode='DKK']);
-			System.assertEquals(20, [SELECT COUNT() FROM Budget_Line_Item_MERC__c WHERE CurrencyIsoCode='DKK']);
 			System.assertEquals(100, [SELECT COUNT() FROM Daily_Attendance_TOV_MERC__c WHERE CurrencyIsoCode='DKK']);
 			System.assertEquals(10, [SELECT COUNT() FROM Meeting_Vendor_MERC__c WHERE CurrencyIsoCode='DKK']);
 			System.assertEquals(20, [SELECT COUNT() FROM Hotel_Allocation_MERC__c WHERE CurrencyIsoCode='DKK']);
