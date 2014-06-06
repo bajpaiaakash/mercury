@@ -49,7 +49,8 @@ private class MERC_MeetingCurrencyUpdateHandlerTest {
 			Test.stopTest();
 
 			System.assertEquals(10, [SELECT COUNT() FROM Meeting_MERC__c WHERE CurrencyIsoCode='DKK']);
-			System.assertEquals(50, [SELECT COUNT() FROM Meeting_Participant_MERC__c WHERE CurrencyIsoCode='DKK']);
+			//participant shouldn't change
+			System.assertEquals(50, [SELECT COUNT() FROM Meeting_Participant_MERC__c WHERE CurrencyIsoCode='EUR']);
 			System.assertEquals(20, [SELECT COUNT() FROM Meeting_Day_MERC__c WHERE CurrencyIsoCode='DKK']);
 			System.assertEquals(100, [SELECT COUNT() FROM Daily_Attendance_TOV_MERC__c WHERE CurrencyIsoCode='DKK']);
 			System.assertEquals(10, [SELECT COUNT() FROM Meeting_Vendor_MERC__c WHERE CurrencyIsoCode='DKK']);
