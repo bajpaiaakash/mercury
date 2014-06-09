@@ -17,6 +17,7 @@ public with sharing class MERC_MergedAccountsController {
     private String                         baseAcctSoqlQuery;
     private Map<String, Merge_History_GLBL__c> mergeHistoryByWinningAccount;
 
+
     public MERC_MergedAccountsController() {
         /*----- initialize the standard set contorller -----*/
         initializeSetController();
@@ -47,7 +48,12 @@ public with sharing class MERC_MergedAccountsController {
             mergeHistoryByWinningAccount.put(mh.Winning_Id_GLBL__c, mh);
         }
         ssc = new ApexPages.StandardSetController(mergeHistoryByWinningAccount.values());
-        ssc.setPageSize(10);
+        updatePageSize(10);
+    }
+
+    public void updatePageSize(Integer pageSize)
+    {
+        ssc.setPageSize(pageSize);
     }
 
     /*----- return the accounts based on the current record set in the set controller ------*/

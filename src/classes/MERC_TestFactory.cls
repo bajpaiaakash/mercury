@@ -521,7 +521,7 @@ public with sharing class MERC_TestFactory {
 				Losing_Acct_Related_List_Field_Set_MERC__c  = 'Account_Merge_Pref_and_Consent_MERC',
 				Order_MERC__c                               = 8,
 				Parent_Account_Field_MERC__c                = 'Account_GLBL__c',
-				Path_to_Cust_Id_MERC__c                     = 'Account_GLBL__r',
+				Path_to_Cust_Id_MERC__c                     = 'Account_GLBL__r.Cust_Id_GLBL__c',
 				Related_Object_API_Name__c                  = 'Preferences_and_Consent_GLBL__c',
 				Winning_Acct_Related_List_Field_Set_MERC__c = 'Account_Merge_Pref_and_Consent_MERC'
 			)

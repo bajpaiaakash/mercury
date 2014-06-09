@@ -196,13 +196,13 @@ public class MERC_MergedAccountApex {
             this.winningFields    = winningFields;
             this.losingFields     = losingFields;
 
-            winningListSoql = createListSoql( winningFields, winningAccountId );
-            losingListSoql  = createListSoql( losingFields,  losingAccountId );
+            winningListSoql = createListSoql( winningFields, winningAccountId, losingAccountId, false );
+            losingListSoql  = createListSoql( losingFields,  winningAccountId, losingAccountId, true );
         }
 
-        private String createListSoql(List<Schema.FieldSetMember> fields, String accountId)
+        private String createListSoql(List<Schema.FieldSetMember> fields, String winningAccountId, String losingAccountId, Boolean isWinningSoql)
         {
-            return MERC_MergedAccountApex.buildSoqlString(fields, sObjectName, settings.Path_to_Cust_Id_MERC__c, accountId);
+            return MERC_MergedAccountApex.buildSoqlString(fields, sObjectName, settings.Path_to_Cust_Id_MERC__c, winningAccountId, losingAccountId, isWinningSoql);
         }
 
         /*----- lazy load the winning and losing lists as singletons.
@@ -268,24 +268,18 @@ public class MERC_MergedAccountApex {
             }
         }
 
-        /*----- loop over the losing list, set the parent account to be the winning account
-                and then update that list. null out the winning and losing lists to force a refresh -----*/
+        /*----- loop over the losing list, clear out the Prior_Parent_Id_GLBL__c so that the account
+                is no longer associated with the losing record. -----*/
         public void mergeSelectedRecords()
         {
             List<SObject> objectsToUpdate = new List<SObject>();
-            List<Account> winningAcct = [SELECT Id FROM Account WHERE Cust_Id_GLBL__c = :winningAccountId limit 1];
-
-            if (winningAcct.isEmpty())
-            {
-                throw new MERC_Exception('Unable to locate the winning account.');
-            }
 
             for (SelectableSObject so : losingList)
             {
                 if (so.selected)
                 {
                     /*----- reparent to the winning record parent id -----*/
-                    so.detail.put(settings.Parent_Account_Field_MERC__c, winningAcct[0].Id);
+                    so.detail.put('Prior_Parent_Id_GLBL__c', '');
                     objectsToUpdate.add(so.detail);
                 }
             }
@@ -318,7 +312,7 @@ public class MERC_MergedAccountApex {
         }
     }
 
-    private static String buildSoqlString(List<Schema.FieldSetMember> fields, String objectName, String parentField, String parentId)
+    private static String buildSoqlString(List<Schema.FieldSetMember> fields, String objectName, String parentField, String parentId, String losingId, Boolean isWinningSoql)
     {
         String soql = 'SELECT Id';
         for (Schema.FieldSetMember field : fields)
@@ -329,6 +323,7 @@ public class MERC_MergedAccountApex {
             }
         }
         soql += ' FROM ' + objectName + ' WHERE ' + parentField + '=\'' + parentId+ '\'';
+        soql += ' AND Prior_Parent_Id_GLBL__c' + (isWinningSoql ? '=' : '!=') + '\'' + losingId + '\'';
         System.debug('\n\n\nBuilt SOQL String is:\n' + soql +'\n\n\n');
         return soql;
     }
