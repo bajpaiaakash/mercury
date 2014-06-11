@@ -16,10 +16,13 @@ private class MERC_NewContentControllerTest {
 	static List<Meeting_MERC__c> meetings;
 	static List<Meeting_Participant_MERC__c> participants;
     static User thisUser = [SELECT Id FROM User WHERE Id = :UserInfo.getUserId()];
+    static Map<String, List<String>> docTypesByRecType;
 
     static User testUser;
     static
     {
+    	MERC_TestFactory.insertMercuryCustomSettings();
+
     	System.runAs(new User(Id=UserInfo.getUserId()))
     	{
     		testUser = MERC_TestFactory.insertTestUsers(1, null).get(0);
@@ -31,22 +34,31 @@ private class MERC_NewContentControllerTest {
     		update new User( id=testUser.Id
     			           , UserRoleId=[SELECT Id FROM UserRole WHERE Name='Global' limit 1].id);
     	}
+
+    	docTypesByRecType = new Map<String, List<String>>();
+    	for (Content_Library_Lookup_MERC__c cll : Content_Library_Lookup_MERC__c.getAll().values()) {
+    		if (docTypesByRecType.containsKey(cll.Content_Record_Type_MERC__c)) {
+    			docTypesByRecType.get(cll.Content_Record_Type_MERC__c).add(cll.Content_Document_Type_MERC__c);
+    		} else {
+    			docTypesByRecType.put(cll.Content_Record_Type_MERC__c, new List<String>{});
+    		}
+    	}
     }
 
 	static {
 		System.runAs(thisUser) {
-			accounts = MERC_TestFactory.insertHcpAccountsInCountry(1, 'GB');
-			for (Account a : accounts)
-			{
-				a.Country_of_Residence_GLBL__c = 'GB';
-			}
-			update accounts;
-			meetings = MERC_TestFactory.insertMeetings(1, 'GB');
+			accounts = MERC_TestFactory.insertHcpAccountsInCountry(1, 'DE');
+			meetings = MERC_TestFactory.insertMeetings(1, 'DE');
 			participants = MERC_TestFactory.insertParticipants(meetings[0].Id, accounts);
 			invoices = MERC_TestFactory.insertInvoices(participants);
 			budget = MERC_TestFactory.insertBudget(meetings[0].Id);
 			contract = MERC_TestFactory.insertHCPContract(accounts[0].Id);
 		}
+	}
+
+	@isTest static void test_running_user_should_have_Global_role() {
+		String userRoleId = [SELECT UserRoleId FROM User WHERE Id=:UserInfo.getUserId()].UserRoleId;
+		System.assertEquals('Global', [SELECT Name FROM UserRole WHERE Id=:userRoleId].Name, 'The user running the tests does not have the global role and therefore some tests might fail in this class.');
 	}
 
 	// exercise cancel method.
@@ -67,51 +79,143 @@ private class MERC_NewContentControllerTest {
 	}
 
 	/*
-	 * Loop through all expected content types and try the upload
+	 * Loop through all expected account documents types and try the upload
 	 */
 	@isTest
-	static void testUploadAllContentTypes() {
-
+	static void testUploadAccountContent() {
 		System.runAs(thisUser) {
-			invoices.get(0).Payee_Country_MERC__c = 'GB';
-			update invoices.get(0);
-
-			List<String> ids = new List<String>();
-			ids.add(accounts[0].Id);
-			ids.add(meetings[0].Id);
-			ids.add(participants[0].Id);
-			ids.add(invoices[0].Id);
-			ids.add(budget.Id);
-			ids.add(contract.Id);
-
 			PageReference ref = Page.MERC_NewMeetingContent;
+			ref.getParameters().put('id', accounts.get(0).Id);
 			Test.setCurrentPage(ref);
+
 			Test.startTest();
 
-			for (String id : ids) {
-				ApexPages.currentPage().getParameters().put('id', id);
-
+			for (String type : docTypesByRecType.get('Account_MERC')) {
 				MERC_NewContentController controller = new MERC_NewContentController();
+				populateFile(controller, type);
 				PageReference returnRef = controller.upload();
-
-				System.assertEquals(null, returnRef, 'Expected null PageRef but got: '+returnRef);
-				List<ApexPages.Message> messages = ApexPages.getMessages();
-				for (ApexPages.Message m : messages) {
-					System.assert(m.getDetail().contains('Please select a document'));
-				}
-
-				controller.file.Title = controller.getsObjectName();
-				controller.file.PathOnClient = controller.getsObjectName();
-				controller.file.VersionData = Blob.valueOf('For naught so vile that on the earth doth live but to the earth some special good doth give.');
-				returnRef = controller.upload();
 				if (returnRef != null) System.debug(returnRef.getUrl());
-				System.assertNotEquals(null,returnRef,'Expected a PageRef but got null');
+				System.assertNotEquals(null,returnRef,'Expected a PageRef but got null: ' + ApexPages.getMessages());
 			}
 			Test.stopTest();
 		}
 	}
 
-	// Simulate a problem with the User's access to Content
+	/*
+	 * Loop through all expected meeting documents types and try the upload
+	 */
+	@isTest
+	static void testUploadMeetingContent() {
+		System.runAs(thisUser) {
+			PageReference ref = Page.MERC_NewMeetingContent;
+			ref.getParameters().put('id', meetings.get(0).Id);
+			Test.setCurrentPage(ref);
+
+			Test.startTest();
+
+			for (String type : docTypesByRecType.get('Meeting_MERC')) {
+				MERC_NewContentController controller = new MERC_NewContentController();
+				populateFile(controller, type);
+				PageReference returnRef = controller.upload();
+				if (returnRef != null) System.debug(returnRef.getUrl());
+				System.assertNotEquals(null,returnRef,'Expected a PageRef but got null: ' + ApexPages.getMessages());
+			}
+			Test.stopTest();
+		}
+	}
+
+	/*
+	 * Loop through all expected Meeting_Participant_MERC documents types and try the upload
+	 */
+	@isTest
+	static void testUploadMeetingParticipantContent() {
+		System.runAs(thisUser) {
+			PageReference ref = Page.MERC_NewMeetingContent;
+			ref.getParameters().put('id', participants.get(0).Id);
+			Test.setCurrentPage(ref);
+
+			Test.startTest();
+
+			for (String type : docTypesByRecType.get('Meeting_Participant_MERC')) {
+				MERC_NewContentController controller = new MERC_NewContentController();
+				populateFile(controller, type);
+				PageReference returnRef = controller.upload();
+				if (returnRef != null) System.debug(returnRef.getUrl());
+				System.assertNotEquals(null,returnRef,'Expected a PageRef but got null: ' + ApexPages.getMessages());
+			}
+			Test.stopTest();
+		}
+	}
+
+	@isTest
+	static void testUploadContractContent() {
+		System.runAs(thisUser) {
+			PageReference ref = Page.MERC_NewMeetingContent;
+			ref.getParameters().put('id', contract.Id);
+			Test.setCurrentPage(ref);
+
+			Test.startTest();
+
+			for (String type : docTypesByRecType.get('HCP_Contract_MERC')) {
+				MERC_NewContentController controller = new MERC_NewContentController();
+				populateFile(controller, type);
+				PageReference returnRef = controller.upload();
+				if (returnRef != null) System.debug(returnRef.getUrl());
+				System.assertNotEquals(null,returnRef,'Expected a PageRef but got null: ' + ApexPages.getMessages());
+			}
+			Test.stopTest();
+		}
+	}
+
+	@isTest
+	static void testUploadInvoiceContent() {
+		System.runAs(thisUser) {
+			PageReference ref = Page.MERC_NewMeetingContent;
+			ref.getParameters().put('id', invoices.get(0).Id);
+			Test.setCurrentPage(ref);
+
+			Test.startTest();
+
+			for (String type : docTypesByRecType.get('Invoice_MERC')) {
+				MERC_NewContentController controller = new MERC_NewContentController();
+				populateFile(controller, type);
+				PageReference returnRef = controller.upload();
+				if (returnRef != null) System.debug(returnRef.getUrl());
+				System.assertNotEquals(null,returnRef,'Expected a PageRef but got null: ' + ApexPages.getMessages());
+			}
+			Test.stopTest();
+		}
+	}
+
+	@isTest
+	static void testUploadBudgetContent() {
+		update new user(Id=UserInfo.getUserId(), Procurement_Library_MERC__c=null);
+		System.runAs(thisUser) {
+			PageReference ref = Page.MERC_NewMeetingContent;
+			ref.getParameters().put('id', budget.Id);
+			Test.setCurrentPage(ref);
+
+			Test.startTest();
+
+			MERC_NewContentController controller = new MERC_NewContentController();
+			populateFile(controller, 'sometype');
+			PageReference returnRef = controller.upload();
+			if (returnRef != null) System.debug(returnRef.getUrl());
+			//System.assertNotEquals(null,returnRef,'Expected a PageRef but got null: ' + ApexPages.getMessages());
+			System.assert(ApexPages.getMessages().get(0).getSummary().contains('You have not been granted access to a Procurement Library to upload document against a Budget. This document will be uploaded to: DE - Regional. Please contact a system administrator for assistance with Library access.'));
+
+			Test.stopTest();
+		}
+	}
+
+	private static void populateFile(MERC_NewContentController controller, String type) {
+		controller.file.Title = controller.getsObjectName();
+		controller.file.PathOnClient = controller.getsObjectName();
+		controller.file.VersionData = Blob.valueOf('For naught so vile that on the earth doth live but to the earth some special good doth give.');
+		controller.file.Document_Type_MERC__c = type;
+	}
+
+	 //Simulate a problem with the User's access to Content
 	@isTest
 	static void catchWorkspaceException() {
 		RecordType rt = [SELECT Id FROM RecordType WHERE DeveloperName = 'Business_Account'];
@@ -128,14 +232,11 @@ private class MERC_NewContentControllerTest {
 			Test.setCurrentPage(ref);
 			ApexPages.currentPage().getParameters().put('id', (String) a.id);
 
-			Boolean errThrown = false;
-			try {
-				MERC_NewContentController controller = new MERC_NewContentController();
-			} catch (Exception e) {
-				System.assert(e.getMessage().contains('Unable to determine the appropriate content library'),'Unexpected error thrown: '+e);
-				errThrown = true;
-			}
-			System.assert(errThrown,'Expected error but none thrown!');
+			MERC_NewContentController controller = new MERC_NewContentController();
+			populateFile(controller, 'sometype');
+			controller.upload();
+
+			System.assert(ApexPages.getMessages().get(0).getSummary().contains('Unable to determine the proper content library.'), ApexPages.getMessages());
 			Test.stopTest();
 		}
 	}
@@ -160,5 +261,18 @@ private class MERC_NewContentControllerTest {
 		for (ApexPages.Message m : messages) {
 			System.assertEquals(ApexPages.Severity.Error,m.getSeverity(),'Unexpected error thrown: '+m);
 		}
+	}
+
+	@isTest
+	static void exerciseReloadButton() {
+		PageReference ref = Page.MERC_NewMeetingContent;
+		ref.getParameters().put('id', (String) meetings[0].id);
+		Test.setCurrentPage(ref);
+
+
+		Test.startTest();
+		MERC_NewContentController controller = new MERC_NewContentController();
+		System.assertEquals(ref, controller.reloadPage());
+		Test.stopTest();
 	}
 }

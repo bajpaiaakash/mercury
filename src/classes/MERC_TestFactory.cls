@@ -9,6 +9,16 @@ public with sharing class MERC_TestFactory {
 	public static Boolean adjustForSFDCSetMockBug {get{if (adjustForSFDCSetMockBug==null) return false; else return adjustForSFDCSetMockBug;}
 												   set{adjustForSFDCSetMockBug = value&&Test.isRunningTest();}}
 
+	public static void insertMercuryCustomSettings() {
+		Mercury_Settings_MERC__c settings = Mercury_Settings_MERC__c.getOrgDefaults();
+		settings.Budget_Edit_Validation_MERC__c = true;
+		insert settings;
+
+		List<Content_Library_Lookup_MERC__c> contentLookupSettings = Test.loadData(Content_Library_Lookup_MERC__c.sObjectType, 'ContentLibraryLookup_MERC');
+
+		List<Account_Merge_Related_Lists_MERC__c> mergeSettings = Test.loadData(Account_Merge_Related_Lists_MERC__c.sObjectType, 'AccountMergeSettings_MERC');
+	}
+
 	public static void loadTimeZoneFieldMapSettings() {
 		List<sObject> timeZoneFieldMappings = Test.loadData(Time_Zone_Field_Mappings_MERC__c.sObjectType, 'TimeZoneMappingTestData_MERC');
 	}
@@ -430,103 +440,4 @@ public with sharing class MERC_TestFactory {
         Database.insert(users);
         return users;
 	}
-
-	public static void insertMercuryCustomSettings() {
-		Mercury_Settings_MERC__c settings = Mercury_Settings_MERC__c.getOrgDefaults();
-		settings.Budget_Edit_Validation_MERC__c = true;
-		insert settings;
-
-		List<Account_Merge_Related_Lists_MERC__c> mergeSettings = new List<Account_Merge_Related_Lists_MERC__c>{
-			new Account_Merge_Related_Lists_MERC__c(
-				Name                                        = 'Address',
-				Account_Relationship_Name__c                = 'Addresses_GLBL__r',
-				Allow_Winning_Account_Deletes__c            = true,
-				Losing_Acct_Related_List_Field_Set_MERC__c  = 'Account_Merge_Addresses_MERC',
-				Order_MERC__c                               = 1,
-				Parent_Account_Field_MERC__c                = 'Account_GLBL__c',
-				Path_to_Cust_Id_MERC__c                     = 'Account_GLBL__r.Cust_Id_GLBL__c',
-				Related_Object_API_Name__c                  = 'Address_GLBL__c',
-				Winning_Acct_Related_List_Field_Set_MERC__c = 'Account_Merge_Addresses_MERC'
-			),
-			new Account_Merge_Related_Lists_MERC__c(
-				Name                                        = 'Payee',
-				Account_Relationship_Name__c                = 'Payee__r',
-				Allow_Winning_Account_Deletes__c            = true,
-				Losing_Acct_Related_List_Field_Set_MERC__c  = 'Account_Merge_Payee_MERC',
-				Order_MERC__c                               = 2,
-				Parent_Account_Field_MERC__c                = 'Account_MERC__c',
-				Path_to_Cust_Id_MERC__c                     = 'Account_MERC__r.Cust_Id_GLBL__c',
-				Related_Object_API_Name__c                  = 'Payee_MERC__c',
-				Winning_Acct_Related_List_Field_Set_MERC__c = 'Account_Merge_Payee_MERC'
-			),
-			new Account_Merge_Related_Lists_MERC__c(
-				Name                                        = 'Account Designated Individuals',
-				Account_Relationship_Name__c                = 'Designated_Individuals__r',
-				Allow_Winning_Account_Deletes__c            = true,
-				Losing_Acct_Related_List_Field_Set_MERC__c  = 'Account_Merge_Desig_Individuals_MERC',
-				Order_MERC__c                               = 3,
-				Parent_Account_Field_MERC__c                = 'HCP_Designated_Individuals_MERC__c',
-				Path_to_Cust_Id_MERC__c                     = 'HCP_Designated_Individuals_MERC__r.Cust_Id_GLBL__c',
-				Related_Object_API_Name__c                  = 'Account',
-				Winning_Acct_Related_List_Field_Set_MERC__c = 'Account_Merge_Desig_Individuals_MERC'
-			),
-			new Account_Merge_Related_Lists_MERC__c(
-				Name                                        = 'Account Contracting Parties',
-				Account_Relationship_Name__c                = 'HCPs_Contracting_Party__r',
-				Allow_Winning_Account_Deletes__c            = true,
-				Losing_Acct_Related_List_Field_Set_MERC__c  = 'Account_Merge_Contracting_Parties_MERC',
-				Order_MERC__c                               = 4,
-				Parent_Account_Field_MERC__c                = 'HCP_Contracting_Party_MERC__c',
-				Path_to_Cust_Id_MERC__c                     = 'HCP_Contracting_Party_MERC__r.Cust_Id_GLBL__c',
-				Related_Object_API_Name__c                  = 'Account',
-				Winning_Acct_Related_List_Field_Set_MERC__c = 'Account_Merge_Contracting_Parties_MERC'
-			),
-			new Account_Merge_Related_Lists_MERC__c(
-				Name                                        = 'Meeting Participant',
-				Account_Relationship_Name__c                = 'Event_Participants__r',
-				Allow_Winning_Account_Deletes__c            = false,
-				Losing_Acct_Related_List_Field_Set_MERC__c  = 'Account_Merge_Fields_MP',
-				Order_MERC__c                               = 5,
-				Parent_Account_Field_MERC__c                = 'Account_MERC__c',
-				Path_to_Cust_Id_MERC__c                     = 'Account_MERC__r.Cust_Id_GLBL__c',
-				Related_Object_API_Name__c                  = 'Meeting_Participant_MERC__c',
-				Winning_Acct_Related_List_Field_Set_MERC__c = 'Account_Merge_Fields_MP'
-			),
-			new Account_Merge_Related_Lists_MERC__c(
-				Name                                        = 'HCP Contract',
-				Account_Relationship_Name__c                = 'HCP_Contracts__r',
-				Allow_Winning_Account_Deletes__c            = false,
-				Losing_Acct_Related_List_Field_Set_MERC__c  = 'Merge_HCP_Contracts_MERC',
-				Order_MERC__c                               = 6,
-				Parent_Account_Field_MERC__c                = 'Account_MERC__c',
-				Path_to_Cust_Id_MERC__c                     = 'Account_MERC__r.Cust_Id_GLBL__c',
-				Related_Object_API_Name__c                  = 'HCP_Contract_MERC__c',
-				Winning_Acct_Related_List_Field_Set_MERC__c = 'Merge_HCP_Contracts_MERC'
-			),
-			new Account_Merge_Related_Lists_MERC__c(
-				Name                                        = 'Case',
-				Account_Relationship_Name__c                = 'Cases',
-				Allow_Winning_Account_Deletes__c            = false,
-				Losing_Acct_Related_List_Field_Set_MERC__c  = 'Account_Merge_Case_MERC',
-				Order_MERC__c                               = 7,
-				Parent_Account_Field_MERC__c                = 'AccountId',
-				Path_to_Cust_Id_MERC__c                     = 'Account.Cust_Id_GLBL__c',
-				Related_Object_API_Name__c                  = 'Case',
-				Winning_Acct_Related_List_Field_Set_MERC__c = 'Account_Merge_Case_MERC'
-			),
-			new Account_Merge_Related_Lists_MERC__c(
-				Name                                        = 'Preferences and Consent',
-				Account_Relationship_Name__c                = 'Consent__r',
-				Allow_Winning_Account_Deletes__c            = true,
-				Losing_Acct_Related_List_Field_Set_MERC__c  = 'Account_Merge_Pref_and_Consent_MERC',
-				Order_MERC__c                               = 8,
-				Parent_Account_Field_MERC__c                = 'Account_GLBL__c',
-				Path_to_Cust_Id_MERC__c                     = 'Account_GLBL__r.Cust_Id_GLBL__c',
-				Related_Object_API_Name__c                  = 'Preferences_and_Consent_GLBL__c',
-				Winning_Acct_Related_List_Field_Set_MERC__c = 'Account_Merge_Pref_and_Consent_MERC'
-			)
-		};
-		insert mergeSettings;
-	}
-
 }
