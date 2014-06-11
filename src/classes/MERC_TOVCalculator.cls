@@ -15,6 +15,9 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 
 	public MERC_TOVCalculator(Schema.SobjectType sobjectType) {
 		this.triggeredSobjectType = sObjectType;
+		//prevent the meeting participant validation from firing when the lookup rollup summary fields hit it and try to
+		//update it without checking the Confirm_ToV_Reporting_Change_MERC__c boolean.
+		MERC_MeetingParticipantTovValidation.tovValidationByPass = true;
 	}
 
 	public Boolean isActive() {
@@ -66,7 +69,8 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 				for (Travel_Itinerary_MERC__c ti : (List<Travel_Itinerary_MERC__c>)sobjects) {
 					if ((Trigger.oldMap.get(ti.Id).get('Meeting_Vendor_MERC__c') != ti.Meeting_Vendor_MERC__c ||
 						  Trigger.oldMap.get(ti.Id).get('Sgmnt_Bgin_TS_MERC__c') != ti.Sgmnt_Bgin_TS_MERC__c ||
-						  Trigger.oldMap.get(ti.Id).get('Sgmnt_End_TS_MERC__c') != ti.Sgmnt_End_TS_MERC__c) &&
+						  Trigger.oldMap.get(ti.Id).get('Sgmnt_End_TS_MERC__c') != ti.Sgmnt_End_TS_MERC__c ||
+						  Trigger.oldMap.get(ti.Id).get('Status_MERC__c') != ti.Status_Merc__c) &&
 						ti.Meeting_Status_MERC__c != 'Completed' &&
 						ti.Meeting_Status_MERC__c != 'Cancelled') {
 						//room rate has changed
@@ -84,7 +88,7 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 														(SELECT
 															ID, Sgmnt_Bgin_TS_MERC__c, Sgmnt_End_TS_MERC__c,
 															Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c,
-															Room_Rate_excl_VAT_MERC__c
+															Room_Rate_excl_VAT_MERC__c, Include_ToV_MERC__c
 																FROM Travel_Itineraries_MERC__r
 																	WHERE RecordType.DeveloperName = 'Hotel_MERC')
 														FROM Meeting_Participant_MERC__c WHERE Meeting_MERC__c in :meetingIds]) {
@@ -94,7 +98,7 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 			System.debug(participantIdToHotelItineraries);
 
 			List<Daily_Attendance_TOV_MERC__c> tovRecordsToUpdate = new List<Daily_Attendance_TOV_MERC__c>();
-			for (Daily_Attendance_TOV_MERC__c tov : [SELECT ID, Status_MERC__c, Meeting_Day_MERC__c, Meeting_Participant_MERC__c, Confirm_ToV_Reporting_Change_MERC__c
+			for (Daily_Attendance_TOV_MERC__c tov : [SELECT ID, Status_MERC__c, Est_Hotel_ToV_MERC__c, Meeting_Day_MERC__c, Meeting_Participant_MERC__c, Confirm_ToV_Reporting_Change_MERC__c
 				                                       FROM Daily_Attendance_TOV_MERC__c
 				 									  WHERE Meeting_Participant_MERC__c in :participantIdToHotelItineraries.keySet()]) {
 
@@ -107,18 +111,22 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 						//Set the confirm reporting to true. If confirmirmation was needed on the meeting vendor
 						//or the travel itinerary we would not get here without the user having checked that box.
 						tov.Confirm_ToV_Reporting_Change_MERC__c = true;
-						if (meetingDayDate >= timestampStart && meetingDayDate <= timestampEnd.addDays(-1)) {
+						if ( t.Include_ToV_MERC__c && (meetingDayDate >= timestampStart && meetingDayDate <= timestampEnd.addDays(-1))) {
 							tov.Est_Hotel_ToV_MERC__c = t.Room_Rate_excl_VAT_MERC__c;
+							tovRecordsToUpdate.add(tov);
 						} else {
 							if (t.Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c == 'Yes') {
-								tov.Est_Hotel_ToV_MERC__c = 0.0;
+								if (tov.Est_Hotel_ToV_MERC__c != null) {
+									tov.Est_Hotel_ToV_MERC__c = 0.0;
+									tovRecordsToUpdate.add(tov);
+								}
 							} else {
 								tov.Est_Hotel_ToV_MERC__c = null;
+								tovRecordsToUpdate.add(tov);
 							}
 						}
 					}
 				}
-				tovRecordsToUpdate.add(tov);
 			}
 
 			MERC_TOVCalculator.runHotelTovCalculation = false;
@@ -135,10 +143,8 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 			Set<Id> meetingParticipantIds = new Set<Id>();
 			Set<Id> meetingDayIds = new Set<Id>();
 			for (Daily_Attendance_TOV_MERC__c tov : (List<Daily_Attendance_TOV_MERC__c>)sobjects) {
-				if (tov.Status_MERC__c == 'Attended') {
-					meetingParticipantIds.add(tov.Meeting_Participant_MERC__c);
-					meetingDayIds.add(tov.Meeting_Day_MERC__c);
-				}
+				meetingParticipantIds.add(tov.Meeting_Participant_MERC__c);
+				meetingDayIds.add(tov.Meeting_Day_MERC__c);
 			}
 
 			//get map of meeting days
@@ -179,9 +185,6 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 	}
 
 	void rollupTovValues(List<SObject> sobjects) {
-		//prevent the meeting participant validation from firing when the lookup rollup summary fields hit it and try to
-		//update it without checking the Confirm_ToV_Reporting_Change_MERC__c boolean.
-		MERC_MeetingParticipantTovValidation.tovValidationByPass = true;
 
 		List<Sobject> detailSobjects; //these should be Daily_Attendance_TOV_MERC__c records
 
