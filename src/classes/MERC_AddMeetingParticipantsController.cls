@@ -9,13 +9,14 @@ public with sharing class MERC_AddMeetingParticipantsController {
     public GLBL_CustomerSearchToolService cstService = new GLBL_CustomerSearchToolService();
 	public GLBL_CustomerSearchToolService.SearchRequest searchRequest { get; set; }
     public Boolean hasError { get; private set; }
-    public String newParticipantRecordTypeId { get; set; }
     private String oldParticipantRecordTypeId { get; set; }
     public Meeting_Participant_MERC__c meetingParticipant { get; set; }
 
 	public MERC_AddMeetingParticipantsController(ApexPages.StandardSetController controller) {
+        p('Entering constructor!!!');
         this.searchRequest = new GLBL_CustomerSearchToolService.SearchRequest();
         meetingParticipant = new Meeting_Participant_MERC__c();
+        p('Leaving constructor!!');
 	}
 
     //if cst token is expired, it will grab a new one
@@ -130,11 +131,16 @@ public with sharing class MERC_AddMeetingParticipantsController {
         }
     }
 
+    /**
+     * For countries to appear in the user select list, util methods are called to check the following:
+     *     - User is a member of a territory
+     *     - That territory and its children have a custom ISO country fields
+     *     - The value of the ISO country fields are each contained in the availble picklist values of
+     *           CST_User_Settings_CUST__c.Country_Code_CUST__c
+     */
     public List<SelectOption> countries {
     	get {
-//    		Schema.DescribeFieldResult fieldResult = CST_User_Settings_CUST__c.Country_Code_CUST__c.getDescribe();
-//    		return MERC_Util.getPicklistValues(fieldResult, true);
-            return MERC_Util.getCountryPicklistValuesForCurrentUser(true);
+           return MERC_Util.getCountryPicklistValuesForCurrentUser(true);
     	}
     }
 
@@ -162,6 +168,7 @@ public with sharing class MERC_AddMeetingParticipantsController {
 
     //performs the search against the CST
     public PageReference doSearch() {
+        p('Entering doSearch!!!!!!');
     	system.debug('>>>>>> '+this.searchRequest);
         this.searchResults = this.cstService.doSearch(this.searchRequest);
         // if error, returns null & cstService.error will be available
@@ -173,13 +180,18 @@ public with sharing class MERC_AddMeetingParticipantsController {
     	return null;
     }
 
+    static void p(String m) {
+        System.debug('\n\n\nYYZ - '+m+'\n\n\n\n');
+    }
+
+
     //returns a list of required fields to be used in the UI
     public List<Schema.FieldSetMember> requiredFields {
         get {
             // new page or record type changed so reset the meeting participant
-            if (String.isBlank(newParticipantRecordTypeId) || newParticipantRecordTypeId != oldParticipantRecordTypeId) {
-                meetingParticipant = new Meeting_Participant_MERC__c();
-                oldParticipantRecordTypeId = newParticipantRecordTypeId;
+            if (String.isBlank(meetingParticipant.RecordTypeId) || meetingParticipant.RecordTypeId != oldParticipantRecordTypeId) {
+                oldParticipantRecordTypeId = meetingParticipant.RecordTypeId;
+                meetingParticipant = new Meeting_Participant_MERC__c(RecordTypeId=meetingParticipant.RecordTypeId);
             }
 
             List<Schema.FieldSetMember> requiredFields = new List<Schema.FieldSetMember>();
@@ -188,7 +200,7 @@ public with sharing class MERC_AddMeetingParticipantsController {
             List<RecordType> recType = [SELECT Id
                                              , DeveloperName
                                           FROM RecordType
-                                         WHERE Id=:newParticipantRecordTypeId
+                                         WHERE Id=:meetingParticipant.RecordTypeId
                                            AND SobjectType = 'Meeting_Participant_MERC__c'];
             System.debug('\n\n\nrecType: ' + recType + '\n\n\n');
 
@@ -232,14 +244,13 @@ public with sharing class MERC_AddMeetingParticipantsController {
     public Id addAcctToMeeting(){
         try {
             String accountId = MERC_Util.getUrlParam('aid');
-            System.debug('SELECTED RECORD TYPE: ' + newParticipantRecordTypeId);
-            if (String.isBlank(newParticipantRecordTypeId))
+            if (String.isBlank(meetingParticipant.RecordTypeId))
             {
                 throw new MERC_Exception('A Record Type is required to add an account to the meeting.');
             }
             meetingParticipant.Account_MERC__c = accountId;
             meetingParticipant.Meeting_MERC__c = meeting.Id;
-            meetingParticipant.RecordTypeId = newParticipantRecordTypeId;
+            //meetingParticipant.RecordTypeId = newParticipantRecordTypeId;
             System.debug(meetingParticipant);
             insert meetingParticipant;
             this.meetingParticipantAccountIds.add(accountId);
@@ -253,7 +264,7 @@ public with sharing class MERC_AddMeetingParticipantsController {
 
         Id meetingParticipantId = meetingParticipant.Id;
 
-        this.newParticipantRecordTypeId = null;
+        //this.newParticipantRecordTypeId = null;
         this.meetingParticipant = new Meeting_Participant_MERC__c();
         this.hasError = false;
         return meetingParticipantId;

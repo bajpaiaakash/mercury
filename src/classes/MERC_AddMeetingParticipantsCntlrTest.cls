@@ -94,7 +94,7 @@ private class MERC_AddMeetingParticipantsCntlrTest {
 			Test.startTest();
 			ApexPages.currentPage().getParameters().put('id',meetings[0].Id);   // meeting
 			ApexPages.currentPage().getParameters().put('aid',newHCP.Id);       // account
-			c.newParticipantRecordTypeId = c.recordTypeOptions[1].getValue();   // participant record type
+			c.meetingParticipant.RecordTypeId = c.recordTypeOptions[1].getValue();   // participant record type
 			List<Schema.FieldSetMember> requiredFields = c.requiredFields; //exercise this code to initialize the meeting participant
 			                                                               //but nothing beyond that is going to happen since we can't create/access field sets in tests
 			c.meetingParticipant.Description_of_Service_MERC__c = 'desc of service, in case the record type is consultant we need to work around the val rule';
@@ -123,7 +123,7 @@ private class MERC_AddMeetingParticipantsCntlrTest {
 			Test.startTest();
 			ApexPages.currentPage().getParameters().put('id',meetings[0].Id);   // meeting
 			ApexPages.currentPage().getParameters().put('aid',newHCP.Id);       // account
-			c.newParticipantRecordTypeId = c.recordTypeOptions[1].getValue();   // participant record type
+			c.meetingParticipant.RecordTypeId = c.recordTypeOptions[1].getValue();   // participant record type
 			List<Schema.FieldSetMember> requiredFields = c.requiredFields; //exercise this code to initialize the meeting participant
 			                                                               //but nothing beyond that is going to happen since we can't create/access field sets in tests
 			c.meetingParticipant.Description_of_Service_MERC__c = 'desc of service, in case the record type is consultant we need to work around the val rule';
