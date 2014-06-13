@@ -4,7 +4,7 @@
  * Apex class responsible for translating date/times to/from a specificed time zone/user time zone
  */
 public with sharing class MERC_TimeZoneUtility {
-	
+
 	TimeZone userTimeZone = UserInfo.getTimeZone();
 	Map<String, Schema.SObjectField> fieldListMap;
 	String sobjectAPIName;
@@ -12,11 +12,11 @@ public with sharing class MERC_TimeZoneUtility {
 	Map<String,String> stampFieldMapping;
 	List<String> timeZoneFieldsForObject;
 
-	public MERC_TimeZoneUtility(Schema.SObjectType objectType) {		
+	public MERC_TimeZoneUtility(Schema.SObjectType objectType) {
 		Schema.DescribeSObjectResult objectDescribe = objectType.getDescribe();
 		this.sobjectAPIName = objectDescribe.getName();
 
-		Schema.DescribeSObjectResult dResult = objectType.getDescribe();  
+		Schema.DescribeSObjectResult dResult = objectType.getDescribe();
 		this.fieldListMap = dResult.fields.getMap();
 
 		this.timeZoneFieldMappings = MERC_Util.getTimeZoneFieldMapForObject(this.sobjectAPIName);
@@ -29,7 +29,7 @@ public with sharing class MERC_TimeZoneUtility {
 		system.debug('>>>>>>>>>>> stampFieldMapping: '+stampFieldMapping);
 	}
 
-	//map of time zone field api name to sid: 'Meeting_Time_Zone_MERC__c' => 'America/New_York' 
+	//map of time zone field api name to sid: 'Meeting_Time_Zone_MERC__c' => 'America/New_York'
 	Map<String,String> getTimeZoneFieldAPINameToTimeZoneSid(Sobject record, String timeZoneSidValueOverride) {
 		Map<String,String> timeZoneFieldAPINameToTimeZoneSid = new Map<String,String>();
 		for (String timeZoneFieldAPIName : this.timeZoneFieldsForObject) {
@@ -50,7 +50,7 @@ public with sharing class MERC_TimeZoneUtility {
 
 	String getFieldType(String dateOrTimeFieldApiName) {
 		Schema.SObjectField field = fieldListMap.get(dateOrTimeFieldApiName);
-		Schema.DescribeFieldResult fieldDescribe = field.getDescribe(); 
+		Schema.DescribeFieldResult fieldDescribe = field.getDescribe();
 		return String.valueOf(fieldDescribe.getSoaptype()); //DATE or DATETIME
 	}
 
@@ -67,20 +67,20 @@ public with sharing class MERC_TimeZoneUtility {
 	public void applyTimeZoneSpecificTimestamps(List<Sobject> sobjects, String timeZoneSidValueOverride) {
 		for (Sobject record : sobjects) {
 			system.debug('...processing object: '+record);
-			
+
 			Map<String,String> timeZoneFieldAPINameToTimeZoneSid = getTimeZoneFieldAPINameToTimeZoneSid(record, timeZoneSidValueOverride);
 
 			//now, for each date or date/time field, we need to calculate the UTC date and (optionally) stamp the time-zone specific value
-			for (String dateOrTimeFieldApiName : this.timeZoneFieldMappings.keySet()) { 
-				
+			for (String dateOrTimeFieldApiName : this.timeZoneFieldMappings.keySet()) {
+
 				system.debug('...processing: '+dateOrTimeFieldApiName); //=> Start_Time_of_Meeting_MERC__c
-				
+
 				if (record.get(dateOrTimeFieldApiName) == null) continue; //if the field is null, skip it
 				if (this.stampFieldMapping.get(dateOrTimeFieldApiName) == null) continue; //if the field doesn't stamp anywhere, skip it
 
 				String fieldType = getFieldType(dateOrTimeFieldApiName);
 				DateTime dtValue = getDateTimeValue(record, dateOrTimeFieldApiName, fieldType);
-				
+
 				//if record's value of dateOrTimeFieldApiName is null, don't bother processing
 				if (dtValue == null) continue;
 
@@ -91,7 +91,7 @@ public with sharing class MERC_TimeZoneUtility {
 				String tzSidValueForAssociatedTimeZone = timeZoneFieldAPINameToTimeZoneSid.get(associatedTimeZoneAPIName);
 				if (tzSidValueForAssociatedTimeZone == null) continue;
 
-				system.debug('>>>> ready to stamp');
+				system.debug('>>>> ready to stamp, before calculatation dtValue is: ' + dtValue.date());
 
 				if (fieldType == 'DATE') {
 					system.debug('>>>> field type is DATE');
@@ -108,35 +108,36 @@ public with sharing class MERC_TimeZoneUtility {
 
 					record.put(fieldAPINameToStamp, dtValue.format(javaDateFormat, tzSidValueForAssociatedTimeZone));
 				}
+				system.debug('\n\n\nThe Record now is: ' + record);
 			}
 		}
 	}
 
-	public void convertDateTimes(list<Sobject> sobjects, Boolean setDateTimesAccordingToUserLocal) {        
+	public void convertDateTimes(list<Sobject> sobjects, Boolean setDateTimesAccordingToUserLocal) {
 		convertDateTimes(sobjects, setDateTimesAccordingToUserLocal, null);
 	}
 
-	public void convertDateTimes(List<Sobject> sobjects, Boolean setDateTimesAccordingToUserLocal, String timeZoneSidValueOverride) {        
+	public void convertDateTimes(List<Sobject> sobjects, Boolean setDateTimesAccordingToUserLocal, String timeZoneSidValueOverride) {
 
 		for (Sobject record : sobjects) {
 			system.debug('...processing object: '+record);
-			
+
 			Map<String,String> timeZoneFieldAPINameToTimeZoneSid = getTimeZoneFieldAPINameToTimeZoneSid(record, timeZoneSidValueOverride);
 
 			//now, for each date or date/time field, we need to calculate the UTC date and (optionally) stamp the time-zone specific value
-			for (String dateOrTimeFieldApiName : timeZoneFieldMappings.keySet()) { 
+			for (String dateOrTimeFieldApiName : timeZoneFieldMappings.keySet()) {
 				system.debug('...processing: '+dateOrTimeFieldApiName);
 				//dateOrTimeFieldApiName = 'Start_Time_of_Meeting_MERC__c'
-				
+
 				try {
 					if (record.get(dateOrTimeFieldApiName) == null) continue;
 				} catch(System.SObjectException e) {
 					continue;
 				}
-				
+
 				String fieldType = getFieldType(dateOrTimeFieldApiName);
 				DateTime dtValue = getDateTimeValue(record, dateOrTimeFieldApiName, fieldType);
-				
+
 				//if record's value of dateOrTimeFieldApiName is null, don't bother processing
 				if (dtValue == null) continue;
 
@@ -153,14 +154,14 @@ public with sharing class MERC_TimeZoneUtility {
 				Integer associatedFieldGmtOffset = associatedTimeZoneValue.getOffset(dtValue); //gets meeting's offset to gmt
 				system.debug('>>>> '+userGmtOffset);
 				system.debug('>>>> '+associatedFieldGmtOffset);
-				
+
 				Integer correction;
 				if (setDateTimesAccordingToUserLocal) {
 					correction = userGmtOffset - associatedFieldGmtOffset;
 				} else {
 					correction = associatedFieldGmtOffset - userGmtOffset;
 				}
-				
+
 				DateTime correctedDateTime = dtValue.addMinutes(correction / (1000 * 60));
 
 				system.debug('>>>> ready to convert date/times');
