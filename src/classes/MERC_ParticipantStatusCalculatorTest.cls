@@ -70,13 +70,14 @@ private class MERC_ParticipantStatusCalculatorTest {
 		{
 			List<Daily_Attendance_TOV_MERC__c> tovs = createTovs('No Show');
 
+			Test.startTest();
 			/*----- first insert, we know this works from tests above -----*/
 			insert tovs;
 			for (Daily_Attendance_TOV_MERC__c tov : tovs)
 			{
 				tov.Status_MERC__c = 'Attended';
 			}
-			Test.startTest();
+
 			/*----- now update -----*/
 			update tovs;
 			Test.stopTest();
@@ -90,9 +91,9 @@ private class MERC_ParticipantStatusCalculatorTest {
 		{
 			List<Daily_Attendance_TOV_MERC__c> tovs = createTovs('Attended');
 
+			Test.startTest();
 			/*----- first insert, we know this works from tests above -----*/
 			insert tovs;
-			Test.startTest();
 			/*----- now delete -----*/
 			delete tovs;
 			Test.stopTest();
@@ -106,11 +107,12 @@ private class MERC_ParticipantStatusCalculatorTest {
 		{
 			List<Daily_Attendance_TOV_MERC__c> tovs = createTovs('Attended');
 
+			Test.startTest();
 			/*----- first insert, we know this works from tests above -----*/
 			insert tovs;
 			/*----- now delete, status goes to no show, we know this works from tests above -----*/
 			delete tovs;
-			Test.startTest();
+
 			/*----- finally undelete -----*/
 			undelete tovs;
 			Test.stopTest();
