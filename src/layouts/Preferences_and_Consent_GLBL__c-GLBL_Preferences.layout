@@ -24,8 +24,8 @@
                 <field>Preference_Sub_Type_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Dietary_Preferences_Complete_MERC__c</field>
+                <behavior>Edit</behavior>
+                <field>Preference_Value_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>

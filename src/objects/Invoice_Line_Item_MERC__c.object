@@ -101,11 +101,6 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Rmbrsmnt_of_Expenses_MERC__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
             <field>RecordTypeId</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -357,22 +352,6 @@ Created by John A Adams 10/27/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Rmbrsmnt_of_Expenses_MERC__c</fullName>
-        <description>Pulls Reimbursement of Expenses from Meeting Participant</description>
-        <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Invoice_MERC__r.Meeting_Participant_MERC__r.Expense_Reimbursment_MERC__c, &quot;Yes&quot;),&quot;Yes&quot;,
- IF(ISPICKVAL(Invoice_MERC__r.Meeting_Participant_MERC__r.Expense_Reimbursment_MERC__c, &quot;No&quot;),&quot;No&quot;,null
- )
-)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Reimbursement of Expenses</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Tax_Amount_MERC__c</fullName>
         <description>Tax Amount (currency, calc based on value &amp; tax rate) 
 Created by John A Adams 10/4/2013</description>
@@ -521,6 +500,14 @@ Created by John A Adams 10/4/2013</description>
  )
 )</errorConditionFormula>
         <errorMessage>The Meeting Participant must have rendered services</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Invoice_Line_Item_Currency</fullName>
+        <active>true</active>
+        <description>Invoice Line Item Currency must match that of Invoice.  Created by J Adams July 4, 2014</description>
+        <errorConditionFormula>TEXT(CurrencyIsoCode) &lt;&gt;  TEXT(Invoice_MERC__r.CurrencyIsoCode)</errorConditionFormula>
+        <errorDisplayField>CurrencyIsoCode</errorDisplayField>
+        <errorMessage>The currency of the line item must match that of the Invoice.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Prevent_Invoice_Line_Item_Activity</fullName>

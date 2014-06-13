@@ -3,7 +3,7 @@ trigger MERC_MeetingDay on Meeting_Day_MERC__c (before insert, before update, be
 	//for governor limit reasons, let's assign this once and only on before triggers
 	Schema.DescribeFieldResult parentLookupField;
 	if (Trigger.isBefore) {
-		parentLookupField = Schema.sObjectType.Meeting_Day_MERC__c.fields.Meeting_MERC__c;	
+		parentLookupField = Schema.sObjectType.Meeting_Day_MERC__c.fields.Meeting_MERC__c;
 	}
 
 	new GLBL_TriggerHandler()

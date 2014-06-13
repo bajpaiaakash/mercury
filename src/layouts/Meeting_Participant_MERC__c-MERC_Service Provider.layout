@@ -116,14 +116,6 @@
                 <behavior>Required</behavior>
                 <field>Hotel_Required_MERC__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Required</behavior>
-                <field>Expense_Reimbursment_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Invoice_Template_Needed_MERC__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -354,6 +346,10 @@
         <editHeading>true</editHeading>
         <label>Reportable ToV</label>
         <layoutColumns>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>ToV_Currency_MERC__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Total_Honorarium_MERC__c</field>

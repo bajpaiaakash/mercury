@@ -15,18 +15,6 @@
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>CST_Client_Auth_Error_MERC__c</fullName>
-        <description>Capture any errors securing auth tokens from the Customer Search Tool service</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Capture any errors securing auth tokens from the Customer Search Tool service</inlineHelpText>
-        <label>CST Client Auth Error</label>
-        <length>255</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>CST_Client_Id_MERC__c</fullName>
         <description>The Client ID for the CST search service</description>
         <externalId>false</externalId>
@@ -178,6 +166,28 @@
         <inlineHelpText>Determines the prefix of file names sent for processing. Used by the Informatica &amp; SAP integrations.</inlineHelpText>
         <label>Invoice File Prefix</label>
         <length>32</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MVI_Service_Endpoint_MERC__c</fullName>
+        <description>The endpoint for the MVI Service</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The endpoint for the MVI Service</inlineHelpText>
+        <label>MVI Service Endpoint</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Participant_Report_Id_MERC__c</fullName>
+        <description>Used for custom link on Meeting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used for custom link on Meeting</inlineHelpText>
+        <label>Meeting Participant Report Id</label>
+        <length>18</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>

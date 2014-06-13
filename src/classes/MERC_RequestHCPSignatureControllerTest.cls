@@ -7,10 +7,11 @@
  */
 @isTest
 private class MERC_RequestHCPSignatureControllerTest {
-	
+
 	static HCP_Contract_MERC__c contract;
-	static Account hcp; 
+	static Account hcp;
 	static Account internalSignee;
+	static User testUser = MERC_TestFactory.getRunningUser();
 
 	static {
 		hcp = MERC_TestFactory.insertAccounts(1)[0];
@@ -21,10 +22,11 @@ private class MERC_RequestHCPSignatureControllerTest {
 	/*
 	 * Let's require a signature via MERC_RequestHCPSignatureController.requestSignature()
 	 */
-	@isTest 
+	@isTest
 	static void testRequestForSignature() {
+		//can't runas test user since initiDocusignt calls setupContractContent which needs access to a content library and that can't be setup in a test
 		MERC_RequestHCPSignatureController controller = initDocusign();
-        
+
         //serialize mock response to mimic MERC_DocusignService.EnvelopeResponse
         DocusignMockMultiResponseObj mockResponse = new DocusignMockMultiResponseObj();
         mockResponse.envelopeId = '7f7de730-811d-458a-97a3-deeef96b38d0';
@@ -39,15 +41,16 @@ private class MERC_RequestHCPSignatureControllerTest {
         Test.stopTest();
 		System.assertEquals(null,result,'requestSignature returned an unexpected PageReference: '+result);
 		System.assertEquals(true,controller.isSent,'Expected isSent property to be false but it was :'+controller.isSent);
-	}	
+	}
 
 	/*
 	 * Let's test an expected Docusign error
-	 */	
-	@isTest 
+	 */
+	@isTest
 	static void testRequestANCHORError() {
+		//can't runas test user since initiDocusignt calls setupContractContent which needs access to a content library and that can't be setup in a test
 		MERC_RequestHCPSignatureController controller = initDocusign();
-        
+
         // serialize mock response to mimic MERC_DocusignService.EnvelopeResponse with error and
         // a subsequent MERC_DocusignService.TagAndSendResponse
         DocusignMockMultiResponseObj mockResponse = new DocusignMockMultiResponseObj();
@@ -64,33 +67,36 @@ private class MERC_RequestHCPSignatureControllerTest {
         System.debug('FOO APEX MESSAGES: '+ApexPages.getMessages());
 		System.assert(result != null,'Expected non-null value but PageReference was null');
 		System.assertEquals(false, controller.isSent,'Expected isSent property to be false but it was '+controller.isSent);
-	}	
+	}
 
-	/* 
+	/*
 	 * The MERC_DocusignService.getTagAndSendUrl() callout redirects the user to our same page but with certain parameters
 	 */
 	@isTest
 	static void testTagAndSendRedirect() {
-		PageReference ref = Page.MERC_RequestHCPSignature;
-		ref.getParameters().put('docusignTasStatus', '1');
-		ref.getParameters().put('id','contract.Id');
-		Test.setCurrentPage(ref);
+		System.runAs(testUser) {
+			PageReference ref = Page.MERC_RequestHCPSignature;
+			ref.getParameters().put('docusignTasStatus', '1');
+			ref.getParameters().put('id','contract.Id');
+			Test.setCurrentPage(ref);
 
-		Test.startTest();
-		MERC_RequestHCPSignatureController controller = 
-			new MERC_RequestHCPSignatureController(new ApexPages.StandardController(contract));
-		Test.stopTest();
+			Test.startTest();
+			MERC_RequestHCPSignatureController controller =
+				new MERC_RequestHCPSignatureController(new ApexPages.StandardController(contract));
+			Test.stopTest();
 
-		System.assertEquals(true,controller.isSent,'Expected isSent property to be true but it was '+controller.isSent);
+			System.assertEquals(true,controller.isSent,'Expected isSent property to be true but it was '+controller.isSent);
+		}
 	}
 
 	/*
 	 * Let's test for unexpected Docusign errors
-	 */	
-	@isTest 
+	 */
+	@isTest
 	static void testRequestOtherError() {
+		//can't runas test user since initiDocusignt calls setupContractContent which needs access to a content library and that can't be setup in a test
 		MERC_RequestHCPSignatureController controller = initDocusign();
-        
+
         // serialize mock response to mimic MERC_DocusignService.EnvelopeResponse with error
         DocusignMockMultiResponseObj mockResponse = new DocusignMockMultiResponseObj();
         mockResponse.errorCode = 'FOOBAR';
@@ -106,18 +112,19 @@ private class MERC_RequestHCPSignatureControllerTest {
 
 		System.assertEquals(null,result,'requestSignature returned an unexpected PageReference: '+result);
 		System.assertEquals(false, controller.isSent,'Expected isSent property to be false but it was '+controller.isSent);
-	}	
+	}
 
 	/*
 	 * Conditions for requesting a signature are all fulfilled
 	 */
-	@isTest 
+	@isTest
 	static void contractHasEverythingAndCanRequestSignature() {
+		//can't runas test user since setupContractContent needs access to a content library and that can't be setup in a test
 		PageReference ref = Page.MERC_RequestHCPSignature;
 		Test.setCurrentPage(ref);
 
 		Test.startTest();
-		MERC_RequestHCPSignatureController controller = 
+		MERC_RequestHCPSignatureController controller =
 			new MERC_RequestHCPSignatureController(new ApexPages.StandardController(contract));
 
 		contract.Lilly_Internal_Signee_MERC__c = internalSignee.Id;
@@ -126,78 +133,86 @@ private class MERC_RequestHCPSignatureControllerTest {
 
 		System.assertEquals(true, controller.getCanRequestSignature(), 'Unexpected error state: '+ controller.error);
 		System.assertEquals(null, controller.error, 'Unexpected error state: Should have been null but was "'+ controller.error+'"');
-	}	
+	}
 
 	/*** START ***
-	 *  
+	 *
 	 *	The NEXT FOUR methods exercise one of each of the possible error states when
 	 *  checking the conditions necessary for getCanRequestSignature() to return true
 	 */
-	@isTest 
+	@isTest
 	static void contractMustHaveInternalSignee() {
-		PageReference ref = Page.MERC_RequestHCPSignature;
-		Test.setCurrentPage(ref);
+		System.runAs(testUser) {
+			PageReference ref = Page.MERC_RequestHCPSignature;
+			Test.setCurrentPage(ref);
 
-		Test.startTest();
-		MERC_RequestHCPSignatureController controller = 
-			new MERC_RequestHCPSignatureController(new ApexPages.StandardController(contract));
+			Test.startTest();
+			MERC_RequestHCPSignatureController controller =
+				new MERC_RequestHCPSignatureController(new ApexPages.StandardController(contract));
 
-		System.assertEquals(false, controller.getCanRequestSignature());
-		System.assert(controller.error.contains('does not have a Lilly Internal Signee'),'Unexpected error state: '+ controller.error);
+			System.assertEquals(false, controller.getCanRequestSignature());
+			System.assert(controller.error.contains('does not have a Lilly Internal Signee'),'Unexpected error state: '+ controller.error);
+		}
 	}
 
-	@isTest 
+	@isTest
 	static void contractMustHaveHCPEmail() {
-		PageReference ref = Page.MERC_RequestHCPSignature;
-		Test.setCurrentPage(ref);
+		System.runAs(testUser) {
+			PageReference ref = Page.MERC_RequestHCPSignature;
+			Test.setCurrentPage(ref);
 
-		Test.startTest();
-		MERC_RequestHCPSignatureController controller = 
-			new MERC_RequestHCPSignatureController(new ApexPages.StandardController(contract));
+			Test.startTest();
+			MERC_RequestHCPSignatureController controller =
+				new MERC_RequestHCPSignatureController(new ApexPages.StandardController(contract));
 
-		contract.Lilly_Internal_Signee_MERC__c = internalSignee.Id;
+			contract.Lilly_Internal_Signee_MERC__c = internalSignee.Id;
 
-		String hcpEmail = hcp.PersonEmail;
-		hcp.PersonEmail = null;
-		update hcp;
-		System.assertEquals(false, controller.getCanRequestSignature());
-		System.assert(controller.error.contains('HCP does not have a valid e-mail'),'Unexpected error state: '+ controller.error);
+			String hcpEmail = hcp.PersonEmail;
+			hcp.PersonEmail = null;
+			update hcp;
+			System.assertEquals(false, controller.getCanRequestSignature());
+			System.assert(controller.error.contains('HCP does not have a valid e-mail'),'Unexpected error state: '+ controller.error);
+		}
 	}
 
-	@isTest 
+	@isTest
 	static void contractMustHaveInternalSigneeEmail() {
-		PageReference ref = Page.MERC_RequestHCPSignature;
-		Test.setCurrentPage(ref);
+		System.runAs(testUser) {
+			PageReference ref = Page.MERC_RequestHCPSignature;
+			Test.setCurrentPage(ref);
 
-		Test.startTest();
-		MERC_RequestHCPSignatureController controller = 
-			new MERC_RequestHCPSignatureController(new ApexPages.StandardController(contract));
+			Test.startTest();
+			MERC_RequestHCPSignatureController controller =
+				new MERC_RequestHCPSignatureController(new ApexPages.StandardController(contract));
 
-		contract.Lilly_Internal_Signee_MERC__c = internalSignee.Id;
+			contract.Lilly_Internal_Signee_MERC__c = internalSignee.Id;
 
-		String signeeEmail = internalSignee.PersonEmail;
-		internalSignee.PersonEmail = null;
-		update internalSignee;
-		System.assertEquals(false, controller.getCanRequestSignature());
-		System.assert(controller.error.contains('Lilly recipient does not have a valid e-mail'),'Unexpected error state: '+ controller.error);
+			String signeeEmail = internalSignee.PersonEmail;
+			internalSignee.PersonEmail = null;
+			update internalSignee;
+			System.assertEquals(false, controller.getCanRequestSignature());
+			System.assert(controller.error.contains('Lilly recipient does not have a valid e-mail'),'Unexpected error state: '+ controller.error);
+		}
 	}
 
-	@isTest 
+	@isTest
 	static void contractMustHavePDF() {
-		PageReference ref = Page.MERC_RequestHCPSignature;
-		Test.setCurrentPage(ref);
+		System.runAs(testUser) {
+			PageReference ref = Page.MERC_RequestHCPSignature;
+			Test.setCurrentPage(ref);
 
-		Test.startTest();
-		MERC_RequestHCPSignatureController controller = 
-			new MERC_RequestHCPSignatureController(new ApexPages.StandardController(contract));
+			Test.startTest();
+			MERC_RequestHCPSignatureController controller =
+				new MERC_RequestHCPSignatureController(new ApexPages.StandardController(contract));
 
-		contract.Lilly_Internal_Signee_MERC__c = internalSignee.Id;
+			contract.Lilly_Internal_Signee_MERC__c = internalSignee.Id;
 
-		System.assertEquals(false, controller.getCanRequestSignature());
-		System.assert(controller.error.contains('Could not find HCP Contract PDF'),'Unexpected error state: '+ controller.error);
-	}	
+			System.assertEquals(false, controller.getCanRequestSignature());
+			System.assert(controller.error.contains('Could not find HCP Contract PDF'),'Unexpected error state: '+ controller.error);
+		}
+	}
 	/*** END ***
-	 *  
+	 *
 	 *	The previous FOUR methods exercised one of each of the possible error states
 	 */
 
@@ -211,14 +226,14 @@ private class MERC_RequestHCPSignatureControllerTest {
 		PageReference ref = Page.MERC_RequestHCPSignature;
 		Test.setCurrentPage(ref);
 
-		MERC_RequestHCPSignatureController controller = 
+		MERC_RequestHCPSignatureController controller =
 			new MERC_RequestHCPSignatureController(new ApexPages.StandardController(contract));
 
 		contract.Lilly_Internal_Signee_MERC__c = internalSignee.Id;
 
 		setupContractContent();
 
-		return controller;		
+		return controller;
 	}
 
 	/*
@@ -231,7 +246,7 @@ private class MERC_RequestHCPSignatureControllerTest {
 		settings.Integrator_Key_MERC__c = '12345';
 		settings.Password_MERC__c = 'foo';
 		settings.Username_MERC__c = 'bar';
-		insert settings;		
+		insert settings;
 	}
 
 	/*
@@ -252,13 +267,13 @@ private class MERC_RequestHCPSignatureControllerTest {
 
 		contract = [SELECT Name FROM HCP_Contract_MERC__c WHERE Id = :contract.Id];
         contractCV.HCP_Contract_MERC__c = contract.Id;
-        contractCV.Title = contract.Name; 
+        contractCV.Title = contract.Name;
 		update contractCV;
 	}
 
 	//generate signers
 	/*
-	private static void setupSigners() {        
+	private static void setupSigners() {
         List<Account> signingAccounts = MERC_TestFactory.insertAccounts(2);
         List<MERC_DocusignService.RequiredSigner> requiredSigners = new List<MERC_DocusignService.RequiredSigner>();
         for (Integer i = 0; i < signingAccounts.size(); i++) {
@@ -274,7 +289,7 @@ private class MERC_RequestHCPSignatureControllerTest {
 	 * A response object able to respond to the chain of callouts within the controller
 	 */
     public class DocusignMockMultiResponseObj {
-        
+
         // properties from MERC_DocusignService.EnvelopeResponse
         public String envelopeId;
         public String status;

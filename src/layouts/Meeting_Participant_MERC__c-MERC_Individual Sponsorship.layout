@@ -188,6 +188,10 @@
         <label>Reported ToV</label>
         <layoutColumns>
             <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>ToV_Currency_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Total_Hotel_ToV_MERC__c</field>
             </layoutItems>

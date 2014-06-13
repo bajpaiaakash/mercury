@@ -245,6 +245,20 @@ Created by John Adams on 12/9/2013</description>
         <description>Master-Detail from Meeting to Product. Created 10/4/2013 by KLorenti.</description>
         <externalId>false</externalId>
         <label>Product</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Product_Group_GLBL__c.Cntry_Cd_GLBL__c</field>
+                <operation>equals</operation>
+                <value>ZZ</value>
+            </filterItems>
+            <filterItems>
+                <field>Product_Group_GLBL__c.Grp_Prps_Cd_GLBL__c</field>
+                <operation>equals</operation>
+                <value>MKTP</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Product_Group_GLBL__c</referenceTo>
         <relationshipLabel>Meetings</relationshipLabel>
         <relationshipName>Meeting_Products</relationshipName>
@@ -269,8 +283,9 @@ Created by John Adams on 12/9/2013</description>
     </fields>
     <fields>
         <fullName>Product_vod_External_ID_MERC__c</fullName>
+        <description>Defines the correct external Id to create a My Setup product record in Veeva.  User chooses a set of global products (those with ZZ country code) the external Id is appended to use the Country Code of the meeting. This gives users access to the My Setup Product record and enables display on the Meeting record in Veeva.  Oliver Dunford 3rd June 2014.</description>
         <externalId>false</externalId>
-        <formula>Product_MERC__r.Cntry_Cd_GLBL__c &amp; &apos;_&apos; &amp; Product_MERC__r.Product_Group_Id_GLBL__c &amp; &apos;-&apos; &amp; Indication_MERC__r.Indctn_Id_GLBL__c</formula>
+        <formula>TEXT(Meeting_MERC__r.Event_Country_MERC__c) &amp; &apos;_&apos; &amp; Product_MERC__r.Product_Group_Id_GLBL__c &amp; &apos;-&apos; &amp; Indication_MERC__r.Indctn_Id_GLBL__c</formula>
         <label>Product_vod_External_ID_MERC</label>
         <required>false</required>
         <trackHistory>false</trackHistory>

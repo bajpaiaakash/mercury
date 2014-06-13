@@ -216,6 +216,26 @@
         </displayedFields>
         <label>Merge Account Page Main List</label>
     </fieldSets>
+    <fieldSets>
+        <fullName>Pref_Consent_Mapped_Fields</fullName>
+        <description>These fields are the ones that will be cleared out when a preference and consent record is deleted. MERC_PrefConsentMappingHandler will remove the values from these fields and then retrigger all preference and consent record workflows to put the most up to date values back on the account.</description>
+        <displayedFields>
+            <field>Language_Preference_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Transparency_Reporting_Opt_Out_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Communication_Preference_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Pref &amp; Consent Mapped Fields</label>
+    </fieldSets>
     <fields>
         <fullName>Academic_Qualifications_MERC__c</fullName>
         <description>To record academic qualifications of speakers 
@@ -562,6 +582,18 @@ Created by John A Adams 10/23/2013</description>
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
+        <fullName>CST_Approver_ID_GLBL__c</fullName>
+        <description>Determines if Supervisor Global ID or if Sponsor ID is the CST Approver. Created 06/04/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF ((ISNULL(Supervisor_Prsnl_Nbr_GLBL__c) || ISBLANK(Supervisor_Prsnl_Nbr_GLBL__c)), Sponsor_Prsnl_Nbr_GLBL__c, Supervisor_Prsnl_Nbr_GLBL__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>CST Approver Global ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>CST_Email_Stamp_CUST__c</fullName>
         <description>The stamp of the Person Email, so it is accessible via the workflow action.</description>
         <externalId>false</externalId>
@@ -898,6 +930,30 @@ Created by John A Adams 10/24/2013</description>
         <formula>TEXT(Country_of_Residence_GLBL__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Country Code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Country_for_Territory_Assignment_CP__c</fullName>
+        <description>Used to align the Designated Indivdual to the HCP&apos;s territory based on the HCP&apos;s country of Residence.</description>
+        <externalId>false</externalId>
+        <formula>TEXT( HCP_Contracting_Party_MERC__r.Country_of_Residence_GLBL__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Country for Territory Assignment CP</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Country_for_Territory_Assignment_DI_MERC__c</fullName>
+        <description>Used to align the Designated Indivdual to the HCP&apos;s territory based on the HCP&apos;s country of Residence.</description>
+        <externalId>false</externalId>
+        <formula>TEXT(HCP_Designated_Individuals_MERC__r.Country_of_Residence_GLBL__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Country for Territory Assignment DI</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Text</type>
@@ -2582,28 +2638,6 @@ Created by John A Adams 11/4/2013</description>
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>HCP_Country_of_Residence2_MERC__c</fullName>
-        <externalId>false</externalId>
-        <formula>TEXT(HCP_Designated_Individuals_MERC__r.Country_of_Residence_GLBL__c)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>HCP Country of Residence2</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>HCP_Country_of_Residence_MERC__c</fullName>
-        <description>Stamped from HCP Country of Residence onto Designated Individuals and Contracting Party accounts to handle visibility by territory based on HCP&apos;s country of residence. Created 05/02/2014 by KLorenti, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <label>HCP Country of Residence</label>
-        <length>40</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>HCP_Designated_Individuals_MERC__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Lookup relationship to associate Designated Individual to an HCP Account. Created 04/04/2014 by KLorenti, Mavens Consulting</description>
@@ -2630,6 +2664,7 @@ Created by John A Adams 11/4/2013</description>
         <fullName>HCP_Info_Package_Status_MERC__c</fullName>
         <description>Used by portal to capture the status of the HCP&apos;s Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
+        <inlineHelpText>For paper, manually key in the HCP Information Package information.  Once completed, set this value to &apos;Submitted&apos;.  The HCP will then see a completed status for their HCP Information Package section when logged into the Web Service.</inlineHelpText>
         <label>HCP Info Package Status</label>
         <picklist>
             <picklistValues>
@@ -3882,6 +3917,17 @@ Created by John A Adams 12/11/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Prior_Parent_Id_GLBL__c</fullName>
+        <description>The Global Id of the account which this record was merged from. This field is set when an account merge occurs and the record belonged to the losing account.</description>
+        <externalId>false</externalId>
+        <label>Prior Parent Id</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Prof_Title_Txt_GLBL__c</fullName>
         <description>Professional Title
 Customer ODS to Mercury Mapping
@@ -4242,6 +4288,17 @@ Created by John A Adams 10/31/2013</description>
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>Sponsor_Prsnl_Nbr_GLBL__c</fullName>
+        <description>Workforce ODS Data. Created 06/04/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Sponsor Global ID</label>
+        <length>8</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Src_Block_Flg_GLBL__c</fullName>
         <description>Source Block Flag
 Customer ODS to Mercury Mapping
@@ -4351,7 +4408,7 @@ Created by John A Adams 12/10/2013</description>
         <fullName>Supervisor_Prsnl_Nbr_GLBL__c</fullName>
         <description>Workforce ODS data. Created 10/18/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <label>Sponsor or Supervisor Global ID</label>
+        <label>Supervisor Global ID</label>
         <length>8</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -4841,7 +4898,6 @@ Created by John A Adams 11/4/2013</description>
         <columns>ACCOUNT.TYPE</columns>
         <columns>CORE.USERS.ALIAS</columns>
         <columns>Country_of_Residence_GLBL__c</columns>
-        <columns>HCP_Country_of_Residence_MERC__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>ACCOUNT.RECORDTYPE</field>
@@ -4859,7 +4915,6 @@ Created by John A Adams 11/4/2013</description>
         <columns>Primary_Addr_City_GLBL__c</columns>
         <columns>Primary_Address_Country_GLBL__c</columns>
         <columns>Primary_Pstl_Cd_Extnsn_GLBL__c</columns>
-        <columns>HCP_Country_of_Residence_MERC__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>ACCOUNT.RECORDTYPE</field>
@@ -4889,11 +4944,11 @@ Created by John A Adams 11/4/2013</description>
     <listViews>
         <fullName>All_Vendors</fullName>
         <columns>ACCOUNT.NAME</columns>
-        <columns>ACCOUNT.SITE</columns>
-        <columns>ACCOUNT.ADDRESS1_STATE</columns>
-        <columns>ACCOUNT.PHONE1</columns>
-        <columns>ACCOUNT.TYPE</columns>
-        <columns>CORE.USERS.ALIAS</columns>
+        <columns>Primary_Addr_Line1_GLBL__c</columns>
+        <columns>Primary_Addr_Line2_GLBL__c</columns>
+        <columns>Primary_Addr_City_GLBL__c</columns>
+        <columns>Primary_Address_Country_GLBL__c</columns>
+        <columns>Prim_Affil_Pstl_Cd_Extnsn_GLBL__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>ACCOUNT.RECORDTYPE</field>
@@ -13943,7 +13998,7 @@ Created by John A Adams 11/4/2013</description>
         <lookupPhoneDialogsAdditionalFields>PC_PHONE4</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>PC_PHONE5</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>PC_PHONE6</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>00N11000000PFsh</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Voicemail_Phone_Nbr_GLBL__c</lookupPhoneDialogsAdditionalFields>
         <searchFilterFields>ACCOUNT.NAME</searchFilterFields>
         <searchFilterFields>ACCOUNT.RECORDTYPE</searchFilterFields>
         <searchFilterFields>Primary_Addr_City_GLBL__c</searchFilterFields>
@@ -14017,6 +14072,19 @@ Service_Provider_Tier_MERC__c &gt; 5.0)</errorConditionFormula>
         <showsLocation>true</showsLocation>
         <showsStatus>true</showsStatus>
         <url>http://news.altavista.com/search?nc=0&amp;q={!Account_Name}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Generate_Content_MERC</fullName>
+        <availability>online</availability>
+        <description>Replaces the LOOP Plus button from the LOOP Plus managed package</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Generate Content</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/loop__looplus?eid={!Account.Id}&amp;sessionId={!$Api.Session_ID}</url>
     </webLinks>
     <webLinks>
         <fullName>GoogleMaps</fullName>

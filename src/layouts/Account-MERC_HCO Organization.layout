@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Upload_Content_MERC</customButtons>
-    <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -119,6 +118,11 @@
     </miniLayout>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Account_Cust_Name_GLBL__c</fields>
+        <fields>Afltn_Party_Rcrd_Typ_Cd_GLBL__c</fields>
+        <fields>Afltn_Clsfctn_Cd_GLBL__c</fields>
+        <fields>Afltn_Role_Cd_GLBL__c</fields>
+        <fields>Priority_Rank_Nbr_GLBL__c</fields>
         <relatedList>Affiliation_GLBL__c.Account_GLBL__c</relatedList>
     </relatedLists>
     <relatedLists>

@@ -368,8 +368,8 @@
         <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
-        <customButtons>Manage_Daily_Attendance_MERC</customButtons>
         <customButtons>Manage_Meeting_Days_MERC</customButtons>
+        <customButtons>Manage_Daily_Attendance_MERC</customButtons>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Date_Meeting_Time_Zone__c</fields>

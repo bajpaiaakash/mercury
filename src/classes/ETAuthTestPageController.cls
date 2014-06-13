@@ -55,7 +55,7 @@ public with sharing class ETAuthTestPageController {
         f2.isPrimaryKey = false;
         fields.add(f2);
 
-        deResponse = processor.createDataExtensionWithKeyFieldsAndSoapAuth(deKey, fields, authorizer.soapAuthToken);
+        deResponse = processor.createDataExtensionWithNameKeyFieldsAndSoapAuth('ETAuthTestPageController' + Datetime.now().format('yyyyMMddHHmmssSSS'), deKey, fields, authorizer.soapAuthToken, datetime.now().addMinutes(15));
         return null;
     }
 
@@ -72,7 +72,7 @@ public with sharing class ETAuthTestPageController {
         e1.values = new List<ETDataExtension.FieldEntry>();
         ETDataExtension.FieldEntry fe1 = new ETDataExtension.FieldEntry();
         fe1.fieldName = 'EmailAddress';
-        fe1.fieldValue = 'cpfeiffer@sonomapartners.com';
+        fe1.fieldValue = 'mdearing@sonomapartners.com';
         e1.values.add(fe1);
         ETDataExtension.FieldEntry fe2 = new ETDataExtension.FieldEntry();
         fe2.fieldName = 'Meeting Name';
@@ -113,6 +113,77 @@ public with sharing class ETAuthTestPageController {
         entries.add(e1);
         HttpResponse res = processor.populateDataExtensionForKeyWithValuesAndFuelAuth(deKey, entries, authorizer.fuelAuthToken);
         dataCreateResponseBody = res.getStatus() + ' ' + res.getStatusCode() + ' : ' + res.getBody();
+        return null;
+    }
+
+    public String createSendProfileResponseBody { get; set; }
+    public Boolean showCreateSendProfileResponseBody { get; set; }
+    public ETSendDefinition.CreateSenderProfileResponse createProfileResponse{get;set;}
+    public PageReference toggleShowCreateSendProfileResponseBody() {
+        showCreateSendProfileResponseBody = true;
+
+        ETSendDefinition.SenderProfileCreate sendProfCreate = new ETSendDefinition.SenderProfileCreate('Test Lilly', 'donotreply@lilly.com');
+
+        ETSendDefinitionProcessor sendDefProcessor = new ETSendDefinitionProcessor();
+        try{
+            createProfileResponse = sendDefProcessor.createSenderProfile(sendProfCreate, authorizer.soapAuthToken);
+            createSendProfileResponseBody = JSON.serialize(createProfileResponse);
+        }
+        catch(Exception e){
+            createSendProfileResponseBody = String.valueOf(e);
+        }
+        return null;
+    }
+
+    public String createSendDefResponseBody { get; set; }
+    public Boolean showCreateSendDefResponseBody { get; set; }
+    public ETSendDefinition.CreateResponse createResponse{get;set;}
+    public PageReference toggleShowCreateSendDefResponseBody() {
+        showCreateSendDefResponseBody = true;
+        String key = String.valueof(datetime.now().getTime());
+        Integer emailId = 12588; //Sonoma Test Template
+        ETSendDefinition sendDef = new ETSendDefinition(deResponse.id, false, 'ETAuthTestPageNameDescription', emailId, key, key, 'ETAuthTestSubject');
+        //todo: add to constructor
+        sendDef.senderProfileId = createProfileResponse.id;
+
+        ETSendDefinitionProcessor sendDefProcessor = new ETSendDefinitionProcessor();
+        try{
+            createResponse = sendDefProcessor.create(sendDef, authorizer.soapAuthToken);
+            createSendDefResponseBody = JSON.serialize(createResponse);
+        }
+        catch(Exception e){
+            createSendDefResponseBody = String.valueOf(e);
+        }
+        return null;
+    }
+
+    public String startSendDefResponseBody { get; set; }
+    public Boolean showStartSendDefResponseBody { get; set; }
+    public PageReference toggleShowStartSendDefResponseBody() {
+        showStartSendDefResponseBody = true;
+        ETSendDefinitionProcessor sendDefProcessor = new ETSendDefinitionProcessor();
+        try{
+            ETSendDefinition.StartResponse response = sendDefProcessor.start(createResponse.id, authorizer.soapAuthToken);
+            startSendDefResponseBody = JSON.serialize(response);
+        }
+        catch(Exception e){
+            startSendDefResponseBody = String.valueOf(e);
+        }
+        return null;
+    }
+
+    public String checkStatusSendDefResponseBody { get; set; }
+    public Boolean showCheckStatusSendDefResponseBody { get; set; }
+    public PageReference toggleShowCheckStatusSendDefResponseBody() {
+        showCheckStatusSendDefResponseBody = true;
+        ETSendDefinitionProcessor sendDefProcessor = new ETSendDefinitionProcessor();
+        try{
+            ETSendDefinition.CheckStatusResponse response = sendDefProcessor.checkStatus(createResponse.id, authorizer.soapAuthToken);
+            checkStatusSendDefResponseBody = JSON.serialize(response);
+        }
+        catch(Exception e){
+            checkStatusSendDefResponseBody = String.valueOf(e);
+        }
         return null;
     }
 }

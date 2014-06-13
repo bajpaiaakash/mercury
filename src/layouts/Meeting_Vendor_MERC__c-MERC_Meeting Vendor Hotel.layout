@@ -31,7 +31,7 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>CurrencyIsoCode</field>
             </layoutItems>
             <layoutItems>
@@ -77,6 +77,7 @@
         <fields>Room_Rate_MERC__c</fields>
     </miniLayout>
     <relatedLists>
+        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Meeting_Day_MERC__c</fields>
         <fields>Meeting_Day_Date_MERC__c</fields>

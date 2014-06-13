@@ -505,6 +505,14 @@ Created by J Adams 12/10/2013</description>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
+        <fullName>Amount_must_not_be_less_than_zero_MERC</fullName>
+        <active>true</active>
+        <description>Ensure Budget Line amounts are not less than zero</description>
+        <errorConditionFormula>Amount_MERC__c &lt; 0</errorConditionFormula>
+        <errorDisplayField>Amount_MERC__c</errorDisplayField>
+        <errorMessage>The Budget Line Item amount may not be less than zero</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>MERC_Prevent_Budget_Line_Edit_Active_Arc</fullName>
         <active>true</active>
         <description>Prevents edits of Budget Lines for Active or Archived Budgets - JFerraro 10/23/2013</description>

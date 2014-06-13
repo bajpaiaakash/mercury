@@ -1,7 +1,7 @@
-Dear {!Meeting_MERC__c.Prmry_Mtng_Ownr_Nm_MERC__c},
+Hello, 
 
-The Final Fee has been confirmed for {!Meeting_Participant_MERC__c.Account_MERC__c} for the meeting "{!Meeting_Participant_MERC__c.Meeting_MERC__c}" for the amount of {!Meeting_Participant_MERC__c.Final_Fee_MERC__c}.
+Please access Mercury and confirm the final fee for {!Meeting_Participant_MERC__c.Account_MERC__c} for the {!Meeting_MERC__c.Name}, {!IF(Meeting_MERC__c.End_Date_Meeting_Time_Zone_MERC__c <> Meeting_MERC__c.Start_Date_Meeting_Time_Zone_MERC__c, Meeting_MERC__c.Start_Date_Meeting_Time_Zone_MERC__c + " - " + Meeting_MERC__c.End_Date_Meeting_Time_Zone_MERC__c, Meeting_MERC__c.Start_Date_Meeting_Time_Zone_MERC__c) }.  This fee must be confirmed in order for the contracting process to continue.
 
+More information regarding this meeting can be found at {!Meeting_MERC__c.Link}.
 
-More information regarding this meeting can be found at
-{!Meeting_MERC__c.Link}.
+Should you have any questions, please contact the Regional Customer Meeting Services team.  This is an auto-generated email; please do not reply

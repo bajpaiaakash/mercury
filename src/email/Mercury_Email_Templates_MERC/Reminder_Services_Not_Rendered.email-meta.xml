@@ -5,6 +5,6 @@
     <encodingKey>ISO-8859-1</encodingKey>
     <name>Reminder - Services Not Rendered</name>
     <style>none</style>
-    <subject>Reminder - Services Not Rendered</subject>
+    <subject>{!Meeting_Participant_MERC__c.Account_MERC__c}: Reminder - Services Not Rendered</subject>
     <type>text</type>
 </EmailTemplate>

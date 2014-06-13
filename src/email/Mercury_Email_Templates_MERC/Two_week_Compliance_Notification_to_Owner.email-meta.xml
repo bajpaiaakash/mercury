@@ -5,6 +5,6 @@
     <encodingKey>ISO-8859-1</encodingKey>
     <name>Two-week Compliance Notification to Owner</name>
     <style>none</style>
-    <subject>Compliance Reminder Notification</subject>
+    <subject>{!Meeting_MERC__c.Name} begins in 2 weeks</subject>
     <type>text</type>
 </EmailTemplate>

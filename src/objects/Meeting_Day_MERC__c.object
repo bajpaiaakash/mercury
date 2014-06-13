@@ -119,7 +119,7 @@
         <displayedFields>
             <field>Name</field>
             <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
+            <isRequired>true</isRequired>
         </displayedFields>
         <displayedFields>
             <field>Date_MERC__c</field>

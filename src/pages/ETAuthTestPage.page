@@ -26,6 +26,30 @@
                         <apex:outputText value="{!dataCreateResponseBody}" />
                     </apex:outputPanel>
                 </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:commandButton action="{!toggleShowCreateSendProfileResponseBody}" value="Create Send Profile" reRender="authSection" immediate="true" />
+                    <apex:outputPanel rendered="{!showCreateSendProfileResponseBody}">
+                        <apex:outputText value="{!createSendProfileResponseBody}" />
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:commandButton action="{!toggleShowCreateSendDefResponseBody}" value="Create Send Def" reRender="authSection" immediate="true" />
+                    <apex:outputPanel rendered="{!showCreateSendDefResponseBody}">
+                        <apex:outputText value="{!createSendDefResponseBody}" />
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:commandButton action="{!toggleShowStartSendDefResponseBody}" value="Start Send Def" reRender="authSection" immediate="true" />
+                    <apex:outputPanel rendered="{!showStartSendDefResponseBody}">
+                        <apex:outputText value="{!startSendDefResponseBody}" />
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:commandButton action="{!toggleShowCheckStatusSendDefResponseBody}" value="Check Status Send Def" reRender="authSection" immediate="true" />
+                    <apex:outputPanel rendered="{!showCheckStatusSendDefResponseBody}">
+                        <apex:outputText value="{!checkStatusSendDefResponseBody}" />
+                    </apex:outputPanel>
+                </apex:pageBlockSectionItem>
             </apex:pageBlockSection>
         </apex:pageBlock>
     </apex:form>

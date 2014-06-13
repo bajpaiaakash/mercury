@@ -37,6 +37,7 @@ public with sharing class MERC_MeetingCurrencyUpdateHandler implements GLBL_Trig
 	public static void updateRecords(Set<Id> meetingIdsWithCurrencyChange)
 	{
 		List<Meeting_MERC__c> meetingsToProcess = [SELECT Id, CurrencyIsoCode,
+		                                                      (SELECT Id FROM Meeting_Participants_del__r),
 		                                                      (SELECT Id, CurrencyIsoCode, Confirm_ToV_Reporting_Change_MERC__c FROM Meeting_Days__r),
 		                                                      (SELECT Id, CurrencyIsoCode, Confirm_ToV_Reporting_Change_MERC__c FROM Meeting_Vendors__r)
 		                                                 FROM Meeting_MERC__c

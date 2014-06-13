@@ -61,10 +61,6 @@
                 <behavior>Edit</behavior>
                 <field>Expose_on_Portal_MERC__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Library_Name_MERC__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns/>
         <style>TwoColumnsTopToBottom</style>

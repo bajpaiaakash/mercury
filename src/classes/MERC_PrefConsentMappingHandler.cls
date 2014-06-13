@@ -96,9 +96,16 @@ public without sharing class MERC_PrefConsentMappingHandler implements GLBL_Trig
 		Set<Id> accountIds = new Set<Id>();
 		for (SObject pAndC : Trigger.old)
 		{
-			accountIds.add((Id)pAndC.get('Account_GLBL__c'));
+			if (pAndC.get('Account_GLBL__c') != null)
+			{
+				accountIds.add((Id)pAndC.get('Account_GLBL__c'));
+			}
 		}
 
+		if (accountIds.isEmpty())
+		{
+			return;
+		}
 		/*----- query for the fields to clear out on the account ----*/
 		Schema.FieldSet fieldsToClear = Schema.SObjectType.Account.fieldSets.Pref_Consent_Mapped_Fields;
 		String soql = 'SELECT ';
@@ -112,6 +119,8 @@ public without sharing class MERC_PrefConsentMappingHandler implements GLBL_Trig
 			soql += '\'' + acctId + '\',';
 		}
 		soql = soql.substring(0, soql.length()-1) + ')';
+
+		system.debug(soql);
 
 		/*----- loop over the accounts and null out the values for the mapped fields -----*/
 		List<Account> accounts = Database.query(soql);

@@ -27,6 +27,8 @@
 						noenter(event);
 					});
 				})
+
+				$("select.required").parent().css("border-left", "3px solid #c00");
 		  	});
 		})(j);
 
@@ -241,7 +243,7 @@
 			  					<!-- COUNTRY OF RESIDENCE -->
 			  					<apex:pageBlockSectionItem >
 			  						<apex:outputLabel for="country" value="Country of Residence"></apex:outputLabel>
-			  						<apex:selectList value="{!searchRequest.country}" size="1" id="country" styleClass="">
+			  						<apex:selectList value="{!searchRequest.country}" size="1" id="country" styleClass="required">
 			  							<apex:selectOptions value="{!countries}"/>
 			  						</apex:selectList>
 			  					</apex:pageBlockSectionItem>
@@ -349,6 +351,7 @@
 			  				</apex:pageBlockSection>
 
 			  				<apex:pageBlockSection title="Additional Details">
+
 			  					<!-- Professional Designation -->
 			  					<apex:pageBlockSectionItem >
 			  						<apex:outputLabel for="prod" value="Professional Designation"></apex:outputLabel>
@@ -401,7 +404,7 @@
 			  						<apex:selectList multiselect="true" value="{!searchRequest.specialtyRank}" id="specialtyRank" styleClass="multichosen">
 			  							<apex:selectOptions value="{!specialtyPriorityRanks}"/>
 			  						</apex:selectList>
-			  					</apex:pageBlockSectionItem>
+			  					</apex:pageBlockSectionItem>  -->
 			  				</apex:pageBlockSection>
 
 			  			</apex:pageBlock>
@@ -427,13 +430,13 @@
 						  							<apex:actionRegion >
 														<apex:outputLabel for="nrtid" value="Record Type"/>
 														<apex:actionRegion >
-															<apex:selectList id="nrtid" value="{!newParticipantRecordTypeId}" size="1">
+															<apex:selectList id="nrtid" value="{!meetingParticipant.RecordTypeId}" size="1">
 																<apex:selectOptions value="{!recordTypeOptions}"/>
 																<apex:actionSupport event="onchange" reRender="moreinfo" status="loading"/>
 															</apex:selectList>
 														</apex:actionRegion>
 														<apex:outputPanel id="moreinfo">
-															<apex:outputPanel layout="block" style="margin-top:5px;" rendered="{!newParticipantRecordTypeId != null}">
+															<apex:outputPanel layout="block" style="margin-top:5px;" rendered="{!meetingParticipant.RecordTypeId != null}">
 																<apex:pageBlockSection columns="2" title="Required Fields" id="requiredFields" collapsible="false" rendered="{!requiredFields.size > 0}">
 																	<apex:repeat value="{!requiredFields}" var="field">
 																		<apex:inputField value="{!meetingParticipant[field]}" required="{!field.required || field.dbrequired}"/>
@@ -443,7 +446,7 @@
 															<div style="margin-top:5px;">
 																<apex:actionStatus id="loading">
 																	<apex:facet name="stop">
-																		<apex:outputPanel>
+																		<apex:outputPanel >
 																			<apex:commandLink styleClass="btn"
 																			                  value="Add To Meeting"
 																			                  action="{!addToMeeting}"
@@ -525,7 +528,7 @@
 				  					</apex:column>
 				  					<apex:column value="{!p.Id}"/>
 				  					<apex:column value="{!p.Account_MERC__c}"/>
-				  					<apex:column value="{!p.Account_MERC__r.Name}"/>
+				  					<apex:column value="{!p.Account_MERC__r.Name}"/><!-- this line is throwing an SQL exception -->
 				  					<apex:column value="{!p.Status_MERC__c}"/>
 				  				</apex:pageBlockTable>
 				  			</apex:outputPanel>

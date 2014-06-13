@@ -125,11 +125,6 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-        <displayedFields>
-            <field>Library_Name_MERC__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
         <label>HCP Contract</label>
     </fieldSets>
     <fieldSets>
@@ -167,11 +162,6 @@
         </displayedFields>
         <displayedFields>
             <field>Invoice_Archive_Date_MERC__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Library_Name_MERC__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -416,11 +406,11 @@ HCP_Contract_MERC__r.MSA_Start_Date_MERC__c,  HCP_Contract_MERC__r.Meeting_Name_
     <fields>
         <fullName>Credit_Note_MERC__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
-        <description>Indicates a link to a credit note. This should only be populated via the API when an Invoice is cloned to be a credit note.</description>
+        <description>Associates copies of attachments of the original invoice to a credit note. This should only be populated programmatically when an Invoice is cloned to be a credit note.</description>
         <externalId>false</externalId>
         <label>Credit Note</label>
         <referenceTo>Invoice_MERC__c</referenceTo>
-        <relationshipLabel>Content</relationshipLabel>
+        <relationshipLabel>Original Invoice Content</relationshipLabel>
         <relationshipName>Content_CN</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -469,7 +459,7 @@ HCP_Contract_MERC__r.MSA_Start_Date_MERC__c,  HCP_Contract_MERC__r.Meeting_Name_
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>HCP Related Items </fullName>
+                <fullName>Meeting Minutes</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -493,7 +483,7 @@ HCP_Contract_MERC__r.MSA_Start_Date_MERC__c,  HCP_Contract_MERC__r.Meeting_Name_
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Off-System Approval Documents</fullName>
+                <fullName>Co-Pay Invoicing</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -640,31 +630,6 @@ HCP_Contract_MERC__r.MSA_Start_Date_MERC__c,  HCP_Contract_MERC__r.Meeting_Name_
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Library_Name_MERC__c</fullName>
-        <description>Populates the name of a Library Field.
-Created on 4/3/2014 by John Adams</description>
-        <externalId>false</externalId>
-        <formula>IF(CONTAINS(RecordType.Name,&quot;Invoice_MERC&quot;), Invoice_MERC__r.Meeting_Participant_MERC__r.Country_of_Residence_MERC__c &amp; &quot; - Private&quot;,  
- IF(CONTAINS(RecordType.Name,&quot;HCP_Contract_MERC&quot;), HCP_Contract_MERC__r.Country_of_Residence_MERC__c &amp; &quot; - Private&quot;,
-   IF(CONTAINS(RecordType.Name,&quot;Budget_MERC&quot;), TEXT(Meeting_MERC__r.Event_Country_MERC__c) &amp; &quot; - Private&quot;,
-  
-    IF(CONTAINS(RecordType.Name,&quot;Meeting_Participant_MERC&quot;), Meeting_Participant_MERC__r.Country_of_Residence_MERC__c &amp; &quot; - Private&quot;,
-
-      IF(CONTAINS(RecordType.Name,&quot;Meeting_MERC&quot;), Meeting_Country_MERC__c  &amp; &quot; - Public&quot;,
-        IF(CONTAINS(RecordType.Name,&quot;Account_MERC&quot;), Account_GLBL__r.Country_Code_MERC__c  &amp; &quot; - Private&quot;,&quot;Mercury&quot;)
-      )
-     )
-    )
-  )
-)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Library Name</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Meeting_Archive_Date_MERC__c</fullName>
@@ -819,10 +784,6 @@ Created on 4/3/2014 by John Adams</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>HCP Related Items%C2%A0</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>HCP Transparency Reporting Consent %28filled version by HCP%29</fullName>
                 <default>false</default>
             </values>
@@ -943,6 +904,10 @@ Created on 4/3/2014 by John Adams</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Co-Pay Invoicing</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>HCP Exceptions</fullName>
                 <default>false</default>
             </values>
@@ -956,10 +921,6 @@ Created on 4/3/2014 by John Adams</description>
             </values>
             <values>
                 <fullName>Meeting Exceptions</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Off-System Approval Documents</fullName>
                 <default>false</default>
             </values>
             <values>

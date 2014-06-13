@@ -1659,14 +1659,6 @@ Created by John A Adams 10/4/2013</description>
         <errorMessage>The Cost Center must be seven digits long.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Prevent_Line_Item_Changes_if_Locked</fullName>
-        <active>true</active>
-        <description>Prevents changes to Invoice Line Items if the Invoice/Credit Note is locked.</description>
-        <errorConditionFormula>ISCHANGED(Line_Items_MERC__c) &amp;&amp;
-(RecordType.Name = &quot;Invoice Locked&quot; || RecordType.Name = &quot;Credit Note Locked&quot;)</errorConditionFormula>
-        <errorMessage>This Invoice/Credit Note is locked and cannot be edited.</errorMessage>
-    </validationRules>
-    <validationRules>
         <fullName>Submit_for_Payment</fullName>
         <active>false</active>
         <description>Prevent an invoice being submitted for payment if the total value is less than zero or if there has not been a PDF generated and attached. Created by John A Adams 2/5/2014</description>

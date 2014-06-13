@@ -22,35 +22,37 @@ global with sharing class MERC_DocusignEmbeddedSignatureService {
 			MERC_DocusignService docService = new MERC_DocusignService();
 			MERC_DocusignService.EnvelopeRecipientDetailResponse envelopeDetail = docService.getEnvelopeRecipientDetails(envelopeId);
 
-			MERC_DocusignService.Signer s;
+			system.debug('envelopeDetail -->');
+			system.debug(envelopeDetail);
+
+			MERC_DocusignService.Signer embeddedHCPSigner;
 			for (MERC_DocusignService.Signer signer : envelopeDetail.signers) {
+				system.debug('signer -->');
+				system.debug(signer);
+
 				if (signer.status != 'completed' && signer.routingOrder != '1') { //get signer who hasn't completed (this is our HCP)
-					s = signer;
+					embeddedHCPSigner = signer;
 					break;
 				}
 			}
 
-			if (s == null)
+			system.debug('HCP signer -->');
+			system.debug(embeddedHCPSigner);
+
+			if (embeddedHCPSigner == null)
 				throw new MERC_Exception('Unable to find valid embedded signer');
 
-			docService.deleteSigner(envelopeId, s); //delete the "remote signer" HCP
-			docService.addSigner(envelopeId, mp.Account_MERC__c, true, 2); //add the HCP back as an embedded signer
-
-			envelopeDetail = docService.getEnvelopeRecipientDetails(envelopeId); //retrieve the update envelope details
-
-			MERC_DocusignService.Signer embeddedSigner;
-
-			for (MERC_DocusignService.Signer signer : envelopeDetail.signers) {
-				if (signer.clientUserId != null && signer.clientUserId != '') { //get signer with client id (our embedded signer)
-					embeddedSigner = signer;
-					break;
-				}
-			}
+			//for (MERC_DocusignService.Signer signer : envelopeDetail.signers) {
+			//	if (signer.clientUserId != null && signer.clientUserId != '') { //get signer with client id (our embedded signer)
+			//		embeddedSigner = signer;
+			//		break;
+			//	}
+			//}
 
 			//retrieve embedded signature URL
 			MERC_DocusignService.EmbeddedSignResponse esr = docService.getEmbeddedSignUrl(
 																			envelopeId, 
-																			embeddedSigner, 
+																			embeddedHCPSigner, 
 																			'https://mercury-portal-dev.herokuapp.com/meetings');
 			response.success = true;
 			response.url = esr.url;

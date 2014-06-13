@@ -119,6 +119,11 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
+        <displayedFields>
+            <field>CurrencyIsoCode</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
         <label>Meeting Day Manager</label>
     </fieldSets>
     <fields>
@@ -468,6 +473,16 @@ Created by John A Adams 10/24/2013</description>
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Confirm_ToV_Reporting_Change_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>CMS Cork to confirm the change if ToV has already been reported for this meeting. Created 10/06/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Confirm ToV Reporting Change</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Confirmation_Comp_Invoice_Dt_Tm_MERC__c</fullName>
         <description>Populated via workflow to stamp when the Confirmation of Complete Invoice was checked.  Used for SLA Reporting. Created 04/09/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -553,7 +568,7 @@ LEFT(RIGHT(Start_Time_In_Meeting_Time_Zone__c, 10), 5)
         <externalId>false</externalId>
         <label>Meeting Start Date</label>
         <required>false</required>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -633,6 +648,7 @@ Created 04/14/2014</description>
         <defaultValue>false</defaultValue>
         <description>Provides ability to disable further registration to meeting via the portal. Created 11/10/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
+        <inlineHelpText>Can be checked to prevent any additional RSVPs via the Web Service.  Primarily for the scenario when a Meeting is at capacity and invitations are still pending.</inlineHelpText>
         <label>Disable Portal Registration</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -706,7 +722,7 @@ Created by John Adams on 12/9/2013</description>
         <label>End Date (Meeting Time Zone)</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -751,7 +767,7 @@ Created by John A Adams 10/25/2013</description>
         <label>End Time (Meeting Time Zone)</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1885,7 +1901,7 @@ Created by John Adams 11/6/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -2250,7 +2266,7 @@ Created by John Adams on 12/9/2013</description>
         <externalId>false</externalId>
         <label>Participant ToV Updated Date</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
@@ -2809,7 +2825,7 @@ Created by John Adams 11/6/2013</description>
         <label>Start Date (Meeting Time Zone)</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -2820,7 +2836,7 @@ Created by John Adams 11/6/2013</description>
         <label>Start Time (Meeting Time Zone)</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -2832,7 +2848,7 @@ Created by John Adams 11/6/2013</description>
         <inlineHelpText>Enter the start time of the meeting in the TIME ZONE OF THE MEETING</inlineHelpText>
         <label>Start Time of Meeting</label>
         <required>false</required>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
@@ -4991,15 +5007,7 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Consultant</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Health Education</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Independent</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5840,15 +5848,7 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Consultant</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Health Education</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Independent</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7506,15 +7506,7 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Consultant</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Health Education</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Independent</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9204,15 +9196,7 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Consultant</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Health Education</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Independent</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9291,6 +9275,22 @@ PRIORVALUE(Expose_on_Portal_MERC__c) = true</errorConditionFormula>
         <errorMessage>Once the Meeting has been activated on Web Service, it cannot be changed.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Amount_to_be_paid_cannot_be_Negative_MER</fullName>
+        <active>true</active>
+        <description>Ensure Amount to be Paid is not entered &lt; 0</description>
+        <errorConditionFormula>Amount_to_be_Paid_MERC__c &lt; 0</errorConditionFormula>
+        <errorDisplayField>Amount_to_be_Paid_MERC__c</errorDisplayField>
+        <errorMessage>The Amount to be Paid cannot be less than zero</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Budget_Cannot_be_Negative_MERC</fullName>
+        <active>true</active>
+        <description>Ensure value entered in Budget field is &gt;= 0</description>
+        <errorConditionFormula>Planned_Budget_MERC__c &lt; 0</errorConditionFormula>
+        <errorDisplayField>Planned_Budget_MERC__c</errorDisplayField>
+        <errorMessage>The Budget amount must be a positive number.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Compliance_Risk_before_Complete_MERC</fullName>
         <active>true</active>
         <description>The Compliance Risk field must be set to yes before the Meeting can be Completed.  Created 12/18/2013 by KLorenti, Mavens Consulting</description>
@@ -9356,6 +9356,15 @@ ISCHANGED(End_Time_of_Meeting_MERC__c)
         <errorMessage>Please agree to/confirm the Meeting Date/Time Change.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Confirm_ToV_Reporting_Change_MERC</fullName>
+        <active>true</active>
+        <description>Prevents a change of Meeting Currency should the ToV have been reported through into AODS.  Oliver Dunford 10th June 2014. Mavens Consulting.</description>
+        <errorConditionFormula>ISCHANGED( CurrencyIsoCode ) &amp;&amp;  TEXT(Participant_ToV_Final_MERC__c) = &quot;Yes&quot; &amp;&amp; 
+! Confirm_ToV_Reporting_Change_MERC__c</errorConditionFormula>
+        <errorDisplayField>Confirm_ToV_Reporting_Change_MERC__c</errorDisplayField>
+        <errorMessage>ToV has already been reported for this meeting. Customer Meeting Services need to confirm and implement this change.  All related ToV values against the meeting should be updated to align with the new meeting currency.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Event_Occurred_before_Complete_MERC</fullName>
         <active>true</active>
         <description>The Event Occurred field must be set to yes before the Meeting can be Completed.  Created 11/26/2013 by KLorenti, Mavens Consulting</description>
@@ -9368,7 +9377,7 @@ ISPICKVAL(Meeting_Status_MERC__c,&apos;Complete - Closed&apos;)</errorConditionF
     </validationRules>
     <validationRules>
         <fullName>Participant_ToV_Final_only_if_Meet_over</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Validate that the meeting end date has passed before allowing the  &apos;Participant ToV Final&apos; field from being checked</description>
         <errorConditionFormula>ISCHANGED(Participant_ToV_Final_MERC__c) &amp;&amp;
 (TODAY() &lt;  DATEVALUE(End_Time_of_Meeting_MERC__c ))</errorConditionFormula>

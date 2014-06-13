@@ -51,24 +51,24 @@ public with sharing class MERC_RequestHCPSignatureController {
         return true;
     }
 
-    //retrieves the latest contract content attached to this contract 
+    //retrieves the latest contract content attached to this contract
     public ContentVersion contractContentVersion {
         get {
             try {
                 if (contractContentVersion == null) {
-                    contractContentVersion = [Select ID, Title, LastModifiedDate, FileType 
-                        FROM ContentVersion WHERE 
-                            HCP_Contract_MERC__c = :this.contract.Id AND 
-                            Title = :contractName AND 
-                            FileType = 'PDF' AND 
+                    contractContentVersion = [Select ID, Title, LastModifiedDate, FileType
+                        FROM ContentVersion WHERE
+                            HCP_Contract_MERC__c = :this.contract.Id AND
+                            Title = :contractName AND
+                            FileType = 'PDF' AND
                             PublishStatus = 'P' AND
                             IsLatest = True ORDER BY CreatedDate desc LIMIT 1];
                 }
-                return contractContentVersion;   
+                return contractContentVersion;
             } catch (Exception e) {
                 return null;
             }
-        }   
+        }
         private set;
     }
 
@@ -99,7 +99,7 @@ public with sharing class MERC_RequestHCPSignatureController {
         Account hcpSigner = [Select Id, Name, PersonEmail From Account Where Id = :this.contract.Account_MERC__c];
 
         List<MERC_DocusignService.RequiredSigner> signers = new List<MERC_DocusignService.RequiredSigner>();
-        
+
         MERC_DocusignService.RequiredSigner s1 = new MERC_DocusignService.RequiredSigner();
         s1.acc = lillySigner;
         s1.isLilly = true;
@@ -115,7 +115,15 @@ public with sharing class MERC_RequestHCPSignatureController {
         MERC_DocusignService d = new MERC_DocusignService();
         try {
             MERC_DocusignService.EnvelopeResponse r = d.requestSignature(signers, pdfBytes);
+            
+            
+            //TESTING
+            MERC_DocusignService.EnvelopeRecipientDetailResponse recipientResponse = d.getEnvelopeRecipientDetails(r.envelopeId);
+            system.debug('recipientResponse--> '+recipientResponse);
+
             stampEnvelope(this.contract.Id, r.envelopeId);
+
+
             this.isSent = true;
             return null;
         } catch(MERC_DocusignService.DocusignServiceException e) {
@@ -124,15 +132,23 @@ public with sharing class MERC_RequestHCPSignatureController {
                 String returnUrl = 'https://' + System.URL.getSalesforceBaseUrl().getHost().remove('-api' ) + '/apex/MERC_RequestHCPSignature?docusignTasStatus=1&id='+this.contract.Id;
                 MERC_DocusignService.EnvelopeResponse r2 = d.requestSignature(signers, pdfBytes, True); //send as draft mode
                 MERC_DocusignService.TagAndSendResponse tasResponse = d.getTagAndSendUrl(r2, returnUrl); //get tas url
+                
+                
+                //TESTING
+                MERC_DocusignService.EnvelopeRecipientDetailResponse recipientResponse = d.getEnvelopeRecipientDetails(r2.envelopeId);
+                system.debug('recipientResponse--> '+recipientResponse);
+
+
                 stampEnvelope(this.contract.Id, r2.envelopeId);
-                //redirect to tag and send url                
+
+                //redirect to tag and send url
                 PageReference p = new PageReference(tasResponse.url);
                 return p;
             } else {
                 //show error on vf page
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Docusign failed to send the contract for signature. Error code: '+e.errorCode));
                 this.isSent = false;
-                return null;      
+                return null;
             }
         } catch(Exception e) {
             //show error on vf page

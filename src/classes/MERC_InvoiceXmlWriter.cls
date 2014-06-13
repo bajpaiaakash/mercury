@@ -10,7 +10,8 @@
  */ 
 public with sharing class MERC_InvoiceXmlWriter implements GLBL_TriggerHandler.HandlerInterface {
 
-	private final Id ACTIVE_INVOICE_RECTYPE = [SELECT Id FROM RecordType WHERE SObjectType = 'Invoice_MERC__c' AND DeveloperName = 'Invoice_MERC' LIMIT 1].Id;
+	private final Id ACTIVE_INVOICE = [SELECT Id FROM RecordType WHERE SObjectType = 'Invoice_MERC__c' AND DeveloperName = 'Invoice_MERC' LIMIT 1].Id;
+	private final Id ACTIVE_CNOTE = [SELECT Id FROM RecordType WHERE SObjectType = 'Invoice_MERC__c' AND DeveloperName = 'Credit_Note_MERC' LIMIT 1].Id;
 
 	public Boolean isActive() {
 	    return true;
@@ -26,7 +27,7 @@ public with sharing class MERC_InvoiceXmlWriter implements GLBL_TriggerHandler.H
 			    		Invoice_MERC__c oldInvoice = (Invoice_MERC__c) Trigger.oldMap.get(invoice.Id);
 		    			createXML = createXML && 
 		    				oldInvoice.Submitted_for_Payment_Date_MERC__c == null && 
-		    				oldInvoice.RecordTypeId == ACTIVE_INVOICE_RECTYPE;
+		    				(oldInvoice.RecordTypeId == ACTIVE_INVOICE || oldInvoice.RecordTypeId == ACTIVE_CNOTE);
 		    		}
 		    		if (createXML) invoiceIds.add(invoice.Id);
 		    	}
@@ -65,9 +66,7 @@ public with sharing class MERC_InvoiceXmlWriter implements GLBL_TriggerHandler.H
         // RestResponse res = RestContext.response;
        	String filePrefix = '';
         Mercury_Settings_MERC__c settings = Mercury_Settings_MERC__c.getOrgDefaults();
-		if (settings.Id != null) {
-			if (settings.Invoice_File_Prefix_MERC__c != null) filePrefix = settings.Invoice_File_Prefix_MERC__c;
-		}
+		if (settings.Id != null && settings.Invoice_File_Prefix_MERC__c != null) filePrefix = settings.Invoice_File_Prefix_MERC__c;
 
        	Id recordTypeId = [SELECT Id FROM RecordType WHERE DeveloperName = 'Invoice_MERC' And SobjectType = 'ContentVersion'].Id;
        	Id workspaceId = [SELECT Id FROM ContentWorkspace WHERE Name = 'Mercury' Limit 1].Id;
@@ -87,7 +86,6 @@ public with sharing class MERC_InvoiceXmlWriter implements GLBL_TriggerHandler.H
        		invoiceXml.VersionData = b; 
        		xmlFiles.add(invoiceXml);
        	}
-
         insert xmlFiles;
 
         //delete any other xml-related documents on this invoice
@@ -97,11 +95,7 @@ public with sharing class MERC_InvoiceXmlWriter implements GLBL_TriggerHandler.H
         try {
         	delete [SELECT ID FROM ContentDocument WHERE Id in :contentDocumentIds];
         } catch (Exception e) {
-        	p('err:'+e);
+        	System.debug('\n\n\nMERC_InvoiceXmlWriter - '+e.getMessage()+'\n\n\n\n');
         }
 	}
-
-		static void p(String m) {
-			System.debug('\n\n\nYYZ - '+m+'\n\n\n\n');
-		}
 }

@@ -64,7 +64,7 @@
         <type>Default</type>
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
-    <enableFeeds>true</enableFeeds>
+    <enableFeeds>false</enableFeeds>
     <fieldSets>
         <fullName>Account_Merge_Case_MERC</fullName>
         <description>MERC_MergedAccounts.page / MERC_MergedAccountsApex.cls / Custom Setting: Account Merge - Case .Oliver Dunford 8th May 2014</description>
@@ -108,7 +108,6 @@
         <externalId>false</externalId>
         <label>Account Email</label>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Email</type>
@@ -120,7 +119,6 @@
         <externalId>false</externalId>
         <label>Account Fax</label>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Phone</type>
@@ -131,7 +129,6 @@
         <externalId>false</externalId>
         <label>Account Phone</label>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Phone</type>
@@ -143,7 +140,6 @@
         <label>Address Line 1</label>
         <length>100</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -156,7 +152,6 @@
         <label>Address Line 2</label>
         <length>100</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -172,7 +167,6 @@
         <relationshipLabel>Cases</relationshipLabel>
         <relationshipName>Cases</relationshipName>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
@@ -184,7 +178,6 @@
         <externalId>false</externalId>
         <inlineHelpText>Indicates that this record is related to a non-hcp meeting participant and should be anonymised (via workflows)</inlineHelpText>
         <label>Anonymise Record</label>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -231,7 +224,51 @@ Created by John Adams on 11/18/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Case_Contact_Method_MERC__c</fullName>
+        <description>Used for capturing method case was initiated, if not via Email to Case. Created 06/11/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to capture method case was initiated, if not via Email to Case.</inlineHelpText>
+        <label>Contact Method</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Web Service</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Veeva</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Letter</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>In Person</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -243,7 +280,6 @@ Created by John Adams on 11/18/2013</description>
         <label>City</label>
         <length>100</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -264,7 +300,6 @@ Created by John Adams on 11/18/2013</description>
         <label>Country</label>
         <length>100</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -354,7 +389,6 @@ Created by John Adams on 11/18/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -369,7 +403,6 @@ Created by John Adams on 11/18/2013</description>
         <relationshipLabel>Cases</relationshipLabel>
         <relationshipName>Cases</relationshipName>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
@@ -382,7 +415,6 @@ Created by J Adams 12/10/2013</description>
         <label>Mercury External Id</label>
         <length>150</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -390,37 +422,10 @@ Created by J Adams 12/10/2013</description>
     </fields>
     <fields>
         <fullName>Origin</fullName>
+        <inlineHelpText>For routing of Email-to-Case</inlineHelpText>
         <picklist>
             <picklistValues>
-                <fullName>Phone</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Email</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Web Service</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fax</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Veeva</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Letter</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>In Person</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Web</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -552,7 +557,18 @@ Created by J Adams 12/10/2013</description>
         <label>Postal Code</label>
         <length>10</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Prior_Parent_Id_GLBL__c</fullName>
+        <description>The Global Id of the account which this record was merged from. This field is set when an account merge occurs and the record belonged to the losing account.</description>
+        <externalId>false</externalId>
+        <label>Prior Parent Id</label>
+        <length>10</length>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -623,7 +639,6 @@ Created by J Adams 12/10/2013</description>
         <relationshipLabel>Cases</relationshipLabel>
         <relationshipName>Cases</relationshipName>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
@@ -636,7 +651,6 @@ Created by J Adams 12/10/2013</description>
         <label>State</label>
         <length>2</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -648,7 +662,7 @@ Created by J Adams 12/10/2013</description>
             <picklistValues>
                 <fullName>Open</fullName>
                 <closed>false</closed>
-                <default>true</default>
+                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Closed</fullName>
@@ -673,7 +687,7 @@ Created by J Adams 12/10/2013</description>
             <picklistValues>
                 <fullName>New</fullName>
                 <closed>false</closed>
-                <default>false</default>
+                <default>true</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -689,7 +703,7 @@ Created by John Adams on 11/18/2013</description>
         <label>Topic</label>
         <picklist>
             <picklistValues>
-                <fullName>HCP Information Package</fullName>
+                <fullName>HCP Information Pack</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -705,7 +719,7 @@ Created by John Adams on 11/18/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Travel &amp; Logistics</fullName>
+                <fullName>Travel/Logistics</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -717,20 +731,31 @@ Created by John Adams on 11/18/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Complaint</fullName>
+                <fullName>IT/ Cork</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Web Service</fullName>
+                <fullName>IT/Service Now</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Transparency Consent Follow Up</fullName>
+                <fullName>Consent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Special requirements/requests</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cases Closed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -739,35 +764,15 @@ Created by John Adams on 11/18/2013</description>
         <fullName>Type</fullName>
         <picklist>
             <picklistValues>
-                <fullName>New Customer</fullName>
+                <fullName>Information/Query</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Speaker</fullName>
+                <fullName>Change/Request</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Delegate</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>IT/Technical CMS Cork</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>IT/Technical ServiceNow</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Problem</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Feature Request</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Question</fullName>
+                <fullName>Complaint/Problem</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>

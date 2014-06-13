@@ -1,3 +1,3 @@
 Dear {!NullValue(Contact.FirstName, "Manager")}, 
 There are outstanding or expiring Customer Search Tool access requests that you have not approved or denied. Please go here to view: 
-https://mercury-cst.herokuapp.com/grantaccess
+{!$Setup.Mercury_Settings_MERC__c.CST_URL_GLBL__c}/grantaccess

@@ -121,6 +121,8 @@ public with sharing class GLBL_CustomerSearchToolService {
 		public String ls { get; set; } //last name
 		public Boolean eonly { get; set; } //true: search employees only
 		public String custId  { get; set; } //customer id
+		// country should never ever be omitted from search request. Ever. So hard-coding here!!
+//		public String country { get{ if (String.isBlank(country)) {return '00';} else {return country;}} set; } //country of residence
 		public String country { get; set; } //country of residence
 		public List<String> prod  { get; set; } //professional designation
 		public List<String> classifation { get; set; }
