@@ -68,12 +68,16 @@ public with sharing class MERC_MVIMeetingTimeZoneHandler implements GLBL_Trigger
 				}
 
 				String mtz = (String)meeting.get(fieldNameToTimeZoneMapping.get(field)); // ex => Greenwich Mean Time (Europe/Dublin)
-				TimeZone t = TimeZone.getTimeZone(mtz.substring(mtz.indexof('(')+1, mtz.length()-1)); // parse out value in parens, ex => Europe/Dublin
-				DateTime dt = (DateTime)meeting.get(field); //get the value for this field
+				//verify that the timezone has a parent
+				if (mtz.contains('(') && mtz.contains(')'))
+				{
+					TimeZone t = TimeZone.getTimeZone(mtz.substring(mtz.indexof('(')+1, mtz.indexOf(')'))); // parse out value in parens, ex => Europe/Dublin
+					DateTime dt = (DateTime)meeting.get(field); //get the value for this field
 
-				dt = dt.addSeconds(-1*t.getOffset(dt)/1000); // figure out the offset of the date based on the timezone given. and apply it to the date
-				System.debug('\n\n\nStamping ' + field + ' with ' + dt +'\n\n\n');
-				meeting.put(field, dt);
+					dt = dt.addSeconds(-1*t.getOffset(dt)/1000); // figure out the offset of the date based on the timezone given. and apply it to the date
+					System.debug('\n\n\nStamping ' + field + ' with ' + dt +'\n\n\n');
+					meeting.put(field, dt);
+				}
 			}
 		}
 	}
