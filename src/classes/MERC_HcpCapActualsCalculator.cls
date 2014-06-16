@@ -49,7 +49,10 @@ public with sharing class MERC_HcpCapActualsCalculator implements GLBL_TriggerHa
 			participantsToRollup = sobjects;
 		}
 
-		if (participantsToRollup.size() > 0)
+		if (participantsToRollup.size() > 0) {
+			//turn off trigger so we don't adjust the time on the meeting when we roll up to the participant
+			MERC_TriggerHandlerStateManager.deactivate(MERC_MVIMeetingTimeZoneHandler.class);
 			GLBL_RollupService.asyncTriggerHandler(participantsToRollup);
+		}
 	}
 }

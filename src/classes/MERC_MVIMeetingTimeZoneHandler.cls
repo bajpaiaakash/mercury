@@ -15,10 +15,10 @@ public with sharing class MERC_MVIMeetingTimeZoneHandler implements GLBL_Trigger
 	/* Control variable */
 	public static Boolean hasRun=false;
 
-	/* implemented per interface. Should never need to turn this trigger off*/
+	/* implemented per interface. can deactivate this trigger*/
 	public Boolean isActive()
 	{
-		return true;
+		return MERC_TriggerHandlerStateManager.isActive(MERC_MVIMeetingTimeZoneHandler.class);
 	}
 
 	public void handle()
@@ -28,9 +28,9 @@ public with sharing class MERC_MVIMeetingTimeZoneHandler implements GLBL_Trigger
 		   since we can't control the hasRun variable in that context */
 		if (!hasRun && Trigger.isBefore && (Trigger.isInsert || Trigger.isUpdate) && !System.isFuture())
 		{
-			User mviUser = [SELECT Id FROM User WHERE Alias='MercVeev'];
+			List<User> mviUser = [SELECT Id FROM user WHERE username LIKE 'mercuryintegration.veeva@%' limit 1];
 
-			if (mviUser.Id != UserInfo.getUserId())
+			if (mviUser.isEmpty() || mviUser.get(0).Id != UserInfo.getUserId())
 			{
 				return;
 			}
