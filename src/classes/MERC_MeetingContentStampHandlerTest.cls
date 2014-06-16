@@ -21,10 +21,10 @@ private class MERC_MeetingContentStampHandlerTest {
 		for (Integer i=0; i<3; i++)
 		{
 			products.add(new Product_Group_GLBL__c( Name                 = 'Test Product ' + i
-				                                  , Cntry_Cd_GLBL__c     = 'GB'
+				                                  , Cntry_Cd_GLBL__c     = 'ZZ'
 				                                  , Crt_Dt_GLBL__c       = Date.today()
 				                                  , Dialect_Nm_GLBL__c   = 'English'
-				                                  , Grp_Prps_Cd_GLBL__c  = '5555'
+				                                  , Grp_Prps_Cd_GLBL__c  = 'MKTP'
 				                                  , Lst_Pblsh_Dt_GLBL__c = Date.today()
 				                                  , Updt_Dt_GLBL__c      = Date.today())
 			);
