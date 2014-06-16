@@ -22,7 +22,7 @@ private class MERC_MVIMeetingTimeZoneHandlerTest
 
 	@isTest static void test_should_set_dates_per_timezone_when_MVI_updates()
 	{
-		User mviUser = [SELECT Id FROM User WHERE Alias='MercVeev' limit 1];
+		User mviUser = [SELECT Id FROM user WHERE username LIKE 'mercuryintegration.veeva@%' limit 1];
 		System.runAs(mviUser)
 		{
 			for (Meeting_MERC__c meeting : meetings)
