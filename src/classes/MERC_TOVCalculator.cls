@@ -25,6 +25,7 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 	}
 
 	public void handle() {
+
 		if (MERC_TOVCalculator.runHotelTovCalculation) {
 			if (Trigger.isInsert || Trigger.isUpdate || Trigger.isUndelete) {
 	    		calculateHotelTov(Trigger.new);
@@ -67,7 +68,8 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 			//TODO: we don't need to process all meetings, so provide list of affected tavel itineraries instead
 			} else if (this.triggeredSobjectType == Travel_Itinerary_MERC__c.SobjectType) {
 				for (Travel_Itinerary_MERC__c ti : (List<Travel_Itinerary_MERC__c>)sobjects) {
-					if ((Trigger.oldMap.get(ti.Id).get('Meeting_Vendor_MERC__c') != ti.Meeting_Vendor_MERC__c ||
+					if (Trigger.isInsert ||
+						(Trigger.oldMap.get(ti.Id).get('Meeting_Vendor_MERC__c') != ti.Meeting_Vendor_MERC__c ||
 						  Trigger.oldMap.get(ti.Id).get('Sgmnt_Bgin_TS_MERC__c') != ti.Sgmnt_Bgin_TS_MERC__c ||
 						  Trigger.oldMap.get(ti.Id).get('Sgmnt_End_TS_MERC__c') != ti.Sgmnt_End_TS_MERC__c ||
 						  Trigger.oldMap.get(ti.Id).get('Status_MERC__c') != ti.Status_Merc__c) &&

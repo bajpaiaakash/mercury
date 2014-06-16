@@ -22,7 +22,7 @@ private class MERC_TOVCalculatorTest {
 		MERC_TriggerHandlerStateManager.deactivate(MERC_MeetingCancellationHandler.class);
 		MERC_TriggerHandlerStateManager.deactivate(MERC_PrimaryMeetingOwnerHandler.class);
 		MERC_TriggerHandlerStateManager.deactivate(MERC_AnonymiseNonHCPDataHandler.class);
-		
+
 		MERC_TestFactory.loadDeclarativeRollupSummaries();
 
 		accounts = MERC_TestFactory.insertAccounts(3);
@@ -79,6 +79,8 @@ private class MERC_TOVCalculatorTest {
 		//set participant 1 to attending on day 1
 		Daily_Attendance_TOV_MERC__c tovForParticipant1Day1 = MERC_TestFactory.insertTov(meetingDays.get(0).Id, participants.get(0).Id, 'Attended');
 
+		//reset the static variable that got turned off during data loads
+		MERC_TOVCalculator.runHotelTovCalculation = true;
 
 		hotel1.Room_Rate_MERC__c = 600;
 		update hotel1;
@@ -86,11 +88,11 @@ private class MERC_TOVCalculatorTest {
 
 		System.debug('QUERY LIMIT AFTER TEST EXECUTION: '+Limits.getQueries());
 
-		Meeting_Day_MERC__c day1 = [SELECT Id,
-										Daily_Ground_Trans_Amount_MERC__c,
-										Daily_Registration_Amount_MERC__c,
-										Daily_Food_Beverage_Amount_MERC__c
-											FROM Meeting_Day_MERC__c WHERE Id = :meetingDays.get(0).Id];
+		//Meeting_Day_MERC__c day1 = [SELECT Id,
+		//								Daily_Ground_Trans_Amount_MERC__c,
+		//								Daily_Registration_Amount_MERC__c,
+		//								Daily_Food_Beverage_Amount_MERC__c
+		//									FROM Meeting_Day_MERC__c WHERE Id = :meetingDays.get(0).Id];
 
 		Meeting_Participant_MERC__c participant1 = [SELECT Id, Total_Hotel_ToV_MERC__c, Total_Hours_of_Service_MERC__c, Total_Ground_Transporation_ToV_MERC__c, Total_Registration_ToV_MERC__c, Total_Food_Beverage_ToV_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :participants.get(0).Id];
 
