@@ -174,6 +174,12 @@ public with sharing class MERC_NewContentController {
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'Please select a document to upload.'));
             return null;
         }
+
+        if (this.file.versionData.size() == 0) {
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.Error, 'The document you have selected to upload contains no data.'));
+            return null;
+        }
+
         try {
             this.file.FirstPublishLocationId = getLibraryId(this.sobjectAPIName);
             //for the SAP integration the file needs to be named just right.
