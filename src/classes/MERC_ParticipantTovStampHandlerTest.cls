@@ -1,21 +1,12 @@
 @isTest
 private class MERC_ParticipantTovStampHandlerTest {
 
-	static User testUser;
+	static User testUser = MERC_TestFactory.getRunningUser();
 	static Meeting_MERC__C meeting                        = MERC_TestFactory.insertMeetings(1).get(0);
 	static List<Account> accounts                         = MERC_TestFactory.insertAccounts(200);
 	static List<Meeting_Participant_MERC__c> participants = MERC_TestFactory.insertParticipants(meeting.Id, accounts);
 	static List<Travel_Itinerary_MERC__c> itineraries     = new List<Travel_Itinerary_MERC__c>();
 	static List<Daily_Attendance_TOV_MERC__c> tovs        = new List<Daily_Attendance_TOV_MERC__c>();
-	static {
-		System.runas(new User(Id=UserInfo.getUserId()))
-		{
-			testUser = MERC_TestFactory.insertTestUsers(1, null).get(0);
-			PermissionSet ps = [SELECT Id FROM PermissionSet WHERE Name='Mercury_Customer_Meeting_Services_Edit' limit 1];
-			insert new PermissionSetAssignment(PermissionSetId=ps.Id, AssigneeId=testUser.id);
-			update new User(id=testUser.Id, UserRoleId=[SELECT Id FROM UserRole WHERE Name='Global' limit 1].id);
-		}
-	}
 
 	@isTest static void test_travel_itinerary_update_stamps_meeting() {
 		insertItineraries();
@@ -24,21 +15,23 @@ private class MERC_ParticipantTovStampHandlerTest {
 			meeting = [SELECT Id, Participant_ToV_Updated_Date_MERC__c, Participant_Tov_Final_MERC__c
 			                , End_Time_of_Meeting_MERC__c, Confirm_Meeting_Date_Change_MERC__c
 			                , Start_Time_of_Meeting_MERC__c FROM Meeting_MERC__c WHERE Id = :meeting.Id limit 1];
-			System.assertEquals(null, meeting.Participant_ToV_Updated_Date_MERC__c);
+
 			meeting.Participant_Tov_Final_MERC__c = 'Yes';
 			meeting.End_Time_of_Meeting_MERC__c = Date.today();
 			meeting.Confirm_Meeting_Date_Change_MERC__c = true;
 			meeting.Start_Time_of_Meeting_MERC__c = Date.today().addDays(-1);
 			update meeting;
 
+			Test.startTest();
+			DateTime initialTime = [SELECT Id, Participant_ToV_Updated_Date_MERC__c FROM Meeting_MERC__c WHERE Id = :meeting.Id limit 1].Participant_ToV_Updated_Date_MERC__c;
+
 			for (Travel_Itinerary_MERC__c ti : itineraries)
 			{
 				ti.Confirm_ToV_Reporting_Change_MERC__c = true;
 			}
-			Test.startTest();
 			update itineraries;
+			System.assert(initialTime < [SELECT Participant_ToV_Updated_Date_MERC__c FROM Meeting_MERC__c WHERE Id = :meeting.Id].Participant_ToV_Updated_Date_MERC__c);
 			Test.stopTest();
-			System.assertNotEquals(null, [SELECT Participant_ToV_Updated_Date_MERC__c FROM Meeting_MERC__c WHERE Id = :meeting.Id].Participant_ToV_Updated_Date_MERC__c);
 		}
 	}
 
@@ -49,21 +42,16 @@ private class MERC_ParticipantTovStampHandlerTest {
 			meeting = [SELECT Id, Participant_ToV_Updated_Date_MERC__c, Participant_Tov_Final_MERC__c
 			                , End_Time_of_Meeting_MERC__c, Confirm_Meeting_Date_Change_MERC__c
 			                , Start_Time_of_Meeting_MERC__c FROM Meeting_MERC__c WHERE Id = :meeting.Id limit 1];
-			System.assertEquals(null, meeting.Participant_ToV_Updated_Date_MERC__c);
-			//meeting.Participant_Tov_Final_MERC__c = 'Yes';
-			//meeting.End_Time_of_Meeting_MERC__c = Date.today();
-			//meeting.Confirm_Meeting_Date_Change_MERC__c = true;
-			//meeting.Start_Time_of_Meeting_MERC__c = Date.today().addDays(-1);
-			//update meeting;
 
+			Test.startTest();
+			DateTime initialTime = [SELECT Id, Participant_ToV_Updated_Date_MERC__c FROM Meeting_MERC__c WHERE Id = :meeting.Id limit 1].Participant_ToV_Updated_Date_MERC__c;
 			for (Travel_Itinerary_MERC__c ti : itineraries)
 			{
 				ti.Confirm_ToV_Reporting_Change_MERC__c = true;
 			}
-			Test.startTest();
 			update itineraries;
+			System.assertEquals(initialTime, [SELECT Participant_ToV_Updated_Date_MERC__c FROM Meeting_MERC__c WHERE Id = :meeting.Id].Participant_ToV_Updated_Date_MERC__c);
 			Test.stopTest();
-			System.assertEquals(null, [SELECT Participant_ToV_Updated_Date_MERC__c FROM Meeting_MERC__c WHERE Id = :meeting.Id].Participant_ToV_Updated_Date_MERC__c);
 		}
 	}
 
@@ -75,21 +63,23 @@ private class MERC_ParticipantTovStampHandlerTest {
 			meeting = [SELECT Id, Participant_ToV_Updated_Date_MERC__c, Participant_Tov_Final_MERC__c
 			                , End_Time_of_Meeting_MERC__c, Confirm_Meeting_Date_Change_MERC__c
 			                , Start_Time_of_Meeting_MERC__c FROM Meeting_MERC__c WHERE Id = :meeting.Id limit 1];
-			System.assertEquals(null, meeting.Participant_ToV_Updated_Date_MERC__c);
 			meeting.Participant_Tov_Final_MERC__c = 'Yes';
 			meeting.End_Time_of_Meeting_MERC__c = Date.today();
 			meeting.Confirm_Meeting_Date_Change_MERC__c = true;
 			meeting.Start_Time_of_Meeting_MERC__c = Date.today().addDays(-1);
 			update meeting;
 
+			Test.startTest();
+
+			DateTime initialTime = [SELECT Id, Participant_ToV_Updated_Date_MERC__c FROM Meeting_MERC__c WHERE Id = :meeting.Id limit 1].Participant_ToV_Updated_Date_MERC__c;
 			for (Daily_Attendance_TOV_MERC__c tov : tovs)
 			{
 				tov.Confirm_ToV_Reporting_Change_MERC__c = true;
 			}
-			Test.startTest();
+
 			update tovs;
+			System.assert(initialTime < [SELECT Participant_ToV_Updated_Date_MERC__c FROM Meeting_MERC__c WHERE Id = :meeting.Id].Participant_ToV_Updated_Date_MERC__c);
 			Test.stopTest();
-			System.assertNotEquals(null, [SELECT Participant_ToV_Updated_Date_MERC__c FROM Meeting_MERC__c WHERE Id = :meeting.Id].Participant_ToV_Updated_Date_MERC__c);
 		}
 
 	}
@@ -102,16 +92,16 @@ private class MERC_ParticipantTovStampHandlerTest {
 			meeting = [SELECT Id, Participant_ToV_Updated_Date_MERC__c, Participant_Tov_Final_MERC__c
 			                , End_Time_of_Meeting_MERC__c, Confirm_Meeting_Date_Change_MERC__c
 			                , Start_Time_of_Meeting_MERC__c FROM Meeting_MERC__c WHERE Id = :meeting.Id limit 1];
-			System.assertEquals(null, meeting.Participant_ToV_Updated_Date_MERC__c);
 
+			Test.startTest();
+			DateTime initialTime = [SELECT Id, Participant_ToV_Updated_Date_MERC__c FROM Meeting_MERC__c WHERE Id = :meeting.Id limit 1].Participant_ToV_Updated_Date_MERC__c;
 			for (Daily_Attendance_TOV_MERC__c tov : tovs)
 			{
 				tov.Confirm_ToV_Reporting_Change_MERC__c = true;
 			}
-			Test.startTest();
 			update tovs;
+			System.assertEquals(initialTime, [SELECT Participant_ToV_Updated_Date_MERC__c FROM Meeting_MERC__c WHERE Id = :meeting.Id].Participant_ToV_Updated_Date_MERC__c);
 			Test.stopTest();
-			System.assertEquals(null, [SELECT Participant_ToV_Updated_Date_MERC__c FROM Meeting_MERC__c WHERE Id = :meeting.Id].Participant_ToV_Updated_Date_MERC__c);
 		}
 	}
 
