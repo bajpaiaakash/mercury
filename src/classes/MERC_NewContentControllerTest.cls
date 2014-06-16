@@ -56,10 +56,10 @@ private class MERC_NewContentControllerTest {
 		}
 	}
 
-	@isTest static void test_running_user_should_have_Global_role() {
-		String userRoleId = [SELECT UserRoleId FROM User WHERE Id=:UserInfo.getUserId()].UserRoleId;
-		System.assertEquals('Global', [SELECT Name FROM UserRole WHERE Id=:userRoleId].Name, 'The user running the tests does not have the global role and therefore some tests might fail in this class.');
-	}
+	//@isTest static void test_running_user_should_have_Global_role() {
+	//	String userRoleId = [SELECT UserRoleId FROM User WHERE Id=:UserInfo.getUserId()].UserRoleId;
+	//	System.assertEquals('Global', [SELECT Name FROM UserRole WHERE Id=:userRoleId].Name, 'The user running the tests does not have the global role and therefore some tests might fail in this class.');
+	//}
 
 	// exercise cancel method.
 	@isTest
