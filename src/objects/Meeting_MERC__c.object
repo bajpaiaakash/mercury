@@ -473,6 +473,16 @@ Created by John A Adams 10/24/2013</description>
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Confirm_ToV_Reporting_Change_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>CMS Cork to confirm the change if ToV has already been reported for this meeting. Created 10/06/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Confirm ToV Reporting Change</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Confirmation_Comp_Invoice_Dt_Tm_MERC__c</fullName>
         <description>Populated via workflow to stamp when the Confirmation of Complete Invoice was checked.  Used for SLA Reporting. Created 04/09/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -558,7 +568,7 @@ LEFT(RIGHT(Start_Time_In_Meeting_Time_Zone__c, 10), 5)
         <externalId>false</externalId>
         <label>Meeting Start Date</label>
         <required>false</required>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -638,6 +648,7 @@ Created 04/14/2014</description>
         <defaultValue>false</defaultValue>
         <description>Provides ability to disable further registration to meeting via the portal. Created 11/10/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
+        <inlineHelpText>Can be checked to prevent any additional RSVPs via the Web Service.  Primarily for the scenario when a Meeting is at capacity and invitations are still pending.</inlineHelpText>
         <label>Disable Portal Registration</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -711,7 +722,7 @@ Created by John Adams on 12/9/2013</description>
         <label>End Date (Meeting Time Zone)</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -756,7 +767,7 @@ Created by John A Adams 10/25/2013</description>
         <label>End Time (Meeting Time Zone)</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1881,7 +1892,7 @@ Created by John Adams 11/6/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -2246,7 +2257,7 @@ Created by John Adams on 12/9/2013</description>
         <externalId>false</externalId>
         <label>Participant ToV Updated Date</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
@@ -2794,7 +2805,7 @@ Created by John Adams 11/6/2013</description>
         <label>Start Date (Meeting Time Zone)</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -2805,7 +2816,7 @@ Created by John Adams 11/6/2013</description>
         <label>Start Time (Meeting Time Zone)</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -2817,7 +2828,7 @@ Created by John Adams 11/6/2013</description>
         <inlineHelpText>Enter the start time of the meeting in the TIME ZONE OF THE MEETING</inlineHelpText>
         <label>Start Time of Meeting</label>
         <required>false</required>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
@@ -4974,10 +4985,6 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Independent</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Internal</fullName>
                 <default>false</default>
             </values>
@@ -5820,10 +5827,6 @@ Created by John Adams 11/6/2013</description>
             </values>
             <values>
                 <fullName>Health Education</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Independent</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7486,10 +7489,6 @@ Created by John Adams 11/6/2013</description>
             </values>
             <values>
                 <fullName>Health Education</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Independent</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9187,10 +9186,6 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Independent</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Internal</fullName>
                 <default>false</default>
             </values>
@@ -9345,6 +9340,15 @@ ISCHANGED(End_Time_of_Meeting_MERC__c)
 &amp;&amp;  !Confirm_Meeting_Date_Change_MERC__c</errorConditionFormula>
         <errorDisplayField>Confirm_Meeting_Date_Change_MERC__c</errorDisplayField>
         <errorMessage>Please agree to/confirm the Meeting Date/Time Change.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Confirm_ToV_Reporting_Change_MERC</fullName>
+        <active>true</active>
+        <description>Prevents a change of Meeting Currency should the ToV have been reported through into AODS.  Oliver Dunford 10th June 2014. Mavens Consulting.</description>
+        <errorConditionFormula>ISCHANGED( CurrencyIsoCode ) &amp;&amp;  TEXT(Participant_ToV_Final_MERC__c) = &quot;Yes&quot; &amp;&amp; 
+! Confirm_ToV_Reporting_Change_MERC__c</errorConditionFormula>
+        <errorDisplayField>Confirm_ToV_Reporting_Change_MERC__c</errorDisplayField>
+        <errorMessage>ToV has already been reported for this meeting. Customer Meeting Services need to confirm and implement this change.  All related ToV values against the meeting should be updated to align with the new meeting currency.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Event_Occurred_before_Complete_MERC</fullName>

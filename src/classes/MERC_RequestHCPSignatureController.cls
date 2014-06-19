@@ -115,16 +115,33 @@ public with sharing class MERC_RequestHCPSignatureController {
         MERC_DocusignService d = new MERC_DocusignService();
         try {
             MERC_DocusignService.EnvelopeResponse r = d.requestSignature(signers, pdfBytes);
+
+
+            //TESTING
+            MERC_DocusignService.EnvelopeRecipientDetailResponse recipientResponse = d.getEnvelopeRecipientDetails(r.envelopeId);
+            system.debug('recipientResponse--> '+recipientResponse);
+
             stampEnvelope(this.contract.Id, r.envelopeId);
+
+
             this.isSent = true;
             return null;
         } catch(MERC_DocusignService.DocusignServiceException e) {
+            System.debug('\n\n\ne is: ' + e + '\n\n\n');
             if (e.errorCode == 'ANCHOR_TAB_STRING_NOT_FOUND') {
                 //get tag and send url
                 String returnUrl = 'https://' + System.URL.getSalesforceBaseUrl().getHost().remove('-api' ) + '/apex/MERC_RequestHCPSignature?docusignTasStatus=1&id='+this.contract.Id;
                 MERC_DocusignService.EnvelopeResponse r2 = d.requestSignature(signers, pdfBytes, True); //send as draft mode
                 MERC_DocusignService.TagAndSendResponse tasResponse = d.getTagAndSendUrl(r2, returnUrl); //get tas url
+
+
+                //TESTING
+                MERC_DocusignService.EnvelopeRecipientDetailResponse recipientResponse = d.getEnvelopeRecipientDetails(r2.envelopeId);
+                system.debug('recipientResponse--> '+recipientResponse);
+
+
                 stampEnvelope(this.contract.Id, r2.envelopeId);
+
                 //redirect to tag and send url
                 PageReference p = new PageReference(tasResponse.url);
                 return p;

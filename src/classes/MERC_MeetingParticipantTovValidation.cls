@@ -38,22 +38,31 @@ public with sharing class MERC_MeetingParticipantTovValidation implements GLBL_T
 			if (mp.Meeting_MERC__r.Participant_ToV_Final_MERC__c == 'Yes')
 			{
 				SObject newMp = Trigger.newMap.get(mp.Id);
-				if (newMp.get('Confirm_ToV_Reporting_Change_MERC__c') == true)
-				{
-					continue; //this has been flagged as ok to update, move on to the next record.
-				}
 				SObject oldMp = Trigger.oldMap.get(mp.Id);
 
-				//for each meeting participant under the meeting check if any of the fields from the fieldset have changed
-				//and add an error to the record if it has.
+				//for each meeting participant under the meeting check if any of the tov fields have changed and been set to null. This is not allowed.
 				for (Schema.FieldSetMember fsm : validationFields.getFields())
 				{
-					if (oldMp.get(fsm.getFieldPath()) != newMp.get(fsm.getFieldPath()))
+					if ((oldMp.get(fsm.getFieldPath()) != newMp.get(fsm.getFieldPath()) && newMp.get(fsm.getFieldPath())==null))
 					{
-						newMp.addError(Label.ToV_Already_Reported);
-						break;
+						newMp.addError( fsm.getLabel() + ': ' + Label.Tov_Cannot_be_null_after_reported);
 					}
 				}
+
+				if (newMp.get('Confirm_ToV_Reporting_Change_MERC__c') == false)
+				{
+					//for each meeting participant under the meeting check if any of the fields from the fieldset have changed
+					//and add an error to the record if it has.
+					for (Schema.FieldSetMember fsm : validationFields.getFields())
+					{
+						if (oldMp.get(fsm.getFieldPath()) != newMp.get(fsm.getFieldPath()))
+						{
+							newMp.addError(Label.ToV_Already_Reported);
+							break;
+						}
+					}
+				}
+
 			}
 		}
 

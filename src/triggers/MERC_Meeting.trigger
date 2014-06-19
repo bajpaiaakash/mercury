@@ -4,6 +4,9 @@ trigger MERC_Meeting on Meeting_MERC__c (before insert, before update, before de
         .bind(GLBL_TriggerHandler.Evt.beforeupdate, new MERC_LockedRecordHandler(Meeting_MERC__c.SobjectType))
         .bind(GLBL_TriggerHandler.Evt.beforedelete, new MERC_LockedRecordHandler(Meeting_MERC__c.SobjectType))
 
+        .bind(GLBL_TriggerHandler.Evt.beforeinsert, new MERC_MVIMeetingTimeZoneHandler())
+        .bind(GLBL_TriggerHandler.Evt.beforeupdate, new MERC_MVIMeetingTimeZoneHandler())
+
         .bind(GLBL_TriggerHandler.Evt.beforeinsert, new MERC_TimestampHandler(Meeting_MERC__c.SobjectType))
         .bind(GLBL_TriggerHandler.Evt.beforeupdate, new MERC_TimestampHandler(Meeting_MERC__c.SobjectType))
 

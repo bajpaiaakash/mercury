@@ -25,48 +25,34 @@ global with sharing class MERC_DocusignEmbeddedSignatureService {
 			system.debug('envelopeDetail -->');
 			system.debug(envelopeDetail);
 
-			MERC_DocusignService.Signer s;
+			MERC_DocusignService.Signer embeddedHCPSigner;
 			for (MERC_DocusignService.Signer signer : envelopeDetail.signers) {
 				system.debug('signer -->');
 				system.debug(signer);
 
 				if (signer.status != 'completed' && signer.routingOrder != '1') { //get signer who hasn't completed (this is our HCP)
-					s = signer;
+					embeddedHCPSigner = signer;
 					break;
 				}
 			}
 
-			system.debug('signer to delete -->');
-			system.debug(s);
+			system.debug('HCP signer -->');
+			system.debug(embeddedHCPSigner);
 
-			if (s == null)
+			if (embeddedHCPSigner == null)
 				throw new MERC_Exception('Unable to find valid embedded signer');
 
-			MERC_DocusignService.Tab tabsForDeactivatedSigner = docService.getTabsForRecipient(envelopeId, s.recipientId);
-
-			MERC_DocusignService.Signer signerToDeactivate = s;
-			signerToDeactivate.email = 'NOTAVALIDEMAIL@NOTAVALIDEMAIL.COM';
-			signerToDeactivate.name = 'NA';
-			docService.updateSigner(envelopeId, signerToDeactivate); //deactivate the "remote signer" HCP
-
-			docService.addSigner(envelopeId, mp.Account_MERC__c, true, 3, tabsForDeactivatedSigner); //add the HCP back as an embedded signer
-			docService.deleteSigner(envelopeId, s); //delete the "remote signer" HCP
-
-			envelopeDetail = docService.getEnvelopeRecipientDetails(envelopeId); //retrieve the update envelope details
-
-			MERC_DocusignService.Signer embeddedSigner;
-
-			for (MERC_DocusignService.Signer signer : envelopeDetail.signers) {
-				if (signer.clientUserId != null && signer.clientUserId != '') { //get signer with client id (our embedded signer)
-					embeddedSigner = signer;
-					break;
-				}
-			}
+			//for (MERC_DocusignService.Signer signer : envelopeDetail.signers) {
+			//	if (signer.clientUserId != null && signer.clientUserId != '') { //get signer with client id (our embedded signer)
+			//		embeddedSigner = signer;
+			//		break;
+			//	}
+			//}
 
 			//retrieve embedded signature URL
 			MERC_DocusignService.EmbeddedSignResponse esr = docService.getEmbeddedSignUrl(
 																			envelopeId, 
-																			embeddedSigner, 
+																			embeddedHCPSigner, 
 																			'https://mercury-portal-dev.herokuapp.com/meetings');
 			response.success = true;
 			response.url = esr.url;

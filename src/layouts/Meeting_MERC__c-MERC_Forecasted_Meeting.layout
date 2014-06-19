@@ -306,7 +306,7 @@
         <excludeButtons>New</excludeButtons>
         <fields>Email_Send_Number_MERC__c</fields>
         <fields>Date_Sent_MERC__c</fields>
-        <fields>Email_Name__c</fields>
+        <fields>Email_Name_MERC__c</fields>
         <fields>Deliverability_Rate_MERC__c</fields>
         <fields>Open_Rate_MERC__c</fields>
         <fields>Click_Through_Rate_MERC__c</fields>

@@ -1,3 +1,11 @@
-Dear {!NullValue(Contact.FirstName, "Manager")}, 
-You have received new access requests for users to access the Customer Search Tool. Please go here to view: 
-https://mercury-cst.herokuapp.com/grantaccess
+Dear {!NullValue(Contact.FirstName, "Supervisor")}, 
+You are receiving this email as someone reporting to you has requested access to use the Customer Search Tool or their current access to the tool is expiring on the first day of the following month. 
+
+You, as well as the user accessing this data, are accountable for ensuring that the manner the Personal Information in this system is used is in accordance with the terms of the notice/consent provided by the data subjects. By granting access, you acknowledge that their intended use of the data does comply with the terms under which the data was provided to Eli Lilly and Company by the data subjects. Noncompliant use may be considered illegal in certain jurisdictions in Europe and specific other geographies. 
+
+Please manage access utilizing the Customer Search Tool access capability via the following link:-:
+
+{!$Setup.Mercury_Settings_MERC__c.CST_URL_GLBL__c}/grantaccess
+
+PLEASE DO NOT REPLY to this auto-generated email as this account is not monitored. 
+If you are encountering issues with this link or with managing access within the tool, please contact your local helpdesk.

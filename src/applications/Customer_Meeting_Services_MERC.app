@@ -137,21 +137,15 @@
     <tab>standard-report</tab>
     <tab>standard-File</tab>
     <tab>Travel_Itinerary_MERC__c</tab>
+    <tab>Web_Service_Error_GLBL__c</tab>
     <workspaceMappings>
         <mapping>
             <fieldName>Account_GLBL__c</fieldName>
             <tab>Preferences_and_Consent_GLBL__c</tab>
         </mapping>
         <mapping>
-            <tab>standard-report</tab>
-        </mapping>
-        <mapping>
             <fieldName>AccountId</fieldName>
             <tab>standard-Case</tab>
-        </mapping>
-        <mapping>
-            <fieldName>Meeting_Participant_MERC__c</fieldName>
-            <tab>Travel_Itinerary_MERC__c</tab>
         </mapping>
         <mapping>
             <fieldName>Account_GLBL__c</fieldName>
@@ -166,17 +160,27 @@
             <tab>HCP_Contract_MERC__c</tab>
         </mapping>
         <mapping>
-            <tab>standard-File</tab>
+            <tab>Meeting_MERC__c</tab>
         </mapping>
         <mapping>
-            <tab>Meeting_MERC__c</tab>
+            <tab>Web_Service_Error_GLBL__c</tab>
+        </mapping>
+        <mapping>
+            <tab>standard-Dashboard</tab>
+        </mapping>
+        <mapping>
+            <tab>standard-report</tab>
+        </mapping>
+        <mapping>
+            <fieldName>Meeting_Participant_MERC__c</fieldName>
+            <tab>Travel_Itinerary_MERC__c</tab>
+        </mapping>
+        <mapping>
+            <tab>standard-File</tab>
         </mapping>
         <mapping>
             <fieldName>ParentId</fieldName>
             <tab>standard-Account</tab>
-        </mapping>
-        <mapping>
-            <tab>standard-Dashboard</tab>
         </mapping>
         <mapping>
             <fieldName>Account_MERC__c</fieldName>

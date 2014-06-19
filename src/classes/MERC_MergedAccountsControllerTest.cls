@@ -18,7 +18,9 @@ private class MERC_MergedAccountsControllerTest {
             update new User(id=testUser.Id, UserRoleId=[SELECT Id FROM UserRole WHERE Name='Global' limit 1].id);
         }
     }
-    static final Integer TEST_ACCT_SIZE  = 30;
+    //maxed out at 4. if we try to do a merge of more than 4 we run into all sorts of limits
+    //since a merge can only be done for one winning account at at time
+    static final Integer TEST_ACCT_SIZE  = 4;
     static List<Account> winningAccounts = MERC_TestFactory.insertMasterAccountsInCountry(TEST_ACCT_SIZE, 'GB');
     static List<Account> losingAccounts  = MERC_TestFactory.insertMasterAccountsInCountry(TEST_ACCT_SIZE, 'GB');
 
@@ -26,11 +28,15 @@ private class MERC_MergedAccountsControllerTest {
 
     static
     {
+        MERC_TestFactory.insertMercuryCustomSettings();
+
         for (Integer i=0; i<TEST_ACCT_SIZE; i++)
         {
+            losingAccounts[i].put('Cust_Id_GLBL__c','CUSTID12'+i);
             mergeHistory.add( new Merge_History_GLBL__c(Winning_Id_GLBL__c=winningAccounts[i].Cust_ID_GLBL__c, Original_Account_ID_GLBL__c=losingAccounts[i].Cust_ID_GLBL__c ));
         }
         insert mergeHistory;
+        update losingAccounts;
 
         List<Preferences_and_Consent_GLBL__c> prefConsentRecords = new List<Preferences_and_Consent_GLBL__c>();
         List<String> prefTypes  = new List<String>{'Language Preference','Communication Preference','Speaker Interest', 'Contract Delivery', 'Payment Required'};
@@ -54,15 +60,14 @@ private class MERC_MergedAccountsControllerTest {
         }
         insert prefConsentRecords;
 
-        /*----- create a custom setting for pref and consent records.
-                we need to make assumptions about existing metadata like field sets -----*/
-        insert new Account_Merge_Related_Lists_MERC__c( Name                         = 'Preferences_and_Consent_GLBL__c'
-                                                      , Related_Object_API_Name__c   = 'Preferences_and_Consent_GLBL__c'
-                                                      , Parent_Account_Field_MERC__c = 'Account_GLBL__c'
-                                                      , Path_to_Cust_Id_MERC__c      = 'Account_GLBL__r.Cust_Id_GLBL__c'
-                                                      , Winning_Acct_Related_List_Field_Set_MERC__c = 'Account_Merge_Pref_and_Consent_MERC'
-                                                      , Losing_Acct_Related_List_Field_Set_MERC__c  = 'Account_Merge_Pref_and_Consent_MERC'
-                                                      , Allow_Winning_Account_Deletes__c            = true);
+        System.runAs(new User(Id=UserInfo.getUserId()))
+        {
+            //perform merge of losing accounts to winning accounts
+            for (Integer i=0; i<TEST_ACCT_SIZE; i++)
+            {
+                merge winningAccounts[i] losingAccounts[i];
+            }
+        }
     }
 
     @isTest static void test_should_initialize_controller()
@@ -72,8 +77,8 @@ private class MERC_MergedAccountsControllerTest {
             Test.startTest();
             MERC_MergedAccountsController controller = new MERC_MergedAccountsController();
             Test.stopTest();
-            System.assertEquals(10, controller.ssc.getRecords().size());
-            System.assertEquals(30, controller.ssc.getResultSize());
+            System.assertEquals(TEST_ACCT_SIZE, controller.ssc.getRecords().size());
+            System.assertEquals(TEST_ACCT_SIZE, controller.ssc.getResultSize());
         }
     }
 
@@ -83,6 +88,9 @@ private class MERC_MergedAccountsControllerTest {
         {
             Test.startTest();
             MERC_MergedAccountsController controller = new MERC_MergedAccountsController();
+            //we can't create many accounts due to the merge operation hitting limits
+            //so drop the page size to small number to force page navigation
+            controller.updatePageSize(2);
             List<Account> firstSetOfAccounts = controller.getAccounts();
             controller.ssc.next();
             System.assertNotEquals(firstSetOfAccounts, controller.getAccounts());

@@ -76,7 +76,7 @@
                 </apex:pageBlockTable>
             </apex:pageBlockSection>
         </apex:pageBlock>
-    	<apex:pageBlock id="block" title="Email Options" rendered="{!NOT(ShowParticipantGrid)}">
+        <apex:pageBlock id="block" title="Email Options" rendered="{!NOT(ShowParticipantGrid)}">
             <apex:actionFunction name="getFolderInfo" action="{!expandFolder}" rerender="exactTargetEmails,messages" status="listEmailsStatus">
                 <apex:param name="folderId" value="" />
             </apex:actionFunction>

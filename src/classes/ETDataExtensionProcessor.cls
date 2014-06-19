@@ -148,45 +148,51 @@ public with sharing class ETDataExtensionProcessor {
 
         Sonoma_ET_Config__c config = Sonoma_ET_Config__c.getInstance();
         List<et4ae5__Business_Unit__c> bus = [SELECT Id, et4ae5__Business_Unit_ID__c FROM et4ae5__Business_Unit__c WHERE Name = :config.ET_BU_Name__c LIMIT 1];
-        et4ae5__SendDefinition__c send = new et4ae5__SendDefinition__c();
-        send.et4ae5__DataExtensionId__c = deResponse.Id;
-        send.et4ae5__SyncId__c = 'ETLillySend' + Datetime.now().format('yyyyMMdd');
-        send.et4ae5__Business_Unit__c = bus[0].Id;
-        if (wrapper.SendTime == 'now') {
-            send.et4ae5__SendStatus__c = 'New';
-        } else {
-            send.et4ae5__SendStatus__c = 'Scheduled';
-            send.et4ae5__Scheduled_Date_Time__c = wrapper.FutureSendTime;
-        }
-        send.et4ae5__FromName__c = config.Default_From_Name__c;
-        send.et4ae5__Reply_to__c = config.Default_From_Email__c + ' <' + wrapper.FromAddress + '>';
-        send.et4ae5__FromEmail__c = wrapper.FromAddress;
-        send.et4ae5__RecipientsOptedIn__c = true;
-        send.et4ae5__DedupeSubscribers__c = wrapper.DeDupSubscribers;
-        send.et4ae5__Individual_Tracking_Disabled__c = wrapper.DisableIndividualTracking;
-        send.et4ae5__EmailId__c = wrapper.Email.id;
-        send.et4ae5__EmailName__c = wrapper.Email.name;
-        send.et4ae5__Subject__c = wrapper.Email.title;
-        send.et4ae5__SubjectLine__c = wrapper.Email.title;
 
+        // queue up a future method to retrieve the thumbnail
+        //ETDataExtensionProcessor.retrieveThumbnailForEmailSend(send.Id);
+
+        Meeting_Email_Send_MERC__c meetingEmailSend = new Meeting_Email_Send_MERC__c();
+        meetingEmailSend.Meeting_MERC__c = meetingId;
+        
+        // Populate fields that will be placed on the email send
+        meetingEmailSend.ET_Data_Extension_Id_MERC__c = deResponse.Id;
+        meetingEmailSend.ET_Sync_Id_MERC__c = 'ETLillymeetingEmailSend' + Datetime.now().format('yyyyMMdd');
+        meetingEmailSend.ET_Business_Unit_MERC__c = bus[0].Id;
+        meetingEmailSend.ET_From_Name_MERC__c = config.Default_From_Name__c;
+        meetingEmailSend.ET_Reply_to_MERC__c = config.Default_From_Email__c + ' <' + wrapper.FromAddress + '>';
+        meetingEmailSend.ET_From_Email_MERC__c = wrapper.FromAddress;
+        meetingEmailSend.ET_From_Address_MERC__c = wrapper.FromAddress;
+        meetingEmailSend.ET_Recipients_Opted_In_MERC__c = true;
+        meetingEmailSend.ET_Dedupe_Subscribers_MERC__c = wrapper.DeDupSubscribers;
+        meetingEmailSend.ET_Individual_Tracking_Disabled_MERC__c = wrapper.DisableIndividualTracking;
+        meetingEmailSend.ET_Email_ID_MERC__c = wrapper.Email.id;
+        meetingEmailSend.ET_Email_Name_MERC__c = wrapper.Email.name;
+        meetingEmailSend.ET_Subject_MERC__c = wrapper.Email.title;
+        meetingEmailSend.ET_Subject_Line_MERC__c = wrapper.Email.title;
+        
+        if (wrapper.SendTime == 'now') {
+            meetingEmailSend.Send_Status__c = 'Create Sender Profile';
+            meetingEmailSend.Send_Email__c = true;
+        } else {
+            meetingEmailSend.Scheduled_Date__c = wrapper.FutureSendTime;
+        }
+        insert meetingEmailSend;
+        
         String thumbnailData = '';
         try {
-            thumbnailData = retrieveThumbnailForEmailSend(send, authorizer.soapAuthToken);
+            thumbnailData = retrieveThumbnailForEmailSend(meetingEmailSend, authorizer.soapAuthToken);
         } catch (Exception e) {
             System.debug ('Exception retrieving the preview image : ' + e.getMessage() + '\n' + e.getStackTraceString());
         }
 
-
-        insert send;
-
-        send = [SELECT Id, et4ae5__SyncComplete__c, et4ae5__Thumbnail__c FROM et4ae5__SendDefinition__c WHERE Id = :send.Id];
+        meetingEmailSend = [SELECT Id, ET_Thumbnail_MERC__c FROM Meeting_Email_Send_MERC__c WHERE Id = :meetingEmailSend.Id];
         if (thumbnailData.length() < 32768) {
-            send.et4ae5__Thumbnail__c = thumbnailData;
-            //update send;
+            meetingEmailSend.ET_Thumbnail_MERC__c = thumbnailData;
         } else {
             try {
                 Attachment a = new Attachment();
-                a.ParentId = send.Id;
+                a.ParentId = meetingEmailSend.Id;
                 a.Body = Blob.valueOf(thumbnailData);
                 a.Name = 'Thumbnail Data';
                 insert a;
@@ -194,21 +200,8 @@ public with sharing class ETDataExtensionProcessor {
                 System.debug('Exception saving attachment of preview : ' + e.getMessage() + '\n' + e.getStackTraceString());
             }
         }
-
-        //if scheduled a workflow will set SyncComplete flag when ScheduledDateTime is reached
-        if (wrapper.SendTime == 'now') {
-            send.et4ae5__SyncComplete__c = true;
-        }
-
-        update send;
-
-        // queue up a future method to retrieve the thumbnail
-        //ETDataExtensionProcessor.retrieveThumbnailForEmailSend(send.Id);
-
-        Meeting_Email_Send_MERC__c meetingEmailSend = new Meeting_Email_Send_MERC__c();
-        meetingEmailSend.Meeting_MERC__c = meetingId;
-        meetingEmailSend.Email_Send_Number_MERC__c = send.Id;
-        insert meetingEmailSend;
+        
+        update meetingEmailSend;
 
         List<Meeting_Participant_Email_Send_MERC__c> mpEmailSends = new List<Meeting_Participant_Email_Send_MERC__c>();
         for (Meeting_Participant_MERC__c mp : wrapper.Participants) {
@@ -291,7 +284,7 @@ public with sharing class ETDataExtensionProcessor {
     }
 
     //@future (callout=true)
-    public String retrieveThumbnailForEmailSend(et4ae5__SendDefinition__c emailSend, String soapAuthToken) {
+    public String retrieveThumbnailForEmailSend(Meeting_Email_Send_MERC__c meetingEmailSend, String soapAuthToken) {
         et4ae5__Configuration__c configInfo = [SELECT et4ae5__Root_Rest_API_URL__c, et4ae5__url_root__c, et4ae5__url_part__c
                                        FROM et4ae5__Configuration__c
                                        ORDER BY LastModifiedDate DESC
@@ -300,7 +293,7 @@ public with sharing class ETDataExtensionProcessor {
         String thumbnailURL = configInfo.et4ae5__Root_Rest_API_URL__c;
         thumbnailURL = thumbnailURL.replace('rest', configInfo.et4ae5__url_root__c);
         thumbnailURL += String.format('/{0}/utilities/ImageThumbnailSecure.ashx/?h={1}&w={2}&emailid={3}&oauth_token={4}', 
-                                      new List<String> { configInfo.et4ae5__url_part__c, '700', '700', emailSend.et4ae5__EmailId__c, soapAuthToken });
+                                      new List<String> { configInfo.et4ae5__url_part__c, '700', '700', meetingEmailSend.ET_Email_Id_MERC__c, soapAuthToken });
         System.debug('thumbnailURL : ' + thumbnailURL);
 
         HttpRequest req = new HttpRequest();

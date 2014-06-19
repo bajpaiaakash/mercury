@@ -9,7 +9,7 @@ public with sharing class MERC_TeamMemberShareHandler implements GLBL_TriggerHan
 	//TODO: handle modifications to record type
 
 	public Boolean isActive() {
-		return true;
+		return MERC_TriggerHandlerStateManager.isActive(MERC_TeamMemberShareHandler.class);
 	}
 
 	public void handle() {
@@ -65,10 +65,9 @@ public with sharing class MERC_TeamMemberShareHandler implements GLBL_TriggerHan
 					}
 				}
 			}
-			try {
-				insert shareRecordsToInsert;
-			} catch (DmlException dmle) {
-				System.debug(LoggingLevel.WARN, 'Unable to insert Meeting Share: '+dmle.getMessage());
+			if (!shareRecordsToInsert.isEmpty()) {
+				String shareRecordsString = JSON.serialize(shareRecordsToInsert);
+				MERC_TeamMemberShareHandlerUtility.insertShareRecords(shareRecordsString);
 			}
 
 		} else if (Trigger.isUpdate) {
@@ -107,7 +106,7 @@ public with sharing class MERC_TeamMemberShareHandler implements GLBL_TriggerHan
 					}
 				}
 			}
-
+			System.debug('\n\n\nmeetingIdToRemovedUserIds: ' + meetingIdToRemovedUserIds + '\n\n\n');
 			if (meetingIdToRemovedUserIds.keySet().size() > 0) {
 				List<Meeting_MERC__Share> shareRecordsToDelete = new List<Meeting_MERC__Share>();
 				for (Meeting_MERC__Share share : [SELECT ID, UserOrGroupId, ParentId From Meeting_MERC__Share WHERE ParentId in :meetingIdToRemovedUserIds.keySet()]) {
@@ -119,7 +118,10 @@ public with sharing class MERC_TeamMemberShareHandler implements GLBL_TriggerHan
 						}
 					}
 				}
-				delete shareRecordsToDelete;
+				if (!shareRecordsToDelete.isEmpty()) {
+					String shareRecordsString = JSON.serialize(shareRecordsToDelete);
+					MERC_TeamMemberShareHandlerUtility.deleteShareRecords(shareRecordsString);
+				}
 			}
 
 			if (meetingIdToNewUserIds.keySet().size() > 0) {
@@ -138,10 +140,9 @@ public with sharing class MERC_TeamMemberShareHandler implements GLBL_TriggerHan
 						}
 					}
 				}
-				try {
-					insert shareRecordsToInsert;
-				} catch (DmlException dmle) {
-					System.debug(LoggingLevel.WARN, 'Unable to insert Meeting Share during update: '+dmle.getMessage());
+				if (!shareRecordsToInsert.isEmpty()) {
+					String shareRecordsString = JSON.serialize(shareRecordsToInsert);
+					MERC_TeamMemberShareHandlerUtility.insertShareRecords(shareRecordsString);
 				}
 			}
 
@@ -157,7 +158,11 @@ public with sharing class MERC_TeamMemberShareHandler implements GLBL_TriggerHan
 					}
 				}
 			}
-			delete shareRecordsToDelete;
+			if (!shareRecordsToDelete.isEmpty()) {
+				String shareRecordsString = JSON.serialize(shareRecordsToDelete);
+				MERC_TeamMemberShareHandlerUtility.deleteShareRecords(shareRecordsString);
+			}
+
 		}
 
 	}

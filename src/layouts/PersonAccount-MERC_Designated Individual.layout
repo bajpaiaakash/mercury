@@ -11,20 +11,12 @@
         <label>Account Information</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Salutation_Txt_GLBL__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Required</behavior>
                 <field>Name</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>HCP_Designated_Individuals_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>HCP_Country_of_Residence2_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -89,7 +81,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>HCP_Country_of_Residence_MERC__c</field>
+                <field>Country_for_Territory_Assignment_DI_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -150,6 +142,7 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>RECORDTYPE</fields>
         <fields>Line_1_Adrs_Txt_GLBL__c</fields>
         <fields>Line_2_Adrs_Txt_GLBL__c</fields>
         <fields>City_GLBL__c</fields>

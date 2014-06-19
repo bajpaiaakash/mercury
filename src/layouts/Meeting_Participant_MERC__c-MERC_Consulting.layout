@@ -30,10 +30,6 @@
                 <field>Type_of_Contract_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Include_CAP_Roll_Up_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Has_Signed_Contract_MERC__c</field>
             </layoutItems>
@@ -89,12 +85,8 @@
         <label>Participant Requirements</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>Expense_Reimbursment_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Invoice_Template_Needed_MERC__c</field>
+                <behavior>Readonly</behavior>
+                <field>Contract_Limitations_on_Use_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -105,10 +97,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Presentation_Approval_Needed_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Contract_Limitations_on_Use_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

@@ -103,7 +103,7 @@ Created by John A Adams 9/27/2013</description>
         <relationshipLabel>Payee</relationshipLabel>
         <relationshipName>Payee</relationshipName>
         <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>true</reparentableMasterDetail>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>

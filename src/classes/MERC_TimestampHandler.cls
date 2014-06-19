@@ -4,7 +4,7 @@
  * Stamps static text field with a user-friendly date/time value
  */
 public with sharing class MERC_TimestampHandler implements GLBL_TriggerHandler.HandlerInterface {
-	
+
 	Schema.SobjectType triggeredSobjectType;
 
 	public MERC_TimestampHandler(Schema.SobjectType sobjectType) {
@@ -23,7 +23,7 @@ public with sharing class MERC_TimestampHandler implements GLBL_TriggerHandler.H
 	   	}
 	}
 
-	void execute(List<SObject> sobjects) {		
+	void execute(List<SObject> sobjects) {
 		if (
 			this.triggeredSobjectType == Meeting_MERC__c.sObjectType ||
 			this.triggeredSobjectType == Travel_Itinerary_MERC__c.sObjectType
@@ -31,7 +31,7 @@ public with sharing class MERC_TimestampHandler implements GLBL_TriggerHandler.H
 			MERC_TimeZoneUtility tz = new MERC_TimeZoneUtility(this.triggeredSobjectType);
 			tz.applyTimeZoneSpecificTimestamps(sobjects, null);
 		} else if (
-			this.triggeredSobjectType == Agenda_Item_MERC__c.sObjectType || 
+			this.triggeredSobjectType == Agenda_Item_MERC__c.sObjectType ||
 			this.triggeredSobjectType == Meeting_Day_MERC__c.sObjectType
 		) {
 			MERC_TimeZoneUtility tz = new MERC_TimeZoneUtility(this.triggeredSobjectType);
@@ -43,12 +43,12 @@ public with sharing class MERC_TimestampHandler implements GLBL_TriggerHandler.H
 			Map<Id,String> meetingToMeetingTimeZone = new Map<Id,String>();
 			for (Meeting_MERC__c m : [SELECT Id, Meeting_Time_Zone_MERC__c FROM Meeting_MERC__c WHERE ID in :meetingIds]) {
 				meetingToMeetingTimeZone.put(m.Id, m.Meeting_Time_Zone_MERC__c);
-			}	
-					
+			}
+
 			for (Sobject s : sobjects) {
 				String meetingTimeZone = (String)meetingToMeetingTimeZone.get((Id)s.get('Meeting_MERC__c'));
 				tz.applyTimeZoneSpecificTimestamps(new List<Sobject>{s}, meetingTimeZone);
 			}
-		} 
+		}
 	}
 }

@@ -47,12 +47,12 @@ global with sharing class MERC_MeetingDayManagerController extends GLBL_GenericR
 		/*----- k. thornton: update to insert the new record immediately and set hotel allocations
 		        otherwise the user could end up not setting up hotel blocks for meeting days -----*/
 		children.get(children.size()-1).so.put('Meeting_MERC__c', parentId);
-		try {
-			insert children.get(children.size()-1).so;
-		} catch(Exception e) {
-			ApexPages.addMessages(e);
-			return null;
-		}
+		//try {
+		//	insert children.get(children.size()-1).so;
+		//} catch(Exception e) {
+		//	ApexPages.addMessages(e);
+		//	return null;
+		//}
 		//ensureHotelAllocationsForMeetingDays();
 
 		return p;
@@ -75,6 +75,7 @@ global with sharing class MERC_MeetingDayManagerController extends GLBL_GenericR
 	public override PageReference save() {
 		PageReference p = super.save();
 		ensureHotelAllocationsForMeetingDays();
+		children = null;
 		return p;
 	}
 

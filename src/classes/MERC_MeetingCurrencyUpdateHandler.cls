@@ -2,7 +2,7 @@
  * @author Kyle Thornton
  *
  * this trigger handler processes currency changes to a meeting by propagating the change down to the child
- * Meeting Participant, Meeting Day, Daily TOV and Hotel Allocation records.
+ * Travel Itinerary, Meeting Day, Daily TOV and Hotel Allocation records.
  */
 
 public with sharing class MERC_MeetingCurrencyUpdateHandler implements GLBL_TriggerHandler.HandlerInterface
@@ -37,13 +37,13 @@ public with sharing class MERC_MeetingCurrencyUpdateHandler implements GLBL_Trig
 	public static void updateRecords(Set<Id> meetingIdsWithCurrencyChange)
 	{
 		List<Meeting_MERC__c> meetingsToProcess = [SELECT Id, CurrencyIsoCode,
-		                                                      (SELECT Id, CurrencyIsoCode, Confirm_ToV_Reporting_Change_MERC__c FROM Meeting_Participants_del__r),
+		                                                      (SELECT Id FROM Meeting_Participants_del__r),
 		                                                      (SELECT Id, CurrencyIsoCode, Confirm_ToV_Reporting_Change_MERC__c FROM Meeting_Days__r),
 		                                                      (SELECT Id, CurrencyIsoCode, Confirm_ToV_Reporting_Change_MERC__c FROM Meeting_Vendors__r)
 		                                                 FROM Meeting_MERC__c
 		                                                WHERE Id IN :meetingIdsWithCurrencyChange];
 
-		List<Meeting_Participant_MERC__c> participantsToUpdate = new List<Meeting_Participant_MERC__c>();
+		List<Meeting_Participant_MERC__c> participants = new List<Meeting_Participant_MERC__c>();
 		List<Meeting_Day_MERC__c> meetingDaysToUpdate = new List<Meeting_Day_MERC__c>();
 		List<Meeting_Vendor_MERC__c> vendorsToUpdate = new List<Meeting_Vendor_MERC__c>();
 
@@ -53,9 +53,7 @@ public with sharing class MERC_MeetingCurrencyUpdateHandler implements GLBL_Trig
 		{
 			for (Meeting_Participant_MERC__c participant : meeting.Meeting_Participants_del__r)
 			{
-				participant.CurrencyIsoCode = meeting.CurrencyIsoCode;
-				participant.Confirm_ToV_Reporting_Change_MERC__c = true;
-				participantsToUpdate.add(participant);
+				participants.add(participant); //need participants so we can get travel itineraries
 			}
 
 			for (Meeting_Day_MERC__c meetingDay : meeting.Meeting_Days__r)
@@ -76,7 +74,7 @@ public with sharing class MERC_MeetingCurrencyUpdateHandler implements GLBL_Trig
 		List<Travel_Itinerary_MERC__c> itinerariesToUpdate = new List<Travel_Itinerary_MERC__c>();
 		for (Travel_Itinerary_MERC__c itinerary : [SELECT Id, CurrencyIsoCode, Meeting_Participant_MERC__r.Meeting_MERC__r.CurrencyIsoCode, Confirm_ToV_Reporting_Change_MERC__c
 			                                         FROM Travel_Itinerary_MERC__c
-			                                        WHERE Meeting_Participant_MERC__c IN :participantsToUpdate])
+			                                        WHERE Meeting_Participant_MERC__c IN :participants])
 		{
 			itinerary.CurrencyIsoCode = itinerary.Meeting_Participant_MERC__r.Meeting_MERC__r.CurrencyIsoCode;
 			itinerary.Confirm_ToV_Reporting_Change_MERC__c = true;
@@ -101,7 +99,6 @@ public with sharing class MERC_MeetingCurrencyUpdateHandler implements GLBL_Trig
 		}
 
 		List<SObject> objectsToUpdate = new List<SObject>();
-		objectsToUpdate.addAll((List<SObject>)participantsToUpdate);
 		objectsToUpdate.addAll((List<SObject>)meetingDaysToUpdate);
 		objectsToUpdate.addAll((List<SObject>)tovsToUpdate);
 		objectsToUpdate.addAll((List<SObject>)vendorsToUpdate);

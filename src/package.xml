@@ -31,12 +31,15 @@
         <members>Budget_Line_Item_MERC__c</members>
         <members>Budget_MERC__c</members>
         <members>CAP_Settings_MERC__c</members>
+        <members>CST_App_Menu_Pool_GLBL__c</members>
         <members>CST_App_Settings_CUST__c</members>
+        <members>CST_Picklist_CUST__c</members>
         <members>CST_User_Log_CUST__c</members>
         <members>CST_User_Settings_CUST__c</members>
         <members>Case</members>
         <members>Consent_Setting_GLBL__c</members>
         <members>ContentVersion</members>
+        <members>Content_Library_Lookup_MERC__c</members>
         <members>Daily_Attendance_TOV_MERC__c</members>
         <members>DeclarativeLookupRollupSummaries_GLBL__c</members>
         <members>Docusign_Settings_MERC__c</members>
@@ -46,6 +49,8 @@
         <members>Indication_GLBL__c</members>
         <members>Invoice_Line_Item_MERC__c</members>
         <members>Invoice_MERC__c</members>
+        <members>LookupChild_GLBL__c</members>
+        <members>LookupParent_GLBL__c</members>
         <members>LookupRollupSummaryLog_GLBL__c</members>
         <members>LookupRollupSummaryScheduleItems_GLBL__c</members>
         <members>LookupRollupSummary_GLBL__c</members>
@@ -60,7 +65,6 @@
         <members>Mercury_Settings_MERC__c</members>
         <members>Merge_History_GLBL__c</members>
         <members>Milestone_MERC__c</members>
-        <members>Non_HCP_Clear_Down_Object_MERC__c</members>
         <members>Participant_Agenda_MERC__c</members>
         <members>Payee_MERC__c</members>
         <members>PersonAccount</members>
@@ -71,6 +75,7 @@
         <members>Team_Member_MERC__c</members>
         <members>Time_Zone_Field_Mappings_MERC__c</members>
         <members>Travel_Itinerary_MERC__c</members>
+        <members>Web_Service_Error_GLBL__c</members>
         <members>Web_Service_Logic_MERC__c</members>
         <name>CustomObject</name>
     </types>
@@ -85,11 +90,7 @@
         <members>Customer_Search_Tool_CUST/Expire_Notification</members>
         <members>Mercury_Email_Templates_MERC/Final_Fee_Calculation_Email</members>
         <members>Mercury_Email_Templates_MERC/New_Team_Member_Notification_MERC</members>
-        <members>Mercury_Email_Templates_MERC/New_Work_Order_MERC</members>
-        <members>Mercury_Email_Templates_MERC/Non_HCP_Approval_MERC</members>
-        <members>Mercury_Email_Templates_MERC/Notify_Meeting_Manager_Invoicing_Complete</members>
         <members>Mercury_Email_Templates_MERC/Reminder_Services_Not_Rendered</members>
-        <members>Mercury_Email_Templates_MERC/Tier_Calculation_Complete</members>
         <members>Mercury_Email_Templates_MERC/Two_week_Compliance_Notification_to_Owner</members>
         <name>EmailTemplate</name>
     </types>

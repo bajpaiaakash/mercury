@@ -4,6 +4,8 @@
 * This is the unit test class for the MERC_MergedAccountsApex class which is used by the MERC_MergedAccountsController
 * If you make changes to the setup in this test class you may also want to review if the same
 * changes need to be made to MERC_MergedAccountControllerTest.cls
+*
+* this test class must create accounts then merge them to simulate the merge that would happen via the ODS integraiton
 */
 @isTest
 private class MERC_MergedAccountApexTest
@@ -23,7 +25,12 @@ private class MERC_MergedAccountApexTest
 	static Account losingAccount  = MERC_TestFactory.insertMasterAccountsInCountry(1, 'GB').get(0);
 	static
 	{
-		insert new Merge_History_GLBL__c( Winning_Id_GLBL__c=winningAccount.Cust_Id_GLBL__c, Original_Account_ID_GLBL__c=losingAccount.Cust_Id_GLBL__c );
+		MERC_TestFactory.insertMercuryCustomSettings();
+
+		losingAccount.put('Cust_Id_GLBL__c','CUSTID1234');
+		update losingAccount;
+
+		insert new Merge_History_GLBL__c( Winning_Id_GLBL__c=winningAccount.Cust_Id_GLBL__c, Original_Account_ID_GLBL__c='CUSTID1234');
 
 		List<Preferences_and_Consent_GLBL__c> prefConsentRecords = new List<Preferences_and_Consent_GLBL__c>();
 		List<String> prefTypes  = new List<String>{'Language Preference','Communication Preference','Speaker Interest', 'Contract Delivery', 'Payment Required'};
@@ -43,15 +50,8 @@ private class MERC_MergedAccountApexTest
 		}
 		insert prefConsentRecords;
 
-		/*----- create a custom setting for pref and consent records.
-		        we need to make assumptions about existing metadata like field sets -----*/
-		insert new Account_Merge_Related_Lists_MERC__c( Name                         = 'Preferences_and_Consent_GLBL__c'
-													  , Parent_Account_Field_MERC__c = 'Account_GLBL__c'
-                                                      , Path_to_Cust_Id_MERC__c      = 'Account_GLBL__r.Cust_Id_GLBL__c'
-													  , Winning_Acct_Related_List_Field_Set_MERC__c = 'Account_Merge_Pref_and_Consent_MERC'
-													  , Losing_Acct_Related_List_Field_Set_MERC__c	= 'Account_Merge_Pref_and_Consent_MERC'
-													  , Allow_Winning_Account_Deletes__c            = true
-													  , Related_Object_API_Name__c                  = 'Preferences_and_Consent_GLBL__c');
+		//perform the merge that will put all of the pref and consent records to the winning account
+		merge winningAccount losingAccount;
 	}
 
 	@isTest static void test_should_initialize_object_and_related_lists()
@@ -59,9 +59,10 @@ private class MERC_MergedAccountApexTest
 		System.runAs(testUser)
 		{
 			MERC_MergedAccountApex maa = new MERC_MergedAccountApex(winningAccount.Cust_Id_GLBL__c, losingAccount.Cust_Id_GLBL__c);
-			System.assertEquals(1, maa.getAllRelatedLists().size());
-			System.assertEquals(5, maa.getAllRelatedLists().get(0).winningList.size());
-			System.assertEquals(5, maa.getAllRelatedLists().get(0).losingList.size());
+			System.assertEquals(8, maa.getAllRelatedLists().size(), 'Check MERC_TestFactory.insertMercuryCustomSettings() if this fails. Custom setting creation may have been modified.');
+			//pref and consent has order 8 so it's the last one in the list. so get(7).
+			System.assertEquals(5, maa.getAllRelatedLists().get(7).losingList.size());
+			System.assertEquals(5, maa.getAllRelatedLists().get(7).winningList.size());
 
 		}
 	}
@@ -118,21 +119,21 @@ private class MERC_MergedAccountApexTest
 		}
 	}
 
-	@isTest static void test_should_reparent_selected_losing_records_to_winning_account()
+	@isTest static void test_should_remove_Prior_Parent_Id_when_merged()
 	{
 		/*----- remove the prefs from the winning account so we don't get duplicate pref type errors -----*/
-		delete [SELECT Id FROM Preferences_and_Consent_GLBL__c WHERE Account_GLBL__c=:winningAccount.Id];
+		delete [SELECT Id FROM Preferences_and_Consent_GLBL__c WHERE Account_GLBL__c=:winningAccount.Id AND Prior_Parent_Id_GLBL__c = ''];
 
 		System.runAs(testUser)
 		{
 			MERC_MergedAccountApex maa = new MERC_MergedAccountApex(winningAccount.Cust_Id_GLBL__c, losingAccount.Cust_Id_GLBL__c);
-			for (MERC_MergedAccountApex.SelectableSObject so : maa.getAllRelatedLists().get(0).losingList)
+			for (MERC_MergedAccountApex.SelectableSObject so : maa.getAllRelatedLists().get(7).losingList)
 			{
 				so.selected = true;
 			}
-			maa.getAllRelatedLists().get(0).mergeSelectedRecords();
-			System.assertEquals(5, maa.getAllRelatedLists().get(0).winningList.size());
-			System.assertEquals(0, maa.getAllRelatedLists().get(0).losingList.size());
+			maa.getAllRelatedLists().get(7).mergeSelectedRecords();
+			System.assertEquals(5, maa.getAllRelatedLists().get(7).winningList.size());
+			System.assertEquals(0, maa.getAllRelatedLists().get(7).losingList.size());
 		}
 	}
 
@@ -150,13 +151,13 @@ private class MERC_MergedAccountApexTest
 			System.assertEquals(1, ApexPages.getMessages().size());
 
 			/*----- attempt delete selected winning records, ensure error caught -----*/
-			maa.getAllRelatedLists().get(0).winningList.get(0).selected=true;
-			maa.getAllRelatedLists().get(0).deleteSelectedWinningRecords();
+			maa.getAllRelatedLists().get(7).winningList.get(0).selected=true;
+			maa.getAllRelatedLists().get(7).deleteSelectedWinningRecords();
 			System.assertEquals(2, ApexPages.getMessages().size());
 
 			/*----- attempt merge selected losing records, ensure error caught -----*/
-			maa.getAllRelatedLists().get(0).losingList.get(0).selected=true;
-			maa.getAllRelatedLists().get(0).mergeSelectedRecords();
+			maa.getAllRelatedLists().get(7).losingList.get(0).selected=true;
+			maa.getAllRelatedLists().get(7).mergeSelectedRecords();
 			System.assertEquals(3, ApexPages.getMessages().size());
 		}
 	}

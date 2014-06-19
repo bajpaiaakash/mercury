@@ -122,6 +122,10 @@
                 <behavior>Readonly</behavior>
                 <field>Participant_ToV_Final_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Confirm_ToV_Reporting_Change_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -657,7 +661,7 @@
         <excludeButtons>New</excludeButtons>
         <fields>Email_Send_Number_MERC__c</fields>
         <fields>Date_Sent_MERC__c</fields>
-        <fields>Email_Name__c</fields>
+        <fields>Email_Name_MERC__c</fields>
         <fields>Deliverability_Rate_MERC__c</fields>
         <fields>Open_Rate_MERC__c</fields>
         <fields>Click_Through_Rate_MERC__c</fields>

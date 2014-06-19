@@ -283,6 +283,11 @@ Created by John A Adams 11/1/2013</description>
             <operation>equals</operation>
             <value>ZZ</value>
         </filterItems>
+        <filterItems>
+            <field>Product_Group_GLBL__c.Grp_Prps_Cd_GLBL__c</field>
+            <operation>equals</operation>
+            <value>MKTP</value>
+        </filterItems>
         <isOptional>false</isOptional>
         <name>Meeting Product_Product</name>
     </namedFilters>

@@ -282,10 +282,12 @@
     </miniLayout>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Party_Rcrd_Typ_Cd_GLBL__c</fields>
+        <fields>RECORDTYPE</fields>
+        <fields>Line_1_Adrs_Txt_GLBL__c</fields>
         <fields>Line_2_Adrs_Txt_GLBL__c</fields>
         <fields>City_GLBL__c</fields>
         <fields>Zip_Postal_Code_GLBL__c</fields>
+        <fields>Adrs_Cntry_Cd_GLBL__c</fields>
         <fields>Priority_Rank_Nbr_GLBL__c</fields>
         <relatedList>Address_GLBL__c.Account_GLBL__c</relatedList>
     </relatedLists>

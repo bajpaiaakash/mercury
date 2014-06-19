@@ -155,6 +155,17 @@ public class TestUtils {
 
         return meetingEmailSends;
     }
+    
+    public static List<Meeting_Email_Send_MERC__c> createMeetingEmailSend(Id meetingId, integer numMeetingEmailSends) {
+    	List<Meeting_Email_Send_MERC__c> meetingEmailSends = new List<Meeting_Email_Send_MERC__c>();
+    	for (integer x= 0; x < numMeetingEmailSends; x++) {
+    		meetingEmailSends.add(new Meeting_Email_Send_MERC__c(
+                Meeting_MERC__c=meetingId
+            ));
+    	}
+    	
+    	return meetingEmailSends;
+    }
 
     public static List<Meeting_Participant_Email_Send_MERC__c> CreateMeetingParticipantEmailSend(Id meetingParticipantId, 
         List<Meeting_Email_Send_MERC__c> meetingEmailSends) {

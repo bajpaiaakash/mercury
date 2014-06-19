@@ -1,4 +1,4 @@
-trigger MERC_Account on Account (before insert, before update, after insert, after update, after delete, after undelete) {
+trigger MERC_Account on Account (before insert, before update, before delete, after insert, after update, after delete, after undelete) {
 	new GLBL_TriggerHandler()
 		.bind(GLBL_TriggerHandler.Evt.beforeinsert, new MERC_HcpCapLimitCalculator())
 		.bind(GLBL_TriggerHandler.Evt.beforeupdate, new MERC_HcpCapLimitCalculator())
@@ -7,5 +7,9 @@ trigger MERC_Account on Account (before insert, before update, after insert, aft
 		.bind(GLBL_TriggerHandler.Evt.afterupdate, new MERC_AccountDesignatedIndividualsCounter())
 		.bind(GLBL_TriggerHandler.Evt.afterdelete, new MERC_AccountDesignatedIndividualsCounter())
 		.bind(GLBL_TriggerHandler.Evt.afterundelete, new MERC_AccountDesignatedIndividualsCounter())
+
+		.bind(GLBL_TriggerHandler.Evt.beforedelete, new GLBL_AccountMergeStampTrigger())
+		.bind(GLBL_TriggerHandler.Evt.afterdelete, new GLBL_AccountMergeStampTrigger())
+		.bind(GLBL_TriggerHandler.Evt.afterupdate, new GLBL_AccountMergeStampTrigger())
         .manage();
 }

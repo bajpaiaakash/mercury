@@ -50,6 +50,30 @@ private class MERC_MeetingTeamManagerControllerTest {
 		}
 	}
 
+	@isTest static void test_should_be_able_to_catch_exceptions() {
+		System.runAs(testUser) {
+			Test.startTest();
+			MERC_MeetingTeamManagerController controller = new MERC_MeetingTeamManagerController(ssc);
+
+			/*----- get the team member size before starting. This way we can tell if it increases by 1
+			        and is agnostic of other processes such as the primary meeting owner trigger -----*/
+			Integer teamMemberSizeBefore = [SELECT COUNT() FROM Team_Member_MERC__c WHERE Meeting_MERC__c=:meeting.id];
+
+			Integer childrenSize = controller.childrenMap.get('Mercury_User_MERC').size();
+			ApexPages.currentPage().getParameters().put('rtdn', 'Mercury_User_MERC');
+			controller.add();
+			System.assertEquals(childrenSize+1, controller.childrenMap.get('Mercury_User_MERC').size());
+
+			/* populate the new record */
+			controller.childrenMap.get('Mercury_User_MERC').get(childrenSize).so.put('User_MERC__c', [SELECT Id from User where IsActive=true limit 1].Id);
+			Test.setReadOnlyApplicationMode(true);
+			System.assertEquals(null, controller.save());
+			System.assert(ApexPages.getMessages().size() > 0);
+
+			Test.stopTest();
+		}
+	}
+
 	@isTest static void test_should_be_able_to_add_external_user_as_team_member() {
 		System.runAs(testUser) {
 			Test.startTest();
@@ -293,6 +317,15 @@ private class MERC_MeetingTeamManagerControllerTest {
 			MERC_MeetingTeamManagerController controller = new MERC_MeetingTeamManagerController(ssc);
 			controller.doSearch();
 			System.assertEquals(5,controller.searchResults.size());
+			Test.stopTest();
+		}
+	}
+
+	@isTest static void test_should_getCountryOptions() {
+		System.runAs(testUser) {
+			Test.startTest();
+			MERC_MeetingTeamManagerController controller = new MERC_MeetingTeamManagerController(ssc);
+			System.assert(controller.getCountryOptions().size() > 0);
 			Test.stopTest();
 		}
 	}

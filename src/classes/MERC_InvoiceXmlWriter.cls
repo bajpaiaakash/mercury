@@ -50,6 +50,7 @@ public with sharing class MERC_InvoiceXmlWriter implements GLBL_TriggerHandler.H
 		HttpRequest req = new HttpRequest();
      	req.setEndpoint('https://' + System.URL.getSalesforceBaseURL().getHost()+'/services/apexrest/MERC/Invoice/XmlWriter');
      	req.setMethod('POST');
+     	req.setTimeout(120000);
      	req.setBody(requestBody);
 
 		String authorizationHeader = 'Bearer ' + sid;
@@ -57,8 +58,20 @@ public with sharing class MERC_InvoiceXmlWriter implements GLBL_TriggerHandler.H
 		req.setHeader('Authorization', authorizationHeader);
 		req.setHeader('Content-Type', 'application/json');
 		Http http = new Http();
-		HTTPResponse res = http.send(req);
-		System.debug(res.getBody());
+		HTTPResponse res;
+		try {
+			res = http.send(req);  // TODO - trap timeouts and other errors and let admin know
+			System.debug(res.getBody());
+		} catch (Exception e) {
+			String msg = 'Invoice submitted but XML data was not created successfully. Invoice records affected: '+invoiceIds;
+			Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
+			List<String> toAddresses = new List<String>{'mercury@mavensconsulting.com'};
+			mail.setToAddresses(toAddresses);
+			mail.setSubject('SAP Invoice error');
+			mail.setHtmlBody(msg+ '<br/><br/>Errors:<br />'+e);
+			mail.setPlainTextBody(msg+ '\n\nErrors:\n\n'+e);
+			Messaging.sendEmail(new Messaging.SingleEmailMessage[] { mail });			
+		}
 	}
 
 	public static void writeXml(List<String> invoiceIds) {

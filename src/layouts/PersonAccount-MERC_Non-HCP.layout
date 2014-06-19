@@ -182,6 +182,7 @@
     </miniLayout>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>RECORDTYPE</fields>
         <fields>Line_1_Adrs_Txt_GLBL__c</fields>
         <fields>Line_2_Adrs_Txt_GLBL__c</fields>
         <fields>City_GLBL__c</fields>

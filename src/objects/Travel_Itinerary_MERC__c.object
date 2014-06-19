@@ -64,6 +64,16 @@ Created by John A Adams 10/9/2013</description>
         <fullName>Date_Time_Information_Edit_MERC</fullName>
         <description>New/Edit forms</description>
         <displayedFields>
+            <field>Meeting_Start_Date_Time_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Meeting_End_Date_Time_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
             <field>Sgmnt_Bgin_TS_MERC__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>true</isRequired>
@@ -409,7 +419,9 @@ Created by John A Adams 12/13/2013</description>
         <description>Checks for duplicate Hotel Travel Itinerary Values. Gets stamped in Force Unique Travel Itinerary field by workflow.  Created 06/04/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <formula>IF (RecordType.DeveloperName = &quot;Hotel_MERC&quot;,  RecordType.Name &amp; &quot;-&quot; &amp;   Meeting_Participant_MERC__r.Name    &amp; &quot;-&quot; &amp;  
- Meeting_Vendor_MERC__r.Name  , Id)</formula>
+ Meeting_Vendor_MERC__r.Name  , Id)
+
+/* IF (RecordType.DeveloperName = &quot;Hotel_MERC&quot;, RecordTypeId &amp; Meeting_Participant_MERC__c, Id) */</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Combined ID</label>
         <required>false</required>
@@ -420,7 +432,7 @@ Created by John A Adams 12/13/2013</description>
     <fields>
         <fullName>Confirm_ToV_Reporting_Change_MERC__c</fullName>
         <defaultValue>false</defaultValue>
-        <description>HCP Care to confirm the change if ToV has already been reported for this meeting participant. Created 01/08/2014 by KLorenti, Mavens Consulting</description>
+        <description>HCP Care to confirm the change if ToV has already been reported for this meeting participant. Currnently restricted to the Hotel Record Type as this is the only Type driving ToV. Created 01/08/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Confirm ToV Reporting Change</label>
         <trackTrending>false</trackTrending>
@@ -605,7 +617,7 @@ Created by John A Adams 12/13/2013</description>
     </fields>
     <fields>
         <fullName>Force_Unique_Travel_Itinerary_MERC__c</fullName>
-        <caseSensitive>false</caseSensitive>
+        <caseSensitive>true</caseSensitive>
         <description>Populated by workflow to detect duplicate travel itinerary records. Created 06/04/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Force Unique Travel Itinerary</label>
@@ -722,6 +734,15 @@ Created by John A Adams 12/13/2013</description>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Include_ToV_MERC__c</fullName>
+        <description>Formula to dictate whether ToV is picked up by triggers to update Meeting Participant.  Currently based off Status but can be changed in the future via configuration rather than changing code when Status values or rules change.  Oliver Dunford 11th June 2014.</description>
+        <externalId>false</externalId>
+        <formula>IF( ISPICKVAL(Status_MERC__c, &quot;Confirmed&quot;), TRUE, FALSE)</formula>
+        <label>Include ToV</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>International_Flag_MERC__c</fullName>
@@ -1379,6 +1400,26 @@ Created by John A Adams 12/13/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Status_MERC__c</fullName>
+        <description>If the HCP cancels travel or does not use it, the record can be Cancelled.  This then removes any ToV from the associated meeting for that HCP.  Oliver Dunford 11th June 2014.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If the HCP cancels attendance, or the ToV attributed to this record should not be reported within Mercury due to a No Show, the record can be updated to Cancelled.  Confirmed records are reportable.</inlineHelpText>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Confirmed</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Supplier_Service_MERC__c</fullName>
         <description>The identifying code used for this supplier service.  Listed below are examples and may not be complete:
  - Sabre
@@ -1826,6 +1867,17 @@ Created by John A Adams 12/13/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Status_MERC__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmed</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Travel_Detail_Typ_MERC__c</picklist>
             <values>
                 <fullName>Connection Leg</fullName>
@@ -1978,6 +2030,17 @@ Created by John A Adams 12/13/2013</description>
             <values>
                 <fullName>Western European Time %28Europe%2FLisbon%29</fullName>
                 <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_MERC__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmed</fullName>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -2144,6 +2207,17 @@ Created by John A Adams 12/13/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Status_MERC__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmed</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Travel_Detail_Typ_MERC__c</picklist>
             <values>
                 <fullName>Vehicle Rental</fullName>
@@ -2288,6 +2362,17 @@ Created by John A Adams 12/13/2013</description>
             <values>
                 <fullName>Western European Time %28Europe%2FLisbon%29</fullName>
                 <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status_MERC__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmed</fullName>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -2438,6 +2523,17 @@ Created by John A Adams 12/13/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Status_MERC__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmed</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Travel_Detail_Typ_MERC__c</picklist>
             <values>
                 <fullName>Connection Leg</fullName>
@@ -2485,11 +2581,13 @@ Created by John A Adams 12/13/2013</description>
         <fullName>Confirm_ToV_Reporting_Change_MERC</fullName>
         <active>true</active>
         <description>If ToV has already been reported for the meeting participant, HCP Care needs to confirm the change to the hotel dates.</description>
-        <errorConditionFormula>(ISPICKVAL( Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c , &quot;Yes&quot;) &amp;&amp;
- Meeting_Participant_MERC__r.Total_Hotel_ToV_MERC__c &gt;= 0) &amp;&amp;
-(ISCHANGED( Sgmnt_Bgin_TS_MERC__c ) ||
-ISCHANGED( Sgmnt_End_TS_MERC__c )) &amp;&amp;
-! Confirm_ToV_Reporting_Change_MERC__c</errorConditionFormula>
+        <errorConditionFormula>RecordType.DeveloperName = &quot;Hotel_MERC&quot; &amp;&amp;
+! Confirm_ToV_Reporting_Change_MERC__c &amp;&amp;
+ISPICKVAL( Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c , &quot;Yes&quot;) &amp;&amp;
+(
+		(ISCHANGED( Sgmnt_Bgin_TS_MERC__c ) || ISCHANGED( Sgmnt_End_TS_MERC__c )) ||
+		(ISCHANGED( Status_MERC__c ) &amp;&amp; ISPICKVAL( Status_MERC__c , &quot;Cancelled&quot;))
+)</errorConditionFormula>
         <errorDisplayField>Confirm_ToV_Reporting_Change_MERC__c</errorDisplayField>
         <errorMessage>ToV has already been reported this meeting participant. Customer Meeting Services needs to confirm this change before it can be made.</errorMessage>
     </validationRules>
@@ -2530,5 +2628,13 @@ ISCHANGED( Sgmnt_End_TS_MERC__c )) &amp;&amp;
    )
 )</errorConditionFormula>
         <errorMessage>The Segment Dates selected must be within 3 +/- days of the start or end of the meeting.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Travel_Itinerary_currency_MERC</fullName>
+        <active>true</active>
+        <description>Validation rule to ensure user sets the currency of the travel itinerary items the same as the meeting.</description>
+        <errorConditionFormula>TEXT(CurrencyIsoCode) &lt;&gt;  TEXT( Meeting_Participant_MERC__r.Meeting_MERC__r.CurrencyIsoCode)</errorConditionFormula>
+        <errorDisplayField>CurrencyIsoCode</errorDisplayField>
+        <errorMessage>The travel itinerary items must be entered in the same currency as the meeting.</errorMessage>
     </validationRules>
 </CustomObject>

@@ -98,11 +98,23 @@ Created by John A Adams 9/27/2013</description>
         <relationshipLabel>Addresses</relationshipLabel>
         <relationshipName>Addresses_GLBL</relationshipName>
         <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>true</reparentableMasterDetail>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Account_Global_Id_GLBL__c</fullName>
+        <description>Stores Global Id of Account. Populated via workflow for integration performance reasons. Oliver Dunford 16th June 2014. Mavens Consulting.</description>
+        <externalId>false</externalId>
+        <label>Account Global Id</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Account_Name_MERC__c</fullName>
@@ -4975,7 +4987,7 @@ Created by John A Adams 9/27/2013</description>
     <recordTypes>
         <fullName>Other_Address</fullName>
         <active>true</active>
-        <description>Other Non-Mastered addresses such as Vendor addresses, Venue addresses, and Non-HCP Addresses</description>
+        <description>Other Non-Mastered addresses such as Mercury HCP Preference Addresses, Vendor addresses, Venue addresses, and Non-HCP Addresses</description>
         <label>Other Address</label>
         <picklistValues>
             <picklist>Adrs_Cntry_Cd_GLBL__c</picklist>
@@ -7047,6 +7059,34 @@ Created by John A Adams 9/27/2013</description>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <startsWith>Vowel</startsWith>
+    <validationRules>
+        <fullName>Prevent_Editing_Mastered_Address_MERC</fullName>
+        <active>true</active>
+        <description>Prevent users except those wiht System Administrator profile from editing Mastered addresses</description>
+        <errorConditionFormula>(
+ISCHANGED( Account_GLBL__c) || 
+ISCHANGED( Line_1_Adrs_Txt_GLBL__c) ||
+ISCHANGED( Line_2_Adrs_Txt_GLBL__c) || 
+ISCHANGED( Line_3_Adrs_Txt_GLBL__c) || 
+ISCHANGED( Line_4_Adrs_Txt_GLBL__c) || 
+ISCHANGED( Line_5_Adrs_Txt_GLBL__c) || 
+ISCHANGED( City_GLBL__c) || 
+ISCHANGED( Cnty_Nm_GLBL__c) || 
+ISCHANGED( St_Cd_GLBL__c) || 
+ISCHANGED( Adrs_Cntry_Cd_GLBL__c) ||  
+ISCHANGED( Elctrnc_Adrs2_Cntry_Prfx_Cd_GLBL__c) || 
+ISCHANGED( Elctrnc_Adrs_Txt_GLBL__c) || 
+ISCHANGED( Zip_Postal_Code_GLBL__c) || 
+ISCHANGED( Elctrnc_Adrs_Fax_Cntry_Prfx_Cd_GLBL__c) || 
+ISCHANGED( Elctrnc_Adrs_Fax_Txt_GLBL__c) || 
+ISCHANGED( Elctrnc_Adrs_Fax_Extnsn_Cd_GLBL__c) ||  
+ISCHANGED( Elctrnc_Adrs_Extnsn_Cd_GLBL__c)  
+)
+&amp;&amp; RecordType.DeveloperName = &apos;Mastered_Address&apos; 
+&amp;&amp; ($Profile.Name &lt;&gt; &quot;System Administrator&quot;
+&amp;&amp; $Profile.Name &lt;&gt; &quot;Mercury Integration ODS - Platform&quot;)</errorConditionFormula>
+        <errorMessage>You may not update an address that is mastered from ODS.</errorMessage>
+    </validationRules>
     <webLinks>
         <fullName>New_Address</fullName>
         <availability>online</availability>

@@ -72,7 +72,7 @@ public with sharing class ETAuthTestPageController {
         e1.values = new List<ETDataExtension.FieldEntry>();
         ETDataExtension.FieldEntry fe1 = new ETDataExtension.FieldEntry();
         fe1.fieldName = 'EmailAddress';
-        fe1.fieldValue = 'cpfeiffer@sonomapartners.com';
+        fe1.fieldValue = 'mdearing@sonomapartners.com';
         e1.values.add(fe1);
         ETDataExtension.FieldEntry fe2 = new ETDataExtension.FieldEntry();
         fe2.fieldName = 'Meeting Name';
@@ -116,118 +116,74 @@ public with sharing class ETAuthTestPageController {
         return null;
     }
 
-    public String createSendDefResponseBody { get; set; }
-    public Boolean showCreateSendDefResponseBody { get; set; }
-    public PageReference toggleShowCreateSendDefResponseBody() {
-        String key = Datetime.now().formatGmt('MM/dd/yyyy\'T\'HH:mm:ss.SSSZ');
-        ETSendDefinition sendDef = new ETSendDefinition(deKey, false, 'ETAuthTestPageNameDescription', 'emailId', key, 'ETAuthTestPageName');
+    public String createSendProfileResponseBody { get; set; }
+    public Boolean showCreateSendProfileResponseBody { get; set; }
+    public ETSendDefinition.CreateSenderProfileResponse createProfileResponse{get;set;}
+    public PageReference toggleShowCreateSendProfileResponseBody() {
+        showCreateSendProfileResponseBody = true;
+
+        ETSendDefinition.SenderProfileCreate sendProfCreate = new ETSendDefinition.SenderProfileCreate('Test Lilly', 'donotreply@lilly.com');
 
         ETSendDefinitionProcessor sendDefProcessor = new ETSendDefinitionProcessor();
-        CreateResponse res = sendDefProcessor.create(sendDef, authorizer.fuelAuthToken);
-        createSendDefResponseBody = JSON.serialize(res);
+        try{
+            createProfileResponse = sendDefProcessor.createSenderProfile(sendProfCreate, authorizer.soapAuthToken);
+            createSendProfileResponseBody = JSON.serialize(createProfileResponse);
+        }
+        catch(Exception e){
+            createSendProfileResponseBody = String.valueOf(e);
+        }
         return null;
     }
 
-    //todo: move to seperate class
-    public class ETSendDefinitionProcessor{
-        public CreateResponse create(ETSendDefinition sendDefinition, String authToken) {
-            et4ae5__Configuration__c configInfo = [SELECT et4ae5__Root_Rest_API_URL__c FROM et4ae5__Configuration__c LIMIT 1];
-            String endPoint = configInfo.et4ae5__Root_Rest_API_URL__c + '/rest/beta/messaging/senddefinition/instance/?oauth_token=' + authToken;
+    public String createSendDefResponseBody { get; set; }
+    public Boolean showCreateSendDefResponseBody { get; set; }
+    public ETSendDefinition.CreateResponse createResponse{get;set;}
+    public PageReference toggleShowCreateSendDefResponseBody() {
+        showCreateSendDefResponseBody = true;
+        String key = String.valueof(datetime.now().getTime());
+        Integer emailId = 12588; //Sonoma Test Template
+        ETSendDefinition sendDef = new ETSendDefinition(deResponse.id, false, 'ETAuthTestPageNameDescription', emailId, key, key, 'ETAuthTestSubject');
+        //todo: add to constructor
+        sendDef.senderProfileId = createProfileResponse.id;
 
-            HttpRequest req = new HttpRequest();
-            req.setTimeout(120000);
-            req.setEndpoint(endPoint);
-            req.setMethod('POST');
-            req.setHeader('Content-Type', 'application/json; charset=UTF-8');
-            req.setHeader('Accept', 'application/json');
-            req.setBody(JSON.serialize(sendDefinition));
-            System.debug('req body : ' + req.getBody());
-
-            Http h = new Http();
-            HttpResponse res = h.send(req);
-            System.debug('res : ' + res);
-            System.debug('res body : ' + res.getBody());
-
-            CreateResponse response = (CreateResponse)JSON.deserialize(res.getBody(), CreateResponse.class);
-            return response;
+        ETSendDefinitionProcessor sendDefProcessor = new ETSendDefinitionProcessor();
+        try{
+            createResponse = sendDefProcessor.create(sendDef, authorizer.soapAuthToken);
+            createSendDefResponseBody = JSON.serialize(createResponse);
         }
-
-        public void start(string id, string authToken){
-            et4ae5__Configuration__c configInfo = [SELECT et4ae5__Root_Rest_API_URL__c FROM et4ae5__Configuration__c LIMIT 1];
-            String endPoint = configInfo.et4ae5__Root_Rest_API_URL__c + '/rest/beta/messaging/senddefinition/instance/' + id + '/?action=start&oauth_token=' + authToken;
-
-            HttpRequest req = new HttpRequest();
-            req.setTimeout(120000);
-            req.setEndpoint(endPoint);
-            req.setMethod('GET');
-            req.setHeader('Accept', 'application/json');
-
-            Http h = new Http();
-            h.send(req);
+        catch(Exception e){
+            createSendDefResponseBody = String.valueOf(e);
         }
-
-        public CheckStatusResponse checkStatus(string id, string authToken){
-            et4ae5__Configuration__c configInfo = [SELECT et4ae5__Root_Rest_API_URL__c FROM et4ae5__Configuration__c LIMIT 1];
-            String endPoint = configInfo.et4ae5__Root_Rest_API_URL__c + '/rest/beta/messaging/senddefinition/instance/' + id + '/job/&oauth_token=' + authToken;
-
-
-            HttpRequest req = new HttpRequest();
-            req.setTimeout(120000);
-            req.setEndpoint(endPoint);
-            req.setMethod('GET');
-            req.setHeader('Accept', 'application/json');
-
-            Http h = new Http();
-            HttpResponse res = h.send(req);
-            System.debug('res : ' + res);
-            System.debug('res body : ' + res.getBody());
-
-            CheckStatusResponse response = (CheckStatusResponse)JSON.deserialize(res.getBody(), CheckStatusResponse.class);
-            return response;
-        }
+        return null;
     }
 
-    //todo: move to seperate class
-    public with sharing class ETSendDefinition {
-        public ETSendDefinition() {}
-
-        public ETSendDefinition(String dataExtensionId, Boolean deduplicateByEmail, String description, String emailId, String key, String name) {
-            this.dataExtensionId = dataExtensionId;
-            this.deduplicateByEmail = deduplicateByEmail;
-            this.description = description;
-            this.emailId = emailId;
-            this.isMultipart = true;
-            this.isWrapped = true;
-            this.key = key;
-            this.name = name;
-            this.preHeader = null;
-            this.publicationListId = null;
-            this.type = 'GENERICEXTENSIONSEND';
+    public String startSendDefResponseBody { get; set; }
+    public Boolean showStartSendDefResponseBody { get; set; }
+    public PageReference toggleShowStartSendDefResponseBody() {
+        showStartSendDefResponseBody = true;
+        ETSendDefinitionProcessor sendDefProcessor = new ETSendDefinitionProcessor();
+        try{
+            ETSendDefinition.StartResponse response = sendDefProcessor.start(createResponse.id, authorizer.soapAuthToken);
+            startSendDefResponseBody = JSON.serialize(response);
         }
-
-        public String dataExtensionId;
-        public Boolean deduplicateByEmail;
-        public String description;
-        public String emailId;
-        public Boolean isMultipart;
-        public Boolean isWrapped;
-        public String key;
-        public String name;
-        public String preHeader;
-        public String publicationListId;
-        public String type;
+        catch(Exception e){
+            startSendDefResponseBody = String.valueOf(e);
+        }
+        return null;
     }
 
-    //todo: nest in ETSendDefintion
-    public class CreateResponse {
-        public String id;
-    }
-
-    //todo: nest in ETSendDefintion
-    public class CheckStatusResponse {
-        public String id;
-        public String sendStatus;
-        public String jobId;
-        public String clientId;
+    public String checkStatusSendDefResponseBody { get; set; }
+    public Boolean showCheckStatusSendDefResponseBody { get; set; }
+    public PageReference toggleShowCheckStatusSendDefResponseBody() {
+        showCheckStatusSendDefResponseBody = true;
+        ETSendDefinitionProcessor sendDefProcessor = new ETSendDefinitionProcessor();
+        try{
+            ETSendDefinition.CheckStatusResponse response = sendDefProcessor.checkStatus(createResponse.id, authorizer.soapAuthToken);
+            checkStatusSendDefResponseBody = JSON.serialize(response);
+        }
+        catch(Exception e){
+            checkStatusSendDefResponseBody = String.valueOf(e);
+        }
+        return null;
     }
 }

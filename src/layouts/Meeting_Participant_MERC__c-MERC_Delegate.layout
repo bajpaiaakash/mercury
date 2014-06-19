@@ -10,6 +10,10 @@
         <label>Information</label>
         <layoutColumns>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>CurrencyIsoCode</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Required</behavior>
                 <field>Meeting_MERC__c</field>
             </layoutItems>
@@ -373,6 +377,7 @@
         <relatedList>Invoice_MERC__c.Meeting_Participant_MERC__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Meeting_Day_MERC__c</fields>
         <fields>Status_MERC__c</fields>

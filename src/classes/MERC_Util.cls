@@ -50,10 +50,17 @@ public with sharing class MERC_Util {
 		List<SelectOption> options = new List<SelectOption>();
 		if (includeNullSelectOption)
 			options.add(new SelectOption('','--Select--'));
-		for (Sobject appSetting : Database.query('SELECT '+fieldName+' FROM CST_App_Settings_CUST__c LIMIT 1')) {
-			String optionString = (String)appSetting.get(fieldName);
-			for (String s : optionString.split(',')) {
-				options.add(new SelectOption(s,s));
+
+		if (fieldName.endsWith('__c')) {
+			for (Sobject appSetting : Database.query('SELECT '+fieldName+' FROM CST_App_Settings_CUST__c LIMIT 1')) {
+				String optionString = (String)appSetting.get(fieldName);
+				for (String s : optionString.split(',')) {
+					options.add(new SelectOption(s,s));
+				}
+			}
+		} else {
+			for (CST_Picklist_CUST__c pick : Database.query('SELECT Picklist_CUST__c, Value_CUST__c FROM CST_Picklist_CUST__c WHERE Picklist_CUST__c = \''+fieldName+'\' ORDER BY Picklist_CUST__c')) {
+				options.add(new SelectOption(pick.Value_CUST__c,pick.Value_CUST__c));
 			}
 		}
 		return options;
@@ -136,6 +143,16 @@ public with sharing class MERC_Util {
 	    return hash;
 	}
 
+	public static Set<String> getPicklistValueList(Schema.DescribeFieldResult fieldResult) {
+		Set<String> vals = new Set<String>();
+		List<Schema.PicklistEntry> ple = fieldResult.getPicklistValues();
+		for( Schema.PicklistEntry f : ple) {
+			vals.add(f.getValue());
+		}
+		return vals;
+	}
+
+
 	/**
 	 * Wrapper for getCountryPicklistValuesForCurrentUser() to allow for optional addition of
 	 * a "null" first option in the selectOption list.
@@ -153,7 +170,7 @@ public with sharing class MERC_Util {
 		}
 
 		if (includeNullSelectOption)
-			options.add(0,new SelectOption('','--Select--'));
+			options.add(0,new SelectOption('--','--Select--'));
 
 		return options;
 	}
@@ -191,9 +208,12 @@ public with sharing class MERC_Util {
 		Map<String, String> nameToISO = new Map<String, String>();
 
 		Map<Id, Set<Territory>> userTerrMap = getUserTerritoriesAndChildrenTerritories(new List<Id>{userId});
+    	Schema.DescribeFieldResult fieldResult = CST_User_Settings_CUST__c.Country_Code_CUST__c.getDescribe();
+    	Set<String> ISOCodes = getPicklistValueList(fieldResult);
+
 		if (userTerrMap.containsKey(userId)) {
 			for (Territory t : userTerrMap.get(userId)) {
-				if (t.ISO_Country_Code_GLBL__c != null) nameToISO.put(t.Name,t.ISO_Country_Code_GLBL__c);
+				if (ISOCodes.contains(t.ISO_Country_Code_GLBL__c)) nameToISO.put(t.Name,t.ISO_Country_Code_GLBL__c);
 			}
 		}
 		return nameToISO;

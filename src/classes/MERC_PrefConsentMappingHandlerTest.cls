@@ -28,22 +28,22 @@ public with sharing class MERC_PrefConsentMappingHandlerTest {
 	static List<Account> acctsList      = MERC_TestFactory.insertAccounts(NUM_TEST_ACCTS);
 
 	@isTest static void test_should_copy_preference_info_to_account_for_private_preference() {
-		System.runAs(testUser) {
-			List<Preferences_and_Consent_GLBL__c> prefList = new List<Preferences_and_Consent_GLBL__c>();
-			Id recordTypeId = [SELECT Id FROM RecordType WHERE sObjectType = 'Preferences_and_Consent_GLBL__c' and DeveloperName = 'Preferences_Private_EVNT_MVN' limit 1].Id;
-			for (Account acct : acctsList) {
-				prefList.add( new Preferences_and_Consent_GLBL__c(
-								Account_GLBL__c             = acct.Id,
-								RecordTypeId                = recordTypeId,
-								Account_Field_Update_MERC__c= 'Communication_Preference_MERC__c=E-mail')
-				);
-			}
-
-			Test.startTest();
-			insert prefList;
-			Test.stopTest();
-			System.assertEquals(NUM_TEST_ACCTS, [SELECT COUNT() FROM Account WHERE Communication_Preference_MERC__c = 'E-Mail' AND Id IN :acctsList]);
+		// test user doesn't have access to private prefs. run as admin.
+		List<Preferences_and_Consent_GLBL__c> prefList = new List<Preferences_and_Consent_GLBL__c>();
+		Id recordTypeId = [SELECT Id FROM RecordType WHERE sObjectType = 'Preferences_and_Consent_GLBL__c' and DeveloperName = 'Preferences_EVNT_MVN' limit 1].Id;
+		for (Account acct : acctsList) {
+			prefList.add( new Preferences_and_Consent_GLBL__c(
+							Account_GLBL__c             = acct.Id,
+							RecordTypeId                = recordTypeId,
+							Account_Field_Update_MERC__c= 'Communication_Preference_MERC__c=E-mail')
+			);
 		}
+
+		Test.startTest();
+		insert prefList;
+		Test.stopTest();
+		System.assertEquals(NUM_TEST_ACCTS, [SELECT COUNT() FROM Account WHERE Communication_Preference_MERC__c = 'E-Mail' AND Id IN :acctsList]);
+
 	}
 
 	@isTest static void test_should_copy_preference_info_to_account_for_public_preference() {

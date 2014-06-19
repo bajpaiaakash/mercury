@@ -2,7 +2,7 @@
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <customSettingsType>Hierarchy</customSettingsType>
     <customSettingsVisibility>Protected</customSettingsVisibility>
-    <description>Custom Settings for the Mercury Project</description>
+    <description>Custom Settings for the Mercury Project mostly related to the operation of the Customer Search Tool, Veeva integration, Budget and Invoice processing.</description>
     <enableFeeds>false</enableFeeds>
     <fields>
         <fullName>Budget_Edit_Validation_MERC__c</fullName>

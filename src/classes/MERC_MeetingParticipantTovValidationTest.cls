@@ -73,6 +73,11 @@ private class MERC_MeetingParticipantTovValidationTest
 			Schema.FieldSet validationFields = Schema.SObjectType.Meeting_Participant_MERC__c.fieldSets.ToV_Validation_Fields;
 			for (Meeting_Participant_MERC__c participant : participants)
 			{
+				//populate rollup fields which will, in turn, populate the actual fields
+				//then populate all the other fields
+				participant.put('Total_Registration_ToV_Rollup_MERC__c', 100.00);
+				participant.put('Total_Ground_Transport_ToV_Rollup_MERC__c', 100.00);
+				participant.put('Total_Food_Beverage_ToV_Rollup_MERC__c', 100.00);
 				for (Schema.FieldSetMember fsm : validationFields.getFields())
 				{
 					participant.put(fsm.getFieldPath(), 100.00);
@@ -100,6 +105,11 @@ private class MERC_MeetingParticipantTovValidationTest
 			Schema.FieldSet validationFields = Schema.SObjectType.Meeting_Participant_MERC__c.fieldSets.ToV_Validation_Fields;
 			for (Meeting_Participant_MERC__c participant : participants)
 			{
+				//populate rollup fields which will, in turn, populate the actual fields
+				//then populate all the other fields
+				participant.put('Total_Registration_ToV_Rollup_MERC__c', 100.00);
+				participant.put('Total_Ground_Transport_ToV_Rollup_MERC__c', 100.00);
+				participant.put('Total_Food_Beverage_ToV_Rollup_MERC__c', 100.00);
 				for (Schema.FieldSetMember fsm : validationFields.getFields())
 				{
 					participant.put(fsm.getFieldPath(), 100.00);
@@ -112,9 +122,10 @@ private class MERC_MeetingParticipantTovValidationTest
 			String soqlString = 'SELECT Id FROM Meeting_Participant_MERC__c WHERE ';
 			for (Schema.FieldSetMember fsm : validationFields.getFields())
 			{
-				soqlString += fsm.getFieldPath() + '=100 AND ';
+				soqlString += fsm.getFieldPath() + '=100.00 AND ';
 			}
 			soqlString = soqlString.left(soqlString.length()-4);
+			System.debug([SELECT Id, Total_Registration_ToV_MERC__c, Total_Ground_Transporation_ToV_MERC__c FROM Meeting_Participant_MERC__c]);
 
 			System.assertEquals(200, Database.query(soqlString).size());
 		}

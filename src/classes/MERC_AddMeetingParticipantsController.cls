@@ -9,7 +9,6 @@ public with sharing class MERC_AddMeetingParticipantsController {
     public GLBL_CustomerSearchToolService cstService = new GLBL_CustomerSearchToolService();
 	public GLBL_CustomerSearchToolService.SearchRequest searchRequest { get; set; }
     public Boolean hasError { get; private set; }
-    public String newParticipantRecordTypeId { get; set; }
     private String oldParticipantRecordTypeId { get; set; }
     public Meeting_Participant_MERC__c meetingParticipant { get; set; }
 
@@ -84,57 +83,62 @@ public with sharing class MERC_AddMeetingParticipantsController {
 
     public List<SelectOption> specialtyPriorityRanks {
         get {
-            return MERC_Util.getCSTPicklistValuesForFieldName('Specialty_priority_rank_CUST__c', false);
+            return MERC_Util.getCSTPicklistValuesForFieldName('Only Specialty Ranks', false);
         }
     }
 
     public List<SelectOption> affiliationPriorityRanks {
         get {
-            return MERC_Util.getCSTPicklistValuesForFieldName('Affiliation_Priority_Rank_Nbr_CUST__c', false);
+            return MERC_Util.getCSTPicklistValuesForFieldName('Search only Priority Ranks', false);
         }
     }
 
     public List<SelectOption> affiliationRoleTypes {
         get {
-            return MERC_Util.getCSTPicklistValuesForFieldName('Affiliation_Role_Types_CUST__c', false);
+            return MERC_Util.getCSTPicklistValuesForFieldName('Relationship Role', false);
         }
     }
 
     public List<SelectOption> accountClassifications {
         get {
-            return MERC_Util.getCSTPicklistValuesForFieldName('Account_Clsfctn_Cd_CUST__c', false);
+            return MERC_Util.getCSTPicklistValuesForFieldName('Classification', false);
         }
     }
 
     public List<SelectOption> accountStatusTypes {
         get {
-            return MERC_Util.getCSTPicklistValuesForFieldName('Account_Status_Types_CUST__c', false);
+            return MERC_Util.getCSTPicklistValuesForFieldName('Status', false);
         }
     }
 
     public List<SelectOption> professionalDesignations {
         get {
-            return MERC_Util.getCSTPicklistValuesForFieldName('Account_Bnft_Dsgn_Cd_CUST__c', false);
+            return MERC_Util.getCSTPicklistValuesForFieldName('Professional Designation', false);
         }
     }
 
     public List<SelectOption> specialties {
         get {
-            return MERC_Util.getCSTPicklistValuesForFieldName('Specialty_Spclty_Cd_CUST__c', false);
+            return MERC_Util.getCSTPicklistValuesForFieldName('Specialty', false);
         }
     }
 
     public List<SelectOption> alternateIdTypes {
         get {
-            return MERC_Util.getCSTPicklistValuesForFieldName('Altid_Altrnt_Id_Typ_Cd_CUST__c', false);
+            return MERC_Util.getCSTPicklistValuesForFieldName('Alternate Id Type', false);
         }
     }
 
+    /**
+     * For countries to appear in the user select list, util methods are called to check the following:
+     *     - User is a member of a territory
+     *     - That territory and its children have a custom ISO country fields
+     *     - The value of the ISO country fields are each contained in the availble picklist values of
+     *           CST_User_Settings_CUST__c.Country_Code_CUST__c
+     */
     public List<SelectOption> countries {
     	get {
-//    		Schema.DescribeFieldResult fieldResult = CST_User_Settings_CUST__c.Country_Code_CUST__c.getDescribe();
-//    		return MERC_Util.getPicklistValues(fieldResult, true);
-            return MERC_Util.getCountryPicklistValuesForCurrentUser(true);
+           return MERC_Util.getCountryPicklistValuesForCurrentUser(true);
     	}
     }
 
@@ -162,6 +166,7 @@ public with sharing class MERC_AddMeetingParticipantsController {
 
     //performs the search against the CST
     public PageReference doSearch() {
+        p('Entering doSearch!!!!!!');
     	system.debug('>>>>>> '+this.searchRequest);
         this.searchResults = this.cstService.doSearch(this.searchRequest);
         // if error, returns null & cstService.error will be available
@@ -173,13 +178,18 @@ public with sharing class MERC_AddMeetingParticipantsController {
     	return null;
     }
 
+    static void p(String m) {
+        System.debug('\n\n\nYYZ - '+m+'\n\n\n\n');
+    }
+
+
     //returns a list of required fields to be used in the UI
     public List<Schema.FieldSetMember> requiredFields {
         get {
             // new page or record type changed so reset the meeting participant
-            if (String.isBlank(newParticipantRecordTypeId) || newParticipantRecordTypeId != oldParticipantRecordTypeId) {
-                meetingParticipant = new Meeting_Participant_MERC__c();
-                oldParticipantRecordTypeId = newParticipantRecordTypeId;
+            if (String.isBlank(meetingParticipant.RecordTypeId) || meetingParticipant.RecordTypeId != oldParticipantRecordTypeId) {
+                oldParticipantRecordTypeId = meetingParticipant.RecordTypeId;
+                meetingParticipant = new Meeting_Participant_MERC__c(RecordTypeId=meetingParticipant.RecordTypeId);
             }
 
             List<Schema.FieldSetMember> requiredFields = new List<Schema.FieldSetMember>();
@@ -188,7 +198,7 @@ public with sharing class MERC_AddMeetingParticipantsController {
             List<RecordType> recType = [SELECT Id
                                              , DeveloperName
                                           FROM RecordType
-                                         WHERE Id=:newParticipantRecordTypeId
+                                         WHERE Id=:meetingParticipant.RecordTypeId
                                            AND SobjectType = 'Meeting_Participant_MERC__c'];
             System.debug('\n\n\nrecType: ' + recType + '\n\n\n');
 
@@ -232,14 +242,13 @@ public with sharing class MERC_AddMeetingParticipantsController {
     public Id addAcctToMeeting(){
         try {
             String accountId = MERC_Util.getUrlParam('aid');
-            System.debug('SELECTED RECORD TYPE: ' + newParticipantRecordTypeId);
-            if (String.isBlank(newParticipantRecordTypeId))
+            if (String.isBlank(meetingParticipant.RecordTypeId))
             {
                 throw new MERC_Exception('A Record Type is required to add an account to the meeting.');
             }
             meetingParticipant.Account_MERC__c = accountId;
             meetingParticipant.Meeting_MERC__c = meeting.Id;
-            meetingParticipant.RecordTypeId = newParticipantRecordTypeId;
+            //meetingParticipant.RecordTypeId = newParticipantRecordTypeId;
             System.debug(meetingParticipant);
             insert meetingParticipant;
             this.meetingParticipantAccountIds.add(accountId);
@@ -253,7 +262,7 @@ public with sharing class MERC_AddMeetingParticipantsController {
 
         Id meetingParticipantId = meetingParticipant.Id;
 
-        this.newParticipantRecordTypeId = null;
+        //this.newParticipantRecordTypeId = null;
         this.meetingParticipant = new Meeting_Participant_MERC__c();
         this.hasError = false;
         return meetingParticipantId;

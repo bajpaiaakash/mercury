@@ -68,6 +68,17 @@ Created by John A Adams 12/15/2013</description>
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Account_Global_Id_GLBL__c</fullName>
+        <description>Stores Global Id of Account. Populated via workflow for integration performance reasons. Oliver Dunford 16th June 2014. Mavens Consulting.</description>
+        <externalId>false</externalId>
+        <label>Account Global Id</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>CST_App_Menu_Flag_CUST__c</fullName>
         <description>Flag for the gathering of distinct values in the identified fields. Entries must match the API name of a field on this object. See the object CST App Menu Pool for more info.</description>
         <externalId>false</externalId>
