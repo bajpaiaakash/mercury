@@ -55,18 +55,27 @@ private class MERC_RequestHCPSignatureControllerTest {
         // a subsequent MERC_DocusignService.TagAndSendResponse
         DocusignMockMultiResponseObj mockResponse = new DocusignMockMultiResponseObj();
         mockResponse.errorCode = 'ANCHOR_TAB_STRING_NOT_FOUND';
+        mockResponse.envelopeId = 'abc123';
         String envelopeResponseJSONString = JSON.serializePretty(mockResponse);
-        system.debug(envelopeResponseJSONString);
+        system.debug('YYZ: '+envelopeResponseJSONString);
 
-        MERC_DocusignServiceMock fakeResponse = new MERC_DocusignServiceMock(200, 'Complete', envelopeResponseJSONString, null);
+        MERC_DocusignServiceMock fakeResponse = new MERC_DocusignServiceMock(989, 'Complete', envelopeResponseJSONString, null);
         Test.setMock(HttpCalloutMock.class, fakeResponse);
 
         Test.startTest();
-        PageReference result = controller.requestSignature();
+        PageReference result;
+        try {
+	        result = controller.requestSignature();
+	        } catch (MERC_DocusignService.DocusignServiceException e) {
+	        	// Exception expected here!
+	        	System.debug('YYZ: '+e.message);
+	        	System.assertEquals('ANCHOR_TAB_STRING_NOT_FOUND',e.errorCode,'Unexpected errorCode.');
+	        	System.assertEquals(null,e.message,'Unexpected message received: '+e.message);
+	        } catch (Exception e) {
+	        	System.assert(false,'Unexpected exception thrown: '+e.getMessage());
+	        }
         Test.stopTest();
-        System.debug('FOO APEX MESSAGES: '+ApexPages.getMessages());
-		System.assert(result != null,'Expected non-null value but PageReference was null');
-		System.assertEquals(false, controller.isSent,'Expected isSent property to be false but it was '+controller.isSent);
+		System.assertEquals(null,result,'Expected exception but none thrown.');
 	}
 
 	/*
@@ -135,11 +144,11 @@ private class MERC_RequestHCPSignatureControllerTest {
 		System.assertEquals(null, controller.error, 'Unexpected error state: Should have been null but was "'+ controller.error+'"');
 	}
 
-	/*** START ***
-	 *
-	 *	The NEXT FOUR methods exercise one of each of the possible error states when
-	 *  checking the conditions necessary for getCanRequestSignature() to return true
-	 */
+	//** START ***
+	// *
+	// *	The NEXT FOUR methods exercise one of each of the possible error states when
+	// *  checking the conditions necessary for getCanRequestSignature() to return true
+
 	@isTest
 	static void contractMustHaveInternalSignee() {
 		System.runAs(testUser) {
