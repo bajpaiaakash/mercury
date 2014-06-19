@@ -399,14 +399,12 @@
 			  					</apex:pageBlockSectionItem>
 
 			  					<!-- Specialty Rank -->
-			  					<div>
-			  						Specialty Rank
-			  						<select multiselect="true" id="specialtyRank" styleClass="xxx-multichosen">
-			  							<apex:repeat value="{!specialtyPriorityRanks}" var="val">
-											<option value="{!val}">{!val}</option>
-									    </apex:repeat>
-			  						</select>
-			  					</div>
+			  					<apex:pageBlockSectionItem >
+			  						<apex:outputLabel for="specialtyRank" value="Specialty Rank"></apex:outputLabel>
+			  						<apex:selectList multiselect="true" value="{!searchRequest.specialtyRank}" id="specialtyRank" styleClass="multichosen">
+			  							<apex:selectOptions value="{!specialtyPriorityRanks}"/>
+			  						</apex:selectList>
+			  					</apex:pageBlockSectionItem>  -->
 			  				</apex:pageBlockSection>
 
 			  			</apex:pageBlock>

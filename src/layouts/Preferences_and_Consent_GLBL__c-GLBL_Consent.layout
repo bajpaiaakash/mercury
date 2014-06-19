@@ -60,11 +60,11 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>Cmnctn_Chnl_Desc_CMS_MERC__c</field>
+                <field>Cmnctn_Chnl_Cd_CMS_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>Cmnctn_Chnl_Cd_CMS_MERC__c</field>
+                <field>Cmnctn_Chnl_Desc_CMS_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -99,11 +99,11 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Cmnctn_Chnl_Desc_Cap_GLBL__c</field>
+                <field>Cmnctn_Chnl_Cd_Cap_GLBL__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Cmnctn_Chnl_Cd_Cap_GLBL__c</field>
+                <field>Cmnctn_Chnl_Desc_Cap_GLBL__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -123,6 +123,10 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Cnsnt_Sts_Cd_Cap_GLBL__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Cnsnt_Sts_Desc_Cap_GLBL__c</field>
@@ -166,11 +170,11 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Cmnctn_Chnl_Desc_GLBL__c</field>
+                <field>Cmnctn_Chnl_Cd_GLBL__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Cmnctn_Chnl_Cd_GLBL__c</field>
+                <field>Cmnctn_Chnl_Desc_GLBL__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>

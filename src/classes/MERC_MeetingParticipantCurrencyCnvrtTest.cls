@@ -8,10 +8,6 @@ public with sharing class MERC_MeetingParticipantCurrencyCnvrtTest
 	static User testUser = MERC_TestFactory.getRunningUser();
 
 	static {
-		System.runAs(new User(Id=UserInfo.getUserId()))
-		{
-			Test.loadData(CurrencyType.sObjectType, 'CurrencyTypes');
-		}
 		meeting.CurrencyIsoCode = 'GBP';
 		update meeting;
 
@@ -20,6 +16,8 @@ public with sharing class MERC_MeetingParticipantCurrencyCnvrtTest
 			mp.CurrencyIsoCode = 'EUR';
 		}
 		update participants;
+
+		Test.loadData(CurrencyType.sObjectType, 'CurrencyTypes');
 	}
 
 
@@ -47,10 +45,10 @@ public with sharing class MERC_MeetingParticipantCurrencyCnvrtTest
 		{
 			perfomedCheck = true;
 			//GBP is 0.822981 to 1 Euro
-			System.assertEquals(82.2981,  mp.Total_Food_Beverage_ToV_MERC__c);
-			System.assertEquals(164.5962, mp.Total_Ground_Transporation_ToV_MERC__c);
-			System.assertEquals(246.8943, mp.Total_Hotel_ToV_MERC__c);
-			System.assertEquals(329.1924, mp.Total_Registration_ToV_MERC__c);
+			System.assertEquals(82.29,  mp.Total_Food_Beverage_ToV_MERC__c);
+			System.assertEquals(164.58, mp.Total_Ground_Transporation_ToV_MERC__c);
+			System.assertEquals(246.87, mp.Total_Hotel_ToV_MERC__c);
+			System.assertEquals(329.16, mp.Total_Registration_ToV_MERC__c);
 		}
 		System.assert(perfomedCheck, 'Check not performed on any Meeting Participants');
 	}

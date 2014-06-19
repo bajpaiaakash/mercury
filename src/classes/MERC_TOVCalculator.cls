@@ -26,7 +26,6 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 
 	public void handle() {
 
-
 		if (MERC_TOVCalculator.runHotelTovCalculation) {
 			if (Trigger.isInsert || Trigger.isUpdate || Trigger.isUndelete) {
 	    		calculateHotelTov(Trigger.new);
@@ -176,9 +175,7 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 							tov.Est_Hotel_ToV_MERC__c = t.Room_Rate_excl_VAT_MERC__c;
 						} else {
 							if (t.Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c == 'Yes') {
-								if (tov.Est_Hotel_ToV_MERC__c != null) {
-									tov.Est_Hotel_ToV_MERC__c = 0.0;
-								}
+								tov.Est_Hotel_ToV_MERC__c = 0.0;
 							} else {
 								tov.Est_Hotel_ToV_MERC__c = null;
 							}
@@ -194,15 +191,15 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 		List<Sobject> detailSobjects; //these should be Daily_Attendance_TOV_MERC__c records
 
 		if (this.triggeredSobjectType == Meeting_Day_MERC__c.SobjectType) {
-			detailSobjects = [Select ID, Meeting_Participant_MERC__c, Confirm_ToV_Reporting_Change_MERC__c, Est_Reg_Amt_ToV_MERC__c FROM Daily_Attendance_TOV_MERC__c WHERE Meeting_Day_MERC__c in :sobjects];
+			detailSobjects = [Select ID, Meeting_Participant_MERC__c, Confirm_ToV_Reporting_Change_MERC__c FROM Daily_Attendance_TOV_MERC__c WHERE Meeting_Day_MERC__c in :sobjects];
 			for (sObject da : detailSobjects) {
 				da.put('Confirm_ToV_Reporting_Change_MERC__c', true);
 			}
 		} else if (this.triggeredSobjectType == Daily_Attendance_TOV_MERC__c.SobjectType) {
-			detailSobjects = sobjects; //[SELECT Id, Meeting_Participant_MERC__c, Est_Reg_Amt_ToV_MERC__c FROM Daily_Attendance_TOV_MERC__c WHERE Id IN :sobjects];
+			detailSobjects = sobjects;
 		}
-		System.debug('\n\n\ndetailSObjects : ' + detailSobjects);
+
 		if (detailSobjects != null && detailSobjects.size() > 0)
-			GLBL_RollupService.triggerHandler(detailSobjects);
+			GLBL_RollupService.triggerHandler(sobjects);
 	}
 }

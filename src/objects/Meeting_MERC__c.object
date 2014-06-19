@@ -4977,10 +4977,6 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Consultant</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Health Education</fullName>
                 <default>false</default>
             </values>
@@ -5819,10 +5815,6 @@ Created by John Adams 11/6/2013</description>
             <picklist>Type_MERC__c</picklist>
             <values>
                 <fullName>Clinical Trial</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Consultant</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7481,10 +7473,6 @@ Created by John Adams 11/6/2013</description>
             <picklist>Type_MERC__c</picklist>
             <values>
                 <fullName>Clinical Trial</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Consultant</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9175,10 +9163,6 @@ Created by John Adams 11/6/2013</description>
             <picklist>Type_MERC__c</picklist>
             <values>
                 <fullName>Clinical Trial</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Consultant</fullName>
                 <default>false</default>
             </values>
             <values>

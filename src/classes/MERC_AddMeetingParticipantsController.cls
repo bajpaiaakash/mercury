@@ -13,8 +13,10 @@ public with sharing class MERC_AddMeetingParticipantsController {
     public Meeting_Participant_MERC__c meetingParticipant { get; set; }
 
 	public MERC_AddMeetingParticipantsController(ApexPages.StandardSetController controller) {
+        p('Entering constructor!!!');
         this.searchRequest = new GLBL_CustomerSearchToolService.SearchRequest();
         meetingParticipant = new Meeting_Participant_MERC__c();
+        p('Leaving constructor!!');
 	}
 
     //if cst token is expired, it will grab a new one
@@ -83,49 +85,49 @@ public with sharing class MERC_AddMeetingParticipantsController {
 
     public List<SelectOption> specialtyPriorityRanks {
         get {
-            return MERC_Util.getCSTPicklistValuesForFieldName('Only Specialty Ranks', false);
+            return MERC_Util.getCSTPicklistValuesForFieldName('Specialty_priority_rank_CUST__c', false);
         }
     }
 
     public List<SelectOption> affiliationPriorityRanks {
         get {
-            return MERC_Util.getCSTPicklistValuesForFieldName('Search only Priority Ranks', false);
+            return MERC_Util.getCSTPicklistValuesForFieldName('Affiliation_Priority_Rank_Nbr_CUST__c', false);
         }
     }
 
     public List<SelectOption> affiliationRoleTypes {
         get {
-            return MERC_Util.getCSTPicklistValuesForFieldName('Relationship Role', false);
+            return MERC_Util.getCSTPicklistValuesForFieldName('Affiliation_Role_Types_CUST__c', false);
         }
     }
 
     public List<SelectOption> accountClassifications {
         get {
-            return MERC_Util.getCSTPicklistValuesForFieldName('Classification', false);
+            return MERC_Util.getCSTPicklistValuesForFieldName('Account_Clsfctn_Cd_CUST__c', false);
         }
     }
 
     public List<SelectOption> accountStatusTypes {
         get {
-            return MERC_Util.getCSTPicklistValuesForFieldName('Status', false);
+            return MERC_Util.getCSTPicklistValuesForFieldName('Account_Status_Types_CUST__c', false);
         }
     }
 
     public List<SelectOption> professionalDesignations {
         get {
-            return MERC_Util.getCSTPicklistValuesForFieldName('Professional Designation', false);
+            return MERC_Util.getCSTPicklistValuesForFieldName('Account_Bnft_Dsgn_Cd_CUST__c', false);
         }
     }
 
     public List<SelectOption> specialties {
         get {
-            return MERC_Util.getCSTPicklistValuesForFieldName('Specialty', false);
+            return MERC_Util.getCSTPicklistValuesForFieldName('Specialty_Spclty_Cd_CUST__c', false);
         }
     }
 
     public List<SelectOption> alternateIdTypes {
         get {
-            return MERC_Util.getCSTPicklistValuesForFieldName('Alternate Id Type', false);
+            return MERC_Util.getCSTPicklistValuesForFieldName('Altid_Altrnt_Id_Typ_Cd_CUST__c', false);
         }
     }
 

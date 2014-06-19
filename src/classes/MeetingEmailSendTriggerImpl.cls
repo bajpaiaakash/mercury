@@ -3,21 +3,15 @@ public without sharing class MeetingEmailSendTriggerImpl {
 
     public void doAfterInsert (Meeting_Email_Send_MERC__c[] newSends, Map<Id, Meeting_Email_Send_MERC__c> newSendsMap) {
         List<Meeting_Email_Send_MERC__c> filteredSends = filterSends(null, newSends, newSendsMap);
-        if (filteredSends.size() == 1) {
+        if (filteredSends.size() > 0) {
             MeetingEmailSendFutureProcessor.handleSendDefinitionProcessForMeetingEmailSend(filteredSends[0].Id);
-        }
-        else if (filteredSends.size() > 1) {
-        	throw new MeetingEmailSendTriggerImplException('Only one Meeting Email Send can be sent at a time.');
         }
     }
 
     public void doAfterUpdate (Meeting_Email_Send_MERC__c[] oldSends, Meeting_Email_Send_MERC__c[] newSends, Map<Id, Meeting_Email_Send_MERC__c> newSendsMap) {
         List<Meeting_Email_Send_MERC__c> filteredSends = filterSends(oldSends, newSends, newSendsMap);
-        if (filteredSends.size() == 1) {
+        if (filteredSends.size() > 0) {
             MeetingEmailSendFutureProcessor.handleSendDefinitionProcessForMeetingEmailSend(filteredSends[0].Id);
-        }
-        else if (filteredSends.size() > 1) {
-            throw new MeetingEmailSendTriggerImplException('Only one Meeting Email Send can be sent at a time.');
         }
     }
 
@@ -42,6 +36,4 @@ public without sharing class MeetingEmailSendTriggerImpl {
 
         return retVal;
     }
-    
-    public class MeetingEmailSendTriggerImplException extends Exception {}
 }

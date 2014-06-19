@@ -18,9 +18,9 @@ private class MERC_MergedAccountsControllerTest {
             update new User(id=testUser.Id, UserRoleId=[SELECT Id FROM UserRole WHERE Name='Global' limit 1].id);
         }
     }
-    //maxed out at 4. if we try to do a merge of more than 4 we run into all sorts of limits
+    //maxed out at 5. if we try to do a merge of more than 5 we run into all sorts of limits
     //since a merge can only be done for one winning account at at time
-    static final Integer TEST_ACCT_SIZE  = 4;
+    static final Integer TEST_ACCT_SIZE  = 5;
     static List<Account> winningAccounts = MERC_TestFactory.insertMasterAccountsInCountry(TEST_ACCT_SIZE, 'GB');
     static List<Account> losingAccounts  = MERC_TestFactory.insertMasterAccountsInCountry(TEST_ACCT_SIZE, 'GB');
 

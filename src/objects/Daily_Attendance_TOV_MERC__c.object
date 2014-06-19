@@ -64,15 +64,7 @@
     <fields>
         <fullName>Est_Food_Bev_ToV_MERC__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Status_MERC__c,&quot;Attended&quot;), Meeting_Day_MERC__r.Daily_Food_Beverage_Amount_MERC__c, 
-		(IF(
-			(ISPICKVAL(Status_MERC__c,&quot;No Show&quot;) &amp;&amp; 
-			(ISPICKVAL(Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c , &quot;Yes&quot;)) &amp;&amp; 
-			(Meeting_Day_MERC__r.Daily_Food_Beverage_Amount_MERC__c &gt; 0) &amp;&amp; 
-			(Status_Change_Post_ToV_Final_MERC__c = TRUE))
-		,0, NULL)
-	)
-)</formula>
+        <formula>IF(ISPICKVAL(Status_MERC__c,&quot;Attended&quot;), Meeting_Day_MERC__r.Daily_Food_Beverage_Amount_MERC__c, null)</formula>
         <label>Food and Beverage ToV</label>
         <precision>18</precision>
         <required>false</required>
@@ -83,15 +75,7 @@
     <fields>
         <fullName>Est_Grnd_Transp_MERC__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Status_MERC__c,&quot;Attended&quot;), Meeting_Day_MERC__r.Daily_Ground_Trans_Amount_MERC__c, 
-		(IF(
-			(ISPICKVAL(Status_MERC__c,&quot;No Show&quot;) &amp;&amp; 
-			(ISPICKVAL(Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c , &quot;Yes&quot;)) &amp;&amp; 
-			(Meeting_Day_MERC__r.Daily_Ground_Trans_Amount_MERC__c &gt; 0) &amp;&amp; 
-			(Status_Change_Post_ToV_Final_MERC__c = TRUE))
-		,0, NULL)
-	)
-)</formula>
+        <formula>IF(ISPICKVAL(Status_MERC__c,&quot;Attended&quot;),Meeting_Day_MERC__r.Daily_Ground_Trans_Amount_MERC__c, null)</formula>
         <label>Ground Transportation TOV</label>
         <precision>18</precision>
         <required>false</required>
@@ -113,14 +97,10 @@
     <fields>
         <fullName>Est_Reg_Amt_ToV_MERC__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Meeting_Participant_MERC__r.Status_MERC__c,&quot;Attended&quot;), Meeting_Day_MERC__r.Daily_Registration_Amount_MERC__c, 
-		(IF(
-			(ISPICKVAL(Meeting_Participant_MERC__r.Status_MERC__c,&quot;No Show&quot;) &amp;&amp; 
-			(ISPICKVAL(Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c , &quot;Yes&quot;)) &amp;&amp; 
-			(Meeting_Day_MERC__r.Daily_Registration_Amount_MERC__c &gt; 0) &amp;&amp; 
-			(Status_Change_Post_ToV_Final_MERC__c = TRUE))
-		,0, NULL)
-	)
+        <formula>IF(
+    TEXT( Meeting_Participant_MERC__r.Status_MERC__c ) == &quot;Attended&quot;
+    , Meeting_Day_MERC__r.Daily_Registration_Amount_MERC__c
+    , null
 )</formula>
         <label>Registration Amount ToV</label>
         <precision>18</precision>
@@ -248,15 +228,6 @@ Created by John A Adams 10/10/2013</description>
         <scale>2</scale>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
-    </fields>
-    <fields>
-        <fullName>Status_Change_Post_ToV_Final_MERC__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>Tracks whether the Daily Attendance Status has changed post AODS ToV being sent.  Oliver Dunford 18th Jun 2014.</description>
-        <externalId>false</externalId>
-        <label>Status Change Post ToV Final</label>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Status_MERC__c</fullName>

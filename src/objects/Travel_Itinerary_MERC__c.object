@@ -419,9 +419,7 @@ Created by John A Adams 12/13/2013</description>
         <description>Checks for duplicate Hotel Travel Itinerary Values. Gets stamped in Force Unique Travel Itinerary field by workflow.  Created 06/04/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <formula>IF (RecordType.DeveloperName = &quot;Hotel_MERC&quot;,  RecordType.Name &amp; &quot;-&quot; &amp;   Meeting_Participant_MERC__r.Name    &amp; &quot;-&quot; &amp;  
- Meeting_Vendor_MERC__r.Name  , Id)
-
-/* IF (RecordType.DeveloperName = &quot;Hotel_MERC&quot;, RecordTypeId &amp; Meeting_Participant_MERC__c, Id) */</formula>
+ Meeting_Vendor_MERC__r.Name  , Id)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Combined ID</label>
         <required>false</required>
@@ -617,7 +615,7 @@ Created by John A Adams 12/13/2013</description>
     </fields>
     <fields>
         <fullName>Force_Unique_Travel_Itinerary_MERC__c</fullName>
-        <caseSensitive>true</caseSensitive>
+        <caseSensitive>false</caseSensitive>
         <description>Populated by workflow to detect duplicate travel itinerary records. Created 06/04/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Force Unique Travel Itinerary</label>
@@ -881,6 +879,15 @@ Created by John A Adams 12/13/2013</description>
         <description>Lookup Relationship to Meeting Vendor. Created 12/5/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Meeting Vendor</label>
+        <lookupFilter>
+            <active>false</active>
+            <filterItems>
+                <field>Meeting_Vendor_MERC__c.RecordType.DeveloperName</field>
+                <operation>equals</operation>
+                <value>HOTEL_MERC</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
         <referenceTo>Meeting_Vendor_MERC__c</referenceTo>
         <relationshipLabel>Travel Itineraries</relationshipLabel>
         <relationshipName>Travel_Itineraries</relationshipName>

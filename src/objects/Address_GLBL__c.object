@@ -105,18 +105,6 @@ Created by John A Adams 9/27/2013</description>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
-        <fullName>Account_Global_Id_GLBL__c</fullName>
-        <description>Stores Global Id of Account. Populated via workflow for integration performance reasons. Oliver Dunford 16th June 2014. Mavens Consulting.</description>
-        <externalId>false</externalId>
-        <label>Account Global Id</label>
-        <length>40</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Account_Name_MERC__c</fullName>
         <description>Stamped via workflow to ensure Addresses can also be searched for using the name of the Account.  Oliver Dunford 22nd Jan 2014.</description>
         <externalId>false</externalId>
@@ -1908,20 +1896,6 @@ Created by John A Adams 9/27/2013</description>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
-    <namedFilters>
-        <fullName>nf_01I11000000Cjv1EAC_00N11000000SqLMEA0</fullName>
-        <active>true</active>
-        <field>Payee_MERC__c.Associated_Address_MERC__c</field>
-        <filterItems>
-            <field>Address_GLBL__c.Account_GLBL__c</field>
-            <operation>equals</operation>
-            <valueField>$Source.Account_MERC__c</valueField>
-        </filterItems>
-        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.select the &apos;All Fields&apos; option and run your search again.</infoMessage>
-        <isOptional>false</isOptional>
-        <name>Payee_Associated Address</name>
-        <sourceObject>Payee_MERC__c</sourceObject>
-    </namedFilters>
     <pluralLabel>Addresses</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
@@ -7062,7 +7036,7 @@ Created by John A Adams 9/27/2013</description>
     <validationRules>
         <fullName>Prevent_Editing_Mastered_Address_MERC</fullName>
         <active>true</active>
-        <description>Prevent users except those wiht System Administrator profile from editing Mastered addresses</description>
+        <description>Prevent users except those wiht System Aministrator profile from editing Mastered addresses</description>
         <errorConditionFormula>(
 ISCHANGED( Account_GLBL__c) || 
 ISCHANGED( Line_1_Adrs_Txt_GLBL__c) ||
@@ -7083,8 +7057,8 @@ ISCHANGED( Elctrnc_Adrs_Fax_Extnsn_Cd_GLBL__c) ||
 ISCHANGED( Elctrnc_Adrs_Extnsn_Cd_GLBL__c)  
 )
 &amp;&amp; RecordType.DeveloperName = &apos;Mastered_Address&apos; 
-&amp;&amp; ($Profile.Name &lt;&gt; &quot;System Administrator&quot;
-&amp;&amp; $Profile.Name &lt;&gt; &quot;Mercury Integration ODS - Platform&quot;)</errorConditionFormula>
+&amp;&amp; ($Profile.Name &lt;&gt; &apos;System Adminstrator&apos; ||
+$Profile.Name &lt;&gt; &apos;Mercury Integration ODS - Platform&apos;)</errorConditionFormula>
         <errorMessage>You may not update an address that is mastered from ODS.</errorMessage>
     </validationRules>
     <webLinks>

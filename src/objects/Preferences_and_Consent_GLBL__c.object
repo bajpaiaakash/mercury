@@ -127,18 +127,6 @@ Changed back to Lookup, 04/04/2014 by KLorenti</description>
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Account_Global_Id_GLBL__c</fullName>
-        <description>Stores Global Id of Account. Populated via workflow for integration performance reasons. Oliver Dunford 16th June 2014. Mavens Consulting.</description>
-        <externalId>false</externalId>
-        <label>Account Global Id</label>
-        <length>40</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Account_Name_GLBL__c</fullName>
         <description>Used by Portal API to hold the full name of the HCP modifying the their global consent and will be populated by the API when a record is created or updated. Created 05/22/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -150,22 +138,6 @@ Changed back to Lookup, 04/04/2014 by KLorenti</description>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Active_MERC__c</fullName>
-        <description>Determines whether a Preference or Consent record is active or not. Created 06/199/2014 by KLorenti, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <formula>(ISBLANK(Efctv_End_Dt_GLBL__c)||
-Efctv_End_Dt_GLBL__c &gt;= Today())
-
-|| 
-
-(ISBLANK(Efctv_End_Dt_Cap_GLBL__c) ||
-Efctv_End_Dt_Cap_GLBL__c &gt;= Today())</formula>
-        <label>Active</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>CST_App_Menu_Flag_CUST__c</fullName>
@@ -202,6 +174,10 @@ Efctv_End_Dt_Cap_GLBL__c &gt;= Today())</formula>
             <picklistValues>
                 <fullName>D022</fullName>
                 <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DTest</fullName>
+                <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -609,17 +585,7 @@ Created by John A Adams 12/10/2013</description>
         <fullName>Combined_ID_GLBL__c</fullName>
         <description>Concatenation of Account ID and Preference type. Used to enforce uniqueness with validation rule. Created 04/07/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <formula>/*This is Work in Progress - Katy*/
-
-
-IF 
-(RecordType.Name = &quot;Preferences&quot; &amp;&amp; TEXT(Preference_Type_MERC__c) &lt;&gt; &quot;Meals Allergy Preferences&quot;, Account_GLBL__r.Id + &quot;-&quot; + TEXT(Preference_Type_MERC__c),
-
-IF
-(RecordType.Name = &quot;Consent&quot; &amp;&amp; Active_MERC__c &amp;&amp; !ISBLANK(Cmnctn_Chnl_Cd_Cap_GLBL__c), Account_GLBL__r.Id + &quot;-&quot; +   Cmnctn_Chnl_Cd_Cap_GLBL__c , 
-
-IF
-(RecordType.Name = &quot;Consent&quot; &amp;&amp; Active_MERC__c &amp;&amp; !ISBLANK(Cmnctn_Chnl_Cd_GLBL__c), Account_GLBL__r.Id + &quot;-&quot; +  Cmnctn_Chnl_Cd_GLBL__c, Party_Cnsnt_External_ID_GLBL__c)))</formula>
+        <formula>IF (RecordType.Name &lt;&gt; &quot;Consent&quot; &amp;&amp; TEXT(Preference_Type_MERC__c) &lt;&gt; &quot;Meals Allergy Preferences&quot;, Account_GLBL__r.Id + &quot;-&quot; + TEXT(Preference_Type_MERC__c), Party_Cnsnt_External_ID_GLBL__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Combined ID</label>
         <required>false</required>
@@ -1576,6 +1542,10 @@ Created by John A Adams 2/18/2014</description>
                 <fullName>D022</fullName>
                 <default>true</default>
             </values>
+            <values>
+                <fullName>DTest</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Cmnctn_Chnl_Desc_CMS_MERC__c</picklist>
@@ -1965,6 +1935,266 @@ Created by John A Adams 2/18/2014</description>
             </values>
         </picklistValues>
     </recordTypes>
+    <recordTypes>
+        <fullName>Preferences_Private_EVNT_MVN</fullName>
+        <active>false</active>
+        <description>Preferences that can not be updated by all.</description>
+        <label>Preferences - Private</label>
+        <picklistValues>
+            <picklist>Cmnctn_Chnl_Cd_CMS_MERC__c</picklist>
+            <values>
+                <fullName>D022</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Cmnctn_Chnl_Desc_CMS_MERC__c</picklist>
+            <values>
+                <fullName>TRANSPARENCY CONSENT</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Cnsnt_Sts_Desc_CMS_MERC__c</picklist>
+            <values>
+                <fullName>PERMISSION GIVEN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PERMISSION WITHDRAWN</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preference_Sub_Type_MERC__c</picklist>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contract Request</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contract with Restrictions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dairy Free</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Do Not Contract</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E-mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gluten Free</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Halal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>I would rather not say</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kosher</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Alcohol</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Beef</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Pork</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Red meat</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Seafood</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Shellfish</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nut Allergy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vegan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vegetarian</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>cs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>da</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>de</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>en</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>es</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>fi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>fr</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>hu</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>it</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>nl</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>pl</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>pt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ro</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ru</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>sk</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>sv</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>tr</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>uk</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preference_Type_MERC__c</picklist>
+            <values>
+                <fullName>Airline %2F Frequent Flyer Number</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contract Delivery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hotel Travel Preferences</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interaction%2FChannel Type</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meals Allergy Preferences</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Name as in Passport</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Payment Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rail %2F Frequent Program Number</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Transparency_Reporting_Opt_Out_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <searchLayouts>
         <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
         <customTabListAdditionalFields>Account_GLBL__c</customTabListAdditionalFields>
@@ -1989,11 +2219,7 @@ Created by John A Adams 2/18/2014</description>
         <description>Prevents users from editing Consent records except for those of type Transparency Consent.</description>
         <errorConditionFormula>RecordType.Name = &quot;Consent&quot; &amp;&amp; 
 TEXT(Cmnctn_Chnl_Cd_CMS_MERC__c)  &lt;&gt; &quot;D022&quot; &amp;&amp;
-$Profile.Name = &apos;Mercury Customer Meeting Services - Read Only&apos;
-
-/* RecordType.Name = &quot;Consent&quot; &amp;&amp; 
-TEXT(Cmnctn_Chnl_Cd_CMS_MERC__c)  &lt;&gt; &quot;D022&quot; &amp;&amp;
-$Profile.Name &lt;&gt; &apos;System Administrator&apos; */</errorConditionFormula>
+$Profile.Name &lt;&gt; &apos;System Administrator&apos;</errorConditionFormula>
         <errorMessage>You may not edit Consent records unless they are of type Transparency Consent</errorMessage>
     </validationRules>
     <validationRules>
