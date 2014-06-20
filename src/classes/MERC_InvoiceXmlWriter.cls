@@ -65,7 +65,7 @@ public with sharing class MERC_InvoiceXmlWriter implements GLBL_TriggerHandler.H
 		} catch (Exception e) {
 			String msg = 'Invoice submitted but XML data was not created successfully. Invoice records affected: '+invoiceIds;
 			Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
-			List<String> toAddresses = new List<String>{'mercury@mavensconsulting.com'};
+			List<String> toAddresses = new List<String>{'mercury+InvoiceRun@mavensconsulting.com'};
 			mail.setToAddresses(toAddresses);
 			mail.setSubject('SAP Invoice error');
 			mail.setHtmlBody(msg+ '<br/><br/>Errors:<br />'+e);

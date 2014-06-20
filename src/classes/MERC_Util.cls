@@ -46,7 +46,12 @@ public with sharing class MERC_Util {
 		return options;
 	}
 
+
 	public static List<SelectOption> getCSTPicklistValuesForFieldName(String fieldName, Boolean includeNullSelectOption) {
+		return getCSTPicklistValuesForFieldName(fieldName, includeNullSelectOption, 1000);
+	}
+
+	public static List<SelectOption> getCSTPicklistValuesForFieldName(String fieldName, Boolean includeNullSelectOption, Integer restrictCollectionSize) {
 		List<SelectOption> options = new List<SelectOption>();
 		if (includeNullSelectOption)
 			options.add(new SelectOption('','--Select--'));
@@ -62,6 +67,11 @@ public with sharing class MERC_Util {
 			for (CST_Picklist_CUST__c pick : Database.query('SELECT Picklist_CUST__c, Value_CUST__c FROM CST_Picklist_CUST__c WHERE Picklist_CUST__c = \''+fieldName+'\' ORDER BY Picklist_CUST__c')) {
 				options.add(new SelectOption(pick.Value_CUST__c,pick.Value_CUST__c));
 			}
+		}
+
+		// for VisualForce collection limits
+		while (options.size() > restrictCollectionSize) {
+			options.remove(restrictCollectionSize);
 		}
 		return options;
 	}

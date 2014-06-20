@@ -331,13 +331,7 @@
 			  						</apex:selectList>
 			  					</apex:pageBlockSectionItem>
 
-			  					<!-- Affiliation Role -->
-			  					<apex:pageBlockSectionItem >
-			  						<apex:outputLabel for="role" value="Affiliation Role"></apex:outputLabel>
-			  						<apex:selectList multiselect="true" value="{!searchRequest.role}" id="role" styleClass="multichosen">
-			  							<apex:selectOptions value="{!affiliationRoleTypes}"/>
-			  						</apex:selectList>
-			  					</apex:pageBlockSectionItem>
+			  					<!-- Affiliation Role TEMPORARILY REMOVED-->
 
 			  					<!-- Search only Priority Ranks -->
 			  					<apex:pageBlockSectionItem >
@@ -346,8 +340,6 @@
 			  							<apex:selectOptions value="{!affiliationPriorityRanks}"/>
 			  						</apex:selectList>
 			  					</apex:pageBlockSectionItem>
-
-
 			  				</apex:pageBlockSection>
 
 			  				<apex:pageBlockSection title="Additional Details">
@@ -376,13 +368,15 @@
 			  						</apex:selectList>
 			  					</apex:pageBlockSectionItem>
 
-			  					<!-- Specialty -->
+			  					<!-- Specialty TEMPORARILY REMOVED-->
+
+			  					<!-- Alternate Id -->
 			  					<apex:pageBlockSectionItem >
-			  						<apex:outputLabel for="specialty" value="Specialty"></apex:outputLabel>
-			  						<apex:selectList multiselect="true" value="{!searchRequest.specialty}" id="specialty" styleClass="multichosen">
-			  							<apex:selectOptions value="{!specialties}"/>
-			  						</apex:selectList>
+			  						<apex:outputLabel for="aID" value="Alternate Id"></apex:outputLabel>
+			  						<apex:inputText value="{!searchRequest.aID}" id="aID"/>
 			  					</apex:pageBlockSectionItem>
+
+			  					<apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
 
 			  					<!-- Alternate Id Type -->
 			  					<apex:pageBlockSectionItem >
@@ -392,19 +386,8 @@
 			  						</apex:selectList>
 			  					</apex:pageBlockSectionItem>
 
-			  					<!-- Alternate Id -->
-			  					<apex:pageBlockSectionItem >
-			  						<apex:outputLabel for="aID" value="Alternate Id"></apex:outputLabel>
-			  						<apex:inputText value="{!searchRequest.aID}" id="aID"/>
-			  					</apex:pageBlockSectionItem>
 
-			  					<!-- Specialty Rank -->
-			  					<apex:pageBlockSectionItem >
-			  						<apex:outputLabel for="specialtyRank" value="Specialty Rank"></apex:outputLabel>
-			  						<apex:selectList multiselect="true" value="{!searchRequest.specialtyRank}" id="specialtyRank" styleClass="multichosen">
-			  							<apex:selectOptions value="{!specialtyPriorityRanks}"/>
-			  						</apex:selectList>
-			  					</apex:pageBlockSectionItem>  -->
+			  					<!-- Specialty Rank TEMPORARILY REMOVED-->
 			  				</apex:pageBlockSection>
 
 			  			</apex:pageBlock>

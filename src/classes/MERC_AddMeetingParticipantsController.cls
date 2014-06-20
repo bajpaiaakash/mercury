@@ -13,10 +13,8 @@ public with sharing class MERC_AddMeetingParticipantsController {
     public Meeting_Participant_MERC__c meetingParticipant { get; set; }
 
 	public MERC_AddMeetingParticipantsController(ApexPages.StandardSetController controller) {
-        p('Entering constructor!!!');
         this.searchRequest = new GLBL_CustomerSearchToolService.SearchRequest();
         meetingParticipant = new Meeting_Participant_MERC__c();
-        p('Leaving constructor!!');
 	}
 
     //if cst token is expired, it will grab a new one
