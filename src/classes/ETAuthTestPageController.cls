@@ -142,9 +142,7 @@ public with sharing class ETAuthTestPageController {
         showCreateSendDefResponseBody = true;
         String key = String.valueof(datetime.now().getTime());
         Integer emailId = 12588; //Sonoma Test Template
-        ETSendDefinition sendDef = new ETSendDefinition(deResponse.id, false, 'ETAuthTestPageNameDescription', emailId, key, key, 'ETAuthTestSubject');
-        //todo: add to constructor
-        sendDef.senderProfileId = createProfileResponse.id;
+        ETSendDefinition sendDef = new ETSendDefinition(deResponse.id, false, 'ETAuthTestPageNameDescription', emailId, key, key, 'ETAuthTestSubject', createProfileResponse.id);
 
         ETSendDefinitionProcessor sendDefProcessor = new ETSendDefinitionProcessor();
         try{

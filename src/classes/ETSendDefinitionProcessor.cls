@@ -16,7 +16,8 @@ public class ETSendDefinitionProcessor{
         HttpResponse res = h.send(req);
         System.debug('create sendProfile res : ' + res);
         System.debug('create sendProfile res body : ' + res.getBody());
-
+        checkIfResponseIsError(res);
+        
         ETSendDefinition.CreateSenderProfileResponse response = (ETSendDefinition.CreateSenderProfileResponse)JSON.deserialize(res.getBody(), ETSendDefinition.CreateSenderProfileResponse.class);
         return response;
     }
@@ -38,7 +39,8 @@ public class ETSendDefinitionProcessor{
         HttpResponse res = h.send(req);
         System.debug('create sendDef res : ' + res);
         System.debug('create sendDef res body : ' + res.getBody());
-
+        checkIfResponseIsError(res);
+        
         ETSendDefinition.CreateResponse response = (ETSendDefinition.CreateResponse)JSON.deserialize(res.getBody(), ETSendDefinition.CreateResponse.class);
         return response;
     }
@@ -57,7 +59,8 @@ public class ETSendDefinitionProcessor{
         HttpResponse res = h.send(req);
         System.debug('res : ' + res);
         System.debug('res body : ' + res.getBody());
-
+        checkIfResponseIsError(res);
+        
         ETSendDefinition.StartResponse response = (ETSendDefinition.StartResponse)JSON.deserialize(res.getBody(), ETSendDefinition.StartResponse.class);
         return response;
     }
@@ -77,8 +80,17 @@ public class ETSendDefinitionProcessor{
         HttpResponse res = h.send(req);
         System.debug('res : ' + res);
         System.debug('res body : ' + res.getBody());
-
+        checkIfResponseIsError(res);
+        
         ETSendDefinition.CheckStatusResponse response = (ETSendDefinition.CheckStatusResponse)JSON.deserialize(res.getBody(), ETSendDefinition.CheckStatusResponse.class);
         return response;
     }
+    
+    private static void checkIfResponseIsError(HttpResponse res){
+    	if (!(res.getStatusCode() >= 200 && res.getStatusCode() < 300)) {
+    		throw new EtSendDefinitionException('An error occurred communicating with the ET Server : ' +  res.getBody());
+    	}
+    }
+    
+    public class EtSendDefinitionException extends Exception {}
 }

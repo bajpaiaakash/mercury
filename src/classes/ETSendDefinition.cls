@@ -1,7 +1,7 @@
 public with sharing class ETSendDefinition {
     public ETSendDefinition() {}
 
-    public ETSendDefinition(String dataExtensionId, Boolean deduplicateByEmail, String description, Integer emailId, String key, String name, String emailSubject) {
+    public ETSendDefinition(String dataExtensionId, Boolean deduplicateByEmail, String description, Integer emailId, String key, String name, String emailSubject, string senderProfileId) {
         this.dataExtensionId = dataExtensionId;
         this.deduplicateByEmail = deduplicateByEmail;
         this.description = description;
@@ -12,8 +12,7 @@ public with sharing class ETSendDefinition {
         this.name = name;
         this.type = 'GENERICEXTENSIONSEND';
         this.emailSubject = emailSubject;
-        //todo: add
-        //this.senderProfileId = senderProfileId;
+        this.senderProfileId = senderProfileId;
     }
 
     public String dataExtensionId;

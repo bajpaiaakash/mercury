@@ -20,7 +20,7 @@ public with sharing class ETDataExtensionProcessor {
         fSubscriberKey.isPrimaryKey = true;
         fields.add(fSubscriberKey);
 
-        List<String> fieldNames = new List<String> {'Meeting Name', 'City of Meeting', 'Venue Name', 'Meeting Start Date', 'Meeting End Date', 'Event Id', 'Meeting Participant Num', 'First Name', 'Last Name'};
+        List<String> fieldNames = new List<String> {'Meeting Name', 'City of Meeting', 'Venue Name', 'Meeting Start Date', 'Meeting End Date', 'Event Id', 'Meeting Participant Num', 'First Name', 'Last Name', 'Salutation'};
         for (String n : fieldNames) {
             ETDataExtension.Field f = new ETDataExtension.Field();
             f.fieldName = n;
@@ -66,7 +66,7 @@ public with sharing class ETDataExtensionProcessor {
         for (Meeting_Participant_MERC__c mp : meetingParticipants) {
             personAccountIds.add(mp.Account_MERC__c);
         }
-        Map<Id, Account> personAccounts = new Map<Id, Account>([SELECT Id, PersonContactId, FirstName, LastName, PersonEmail
+        Map<Id, Account> personAccounts = new Map<Id, Account>([SELECT Id, PersonContactId, FirstName, LastName, PersonEmail, Salutation
                                                                 FROM Account
                                                                 WHERE Id IN :personAccountIds AND IsPersonAccount = true]);
 
@@ -131,9 +131,13 @@ public with sharing class ETDataExtensionProcessor {
                 fe9.fieldValue = personAccounts.get(mp.Account_MERC__c).LastName;
                 e.values.add(fe9);
                 ETDataExtension.FieldEntry fe10 = new ETDataExtension.FieldEntry();
-                fe10.fieldName = 'EmailAddress';
-                fe10.fieldValue = personAccounts.get(mp.Account_MERC__c).PersonEmail;
+                fe10.fieldName = 'Salutation';
+                fe10.fieldValue = personAccounts.get(mp.Account_MERC__c).Salutation;
                 e.values.add(fe10);
+                ETDataExtension.FieldEntry fe11 = new ETDataExtension.FieldEntry();
+                fe11.fieldName = 'EmailAddress';
+                fe11.fieldValue = personAccounts.get(mp.Account_MERC__c).PersonEmail;
+                e.values.add(fe11);
 
                 entries.add(e);
             }

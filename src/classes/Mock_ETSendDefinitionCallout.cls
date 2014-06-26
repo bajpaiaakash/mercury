@@ -1,18 +1,40 @@
 @isTest
 global class Mock_ETSendDefinitionCallout implements HttpCalloutMock {
+	
+	global boolean returnError = false;
+	public boolean sendCheckStatusResponseComplete = false;
+	
     global HttpResponse respond(HttpRequest req) {
         System.debug('req : ' + req + '\n' + req.getBody());
 
         HttpResponse res = new HttpResponse();
-        if (req.getEndpoint().containsIgnoreCase('instance/?oauth_token=')) {
+        
+        if (returnError == true)
+        {
+            res.setStatusCode(404);
+            res.setStatus('Not Found');
+        } else if (req.getEndpoint().containsIgnoreCase('instance/?oauth_token=')) {
             res = createResponse(req);
         } else if (req.getEndpoint().containsIgnoreCase('?action=start&oauth_token=')) {
             res = startResponse(req);
+        } else if (req.getEndpoint().containsIgnoreCase('senderpolicy/?oauth_token')) {
+        	res = createSenderProfileResponse(req);
         } else {
             res = checkStatusResponse(req);
         }
 
         return res;
+    }
+    
+    global HttpResponse createSenderProfileResponse(HttpRequest req) {
+    	ETSendDefinition.CreateSenderProfileResponse csr = new ETSendDefinition.CreateSenderProfileResponse();
+    	csr.id = 'testId';
+    	
+    	HttpResponse res = new HttpResponse();
+    	res.setStatusCode(200);
+    	res.setStatus('OK');
+    	res.setbody(JSON.serializePretty(csr));
+    	return res;
     }
 
     global HttpResponse createResponse(HttpRequest req) {
@@ -43,7 +65,9 @@ global class Mock_ETSendDefinitionCallout implements HttpCalloutMock {
     global HttpResponse checkStatusResponse(HttpRequest req) {
         ETSendDefinition.CheckStatusResponse csr = new ETSendDefinition.CheckStatusResponse();
         csr.id = 'id';
-        csr.sendStatus = 'Processing';
+        csr.sendStatus = sendCheckStatusResponseComplete == false
+                         ?'Processing'
+                         : 'Completed';
         csr.jobId = 'Job Id';
         csr.clientId = 'Client Id';
 

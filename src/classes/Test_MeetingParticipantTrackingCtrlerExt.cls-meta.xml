@@ -3,7 +3,7 @@
     <apiVersion>28.0</apiVersion>
     <packageVersions>
         <majorNumber>5</majorNumber>
-        <minorNumber>16</minorNumber>
+        <minorNumber>18</minorNumber>
         <namespace>et4ae5</namespace>
     </packageVersions>
     <status>Active</status>

@@ -5,7 +5,7 @@ private class Test_ETSendDefinitionProcessor {
         etConfig.et4ae5__Root_Rest_API_URL__c = 's1.qa1';
         insert etConfig;
 
-        ETSendDefinition sd = new ETSendDefinition('ExtensionId', true, 'Description', 1234, 'Key', 'Send Definition Name', 'Subject');
+        ETSendDefinition sd = new ETSendDefinition('ExtensionId', true, 'Description', 1234, 'Key', 'Send Definition Name', 'Subject', 'SenderProfileId');
 
         Test.startTest();
             Test.setMock(HttpCalloutMock.class, new Mock_ETSendDefinitionCallout());
@@ -54,5 +54,47 @@ private class Test_ETSendDefinitionProcessor {
         System.assertNotEquals(null, csr.sendStatus);
         System.assertNotEquals(null, csr.jobId);
         System.assertNotEquals(null, csr.clientId);
+    }
+    
+    public static testmethod void test_ETSendDefinitionProcessor_CreateSenderProfile() {
+    	et4ae5__configuration__c etConfig = TestUtils.CreateEtConfig();
+        etConfig.et4ae5__Root_Rest_API_URL__c = 's1.qa1';
+        insert etConfig;
+        
+        ETSendDefinition.SenderProfileCreate spc = new ETSendDefinition.SenderProfileCreate('Eli Lilly', 'cmseurope@lilly.com');
+
+        Test.startTest();
+            Test.setMock(HttpCalloutMock.class, new Mock_ETSendDefinitionCallout());
+
+            ETSendDefinitionProcessor sdp = new ETSendDefinitionProcessor();
+            ETSendDefinition.CreateSenderProfileResponse csr = sdp.CreateSenderProfile(spc, 'authToken');
+        Test.stopTest();
+        
+        System.assertNotEquals(null, csr);
+        System.assertNotEquals(null, csr.id);
+    }
+    
+    public static testmethod void test_ETSendDefinitionProcessor_Error() {
+        et4ae5__configuration__c etConfig = TestUtils.CreateEtConfig();
+        etConfig.et4ae5__Root_Rest_API_URL__c = 's1.qa1';
+        insert etConfig;
+
+        ETSendDefinition sd = new ETSendDefinition('ExtensionId', true, 'Description', 1234, 'Key', 'Send Definition Name', 'Subject', 'SenderProfileId');
+        boolean threwException = false;
+        Mock_ETSendDefinitionCallout mockCallout = new Mock_ETSendDefinitionCallout();
+        mockCallout.returnError = true;
+        Test.startTest();
+            Test.setMock(HttpCalloutMock.class, mockCallout);
+
+            ETSendDefinitionProcessor sdp = new ETSendDefinitionProcessor(); 
+            try {
+                ETSendDefinition.CreateResponse cr = sdp.create(sd, 'authToken');
+            }
+            catch(ETSendDefinitionProcessor.ETSendDefinitionException e) {
+            	threwException = true;
+            }
+        Test.stopTest();
+
+        System.assertEquals(threwException, true);
     }
 }
