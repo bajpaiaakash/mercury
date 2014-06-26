@@ -12,11 +12,16 @@ public with sharing class MERC_TestFactory {
 	public static void insertMercuryCustomSettings() {
 		Mercury_Settings_MERC__c settings = Mercury_Settings_MERC__c.getOrgDefaults();
 		settings.Budget_Edit_Validation_MERC__c = true;
-		insert settings;
+		//if a test uses seeAll data this setting will have an id
+		Boolean seeAllData = settings.Id != null;
+		upsert settings;
 
-		List<Content_Library_Lookup_MERC__c> contentLookupSettings = Test.loadData(Content_Library_Lookup_MERC__c.sObjectType, 'ContentLibraryLookup_MERC');
-
-		List<Account_Merge_Related_Lists_MERC__c> mergeSettings = Test.loadData(Account_Merge_Related_Lists_MERC__c.sObjectType, 'AccountMergeSettings_MERC');
+		//don't try to load these if see all data is true
+		if (!seeAllData) {
+			List<Content_Library_Lookup_MERC__c> contentLookupSettings = Test.loadData(Content_Library_Lookup_MERC__c.sObjectType, 'ContentLibraryLookup_MERC');
+			List<Account_Merge_Related_Lists_MERC__c> mergeSettings = Test.loadData(Account_Merge_Related_Lists_MERC__c.sObjectType, 'AccountMergeSettings_MERC');
+			List<CST_App_Settings_CUST__c> cstSettings = Test.loadData(CST_App_Settings_CUST__c.sObjectType, 'CST_Test_Settings');
+		}
 	}
 
 	public static void loadTimeZoneFieldMapSettings() {

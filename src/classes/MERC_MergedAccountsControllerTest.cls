@@ -8,19 +8,23 @@
 @isTest
 private class MERC_MergedAccountsControllerTest {
 
-    static User testUser;
+    static User testUser = MERC_TestFactory.getRunningUser();
+    static User odsUser;
     static {
         System.runAs(new User(Id=UserInfo.getUserId()))
         {
-            testUser = MERC_TestFactory.insertTestUsers(1, null).get(0);
-            PermissionSet ps = [SELECT Id FROM PermissionSet WHERE Name='Mercury_Customer_Meeting_Services_Edit' limit 1];
-            insert new PermissionSetAssignment(PermissionSetId=ps.Id, AssigneeId=testUser.id);
-            update new User(id=testUser.Id, UserRoleId=[SELECT Id FROM UserRole WHERE Name='Global' limit 1].id);
+            Profile p = [SELECT id from Profile WHERE Profile.Name = 'Mercury Integration ODS - Platform' limit 1];
+            String testemail = 'testuserods@unittest.com';
+            odsUser = new User(profileId = p.id, username = testemail, email = testemail,
+                               emailencodingkey = 'UTF-8', localesidkey = 'en_US',
+                               languagelocalekey = 'en_US', timezonesidkey = 'GMT',
+                               alias='utusrods', lastname='lastname');
+            insert odsUser;
         }
     }
-    //maxed out at 5. if we try to do a merge of more than 5 we run into all sorts of limits
+    //maxed out at 3. if we try to do a merge of more than 4 we run into all sorts of limits
     //since a merge can only be done for one winning account at at time
-    static final Integer TEST_ACCT_SIZE  = 5;
+    static final Integer TEST_ACCT_SIZE  = 2;
     static List<Account> winningAccounts = MERC_TestFactory.insertMasterAccountsInCountry(TEST_ACCT_SIZE, 'GB');
     static List<Account> losingAccounts  = MERC_TestFactory.insertMasterAccountsInCountry(TEST_ACCT_SIZE, 'GB');
 
@@ -60,7 +64,7 @@ private class MERC_MergedAccountsControllerTest {
         }
         insert prefConsentRecords;
 
-        System.runAs(new User(Id=UserInfo.getUserId()))
+        System.runAs(odsUser)
         {
             //perform merge of losing accounts to winning accounts
             for (Integer i=0; i<TEST_ACCT_SIZE; i++)
@@ -90,7 +94,7 @@ private class MERC_MergedAccountsControllerTest {
             MERC_MergedAccountsController controller = new MERC_MergedAccountsController();
             //we can't create many accounts due to the merge operation hitting limits
             //so drop the page size to small number to force page navigation
-            controller.updatePageSize(2);
+            controller.updatePageSize(1);
             List<Account> firstSetOfAccounts = controller.getAccounts();
             controller.ssc.next();
             System.assertNotEquals(firstSetOfAccounts, controller.getAccounts());

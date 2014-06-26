@@ -10,7 +10,7 @@ public with sharing class MERC_DocusignService {
 	String password;
 	String integratorKey;
 	String accountId;
-	String baseUrl = 'https://demo.docusign.net/restapi/v2/'; //todo: custom setting
+	String baseUrl;
     String boundaryName = 'MYBOUNDARY';
     String boundaryMarker = '--'+boundaryName;
     String boundaryMarkerEnd = '--'+boundaryName+'--';
@@ -26,9 +26,10 @@ public with sharing class MERC_DocusignService {
 		this.password 		= settings.Password_MERC__c;
 		this.integratorKey 	= settings.Integrator_Key_MERC__c;
 		this.accountId 		= settings.Account_ID_MERC__c;
+        this.baseUrl        = settings.Server_Endpoint_MERC__c;
 	}
 
-    String authHeader { 
+    String authHeader {
     	get {
 	        //we're using xml here because the docusign api doesn't like when we send creds via json
 	        return  '<DocuSignCredentials>'+
@@ -42,11 +43,11 @@ public with sharing class MERC_DocusignService {
     private HttpRequest getRequest(String method, String endpoint) {
         HttpRequest request = new HttpRequest();
         request.setMethod(method);
-        request.setHeader('Content-Type', 'application/json'); 
+        request.setHeader('Content-Type', 'application/json');
         request.setHeader('Accept', 'application/json');
-        request.setHeader('X-DocuSign-Authentication', this.authHeader); 
+        request.setHeader('X-DocuSign-Authentication', this.authHeader);
         request.setEndpoint(endpoint);
-        return request;   
+        return request;
     }
 
     public void login() {
@@ -72,7 +73,7 @@ public with sharing class MERC_DocusignService {
         Http httpProtocol = new Http();
         String endpoint = this.baseUrl + 'accounts/' + this.accountId + '/envelopes/'+envelopeId;
         HttpRequest request = getRequest('GET', endpoint);
-        
+
         HttpResponse response = httpProtocol.send(request);
         String responseBody = response.getBody();
         System.debug('EnvelopeDetailResponse =>'+responseBody);
@@ -102,7 +103,7 @@ public with sharing class MERC_DocusignService {
             return true;
         } else {
             DocusignServiceError error = (DocusignServiceError)parser.readValueAs(DocusignServiceError.class);
-            throw new DocusignServiceException(error.errorCode, error.message);  
+            throw new DocusignServiceException(error.errorCode, error.message);
         }
     }
 
@@ -121,15 +122,15 @@ public with sharing class MERC_DocusignService {
             return true;
         } else {
             DocusignServiceError error = (DocusignServiceError)parser.readValueAs(DocusignServiceError.class);
-            throw new DocusignServiceException(error.errorCode, error.message);  
-        }   
+            throw new DocusignServiceException(error.errorCode, error.message);
+        }
     }
 
     public List<Signer> addSigner(String envelopeId, String signerName, String signerEmail, Boolean isRemote, Integer routingOrder, Tab t) {
         Http httpProtocol = new Http();
         String endpoint = this.baseUrl + 'accounts/' + this.accountId + '/envelopes/'+envelopeId+'/recipients';
         HttpRequest request = getRequest('POST', endpoint);
-        
+
         Signer s;
         if (!isRemote) {
             s = new Signer(signerEmail, signerName, String.valueOf(routingOrder), String.valueOf(routingOrder));
@@ -180,7 +181,7 @@ public with sharing class MERC_DocusignService {
         Http httpProtocol = new Http();
         String endpoint = this.baseUrl + 'accounts/' + this.accountId + '/envelopes/'+envelopeId+'/recipients';
         HttpRequest request = getRequest('GET', endpoint);
-        
+
         HttpResponse response = httpProtocol.send(request);
         String responseBody = response.getBody();
         System.debug('EnvelopeRecipientDetailResponse =>'+responseBody);
@@ -192,7 +193,7 @@ public with sharing class MERC_DocusignService {
             return tasResponse;
         } else {
             DocusignServiceError error = (DocusignServiceError)parser.readValueAs(DocusignServiceError.class);
-            throw new DocusignServiceException(error.errorCode, error.message);  
+            throw new DocusignServiceException(error.errorCode, error.message);
         }
     }
 
@@ -200,7 +201,7 @@ public with sharing class MERC_DocusignService {
         Http httpProtocol = new Http();
         String endpoint = this.baseUrl + 'accounts/' + this.accountId + '/envelopes/'+envelopeId+'/recipients/'+recipientId+'/tabs';
         HttpRequest request = getRequest('GET', endpoint);
-        
+
         HttpResponse response = httpProtocol.send(request);
         String responseBody = response.getBody();
         System.debug('Tab response =>'+responseBody);
@@ -213,7 +214,7 @@ public with sharing class MERC_DocusignService {
             DocusignServiceError error = (DocusignServiceError)parser.readValueAs(DocusignServiceError.class);
             throw new DocusignServiceException(error.errorCode, error.message);
         }
-   
+
     }
 
     public TagAndSendResponse getTagAndSendUrl(EnvelopeResponse r, String returnUrl) {
@@ -226,14 +227,14 @@ public with sharing class MERC_DocusignService {
         String responseBody = response.getBody();
         System.debug('response =>'+responseBody);
         JSONParser parser = JSON.createParser(responseBody);
-        
+
         if (response.getStatusCode() < 300) {
             TagAndSendResponse tasResponse = (TagAndSendResponse)parser.readValueAs(TagAndSendResponse.class);
             system.debug(tasResponse);
             return tasResponse;
         } else {
             DocusignServiceError error = (DocusignServiceError)parser.readValueAs(DocusignServiceError.class);
-            throw new DocusignServiceException(error.errorCode, error.message);  
+            throw new DocusignServiceException(error.errorCode, error.message);
         }
     }
 
@@ -247,14 +248,14 @@ public with sharing class MERC_DocusignService {
         String responseBody = response.getBody();
         System.debug('EmbeddedSignResponse =>'+responseBody);
         JSONParser parser = JSON.createParser(responseBody);
-        
+
         if (response.getStatusCode() < 300) {
             EmbeddedSignResponse tasResponse = (EmbeddedSignResponse)parser.readValueAs(EmbeddedSignResponse.class);
             system.debug(tasResponse);
             return tasResponse;
         } else {
             DocusignServiceError error = (DocusignServiceError)parser.readValueAs(DocusignServiceError.class);
-            throw new DocusignServiceException(error.errorCode, error.message);     
+            throw new DocusignServiceException(error.errorCode, error.message);
         }
     }
 
@@ -264,7 +265,7 @@ public with sharing class MERC_DocusignService {
         String endpoint = this.baseUrl + 'accounts/' + this.accountId + '/envelopes';
         request.setEndPoint(endpoint);
         request.setMethod('POST');
-        request.setHeader('Content-Type', 'multipart/form-data; boundary=MYBOUNDARY'); 
+        request.setHeader('Content-Type', 'multipart/form-data; boundary=MYBOUNDARY');
         request.setHeader('Accept', 'application/json');
         request.setHeader('X-DocuSign-Authentication', this.authHeader);
 
@@ -298,20 +299,20 @@ public with sharing class MERC_DocusignService {
         postBody += lineBreak;
 
         system.debug(postBody);
-        
+
         request.setBody(postBody);
         HttpResponse response = httpProtocol.send(request);
         String responseBody = response.getBody();
         System.debug('response =>'+responseBody);
         JSONParser parser = JSON.createParser(responseBody);
-        
+
         if (response.getStatusCode() < 300) {
             EnvelopeResponse envelopeStatus = (EnvelopeResponse)parser.readValueAs(EnvelopeResponse.class);
             system.debug(envelopeStatus);
             return envelopeStatus;
         } else {
             DocusignServiceError error = (DocusignServiceError)parser.readValueAs(DocusignServiceError.class);
-            throw new DocusignServiceException(error.errorCode, error.message);     
+            throw new DocusignServiceException(error.errorCode, error.message);
         }
     }
 
@@ -331,34 +332,34 @@ public with sharing class MERC_DocusignService {
         docs.add(d);
 
         //set location(s) for Lilly signature
-        List<SignHereTab> lillySignHereTabs = new List<SignHereTab> { 
-            new SignHereTab(this.lillySignatureAnchorString, '0', '10', '1') 
+        List<SignHereTab> lillySignHereTabs = new List<SignHereTab> {
+            new SignHereTab(this.lillySignatureAnchorString, '0', '10', '1')
         };
         Tab lillyTab = new Tab();
         lillyTab.signHereTabs = lillySignHereTabs;
 
         //set location(s) for HCP signature
-        List<SignHereTab> hcpSignHereTabs = new List<SignHereTab>{ 
+        List<SignHereTab> hcpSignHereTabs = new List<SignHereTab>{
             new SignHereTab(this.hcpSignatureAnchorString, '0', '10', '2')  //todo: do we need to use '1' for the document id??
         };
         Tab hcpTab = new Tab();
         hcpTab.signHereTabs = hcpSignHereTabs;
 
-       
-        
+
+
         List<Signer> signers = new List<Signer>();
-        
+
         for (RequiredSigner rs : requiredSigners) {
             //add signers
             Signer s;
             if (rs.isLilly) {
                 s = new Signer(rs.acc.PersonEmail, rs.acc.Name, String.valueOf(rs.order), String.valueOf(rs.order));
-                if (!isDraft) 
+                if (!isDraft)
                     s.tabs = lillyTab;
             } else {
-                s = new Signer(rs.acc.PersonEmail, rs.acc.Name, String.valueOf(rs.order), String.valueOf(rs.order), 'hcp-'+MERC_Util.generateRandomString(20)); //creating as embedded signer
-                //s = new Signer(rs.acc.PersonEmail, rs.acc.Name, String.valueOf(rs.order), String.valueOf(rs.order));
-                if (!isDraft) 
+                //s = new Signer(rs.acc.PersonEmail, rs.acc.Name, String.valueOf(rs.order), String.valueOf(rs.order), 'hcp-'+MERC_Util.generateRandomString(20)); //TODO: if/when we decide to create HCP as embedded signer, we need to use this instantiation
+                s = new Signer(rs.acc.PersonEmail, rs.acc.Name, String.valueOf(rs.order), String.valueOf(rs.order));
+                if (!isDraft)
                     s.tabs = hcpTab;
             }
             signers.add(s);
@@ -400,7 +401,7 @@ public with sharing class MERC_DocusignService {
     	    this.userName = userName;
     	    this.userId = userId;
     	    this.email = email;
-    	    this.siteDescription = sd;     
+    	    this.siteDescription = sd;
     	}
     }
 
@@ -436,21 +437,21 @@ public with sharing class MERC_DocusignService {
         public String status;
         public Tab tabs;
         public String clientUserId; //if this is included, it signifies embedded signing [hcps only]
-        
+
         public Signer(String emailAddr, String nam, String recpId, String routId) {
             email = emailAddr;
             name = nam;
             recipientId = recpId;
-            routingOrder = routId;      
+            routingOrder = routId;
         }
 
         public Signer(String emailAddr, String nam, String recpId, String routId, String cuId) {
             email = emailAddr;
             name = nam;
             recipientId = recpId;
-            routingOrder = routId;  
-            clientUserId = cuId;    
-        }    
+            routingOrder = routId;
+            clientUserId = cuId;
+        }
     }
 
     public class Tab {
@@ -478,7 +479,7 @@ public with sharing class MERC_DocusignService {
         public String pageNumber;
         public String xPosition;
         public String yPosition;
-        public String tabId;    
+        public String tabId;
     }
 
     public class SignHereTab {
@@ -509,7 +510,7 @@ public with sharing class MERC_DocusignService {
     //    public String pageNumber;
     //    public String xPosition;
     //    public String yPosition;
-    //    public String tabId;   
+    //    public String tabId;
 
     //    //use this constructor to create a "sign here tab" based on an anchor string
     //    public SignHereExplicitTab(String anchor, String x, String y, String id) {
@@ -558,7 +559,7 @@ public with sharing class MERC_DocusignService {
     public class TagAndSendResponse {
         public String url;
     }
-    
+
     public class EnvelopeResponse {
         public String envelopeId;
         public String status;
@@ -576,7 +577,7 @@ public with sharing class MERC_DocusignService {
     public class EnvelopeRecipientDetailResponse {
         public List<Signer> signers;
         public String currentRoutingOrder;
-        public String recipientCount; 
+        public String recipientCount;
     }
 
     public class EnvelopeDetailResponse {

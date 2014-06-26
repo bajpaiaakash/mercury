@@ -1,6 +1,6 @@
 @isTest
 private class MERC_MeetingDayNewEditControllerTest {
-	
+
 	static List<Meeting_MERC__c> meetings;
 
 	static {
@@ -65,5 +65,30 @@ private class MERC_MeetingDayNewEditControllerTest {
 		//system.debug(ApexPages.getMessages()[0]);
 		System.assert(ApexPages.getMessages()[0].getSummary().contains('You may not enter a value less than zero'));
 	}
-	
+
+	@isTest static void testCloneSetsObjectIdToNull() {
+		PageReference testPage = Page.MERC_MeetingDayNewEdit;
+		testPage.getParameters().put('clone','1');
+		Test.setCurrentPage(testPage);
+
+		Id meetingId = meetings.get(0).Id;
+
+		Meeting_Day_MERC__c existingMeetingDay = MERC_TestFactory.insertMeetingDays(meetingId, 1).get(0);
+		ApexPages.StandardController stdController = new ApexPages.StandardController(existingMeetingDay);
+		MERC_MeetingDayNewEditController controller = new MERC_MeetingDayNewEditController(stdController);
+		//can't assert here since the variable is not visible
+	}
+
+	@isTest static void testFieldSetLabels() {
+		PageReference testPage = Page.MERC_MeetingDayNewEdit;
+		Test.setCurrentPage(testPage);
+
+		Id meetingId = meetings.get(0).Id;
+
+		Meeting_Day_MERC__c existingMeetingDay = MERC_TestFactory.insertMeetingDays(meetingId, 1).get(0);
+		ApexPages.StandardController stdController = new ApexPages.StandardController(existingMeetingDay);
+		MERC_MeetingDayNewEditController controller = new MERC_MeetingDayNewEditController(stdController);
+		System.assertNotEquals(null, controller.fieldSetLabels);
+	}
+
 }

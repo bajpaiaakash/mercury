@@ -149,7 +149,8 @@ public class TestUtils {
         for (et4ae5__SendDefinition__c etSend: etSends) {
             meetingEmailSends.add(new Meeting_Email_Send_MERC__c(
                 Email_Send_Number_MERC__c=etSend.id, 
-                Meeting_MERC__c=meetingId
+                Meeting_MERC__c=meetingId,
+                Retry_Count__c = 0
             ));
         }
 

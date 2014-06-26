@@ -12,6 +12,7 @@ private class MERC_MergedAccountApexTest
 {
 
 	static User testUser;
+	static User odsUser;
 	static {
 		System.runas(new User(Id=UserInfo.getUserId()))
 		{
@@ -19,6 +20,14 @@ private class MERC_MergedAccountApexTest
 			PermissionSet ps = [SELECT Id FROM PermissionSet WHERE Name='Mercury_Customer_Meeting_Services_Edit' limit 1];
 			insert new PermissionSetAssignment(PermissionSetId=ps.Id, AssigneeId=testUser.id);
 			update new User(id=testUser.Id, UserRoleId=[SELECT Id FROM UserRole WHERE Name='Global' limit 1].id);
+
+			Profile p = [SELECT id from Profile WHERE Profile.Name = 'Mercury Integration ODS - Platform' limit 1];
+			String testemail = 'testuserods@unittest.com';
+			odsUser = new User(profileId = p.id, username = testemail, email = testemail,
+	                           emailencodingkey = 'UTF-8', localesidkey = 'en_US',
+	                           languagelocalekey = 'en_US', timezonesidkey = 'GMT',
+	                           alias='utusrods', lastname='lastname');
+			insert odsUser;
 		}
 	}
 	static Account winningAccount = MERC_TestFactory.insertMasterAccountsInCountry(1, 'GB').get(0);
@@ -51,7 +60,12 @@ private class MERC_MergedAccountApexTest
 		insert prefConsentRecords;
 
 		//perform the merge that will put all of the pref and consent records to the winning account
-		merge winningAccount losingAccount;
+
+		System.runAs(odsUser)
+		{
+			merge winningAccount losingAccount;
+		}
+
 	}
 
 	@isTest static void test_should_initialize_object_and_related_lists()
@@ -99,8 +113,10 @@ private class MERC_MergedAccountApexTest
 	{
 		System.runAs(testUser)
 		{
+			Test.startTest();
 			MERC_MergedAccountApex maa = new MERC_MergedAccountApex(winningAccount.Cust_Id_GLBL__c, losingAccount.Cust_Id_GLBL__c);
 			maa.destroyLosingRecords();
+			Test.stopTest();
 			System.assertEquals(0, maa.getAllRelatedLists().get(0).losingList.size());
 		}
 	}
@@ -122,6 +138,7 @@ private class MERC_MergedAccountApexTest
 	@isTest static void test_should_remove_Prior_Parent_Id_when_merged()
 	{
 		/*----- remove the prefs from the winning account so we don't get duplicate pref type errors -----*/
+		Test.startTest();
 		delete [SELECT Id FROM Preferences_and_Consent_GLBL__c WHERE Account_GLBL__c=:winningAccount.Id AND Prior_Parent_Id_GLBL__c = ''];
 
 		System.runAs(testUser)
@@ -135,12 +152,14 @@ private class MERC_MergedAccountApexTest
 			System.assertEquals(5, maa.getAllRelatedLists().get(7).winningList.size());
 			System.assertEquals(0, maa.getAllRelatedLists().get(7).losingList.size());
 		}
+		Test.stopTest();
 	}
 
 	@isTest static void test_exceptions_should_be_caught()
 	{
 		System.runAs(testUser)
 		{
+			Test.startTest();
 			MERC_MergedAccountApex maa = new MERC_MergedAccountApex(winningAccount.Cust_Id_GLBL__c, losingAccount.Cust_Id_GLBL__c);
 
 			/*----- setting to readOnlyApplicationMode will lock the system and prevent updates -----*/
@@ -159,6 +178,7 @@ private class MERC_MergedAccountApexTest
 			maa.getAllRelatedLists().get(7).losingList.get(0).selected=true;
 			maa.getAllRelatedLists().get(7).mergeSelectedRecords();
 			System.assertEquals(3, ApexPages.getMessages().size());
+			Test.stopTest();
 		}
 	}
 }

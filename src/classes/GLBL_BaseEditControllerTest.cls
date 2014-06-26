@@ -14,9 +14,32 @@ private class GLBL_BaseEditControllerTest {
 	static void testAccountEditPage() {
 		List<Account> accounts = MERC_TestFactory.insertAccounts(1);
 		System.runAs(testUser) {
+			PageReference ref = Page.Get_Started;
+			ref.getParameters().put('saveURL','thisismysaveurl#anchor1');
+			Test.setCurrentPage(ref);
+
 			ApexPages.StandardController acctController = new ApexPages.StandardController(accounts.get(0));
 			GLBL_BaseEditController controller = new GLBL_BaseEditController(acctController, Account.SobjectType);
 			System.assertEquals('GLBL_BaseEditController', controller.getClassName());
+
+			System.assert(controller.save().getUrl().contains('thisismysaveurl'));
+			System.assert(controller.save().getUrl().contains('anchor1'));
+		}
+	}
+
+	@isTest
+	static void testDynamicFieldsConstructor() {
+		List<Account> accounts = MERC_TestFactory.insertAccounts(1);
+		System.runAs(testUser) {
+			PageReference ref = Page.Get_Started;
+			ref.getParameters().put('saveURL','thisismysaveurl#anchor1');
+			Test.setCurrentPage(ref);
+
+			ApexPages.StandardController acctController = new ApexPages.StandardController(accounts.get(0));
+			GLBL_BaseEditController controller = new GLBL_BaseEditController(acctController, Account.SobjectType, new Set<String>{'value1', 'value2'});
+			System.assertEquals('GLBL_BaseEditController', controller.getClassName());
+			System.assert(controller.dynamicFields.contains('value1'));
+			System.assert(controller.dynamicFields.contains('value2'));
 		}
 	}
 

@@ -69,7 +69,7 @@ public with sharing class MERC_MVIMeetingTimeZoneHandler implements GLBL_Trigger
 
 				String mtz = (String)meeting.get(fieldNameToTimeZoneMapping.get(field)); // ex => Greenwich Mean Time (Europe/Dublin)
 				//verify that the timezone has a parent
-				if (mtz.contains('(') && mtz.contains(')'))
+				if (mtz != null && mtz.contains('(') && mtz.contains(')'))
 				{
 					TimeZone t = TimeZone.getTimeZone(mtz.substring(mtz.indexof('(')+1, mtz.indexOf(')'))); // parse out value in parens, ex => Europe/Dublin
 					DateTime dt = (DateTime)meeting.get(field); //get the value for this field

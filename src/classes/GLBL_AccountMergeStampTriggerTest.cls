@@ -7,8 +7,21 @@ private class GLBL_AccountMergeStampTriggerTest {
 	static Account winningAccount;
 	static Account losingAccount;
 
+	static User odsUser;
+
 	static
 	{
+		System.runAs(new User(Id=UserInfo.getUserId())) {
+			Profile p = [SELECT id from Profile WHERE Profile.Name = 'Mercury Integration ODS - Platform' limit 1];
+			String testemail = 'testuserods@unittest.com';
+			odsUser = new User(profileId = p.id, username = testemail, email = testemail,
+	                           emailencodingkey = 'UTF-8', localesidkey = 'en_US',
+	                           languagelocalekey = 'en_US', timezonesidkey = 'GMT',
+	                           alias='utusrods', lastname='lastname',
+	                           UserRoleId=[SELECT Id FROM UserRole WHERE Name='Global' limit 1].Id);
+
+			insert odsUser;
+		}
 		MERC_TestFactory.insertMercuryCustomSettings();
 		winningAccount = accounts[0];
 		accounts[1].Cust_Id_GLBL__c = 'GLOBALID';
@@ -65,7 +78,9 @@ private class GLBL_AccountMergeStampTriggerTest {
 
 	@isTest static void test_merge_stamps_child_records() {
 		Test.startTest();
-		merge winningAccount losingAccount;
+		System.runAs(odsUser) {
+			merge winningAccount losingAccount;
+		}
 		Test.stopTest();
 
 		//validate child accounts reparented and stamped correctly

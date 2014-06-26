@@ -4,19 +4,12 @@ public without sharing class MERC_InvoiceDocFilterController {
 	}
 
 	public PageReference redirect() {
-		PageReference pageRef;
-		try {
-			MERC_InvoiceDocFilterController.deleteOldDocsInContent(new List<Id>{Apexpages.currentPage().getParameters().get('eid')}, Apexpages.currentPage().getParameters().get('type'));
+		MERC_InvoiceDocFilterController.deleteOldDocsInContent(new List<Id>{Apexpages.currentPage().getParameters().get('eid')}, Apexpages.currentPage().getParameters().get('type'));
 
-			pageRef = new PageReference(Apexpages.currentPage().getParameters().get('loopurl'));
-			pageRef.getParameters().putAll(Apexpages.currentPage().getParameters());
-			pageRef.setRedirect(true);
-			return pageRef;
-		} catch (Exception e) {
-			ApexPages.addMessages(e);			
-		}
-		ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.INFO, String.valueOf(Apexpages.currentPage().getParameters())));
-		return null;
+		PageReference pageRef = new PageReference(Apexpages.currentPage().getParameters().get('loopurl'));
+		pageRef.getParameters().putAll(Apexpages.currentPage().getParameters());
+		pageRef.setRedirect(true);
+		return pageRef;
 	}
 
 	/*
@@ -24,7 +17,7 @@ public without sharing class MERC_InvoiceDocFilterController {
 	 * an Invoice PDF, TIF, or XML file. Informatica on Demand cannot support multiple PDF content on a single Invoice record
 	 * so this method deletes older PDFs (or the filetype designated), with the presumption that they are out-dated.
 	 *
-	 * This method is not a fail-safe as the running user may not have access to the Content documents. 
+	 * This method is not a fail-safe as the running user may not have access to the Content documents.
 	 * Placed in this class to isolate and take advantage of "without sharing" context.
 	 */
 	public static void deleteOldDocsInContent(List<Id> recordIds, String fileType) {
@@ -37,11 +30,11 @@ public without sharing class MERC_InvoiceDocFilterController {
             contentVerIds.add(cv.Id);
         }
         try {
-        	List<ContentDocument> cds = [SELECT ID, OwnerId FROM ContentDocument WHERE Id in :contentDocumentIds];
-        	for (ContentDocument cd : cds) {
-        		cd.OwnerId = UserInfo.getUserId();
-        	}
-        	update cds;
+        	//List<ContentDocument> cds = [SELECT ID, OwnerId FROM ContentDocument WHERE Id in :contentDocumentIds];
+        	//for (ContentDocument cd : cds) {
+        	//	cd.OwnerId = UserInfo.getUserId();
+        	//}
+        	//update cds;
         	delete [SELECT ID FROM ContentDocument WHERE Id in :contentDocumentIds];
         } catch (DmlException e) {
         	System.debug(LoggingLevel.INFO, 'Unable to delete Content Documents. Does this user have permission to this library? err:'+e);

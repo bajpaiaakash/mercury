@@ -82,6 +82,7 @@ public with sharing class MERC_NewContentController {
         }
     }
 
+    @TestVisible
     Id getLibraryId(String objectAPIName) {
         String libraryName;
         String country;

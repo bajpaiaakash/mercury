@@ -14,52 +14,52 @@ global with sharing class MERC_DocusignEmbeddedSignatureService {
 
 		EmbeddedSignatureResponse response = new EmbeddedSignatureResponse();
 
-		try {
-			Meeting_Participant_MERC__c mp = [SELECT ID, Account_MERC__c, Account_MERC__r.Name, Email_Formula_MERC__c, Docusign_Envelope_ID_MERC__c, Docusign_Contract_Status_MERC__c FROM Meeting_Participant_MERC__c WHERE ID = :meetingParticipantId];
+	//	try {
+	//		Meeting_Participant_MERC__c mp = [SELECT ID, Account_MERC__c, Account_MERC__r.Name, Email_Formula_MERC__c, Docusign_Envelope_ID_MERC__c, Docusign_Contract_Status_MERC__c FROM Meeting_Participant_MERC__c WHERE ID = :meetingParticipantId];
 
-			String envelopeId = mp.Docusign_Envelope_Id_MERC__c;
+	//		String envelopeId = mp.Docusign_Envelope_Id_MERC__c;
 
-			MERC_DocusignService docService = new MERC_DocusignService();
-			MERC_DocusignService.EnvelopeRecipientDetailResponse envelopeDetail = docService.getEnvelopeRecipientDetails(envelopeId);
+	//		MERC_DocusignService docService = new MERC_DocusignService();
+	//		MERC_DocusignService.EnvelopeRecipientDetailResponse envelopeDetail = docService.getEnvelopeRecipientDetails(envelopeId);
 
-			system.debug('envelopeDetail -->');
-			system.debug(envelopeDetail);
+	//		system.debug('envelopeDetail -->');
+	//		system.debug(envelopeDetail);
 
-			MERC_DocusignService.Signer embeddedHCPSigner;
-			for (MERC_DocusignService.Signer signer : envelopeDetail.signers) {
-				system.debug('signer -->');
-				system.debug(signer);
+	//		MERC_DocusignService.Signer embeddedHCPSigner;
+	//		for (MERC_DocusignService.Signer signer : envelopeDetail.signers) {
+	//			system.debug('signer -->');
+	//			system.debug(signer);
 
-				if (signer.status != 'completed' && signer.routingOrder != '1') { //get signer who hasn't completed (this is our HCP)
-					embeddedHCPSigner = signer;
-					break;
-				}
-			}
+	//			if (signer.status != 'completed' && signer.routingOrder != '1') { //get signer who hasn't completed (this is our HCP)
+	//				embeddedHCPSigner = signer;
+	//				break;
+	//			}
+	//		}
 
-			system.debug('HCP signer -->');
-			system.debug(embeddedHCPSigner);
+	//		system.debug('HCP signer -->');
+	//		system.debug(embeddedHCPSigner);
 
-			if (embeddedHCPSigner == null)
-				throw new MERC_Exception('Unable to find valid embedded signer');
+	//		if (embeddedHCPSigner == null)
+	//			throw new MERC_Exception('Unable to find valid embedded signer');
 
-			//for (MERC_DocusignService.Signer signer : envelopeDetail.signers) {
-			//	if (signer.clientUserId != null && signer.clientUserId != '') { //get signer with client id (our embedded signer)
-			//		embeddedSigner = signer;
-			//		break;
-			//	}
-			//}
+	//		//for (MERC_DocusignService.Signer signer : envelopeDetail.signers) {
+	//		//	if (signer.clientUserId != null && signer.clientUserId != '') { //get signer with client id (our embedded signer)
+	//		//		embeddedSigner = signer;
+	//		//		break;
+	//		//	}
+	//		//}
 
-			//retrieve embedded signature URL
-			MERC_DocusignService.EmbeddedSignResponse esr = docService.getEmbeddedSignUrl(
-																			envelopeId, 
-																			embeddedHCPSigner, 
-																			'https://mercury-portal-dev.herokuapp.com/meetings');
-			response.success = true;
-			response.url = esr.url;
-		} catch(Exception e) {
-			response.success = false;
-			response.message = e.getMessage();
-		}
+	//		//retrieve embedded signature URL
+	//		MERC_DocusignService.EmbeddedSignResponse esr = docService.getEmbeddedSignUrl(
+	//																		envelopeId,
+	//																		embeddedHCPSigner,
+	//																		'https://mercury-portal-dev.herokuapp.com/meetings');
+	//		response.success = true;
+	//		response.url = esr.url;
+	//	} catch(Exception e) {
+	//		response.success = false;
+	//		response.message = e.getMessage();
+	//	}
 		return response;
 	}
 
