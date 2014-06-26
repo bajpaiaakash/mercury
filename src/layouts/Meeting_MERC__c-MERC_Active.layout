@@ -79,10 +79,6 @@
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Source_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Required</behavior>
                 <field>Meeting_Status_MERC__c</field>
             </layoutItems>
@@ -136,11 +132,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Confirm_ToV_Reporting_Change_MERC__c</field>
+                <field>Participant_ToV_Updated_Date_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Participant_ToV_Updated_Date_MERC__c</field>
+                <field>Participant_ToV_Final_Date_Time_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -330,6 +326,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Time_for_Restaurant_Booking_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Activities_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -572,13 +572,12 @@
         <fields>NAME</fields>
         <fields>Account.NAME</fields>
         <fields>RECORDTYPE</fields>
+        <fields>Services_Rendered_MERC__c</fields>
+        <fields>Speciality_MERC__c</fields>
         <fields>Status_MERC__c</fields>
         <fields>Has_Signed_Contract_MERC__c</fields>
         <fields>Classification_MERC__c</fields>
-        <fields>Speciality_MERC__c</fields>
         <fields>Country_of_Residence_MERC__c</fields>
-        <fields>Participant_Typ_MERC__c</fields>
-        <fields>Services_Rendered_MERC__c</fields>
         <relatedList>Meeting_Participant_MERC__c.Meeting_MERC__c</relatedList>
         <sortField>RECORDTYPE</sortField>
         <sortOrder>Desc</sortOrder>
@@ -658,20 +657,6 @@
         <relatedList>Milestone_MERC__c.Meeting_MERC__c</relatedList>
         <sortField>Due_Date_MERC__c</sortField>
         <sortOrder>Asc</sortOrder>
-    </relatedLists>
-    <relatedLists>
-        <excludeButtons>New</excludeButtons>
-        <fields>Email_Send_Number_MERC__c</fields>
-        <fields>Date_Sent_MERC__c</fields>
-        <fields>Email_Name_MERC__c</fields>
-        <fields>Deliverability_Rate_MERC__c</fields>
-        <fields>Open_Rate_MERC__c</fields>
-        <fields>Click_Through_Rate_MERC__c</fields>
-        <fields>Unsubscribe_Rate_MERC__c</fields>
-        <fields>Bounce_Rate_MERC__c</fields>
-        <relatedList>Meeting_Email_Send_MERC__c.Meeting_MERC__c</relatedList>
-        <sortField>Date_Sent_MERC__c</sortField>
-        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>CASES.CASE_NUMBER</fields>

@@ -119,11 +119,22 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>Account_Cust_Name_GLBL__c</fields>
+        <fields>Rltnshp_Typ_Desc_GLBL__c</fields>
         <fields>Afltn_Party_Rcrd_Typ_Cd_GLBL__c</fields>
         <fields>Afltn_Clsfctn_Cd_GLBL__c</fields>
         <fields>Afltn_Role_Cd_GLBL__c</fields>
         <fields>Priority_Rank_Nbr_GLBL__c</fields>
         <relatedList>Affiliation_GLBL__c.Account_GLBL__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Account_Cust_Name_GLBL__c</fields>
+        <fields>Rltnshp_Typ_Desc_GLBL__c</fields>
+        <fields>Afltn_Party_Rcrd_Typ_Cd_GLBL__c</fields>
+        <fields>Afltn_Clsfctn_Cd_GLBL__c</fields>
+        <fields>Afltn_Role_Cd_GLBL__c</fields>
+        <fields>Priority_Rank_Nbr_GLBL__c</fields>
+        <relatedList>Affiliation_GLBL__c.Account_Cust_Id_GLBL__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>

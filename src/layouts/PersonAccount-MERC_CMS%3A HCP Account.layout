@@ -2,6 +2,7 @@
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Upload_Content_MERC</customButtons>
     <customButtons>Generate_Content_MERC</customButtons>
+    <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>EnableSelfService</excludeButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
     <excludeButtons>RequestUpdate</excludeButtons>
@@ -65,10 +66,6 @@
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Transparency_Reporting_Opt_Out_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Country_for_Territory_Assignment_CP__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
