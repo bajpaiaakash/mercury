@@ -833,15 +833,6 @@ Created by John A Adams 10/24/2013</description>
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>Contract_Signing_Parties_Complete_OLD__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>Used by portal to indicate that the Contract Signing Parties sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <label>Contract Signing Parties Step CompletOLD</label>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>Contracting_Parties_Counter_MERC__c</fullName>
         <description>Count of the number of Contracting Parties assigned to this HCP is calculated by trigger. Created 05/04/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -4388,15 +4379,6 @@ Created by John A Adams 12/10/2013</description>
         <formula>true</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Tax/Invoices Step Complete</label>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Tax_Invoices_Step_Complete_OLD__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>Used by portal to indicate that the Tax/Invoices sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <label>Tax/Invoices Step Complete_OLD</label>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -14378,30 +14360,6 @@ else
 }</url>
     </webLinks>
     <webLinks>
-        <fullName>Re_subscribe_in_ExactTarget</fullName>
-        <availability>online</availability>
-        <description>Resubscribe a Person Account record Type in ExactTarget</description>
-        <displayType>link</displayType>
-        <height>600</height>
-        <linkType>sControl</linkType>
-        <masterLabel>Re-subscribe in ExactTarget</masterLabel>
-        <openType>sidebar</openType>
-        <protected>false</protected>
-        <scontrol>EXTG_person_resub</scontrol>
-    </webLinks>
-    <webLinks>
-        <fullName>SendExactTargetEmail</fullName>
-        <availability>online</availability>
-        <description>Send ExactTarget Email from Person Account record types</description>
-        <displayType>link</displayType>
-        <height>600</height>
-        <linkType>sControl</linkType>
-        <masterLabel>Send ExactTarget Email</masterLabel>
-        <openType>sidebar</openType>
-        <protected>false</protected>
-        <scontrol>EXTG_person_email</scontrol>
-    </webLinks>
-    <webLinks>
         <fullName>Send_ET_Email</fullName>
         <availability>online</availability>
         <displayType>link</displayType>
@@ -14586,7 +14544,7 @@ try
 {
 var urlPrefix = sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;namespace&quot;, {});
 var pacId=sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;getPACId&quot;, {acctId:&quot;{!CASESAFEID( Account.Id )}&quot;});
-var theUrl = &quot;https://et4ae5.&quot;+urlPrefix+&quot;/apex/singleSendETEmail?contactId=&quot;+pacId;
+var theUrl = &quot;https://&quot;+urlPrefix+&quot;/apex/singleSendETEmail?contactId=&quot;+pacId;
 var npaUrl = parent.location.href;
 if(pacId==&quot;error&quot;)
 {

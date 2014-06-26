@@ -46,8 +46,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Contains Health Care Provider speciality information 
-Created by John A Adams 12/15/2013</description>
+    <description>Contains Speciality Information mastered from CODS : MERC, CUST : Created on 12/15/2013 by John Adams, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>

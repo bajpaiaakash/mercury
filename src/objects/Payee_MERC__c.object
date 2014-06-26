@@ -46,8 +46,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Captures payee information for account lookup
-Created by John A Adams 9/26/2013</description>
+    <description>Captures HCP Payee Details (Bank Accounts) for Payment.  Associated to SAP Vendor by Vendor Id : MERC : Created on 09/26/2013 by John Adams, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>

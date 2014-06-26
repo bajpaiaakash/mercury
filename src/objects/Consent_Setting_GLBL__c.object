@@ -46,8 +46,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Localizations of consent definitions used to render consent forms specific to the HCP&apos;s country and language.
-Created by John Lorenti on 20/12/2013.</description>
+    <description>Localizations of consent definitions used to render consent forms specific to the HCP&apos;s country and language. : MERC : Created on 12/20/2013 by John Lorenti, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>

@@ -52,7 +52,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Object to store Meeting Participants. Created 9/27/2013 by KLorenti.</description>
+    <description>Object to store Meeting Participants associated to the meeting, e.g. attendees of a meeting. Integrates with Veeva : MERC : Created on 09/27/2013 by Katy Lorenti, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
@@ -384,9 +384,9 @@
     </fields>
     <fields>
         <fullName>Associated_Countries_MERC__c</fullName>
-        <description>Pulls down Associated Countries from the Meeting.  Ensures Participants end up in the correct Veeva Org(s). Oliver Dunford 14th April 2014.</description>
+        <description>Pulls down the Meeting Participant Country.  Ensures Participants end up in the correct Veeva Org. Oliver Dunford 14th April 2014.</description>
         <externalId>false</externalId>
-        <formula>Meeting_MERC__r.Associated_Countries_MERC__c</formula>
+        <formula>TEXT(Account_MERC__r.Country_of_Residence_GLBL__c)</formula>
         <label>Associated Countries</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -2006,7 +2006,15 @@ IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;),
         <fullName>Travel_Step_Complete_MERC__c</fullName>
         <description>Used by portal. Determines if Meeting Participant has completed Travel step when RSVP&apos;ing on the portal. Created 04/02/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Travel_by_Bus_MERC__c,&quot;Yes&quot;) || ISPICKVAL(Travel_by_Car_MERC__c,&quot;Yes&quot;) ||  ISPICKVAL(Travel_by_Train_MERC__c,&quot;Yes&quot;) || ISPICKVAL( Air_Travel_No_Longer_Required_MERC__c ,&quot;Yes&quot;) || Travel_No_Longer_Required_MERC__c, true, false)</formula>
+        <formula>IF(
+!ISBLANK(TEXT(Travel_by_Bus_MERC__c)) ||
+!ISBLANK(TEXT(Travel_by_Car_MERC__c)) ||
+!ISBLANK(TEXT(Travel_by_Train_MERC__c)) ||
+ISPICKVAL( Air_Travel_No_Longer_Required_MERC__c ,&quot;Yes&quot;) || 
+Travel_No_Longer_Required_MERC__c,true, false)
+
+
+/*IF(ISPICKVAL(Travel_by_Bus_MERC__c,&quot;Yes&quot;) || ISPICKVAL(Travel_by_Car_MERC__c,&quot;Yes&quot;) ||  ISPICKVAL(Travel_by_Train_MERC__c,&quot;Yes&quot;) || ISPICKVAL( Air_Travel_No_Longer_Required_MERC__c ,&quot;Yes&quot;) || Travel_No_Longer_Required_MERC__c, true, false)*/</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Travel Step Complete</label>
         <trackHistory>false</trackHistory>
@@ -3669,34 +3677,6 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
-        <fullName>Cancelled_Meeting_with_Part_Pymnt_MER</fullName>
-        <active>false</active>
-        <description>Partial Payments should not be entered unless meeting is Cancelled.</description>
-        <errorConditionFormula>!ISPICKVAL(Meeting_MERC__r.Meeting_Status_MERC__c, &quot;Cancelled&quot;)&amp;&amp;
-ISCHANGED(Partial_Payment_Amount_MERC__c) &amp;&amp; !ISBLANK(Partial_Payment_Amount_MERC__c)</errorConditionFormula>
-        <errorDisplayField>Partial_Payment_Amount_MERC__c</errorDisplayField>
-        <errorMessage>The Partial Payment Amount may only be entered if the Meeting is in a Cancelled status.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Check_if_any_ToV_has_been_reported</fullName>
-        <active>false</active>
-        <description>Checks to see if any Meeting Participants have had ToV reported. Created 01/08/2014 by KLorenti, Mavens Consulting</description>
-        <errorConditionFormula>ISPICKVAL( Meeting_MERC__r.Participant_ToV_Final_MERC__c,&quot;Yes&quot;) &amp;&amp;
-(
-ISCHANGED ( Total_Registration_ToV_MERC__c  ) ||
-ISCHANGED ( Total_Ground_Transporation_ToV_MERC__c ) ||
-ISCHANGED ( Total_Food_Beverage_ToV_MERC__c ) ||
-ISCHANGED ( CoPay_Hotel_MERC__c ) ||
-ISCHANGED ( CoPay_Ground_Transport_MERC__c ) ||
-ISCHANGED ( CoPay_Registration_MERC__c ) ||
-ISCHANGED ( CoPay_Food_Beverage_MERC__c ) ||
-ISCHANGED ( CoPay_Flight_Rail_MERC__c )
-) 
-&amp;&amp;  !Confirm_ToV_Reporting_Change_MERC__c</errorConditionFormula>
-        <errorDisplayField>Confirm_ToV_Reporting_Change_MERC__c</errorDisplayField>
-        <errorMessage>ToV has already been reported for participants of this Meeting. Customer Meeting Services needs to confirm this change before it can be made.</errorMessage>
-    </validationRules>
-    <validationRules>
         <fullName>Confirm_Final_Fee</fullName>
         <active>true</active>
         <description>Unable to Confirm Final Fee if Exception Fee Approval is Required or Rejected.</description>
@@ -3736,36 +3716,6 @@ TEXT(Confirm_Final_Fee_MERC__c) = &quot;Confirmed&quot; &amp;&amp; TEXT(Services
 (ISPICKVAL(Meeting_MERC__r.Participant_ToV_Final_MERC__c,&quot;No&quot;) ||
 ISPICKVAL(Meeting_MERC__r.Participant_ToV_Final_MERC__c,&quot;&quot;))</errorConditionFormula>
         <errorMessage>You may not enter 0.00 unless ToV has already been reported for this Meeting</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Enter_Zero_If_ToV_Reported_MERC</fullName>
-        <active>false</active>
-        <description>Users cannot enter a blank if ToV has been reported.</description>
-        <errorConditionFormula>(
-(ISCHANGED(Total_Hotel_ToV_MERC__c) &amp;&amp;  ISBLANK(Total_Hotel_ToV_MERC__c)) || 
- (ISCHANGED(Total_Ground_Transporation_ToV_MERC__c) &amp;&amp; ISBLANK(Total_Ground_Transporation_ToV_MERC__c)) || 
- (ISCHANGED(Total_Food_Beverage_ToV_MERC__c) &amp;&amp; ISBLANK(Total_Food_Beverage_ToV_MERC__c)) || 
- (ISCHANGED(Total_Registration_ToV_MERC__c) &amp;&amp; ISBLANK(Total_Registration_ToV_MERC__c)) || 
- (ISCHANGED(CoPay_Flight_Rail_MERC__c) &amp;&amp; ISBLANK(CoPay_Flight_Rail_MERC__c)) || 
- (ISCHANGED(CoPay_Food_Beverage_MERC__c) &amp;&amp; ISBLANK(CoPay_Food_Beverage_MERC__c)) || 
- (ISCHANGED(CoPay_Ground_Transport_MERC__c) &amp;&amp; ISBLANK(CoPay_Ground_Transport_MERC__c)) ||
- (ISCHANGED(CoPay_Hotel_MERC__c) &amp;&amp; ISBLANK(CoPay_Hotel_MERC__c)) ||
- (ISCHANGED(CoPay_Registration_MERC__c) &amp;&amp; ISBLANK(CoPay_Registration_MERC__c))
-)
-
-&amp;&amp;  
-
- (ISPICKVAL(Meeting_MERC__r.Participant_ToV_Final_MERC__c,&quot;Yes&quot;))</errorConditionFormula>
-        <errorMessage>You may not enter a blank value if ToV has already been reported for this Meeting</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Individual_Sponsorship_Only_MERC</fullName>
-        <active>false</active>
-        <description>If Meeting is Individual Sponsorship, only allow participants of type Individual Sponsorship</description>
-        <errorConditionFormula>ISPICKVAL(Meeting_MERC__r.Sponsorship_Category_MERC__c,
-&apos;Individual Sponsorship&apos;) &amp;&amp;   RecordType.Name  &lt;&gt;  &apos;Individual Sponsorship&apos;</errorConditionFormula>
-        <errorDisplayField>Account_MERC__c</errorDisplayField>
-        <errorMessage>You must enter Participant Type &quot;Individual Sponsorship&quot; for meetings with Meetings of Sponsorship Category &quot;Individual Sponsorship&quot;.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Partial_Payment_Allowed_MERC</fullName>

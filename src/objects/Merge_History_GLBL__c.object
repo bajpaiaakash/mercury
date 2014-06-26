@@ -46,7 +46,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Capture history for account merges. Created 10/17/2013 by KLorenti, Mavens Consulting</description>
+    <description>Capture history for account merges originating from CODS : MERC : Created on 10/17/2013 by Katy Lorenti, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>

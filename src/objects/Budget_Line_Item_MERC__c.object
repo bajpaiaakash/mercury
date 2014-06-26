@@ -52,7 +52,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Object to track detailed budget information. Created 9/27/2013 by KLorenti.</description>
+    <description>Stores Individual Budget Line Items that roll up to the Budget Header for managing Meeting Budgets : MERC : Created on 09/27/2014 by Katy Lorenti, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>

@@ -46,7 +46,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Object used to drive the Mercury Web Service RSVP and HCP Information Package logic.  Determines the modals that are displayed based upon the multiple scenarios for a HCP using the Web Service and interacting with Meetings.Oliver Dunford 12th May 2014.</description>
+    <description>Object used to drive the Mercury Web Service RSVP and HCP Information Package logic.  Determines the modals that are displayed based upon the multiple scenarios for a HCP using the Web Service and interacting with Meetings : MERC : Created on 05/12/2014 by Oliver Dunford, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>

@@ -46,7 +46,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Used by Customer Search Tool. Ceated 06/04/2014 by KLorenti, Mavens Consulting</description>
+    <description>Used by Customer Search Tool to hold picklist values for user selection : MERC, CUST : Created on 06/04/2014 by Katy Lorenti, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>

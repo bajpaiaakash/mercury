@@ -46,7 +46,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Object to store budget header information. Created on 9/27/2013 by KLorenti.</description>
+    <description>Used to Manage and Store Budgets for Meetings, this Object is a Header for Budget Line Items : MERC : Created on 09/27/2013 by Katy Lorenti, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>

@@ -119,11 +119,6 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-        <displayedFields>
-            <field>CurrencyIsoCode</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
         <label>Meeting Day Manager</label>
     </fieldSets>
     <fields>
@@ -131,6 +126,16 @@
         <description>Capture additional information on Accommodations. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Accommodation Information</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Activities_MERC__c</fullName>
+        <description>Description of Activities for Meeting. Created 10/29/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Activities</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -568,7 +573,7 @@ LEFT(RIGHT(Start_Time_In_Meeting_Time_Zone__c, 10), 5)
         <externalId>false</externalId>
         <label>Meeting Start Date</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -648,7 +653,6 @@ Created 04/14/2014</description>
         <defaultValue>false</defaultValue>
         <description>Provides ability to disable further registration to meeting via the portal. Created 11/10/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <inlineHelpText>Can be checked to prevent any additional RSVPs via the Web Service.  Primarily for the scenario when a Meeting is at capacity and invitations are still pending.</inlineHelpText>
         <label>Disable Portal Registration</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -722,7 +726,7 @@ Created by John Adams on 12/9/2013</description>
         <label>End Date (Meeting Time Zone)</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -767,7 +771,7 @@ Created by John A Adams 10/25/2013</description>
         <label>End Time (Meeting Time Zone)</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -955,7 +959,6 @@ Created by John A Adams 10/24/2013</description>
         <fullName>Event_Website_MERC__c</fullName>
         <description>Capture URL of the Web Address for the Meeting, if one exists. Created 10/16/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <inlineHelpText>Official congress website for independent meetings or website for Lilly originated meetings</inlineHelpText>
         <label>Meeting Website</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1892,7 +1895,7 @@ Created by John Adams 11/6/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -2026,7 +2029,7 @@ Created by John Adams on 12/9/2013</description>
         <description>Indicate number of Conference rooms needed. Created 10/3/2013 by KLorenti.</description>
         <externalId>false</externalId>
         <inlineHelpText>Total number including break out rooms</inlineHelpText>
-        <label># of Meeting Rooms</label>
+        <label># of Conference Rooms</label>
         <precision>10</precision>
         <required>false</required>
         <scale>0</scale>
@@ -2257,7 +2260,7 @@ Created by John Adams on 12/9/2013</description>
         <externalId>false</externalId>
         <label>Participant ToV Updated Date</label>
         <required>false</required>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
@@ -2805,7 +2808,7 @@ Created by John Adams 11/6/2013</description>
         <label>Start Date (Meeting Time Zone)</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -2816,7 +2819,7 @@ Created by John Adams 11/6/2013</description>
         <label>Start Time (Meeting Time Zone)</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -2828,7 +2831,7 @@ Created by John Adams 11/6/2013</description>
         <inlineHelpText>Enter the start time of the meeting in the TIME ZONE OF THE MEETING</inlineHelpText>
         <label>Start Time of Meeting</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
@@ -4977,7 +4980,15 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Consultant</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Health Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Independent</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5818,7 +5829,15 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Consultant</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Health Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Independent</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7476,7 +7495,15 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Consultant</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Health Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Independent</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9166,7 +9193,15 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Consultant</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Health Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Independent</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9347,7 +9382,7 @@ ISPICKVAL(Meeting_Status_MERC__c,&apos;Complete - Closed&apos;)</errorConditionF
     </validationRules>
     <validationRules>
         <fullName>Participant_ToV_Final_only_if_Meet_over</fullName>
-        <active>false</active>
+        <active>true</active>
         <description>Validate that the meeting end date has passed before allowing the  &apos;Participant ToV Final&apos; field from being checked</description>
         <errorConditionFormula>ISCHANGED(Participant_ToV_Final_MERC__c) &amp;&amp;
 (TODAY() &lt;  DATEVALUE(End_Time_of_Meeting_MERC__c ))</errorConditionFormula>
@@ -9625,7 +9660,7 @@ else
         <protected>false</protected>
         <showsLocation>false</showsLocation>
         <showsStatus>false</showsStatus>
-        <url>/{!$Setup.Mercury_Settings_MERC__c.Meeting_Participant_Report_Id_MERC__c}?pv0={!Meeting_MERC__c.Id}</url>
+        <url>/00O11000000L2DY?pv0={!Meeting_MERC__c.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>Meetings_with_HCPs_Resources_MERC</fullName>

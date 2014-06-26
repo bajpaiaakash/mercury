@@ -46,7 +46,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Holds Product Indication and product group indications from Material ODS to support the GSO. Created by Oliver Dunford. 24th Oct 2013.  Updated by John Adams 11/18/2013</description>
+    <description>Holds Product Indication Information from Material ODS : MERC : Created on 10/23/2013 by Oliver Dunford, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>

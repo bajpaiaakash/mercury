@@ -46,8 +46,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Contains contract details between Lilly and event speakers. 
-Created by John A Adams 10/2/2013</description>
+    <description>Contains contract details between Lilly and Service Providers, also Integrates with DocuSign for Digital Signature  : MERC : Created on 10/02/2013 by John Adams, Mavens Consulting</description>
     <enableActivities>true</enableActivities>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>

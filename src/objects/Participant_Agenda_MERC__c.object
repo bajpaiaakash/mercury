@@ -52,7 +52,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Junction object between Meeting Participant and Agenda. Created by John A Adams 10/3/2013</description>
+    <description>Junction object between Meeting Participant and Agenda, used to associate Speakers to Agenda Items : MERC : Created on 10/03/2013 by John Adams, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>

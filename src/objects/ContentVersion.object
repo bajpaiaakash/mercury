@@ -321,7 +321,7 @@
 &quot;Service Rendered Documents&quot;,&quot;ICO210&quot; ,
 &quot;HCP Transparency Reporting Consent (filled version by HCP)&quot;,&quot;ICO210&quot;,
 &quot;CV&quot;,&quot;ICO210&quot;,
-&quot;HCP Related Items&quot; ,&quot;ICO210&quot;,
+&quot;Meeting Minutes&quot; ,&quot;MKT100&quot;,
 &quot;HCP Exceptions&quot;,&quot;ICO210&quot;,
 &quot;Invitations&quot;,&quot;MKT100&quot;,
 &quot;Meeting Documents&quot;,&quot;MKT100&quot;,
@@ -451,10 +451,6 @@ HCP_Contract_MERC__r.MSA_Start_Date_MERC__c,  HCP_Contract_MERC__r.Meeting_Name_
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Service Rendered Documents </fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>HCP Transparency Reporting Consent (filled version by HCP)</fullName>
                 <default>false</default>
             </picklistValues>
@@ -511,10 +507,6 @@ HCP_Contract_MERC__r.MSA_Start_Date_MERC__c,  HCP_Contract_MERC__r.Meeting_Name_
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Services Rendered Documents</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Partial Payment Justification</fullName>
                 <default>false</default>
             </picklistValues>
@@ -568,6 +560,14 @@ HCP_Contract_MERC__r.MSA_Start_Date_MERC__c,  HCP_Contract_MERC__r.Meeting_Name_
             </picklistValues>
             <picklistValues>
                 <fullName>Meeting Exceptions</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Services Rendered Documents</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Rendered Documents</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -704,7 +704,6 @@ HCP_Contract_MERC__r.MSA_Start_Date_MERC__c,  HCP_Contract_MERC__r.Meeting_Name_
     </fields>
     <fields>
         <fullName>OwnerId</fullName>
-        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -800,7 +799,7 @@ HCP_Contract_MERC__r.MSA_Start_Date_MERC__c,  HCP_Contract_MERC__r.Meeting_Name_
                 <default>false</default>
             </values>
             <values>
-                <fullName>Service%C2%A0Rendered Documents%C2%A0</fullName>
+                <fullName>Service%C2%A0Rendered Documents</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -852,7 +851,7 @@ HCP_Contract_MERC__r.MSA_Start_Date_MERC__c,  HCP_Contract_MERC__r.Meeting_Name_
                 <default>false</default>
             </values>
             <values>
-                <fullName>Services Rendered Documents</fullName>
+                <fullName>Services%C2%A0Rendered Documents</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -921,6 +920,10 @@ HCP_Contract_MERC__r.MSA_Start_Date_MERC__c,  HCP_Contract_MERC__r.Meeting_Name_
             </values>
             <values>
                 <fullName>Meeting Exceptions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting Minutes</fullName>
                 <default>false</default>
             </values>
             <values>

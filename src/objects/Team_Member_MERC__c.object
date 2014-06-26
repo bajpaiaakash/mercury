@@ -46,7 +46,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Stores list of Team Members that can be associated to a Meeting. Can be Users or Person Accounts. Created on 9/27/2013 by KLorenti.</description>
+    <description>Stores list of Team Members that can be associated to a Meeting. Can be Users or Person Accounts. Grants a Mercury Sharing Rule for Meeting and gives Sales Representatives access to Veeva Meetings. Integrates with Veeva : MERC : Created on 09/27/2013 by Katy Lorenti, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>

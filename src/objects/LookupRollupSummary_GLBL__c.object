@@ -46,6 +46,9 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
+    <description>Object defines a the fields on a child object to roll up to a parent object using Lookup Rollup functionality.
+
+MERC : Created on 2014-05-27 by Joe Ferraro, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
@@ -245,9 +248,7 @@
         <type>Text</type>
     </nameField>
     <pluralLabel>Lookup Rollup Summaries</pluralLabel>
-    <searchLayouts>
-        <listViewButtons>EnhancedNew</listViewButtons>
-    </searchLayouts>
+    <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <webLinks>
         <fullName>Calculate</fullName>
@@ -259,29 +260,6 @@
         <openType>sidebar</openType>
         <page>GLBL_rollupcalculate</page>
         <protected>false</protected>
-    </webLinks>
-    <webLinks>
-        <fullName>EnhancedEdit</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <height>600</height>
-        <linkType>page</linkType>
-        <masterLabel>Enhanced Edit (Pilot)</masterLabel>
-        <openType>sidebar</openType>
-        <page>GLBL_rollupsummaryenhanced</page>
-        <protected>false</protected>
-    </webLinks>
-    <webLinks>
-        <fullName>EnhancedNew</fullName>
-        <availability>online</availability>
-        <displayType>massActionButton</displayType>
-        <height>600</height>
-        <linkType>page</linkType>
-        <masterLabel>Enhanced New Lookup Rollup Summary (Pilot)</masterLabel>
-        <openType>noSidebar</openType>
-        <page>GLBL_rollupsummaryenhancednew</page>
-        <protected>false</protected>
-        <requireRowSelection>false</requireRowSelection>
     </webLinks>
     <webLinks>
         <fullName>Manage_Trigger_GLBL</fullName>

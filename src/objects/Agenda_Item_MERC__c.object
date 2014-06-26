@@ -52,8 +52,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Contains agenda information
-Created by John A Adams 9/26/2013</description>
+    <description>Used to construct and store Agendas for Meetings to be distributed to HCPs or displayed on the Web Service : MERC : Created on 09/26/2013 by John Adams, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>

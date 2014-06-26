@@ -98,7 +98,6 @@
     <fields>
         <fullName>AccountId</fullName>
         <inlineHelpText>The company that the case is in relation to.  For example, a HCPs Institution or a Meeting Vendor.  Will be the same as the Contact Name if not relevant.</inlineHelpText>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -184,13 +183,11 @@
     </fields>
     <fields>
         <fullName>AssetId</fullName>
-        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
         <fullName>BusinessHoursId</fullName>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -288,7 +285,6 @@ Created by John Adams on 11/18/2013</description>
     <fields>
         <fullName>ContactId</fullName>
         <inlineHelpText>The person that the case is in relation to.  For example, the HCP that raised the problem.</inlineHelpText>
-        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -425,39 +421,23 @@ Created by J Adams 12/10/2013</description>
         <inlineHelpText>For routing of Email-to-Case</inlineHelpText>
         <picklist>
             <picklistValues>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GBEN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>IEEN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>DKDK</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>NONO</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SESE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>FIFI</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>DEDE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>ATDE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BABS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BEFL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BEFR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BGBG</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -473,43 +453,11 @@ Created by J Adams 12/10/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>TRTR</fullName>
+                <fullName>CYEL</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>SPSP</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>PTPT</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ITIT</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>RORO</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>FRFR</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>BEFR</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>BEFL</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>NLDU</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>PLPL</fullName>
+                <fullName>CYTR</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -517,11 +465,79 @@ Created by J Adams 12/10/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>DEDE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DKDK</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EEET</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EUROPE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>FIFI</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>FRFR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GBEN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HRHR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>HUHU</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>SKSK</fullName>
+                <fullName>IEEN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ITIT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>LTLT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>LVLV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NLDU</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NONO</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PLPL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PTPT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>RORO</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>RSSR</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -529,24 +545,41 @@ Created by J Adams 12/10/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>SESE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SISL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SKSK</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SPSP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TRTR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>UARU</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
+            <sorted>true</sorted>
         </picklist>
-        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
         <fullName>OwnerId</fullName>
-        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
         <fullName>ParentId</fullName>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -591,7 +624,6 @@ Created by J Adams 12/10/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -625,7 +657,6 @@ Created by J Adams 12/10/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -691,7 +722,6 @@ Created by J Adams 12/10/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -777,7 +807,6 @@ Created by John Adams on 11/18/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -807,9 +836,9 @@ Created by John Adams on 11/18/2013</description>
         <columns>CASES.CREATED_DATE</columns>
         <columns>CASES.CLOSED_DATE</columns>
         <filterScope>Queue</filterScope>
-        <label>CMS Lilly</label>
+        <label>CMS Europe</label>
         <language>en_US</language>
-        <queue>CMS_Lilly</queue>
+        <queue>CMS_Europe</queue>
         <sharedTo>
             <allInternalUsers></allInternalUsers>
         </sharedTo>
@@ -879,7 +908,6 @@ Created by John Adams on 11/18/2013</description>
         <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CASES.PRIORITY</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>Private</sharingModel>
     <webLinks>
         <fullName>Loop__LOOP</fullName>
         <availability>online</availability>

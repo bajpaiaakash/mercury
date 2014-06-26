@@ -52,7 +52,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Object to store invoice header information. Created on 9/27/2013 by KLorenti</description>
+    <description>Object to store invoice header information, Integrates with SAP for HCP Payments : MERC : Created on 09/27/2013 by Katy Lorenti, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
@@ -1640,15 +1640,6 @@ Created by John A Adams 10/4/2013</description>
         <errorConditionFormula>NOT(REGEX( Cost_Center_MERC__c, &quot;[0-9]{7}&quot;))</errorConditionFormula>
         <errorDisplayField>Cost_Center_MERC__c</errorDisplayField>
         <errorMessage>The Cost Center must be seven digits long.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Submit_for_Payment</fullName>
-        <active>false</active>
-        <description>Prevent an invoice being submitted for payment if the total value is less than zero or if there has not been a PDF generated and attached. Created by John A Adams 2/5/2014</description>
-        <errorConditionFormula>ISPICKVAL(Submit_for_Payment_MERC__c,&quot;Yes&quot;) &amp;&amp; 
-((Invoice_Attached_MERC__c = FALSE) || 
-(TOTAL_INCL_VAT_MERC__c &lt;=0))</errorConditionFormula>
-        <errorMessage>An invoice record cannot be submitted for payment if the total is not greater than zero and an Invoice PDF has been created and attached.  Press the &quot;Generate Content&quot; button at top.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Submit_for_Payment_PDF_Check</fullName>

@@ -46,6 +46,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
+    <description>Object used to store logs for the for the Lookup Rollup Summary functionality. MERC : Created on 2014-05-27 by Joe Ferraro, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
