@@ -1,1 +1,0 @@
-<apex:page standardController="LookupRollupSummary_GLBL__c" recordSetVar="records" action="{!URLFOR($Page.GLBL_rollupsummaryenhanced)}"/>
