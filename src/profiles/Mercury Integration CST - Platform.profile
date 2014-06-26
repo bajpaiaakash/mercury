@@ -25,53 +25,12 @@
         <default>false</default>
         <visible>true</visible>
     </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__Chatter</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__Community</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__Content</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__Marketing</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__Platform</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__Sales</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__Service</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__ServiceConsole</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__Work</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
     <classAccesses>
         <apexClass>CUST_AdminUtilitiesController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CUST_AdminUtilitiesControllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -79,7 +38,15 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CUST_MonthlyProcessSchedulerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>CUST_ProcessScheduler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CUST_ProcessSchedulerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -107,6 +74,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CUST_RefreshLOVsReviewControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>CUST_RefreshLOVsUtil</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -127,7 +98,15 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CUST_UserSettingStatusUpdateTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>CUST_UserSettingsExpireBatchable</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CUST_UserSettingsStatusChangeBatchTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -136,6 +115,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>CUST_UserSettingsWillExpireBatchable</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CUST_UserSettingsWillExpireBatchableTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -160,10 +143,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ETDataExtensionProcessor</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>ETDataExtensionProcessor2_TEMP</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -199,7 +178,15 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>GLBL_ApplyStandardPriceBook</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>GLBL_AsyncApexJobsSelector</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>GLBL_AsyncApexJobsSelectorTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -224,6 +211,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>GLBL_DescribeLayoutTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>GLBL_Describe_WebServiceMockImpl</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -255,6 +246,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>GLBL_MetadataWebServiceMockImpl</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>GLBL_NewButtonPrepopController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -267,7 +262,15 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>GLBL_RollupCalculateControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>GLBL_RollupCalculateJob</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>GLBL_RollupCalculateJobTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -276,6 +279,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>GLBL_RollupControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>GLBL_RollupControllerWebServiceMockImpl</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -292,6 +299,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>GLBL_RollupServiceException</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>GLBL_RollupServiceExceptionTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -316,10 +327,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>GLBL_RollupSummariesTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>GLBL_RollupSummaryEnhancedController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -359,11 +366,23 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>GLBL_StringBuilderTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>GLBL_TestContext</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>GLBL_TestLREngine</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>GLBL_TestSObjectDomain</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>GLBL_TestSObjectSelector</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -471,7 +490,19 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_DocusignEmbeddedSignatureSrvcTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_DocusignMockMultiResponseObj</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_DocusignRecipientStatusHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_DocusignRecipientStatusHandlerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -492,6 +523,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_HCPContractRollupManager</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_HCPContractRollupManagerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -527,6 +562,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_HcpCapYearlyCalculationScheduleTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_HcpCapYearlyCalculationScheduler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -551,7 +590,15 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_InvoiceDocFilterControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_InvoiceInvalidationController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_InvoiceInvalidationControllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -636,6 +683,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_MeetingDayManagerController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_MeetingDayManagerControllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -827,15 +878,19 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>MERC_TriggerHandlerState</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>MERC_TriggerHandlerStateManager</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_TriggerHandlerStateManagerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_Util</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_UtilTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -856,10 +911,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MeetingEmailSendExtension</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>MeetingEmailSendExtension2_TEMP</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -884,6 +935,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>Mock_ETAuthorizerCallout</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Mock_ETSendAndAuthorize</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -935,6 +990,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>Test_MeetingEmailSendFutureProcessor</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Test_MeetingEmailSendTriggerImpl</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>Test_MeetingParticipantTrackingCtrlerExt</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -958,7 +1021,6 @@
         <apexClass>sobjectPartnerSoapSforceComTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    <custom>true</custom>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Academic_Qualifications_MERC__c</field>
@@ -1167,11 +1229,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Contract_Signing_Parties_Complete_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Contract_Signing_Parties_Complete_OLD__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2161,11 +2218,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.Tax_Invoices_Step_Complete_OLD__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account.Teaching_Advising_Step_Complete_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2332,6 +2384,16 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.of_Payees_with_Priority_Rank_1_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Address_GLBL__c.Account_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Address_GLBL__c.Account_Global_Id_GLBL__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2631,6 +2693,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Affiliation_GLBL__c.Account_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Affiliation_GLBL__c.Account_Global_Id_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Affiliation_GLBL__c.Afltn_Clsfctn_Cd_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2851,6 +2923,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Agenda_Item_MERC__c.Meeting_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Agenda_Item_MERC__c.Meeting_Time_Zone_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2888,6 +2965,11 @@
         <editable>true</editable>
         <field>Alternate_Id_GLBL__c.Account_GLBL__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Alternate_Id_GLBL__c.Account_Global_Id_GLBL__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -3021,6 +3103,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Budget_Line_Item_MERC__c.Budget_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Budget_Line_Item_MERC__c.Master_Budget_Line_Item_Delta_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3116,6 +3203,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Budget_MERC__c.Meeting_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Budget_MERC__c.Mercury_External_Id_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3147,6 +3239,121 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Budget_MERC__c.Version_Number_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_App_Menu_Pool_GLBL__c.Altrnt_Id_Typ_Desc_Capture_Date_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_App_Menu_Pool_GLBL__c.Altrnt_Id_Typ_Desc_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CST_App_Menu_Pool_GLBL__c.App_Settings_CUST__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CST_App_Menu_Pool_GLBL__c.App_Settings_Unique_Check_CUST__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CST_App_Menu_Pool_GLBL__c.Bnft_Dsgn_Cd_Capture_Date_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CST_App_Menu_Pool_GLBL__c.Bnft_Dsgn_Cd_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CST_App_Menu_Pool_GLBL__c.Clsfctn_Cd_Capture_Date_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CST_App_Menu_Pool_GLBL__c.Clsfctn_Cd_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_App_Menu_Pool_GLBL__c.Cmnctn_Chnl_Cd_Capture_Date_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_App_Menu_Pool_GLBL__c.Cmnctn_Chnl_Cd_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_App_Menu_Pool_GLBL__c.Cnsnt_Prps_Cd_Capture_Date_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_App_Menu_Pool_GLBL__c.Cnsnt_Prps_Cd_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_App_Menu_Pool_GLBL__c.Cnsnt_Sts_Cd_Capture_Date_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_App_Menu_Pool_GLBL__c.Cnsnt_Sts_Cd_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_App_Menu_Pool_GLBL__c.Last_Job_Status_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_App_Menu_Pool_GLBL__c.Party_Sts_Cd_Capture_Date_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_App_Menu_Pool_GLBL__c.Party_Sts_Cd_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_App_Menu_Pool_GLBL__c.Priority_Rank_Nbr_Capture_Date_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_App_Menu_Pool_GLBL__c.Priority_Rank_Nbr_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_App_Menu_Pool_GLBL__c.Rltnshp_Typ_Desc_Capture_Date_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_App_Menu_Pool_GLBL__c.Rltnshp_Typ_Desc_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_App_Menu_Pool_GLBL__c.Spclty_Desc_Cd_Capture_Date_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_App_Menu_Pool_GLBL__c.Spclty_Desc_Cd_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3251,6 +3458,21 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>CST_Picklist_CUST__c.Picklist_CUST__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_Picklist_CUST__c.Value_CUST__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CST_User_Log_CUST__c.Prsnl_Nbr_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>CST_User_Log_CUST__c.Term_Language_CUST__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3283,6 +3505,11 @@
         <editable>true</editable>
         <field>CST_User_Settings_CUST__c.Audit_Date_CUST__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CST_User_Settings_CUST__c.CST_User_CUST__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -3357,6 +3584,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.AssetId</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.BusinessHoursId</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3731,6 +3963,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Daily_Attendance_TOV_MERC__c.Meeting_Day_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Daily_Attendance_TOV_MERC__c.Meeting_Event_Id_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3766,12 +4003,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Daily_Attendance_TOV_MERC__c.Status_Change_Post_ToV_Final_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Daily_Attendance_TOV_MERC__c.Status_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Daily_Attendance_TOV_MERC__c.Transparency_Reporting_Consent_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>HCP_Contract_MERC__c.Account_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3941,6 +4188,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Hotel_Allocation_MERC__c.Meeting_Day_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Hotel_Allocation_MERC__c.Meeting_Vendor_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3985,14 +4237,34 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Indication_GLBL__c.Crt_Dt_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Indication_GLBL__c.Dialect_Nm_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Indication_GLBL__c.End_Dt_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Indication_GLBL__c.Indctn_Desc_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Indication_GLBL__c.Indctn_External_Id_GLBL__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Indication_GLBL__c.Indctn_Id_GLBL__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -4005,9 +4277,24 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Indication_GLBL__c.Indctn_Typ_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Indication_GLBL__c.Lst_Pblsh_Dt_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Indication_GLBL__c.Mercury_External_Id_MERC__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Indication_GLBL__c.Prod_Grp_Prnt_Id_GLBL__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -4028,6 +4315,11 @@
         <editable>true</editable>
         <field>Indication_GLBL__c.Trnsltd_Indctn_Short_Desc_GLBL__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Indication_GLBL__c.Updt_Dt_GLBL__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -4063,6 +4355,11 @@
         <editable>false</editable>
         <field>Invoice_Line_Item_MERC__c.Invoice_Cost_Center_MERC__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Invoice_Line_Item_MERC__c.Invoice_MERC__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -4411,7 +4708,27 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>LookupChild_GLBL__c.Amount_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>LookupChild_GLBL__c.LookupParent_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>LookupParent_GLBL__c.Total_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>LookupRollupSummaryLog_GLBL__c.ErrorMessage_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>LookupRollupSummaryLog_GLBL__c.ParentId_GLBL__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4426,12 +4743,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>LookupRollupSummaryScheduleItems_GLBL__c.LookupRollupSummary_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>LookupRollupSummaryScheduleItems_GLBL__c.ParentId_GLBL__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>LookupRollupSummaryScheduleItems_GLBL__c.ParentRecord_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>LookupRollupSummaryScheduleItems_GLBL__c.QualifiedParentID_GLBL__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4445,6 +4772,11 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>LookupRollupSummary_GLBL__c.AggregateResultField_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>LookupRollupSummary_GLBL__c.CalculateJobId_GLBL__c</field>
         <readable>false</readable>
@@ -4456,7 +4788,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>LookupRollupSummary_GLBL__c.ChildObject_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>LookupRollupSummary_GLBL__c.FieldToAggregate_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>LookupRollupSummary_GLBL__c.OverrideTriggerValidation_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>LookupRollupSummary_GLBL__c.ParentObject_GLBL__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4467,6 +4814,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>LookupRollupSummary_GLBL__c.RelationshipCriteria_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>LookupRollupSummary_GLBL__c.RelationshipField_GLBL__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4510,6 +4862,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting_Day_MERC__c.Meeting_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_Day_MERC__c.Meeting_Time_Zone_MERC__c</field>
         <readable>true</readable>
@@ -4541,13 +4898,108 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Meeting_Email_Send_MERC__c.Email_Name__c</field>
+        <field>Meeting_Email_Send_MERC__c.ET_Business_Unit_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Meeting_Email_Send_MERC__c.Incomplete__c</field>
+        <field>Meeting_Email_Send_MERC__c.ET_Data_Extension_Id_MERC__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Email_Send_MERC__c.ET_Dedupe_Subscribers_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Email_Send_MERC__c.ET_Email_ID_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Email_Send_MERC__c.ET_Email_Name_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Email_Send_MERC__c.ET_From_Address_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Email_Send_MERC__c.ET_From_Email_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Email_Send_MERC__c.ET_From_Name_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Email_Send_MERC__c.ET_Individual_Tracking_Disabled_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Email_Send_MERC__c.ET_Recipients_Opted_In_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Email_Send_MERC__c.ET_Reply_To_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Email_Send_MERC__c.ET_Send_Definition_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Email_Send_MERC__c.ET_Sender_Profile_Id_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Email_Send_MERC__c.ET_Subject_Line_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Email_Send_MERC__c.ET_Subject_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Email_Send_MERC__c.ET_Sync_Id_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Email_Send_MERC__c.ET_Thumbnail_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Email_Send_MERC__c.Email_Name_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting_Email_Send_MERC__c.Email_Send_Number_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Email_Send_MERC__c.Incomplete_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Email_Send_MERC__c.Meeting_MERC__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -4592,6 +5044,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Meeting_MERC__c.Accommodation_Information_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting_MERC__c.Activities_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5486,7 +5943,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Meeting_Participant_Email_Send_MERC__c.Meeting_Email_Send__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant_Email_Send_MERC__c.Meeting_Participant__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Account_External_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting_Participant_MERC__c.Account_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5806,6 +6278,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Meeting_Participant_MERC__c.Meeting_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Meeting_Owner_Email_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5992,6 +6469,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Sponsorship_Agreement_Consent_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Status_Change_Post_ToV_Final_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6215,6 +6697,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Products_MERC__c.Meeting_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Meeting_Products_MERC__c.Mercury_External_Id_MERC__c</field>
         <readable>true</readable>
@@ -6233,6 +6720,11 @@
         <editable>false</editable>
         <field>Meeting_Products_MERC__c.Product_Group_Id_MERC__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Products_MERC__c.Product_MERC__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -6262,6 +6754,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_Vendor_MERC__c.Confirm_ToV_Reporting_Change_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Vendor_MERC__c.Meeting_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6370,8 +6867,18 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Participant_Agenda_MERC__c.Session_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Participant_Agenda_MERC__c.Speaker_Topic_Title_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Payee_MERC__c.Account_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6546,7 +7053,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Account_Global_Id_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Preferences_and_Consent_GLBL__c.Account_Name_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Preferences_and_Consent_GLBL__c.Active_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6965,6 +7482,21 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Product_Group_GLBL__c.Cntry_Cd_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Product_Group_GLBL__c.Crt_Dt_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Product_Group_GLBL__c.Dialect_Nm_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Product_Group_GLBL__c.End_Dt_GLBL__c</field>
         <readable>true</readable>
@@ -6978,6 +7510,16 @@
         <editable>true</editable>
         <field>Product_Group_GLBL__c.Grp_Cnvrsn_Unit_Cd_GLBL__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Product_Group_GLBL__c.Grp_Prps_Cd_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Product_Group_GLBL__c.Lst_Pblsh_Dt_GLBL__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -7015,9 +7557,19 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Product_Group_GLBL__c.Updt_Dt_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Speciality_MERC__c.Account_GLBL__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Speciality_MERC__c.Account_Global_Id_GLBL__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -7156,6 +7708,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Team_Member_MERC__c.Meeting_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Team_Member_MERC__c.Mercury_External_Id_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -7177,6 +7734,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Team_Member_MERC__c.User_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Travel_Itinerary_MERC__c.Account_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7761,6 +8323,61 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Web_Service_Error_GLBL__c.Account_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Web_Service_Error_GLBL__c.Action_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Web_Service_Error_GLBL__c.Case_Email_Address_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Web_Service_Error_GLBL__c.Case_Email_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Web_Service_Error_GLBL__c.Country_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Web_Service_Error_GLBL__c.Error_Detail_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Web_Service_Error_GLBL__c.Global_Id_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Web_Service_Error_GLBL__c.Language_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Web_Service_Error_GLBL__c.Name_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Web_Service_Error_GLBL__c.Object_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Web_Service_Error_GLBL__c.Primary_Record_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Web_Service_Logic_MERC__c.Account_Record_Type_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -8244,10 +8861,6 @@
         <recordType>Preferences_and_Consent_GLBL__c.Preferences_EVNT_MVN</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Preferences_and_Consent_GLBL__c-GLBL_Preferences_Private</layout>
-        <recordType>Preferences_and_Consent_GLBL__c.Preferences_Private_EVNT_MVN</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Pricebook2-Price Book Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -8301,6 +8914,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>User-User Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Web_Service_Error_GLBL__c-Web Service Error Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Web_Service_Logic_MERC__c-MERC_HCP_Info_Pack</layout>
@@ -8409,6 +9025,15 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
+        <object>CST_Picklist_CUST__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
         <object>CST_User_Log_CUST__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
@@ -8505,14 +9130,6 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>GLBL_rollupcalculate</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>GLBL_rollupsummaryenhanced</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>GLBL_rollupsummaryenhancednew</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -8669,10 +9286,6 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>MeetingEmailSend</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>MeetingEmailSend2_TEMP</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -9079,6 +9692,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ChatterInternalUser</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>PasswordNeverExpires</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
