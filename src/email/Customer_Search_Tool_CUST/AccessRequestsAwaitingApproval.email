@@ -1,3 +1,0 @@
-Dear {!NullValue(Contact.FirstName, "Manager")}, 
-You have received new access requests for users to access the Customer Search Tool. Please go here to view: 
-{!$Setup.Mercury_Settings_MERC__c.CST_URL_GLBL__c}/grantaccess
