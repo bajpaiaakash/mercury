@@ -46,8 +46,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Junction object between Account for the meeting vendors  (Hotel, Catering, Transportation, AV, Security) and the meeting
-Created by John A Adams 10/3/2013</description>
+    <description>Junction object between Account for the meeting vendors e.g. (Hotel, Catering, Transportation, AV, Security) and the meeting : MERC : Created on 10/03/2013 by John Adams, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
@@ -217,7 +216,7 @@ Created by John A Adams 10/10/2013</description>
         <type>AutoNumber</type>
     </nameField>
     <namedFilters>
-        <fullName>nf_01I110000008cyAEAQ_00N11000000PG6MEAW</fullName>
+        <fullName>nf_01Ib0000000ke1cEAA_00Nb0000009ae1yEAA</fullName>
         <active>false</active>
         <field>Travel_Itinerary_MERC__c.Meeting_Vendor_MERC__c</field>
         <filterItems>
@@ -226,7 +225,7 @@ Created by John A Adams 10/10/2013</description>
             <value>HOTEL_MERC</value>
         </filterItems>
         <isOptional>false</isOptional>
-        <name>Travel Itinerary_Meeting Vendor</name>
+        <name>nf_01Ib0000000ke1cEAA_00Nb0000009ae1yEAA</name>
     </namedFilters>
     <pluralLabel>Meeting Vendors</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
@@ -306,9 +305,9 @@ Created by John A Adams 10/10/2013</description>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
-        <fullName>Confirm_ToV_Reporting_Change_MERC</fullName>
+        <fullName>MERC_Confirm_ToV_Reporting_Change</fullName>
         <active>true</active>
-        <description>HCP Care to confirm if Hotel Room Rate is changed and ToV has already been reported. Created 01/08/2014 by KLorenti, Mavens Consulting</description>
+        <description>HCP Care to confirm if Hotel Room Rate is changed and ToV has already been reported : MERC : Created on 01/08/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>ISPICKVAL( Meeting_MERC__r.Participant_ToV_Final_MERC__c,&quot;Yes&quot;)  &amp;&amp;
 ISCHANGED( Room_Rate_MERC__c ) &amp;&amp;
 !Confirm_ToV_Reporting_Change_MERC__c</errorConditionFormula>
@@ -316,9 +315,9 @@ ISCHANGED( Room_Rate_MERC__c ) &amp;&amp;
         <errorMessage>ToV has already been reported for participants of this Meeting. Customer Meeting Services needs to confirm this change before it can be made.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Enter_blank_amount_MERC</fullName>
+        <fullName>MERC_Enter_blank_amount</fullName>
         <active>true</active>
-        <description>Prevent the ability to enter a blank amount as the Room Rate amount unless ToV has not been reported. Created 01/23/2014 by KLorenti, Mavens Consulting</description>
+        <description>Prevent the ability to enter a blank amount as the Room Rate amount unless ToV has not been reported : MERC : Created on 01/28/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>ISCHANGED(Room_Rate_MERC__c) &amp;&amp;
 ISBLANK(Room_Rate_MERC__c) &amp;&amp;
 (ISPICKVAL(Meeting_MERC__r.Participant_ToV_Final_MERC__c,&quot;Yes&quot;))</errorConditionFormula>
@@ -326,9 +325,9 @@ ISBLANK(Room_Rate_MERC__c) &amp;&amp;
         <errorMessage>You may not enter a blank value unless ToV has not been reported.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Enter_zero_amount_MERC</fullName>
+        <fullName>MERC_Enter_zero_amount</fullName>
         <active>true</active>
-        <description>Prevent the ability to enter 0.00 as the Room Rate amount unless ToV has been reported. Created 01/10/2014 by KLorenti, Mavens Consulting</description>
+        <description>Prevent the ability to enter 0.00 as the Room Rate amount unless ToV has been reported : MERC : Created on 01/10/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>ISCHANGED(Room_Rate_MERC__c) &amp;&amp;
 Room_Rate_MERC__c = 0.00 &amp;&amp;
 (ISPICKVAL(Meeting_MERC__r.Participant_ToV_Final_MERC__c,&quot;No&quot;) || ISPICKVAL(Meeting_MERC__r.Participant_ToV_Final_MERC__c,&quot;&quot;))</errorConditionFormula>
@@ -336,9 +335,9 @@ Room_Rate_MERC__c = 0.00 &amp;&amp;
         <errorMessage>You may not enter an amount of 0.00 unless ToV has already been reported. Please leave this value blank.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Prevent_Negative_Amount_MERC</fullName>
+        <fullName>MERC_Prevent_Negative_Amount</fullName>
         <active>true</active>
-        <description>Prevent a negative amount from being entered.</description>
+        <description>Prevent a negative amount from being entered : MERC : Created on 01/08/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>(ISCHANGED(Room_Rate_MERC__c) &amp;&amp;
 Room_Rate_MERC__c &lt; 0 )</errorConditionFormula>
         <errorDisplayField>Room_Rate_MERC__c</errorDisplayField>

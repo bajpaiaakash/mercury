@@ -5,8 +5,8 @@ private class MERC_MeetingTeamManagerControllerTest {
 	static {
 		System.runAs(new User(Id=UserInfo.getUserId()))
 		{
-			testUser = MERC_TestFactory.insertTestUsers(1, 'Mercury Meeting Functionary - Read Only').get(0);
-			testUser.userRoleId = [SELECT Id FROM UserRole Where Name = 'Global' LIMIT 1].Id;
+			testUser = MERC_TestFactory.insertTestUsers(1, 'GSO Basic User_Salesforce').get(0);
+			testUser.userRoleId = [SELECT Id FROM UserRole Where Name = 'CEO' LIMIT 1].Id;
 			update testUser;
 
 			List<PermissionSetAssignment> psa = new List<PermissionSetAssignment>();

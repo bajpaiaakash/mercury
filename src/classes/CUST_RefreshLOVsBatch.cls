@@ -1,5 +1,5 @@
 global class CUST_RefreshLOVsBatch implements Database.Batchable<sObject>, Database.Stateful {
-	
+
 	global String                    email;
 	global List<String>              errors;
 	global CST_App_Menu_Pool_GLBL__c pool;
@@ -33,7 +33,7 @@ global class CUST_RefreshLOVsBatch implements Database.Batchable<sObject>, Datab
 		}
 		query = query.removeEnd('OR ') + ')';
 		query = query.removeEnd('()');
-		query = query.removeEnd('AND ');		
+		query = query.removeEnd('AND ');
 	}
 
 	global Database.QueryLocator start(Database.BatchableContext BC) {
@@ -90,7 +90,7 @@ global class CUST_RefreshLOVsBatch implements Database.Batchable<sObject>, Datab
 		return query;
 	}
 
-	void addNewValues(String f, sObject o, CUST_RefreshLOVsUtil.ObjToken tk) { 
+	void addNewValues(String f, sObject o, CUST_RefreshLOVsUtil.ObjToken tk) {
 		String val = String.valueOf(o.get(f));
 		if (val==null || val.trim()=='') return;
 
@@ -101,7 +101,7 @@ global class CUST_RefreshLOVsBatch implements Database.Batchable<sObject>, Datab
 		}
 		return;
 	}
-	
+
 	global void finish(Database.BatchableContext BC) {
 		String valueCollectionWarning = '';
 
@@ -132,7 +132,7 @@ global class CUST_RefreshLOVsBatch implements Database.Batchable<sObject>, Datab
 
 		if (a.Status=='Failed') status += '/n/n/n'+a.ExtendedStatus+'/n/n/n'+errors;
 
-		if (!Test.isRunningTest()) {
+		//if (!Test.isRunningTest()) {
 			Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
 			List<String> toAddresses = new List<String>{a.CreatedBy.Email};
 			if (email!=null) toAddresses.add(email);
@@ -141,7 +141,7 @@ global class CUST_RefreshLOVsBatch implements Database.Batchable<sObject>, Datab
 			mail.setHtmlBody(status + '<br/><br/>'+valueCollectionWarning+ '<br/><br/>Errors:<br />'+errors);
 			mail.setPlainTextBody(status);
 			Messaging.sendEmail(new Messaging.SingleEmailMessage[] { mail });
-		}
+		//}
 
 		pool.Last_Job_Status_GLBL__c = status;
 		upsert pool;

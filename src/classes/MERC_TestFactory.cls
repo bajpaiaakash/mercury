@@ -15,8 +15,8 @@ public with sharing class MERC_TestFactory {
 		insert settings;
 
 		List<Content_Library_Lookup_MERC__c> contentLookupSettings = Test.loadData(Content_Library_Lookup_MERC__c.sObjectType, 'ContentLibraryLookup_MERC');
-
 		List<Account_Merge_Related_Lists_MERC__c> mergeSettings = Test.loadData(Account_Merge_Related_Lists_MERC__c.sObjectType, 'AccountMergeSettings_MERC');
+		List<CST_App_Settings_CUST__c> cstSettings = Test.loadData(CST_App_Settings_CUST__c.sObjectType, 'CST_Test_Settings');
 	}
 
 	public static void loadTimeZoneFieldMapSettings() {
@@ -413,7 +413,7 @@ public with sharing class MERC_TestFactory {
 			rUser = insertTestUsers(1, null).get(0);
 			PermissionSet ps = [SELECT Id FROM PermissionSet WHERE Name='Mercury_Customer_Meeting_Services_Edit' limit 1];
 			insert new PermissionSetAssignment(PermissionSetId=ps.Id, AssigneeId=rUser.id);
-			update new User(id=rUser.Id, UserRoleId=[SELECT Id FROM UserRole WHERE Name='Global' limit 1].id);
+			update new User(id=rUser.Id, UserRoleId=[SELECT Id FROM UserRole WHERE Name='CEO' limit 1].id);
 		}
 
 		return rUser;
@@ -423,7 +423,7 @@ public with sharing class MERC_TestFactory {
 		List<User> users = new List<User>();
 
 		if (profileName == null) {
-			profileName = 'Mercury Customer Meeting Services - Read Only';
+			profileName = 'GSO Basic User_Salesforce';
 		}
 
         Profile p = [SELECT id from Profile WHERE Profile.Name =  :profileName limit 1];

@@ -42,7 +42,7 @@ private class MERC_MeetingContentStampHandlerTest {
 	@isTest static void test_product_fields_are_populated() {
 
 		List<ContentVersion> cvList = new List<ContentVersion>();
-		Id libraryId =  [select Id from ContentWorkspace WHERE Name = 'GB - Public'].Id;
+		Id libraryId =  [select Id from ContentWorkspace WHERE Name = 'Mercury'].Id;
 		for (Integer i=0; i<200; i++)
 		{
 			ContentVersion cv         = new ContentVersion();

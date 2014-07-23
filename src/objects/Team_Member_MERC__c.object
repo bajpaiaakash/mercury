@@ -46,7 +46,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Stores list of Team Members that can be associated to a Meeting. Can be Users or Person Accounts. Created on 9/27/2013 by KLorenti.</description>
+    <description>Stores list of Team Members that can be associated to a Meeting. Can be Users or Person Accounts. Grants a Mercury Sharing Rule for Meeting and gives Sales Representatives access to Veeva Meetings. Integrates with Veeva : MERC : Created on 09/27/2013 by Katy Lorenti, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
@@ -224,27 +224,23 @@ Created by John A Adams 1/10/2014</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Primary Meeting Owner</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Meeting Owner</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Meeting Planning Company</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Customer Facing Team</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Travel Agent</fullName>
+                <fullName>Final Budget Approver</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Local CMS Team</fullName>
+                <fullName>Home Approver</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Host Approver</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>International Event Approver</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -252,11 +248,7 @@ Created by John A Adams 1/10/2014</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Onsite Attendance Checker</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Final Budget Approver</fullName>
+                <fullName>Local CMS Team</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -268,10 +260,26 @@ Created by John A Adams 1/10/2014</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>International Event Approver</fullName>
+                <fullName>Meeting Owner</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
+            <picklistValues>
+                <fullName>Meeting Planning Company</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Onsite Attendance Checker</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Primary Meeting Owner</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Travel Agent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -383,6 +391,14 @@ Created by John A Adams 1/10/2014</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Home Approver</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Host Approver</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>International Event Approver</fullName>
                 <default>false</default>
             </values>
@@ -451,15 +467,16 @@ Created by John A Adams 1/10/2014</description>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
-        <fullName>Mercury_User_or_External_User_MERC</fullName>
+        <fullName>MERC_Mercury_User_or_External_User</fullName>
         <active>true</active>
+        <description>Ensures either a user or employee is selected  : MERC : Created on 01/08/2014 by John Adams, Mavens Consulting</description>
         <errorConditionFormula>Account_MERC__c != &apos;&apos; &amp;&amp;  User_MERC__c != &apos;&apos;</errorConditionFormula>
         <errorMessage>A Team Member must be associated with either an External Account or a Mercury User.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Single_Primary_Meeting_Owner_MERC</fullName>
+        <fullName>MERC_Single_Primary_Meeting_Owner</fullName>
         <active>true</active>
-        <description>Should only have one Primary Meeting Owner</description>
+        <description>Should only have one Primary Meeting Owner : MERC : Created on 01/08/2014 by John Adams, Mavens Consulting</description>
         <errorConditionFormula>ISPICKVAL( Role_MERC__c,&quot;Primary Meeting Owner&quot; ) &amp;&amp; Meeting_MERC__r.Prmry_Mtng_Ownr_Nm_MERC__c  &lt;&gt; &quot;&quot; &amp;&amp;  Meeting_MERC__r.Meeting_Owner_Email_MERC__c  &lt;&gt;  User_MERC__r.Email</errorConditionFormula>
         <errorDisplayField>Role_MERC__c</errorDisplayField>
         <errorMessage>Only one team member can be the Primary Meeting Owner. Please chose a different role for this or existing team member.</errorMessage>

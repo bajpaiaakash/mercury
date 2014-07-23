@@ -46,8 +46,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Contains contract details between Lilly and event speakers. 
-Created by John A Adams 10/2/2013</description>
+    <description>Contains contract details between Lilly and Service Providers, also Integrates with DocuSign for Digital Signature  : MERC : Created on 10/02/2013 by John Adams, Mavens Consulting</description>
     <enableActivities>true</enableActivities>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
@@ -305,6 +304,15 @@ Created by John A Adams 10/17/2013</description>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Docusign_Envelope_URL_MERC__c</fullName>
+        <externalId>false</externalId>
+        <label>Docusign Envelope URL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
     </fields>
     <fields>
         <fullName>Institution_MERC__c</fullName>
@@ -638,7 +646,7 @@ Created by John A Adams 10/17/2013</description>
         <type>AutoNumber</type>
     </nameField>
     <namedFilters>
-        <fullName>nf_01I11000000Ck6cEAC_00N11000000T7RqEAK</fullName>
+        <fullName>nf_01Ib0000000kduLEAQ_00Nb0000009ac1BEAQ</fullName>
         <active>true</active>
         <field>HCP_Contract_MERC__c.MSA_MERC__c</field>
         <filterItems>
@@ -647,7 +655,7 @@ Created by John A Adams 10/17/2013</description>
             <value>Master Service Agreement</value>
         </filterItems>
         <isOptional>false</isOptional>
-        <name>HCP Contract_MSA</name>
+        <name>nf_01Ib0000000kduLEAQ_00Nb0000009ac1BEAQ</name>
     </namedFilters>
     <pluralLabel>HCP Contracts</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
@@ -1041,9 +1049,9 @@ Created by John A Adams 10/17/2013</description>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
-        <fullName>Prevents_creating_more_than_one_HCP_Cont</fullName>
+        <fullName>MERC_Prevents_creating_dupe_Contracts</fullName>
         <active>true</active>
-        <description>Prevents creating more than one HCP Contract for a meeting participant.</description>
+        <description>Prevents creating more than one HCP Contract for a meeting participant : MERC : Created on 03/05/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>(ISNEW()  &amp;&amp; Meeting_Participant_MERC__r.Number_of_Contracts_MERC__c &gt; 0.00)</errorConditionFormula>
         <errorMessage>There is already a contract created for this Meeting Participant.</errorMessage>
     </validationRules>

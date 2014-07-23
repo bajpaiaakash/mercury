@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
     <fieldSets>
@@ -451,10 +455,6 @@ HCP_Contract_MERC__r.MSA_Start_Date_MERC__c,  HCP_Contract_MERC__r.Meeting_Name_
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Service Rendered Documents </fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>HCP Transparency Reporting Consent (filled version by HCP)</fullName>
                 <default>false</default>
             </picklistValues>
@@ -483,7 +483,7 @@ HCP_Contract_MERC__r.MSA_Start_Date_MERC__c,  HCP_Contract_MERC__r.Meeting_Name_
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Co-Pay Invoicing</fullName>
+                <fullName>Off-System Approval Documents</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -568,6 +568,10 @@ HCP_Contract_MERC__r.MSA_Start_Date_MERC__c,  HCP_Contract_MERC__r.Meeting_Name_
             </picklistValues>
             <picklistValues>
                 <fullName>Meeting Exceptions</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Rendered Documents</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -704,7 +708,6 @@ HCP_Contract_MERC__r.MSA_Start_Date_MERC__c,  HCP_Contract_MERC__r.Meeting_Name_
     </fields>
     <fields>
         <fullName>OwnerId</fullName>
-        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -800,7 +803,7 @@ HCP_Contract_MERC__r.MSA_Start_Date_MERC__c,  HCP_Contract_MERC__r.Meeting_Name_
                 <default>false</default>
             </values>
             <values>
-                <fullName>Service%C2%A0Rendered Documents%C2%A0</fullName>
+                <fullName>Service%C2%A0Rendered Documents</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -904,10 +907,6 @@ HCP_Contract_MERC__r.MSA_Start_Date_MERC__c,  HCP_Contract_MERC__r.Meeting_Name_
                 <default>false</default>
             </values>
             <values>
-                <fullName>Co-Pay Invoicing</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>HCP Exceptions</fullName>
                 <default>false</default>
             </values>
@@ -921,6 +920,14 @@ HCP_Contract_MERC__r.MSA_Start_Date_MERC__c,  HCP_Contract_MERC__r.Meeting_Name_
             </values>
             <values>
                 <fullName>Meeting Exceptions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting Minutes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Off-System Approval Documents</fullName>
                 <default>false</default>
             </values>
             <values>

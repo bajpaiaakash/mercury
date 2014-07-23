@@ -10,78 +10,79 @@
 */
 @isTest
 private class MERC_InvoiceXmlControllerTest {
-	
-	static List<Account> accounts;
-	static List<Meeting_MERC__c> meetings;
-	static List<Meeting_Participant_MERC__c> participants;
-	static List<Invoice_MERC__c> invoices;
-	static List<Invoice_Line_Item_MERC__c> lineItems;
-	static Integer numOfLineItems;
-	static String testString;
+    
+    static List<Account> accounts;
+    static List<Meeting_MERC__c> meetings;
+    static List<Meeting_Participant_MERC__c> participants;
+    static List<Invoice_MERC__c> invoices;
+    static List<Invoice_Line_Item_MERC__c> lineItems;
+    static Integer numOfLineItems;
+    static String testString;
 
-	static {
-		accounts = MERC_TestFactory.insertAccounts(1);
-		meetings = MERC_TestFactory.insertMeetings(1);
-		participants = MERC_TestFactory.insertParticipants(meetings[0].Id, accounts);
-		invoices = MERC_TestFactory.insertInvoices(participants);
+    static {
+        accounts = MERC_TestFactory.insertAccounts(1);
+        meetings = MERC_TestFactory.insertMeetings(1);
+        participants = MERC_TestFactory.insertParticipants(meetings[0].Id, accounts);
+        invoices = MERC_TestFactory.insertInvoices(participants);
 
-		numOfLineItems = 2;
-		for (Meeting_Participant_MERC__c p : participants) {
-			p.Services_Rendered_MERC__c = 'Yes';
-		}
-		update participants;
-		lineItems = MERC_TestFactory.insertInvoiceLineItems(invoices[0].Id,numOfLineItems);
+        numOfLineItems = 2;
+        for (Meeting_Participant_MERC__c p : participants) {
+            p.Services_Rendered_MERC__c = 'Yes';
+        }
+        update participants;
+        lineItems = MERC_TestFactory.insertInvoiceLineItems(invoices[0].Id,numOfLineItems);
 
-		testString = 'MERC_InvoiceXmlControllerTest';
-	}
+        testString = 'MERC_InvoiceXmlControllerTest';
+    }
 
-	/*
-	 *	Call the page and make sure each section appears
-	 */
-	@isTest static void testEachSectionAppearsExceptTif() {
-		PageReference ref = Page.MERC_InvoiceAFIXML;
-		Test.setCurrentPage(ref);
+    /*
+     *  Call the page and make sure each section appears
+     */
+    @isTest static void testEachSectionAppearsExceptTif() {
+        PageReference ref = Page.MERC_InvoiceAFIXML;
+        Test.setCurrentPage(ref);
 
-		Test.startTest();
-		MERC_InvoiceXmlController controller = new MERC_InvoiceXmlController(new ApexPages.StandardController(invoices[0]));
+        Test.startTest();
+        MERC_InvoiceXmlController controller = new MERC_InvoiceXmlController(new ApexPages.StandardController(invoices[0]));
+        Test.stopTest();
 
-		System.assertEquals(controller.invoiceLines.size(), numOfLineItems,'Expected '+numOfLineItems+'but got '+
-			controller.invoiceLines.size()+'. line items are: '+controller.invoiceLines);
+        System.assertEquals(controller.invoiceLines.size(), numOfLineItems,'Expected '+numOfLineItems+'but got '+
+            controller.invoiceLines.size()+'. line items are: '+controller.invoiceLines);
 
-		System.assert(controller.cdataLines != null && controller.cdataLines != '','cdataLines appears incomplete? : '+controller.cdataLines);
+        System.assert(controller.cdataLines != null && controller.cdataLines != '','cdataLines appears incomplete? : '+controller.cdataLines);
 
-		System.assert(controller.scannedTifSection==null,'There shouldn\'t be a TIF section but there is?? : '+controller.scannedTifSection);
-	}
+        System.assert(controller.scannedTifSection==null,'There shouldn\'t be a TIF section but there is?? : '+controller.scannedTifSection);
+    }
 
-	/*
-	 * An optional TIF section is driven by the presence of specific Content.
-	 * Vote for this Idea: https://success.salesforce.com/ideaView?id=08730000000ZWp2AAG
-	 */
-	@isTest static void testTifSection() {
+    /*
+     * An optional TIF section is driven by the presence of specific Content.
+     * Vote for this Idea: https://success.salesforce.com/ideaView?id=08730000000ZWp2AAG
+     */
+    @isTest static void testTifSection() {
 
-		ContentVersion tifObjInsert = new ContentVersion();
-		tifObjInsert.VersionData = Blob.valueOf('12345678');
-		tifObjInsert.PathOnClient = invoices[0].Id + '.tif';
-		insert tifObjInsert;
+        ContentVersion tifObjInsert = new ContentVersion();
+        tifObjInsert.VersionData = Blob.valueOf('12345678');
+        tifObjInsert.PathOnClient = invoices[0].Id + '.tif';
+        insert tifObjInsert;
 
-		ContentVersion tifObj= [SELECT ContentDocumentId FROM ContentVersion where Id = :tifObjInsert.Id];
-		ContentWorkspace library = [SELECT Id FROM ContentWorkspace where Name = 'Mercury' LIMIT 1];
+        ContentVersion tifObj= [SELECT ContentDocumentId FROM ContentVersion where Id = :tifObjInsert.Id];
+        ContentWorkspace library = [SELECT Id FROM ContentWorkspace where Name = 'Mercury' LIMIT 1];
 
-		ContentWorkspaceDoc docLink = new ContentWorkspaceDoc();
-		docLink.ContentWorkspaceId = library.Id;
-		docLink.ContentDocumentId = tifObj.ContentDocumentId;
-		insert docLink;
+        ContentWorkspaceDoc docLink = new ContentWorkspaceDoc();
+        docLink.ContentWorkspaceId = library.Id;
+        docLink.ContentDocumentId = tifObj.ContentDocumentId;
+        insert docLink;
 
-		tifObj.Invoice_MERC__c = invoices[0].Id;
-		tifObj.Title = invoices[0].Id + '.tif';
-		update tifObj;
+        tifObj.Invoice_MERC__c = invoices[0].Id;
+        tifObj.Title = invoices[0].Id + '.tif';
+        update tifObj;
 
-		PageReference ref = Page.MERC_InvoiceAFIXML;
-		Test.setCurrentPage(ref);
+        PageReference ref = Page.MERC_InvoiceAFIXML;
+        Test.setCurrentPage(ref);
 
-		Test.startTest();
-		MERC_InvoiceXmlController controller = new MERC_InvoiceXmlController(new ApexPages.StandardController(invoices[0]));
+        Test.startTest();
+        MERC_InvoiceXmlController controller = new MERC_InvoiceXmlController(new ApexPages.StandardController(invoices[0]));
 
-		System.assert(controller.scannedTifSection!=null,'There should be a TIF section but it is null');
-	}
+        System.assert(controller.scannedTifSection!=null,'There should be a TIF section but it is null');
+    }
 }

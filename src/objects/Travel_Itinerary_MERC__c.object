@@ -53,8 +53,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Details of travel arrangements - child of Meeting Participant object.
-Created by John A Adams 10/9/2013</description>
+    <description>Stores Travel Itineraries for HCPs attending Meetings : MERC, CUST : Created on 10/09/2013 by John Adams, Mavens Consulting</description>
     <enableActivities>true</enableActivities>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
@@ -418,9 +417,8 @@ Created by John A Adams 12/13/2013</description>
         <fullName>Combined_ID_MERC__c</fullName>
         <description>Checks for duplicate Hotel Travel Itinerary Values. Gets stamped in Force Unique Travel Itinerary field by workflow.  Created 06/04/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <formula>IF (RecordType.DeveloperName = &quot;Hotel_MERC&quot;,  RecordType.Name &amp; &quot;-&quot; &amp;   Meeting_Participant_MERC__r.Name    &amp; &quot;-&quot; &amp;  
- Meeting_Vendor_MERC__r.Name  , Id)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <formula>IF (RecordType.DeveloperName = &quot;Hotel_MERC&quot;,  RecordTypeId &amp; &quot;-&quot; &amp; Meeting_Participant_MERC__c &amp; &quot;-&quot; &amp;  
+  Meeting_Vendor_MERC__c , Id)</formula>
         <label>Combined ID</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -615,7 +613,7 @@ Created by John A Adams 12/13/2013</description>
     </fields>
     <fields>
         <fullName>Force_Unique_Travel_Itinerary_MERC__c</fullName>
-        <caseSensitive>false</caseSensitive>
+        <caseSensitive>true</caseSensitive>
         <description>Populated by workflow to detect duplicate travel itinerary records. Created 06/04/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Force Unique Travel Itinerary</label>
@@ -739,6 +737,16 @@ Created by John A Adams 12/13/2013</description>
         <externalId>false</externalId>
         <formula>IF( ISPICKVAL(Status_MERC__c, &quot;Confirmed&quot;), TRUE, FALSE)</formula>
         <label>Include ToV</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Individual_Travel_ToV_Applicable_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Once checked this record will be picked up and go toward the meeting participants Ground Transportation ToV for that specific Meeting Day (assuming a meeting day exists) : MERC : Created on 23/07/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check this field to include this record as Individual Ground Transportation ToV for Individual Travel during a meeting.  This will combined with any group Ground Transportation ToV attributed for the meeting day for this meeting participant.</inlineHelpText>
+        <label>Individual Travel ToV Applicable</label>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -879,15 +887,6 @@ Created by John A Adams 12/13/2013</description>
         <description>Lookup Relationship to Meeting Vendor. Created 12/5/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Meeting Vendor</label>
-        <lookupFilter>
-            <active>false</active>
-            <filterItems>
-                <field>Meeting_Vendor_MERC__c.RecordType.DeveloperName</field>
-                <operation>equals</operation>
-                <value>HOTEL_MERC</value>
-            </filterItems>
-            <isOptional>false</isOptional>
-        </lookupFilter>
         <referenceTo>Meeting_Vendor_MERC__c</referenceTo>
         <relationshipLabel>Travel Itineraries</relationshipLabel>
         <relationshipName>Travel_Itineraries</relationshipName>
@@ -2587,13 +2586,32 @@ Created by John A Adams 12/13/2013</description>
     <validationRules>
         <fullName>Confirm_ToV_Reporting_Change_MERC</fullName>
         <active>true</active>
-        <description>If ToV has already been reported for the meeting participant, HCP Care needs to confirm the change to the hotel dates.</description>
-        <errorConditionFormula>RecordType.DeveloperName = &quot;Hotel_MERC&quot; &amp;&amp;
-! Confirm_ToV_Reporting_Change_MERC__c &amp;&amp;
+        <description>If ToV has already been reported for the meeting participant, HCP Care needs to confirm the change to the hotel and Individual Travel Fields that can effect ToV.</description>
+        <errorConditionFormula>!Confirm_ToV_Reporting_Change_MERC__c &amp;&amp;
 ISPICKVAL( Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c , &quot;Yes&quot;) &amp;&amp;
 (
-		(ISCHANGED( Sgmnt_Bgin_TS_MERC__c ) || ISCHANGED( Sgmnt_End_TS_MERC__c )) ||
+	(
+		(RecordType.DeveloperName = &quot;Hotel_MERC&quot; &amp;&amp; 
+		(ISCHANGED( Sgmnt_Bgin_TS_MERC__c ) || 
+		ISCHANGED( Sgmnt_End_TS_MERC__c )) ||
+		ISCHANGED(  Meeting_Vendor_MERC__c ) ||	
+		(ISCHANGED( Status_MERC__c ) &amp;&amp; 
+		ISPICKVAL( Status_MERC__c , &quot;Cancelled&quot;)))
+	)
+
+|| 
+
+	(
+		( Individual_Travel_ToV_Applicable_MERC__c = TRUE &amp;&amp;
+		(RecordType.DeveloperName = &quot;Bus&quot;) || 
+		(RecordType.DeveloperName = &quot;Car_MERC&quot;) || 
+		(RecordType.DeveloperName = &quot;Rail_MERC&quot;)) &amp;&amp; 
+		(ISCHANGED( Sgmnt_Bgin_TS_MERC__c ) || 
+		ISCHANGED( Sgmnt_End_TS_MERC__c )) ||
+		(ISCHANGED( Total_Fare_Amount_MERC__c ) ||
 		(ISCHANGED( Status_MERC__c ) &amp;&amp; ISPICKVAL( Status_MERC__c , &quot;Cancelled&quot;))
+		)
+	)
 )</errorConditionFormula>
         <errorDisplayField>Confirm_ToV_Reporting_Change_MERC__c</errorDisplayField>
         <errorMessage>ToV has already been reported this meeting participant. Customer Meeting Services needs to confirm this change before it can be made.</errorMessage>

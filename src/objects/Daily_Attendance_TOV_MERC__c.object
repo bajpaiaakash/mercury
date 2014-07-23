@@ -46,7 +46,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Junction object between Meeting Days and Meeting Participants. Created on 10/10/2013 by Mavens Consulting.</description>
+    <description>Junction object between Meeting Days and Meeting Participants, stores a breakdown of Daily ToV which is picked up by the AODS Interface : MERC : Created on 10/10/2013 by John Adams, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
@@ -64,7 +64,15 @@
     <fields>
         <fullName>Est_Food_Bev_ToV_MERC__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Status_MERC__c,&quot;Attended&quot;), Meeting_Day_MERC__r.Daily_Food_Beverage_Amount_MERC__c, null)</formula>
+        <formula>IF(ISPICKVAL(Status_MERC__c,&quot;Attended&quot;), Meeting_Day_MERC__r.Daily_Food_Beverage_Amount_MERC__c, 
+		(IF(
+			(ISPICKVAL(Status_MERC__c,&quot;No Show&quot;) &amp;&amp; 
+			(ISPICKVAL(Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c , &quot;Yes&quot;)) &amp;&amp; 
+			(Meeting_Day_MERC__r.Daily_Food_Beverage_Amount_MERC__c &gt; 0) &amp;&amp; 
+			(Status_Change_Post_ToV_Final_MERC__c = TRUE))
+		,0, NULL)
+	)
+)</formula>
         <label>Food and Beverage ToV</label>
         <precision>18</precision>
         <required>false</required>
@@ -74,9 +82,42 @@
     </fields>
     <fields>
         <fullName>Est_Grnd_Transp_MERC__c</fullName>
+        <description>Combined both Group and Individual Travel ToV for reporting into AODS : MERC : Created on 23/07/2014 by Oliver Dunford, Mavens Consulting</description>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Status_MERC__c,&quot;Attended&quot;),Meeting_Day_MERC__r.Daily_Ground_Trans_Amount_MERC__c, null)</formula>
+        <formula>/* If both are not null then add them together/*
+/* but if at least one of them is null then check if Individual transfer is null, if it&apos;s not, then return it*/
+/* if individual transfer is null then group ground might not be. if it isn&apos;t return it, if not both are null and return null */
+IF ( NOT(ISBLANK(Est_Indv_Transfer_MERC__c)) &amp;&amp;  NOT(ISBLANK(Est_Grp_Grnd_Transp_MERC__c)),
+     Est_Indv_Transfer_MERC__c + Est_Grp_Grnd_Transp_MERC__c,
+     IF ( NOT(ISBLANK(Est_Indv_Transfer_MERC__c)),
+          Est_Indv_Transfer_MERC__c,
+          IF ( NOT(ISBLANK(Est_Grp_Grnd_Transp_MERC__c)),
+               Est_Grp_Grnd_Transp_MERC__c,
+               null
+          )
+     )
+)</formula>
         <label>Ground Transportation TOV</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Est_Grp_Grnd_Transp_MERC__c</fullName>
+        <description>Stores all Group Ground Transportation ToV for meetings : MERC : Created on 23/07/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(Status_MERC__c,&quot;Attended&quot;), Meeting_Day_MERC__r.Daily_Ground_Trans_Amount_MERC__c, 
+		(IF(
+			(ISPICKVAL(Status_MERC__c,&quot;No Show&quot;) &amp;&amp; 
+			(ISPICKVAL(Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c , &quot;Yes&quot;)) &amp;&amp; 
+			(Meeting_Day_MERC__r.Daily_Ground_Trans_Amount_MERC__c &gt; 0) &amp;&amp; 
+			(Status_Change_Post_ToV_Final_MERC__c = TRUE))
+		,0, NULL)
+	)
+)</formula>
+        <label>Group Ground Transportation TOV</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -95,12 +136,27 @@
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>Est_Indv_Transfer_MERC__c</fullName>
+        <description>Total for all Individual Travel ToV will be captured here, driven from Individual Travel ToV Records : MERC : Created on 23/07/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Individual Travel ToV</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>Est_Reg_Amt_ToV_MERC__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(
-    TEXT( Meeting_Participant_MERC__r.Status_MERC__c ) == &quot;Attended&quot;
-    , Meeting_Day_MERC__r.Daily_Registration_Amount_MERC__c
-    , null
+        <formula>IF(ISPICKVAL(Meeting_Participant_MERC__r.Status_MERC__c,&quot;Attended&quot;), Meeting_Day_MERC__r.Daily_Registration_Amount_MERC__c, 
+		(IF(
+			(ISPICKVAL(Meeting_Participant_MERC__r.Status_MERC__c,&quot;No Show&quot;) &amp;&amp; 
+			(ISPICKVAL(Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c , &quot;Yes&quot;)) &amp;&amp; 
+			(Meeting_Day_MERC__r.Daily_Registration_Amount_MERC__c &gt; 0) &amp;&amp; 
+			(Status_Change_Post_ToV_Final_MERC__c = TRUE))
+		,0, NULL)
+	)
 )</formula>
         <label>Registration Amount ToV</label>
         <precision>18</precision>
@@ -230,6 +286,15 @@ Created by John A Adams 10/10/2013</description>
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>Status_Change_Post_ToV_Final_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Tracks whether the Daily Attendance Status has changed post AODS ToV being sent.  Oliver Dunford 18th Jun 2014.</description>
+        <externalId>false</externalId>
+        <label>Status Change Post ToV Final</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Status_MERC__c</fullName>
         <description>Used to report across daily meeting attendance for HCP&apos;s. Oliver Dunford 6th Nov  2013.</description>
         <externalId>false</externalId>
@@ -277,9 +342,9 @@ Created by John A Adams 10/10/2013</description>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
-        <fullName>Confirm_ToV_Reporting_Change_MERC</fullName>
+        <fullName>MERC_Confirm_ToV_Reporting_Change</fullName>
         <active>true</active>
-        <description>If a change is made to a Daily Attendance &amp; ToV record and the ToV is already reported, HCP Care needs to confirm the change. Created 01/07/2014 by KLorenti, Mavens Consulting</description>
+        <description>If a change is made to a Daily Attendance &amp; ToV record and the ToV is already reported, HCP Care needs to confirm the change : MERC : Created on 01/07/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>ISPICKVAL(Meeting_Day_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c,&quot;Yes&quot;) &amp;&amp;
 ISCHANGED(Status_MERC__c ) &amp;&amp;  !Confirm_ToV_Reporting_Change_MERC__c</errorConditionFormula>
         <errorDisplayField>Confirm_ToV_Reporting_Change_MERC__c</errorDisplayField>

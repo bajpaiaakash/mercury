@@ -1,9 +1,9 @@
 @isTest
 private class MERC_MeetingParticipantNewEditCtrlTest {
-    
+
     static List<Account> accounts;
     static List<Meeting_MERC__c> meetings;
-
+    static User testUser = MERC_TestFactory.getRunningUser();
     static {
         accounts = MERC_TestFactory.insertAccounts(1); //insert 1 account
         meetings = MERC_TestFactory.insertMeetings(1); //insert 1 meeting
@@ -13,11 +13,12 @@ private class MERC_MeetingParticipantNewEditCtrlTest {
         system.assertEquals(0, [SELECT count() FROM Meeting_Participant_MERC__c]);
 
         PageReference ref = Page.MERC_MeetingParticipantNewEdit;
+        ref.getParameters().put('RecordType', [SELECT ID FROM RecordType WHERE SObjectType = 'Meeting_Participant_MERC__c' AND DeveloperName = 'Service_Provider_MERC'].Id);
         Test.setCurrentPage(ref);
 
         Meeting_Participant_MERC__c newMeetingParticipant = new Meeting_Participant_MERC__c();
         newMeetingParticipant.Meeting_MERC__c = meetings.get(0).Id;
-        newMeetingParticipant.RecordTypeId = [SELECT ID FROM RecordType WHERE SObjectType = 'Meeting_Participant_MERC__c' AND DeveloperName = 'Service_Provider_MERC'].ID;
+        //newMeetingParticipant.RecordTypeId = [SELECT ID FROM RecordType WHERE SObjectType = 'Meeting_Participant_MERC__c' AND DeveloperName = 'Service_Provider_MERC'].ID;
 
         ApexPages.StandardController standardController = new ApexPages.StandardController(newMeetingParticipant);
         MERC_MeetingParticipantNewEditController controller = new MERC_MeetingParticipantNewEditController(standardController);
@@ -44,7 +45,7 @@ private class MERC_MeetingParticipantNewEditCtrlTest {
         system.assertEquals(0, [SELECT count() FROM Meeting_Participant_MERC__c]);
         Meeting_Participant_MERC__c existingMeetingParticipant = MERC_TestFactory.insertParticipants(meetings.get(0).Id, accounts)[0];
 
-        system.debug('meeting partiicpant id: '+existingMeetingParticipant.Id);
+        system.debug('meeting particpant id: '+existingMeetingParticipant.Id);
 
         PageReference ref = Page.MERC_MeetingParticipantNewEdit;
         ref.getParameters().put('id', existingMeetingParticipant.Id);
@@ -56,7 +57,7 @@ private class MERC_MeetingParticipantNewEditCtrlTest {
         system.assertNotEquals(null, controller.meetingParticipant.Id);
 
         controller.meetingParticipant.Air_Travel_Required_MERC__c = 'Yes';
-        
+
         PageReference p = controller.save();
         system.debug('=====>');
         system.debug(controller.meetingParticipant);
@@ -70,5 +71,38 @@ private class MERC_MeetingParticipantNewEditCtrlTest {
 
     }
 
-    
+    @isTest static void testAjaxUpdateFail() {
+        System.runAs(testUser) {
+            Meeting_Participant_MERC__c existingMeetingParticipant = MERC_TestFactory.insertParticipants(meetings.get(0).Id, accounts)[0];
+
+            PageReference ref = Page.MERC_MeetingParticipantNewEdit;
+            ref.getParameters().put('id', existingMeetingParticipant.Id);
+            Test.setCurrentPage(ref);
+
+            ApexPages.StandardController standardController = new ApexPages.StandardController(existingMeetingParticipant);
+            MERC_MeetingParticipantNewEditController controller = new MERC_MeetingParticipantNewEditController(standardController);
+
+            //force update error
+            Test.setReadOnlyApplicationMode(true);
+            controller.ajaxUpdate();
+            System.assert(!ApexPages.getMessages().isEmpty());
+        }
+    }
+
+    @isTest static void testsubmitFormViaAjaxJavaScriptMethod() {
+        System.runAs(testUser) {
+            Meeting_Participant_MERC__c existingMeetingParticipant = MERC_TestFactory.insertParticipants(meetings.get(0).Id, accounts)[0];
+
+            PageReference ref = Page.MERC_MeetingParticipantNewEdit;
+            ref.getParameters().put('id', existingMeetingParticipant.Id);
+            Test.setCurrentPage(ref);
+
+            ApexPages.StandardController standardController = new ApexPages.StandardController(existingMeetingParticipant);
+            MERC_MeetingParticipantNewEditController controller = new MERC_MeetingParticipantNewEditController(standardController);
+
+            System.assertEquals('submitFormViaAjax', controller.submitFormViaAjaxJavaScriptMethod);
+        }
+    }
+
+
 }

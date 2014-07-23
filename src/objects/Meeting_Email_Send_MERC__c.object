@@ -94,6 +94,179 @@
         <type>Percent</type>
     </fields>
     <fields>
+        <fullName>ET_Business_Unit_MERC__c</fullName>
+        <externalId>false</externalId>
+        <label>ET Business Unit</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ET_Data_Extension_Id_MERC__c</fullName>
+        <externalId>false</externalId>
+        <label>ET Data Extension Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ET_Dedupe_Subscribers_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>ET Dedupe Subscribers</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ET_Email_ID_MERC__c</fullName>
+        <externalId>false</externalId>
+        <label>ET Email ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ET_Email_Name_MERC__c</fullName>
+        <externalId>false</externalId>
+        <label>ET Email Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ET_From_Address_MERC__c</fullName>
+        <externalId>false</externalId>
+        <label>ET From Address</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ET_From_Email_MERC__c</fullName>
+        <externalId>false</externalId>
+        <label>ET From Email</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ET_From_Name_MERC__c</fullName>
+        <externalId>false</externalId>
+        <label>ET From Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ET_Individual_Tracking_Disabled_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>ET Individual Tracking Disabled</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ET_Recipients_Opted_In_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>ET Recipients Opted In</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ET_Reply_To_MERC__c</fullName>
+        <externalId>false</externalId>
+        <label>ET Reply To</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ET_Send_Definition_MERC__c</fullName>
+        <externalId>false</externalId>
+        <label>ET Send Definition</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ET_Sender_Profile_Id_MERC__c</fullName>
+        <externalId>false</externalId>
+        <label>ET Sender Profile Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ET_Subject_Line_MERC__c</fullName>
+        <externalId>false</externalId>
+        <label>ET Subject Line</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ET_Subject_MERC__c</fullName>
+        <externalId>false</externalId>
+        <label>ET Subject</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ET_Sync_Id_MERC__c</fullName>
+        <externalId>false</externalId>
+        <label>ET Sync Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ET_Thumbnail_MERC__c</fullName>
+        <externalId>false</externalId>
+        <label>ET Thumbnail</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Email_Name_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>Email_Send_Number_MERC__r.et4ae5__EmailName__c</formula>
+        <label>Email Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Email_Name__c</fullName>
         <externalId>false</externalId>
         <formula>Email_Send_Number_MERC__r.et4ae5__EmailName__c</formula>
@@ -111,9 +284,17 @@
         <referenceTo>et4ae5__SendDefinition__c</referenceTo>
         <relationshipLabel>Meeting Email Sends</relationshipLabel>
         <relationshipName>Meeting_Email_Sends</relationshipName>
-        <required>true</required>
+        <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Incomplete_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Incomplete</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Incomplete__c</fullName>
@@ -188,6 +369,10 @@
         <externalId>false</externalId>
         <label>Send Status</label>
         <picklist>
+            <picklistValues>
+                <fullName>Create Sender Profile</fullName>
+                <default>false</default>
+            </picklistValues>
             <picklistValues>
                 <fullName>Create Send Definition</fullName>
                 <default>false</default>

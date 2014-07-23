@@ -46,8 +46,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Captures payee information for account lookup
-Created by John A Adams 9/26/2013</description>
+    <description>Captures HCP Payee Details (Bank Accounts) for Payment.  Associated to SAP Vendor by Vendor Id : MERC : Created on 09/26/2013 by John Adams, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
@@ -554,7 +553,7 @@ Created by John A Adams 2/18/2014</description>
         <type>Text</type>
     </nameField>
     <namedFilters>
-        <fullName>nf_01I11000000Ck6cEAC_00N11000000SgtJEAS</fullName>
+        <fullName>nf_01Ib0000000kduLEAQ_00Nb0000009ac1IEAQ</fullName>
         <active>true</active>
         <field>HCP_Contract_MERC__c.Payee_MERC__c</field>
         <filterItems>
@@ -564,7 +563,7 @@ Created by John A Adams 2/18/2014</description>
         </filterItems>
         <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
         <isOptional>false</isOptional>
-        <name>HCP Contract_Payee</name>
+        <name>nf_01Ib0000000kduLEAQ_00Nb0000009ac1IEAQ</name>
         <sourceObject>HCP_Contract_MERC__c</sourceObject>
     </namedFilters>
     <pluralLabel>Payee</pluralLabel>
@@ -578,9 +577,9 @@ Created by John A Adams 2/18/2014</description>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
-        <fullName>Check_Priority_Rank_Number_MERC</fullName>
+        <fullName>MERC_Check_Priority_Rank_Number</fullName>
         <active>true</active>
-        <description>Prevent Account from having more than one Payee with a Priority Rank Number = 1</description>
+        <description>Prevent Account from having more than one Payee with a Priority Rank Number = 1 : MERC : Created on 01/08/2014 by John Adams, Mavens Consulting</description>
         <errorConditionFormula>(ISCHANGED(Priority_Rank_Nbr_MERC__c) &amp;&amp; Priority_Rank_Nbr_MERC__c = 1 &amp;&amp;
 Account_MERC__r.of_Payees_with_Priority_Rank_1_MERC__c &gt;= 1)
 

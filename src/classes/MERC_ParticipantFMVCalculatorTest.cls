@@ -11,7 +11,7 @@ private class MERC_ParticipantFMVCalculatorTest {
 			insert new PermissionSetAssignment( PermissionSetId=ps.Id
 				                              , AssigneeId=testUser.id);
 			update new User( id=testUser.Id
-				           , UserRoleId=[SELECT Id FROM UserRole WHERE Name='Global' limit 1].id);
+				           , UserRoleId=[SELECT Id FROM UserRole WHERE Name='CEO' limit 1].id);
 		}
 		MERC_TestFactory.loadFMVSettings();
 	}

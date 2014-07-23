@@ -46,7 +46,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Object to store budget header information. Created on 9/27/2013 by KLorenti.</description>
+    <description>Used to Manage and Store Budgets for Meetings, this Object is a Header for Budget Line Items : MERC : Created on 09/27/2013 by Katy Lorenti, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
@@ -444,17 +444,17 @@ Created by J Adams 12/10/2013</description>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
-        <fullName>Cost_Center_completed</fullName>
+        <fullName>MERC_Cost_Center_completed</fullName>
         <active>true</active>
-        <description>Ensure that the Cost Center is severn digits long.</description>
+        <description>Ensure that the Cost Center is severn digits long : MERC : Created on 01/05/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>NOT(REGEX( Cost_Center_MERC__c, &quot;[0-9]{7}&quot;))</errorConditionFormula>
         <errorDisplayField>Cost_Center_MERC__c</errorDisplayField>
         <errorMessage>The Cost Center must be seven digits long.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Internal_Order_Number_Completed</fullName>
+        <fullName>MERC_Internal_Order_Number_Completed</fullName>
         <active>true</active>
-        <description>Ensure that the Internal Order Number is six digits long.</description>
+        <description>Ensure that the Internal Order Number is six digits long : MERC : Created on 05/05/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>NOT(
  OR(
   LEN (Internal_Order_Number_MERC__c) = 0,
@@ -465,26 +465,27 @@ Created by J Adams 12/10/2013</description>
         <errorMessage>The Internal Order Number must be six digits long.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>MERC_Only_one_Draft_Budget_at_a_Time</fullName>
+        <active>true</active>
+        <description>Only allow there to be one draft budget per meeting at any given time : MERC : Created on 03/03/2014 by Katy Lorenti, Mavens Consulting</description>
+        <errorConditionFormula>(ISNEW() &amp;&amp; Meeting_MERC__r.Number_of_Draft_Budgets_MERC__c == 1) 
+||
+Meeting_MERC__r.Number_of_Draft_Budgets_MERC__c &gt; 1</errorConditionFormula>
+        <errorMessage>A draft budget is already in process for this meeting.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>MERC_Prevent_Budget_Edit_Archived_Active</fullName>
         <active>true</active>
-        <description>Prevents edits of Active or Archived Budgets - JFerraro 10/23/2013</description>
+        <description>Prevents edits of Active or Archived Budgets : MERC : Created on 23/10/2014 by Joe Ferraro, Mavens Consulting</description>
         <errorConditionFormula>$Setup.Mercury_Settings_MERC__c.Budget_Edit_Validation_MERC__c &amp;&amp; (RecordType.DeveloperName == &apos;MERC_Budget_Active&apos; || RecordType.DeveloperName == &apos;MERC_Budget_Archived&apos;)</errorConditionFormula>
         <errorMessage>You cannot modify an Active or Archived Budget.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>MERC_Prevent_Budget_Edit_Final</fullName>
         <active>true</active>
+        <description>Prevents changing Budget record once Final : MERC : Created on 11/09/2013 by Joe Ferraro, Mavens Consulting</description>
         <errorConditionFormula>$Setup.Mercury_Settings_MERC__c.Budget_Edit_Validation_MERC__c &amp;&amp; NOT(ISCHANGED(RecordTypeId)) &amp;&amp; (RecordType.DeveloperName == &apos;MERC_Budget_Final&apos;)</errorConditionFormula>
         <errorMessage>You cannot modify a finalised budget.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Only_one_Draft_Budget_at_a_Time</fullName>
-        <active>true</active>
-        <description>Only allow there to be one draft budget per meeting at any given time</description>
-        <errorConditionFormula>(ISNEW() &amp;&amp; Meeting_MERC__r.Number_of_Draft_Budgets_MERC__c == 1) 
-||
-Meeting_MERC__r.Number_of_Draft_Budgets_MERC__c &gt; 1</errorConditionFormula>
-        <errorMessage>A draft budget is already in process for this meeting.</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>Finalise_Budget_MERC</fullName>

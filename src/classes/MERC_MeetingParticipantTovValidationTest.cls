@@ -20,7 +20,7 @@ private class MERC_MeetingParticipantTovValidationTest
 			testUser = MERC_TestFactory.insertTestUsers(1, null).get(0);
 			PermissionSet ps = [SELECT Id FROM PermissionSet WHERE Name='Mercury_Customer_Meeting_Services_Edit' limit 1];
 			insert new PermissionSetAssignment(PermissionSetId=ps.Id, AssigneeId=testUser.id);
-			update new User(id=testUser.Id, UserRoleId=[SELECT Id FROM UserRole WHERE Name='Global' limit 1].id);
+			update new User(id=testUser.Id, UserRoleId=[SELECT Id FROM UserRole WHERE Name='CEO' limit 1].id);
 		}
 		//reset the Meeting Participant Validation trigger
 		MERC_MeetingParticipantTovValidation.tovValidationByPass = false;

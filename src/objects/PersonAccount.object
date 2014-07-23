@@ -1442,26 +1442,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>11-20 Years</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>20%2B Years</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>6-10 Years</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Preferred_Contact_Method_MERC__c</picklist>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Postal Address</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1724,21 +1705,6 @@
             </values>
             <values>
                 <fullName>Yes - 2 or more</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Contract_Signatory_MERC__c</picklist>
-            <values>
-                <fullName>My Institution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>My Legal Entity</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>My Name %28self%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3027,15 +2993,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>11-20 Years</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>20%2B Years</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>6-10 Years</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3313,21 +3271,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Contract_Signatory_MERC__c</picklist>
-            <values>
-                <fullName>My Institution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>My Legal Entity</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>My Name %28self%29</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Country_of_Residence_GLBL__c</picklist>
             <values>
                 <fullName>AD</fullName>
@@ -4612,26 +4555,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>11-20 Years</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>20%2B Years</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>6-10 Years</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Preferred_Contact_Method_MERC__c</picklist>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Postal Address</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4910,21 +4834,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Contract_Signatory_MERC__c</picklist>
-            <values>
-                <fullName>My Institution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>My Legal Entity</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>My Name %28self%29</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Country_of_Residence_GLBL__c</picklist>
             <values>
                 <fullName>AD</fullName>
@@ -6218,17 +6127,6 @@
             </values>
             <values>
                 <fullName>6-10 Years</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Preferred_Contact_Method_MERC__c</picklist>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Postal Address</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6499,21 +6397,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Contract_Signatory_MERC__c</picklist>
-            <values>
-                <fullName>My Institution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>My Legal Entity</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>My Name %28self%29</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Country_of_Residence_GLBL__c</picklist>
             <values>
                 <fullName>AD</fullName>
@@ -7798,26 +7681,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>11-20 Years</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>20%2B Years</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>6-10 Years</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Preferred_Contact_Method_MERC__c</picklist>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Postal Address</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8009,21 +7873,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Contract_Signatory_MERC__c</picklist>
-            <values>
-                <fullName>My Institution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>My Legal Entity</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>My Name %28self%29</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Employment_Specification_MERC__c</picklist>
             <values>
                 <fullName>Employed by one or more Institutions</fullName>
@@ -8196,17 +8045,6 @@
             </values>
             <values>
                 <fullName>Subsidiary</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Preferred_Contact_Method_MERC__c</picklist>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Postal Address</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

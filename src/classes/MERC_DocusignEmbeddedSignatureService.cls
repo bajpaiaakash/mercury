@@ -51,8 +51,8 @@ global with sharing class MERC_DocusignEmbeddedSignatureService {
 
 			//retrieve embedded signature URL
 			MERC_DocusignService.EmbeddedSignResponse esr = docService.getEmbeddedSignUrl(
-																			envelopeId, 
-																			embeddedHCPSigner, 
+																			envelopeId,
+																			embeddedHCPSigner,
 																			'https://mercury-portal-dev.herokuapp.com/meetings');
 			response.success = true;
 			response.url = esr.url;

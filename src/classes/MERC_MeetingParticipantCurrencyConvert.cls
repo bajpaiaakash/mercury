@@ -33,23 +33,39 @@ public with sharing class MERC_MeetingParticipantCurrencyConvert implements GLBL
 			countryCurrencyConversion.put(ct.IsoCode, ct.ConversionRate);
 		}
 
+		Id IndvSponsRecTypeId = [SELECT Id FROM RecordType WHERE SObjectType='Meeting_Participant_MERC__c' AND DeveloperName='Individual_Sponsorship' limit 1].Id;
+
 		for (Meeting_Participant_MERC__c mp : (List<Meeting_Participant_MERC__c>)Trigger.new)
 		{
-			if (mp.Total_Food_Beverage_ToV_Rollup_MERC__c != null)
+			if (mp.RecordTypeId != IndvSponsRecTypeId)
 			{
-				mp.Total_Food_Beverage_ToV_MERC__c = mp.Total_Food_Beverage_ToV_Rollup_MERC__c * countryCurrencyConversion.get(mp.ToV_Currency_MERC__c);
-			}
-			if (mp.Total_Ground_Transport_ToV_Rollup_MERC__c != null)
-			{
-				mp.Total_Ground_Transporation_ToV_MERC__c = mp.Total_Ground_Transport_ToV_Rollup_MERC__c * countryCurrencyConversion.get(mp.ToV_Currency_MERC__c);
-			}
-			if (mp.Total_Hotel_ToV_Rollup_MERC__c != null)
-			{
-				mp.Total_Hotel_ToV_MERC__c = mp.Total_Hotel_ToV_Rollup_MERC__c * countryCurrencyConversion.get(mp.ToV_Currency_MERC__c);
-			}
-			if (mp.Total_Registration_ToV_Rollup_MERC__c != null)
-			{
-				mp.Total_Registration_ToV_MERC__c = mp.Total_Registration_ToV_Rollup_MERC__c * countryCurrencyConversion.get(mp.ToV_Currency_MERC__c);
+				if (mp.Total_Food_Beverage_ToV_Rollup_MERC__c != null)
+				{
+					mp.Total_Food_Beverage_ToV_MERC__c = mp.Total_Food_Beverage_ToV_Rollup_MERC__c * countryCurrencyConversion.get(mp.ToV_Currency_MERC__c);
+				} else {
+					mp.Total_Food_Beverage_ToV_MERC__c = null;
+				}
+
+				if (mp.Total_Ground_Transport_ToV_Rollup_MERC__c != null)
+				{
+					mp.Total_Ground_Transporation_ToV_MERC__c = mp.Total_Ground_Transport_ToV_Rollup_MERC__c * countryCurrencyConversion.get(mp.ToV_Currency_MERC__c);
+				} else {
+					mp.Total_Ground_Transporation_ToV_MERC__c = null;
+				}
+
+				if (mp.Total_Hotel_ToV_Rollup_MERC__c != null)
+				{
+					mp.Total_Hotel_ToV_MERC__c = mp.Total_Hotel_ToV_Rollup_MERC__c * countryCurrencyConversion.get(mp.ToV_Currency_MERC__c);
+				} else {
+					mp.Total_Hotel_ToV_MERC__c = null;
+				}
+
+				if (mp.Total_Registration_ToV_Rollup_MERC__c != null)
+				{
+					mp.Total_Registration_ToV_MERC__c = mp.Total_Registration_ToV_Rollup_MERC__c * countryCurrencyConversion.get(mp.ToV_Currency_MERC__c);
+				} else {
+					mp.Total_Registration_ToV_MERC__c = null;
+				}
 			}
 		}
 	}

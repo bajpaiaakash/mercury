@@ -15,6 +15,18 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>CST_Client_Auth_Error_MERC__c</fullName>
+        <description>Capture any errors securing auth tokens from the Customer Search Tool service</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Capture any errors securing auth tokens from the Customer Search Tool service</inlineHelpText>
+        <label>CST Client Auth Error</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>CST_Client_Id_MERC__c</fullName>
         <description>The Client ID for the CST search service</description>
         <externalId>false</externalId>

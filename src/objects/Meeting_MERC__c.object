@@ -55,7 +55,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Primary object to store meeting information.  Created on 9/27/2013 by KLorenti.</description>
+    <description>Primary object to store meeting information. Integrates with Veeva : MERC : Created on 09/27/2013 by Katy Lorenti, Mavens Consulting</description>
     <enableActivities>true</enableActivities>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
@@ -131,6 +131,16 @@
         <description>Capture additional information on Accommodations. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Accommodation Information</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Activities_MERC__c</fullName>
+        <description>Description of Activities for Meeting. Created 10/29/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Activities</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -435,7 +445,7 @@ Participant_ToV_Final_Date_Time_MERC__c &lt;= ( End_Time_of_Meeting_MERC__c   + 
 Created by John A Adams 10/24/2013</description>
         <externalId>false</externalId>
         <inlineHelpText>To the best of your knowledge, were there any potential compliance issues during the meeting related to HCP services, HCP sponsorships , meeting content, venue, hospitality, travel, gifts and any other global or local meeting requirements?</inlineHelpText>
-        <label>Compliance Risk</label>
+        <label>Potential Compliance Issue</label>
         <picklist>
             <picklistValues>
                 <fullName>Yes</fullName>
@@ -483,12 +493,23 @@ Created by John A Adams 10/24/2013</description>
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Confirm_Web_Service_Change_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used to accept text based changes to information that is active on the Web Services.  Exposed to CMS Cork only who make such changes : MERC : Created on 21/07/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used by CMS Cork to confirm updates to certain information once a meeting is activated on the web services.</inlineHelpText>
+        <label>Confirm Web Service Change</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Confirmation_Comp_Invoice_Dt_Tm_MERC__c</fullName>
         <description>Populated via workflow to stamp when the Confirmation of Complete Invoice was checked.  Used for SLA Reporting. Created 04/09/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Confirmation of Complete Invoice Date</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
@@ -508,6 +529,39 @@ Created by John Adams on 12/9/2013</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Content_Approval_Needed_MERC__c</fullName>
+        <description>Will content need to be approved? Created 10/2/2013 by KLorenti</description>
+        <externalId>false</externalId>
+        <label>Content Approval Needed</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Content_Creator_MERC__c</fullName>
+        <description>Who will be creating the content? Created 10/3/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Who is creating the content?</inlineHelpText>
+        <label>Content Creator</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Customer_Facing_End_Time_MERC__c</fullName>
@@ -568,7 +622,7 @@ LEFT(RIGHT(Start_Time_In_Meeting_Time_Zone__c, 10), 5)
         <externalId>false</externalId>
         <label>Meeting Start Date</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -722,7 +776,7 @@ Created by John Adams on 12/9/2013</description>
         <label>End Date (Meeting Time Zone)</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -746,7 +800,7 @@ Created by John A Adams 10/25/2013</description>
         <externalId>false</externalId>
         <label>Meeting End Date</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -767,7 +821,7 @@ Created by John A Adams 10/25/2013</description>
         <label>End Time (Meeting Time Zone)</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -1437,7 +1491,7 @@ Created by John A Adams 10/28/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -1892,7 +1946,7 @@ Created by John Adams 11/6/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -2805,7 +2859,7 @@ Created by John Adams 11/6/2013</description>
         <label>Start Date (Meeting Time Zone)</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -2816,7 +2870,7 @@ Created by John Adams 11/6/2013</description>
         <label>Start Time (Meeting Time Zone)</label>
         <length>255</length>
         <required>false</required>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
@@ -2828,9 +2882,19 @@ Created by John Adams 11/6/2013</description>
         <inlineHelpText>Enter the start time of the meeting in the TIME ZONE OF THE MEETING</inlineHelpText>
         <label>Start Time of Meeting</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Submit_for_Contracting_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicate when planned meeting is ready to be submitted for contracting. Created 01/06/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Initiate HCP Services Contracting</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Target_Audience_List_MERC__c</fullName>
@@ -3331,6 +3395,20 @@ Created by John Adams 11/6/2013</description>
         <language>en_US</language>
     </listViews>
     <listViews>
+        <fullName>Not_Stress_Test</fullName>
+        <columns>NAME</columns>
+        <columns>Type_MERC__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>NAME</field>
+            <operation>notContain</operation>
+            <value>Stress</value>
+        </filters>
+        <label>Not Stress Test</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
         <fullName>Registered_Meetings_MERC</fullName>
         <columns>NAME</columns>
         <columns>Parent_Meeting_MERC__c</columns>
@@ -3444,6 +3522,17 @@ Created by John Adams 11/6/2013</description>
         </picklistValues>
         <picklistValues>
             <picklist>Compliant_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Content_Approval_Needed_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -4271,6 +4360,17 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Content_Approval_Needed_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Employee_Accommodation_Covered_By_MERC__c</picklist>
             <values>
                 <fullName>Individual Cost Center</fullName>
@@ -4974,6 +5074,10 @@ Created by John Adams 11/6/2013</description>
             <picklist>Type_MERC__c</picklist>
             <values>
                 <fullName>Clinical Trial</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consultant</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5112,6 +5216,17 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Content_Approval_Needed_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Employee_Accommodation_Covered_By_MERC__c</picklist>
             <values>
                 <fullName>Individual Cost Center</fullName>
@@ -5818,6 +5933,10 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Consultant</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Health Education</fullName>
                 <default>false</default>
             </values>
@@ -5943,6 +6062,17 @@ Created by John Adams 11/6/2013</description>
         </picklistValues>
         <picklistValues>
             <picklist>Compliant_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Content_Approval_Needed_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -6770,6 +6900,17 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Content_Approval_Needed_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Employee_Accommodation_Covered_By_MERC__c</picklist>
             <values>
                 <fullName>Individual Cost Center</fullName>
@@ -7476,6 +7617,10 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Consultant</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Health Education</fullName>
                 <default>false</default>
             </values>
@@ -7601,6 +7746,17 @@ Created by John Adams 11/6/2013</description>
         </picklistValues>
         <picklistValues>
             <picklist>Compliant_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Content_Approval_Needed_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -8460,6 +8616,17 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Content_Approval_Needed_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Employee_Accommodation_Covered_By_MERC__c</picklist>
             <values>
                 <fullName>Individual Cost Center</fullName>
@@ -9166,6 +9333,10 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Consultant</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Health Education</fullName>
                 <default>false</default>
             </values>
@@ -9236,34 +9407,25 @@ Created by John Adams 11/6/2013</description>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <validationRules>
-        <fullName>Active_on_Web_Services_MERC</fullName>
-        <active>false</active>
-        <description>When Meeting has already been Activated on Web Services, prevent the deactivation. Created 04/02/2014</description>
-        <errorConditionFormula>ISCHANGED(Expose_on_Portal_MERC__c) = true &amp;&amp;
-PRIORVALUE(Expose_on_Portal_MERC__c) = true</errorConditionFormula>
-        <errorDisplayField>Expose_on_Portal_MERC__c</errorDisplayField>
-        <errorMessage>Once the Meeting has been activated on Web Service, it cannot be changed.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Amount_to_be_paid_cannot_be_Negative_MER</fullName>
+        <fullName>MERC_Amount_paid_cannot_be_Negative</fullName>
         <active>true</active>
-        <description>Ensure Amount to be Paid is not entered &lt; 0</description>
+        <description>Ensure Amount to be Paid is not entered : MERC : Created on 04/05/2014 by Oliver Dunford, Mavens Consulting</description>
         <errorConditionFormula>Amount_to_be_Paid_MERC__c &lt; 0</errorConditionFormula>
         <errorDisplayField>Amount_to_be_Paid_MERC__c</errorDisplayField>
         <errorMessage>The Amount to be Paid cannot be less than zero</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Budget_Cannot_be_Negative_MERC</fullName>
+        <fullName>MERC_Budget_Cannot_be_Negative</fullName>
         <active>true</active>
-        <description>Ensure value entered in Budget field is &gt;= 0</description>
+        <description>Ensure value entered in Budget field is &gt;= 0 : MERC : Created on 04/05/2014 by Oliver Dunford, Mavens Consulting</description>
         <errorConditionFormula>Planned_Budget_MERC__c &lt; 0</errorConditionFormula>
         <errorDisplayField>Planned_Budget_MERC__c</errorDisplayField>
         <errorMessage>The Budget amount must be a positive number.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Compliance_Risk_before_Complete_MERC</fullName>
+        <fullName>MERC_Compliance_Risk_before_Complete</fullName>
         <active>true</active>
-        <description>The Compliance Risk field must be set to yes before the Meeting can be Completed.  Created 12/18/2013 by KLorenti, Mavens Consulting</description>
+        <description>The Compliance Risk field must be set to yes before the Meeting can be Completed : MERC : Created on 04/05/2014 by Oliver Dunford, Mavens Consulting</description>
         <errorConditionFormula>RecordType.Name &lt;&gt; &apos;Consulting Project&apos; &amp;&amp;
 RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
 RecordType.Name &lt;&gt; &apos;Meeting Program&apos; &amp;&amp;
@@ -9274,9 +9436,9 @@ ISPICKVAL(Meeting_Status_MERC__c,&apos;Complete&apos;)</errorConditionFormula>
         <errorMessage>The Compliance Risk must be selected in order to Complete the Meeting.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Confirm_Budget_is_Final_MERC</fullName>
+        <fullName>MERC_Confirm_Budget_is_Final</fullName>
         <active>true</active>
-        <description>Budget must be final before Meeting can be completed. This is only applicable for Mercury meetings. Created 11/19/2013 by KLorenti, Mavens Consulting</description>
+        <description>Budget must be final before Meeting can be completed. This is only applicable for Mercury meetings : MERC : Created on 04/05/2014 by Oliver Dunford, Mavens Consulting</description>
         <errorConditionFormula>( Source_MERC__c &lt;&gt; &apos;Veeva&apos; &amp;&amp;
 RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
 RecordType.Name &lt;&gt; &apos;Consulting Project&apos; &amp;&amp; 
@@ -9288,9 +9450,9 @@ ISPICKVAL(Meeting_Status_MERC__c,&apos;Complete - Closed&apos;))</errorCondition
         <errorMessage>The Budget must be Final before the Meeting can be Completed.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Confirm_MCP_Evaluation_MERC</fullName>
+        <fullName>MERC_Confirm_MCP_Evaluation</fullName>
         <active>true</active>
-        <description>The MPC has been evaluated before the Meeting can be Completed.  Not applicable for Veeva initiated meetings.</description>
+        <description>The MPC has been evaluated before the Meeting can be Completed.  Not applicable for Veeva initiated meetings : MERC : Created on 04/05/2014 by Oliver Dunford, Mavens Consulting</description>
         <errorConditionFormula>Source_MERC__c &lt;&gt; &apos;Veeva&apos; &amp;&amp;
 RecordType.Name &lt;&gt; &apos;Independent Meeting&apos;
 &amp;&amp; RecordType.Name &lt;&gt; &apos;Consulting Project&apos;
@@ -9301,9 +9463,9 @@ RecordType.Name &lt;&gt; &apos;Independent Meeting&apos;
         <errorMessage>The Meeting Planning Companies performance must be evaluated before completing.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Confirm_Meeting_Cancellation_MERC</fullName>
+        <fullName>MERC_Confirm_Meeting_Cancellation</fullName>
         <active>true</active>
-        <description>Confirm that the Meeting should be cancelled. Created 11/19/2013 by KLorenti, Mavens Consulting.</description>
+        <description>Confirm that the Meeting should be cancelled : MERC : Created on 11/19/2013 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>!ISPICKVAL(Event_Occurred_MERC__c,&quot;Yes&quot;) &amp;&amp;
 ISCHANGED( Meeting_Status_MERC__c) &amp;&amp; 
 ISPICKVAL( Meeting_Status_MERC__c ,&apos;Complete - Cancelled&apos;) &amp;&amp;  
@@ -9312,9 +9474,9 @@ ISPICKVAL( Meeting_Status_MERC__c ,&apos;Complete - Cancelled&apos;) &amp;&amp;
         <errorMessage>Please confirm you would like this Meeting to be Cancelled.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Confirm_Meeting_Date_Change_MERC</fullName>
+        <fullName>MERC_Confirm_Meeting_Date_Change</fullName>
         <active>true</active>
-        <description>Enforces confirmation of Meeting Date changes. Created 10/24/2013 by KLorenti, Mavens Consulting</description>
+        <description>Enforces confirmation of Meeting Date changes : MERC : Created on 11/19/2013 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>!ISNEW ()&amp;&amp;
 (
 ISCHANGED(Meeting_Time_Zone_MERC__c) ||
@@ -9326,18 +9488,18 @@ ISCHANGED(End_Time_of_Meeting_MERC__c)
         <errorMessage>Please agree to/confirm the Meeting Date/Time Change.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Confirm_ToV_Reporting_Change_MERC</fullName>
+        <fullName>MERC_Confirm_ToV_Reporting_Change</fullName>
         <active>true</active>
-        <description>Prevents a change of Meeting Currency should the ToV have been reported through into AODS.  Oliver Dunford 10th June 2014. Mavens Consulting.</description>
+        <description>Prevents a change of Meeting Currency should the ToV have been reported through into AODS : MERC : Created on 11/19/2013 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>ISCHANGED( CurrencyIsoCode ) &amp;&amp;  TEXT(Participant_ToV_Final_MERC__c) = &quot;Yes&quot; &amp;&amp; 
 ! Confirm_ToV_Reporting_Change_MERC__c</errorConditionFormula>
         <errorDisplayField>Confirm_ToV_Reporting_Change_MERC__c</errorDisplayField>
         <errorMessage>ToV has already been reported for this meeting. Customer Meeting Services need to confirm and implement this change.  All related ToV values against the meeting should be updated to align with the new meeting currency.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Event_Occurred_before_Complete_MERC</fullName>
+        <fullName>MERC_Event_Occurred_before_Complete</fullName>
         <active>true</active>
-        <description>The Event Occurred field must be set to yes before the Meeting can be Completed.  Created 11/26/2013 by KLorenti, Mavens Consulting</description>
+        <description>The Event Occurred field must be set to yes before the Meeting can be Completed : MERC : Created on 11/26/2013 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>RecordType.Name &lt;&gt; &apos;Consulting Project&apos; &amp;&amp;
 RecordType.Name &lt;&gt; &apos;Meeting Program&apos; &amp;&amp;
 NOT ISPICKVAL(Event_Occurred_MERC__c,&apos;Yes&apos;)&amp;&amp; ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
@@ -9346,36 +9508,43 @@ ISPICKVAL(Meeting_Status_MERC__c,&apos;Complete - Closed&apos;)</errorConditionF
         <errorMessage>The Meeting must have occurred in order to Complete the Meeting.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Participant_ToV_Final_only_if_Meet_over</fullName>
+        <fullName>MERC_Participant_ToV_Final_Meet_over</fullName>
         <active>false</active>
-        <description>Validate that the meeting end date has passed before allowing the  &apos;Participant ToV Final&apos; field from being checked</description>
+        <description>Validate that the meeting end date has passed before allowing the  &apos;Participant ToV Final&apos; field from being checked : MERC : Created on 11/19/2013 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>ISCHANGED(Participant_ToV_Final_MERC__c) &amp;&amp;
 (TODAY() &lt;  DATEVALUE(End_Time_of_Meeting_MERC__c ))</errorConditionFormula>
         <errorDisplayField>Participant_ToV_Final_MERC__c</errorDisplayField>
         <errorMessage>The &apos;Participant ToV Final&apos; field cannot be checked until after the meeting has ended.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Prevent_Cancel_Meeting_if_Occurred_MERC</fullName>
+        <fullName>MERC_Prevent_Cancel_Meeting_if_Occurred</fullName>
         <active>true</active>
-        <description>If the Meeting has already occurred you may not cancel the meeting. Created 01/10/2014 by KLorenti, Mavens Consulting</description>
+        <description>If the Meeting has already occurred you may not cancel the meeting : MERC : Created on 01/10/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>ISPICKVAL(Event_Occurred_MERC__c,&apos;Yes&apos;)&amp;&amp; ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
 ISPICKVAL(Meeting_Status_MERC__c,&apos;Complete - Cancelled&apos;)</errorConditionFormula>
         <errorDisplayField>Event_Occurred_MERC__c</errorDisplayField>
         <errorMessage>The Meeting cannot be cancelled if it has already occurred.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Prevent_Participant_ToV_Final_Chg_MERC</fullName>
+        <fullName>MERC_Prevent_Change_Once_on_Web_Service</fullName>
         <active>true</active>
-        <description>Once Participant ToV Final is Yes, it cannot be changed. Created 02/04/2014 by KLorenti, Mavens Consulting</description>
+        <description>Once a meeting is activated on the web service meeting name and description can only be changed by CMS Cork : MERC : Created on 22/07/2014 by Oliver Dunford, Mavens Consulting</description>
+        <errorConditionFormula>(ISCHANGED(Name ) || ISCHANGED( Meeting_Objectives_MERC__c )) &amp;&amp;  Expose_on_Portal_MERC__c = TRUE &amp;&amp; Confirm_Web_Service_Change_MERC__c = FALSE &amp;&amp; AND(NOT(CONTAINS(LastModifiedBy.Username,&apos;mercuryintegration.veeva@&apos;)))</errorConditionFormula>
+        <errorMessage>Once a meeting has been published on the Web Service, only CMS Cork can change the Meeting Name and Meeting Objectives.  Please contact a member of the CMS Cork team to request a change to this information.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>MERC_Prevent_Participant_ToV_Final_Chg</fullName>
+        <active>true</active>
+        <description>Once Participant ToV Final is Yes, it cannot be changed : MERC : Created on 02/04/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>ISCHANGED(Participant_ToV_Final_MERC__c) &amp;&amp;
 ISPICKVAL(PRIORVALUE(Participant_ToV_Final_MERC__c),&quot;Yes&quot;)</errorConditionFormula>
         <errorDisplayField>Participant_ToV_Final_MERC__c</errorDisplayField>
         <errorMessage>You may not change this value once it has been set to Yes.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Restrict_Meeting_Status_Changes</fullName>
+        <fullName>MERC_Restrict_Meeting_Status_Changes</fullName>
         <active>true</active>
-        <description>Restrict Meeting Status changes to prevent jumping through multiple stages.  Created by J Adams 4/24/2014</description>
+        <description>Restrict Meeting Status changes to prevent jumping through multiple stages : MERC : Created on 02/04/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>/* Forecasted to Active*/  
 (
 ISCHANGED(Meeting_Status_MERC__c) &amp;&amp; 
@@ -9420,9 +9589,9 @@ ISPICKVAL(PRIORVALUE(Meeting_Status_MERC__c),&apos;Complete&apos;)
         <errorMessage>NOTE: Meetings must follow the correct Status process (Forecasted - Registered - Active - Complete - etc). You cannot skip Status steps (e.g. from Forecasted to Active).  Please set the Status to the next Status in the process to continue.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Validate_Active_Meeting_Obj_MERC</fullName>
+        <fullName>MERC_Validate_Active_Meeting_Obj</fullName>
         <active>true</active>
-        <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
+        <description>Check the required fields based on the Status and field selected : MERC : Created on 12/04/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>IF((RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
 RecordType.Name &lt;&gt; &apos;Consulting Project&apos;)  &amp;&amp; 
 ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
@@ -9434,9 +9603,9 @@ LEN (Meeting_Objectives_MERC__c) = 0
         <errorMessage>The Meeting Objectives is required before status can be changed to Active</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Validate_Active_Target_Audience_MERC</fullName>
+        <fullName>MERC_Validate_Active_Target_Audience</fullName>
         <active>true</active>
-        <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
+        <description>Check the required fields based on the Status and field selected : MERC : Created on 12/04/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>IF(RecordType.Name = &apos;Meeting Program&apos; ||
    RecordType.Name = &apos;Independent Meeting&apos; ||
    RecordType.Name = &apos;Consulting Project&apos;
@@ -9452,18 +9621,18 @@ LEN (Meeting_Objectives_MERC__c) = 0
         <errorMessage>The Target Audience is required before status can be changed to Active</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Validate_End_date_is_after_Start_MERC</fullName>
+        <fullName>MERC_Validate_End_date_is_after_Start</fullName>
         <active>true</active>
-        <description>Validates the the Meeting Start Date/Time is before the Meeting End Date/Time.</description>
+        <description>Validates the the Meeting Start Date/Time is before the Meeting End Date/Time : MERC : Created on 11/03/2013 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>Start_Time_of_Meeting_MERC__c &gt;= 
 End_Time_of_Meeting_MERC__c</errorConditionFormula>
         <errorDisplayField>End_Time_of_Meeting_MERC__c</errorDisplayField>
         <errorMessage>The  End Time of Meeting must be after the Start Time of Meeting</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Validate_Positive_Planned_Participants</fullName>
+        <fullName>MERC_Validate_Positive_Planned_Partici</fullName>
         <active>true</active>
-        <description>Validate that the number entered in the Planned Participants fields are a positive Number</description>
+        <description>Validate that the number entered in the Planned Participants fields are a positive Number : MERC : Created on 02/04/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>Number_of_Expected_Deletgates_MERC__c &lt; 0 ||
 Number_of_Expected_Employees_MERC__c &lt; 0 ||
 Number_of_Expected_Non_HCP_MERC__c &lt; 0 ||
@@ -9471,9 +9640,9 @@ Number_of_Expected_Speakers_MERC__c &lt; 0</errorConditionFormula>
         <errorMessage>The number of expected participants must be a positive number</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Validate_Registered_City_of_Meeting_MERC</fullName>
+        <fullName>MERC_Validate_Registered_City_of_Meeting</fullName>
         <active>true</active>
-        <description>Check the City of Meeting required field based on the Status and field selected. Created 2/27/2014 by KLorenti, Mavens Consulting</description>
+        <description>Check the City of Meeting required field based on the Status and field selected : MERC : Created on 02/27/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>IF(RecordType.Name = &apos;Meeting Program&apos;,false, 
  IF(
     RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp; 
@@ -9487,9 +9656,9 @@ Number_of_Expected_Speakers_MERC__c &lt; 0</errorConditionFormula>
         <errorMessage>The City of Meeting is required before status can be changed to Registered</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Validate_Registered_Expected_Emp_MERC</fullName>
+        <fullName>MERC_Validate_Registered_Expected_Emp</fullName>
         <active>true</active>
-        <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
+        <description>Check the required fields based on the Status and field selected : MERC : Created on 12/04/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>IF((RecordType.Name  &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp; RecordType.Name &lt;&gt; &apos;Consulting Project&apos;) &amp;&amp;
       ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
 		TEXT(Meeting_Status_MERC__c) = &apos;Registered&apos; &amp;&amp;
@@ -9499,9 +9668,9 @@ Number_of_Expected_Speakers_MERC__c &lt; 0</errorConditionFormula>
         <errorMessage>The # of Expected Employees is required before status can be changed to Registered</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Validate_Registered_Expected_Non_MERC</fullName>
+        <fullName>MERC_Validate_Registered_Expected_Non</fullName>
         <active>true</active>
-        <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
+        <description>Check the required fields based on the Status and field selected : MERC : Created on 13/04/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>IF((RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp; 
 RecordType.Name &lt;&gt; &apos;Consulting Project&apos;) &amp;&amp;
       ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
@@ -9512,9 +9681,9 @@ RecordType.Name &lt;&gt; &apos;Consulting Project&apos;) &amp;&amp;
         <errorMessage>The # of Expected Non-Lilly/Non-HCPs is required before status can be changed to Registered</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Validate_Registered_Expected_Speakr_MERC</fullName>
+        <fullName>MERC_Validate_Registered_Expected_Speakr</fullName>
         <active>true</active>
-        <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
+        <description>Check the required fields based on the Status and field selected : MERC : Created on 12/04/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>IF((RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
 RecordType.Name &lt;&gt; &apos;Consulting Project&apos;)  &amp;&amp;
       ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
@@ -9525,9 +9694,9 @@ RecordType.Name &lt;&gt; &apos;Consulting Project&apos;)  &amp;&amp;
         <errorMessage>The # of Expected Speakers is required before status can be changed to Registered</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Validate_Registered_Interact_Type_MERC</fullName>
+        <fullName>MERC_Validate_Registered_Interact_Type</fullName>
         <active>true</active>
-        <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
+        <description>Check the required fields based on the Status and field selected : MERC : Created on 12/04/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>IF((RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
 RecordType.Name &lt;&gt; &apos;Consulting Project&apos;)  &amp;&amp;
       ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
@@ -9538,9 +9707,9 @@ RecordType.Name &lt;&gt; &apos;Consulting Project&apos;)  &amp;&amp;
         <errorMessage>The Interaction Type is required before status can be changed to Registered</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Validate_Registered_Planned_Budget_MERC</fullName>
+        <fullName>MERC_Validate_Registered_Planned_Budget</fullName>
         <active>true</active>
-        <description>Check the required fields based on the Status and field selected. Created 12/4/2013 by KLorenti, Mavens Consulting</description>
+        <description>Check the required fields based on the Status and field selected : MERC : Created on 12/04/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>IF((RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp; 
 RecordType.Name &lt;&gt; &apos;Consulting Project&apos;)  &amp;&amp;
       ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
@@ -9606,6 +9775,17 @@ else
     redirectUrl += &quot;&amp;sessionId={!$Api.Session_ID}&quot;;
         window.location.href = redirectUrl;
 }</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Meeting_Date_Times</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Meeting Date/Times</masterLabel>
+        <openType>sidebar</openType>
+        <page>MERC_MeetingDateTimesEdit</page>
+        <protected>false</protected>
     </webLinks>
     <webLinks>
         <fullName>Meeting_Report_MERC</fullName>

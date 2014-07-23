@@ -76,7 +76,7 @@
 		<div class="loading-wrapper" style="position:relative;">
 			<apex:pageMessage severity="INFO" strength="2" summary="Set the status of Meeting Participants for each Meeting Day." rendered="{!not(hasError)}"/>
 			<apex:pageBlock title="Meeting Participants" id="mainBlock">
-				<apex:pageBlockButtons >
+				<apex:pageBlockButtons location="top">
 					<apex:selectList value="{!selectedMeetingDayId}" size="1" styleclass="selectMeetingDay" rendered="{!not(hasError)}">
 						<apex:selectOptions value="{!meetingDayOptions}"/>
 						<apex:actionSupport action="{!changeDay}" onsubmit="toggleLoading()" oncomplete="bindDomHandlers();toggleLoading()" event="onchange" rerender="mainBlock"/>

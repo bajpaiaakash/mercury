@@ -14,9 +14,15 @@ public with sharing class MERC_HandleDocusignAttachmentInsert implements GLBL_Tr
 
 	public void handle() {
 		if (Trigger.isInsert && Trigger.isAfter && Trigger.new.size() == 1) {
-	    	execute(Trigger.new.get(0).Id);
+			String hcpContractPrefix = Schema.SObjectType.HCP_Contract_MERC__c.getKeyPrefix();
+			Attachment thisObj = (Attachment) Trigger.new.get(0);
+			String parentId = thisObj.ParentId;
+			if (parentId.startsWith(hcpContractPrefix)) {
+				execute(Trigger.new.get(0).Id);
+			}
 	   	}
 	}
+	
 
 	@future
 	public static void execute(String attachmentId) {        

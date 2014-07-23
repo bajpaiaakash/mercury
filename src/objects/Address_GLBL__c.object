@@ -46,8 +46,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Used to capture participant (speaker and attendee) addresses
-Created by John A Adams 9/26/2013</description>
+    <description>Stores Mastered and Mercury Address Information.  For example, a HCPs Payee Address or the Address of the HCPs Institution as per Master Data : MERC, CUST : Created on 10/17/2013 by John Adams, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
@@ -103,6 +102,18 @@ Created by John A Adams 9/27/2013</description>
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Account_Global_Id_GLBL__c</fullName>
+        <description>Stores Global Id of Account. Populated via workflow for integration performance reasons. Oliver Dunford 16th June 2014. Mavens Consulting.</description>
+        <externalId>false</externalId>
+        <label>Account Global Id</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Account_Name_MERC__c</fullName>
@@ -1896,6 +1907,20 @@ Created by John A Adams 9/27/2013</description>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
+    <namedFilters>
+        <fullName>nf_01Ib0000000kduOEAQ_00Nb0000009ac6OEAQ</fullName>
+        <active>true</active>
+        <field>Payee_MERC__c.Associated_Address_MERC__c</field>
+        <filterItems>
+            <field>Address_GLBL__c.Account_GLBL__c</field>
+            <operation>equals</operation>
+            <valueField>$Source.Account_MERC__c</valueField>
+        </filterItems>
+        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.select the &apos;All Fields&apos; option and run your search again.</infoMessage>
+        <isOptional>false</isOptional>
+        <name>nf_01Ib0000000kduOEAQ_00Nb0000009ac6OEAQ</name>
+        <sourceObject>Payee_MERC__c</sourceObject>
+    </namedFilters>
     <pluralLabel>Addresses</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
@@ -7034,9 +7059,9 @@ Created by John A Adams 9/27/2013</description>
     <sharingModel>ControlledByParent</sharingModel>
     <startsWith>Vowel</startsWith>
     <validationRules>
-        <fullName>Prevent_Editing_Mastered_Address_MERC</fullName>
+        <fullName>MERC_Prevent_Editing_Mastered_Address</fullName>
         <active>true</active>
-        <description>Prevent users except those wiht System Aministrator profile from editing Mastered addresses</description>
+        <description>Prevent users except those wiht System Administrator profile from editing Mastered addresses : MERC : Created on 04/5/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>(
 ISCHANGED( Account_GLBL__c) || 
 ISCHANGED( Line_1_Adrs_Txt_GLBL__c) ||
@@ -7057,8 +7082,8 @@ ISCHANGED( Elctrnc_Adrs_Fax_Extnsn_Cd_GLBL__c) ||
 ISCHANGED( Elctrnc_Adrs_Extnsn_Cd_GLBL__c)  
 )
 &amp;&amp; RecordType.DeveloperName = &apos;Mastered_Address&apos; 
-&amp;&amp; ($Profile.Name &lt;&gt; &apos;System Adminstrator&apos; ||
-$Profile.Name &lt;&gt; &apos;Mercury Integration ODS - Platform&apos;)</errorConditionFormula>
+&amp;&amp; ($Profile.Name &lt;&gt; &quot;System Administrator&quot;
+&amp;&amp; $Profile.Name &lt;&gt; &quot;Mercury Integration ODS - Platform&quot;)</errorConditionFormula>
         <errorMessage>You may not update an address that is mastered from ODS.</errorMessage>
     </validationRules>
     <webLinks>

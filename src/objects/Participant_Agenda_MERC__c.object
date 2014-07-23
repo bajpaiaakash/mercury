@@ -52,7 +52,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Junction object between Meeting Participant and Agenda. Created by John A Adams 10/3/2013</description>
+    <description>Junction object between Meeting Participant and Agenda, used to associate Speakers to Agenda Items : MERC : Created on 10/03/2013 by John Adams, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
@@ -79,6 +79,16 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Confirm_Web_Service_Change_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used to accept text based changes to information that is active on the Web Services. Exposed to CMS Cork only who make such changes : MERC : Created on 21/07/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used by CMS Cork to confirm updates to certain information once a meeting is activated on the web services.</inlineHelpText>
+        <label>Confirm Web Service Change</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Meeting_Day_MERC__c</fullName>
@@ -178,7 +188,7 @@ Created by John A Adams 10/3/2013</description>
         <label>Participant Agenda #</label>
         <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>Participant Agendas Items</pluralLabel>
+    <pluralLabel>Participant Agenda Items</pluralLabel>
     <searchLayouts>
         <lookupDialogsAdditionalFields>Meeting_Participant_MERC__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Meeting_Day_MERC__c</lookupDialogsAdditionalFields>
@@ -197,4 +207,11 @@ Created by John A Adams 10/3/2013</description>
         <searchFilterFields>Meeting_Participant_MERC__c</searchFilterFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>MERC_Prevent_Change_Once_on_Web_Service</fullName>
+        <active>true</active>
+        <description>Once a meeting is activated on the web service the Speaker Topic Title can only be changed by CMS Cork : MERC : Created on 22/07/2014 by Oliver Dunford, Mavens Consulting</description>
+        <errorConditionFormula>ISCHANGED(  Speaker_Topic_Title_MERC__c  ) &amp;&amp;  Meeting_Participant_MERC__r.Meeting_MERC__r.Expose_on_Portal_MERC__c = TRUE &amp;&amp;  Confirm_Web_Service_Change_MERC__c = FALSE &amp;&amp; AND(NOT(CONTAINS(LastModifiedBy.Username,&apos;mercuryintegration.veeva@&apos;)))</errorConditionFormula>
+        <errorMessage>Once a meeting has been published on the Web Service, only CMS Cork can change the Speaker Topic Title. Please contact a member of the CMS Cork team to request a change to this information.</errorMessage>
+    </validationRules>
 </CustomObject>

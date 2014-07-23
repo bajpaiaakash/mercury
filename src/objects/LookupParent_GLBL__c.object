@@ -46,6 +46,9 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
+    <description>Object used to help tests classes for the Lookup Rollup Summary funcationality. MERC : Created on 2014-06-03 by Kyle Thornton, Mavens Consulting
+
+https://github.com/afawcett/declarative-lookup-rollup-summaries/blob/master/rolluptool/src/objects/LookupParent__c.object</description>
     <enableActivities>false</enableActivities>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
@@ -70,7 +73,7 @@
     <searchLayouts/>
     <sharingModel>Read</sharingModel>
     <validationRules>
-        <fullName>Not_42</fullName>
+        <fullName>MERC_Not_42</fullName>
         <active>true</active>
         <errorConditionFormula>Total_GLBL__c !=42</errorConditionFormula>
         <errorDisplayField>Total_GLBL__c</errorDisplayField>

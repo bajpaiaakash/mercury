@@ -46,7 +46,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Stores the user access logs for the non-GSO CST UI</description>
+    <description>Stores the user access logs for the non-GSO CST UI : MERC, CUST : Created on 02/28/2014 by Sean Harrison, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>

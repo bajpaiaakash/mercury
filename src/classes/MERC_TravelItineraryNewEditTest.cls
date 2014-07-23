@@ -105,4 +105,68 @@ private class MERC_TravelItineraryNewEditTest {
 		}
 	}
 
+	@isTest static void testBuildSaveAndNewURLAndSaveandNew() {
+		System.runAs(testUser) {
+			List<Travel_Itinerary_MERC__c> existingTravelItineraries = MERC_TestFactory.insertHotelItineraries(participants, Date.today(), Date.today().addDays(1));
+
+			PageReference ref = Page.MERC_TravelItineraryNewEdit;
+			ref.getParameters().put('retURL','/001000000000123');
+			Test.setCurrentPage(ref);
+
+			ApexPages.StandardController standardController = new ApexPages.StandardController(existingTravelItineraries.get(0));
+			MERC_TravelItineraryNewEditController controller = new MERC_TravelItineraryNewEditController(standardController);
+			Test.startTest();
+			controller.saveAndNew();
+			System.assertNotEquals(null, controller.buildSaveAndNewURL());
+			Test.stopTest();
+		}
+	}
+
+	@isTest static void testExceptionOnInsert() {
+		System.runAs(testUser) {
+			List<Travel_Itinerary_MERC__c> existingTravelItineraries = MERC_TestFactory.insertHotelItineraries(participants, Date.today(), Date.today().addDays(1));
+
+			PageReference ref = Page.MERC_TravelItineraryNewEdit;
+			ref.getParameters().put('retURL','/001000000000123');
+			Test.setCurrentPage(ref);
+
+			ApexPages.StandardController standardController = new ApexPages.StandardController(existingTravelItineraries.get(0));
+			MERC_TravelItineraryNewEditController controller = new MERC_TravelItineraryNewEditController(standardController);
+			Test.startTest();
+			Test.setReadOnlyApplicationMode(true);
+			controller.saveAndNew();
+			System.assert(ApexPages.getMessages().size() > 0);
+			Test.stopTest();
+		}
+	}
+
+	@isTest static void testCloneNullsObjectIdInsert() {
+		System.runAs(testUser) {
+			List<Travel_Itinerary_MERC__c> existingTravelItineraries = MERC_TestFactory.insertHotelItineraries(participants, Date.today(), Date.today().addDays(1));
+			PageReference ref = Page.MERC_TravelItineraryNewEdit;
+			ref.getParameters().put('clone','1');
+			Test.setCurrentPage(ref);
+			ApexPages.StandardController standardController = new ApexPages.StandardController(existingTravelItineraries.get(0));
+			Test.startTest();
+			MERC_TravelItineraryNewEditController controller = new MERC_TravelItineraryNewEditController(standardController);
+			Test.stopTest();
+
+			System.assertEquals(null, controller.mySobject.Id);
+		}
+	}
+
+	@isTest static void testFieldSetLabels() {
+		System.runAs(testUser) {
+			List<Travel_Itinerary_MERC__c> existingTravelItineraries = MERC_TestFactory.insertHotelItineraries(participants, Date.today(), Date.today().addDays(1));
+			PageReference ref = Page.MERC_TravelItineraryNewEdit;
+			Test.setCurrentPage(ref);
+
+			Test.startTest();
+			ApexPages.StandardController standardController = new ApexPages.StandardController(existingTravelItineraries.get(0));
+			MERC_TravelItineraryNewEditController controller = new MERC_TravelItineraryNewEditController(standardController);
+			System.assertNotEquals(null, controller.fieldSetLabels);
+			Test.stopTest();
+		}
+	}
+
 }

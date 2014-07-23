@@ -46,7 +46,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Used to track which Hotels are utilized for a Meeting Day and track room consumption. Created 12/5/2013 by KLorenti, Mavens Consulting</description>
+    <description>Used to track which Hotels are utilized for a Meeting Day and track room consumption. : MERC : Created on 12/5/2013 by Katy Lorenti, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>

@@ -833,15 +833,6 @@ Created by John A Adams 10/24/2013</description>
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>Contract_Signing_Parties_Complete_OLD__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>Used by portal to indicate that the Contract Signing Parties sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <label>Contract Signing Parties Step CompletOLD</label>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>Contracting_Parties_Counter_MERC__c</fullName>
         <description>Count of the number of Contracting Parties assigned to this HCP is calculated by trigger. Created 05/04/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -2628,6 +2619,17 @@ Created by John A Adams 11/4/2013</description>
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>HCP_Country_of_Residence_MERC__c</fullName>
+        <description>Stamped from HCP Country of Residence onto Designated Individuals and Contracting Party accounts to handle visibility by territory based on HCP&apos;s country of residence. Created 05/02/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>HCP Country of Residence</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>HCP_Designated_Individuals_MERC__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Lookup relationship to associate Designated Individual to an HCP Account. Created 04/04/2014 by KLorenti, Mavens Consulting</description>
@@ -2664,6 +2666,19 @@ Created by John A Adams 11/4/2013</description>
         </picklist>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Has_Contract_MERC__c</fullName>
+        <description>If there is an active contract and the contract signed, field displays Yes, otherwise No.</description>
+        <externalId>false</externalId>
+        <formula>IF (Contract_Expiration_Date_MERC__c &gt;= Today(),&quot;Yes&quot;,&quot;No&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>HCP has a signed contract that is not passed the Contract Expiration Date</inlineHelpText>
+        <label>Has Signed Contract</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Has_MSA_Contract_MERC__c</fullName>
@@ -3362,7 +3377,7 @@ Created by John A Adams 12/15/2013</description>
     </fields>
     <fields>
         <fullName>ParentId</fullName>
-        <type>Lookup</type>
+        <type>Hierarchy</type>
     </fields>
     <fields>
         <fullName>Participated_in_Clinical_Trials_MERC__c</fullName>
@@ -4392,15 +4407,6 @@ Created by John A Adams 12/10/2013</description>
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>Tax_Invoices_Step_Complete_OLD__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>Used by portal to indicate that the Tax/Invoices sub-step is complete on the HCP Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <label>Tax/Invoices Step Complete_OLD</label>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>Teaching_Advising_Step_Complete_MERC__c</fullName>
         <description>Used by portal to indicate that the Teaching/Advising sub-step is complete on the HCP Information Package. Created on 04/18/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -4497,7 +4503,7 @@ ISPICKVAL( Advisory_Board_Experience_MERC__c ,&quot;&quot;)
         <label>Tier 3 Criteria Met</label>
         <length>10</length>
         <required>false</required>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -4839,6 +4845,7 @@ Created by John A Adams 11/4/2013</description>
         <columns>Allocated_CAP_MERC__c</columns>
         <columns>Speaking_Paid_CAP_MERC__c</columns>
         <columns>Reserved_CAP_MERC__c</columns>
+        <columns>Country_Code_MERC__c</columns>
         <filterScope>Everything</filterScope>
         <label>All Accounts</label>
         <language>en_US</language>
@@ -5007,118 +5014,33 @@ Created by John A Adams 11/4/2013</description>
         <label>Non-HCPs</label>
         <language>en_US</language>
     </listViews>
-    <listViews>
-        <fullName>RTI</fullName>
-        <columns>ACCOUNT.NAME</columns>
-        <columns>ACCOUNT.RECORDTYPE</columns>
-        <columns>Mercury_External_Id_MERC__c</columns>
-        <columns>RTI_Transaction_ID_MERC__c</columns>
-        <columns>ACCOUNT.LAST_UPDATE</columns>
-        <columns>ACCOUNT.SITE</columns>
-        <columns>ACCOUNT.ADDRESS1_STATE</columns>
-        <columns>ACCOUNT.PHONE1</columns>
-        <columns>ACCOUNT.TYPE</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <columns>ACCOUNT.ACCOUNT_NUMBER</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>RTI_Transaction_ID_MERC__c</field>
-            <operation>notEqual</operation>
-        </filters>
-        <label>RTI</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>SAP_Test_Accounts</fullName>
-        <columns>ACCOUNT.NAME</columns>
-        <columns>Country_Code_MERC__c</columns>
-        <columns>Country_of_Residence_GLBL__c</columns>
-        <columns>Service_Provider_Tier_MERC__c</columns>
-        <columns>Primary_Address_Country_GLBL__c</columns>
-        <columns>Prim_Affil_Addr_Country_GLBL__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>ACCOUNT.NAME</field>
-            <operation>contains</operation>
-            <value>sap</value>
-        </filters>
-        <label>SAP Test Accounts</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>Web_Service_Test_Users</fullName>
-        <columns>PC_SALUTATION</columns>
-        <columns>PC_FIRST_NAME</columns>
-        <columns>PC_LAST_NAME</columns>
-        <columns>PC_EMAIL</columns>
-        <columns>Cust_Id_GLBL__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Cust_Id_GLBL__c</field>
-            <operation>startsWith</operation>
-            <value>HCP-1111</value>
-        </filters>
-        <filters>
-            <field>ACCOUNT.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>PersonAccount.HCP_GLBL</value>
-        </filters>
-        <label>Web Service Test Users</label>
-        <language>en_US</language>
-    </listViews>
     <namedFilters>
-        <fullName>Account_00N11000000SwsqEAC</fullName>
+        <fullName>nf_01Ib0000000kduLEAQ_00Nb0000009ac19EAA</fullName>
         <active>true</active>
-        <field>Account.Relationship_Owner_MERC__c</field>
+        <field>HCP_Contract_MERC__c.Lilly_Internal_Signee_MERC__c</field>
         <filterItems>
-            <field>Account.RecordTypeId</field>
+            <field>Account.RecordType.Name</field>
             <operation>equals</operation>
             <value>Employee</value>
         </filterItems>
         <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
         <isOptional>false</isOptional>
-        <name>Account_Relationship Owner2</name>
+        <name>nf_01Ib0000000kduLEAQ_00Nb0000009ac19EAA</name>
     </namedFilters>
     <namedFilters>
-        <fullName>Account_00N11000000ePSAEA2</fullName>
+        <fullName>nf_01Ib0000000kduMEAQ_00Nb0000009ac2KEAQ</fullName>
         <active>true</active>
-        <field>Account.HCP_Designated_Individuals_MERC__c</field>
+        <field>Meeting_MERC__c.HCO_MERC__c</field>
         <filterItems>
             <field>Account.RecordTypeId</field>
             <operation>equals</operation>
-            <value>HCP</value>
+            <value>Health Care Organization</value>
         </filterItems>
         <isOptional>false</isOptional>
-        <name>Account_Designated Individual</name>
+        <name>nf_01Ib0000000kduMEAQ_00Nb0000009ac2KEAQ</name>
     </namedFilters>
     <namedFilters>
-        <fullName>Account_00N11000000fVQlEAM</fullName>
-        <active>true</active>
-        <field>Account.HCP_Contracting_Party_MERC__c</field>
-        <filterItems>
-            <field>Account.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>HCP</value>
-        </filterItems>
-        <isOptional>false</isOptional>
-        <name>Account_HCP</name>
-    </namedFilters>
-    <namedFilters>
-        <fullName>Account_Parent</fullName>
-        <active>true</active>
-        <field>Account.ParentId</field>
-        <filterItems>
-            <field>Account.RecordTypeId</field>
-            <operation>equals</operation>
-            <valueField>$Source.RecordTypeId</valueField>
-        </filterItems>
-        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
-        <isOptional>false</isOptional>
-        <name>Account_Parent Account</name>
-        <sourceObject>Account</sourceObject>
-    </namedFilters>
-    <namedFilters>
-        <fullName>nf_01I11000000CjwmEAC_00N11000000SoJnEAK</fullName>
+        <fullName>nf_01Ib0000000kduMEAQ_00Nb0000009ac3SEAQ</fullName>
         <active>true</active>
         <errorMessage>To expand your search, select the &apos;All Fields&apos; option and run your search again.</errorMessage>
         <field>Meeting_MERC__c.Sales_Rep_MERC__c</field>
@@ -5129,22 +5051,10 @@ Created by John A Adams 11/4/2013</description>
         </filterItems>
         <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
         <isOptional>false</isOptional>
-        <name>Meeting_Sales Rep</name>
+        <name>nf_01Ib0000000kduMEAQ_00Nb0000009ac3SEAQ</name>
     </namedFilters>
     <namedFilters>
-        <fullName>nf_01I11000000CjwmEAC_00N11000000T5hSEAS</fullName>
-        <active>true</active>
-        <field>Meeting_MERC__c.HCO_MERC__c</field>
-        <filterItems>
-            <field>Account.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Health Care Organization</value>
-        </filterItems>
-        <isOptional>false</isOptional>
-        <name>Meeting_HCO</name>
-    </namedFilters>
-    <namedFilters>
-        <fullName>nf_01I11000000CjwmEAC_00N11000000TFuMEAW</fullName>
+        <fullName>nf_01Ib0000000kduMEAQ_00Nb0000009ac44EAA</fullName>
         <active>true</active>
         <field>Meeting_MERC__c.Venue_MERC__c</field>
         <filterItems>
@@ -5154,49 +5064,10 @@ Created by John A Adams 11/4/2013</description>
         </filterItems>
         <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
         <isOptional>false</isOptional>
-        <name>Meeting_Venue</name>
+        <name>nf_01Ib0000000kduMEAQ_00Nb0000009ac44EAA</name>
     </namedFilters>
     <namedFilters>
-        <fullName>nf_01I11000000Cjx1EAC_00N11000000SbagEAC</fullName>
-        <active>true</active>
-        <field>Team_Member_MERC__c.Account_MERC__c</field>
-        <filterItems>
-            <field>Account.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Employee</value>
-        </filterItems>
-        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
-        <isOptional>false</isOptional>
-        <name>Team Member_External User</name>
-    </namedFilters>
-    <namedFilters>
-        <fullName>nf_01I11000000CjxfEAC_00N11000000T0zREAS</fullName>
-        <active>true</active>
-        <field>Invoice_MERC__c.HCO_Beneficiary_MERC__c</field>
-        <filterItems>
-            <field>Account.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Health Care Organization</value>
-        </filterItems>
-        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
-        <isOptional>false</isOptional>
-        <name>Invoice_Health Care Organization</name>
-    </namedFilters>
-    <namedFilters>
-        <fullName>nf_01I11000000CjxfEAC_00N11000000TQdMEAW</fullName>
-        <active>true</active>
-        <field>Invoice_MERC__c.Lilly_Affiliate_MERC__c</field>
-        <filterItems>
-            <field>Account.Name</field>
-            <operation>contains</operation>
-            <value>Lilly</value>
-        </filterItems>
-        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
-        <isOptional>false</isOptional>
-        <name>Invoice_Lilly Affiliate</name>
-    </namedFilters>
-    <namedFilters>
-        <fullName>nf_01I11000000CjxpEAC_00N11000000SbwOEAS</fullName>
+        <fullName>nf_01Ib0000000kduNEAQ_00Nb0000009abzvEAA</fullName>
         <active>true</active>
         <booleanFilter>1 OR 2 OR 3</booleanFilter>
         <field>Meeting_Participant_MERC__c.Account_MERC__c</field>
@@ -5217,23 +5088,10 @@ Created by John A Adams 11/4/2013</description>
         </filterItems>
         <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
         <isOptional>false</isOptional>
-        <name>Meeting Participant_Account</name>
+        <name>nf_01Ib0000000kduNEAQ_00Nb0000009abzvEAA</name>
     </namedFilters>
     <namedFilters>
-        <fullName>nf_01I11000000Ck6cEAC_00N11000000TYIWEA4</fullName>
-        <active>true</active>
-        <field>HCP_Contract_MERC__c.Lilly_Internal_Signee_MERC__c</field>
-        <filterItems>
-            <field>Account.RecordType.Name</field>
-            <operation>equals</operation>
-            <value>Employee</value>
-        </filterItems>
-        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
-        <isOptional>false</isOptional>
-        <name>HCP Contract_Lilly Internal Signee</name>
-    </namedFilters>
-    <namedFilters>
-        <fullName>nf_01I11000000CkBhEAK_00N11000000Sf1fEAC</fullName>
+        <fullName>nf_01Ib0000000kdumEAA_00Nb0000009acGNEAY</fullName>
         <active>true</active>
         <booleanFilter>1 OR 2 OR 3</booleanFilter>
         <field>Meeting_Vendor_MERC__c.Account_MERC__c</field>
@@ -5254,7 +5112,97 @@ Created by John A Adams 11/4/2013</description>
         </filterItems>
         <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
         <isOptional>false</isOptional>
-        <name>Meeting Vendor_Account</name>
+        <name>nf_01Ib0000000kdumEAA_00Nb0000009acGNEAY</name>
+    </namedFilters>
+    <namedFilters>
+        <fullName>nf_01Ib0000000ke0uEAA_00Nb0000009admSEAQ</fullName>
+        <active>true</active>
+        <field>Invoice_MERC__c.HCO_Beneficiary_MERC__c</field>
+        <filterItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Health Care Organization</value>
+        </filterItems>
+        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+        <isOptional>false</isOptional>
+        <name>nf_01Ib0000000ke0uEAA_00Nb0000009admSEAQ</name>
+    </namedFilters>
+    <namedFilters>
+        <fullName>nf_01Ib0000000ke0uEAA_00Nb0000009admcEAA</fullName>
+        <active>true</active>
+        <field>Invoice_MERC__c.Lilly_Affiliate_MERC__c</field>
+        <filterItems>
+            <field>Account.Name</field>
+            <operation>contains</operation>
+            <value>Lilly</value>
+        </filterItems>
+        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+        <isOptional>false</isOptional>
+        <name>nf_01Ib0000000ke0uEAA_00Nb0000009admcEAA</name>
+    </namedFilters>
+    <namedFilters>
+        <fullName>nf_01Ib0000000ke1bEAA_00Nb0000009ae0qEAA</fullName>
+        <active>true</active>
+        <field>Team_Member_MERC__c.Account_MERC__c</field>
+        <filterItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Employee</value>
+        </filterItems>
+        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+        <isOptional>false</isOptional>
+        <name>nf_01Ib0000000ke1bEAA_00Nb0000009ae0qEAA</name>
+    </namedFilters>
+    <namedFilters>
+        <fullName>nf_Account_00Nb0000009ac0HEAQ</fullName>
+        <active>true</active>
+        <field>Account.HCP_Contracting_Party_MERC__c</field>
+        <filterItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>HCP</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+        <name>nf_Account_00Nb0000009ac0HEAQ</name>
+    </namedFilters>
+    <namedFilters>
+        <fullName>nf_Account_00Nb0000009ac0IEAQ</fullName>
+        <active>true</active>
+        <field>Account.HCP_Designated_Individuals_MERC__c</field>
+        <filterItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>HCP</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+        <name>nf_Account_00Nb0000009ac0IEAQ</name>
+    </namedFilters>
+    <namedFilters>
+        <fullName>nf_Account_00Nb0000009ac0gEAA</fullName>
+        <active>true</active>
+        <field>Account.Relationship_Owner_MERC__c</field>
+        <filterItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Employee</value>
+        </filterItems>
+        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+        <isOptional>false</isOptional>
+        <name>nf_Account_00Nb0000009ac0gEAA</name>
+    </namedFilters>
+    <namedFilters>
+        <fullName>nf_Account_Parent</fullName>
+        <active>true</active>
+        <field>Account.ParentId</field>
+        <filterItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <valueField>$Source.RecordTypeId</valueField>
+        </filterItems>
+        <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+        <isOptional>false</isOptional>
+        <name>nf_Account_Parent</name>
+        <sourceObject>Account</sourceObject>
     </namedFilters>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
@@ -14154,9 +14102,9 @@ Created by John A Adams 11/4/2013</description>
         <searchResultsAdditionalFields>Primary_Address_Country_GLBL__c</searchResultsAdditionalFields>
     </searchLayouts>
     <validationRules>
-        <fullName>Confirm_Tier_1_HCP_CV_MERC</fullName>
+        <fullName>MERC_Confirm_Tier_1_HCP_CV</fullName>
         <active>true</active>
-        <description>Prevents toggling the Tier 1 HCP CV Check picklist unless the HCP is a Tier 1 and needs to have their CV validated to set the Service Provider Tier.</description>
+        <description>Prevents toggling the Tier 1 HCP CV Check picklist unless the HCP is a Tier 1 and needs to have their CV validated to set the Service Provider Tier : MERC : Created on 12/5/2013 by Oliver Dunford, Mavens Consulting</description>
         <errorConditionFormula>ISCHANGED(Tier_1_HCP_CV_Checked_MERC__c) &amp;&amp; (Tier_1_Score_MERC__c &lt;= 5 || Tier_2_Score_MERC__c &lt;= 5)  &amp;&amp; 
 (
 	ISPICKVAL( Tier_1_HCP_CV_Checked_MERC__c , &quot;Confirmed HCP is Tier 1&quot;) || 
@@ -14166,9 +14114,9 @@ Created by John A Adams 11/4/2013</description>
         <errorMessage>You cannot update the Tier 1 HCP CV Checked field unless the HCP Tier 1 Criteria are met and therefore the HCP is eligible to be a Tier 1 HCP.  Set this value back to blank to continue.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Prevent_Editing_of_Account_Name</fullName>
+        <fullName>MERC_Prevent_Editing_of_Account_Name</fullName>
         <active>true</active>
-        <description>Prevent Editing the Account name if HCP, HCO, or Employee</description>
+        <description>Prevent Editing the Account name if HCP, HCO, or Employee : MERC : Created on 04/05/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>(ISCHANGED( FirstName )
 || ISCHANGED( LastName )
 || ISCHANGED ( Salutation ) 
@@ -14181,16 +14129,15 @@ RecordType.DeveloperName = &apos;HCP_GLBL&apos;
 )
 &amp;&amp;
 (
-$Profile.Name = &quot;Mercury Meeting Functionary - Read Only&quot;
-||  $Profile.Name = &quot;Mercury Meeting Functionary - Salesforce.com - Read Only&quot; 
-|| $Profile.Name = &quot;Mercury Customer Meeting Services - Read Only&quot;
+$Profile.Name &lt;&gt; &quot;System Administrator&quot; &amp;&amp; 
+$Profile.Name &lt;&gt; &quot;Mercury Integration ODS - Platform&quot;
 )</errorConditionFormula>
         <errorMessage>You may not edit the Account Name of an HCP, HCO, or Employee.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Verify_Service_Provider_Tier_Value_MERC</fullName>
+        <fullName>MERC_Verify_Service_Provider_Tier_Value</fullName>
         <active>true</active>
-        <description>Validate that the Service Provider Tier is either blank or values between 1 and 5.  Created 01/09/2014 by KLorenti, Mavens Consulting</description>
+        <description>Validate that the Service Provider Tier is either blank or values between 1 and 5 : MERC : Created on 01/09/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>ISCHANGED(Service_Provider_Tier_MERC__c) &amp;&amp;
 (Service_Provider_Tier_MERC__c &lt; 1.0 ||
 Service_Provider_Tier_MERC__c &gt; 5.0)</errorConditionFormula>
@@ -14215,6 +14162,26 @@ Service_Provider_Tier_MERC__c &gt; 5.0)</errorConditionFormula>
         <showsLocation>true</showsLocation>
         <showsStatus>true</showsStatus>
         <url>http://news.altavista.com/search?nc=0&amp;q={!Account_Name}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>BLND_FormFactoryAccountLink</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>550</height>
+        <linkType>url</linkType>
+        <masterLabel>FormFactory Account Link</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>https://www.dreamfactory.net/sforce/formfactory/formfactory.html? 
+sforce_session_id={!API.Session_ID}&amp; 
+sforce_server_url={!API.Partner_Server_URL_120}&amp; 
+sforce_user_name={!User.Username}&amp; 
+sforce_full_name={!User.Name}&amp; 
+sforce_user_id={!User.Id}&amp; 
+custom_link_name=FormFactory Form Name&amp; 
+myaccount={!Account.Id}&amp; 
+myuser={!User.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>Generate_Content_MERC</fullName>
@@ -14586,7 +14553,7 @@ try
 {
 var urlPrefix = sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;namespace&quot;, {});
 var pacId=sforce.apex.execute(&quot;et4ae5/jsButtonMethods&quot;,&quot;getPACId&quot;, {acctId:&quot;{!CASESAFEID( Account.Id )}&quot;});
-var theUrl = &quot;https://et4ae5.&quot;+urlPrefix+&quot;/apex/singleSendETEmail?contactId=&quot;+pacId;
+var theUrl = &quot;https://&quot;+urlPrefix+&quot;/apex/singleSendETEmail?contactId=&quot;+pacId;
 var npaUrl = parent.location.href;
 if(pacId==&quot;error&quot;)
 {

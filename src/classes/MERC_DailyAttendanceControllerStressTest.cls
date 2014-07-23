@@ -4,9 +4,9 @@
  * Stress tests (for larger meetings) daily attendance/tov controller functionality found in MERC_DailyAttendanceController
  */
 
-@isTest(SeeAllData=true)
+@isTest
 private class MERC_DailyAttendanceControllerStressTest {
-	
+
 	static List<Meeting_MERC__c> meetings;
 	static List<Account> accounts;
 	static List<Meeting_Day_MERC__c> meetingDays;
@@ -29,8 +29,8 @@ private class MERC_DailyAttendanceControllerStressTest {
 		MERC_TriggerHandlerStateManager.deactivate(MERC_AnonymiseNonHCPDataHandler.class);
 
 		MERC_TestFactory.loadDeclarativeRollupSummaries();
-		//accounts = MERC_TestFactory.insertAccounts(100); //insert 100 accounts
-		accounts = [SELECT ID, FirstName, LastName, RecordTypeId, PersonEmail FROM Account WHERE RecordTypeId = :MERC_TestFactory.hcpRecordTypeId limit 100];
+		accounts = MERC_TestFactory.insertAccounts(100); //insert 100 accounts
+		//accounts = [SELECT ID, FirstName, LastName, RecordTypeId, PersonEmail FROM Account WHERE RecordTypeId = :MERC_TestFactory.hcpRecordTypeId limit 100];
 		meetings = MERC_TestFactory.insertMeetings(1); //insert 1 meetings
 		meeting = meetings.get(0);
 		meetingDays = MERC_TestFactory.insertMeetingDays(meeting.Id, 3); //insert 3 days
@@ -87,5 +87,5 @@ private class MERC_DailyAttendanceControllerStressTest {
 		//System.assertEquals(44, [SELECT Total_Hotel_ToV_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :participants.get(0).Id].Total_Hotel_Tov_MERC__c);
 
 	}
-	
+
 }

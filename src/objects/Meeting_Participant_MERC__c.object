@@ -52,7 +52,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Object to store Meeting Participants. Created 9/27/2013 by KLorenti.</description>
+    <description>Object to store Meeting Participants associated to the meeting, e.g. attendees of a meeting. Integrates with Veeva : MERC : Created on 09/27/2013 by Katy Lorenti, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
@@ -360,6 +360,39 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Alliance_MERC__c</fullName>
+        <description>Used to return a different FMV rate for each Country if there is an alliance partnership for the meeting and service provider : MERC : Created on 21/07/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the applicable alliance partner if the meeting is within scope of an alliance partnership</inlineHelpText>
+        <label>Alliance</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Not Applicable</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BI Diabetes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AVID</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AME</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DSE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Amount_to_be_Paid_MERC__c</fullName>
         <description>Amount to be Paid for sponsorship. Created 01/14/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -384,9 +417,9 @@
     </fields>
     <fields>
         <fullName>Associated_Countries_MERC__c</fullName>
-        <description>Pulls down Associated Countries from the Meeting.  Ensures Participants end up in the correct Veeva Org(s). Oliver Dunford 14th April 2014.</description>
+        <description>Pulls down the Meeting Participant Country.  Ensures Participants end up in the correct Veeva Org. Oliver Dunford 14th April 2014.</description>
         <externalId>false</externalId>
-        <formula>Meeting_MERC__r.Associated_Countries_MERC__c</formula>
+        <formula>TEXT(Account_MERC__r.Country_of_Residence_GLBL__c)</formula>
         <label>Associated Countries</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -581,6 +614,28 @@
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Congress_Additional_Information_MERC__c</fullName>
+        <description>Populated by the HCP if they need to provide additional information on the Web Service for Congress Registration : MERC : Created on 21/07/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Congress Additional Information</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Congress_Membership_Id_MERC__c</fullName>
+        <description>Captures Registration Id of HCP for Independent Meetings: MERC : Created on 21/07/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Congress Membership Id</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Contract_Limitations_on_Use_MERC__c</fullName>
@@ -794,7 +849,11 @@ Created by John Adams on 12/9/2013</description>
         <fullName>FMV_Criteria_Map_MERC__c</fullName>
         <description>Pulls down the FMV Criteria Map field from the Account object in order to lookup the correct FMV value based on qualifications and Tier of HCP.</description>
         <externalId>false</externalId>
-        <formula>Account_MERC__r.FMV_Criteria_Map_MERC__c</formula>
+        <formula>IF(
+	(TEXT( Alliance_MERC__c ) = &quot;Not Applicable&quot;) || (ISBLANK(TEXT(Alliance_MERC__c))), 
+		Account_MERC__r.FMV_Criteria_Map_MERC__c, 
+			Account_MERC__r.FMV_Criteria_Map_MERC__c &amp; &quot; - &quot; &amp; TEXT(Alliance_MERC__c)
+)</formula>
         <label>FMV Criteria Map</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1419,6 +1478,19 @@ Created by John A Adams 10/31/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Potential_Cross_Border_Activity_MERC__c</fullName>
+        <description>Shows all Participants with a different country of residence to that of the meeting : MERC : Created on 21/07/2014 by Katy Lorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF(TEXT(Meeting_MERC__r.Event_Country_MERC__c) &lt;&gt; Country_of_Residence_MERC__c, &quot;Yes&quot;, &quot;No&quot;)</formula>
+        <inlineHelpText>Highlights those instances where the Participant&apos;s Country of Residence differs from that of the meeting and additional approvals or processes may be required</inlineHelpText>
+        <label>Potential Cross Border Activity</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Preferred_Departure_Airport_MERC__c</fullName>
         <description>Records Meeting Participant&apos;s preferred departure airport. Created by John A Adams 3/19/2014</description>
         <externalId>false</externalId>
@@ -1577,6 +1649,26 @@ Created by John A Adams 10/31/2013</description>
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>Require_Congress_Registration_MERC__c</fullName>
+        <description>Captures whether a HCP has congress registration details for Independent Meetings : MERC : Created on 21/07/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Require Congress Registration</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Sales_Rep_MERC__c</fullName>
         <description>Sales Rep will be Stamped on Meeting Participant when a Meeting Participant is added in Veeva and sent through to Mercury via integration. Created 01/14/2014 by Klorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -1683,6 +1775,28 @@ ISPICKVAL( Types_of_Service_MERC__c , &apos;Speaking - Chairman Meeting&apos;)
         <externalId>false</externalId>
         <inlineHelpText>Checked by CMS if a paper copy of the Sponsorship Package has been received.  The agreement should also be uploaded against the Meeting Participant.  This will complete this step for the HCP in the RSVP section of the web service.</inlineHelpText>
         <label>Sponsorship Agreement Consent</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Sponsorship_Wet_Signature_Acknowled_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Captures the acknowledgment by the HCP that a wet signature will be required for Sponsorship Agreement, this is not the consent : MERC : Created on 22/07/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Web Service acknowledgment that the HCP knows that a wet signature is required.</inlineHelpText>
+        <label>Sponsorship Wet Signature Acknowledged</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Sponsorship_Wet_Signature_Received_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by the Web Service to determine whether the RSVP process can proceed, also used by Local and CMS Cork to indicate the document has been received and attached : MERC : Created on 05/08/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Should be checked upon receiving and uploading a sponsorship agreement from those affiliates that require a wet signature.</inlineHelpText>
+        <label>Sponsorship Wet Signature Received</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -1967,6 +2081,9 @@ K. Thornton 11 Jun 2015</description>
         <formula>IF(ISPICKVAL(Travel_Time_Hrs_MERC__c,&quot;&quot;), 
 (0), 
 
+IF(ISPICKVAL(Travel_Time_Hrs_MERC__c,&quot;None&quot;), 
+(0), 
+
 IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;0-2 hrs&quot;), 
 (0), 
 
@@ -1982,6 +2099,7 @@ IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;),
 ) 
 ) 
 ) 
+)
 )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Travel Adjustment</label>
@@ -2016,13 +2134,17 @@ IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;),
     <fields>
         <fullName>Travel_Time_Hrs_MERC__c</fullName>
         <description>Travel Time Hours. Created 10/10/2013 by K Lorenti. Modified to Pick list by J Adams 10/17/2013
-
+- None, no travel adjustment
 – between 2 and 10 h triggers 20% travel adjustment in Fee
 - 11 – 20h triggers 25%
 - more than 20 h – 30%</description>
         <externalId>false</externalId>
         <label>Travel Time (hrs)</label>
         <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
             <picklistValues>
                 <fullName>0-2 hrs</fullName>
                 <default>false</default>
@@ -2340,7 +2462,7 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
         <type>AutoNumber</type>
     </nameField>
     <namedFilters>
-        <fullName>nf_01I110000008cxpEAA_00N11000000PFx1EAG</fullName>
+        <fullName>nf_01Ib0000000kduLEAQ_00Nb0000009ac1EEAQ</fullName>
         <active>true</active>
         <field>HCP_Contract_MERC__c.Meeting_Participant_MERC__c</field>
         <filterItems>
@@ -2350,7 +2472,7 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
         </filterItems>
         <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
         <isOptional>false</isOptional>
-        <name>HCP Contract_Meeting Participant</name>
+        <name>nf_01Ib0000000kduLEAQ_00Nb0000009ac1EEAQ</name>
         <sourceObject>HCP_Contract_MERC__c</sourceObject>
     </namedFilters>
     <pluralLabel>Meeting Participants</pluralLabel>
@@ -2380,6 +2502,29 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
             <values>
                 <fullName>Yes</fullName>
                 <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Alliance_MERC__c</picklist>
+            <values>
+                <fullName>AME</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AVID</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BI Diabetes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DSE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Applicable</fullName>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -2528,6 +2673,17 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Require_Congress_Registration_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Services_Rendered_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -2597,6 +2753,10 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
             </values>
             <values>
                 <fullName>More than 20 hrs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2699,6 +2859,29 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Alliance_MERC__c</picklist>
+            <values>
+                <fullName>AME</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AVID</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BI Diabetes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DSE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Applicable</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Confirm_Final_Fee_MERC__c</picklist>
             <values>
                 <fullName>Confirmed</fullName>
@@ -2844,6 +3027,17 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Require_Congress_Registration_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Services_Rendered_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -2913,6 +3107,10 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
             </values>
             <values>
                 <fullName>More than 20 hrs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3008,6 +3206,29 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
             <values>
                 <fullName>Yes</fullName>
                 <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Alliance_MERC__c</picklist>
+            <values>
+                <fullName>AME</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AVID</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BI Diabetes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DSE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Applicable</fullName>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -3172,6 +3393,17 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Require_Congress_Registration_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Services_Rendered_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -3241,6 +3473,10 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
             </values>
             <values>
                 <fullName>More than 20 hrs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3336,6 +3572,29 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
             <values>
                 <fullName>Yes</fullName>
                 <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Alliance_MERC__c</picklist>
+            <values>
+                <fullName>AME</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AVID</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BI Diabetes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DSE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Applicable</fullName>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -3484,6 +3743,17 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Require_Congress_Registration_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Services_Rendered_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -3553,6 +3823,10 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
             </values>
             <values>
                 <fullName>More than 20 hrs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3669,45 +3943,17 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
-        <fullName>Cancelled_Meeting_with_Part_Pymnt_MER</fullName>
-        <active>false</active>
-        <description>Partial Payments should not be entered unless meeting is Cancelled.</description>
-        <errorConditionFormula>!ISPICKVAL(Meeting_MERC__r.Meeting_Status_MERC__c, &quot;Cancelled&quot;)&amp;&amp;
-ISCHANGED(Partial_Payment_Amount_MERC__c) &amp;&amp; !ISBLANK(Partial_Payment_Amount_MERC__c)</errorConditionFormula>
-        <errorDisplayField>Partial_Payment_Amount_MERC__c</errorDisplayField>
-        <errorMessage>The Partial Payment Amount may only be entered if the Meeting is in a Cancelled status.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Check_if_any_ToV_has_been_reported</fullName>
-        <active>false</active>
-        <description>Checks to see if any Meeting Participants have had ToV reported. Created 01/08/2014 by KLorenti, Mavens Consulting</description>
-        <errorConditionFormula>ISPICKVAL( Meeting_MERC__r.Participant_ToV_Final_MERC__c,&quot;Yes&quot;) &amp;&amp;
-(
-ISCHANGED ( Total_Registration_ToV_MERC__c  ) ||
-ISCHANGED ( Total_Ground_Transporation_ToV_MERC__c ) ||
-ISCHANGED ( Total_Food_Beverage_ToV_MERC__c ) ||
-ISCHANGED ( CoPay_Hotel_MERC__c ) ||
-ISCHANGED ( CoPay_Ground_Transport_MERC__c ) ||
-ISCHANGED ( CoPay_Registration_MERC__c ) ||
-ISCHANGED ( CoPay_Food_Beverage_MERC__c ) ||
-ISCHANGED ( CoPay_Flight_Rail_MERC__c )
-) 
-&amp;&amp;  !Confirm_ToV_Reporting_Change_MERC__c</errorConditionFormula>
-        <errorDisplayField>Confirm_ToV_Reporting_Change_MERC__c</errorDisplayField>
-        <errorMessage>ToV has already been reported for participants of this Meeting. Customer Meeting Services needs to confirm this change before it can be made.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Confirm_Final_Fee</fullName>
+        <fullName>MERC_Confirm_Final_Fee</fullName>
         <active>true</active>
-        <description>Unable to Confirm Final Fee if Exception Fee Approval is Required or Rejected.</description>
+        <description>Unable to Confirm Final Fee if Exception Fee Approval is Required or Rejected : MERC : Created on 02/04/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>(ISPICKVAL(Higher_Fee_Approval__c,&apos;Required&apos;) ||  ISPICKVAL(Higher_Fee_Approval__c,&apos;Rejected&apos;)) &amp;&amp; ISPICKVAL(Confirm_Final_Fee_MERC__c,&apos;Confirmed&apos;)</errorConditionFormula>
         <errorDisplayField>Confirm_Final_Fee_MERC__c</errorDisplayField>
         <errorMessage>You cannot confirm the final fee if the Exception Approval is Required or Rejected.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Confirm_Partial_Payment_MERC</fullName>
+        <fullName>MERC_Confirm_Partial_Payment</fullName>
         <active>true</active>
-        <description>Confirm Final Fee should be updated with the Partial Payment Amount</description>
+        <description>Confirm Final Fee should be updated with the Partial Payment Amount : MERC : Created on 01/07/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>!Confirm_Partial_Payment_Amount_MERC__c &amp;&amp;
 ISCHANGED(Partial_Payment_Amount_MERC__c) &amp;&amp;
 Partial_Payment_Amount_MERC__c &gt; 0.00 &amp;&amp;
@@ -3716,9 +3962,9 @@ TEXT(Confirm_Final_Fee_MERC__c) = &quot;Confirmed&quot; &amp;&amp; TEXT(Services
         <errorMessage>Please confirm the Final Fee should be updated with the Partial Payment Amount.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Enter_Blank_If_Not_Reported_MERC</fullName>
+        <fullName>MERC_Enter_Blank_If_Not_Reported</fullName>
         <active>true</active>
-        <description>Users cannot enter a 0.00 in a CoPay if ToV has not been reported.</description>
+        <description>Users cannot enter a 0.00 in a CoPay if ToV has not been reported : MERC : Created on 01/07/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>( 
 (ISCHANGED(Total_Hotel_ToV_MERC__c) &amp;&amp; Total_Hotel_ToV_MERC__c = 0.00) || 
 (ISCHANGED(Total_Ground_Transporation_ToV_MERC__c) &amp;&amp; Total_Ground_Transporation_ToV_MERC__c = 0.00) || 
@@ -3738,39 +3984,9 @@ ISPICKVAL(Meeting_MERC__r.Participant_ToV_Final_MERC__c,&quot;&quot;))</errorCon
         <errorMessage>You may not enter 0.00 unless ToV has already been reported for this Meeting</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Enter_Zero_If_ToV_Reported_MERC</fullName>
-        <active>false</active>
-        <description>Users cannot enter a blank if ToV has been reported.</description>
-        <errorConditionFormula>(
-(ISCHANGED(Total_Hotel_ToV_MERC__c) &amp;&amp;  ISBLANK(Total_Hotel_ToV_MERC__c)) || 
- (ISCHANGED(Total_Ground_Transporation_ToV_MERC__c) &amp;&amp; ISBLANK(Total_Ground_Transporation_ToV_MERC__c)) || 
- (ISCHANGED(Total_Food_Beverage_ToV_MERC__c) &amp;&amp; ISBLANK(Total_Food_Beverage_ToV_MERC__c)) || 
- (ISCHANGED(Total_Registration_ToV_MERC__c) &amp;&amp; ISBLANK(Total_Registration_ToV_MERC__c)) || 
- (ISCHANGED(CoPay_Flight_Rail_MERC__c) &amp;&amp; ISBLANK(CoPay_Flight_Rail_MERC__c)) || 
- (ISCHANGED(CoPay_Food_Beverage_MERC__c) &amp;&amp; ISBLANK(CoPay_Food_Beverage_MERC__c)) || 
- (ISCHANGED(CoPay_Ground_Transport_MERC__c) &amp;&amp; ISBLANK(CoPay_Ground_Transport_MERC__c)) ||
- (ISCHANGED(CoPay_Hotel_MERC__c) &amp;&amp; ISBLANK(CoPay_Hotel_MERC__c)) ||
- (ISCHANGED(CoPay_Registration_MERC__c) &amp;&amp; ISBLANK(CoPay_Registration_MERC__c))
-)
-
-&amp;&amp;  
-
- (ISPICKVAL(Meeting_MERC__r.Participant_ToV_Final_MERC__c,&quot;Yes&quot;))</errorConditionFormula>
-        <errorMessage>You may not enter a blank value if ToV has already been reported for this Meeting</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Individual_Sponsorship_Only_MERC</fullName>
-        <active>false</active>
-        <description>If Meeting is Individual Sponsorship, only allow participants of type Individual Sponsorship</description>
-        <errorConditionFormula>ISPICKVAL(Meeting_MERC__r.Sponsorship_Category_MERC__c,
-&apos;Individual Sponsorship&apos;) &amp;&amp;   RecordType.Name  &lt;&gt;  &apos;Individual Sponsorship&apos;</errorConditionFormula>
-        <errorDisplayField>Account_MERC__c</errorDisplayField>
-        <errorMessage>You must enter Participant Type &quot;Individual Sponsorship&quot; for meetings with Meetings of Sponsorship Category &quot;Individual Sponsorship&quot;.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Partial_Payment_Allowed_MERC</fullName>
+        <fullName>MERC_Partial_Payment_Allowed</fullName>
         <active>true</active>
-        <description>The Partial Payment Amount should only be entered if the Final Fee has been entered and the Participant ToV Final is False.</description>
+        <description>The Partial Payment Amount should only be entered if the Final Fee has been entered and the Participant ToV Final is False : MERC : Created on 01/07/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>ISCHANGED(Partial_Payment_Amount_MERC__c) &amp;&amp;
 Partial_Payment_Amount_MERC__c &gt; 0 &amp;&amp;
 (TEXT(Services_Rendered_MERC__c) &lt;&gt; &quot;Yes&quot; ||
@@ -3779,26 +3995,26 @@ Text(Confirm_Final_Fee_MERC__c) &lt;&gt; &quot;Confirmed&quot;)</errorConditionF
         <errorMessage>You may not enter a Partial Payment Amount if services have not been rendered or if the Final Fee has not been confirmed.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Prevent_Change_Status_if_ToV_Final_MERC</fullName>
+        <fullName>MERC_Prevent_Change_Status_if_ToV_Final</fullName>
         <active>true</active>
-        <description>If the Participant ToV Final is checked you should not be able to change the Participant&apos;s attendance status. Created 01/14/2014 by KLorenti, Mavens Consulting</description>
+        <description>If the Participant ToV Final is checked you should not be able to change the Participant&apos;s attendance status : MERC : Created on 01/14/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>ISCHANGED(Status_MERC__c) &amp;&amp; Text(Status_MERC__c) &lt;&gt; &quot;No Show&quot; &amp;&amp; Text(Status_MERC__c) &lt;&gt; &quot;Attended&quot; &amp;&amp;
 ISPICKVAL( Meeting_MERC__r.Participant_ToV_Final_MERC__c ,&quot;Yes&quot;)</errorConditionFormula>
         <errorDisplayField>Status_MERC__c</errorDisplayField>
         <errorMessage>You cannot change the Participant&apos;s status if the Participant ToV is final.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Prevent_Delete_Locked_Invoices_MERC</fullName>
+        <fullName>MERC_Prevent_Delete_Locked_Invoices</fullName>
         <active>true</active>
-        <description>Prevent deletion of locked invoices or credit notes.</description>
+        <description>Prevent deletion of locked invoices or credit notes : MERC : Created on 01/07/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>ISCHANGED( of_Locked_Invoices_MERC__c ) &amp;&amp;
 (of_Locked_Invoices_MERC__c &lt; PRIORVALUE(of_Locked_Invoices_MERC__c))</errorConditionFormula>
         <errorMessage>You many not delete Invoices or Credit Notes that are locked.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Prevent_Negative_Amount_in_CoPay_MERC</fullName>
+        <fullName>MERC_Prevent_Negative_Amount_in_CoPay</fullName>
         <active>true</active>
-        <description>Prevent users from entering negative numbers in CoPay fields</description>
+        <description>Prevent users from entering negative numbers in CoPay fields : MERC : Created on 01/07/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>(ISCHANGED(CoPay_Flight_Rail_MERC__c) &amp;&amp;
  CoPay_Flight_Rail_MERC__c &lt;0) ||
 
@@ -3816,9 +4032,9 @@ CoPay_Registration_MERC__c &lt;0)</errorConditionFormula>
         <errorMessage>You may not enter a CoPay value less than zero.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Prevent_Zero_Null_in_Proposed_Fee_MERC</fullName>
+        <fullName>MERC_Prevent_Zero_Null_in_Proposed_Fee</fullName>
         <active>true</active>
-        <description>Prevent Nulls or Zeros from being entered in Proposed Final Fee. Created 0324/2014 by KLorenti, Mavens Consulting</description>
+        <description>Prevent Nulls or Zeros from being entered in Proposed Final Fee : MERC : Created on 01/07/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>ISCHANGED(Confirm_Final_Fee_MERC__c) &amp;&amp;
 ISPICKVAL(Confirm_Final_Fee_MERC__c,&apos;Confirmed&apos;) &amp;&amp; 
 (ISBLANK(Proposed_Final_Fee_MERC__c) ||
@@ -3828,9 +4044,9 @@ Proposed_Final_Fee_MERC__c = 0.00)</errorConditionFormula>
         <errorMessage>The Proposed Final Fee may not be blank or zero when the fee is confirmed</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Proposed_Final_Fee_MERC</fullName>
+        <fullName>MERC_Proposed_Final_Fee</fullName>
         <active>true</active>
-        <description>The Proposed Final Fee cannot be entered unless a Minimum and Maximum Rate are presented.  Created by John A Adams 2/26/2014</description>
+        <description>The Proposed Final Fee cannot be entered unless a Minimum and Maximum Rate are presented : MERC : Created on 02/26/2014 by John Adams, Mavens Consulting</description>
         <errorConditionFormula>ISCHANGED(Proposed_Final_Fee_MERC__c) &amp;&amp; Proposed_Final_Fee_MERC__c &lt;&gt; 0 &amp;&amp;
  (ISBLANK(Minimum_Rate_MERC__c) ||
  ISBLANK(Maximum_Rate_MERC__c))</errorConditionFormula>
@@ -3838,9 +4054,9 @@ Proposed_Final_Fee_MERC__c = 0.00)</errorConditionFormula>
         <errorMessage>You may not enter a Proposed Final Fee if the Minimum and Maximum Hourly Rate values are not present. Tiering must be complete and Country of Residence indicated.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Services_Rendered_MERC</fullName>
+        <fullName>MERC_Services_Rendered</fullName>
         <active>true</active>
-        <description>Only HCP Care or System Administrator can change Services Rendered value if it is already set to &quot;Yes&quot;.  Created 02/03/2014 by KLorenti, Mavens Consulting</description>
+        <description>Only HCP Care or System Administrator can change Services Rendered value if it is already set to &quot;Yes&quot; : MERC : Created on 02/03/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>$Profile.Name &lt;&gt; &quot;Mercury HCP Care&quot; &amp;&amp; 
 $Profile.Name &lt;&gt; &quot;System Administrator&quot; &amp;&amp;
 ISCHANGED(Services_Rendered_MERC__c) &amp;&amp;

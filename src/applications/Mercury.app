@@ -3,7 +3,6 @@
     <defaultLandingTab>standard-home</defaultLandingTab>
     <description>Meeting Management System</description>
     <label>Mercury</label>
-    <logo>SharedDocuments/Lilly_Logo.png</logo>
     <tab>standard-Chatter</tab>
     <tab>standard-Account</tab>
     <tab>standard-Case</tab>
@@ -21,7 +20,8 @@
     <tab>Meeting_Participant_MERC__c</tab>
     <tab>Travel_Itinerary_MERC__c</tab>
     <tab>Consent_Setting_GLBL__c</tab>
-    <tab>Merged_Accounts_GLBL</tab>
+    <tab>Merged_Accounts</tab>
     <tab>Web_Service_Logic_MERC__c</tab>
-    <tab>Web_Service_Error_GLBL__c</tab>
+    <tab>standard-Dashboard</tab>
+    <tab>standard-report</tab>
 </CustomApplication>

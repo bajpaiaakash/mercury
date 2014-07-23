@@ -10,9 +10,9 @@ public with sharing class MERC_PrefConsentMappingHandlerTest {
 	static {
 		System.runAs(new User(Id=UserInfo.getUserId()))
 		{
-			testUser = MERC_TestFactory.insertTestUsers(1, 'Mercury Customer Meeting Services - Read Only').get(0);
+			testUser = MERC_TestFactory.insertTestUsers(1, 'GSO Basic User_Salesforce').get(0);
 			testUser.UserPermissionsSupportUser = true;
-			testUser.UserRoleId = [SELECT Id FROM UserRole WHERE Name='Global' limit 1].Id;
+			testUser.UserRoleId = [SELECT Id FROM UserRole WHERE Name='CEO' limit 1].Id;
 			update testUser;
 
 			List<PermissionSetAssignment> pSetAssignments = new List<PermissionSetAssignment>();

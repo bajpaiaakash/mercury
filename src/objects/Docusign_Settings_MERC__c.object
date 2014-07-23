@@ -41,6 +41,16 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Server_Endpoint_MERC__c</fullName>
+        <description>The Docusign Server Endpoint</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Docusign Server Endpoint</inlineHelpText>
+        <label>Server Endpoint</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
         <fullName>Username_MERC__c</fullName>
         <description>Docusign API connection username</description>
         <externalId>false</externalId>

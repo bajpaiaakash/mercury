@@ -52,7 +52,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Junction object to create many-to-many relationship between Meetings and Products. Created 10/4/2013 by KLorenti.</description>
+    <description>Junction object to create many-to-many relationship between Meetings, Product Group and Indication. Integrates with Veeva : MERC : Created on 10/04/2013 by Katy Lorenti, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
@@ -245,20 +245,6 @@ Created by John Adams on 12/9/2013</description>
         <description>Master-Detail from Meeting to Product. Created 10/4/2013 by KLorenti.</description>
         <externalId>false</externalId>
         <label>Product</label>
-        <lookupFilter>
-            <active>true</active>
-            <filterItems>
-                <field>Product_Group_GLBL__c.Cntry_Cd_GLBL__c</field>
-                <operation>equals</operation>
-                <value>ZZ</value>
-            </filterItems>
-            <filterItems>
-                <field>Product_Group_GLBL__c.Grp_Prps_Cd_GLBL__c</field>
-                <operation>equals</operation>
-                <value>MKTP</value>
-            </filterItems>
-            <isOptional>false</isOptional>
-        </lookupFilter>
         <referenceTo>Product_Group_GLBL__c</referenceTo>
         <relationshipLabel>Meetings</relationshipLabel>
         <relationshipName>Meeting_Products</relationshipName>

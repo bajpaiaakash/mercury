@@ -46,17 +46,37 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Object used to store Speakers consent and communication preferences.
-Created by John A Adams 9/26/2013
-Renamed Communication from Consent by John A Adams 10/7/2013
-Renamed Communication Preference from Communication by JFerraro 10/17/2013
-Relabeled to Preferences and Consent by KLorenti 12/2/2013
-Renamed API name to Preferences_and_Consent_GLBL by KLorenti 01/21/2014</description>
+    <description>Stores Mercury Preferences for HCPs e.g. Dietary and Travel Preferences.  Also stores Consent, master data.  Used to host temporary consent data when updated on Web Service or directly within Mercury by CMS Cork. Integrates with Veeva : MERC : Created on 09/26/2013 by John Adams, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
+    <fieldSets>
+        <fullName>Account_Merge_Fields</fullName>
+        <description>MERC_MergedAccounts.page / MERC_MergedAccountsApex.cls / Custom Setting: Account Merge Related Lists</description>
+        <displayedFields>
+            <field>RecordTypeId</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Preference_Type_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Preference_Sub_Type_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Preference_Value_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Account Merge Fields</label>
+    </fieldSets>
     <fieldSets>
         <fullName>Account_Merge_Pref_and_Consent_MERC</fullName>
         <description>MERC_MergedAccounts.page / MERC_MergedAccountsApex.cls / Custom Setting: Account Merge Related Lists Oliver Dunford 8th May 2014.</description>
@@ -127,6 +147,18 @@ Changed back to Lookup, 04/04/2014 by KLorenti</description>
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Account_Global_Id_GLBL__c</fullName>
+        <description>Stores Global Id of Account. Populated via workflow for integration performance reasons. Oliver Dunford 16th June 2014. Mavens Consulting.</description>
+        <externalId>false</externalId>
+        <label>Account Global Id</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Account_Name_GLBL__c</fullName>
         <description>Used by Portal API to hold the full name of the HCP modifying the their global consent and will be populated by the API when a record is created or updated. Created 05/22/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -138,6 +170,22 @@ Changed back to Lookup, 04/04/2014 by KLorenti</description>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Active_MERC__c</fullName>
+        <description>Determines whether a Preference or Consent record is active or not. Created 06/199/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>(ISBLANK(Efctv_End_Dt_GLBL__c)||
+Efctv_End_Dt_GLBL__c &gt;= Today())
+
+|| 
+
+(ISBLANK(Efctv_End_Dt_Cap_GLBL__c) ||
+Efctv_End_Dt_Cap_GLBL__c &gt;= Today())</formula>
+        <label>Active</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>CST_App_Menu_Flag_CUST__c</fullName>
@@ -174,10 +222,6 @@ Changed back to Lookup, 04/04/2014 by KLorenti</description>
             <picklistValues>
                 <fullName>D022</fullName>
                 <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>DTest</fullName>
-                <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -585,7 +629,19 @@ Created by John A Adams 12/10/2013</description>
         <fullName>Combined_ID_GLBL__c</fullName>
         <description>Concatenation of Account ID and Preference type. Used to enforce uniqueness with validation rule. Created 04/07/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <formula>IF (RecordType.Name &lt;&gt; &quot;Consent&quot; &amp;&amp; TEXT(Preference_Type_MERC__c) &lt;&gt; &quot;Meals Allergy Preferences&quot;, Account_GLBL__r.Id + &quot;-&quot; + TEXT(Preference_Type_MERC__c), Party_Cnsnt_External_ID_GLBL__c)</formula>
+        <formula>IF 
+(RecordType.Name = &quot;Preferences&quot; &amp;&amp; TEXT(Preference_Type_MERC__c) &lt;&gt; &quot;Meals Allergy Preferences&quot;, Account_GLBL__r.Id + &quot;-&quot; + TEXT(Preference_Type_MERC__c),
+
+ IF 
+ (RecordType.Name = &quot;Preferences&quot; &amp;&amp; TEXT(Preference_Type_MERC__c) = &quot;Meals Allergy Preferences&quot;, Account_GLBL__r.Id + &quot;-&quot; + TEXT(Preference_Type_MERC__c) + &quot;-&quot; + TEXT( Preference_Sub_Type_MERC__c),
+  
+   IF
+   (RecordType.Name = &quot;Consent&quot; &amp;&amp; Active_MERC__c &amp;&amp; !ISBLANK(Cmnctn_Chnl_Cd_Cap_GLBL__c), Account_GLBL__r.Id + &quot;-&quot; +   Cmnctn_Chnl_Cd_Cap_GLBL__c , 
+
+    
+    IF(RecordType.Name = &quot;Consent&quot; &amp;&amp; Active_MERC__c &amp;&amp; !ISBLANK(Cmnctn_Chnl_Cd_GLBL__c), Account_GLBL__r.Id + &quot;-&quot; +  Cmnctn_Chnl_Cd_GLBL__c,  
+
+Party_Cnsnt_External_ID_GLBL__c ))))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Combined ID</label>
         <required>false</required>
@@ -593,6 +649,139 @@ Created by John A Adams 12/10/2013</description>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Communication_Preference_Cap_GLBL__c</fullName>
+        <description>Captures the accounts preferred means of communication
+Changes to consent fields captured at Portal. Created by John A Adams 3/22/2014</description>
+        <externalId>false</externalId>
+        <label>Communication Preference (Capture)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>e-Mail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Communication_Preference_GLBL__c</fullName>
+        <description>Captures the accounts preferred means of communication
+Created by John A Adams 9/27/2013</description>
+        <externalId>false</externalId>
+        <label>Communication Preference</label>
+        <picklist>
+            <picklistValues>
+                <fullName>e-Mail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Delivery_Cap_GLBL__c</fullName>
+        <description>Stores how contract should be delivered to HCP
+Changes to consent fields captured at Portal. Created by John A Adams 3/22/2014</description>
+        <externalId>false</externalId>
+        <label>Contract Delivery (Capture)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Delivery_GLBL__c</fullName>
+        <description>Stores how contract should be delivered to HCP
+Created by John A Adams 10/17/2013</description>
+        <externalId>false</externalId>
+        <label>Contract Delivery</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Restrictions_Cap_GLBL__c</fullName>
+        <description>Contract Restrictions 
+Changes to consent fields captured at Portal. Created by John A Adams 3/22/2014</description>
+        <externalId>false</externalId>
+        <label>Contract Restrictions (Capture)</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Contract_Restrictions_GLBL__c</fullName>
+        <description>Restrictions to contract that HCP is requiring
+Created by John A Adams 10/22/2013</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Note any restrictions to contracting that exist.</inlineHelpText>
+        <label>Contract Restrictions</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
     </fields>
     <fields>
         <fullName>Country_Code_GLBL__c</fullName>
@@ -655,6 +844,28 @@ Created by John A Adams 11/5/2013</description>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Detailed_Preferences_Cap_GLBL__c</fullName>
+        <description>Detailed Preferences
+Changes to consent fields captured at Portal. Created by John A Adams 3/22/2014</description>
+        <externalId>false</externalId>
+        <label>Detailed Preferences (Capture)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Detailed_Preferences_GLBL__c</fullName>
+        <description>Captures HCP preferences at a more granular level e.g. I want to speak about these topics, I want to speak only in International Meetings.
+Created by John A Adams 10/23/2013</description>
+        <externalId>false</externalId>
+        <label>Detailed Preferences</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Dietary_Preferences_Complete_MERC__c</fullName>
@@ -799,6 +1010,90 @@ Created by John A Adams 11/5/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Hotel_Travel_Preferences_MERC__c</fullName>
+        <description>Stores hotel / travel preferences from the HCP Information Package/Portal. Oliver Dunford 8th Nov 2013.</description>
+        <externalId>false</externalId>
+        <label>Hotel / Travel Preferences</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Interaction_Channel_Type_Cap_GLBL__c</fullName>
+        <description>Stores the interaction selection by Speakers / Delegates
+Changes to consent fields captured at Portal. Created by John A Adams 3/22/2014</description>
+        <externalId>false</externalId>
+        <label>Interaction/Channel Type (Capture)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SMS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Interaction_Channel_Type_GLBL__c</fullName>
+        <description>Stores the  interaction selection by Speakers / Delegates
+Created by John A Adams 10/2/2013</description>
+        <externalId>false</externalId>
+        <label>Interaction/Channel Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SMS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>JanRain_Id_Cap_GLBL__c</fullName>
         <description>Pulled from the HCPs Id logged into the Portal, preferably an Id of the HCP. Oliver Dunford 16th May 2014.</description>
         <externalId>false</externalId>
@@ -822,11 +1117,299 @@ Created by John A Adams 11/5/2013</description>
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
+        <fullName>Language_Preference_MERC__c</fullName>
+        <description>Captured for Mercury.  Mastered Language Preference field cannot be used due to data quality.  Oliver Dunford 7th Jan.</description>
+        <externalId>false</externalId>
+        <label>Language Preference</label>
+        <picklist>
+            <picklistValues>
+                <fullName>en</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>fr</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>de</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>es</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>pt</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ru</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>da</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>no</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>sv</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>fi</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>tr</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>it</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ro</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>nl</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>pl</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>cs</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>hu</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>sk</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>uk</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Language_of_Choice_Cap_GLBL__c</fullName>
+        <description>Language preference for communications.
+Changes to consent fields captured at Portal. Created by John A Adams 3/22/2014</description>
+        <externalId>false</externalId>
+        <label>Language of Choice (Capture)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>en</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>fr</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>de</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>es</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>pt</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ru</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>da</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>no</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>sv</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>fi</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>tr</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>it</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ro</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>nl</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>pl</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>cs</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>hu</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>sk</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>uk</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Language_of_Choice_GLBL__c</fullName>
+        <description>Language preference for communications.
+Created by John A Adams 10/17/2013</description>
+        <externalId>false</externalId>
+        <label>Language of Choice</label>
+        <picklist>
+            <picklistValues>
+                <fullName>en</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>fr</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>de</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>es</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>pt</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ru</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>da</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>no</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>sv</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>fi</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>tr</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>it</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ro</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>nl</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>pl</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>cs</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>hu</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>sk</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>uk</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Meals_Allergy_Preferences_MERC__c</fullName>
+        <description>Stores HCP preferences from the HCP Information Package/Portal. Oliver Dunford 8th Nov 2013.</description>
+        <externalId>false</externalId>
+        <label>Meals / Allergy Preferences</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
         <fullName>Mercury_External_Id_MERC__c</fullName>
         <description>Generated by Workflow used for Integration with External Systems.
 Created by J Adams 12/10/2013</description>
         <externalId>true</externalId>
         <label>Mercury External Id</label>
+        <length>150</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Name_as_in_Passport_MERC__c</fullName>
+        <description>Stores name as in Passport from HCP Information Package/Portal. Oliver Dunford 8th Nov 2013. Oliver Dunford 8th Nov 2013.</description>
+        <externalId>false</externalId>
+        <label>Name as in Passport</label>
         <length>150</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -858,6 +1441,19 @@ Created by John A Adams 11/5/2013</description>
         <type>DateTime</type>
     </fields>
     <fields>
+        <fullName>ODS_Ld_Usr_Cap_GLBL__c</fullName>
+        <description>ODS Load User 
+Changes to consent fields captured at Portal. Created by John A Adams 3/22/2014</description>
+        <externalId>false</externalId>
+        <label>ODS Load User (Capture)</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>ODS_Ld_Usr_GLBL__c</fullName>
         <description>ODS Load User
 Customer ODS to Mercury Mapping
@@ -872,6 +1468,17 @@ Created by John A Adams 11/5/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>ODS_Lst_Updt_Tmstmp_Cap_GLBL__c</fullName>
+        <description>Source Update Timestamp
+Changes to consent fields captured at Portal. Created by John A Adams 3/22/2014</description>
+        <externalId>false</externalId>
+        <label>Source Update Timestamp (Capture)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>ODS_Lst_Updt_Tmstmp_GLBL__c</fullName>
         <description>Source Update Timestamp
 Customer ODS to Mercury Mapping
@@ -882,6 +1489,19 @@ Created by John A Adams 11/5/2013</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>ODS_Lst_Updt_Usr_Cap_GLBL__c</fullName>
+        <description>ODS Last Update User
+Changes to consent fields captured at Portal. Created by John A Adams 3/22/2014</description>
+        <externalId>false</externalId>
+        <label>ODS Last Update User (Capture)</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>ODS_Lst_Updt_Usr_GLBL__c</fullName>
@@ -962,6 +1582,69 @@ Created by John A Adams 11/5/2013</description>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Payment_Required_MERC__c</fullName>
+        <description>Capture if payment is required to be made to the HCP for a service. Created 12/2/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Payment Required?</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Permission_Status_Cap_GLBL__c</fullName>
+        <description>Records Speakers / Delegates permission to contact them
+Changes to consent fields captured at Portal. Created by John A Adams 3/22/2014</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Do you have the permission of the Speakers / Delegates to contact them</inlineHelpText>
+        <label>Permission Status (Capture)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Permission Given</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Permission Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Permission_Status_GLBL__c</fullName>
+        <description>Records Speakers / Delegates permission to contact them</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Do you have the permission of the Speakers / Delegates to contact them</inlineHelpText>
+        <label>Permission Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Permission Given</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Permission Withdrawn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Preference_Sub_Type_MERC__c</fullName>
@@ -1336,6 +2019,19 @@ Created by John A Adams 11/5/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Record_Type_Id_Cap_GLBL__c</fullName>
+        <description>Record Type Id
+Changes to consent fields captured at Portal. Created by John A Adams 3/22/2014</description>
+        <externalId>false</externalId>
+        <label>Record Type Id (Capture)</label>
+        <length>18</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Record_Type_Id_GLBL__c</fullName>
         <description>Record Type Id
 Needs stamping based on Account Type. e.g. HCP, HCO etc
@@ -1355,6 +2051,69 @@ Created by John A Adams 12/15/2013</description>
         <externalId>false</externalId>
         <formula>TEXT(Account_GLBL__r.Salutation)</formula>
         <label>Salutation</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Speaker_Interest_Cap_GLBL__c</fullName>
+        <description>Indicates candidates interest in being a speaker
+Changes to consent fields captured at Portal. Created by John A Adams 3/22/2014</description>
+        <externalId>false</externalId>
+        <label>Speaker Interest (Capture)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Do Not Contact</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contract with Restrictions</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contract Request</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Speaker_Interest_GLBL__c</fullName>
+        <description>Indicates candidates interest in being a speaker
+Created by John A Adams 10/3/2013</description>
+        <externalId>false</externalId>
+        <label>Speaker Interest</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Do Not Contract</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contract with Restrictions</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contract Request</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Src_Block_Flg_Cap_GLBL__c</fullName>
+        <description>Source Block Flag
+Changes to consent fields captured at Portal. Created by John A Adams 3/22/2014</description>
+        <externalId>false</externalId>
+        <label>Source Block Flag (Capture)</label>
+        <length>1</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -1537,14 +2296,25 @@ Created by John A Adams 2/18/2014</description>
         <description>Communication consent</description>
         <label>Consent</label>
         <picklistValues>
+            <picklist>CST_App_Menu_Flag_CUST__c</picklist>
+            <values>
+                <fullName>Cnsnt_Prps_Cd_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cnsnt_Sts_Cd_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interaction_Channel_Type_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Cmnctn_Chnl_Cd_CMS_MERC__c</picklist>
             <values>
                 <fullName>D022</fullName>
                 <default>true</default>
-            </values>
-            <values>
-                <fullName>DTest</fullName>
-                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -1562,6 +2332,326 @@ Created by John A Adams 2/18/2014</description>
             </values>
             <values>
                 <fullName>PERMISSION WITHDRAWN</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Communication_Preference_Cap_GLBL__c</picklist>
+            <values>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>e-Mail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Communication_Preference_GLBL__c</picklist>
+            <values>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>e-Mail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Contract_Delivery_Cap_GLBL__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Contract_Delivery_GLBL__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Interaction_Channel_Type_Cap_GLBL__c</picklist>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SMS</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Interaction_Channel_Type_GLBL__c</picklist>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SMS</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Language_Preference_MERC__c</picklist>
+            <values>
+                <fullName>en</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Language_of_Choice_Cap_GLBL__c</picklist>
+            <values>
+                <fullName>cs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>da</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>de</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>en</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>es</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>fi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>fr</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>hu</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>it</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>nl</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>no</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>pl</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>pt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ro</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ru</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>sk</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>sv</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>tr</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>uk</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Language_of_Choice_GLBL__c</picklist>
+            <values>
+                <fullName>cs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>da</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>de</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>en</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>es</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>fi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>fr</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>hu</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>it</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>nl</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>no</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>pl</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>pt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ro</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ru</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>sk</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>sv</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>tr</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>uk</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Permission_Status_Cap_GLBL__c</picklist>
+            <values>
+                <fullName>Permission Given</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Permission Withdrawn</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Permission_Status_GLBL__c</picklist>
+            <values>
+                <fullName>Permission Given</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Permission Withdrawn</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1652,6 +2742,36 @@ Created by John A Adams 2/18/2014</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Speaker_Interest_Cap_GLBL__c</picklist>
+            <values>
+                <fullName>Contract Request</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contract with Restrictions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Do Not Contact</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Speaker_Interest_GLBL__c</picklist>
+            <values>
+                <fullName>Contract Request</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contract with Restrictions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Do Not Contract</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Transparency_Reporting_Opt_Out_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -1668,6 +2788,21 @@ Created by John A Adams 2/18/2014</description>
         <active>true</active>
         <description>Preferences that are seen by all users.</description>
         <label>Preferences</label>
+        <picklistValues>
+            <picklist>CST_App_Menu_Flag_CUST__c</picklist>
+            <values>
+                <fullName>Cnsnt_Prps_Cd_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cnsnt_Sts_Cd_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interaction_Channel_Type_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Cmnctn_Chnl_Cd_CMS_MERC__c</picklist>
             <values>
@@ -1690,6 +2825,294 @@ Created by John A Adams 2/18/2014</description>
             </values>
             <values>
                 <fullName>PERMISSION WITHDRAWN</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Communication_Preference_Cap_GLBL__c</picklist>
+            <values>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>e-Mail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Communication_Preference_GLBL__c</picklist>
+            <values>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>e-Mail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Contract_Delivery_Cap_GLBL__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Contract_Delivery_GLBL__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Interaction_Channel_Type_Cap_GLBL__c</picklist>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SMS</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Interaction_Channel_Type_GLBL__c</picklist>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SMS</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Language_Preference_MERC__c</picklist>
+            <values>
+                <fullName>cs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>da</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>de</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>en</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>es</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>fi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>fr</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>hu</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>it</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>nl</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>no</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>pl</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>pt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ro</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ru</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>sk</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>sv</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>tr</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>uk</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Language_of_Choice_Cap_GLBL__c</picklist>
+            <values>
+                <fullName>de</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>en</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>es</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>fr</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>pt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ru</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Language_of_Choice_GLBL__c</picklist>
+            <values>
+                <fullName>de</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>en</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>es</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>fr</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>pt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ru</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Permission_Status_Cap_GLBL__c</picklist>
+            <values>
+                <fullName>Permission Given</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Permission Withdrawn</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Permission_Status_GLBL__c</picklist>
+            <values>
+                <fullName>Permission Given</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Permission Withdrawn</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1924,6 +3347,36 @@ Created by John A Adams 2/18/2014</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Speaker_Interest_Cap_GLBL__c</picklist>
+            <values>
+                <fullName>Contract Request</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contract with Restrictions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Do Not Contact</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Speaker_Interest_GLBL__c</picklist>
+            <values>
+                <fullName>Contract Request</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contract with Restrictions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Do Not Contract</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Transparency_Reporting_Opt_Out_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -1940,6 +3393,21 @@ Created by John A Adams 2/18/2014</description>
         <active>false</active>
         <description>Preferences that can not be updated by all.</description>
         <label>Preferences - Private</label>
+        <picklistValues>
+            <picklist>CST_App_Menu_Flag_CUST__c</picklist>
+            <values>
+                <fullName>Cnsnt_Prps_Cd_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cnsnt_Sts_Cd_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interaction_Channel_Type_GLBL%5F%5Fc</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Cmnctn_Chnl_Cd_CMS_MERC__c</picklist>
             <values>
@@ -1962,6 +3430,294 @@ Created by John A Adams 2/18/2014</description>
             </values>
             <values>
                 <fullName>PERMISSION WITHDRAWN</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Communication_Preference_Cap_GLBL__c</picklist>
+            <values>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>e-Mail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Communication_Preference_GLBL__c</picklist>
+            <values>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>e-Mail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Contract_Delivery_Cap_GLBL__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Contract_Delivery_GLBL__c</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Interaction_Channel_Type_Cap_GLBL__c</picklist>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SMS</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Interaction_Channel_Type_GLBL__c</picklist>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SMS</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Language_Preference_MERC__c</picklist>
+            <values>
+                <fullName>cs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>da</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>de</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>en</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>es</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>fi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>fr</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>hu</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>it</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>nl</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>no</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>pl</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>pt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ro</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ru</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>sk</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>sv</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>tr</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>uk</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Language_of_Choice_Cap_GLBL__c</picklist>
+            <values>
+                <fullName>de</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>en</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>es</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>fr</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>pt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ru</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Language_of_Choice_GLBL__c</picklist>
+            <values>
+                <fullName>de</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>en</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>es</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>fr</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>pt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ru</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Permission_Status_Cap_GLBL__c</picklist>
+            <values>
+                <fullName>Permission Given</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Permission Withdrawn</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Permission_Status_GLBL__c</picklist>
+            <values>
+                <fullName>Permission Given</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Permission Withdrawn</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2184,6 +3940,36 @@ Created by John A Adams 2/18/2014</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Speaker_Interest_Cap_GLBL__c</picklist>
+            <values>
+                <fullName>Contract Request</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contract with Restrictions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Do Not Contact</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Speaker_Interest_GLBL__c</picklist>
+            <values>
+                <fullName>Contract Request</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contract with Restrictions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Do Not Contract</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Transparency_Reporting_Opt_Out_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -2214,27 +4000,28 @@ Created by John A Adams 2/18/2014</description>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <validationRules>
-        <fullName>Prevent_Update_of_Consent_Records</fullName>
+        <fullName>MERC_Prevent_Update_of_Consent_Records</fullName>
         <active>true</active>
-        <description>Prevents users from editing Consent records except for those of type Transparency Consent.</description>
+        <description>Prevents users from editing Consent records except for those of type Transparency Consent : MERC : Created on 04/08/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>RecordType.Name = &quot;Consent&quot; &amp;&amp; 
 TEXT(Cmnctn_Chnl_Cd_CMS_MERC__c)  &lt;&gt; &quot;D022&quot; &amp;&amp;
-$Profile.Name &lt;&gt; &apos;System Administrator&apos;</errorConditionFormula>
+($Profile.Name &lt;&gt; &quot;System Administrator&quot;
+&amp;&amp; $Profile.Name &lt;&gt; &quot;Mercury Integration ODS - Platform&quot; &amp;&amp; $Profile.Name &lt;&gt; &quot;Mercury Portal API - Platform&quot; &amp;&amp; $Profile.Name &lt;&gt; &quot;Mercury Metadata API&quot;)</errorConditionFormula>
         <errorMessage>You may not edit Consent records unless they are of type Transparency Consent</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Subtype_Not_Other_No_Value_MERC</fullName>
+        <fullName>MERC_Subtype_Not_Other_No_Value</fullName>
         <active>true</active>
-        <description>If the sub-type chosen is not Other, no value should be entered.</description>
+        <description>If the sub-type chosen is not Other, no value should be entered : MERC : Created on 04/08/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>IF(ISPICKVAL( Preference_Sub_Type_MERC__c,&quot;Other&quot;), FALSE, TRUE) &amp;&amp;
 !ISBLANK(Preference_Value_MERC__c)</errorConditionFormula>
         <errorDisplayField>Preference_Value_MERC__c</errorDisplayField>
         <errorMessage>No Preference Values is needed unless &quot;Other&quot; is chosen.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Subtype_Other_Requires_Value_MERC</fullName>
+        <fullName>MERC_Subtype_Other_Requires_Value</fullName>
         <active>true</active>
-        <description>If the sub-type chosen is Other, value must be entered.</description>
+        <description>If the sub-type chosen is Other, value must be entered : MERC : Created on 04/08/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>ISPICKVAL(Preference_Sub_Type_MERC__c,&quot;Other&quot;) &amp;&amp;
 ISBLANK(Preference_Value_MERC__c)</errorConditionFormula>
         <errorDisplayField>Preference_Value_MERC__c</errorDisplayField>

@@ -52,7 +52,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Object to track days of meetings and ToV cost of each day. Created 10/10/2013 by KLorenti.</description>
+    <description>Object to track days of meetings and ToV cost of each day : MERC : Created on 10/10/2013 by Katy Lorenti, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
@@ -287,9 +287,9 @@ Created by J Adams 12/10/2013</description>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
-        <fullName>Check_if_any_ToV_has_been_reported</fullName>
+        <fullName>MERC_Check_if_any_ToV_has_been_reported</fullName>
         <active>true</active>
-        <description>Checks to see if any Meeting Participants have had ToV reported. Created 01/08/2014 by KLorenti, Mavens Consulting</description>
+        <description>Checks to see if any Meeting Participants have had ToV reported : MERC : Created on 01/08/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>ISPICKVAL( Meeting_MERC__r.Participant_ToV_Final_MERC__c,&quot;Yes&quot;) &amp;&amp;
 (ISCHANGED ( Daily_Registration_Amount_MERC__c ) ||
 ISCHANGED ( Daily_Ground_Trans_Amount_MERC__c) ||
@@ -299,18 +299,18 @@ ISCHANGED ( Daily_Food_Beverage_Amount_MERC__c )) &amp;&amp;
         <errorMessage>ToV has already been reported for participants of this Meeting. Customer Meeting Services needs to confirm this change before it can be made.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Enter_Blank_If_Not_Reported_MERC</fullName>
+        <fullName>MERC_Enter_Blank_If_Not_Reported</fullName>
         <active>true</active>
-        <description>Users cannot enter a 0.00 if ToV has not been reported.</description>
+        <description>Users cannot enter a 0.00 if ToV has not been reported : MERC : Created on 01/08/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>(Daily_Food_Beverage_Amount_MERC__c = 0.00 ||
 Daily_Ground_Trans_Amount_MERC__c = 0.00 ||
 Daily_Registration_Amount_MERC__c = 0.00) &amp;&amp;  (ISPICKVAL(Meeting_MERC__r.Participant_ToV_Final_MERC__c,&quot;No&quot;) || ISPICKVAL(Meeting_MERC__r.Participant_ToV_Final_MERC__c,&quot;&quot;))</errorConditionFormula>
         <errorMessage>You may not enter 0.00 unless ToV has already been reported for this Meeting</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Enter_Zero_If_Reported_MERC</fullName>
+        <fullName>MERC_Enter_Zero_If_Reported</fullName>
         <active>true</active>
-        <description>Users cannot enter a blank if ToV has been reported.</description>
+        <description>Users cannot enter a blank if ToV has been reported : MERC : Created on 01/09/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>((ISCHANGED(Daily_Food_Beverage_Amount_MERC__c) &amp;&amp; 
 ISBLANK(Daily_Food_Beverage_Amount_MERC__c)) || 
 
@@ -324,18 +324,18 @@ ISBLANK(Daily_Registration_Amount_MERC__c)) )
         <errorMessage>You may not enter a blank value if ToV has already been reported for this Meeting</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Meeting_Day_Range</fullName>
+        <fullName>MERC_Meeting_Day_Range</fullName>
         <active>true</active>
-        <description>Ensure that a Meeting Date is within 3 days +/- of the Meeting Start or End Date.  This is to accommodate shoulder dates but also limit the dates that can be chosen for Meeting Days.  Created by J. Adams 2/3/2014</description>
+        <description>Ensure that a Meeting Date is within 3 days +/- of the Meeting Start or End Date.  This is to accommodate shoulder dates but also limit the dates that can be chosen for Meeting Days : MERC : Created on 02/03/2014 by John Adams, Mavens Consulting</description>
         <errorConditionFormula>(Date_MERC__c &gt; (Meeting_MERC__r.End_Date_of_Event_MERC__c + 3))  ||
 (Date_MERC__c &lt; (Meeting_MERC__r.Date_of_Event_MERC__c  - 3))</errorConditionFormula>
         <errorDisplayField>Date_MERC__c</errorDisplayField>
         <errorMessage>The Meeting Day selected must be within 3 +/- days of the start or end of the meeting.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Prevent_Negative_Amount_MERC</fullName>
+        <fullName>MERC_Prevent_Negative_Amount</fullName>
         <active>true</active>
-        <description>Prevent a negative amount from being entered.</description>
+        <description>Prevent a negative amount from being entered : MERC : Created on 02/04/2014 by John Adams, Mavens Consulting</description>
         <errorConditionFormula>(ISCHANGED(Daily_Food_Beverage_Amount_MERC__c) &amp;&amp;
 Daily_Food_Beverage_Amount_MERC__c &lt; 0 ) ||
 

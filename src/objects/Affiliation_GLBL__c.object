@@ -46,7 +46,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Object to track affiliations between accounts for searching purposes. Created 10/17/2013 by KLorenti, Mavens Consulting</description>
+    <description>Stores Affiliation Data from Customer ODS. For example, a HCPs Affiliated Institutions : MERC, CUST : Created on 10/17/2013 by Katy Lorenti, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>

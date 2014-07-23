@@ -48,7 +48,7 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <description>This object is used to collect &amp; store the unique values of a particular source data set which is then subsequently used to populate the menu options in a related CST App Settings record.
 
-Stamped GLBL because this data could be used by other applications as it reflects Account data and nothing specific to the Customer Search Tool</description>
+Stamped GLBL because this data could be used by other applications as it reflects Account data and nothing specific to the Customer Search Tool : MERC, CUST : Created on 03/27/2014 by Sean Harrison, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>

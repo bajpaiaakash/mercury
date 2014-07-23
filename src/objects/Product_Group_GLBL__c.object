@@ -46,7 +46,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Object to store Product information. Created on 9/27/2013 by KLorenti</description>
+    <description>Object to store Product Information, mastered Product Group records from Material ODS : MERC : Created on 09/27/2013 by Katy Lorenti, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
@@ -275,7 +275,7 @@ Created by John A Adams 11/1/2013</description>
         <type>Text</type>
     </nameField>
     <namedFilters>
-        <fullName>nf_01I110000008cxxEAA_00N11000000PFpYEAW</fullName>
+        <fullName>nf_01Ib0000000ke14EAA_00Nb0000009adoMEAQ</fullName>
         <active>true</active>
         <field>Meeting_Products_MERC__c.Product_MERC__c</field>
         <filterItems>
@@ -289,7 +289,7 @@ Created by John A Adams 11/1/2013</description>
             <value>MKTP</value>
         </filterItems>
         <isOptional>false</isOptional>
-        <name>Meeting Product_Product</name>
+        <name>nf_01Ib0000000ke14EAA_00Nb0000009adoMEAQ</name>
     </namedFilters>
     <pluralLabel>Product Group</pluralLabel>
     <searchLayouts>

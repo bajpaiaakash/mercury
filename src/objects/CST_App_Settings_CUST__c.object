@@ -46,7 +46,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Holds application-wide settings for the Customer Search Tool</description>
+    <description>Holds application-wide settings for the Customer Search Tool : MERC, CUST : Created on 02/14/2014 by Sean Harrison, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>

@@ -5,7 +5,7 @@
 *
 * NOTE: Assumes the existence of certain RecordTypes
 */
-@isTest(SeeAllData=true)
+@isTest
 private class CUST_RecordTypeIdLookupTest {
 
 	// create an apps setting entry List
@@ -62,8 +62,10 @@ private class CUST_RecordTypeIdLookupTest {
 		CST_App_Settings_CUST__c cst = [SELECT Record_Type_Ids_CUST__c FROM CST_App_Settings_CUST__c WHERE Id = :settings.get(0).Id];
 		String result = cst.Record_Type_Ids_CUST__c;
         System.assert(result!=null, 'The RTID list appears to be null.');
-        System.assertEquals(result, rt1+','+rt2+','+rt3, 'Expected '+rt1+','+rt2+','+rt3+' but got '+result);
-    }
+        System.assert(result.contains(rt1), 'Expected '+rt1+' & '+rt2+','+rt3+' but got '+result);
+        System.assert(result.contains(rt2), 'Expected '+rt2+' & '+rt1+','+rt3+' but got '+result);
+        System.assert(result.contains(rt3), 'Expected '+rt1+','+rt2+' & '+rt3+' but got '+result);
+   }
 
     // Check record updates
     static testMethod void testUpdate() {

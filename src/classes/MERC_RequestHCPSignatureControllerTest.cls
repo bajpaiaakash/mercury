@@ -28,7 +28,7 @@ private class MERC_RequestHCPSignatureControllerTest {
 		MERC_RequestHCPSignatureController controller = initDocusign();
 
         //serialize mock response to mimic MERC_DocusignService.EnvelopeResponse
-        DocusignMockMultiResponseObj mockResponse = new DocusignMockMultiResponseObj();
+        MERC_DocusignMockMultiResponseObj mockResponse = new MERC_DocusignMockMultiResponseObj();
         mockResponse.envelopeId = '7f7de730-811d-458a-97a3-deeef96b38d0';
         String envelopeResponseJSONString = JSON.serializePretty(mockResponse);
         system.debug(envelopeResponseJSONString);
@@ -53,7 +53,7 @@ private class MERC_RequestHCPSignatureControllerTest {
 
         // serialize mock response to mimic MERC_DocusignService.EnvelopeResponse with error and
         // a subsequent MERC_DocusignService.TagAndSendResponse
-        DocusignMockMultiResponseObj mockResponse = new DocusignMockMultiResponseObj();
+        MERC_DocusignMockMultiResponseObj mockResponse = new MERC_DocusignMockMultiResponseObj();
         mockResponse.errorCode = 'ANCHOR_TAB_STRING_NOT_FOUND';
         mockResponse.envelopeId = 'abc123';
         String envelopeResponseJSONString = JSON.serializePretty(mockResponse);
@@ -107,7 +107,7 @@ private class MERC_RequestHCPSignatureControllerTest {
 		MERC_RequestHCPSignatureController controller = initDocusign();
 
         // serialize mock response to mimic MERC_DocusignService.EnvelopeResponse with error
-        DocusignMockMultiResponseObj mockResponse = new DocusignMockMultiResponseObj();
+        MERC_DocusignMockMultiResponseObj mockResponse = new MERC_DocusignMockMultiResponseObj();
         mockResponse.errorCode = 'FOOBAR';
         String envelopeResponseJSONString = JSON.serializePretty(mockResponse);
         system.debug(envelopeResponseJSONString);
@@ -255,6 +255,7 @@ private class MERC_RequestHCPSignatureControllerTest {
 		settings.Integrator_Key_MERC__c = '12345';
 		settings.Password_MERC__c = 'foo';
 		settings.Username_MERC__c = 'bar';
+		settings.Server_Endpoint_MERC__c = 'https://docusign.com';
 		insert settings;
 	}
 
@@ -293,21 +294,4 @@ private class MERC_RequestHCPSignatureControllerTest {
             requiredSigners.add(signer);
         }
 	} */
-
-	/*
-	 * A response object able to respond to the chain of callouts within the controller
-	 */
-    public class DocusignMockMultiResponseObj {
-
-        // properties from MERC_DocusignService.EnvelopeResponse
-        public String envelopeId;
-        public String status;
-        public String statusDateTime;
-        public String uri;
-        public String errorCode;
-        public String message;
-
-        // properties from MERC_DocusignService.TagAndSendResponse
-        public String url;
-    }
 }

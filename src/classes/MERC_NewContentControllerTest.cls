@@ -18,22 +18,10 @@ private class MERC_NewContentControllerTest {
     static User thisUser = [SELECT Id FROM User WHERE Id = :UserInfo.getUserId()];
     static Map<String, List<String>> docTypesByRecType;
 
-    static User testUser;
+    static User testUser = MERC_TestFactory.getRunningUser();
     static
     {
     	MERC_TestFactory.insertMercuryCustomSettings();
-
-    	System.runAs(new User(Id=UserInfo.getUserId()))
-    	{
-    		testUser = MERC_TestFactory.insertTestUsers(1, null).get(0);
-    		testUser.userRoleId = [SELECT Id FROM UserRole Where Name = 'Global' LIMIT 1].Id;
-    		update testUser;
-    		PermissionSet ps = [SELECT Id FROM PermissionSet WHERE Name='Mercury_Customer_Meeting_Services_Edit' limit 1];
-    		insert new PermissionSetAssignment( PermissionSetId=ps.Id
-    			                              , AssigneeId=testUser.id);
-    		update new User( id=testUser.Id
-    			           , UserRoleId=[SELECT Id FROM UserRole WHERE Name='Global' limit 1].id);
-    	}
 
     	docTypesByRecType = new Map<String, List<String>>();
     	for (Content_Library_Lookup_MERC__c cll : Content_Library_Lookup_MERC__c.getAll().values()) {
@@ -56,15 +44,9 @@ private class MERC_NewContentControllerTest {
 		}
 	}
 
-	//@isTest static void test_running_user_should_have_Global_role() {
-	//	String userRoleId = [SELECT UserRoleId FROM User WHERE Id=:UserInfo.getUserId()].UserRoleId;
-	//	System.assertEquals('Global', [SELECT Name FROM UserRole WHERE Id=:userRoleId].Name, 'The user running the tests does not have the global role and therefore some tests might fail in this class.');
-	//}
 
-	// exercise cancel method.
 	@isTest
 	static void userCancels() {
-
 		PageReference ref = Page.MERC_NewMeetingContent;
 		Test.setCurrentPage(ref);
 		ApexPages.currentPage().getParameters().put('id', (String) meetings[0].id);
@@ -208,12 +190,6 @@ private class MERC_NewContentControllerTest {
 		}
 	}
 
-	private static void populateFile(MERC_NewContentController controller, String type) {
-		controller.file.Title = controller.getsObjectName();
-		controller.file.PathOnClient = controller.getsObjectName();
-		controller.file.VersionData = Blob.valueOf('For naught so vile that on the earth doth live but to the earth some special good doth give.');
-		controller.file.Document_Type_MERC__c = type;
-	}
 
 	 //Simulate a problem with the User's access to Content
 	@isTest
@@ -275,4 +251,128 @@ private class MERC_NewContentControllerTest {
 		System.assertEquals(ref, controller.reloadPage());
 		Test.stopTest();
 	}
+
+	@isTest static void shouldRenameFilesWhenTif() {
+		System.runAs(testUser) {
+			PageReference ref = Page.MERC_NewMeetingContent;
+			ref.getParameters().put('id', (String) invoices[0].id);
+			ref.getParameters().put('tif', '1');
+			Test.setCurrentPage(ref);
+
+
+			Test.startTest();
+			MERC_NewContentController controller = new MERC_NewContentController();
+			System.assert(controller.file.Title.endsWith('.tif'));
+			Test.stopTest();
+		}
+	}
+
+	@isTest static void shouldRenameFilesWhenPdf() {
+		System.runAs(testUser) {
+			PageReference ref = Page.MERC_NewMeetingContent;
+			ref.getParameters().put('id', (String) invoices[0].id);
+			ref.getParameters().put('pdf', '1');
+			Test.setCurrentPage(ref);
+
+
+			Test.startTest();
+			MERC_NewContentController controller = new MERC_NewContentController();
+			System.assert(controller.file.Title.endsWith('.pdf'));
+			Test.stopTest();
+		}
+	}
+
+	@isTest static void shouldErrorWhenUserCannotAccessLibrary() {
+		Content_Library_Lookup_MERC__c lookup = [SELECT Id, Library_String_MERC__c
+		                                         FROM Content_Library_Lookup_MERC__c
+		                                         WHERE Content_Record_Type_MERC__c='Meeting_MERC'
+		                                           AND Content_Document_Type_MERC__c='Invitations' limit 1];
+        lookup.Library_String_MERC__c = 'badlibrary';
+        update lookup;
+
+		System.runAs(testUser) {
+			PageReference ref = Page.MERC_NewMeetingContent;
+			ref.getParameters().put('id', (String) meetings[0].id);
+			Test.setCurrentPage(ref);
+
+
+			Test.startTest();
+			MERC_NewContentController controller = new MERC_NewContentController();
+			populateFile(controller, 'Invitations');
+			controller.upload();
+			System.assert(ApexPages.getMessages().get(0).getSummary().startsWith('Unable to locate content library with the name:'));
+			Test.stopTest();
+		}
+	}
+
+	@isTest static void shouldErrorWhenNoCountryOnMeeeting() {
+		meetings.get(0).Event_Country_MERC__c = null;
+		update meetings;
+
+		System.runAs(testUser) {
+			PageReference ref = Page.MERC_NewMeetingContent;
+			ref.getParameters().put('id', (String) meetings[0].id);
+			Test.setCurrentPage(ref);
+
+
+			Test.startTest();
+			MERC_NewContentController controller = new MERC_NewContentController();
+			try {
+				controller.getLibraryId('Meeting_MERC__c');
+				system.assert(false, 'exception not thrown.');
+			} catch (Exception ex) {
+				system.assert(ex.getMessage().startsWith('Unable to determine the proper content library'), ex.getMessage());
+			}
+
+			Test.stopTest();
+		}
+	}
+
+	@isTest static void shouldErrorWhenVersionDataIsNull() {
+		System.runAs(thisUser) {
+			PageReference ref = Page.MERC_NewMeetingContent;
+			ref.getParameters().put('id', meetings.get(0).Id);
+			Test.setCurrentPage(ref);
+
+			Test.startTest();
+
+			for (String type : docTypesByRecType.get('Meeting_MERC')) {
+				MERC_NewContentController controller = new MERC_NewContentController();
+				populateFile(controller, type);
+				controller.file.VersionData = null;
+				PageReference returnRef = controller.upload();
+				System.assertEquals(null,returnRef,'Expected a null but got pageref: ' + ApexPages.getMessages());
+				System.assertEquals('Please select a document to upload.', ApexPages.getMessages().get(0).getSummary());
+			}
+			Test.stopTest();
+		}
+	}
+
+	@isTest static void shouldErrorWhenVersionDataEmpty() {
+		System.runAs(thisUser) {
+			PageReference ref = Page.MERC_NewMeetingContent;
+			ref.getParameters().put('id', meetings.get(0).Id);
+			Test.setCurrentPage(ref);
+
+			Test.startTest();
+
+			for (String type : docTypesByRecType.get('Meeting_MERC')) {
+				MERC_NewContentController controller = new MERC_NewContentController();
+				populateFile(controller, type);
+				controller.file.VersionData = Blob.valueOf('');
+				PageReference returnRef = controller.upload();
+				System.assertEquals(null,returnRef,'Expected a null but got pageref: ' + ApexPages.getMessages());
+				System.assertEquals('The document you have selected to upload contains no data.', ApexPages.getMessages().get(0).getSummary());
+			}
+			Test.stopTest();
+		}
+	}
+
+	private static void populateFile(MERC_NewContentController controller, String type) {
+		controller.file.Title = controller.getsObjectName();
+		controller.file.PathOnClient = controller.getsObjectName();
+		controller.file.VersionData = Blob.valueOf('For naught so vile that on the earth doth live but to the earth some special good doth give.');
+		controller.file.Document_Type_MERC__c = type;
+	}
+
 }

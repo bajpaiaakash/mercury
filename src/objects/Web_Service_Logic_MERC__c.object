@@ -46,7 +46,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Object used to drive the Mercury Web Service RSVP and HCP Information Package logic.  Determines the modals that are displayed based upon the multiple scenarios for a HCP using the Web Service and interacting with Meetings.Oliver Dunford 12th May 2014.</description>
+    <description>Object used to drive the Mercury Web Service RSVP and HCP Information Package logic.  Determines the modals that are displayed based upon the multiple scenarios for a HCP using the Web Service and interacting with Meetings : MERC : Created on 05/12/2014 by Oliver Dunford, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
@@ -323,6 +323,17 @@ IF(RecordType.Name = &quot;HCP Info Package&quot;,
         <externalId>false</externalId>
         <inlineHelpText>RSVP: Step: Institutional Notification: Captures Institutional Notification Information for HCPs.</inlineHelpText>
         <label>RSVP Institutional Notification</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RSVP_Institutional_Wet_Signature_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Defines whether a wet signature is required for Institutuonal Notification: MERC : Created on 21/07/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Drives the inclusion of a note on the web services indicating that a wet signature is required for Institutional Notification.  Also prevents Registration until documentation has been provided.</inlineHelpText>
+        <label>RSVP Institutional Wet Signature</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>

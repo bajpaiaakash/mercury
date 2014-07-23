@@ -46,7 +46,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>Errors encountered during sessions involving the Mercury Web Service are recorded here. Upon new record creation, an email is generated and sent to the appropriate CMS Cork support address for the user&apos;s country and language. Created 16/06/2014 by JLorenti.</description>
+    <description>Errors encountered during sessions involving the Mercury Web Service are recorded here. Upon new record creation, an email is generated and sent to the appropriate CMS Cork support address for the user&apos;s country and language : MERC : Created on 06/16/2014 by John Lorenti, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
@@ -76,10 +76,167 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Case_Email_GLBL__c</fullName>
+        <fullName>Case_Email_Address_MERC__c</fullName>
+        <description>Stamped via workflow to specify the emai address to send the email-to-case workflow/email alert to for Web Service errors. Created 06/20/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <formula>/* Determine the correct CMS Cork email address to use based upon country and language */
-&apos;jlorenti@mavensconsulting.com&apos; /* for initial testing */</formula>
+        <label>Case Email Address</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Case_Email_GLBL__c</fullName>
+        <description>Determine the correct CMS Cork email address to use based upon country and language</description>
+        <externalId>false</externalId>
+        <formula>CASE
+(Language_GLBL__c, 
+&quot;DE&quot;,
+ CASE
+ (Country_GLBL__c,
+ &quot;AT&quot;,&quot;lilly_austria_cms&quot;,
+ &quot;DE&quot;,&quot;lilly_deutschland_cms&quot;,
+ &quot;CH&quot;, &quot;lilly_schweiz_cms&quot;, 
+ &quot;cmseurope&quot;),
+&quot;FR&quot;,
+ CASE
+ (Country_GLBL__c,
+ &quot;FR&quot;,&quot;lilly_france_cms&quot;,
+ &quot;BE&quot;,&quot;lilly_belgiumfr_cms&quot;,
+ &quot;CH&quot;,&quot;lilly_suisse_cms&quot;,
+ &quot;cmseurope&quot;),
+&quot;NL&quot;,
+ CASE
+ (Country_GLBL__c,
+ &quot;BE&quot;,&quot;lilly_belgiumnl_cms&quot;,
+ &quot;NL&quot;,&quot;lilly_nederland_cms&quot;, 
+ &quot;cmseurope&quot;),
+&quot;BS&quot;,
+ CASE
+ (Country_GLBL__c,
+ &quot;BA&quot;, &quot;lilly_bosnia_cms&quot;,
+ &quot;cmseurope&quot;),
+&quot;BG&quot;,
+ CASE
+ (Country_GLBL__c,
+ &quot;BG&quot;, &quot;lilly_bulgaria_cms&quot;,	
+ &quot;cmseurope&quot;),
+&quot;HR&quot;,
+ CASE
+ (Country_GLBL__c,
+ &quot;HR&quot;, &quot;lilly_hrvatska_cms&quot;,	
+ &quot;cmseurope&quot;),
+&quot;TR&quot;,
+ CASE
+ (Country_GLBL__c,
+ &quot;CY&quot;, &quot;lilly_cyprus_cms&quot;,	
+ &quot;TR&quot;, &quot;lilly_turkiye_cms&quot;, 	
+ &quot;cmseurope&quot;),
+&quot;CZ&quot;,
+ CASE
+ (Country_GLBL__c,
+ &quot;CZ&quot;, &quot;lilly_ceska-republika_cms&quot;,	
+ &quot;cmseurope&quot;),
+&quot;DA&quot;,
+ CASE
+ (Country_GLBL__c,
+ &quot;DK&quot;,  &quot;lilly_danmark_cms&quot;, 
+ &quot;cmseurope&quot;),
+&quot;ET&quot;,
+ CASE
+ (Country_GLBL__c,
+ &quot;EE&quot;, &quot;lilly_eesti_cms&quot;, 
+ &quot;cmseurope&quot;),
+&quot;FI&quot;,
+ CASE
+ (Country_GLBL__c,
+ &quot;FI&quot;, &quot;lilly_suomi_cms&quot;,  
+ &quot;cmseurope&quot;),
+&quot;HU&quot;,
+ CASE
+ (Country_GLBL__c,
+ &quot;HU&quot;, &quot;lilly_magyarorszag_cms&quot;,   
+ &quot;cmseurope&quot;),
+&quot;EN&quot;,
+ CASE
+ (Country_GLBL__c,
+ &quot;GB&quot;, &quot;lilly_uk_cms&quot;,	
+ &quot;IE&quot;, &quot;lilly_ireland_cms&quot;, 	
+ &quot;cmseurope&quot;),
+&quot;IT&quot;,
+ CASE
+ (Country_GLBL__c,
+ &quot;IT&quot;, &quot;lilly_italia_cms&quot;,  
+ &quot;CH&quot;, &quot;lilly_svizzera_cms&quot;, 
+ &quot;cmseurope&quot;),
+&quot;LV&quot;,
+ CASE
+ (Country_GLBL__c,
+ &quot;LV&quot;, &quot;lilly_latvija_cms&quot;,   
+ &quot;cmseurope&quot;),
+&quot;LT&quot;,
+ CASE
+ (Country_GLBL__c,
+ &quot;LT&quot;, &quot;lilly_lietuva_cms&quot;,    
+ &quot;cmseurope&quot;),
+&quot;NO&quot;,
+ CASE
+ (Country_GLBL__c,
+ &quot;NO&quot;, &quot;lilly_norge_cms&quot;,    
+ &quot;cmseurope&quot;),
+&quot;PL&quot;,
+ CASE
+ (Country_GLBL__c,
+ &quot;PL&quot;, &quot;lilly_polska_cms&quot;,    
+    &quot;cmseurope&quot;),
+&quot;PT&quot;,
+ CASE
+ (Country_GLBL__c,
+ &quot;PT&quot;, &quot;lilly_portugal_cms&quot;,    
+ &quot;cmseurope&quot;),
+&quot;RO&quot;,
+ CASE
+ (Country_GLBL__c,
+ &quot;RO&quot;, &quot;lilly_romania_cms&quot;,    
+ &quot;cmseurope&quot;),
+&quot;RU&quot;,
+ CASE
+ (Country_GLBL__c,
+ &quot;RU&quot;, &quot;lilly_russia_cms&quot;, 	
+ &quot;UA&quot;, &quot;lilly_ukraine_cms&quot;, 	
+ &quot;cmseurope&quot;),
+&quot;SR&quot;,
+ CASE
+ (Country_GLBL__c,
+ &quot;RS&quot;, &quot;lilly_srbija_cms&quot;,    
+ &quot;cmseurope&quot;),
+&quot;SR&quot;,
+ CASE
+ (Country_GLBL__c,
+ &quot;RS&quot;, &quot;lilly_srbija_cms&quot;,    
+ &quot;cmseurope&quot;),
+&quot;SK&quot;,
+ CASE
+ (Country_GLBL__c,
+ &quot;SK&quot;, &quot;lilly_slovensko_cms&quot;,    
+ &quot;cmseurope&quot;),
+&quot;SL&quot;,
+ CASE
+ (Country_GLBL__c,
+ &quot;SI&quot;, &quot;lilly_slovenija_cms&quot;,   
+ &quot;cmseurope&quot;),
+&quot;ES&quot;,
+ CASE
+ (Country_GLBL__c,
+  &quot;ES&quot;, &quot;lilly_spain_cms&quot;,    
+  &quot;cmseurope&quot;),
+&quot;SV&quot;,
+ CASE
+ (Country_GLBL__c,
+ &quot;SE&quot;, &quot;lilly_sverige_cms&quot;,     
+ &quot;cmseurope&quot;),
+&quot;cmseurope&quot;)
+ &amp; &quot;@lilly.com&quot;</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Case Email</label>
         <required>false</required>
