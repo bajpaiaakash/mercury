@@ -14345,30 +14345,6 @@ else
 }</url>
     </webLinks>
     <webLinks>
-        <fullName>Re_subscribe_in_ExactTarget</fullName>
-        <availability>online</availability>
-        <description>Resubscribe a Person Account record Type in ExactTarget</description>
-        <displayType>link</displayType>
-        <height>600</height>
-        <linkType>sControl</linkType>
-        <masterLabel>Re-subscribe in ExactTarget</masterLabel>
-        <openType>sidebar</openType>
-        <protected>false</protected>
-        <scontrol>EXTG_person_resub</scontrol>
-    </webLinks>
-    <webLinks>
-        <fullName>SendExactTargetEmail</fullName>
-        <availability>online</availability>
-        <description>Send ExactTarget Email from Person Account record types</description>
-        <displayType>link</displayType>
-        <height>600</height>
-        <linkType>sControl</linkType>
-        <masterLabel>Send ExactTarget Email</masterLabel>
-        <openType>sidebar</openType>
-        <protected>false</protected>
-        <scontrol>EXTG_person_email</scontrol>
-    </webLinks>
-    <webLinks>
         <fullName>Send_ET_Email</fullName>
         <availability>online</availability>
         <displayType>link</displayType>
