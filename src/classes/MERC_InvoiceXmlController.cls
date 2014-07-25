@@ -38,7 +38,6 @@ public with sharing class MERC_InvoiceXmlController {
         this.invoiceDate = dt.format('dd.MM.yyyy');
     }
 
-
     /*
      *  Property for VF page to get individual line item data
      */
@@ -56,7 +55,8 @@ public with sharing class MERC_InvoiceXmlController {
                         VAT_Rate_MERC__c,
                         Tax_Amount_MERC__c,
                         Cost_Element_SAP_Code_MERC__c,
-                        Invoice_Cost_Center_MERC__c FROM Invoice_Line_Item_MERC__c WHERE Invoice_MERC__c = :this.invoice.Id]) {
+                        Invoice_Cost_Center_MERC__c,
+                        Internal_Order_Number_MERC__c FROM Invoice_Line_Item_MERC__c WHERE Invoice_MERC__c = :this.invoice.Id]) {
                     invoiceLines.add(new InvoiceLineWrapper(lineItem, i));
                     i++;
                 }   
@@ -72,6 +72,16 @@ public with sharing class MERC_InvoiceXmlController {
     public class InvoiceLineWrapper {
         public Integer position { get; private set; }
         public Invoice_Line_Item_MERC__c lineItem { get; private set; }
+        public String SAPCostElement {
+            get {
+                if (SAPCostElement == null) {
+                    String codeFromMercury = this.lineItem.Cost_Element_SAP_Code_MERC__c;
+                    SAPCostElement = codeFromMercury.trim().leftPad(10).replaceAll(' ','0');
+                }
+                return SAPCostElement;
+            }
+            private set;
+         }
         public InvoiceLineWrapper(Invoice_Line_Item_MERC__c li, Integer p) {
             this.lineItem = li;
             this.position = p;

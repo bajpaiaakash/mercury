@@ -271,7 +271,7 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 							tovRecordsToUpdate.add(tov);
 						}
 					} else {
-						tov.Est_Hotel_ToV_MERC__c = 1000; // = null;
+						tov.Est_Hotel_ToV_MERC__c = null;
 						tovRecordsToUpdate.add(tov);
 					}
 				}

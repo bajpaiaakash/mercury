@@ -38,7 +38,8 @@ private class MERC_InvoiceXmlControllerTest {
     /*
      *  Call the page and make sure each section appears
      */
-    @isTest static void testEachSectionAppearsExceptTif() {
+    @isTest 
+    static void testEachSectionAppearsExceptTif() {
         PageReference ref = Page.MERC_InvoiceAFIXML;
         Test.setCurrentPage(ref);
 
@@ -58,7 +59,8 @@ private class MERC_InvoiceXmlControllerTest {
      * An optional TIF section is driven by the presence of specific Content.
      * Vote for this Idea: https://success.salesforce.com/ideaView?id=08730000000ZWp2AAG
      */
-    @isTest static void testTifSection() {
+    @isTest 
+    static void testTifSection() {
 
         ContentVersion tifObjInsert = new ContentVersion();
         tifObjInsert.VersionData = Blob.valueOf('12345678');
@@ -85,4 +87,26 @@ private class MERC_InvoiceXmlControllerTest {
 
         System.assert(controller.scannedTifSection!=null,'There should be a TIF section but it is null');
     }
+
+    /*
+     * Format of SAP Cost Element is variable - make sure we are formatting correctly
+     */
+     @isTest
+    static void testSAPCostElementIsCorrect() {
+        for (Invoice_Line_Item_MERC__c li : lineItems) li.Cost_Element_MERC__c = 'Extra cash for First Fridays - 7654321';
+        update lineitems;
+
+        PageReference ref = Page.MERC_InvoiceAFIXML;
+        Test.setCurrentPage(ref);
+
+        Test.startTest();
+        MERC_InvoiceXmlController controller = new MERC_InvoiceXmlController(new ApexPages.StandardController(invoices[0]));
+        Test.stopTest();
+
+        for (MERC_InvoiceXmlController.InvoiceLineWrapper li : controller.invoiceLines) {
+            System.assertEquals(10, li.SAPCostElement.length(), 'cost element string wrong length');
+            System.assert(li.SAPCostElement.startsWith('000'), 'Unexpected cost element format: '+li.SAPCostElement);
+        }
+
+     }
 }

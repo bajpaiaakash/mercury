@@ -48,9 +48,9 @@
 		        <ItemVatRate>{!line.lineItem.VAT_Rate_MERC__c}</ItemVATRate>
 		        <ItemVatSAP />
 		        <ItemVatAmount>{!line.lineItem.Tax_Amount_MERC__c}</ItemVatAmount>
-		        <ItemAccountGL>000000{!HTMLENCODE(line.lineItem.Cost_Element_SAP_Code_MERC__c)}</ItemAccountGL>
+		        <ItemAccountGL>{!HTMLENCODE(line.SAPCostElement)}</ItemAccountGL>
 		        <ItemCostCenter>000{!HTMLENCODE(line.lineItem.Invoice_Cost_Center_MERC__c)}</ItemCostCenter>
-		        <ItemOrderNumber />
+		        <ItemOrderNumber>{!HTMLENCODE(line.lineItem.Internal_Order_Number_MERC__c)}</ItemOrderNumber>
 		        <ItemReferenceDokNo />
 		        <ItemReferenceDokPosition /> 
 		        <ItemReferenceDokYear />
