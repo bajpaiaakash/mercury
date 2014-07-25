@@ -12,6 +12,8 @@
 public with sharing class MERC_MeetingParticipantCurrencyConvert implements GLBL_TriggerHandler.HandlerInterface
 {
 
+	private static Id IndvSponsRecTypeId = [SELECT Id FROM RecordType WHERE SObjectType='Meeting_Participant_MERC__c' AND DeveloperName='Individual_Sponsorship' limit 1].Id;
+
 	public Boolean isActive()
 	{
 		return true; //before trigger so we should never need to deactivate since it won't trigger other updates
@@ -32,8 +34,8 @@ public with sharing class MERC_MeetingParticipantCurrencyConvert implements GLBL
 		{
 			countryCurrencyConversion.put(ct.IsoCode, ct.ConversionRate);
 		}
-
-		Id IndvSponsRecTypeId = [SELECT Id FROM RecordType WHERE SObjectType='Meeting_Participant_MERC__c' AND DeveloperName='Individual_Sponsorship' limit 1].Id;
+// moved to static variable - getting too many SOQL queries error
+//		Id IndvSponsRecTypeId = [SELECT Id FROM RecordType WHERE SObjectType='Meeting_Participant_MERC__c' AND DeveloperName='Individual_Sponsorship' limit 1].Id;
 
 		for (Meeting_Participant_MERC__c mp : (List<Meeting_Participant_MERC__c>)Trigger.new)
 		{

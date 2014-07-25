@@ -27,11 +27,104 @@ private class MERC_TOVCalculatorTest {
 		meetings = MERC_TestFactory.insertMeetings(1);
 		meetingDays = MERC_TestFactory.insertMeetingDays(meetings.get(0).Id, 3);
 		participants = MERC_TestFactory.insertParticipants(meetings.get(0).Id, accounts);
-		meetingVendors = MERC_TestFactory.insertHotelsForMeeting(1, meetings.get(0).Id);
+		meetingVendors = MERC_TestFactory.insertHotelsForMeeting(2, meetings.get(0).Id);
 		itineraries = MERC_TestFactory.insertHotelItineraries(participants, meetings.get(0).Date_of_Event_MERC__c, meetings.get(0).End_Date_of_Event_MERC__c);
 	}
 
-	@isTest static void testShouldCalculateHotelTovOnRoomRateChange() {
+	/**
+	 * For T#14374 - 
+	 * Two itineraries across multiple days for a single participant...
+	 **/
+	@isTest
+	static void testShouldRollupMultipleItineraries() {
+
+		// make a new participant
+		List<Meeting_Participant_MERC__c> attendee = MERC_TestFactory.insertParticipants(meetings.get(0).Id, MERC_TestFactory.insertAccounts(1));
+
+		//setup hotels
+		Id hotelItineraryRecordTypeId = [SELECT ID FROM RecordType WHERE DeveloperName = 'Hotel_MERC' AND SObjectType = 'Travel_Itinerary_MERC__c'].Id;
+		Meeting_Vendor_MERC__c hotel1 = meetingVendors[0];
+		Meeting_Vendor_MERC__c hotel2 = meetingVendors[1];
+
+		Test.startTest();
+		// attendee stays at one hotel on Day 1
+		List<Travel_Itinerary_MERC__c> changingItinerary = MERC_TestFactory.insertHotelItineraries(attendee, meetingDays.get(0).Date_MERC__c, meetingDays.get(1).Date_MERC__c);
+		meetingVendors[0].Room_Rate_MERC__c = 199;
+		changingItinerary[0].Meeting_Vendor_MERC__c = hotel1.Id;
+		changingItinerary[0].RecordTypeId = hotelItineraryRecordTypeId;
+
+		 // attendee upset; moves to local youth hostel
+		 changingItinerary.add(MERC_TestFactory.insertHotelItineraries(attendee, meetingDays.get(1).Date_MERC__c, meetingDays.get(2).Date_MERC__c)[0]);
+		 meetingVendors[1].Room_Rate_MERC__c = 1;
+		 changingItinerary[1].Meeting_Vendor_MERC__c = hotel2.Id;
+		 changingItinerary[1].RecordTypeId = hotelItineraryRecordTypeId;
+
+		update meetingVendors;
+		update changingItinerary;
+
+		//reset the static variable that got turned off during data loads
+		MERC_TOVCalculator.runHotelTovCalculation = true;
+
+		//set attendee to attending first two days.... 
+		MERC_TestFactory.insertTov(meetingDays.get(0).Id, attendee.get(0).Id, 'Attended');
+		MERC_TestFactory.insertTov(meetingDays.get(1).Id, attendee.get(0).Id, 'Attended');
+
+		attendee = [SELECT Id, Total_Hotel_ToV_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :attendee[0].Id LIMIT 1];
+		System.assertEquals(meetingVendors[0].Room_Rate_MERC__c + meetingVendors[1].Room_Rate_MERC__c, attendee[0].Total_Hotel_ToV_MERC__c, 'Totals does not match expected sum.');
+
+		Test.stopTest();
+	}
+
+	/**
+	 * For T#14374 - 
+	 * Two itineraries across multiple days for a single participant + calculation triggered
+	 * by vendor and itinerary change...
+	 **/
+	@isTest
+	static void testShouldRollupMultipleItineraryVendorChange() {
+
+		// make a new participant
+		List<Meeting_Participant_MERC__c> attendee = MERC_TestFactory.insertParticipants(meetings.get(0).Id, MERC_TestFactory.insertAccounts(1));
+
+		// setup hotels
+		Id hotelItineraryRecordTypeId = [SELECT ID FROM RecordType WHERE DeveloperName = 'Hotel_MERC' AND SObjectType = 'Travel_Itinerary_MERC__c'].Id;
+		Meeting_Vendor_MERC__c hotel1 = meetingVendors[0];
+		Meeting_Vendor_MERC__c hotel2 = meetingVendors[1];
+
+		// set attendee to attending first two days.... 
+		Daily_Attendance_TOV_MERC__c day1 = MERC_TestFactory.insertTov(meetingDays.get(0).Id, attendee.get(0).Id, 'Attended');
+		Daily_Attendance_TOV_MERC__c day2 = MERC_TestFactory.insertTov(meetingDays.get(1).Id, attendee.get(0).Id, 'Attended');
+
+		Test.startTest();
+		// attendee stays at one hotel on Day 1
+		List<Travel_Itinerary_MERC__c> changingItinerary = MERC_TestFactory.insertHotelItineraries(attendee, meetingDays.get(0).Date_MERC__c, meetingDays.get(1).Date_MERC__c);
+		hotel1.Room_Rate_MERC__c = 199;
+		changingItinerary[0].Meeting_Vendor_MERC__c = hotel1.Id;
+		changingItinerary[0].RecordTypeId = hotelItineraryRecordTypeId;
+
+		// attendee upset; moves to local youth hostel
+		changingItinerary.add(MERC_TestFactory.insertHotelItineraries(attendee, meetingDays.get(1).Date_MERC__c, meetingDays.get(2).Date_MERC__c)[0]);
+		hotel2.Room_Rate_MERC__c = 1;
+		changingItinerary[1].Meeting_Vendor_MERC__c = hotel2.Id;
+		changingItinerary[1].RecordTypeId = hotelItineraryRecordTypeId;
+
+		// reset the static variable that got turned off during data loads
+		MERC_TOVCalculator.runHotelTovCalculation = true;
+		update changingItinerary;
+		MERC_TOVCalculator.runHotelTovCalculation = true;
+		update meetingVendors;
+
+		day1 = [SELECT Id, Est_Hotel_ToV_MERC__c FROM Daily_Attendance_TOV_MERC__c WHERE Id = :day1.Id LIMIT 1];
+		day2 = [SELECT Id, Est_Hotel_ToV_MERC__c FROM Daily_Attendance_TOV_MERC__c WHERE Id = :day2.Id LIMIT 1];
+		System.assert(day1.Est_Hotel_ToV_MERC__c != null);
+		System.assert(day2.Est_Hotel_ToV_MERC__c != null);
+		System.assertEquals(meetingVendors[0].Room_Rate_MERC__c + meetingVendors[1].Room_Rate_MERC__c, day1.Est_Hotel_ToV_MERC__c + day2.Est_Hotel_ToV_MERC__c, 'Totals does not match expected sum. '+ day1.Est_Hotel_ToV_MERC__c +'+'+ day2.Est_Hotel_ToV_MERC__c);
+
+		Test.stopTest();
+	}
+
+	@isTest
+	static void testShouldCalculateHotelTovOnRoomRateChange() {
 		Test.startTest();
 		System.debug(LoggingLevel.INFO, 'QUERY LIMIT BEFORE TEST EXECUTION: '+Limits.getQueries());
 		System.assertEquals(0, Limits.getQueries());
@@ -96,7 +189,8 @@ private class MERC_TOVCalculatorTest {
 		System.assertEquals(600, participant1.Total_Hotel_ToV_MERC__c);
 	}
 
-	@isTest static void testShouldCalculateRollupsOnDailyAttendanceUpdate() {
+	@isTest
+	static void testShouldCalculateRollupsOnDailyAttendanceUpdate() {
 		//set participant 1 to attending on day 1
 		Daily_Attendance_TOV_MERC__c tovForParticipant1Day1 = MERC_TestFactory.insertTov(meetingDays.get(0).Id, participants.get(0).Id, 'Attended');
 
@@ -128,7 +222,8 @@ private class MERC_TOVCalculatorTest {
 		System.assertEquals(null, participant1.Total_Food_Beverage_ToV_MERC__c);
 	}
 
-	@isTest static void testShouldEnsureDeletesRecalculateRollups() {
+	@isTest
+	static void testShouldEnsureDeletesRecalculateRollups() {
 		//set participant 1 to attending on day 1
 		Daily_Attendance_TOV_MERC__c tovForParticipant1Day1 = MERC_TestFactory.insertTov(meetingDays.get(0).Id, participants.get(0).Id, 'Attended');
 
@@ -159,7 +254,8 @@ private class MERC_TOVCalculatorTest {
 		System.assertEquals(null, participant1.Total_Food_Beverage_ToV_MERC__c);
 	}
 
-	@isTest static void testShouldRollTovUpToParticipant() {
+	@isTest
+	static void testShouldRollTovUpToParticipant() {
 		Test.startTest();
 
 		//set participant 1 to attending on day 1
