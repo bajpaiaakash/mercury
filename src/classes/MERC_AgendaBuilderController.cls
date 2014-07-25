@@ -8,6 +8,7 @@
 public with sharing class MERC_AgendaBuilderController extends GLBL_GenericRelatedListController {
 
 	public Boolean confirmAgendaChange { get; set; }
+	public Boolean confirmAgendaChange2 { get; set; }
 	public Boolean hasError { get; private set; }
 	public String pageMessage { get; private set; }
 
@@ -60,7 +61,7 @@ public with sharing class MERC_AgendaBuilderController extends GLBL_GenericRelat
 
 	public Meeting_MERC__c meeting {
 	    get {
-	        return [SELECT ID, Name, Meeting_Time_Zone_MERC__c, Agenda_Status_MERC__c FROM Meeting_MERC__c WHERE ID = :MERC_Util.getUrlParam('id')];
+	        return [SELECT ID, Name, Meeting_Time_Zone_MERC__c, Agenda_Status_MERC__c, Expose_on_Portal_MERC__c FROM Meeting_MERC__c WHERE ID = :MERC_Util.getUrlParam('id')];
 	    }
 	}
 
@@ -78,10 +79,16 @@ public with sharing class MERC_AgendaBuilderController extends GLBL_GenericRelat
 	}
 
 	public override PageReference save() {
-        if (meeting.Agenda_Status_MERC__c == 'Final' && !this.confirmAgendaChange) {
+		Boolean unconfirmedFinalAgenda = (meeting.Agenda_Status_MERC__c == 'Final' && !this.confirmAgendaChange);
+		Boolean unconfirmedWebService = (meeting.Expose_on_Portal_MERC__c && !this.confirmAgendaChange2);
+        if (unconfirmedFinalAgenda || unconfirmedWebService) {
         	tz.convertDateTimes(getSobjects(children), true, meeting.Meeting_Time_Zone_MERC__c); //sets date/times based on UTC, stamps static text with "user-friendly" date/time values
 			this.hasError = true;
-			this.pageMessage = 'Please confirm the change to the final agenda';
+			String message = 'Please confirm this change to ';
+			if (unconfirmedFinalAgenda) message += 'the final agenda ';
+			if (unconfirmedFinalAgenda && unconfirmedWebService) message += 'and ';
+			if (unconfirmedWebService) message += 'this web service';
+			this.pageMessage = message;
 			return null;
         }
         this.confirmAgendaChange = false;
