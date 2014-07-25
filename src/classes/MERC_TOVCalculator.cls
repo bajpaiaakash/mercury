@@ -80,7 +80,7 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 															Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c,
 															Total_Fare_Amount_MERC__c, Include_ToV_MERC__c
 																FROM Travel_Itineraries_MERC__r
-																	WHERE RecordType.DeveloperName = 'Individual_Transfer_MERC')
+																	WHERE Individual_Travel_ToV_Applicable_MERC__c = true)
 														FROM Meeting_Participant_MERC__c WHERE Meeting_MERC__c in :meetingIds]) {
 				participantIdToTransferItineraries.put(mp.Id, mp.Travel_Itineraries_MERC__r);
 			}
@@ -148,7 +148,7 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 															Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c,
 															Total_Fare_Amount_MERC__c
 																FROM Travel_Itineraries_MERC__r
-																	WHERE RecordType.DeveloperName = 'Individual_Transfer_MERC')
+																	WHERE Individual_Travel_ToV_Applicable_MERC__c = true)
 														FROM Meeting_Participant_MERC__c WHERE Id in :meetingParticipantIds]) {
 				participantIdToTransferItineraries.put(mp.Id, mp.Travel_Itineraries_MERC__r);
 			}
