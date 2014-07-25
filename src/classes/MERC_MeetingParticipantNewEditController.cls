@@ -48,7 +48,8 @@ public with sharing class MERC_MeetingParticipantNewEditController extends GLBL_
 		'Preparation_Time_Hrs_MERC__c',
 		'Event_Time_Hrs_MERC__c',
 		'Travel_Time_Hrs_MERC__c',
-		'Confirm_Final_Fee_MERC__c'
+		'Confirm_Final_Fee_MERC__c',
+		'Alliance_MERC__c'
 	};
 
 	//dynamic javascript function name so the vf page can submit form via ajax
