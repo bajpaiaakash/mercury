@@ -7,10 +7,16 @@
 
 public with sharing class MERC_AgendaBuilderController extends GLBL_GenericRelatedListController {
 
-	public Boolean confirmAgendaChange { get; set; }
-	public Boolean confirmAgendaChange2 { get; set; }
 	public Boolean hasError { get; private set; }
 	public String pageMessage { get; private set; }
+
+	public Boolean hasUnconfirmedFinalAgenda {get; set; }
+	public Boolean confirmAgendaChange { get; set; }
+	public Boolean finalUpdatable {get; set; }
+
+	public Boolean hasUnconfirmedWebService {get; set; }
+	public Boolean confirmAgendaChange2 { get; set; }
+	public Boolean webUpdatable { get; set; }
 
 	MERC_TimeZoneUtility tz = new MERC_TimeZoneUtility(Agenda_Item_MERC__c.sObjectType);
 
@@ -34,6 +40,11 @@ public with sharing class MERC_AgendaBuilderController extends GLBL_GenericRelat
 			'Start_Time_MERC__c' //orderChildrenBy
 		);
 		this.hasError = false;
+		this.confirmAgendaChange = false;
+		this.confirmAgendaChange2 = false;
+
+		finalUpdatable = Schema.sObjectType.Agenda_Item_MERC__c.fields.Cnfrm_Chg_Fnl_Agnd_MERC__c.isUpdateable();
+		webUpdatable =  Schema.sObjectType.Agenda_Item_MERC__c.fields.Confirm_Web_Service_Change_MERC__c.isUpdateable();
 	}
 
 	public override PageReference add() {
@@ -79,19 +90,27 @@ public with sharing class MERC_AgendaBuilderController extends GLBL_GenericRelat
 	}
 
 	public override PageReference save() {
-		Boolean unconfirmedFinalAgenda = (meeting.Agenda_Status_MERC__c == 'Final' && !this.confirmAgendaChange);
-		Boolean unconfirmedWebService = (meeting.Expose_on_Portal_MERC__c && !this.confirmAgendaChange2);
-        if (unconfirmedFinalAgenda || unconfirmedWebService) {
+		hasUnconfirmedFinalAgenda = (meeting.Agenda_Status_MERC__c == 'Final' && !this.confirmAgendaChange);
+		hasUnconfirmedWebService = (meeting.Expose_on_Portal_MERC__c && !this.confirmAgendaChange2);
+        if (hasUnconfirmedFinalAgenda || hasUnconfirmedWebService) {
         	tz.convertDateTimes(getSobjects(children), true, meeting.Meeting_Time_Zone_MERC__c); //sets date/times based on UTC, stamps static text with "user-friendly" date/time values
 			this.hasError = true;
-			String message = 'Please confirm this change to ';
-			if (unconfirmedFinalAgenda) message += 'the final agenda ';
-			if (unconfirmedFinalAgenda && unconfirmedWebService) message += 'and ';
-			if (unconfirmedWebService) message += 'this web service';
+
+			String message = '';
+			if (finalUpdatable && webUpdatable) {
+				message = 'This meeting has been ';
+				if (hasUnconfirmedFinalAgenda) message += 'confirmed as final ';
+				if (hasUnconfirmedFinalAgenda && hasUnconfirmedWebService) message += 'and ';
+				if (hasUnconfirmedWebService) message += 'activated on the Web Service';
+			} else {
+				message = 'This meeting has been Activated on the Web Service and the Agenda is viewable.'+
+				' Please speak to a member of the Customer Meeting Services team to request a change.';
+			}
 			this.pageMessage = message;
 			return null;
         }
         this.confirmAgendaChange = false;
+        this.confirmAgendaChange2 = false;
         tz.convertDateTimes(getSobjects(children), true, meeting.Meeting_Time_Zone_MERC__c); //sets date/times based on UTC, stamps static text with "user-friendly" date/time values
 		//return super.save();
 		try {

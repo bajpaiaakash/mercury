@@ -62,60 +62,56 @@
 				<apex:param name="msg" value="{!pageMessage}"/>
 			</apex:actionFunction>
 		</apex:outputPanel>
-		<div class="aeu" style="position:relative;">
-			
-			<apex:outputPanel rendered="{!meeting.Agenda_Status_MERC__c == 'Final'}" id="confirmWrapper">
-				<div class="message infoM3" role="alert">
-			        <table border="0" cellpadding="0" cellspacing="0" class="messageTable" style="padding:0px;margin:0px;">
-			            <tbody><tr valign="top">
-			                <td>
-			                    <img alt="info" src="/s.gif" class="msgIcon" title="info"/>
-			                </td>
-			                <td class="messageCell" style="padding-left:5px;">
-			                	<apex:outputLabel style="font-weight:bold;padding-right:3px;" for="chkConfirm"
-			                		value="{!$ObjectType.Agenda_Item_MERC__c.fields.Cnfrm_Chg_Fnl_Agnd_MERC__c.label}"/>
-			                	<apex:inputCheckbox id="chkConfirm" 
-			                		value="{!confirmAgendaChange}"/>
-			                </td>
-			            </tr>
-			            <tr>
-			                <td></td>
-			                <td>
-			                </td>
-			            </tr>
-			        </tbody></table>
-			    </div>
-			</apex:outputPanel>
 
-			<apex:outputPanel rendered="{!meeting.Expose_on_Portal_MERC__c}" id="confirmWrapper2">
-				<div class="message infoM3" role="alert">
-			        <table border="0" cellpadding="0" cellspacing="0" class="messageTable" style="padding:0px;margin:0px;">
-			            <tbody><tr valign="top">
-			                <td>
-			                    <img alt="info" src="/s.gif" class="msgIcon" title="info"/>
-			                </td>
-			                <td class="messageCell" style="padding-left:5px;">
-			                	<apex:outputLabel style="font-weight:bold;padding-right:3px;" for="chkConfirm2"
-			                		value="{!$ObjectType.Agenda_Item_MERC__c.fields.Confirm_Web_Service_Change_MERC__c.label}"/>
-			                	<apex:inputCheckbox id="chkConfirm2" 
-			                		value="{!confirmAgendaChange2}"/>
-			                </td>
-			            </tr>
-			            <tr>
-			                <td></td>
-			                <td>
-			                </td>
-			            </tr>
-			        </tbody></table>
-			    </div>
-			</apex:outputPanel>
-
+		<div class="aeu" style="position:relative;">			
 			<apex:pageBlock title="Event Agenda" mode="edit" id="mainBlock">
 				<apex:pageMessages />
+				<apex:outputPanel rendered="{!hasError && finalUpdatable && webUpdatable}" id="confirmWrapper">
+					<div class="message infoM3" role="alert">
+				        <table border="0" cellpadding="0" cellspacing="0" class="messageTable" style="padding:0px;margin:0px;">
+				            <tbody><tr valign="top">
+				                <td>
+				                    <img alt="info" src="/s.gif" class="msgIcon" title="info"/>
+				                </td>
+				                <td class="messageCell" style="padding-left:5px;">
+				                	<apex:outputLabel style="font-weight:bold;padding-right:3px;" for="chkConfirm"
+				                		value="{!$ObjectType.Agenda_Item_MERC__c.fields.Cnfrm_Chg_Fnl_Agnd_MERC__c.label}"/>
+				                	<apex:inputCheckbox id="chkConfirm" 
+				                		value="{!confirmAgendaChange}"/>
+				                </td>
+				            </tr>
+				            <tr>
+				                <td></td>
+				                <td>
+				                </td>
+				            </tr>
+				        </tbody></table>
+				    </div>
+					<div class="message infoM3" role="alert">
+				        <table border="0" cellpadding="0" cellspacing="0" class="messageTable" style="padding:0px;margin:0px;">
+				            <tbody><tr valign="top">
+				                <td>
+				                    <img alt="info" src="/s.gif" class="msgIcon" title="info"/>
+				                </td>
+				                <td class="messageCell" style="padding-left:5px;">
+				                	<apex:outputLabel style="font-weight:bold;padding-right:3px;" for="chkConfirm2"
+				                		value="{!$ObjectType.Agenda_Item_MERC__c.fields.Confirm_Web_Service_Change_MERC__c.label}"/>
+				                	<apex:inputCheckbox id="chkConfirm2" 
+				                		value="{!confirmAgendaChange2}"/>
+				                </td>
+				            </tr>
+				            <tr>
+				                <td></td>
+				                <td>
+				                </td>
+				            </tr>
+				        </tbody></table>
+				    </div>
+				</apex:outputPanel>
 				
 				<!-- BUTTONS -->
 				<apex:pageBlockButtons >
-					<apex:commandButton value="Save" action="{!save}" reRender="mainBlock, controllerResponseWrapper, confirmWrapper" 
+					<apex:commandButton value="Save" action="{!save}" reRender="mainBlock, controllerResponseWrapper, confirmWrapper, confirmWrapper2" 
 						onclick="toggleLoading()" oncomplete="handleControllerResponse();">
 						<apex:param name="retNull" value="1"/>
 					</apex:commandButton>
