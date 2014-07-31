@@ -25,7 +25,7 @@ public with sharing class MERC_BudgetVersionController {
 
         //clone budget and line items
         Set<Id> budgetIds = new Set<Id>{budget.Id};
-        String serializedData = GLBL_SobjectDataLoader.serialize(budgetIds,
+        String serializedData = GLBL_SobjectDataLoader.serialize(budgetIds, 
             new GLBL_SobjectDataLoader.SerializeConfig().
                 followMaster(Budget_MERC__c.Meeting_MERC__c). //this tells the serializer to set the new budget with the existing meeting id
                 followChild(Budget_Line_Item_MERC__c.Master_Budget_Line_Item_MERC__c).  // Serialize any related Budget Lines
@@ -33,7 +33,7 @@ public with sharing class MERC_BudgetVersionController {
         Set<Id> resultIds = GLBL_SobjectDataLoader.deserialize(serializedData, new BudgetCloneCallback());
         List<Id> resultIdList = new List<Id>();
         resultIdList.addAll(resultIds);
-
+        
         //get newly created budget (new version), set fields
         Budget_MERC__c newBudget = [Select ID, Master_Budget_MERC__c From Budget_MERC__c WHERE ID = :resultIdList.get(0)];
         if (budget.Master_Budget_MERC__c == null)
@@ -51,7 +51,7 @@ public with sharing class MERC_BudgetVersionController {
 
         //enable validation rules on budget edits
         MERC_Util.enableBudgetEditValidation();
-
+        
         return new PageReference('/'+newBudget.Id);
     }
 

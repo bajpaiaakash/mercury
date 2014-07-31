@@ -1123,6 +1123,10 @@ Created by J Adams 12/10/2013</description>
                 <fullName>Procurement 3</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Procurement 4</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>true</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>

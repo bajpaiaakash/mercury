@@ -2,22 +2,22 @@
  * Copyright (c), Andrew Fawcett,
  * All rights reserved.
  *
- * Redistribution and use in source and binary forms, with or without modification,
+ * Redistribution and use in source and binary forms, with or without modification, 
  *   are permitted provided that the following conditions are met:
  *
- * - Redistributions of source code must retain the above copyright notice,
+ * - Redistributions of source code must retain the above copyright notice, 
  *      this list of conditions and the following disclaimer.
- * - Redistributions in binary form must reproduce the above copyright notice,
- *      this list of conditions and the following disclaimer in the documentation
+ * - Redistributions in binary form must reproduce the above copyright notice, 
+ *      this list of conditions and the following disclaimer in the documentation 
  *      and/or other materials provided with the distribution.
- * - Neither the name of the Andrew Fawcett, nor the names of its contributors
- *      may be used to endorse or promote products derived from this software without
+ * - Neither the name of the Andrew Fawcett, nor the names of its contributors 
+ *      may be used to endorse or promote products derived from this software without 
  *      specific prior written permission.
  *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
- *  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
- *  OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
- *  THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+ *  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES 
+ *  OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL 
+ *  THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, 
  *  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
  *  OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY
  *  OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
@@ -27,33 +27,66 @@
 /**
  * This is a dummy test class to obtain 100% coverage for the generated WSDL2Apex code, it is not a funcitonal test class
  *   You should follow the usual practices to cover your other code, as shown in the MetadataCreateJobTest.cls
- **/
-@isTest
-private class GLBL_MetadataServiceTest
-{
-
+ **/ 
+@isTest  
+private class GLBL_MetadataServiceTest 
+{    
+    /**
+     * Dummy Metadata API web service mock class (see MetadataCreateJobTest.cls for a better example)
+     **/
+	private class WebServiceMockImpl implements WebServiceMock 
+	{
+		public void doInvoke(
+			Object stub, Object request, Map<String, Object> response,
+			String endpoint, String soapAction, String requestName,
+			String responseNS, String responseName, String responseType) 
+		{
+			if(request instanceof GLBL_MetadataService.retrieve_element)
+				response.put('response_x', new GLBL_MetadataService.retrieveResponse_element());
+			else if(request instanceof GLBL_MetadataService.checkDeployStatus_element)
+				response.put('response_x', new GLBL_MetadataService.checkDeployStatusResponse_element());
+			else if(request instanceof GLBL_MetadataService.update_element)
+				response.put('response_x', new GLBL_MetadataService.updateResponse_element());
+			else if(request instanceof GLBL_MetadataService.listMetadata_element)
+				response.put('response_x', new GLBL_MetadataService.listMetadataResponse_element());
+			else if(request instanceof GLBL_MetadataService.checkStatus_element)
+				response.put('response_x', new GLBL_MetadataService.checkStatusResponse_element());
+			else if(request instanceof GLBL_MetadataService.create_element)
+				response.put('response_x', new GLBL_MetadataService.createResponse_element());
+			else if(request instanceof GLBL_MetadataService.checkRetrieveStatus_element)
+				response.put('response_x', new GLBL_MetadataService.checkRetrieveStatusResponse_element());
+			else if(request instanceof GLBL_MetadataService.delete_element)
+				response.put('response_x', new GLBL_MetadataService.deleteResponse_element());
+			else if(request instanceof GLBL_MetadataService.describeMetadata_element)
+				response.put('response_x', new GLBL_MetadataService.describeMetadataResponse_element());
+			else if(request instanceof GLBL_MetadataService.deploy_element)
+				response.put('response_x', new GLBL_MetadataService.deployResponse_element());
+			return;
+		}
+	}    
+		
 	@IsTest
 	private static void coverGeneratedCodeCRUDOperations()
-	{
+	{	
     	// Null Web Service mock implementation
-        Test.setMock(WebServiceMock.class, new GLBL_MetadataWebServiceMockImpl());
+        Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
         // Only required to workaround a current code coverage bug in the platform
         GLBL_MetadataService metaDataService = new GLBL_MetadataService();
-        // Invoke operations
+        // Invoke operations         
         GLBL_MetadataService.MetadataPort metaDataPort = new GLBL_MetadataService.MetadataPort();
         metaDataPort.create(null);
         metaDataPort.deleteMetadata(null);
-        metaDataPort.updateMetadata(null);
+        metaDataPort.updateMetadata(null);		
 	}
-
+	
 	@IsTest
     private static void coverGeneratedCodeFileBasedOperations()
-    {
+    {    	
     	// Null Web Service mock implementation
-        Test.setMock(WebServiceMock.class, new GLBL_MetadataWebServiceMockImpl());
+        Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
         // Only required to workaround a current code coverage bug in the platform
         GLBL_MetadataService metaDataService = new GLBL_MetadataService();
-        // Invoke operations
+        // Invoke operations         
         GLBL_MetadataService.MetadataPort metaDataPort = new GLBL_MetadataService.MetadataPort();
         metaDataPort.retrieve(null);
         metaDataPort.checkDeployStatus(null);
@@ -65,10 +98,10 @@ private class GLBL_MetadataServiceTest
         metaDataPort.deploy(null, null);
         metaDataPort.checkDeployStatus(null);
     }
-
+        
 	@IsTest
     private static void coverGeneratedCodeTypes()
-    {
+    {    	       
         // Reference types
         new GLBL_MetadataService();
         new GLBL_MetadataService.listMetadataResponse_element();
@@ -408,23 +441,23 @@ private class GLBL_MetadataServiceTest
         new GLBL_MetadataService.InstalledPackage();
         new GLBL_MetadataService.PushNotification();
         new GLBL_MetadataService.LiveChatAgentConfig();
-		new GLBL_MetadataService.AdjustmentsSettings();
-		new GLBL_MetadataService.ForecastingSettings();
-		new GLBL_MetadataService.QuickActionListItem();
-		new GLBL_MetadataService.Branding();
-		new GLBL_MetadataService.QuickActionLayoutItem();
-		new GLBL_MetadataService.OpportunityListFieldsSelectedSettings();
+		new GLBL_MetadataService.AdjustmentsSettings();                               
+		new GLBL_MetadataService.ForecastingSettings();                                
+		new GLBL_MetadataService.QuickActionListItem();           
+		new GLBL_MetadataService.Branding();          
+		new GLBL_MetadataService.QuickActionLayoutItem();                     
+		new GLBL_MetadataService.OpportunityListFieldsSelectedSettings();        
 		new GLBL_MetadataService.ApprovalStepRejectBehavior();
-		new GLBL_MetadataService.FolderShare();
-		new GLBL_MetadataService.ApprovalEntryCriteria();
-		new GLBL_MetadataService.ProductSettings();
-		new GLBL_MetadataService.OpportunitySettings();
-		new GLBL_MetadataService.LiveChatDeployment();
-		new GLBL_MetadataService.QuickActionLayoutColumn();
-		new GLBL_MetadataService.GlobalQuickActionTranslation();
-		new GLBL_MetadataService.ApprovalStepApprover();
-		new GLBL_MetadataService.QuoteSettings();
-		new GLBL_MetadataService.LiveChatButton();
+		new GLBL_MetadataService.FolderShare();   
+		new GLBL_MetadataService.ApprovalEntryCriteria();                                
+		new GLBL_MetadataService.ProductSettings();                                
+		new GLBL_MetadataService.OpportunitySettings();              
+		new GLBL_MetadataService.LiveChatDeployment();                                
+		new GLBL_MetadataService.QuickActionLayoutColumn();           
+		new GLBL_MetadataService.GlobalQuickActionTranslation();      
+		new GLBL_MetadataService.ApprovalStepApprover();                                
+		new GLBL_MetadataService.QuoteSettings();         
+		new GLBL_MetadataService.LiveChatButton();                                
 		new GLBL_MetadataService.Network();
 		new GLBL_MetadataService.LiveChatDeploymentDomainWhitelist();
 		new GLBL_MetadataService.KnowledgeLanguageSettings();
@@ -454,6 +487,6 @@ private class GLBL_MetadataServiceTest
 		new GLBL_MetadataService.AgentConfigUserAssignments();
 		new GLBL_MetadataService.NetworkMemberGroup();
 		new GLBL_MetadataService.FindSimilarOppFilter();
-		new GLBL_MetadataService.QuickActionTranslation();
+		new GLBL_MetadataService.QuickActionTranslation();				
     }
 }

@@ -3031,6 +3031,7 @@ Created by John A Adams 10/28/2013</description>
         <fullName>Language_Preference_MERC__c</fullName>
         <description>Used for Mercury specific language preference capture.  The mastered preferred language field is not reliable from a data perspective.  This will be captured and stored/maintained within Mercury until a time whereby the master data can be tidied if possible.  Oliver Dunford 7th Jan.</description>
         <externalId>false</externalId>
+        <inlineHelpText>This is the a HCPs preferred language for all meeting based correspondence.  This is set via the preferences and consent records and shown on the HCP profile for ease of reference.</inlineHelpText>
         <label>Language Preference</label>
         <length>30</length>
         <required>false</required>
@@ -3718,6 +3719,7 @@ Created by John A Adams 10/3/2013</description>
 Customer ODS to Mercury Mapping
 Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
+        <inlineHelpText>The HCPs Preferred Language from master data, should one exist.  This is not editable within Mercury.</inlineHelpText>
         <label>Preferred Language</label>
         <length>30</length>
         <required>false</required>
@@ -14343,6 +14345,30 @@ else
     url += &quot;&amp;sessionId={!$Api.Session_ID}&quot;;
     window.location.href = url;
 }</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Re_subscribe_in_ExactTarget</fullName>
+        <availability>online</availability>
+        <description>Resubscribe a Person Account record Type in ExactTarget</description>
+        <displayType>link</displayType>
+        <height>600</height>
+        <linkType>sControl</linkType>
+        <masterLabel>Re-subscribe in ExactTarget</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <scontrol>EXTG_person_resub</scontrol>
+    </webLinks>
+    <webLinks>
+        <fullName>SendExactTargetEmail</fullName>
+        <availability>online</availability>
+        <description>Send ExactTarget Email from Person Account record types</description>
+        <displayType>link</displayType>
+        <height>600</height>
+        <linkType>sControl</linkType>
+        <masterLabel>Send ExactTarget Email</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <scontrol>EXTG_person_email</scontrol>
     </webLinks>
     <webLinks>
         <fullName>Send_ET_Email</fullName>

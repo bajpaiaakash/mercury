@@ -234,6 +234,58 @@ Updated picklist values 02/17/2014, KLorenti</description>
                 <fullName>Misc non-reportable Expenses - 4864</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Service Provider Fees Local - 4868</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Provider Contract Labor Local - 4869</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Provider Fees HCO Contract Local - 29010042</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Provider Mileage - 4867</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Provider Expenses Tax Non-Deductible - 4863</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Start-up Meeting Investigator expenses - 4870</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Delegate Expenses Ind Mtg with Lilly - 3941</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Delegate Expenses Ind Mtg non Lilly Tax non-deductible - 3942</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Delegate Out of Pocket Reg Fee Tax non-deductible - 6041</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Food &amp; Beverage Expenses Ind Mtg with Lilly – 4168</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Food &amp; Beverage Expenses Ind Mtg non Lilly – 4169</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Misc non reportable Expenses Ind Mtg with Lilly– 4861</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Misc non reportable Expenses Tax non-deductible– 4862</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
@@ -242,9 +294,12 @@ Updated picklist values 02/17/2014, KLorenti</description>
     </fields>
     <fields>
         <fullName>Cost_Element_SAP_Code_MERC__c</fullName>
+        <description>Returns the cost element digits after the dash within each picklist value (&quot; - &quot;).   These can vary in length between 4 and 7 digits  : MERC : Created on 01/26/2013 by Katy Lorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <formula>RIGHT(TEXT(Cost_Element_MERC__c),4)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <formula>RIGHT(TEXT(Cost_Element_MERC__c), 
+	((LEN(TEXT(Cost_Element_MERC__c)) - FIND(&quot; - &quot;, TEXT(Cost_Element_MERC__c)) - 2)
+	)
+)</formula>
         <label>Cost Element SAP Code MERC</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -283,6 +338,19 @@ Created by John A Adams 10/21/2013</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Internal_Order_Number_MERC__c</fullName>
+        <description>Pulled down from the Invoice record, sent through to SAP via XML : MERC : Created on 24/07/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Invoice_MERC__r.Internal_Order_Number_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Internal Order Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -426,7 +494,19 @@ Created by John A Adams 10/4/2013</description>
         <picklistValues>
             <picklist>Cost_Element_MERC__c</picklist>
             <values>
+                <fullName>Service Provider Contract Labor Local - 4869</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Service Provider Fees - 4865</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Provider Fees HCO Contract Local - 29010042</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Provider Fees Local - 4868</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -439,7 +519,19 @@ Created by John A Adams 10/4/2013</description>
         <picklistValues>
             <picklist>Cost_Element_MERC__c</picklist>
             <values>
+                <fullName>Service Provider Contract Labor Local - 4869</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Service Provider Fees - 4865</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Provider Fees HCO Contract Local - 29010042</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Provider Fees Local - 4868</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -451,6 +543,18 @@ Created by John A Adams 10/4/2013</description>
         <label>Other Items</label>
         <picklistValues>
             <picklist>Cost_Element_MERC__c</picklist>
+            <values>
+                <fullName>Delegate Expenses Ind Mtg non Lilly Tax non-deductible - 3942</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delegate Expenses Ind Mtg with Lilly - 3941</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delegate Out of Pocket Reg Fee Tax non-deductible - 6041</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Delegate Out of Pocket Registration Fees %28where paid by HCP in error%29 - 6040</fullName>
                 <default>false</default>
@@ -464,11 +568,39 @@ Created by John A Adams 10/4/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Food %26 Beverage Expenses Ind Mtg non Lilly %E2%80%93 4169</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food %26 Beverage Expenses Ind Mtg with Lilly %E2%80%93 4168</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Misc non reportable Expenses Ind Mtg with Lilly%E2%80%93 4861</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Misc non reportable Expenses Tax non-deductible%E2%80%93 4862</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Misc non-reportable Expenses - 4864</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Service Provider Expenses Tax Non-Deductible - 4863</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Provider Mileage - 4867</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Service Provider Out of Pocket Travel Expenses - 4866</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Start-up Meeting Investigator expenses - 4870</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

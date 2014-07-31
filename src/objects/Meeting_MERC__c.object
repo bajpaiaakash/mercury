@@ -1388,6 +1388,18 @@ Created by John A Adams 1/7/2014</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Internal_Order_Number_MERC__c</fullName>
+        <description>Stamped from associated Budget record, this is pulled over onto the Invoice and sent through to SAP : MERC : Created on 24/07/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Internal Order Number</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Invitation_Template_MERC__c</fullName>
         <description>Which invitation template will be used for meeting? Created 10/17/2013 by KLorenti, Mavens Consultng</description>
         <externalId>false</externalId>

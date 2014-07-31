@@ -87,9 +87,9 @@
         <formula>/* If both are not null then add them together/*
 /* but if at least one of them is null then check if Individual transfer is null, if it&apos;s not, then return it*/
 /* if individual transfer is null then group ground might not be. if it isn&apos;t return it, if not both are null and return null */
-IF ( NOT(ISBLANK(Est_Indv_Transfer_MERC__c)) &amp;&amp;  NOT(ISBLANK(Est_Grp_Grnd_Transp_MERC__c)),
+IF ( NOT(ISBLANK(Est_Indv_Transfer_MERC__c)) &amp;&amp;  NOT(ISBLANK(Est_Grp_Grnd_Transp_MERC__c)) &amp;&amp; (TEXT(Meeting_Participant_MERC__r.Status_MERC__c) = &quot;Attended&quot;),
      Est_Indv_Transfer_MERC__c + Est_Grp_Grnd_Transp_MERC__c,
-     IF ( NOT(ISBLANK(Est_Indv_Transfer_MERC__c)),
+     IF ( NOT(ISBLANK(Est_Indv_Transfer_MERC__c)) &amp;&amp; (TEXT(Meeting_Participant_MERC__r.Status_MERC__c) = &quot;Attended&quot;),
           Est_Indv_Transfer_MERC__c,
           IF ( NOT(ISBLANK(Est_Grp_Grnd_Transp_MERC__c)),
                Est_Grp_Grnd_Transp_MERC__c,

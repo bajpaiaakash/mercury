@@ -128,6 +128,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>GLBL_ApplyStandardPriceBook</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>GLBL_AsyncApexJobsSelector</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -160,6 +164,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>GLBL_Describe_WebServiceMockImpl</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>GLBL_GenericRelatedListController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -185,6 +193,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>GLBL_MetadataServiceTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>GLBL_MetadataWebServiceMockImpl</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -217,6 +229,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>GLBL_RollupControllerTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>GLBL_RollupControllerWebServiceMockImpl</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -313,6 +329,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>GLBL_TestLREngine</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>GLBL_TestSObjectDomain</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>GLBL_TestSObjectSelector</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -421,6 +445,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_DocusignEmbeddedSignatureService</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_DocusignEmbeddedSignatureSrvcTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -4342,6 +4370,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Invoice_Line_Item_MERC__c.Internal_Order_Number_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Invoice_Line_Item_MERC__c.Invoice_Cost_Center_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4488,6 +4521,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Invoice_MERC__c.IBAN_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Invoice_MERC__c.Internal_Order_Number_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5413,6 +5451,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Meeting_MERC__c.Internal_Delegates_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting_MERC__c.Internal_Order_Number_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

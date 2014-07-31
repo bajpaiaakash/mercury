@@ -221,6 +221,7 @@ public with sharing class MERC_DailyAttendanceController {
 																	Confirm_ToV_Reporting_Change_MERC__c
 																		FROM Daily_Attendance_TOV_MERC__c
 																		WHERE Meeting_Day_MERC__c = :this.selectedMeetingDayId
+																		  AND Meeting_Participant_MERC__r.Status_MERC__c != 'Approved'
 																		ORDER BY Meeting_Participant_Account_Name_MERC__c])
 				{
 					participants.add(new ParticipantWrapper(tovRecord));

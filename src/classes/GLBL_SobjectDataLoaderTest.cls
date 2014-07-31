@@ -1,25 +1,25 @@
 @isTest
 private class GLBL_SobjectDataLoaderTest {
-
-	@IsTest(seeAllData=true) // http://stackoverflow.com/questions/9164986/how-do-i-avoid-standard-price-not-defined-when-unit-testing-an-opportunitylineit
+	
+	@IsTest(seeAllData=true) // http://stackoverflow.com/questions/9164986/how-do-i-avoid-standard-price-not-defined-when-unit-testing-an-opportunitylineit 
 	public static void testManuallyConfigured()
-	{
+	{				
 		// Save point to rollback test data
 		System.Savepoint savePoint = Database.setSavepoint();
-
+		
 		// Serialise test data into JSON record set bundle via manual configuration
-		String serializedData = GLBL_SobjectDataLoader.serialize(createOpportunities(),
+		String serializedData = GLBL_SobjectDataLoader.serialize(createOpportunities(), 
 			new GLBL_SobjectDataLoader.SerializeConfig().
 				followChild(OpportunityLineItem.OpportunityId). 	// Serialize any related OpportunityLineItem's (children)
 					follow(OpportunityLineItem.PricebookEntryId). 	// Serialize any related PricebookEntry's
 						follow(PricebookEntry.Product2Id). 			// Serialize any related Products's
 						omit(OpportunityLineItem.UnitPrice)); 		// Do not serialize the UnitPrice, as TotalPrice is enough and both cannot exist together
-
+					
 		// Rollback test data
 		Database.rollback(savePoint);
-
+		
 		// Recreate test data via deserialize
-		Set<ID> resultIds = GLBL_SobjectDataLoader.deserialize(serializedData, new GLBL_ApplyStandardPricebook());
+		Set<ID> resultIds = GLBL_SobjectDataLoader.deserialize(serializedData, new ApplyStandardPricebook());
 		assertResults(resultIds);
 	}
 
@@ -28,7 +28,7 @@ private class GLBL_SobjectDataLoaderTest {
 	{
 		// Save point to rollback test data
 		System.Savepoint savePoint = Database.setSavepoint();
-
+		
 		// Serialise test data into JSON record set bundle via auto configuraiton (with some manual tweaks)
 		String serializedData = GLBL_SobjectDataLoader.serialize(createOpportunities(),
 			new GLBL_SobjectDataLoader.SerializeConfig().
@@ -39,10 +39,10 @@ private class GLBL_SobjectDataLoaderTest {
 
 		// Rollback test data
 		Database.rollback(savePoint);
-
+		
 		// Recreate test data via deserialize
-		Set<ID> resultIds = GLBL_SobjectDataLoader.deserialize(serializedData, new GLBL_ApplyStandardPricebook());
-		assertResults(resultIds);
+		Set<ID> resultIds = GLBL_SobjectDataLoader.deserialize(serializedData, new ApplyStandardPricebook());
+		assertResults(resultIds);				
 	}
 
 	/**
@@ -63,7 +63,7 @@ private class GLBL_SobjectDataLoaderTest {
 			List<sObject> testAccounts = new List<Account>();
 			for (RecordType aRT : accountRecordTypes){
 				sObject testAccount = new Account(Name = 'Test' + aRT.DeveloperName);
-
+				
 				//dynamic binding will prevent any compile time errors if RecordTypeId field doesn't exist
 				testAccount.put('RecordTypeId', aRT.Id);
 				testAccounts.add(testAccount);
@@ -75,7 +75,7 @@ private class GLBL_SobjectDataLoaderTest {
 			}
 			String serializedData = GLBL_SobjectDataLoader.serialize(newAccountIds);
 			Set<Id> resultIds = GLBL_SobjectDataLoader.deserialize(serializedData);
-
+			
 			//dynamic soql will prevent any compile time errors if RecordTypeId field doesn't exist
 			String accountsQuery = 'SELECT Id, RecordTypeId FROM Account WHERE Id IN :newAccountIds';
 			testAccounts = Database.query(accountsQuery);
@@ -88,16 +88,39 @@ private class GLBL_SobjectDataLoaderTest {
 		}
 	}
 
+	/**
+	 * Test implemetnation of IDeserializeCallback, automatically applies Standard Pricebook to new PricebookEntry's
+	 **/
+	private class ApplyStandardPricebook implements GLBL_SobjectDataLoader.IDeserializeCallback
+	{
+		private Pricebook2 standardPricebook;
+		
+		public ApplyStandardPricebook()
+		{
+			standardPricebook = [select Id from Pricebook2 where IsStandard = true];				
+		}
+
+		public void cloneMapHAndler(Map<Id, SObject> cloneMap) {}
+		
+		public void unresolvedReferences(Schema.SObjectType sObjectType, List<GLBL_SobjectDataLoader.UnresolvedReferences> unresolvedReferences)
+		{
+			if(sObjectType == PricebookEntry.sObjectType) // PricebookEntry object?
+				for(GLBL_SobjectDataLoader.UnresolvedReferences unresolvedReference : unresolvedReferences)
+					if(unresolvedReference.References.contains(PricebookEntry.Pricebook2Id)) // Pricebook2Id field?
+						unresolvedReference.Record.put(PricebookEntry.Pricebook2Id, standardPricebook.id); // Set Standard Pricebook
+		}		
+	}
+	
 	private static Set<ID> createOpportunities()
 	{
 		// Grab the Standard Pricebook (cannot create these via Apex)
-		Pricebook2 pb = [select Id from Pricebook2 where IsStandard = true];
-
+		Pricebook2 pb = [select Id from Pricebook2 where IsStandard = true];	
+				
 		// Insert Opportunities
 		List<Opportunity> opps = new List<Opportunity>();
-		List<List<Product2>> productsByOpp = new List<List<Product2>>();
-		List<List<PricebookEntry>> pricebookEntriesByOpp = new List<List<PricebookEntry>>();
-		List<List<OpportunityLineItem>> oppLinesByOpp = new List<List<OpportunityLineItem>>();
+		List<List<Product2>> productsByOpp = new List<List<Product2>>(); 		
+		List<List<PricebookEntry>> pricebookEntriesByOpp = new List<List<PricebookEntry>>(); 		
+		List<List<OpportunityLineItem>> oppLinesByOpp = new List<List<OpportunityLineItem>>(); 		
 		for(Integer o=0; o<10; o++)
 		{
 			Opportunity opp = new Opportunity();
@@ -109,7 +132,7 @@ private class GLBL_SobjectDataLoaderTest {
 			List<PricebookEntry> pricebookEntries = new List<PricebookEntry>();
 			List<OpportunityLineItem> oppLineItems = new List<OpportunityLineItem>();
 			for(Integer i=0; i<o+1; i++)
-			{
+			{						
 				Product2 product = new Product2();
 				product.Name = opp.Name + ' : Product : ' + i;
 				products.add(product);
@@ -126,20 +149,20 @@ private class GLBL_SobjectDataLoaderTest {
 			}
 			productsByOpp.add(products);
 			pricebookEntriesByOpp.add(pricebookEntries);
-			oppLinesByOpp.add(oppLineItems);
+			oppLinesByOpp.add(oppLineItems);				
 		}
 		// Insert Opportunities
 		insert opps;
 		// Insert Products
-		List<Product2> allProducts = new List<Product2>();
+		List<Product2> allProducts = new List<Product2>(); 
 		for(List<Product2> products : productsByOpp)
 		{
-			allProducts.addAll(products);
+			allProducts.addAll(products);			
 		}
 		insert allProducts;
 		// Insert Pricebooks
-		Integer oppIdx = 0;
-		List<PricebookEntry> allPricebookEntries = new List<PricebookEntry>();
+		Integer oppIdx = 0;			
+		List<PricebookEntry> allPricebookEntries = new List<PricebookEntry>();				
 		for(List<PricebookEntry> pricebookEntries : pricebookEntriesByOpp)
 		{
 			List<Product2> products = productsByOpp[oppIdx++];
@@ -149,11 +172,11 @@ private class GLBL_SobjectDataLoaderTest {
 				pricebookEntry.Product2Id = products[lineIdx++].Id;
 			}
 			allPricebookEntries.addAll(pricebookEntries);
-		}
+		}			
 		insert allPricebookEntries;
 		// Insert Opportunity Lines
-		oppIdx = 0;
-		List<OpportunityLineItem> allOppLineItems = new List<OpportunityLineItem>();
+		oppIdx = 0;						
+		List<OpportunityLineItem> allOppLineItems = new List<OpportunityLineItem>(); 			
 		for(List<OpportunityLineItem> oppLines : oppLinesByOpp)
 		{
 			List<PricebookEntry> pricebookEntries = pricebookEntriesByOpp[oppIdx];
@@ -165,27 +188,27 @@ private class GLBL_SobjectDataLoaderTest {
 			}
 			allOppLineItems.addAll(oppLines);
 			oppIdx++;
-		}
-		insert allOppLineItems;
-		return new Map<Id, Opportunity>(opps).keySet();
+		}			
+		insert allOppLineItems;		
+		return new Map<Id, Opportunity>(opps).keySet();			
 	}
-
+	
 	private static void assertResults(Set<ID> opportunityIds)
 	{
 		Pricebook2 standardPriceBook = [select Id from Pricebook2 where IsStandard = true];
-		List<Opportunity> opportunities =
-			[select Id, Name, Amount,
-				(select id, PricebookEntry.Product2.Name, PricebookEntry.Pricebook2Id, UnitPrice
-				 from OpportunityLineItems
-				 order by PricebookEntry.Product2.Name)
-				from Opportunity
-				where Id in :opportunityIds
+		List<Opportunity> opportunities = 
+			[select Id, Name, Amount, 
+				(select id, PricebookEntry.Product2.Name, PricebookEntry.Pricebook2Id, UnitPrice 
+				 from OpportunityLineItems 
+				 order by PricebookEntry.Product2.Name) 
+				from Opportunity 
+				where Id in :opportunityIds 
 				order by Name];
 		System.assertEquals(10, opportunities.size());
 		System.assertEquals('Test Name 0', opportunities[0].Name);
 		System.assertEquals(10, opportunities[0].Amount);
 		System.assertEquals('Test Name 9', opportunities[9].Name);
-		System.assertEquals(100, opportunities[9].Amount);
+		System.assertEquals(100, opportunities[9].Amount);		
 		System.assertEquals(1, opportunities[0].OpportunityLineItems.size());
 		System.assertEquals(10, opportunities[0].OpportunityLineItems[0].UnitPrice);
 		System.assertEquals('Test Name 0 : Product : 0', opportunities[0].OpportunityLineItems[0].PricebookEntry.Product2.Name);
@@ -193,7 +216,7 @@ private class GLBL_SobjectDataLoaderTest {
 		System.assertEquals(10, opportunities[9].OpportunityLineItems.size());
 		System.assertEquals(10, opportunities[9].OpportunityLineItems[0].UnitPrice);
 		System.assertEquals('Test Name 9 : Product : 9', opportunities[9].OpportunityLineItems[9].PricebookEntry.Product2.Name);
-		System.assertEquals(standardPriceBook.Id, opportunities[9].OpportunityLineItems[9].PricebookEntry.Pricebook2Id);
+		System.assertEquals(standardPriceBook.Id, opportunities[9].OpportunityLineItems[9].PricebookEntry.Pricebook2Id);		
 	}
-
+	
 }

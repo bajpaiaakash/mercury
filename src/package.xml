@@ -29,6 +29,7 @@
         <members>GLBL_AccountMergeStampTriggerTest</members>
         <members>GLBL_ApexClassesSelector</members>
         <members>GLBL_ApexTriggersSelector</members>
+        <members>GLBL_ApplyStandardPriceBook</members>
         <members>GLBL_AsyncApexJobsSelector</members>
         <members>GLBL_AsyncApexJobsSelectorTest</members>
         <members>GLBL_BaseEditController</members>
@@ -37,6 +38,7 @@
         <members>GLBL_CustomerSearchToolServiceMock</members>
         <members>GLBL_CustomerSearchToolServiceTest</members>
         <members>GLBL_DescribeLayoutTest</members>
+        <members>GLBL_Describe_WebServiceMockImpl</members>
         <members>GLBL_GenericRelatedListController</members>
         <members>GLBL_GenericRelatedListControllerTest</members>
         <members>GLBL_GlobalIdAccountLookup</members>
@@ -44,6 +46,7 @@
         <members>GLBL_LREngine</members>
         <members>GLBL_MetadataService</members>
         <members>GLBL_MetadataServiceTest</members>
+        <members>GLBL_MetadataWebServiceMockImpl</members>
         <members>GLBL_NewButtonPrepopController</members>
         <members>GLBL_NewButtonPrepopControllerTest</members>
         <members>GLBL_RollupCalculateController</members>
@@ -52,6 +55,7 @@
         <members>GLBL_RollupCalculateJobTest</members>
         <members>GLBL_RollupController</members>
         <members>GLBL_RollupControllerTest</members>
+        <members>GLBL_RollupControllerWebServiceMockImpl</members>
         <members>GLBL_RollupJob</members>
         <members>GLBL_RollupJobTest</members>
         <members>GLBL_RollupService</members>
@@ -76,6 +80,8 @@
         <members>GLBL_StringBuilderTest</members>
         <members>GLBL_TestContext</members>
         <members>GLBL_TestLREngine</members>
+        <members>GLBL_TestSObjectDomain</members>
+        <members>GLBL_TestSObjectSelector</members>
         <members>GLBL_TriggerHandler</members>
         <members>MERC_AccountDesignatedIndividualsCounter</members>
         <members>MERC_AccountPreferenceRollupManager</members>
@@ -103,6 +109,7 @@
         <members>MERC_DeleteNotifyService</members>
         <members>MERC_DeleteNotifyServiceTest</members>
         <members>MERC_DocusignEmbeddedSignatureService</members>
+        <members>MERC_DocusignEmbeddedSignatureSrvcTest</members>
         <members>MERC_DocusignMockMultiResponseObj</members>
         <members>MERC_DocusignRecipientStatusHandler</members>
         <members>MERC_DocusignRecipientStatusHandlerTest</members>

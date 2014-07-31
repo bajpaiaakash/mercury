@@ -1483,6 +1483,7 @@ Oliver Dunford 14th Dec 2013</description>
         <fullName>Total_Fare_Amount_MERC__c</fullName>
         <description>The total amount of the fare including taxes. Oliver Dunford 14th Dec 2013.</description>
         <externalId>false</externalId>
+        <inlineHelpText>This value is reportable if the &quot;Individual Travel ToV Applicable&quot; checkbox is set for a Private Transfer Travel Itinerary record.</inlineHelpText>
         <label>Total Fare Amount</label>
         <precision>18</precision>
         <required>false</required>
@@ -1538,6 +1539,10 @@ Created by John A Adams 10/31/2013</description>
             </picklistValues>
             <picklistValues>
                 <fullName>Vehicle Rental</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Private Transfer</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -2076,7 +2081,7 @@ Created by John A Adams 12/13/2013</description>
     <recordTypes>
         <fullName>Car_MERC</fullName>
         <active>true</active>
-        <description>Rental Car or Car Service Information</description>
+        <description>Rental Car or Car Service Information or Private Transfer</description>
         <label>Car Service</label>
         <picklistValues>
             <picklist>Segment_Begin_Timezone_MERC__c</picklist>
@@ -2225,6 +2230,10 @@ Created by John A Adams 12/13/2013</description>
         </picklistValues>
         <picklistValues>
             <picklist>Travel_Detail_Typ_MERC__c</picklist>
+            <values>
+                <fullName>Private Transfer</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Vehicle Rental</fullName>
                 <default>true</default>
@@ -2587,41 +2596,51 @@ Created by John A Adams 12/13/2013</description>
         <fullName>Confirm_ToV_Reporting_Change_MERC</fullName>
         <active>true</active>
         <description>If ToV has already been reported for the meeting participant, HCP Care needs to confirm the change to the hotel and Individual Travel Fields that can effect ToV.</description>
-        <errorConditionFormula>!Confirm_ToV_Reporting_Change_MERC__c &amp;&amp;
-ISPICKVAL( Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c , &quot;Yes&quot;) &amp;&amp;
+        <errorConditionFormula>(
+! Confirm_ToV_Reporting_Change_MERC__c &amp;&amp;
+ISPICKVAL( Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c , &quot;Yes&quot;) &amp;&amp; (RecordType.DeveloperName = &quot;Hotel_MERC&quot;) &amp;&amp;
 (
-	(
-		(RecordType.DeveloperName = &quot;Hotel_MERC&quot; &amp;&amp; 
-		(ISCHANGED( Sgmnt_Bgin_TS_MERC__c ) || 
-		ISCHANGED( Sgmnt_End_TS_MERC__c )) ||
-		ISCHANGED(  Meeting_Vendor_MERC__c ) ||	
-		(ISCHANGED( Status_MERC__c ) &amp;&amp; 
-		ISPICKVAL( Status_MERC__c , &quot;Cancelled&quot;)))
-	)
+(ISCHANGED( Sgmnt_Bgin_TS_MERC__c ) || ISCHANGED( Sgmnt_End_TS_MERC__c ) || ISCHANGED(  Meeting_Vendor_MERC__c  )) ||
+(ISCHANGED( Status_MERC__c ) &amp;&amp; ISPICKVAL( Status_MERC__c , &quot;Cancelled&quot;))
+)
+)
 
-|| 
+||
 
-	(
-		( Individual_Travel_ToV_Applicable_MERC__c = TRUE &amp;&amp;
-		(RecordType.DeveloperName = &quot;Bus&quot;) || 
-		(RecordType.DeveloperName = &quot;Car_MERC&quot;) || 
-		(RecordType.DeveloperName = &quot;Rail_MERC&quot;)) &amp;&amp; 
-		(ISCHANGED( Sgmnt_Bgin_TS_MERC__c ) || 
-		ISCHANGED( Sgmnt_End_TS_MERC__c )) ||
-		(ISCHANGED( Total_Fare_Amount_MERC__c ) ||
-		(ISCHANGED( Status_MERC__c ) &amp;&amp; ISPICKVAL( Status_MERC__c , &quot;Cancelled&quot;))
-		)
-	)
+(
+! Confirm_ToV_Reporting_Change_MERC__c &amp;&amp;
+ISPICKVAL( Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c , &quot;Yes&quot;) &amp;&amp; (RecordType.DeveloperName = &quot;Car_MERC&quot;) &amp;&amp; ( Individual_Travel_ToV_Applicable_MERC__c  = TRUE) &amp;&amp;
+(
+(ISCHANGED( Sgmnt_Bgin_TS_MERC__c ) || ISCHANGED( Sgmnt_End_TS_MERC__c ) || ISCHANGED(  Total_Fare_Amount_MERC__c  )) ||
+(ISCHANGED( Status_MERC__c ) &amp;&amp; ISPICKVAL( Status_MERC__c , &quot;Cancelled&quot;)) ||
+(ISCHANGED( Individual_Travel_ToV_Applicable_MERC__c  ) &amp;&amp; ( Individual_Travel_ToV_Applicable_MERC__c = TRUE))
+)
 )</errorConditionFormula>
         <errorDisplayField>Confirm_ToV_Reporting_Change_MERC__c</errorDisplayField>
         <errorMessage>ToV has already been reported this meeting participant. Customer Meeting Services needs to confirm this change before it can be made.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>MERC_Enforce_Total_Fare_Amount</fullName>
+        <active>true</active>
+        <description>Ensures  a Total Fare Amount is entered for all Private Transfer Records where ToV should be applicable : MERC : Created on 24/07/2014 by Oliver Dunford, Mavens Consulting</description>
+        <errorConditionFormula>Individual_Travel_ToV_Applicable_MERC__c = TRUE &amp;&amp; (ISBLANK( Total_Fare_Amount_MERC__c ) || (Total_Fare_Amount_MERC__c &lt;= 0))</errorConditionFormula>
+        <errorDisplayField>Total_Fare_Amount_MERC__c</errorDisplayField>
+        <errorMessage>If Individual Travel ToV is applicable for private transfer the Total Fare Amount must be entered and must also be greater than 0.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>MERC_Prevent_Private_Transfer_ToV</fullName>
+        <active>true</active>
+        <description>Prevents the ToV for Individual Transfer checkbox being set if the Meeting Participant is being sponsored for an Independent Meeting.  ToV should be typed into the meeting participant : MERC : Created on 24/07/2014 by Oliver Dunford, Mavens Consulting</description>
+        <errorConditionFormula>Meeting_Participant_MERC__r.RecordType.DeveloperName = &quot;Individual_Sponsorship&quot; &amp;&amp; Individual_Travel_ToV_Applicable_MERC__c = TRUE</errorConditionFormula>
+        <errorDisplayField>Individual_Travel_ToV_Applicable_MERC__c</errorDisplayField>
+        <errorMessage>For Individual Sponsorship all ToV should be totalled and entered onto the meeting participant record.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Prevent_Travel_Records_post_ToV_Final</fullName>
         <active>true</active>
         <description>Prevent  people from adding a new hotel records or travel records that effect ToV once it is final.  Created by John Adams 4/7/2014</description>
         <errorConditionFormula>ISNEW() &amp;&amp; ISPICKVAL( Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c , &quot;Yes&quot;)</errorConditionFormula>
-        <errorMessage>The ToV has already been finalised.  No additional Itinerary items can be created.</errorMessage>
+        <errorMessage>ToV for the meeting has already been finalised.  No additional Itinerary items can be created.  Please contact a member of the customer meeting services team.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Travel_Date_Range</fullName>

@@ -104,7 +104,7 @@
         <displayedFields>
             <field>Justification_MERC__c</field>
             <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
+            <isRequired>true</isRequired>
         </displayedFields>
         <displayedFields>
             <field>Types_of_Service_MERC__c</field>
@@ -835,7 +835,7 @@ Created by John Adams on 12/9/2013</description>
         <fullName>Event_Time_Hrs_MERC__c</fullName>
         <description>Event Time Hours. Created 10/10/2013 by KLorenti.</description>
         <externalId>false</externalId>
-        <inlineHelpText>Rounds Event Time to nearest half hour upon save</inlineHelpText>
+        <inlineHelpText>Rounds Event Time to nearest 15 minutes upon save.  A preparation value of 1.25 indicates 1hr and 15 minutes.</inlineHelpText>
         <label>Event Time (hrs)</label>
         <precision>8</precision>
         <required>false</required>
@@ -1524,7 +1524,7 @@ Created by John A Adams 10/31/2013</description>
         <fullName>Preparation_Time_Hrs_MERC__c</fullName>
         <description>Preparation time for patricipant. Created 10/10/2013 by KLorenti.</description>
         <externalId>false</externalId>
-        <inlineHelpText>Rounds Preparation Time to nearest half hour upon save</inlineHelpText>
+        <inlineHelpText>Rounds Preparation Time to nearest 15 minutes upon save.  A preparation value of 1.25 indicates 1hr and 15 minutes.</inlineHelpText>
         <label>Preparation Time (hrs)</label>
         <precision>8</precision>
         <required>false</required>
@@ -2143,7 +2143,7 @@ IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;),
         <picklist>
             <picklistValues>
                 <fullName>None</fullName>
-                <default>false</default>
+                <default>true</default>
             </picklistValues>
             <picklistValues>
                 <fullName>0-2 hrs</fullName>
@@ -2757,7 +2757,7 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
             </values>
             <values>
                 <fullName>None</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -3827,7 +3827,7 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
             </values>
             <values>
                 <fullName>None</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>

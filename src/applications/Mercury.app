@@ -22,6 +22,7 @@
     <tab>Consent_Setting_GLBL__c</tab>
     <tab>Merged_Accounts</tab>
     <tab>Web_Service_Logic_MERC__c</tab>
+    <tab>Web_Service_Error_GLBL__c</tab>
     <tab>standard-Dashboard</tab>
     <tab>standard-report</tab>
 </CustomApplication>
