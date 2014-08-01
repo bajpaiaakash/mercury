@@ -275,7 +275,7 @@ public with sharing class MERC_DocusignService {
         String postBody = '';
         postBody += boundaryMarker;
         postBody += lineBreak;
-        postBody += 'Content-Type: application/json';
+        postBody += 'Content-Type: application/json; charset=utf-8';
         postBody += lineBreak;
         postBody += 'Content-Disposition: form-data';
         postBody += lineBreak;
@@ -370,14 +370,36 @@ public with sharing class MERC_DocusignService {
 
         Envelope e = new Envelope();
         e.status = (isDraft) ? 'created' : 'sent';
-        e.emailBlurb = 'hi';
-        e.emailSubject = 'hi there';
+        e.emailBlurb = getEmailBlurb();
+        e.emailSubject = 'Your Signature is Requested by Lilly';
         e.documents = docs;
         e.recipients = r;
 
         String envelopeJson = JSON.serializePretty(e);
         //system.debug(envelopeJson);
         return envelopeJson;
+    }
+
+    private String getEmailBlurb() {
+        return 'Lilly is requesting that you review and sign the agreement accessible via the “Review Document” button.  Please contact Lilly Customer Meeting Service if you have any questions\n\n'+
+        'Lilly bittet Sie, den Vertrag zu überprüfen und anschliessend zu unterzeichen. Den Zugang zu Ihrem Vertrag ermöglicht die „Review Document“ Taste. Bitte kontaktieren Lilly Customer Meeting Service, wenn Sie irgendwelche Fragen haben,\n\n'+
+        'Lilly vous demande de revoir et signer votre contrat qui est accesible via le bouton „Review Document". Si vous avez des questions, merci de contacter Lilly Customer Meeting Service.\n\n'+
+        'Lilly le solicita que revise y firme el contrato, el cuál se encuentra accessible a través del botón ‘Review Document“. Si tuviese alguna duda, por favor póngase en contacto con Lilly Customer Meeting Service\n\n'+
+        'Lilly le richiede di leggere e firmare il contratto accessibile attraverso il bottone „Review Document“. Nel caso avesse domande la preghiamo di contattare il Lilly Customer Meeting Service\n\n'+
+        'Customer Meeting Service contact details by country\n\n'+
+        'Austria:   Lilly_Austria_CMS@lilly.com  01 2060 92473\n'+
+        'Denmark:   Lilly_Denmark_CMS@lilly.com  43 31 48 39\n'+
+        'Finland:   Lilly_Suomi_CMS@lilly.com  09 7252 2024\n'+
+        'Germany:   Lilly_Deutschland_CMS@lilly.com  06 929  957 18 47\n'+
+        'Ireland:   Lilly_Ireland_CMS@lilly.com  01 907 5754\n'+
+        'Italy: Lilly_Italia_CMS@lilly.com  02 9129 4898\n'+
+        'Norway:    Lilly_Norge_CMS@lilly.com  23 02 49 42\n'+
+        'Spain: Lilly_Spain_CMS@lilly.com  910 507 247\n'+
+        'Sweden:    Lilly_Sverige_CMS@lilly.com  08 593 665 55\n'+
+        'Switzerland:   Lilly_Schweiz_CMS@lilly.com  022 761 45 11\n'+
+        'Switzerland:   Lilly_Suisse_CMS@lilly.com  022 761 45 11\n'+
+        'Switzerland:   Lilly_Svizzera_CMS@lilly.com  022 761 45 11\n'+
+        'UK:    Lilly_UK_CMS@lilly.com  020 3684 0772\n';
     }
 
     public class LoginInformation {

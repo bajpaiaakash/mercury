@@ -58,12 +58,12 @@ public with sharing class MERC_NewContentController {
             this.file.RecordTypeId = [Select Id From RecordType WHERE DeveloperName = 'Invoice_MERC' AND SobjectType = 'ContentVersion' LIMIT 1].Id;
             this.fieldSetAPIName = 'Invoice_MERC';
             if (ApexPages.currentPage().getParameters().containsKey('tif') && ApexPages.currentPage().getParameters().get('tif') == '1') {
-                this.file.Title = Mercury_Settings_MERC__c.getOrgDefaults().Invoice_File_Prefix_MERC__c + String.valueOf(this.recordId).substring(0,15) + '.tif';
+                this.file.Title = Mercury_Settings_MERC__c.getOrgDefaults().Invoice_File_Prefix_MERC__c + String.valueOf(this.recordId) + '.tif';
                 this.file.Document_Type_MERC__c = 'Invoices';
                 MERC_InvoiceDocFilterController.deleteOldDocsInContent(new List<Id>{this.recordId},'TIFF');
             }
             if (ApexPages.currentPage().getParameters().containsKey('pdf') && ApexPages.currentPage().getParameters().get('pdf') == '1') {
-                this.file.Title = Mercury_Settings_MERC__c.getOrgDefaults().Invoice_File_Prefix_MERC__c + String.valueOf(this.recordId).substring(0,15) + '.pdf';
+                this.file.Title = Mercury_Settings_MERC__c.getOrgDefaults().Invoice_File_Prefix_MERC__c + String.valueOf(this.recordId) + '.pdf';
                 this.file.Document_Type_MERC__c = 'Invoices';
                 MERC_InvoiceDocFilterController.deleteOldDocsInContent(new List<Id>{this.recordId},'PDF');
             }
@@ -185,7 +185,7 @@ public with sharing class MERC_NewContentController {
             this.file.FirstPublishLocationId = getLibraryId(this.sobjectAPIName);
             //for the SAP integration the file needs to be named just right.
             if (sObjectAPIName == 'Invoice_MERC__c') {
-                String fileName = Mercury_Settings_MERC__c.getOrgDefaults().Invoice_File_Prefix_MERC__c + String.valueOf(this.recordId).substring(0,15);
+                String fileName = Mercury_Settings_MERC__c.getOrgDefaults().Invoice_File_Prefix_MERC__c + String.valueOf(this.recordId);
                 if (ApexPages.currentPage().getParameters().containsKey('tif') && ApexPages.currentPage().getParameters().get('tif') == '1') {
                     this.file.PathOnClient =  fileName + '.tif';
                 } else if (ApexPages.currentPage().getParameters().containsKey('pdf') && ApexPages.currentPage().getParameters().get('pdf') == '1') {
