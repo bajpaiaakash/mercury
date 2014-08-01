@@ -344,14 +344,6 @@
 
 			  				<apex:pageBlockSection title="Additional Details">
 
-			  					<!-- Professional Designation -->
-			  					<apex:pageBlockSectionItem >
-			  						<apex:outputLabel for="prod" value="Professional Designation"></apex:outputLabel>
-			  						<apex:selectList multiselect="true" value="{!searchRequest.prod}" id="prod" styleClass="multichosen">
-			  							<apex:selectOptions value="{!professionalDesignations}"/>
-			  						</apex:selectList>
-			  					</apex:pageBlockSectionItem>
-
 			  					<!-- Classification -->
 			  					<apex:pageBlockSectionItem >
 			  						<apex:outputLabel for="classifation" value="Classification"></apex:outputLabel>

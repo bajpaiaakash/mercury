@@ -122,9 +122,7 @@ public with sharing class GLBL_CustomerSearchToolService {
 		public Boolean eonly { get; set; } //true: search employees only
 		public String custId  { get; set; } //customer id
 		// country should never ever be omitted from search request. Ever. So hard-coding here!!
-//		public String country { get{ if (String.isBlank(country)) {return '00';} else {return country;}} set; } //country of residence
-		public String country { get; set; } //country of residence
-		public List<String> prod  { get; set; } //professional designation
+		public String country { get{ if (String.isBlank(country)) {return '00';} else {return country;}} set; } //country of residence
 		public List<String> classifation { get; set; }
 		public List<String> status { get; set; }
 		public List<String> specialty { get; set; }
@@ -178,7 +176,6 @@ public with sharing class GLBL_CustomerSearchToolService {
 	    public String prim_affil_addr_country_glbl { get; set; }
 	    public String id { get; set; }
 	    public String primary_hco_glbl { get; set; }
-	    public String bnft_dsgn_cd_glbl { get; set; }
 	    public String primary_addr_line1_glbl { get; set; }
 	    public String isdeleted { get; set; }
 	    public String spclty_cd_glbl { get; set; }

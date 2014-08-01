@@ -111,12 +111,6 @@ public with sharing class MERC_AddMeetingParticipantsController {
         }
     }
 
-    public List<SelectOption> professionalDesignations {
-        get {
-            return MERC_Util.getCSTPicklistValuesForFieldName('Account_Bnft_Dsgn_Cd_CUST__c', false);
-        }
-    }
-
     public List<SelectOption> specialties {
         get {
             return MERC_Util.getCSTPicklistValuesForFieldName('Specialty_Spclty_Cd_CUST__c', false);
