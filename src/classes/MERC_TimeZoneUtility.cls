@@ -12,6 +12,8 @@ public with sharing class MERC_TimeZoneUtility {
 	Map<String,String> stampFieldMapping;
 	List<String> timeZoneFieldsForObject;
 
+	public Boolean debug = false;
+
 	public MERC_TimeZoneUtility(Schema.SObjectType objectType) {
 		Schema.DescribeSObjectResult objectDescribe = objectType.getDescribe();
 		this.sobjectAPIName = objectDescribe.getName();
@@ -24,9 +26,9 @@ public with sharing class MERC_TimeZoneUtility {
 
 		this.timeZoneFieldsForObject = this.timeZoneFieldMappings.values();
 
-		system.debug('>>>>>>>>>>> fieldListMap: '+this.fieldListMap);
-		system.debug('>>>>>>>>>>> timeZoneFieldMappings: '+timeZoneFieldMappings);
-		system.debug('>>>>>>>>>>> stampFieldMapping: '+stampFieldMapping);
+		if (debug) system.debug('>>>>>>>>>>> fieldListMap: '+this.fieldListMap); 
+		if (debug) system.debug('>>>>>>>>>>> timeZoneFieldMappings: '+timeZoneFieldMappings);  
+		if (debug) system.debug('>>>>>>>>>>> stampFieldMapping: '+stampFieldMapping); 
 	}
 
 	//map of time zone field api name to sid: 'Meeting_Time_Zone_MERC__c' => 'America/New_York'
@@ -44,7 +46,7 @@ public with sharing class MERC_TimeZoneUtility {
 			timeZoneFieldAPINameToTimeZoneSid.put(timeZoneFieldAPIName, timeZoneSid);
 		}
 
-		system.debug('>>> '+timeZoneFieldAPINameToTimeZoneSid);
+		if (debug) system.debug('>>> '+timeZoneFieldAPINameToTimeZoneSid); 
 		return timeZoneFieldAPINameToTimeZoneSid;
 	}
 
@@ -66,14 +68,14 @@ public with sharing class MERC_TimeZoneUtility {
 
 	public void applyTimeZoneSpecificTimestamps(List<Sobject> sobjects, String timeZoneSidValueOverride) {
 		for (Sobject record : sobjects) {
-			system.debug('...processing object: '+record);
+			if (debug) system.debug('...processing object: '+record); 
 
 			Map<String,String> timeZoneFieldAPINameToTimeZoneSid = getTimeZoneFieldAPINameToTimeZoneSid(record, timeZoneSidValueOverride);
 
 			//now, for each date or date/time field, we need to calculate the UTC date and (optionally) stamp the time-zone specific value
 			for (String dateOrTimeFieldApiName : this.timeZoneFieldMappings.keySet()) {
 
-				system.debug('...processing: '+dateOrTimeFieldApiName); //=> Start_Time_of_Meeting_MERC__c
+				if (debug) system.debug('...processing: '+dateOrTimeFieldApiName);  //=> Start_Time_of_Meeting_MERC__c
 
 				if (record.get(dateOrTimeFieldApiName) == null) continue; //if the field is null, skip it
 				if (this.stampFieldMapping.get(dateOrTimeFieldApiName) == null) continue; //if the field doesn't stamp anywhere, skip it
@@ -94,21 +96,21 @@ public with sharing class MERC_TimeZoneUtility {
 				system.debug('>>>> ready to stamp, before calculatation dtValue is: ' + dtValue.date());
 
 				if (fieldType == 'DATE') {
-					system.debug('>>>> field type is DATE');
+					if (debug) system.debug('>>>> field type is DATE'); 
 					String fieldAPINameToStamp = this.stampFieldMapping.get(dateOrTimeFieldApiName);
 					record.put(fieldAPINameToStamp, dtValue.date().format());
 				} else if (fieldType == 'DATETIME') {
-					system.debug('>>>> field type is DATETIME');
-					system.debug('>>>> ready for stamping!');
+					if (debug) system.debug('>>>> field type is DATETIME'); 
+					if (debug) system.debug('>>>> ready for stamping!'); 
 					String fieldAPINameToStamp = this.stampFieldMapping.get(dateOrTimeFieldApiName);
 					String javaDateFormat = 'EEEE, dd MMM yyyy HH:mm z';
 					//String javaDateFormat = 'EEE, d MMM yyyy HH:mm, zzzz';
-					system.debug('>>>> stamping field: '+fieldAPINameToStamp);
+					if (debug) system.debug('>>>> stamping field: '+fieldAPINameToStamp); 
 					system.debug('>>>> stamping value: '+dtValue.format(javaDateFormat, tzSidValueForAssociatedTimeZone));
 
 					record.put(fieldAPINameToStamp, dtValue.format(javaDateFormat, tzSidValueForAssociatedTimeZone));
 				}
-				system.debug('\n\n\nThe Record now is: ' + record);
+				if (debug) system.debug('\n\n\nThe Record now is: ' + record); 
 			}
 		}
 	}
@@ -120,13 +122,13 @@ public with sharing class MERC_TimeZoneUtility {
 	public void convertDateTimes(List<Sobject> sobjects, Boolean setDateTimesAccordingToUserLocal, String timeZoneSidValueOverride) {
 
 		for (Sobject record : sobjects) {
-			system.debug('...processing object: '+record);
+			if (debug) system.debug('...processing object: '+record); 
 
 			Map<String,String> timeZoneFieldAPINameToTimeZoneSid = getTimeZoneFieldAPINameToTimeZoneSid(record, timeZoneSidValueOverride);
 
 			//now, for each date or date/time field, we need to calculate the UTC date and (optionally) stamp the time-zone specific value
 			for (String dateOrTimeFieldApiName : timeZoneFieldMappings.keySet()) {
-				system.debug('...processing: '+dateOrTimeFieldApiName);
+				if (debug) system.debug('...processing: '+dateOrTimeFieldApiName); 
 				//dateOrTimeFieldApiName = 'Start_Time_of_Meeting_MERC__c'
 
 				try {
@@ -152,8 +154,8 @@ public with sharing class MERC_TimeZoneUtility {
 
 				Integer userGmtOffset = userTimeZone.getOffset(dtValue); //gets user's offset to gmt
 				Integer associatedFieldGmtOffset = associatedTimeZoneValue.getOffset(dtValue); //gets meeting's offset to gmt
-				system.debug('>>>> '+userGmtOffset);
-				system.debug('>>>> '+associatedFieldGmtOffset);
+				if (debug) system.debug('>>>> '+userGmtOffset); 
+				if (debug) system.debug('>>>> '+associatedFieldGmtOffset); 
 
 				Integer correction;
 				if (setDateTimesAccordingToUserLocal) {
@@ -164,15 +166,15 @@ public with sharing class MERC_TimeZoneUtility {
 
 				DateTime correctedDateTime = dtValue.addMinutes(correction / (1000 * 60));
 
-				system.debug('>>>> ready to convert date/times');
+				if (debug) system.debug('>>>> ready to convert date/times'); 
 
 				if (fieldType == 'DATE') {
-					system.debug('>>>> field type is DATE');
+					if (debug) system.debug('>>>> field type is DATE'); 
 					record.put(dateOrTimeFieldApiName, correctedDateTime.date());
 				} else if (fieldType == 'DATETIME') {
-					system.debug('>>>> field type is DATETIME');
-					system.debug('>>>> setting field: '+dateOrTimeFieldApiName);
-					system.debug('>>>> setting to: '+correctedDateTime);
+					if (debug) system.debug('>>>> field type is DATETIME'); 
+					if (debug) system.debug('>>>> setting field: '+dateOrTimeFieldApiName); 
+					if (debug) system.debug('>>>> setting to: '+correctedDateTime); 
 					record.put(dateOrTimeFieldApiName, correctedDateTime);
 				}
 			}

@@ -5,6 +5,9 @@ public with sharing class MERC_TestFactory {
 	public static Id employeeRecordTypeId = [Select ID From RecordType Where SObjectType = 'Account' and DeveloperName = 'Employee_GLBL'].ID;
 	public static Id vendorRecordTypeId = [Select ID From RecordType Where SObjectType = 'Account' and DeveloperName = 'Vendor_GLBL'].ID;
 
+	public static Id masteredAddressRecordTypeId = [SELECT Id FROM RecordType WHERE SObjectType = 'Address_GLBL__c' AND DeveloperName = 'Mastered_Address' LIMIT 1].Id;
+	public static Id otherAddressRecordTypeId = [SELECT Id FROM RecordType WHERE SObjectType = 'Address_GLBL__c' AND DeveloperName = 'Other_Address' LIMIT 1].Id;	
+
 	// Sean is testing something...
 	public static Boolean adjustForSFDCSetMockBug {get{if (adjustForSFDCSetMockBug==null) return false; else return adjustForSFDCSetMockBug;}
 												   set{adjustForSFDCSetMockBug = value&&Test.isRunningTest();}}
@@ -128,6 +131,34 @@ public with sharing class MERC_TestFactory {
 		}
 		insert accs;
 		return accs;
+	}
+
+	private static Address_GLBL__c newAddress(Account account){
+		Address_GLBL__c address = new Address_GLBL__c();
+		address.Account_GLBL__c = account.Id;
+		address.RecordTypeId = otherAddressRecordTypeId;	
+		return address;
+	}
+
+	public static Address_GLBL__c insertAddress(Account account){
+		Address_GLBL__c address = MERC_TestFactory.newAddress(account);
+		insert address;
+		return address;
+	}
+
+	public static Address_GLBL__c insertMasteredAddressWithCountry(Account account, String country){
+		Address_GLBL__c address = MERC_TestFactory.newAddress(account);
+		address.Adrs_Cntry_Cd_GLBL__c = country;
+		address.RecordTypeId = masteredAddressRecordTypeId;			
+		insert address;
+		return address;
+	}
+
+	public static Address_GLBL__c insertAddressWithCountry(Account account, String country){
+		Address_GLBL__c address = MERC_TestFactory.newAddress(account);
+		address.Adrs_Cntry_Cd_GLBL__c = country;
+		insert address;
+		return address;
 	}
 
 	public static List<Invoice_MERC__c> insertInvoices(List<Meeting_Participant_MERC__c> participants) {
@@ -408,14 +439,21 @@ public with sharing class MERC_TestFactory {
 	}
 
 	public static User getRunningUser() {
+		List<UserRole> roles = [SELECT Name FROM UserRole];
+		p('roles'+roles);
+
 		User rUser;
 		System.runAs(new User(Id=UserInfo.getUserId())) {
 			rUser = insertTestUsers(1, null).get(0);
+			UserRole r =[SELECT Name FROM UserRole WHERE Id = :rUser.userRoleId limit 1];
+			p('role='+r);
 			PermissionSet ps = [SELECT Id FROM PermissionSet WHERE Name='Mercury_Customer_Meeting_Services_Edit' limit 1];
 			insert new PermissionSetAssignment(PermissionSetId=ps.Id, AssigneeId=rUser.id);
-			update new User(id=rUser.Id, UserRoleId=[SELECT Id FROM UserRole WHERE Name='CEO' limit 1].id);
+			update new User(id=rUser.Id, UserRoleId=[SELECT Id FROM UserRole WHERE Name='Lilly Employee' limit 1].id);
 		}
 
+
+		p('new User='+rUser);
 		return rUser;
 	}
 
@@ -426,18 +464,39 @@ public with sharing class MERC_TestFactory {
 			profileName = 'GSO Basic User_Salesforce';
 		}
 
+		return insertTestUsers(numberOfUsers, profileName, null, null);
+	}
+
+	public static List<User> insertTestUsers(Integer numberOfUsers, String profileName, String roleName, String groupName) {
+		List<User> users = new List<User>();
+
+		if (roleName  == null) roleName  = 'Lilly Employee';
+		if (groupName == null) groupName = 'MERC_Meetings_GB';
+
         Profile p = [SELECT id from Profile WHERE Profile.Name =  :profileName limit 1];
+        UserRole r =[SELECT Id FROM UserRole WHERE Name=:roleName limit 1];
 
         for (Integer i = 0; i < numberOfUsers; i++) {
 	        String testemail = 'testuser'+i+'@unittest.com';
-	        User u = new User(profileId = p.id, username = testemail, email = testemail,
-	                           emailencodingkey = 'UTF-8', localesidkey = 'en_US',
-	                           languagelocalekey = 'en_US', timezonesidkey = 'GMT',
-	                           alias='utusr'+i, lastname='lastname');
+	        User u = new User(profileId = p.id, userRoleId = r.id, username = testemail, email = testemail,
+               alias='utusr'+i, lastname='lastname', emailencodingkey = 'UTF-8', localesidkey = 'en_US',
+               languagelocalekey = 'en_US', timezonesidkey = 'GMT'
+               );
 	        users.add(u);
 	    }
+        insert(users);
 
-        Database.insert(users);
+        Group g = [SELECT Id FROM Group WHERE Name = :groupName limit 1];
+        List<GroupMember> members = new List<GroupMember>();
+        for (User u : users) {
+        	members.add(new GroupMember(GroupId=g.Id,UserOrGroupId=u.Id));
+        }
+        insert members;
+
         return users;
+	}
+
+	static void p(String m) {
+		System.debug('\n\n\nYYZ - '+m+'\n\n\n\n');
 	}
 }
