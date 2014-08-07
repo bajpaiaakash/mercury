@@ -5,6 +5,9 @@ public with sharing class MERC_TestFactory {
 	public static Id employeeRecordTypeId = [Select ID From RecordType Where SObjectType = 'Account' and DeveloperName = 'Employee_GLBL'].ID;
 	public static Id vendorRecordTypeId = [Select ID From RecordType Where SObjectType = 'Account' and DeveloperName = 'Vendor_GLBL'].ID;
 
+	public static Id masteredAddressRecordTypeId = [SELECT Id FROM RecordType WHERE SObjectType = 'Address_GLBL__c' AND DeveloperName = 'Mastered_Address' LIMIT 1].Id;
+	public static Id otherAddressRecordTypeId = [SELECT Id FROM RecordType WHERE SObjectType = 'Address_GLBL__c' AND DeveloperName = 'Other_Address' LIMIT 1].Id;	
+
 	// Sean is testing something...
 	public static Boolean adjustForSFDCSetMockBug {get{if (adjustForSFDCSetMockBug==null) return false; else return adjustForSFDCSetMockBug;}
 												   set{adjustForSFDCSetMockBug = value&&Test.isRunningTest();}}
@@ -128,6 +131,34 @@ public with sharing class MERC_TestFactory {
 		}
 		insert accs;
 		return accs;
+	}
+
+	private static Address_GLBL__c newAddress(Account account){
+		Address_GLBL__c address = new Address_GLBL__c();
+		address.Account_GLBL__c = account.Id;
+		address.RecordTypeId = otherAddressRecordTypeId;	
+		return address;
+	}
+
+	public static Address_GLBL__c insertAddress(Account account){
+		Address_GLBL__c address = MERC_TestFactory.newAddress(account);
+		insert address;
+		return address;
+	}
+
+	public static Address_GLBL__c insertMasteredAddressWithCountry(Account account, String country){
+		Address_GLBL__c address = MERC_TestFactory.newAddress(account);
+		address.Adrs_Cntry_Cd_GLBL__c = country;
+		address.RecordTypeId = masteredAddressRecordTypeId;			
+		insert address;
+		return address;
+	}
+
+	public static Address_GLBL__c insertAddressWithCountry(Account account, String country){
+		Address_GLBL__c address = MERC_TestFactory.newAddress(account);
+		address.Adrs_Cntry_Cd_GLBL__c = country;
+		insert address;
+		return address;
 	}
 
 	public static List<Invoice_MERC__c> insertInvoices(List<Meeting_Participant_MERC__c> participants) {
