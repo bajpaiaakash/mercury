@@ -16,6 +16,7 @@ trigger MERC_MeetingParticipant on Meeting_Participant_MERC__c (before insert, b
 		.bind(GLBL_TriggerHandler.Evt.beforedelete, new MERC_LockedRecordHandler(Meeting_Participant_MERC__c.SobjectType, Meeting_MERC__c.SobjectType, parentLookupField))
 
 		.bind(GLBL_TriggerHandler.Evt.beforeinsert, new MERC_ParticipantTriggerHandler())
+		.bind(GLBL_TriggerHandler.Evt.beforeupdate, new MERC_ParticipantTriggerHandler())
 
 		.bind(GLBL_TriggerHandler.Evt.beforeinsert, new MERC_ParticipantFMVCalculator(Meeting_Participant_MERC__c.SobjectType))
 		.bind(GLBL_TriggerHandler.Evt.beforeupdate, new MERC_ParticipantFMVCalculator(Meeting_Participant_MERC__c.SobjectType))

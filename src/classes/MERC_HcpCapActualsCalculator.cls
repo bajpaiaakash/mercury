@@ -46,7 +46,25 @@ public with sharing class MERC_HcpCapActualsCalculator implements GLBL_TriggerHa
 				participantsToRollup = new List<Meeting_Participant_MERC__c>();
 			}
 		} else if (this.triggeredSobjectType == Meeting_Participant_MERC__c.SobjectType) {
-			participantsToRollup = sobjects;
+			
+			List<Meeting_Participant_MERC__c> mpList = (List<Meeting_Participant_MERC__c>)sobjects;
+			for (Meeting_Participant_MERC__c mp : mpList)
+			{
+				// get Account currency
+				String mpCurr   = mp.CurrencyIsoCode;
+				String acctCurr = mp.Account_MERC__r.CurrencyIsoCode;
+				Decimal mpPFFee  = mp.Proposed_Final_Fee_MERC__c;
+				Decimal mpFFee   = mp.Final_Fee_MERC__c;
+				Decimal mpPFFeeR  = mp.Proposed_Final_Fee_Rollup_MERC__c;
+				Decimal mpFFeeR   = mp.Final_Fee_Rollup_MERC__c;
+				p('mpCode='+mpCurr);
+				p('mpProposed='+mpPFFee+'/'+mpPFFeeR);
+				p('mpFee='+mpFFee+'/'+mpPFFeeR);
+				p('acctCurr='+acctCurr);
+				p('running user curr = '+UserInfo.getDefaultCurrency());
+			}
+
+			participantsToRollup = mpList;
 		}
 
 		if (participantsToRollup.size() > 0) {
@@ -55,4 +73,8 @@ public with sharing class MERC_HcpCapActualsCalculator implements GLBL_TriggerHa
 			GLBL_RollupService.asyncTriggerHandler(participantsToRollup);
 		}
 	}
+
+		static void p(String m) {
+			System.debug(LoggingLevel.INFO, '\n\n\nYYZ - '+m+'\n\n\n\n');
+		}
 }
