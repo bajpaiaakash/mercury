@@ -12,7 +12,6 @@
         <label>Account Id</label>
         <length>100</length>
         <required>true</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -24,7 +23,6 @@
         <label>Integrator Key</label>
         <length>100</length>
         <required>true</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -36,7 +34,6 @@
         <label>Password</label>
         <length>100</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -47,7 +44,6 @@
         <inlineHelpText>The Docusign Server Endpoint</inlineHelpText>
         <label>Server Endpoint</label>
         <required>true</required>
-        <trackTrending>false</trackTrending>
         <type>Url</type>
     </fields>
     <fields>
@@ -58,7 +54,6 @@
         <label>Username</label>
         <length>100</length>
         <required>true</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>

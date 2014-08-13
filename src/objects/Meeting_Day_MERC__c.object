@@ -5,10 +5,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>CancelEdit</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>Clone</actionName>
         <content>MERC_MeetingDayNewEdit</content>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
@@ -25,10 +21,6 @@
         <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -39,10 +31,6 @@
         <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>SaveEdit</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>Tab</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -50,7 +38,6 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Object to track days of meetings and ToV cost of each day : MERC : Created on 10/10/2013 by Katy Lorenti, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
@@ -154,7 +141,6 @@
         <description>Validation checkbox for HCP Care to confirm that the ToV is being updated/corrected. Created 01/07/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Confirm ToV Reporting Change</label>
-        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -167,7 +153,6 @@ Created by John A Adams 10/15/2013</description>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -180,7 +165,6 @@ Created by John A Adams 10/15/2013</description>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -192,7 +176,6 @@ Created by John A Adams 10/15/2013</description>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
-        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -201,7 +184,6 @@ Created by John A Adams 10/15/2013</description>
         <externalId>false</externalId>
         <label>Date</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -211,7 +193,6 @@ Created by John A Adams 10/15/2013</description>
         <label>Date (Meeting Time Zone)</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -223,7 +204,6 @@ Created by John A Adams 10/15/2013</description>
         <label>Force Unique Meeting Day</label>
         <length>50</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>true</unique>
     </fields>
@@ -238,7 +218,6 @@ Changed to a Master Detail relationship.  4/2/2014 J Adams</description>
         <relationshipName>Meeting_Days</relationshipName>
         <relationshipOrder>0</relationshipOrder>
         <reparentableMasterDetail>false</reparentableMasterDetail>
-        <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
@@ -249,7 +228,6 @@ Changed to a Master Detail relationship.  4/2/2014 J Adams</description>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Meeting Time Zone</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -261,7 +239,6 @@ Created by J Adams 12/10/2013</description>
         <label>Mercury External Id</label>
         <length>150</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>

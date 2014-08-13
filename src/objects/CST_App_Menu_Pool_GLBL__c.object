@@ -5,10 +5,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>CancelEdit</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>Clone</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -21,19 +17,11 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>SaveEdit</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -44,7 +32,6 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>This object is used to collect &amp; store the unique values of a particular source data set which is then subsequently used to populate the menu options in a related CST App Settings record.
 
@@ -60,7 +47,6 @@ Stamped GLBL because this data could be used by other applications as it reflect
         <inlineHelpText>Records when these values were collected</inlineHelpText>
         <label>Altrnt_Id_Typ_Desc Capture Date</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -70,7 +56,6 @@ Stamped GLBL because this data could be used by other applications as it reflect
         <inlineHelpText>Holds distinct values collected from Account.Clsfctn_Cd_GLBL to populate the Account_Party_Sts_Cd_CUST__c field in the CST App Settings</inlineHelpText>
         <label>Altrnt_Id_Typ_Desc_GLBL</label>
         <length>32768</length>
-        <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -85,7 +70,6 @@ Stamped GLBL because this data could be used by other applications as it reflect
         <relationshipLabel>CST App Menu Pools</relationshipLabel>
         <relationshipName>CST_App_Menu_Pools</relationshipName>
         <required>true</required>
-        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -97,7 +81,6 @@ Stamped GLBL because this data could be used by other applications as it reflect
         <label>App Settings Unique Check</label>
         <length>18</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>true</unique>
     </fields>
@@ -109,7 +92,6 @@ Stamped GLBL because this data could be used by other applications as it reflect
         <inlineHelpText>Records when these values were collected</inlineHelpText>
         <label>Bnft_Dsgn_Cd Capture Date</label>
         <required>true</required>
-        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -119,7 +101,6 @@ Stamped GLBL because this data could be used by other applications as it reflect
         <inlineHelpText>Holds distinct values collected from Account.Bnft_Dsgn_Cd_GLBL__c to populate the Account_Bnft_Dsgn_Cd_CUST__c field in the CST App Settings</inlineHelpText>
         <label>Bnft_Dsgn_Cd_GLBL__c</label>
         <length>32768</length>
-        <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -130,7 +111,6 @@ Stamped GLBL because this data could be used by other applications as it reflect
         <inlineHelpText>Records when these values were collected</inlineHelpText>
         <label>Clsfctn_Cd Capture Date</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -140,7 +120,6 @@ Stamped GLBL because this data could be used by other applications as it reflect
         <inlineHelpText>Holds distinct values collected from Account.Clsfctn_Cd_GLBL to populate the Account_Clsfctn_Cd_CUST__c field in the CST App Settings</inlineHelpText>
         <label>Clsfctn_Cd_GLBL</label>
         <length>32768</length>
-        <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -151,7 +130,6 @@ Stamped GLBL because this data could be used by other applications as it reflect
         <inlineHelpText>Records when these values were collected</inlineHelpText>
         <label>Cmnctn_Chnl_Cd Capture Date</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -161,7 +139,6 @@ Stamped GLBL because this data could be used by other applications as it reflect
         <inlineHelpText>Holds distinct values collected from --- to populate the --- field in the CST App Settings</inlineHelpText>
         <label>Cmnctn_Chnl_Cd_GLBL</label>
         <length>32768</length>
-        <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -172,7 +149,6 @@ Stamped GLBL because this data could be used by other applications as it reflect
         <inlineHelpText>Records when these values were collected</inlineHelpText>
         <label>Cnsnt_Prps_Cd Capture Date</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -182,7 +158,6 @@ Stamped GLBL because this data could be used by other applications as it reflect
         <inlineHelpText>Holds distinct values collected from Account.Clsfctn_Cd_GLBL to populate the Account_Party_Sts_Cd_CUST__c field in the CST App Settings</inlineHelpText>
         <label>Cnsnt_Prps_Cd_GLBL</label>
         <length>32768</length>
-        <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -193,7 +168,6 @@ Stamped GLBL because this data could be used by other applications as it reflect
         <inlineHelpText>Records when these values were collected</inlineHelpText>
         <label>Cnsnt_Sts_Cd Capture Date</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -203,7 +177,6 @@ Stamped GLBL because this data could be used by other applications as it reflect
         <inlineHelpText>Holds distinct values collected from Account.Clsfctn_Cd_GLBL to populate the Account_Party_Sts_Cd_CUST__c field in the CST App Settings</inlineHelpText>
         <label>Cnsnt_Sts_Cd_GLBL</label>
         <length>32768</length>
-        <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -214,7 +187,6 @@ Stamped GLBL because this data could be used by other applications as it reflect
         <inlineHelpText>Information about the last collection run</inlineHelpText>
         <label>Last Job Status</label>
         <length>32768</length>
-        <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>6</visibleLines>
     </fields>
@@ -225,7 +197,6 @@ Stamped GLBL because this data could be used by other applications as it reflect
         <inlineHelpText>Records when these values were collected</inlineHelpText>
         <label>Party_Sts_Cd Capture Date</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -235,7 +206,6 @@ Stamped GLBL because this data could be used by other applications as it reflect
         <inlineHelpText>Holds distinct values collected from Account.Clsfctn_Cd_GLBL to populate the Account_Party_Sts_Cd_CUST__c field in the CST App Settings</inlineHelpText>
         <label>Party_Sts_Cd_GLBL</label>
         <length>32768</length>
-        <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -246,7 +216,6 @@ Stamped GLBL because this data could be used by other applications as it reflect
         <inlineHelpText>Records when these values were collected</inlineHelpText>
         <label>Priority_Rank_Nbr Capture Date</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -256,7 +225,6 @@ Stamped GLBL because this data could be used by other applications as it reflect
         <inlineHelpText>Holds distinct values collected from Account.Clsfctn_Cd_GLBL to populate the Account_Party_Sts_Cd_CUST__c field in the CST App Settings</inlineHelpText>
         <label>Priority_Rank_Nbr_GLBL</label>
         <length>32768</length>
-        <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -267,7 +235,6 @@ Stamped GLBL because this data could be used by other applications as it reflect
         <inlineHelpText>Records when these values were collected</inlineHelpText>
         <label>Rltnshp_Typ_Desc Capture Date</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -277,7 +244,6 @@ Stamped GLBL because this data could be used by other applications as it reflect
         <inlineHelpText>Holds distinct values collected from Account.Clsfctn_Cd_GLBL to populate the Account_Party_Sts_Cd_CUST__c field in the CST App Settings</inlineHelpText>
         <label>Rltnshp_Typ_Desc_GLBL</label>
         <length>32768</length>
-        <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -288,7 +254,6 @@ Stamped GLBL because this data could be used by other applications as it reflect
         <inlineHelpText>Records when these values were collected</inlineHelpText>
         <label>Spclty_Desc_Cd Capture Date</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -298,7 +263,6 @@ Stamped GLBL because this data could be used by other applications as it reflect
         <inlineHelpText>Holds distinct values collected from Account.Clsfctn_Cd_GLBL to populate the Account_Party_Sts_Cd_CUST__c field in the CST App Settings</inlineHelpText>
         <label>Spclty_Desc_Cd_GLBL</label>
         <length>32768</length>
-        <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>

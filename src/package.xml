@@ -135,9 +135,11 @@
 		<members>MERC_HotelAllocationCalculatorTest</members>
 		<members>MERC_InvoiceCreditNoteController</members>
 		<members>MERC_InvoiceCreditNoteControllerTest</members>
+		<members>MERC_InvoiceCurrencyTriggerHandler</members>
 		<members>MERC_InvoiceDocFilterController</members>
 		<members>MERC_InvoiceInvalidationController</members>
 		<members>MERC_InvoiceInvalidationControllerTest</members>
+		<members>MERC_InvoiceLineItemRollupStamp</members>
 		<members>MERC_InvoiceNewEditController</members>
 		<members>MERC_InvoiceXmlController</members>
 		<members>MERC_InvoiceXmlControllerTest</members>

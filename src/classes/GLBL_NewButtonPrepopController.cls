@@ -134,6 +134,13 @@ public with sharing class GLBL_NewButtonPrepopController {
 				if (htmlToCFIDs.containsKey(nameToLabel.get(key))) namesToCFIDs.put(key, htmlToCFIDs.get(nameToLabel.get(key)));
 			}
 
+			// CurrencyISOCode does not have a consistent Label .getLabel returns 'Currency ISO Code' when it should return 'Currency' 
+			// so we've hardcoded this if we're looking for it and missed
+			// Yours Truly, DAVID HELMER
+			if(namesToData.containsKey('currencyisocode')
+				&& !namesToCFIDs.containsKey('currencyisocode')){
+				namesToCFIDs.put('currencyisocode', 'CurrencyIsoCode');
+			}
 			//ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.INFO, 'htmlToCFIDs: '+String.valueOf(htmlToCFIDs)));
 			//ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.INFO, 'namesToCFIDs: '+String.valueOf(namesToCFIDs)));
 		} catch (Exception e) {

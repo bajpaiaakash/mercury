@@ -11,7 +11,6 @@
         <externalId>false</externalId>
         <inlineHelpText>When checked, active/archived budgets cannot be modified.</inlineHelpText>
         <label>Budget Edit Validation</label>
-        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -22,7 +21,6 @@
         <label>CST Client Auth Error</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -34,7 +32,6 @@
         <label>CST Client Id</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -46,7 +43,6 @@
         <label>CST Client Secret</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -58,7 +54,6 @@
         <label>Id of Latest CST Expire Cron Job</label>
         <length>18</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -70,7 +65,6 @@
         <label>Name of CST Expire Cron Job</label>
         <length>64</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -82,7 +76,6 @@
         <label>Schedule of CST Expire Cron Job</label>
         <length>64</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -94,7 +87,6 @@
         <label>Id of Latest CST Notify Cron Job</label>
         <length>18</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -106,7 +98,6 @@
         <label>Name of CST Notify Cron Job</label>
         <length>64</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -118,7 +109,6 @@
         <label>Schedule of CST Notify Cron Job</label>
         <length>64</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -130,7 +120,6 @@
         <label>Id of Latest CST &quot;Under Review&quot; Cron Job</label>
         <length>18</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -142,7 +131,6 @@
         <label>Name of CST &quot;Under Review&quot; Cron Job</label>
         <length>64</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -154,7 +142,6 @@
         <label>Schedule of CST &quot;Under Review&quot; Cron Job</label>
         <length>64</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -166,7 +153,6 @@
         <label>CST URL</label>
         <length>128</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -179,7 +165,6 @@
         <label>Invoice File Prefix</label>
         <length>32</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -190,7 +175,6 @@
         <inlineHelpText>The endpoint for the MVI Service</inlineHelpText>
         <label>MVI Service Endpoint</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Url</type>
     </fields>
     <fields>
@@ -201,7 +185,6 @@
         <label>Meeting Participant Report Id</label>
         <length>18</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>

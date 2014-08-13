@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
-        <actionName>CallHighlightAction</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>CancelEdit</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>Edit</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>EmailHighlightAction</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Follow</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -37,16 +21,23 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>SaveEdit</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>UserActivationAction</actionName>
         <type>Default</type>
     </actionOverrides>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>true</enableFeeds>
+    <fields>
+        <fullName>Case_Application_GLBL__c</fullName>
+        <description>Used to set each user with an application(s).  This value is stamped on all cases created by that user and is then used within case sharing rules to share cases between public groups.  A text field enables a straight default onto the case unlike a multi-select picklist  : MERC : Created on 05/08/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to stamp cases created by the user with the application e.g. Mercury.  This value is then used on a case record to share the case with public groups.  Applications should be added and delimited with commas.</inlineHelpText>
+        <label>Case Application</label>
+        <length>150</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Country_of_Residence_MERC__c</fullName>
         <description>Country of residence used to populate Worker Country Code in Meeting if creed within Mercury else uses Sales Reps Country Code.

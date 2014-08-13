@@ -5,10 +5,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>CancelEdit</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>ChangeStatus</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -33,10 +29,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -52,10 +44,6 @@
         <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>SaveEdit</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>Tab</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -63,7 +51,6 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
     <fieldSets>
         <fullName>Account_Merge_Case_MERC</fullName>
@@ -98,7 +85,6 @@
     <fields>
         <fullName>AccountId</fullName>
         <inlineHelpText>The company that the case is in relation to.  For example, a HCPs Institution or a Meeting Vendor.  Will be the same as the Contact Name if not relevant.</inlineHelpText>
-        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -108,7 +94,6 @@
         <label>Account Email</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Email</type>
         <unique>false</unique>
     </fields>
@@ -119,7 +104,6 @@
         <label>Account Fax</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Phone</type>
     </fields>
     <fields>
@@ -129,7 +113,6 @@
         <label>Account Phone</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Phone</type>
     </fields>
     <fields>
@@ -140,7 +123,6 @@
         <length>100</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -152,7 +134,6 @@
         <length>100</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -167,7 +148,6 @@
         <relationshipName>Cases</relationshipName>
         <required>false</required>
         <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -178,17 +158,14 @@
         <inlineHelpText>Indicates that this record is related to a non-hcp meeting participant and should be anonymised (via workflows)</inlineHelpText>
         <label>Anonymise Record</label>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>AssetId</fullName>
-        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
         <fullName>BusinessHoursId</fullName>
-        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -222,8 +199,20 @@ Created by John Adams on 11/18/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Case_Application_GLBL__c</fullName>
+        <defaultValue>$User.Case_Application_GLBL__c</defaultValue>
+        <description>Used to set each case with an application(s). This value is then used within case sharing rules to share cases between public groups. Defaulted from user profile : MERC : Created on 05/08/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Stamped from user profile and used within sharing rules to share cases amongst groups.</inlineHelpText>
+        <label>Case Application</label>
+        <length>150</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Case_Contact_Method_MERC__c</fullName>
@@ -267,7 +256,6 @@ Created by John Adams on 11/18/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -278,14 +266,12 @@ Created by John Adams on 11/18/2013</description>
         <length>100</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
         <fullName>ContactId</fullName>
         <inlineHelpText>The person that the case is in relation to.  For example, the HCP that raised the problem.</inlineHelpText>
-        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -297,7 +283,6 @@ Created by John Adams on 11/18/2013</description>
         <length>100</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -386,7 +371,6 @@ Created by John Adams on 11/18/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -400,7 +384,6 @@ Created by John Adams on 11/18/2013</description>
         <relationshipName>Cases</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -412,7 +395,6 @@ Created by J Adams 12/10/2013</description>
         <length>150</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -570,17 +552,14 @@ Created by J Adams 12/10/2013</description>
             </picklistValues>
             <sorted>true</sorted>
         </picklist>
-        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
         <fullName>OwnerId</fullName>
-        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
         <fullName>ParentId</fullName>
-        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -591,7 +570,6 @@ Created by J Adams 12/10/2013</description>
         <length>10</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -603,7 +581,6 @@ Created by J Adams 12/10/2013</description>
         <length>10</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -624,7 +601,6 @@ Created by J Adams 12/10/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -657,7 +633,6 @@ Created by J Adams 12/10/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -671,7 +646,6 @@ Created by J Adams 12/10/2013</description>
         <relationshipName>Cases</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -683,7 +657,6 @@ Created by J Adams 12/10/2013</description>
         <length>2</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -722,7 +695,6 @@ Created by J Adams 12/10/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -787,7 +759,6 @@ Created by John Adams on 11/18/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -807,7 +778,6 @@ Created by John Adams on 11/18/2013</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <listViews>
@@ -930,7 +900,7 @@ Created by John Adams on 11/18/2013</description>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/connection.js&quot;)}
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)}
 var ids = {!GETRECORDIDS($ObjectType.Case)};
 var url = &quot;/apex/loop__loopmerge?retURL=&quot;+encodeURI(window.location.pathname+window.location.search);
 url += &quot;&amp;recordIds=&quot;+ids.join(&apos;,&apos;);
@@ -945,7 +915,7 @@ window.location.href = url;</url>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/25.0/connection.js&quot;)}
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)}
 var ids = {!GETRECORDIDS($ObjectType.Case)};
 if (!ids || ids.length &lt; 1)
     alert(&apos;Please select at least one record.&apos;);
