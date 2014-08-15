@@ -84,6 +84,21 @@ public with sharing class MERC_InvoiceXmlWriter implements GLBL_TriggerHandler.H
 
         Id recordTypeId = [SELECT Id FROM RecordType WHERE DeveloperName = 'Invoice_MERC' And SobjectType = 'ContentVersion'].Id;
         Id workspaceId = [SELECT Id FROM ContentWorkspace WHERE Name = 'Mercury' Limit 1].Id;
+
+        List<ContentVersion> existingPDFs = [SELECT Id, 
+                                                    FirstPublishLocationId, 
+                                                    Invoice_MERC__c 
+                                               FROM ContentVersion 
+                                              WHERE FileType = 'PDF' 
+                                                AND Invoice_MERC__c IN :invoiceIds];
+
+        Map<ID, ID> invoiceIDToContentWorkspaceIDMap = new Map<ID,ID>();
+        for(ContentVersion existingPDF : existingPDFs){
+            if(existingPDF.Invoice_MERC__c != null && existingPDF.FirstPublishLocationId != null){
+                invoiceIDToContentWorkspaceIDMap.put(existingPDF.Invoice_MERC__c, existingPDF.FirstPublishLocationId);
+            }
+        }
+
         List<ContentVersion> xmlFiles = new List<ContentVersion>();
         for (String invoiceId : invoiceIds) {
             PageReference xmlFile = Page.MERC_InvoiceAFIXML;
@@ -93,7 +108,11 @@ public with sharing class MERC_InvoiceXmlWriter implements GLBL_TriggerHandler.H
             ContentVersion invoiceXml = new ContentVersion();
             invoiceXml.Title = filePrefix+invoiceId+'.xml';
             invoiceXml.PathOnClient = filePrefix+invoiceId+'.xml';
-            invoiceXml.FirstPublishLocationId = workspaceId;
+            if(invoiceIDToContentWorkspaceIDMap.containsKey(invoiceId)){
+                invoiceXml.FirstPublishLocationId = invoiceIDToContentWorkspaceIDMap.get(invoiceId);
+            } else {
+                invoiceXml.FirstPublishLocationId = workspaceId;                
+            }
             invoiceXml.Document_Type_MERC__c = 'Invoices';  // TODO - Custom Settings! Align with LOOP
             invoiceXml.RecordTypeId = recordTypeId;
             invoiceXml.Invoice_MERC__c = invoiceId;

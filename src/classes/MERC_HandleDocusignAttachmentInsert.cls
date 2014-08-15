@@ -27,12 +27,12 @@ public with sharing class MERC_HandleDocusignAttachmentInsert implements GLBL_Tr
 	@future
 	public static void execute(String attachmentId) {        
 		Attachment a = [SELECT Id, Name, ParentId, Body FROM Attachment WHERE Id = :attachmentId];
-		Id workspaceId = [SELECT Id FROM ContentWorkspace WHERE Name = 'Mercury' Limit 1].Id;		
 		String hcpContractPrefix = Schema.SObjectType.HCP_Contract_MERC__c.getKeyPrefix();
 		List<ContentVersion> cvs = new List<ContentVersion>();
 		
 		String parentId = a.ParentId;
 		if (parentId.startsWith(hcpContractPrefix)) {
+			Id workspaceId = [SELECT FirstPublishLocationId FROM ContentVersion WHERE HCP_Contract_MERC__c = :parentId Limit 1].FirstPublishLocationId;		
 			ContentVersion c = new ContentVersion();
 			c.HCP_Contract_MERC__c = parentId;
 			c.Title = a.Name;
