@@ -49,7 +49,7 @@ public with sharing class MERC_MeetingCancellationHandler implements GLBL_Trigge
 
         /* select a dummy contact. This is a workaround to a gap in salesforce functionality
            per: http://www.opfocus.com/blog/sending-emails-in-salesforce-to-non-contacts-using-apex/ */
-        Contact dummyContact = (Contact)([FIND '*co*' IN EMAIL FIELDS RETURNING contact(Id, Email WHERE Email LIKE '%co%') limit 1][0][0]);
+        Contact dummyContact = [select id, Email from Contact where email <> null limit 1];
 
         List<Messaging.SingleEmailMessage> emailsToPopulateList = new List<Messaging.SingleEmailMessage>();
         for (Meeting_MERC__c meeting : cancelledMeetings)
