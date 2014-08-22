@@ -190,6 +190,10 @@ public with sharing class MERC_TestFactory {
 	}
 
 	public static List<Meeting_MERC__c> insertMeetings(Integer numberOfMeetings, String countryName) {
+		return insertMeetings(numberOfMeetings, countryName, null);
+	}
+
+	public static List<Meeting_MERC__c> insertMeetings(Integer numberOfMeetings, String countryName, String status) {
 		if (countryName == null)
 			countryName = 'GB';
 		List<Meeting_MERC__c> mtgs = new List<Meeting_MERC__c>();
@@ -202,6 +206,9 @@ public with sharing class MERC_TestFactory {
 			m.Name = 'Event Name'+i;
 			m.Meeting_Time_Zone_MERC__c = 'Greenwich Mean Time (Europe/London)';
 			m.Event_Country_MERC__c = countryName;
+			if(status != null){
+				m.Meeting_Status_MERC__c = status;
+			}
 			mtgs.add(m);
 		}
 		insert mtgs;
@@ -438,7 +445,7 @@ public with sharing class MERC_TestFactory {
 		return result;
 	}
 
-	public static User getRunningUser() {
+	public static User getUserInRole(String roleName) {
 		List<UserRole> roles = [SELECT Name FROM UserRole];
 		p('roles'+roles);
 
@@ -449,12 +456,16 @@ public with sharing class MERC_TestFactory {
 			p('role='+r);
 			PermissionSet ps = [SELECT Id FROM PermissionSet WHERE Name='Mercury_Customer_Meeting_Services_Edit' limit 1];
 			insert new PermissionSetAssignment(PermissionSetId=ps.Id, AssigneeId=rUser.id);
-			update new User(id=rUser.Id, UserRoleId=[SELECT Id FROM UserRole WHERE Name='Lilly Employee' limit 1].id);
+			update new User(id=rUser.Id, UserRoleId=[SELECT Id FROM UserRole WHERE Name=:roleName limit 1].id);
 		}
 
 
 		p('new User='+rUser);
 		return rUser;
+	}
+
+	public static User getRunningUser() {
+		return getUserInRole('Lilly Employee');
 	}
 
 	public static List<User> insertTestUsers(Integer numberOfUsers, String profileName) {
@@ -467,6 +478,7 @@ public with sharing class MERC_TestFactory {
 		return insertTestUsers(numberOfUsers, profileName, null, null);
 	}
 
+	private static Integer userIndex = 0;
 	public static List<User> insertTestUsers(Integer numberOfUsers, String profileName, String roleName, String groupName) {
 		List<User> users = new List<User>();
 
@@ -477,11 +489,12 @@ public with sharing class MERC_TestFactory {
         UserRole r =[SELECT Id FROM UserRole WHERE Name=:roleName limit 1];
 
         for (Integer i = 0; i < numberOfUsers; i++) {
-	        String testemail = 'testuser'+i+'@unittest.com';
+	        String testemail = 'testuser'+userIndex+'@unittest.com';
 	        User u = new User(profileId = p.id, userRoleId = r.id, username = testemail, email = testemail,
-               alias='utusr'+i, lastname='lastname', emailencodingkey = 'UTF-8', localesidkey = 'en_US',
+               alias='utusr'+userIndex, lastname='lastname', emailencodingkey = 'UTF-8', localesidkey = 'en_US',
                languagelocalekey = 'en_US', timezonesidkey = 'GMT'
                );
+	        userIndex++;
 	        users.add(u);
 	    }
         insert(users);

@@ -7,25 +7,18 @@
 public with sharing class MERC_PrefConsentMappingHandlerTest {
 
 	static User testUser;
-	static {
-		System.runAs(new User(Id=UserInfo.getUserId()))
-		{
-			testUser = MERC_TestFactory.insertTestUsers(1, 'GSO Basic User_Salesforce').get(0);
-			testUser.UserPermissionsSupportUser = true;
-			testUser.UserRoleId = [SELECT Id FROM UserRole WHERE Name='CEO' limit 1].Id;
-			update testUser;
-
-			List<PermissionSetAssignment> pSetAssignments = new List<PermissionSetAssignment>();
-			for (PermissionSet ps : [SELECT Id FROM PermissionSet WHERE Name IN ('DDP_Admin_Mercury','DocuSign_User','Mercury_Customer_Meeting_Services_Edit')])
-			{
-				pSetAssignments.add(new PermissionSetAssignment(PermissionSetId=ps.Id, AssigneeId=testUser.Id));
-			}
-			insert pSetAssignments;
-		}
-	}
-
+	
 	static final Integer NUM_TEST_ACCTS = 200;
-	static List<Account> acctsList      = MERC_TestFactory.insertAccounts(NUM_TEST_ACCTS);
+	static List<Account> acctsList      = new List<Account>();
+
+	static {
+		testUser = MERC_TestFactory.getUserInRole('CEO');
+
+		User employeeUser = MERC_TestFactory.getUserInRole('Lilly Employee');
+		System.runAs(employeeUser){
+			acctsList = MERC_TestFactory.insertAccounts(NUM_TEST_ACCTS);	
+		}				
+	}	
 
 	@isTest static void test_should_copy_preference_info_to_account_for_private_preference() {
 		// test user doesn't have access to private prefs. run as admin.
