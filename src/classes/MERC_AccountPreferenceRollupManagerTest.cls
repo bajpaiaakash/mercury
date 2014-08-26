@@ -7,11 +7,15 @@
 private class MERC_AccountPreferenceRollupManagerTest {
 
 	static List<Account> accounts;
-	static User testUser = MERC_TestFactory.getRunningUser();
+	static User runningUser = MERC_TestFactory.getRunningUser();
+	static User testUser = MERC_TestFactory.getTestingUser();
 
 	static {
 		MERC_TestFactory.loadDeclarativeRollupSummaries();
-		accounts = MERC_TestFactory.insertAccounts(100);
+
+		System.runAs(runningUser) {
+			accounts = MERC_TestFactory.insertAccounts(100);
+		}
 	}
 
 	@isTest static void test_should_rollup_dietary_preferences_to_account() {

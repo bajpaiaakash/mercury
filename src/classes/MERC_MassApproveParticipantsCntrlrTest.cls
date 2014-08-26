@@ -9,11 +9,21 @@
 @isTest
 private class MERC_MassApproveParticipantsCntrlrTest
 {
-	static User testUser = MERC_TestFactory.getRunningUser();
-	static List<Account> accounts  = MERC_TestFactory.insertAccounts(200);
-	static Meeting_MERC__c meeting = MERC_TestFactory.insertMeetings(1).get(0);
-	static List<Meeting_Participant_MERC__c> participants = MERC_TestFactory.insertParticipants(meeting.Id, accounts, 'Pending Approval');
-	static ApexPages.StandardSetController ssc = new ApexPages.StandardSetController(new List<Meeting_MERC__c>{meeting});
+	static User runningUser = MERC_TestFactory.getRunningUser();
+	static User testUser = MERC_TestFactory.getTestingUser();
+	static List<Account> accounts;
+	static Meeting_MERC__c meeting;
+	static List<Meeting_Participant_MERC__c> participants;
+	static ApexPages.StandardSetController ssc;
+
+	static {
+		System.runAs(runningUser) {
+			accounts  = MERC_TestFactory.insertAccounts(200);
+			meeting = MERC_TestFactory.insertMeetings(1).get(0);
+			participants = MERC_TestFactory.insertParticipants(meeting.Id, accounts, 'Pending Approval');
+			ssc = new ApexPages.StandardSetController(new List<Meeting_MERC__c>{meeting});
+		}
+	}
 
 	@isTest static void test_should_return_meeting_from_getter()
 	{

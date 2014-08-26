@@ -1,12 +1,21 @@
 @isTest
 private class MERC_ParticipantTovStampHandlerTest {
 
-	static User testUser = MERC_TestFactory.getRunningUser();
-	static Meeting_MERC__C meeting                        = MERC_TestFactory.insertMeetings(1).get(0);
-	static List<Account> accounts                         = MERC_TestFactory.insertAccounts(200);
-	static List<Meeting_Participant_MERC__c> participants = MERC_TestFactory.insertParticipants(meeting.Id, accounts);
+	static User runningUser = MERC_TestFactory.getRunningUser();
+	static User testUser = MERC_TestFactory.getTestingUser();
+	static Meeting_MERC__c meeting                        = new Meeting_MERC__c();
+	static List<Account> accounts                         = new List<Account>();
+	static List<Meeting_Participant_MERC__c> participants = new List<Meeting_Participant_MERC__c>();
 	static List<Travel_Itinerary_MERC__c> itineraries     = new List<Travel_Itinerary_MERC__c>();
 	static List<Daily_Attendance_TOV_MERC__c> tovs        = new List<Daily_Attendance_TOV_MERC__c>();
+
+	static {
+		System.runAs(runningUser) {
+			meeting			= MERC_TestFactory.insertMeetings(1).get(0);
+			accounts		= MERC_TestFactory.insertAccounts(200);
+			participants 	= MERC_TestFactory.insertParticipants(meeting.Id, accounts);
+		}
+	}
 
 	@isTest static void test_travel_itinerary_update_stamps_meeting() {
 		insertItineraries();

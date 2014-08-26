@@ -8,11 +8,21 @@
 private class MERC_LockedInvoiceDeleteHandlerTest
 {
 
-	static Meeting_MERC__c meeting = MERC_TestFactory.insertMeetings(1).get(0);
-	static List<Account> accounts = MERC_TestFactory.insertAccounts(200);
-	static List<Meeting_Participant_MERC__c> participants = MERC_TestFactory.insertParticipants(meeting.Id, accounts);
-	static List<Invoice_MERC__c> invoices = MERC_TestFactory.insertInvoices(participants);
-	static User testUser = MERC_TestFactory.getRunningUser();
+	static Meeting_MERC__c meeting;
+	static List<Account> accounts;
+	static List<Meeting_Participant_MERC__c> participants;
+	static List<Invoice_MERC__c> invoices;
+	static User runningUser = MERC_TestFactory.getRunningUser();
+	static User testUser = MERC_TestFactory.getTestingUser();
+
+	static {
+		System.runAs(runningUser) {
+			meeting = MERC_TestFactory.insertMeetings(1).get(0);
+			accounts = MERC_TestFactory.insertAccounts(200);
+			participants = MERC_TestFactory.insertParticipants(meeting.Id, accounts);
+			invoices = MERC_TestFactory.insertInvoices(participants);
+		}
+	}
 
 	@isTest static void test_should_be_able_to_delete_invoices()
 	{

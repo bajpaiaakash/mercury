@@ -7,9 +7,17 @@
 @isTest
 private class MERC_MeetingDayManagerControllerTest {
 
-	static User testUser = MERC_TestFactory.getRunningUser();
-	static Meeting_MERC__c meeting = MERC_TestFactory.insertMeetings(1).get(0);
-	static Meeting_Vendor_MERC__c hotel = MERC_TestFactory.insertHotelsForMeetings(1, new List<Meeting_MERC__c>{meeting}).get(0);
+	static User runningUser = MERC_TestFactory.getRunningUser();
+	static User testUser = MERC_TestFactory.getTestingUser();
+	static Meeting_MERC__c meeting;
+	static Meeting_Vendor_MERC__c hotel;
+
+	static {
+		System.runAs(runningUser) {
+			meeting = MERC_TestFactory.insertMeetings(1).get(0);
+			hotel = MERC_TestFactory.insertHotelsForMeetings(1, new List<Meeting_MERC__c>{meeting}).get(0);
+		}
+	}
 
 	@isTest static void test_method_one() {
 		PageReference pRef = Page.MERC_MeetingDayManager;

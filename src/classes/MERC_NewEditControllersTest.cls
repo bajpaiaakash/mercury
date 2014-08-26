@@ -7,7 +7,8 @@
 @isTest
 private class MERC_NewEditControllersTest {
 
-	static User testUser = MERC_TestFactory.getRunningUser();
+	static User runningUser = MERC_TestFactory.getRunningUser();
+	static User testUser = MERC_TestFactory.getTestingUser();
 
 	@isTest static void test_instantiate_meeting_product_controller () {
 		System.runAs(testUser) {

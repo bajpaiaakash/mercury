@@ -6,9 +6,9 @@ private class GLBL_RollupServiceExceptionTest {
 		MERC_TestFactory.loadDeclarativeRollupSummaries();
 		rollups = [SELECT Id, Name FROM LookupRollupSummary_GLBL__c];
 	}
-	static User testUser = MERC_TestFactory.getRunningUser();
 
-	@isTest static void test_method_one() {
+	@isTest 
+	static void test_method_one() {
 		System.assertEquals('Lookup Rollup Summary  \'' + rollups.get(0).Name + '\' is invalid, your org configuration may have changed.'
 			               , GLBL_RollupServiceException.invalidRollup(rollups.get(0)).getMessage());
 

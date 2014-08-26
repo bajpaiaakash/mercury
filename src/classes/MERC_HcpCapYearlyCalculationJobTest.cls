@@ -1,21 +1,29 @@
 @isTest
 private class MERC_HcpCapYearlyCalculationJobTest {
 
-	static User testUser = MERC_TestFactory.getRunningUser();
-	static List<Account> accounts = MERC_TestFactory.insertAccounts(200);
-	static Meeting_MERC__c meeting = MERC_TestFactory.insertMeetings(1).get(0);
-	static List<Meeting_Participant_MERC__c> participants = MERC_TestFactory.insertParticipants(meeting.Id, accounts);
+	static User runningUser = MERC_TestFactory.getRunningUser();
+	static User testUser = MERC_TestFactory.getTestingUser();
+	static List<Account> accounts;
+	static Meeting_MERC__c meeting;
+	static List<Meeting_Participant_MERC__c> participants;
+
 	static {
-		update new Meeting_MERC__c(
-					Id                                   =meeting.Id,
-					Meeting_Status_MERC__c               ='Registered',
-					City_of_Meeting_MERC__c              ='London',
-					Number_of_Expected_Employees_MERC__c =10,
-					Number_of_Expected_Non_HCP_MERC__c   =10,
-					Number_of_Expected_Speakers_MERC__c  =10,
-					Interaction_Type_MERC__c             ='Virtual',
-					Planned_Budget_MERC__c               =10000
-		);
+		System.runAs(runningUser) {
+			accounts = MERC_TestFactory.insertAccounts(200);
+			meeting = MERC_TestFactory.insertMeetings(1).get(0);
+			participants = MERC_TestFactory.insertParticipants(meeting.Id, accounts);
+
+			update new Meeting_MERC__c(
+						Id                                   =meeting.Id,
+						Meeting_Status_MERC__c               ='Registered',
+						City_of_Meeting_MERC__c              ='London',
+						Number_of_Expected_Employees_MERC__c =10,
+						Number_of_Expected_Non_HCP_MERC__c   =10,
+						Number_of_Expected_Speakers_MERC__c  =10,
+						Interaction_Type_MERC__c             ='Virtual',
+						Planned_Budget_MERC__c               =10000
+			);
+		}
 
 		List<LookupRollupSummary_GLBL__c> lrs = new List<LookupRollupSummary_GLBL__c>();
 		lrs.add( new LookupRollupSummary_GLBL__c(

@@ -8,12 +8,13 @@
 private class MERC_MVIMeetingTimeZoneHandlerTest
 {
 
-	static User testUser = MERC_TestFactory.getRunningUser();
+	static User runningUser = MERC_TestFactory.getRunningUser();
+	static User testUser = MERC_TestFactory.getTestingUser();
 	static List<Meeting_MERC__c> meetings;
 	static
 	{
 		MERC_TestFactory.loadTimeZoneFieldMapSettings();
-		System.runAs(testUser)
+		System.runAs(runningUser)
 		{
 			meetings = MERC_TestFactory.insertMeetings(200);
 		}

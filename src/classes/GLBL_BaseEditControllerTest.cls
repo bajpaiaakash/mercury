@@ -8,11 +8,15 @@
 @isTest
 private class GLBL_BaseEditControllerTest {
 
-	static User testUser = MERC_TestFactory.getRunningUser();
+	static User runningUser = MERC_TestFactory.getRunningUser();
+	static User testUser = MERC_TestFactory.getTestingUser();
 
 	@isTest
 	static void testAccountEditPage() {
-		List<Account> accounts = MERC_TestFactory.insertAccounts(1);
+		List<Account> accounts;
+		System.runAs(runningUser) { 
+			accounts = MERC_TestFactory.insertAccounts(1);
+		}
 		System.runAs(testUser) {
 			PageReference ref = Page.Get_Started;
 			ref.getParameters().put('saveURL','thisismysaveurl#anchor1');
@@ -29,7 +33,10 @@ private class GLBL_BaseEditControllerTest {
 
 	@isTest
 	static void testDynamicFieldsConstructor() {
-		List<Account> accounts = MERC_TestFactory.insertAccounts(1);
+		List<Account> accounts;
+		System.runAs(runningUser) { 
+			accounts = MERC_TestFactory.insertAccounts(1);
+		}
 		System.runAs(testUser) {
 			PageReference ref = Page.Get_Started;
 			ref.getParameters().put('saveURL','thisismysaveurl#anchor1');
@@ -55,23 +62,25 @@ private class GLBL_BaseEditControllerTest {
 
 	@isTest
 	static void test_should_return_select_options_simple_config() {
-		//Create data for the Meeting Product lookup. the simplest config
-		Meeting_MERC__c meeting = MERC_TestFactory.insertMeetings(1).get(0);
-		Product_Group_GLBL__c product = new Product_Group_GLBL__c(
-			Name='Test Product',
-			Cntry_Cd_GLBL__c = 'GB',
-			Crt_Dt_GLBL__c = Date.today(),
-			Dialect_Nm_GLBL__c = 'TestId',
-			Grp_Prps_Cd_GLBL__c = 'test',
-			Lst_Pblsh_Dt_GLBL__c = Date.today(),
-			Updt_Dt_GLBL__c = Date.today()
-		);
-		insert product;
-		List<Indication_GLBL__c> indications = new List<Indication_GLBL__c> {
-		 	createIndication( product.Id, 'Indication 1'),
-		 	createIndication( product.Id, 'Indication 2')
-		};
-		insert indications;
+		System.runAs(runningUser) { 
+			//Create data for the Meeting Product lookup. the simplest config
+			Meeting_MERC__c meeting = MERC_TestFactory.insertMeetings(1).get(0);
+			Product_Group_GLBL__c product = new Product_Group_GLBL__c(
+				Name='Test Product',
+				Cntry_Cd_GLBL__c = 'GB',
+				Crt_Dt_GLBL__c = Date.today(),
+				Dialect_Nm_GLBL__c = 'TestId',
+				Grp_Prps_Cd_GLBL__c = 'test',
+				Lst_Pblsh_Dt_GLBL__c = Date.today(),
+				Updt_Dt_GLBL__c = Date.today()
+			);
+			insert product;
+			List<Indication_GLBL__c> indications = new List<Indication_GLBL__c> {
+			 	createIndication( product.Id, 'Indication 1'),
+			 	createIndication( product.Id, 'Indication 2')
+			};
+			insert indications;
+		}
 
 		Lookup_Picklist_Settings_MERC__c meetingProductConfig = new Lookup_Picklist_Settings_MERC__c(
 			Name                                 = 'Meeting Product Indications',
@@ -84,6 +93,7 @@ private class GLBL_BaseEditControllerTest {
 
 		insert meetingProductConfig;
 
+
 		System.runAs(testUser) {
 			String response = GLBL_BaseEditController.getOptions('Meeting_Products_MERC__c', meetingProductConfig.Id, product.Id);
 			System.assert(response.startsWith('<option value="">-- Select --</option>'));
@@ -94,26 +104,29 @@ private class GLBL_BaseEditControllerTest {
 
 	@isTest
 	static void test_should_return_select_options_complex_config() {
-		//Create data for the Budget Line Item Vendors. the most complex config
-		Meeting_MERC__c meeting = MERC_TestFactory.insertMeetings(1).get(0);
-		List<Meeting_Vendor_MERC__c> hotels = MERC_TestFactory.insertHotelsForMeeting(2, meeting.Id);
-		Budget_MERC__c budget   = MERC_TestFactory.insertBudget(meeting.Id);
-		//List<Budget_Line_Item_MERC__c> = MERC_TestFactory.insertBudgetLineItems(budget.Id, 2);
 
-		Map<Id, Account> acctMap = new Map<Id, Account>([SELECT Id, Name FROM Account]);
+		System.runAs(runningUser) { 
+			//Create data for the Budget Line Item Vendors. the most complex config
+			Meeting_MERC__c meeting = MERC_TestFactory.insertMeetings(1).get(0);
+			List<Meeting_Vendor_MERC__c> hotels = MERC_TestFactory.insertHotelsForMeeting(2, meeting.Id);
+			Budget_MERC__c budget   = MERC_TestFactory.insertBudget(meeting.Id);
+			//List<Budget_Line_Item_MERC__c> = MERC_TestFactory.insertBudgetLineItems(budget.Id, 2);
 
-		Lookup_Picklist_Settings_MERC__c budgetVendorConfig = new Lookup_Picklist_Settings_MERC__c(
-			Name                                 = 'Budget Line Item Vendors',
-			Parent_Field_MERC__c                 = 'Budget_MERC__c',
-			Child_Field_MERC__c                  = 'Meeting_Vendor_MERC__c',
-			Picklist_Object_Relationship_MERC__c = 'Meeting_Vendors__r',
-			Controlling_Object_MERC__c           = 'Budget_Line_Item_MERC__c',
-			Parent_Object_API_Name_MERC__c       = 'Meeting_MERC__c',
-			Parent_Object_Id_Relationship_MERC__c= 'Meeting_MERC__c',
-			Picklist_Label_Source_MERC__c        = 'Account_MERC__r'
-		);
+			Map<Id, Account> acctMap = new Map<Id, Account>([SELECT Id, Name FROM Account]);
 
-		insert budgetVendorConfig;
+			Lookup_Picklist_Settings_MERC__c budgetVendorConfig = new Lookup_Picklist_Settings_MERC__c(
+				Name                                 = 'Budget Line Item Vendors',
+				Parent_Field_MERC__c                 = 'Budget_MERC__c',
+				Child_Field_MERC__c                  = 'Meeting_Vendor_MERC__c',
+				Picklist_Object_Relationship_MERC__c = 'Meeting_Vendors__r',
+				Controlling_Object_MERC__c           = 'Budget_Line_Item_MERC__c',
+				Parent_Object_API_Name_MERC__c       = 'Meeting_MERC__c',
+				Parent_Object_Id_Relationship_MERC__c= 'Meeting_MERC__c',
+				Picklist_Label_Source_MERC__c        = 'Account_MERC__r'
+			);
+
+			insert budgetVendorConfig;
+		}
 
 		System.runAs(testUser) {
 			String response = GLBL_BaseEditController.getOptions('Budget_Line_Item_MERC__c', budgetVendorConfig.Id, budget.Id);

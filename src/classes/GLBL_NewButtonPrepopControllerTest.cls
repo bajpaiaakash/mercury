@@ -8,7 +8,8 @@
 @isTest
 private class GLBL_NewButtonPrepopControllerTest
 {
-	static User testUser = MERC_TestFactory.getRunningUser();
+	static User runningUser = MERC_TestFactory.getRunningUser();
+	static User testUser = MERC_TestFactory.getTestingUser();
 	static PageReference pageRef = Page.GLBL_NewButtonPrepopulator;
 
 	@isTest static void test_no_record_type_selection()

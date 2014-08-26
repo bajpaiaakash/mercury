@@ -8,7 +8,8 @@
 @isTest
 private class MERC_MergedAccountsControllerTest {
 
-    static User testUser = MERC_TestFactory.getRunningUser();
+    static User runningUser = MERC_TestFactory.getRunningUser();
+    static User testUser = MERC_TestFactory.getTestingUser();
     static User odsUser;
     static {
         System.runAs(new User(Id=UserInfo.getUserId()))

@@ -8,7 +8,8 @@
 public class GLBL_GenericRelatedListControllerTest {
 
 	static ApexPages.StandardSetController setController;
-	static User testUser = MERC_TestFactory.getRunningUser();
+	static User runningUser = MERC_TestFactory.getRunningUser();
+	static User testUser = MERC_TestFactory.getTestingUser();
 
 	@isTest static void test_meeting_day_for_meeting() {
 		System.runAs(testUser) {

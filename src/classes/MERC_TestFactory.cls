@@ -468,6 +468,10 @@ public with sharing class MERC_TestFactory {
 		return getUserInRole('Lilly Employee');
 	}
 
+	public static User getTestingUser() {
+		return getUserInRole('CEO');
+	}
+
 	public static List<User> insertTestUsers(Integer numberOfUsers, String profileName) {
 		List<User> users = new List<User>();
 

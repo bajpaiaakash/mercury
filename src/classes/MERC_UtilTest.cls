@@ -1,6 +1,7 @@
 @isTest
 private class MERC_UtilTest {
-	static User testUser = MERC_TestFactory.getRunningUser();
+	static User runningUser = MERC_TestFactory.getRunningUser();
+	static User testUser = MERC_TestFactory.getTestingUser();
 	static
 	{
 		MERC_TestFactory.insertMercuryCustomSettings();

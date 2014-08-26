@@ -7,7 +7,8 @@
 @isTest
 private class MERC_MeetingCurrencyUpdateHandlerTest {
 
-	static User testUser = MERC_TestFactory.getRunningUser();
+	static User runningUser = MERC_TestFactory.getRunningUser();
+	static User testUser = MERC_TestFactory.getTestingUser();
 	static List<Account> accounts;
 	static List<Meeting_MERC__c> meetings;
 	static List<Meeting_Participant_MERC__c> participants;
@@ -19,7 +20,7 @@ private class MERC_MeetingCurrencyUpdateHandlerTest {
 
 	static
 	{
-		System.runAs(testUser)
+		System.runAs(runningUser)
 		{
 			MERC_TriggerHandlerStateManager.deactivateAll();
 			accounts        = MERC_TestFactory.insertAccounts(5);
@@ -41,7 +42,7 @@ private class MERC_MeetingCurrencyUpdateHandlerTest {
 		}
 	}
 
-	@isTest static void test_method_one() {
+	@isTest static void test_meeting_participant_isocode_doesnt_change() {
 		System.runAs(testUser) {
 			System.assertEquals(10, [SELECT COUNT() FROM Meeting_MERC__c WHERE CurrencyIsoCode=:userCurrency]);
 			System.assertEquals(50, [SELECT COUNT() FROM Meeting_Participant_MERC__c WHERE CurrencyIsoCode=:userCurrency]);

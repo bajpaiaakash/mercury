@@ -16,18 +16,21 @@ private class MERC_AddMeetingParticipantsCntlrTest {
 	static List<Meeting_Participant_MERC__c> participants;
 	static GLBL_CustomerSearchToolServiceMock mockServices;
 	static MERC_AddMeetingParticipantsController c;
-	static User testUser = MERC_TestFactory.getRunningUser();
+	static User runningUser = MERC_TestFactory.getRunningUser();
+	static User testUser = MERC_TestFactory.getTestingUser();
 
     static {
-		settings = new Mercury_Settings_MERC__c();
-		settings.CST_Client_Id_MERC__c = 'Guildenstern';
-		settings.CST_Client_Secret_MERC__c = 'Rosencrantz';
-		insert settings;
+    	System.runAs(runningUser) {
+			settings = new Mercury_Settings_MERC__c();
+			settings.CST_Client_Id_MERC__c = 'Guildenstern';
+			settings.CST_Client_Secret_MERC__c = 'Rosencrantz';
+			insert settings;
 
-		MERC_TestFactory.adjustForSFDCSetMockBug = true;
-		accts = MERC_TestFactory.insertAccounts(TEST_SET_SIZE);
-		meetings = MERC_TestFactory.insertMeetings(10);
-		participants = MERC_TestFactory.insertParticipants(meetings[0].Id, accts);
+			MERC_TestFactory.adjustForSFDCSetMockBug = true;
+			accts = MERC_TestFactory.insertAccounts(TEST_SET_SIZE);
+			meetings = MERC_TestFactory.insertMeetings(10);
+			participants = MERC_TestFactory.insertParticipants(meetings[0].Id, accts);
+    	}
 	}
 
 	/*

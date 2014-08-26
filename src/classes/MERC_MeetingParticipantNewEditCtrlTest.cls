@@ -3,10 +3,13 @@ private class MERC_MeetingParticipantNewEditCtrlTest {
 
     static List<Account> accounts;
     static List<Meeting_MERC__c> meetings;
-    static User testUser = MERC_TestFactory.getRunningUser();
+    static User runningUser = MERC_TestFactory.getRunningUser();
+    static User testUser = MERC_TestFactory.getTestingUser();
     static {
-        accounts = MERC_TestFactory.insertAccounts(1); //insert 1 account
-        meetings = MERC_TestFactory.insertMeetings(1); //insert 1 meeting
+        System.runAs(runningUser) {
+            accounts = MERC_TestFactory.insertAccounts(1); //insert 1 account
+            meetings = MERC_TestFactory.insertMeetings(1); //insert 1 meeting
+        }
     }
 
     @isTest static void testNewMeetingParticipant() {
@@ -103,6 +106,4 @@ private class MERC_MeetingParticipantNewEditCtrlTest {
             System.assertEquals('submitFormViaAjax', controller.submitFormViaAjaxJavaScriptMethod);
         }
     }
-
-
 }

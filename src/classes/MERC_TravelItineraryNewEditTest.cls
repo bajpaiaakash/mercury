@@ -7,16 +7,19 @@
 @isTest
 private class MERC_TravelItineraryNewEditTest {
 
+	static User runningUser = MERC_TestFactory.getRunningUser();
+	static User testUser = MERC_TestFactory.getTestingUser();
 	static List<Meeting_MERC__c> meetings;
 	static List<Account> accounts;
 	static List<Meeting_Day_MERC__c> meetingDays;
 	static List<Meeting_Participant_MERC__c> participants;
-	static User testUser = MERC_TestFactory.getRunningUser();
 
 	static {
-		accounts = MERC_TestFactory.insertAccounts(1); //insert 5 accounts
-		meetings = MERC_TestFactory.insertMeetings(1); //insert 2 meetings
-		participants = MERC_TestFactory.insertParticipants(meetings.get(0).Id, accounts);
+		System.runAs(runningUser) {
+			accounts = MERC_TestFactory.insertAccounts(1); //insert 5 accounts
+			meetings = MERC_TestFactory.insertMeetings(1); //insert 2 meetings
+			participants = MERC_TestFactory.insertParticipants(meetings.get(0).Id, accounts);
+		}
 	}
 
 	@isTest static void testNewTravelItinerary() {

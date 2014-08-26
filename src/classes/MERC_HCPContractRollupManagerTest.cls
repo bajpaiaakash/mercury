@@ -7,10 +7,17 @@
 @isTest
 private class MERC_HCPContractRollupManagerTest {
 
-	static User testUser = MERC_TestFactory.getRunningUser();
-	static Account acct = MERC_TestFactory.insertAccounts(1).get(0);
+	static User runningUser = MERC_TestFactory.getRunningUser();
+	static User testUser = MERC_TestFactory.getTestingUser();
+	static Account acct;
+	static {
+		System.runAs(runningUser) {
+			acct = MERC_TestFactory.insertAccounts(1).get(0);
+		}
+	}
 
-	@isTest static void test_method_one() {
+	@isTest 
+	static void test_method_one() {
 		System.runAs(testUser) {
 			HCP_Contract_MERC__c contract = MERC_TestFactory.insertHCPContract(acct.id);
 			update contract;

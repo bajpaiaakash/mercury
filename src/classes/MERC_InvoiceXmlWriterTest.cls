@@ -13,7 +13,8 @@ private class MERC_InvoiceXmlWriterTest {
 	static List<Invoice_MERC__c> invoices;
 	static List<Invoice_Line_Item_MERC__c> lineItems;
 	static Integer numOfLineItems;
-	static User testUser = MERC_TestFactory.getRunningUser();
+	static User runningUser = MERC_TestFactory.getRunningUser();
+	static User testUser = MERC_TestFactory.getTestingUser();
 
 	// exercise the addition (and deletion) of xml files to associated content
 	@isTest

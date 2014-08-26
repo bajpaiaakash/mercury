@@ -1,6 +1,6 @@
 /**
 * @author Sean Harrison
-* @TODO: we cannot create workspaces/libraries or add users to libraries via Apex, so we need to query for existing users in these tests
+*
 * This is a unit test class for MERC_NewContentController.cls
 */
 @isTest
@@ -15,11 +15,12 @@ private class MERC_NewContentControllerTest {
 	static List<Invoice_MERC__c> invoices;
 	static List<Meeting_MERC__c> meetings;
 	static List<Meeting_Participant_MERC__c> participants;
-    static User thisUser = [SELECT Id FROM User WHERE Id = :UserInfo.getUserId()];
     static Map<String, List<String>> docTypesByRecType;
 
-    static User testUser = MERC_TestFactory.getRunningUser();
-    static
+	static User runningUser = MERC_TestFactory.getRunningUser();
+	static User testUser = MERC_TestFactory.getTestingUser();
+
+   static
     {
     	MERC_TestFactory.insertMercuryCustomSettings();
 
@@ -34,7 +35,7 @@ private class MERC_NewContentControllerTest {
     }
 
 	static {
-		System.runAs(thisUser) {
+		System.runAs(runningUser) {
 			accounts = MERC_TestFactory.insertHcpAccountsInCountry(1, 'DE');
 			meetings = MERC_TestFactory.insertMeetings(1, 'DE');
 			participants = MERC_TestFactory.insertParticipants(meetings[0].Id, accounts);
@@ -65,7 +66,7 @@ private class MERC_NewContentControllerTest {
 	 */
 	@isTest
 	static void testUploadAccountContent() {
-		System.runAs(thisUser) {
+		System.runAs(testUser) {
 			PageReference ref = Page.MERC_NewMeetingContent;
 			ref.getParameters().put('id', accounts.get(0).Id);
 			Test.setCurrentPage(ref);
@@ -88,7 +89,7 @@ private class MERC_NewContentControllerTest {
 	 */
 	@isTest
 	static void testUploadMeetingContent() {
-		System.runAs(thisUser) {
+		System.runAs(testUser) {
 			PageReference ref = Page.MERC_NewMeetingContent;
 			ref.getParameters().put('id', meetings.get(0).Id);
 			Test.setCurrentPage(ref);
@@ -111,7 +112,7 @@ private class MERC_NewContentControllerTest {
 	 */
 	@isTest
 	static void testUploadMeetingParticipantContent() {
-		System.runAs(thisUser) {
+		System.runAs(testUser) {
 			PageReference ref = Page.MERC_NewMeetingContent;
 			ref.getParameters().put('id', participants.get(0).Id);
 			Test.setCurrentPage(ref);
@@ -131,7 +132,7 @@ private class MERC_NewContentControllerTest {
 
 	@isTest
 	static void testUploadContractContent() {
-		System.runAs(thisUser) {
+		System.runAs(testUser) {
 			PageReference ref = Page.MERC_NewMeetingContent;
 			ref.getParameters().put('id', contract.Id);
 			Test.setCurrentPage(ref);
@@ -151,7 +152,7 @@ private class MERC_NewContentControllerTest {
 
 	@isTest
 	static void testUploadInvoiceContent() {
-		System.runAs(thisUser) {
+		System.runAs(testUser) {
 			PageReference ref = Page.MERC_NewMeetingContent;
 			ref.getParameters().put('id', invoices.get(0).Id);
 			Test.setCurrentPage(ref);
@@ -172,7 +173,7 @@ private class MERC_NewContentControllerTest {
 	@isTest
 	static void testUploadBudgetContent() {
 		update new user(Id=UserInfo.getUserId(), Procurement_Library_MERC__c=null);
-		System.runAs(thisUser) {
+		System.runAs(testUser) {
 			PageReference ref = Page.MERC_NewMeetingContent;
 			ref.getParameters().put('id', budget.Id);
 			Test.setCurrentPage(ref);
@@ -329,7 +330,7 @@ private class MERC_NewContentControllerTest {
 	}
 
 	@isTest static void shouldErrorWhenVersionDataIsNull() {
-		System.runAs(thisUser) {
+		System.runAs(testUser) {
 			PageReference ref = Page.MERC_NewMeetingContent;
 			ref.getParameters().put('id', meetings.get(0).Id);
 			Test.setCurrentPage(ref);
@@ -349,7 +350,7 @@ private class MERC_NewContentControllerTest {
 	}
 
 	@isTest static void shouldErrorWhenVersionDataEmpty() {
-		System.runAs(thisUser) {
+		System.runAs(testUser) {
 			PageReference ref = Page.MERC_NewMeetingContent;
 			ref.getParameters().put('id', meetings.get(0).Id);
 			Test.setCurrentPage(ref);

@@ -2,24 +2,33 @@
 public with sharing class MERC_MeetingParticipantCurrencyCnvrtTest
 {
 
-	static Meeting_MERC__c meeting = MERC_TestFactory.insertMeetings(1, 'GB').get(0);
-	static List<Account> accounts = MERC_TestFactory.insertAccounts(200);
-	static List<Meeting_Participant_MERC__c> participants = MERC_TestFactory.insertParticipants(meeting.Id, accounts);
-	static User testUser = MERC_TestFactory.getRunningUser();
+	static Meeting_MERC__c meeting;
+	static List<Account> accounts;
+	static List<Meeting_Participant_MERC__c> participants;
+	static User runningUser = MERC_TestFactory.getRunningUser();
+	static User testUser = MERC_TestFactory.getTestingUser();
 
 	static {
 		System.runAs(new User(Id=UserInfo.getUserId()))
 		{
 			Test.loadData(CurrencyType.sObjectType, 'CurrencyTypes');
 		}
-		meeting.CurrencyIsoCode = 'GBP';
-		update meeting;
 
-		for (Meeting_Participant_MERC__c mp : participants)
+		System.runAs(runningUser)
 		{
-			mp.CurrencyIsoCode = 'EUR';
+			meeting = MERC_TestFactory.insertMeetings(1, 'GB').get(0);
+			accounts = MERC_TestFactory.insertAccounts(200);
+			participants = MERC_TestFactory.insertParticipants(meeting.Id, accounts);
+
+			meeting.CurrencyIsoCode = 'GBP';
+			update meeting;
+
+			for (Meeting_Participant_MERC__c mp : participants)
+			{
+				mp.CurrencyIsoCode = 'EUR';
+			}
+			update participants;
 		}
-		update participants;
 	}
 
 

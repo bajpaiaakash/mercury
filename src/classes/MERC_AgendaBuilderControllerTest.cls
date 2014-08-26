@@ -8,13 +8,17 @@
 private class MERC_AgendaBuilderControllerTest {
 
 	static List<Meeting_MERC__c> meetings;
-	static User testUser = MERC_TestFactory.getRunningUser();
+	static User testUser = MERC_TestFactory.getTestingUser();
+	static User runningUser = MERC_TestFactory.getRunningUser();
 
 	static {
-		meetings = MERC_TestFactory.insertMeetings(1);
+		System.runAs(runningUser) {
+			meetings = MERC_TestFactory.insertMeetings(1);
+		}
 	}
 
-	@isTest static void testShouldInsertNewAgendaItems() {
+	@isTest 
+	static void testShouldInsertNewAgendaItems() {
 
 		Id meetingId = meetings.get(0).Id;
 		Meeting_MERC__c meeting = meetings.get(0);
@@ -57,7 +61,8 @@ private class MERC_AgendaBuilderControllerTest {
 		}
 	}
 
-	@isTest static void testShouldManageExistingAgendaItems() {
+	@isTest 
+	static void testShouldManageExistingAgendaItems() {
 
 		Id meetingId = meetings.get(0).Id;
 		Meeting_MERC__c meeting = meetings.get(0);
@@ -112,7 +117,8 @@ private class MERC_AgendaBuilderControllerTest {
 		}
 	}
 
-	@isTest static void test_should_prevent_finalized_agenda_change_without_confirm() {
+	@isTest 
+	static void test_should_prevent_finalized_agenda_change_without_confirm() {
 		Id meetingId = meetings.get(0).Id;
 		Meeting_MERC__c meeting = meetings.get(0);
 
@@ -177,7 +183,8 @@ private class MERC_AgendaBuilderControllerTest {
 		}
 	}
 
-	@isTest static void test_should_return_meeting_pageref_when_ulr_params_are_null() {
+	@isTest 
+	static void test_should_return_meeting_pageref_when_ulr_params_are_null() {
 		Id meetingId = meetings.get(0).Id;
 		Meeting_MERC__c meeting = meetings.get(0);
 
@@ -197,7 +204,8 @@ private class MERC_AgendaBuilderControllerTest {
 		}
 	}
 
-	@isTest static void test_should_catch_exceptions_on_bad_save() {
+	@isTest 
+	static void test_should_catch_exceptions_on_bad_save() {
 		Id meetingId = meetings.get(0).Id;
 		Meeting_MERC__c meeting = meetings.get(0);
 

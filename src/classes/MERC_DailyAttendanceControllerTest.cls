@@ -11,13 +11,16 @@ private class MERC_DailyAttendanceControllerTest {
 	static List<Account> accounts;
 	static List<Meeting_Day_MERC__c> meetingDays;
 	static List<Meeting_Participant_MERC__c> participants;
-	static User testUser = MERC_TestFactory.getRunningUser();
+	static User runningUser = MERC_TestFactory.getRunningUser();
+	static User testUser = MERC_TestFactory.getTestingUser();
 
 	static {
-		accounts = MERC_TestFactory.insertAccounts(5); //insert 5 accounts
-		meetings = MERC_TestFactory.insertMeetings(2); //insert 2 meetings
-		meetingDays = MERC_TestFactory.insertMeetingDays(meetings.get(0).Id, 3); //insert 3 days
-		participants = MERC_TestFactory.insertParticipants(meetings.get(0).Id, accounts, 'Accepted'); //insert 5 participants
+		System.runAs(runningUser) {
+			accounts = MERC_TestFactory.insertAccounts(5); //insert 5 accounts
+			meetings = MERC_TestFactory.insertMeetings(2); //insert 2 meetings
+			meetingDays = MERC_TestFactory.insertMeetingDays(meetings.get(0).Id, 3); //insert 3 days
+			participants = MERC_TestFactory.insertParticipants(meetings.get(0).Id, accounts, 'Accepted'); //insert 5 participants
+		}
 	}
 
 	@isTest static void basic_daily_attendance_test() {

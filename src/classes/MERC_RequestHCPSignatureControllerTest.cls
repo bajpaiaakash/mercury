@@ -11,12 +11,15 @@ private class MERC_RequestHCPSignatureControllerTest {
 	static HCP_Contract_MERC__c contract;
 	static Account hcp;
 	static Account internalSignee;
-	static User testUser = MERC_TestFactory.getRunningUser();
+	static User testUser = MERC_TestFactory.getTestingUser();
+	static User runningUser = MERC_TestFactory.getRunningUser();
 
 	static {
-		hcp = MERC_TestFactory.insertAccounts(1)[0];
-		internalSignee = MERC_TestFactory.insertAccounts(1)[0];
-		contract = MERC_TestFactory.insertHCPContract(hcp.Id);
+		System.runAs(runningUser) {		
+			hcp = MERC_TestFactory.insertAccounts(1)[0];
+			internalSignee = MERC_TestFactory.insertAccounts(1)[0];
+			contract = MERC_TestFactory.insertHCPContract(hcp.Id);
+		}
 	}
 
 	/*
