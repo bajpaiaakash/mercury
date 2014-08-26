@@ -10,7 +10,6 @@
         <externalId>false</externalId>
         <label>Administrator Email</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Email</type>
         <unique>false</unique>
     </fields>
@@ -22,7 +21,6 @@
         <label>Closed Status</label>
         <length>100</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -35,7 +33,6 @@
         <label>Consumer Record Type</label>
         <length>255</length>
         <required>true</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -45,7 +42,6 @@
         <description>This setting specifies that country on the Person search should not be defaulted to the country of the agent.</description>
         <externalId>false</externalId>
         <label>Do Not Default Country</label>
-        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -56,7 +52,6 @@
         <label>Employee Record Type</label>
         <length>255</length>
         <required>true</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -68,7 +63,6 @@
         <label>HCP Record Type</label>
         <length>100</length>
         <required>true</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -79,7 +73,6 @@
         <label>Interaction Anonymise Countries</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -91,7 +84,6 @@
         <label>Interaction Closed Record Type</label>
         <length>255</length>
         <required>true</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -105,7 +97,6 @@
         <precision>3</precision>
         <required>true</required>
         <scale>0</scale>
-        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -117,7 +108,6 @@
         <label>Interaction Create Case Record Type</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -129,7 +119,6 @@
         <label>Interaction Create Origin</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -141,7 +130,6 @@
         <label>Interaction Record Type</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -153,7 +141,6 @@
         <label>Knowledge Product Type</label>
         <length>100</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -165,7 +152,6 @@
         <label>Knowledge Search Article Types</label>
         <length>255</length>
         <required>true</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -178,7 +164,6 @@
         <precision>5</precision>
         <required>true</required>
         <scale>0</scale>
-        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -189,7 +174,6 @@
         <label>Manager Profiles</label>
         <length>100</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -201,7 +185,6 @@
         <label>Medical Inquiry Source</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -213,7 +196,6 @@
         <label>Medical Inquiry Submitted Status</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -225,7 +207,6 @@
         <label>Open Status</label>
         <length>100</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -237,7 +218,6 @@
         <label>Person Search Default Record Type</label>
         <length>255</length>
         <required>true</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -249,7 +229,6 @@
         <label>Person Search Record Types</label>
         <length>255</length>
         <required>true</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -261,7 +240,6 @@
         <label>Phone Search Default Record Type</label>
         <length>255</length>
         <required>true</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -273,7 +251,6 @@
         <label>Request Record Type</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>

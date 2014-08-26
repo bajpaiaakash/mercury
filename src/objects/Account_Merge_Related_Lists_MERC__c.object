@@ -14,7 +14,6 @@ The name of the record should be the api name of the object.</description>
         <label>Account Relationship Name</label>
         <length>255</length>
         <required>true</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -25,7 +24,6 @@ The name of the record should be the api name of the object.</description>
         <externalId>false</externalId>
         <inlineHelpText>Checking this box indicates that objects related to the winning account may be deleted.</inlineHelpText>
         <label>Allow Winning Account Deletes</label>
-        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -35,7 +33,6 @@ The name of the record should be the api name of the object.</description>
         <label>Losing Account Related List Field Set</label>
         <length>255</length>
         <required>true</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -48,7 +45,6 @@ The name of the record should be the api name of the object.</description>
         <precision>4</precision>
         <required>false</required>
         <scale>0</scale>
-        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -59,7 +55,6 @@ The name of the record should be the api name of the object.</description>
         <label>Parent Account Field</label>
         <length>100</length>
         <required>true</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -71,7 +66,6 @@ The name of the record should be the api name of the object.</description>
         <label>Path to Cust_Id</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -83,7 +77,6 @@ The name of the record should be the api name of the object.</description>
         <label>Related Object API Name</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -94,7 +87,6 @@ The name of the record should be the api name of the object.</description>
         <label>Winning Account Related List Field Set</label>
         <length>255</length>
         <required>true</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>

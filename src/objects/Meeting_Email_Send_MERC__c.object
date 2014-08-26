@@ -5,10 +5,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>CancelEdit</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>Clone</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -21,19 +17,11 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>SaveEdit</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -44,7 +32,6 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Junction object used for custom ExactTarget Email integration for Meetings</description>
     <enableActivities>false</enableActivities>
@@ -59,7 +46,6 @@
         <precision>18</precision>
         <required>false</required>
         <scale>1</scale>
-        <trackTrending>false</trackTrending>
         <type>Percent</type>
     </fields>
     <fields>
@@ -70,7 +56,6 @@
         <precision>18</precision>
         <required>false</required>
         <scale>1</scale>
-        <trackTrending>false</trackTrending>
         <type>Percent</type>
     </fields>
     <fields>
@@ -79,7 +64,6 @@
         <formula>Email_Send_Number_MERC__r.et4ae5__DateSent__c</formula>
         <label>Date Sent</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -90,7 +74,6 @@
         <precision>18</precision>
         <required>false</required>
         <scale>1</scale>
-        <trackTrending>false</trackTrending>
         <type>Percent</type>
     </fields>
     <fields>
@@ -99,7 +82,6 @@
         <label>ET Business Unit</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -109,7 +91,6 @@
         <label>ET Data Extension Id</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -118,7 +99,6 @@
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>ET Dedupe Subscribers</label>
-        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -127,7 +107,6 @@
         <label>ET Email ID</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -137,7 +116,6 @@
         <label>ET Email Name</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -147,7 +125,6 @@
         <label>ET From Address</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -157,7 +134,6 @@
         <label>ET From Email</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -167,7 +143,6 @@
         <label>ET From Name</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -176,7 +151,6 @@
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>ET Individual Tracking Disabled</label>
-        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -184,7 +158,6 @@
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>ET Recipients Opted In</label>
-        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -193,7 +166,6 @@
         <label>ET Reply To</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -203,7 +175,6 @@
         <label>ET Send Definition</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -213,7 +184,6 @@
         <label>ET Sender Profile Id</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -223,7 +193,6 @@
         <label>ET Subject Line</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -233,7 +202,6 @@
         <label>ET Subject</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -243,7 +211,6 @@
         <label>ET Sync Id</label>
         <length>255</length>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -252,7 +219,6 @@
         <externalId>false</externalId>
         <label>ET Thumbnail</label>
         <length>32768</length>
-        <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>2</visibleLines>
     </fields>
@@ -262,7 +228,6 @@
         <formula>Email_Send_Number_MERC__r.et4ae5__EmailName__c</formula>
         <label>Email Name</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -272,7 +237,6 @@
         <formula>Email_Send_Number_MERC__r.et4ae5__EmailName__c</formula>
         <label>Email Name</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -285,7 +249,6 @@
         <relationshipLabel>Meeting Email Sends</relationshipLabel>
         <relationshipName>Meeting_Email_Sends</relationshipName>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -293,7 +256,6 @@
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Incomplete</label>
-        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -301,7 +263,6 @@
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Incomplete</label>
-        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -313,7 +274,6 @@
         <relationshipName>Meeting_Email_Sends</relationshipName>
         <relationshipOrder>0</relationshipOrder>
         <reparentableMasterDetail>false</reparentableMasterDetail>
-        <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
@@ -325,7 +285,6 @@
         <precision>18</precision>
         <required>false</required>
         <scale>1</scale>
-        <trackTrending>false</trackTrending>
         <type>Percent</type>
     </fields>
     <fields>
@@ -336,7 +295,6 @@
         <precision>4</precision>
         <required>false</required>
         <scale>0</scale>
-        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -345,7 +303,6 @@
         <externalId>false</externalId>
         <label>Retry Date</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -353,7 +310,6 @@
         <externalId>false</externalId>
         <label>Scheduled Date</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -361,7 +317,6 @@
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Send Email</label>
-        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -391,7 +346,6 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -400,7 +354,6 @@
         <formula>Email_Send_Number_MERC__r.et4ae5__Subject__c</formula>
         <label>Subject</label>
         <required>false</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -412,7 +365,6 @@
         <precision>18</precision>
         <required>false</required>
         <scale>1</scale>
-        <trackTrending>false</trackTrending>
         <type>Percent</type>
     </fields>
     <label>Meeting Email Send</label>

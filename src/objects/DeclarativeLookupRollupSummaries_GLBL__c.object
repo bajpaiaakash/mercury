@@ -11,7 +11,6 @@
         <precision>6</precision>
         <required>true</required>
         <scale>0</scale>
-        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -23,7 +22,6 @@
         <precision>6</precision>
         <required>true</required>
         <scale>0</scale>
-        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
