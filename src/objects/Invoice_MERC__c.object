@@ -605,7 +605,7 @@ Created by John A Adams 1/9/2014</description>
         <description>Used to roll up the total value of Consulting Projects for an Invoice record.  This excludes VAT and is used to calculate CAP at Account level for HCP&apos;s when engaged in Consulting Projects with Lilly.  This is rolled up from the Invoice and NOT the meeting participant for Consulting Projects. Oliver Dunford 7th Jan 2014.</description>
         <externalId>false</externalId>
         <label>Consulting Project Amount (excl VAT)</label>
-        <summarizedField>Invoice_Line_Item_MERC__c.Consulting_Amount_MERC__c</summarizedField>
+        <summarizedField>Invoice_Line_Item_MERC__c.Consulting_Amount_Rollup_MERC__c</summarizedField>
         <summaryFilterItems>
             <field>Invoice_Line_Item_MERC__c.RecordTypeId</field>
             <operation>equals</operation>

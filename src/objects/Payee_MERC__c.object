@@ -401,7 +401,7 @@ Created by John A Adams 10/17/2013</description>
         <description>The Global Id of the account which this record was merged from. This field is set when an account merge occurs and the record belonged to the losing account.</description>
         <externalId>false</externalId>
         <label>Prior Parent Id</label>
-        <length>10</length>
+        <length>40</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>

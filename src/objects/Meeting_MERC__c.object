@@ -127,6 +127,40 @@
         <label>Meeting Day Manager</label>
     </fieldSets>
     <fields>
+        <fullName>AODS_Venue_Id_MERC__c</fullName>
+        <description>Formula logic to pull back the correct Venue Id based on Meeting conditions : MERC : Created on 08/08/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF( Source_MERC__c = &quot;Veeva&quot; &amp;&amp;  RecordType.DeveloperName &lt;&gt; &quot;Independent_Sponsorship&quot;,   Event_Id_MERC__c , 
+		IF(Source_MERC__c = &quot;Mercury&quot; &amp;&amp;  !ISBLANK(Venue_MERC__r.Name ),   Venue_MERC__r.Id , 
+	Event_Id_MERC__c
+		)
+)</formula>
+        <label>AODS Venue Id</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AODS_Venue_Name_MERC__c</fullName>
+        <description>Formula logic to pull back the correct Venue Name based on Meeting conditions : MERC : Created on 08/08/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF( Source_MERC__c = &quot;Veeva&quot; &amp;&amp;  RecordType.DeveloperName &lt;&gt; &quot;Independent_Sponsorship&quot;,  Preferred_Venue_MERC__c, 
+	IF(Source_MERC__c = &quot;Mercury&quot; &amp;&amp; !ISBLANK( Sourced_Venue_Name_Hist_MERC__c ), Sourced_Venue_Name_Hist_MERC__c, 
+		IF(Source_MERC__c = &quot;Mercury&quot; &amp;&amp;  !ISBLANK(Venue_MERC__r.Name ),  Venue_MERC__r.Name, 
+	&quot;No Venue Name Available&quot;
+		)
+	)
+)</formula>
+        <label>AODS Venue Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Accommodation_Information_MERC__c</fullName>
         <description>Capture additional information on Accommodations. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -1351,14 +1385,10 @@ Created by John A Adams 1/7/2014</description>
         <picklist>
             <picklistValues>
                 <fullName>Face to Face</fullName>
-                <default>false</default>
+                <default>true</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Virtual</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Ad-hoc Advising</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -3127,7 +3157,7 @@ Created by John Adams 11/6/2013</description>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Lookup relationship to Account to select a Venue for the Meeting. Created 12/18/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <inlineHelpText>Populate for Meetings created in Mercury.</inlineHelpText>
+        <inlineHelpText>Meeting location or conference venue. Address appears on web service under &quot;Time and Location&quot;</inlineHelpText>
         <label>Sourced Venue</label>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Meetings</relationshipLabel>
@@ -3799,12 +3829,8 @@ Created by John Adams 11/6/2013</description>
         <picklistValues>
             <picklist>Interaction_Type_MERC__c</picklist>
             <values>
-                <fullName>Ad-hoc Advising</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Face to Face</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Virtual</fullName>
@@ -4627,12 +4653,8 @@ Created by John Adams 11/6/2013</description>
         <picklistValues>
             <picklist>Interaction_Type_MERC__c</picklist>
             <values>
-                <fullName>Ad-hoc Advising</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Face to Face</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Virtual</fullName>
@@ -5483,12 +5505,8 @@ Created by John Adams 11/6/2013</description>
         <picklistValues>
             <picklist>Interaction_Type_MERC__c</picklist>
             <values>
-                <fullName>Ad-hoc Advising</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Face to Face</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Virtual</fullName>
@@ -6339,12 +6357,8 @@ Created by John Adams 11/6/2013</description>
         <picklistValues>
             <picklist>Interaction_Type_MERC__c</picklist>
             <values>
-                <fullName>Ad-hoc Advising</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Face to Face</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Virtual</fullName>
@@ -7167,12 +7181,8 @@ Created by John Adams 11/6/2013</description>
         <picklistValues>
             <picklist>Interaction_Type_MERC__c</picklist>
             <values>
-                <fullName>Ad-hoc Advising</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Face to Face</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Virtual</fullName>
@@ -8023,12 +8033,8 @@ Created by John Adams 11/6/2013</description>
         <picklistValues>
             <picklist>Interaction_Type_MERC__c</picklist>
             <values>
-                <fullName>Ad-hoc Advising</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Face to Face</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Virtual</fullName>
@@ -8883,12 +8889,8 @@ Created by John Adams 11/6/2013</description>
         <picklistValues>
             <picklist>Interaction_Type_MERC__c</picklist>
             <values>
-                <fullName>Ad-hoc Advising</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Face to Face</fullName>
-                <default>false</default>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Virtual</fullName>

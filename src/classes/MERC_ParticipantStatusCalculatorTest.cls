@@ -7,24 +7,24 @@
 private class MERC_ParticipantStatusCalculatorTest {
 
 	static User testUser;
-	static
-	{
-		System.runAs(new User(Id=UserInfo.getUserId()))
-		{
-			testUser = MERC_TestFactory.insertTestUsers(1, null).get(0);
-			PermissionSet ps = [SELECT Id FROM PermissionSet WHERE Name='Mercury_Customer_Meeting_Services_Edit' limit 1];
-			insert new PermissionSetAssignment( PermissionSetId=ps.Id
-				                              , AssigneeId=testUser.id);
-			update new User( id=testUser.Id
-				           , UserRoleId=[SELECT Id FROM UserRole WHERE Name='CEO' limit 1].id);
-		}
-	}
 
 	/*----- 50 participants plus 4 days gives us 200 TOV records for bulk test -----*/
-	static Meeting_MERC__c meeting                        = MERC_TestFactory.insertMeetings(1).get(0);
-	static List<Account> accounts                         = MERC_TestFactory.insertAccounts(50);
-	static List<Meeting_Participant_MERC__c> participants = MERC_TestFactory.insertParticipants(meeting.Id, accounts);
-	static List<Meeting_Day_MERC__c> meetingDays          = MERC_TestFactory.insertMeetingDays(meeting.Id, 4);
+	static Meeting_MERC__c meeting;
+	static List<Account> accounts;
+	static List<Meeting_Participant_MERC__c> participants;
+	static List<Meeting_Day_MERC__c> meetingDays;
+
+	static {
+		testUser = MERC_TestFactory.getUserInRole('CEO');
+
+		User employeeUser = MERC_TestFactory.getUserInRole('Lilly Employee');
+		System.runAs(employeeUser){
+			meeting = MERC_TestFactory.insertMeetings(1).get(0);
+			accounts = MERC_TestFactory.insertAccounts(50);
+			participants = MERC_TestFactory.insertParticipants(meeting.Id, accounts);
+			meetingDays = MERC_TestFactory.insertMeetingDays(meeting.Id, 4);
+		}
+	}
 
 	@isTest static void test_should_set_status_to_attended_when_attended_all_days() {
 		System.runAs(testUser)

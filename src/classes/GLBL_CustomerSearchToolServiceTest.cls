@@ -135,7 +135,7 @@ private class GLBL_CustomerSearchToolServiceTest {
 	    if (sr.prim_affil_addr_country_glbl == null) sr.prim_affil_addr_country_glbl = 'prim_affil_addr_country_glbl';
 	    if (sr.id == null) sr.id = 'id';
 	    if (sr.primary_hco_glbl == null) sr.primary_hco_glbl = 'primary_hco_glbl';
-	    if (sr.bnft_dsgn_cd_glbl == null) sr.bnft_dsgn_cd_glbl = 'bnft_dsgn_cd_glbl';
+	    //if (sr.bnft_dsgn_cd_glbl == null) sr.bnft_dsgn_cd_glbl = 'bnft_dsgn_cd_glbl';
 	    if (sr.primary_addr_line1_glbl == null) sr.primary_addr_line1_glbl = 'primary_addr_line1_glbl';
 	    if (sr.isdeleted == null) sr.isdeleted = 'isdeleted';
 	    if (sr.spclty_cd_glbl == null) sr.spclty_cd_glbl = 'spclty_cd_glbl';

@@ -203,6 +203,19 @@ Created by John A Adams 10/31/2013</description>
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>Consulting_Amount_Rollup_MERC__c</fullName>
+        <description>Shadow field for rolling up Consulting Amount without currency issues.</description>
+        <externalId>false</externalId>
+        <label>Consulting Amount Rollup</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Cost_Element_MERC__c</fullName>
         <description>Selection of cost elements to select for Invoice items 
 Created by John A Adams 10/15/2013
@@ -659,6 +672,6 @@ Created by John A Adams 10/4/2013</description>
         <protected>false</protected>
         <requireRowSelection>false</requireRowSelection>
         <url>/apex/GLBL_NewButtonPrepopulator?cObj=Invoice_Line_Item_MERC__c&amp;cObjURL={!URLENCODE(URLFOR($Action.Invoice_Line_Item_MERC__c.New))}&amp;cf_Invoice_MERC__c={!Invoice_MERC__c.Name}&amp;
-cf_Invoice_MERC__c_lkid={!Invoice_MERC__c.Id}&amp;cObjParent=Invoice_MERC__c&amp;cObjParentId={!Invoice_MERC__c.Id}</url>
+cf_Invoice_MERC__c_lkid={!Invoice_MERC__c.Id}&amp;cObjParent=Invoice_MERC__c&amp;cObjParentId={!Invoice_MERC__c.Id}&amp;cf_CurrencyIsoCode={!Invoice_MERC__c.CurrencyIsoCode}</url>
     </webLinks>
 </CustomObject>

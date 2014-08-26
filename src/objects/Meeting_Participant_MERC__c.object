@@ -772,11 +772,11 @@ Created by John A Adams 3/19/2014</description>
     </fields>
     <fields>
         <fullName>Email_Formula_MERC__c</fullName>
-        <description>PersonEmail</description>
+        <description>Pulls down the Mercury PersonEmail address from the HCP record : MERC : Created on 12/08/2014 by Oliver Dunford, Mavens Consulting</description>
         <externalId>false</externalId>
         <formula>Account_MERC__r.PersonEmail</formula>
-        <inlineHelpText>PersonEmail</inlineHelpText>
-        <label>Email Formula</label>
+        <inlineHelpText>The HCPs email address for Meeting and Contract correspondence.</inlineHelpText>
+        <label>Participant Email</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -872,6 +872,19 @@ Created by John Adams on 12/9/2013</description>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Final_Fee_Rollup_MERC__c</fullName>
+        <description>&quot;Shadow&quot; field for the Final_Fee_MERC__c to be used for CAP rollups.</description>
+        <externalId>false</externalId>
+        <label>Final Fee Rollup MERC</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Force_Unique_Participant_MERC__c</fullName>
@@ -1589,6 +1602,19 @@ Created by John A Adams 10/31/2013</description>
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>Proposed_Final_Fee_Rollup_MERC__c</fullName>
+        <description>&quot;Shadow&quot; field for the Proposed_Final_Fee_MERC__c to be used for CAP rollups.</description>
+        <externalId>false</externalId>
+        <label>Proposed Final Fee Rollup MERC</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Purpose_of_Payment_MERC__c</fullName>
         <description>Purpose of Payment will be &quot;Expenses&quot; if the Meeting Participant type is &quot;Delegate&quot; or &quot;Individual Sponsorship&quot;. Created to allow this value to be translated. Created 04/07/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -2124,7 +2150,7 @@ IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;),
         <fullName>Travel_Step_Complete_MERC__c</fullName>
         <description>Used by portal. Determines if Meeting Participant has completed Travel step when RSVP&apos;ing on the portal. Created 04/02/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Travel_by_Bus_MERC__c,&quot;Yes&quot;) || ISPICKVAL(Travel_by_Car_MERC__c,&quot;Yes&quot;) ||  ISPICKVAL(Travel_by_Train_MERC__c,&quot;Yes&quot;) || ISPICKVAL( Air_Travel_No_Longer_Required_MERC__c ,&quot;Yes&quot;) || Travel_No_Longer_Required_MERC__c, true, false)</formula>
+        <formula>IF(ISPICKVAL(Travel_by_Air_MERC__c,&quot;Yes&quot;) || ISPICKVAL(Travel_by_Bus_MERC__c,&quot;Yes&quot;) || ISPICKVAL(Travel_by_Car_MERC__c,&quot;Yes&quot;) ||  ISPICKVAL(Travel_by_Train_MERC__c,&quot;Yes&quot;) || ISPICKVAL( Air_Travel_No_Longer_Required_MERC__c ,&quot;Yes&quot;) || Travel_No_Longer_Required_MERC__c, true, false)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Travel Step Complete</label>
         <trackHistory>false</trackHistory>
@@ -2159,6 +2185,26 @@ IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;),
             </picklistValues>
             <picklistValues>
                 <fullName>More than 20 hrs</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Travel_by_Air_MERC__c</fullName>
+        <description>Records if the Meeting Participant traveling by Air : MERC : Created on 13/08/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Travel by Air</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -2451,8 +2497,23 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
         <columns>Account_MERC__c</columns>
         <columns>NAME</columns>
         <columns>Meeting_MERC__c</columns>
+        <columns>Status_MERC__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Service_Providers</fullName>
+        <columns>Account_MERC__c</columns>
+        <columns>NAME</columns>
+        <columns>Meeting_MERC__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Record_Type_Name_MERC__c</field>
+            <operation>equals</operation>
+            <value>Service Provider</value>
+        </filters>
+        <label>Service Providers</label>
         <language>en_US</language>
     </listViews>
     <nameField>
@@ -2758,6 +2819,17 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
             <values>
                 <fullName>None</fullName>
                 <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Travel_by_Air_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -3111,6 +3183,17 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
             </values>
             <values>
                 <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Travel_by_Air_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3481,6 +3564,17 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Travel_by_Air_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Travel_by_Bus_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -3828,6 +3922,17 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
             <values>
                 <fullName>None</fullName>
                 <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Travel_by_Air_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>

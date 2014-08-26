@@ -226,6 +226,20 @@ Created by John Adams on 11/18/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Case_Application_GLBL__c</fullName>
+        <defaultValue>$User.Case_Application_GLBL__c</defaultValue>
+        <description>Used to set each case with an application(s). This value is then used within case sharing rules to share cases between public groups. Defaulted from user profile : MERC : Created on 05/08/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Stamped from user profile and used within sharing rules to share cases amongst groups.</inlineHelpText>
+        <label>Case Application</label>
+        <length>150</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Case_Contact_Method_MERC__c</fullName>
         <description>Used for capturing method case was initiated, if not via Email to Case. Created 06/11/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -600,7 +614,7 @@ Created by J Adams 12/10/2013</description>
         <description>The Global Id of the account which this record was merged from. This field is set when an account merge occurs and the record belonged to the losing account.</description>
         <externalId>false</externalId>
         <label>Prior Parent Id</label>
-        <length>10</length>
+        <length>40</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -930,7 +944,7 @@ Created by John Adams on 11/18/2013</description>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/connection.js&quot;)}
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)}
 var ids = {!GETRECORDIDS($ObjectType.Case)};
 var url = &quot;/apex/loop__loopmerge?retURL=&quot;+encodeURI(window.location.pathname+window.location.search);
 url += &quot;&amp;recordIds=&quot;+ids.join(&apos;,&apos;);
@@ -945,7 +959,7 @@ window.location.href = url;</url>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/25.0/connection.js&quot;)}
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)}
 var ids = {!GETRECORDIDS($ObjectType.Case)};
 if (!ids || ids.length &lt; 1)
     alert(&apos;Please select at least one record.&apos;);

@@ -61,7 +61,7 @@ public with sharing class MERC_DailyAttendanceController {
 			if (participantIds == null) {
 				participantIds = new Set<Id>();
 				Id employeeRecordTypeId = [SELECT ID FROM RecordType WHERE SobjectType = 'Account' and DeveloperName = 'Employee_GLBL'].ID;
-				List<String> excludedStatuses = new List<String>{ 'Pending Approval', 'Declined', 'Interested in Meeting', 'Cancelled', 'Rejected' };
+				List<String> excludedStatuses = new List<String>{ 'Pending Approval', 'Declined', 'Interested in Meeting', 'Cancelled', 'Rejected', 'Invited' };
 				for (Meeting_Participant_MERC__c p : [SELECT ID FROM
 																	Meeting_Participant_MERC__c
 																		WHERE

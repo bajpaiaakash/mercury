@@ -81,30 +81,45 @@ public with sharing class MERC_Util {
 		return recordId.getSObjectType().getDescribe().getName();
 	}
 
+	private static Map<String, Map<String, String>> objectAPINameToDateFieldAPINameToTimeZoneFieldAPIName = new Map<String, Map<String, String>>();
+	private static Map<String, Datetime> objectAPINameToLastModifiedDateFieldAPINameToTimeZoneFieldAPIName = new Map<String, Datetime>();
 	public static Map<String, String> getTimeZoneFieldMapForObject(String objectAPIName) {
-		Map<String, String> dateFieldAPINameToTimeZoneFieldAPIName = new Map<String, String>();
-		for (Time_Zone_Field_Mappings_MERC__c fm : [SELECT
+		if(!objectAPINameToDateFieldAPINameToTimeZoneFieldAPIName.containsKey(objectAPIName) ||
+			objectAPINameToLastModifiedDateFieldAPINameToTimeZoneFieldAPIName.get(objectAPIName).addMinutes(3) < Datetime.now()){
+			objectAPINameToLastModifiedDateFieldAPINameToTimeZoneFieldAPIName.put(objectAPIName, Datetime.now());
+			Map<String, String> dateFieldAPINameToTimeZoneFieldAPIName = new Map<String, String>();
+			for (Time_Zone_Field_Mappings_MERC__c fm : [SELECT
 														Field_API_Name_MERC__c,
 														Time_Zone_Field_API_Name_MERC__c
 															FROM
 																Time_Zone_Field_Mappings_MERC__c
 																	WHERE Object_API_Name_MERC__c = :objectAPIName]) {
-			dateFieldAPINameToTimeZoneFieldAPIName.put(fm.Field_API_Name_MERC__c, fm.Time_Zone_Field_API_Name_MERC__c);
+				dateFieldAPINameToTimeZoneFieldAPIName.put(fm.Field_API_Name_MERC__c, fm.Time_Zone_Field_API_Name_MERC__c);
+			}
+			objectAPINameToDateFieldAPINameToTimeZoneFieldAPIName.put(objectAPIName, dateFieldAPINameToTimeZoneFieldAPIName);
 		}
-		return dateFieldAPINameToTimeZoneFieldAPIName;
+		
+		return objectAPINameToDateFieldAPINameToTimeZoneFieldAPIName.get(objectAPIName);
 	}
 
+	private static Map<String, Map<String, String>> objectAPINameToDateFieldAPINameToFieldToStampAPIName = new Map<String, Map<String, String>>();
+	private static Map<String, Datetime> objectAPINameToLastModifiedDateFieldAPINameToFieldToStampAPIName = new Map<String, Datetime>();
 	public static Map<String, String> getStampFieldMapForObject(String objectAPIName) {
-		Map<String, String> dateFieldAPINameToFieldToStampAPIName = new Map<String, String>();
-		for (Time_Zone_Field_Mappings_MERC__c fm : [SELECT
-														Field_API_Name_MERC__c,
-														Static_Field_To_Stamp_MERC__c
-															FROM
-																Time_Zone_Field_Mappings_MERC__c
-																	WHERE Object_API_Name_MERC__c = :objectAPIName]) {
-			dateFieldAPINameToFieldToStampAPIName.put(fm.Field_API_Name_MERC__c, fm.Static_Field_To_Stamp_MERC__c);
+		if(!objectAPINameToDateFieldAPINameToFieldToStampAPIName.containsKey(objectAPIName) ||
+			objectAPINameToLastModifiedDateFieldAPINameToFieldToStampAPIName.get(objectAPIName).addMinutes(3) < Datetime.now()){
+			objectAPINameToLastModifiedDateFieldAPINameToFieldToStampAPIName.put(objectAPIName, Datetime.now());
+			Map<String, String> dateFieldAPINameToFieldToStampAPIName = new Map<String, String>();
+			for (Time_Zone_Field_Mappings_MERC__c fm : [SELECT
+															Field_API_Name_MERC__c,
+															Static_Field_To_Stamp_MERC__c
+																FROM
+																	Time_Zone_Field_Mappings_MERC__c
+																		WHERE Object_API_Name_MERC__c = :objectAPIName]) {
+				dateFieldAPINameToFieldToStampAPIName.put(fm.Field_API_Name_MERC__c, fm.Static_Field_To_Stamp_MERC__c);
+			}
+			objectAPINameToDateFieldAPINameToFieldToStampAPIName.put(objectAPIName, dateFieldAPINameToFieldToStampAPIName);
 		}
-		return dateFieldAPINameToFieldToStampAPIName;
+		return objectAPINameToDateFieldAPINameToFieldToStampAPIName.get(objectAPIName);
 	}
 
 	//takes a field set, returns a list of api names

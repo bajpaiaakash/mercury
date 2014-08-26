@@ -115,11 +115,7 @@ private class MERC_HcpCapActualsCalculatorTest {
 		
 		Test.stopTest();
 
-		Account updatedAccount = [Select Allocated_CAP_MERC__c, Consulting_Project_Paid_CAP_MERC__c, Reserved_CAP_MERC__c, Speaking_Paid_CAP_MERC__c FROM Account WHERE Id = :p1.Account_MERC__c LIMIT 1];
-		system.assertEquals(95, updatedAccount.Speaking_Paid_CAP_MERC__c);
-		system.assertEquals(95, updatedAccount.Reserved_CAP_MERC__c);
-		system.assertEquals(95, updatedAccount.Consulting_Project_Paid_CAP_MERC__c);
-		system.assertEquals(95, updatedAccount.Allocated_CAP_MERC__c);
+		system.assertEquals(95, [Select Allocated_CAP_MERC__c FROM Account WHERE Id = :p1.Account_MERC__c].Allocated_CAP_MERC__c);
 	}
 
 //	@istest 

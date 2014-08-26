@@ -9,15 +9,13 @@ public with sharing class GLBL_NewButtonPrepopController {
 	public static final String SUFFIX = '_lkid';
 
 	public GLBL_NewButtonPrepopController() {
-
 		// filter out noise
 		for (String key : Apexpages.currentPage().getParameters().keySet()) {
 			if (key.startsWithIgnoreCase(PREFIX)) submittedParams.put(key.removeStart(PREFIX).toLowerCase(), Apexpages.currentPage().getParameters().get(key));
 		}
 
 		cObjName = Apexpages.currentPage().getParameters().get('cObj');
-		newParams.put('ent', getCustomObjectIdFromURL(Apexpages.currentPage().getParameters().get('cObjURL')));
-
+		newParams.put('ent', getCustomObjectIdFromURL(Apexpages.currentPage().getParameters().get('cObjURL')));		
 		String saveNewURL;
 		if (!Apexpages.currentPage().getParameters().get('cObjURL').contains('recordtypeselect')) {
 			toRecordTypeSelect = false;
@@ -38,12 +36,17 @@ public with sharing class GLBL_NewButtonPrepopController {
 			if (submittedParams.containsKey(key+SUFFIX)) saveParamString += nameToCFID.get(key)+SUFFIX+ '=' +submittedParams.get(key+SUFFIX) + '&';
 
 		}
+
 		if (Apexpages.currentPage().getParameters().get('cObjParentId')!=null) {
 			String parentId = Apexpages.currentPage().getParameters().get('cObjParentId');
 			String parentName = Apexpages.currentPage().getParameters().get('cObjParent').toLowerCase();
 			saveParamString += 'retURL=/'+parentId;
 			newParams.put('retURL', '/'+parentId);
-			newParams.put('saveURL','/'+parentId+'#'+parentId+'_'+nameToCFID.get(parentName).substringAfter('CF')+'_target');
+			if(nameToCFID.containsKey(parentName)){
+				newParams.put('saveURL','/'+parentId+'#'+parentId+'_'+nameToCFID.get(parentName).substringAfter('CF')+'_target');
+			} else {
+				ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, 'Missing ' + parentName + ' in mapping nameToCFID'));
+			}
 		}
 		newParams.put('save_new_url', saveNewURL+saveParamString);
 
@@ -53,15 +56,22 @@ public with sharing class GLBL_NewButtonPrepopController {
 
 	public PageReference redirect() {
 		PageReference pageRef;
-		if (toRecordTypeSelect) {
-			pageRef = new PageReference('/setup/ui/recordtypeselect.jsp');
-			for (String key : newParams.keySet()) {
-				pageRef.getParameters().put(key, newParams.get(key));
+
+		try{
+			if (toRecordTypeSelect) {
+				pageRef = new PageReference('/setup/ui/recordtypeselect.jsp');
+				for (String key : newParams.keySet()) {
+					pageRef.getParameters().put(key, newParams.get(key));
+				}
+			//	return pageRef;
+			} else {
+				pageRef = new PageReference(newParams.get('save_new_url'));
+				pageRef.getParameters().put('saveURL', newParams.get('saveURL'));
 			}
-		//	return pageRef;
-		} else {
-			pageRef = new PageReference(newParams.get('save_new_url'));
-			pageRef.getParameters().put('saveURL', newParams.get('saveURL'));
+		}
+		catch (Exception e){
+			ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, e.getMessage()));
+        	return null;
 		}
 //		 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.INFO, String.valueOf(newParams.get('save_new_url'))));
 //		 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.INFO, String.valueOf(pageRef.getParameters())));
@@ -105,6 +115,8 @@ public with sharing class GLBL_NewButtonPrepopController {
 				for (String fieldName : fieldMap.keySet()) {
 					if (namesToData.containsKey(fieldName)) {
 						nameToLabel.put(fieldName,fieldMap.get(fieldName).getDescribe().getLabel());
+					} else {
+						System.debug(LoggingLevel.INFO, 'Not mapping field {' + fieldName + '} to data.');
 					}
 				}
 			}
@@ -131,9 +143,30 @@ public with sharing class GLBL_NewButtonPrepopController {
 			}
 
 			for (String key : nameToLabel.keySet()) {
-				if (htmlToCFIDs.containsKey(nameToLabel.get(key))) namesToCFIDs.put(key, htmlToCFIDs.get(nameToLabel.get(key)));
+				if (htmlToCFIDs.containsKey(nameToLabel.get(key))) {
+					namesToCFIDs.put(key, htmlToCFIDs.get(nameToLabel.get(key)));
+				} else {
+					System.debug(LoggingLevel.WARN, '{' + key + '} not found in htmlToCFIDs harvested from ' + saveURL);
+				}
 			}
 
+			if(namesToCFIDs.size() != nameToLabel.size()){
+				System.debug(LoggingLevel.WARN, 'Failed to map all the names to CFIDs.');
+				System.debug(LoggingLevel.WARN, 'resulting namesToCFIDs:');
+				System.debug(LoggingLevel.WARN, namesToCFIDs);
+				System.debug(LoggingLevel.WARN, 'resulting nameToLabel:');
+				System.debug(LoggingLevel.WARN, nameToLabel);
+				System.debug(LoggingLevel.WARN, 'content from ' + saveURL + ':');
+				System.debug(LoggingLevel.WARN, content);
+			}
+
+			// CurrencyISOCode does not have a consistent Label .getLabel returns 'Currency ISO Code' when it should return 'Currency' 
+			// so we've hardcoded this if we're looking for it and missed
+			// Yours Truly, DAVID HELMER
+			if(namesToData.containsKey('currencyisocode')
+				&& !namesToCFIDs.containsKey('currencyisocode')){
+				namesToCFIDs.put('currencyisocode', 'CurrencyIsoCode');
+			}
 			//ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.INFO, 'htmlToCFIDs: '+String.valueOf(htmlToCFIDs)));
 			//ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.INFO, 'namesToCFIDs: '+String.valueOf(namesToCFIDs)));
 		} catch (Exception e) {

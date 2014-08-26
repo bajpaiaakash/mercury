@@ -260,7 +260,7 @@ private class MERC_AddMeetingParticipantsCntlrTest {
 			System.assertNotEquals(null,c.affiliationRoleTypes,'affiliationRoleTypes failed to init.');
 			System.assertNotEquals(null,c.accountClassifications,'accountClassifications failed to init.');
 			System.assertNotEquals(null,c.accountStatusTypes,'accountStatusTypes failed to init.');
-			System.assertNotEquals(null,c.professionalDesignations,'professionalDesignations failed to init.');
+			//System.assertNotEquals(null,c.professionalDesignations,'professionalDesignations failed to init.');
 			System.assertNotEquals(null,c.specialties,'specialties failed to init.');
 			System.assertNotEquals(null,c.alternateIdTypes,'alternateIdTypes failed to init.');
 			System.assertNotEquals(null,c.countries,'countries failed to init.');

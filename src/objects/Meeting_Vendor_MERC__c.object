@@ -315,6 +315,14 @@ ISCHANGED( Room_Rate_MERC__c ) &amp;&amp;
         <errorMessage>ToV has already been reported for participants of this Meeting. Customer Meeting Services needs to confirm this change before it can be made.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>MERC_Enforce_Currency</fullName>
+        <active>true</active>
+        <description>Ensures Meeting Vendor Currency is the same as the meeting.  All ToV must be in the Meeting currency : MERC : Created on 20/08/2014 by Oliver Dunford, Mavens Consulting</description>
+        <errorConditionFormula>TEXT(CurrencyIsoCode) &lt;&gt; TEXT( Meeting_MERC__r.CurrencyIsoCode)</errorConditionFormula>
+        <errorDisplayField>CurrencyIsoCode</errorDisplayField>
+        <errorMessage>The currency of the Meeting Vendor should match the currency of the Meeting.  All ToV should be entered in the currency of the Meeting.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>MERC_Enter_blank_amount</fullName>
         <active>true</active>
         <description>Prevent the ability to enter a blank amount as the Room Rate amount unless ToV has not been reported : MERC : Created on 01/28/2014 by Katy Lorenti, Mavens Consulting</description>

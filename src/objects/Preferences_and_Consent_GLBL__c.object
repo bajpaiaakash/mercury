@@ -432,6 +432,7 @@ Created by John A Adams 11/5/2013</description>
     </fields>
     <fields>
         <fullName>Cnsnt_Prps_Desc_Cap_GLBL__c</fullName>
+        <defaultValue>&quot;Marketing&quot;</defaultValue>
         <description>Purpose 
 Changes to consent fields captured at Portal. Created by John A Adams 3/22/2014</description>
         <externalId>false</externalId>
@@ -1982,7 +1983,7 @@ Changes to consent fields captured at Portal. Created by John A Adams 3/22/2014<
         <description>The Global Id of the account which this record was merged from. This field is set when an account merge occurs and the record belonged to the losing account.</description>
         <externalId>false</externalId>
         <label>Prior Parent Id</label>
-        <length>10</length>
+        <length>40</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -2049,7 +2050,7 @@ Created by John A Adams 12/15/2013</description>
         <fullName>Salutation_GLBL__c</fullName>
         <description>Pulled from ODS HCP Profile field.  Used to feed Consent Interface to Veeva. Oliver Dunford 15th May 2014.</description>
         <externalId>false</externalId>
-        <formula>TEXT(Account_GLBL__r.Salutation)</formula>
+        <formula>Account_GLBL__r.Title_Desc_GLBL__c</formula>
         <label>Salutation</label>
         <required>false</required>
         <trackHistory>false</trackHistory>

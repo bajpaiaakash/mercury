@@ -336,7 +336,7 @@ myuser={!User.Id}</url>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/connection.js&quot;)}
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)}
 var ids = {!GETRECORDIDS($ObjectType.Contact)};
 var url = &quot;/apex/loop__loopmerge?retURL=&quot;+encodeURI(window.location.pathname+window.location.search);
 url += &quot;&amp;recordIds=&quot;+ids.join(&apos;,&apos;);
@@ -351,7 +351,7 @@ window.location.href = url;</url>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/25.0/connection.js&quot;)}
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)}
 var ids = {!GETRECORDIDS($ObjectType.Contact)};
 if (!ids || ids.length &lt; 1)
     alert(&apos;Please select at least one record.&apos;);

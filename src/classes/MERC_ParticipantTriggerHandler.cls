@@ -36,7 +36,7 @@ public with sharing class MERC_ParticipantTriggerHandler implements GLBL_Trigger
 	public void populateShadowFieldsForCapCalc(List<Meeting_Participant_MERC__c> participants) {
 		for (Meeting_Participant_MERC__c mp : participants) {
 			if (mp.Proposed_Final_Fee_MERC__c!=null) mp.Proposed_Final_Fee_Rollup_MERC__c = mp.Proposed_Final_Fee_MERC__c;
-			if (mp.Final_Fee_Rollup_MERC__c != null) mp.Final_Fee_Rollup_MERC__c = mp.Final_Fee_MERC__c;
+			if (mp.Final_Fee_MERC__c != null) mp.Final_Fee_Rollup_MERC__c = mp.Final_Fee_MERC__c;
 		}
 	}
 }

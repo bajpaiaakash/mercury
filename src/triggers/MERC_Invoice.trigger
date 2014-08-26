@@ -1,4 +1,4 @@
-trigger MERC_Invoice on Invoice_MERC__c (after insert, after update, before delete, after delete, after undelete) {
+trigger MERC_Invoice on Invoice_MERC__c (before insert, after insert, before update, after update, before delete, after delete, after undelete) {
 
 	new GLBL_TriggerHandler()
 		.bind(GLBL_TriggerHandler.Evt.afterinsert, new MERC_InvoiceXmlWriter())
@@ -14,7 +14,9 @@ trigger MERC_Invoice on Invoice_MERC__c (after insert, after update, before dele
 		.bind(GLBL_TriggerHandler.Evt.afterdelete, new MERC_LookupRollupTriggerHandler())
 		.bind(GLBL_TriggerHandler.Evt.afterundelete, new MERC_LookupRollupTriggerHandler())
 
-		.bind(GLBL_TriggerHandler.Evt.beforedelete, new MERC_LockedInvoiceDeleteHandler())
+		.bind(GLBL_TriggerHandler.Evt.beforeinsert, new MERC_InvoiceCurrencyTriggerHandler())
+		.bind(GLBL_TriggerHandler.Evt.beforeupdate, new MERC_InvoiceCurrencyTriggerHandler())
+
         .manage();
 
 }
