@@ -7,12 +7,11 @@ private class GLBL_AccountMergeStampTriggerTest {
 	static Account winningAccount;
 	static Account losingAccount;
 
-	static User odsUser;  /* need to be sys admin (or maybe owner of ALL records?) */
-static User runningUser = MERC_TestFactory.getRunningUser();
+//	static User odsUser;  /* need to be sys admin (or maybe owner of ALL records?) */
 
 	static
 	{
-		System.runAs(new User(Id=UserInfo.getUserId())) {
+/*		System.runAs(new User(Id=UserInfo.getUserId())) {
 			Profile p = [SELECT id from Profile WHERE Profile.Name = 'Mercury Integration ODS - Platform' limit 1];
 			String testemail = 'testuserods@unittest.com';
 			odsUser = new User(profileId = p.id, username = testemail, email = testemail,
@@ -22,12 +21,12 @@ static User runningUser = MERC_TestFactory.getRunningUser();
 	                           UserRoleId=[SELECT Id FROM UserRole WHERE Name='CEO' limit 1].Id);
 
 			insert odsUser;
-		}
+		} 
+*/
 		MERC_TestFactory.insertMercuryCustomSettings();
 
-System.runAs(runningUser) {
-accounts = MERC_TestFactory.insertAccounts(6);
-meetings = MERC_TestFactory.insertMeetings(2);
+		accounts = MERC_TestFactory.insertAccounts(6);
+		meetings = MERC_TestFactory.insertMeetings(2);
 		winningAccount = accounts[0];
 		accounts[1].Cust_Id_GLBL__c = 'GLOBALID';
 		losingAccount = accounts[1];
@@ -80,17 +79,16 @@ meetings = MERC_TestFactory.insertMeetings(2);
 		};
 		insert prefs;
 	}
-	}
 
 	@isTest static void test_merge_stamps_child_records() {
 		Test.startTest();
-		System.runAs(odsUser) {
-			System.assertEquals(1, [SELECT COUNT() FROM Account WHERE Id =:winningAccount.Id], 'Winning account not visible');
-			System.assertEquals(1, [SELECT COUNT() FROM Account WHERE Id =:losingAccount.Id], 'Losing account not visible');
-			System.assert(MERC_TriggerHandlerStateManager.isActive(GLBL_AccountMergeStampTrigger.class),'Trigger not active.');
+//		System.runAs(odsUser) {
+		System.assertEquals(1, [SELECT COUNT() FROM Account WHERE Id =:winningAccount.Id], 'Winning account not visible');
+		System.assertEquals(1, [SELECT COUNT() FROM Account WHERE Id =:losingAccount.Id], 'Losing account not visible');
+		System.assert(MERC_TriggerHandlerStateManager.isActive(GLBL_AccountMergeStampTrigger.class),'Trigger not active.');
 
-			merge winningAccount losingAccount;
-		}
+		merge winningAccount losingAccount;
+//		}
 		Test.stopTest();
 
 		//validate child accounts reparented and stamped correctly

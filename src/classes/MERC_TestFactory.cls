@@ -341,7 +341,7 @@ public with sharing class MERC_TestFactory {
 			p.Meeting_MERC__c = meetingId;
 			p.Status_MERC__c = pStatus;
 			p.Services_Rendered_MERC__c = 'Yes';
-			p.Alliance_MERC__c = 'N A';  // new process around FMV
+			p.Alliance_MERC__c = 'Not Applicable';  // new process around FMV
 			participants.add(p);
 		}
 

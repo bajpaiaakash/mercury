@@ -148,7 +148,7 @@ public with sharing class GLBL_AccountMergeStampTrigger implements GLBL_TriggerH
 		 * and create sObjects to update. Populate those SObjects with the id from the keyset and
 		 * old customer id from the mapped value
 		 */
-		List<SObject> sObjectsToUpdate = new List<SObject>();
+		Set<SObject> sObjectsToUpdate = new Set<SObject>();
 		for (Id childId : childIdToOldCustomerId.keySet())
 		{
 			Schema.SObjectType soType = childId.getSObjectType();
@@ -161,7 +161,7 @@ public with sharing class GLBL_AccountMergeStampTrigger implements GLBL_TriggerH
 
 		try
 		{
-			update sObjectsToUpdate;
+			update new List<SObject>(sObjectsToUpdate);  // changed to Set due to DUPLICATE_VALUE error
 		}
 		catch (Exception ex)
 		{
