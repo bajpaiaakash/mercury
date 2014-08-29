@@ -1,13 +1,14 @@
 @isTest
 private class GLBL_AccountMergeStampTriggerTest {
 
-	static List<Account> accounts         = MERC_TestFactory.insertAccounts(6);
-	static List<Meeting_MERC__c> meetings = MERC_TestFactory.insertMeetings(2);
+	static List<Account> accounts; //         = MERC_TestFactory.insertAccounts(6);
+	static List<Meeting_MERC__c> meetings; // = MERC_TestFactory.insertMeetings(2);
 
 	static Account winningAccount;
 	static Account losingAccount;
 
-	static User odsUser;
+	static User odsUser;  /* need to be sys admin (or maybe owner of ALL records?) */
+static User runningUser = MERC_TestFactory.getRunningUser();
 
 	static
 	{
@@ -23,6 +24,10 @@ private class GLBL_AccountMergeStampTriggerTest {
 			insert odsUser;
 		}
 		MERC_TestFactory.insertMercuryCustomSettings();
+
+System.runAs(runningUser) {
+accounts = MERC_TestFactory.insertAccounts(6);
+meetings = MERC_TestFactory.insertMeetings(2);
 		winningAccount = accounts[0];
 		accounts[1].Cust_Id_GLBL__c = 'GLOBALID';
 		losingAccount = accounts[1];
@@ -75,10 +80,15 @@ private class GLBL_AccountMergeStampTriggerTest {
 		};
 		insert prefs;
 	}
+	}
 
 	@isTest static void test_merge_stamps_child_records() {
 		Test.startTest();
 		System.runAs(odsUser) {
+			System.assertEquals(1, [SELECT COUNT() FROM Account WHERE Id =:winningAccount.Id], 'Winning account not visible');
+			System.assertEquals(1, [SELECT COUNT() FROM Account WHERE Id =:losingAccount.Id], 'Losing account not visible');
+			System.assert(MERC_TriggerHandlerStateManager.isActive(GLBL_AccountMergeStampTrigger.class),'Trigger not active.');
+
 			merge winningAccount losingAccount;
 		}
 		Test.stopTest();

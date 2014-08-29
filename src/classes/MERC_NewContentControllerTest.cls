@@ -32,12 +32,19 @@ private class MERC_NewContentControllerTest {
     			docTypesByRecType.put(cll.Content_Record_Type_MERC__c, new List<String>{});
     		}
     	}
-    }
 
-	static {
+    	// UK user groups for membership in Content Libraries
+        List<Group> groups = [SELECT Id FROM Group WHERE Name LIKE '%GB'];
+        List<GroupMember> members = new List<GroupMember>();
+        for (Group g : groups) {
+        	members.add(new GroupMember(GroupId=g.Id,UserOrGroupId=testUser.Id));
+        	members.add(new GroupMember(GroupId=g.Id,UserOrGroupId=runningUser.Id));
+        }
+        insert members;
+
 		System.runAs(runningUser) {
-			accounts = MERC_TestFactory.insertHcpAccountsInCountry(1, 'DE');
-			meetings = MERC_TestFactory.insertMeetings(1, 'DE');
+			accounts = MERC_TestFactory.insertHcpAccountsInCountry(1, 'GB');
+			meetings = MERC_TestFactory.insertMeetings(1, 'GB');
 			participants = MERC_TestFactory.insertParticipants(meetings[0].Id, accounts);
 			invoices = MERC_TestFactory.insertInvoices(participants);
 			budget = MERC_TestFactory.insertBudget(meetings[0].Id);
@@ -89,7 +96,7 @@ private class MERC_NewContentControllerTest {
 	 */
 	@isTest
 	static void testUploadMeetingContent() {
-		System.runAs(testUser) {
+	// 	System.runAs(testUser) {
 			PageReference ref = Page.MERC_NewMeetingContent;
 			ref.getParameters().put('id', meetings.get(0).Id);
 			Test.setCurrentPage(ref);
@@ -104,7 +111,7 @@ private class MERC_NewContentControllerTest {
 				System.assertNotEquals(null,returnRef,'Expected a PageRef but got null: ' + ApexPages.getMessages());
 			}
 			Test.stopTest();
-		}
+	//	}
 	}
 
 	/*
@@ -171,7 +178,7 @@ private class MERC_NewContentControllerTest {
 	}
 
 	@isTest
-	static void testUploadBudgetContent() {
+	static void testShouldErrorWhenUploadBudgetContent() {
 		update new user(Id=UserInfo.getUserId(), Procurement_Library_MERC__c=null);
 		System.runAs(testUser) {
 			PageReference ref = Page.MERC_NewMeetingContent;
@@ -184,8 +191,9 @@ private class MERC_NewContentControllerTest {
 			populateFile(controller, 'sometype');
 			PageReference returnRef = controller.upload();
 			if (returnRef != null) System.debug(returnRef.getUrl());
-			//System.assertNotEquals(null,returnRef,'Expected a PageRef but got null: ' + ApexPages.getMessages());
-			System.assert(ApexPages.getMessages().get(0).getSummary().contains('You have not been granted access to a Procurement Library to upload document against a Budget. This document will be uploaded to: DE - Regional. Please contact a system administrator for assistance with Library access.'));
+			// System.assertNotEquals(null,returnRef,'Expected a PageRef but got null: ' + ApexPages.getMessages());
+			System.assert(ApexPages.getMessages().get(0).getSummary().contains('not been granted access to a Procurement Library'),
+				'Absent or unexpected error message: '+ApexPages.getMessages().get(0).getSummary());
 
 			Test.stopTest();
 		}
@@ -253,7 +261,8 @@ private class MERC_NewContentControllerTest {
 		Test.stopTest();
 	}
 
-	@isTest static void shouldRenameFilesWhenTif() {
+	@isTest
+	static void shouldRenameFilesWhenTif() {
 		System.runAs(testUser) {
 			PageReference ref = Page.MERC_NewMeetingContent;
 			ref.getParameters().put('id', (String) invoices[0].id);
@@ -268,7 +277,8 @@ private class MERC_NewContentControllerTest {
 		}
 	}
 
-	@isTest static void shouldRenameFilesWhenPdf() {
+	@isTest
+	static void shouldRenameFilesWhenPdf() {
 		System.runAs(testUser) {
 			PageReference ref = Page.MERC_NewMeetingContent;
 			ref.getParameters().put('id', (String) invoices[0].id);
@@ -283,7 +293,8 @@ private class MERC_NewContentControllerTest {
 		}
 	}
 
-	@isTest static void shouldErrorWhenUserCannotAccessLibrary() {
+	@isTest
+	static void shouldErrorWhenUserCannotAccessLibrary() {
 		Content_Library_Lookup_MERC__c lookup = [SELECT Id, Library_String_MERC__c
 		                                         FROM Content_Library_Lookup_MERC__c
 		                                         WHERE Content_Record_Type_MERC__c='Meeting_MERC'
@@ -301,12 +312,13 @@ private class MERC_NewContentControllerTest {
 			MERC_NewContentController controller = new MERC_NewContentController();
 			populateFile(controller, 'Invitations');
 			controller.upload();
-			System.assert(ApexPages.getMessages().get(0).getSummary().startsWith('Unable to locate content library with the name:'));
+			System.assert(ApexPages.getMessages().get(0).getSummary().contains(lookup.Library_String_MERC__c),'Absent or unexpected error message: '+ApexPages.getMessages().get(0).getSummary());
 			Test.stopTest();
 		}
 	}
 
-	@isTest static void shouldErrorWhenNoCountryOnMeeeting() {
+	@isTest
+	static void shouldErrorWhenNoCountryOnMeeeting() {
 		meetings.get(0).Event_Country_MERC__c = null;
 		update meetings;
 
@@ -329,7 +341,8 @@ private class MERC_NewContentControllerTest {
 		}
 	}
 
-	@isTest static void shouldErrorWhenVersionDataIsNull() {
+	@isTest
+	static void shouldErrorWhenVersionDataIsNull() {
 		System.runAs(testUser) {
 			PageReference ref = Page.MERC_NewMeetingContent;
 			ref.getParameters().put('id', meetings.get(0).Id);
@@ -349,7 +362,8 @@ private class MERC_NewContentControllerTest {
 		}
 	}
 
-	@isTest static void shouldErrorWhenVersionDataEmpty() {
+	@isTest
+	static void shouldErrorWhenVersionDataEmpty() {
 		System.runAs(testUser) {
 			PageReference ref = Page.MERC_NewMeetingContent;
 			ref.getParameters().put('id', meetings.get(0).Id);

@@ -8,7 +8,6 @@ public with sharing class MERC_TestFactory {
 	public static Id masteredAddressRecordTypeId = [SELECT Id FROM RecordType WHERE SObjectType = 'Address_GLBL__c' AND DeveloperName = 'Mastered_Address' LIMIT 1].Id;
 	public static Id otherAddressRecordTypeId = [SELECT Id FROM RecordType WHERE SObjectType = 'Address_GLBL__c' AND DeveloperName = 'Other_Address' LIMIT 1].Id;	
 
-	// Sean is testing something...
 	public static Boolean adjustForSFDCSetMockBug {get{if (adjustForSFDCSetMockBug==null) return false; else return adjustForSFDCSetMockBug;}
 												   set{adjustForSFDCSetMockBug = value&&Test.isRunningTest();}}
 
@@ -67,6 +66,9 @@ public with sharing class MERC_TestFactory {
 		return opps;
 	}
 
+	public static List<Account> insertAccounts(Integer numberOfAccounts) {
+		return insertAccounts(numberOfAccounts, hcpRecordTypeId);
+	}
 	public static List<Account> insertAccounts(Integer numberOfAccounts, Id recordTypeId) {
 		List<Account> accs = new List<Account>();
 		for (Integer i = 0; i < numberOfAccounts; i++) {
@@ -113,10 +115,6 @@ public with sharing class MERC_TestFactory {
 		}
 		insert accs;
 		return accs;
-	}
-
-	public static List<Account> insertAccounts(Integer numberOfAccounts) {
-		return insertAccounts(numberOfAccounts, hcpRecordTypeId);
 	}
 
 	public static List<Account> insertEmployeeAccounts(Integer numberOfAccounts) {
@@ -343,6 +341,7 @@ public with sharing class MERC_TestFactory {
 			p.Meeting_MERC__c = meetingId;
 			p.Status_MERC__c = pStatus;
 			p.Services_Rendered_MERC__c = 'Yes';
+			p.Alliance_MERC__c = 'N A';  // new process around FMV
 			participants.add(p);
 		}
 
@@ -409,7 +408,7 @@ public with sharing class MERC_TestFactory {
 	public static HCP_Contract_MERC__c insertHCPContract(String accountId) {
 		HCP_Contract_MERC__c c = new HCP_Contract_MERC__c();
 		c.Account_MERC__c = accountId;
-		c.Country_MERC__c = 'UK';
+		c.Country_MERC__c = 'GB';
 		insert c;
 		return c;
 	}
@@ -447,20 +446,19 @@ public with sharing class MERC_TestFactory {
 
 	public static User getUserInRole(String roleName) {
 		List<UserRole> roles = [SELECT Name FROM UserRole];
-		p('roles'+roles);
+//		p('roles'+roles);
 
 		User rUser;
 		System.runAs(new User(Id=UserInfo.getUserId())) {
 			rUser = insertTestUsers(1, null).get(0);
 			UserRole r =[SELECT Name FROM UserRole WHERE Id = :rUser.userRoleId limit 1];
-			p('role='+r);
 			PermissionSet ps = [SELECT Id FROM PermissionSet WHERE Name='Mercury_Customer_Meeting_Services_Edit' limit 1];
 			insert new PermissionSetAssignment(PermissionSetId=ps.Id, AssigneeId=rUser.id);
 			update new User(id=rUser.Id, UserRoleId=[SELECT Id FROM UserRole WHERE Name=:roleName limit 1].id);
 		}
 
 
-		p('new User='+rUser);
+//		p('new User='+rUser);
 		return rUser;
 	}
 
@@ -487,7 +485,7 @@ public with sharing class MERC_TestFactory {
 		List<User> users = new List<User>();
 
 		if (roleName  == null) roleName  = 'Lilly Employee';
-		if (groupName == null) groupName = 'MERC_Meetings_GB';
+		if (groupName == null) groupName = 'MERC_Content_Regional_GB';
 
         Profile p = [SELECT id from Profile WHERE Profile.Name =  :profileName limit 1];
         UserRole r =[SELECT Id FROM UserRole WHERE Name=:roleName limit 1];

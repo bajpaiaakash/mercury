@@ -8,19 +8,21 @@
 private class MERC_MeetingParticipantTovValidationTest
 {
 
+	static User runningUser = MERC_TestFactory.getRunningUser();
+	static User testUser = MERC_TestFactory.getTestingUser();
 	static Meeting_MERC__c meeting = MERC_TestFactory.insertMeetings(1).get(0);
 	static List<Account> accounts = MERC_TestFactory.insertAccounts(200);
 	static List<Meeting_Participant_MERC__c> participants = MERC_TestFactory.insertParticipants(meeting.Id, accounts);
-	static User testUser;
 
 	static
 	{
-		System.runAs(new User(Id=UserInfo.getUserId()))
+		System.runAs(runningUser)
 		{
-			testUser = MERC_TestFactory.insertTestUsers(1, null).get(0);
-			PermissionSet ps = [SELECT Id FROM PermissionSet WHERE Name='Mercury_Customer_Meeting_Services_Edit' limit 1];
-			insert new PermissionSetAssignment(PermissionSetId=ps.Id, AssigneeId=testUser.id);
-			update new User(id=testUser.Id, UserRoleId=[SELECT Id FROM UserRole WHERE Name='CEO' limit 1].id);
+			MERC_TriggerHandlerStateManager.deactivateAll();
+			meeting = MERC_TestFactory.insertMeetings(1).get(0);
+			accounts = MERC_TestFactory.insertAccounts(200);
+			participants = MERC_TestFactory.insertParticipants(meeting.Id, accounts);
+			MERC_TriggerHandlerStateManager.activateAll();
 		}
 		//reset the Meeting Participant Validation trigger
 		MERC_MeetingParticipantTovValidation.tovValidationByPass = false;

@@ -10,8 +10,8 @@
  */ 
 public with sharing class MERC_InvoiceXmlWriter implements GLBL_TriggerHandler.HandlerInterface {
 
-    private final Id ACTIVE_INVOICE = [SELECT Id FROM RecordType WHERE SObjectType = 'Invoice_MERC__c' AND DeveloperName = 'Invoice_MERC' LIMIT 1].Id;
-    private final Id ACTIVE_CNOTE = [SELECT Id FROM RecordType WHERE SObjectType = 'Invoice_MERC__c' AND DeveloperName = 'Credit_Note_MERC' LIMIT 1].Id;
+    private static final Id ACTIVE_INVOICE = [SELECT Id FROM RecordType WHERE SObjectType = 'Invoice_MERC__c' AND DeveloperName = 'Invoice_MERC' LIMIT 1].Id;
+    private static final Id ACTIVE_CNOTE = [SELECT Id FROM RecordType WHERE SObjectType = 'Invoice_MERC__c' AND DeveloperName = 'Credit_Note_MERC' LIMIT 1].Id;
 
     public Boolean isActive() {
         return true;

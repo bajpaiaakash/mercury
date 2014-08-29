@@ -16,9 +16,11 @@ private class MERC_TravelItineraryNewEditTest {
 
 	static {
 		System.runAs(runningUser) {
+			MERC_TriggerHandlerStateManager.deactivateAll();
 			accounts = MERC_TestFactory.insertAccounts(1); //insert 5 accounts
 			meetings = MERC_TestFactory.insertMeetings(1); //insert 2 meetings
 			participants = MERC_TestFactory.insertParticipants(meetings.get(0).Id, accounts);
+			MERC_TriggerHandlerStateManager.activateAll();
 		}
 	}
 

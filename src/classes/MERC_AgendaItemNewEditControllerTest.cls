@@ -9,11 +9,14 @@
 private class MERC_AgendaItemNewEditControllerTest {
 
 	static List<Meeting_MERC__c> mtgs;
-	static User testUser=MERC_TestFactory.getRunningUser();
+	static User runningUser = MERC_TestFactory.getRunningUser();
+	static User testUser = MERC_TestFactory.getTestingUser();
 
 	static {
 		MERC_TestFactory.loadTimeZoneFieldMapSettings();
-		mtgs = MERC_TestFactory.insertMeetings(1);
+		System.runAs(runningUser) {
+			mtgs = MERC_TestFactory.insertMeetings(1);
+		}
 	}
 
 	@isTest static void test_new_edit_form() {
@@ -37,7 +40,7 @@ private class MERC_AgendaItemNewEditControllerTest {
 			agendaItem.End_Time_MERC__c = DateTime.now();
 
 			PageReference p = controller.save();
-			system.debug('p is: >>>>>> '+p);
+			// system.debug('p is: >>>>>> '+p);
 			Test.stopTest();
 
 			system.assertEquals(1, [SELECT count() FROM Agenda_Item_MERC__c WHERE Meeting_MERC__c = :mtg.Id]);

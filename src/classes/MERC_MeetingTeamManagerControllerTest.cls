@@ -1,26 +1,19 @@
 @isTest
 private class MERC_MeetingTeamManagerControllerTest {
 
-	static User testUser;
-	static {
-		System.runAs(new User(Id=UserInfo.getUserId()))
-		{
-			testUser = MERC_TestFactory.insertTestUsers(1, 'GSO Basic User_Salesforce').get(0);
-			testUser.userRoleId = [SELECT Id FROM UserRole Where Name = 'CEO' LIMIT 1].Id;
-			update testUser;
-
-			List<PermissionSetAssignment> psa = new List<PermissionSetAssignment>();
-			for (PermissionSet ps : [SELECT Id FROM PermissionSet WHERE name ='Mercury_Meeting_Owner_Edit' OR name = 'DDP_Admin_Mercury']) {
-				psa.add(new PermissionSetAssignment(AssigneeId=testUser.Id, PermissionSetId=ps.Id));
-			}
-			insert psa;
-		}
-	}
-	static Meeting_MERC__c meeting = MERC_TestFactory.insertMeetings(1).get(0);
-	static ApexPages.StandardSetController ssc = new ApexPages.StandardSetController(new List<Meeting_MERC__c>{meeting});
-	static List<Account> employeeAccounts = insertEmployeeAccounts(10);
+	static User runningUser = MERC_TestFactory.getRunningUser();
+	static User testUser = MERC_TestFactory.getTestingUser();
+	static Meeting_MERC__c meeting;
+	static ApexPages.StandardSetController ssc;
+	static List<Account> employeeAccounts;
 	static
 	{
+		System.runAs(runningUser)
+		{
+			meeting = MERC_TestFactory.insertMeetings(1).get(0);
+			employeeAccounts = insertEmployeeAccounts(10);
+		}
+		ssc = new ApexPages.StandardSetController(new List<Meeting_MERC__c>{meeting});
 		PageReference testPage = Page.MERC_MeetingTeamManager;
 		testPage.getParameters().put('id', meeting.Id);
 		Test.setCurrentPage(testPage);

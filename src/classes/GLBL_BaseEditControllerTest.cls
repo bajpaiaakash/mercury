@@ -8,15 +8,18 @@
 @isTest
 private class GLBL_BaseEditControllerTest {
 
-	static User runningUser = MERC_TestFactory.getRunningUser();
-	static User testUser = MERC_TestFactory.getTestingUser();
+static User runningUser = MERC_TestFactory.getRunningUser();
+static User testUser = MERC_TestFactory.getTestingUser();
+static List<Account> accounts;
+
+static {
+	System.runAs(runningUser) {
+		accounts = MERC_TestFactory.insertAccounts(1);
+	}
+}
 
 	@isTest
 	static void testAccountEditPage() {
-		List<Account> accounts;
-		System.runAs(runningUser) { 
-			accounts = MERC_TestFactory.insertAccounts(1);
-		}
 		System.runAs(testUser) {
 			PageReference ref = Page.Get_Started;
 			ref.getParameters().put('saveURL','thisismysaveurl#anchor1');
@@ -26,17 +29,13 @@ private class GLBL_BaseEditControllerTest {
 			GLBL_BaseEditController controller = new GLBL_BaseEditController(acctController, Account.SobjectType);
 			System.assertEquals('GLBL_BaseEditController', controller.getClassName());
 
-			System.assert(controller.save().getUrl().contains('thisismysaveurl'));
-			System.assert(controller.save().getUrl().contains('anchor1'));
+			System.assert(controller.save().getUrl().contains('thisismysaveurl'), 'save URL missing saveURL parameter: '+controller.save().getUrl());
+			System.assert(controller.save().getUrl().contains('anchor1'), 'save URL missing anchor1 tag: '+controller.save().getUrl());
 		}
 	}
 
 	@isTest
 	static void testDynamicFieldsConstructor() {
-		List<Account> accounts;
-		System.runAs(runningUser) { 
-			accounts = MERC_TestFactory.insertAccounts(1);
-		}
 		System.runAs(testUser) {
 			PageReference ref = Page.Get_Started;
 			ref.getParameters().put('saveURL','thisismysaveurl#anchor1');
@@ -62,25 +61,23 @@ private class GLBL_BaseEditControllerTest {
 
 	@isTest
 	static void test_should_return_select_options_simple_config() {
-		System.runAs(runningUser) { 
-			//Create data for the Meeting Product lookup. the simplest config
-			Meeting_MERC__c meeting = MERC_TestFactory.insertMeetings(1).get(0);
-			Product_Group_GLBL__c product = new Product_Group_GLBL__c(
-				Name='Test Product',
-				Cntry_Cd_GLBL__c = 'GB',
-				Crt_Dt_GLBL__c = Date.today(),
-				Dialect_Nm_GLBL__c = 'TestId',
-				Grp_Prps_Cd_GLBL__c = 'test',
-				Lst_Pblsh_Dt_GLBL__c = Date.today(),
-				Updt_Dt_GLBL__c = Date.today()
-			);
-			insert product;
-			List<Indication_GLBL__c> indications = new List<Indication_GLBL__c> {
-			 	createIndication( product.Id, 'Indication 1'),
-			 	createIndication( product.Id, 'Indication 2')
-			};
-			insert indications;
-		}
+		//Create data for the Meeting Product lookup. the simplest config
+		Meeting_MERC__c meeting = MERC_TestFactory.insertMeetings(1).get(0);
+		Product_Group_GLBL__c product = new Product_Group_GLBL__c(
+			Name='Test Product',
+			Cntry_Cd_GLBL__c = 'GB',
+			Crt_Dt_GLBL__c = Date.today(),
+			Dialect_Nm_GLBL__c = 'TestId',
+			Grp_Prps_Cd_GLBL__c = 'test',
+			Lst_Pblsh_Dt_GLBL__c = Date.today(),
+			Updt_Dt_GLBL__c = Date.today()
+		);
+		insert product;
+		List<Indication_GLBL__c> indications = new List<Indication_GLBL__c> {
+		 	createIndication( product.Id, 'Indication 1'),
+		 	createIndication( product.Id, 'Indication 2')
+		};
+		insert indications;
 
 		Lookup_Picklist_Settings_MERC__c meetingProductConfig = new Lookup_Picklist_Settings_MERC__c(
 			Name                                 = 'Meeting Product Indications',
@@ -93,24 +90,25 @@ private class GLBL_BaseEditControllerTest {
 
 		insert meetingProductConfig;
 
-
 		System.runAs(testUser) {
 			String response = GLBL_BaseEditController.getOptions('Meeting_Products_MERC__c', meetingProductConfig.Id, product.Id);
-			System.assert(response.startsWith('<option value="">-- Select --</option>'));
+			System.assert(String.isNotBlank(response),'No select options returned');
+			System.assert(response.startsWith('<option value="">-- Select --</option>'),'Unexpected response prefix: '+ response.escapeXml());
 			System.assert(response.contains('">Indication 1</option>'));
 			System.assert(response.contains('">Indication 2</option>'));
 		}
 	}
 
+	// TODO - update this method to use test Users
 	@isTest
 	static void test_should_return_select_options_complex_config() {
 
-		System.runAs(runningUser) { 
+//		System.runAs(runningUser) {
 			//Create data for the Budget Line Item Vendors. the most complex config
 			Meeting_MERC__c meeting = MERC_TestFactory.insertMeetings(1).get(0);
 			List<Meeting_Vendor_MERC__c> hotels = MERC_TestFactory.insertHotelsForMeeting(2, meeting.Id);
 			Budget_MERC__c budget   = MERC_TestFactory.insertBudget(meeting.Id);
-			//List<Budget_Line_Item_MERC__c> = MERC_TestFactory.insertBudgetLineItems(budget.Id, 2);
+			// List<Budget_Line_Item_MERC__c> = MERC_TestFactory.insertBudgetLineItems(budget.Id, 2);
 
 			Map<Id, Account> acctMap = new Map<Id, Account>([SELECT Id, Name FROM Account]);
 
@@ -126,15 +124,16 @@ private class GLBL_BaseEditControllerTest {
 			);
 
 			insert budgetVendorConfig;
-		}
+//		}
 
-		System.runAs(testUser) {
+//		System.runAs(testUser) {
 			String response = GLBL_BaseEditController.getOptions('Budget_Line_Item_MERC__c', budgetVendorConfig.Id, budget.Id);
-			System.assert(response.startsWith('<option value="">-- Select --</option>'));
-			System.assert(response.contains('">' + acctMap.get(hotels.get(0).Account_MERC__c).Name + '</option>'));
-			System.assert(response.contains('">' + acctMap.get(hotels.get(0).Account_MERC__c).Name + '</option>'));
-		}
+			System.assert(String.isNotBlank(response),'No select options returned');
+			System.assert(response.startsWith('<option value="">-- Select --</option>'),'Unexpected response prefix: '+response.escapeXml());
+			System.assert(response.contains('">' + acctMap.get(hotels.get(0).Account_MERC__c).Name + '</option>'),'Options missing expected value: '+response.escapeXml());
+//		}
 	}
+
 
 	private static Indication_GLBL__c createIndication(Id productId, String name) {
 		Indication_GLBL__c indication = new Indication_GLBL__c(

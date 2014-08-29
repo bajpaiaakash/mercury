@@ -48,7 +48,8 @@ private class MERC_InvoiceCreditNoteControllerTest {
 		update updateCvList;
 	}
 
-	@isTest static void test_should_not_allow_clone_of_unlocked_invoice() {
+	@isTest
+	static void test_should_not_allow_clone_of_unlocked_invoice() {
 		ApexPages.StandardController sc             = new ApexPages.StandardController(invoices.get(0));
 		MERC_InvoiceCreditNoteController controller = new MERC_InvoiceCreditNoteController(sc);
 
@@ -57,7 +58,8 @@ private class MERC_InvoiceCreditNoteControllerTest {
 		System.assert(ApexPages.getMessages().get(0).getSummary().contains('This invoice/credit note cannot be cloned.'));
 	}
 
-	@isTest static void test_should_not_allow_clone_of_unlocked_credit_notes() {
+	@isTest
+	static void test_should_not_allow_clone_of_unlocked_credit_notes() {
 		invoices.get(0).RecordTypeId = [SELECT Id FROM RecordType WHERE SObjectType='Invoice_MERC__c' AND DeveloperName='Credit_Note_MERC' limit 1].Id;
 		update invoices.get(0);
 
@@ -69,7 +71,8 @@ private class MERC_InvoiceCreditNoteControllerTest {
 		System.assert(ApexPages.getMessages().get(0).getSummary().contains('This invoice/credit note cannot be cloned.'));
 	}
 
-	@isTest static void test_should_instantiate_correctly_for_locked_invoice() {
+	@isTest
+	static void test_should_instantiate_correctly_for_locked_invoice() {
 		invoices.get(0).RecordTypeId = [SELECT Id FROM RecordType WHERE SObjectType='Invoice_MERC__c' AND DeveloperName='Invoice_Locked_MERC' limit 1].Id;
 		update invoices.get(0);
 
@@ -81,7 +84,8 @@ private class MERC_InvoiceCreditNoteControllerTest {
 		System.assertEquals('Credit_Note_MERC', controller.newInvoiceRecType.DeveloperName);
 	}
 
-	@isTest static void test_should_instantiate_correctly_for_locked_credit_note() {
+	@isTest
+	static void test_should_instantiate_correctly_for_locked_credit_note() {
 		invoices.get(0).RecordTypeId = [SELECT Id FROM RecordType WHERE SObjectType='Invoice_MERC__c' AND DeveloperName='Credit_Note_Locked_MERC' limit 1].Id;
 		update invoices.get(0);
 
@@ -93,7 +97,8 @@ private class MERC_InvoiceCreditNoteControllerTest {
 		System.assertEquals('Invoice_MERC', controller.newInvoiceRecType.DeveloperName);
 	}
 
-	@isTest static void test_should_return_proper_values_for_getters() {
+	@isTest
+	static void test_should_return_proper_values_for_getters() {
 		invoices.get(0).RecordTypeId = [SELECT Id FROM RecordType WHERE SObjectType='Invoice_MERC__c' AND DeveloperName='Invoice_Locked_MERC' limit 1].Id;
 		update invoices.get(0);
 
@@ -104,7 +109,8 @@ private class MERC_InvoiceCreditNoteControllerTest {
 		System.assertEquals(3, controller.getContentCount());
 	}
 
-	@isTest static void test_should_create_credit_note_from_locked_invoice_with_line_items_and_content() {
+	@isTest
+	static void test_should_create_credit_note_from_locked_invoice_with_line_items_and_content() {
 		invoices.get(0).RecordTypeId = [SELECT Id FROM RecordType WHERE SObjectType='Invoice_MERC__c' AND DeveloperName='Invoice_Locked_MERC' limit 1].Id;
 		update invoices.get(0);
 
@@ -125,7 +131,8 @@ private class MERC_InvoiceCreditNoteControllerTest {
 		System.assertEquals(3, cn.get(0).Content_CN__r.size());
 	}
 
-	@isTest static void test_should_create_invoice_from_locked_credit_note_with_only_line_items() {
+	@isTest
+	static void test_should_create_invoice_from_locked_credit_note_with_only_line_items() {
 		invoices.get(0).RecordTypeId = [SELECT Id FROM RecordType WHERE SObjectType='Invoice_MERC__c' AND DeveloperName='Credit_Note_Locked_MERC' limit 1].Id;
 		update invoices.get(0);
 
@@ -145,7 +152,8 @@ private class MERC_InvoiceCreditNoteControllerTest {
 		System.assertEquals(0, cn.get(0).Content_CN__r.size());
 	}
 
-	@isTest static void test_cloneInvoice_should_clone_invoice() {
+	@isTest
+	static void test_cloneInvoice_should_clone_invoice() {
 		invoices.get(0).RecordTypeId = [SELECT Id FROM RecordType WHERE SObjectType='Invoice_MERC__c' AND DeveloperName='Invoice_Locked_MERC' limit 1].Id;
 		update invoices.get(0);
 
@@ -157,7 +165,8 @@ private class MERC_InvoiceCreditNoteControllerTest {
 		System.assertEquals(invoices.get(0).Meeting_Participant_MERC__c, clonedInvoice.Meeting_Participant_MERC__c);
 	}
 
-	@isTest static void test_cloneInvoice_should_throw_MERC_Exception_on_failure() {
+	@isTest
+	static void test_cloneInvoice_should_throw_MERC_Exception_on_failure() {
 		invoices.get(0).RecordTypeId = [SELECT Id FROM RecordType WHERE SObjectType='Invoice_MERC__c' AND DeveloperName='Invoice_Locked_MERC' limit 1].Id;
 		update invoices.get(0);
 
@@ -177,7 +186,8 @@ private class MERC_InvoiceCreditNoteControllerTest {
 		System.assert(failureCaught, 'An expected exception was not thrown');
 	}
 
-	@isTest static void test_cloneLineItems_should_clone_allLineItems() {
+	@isTest
+	static void test_cloneLineItems_should_clone_allLineItems() {
 		invoices.get(0).RecordTypeId = [SELECT Id FROM RecordType WHERE SObjectType='Invoice_MERC__c' AND DeveloperName='Invoice_Locked_MERC' limit 1].Id;
 		update invoices.get(0);
 
@@ -190,7 +200,8 @@ private class MERC_InvoiceCreditNoteControllerTest {
 		System.assertEquals(3, [SELECT COUNT() FROM Invoice_Line_Item_MERC__c WHERE Invoice_MERC__c = :clonedInvoice.Id]);
 	}
 
-	@isTest static void test_cloneLinesItems_should_throw_MERC_Exception_on_failure() {
+	@isTest
+	static void test_cloneLinesItems_should_throw_MERC_Exception_on_failure() {
 		invoices.get(0).RecordTypeId = [SELECT Id FROM RecordType WHERE SObjectType='Invoice_MERC__c' AND DeveloperName='Invoice_Locked_MERC' limit 1].Id;
 		update invoices.get(0);
 
@@ -211,7 +222,8 @@ private class MERC_InvoiceCreditNoteControllerTest {
 		System.assert(failureCaught, 'An expected exception was not thrown');
 	}
 
-	@isTest static void test_updateContentVersions_should_update_contentVersions() {
+	@isTest
+	static void test_updateContentVersions_should_update_contentVersions() {
 		invoices.get(0).RecordTypeId = [SELECT Id FROM RecordType WHERE SObjectType='Invoice_MERC__c' AND DeveloperName='Invoice_Locked_MERC' limit 1].Id;
 		update invoices.get(0);
 
@@ -224,7 +236,8 @@ private class MERC_InvoiceCreditNoteControllerTest {
 		System.assertEquals(3, [SELECT COUNT() FROM ContentVersion WHERE Credit_Note_MERC__c = :clonedInvoice.Id]);
 	}
 
-	@isTest static void test_updateContentVersions_should_throw_MERC_Exception_on_failure() {
+	@isTest
+	static void test_updateContentVersions_should_throw_MERC_Exception_on_failure() {
 		invoices.get(0).RecordTypeId = [SELECT Id FROM RecordType WHERE SObjectType='Invoice_MERC__c' AND DeveloperName='Invoice_Locked_MERC' limit 1].Id;
 		update invoices.get(0);
 

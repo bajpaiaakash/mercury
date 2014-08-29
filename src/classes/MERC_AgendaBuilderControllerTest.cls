@@ -153,8 +153,11 @@ private class MERC_AgendaBuilderControllerTest {
 			controller.children.get(1).so.put('Session_Type_MERC__c', 'Breakout Session');
 
 			controller.save();
-			System.assert(controller.pageMessage == 'Please confirm the change to the final agenda');
+			System.assert(controller.pageMessage == 'Please confirm the change to the final agenda',
+				'Absent or unexpected error: '+controller.pageMessage);
 			controller.confirmAgendaChange = true;
+			// TODO - finish updates to agenda page
+			// TODO - check web service status also
 			controller.save();
 
 			system.assertEquals(2, [SELECT count() FROM Agenda_Item_MERC__c WHERE Meeting_MERC__c = :meetingId]);
@@ -162,7 +165,8 @@ private class MERC_AgendaBuilderControllerTest {
 		}
 	}
 
-	@isTest static void test_should_return_null_when_retnull_param_set() {
+	@isTest 
+	static void test_should_return_null_when_retnull_param_set() {
 		Id meetingId = meetings.get(0).Id;
 		Meeting_MERC__c meeting = meetings.get(0);
 

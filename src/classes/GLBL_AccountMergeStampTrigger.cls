@@ -40,6 +40,8 @@ public with sharing class GLBL_AccountMergeStampTrigger implements GLBL_TriggerH
 
 	public void handle()
 	{
+				System.debug(LoggingLevel.ERROR,'\n\n\nYYZ entering merge trigger: ' + Trigger.isDelete + Trigger.isBefore);
+	
 		if (Trigger.isDelete)
 		{
 			if (Trigger.isBefore)
