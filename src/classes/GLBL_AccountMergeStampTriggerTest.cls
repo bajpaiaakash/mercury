@@ -73,9 +73,11 @@ private class GLBL_AccountMergeStampTriggerTest {
 		};
 		insert cases;
 
+		// TODO - create some uniqueness between these two records (See Combined_ID_GLBL__c & Prevent_Duplicate_Preference_MERC__c fields 
+		//	and workflow entitled "MERC_Update Prevent Preference Duplicate on Change")
 		List<Preferences_and_Consent_GLBL__c> prefs = new List<Preferences_and_Consent_GLBL__c>{
-			new Preferences_and_Consent_GLBL__c(Account_GLBL__c=winningAccount.Id),
-			new Preferences_and_Consent_GLBL__c(Account_GLBL__c=losingAccount.Id)
+			new Preferences_and_Consent_GLBL__c(Account_GLBL__c=winningAccount.Id,Cmnctn_Chnl_Cd_Cap_GLBL__c='989',Preference_Type_MERC__c='Meals Allergy Preferences'),
+			new Preferences_and_Consent_GLBL__c(Account_GLBL__c=losingAccount.Id,Cmnctn_Chnl_Cd_Cap_GLBL__c='YYZ',Preference_Type_MERC__c='High/Low Verbal')
 		};
 		insert prefs;
 	}

@@ -14,6 +14,7 @@ private class MERC_ParticipantFMVCalculatorTest {
 
 		System.runAs(runningUser)
 		{
+	        MERC_TriggerHandlerStateManager.deactivateAll();
 			accounts = MERC_TestFactory.insertHcpAccountsInCountry(5, 'GB'); //insert 5 accounts
 			meetings = MERC_TestFactory.insertMeetings(2); //insert 2 meetings
 			meetingDays = MERC_TestFactory.insertMeetingDays(meetings.get(0).Id, 3); //insert 3 days
@@ -30,6 +31,7 @@ private class MERC_ParticipantFMVCalculatorTest {
 	 			a.Academic_Qualifications_MERC__c = 'PhD non-MD';
 	 		}
 	 		update accts;
+	        MERC_TriggerHandlerStateManager.activateAll();
 		}
 
 		MERC_TestFactory.loadFMVSettings();
@@ -40,7 +42,6 @@ private class MERC_ParticipantFMVCalculatorTest {
 		{
 			Test.startTest();
 			update participants;
-			Test.stopTest();
 
 			List<Meeting_Participant_MERC__c> updatedParticipants = [SELECT Id, Minimum_Rate_MERC__c, Maximum_Rate_MERC__c
 			                                                           FROM Meeting_Participant_MERC__c
@@ -50,6 +51,7 @@ private class MERC_ParticipantFMVCalculatorTest {
             	System.assertEquals(60, p.Minimum_Rate_MERC__c);
             	System.assertEquals(100, p.Maximum_Rate_MERC__c);
             }
+			Test.stopTest();
 		}
 	}
 
@@ -66,7 +68,6 @@ private class MERC_ParticipantFMVCalculatorTest {
 			}
 			Test.startTest();
 			update accts;
-			Test.stopTest();
 
 			List<Meeting_Participant_MERC__c> updatedParticipants = [SELECT Id, Minimum_Rate_MERC__c, Maximum_Rate_MERC__c
 			                                                           FROM Meeting_Participant_MERC__c
@@ -76,6 +77,7 @@ private class MERC_ParticipantFMVCalculatorTest {
             	System.assertEquals(90, p.Minimum_Rate_MERC__c);
             	System.assertEquals(140, p.Maximum_Rate_MERC__c);
             }
+			Test.stopTest();
 		}
 	}
 }
