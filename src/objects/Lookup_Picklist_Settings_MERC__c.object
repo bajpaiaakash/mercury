@@ -12,6 +12,7 @@
         <label>Child Field</label>
         <length>255</length>
         <required>true</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -23,6 +24,7 @@
         <label>Controlling Object</label>
         <length>255</length>
         <required>true</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -34,6 +36,7 @@
         <label>Filter Criteria</label>
         <length>255</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -45,6 +48,7 @@
         <label>Parent Field</label>
         <length>255</length>
         <required>true</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -56,6 +60,7 @@
         <label>Parent Object API Name</label>
         <length>255</length>
         <required>true</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -67,6 +72,7 @@
         <label>Parent Object Id Relationship</label>
         <length>255</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -78,6 +84,7 @@
         <label>Picklist Label Source</label>
         <length>255</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -89,6 +96,7 @@
         <label>Picklist Object Relationship</label>
         <length>255</length>
         <required>true</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>

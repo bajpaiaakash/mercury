@@ -5,6 +5,10 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Clone</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -20,6 +24,10 @@
         <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -31,6 +39,10 @@
         <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Tab</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -38,6 +50,7 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Object to store invoice header information, Integrates with SAP for HCP Payments : MERC : Created on 09/27/2013 by Katy Lorenti, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
@@ -455,6 +468,7 @@
         <maskType>lastFour</maskType>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>EncryptedText</type>
     </fields>
     <fields>
@@ -466,6 +480,7 @@ Created by John A Adams 1/9/2014</description>
         <length>80</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -478,6 +493,7 @@ Created by John A Adams 1/9/2014</description>
         <length>80</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -490,6 +506,7 @@ Created by John A Adams 1/9/2014</description>
         <length>40</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -502,6 +519,7 @@ Created by John A Adams 1/9/2014</description>
         <length>80</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -514,6 +532,7 @@ Created by John A Adams 1/9/2014</description>
         <length>16</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -526,6 +545,7 @@ Created by John A Adams 1/9/2014</description>
         <length>80</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -538,6 +558,7 @@ Created by John A Adams 1/9/2014</description>
         <length>80</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -550,6 +571,7 @@ Created by John A Adams 1/9/2014</description>
         <length>20</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -562,6 +584,7 @@ Created by John A Adams 1/9/2014</description>
         <label>Lilly Affiliate Company Code</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -573,6 +596,7 @@ Created by John A Adams 1/9/2014</description>
         <label>Conditional Invoice Number</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -590,6 +614,7 @@ Created by John A Adams 1/9/2014</description>
         <summaryForeignKey>Invoice_Line_Item_MERC__c.Invoice_MERC__c</summaryForeignKey>
         <summaryOperation>sum</summaryOperation>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Summary</type>
     </fields>
     <fields>
@@ -602,6 +627,7 @@ Created by John A Adams 10/30/2013</description>
         <length>7</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -616,6 +642,7 @@ Created by John A Adams 10/30/2013</description>
         <relationshipName>Invoices</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -627,6 +654,7 @@ Created by John A Adams 10/30/2013</description>
         <label>Credit Note SAP Document #</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -639,6 +667,7 @@ Created by John A Adams 10/30/2013</description>
         <label>Customer Id</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -651,6 +680,7 @@ Created by John A Adams 10/20/2013</description>
         <length>16</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -665,6 +695,7 @@ Created by John A Adams 10/20/2013</description>
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -679,6 +710,7 @@ Created by John A Adams 10/20/2013</description>
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -694,6 +726,7 @@ Created by John A Adams 10/30/2013</description>
         <relationshipName>Invoices</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -705,6 +738,7 @@ Created by John A Adams 1/9/2014</description>
         <length>34</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -717,6 +751,7 @@ Created by John A Adams 1/9/2014</description>
         <length>20</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -728,6 +763,7 @@ Created by John A Adams 1/6/2014</description>
         <externalId>false</externalId>
         <label>Invoice Attached</label>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -738,6 +774,7 @@ Created by John A Adams 10/20/2013</description>
         <label>Invoice Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -758,6 +795,7 @@ Created by John A Adams 10/24/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -768,6 +806,7 @@ Created by John A Adams 10/24/2013</description>
         <label>Lilly Affiliate City</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -779,6 +818,7 @@ Created by John A Adams 10/24/2013</description>
         <label>Lilly Affiliate Country</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -790,6 +830,7 @@ Created by John A Adams 10/24/2013</description>
         <label>Lilly Affiliate Address Line 1</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -801,6 +842,7 @@ Created by John A Adams 10/24/2013</description>
         <label>Lilly Affiliate Address Line 2</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -812,6 +854,7 @@ Created by John A Adams 10/24/2013</description>
         <label>Lilly Affiliate ID/VAT</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -823,6 +866,7 @@ Created by John A Adams 10/24/2013</description>
         <label>Lilly Affiliate Postal Code</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -838,6 +882,7 @@ Created by John Adams 1/14/14</description>
         <relationshipName>Invoices1</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -848,6 +893,7 @@ Created by John Adams 1/14/14</description>
         <summaryForeignKey>Invoice_Line_Item_MERC__c.Invoice_MERC__c</summaryForeignKey>
         <summaryOperation>count</summaryOperation>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Summary</type>
     </fields>
     <fields>
@@ -859,6 +905,7 @@ Created by John Adams 1/14/14</description>
         <label>Meeting City</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -871,6 +918,7 @@ Created by John Adams 1/14/14</description>
         <label>Meeting Cost Center</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -884,6 +932,7 @@ Created by John A Adams 10/25/2013</description>
         <label>Meeting Country</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -897,6 +946,7 @@ Created by John A Adams 10/30/2013</description>
         <label>Meeting</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -910,6 +960,7 @@ Created by John A Adams 10/20/2013</description>
         <label>Meeting Name</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -921,6 +972,7 @@ Created by John A Adams 10/20/2013</description>
         <label>Meeting Participant Account Id</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -936,6 +988,7 @@ Created by John A Adams 10/4/2013</description>
         <relationshipName>Invoices</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -948,6 +1001,7 @@ Created by John A Adams 10/21/2013</description>
         <label>Meeting Start Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -959,6 +1013,7 @@ Created by J Adams 12/10/2013</description>
         <length>150</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -972,6 +1027,7 @@ Created by John A Adams 10/30/2013</description>
         <label>Mercury Transaction Id</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -985,6 +1041,7 @@ Created by John A Adams 10/20/2013</description>
         <label>Participant</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -996,6 +1053,7 @@ Created by John A Adams 10/20/2013</description>
         <label>Participant Master Id</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1008,6 +1066,7 @@ Created by John A Adams 1/9/2014</description>
         <length>254</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1020,6 +1079,7 @@ Created by John A Adams 1/9/2014</description>
         <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1035,6 +1095,7 @@ Created by John A Adams 10/21/2013</description>
         <relationshipName>Invoices</relationshipName>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -1046,6 +1107,7 @@ Created by John A Adams 1/9/2014</description>
         <length>35</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1058,6 +1120,7 @@ Created by John A Adams 1/9/2014</description>
         <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1070,6 +1133,7 @@ Created by John A Adams 1/9/2014</description>
         <length>150</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1082,6 +1146,7 @@ Created by John A Adams 1/9/2014</description>
         <length>32</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1105,6 +1170,7 @@ TEXT(YEAR(DATEVALUE(Meeting_Participant_MERC__r.Meeting_MERC__r.Start_Time_of_Me
         <label>Purpose of Payment</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1117,6 +1183,7 @@ Created by John A Adams 10/7/2013.</description>
         <length>16</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1138,6 +1205,7 @@ Created by John A Adams 10/7/2013.</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1149,6 +1217,7 @@ Created by John Adams 11/11/2013</description>
         <label>Submitted for Payment</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -1161,6 +1230,7 @@ Created by John A Adams 10/31/2013</description>
         <summaryForeignKey>Invoice_Line_Item_MERC__c.Invoice_MERC__c</summaryForeignKey>
         <summaryOperation>sum</summaryOperation>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Summary</type>
     </fields>
     <fields>
@@ -1175,6 +1245,7 @@ Created by John A Adams 10/31/2013</description>
         <required>false</required>
         <scale>2</scale>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Currency</type>
     </fields>
     <fields>
@@ -1185,6 +1256,7 @@ Created by John A Adams 10/31/2013</description>
         <length>18</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1216,6 +1288,7 @@ Created by John A Adams 10/31/2013</description>
             <sorted>true</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1228,6 +1301,7 @@ Created by John A Adams 10/31/2013</description>
         <summaryForeignKey>Invoice_Line_Item_MERC__c.Invoice_MERC__c</summaryForeignKey>
         <summaryOperation>sum</summaryOperation>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Summary</type>
     </fields>
     <fields>
@@ -1239,6 +1313,7 @@ Created by John A Adams 1/9/2014</description>
         <length>18</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1251,6 +1326,7 @@ Created by John A Adams 10/4/2013</description>
         <length>16</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>

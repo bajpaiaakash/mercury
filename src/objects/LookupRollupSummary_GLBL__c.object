@@ -5,6 +5,10 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Clone</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -17,11 +21,19 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -32,6 +44,7 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Object defines a the fields on a child object to roll up to a parent object using Lookup Rollup functionality.
 
@@ -46,6 +59,7 @@ MERC : Created on 2014-05-27 by Joe Ferraro, Mavens Consulting</description>
         <externalId>false</externalId>
         <inlineHelpText>For Realtime rollups can only be set when the Child Apex Trigger has been deployed.</inlineHelpText>
         <label>Active</label>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -76,6 +90,7 @@ MERC : Created on 2014-05-27 by Joe Ferraro, Mavens Consulting</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -85,6 +100,7 @@ MERC : Created on 2014-05-27 by Joe Ferraro, Mavens Consulting</description>
         <label>Aggregate Result Field</label>
         <length>80</length>
         <required>true</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -95,6 +111,7 @@ MERC : Created on 2014-05-27 by Joe Ferraro, Mavens Consulting</description>
         <label>Calculate Job Id</label>
         <length>18</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -118,6 +135,7 @@ MERC : Created on 2014-05-27 by Joe Ferraro, Mavens Consulting</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -127,6 +145,7 @@ MERC : Created on 2014-05-27 by Joe Ferraro, Mavens Consulting</description>
         <label>Child Object</label>
         <length>80</length>
         <required>true</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -137,6 +156,7 @@ MERC : Created on 2014-05-27 by Joe Ferraro, Mavens Consulting</description>
         <label>Field to Aggregate</label>
         <length>80</length>
         <required>true</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -147,6 +167,7 @@ MERC : Created on 2014-05-27 by Joe Ferraro, Mavens Consulting</description>
         <externalId>false</externalId>
         <inlineHelpText>If checked, developer will be required to connect to the Lookup service via Apex (no trigger will be created automatically).</inlineHelpText>
         <label>Override Trigger Validation</label>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -156,6 +177,7 @@ MERC : Created on 2014-05-27 by Joe Ferraro, Mavens Consulting</description>
         <label>Parent Object</label>
         <length>80</length>
         <required>true</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -165,6 +187,7 @@ MERC : Created on 2014-05-27 by Joe Ferraro, Mavens Consulting</description>
         <inlineHelpText>If you have specified a relationship criteria, you must confirm the fields referenced by it here on separate lines, for example for criteria StageName = &apos;Won&apos; list StageName in this field. You do not need to specify the Field to Aggregate field however.</inlineHelpText>
         <label>Relationship Criteria Fields</label>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
@@ -174,6 +197,7 @@ MERC : Created on 2014-05-27 by Joe Ferraro, Mavens Consulting</description>
         <label>Relationship Criteria</label>
         <length>255</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -184,6 +208,7 @@ MERC : Created on 2014-05-27 by Joe Ferraro, Mavens Consulting</description>
         <label>Relationship Field</label>
         <length>80</length>
         <required>true</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -194,6 +219,7 @@ MERC : Created on 2014-05-27 by Joe Ferraro, Mavens Consulting</description>
         <externalId>false</externalId>
         <inlineHelpText>If true, a zero calculation will be stamped as null</inlineHelpText>
         <label>TreatZeroAsNull</label>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <label>Lookup Rollup Summary</label>
@@ -213,6 +239,7 @@ MERC : Created on 2014-05-27 by Joe Ferraro, Mavens Consulting</description>
         <columns>RelationshipCriteriaFields_GLBL__c</columns>
         <columns>RelationshipField_GLBL__c</columns>
         <columns>TreatZeroAsNull_GLBL__c</columns>
+        <columns>LAST_UPDATE</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
         <language>en_US</language>

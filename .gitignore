@@ -1,2 +1,13 @@
 Referenced Packages
+.gitignore
+*.pyc
+config/*
+*.sublime-project
+debug/*
+apex-scripts/*
+deploy/*
+resource-bundles/*
+src/package.xml
 
+mercury-force.sublime-workspace
+mercury-force.sublime-settings

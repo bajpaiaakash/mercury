@@ -5,6 +5,10 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Clone</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -17,11 +21,19 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -32,6 +44,7 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Object used to drive the Mercury Web Service RSVP and HCP Information Package logic.  Determines the modals that are displayed based upon the multiple scenarios for a HCP using the Web Service and interacting with Meetings : MERC : Created on 05/12/2014 by Oliver Dunford, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
@@ -56,6 +69,7 @@
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -76,6 +90,7 @@
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -96,6 +111,7 @@
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -116,6 +132,7 @@
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -126,6 +143,7 @@
         <inlineHelpText>InfoPack: Step: Institutional Notification: Captures Institutional Notification Information.</inlineHelpText>
         <label>InfoPack Institutional Notification</label>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -136,6 +154,7 @@
         <inlineHelpText>InfoPack: Step: Payee Information: Captures Payee Name and Address.</inlineHelpText>
         <label>InfoPack Payee Information</label>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -146,6 +165,7 @@
         <inlineHelpText>InfoPack: Step: Captures the HCPs qualifications.</inlineHelpText>
         <label>InfoPack Qualifications &amp; Experience</label>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -156,6 +176,7 @@
         <label>Key Description</label>
         <length>32768</length>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>4</visibleLines>
     </fields>
@@ -179,6 +200,7 @@ IF(RecordType.Name = &quot;HCP Info Package&quot;,
         <label>Key for Lookup</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -192,6 +214,7 @@ IF(RecordType.Name = &quot;HCP Info Package&quot;,
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>true</unique>
     </fields>
@@ -217,6 +240,7 @@ IF(RecordType.Name = &quot;HCP Info Package&quot;,
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -245,6 +269,7 @@ IF(RecordType.Name = &quot;HCP Info Package&quot;,
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -255,6 +280,7 @@ IF(RecordType.Name = &quot;HCP Info Package&quot;,
         <inlineHelpText>RSVP: Step: Accommodation: Should Hotel be Required, captures the Check-In and Check-Out Dates.</inlineHelpText>
         <label>RSVP Accommodation</label>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -265,6 +291,7 @@ IF(RecordType.Name = &quot;HCP Info Package&quot;,
         <inlineHelpText>RSVP: Step: Congress Registration: Used to capture Independent Meeting Registration Information such as Membership Id for Registration.</inlineHelpText>
         <label>RSVP Congress Registration</label>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -275,6 +302,7 @@ IF(RecordType.Name = &quot;HCP Info Package&quot;,
         <inlineHelpText>RSVP: Step: Dietary Restrictions: Captures any allergies or food restrictions.</inlineHelpText>
         <label>RSVP Dietary Restrictions</label>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -285,6 +313,7 @@ IF(RecordType.Name = &quot;HCP Info Package&quot;,
         <inlineHelpText>RSVP: Step: Emergency Contact: Captures Emergency Contact Information</inlineHelpText>
         <label>RSVP Emergency Contact</label>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -295,6 +324,7 @@ IF(RecordType.Name = &quot;HCP Info Package&quot;,
         <inlineHelpText>RSVP: Step: Institutional Notification: Captures Institutional Notification Information for HCPs.</inlineHelpText>
         <label>RSVP Institutional Notification</label>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -305,6 +335,7 @@ IF(RecordType.Name = &quot;HCP Info Package&quot;,
         <inlineHelpText>Drives the inclusion of a note on the web services indicating that a wet signature is required for Institutional Notification.  Also prevents Registration until documentation has been provided.</inlineHelpText>
         <label>RSVP Institutional Wet Signature</label>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -315,6 +346,7 @@ IF(RecordType.Name = &quot;HCP Info Package&quot;,
         <inlineHelpText>RSVP: Step: Sponsorship Agreement: Captures Sponsorship Agreement Information for HCPs</inlineHelpText>
         <label>RSVP Sponsorship Agreement</label>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -325,6 +357,7 @@ IF(RecordType.Name = &quot;HCP Info Package&quot;,
         <inlineHelpText>RSVP: Step: Summary and Comments: The final summary of all populated information during the RSVP process.</inlineHelpText>
         <label>RSVP Summary and Comments</label>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -335,6 +368,7 @@ IF(RecordType.Name = &quot;HCP Info Package&quot;,
         <inlineHelpText>RSVP: Step: Transparency Reporting Consent: Captures the Transparency Reporting Consent Information.</inlineHelpText>
         <label>RSVP Transparency Reporting Consent</label>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -345,6 +379,7 @@ IF(RecordType.Name = &quot;HCP Info Package&quot;,
         <inlineHelpText>RSVP: Step: Travel: Should Travel be Required, captures Information such as preferred departure stations.</inlineHelpText>
         <label>RSVP Travel</label>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -355,6 +390,7 @@ IF(RecordType.Name = &quot;HCP Info Package&quot;,
         <inlineHelpText>RSVP: Step: Welcome Privacy Consent: The generic Privacy Consent Module on the Welcome Tab.</inlineHelpText>
         <label>RSVP Welcome Privacy Consent</label>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -375,6 +411,7 @@ IF(RecordType.Name = &quot;HCP Info Package&quot;,
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <label>Web Service Logic</label>

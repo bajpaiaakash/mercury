@@ -5,6 +5,10 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Clone</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -17,11 +21,19 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -32,6 +44,7 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Stores Mastered and Mercury Address Information.  For example, a HCPs Payee Address or the Address of the HCPs Institution as per Master Data : MERC, CUST : Created on 10/17/2013 by John Adams, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
@@ -86,6 +99,7 @@ Created by John A Adams 9/27/2013</description>
         <relationshipOrder>0</relationshipOrder>
         <reparentableMasterDetail>false</reparentableMasterDetail>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
@@ -97,6 +111,7 @@ Created by John A Adams 9/27/2013</description>
         <length>40</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -108,6 +123,7 @@ Created by John A Adams 9/27/2013</description>
         <length>150</length>
         <required>false</required>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -124,6 +140,7 @@ IF (NOT (ISBLANK(Line_5_Adrs_Txt_GLBL__c)),  &quot;, &quot;&amp; Line_5_Adrs_Txt
         <label>Address Combined</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1134,6 +1151,7 @@ Created by John A Adams 11/4/2013</description>
             <sorted>true</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1146,6 +1164,7 @@ Created by John A Adams 11/4/2013</description>
         <length>30</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1157,6 +1176,7 @@ Created by John A Adams 11/4/2013</description>
         <inlineHelpText>Indicates that this record is related to a non-hcp meeting participant and should be anonymised (via workflows)</inlineHelpText>
         <label>Anonymise Record</label>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -1169,6 +1189,7 @@ Created by John A Adams 11/4/2013</description>
         <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1181,6 +1202,7 @@ Created by John A Adams 9/27/2013</description>
         <length>254</length>
         <required>false</required>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1194,6 +1216,7 @@ Created by John A Adams 11/4/2013</description>
         <length>50</length>
         <required>false</required>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1207,6 +1230,7 @@ Created by John A Adams 11/4/2013</description>
         <length>10</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1219,6 +1243,7 @@ Created by John A Adams 11/4/2013</description>
         <label>Delete Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -1231,6 +1256,7 @@ Created by John A Adams 11/4/2013</description>
         <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1243,6 +1269,7 @@ Created by John A Adams 11/4/2013</description>
         <label>End Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -1254,6 +1281,7 @@ Created by John A Adams 11/4/2013</description>
         <label>Effective Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -1266,6 +1294,7 @@ Created by John A Adams 11/4/2013</description>
         <length>10</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1279,6 +1308,7 @@ Created by John A Adams 11/4/2013</description>
         <length>15</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1291,6 +1321,7 @@ Created by John A Adams 11/4/2013</description>
         <label>Phone Number 2</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
@@ -1303,6 +1334,7 @@ Created by John A Adams 11/4/2013</description>
         <length>10</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1315,6 +1347,7 @@ Created by John A Adams 11/4/2013</description>
         <label>Email Address</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
@@ -1327,6 +1360,7 @@ Created by John A Adams 11/4/2013</description>
         <length>15</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1340,6 +1374,7 @@ Created by John A Adams 11/4/2013</description>
         <length>10</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1353,6 +1388,7 @@ Created by John A Adams 11/4/2013</description>
         <length>15</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1365,6 +1401,7 @@ Created by John A Adams 11/4/2013</description>
         <label>Fax Number</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
@@ -1376,6 +1413,7 @@ Created by John A Adams 11/4/2013</description>
         <label>Phone Number 1</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
@@ -1387,6 +1425,7 @@ Created by John A Adams 11/4/2013</description>
         <label>Web Address</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>TextArea</type>
     </fields>
     <fields>
@@ -1399,6 +1438,7 @@ Created by John A Adams 11/4/2013</description>
         <length>40</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1411,6 +1451,7 @@ Created by John A Adams 10/24/2013</description>
         <length>80</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1424,6 +1465,7 @@ Created by John A Adams 11/4/2013</description>
         <length>15</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1435,6 +1477,7 @@ Created by John A Adams 11/4/2013</description>
         <length>150</length>
         <required>false</required>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1448,6 +1491,7 @@ Updated Field Name from Street_GLBL to Line_2_Adrs_Txt_GLBL KLorenti 10/23/2013<
         <length>254</length>
         <required>false</required>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1461,6 +1505,7 @@ Created by John A Adams 11/4/2013</description>
         <length>254</length>
         <required>false</required>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1474,6 +1519,7 @@ Created by John A Adams 11/4/2013</description>
         <length>254</length>
         <required>false</required>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1487,6 +1533,7 @@ Created by John A Adams 11/4/2013</description>
         <length>254</length>
         <required>false</required>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1500,6 +1547,7 @@ Created by John A Adams 11/4/2013</description>
         <length>15</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1513,6 +1561,7 @@ Created by John A Adams 11/4/2013</description>
         <length>20</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1525,6 +1574,7 @@ Created by J Adams 12/10/2013</description>
         <length>150</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1537,6 +1587,7 @@ Created by John A Adams 11/4/2013</description>
         <label>Source Load Timestamp</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -1549,6 +1600,7 @@ Created by John A Adams 11/4/2013</description>
         <length>30</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1561,6 +1613,7 @@ Created by John A Adams 11/4/2013</description>
         <label>Source Update Timestamp</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -1573,6 +1626,7 @@ Created by John A Adams 11/4/2013</description>
         <length>30</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1586,6 +1640,7 @@ Created by John A Adams 11/4/2013</description>
         <length>2</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1600,6 +1655,7 @@ Created by John A Adams 10/22/2013</description>
         <length>10</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1613,6 +1669,7 @@ Created by John A Adams 11/4/2013</description>
         <length>50</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1626,6 +1683,7 @@ Created by John A Adams 12/10/2013</description>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1639,6 +1697,7 @@ Created by John A Adams 11/4/2013</description>
         <length>100</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1650,6 +1709,7 @@ Created by John A Adams 11/4/2013</description>
         <length>40</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1665,6 +1725,7 @@ Created by John A Adams 11/4/2013</description>
         <required>false</required>
         <scale>0</scale>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -1678,6 +1739,7 @@ Created by John A Adams 11/4/2013</description>
         <length>32</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1691,6 +1753,7 @@ Created by John A Adams 11/4/2013</description>
         <length>1</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1704,6 +1767,7 @@ Created by John A Adams 11/4/2013</description>
         <length>30</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1717,6 +1781,7 @@ Created by John A Adams 11/4/2013</description>
         <length>1</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1730,6 +1795,7 @@ Created by John A Adams 11/4/2013</description>
         <length>30</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1754,6 +1820,7 @@ Created by John A Adams 11/4/2013</description>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
@@ -1764,6 +1831,7 @@ Created by John A Adams 2/18/2014</description>
         <label>Web Service Update Date</label>
         <required>false</required>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
@@ -1775,6 +1843,7 @@ Created by John A Adams 2/18/2014</description>
         <length>255</length>
         <required>false</required>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1787,6 +1856,7 @@ Created by John A Adams 2/18/2014</description>
         <length>40</length>
         <required>false</required>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1799,6 +1869,7 @@ Created by John A Adams 2/18/2014</description>
         <length>100</length>
         <required>false</required>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1811,6 +1882,7 @@ Created by John A Adams 9/27/2013</description>
         <length>32</length>
         <required>false</required>
         <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>

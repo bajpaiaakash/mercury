@@ -5,6 +5,10 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Clone</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -20,6 +24,10 @@
         <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -31,6 +39,10 @@
         <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Tab</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -38,6 +50,7 @@
         <actionName>View</actionName>
         <type>Default</type>
     </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Junction object between Meeting Participant and Agenda, used to associate Speakers to Agenda Items : MERC : Created on 10/03/2013 by John Adams, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
@@ -52,6 +65,7 @@
         <externalId>false</externalId>
         <inlineHelpText>Indicates that this record is related to a non-hcp meeting participant and should be anonymised (via workflows)</inlineHelpText>
         <label>Anonymise Record</label>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -62,6 +76,7 @@
         <label>Assigned Topic</label>
         <length>100</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -72,6 +87,7 @@
         <externalId>false</externalId>
         <inlineHelpText>Used by CMS Cork to confirm updates to certain information once a meeting is activated on the web services.</inlineHelpText>
         <label>Confirm Web Service Change</label>
+        <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -82,6 +98,7 @@
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Meeting Day</label>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -93,6 +110,7 @@
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Meeting ID</label>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -107,6 +125,7 @@ Created by John A Adams 10/3/2013</description>
         <relationshipLabel>Participant Agendas Items</relationshipLabel>
         <relationshipName>Participant_Sessions</relationshipName>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -117,6 +136,7 @@ Created by J Adams 12/10/2013</description>
         <label>Mercury External Id</label>
         <length>150</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -131,6 +151,7 @@ Meeting_Participant_MERC__r.Account_MERC__r.FirstName
 Meeting_Participant_MERC__r.Account_MERC__r.LastName</formula>
         <label>Name</label>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -145,6 +166,7 @@ Created by John A Adams 10/3/2013</description>
         <relationshipName>Participant_Sessions</relationshipName>
         <relationshipOrder>0</relationshipOrder>
         <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
@@ -156,6 +178,7 @@ Created by John A Adams 10/3/2013</description>
         <label>Speaker Topic Title</label>
         <length>100</length>
         <required>false</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>

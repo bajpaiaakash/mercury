@@ -40,7 +40,6 @@ public with sharing class GLBL_AccountMergeStampTrigger implements GLBL_TriggerH
 
 	public void handle()
 	{
-				System.debug(LoggingLevel.ERROR,'\n\n\nYYZ entering merge trigger: ' + Trigger.isDelete + Trigger.isBefore);
 	
 		if (Trigger.isDelete)
 		{
@@ -148,7 +147,7 @@ public with sharing class GLBL_AccountMergeStampTrigger implements GLBL_TriggerH
 		 * and create sObjects to update. Populate those SObjects with the id from the keyset and
 		 * old customer id from the mapped value
 		 */
-		Set<SObject> sObjectsToUpdate = new Set<SObject>();
+		LIST<SObject> sObjectsToUpdate = new LIST<SObject>();
 		for (Id childId : childIdToOldCustomerId.keySet())
 		{
 			Schema.SObjectType soType = childId.getSObjectType();
@@ -161,7 +160,7 @@ public with sharing class GLBL_AccountMergeStampTrigger implements GLBL_TriggerH
 
 		try
 		{
-			update new List<SObject>(sObjectsToUpdate);  // changed to Set due to DUPLICATE_VALUE error
+			update sObjectsToUpdate;
 		}
 		catch (Exception ex)
 		{
