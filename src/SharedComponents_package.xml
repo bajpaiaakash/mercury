@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+<types>
+        <members>GLBL_Customer_Search_Tool</members>
+        <members>GLBL_Salesforce_Login_Verification</members>
+        <members>SFDC_Metadata_API_GLBL</members>
+        <members>SFDC_Metadata_API_GLBL_Rollups</members>
+        <members>SFDC_Rest</members>
+        <name>RemoteSiteSetting</name>
+    </types>
+    
+    
+    <types>
+        <members>GLBL_AccountMergeStampTrigger</members>
+        <members>GLBL_AccountMergeStampTriggerTest</members>
+        <members>GLBL_ApexClassesSelector</members>
+        <members>GLBL_ApexTriggersSelector</members>
+        <members>GLBL_AsyncApexJobsSelector</members>
+        <members>GLBL_AsyncApexJobsSelectorTest</members>
+        <members>GLBL_BaseEditController</members>
+        <members>GLBL_BaseEditControllerTest</members>
+        <members>GLBL_CustomerSearchToolService</members>
+        <members>GLBL_CustomerSearchToolServiceMock</members>
+        <members>GLBL_CustomerSearchToolServiceTest</members>
+        <members>GLBL_DescribeLayoutTest</members>
+        <members>GLBL_GenericRelatedListController</members>
+        <members>GLBL_GenericRelatedListControllerTest</members>
+        <members>GLBL_GlobalIdAccountLookup</members>
+        <members>GLBL_GlobalIdAccountLookupTest</members>
+        <members>GLBL_LREngine</members>
+        <members>GLBL_LoginAuthorisationClass</members>
+        <members>GLBL_MetadataService</members>
+        <members>GLBL_MetadataServiceTest</members>
+        <members>GLBL_NewButtonPrepopController</members>
+        <members>GLBL_NewButtonPrepopControllerTest</members>
+        <members>GLBL_RollupCalculateController</members>
+        <members>GLBL_RollupCalculateControllerTest</members>
+        <members>GLBL_RollupCalculateJob</members>
+        <members>GLBL_RollupCalculateJobTest</members>
+        <members>GLBL_RollupController</members>
+        <members>GLBL_RollupControllerTest</members>
+        <members>GLBL_RollupJob</members>
+        <members>GLBL_RollupJobTest</members>
+        <members>GLBL_RollupService</members>
+        <members>GLBL_RollupServiceException</members>
+        <members>GLBL_RollupServiceExceptionTest</members>
+        <members>GLBL_RollupServiceTest</members>
+        <members>GLBL_RollupServiceTest2</members>
+        <members>GLBL_RollupServiceTest3</members>
+        <members>GLBL_RollupSummaries</members>
+        <members>GLBL_RollupSummariesSelector</members>
+        <members>GLBL_RollupSummariesTest</members>
+        <members>GLBL_RollupSummaryEnhancedController</members>
+        <members>GLBL_RollupSummaryEnhancedControllerTest</members>
+        <members>GLBL_RollupSummaryScheduleItemsSelector</members>
+        <members>GLBL_SobjectDataLoader</members>
+        <members>GLBL_SobjectDataLoaderTest</members>
+        <members>GLBL_SObjectDomain</members>
+        <members>GLBL_SObjectDomainTest</members>
+        <members>GLBL_SObjectSelector</members>
+        <members>GLBL_SObjectSelectorTest</members>
+        <members>GLBL_StringBuilder</members>
+        <members>GLBL_StringBuilderTest</members>
+        <members>GLBL_TestContext</members>
+        <members>GLBL_TestLREngine</members>
+        <members>GLBL_TriggerHandler</members>
+        <members>Test_GLBL_LoginAuthorisationClass</members>
+        <name>ApexClass</name>
+    </types>
+    
+    <types>
+        <members>GLBL_RollupServiceTest3Trigger</members>
+        <members>GLBL_RollupServiceTestTrigger</members>
+        <members>GLBL_RollupSummariesTrigger</members>
+        <name>ApexTrigger</name>
+    </types>
+    
+    <types>
+        <members>GLBL_NewEditJavascript</members>
+        <members>GLBL_zip</members>
+        <members>GLBL_zipEntry</members>
+        <name>ApexComponent</name>
+    </types>
+    
+    <types>
+        <members>GLBL_NewButtonPrepopulator</members>
+        <members>GLBL_managetrigger</members>
+        <members>GLBL_rollupcalculate</members>
+        <name>ApexPage</name>
+    </types>
+    
+    <types>
+        <members>GLBL_Rollup_jszip</members>
+        <name>StaticResource</name>
+    </types>
+    <version>30.0</version>
+</Package>
