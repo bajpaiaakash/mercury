@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>ACCOUNT.NAME</field>
+    </columns>
+    <columns>
+        <field>Account.Country_of_Residence_GLBL__c</field>
+    </columns>
+    <columns>
+        <field>Account.Cust_Id_GLBL__c</field>
+    </columns>
+    <columns>
+        <field>LAST_UPDATE</field>
+    </columns>
+    <columns>
+        <field>RECORDTYPE</field>
+    </columns>
+    <columns>
+        <field>USERS.NAME</field>
+    </columns>
+    <columns>
+        <field>Account.Relationship_Owner_MERC__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <description>R-0295: Identifies those HCP&apos;s who have recently been added to the Customer ODS having finished the Add New Customer process.</description>
+    <filter>
+        <criteriaItems>
+            <column>RECORDTYPE</column>
+            <operator>equals</operator>
+            <value>PersonAccount.HCP_GLBL</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>HCP: Added to Customer ODS Report</name>
+    <params>
+        <name>terr</name>
+        <value>all</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>AccountList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2014-01-01</startDate>
+    </timeFrameFilter>
+</Report>

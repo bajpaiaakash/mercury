@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Milestone</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Milestones</value>
+    </caseValues>
+    <fields>
+        <label><!-- Due Date --></label>
+        <name>Due_Date_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting --></label>
+        <name>Meeting_MERC__c</name>
+        <relationshipLabel><!-- Milestones --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Mercury External Id --></label>
+        <name>Mercury_External_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation><!-- In Progress --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>MERC_Milestone</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

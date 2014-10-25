@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Project</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Projects</value>
+    </caseValues>
+    <fields>
+        <label><!-- App --></label>
+        <name>App__c</name>
+        <relationshipLabel><!-- Projects --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Benefit Drivers --></label>
+        <name>Benefit_Drivers__c</name>
+        <picklistValues>
+            <masterLabel>Collaborative Productivity</masterLabel>
+            <translation><!-- Collaborative Productivity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Compliance/Risk Mitigation</masterLabel>
+            <translation><!-- Compliance/Risk Mitigation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cost Savings/Avoidance</masterLabel>
+            <translation><!-- Cost Savings/Avoidance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Operational Efficiency</masterLabel>
+            <translation><!-- Operational Efficiency --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Revenue Generation</masterLabel>
+            <translation><!-- Revenue Generation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Speed Innovation/Pipeline</masterLabel>
+            <translation><!-- Speed Innovation/Pipeline --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Checkpoint 1 --></label>
+        <name>Checkpoint_1__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Checkpoint 2 --></label>
+        <name>Checkpoint_2__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Cirrus Point of Contact for the Project. --></help>
+        <label><!-- Cirrus POC --></label>
+        <name>Cirrus_POC__c</name>
+        <relationshipLabel><!-- Projects (Cirrus POC) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Days Remaining --></label>
+        <name>Days_Remaining__c</name>
+    </fields>
+    <fields>
+        <help><!-- Record name of the delivery partner for this project --></help>
+        <label><!-- Delivery Partner --></label>
+        <name>Delivery_Partner__c</name>
+    </fields>
+    <fields>
+        <label><!-- End Date --></label>
+        <name>End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Estimated Net Benefit --></label>
+        <name>Estimated_Net_Benefit__c</name>
+    </fields>
+    <fields>
+        <label><!-- Expected Benefit statement --></label>
+        <name>Expected_Benefit_statement__c</name>
+    </fields>
+    <fields>
+        <label><!-- Anticipated Start Date --></label>
+        <name>MICO_Anticipated_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Build Effort --></label>
+        <name>MICO_Build_Effort__c</name>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation><!-- High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation><!-- Low --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Cirrus Stage --></label>
+        <name>MICO_Cirrus_Stage__c</name>
+        <picklistValues>
+            <masterLabel>Assessment</masterLabel>
+            <translation><!-- Assessment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Care</masterLabel>
+            <translation><!-- Care --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Final deployment</masterLabel>
+            <translation><!-- Final deployment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ideation</masterLabel>
+            <translation><!-- Ideation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sprint 0</masterLabel>
+            <translation><!-- Sprint 0 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sprinting</masterLabel>
+            <translation><!-- Sprinting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Support</masterLabel>
+            <translation><!-- Support --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Development Track --></label>
+        <name>MICO_Development_Track__c</name>
+        <picklistValues>
+            <masterLabel>Citizen</masterLabel>
+            <translation><!-- Citizen --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation><!-- High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation><!-- Low --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Support</masterLabel>
+            <translation><!-- Support --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Project Owner --></label>
+        <name>MICO_Project_Owner__c</name>
+        <relationshipLabel><!-- Projects (Project Owner) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Project Size --></label>
+        <name>MICO_Project_Size__c</name>
+        <picklistValues>
+            <masterLabel>Between 2 and 6 months</masterLabel>
+            <translation><!-- Between 2 and 6 months --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Greater than 6 months</masterLabel>
+            <translation><!-- Greater than 6 months --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Less than 1 month</masterLabel>
+            <translation><!-- Less than 1 month --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Less than 2 months</masterLabel>
+            <translation><!-- Less than 2 months --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Quality Critical --></label>
+        <name>MICO_Quality_Critical__c</name>
+        <picklistValues>
+            <masterLabel>Critical</masterLabel>
+            <translation><!-- Critical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non-Critical</masterLabel>
+            <translation><!-- Non-Critical --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Free text field to capture the rejection reason (if any) for the Project --></help>
+        <label><!-- Rejection Reason --></label>
+        <name>MICO_Rejection_Reason__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>MICO_Status__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deferred</masterLabel>
+            <translation><!-- Deferred --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Draft</masterLabel>
+            <translation><!-- Draft --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In review</masterLabel>
+            <translation><!-- In review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ready for review</masterLabel>
+            <translation><!-- Ready for review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- WIP Reference Number --></label>
+        <name>MICO_WIP_Reference_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- WIP URL --></label>
+        <name>MICO_WIP_URL__c</name>
+    </fields>
+    <fields>
+        <label><!-- No of completed Test Execution --></label>
+        <name>No_of_completed_Test_Execution__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of test executed --></label>
+        <name>Number_of_test_executed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of test to be executed --></label>
+        <name>Number_of_test_to_be_executed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prioritisation Score --></label>
+        <name>Prioritisation_Score__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project CR Reference --></label>
+        <name>Project_CR_Reference__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project Description --></label>
+        <name>Project_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project Owner --></label>
+        <name>Project_Owner__c</name>
+    </fields>
+    <fields>
+        <label><!-- Realised Benefits Statement --></label>
+        <name>Realised_Benefits_Statement__c</name>
+    </fields>
+    <fields>
+        <label><!-- Start Date --></label>
+        <name>Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Test Execution --></label>
+        <name>Total_Test_Execution__c</name>
+    </fields>
+    <layouts>
+        <layout>Project Layout</layout>
+        <sections>
+            <label><!-- Assessment &amp; Categorisation --></label>
+            <section>Assessment &amp; Categorisation</section>
+        </sections>
+        <sections>
+            <label><!-- Benefits --></label>
+            <section>Benefits</section>
+        </sections>
+        <sections>
+            <label><!-- Cirrus Stages --></label>
+            <section>Cirrus Stages</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Key Dates --></label>
+            <section>Key Dates</section>
+        </sections>
+        <sections>
+            <label><!-- WIP Information --></label>
+            <section>WIP Information</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Change_Owner --></label>
+        <name>Change_Owner</name>
+    </webLinks>
+</CustomObjectTranslation>

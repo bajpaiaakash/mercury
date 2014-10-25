@@ -1,0 +1,23 @@
+<apex:page standardController="MICO_Test_Template_Steps__c" extensions="MICO_Manage_Test_Script_Steps_Controller">
+    
+    <apex:form >
+        
+        <apex:pageBlock mode="Edit" title="Manage Test Script Steps">
+            <apex:pageMessages id="pageMsg" rendered="{!displayMsg}"/>
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!save}" value="Save" title="Save"/>
+                <apex:commandButton action="{!cancel}" value="Cancel" title="Cancel"/>
+            </apex:pageBlockButtons>
+            <apex:pageblockSection columns="1" title="Test Script Steps" id="testStep" collapsible="false">
+                <apex:pageBlockTable value="{!testScriptSteps}" var="step" columns="5" width="100%">
+                    <apex:column value="{!step.Name}" width="10%"/>
+                    <apex:column headerValue="Test Script Step Number" width="10%"><apex:inputField value="{!step.Test_Script_Step_Number__c}"/></apex:column>
+                    <apex:column headerValue="Action" width="27%"><apex:inputField value="{!step.Action__c}"/></apex:column>
+                    <apex:column headerValue="Expected Result" width="27%"><apex:inputField value="{!step.Expected_Result__c}"/></apex:column>
+                    <apex:column headerValue="Tips" width="26%"><apex:inputField value="{!step.Tips__c}"/></apex:column>
+                </apex:pageBlockTable>
+            </apex:pageblockSection>    
+        </apex:pageBlock>
+    </apex:form>
+    
+</apex:page>

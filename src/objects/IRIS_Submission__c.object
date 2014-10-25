@@ -1,0 +1,1301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <content>IRIS_Submission_Form</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Track and Mange document submissions</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fieldSets>
+        <fullName>AdditionalInformationOnSubmissionForm</fullName>
+        <description>Submission form Visual-force page</description>
+        <displayedFields>
+            <field>Document_purpose_and_or_changes__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Rationale_for_changes__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>General_Comments__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>AdditionalInformationOnSubmissionForm</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>FieldsOnAssessmentForm</fullName>
+        <description>Describes the fields which needs to be displayed on the assessment form</description>
+        <displayedFields>
+            <field>Country_Text__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Document_Name__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Region_Text__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>COE_Category__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Business_Unit__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Sub_Category__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Function__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Decision_Taken__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Decision_Comments__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Reason_Code__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>FieldsOnAssessmentForm</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>FieldsOnSubmissionForm</fullName>
+        <description>Used in the controller and visualforce page used for form submission</description>
+        <displayedFields>
+            <field>COE_Category__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Document_Submitter__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Sub_Category__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Document_Owner__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Business_Unit__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Function__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Language__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <label>FieldsOnSubmissionForm</label>
+    </fieldSets>
+    <fields>
+        <fullName>Assessment_Date__c</fullName>
+        <description>Date the Assessment is completed</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date the Assessment is completed</inlineHelpText>
+        <label>Assessment Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Business_Unit__c</fullName>
+        <description>Business Unit for which the local document applies (Bio-medicines, Diabetes, Elanco, Oncology, Emerging Markets, Global Services, LRL, Manufacturing, Quality)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name(s) of the specific business unit(s) to which the document applies; select “All” if the document is not business-unit specific and applies to all</inlineHelpText>
+        <label>Business Unit</label>
+        <picklist>
+            <picklistValues>
+                <fullName>All</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bio-medicines</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Diabetes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Elanco</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Emerging Markets</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Global Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>LRL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Oncology</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Quality</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>COE_Approver__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Persons who records the decision for the Local Document</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Individual within the COE responsible for approving or rejecting the document; system generated once approval/rejection is complete</inlineHelpText>
+        <label>COE Approver</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Iriss_Submissions3</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>COE_Assessor__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Person who assesses the Local Document</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Individual within the COE responsible for completing the assessment of the document; system generated once assessment is complete</inlineHelpText>
+        <label>COE Assessor</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Iriss_Submissions2</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>COE_Category__c</fullName>
+        <description>Type of policy applicable to the Local Document</description>
+        <externalId>false</externalId>
+        <inlineHelpText>General description of the type of document that is being submitted</inlineHelpText>
+        <label>COE Category</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Compliance Messaging Materials</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HR Investigations</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Local E&amp;C Procedures</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Country_Text__c</fullName>
+        <description>Used to store the selected country.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The countries for which the submission is related</inlineHelpText>
+        <label>Country</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Days_Left__c</fullName>
+        <description>Used to store the days left for Compliance.</description>
+        <externalId>false</externalId>
+        <formula>IF( ISNULL( Periodic_Review_Date__c ),null, Periodic_Review_Date__c - TODAY() )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Days Left</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Decision_Comments__c</fullName>
+        <description>Comments regarding Decision</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Comments regarding Decision</inlineHelpText>
+        <label>Decision Comments</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Decision_Date__c</fullName>
+        <description>Date the Decision entered</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date automatically generated by the system based upon when the COE Approver has made a decision about the document</inlineHelpText>
+        <label>Approval/Reject Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Decision_Taken__c</fullName>
+        <description>Used to store weather a record is approve or reject.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Final result of the submission that has been assessed; options include Approve or Reject</inlineHelpText>
+        <label>Decision</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Approve</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Reject</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Document_Name__c</fullName>
+        <description>Name of the document provided by the submitter</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name automatically assigned to the document by the system; used for administrative purposes</inlineHelpText>
+        <label>Submission Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Document_Owner__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Person who owns the document and is responsible for the content</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the person who is responsible for the document; typically it is a leader that is accountable</inlineHelpText>
+        <label>Document Owner</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Iriss_Submissions1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Document_Submitter__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Person submitting the document</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Defaults to the person who is submitting the document for review and approval</inlineHelpText>
+        <label>Document Submitter</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Iriss_Submissions</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Document_purpose_and_or_changes__c</fullName>
+        <description>Submitter will provide a brief description of the document changes, highlighting specific sections and elements in the document</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Specify why the document is being submitted and/or provide a high level summary of the changes</inlineHelpText>
+        <label>Document purpose and/or changes</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Effective_Date__c</fullName>
+        <description>Auto populate when the document is approved.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date when document goes into effect; manually entered.  If no date is entered, the date defaults to when the document was approved.</inlineHelpText>
+        <label>Effective Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Function__c</fullName>
+        <description>Function for which the local document applies (Corporate Affairs, Corporate Leadership, E&amp;C, Finance, HR, IT, Legal, LRL, Manufacturing, Marketing, Medical, Procurement, Quality, Sales, Six Sigma, Other)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name(s) of the specific function(s) to which the document applies; select “All” if the document is not function-specific and applies to all</inlineHelpText>
+        <label>Function</label>
+        <picklist>
+            <picklistValues>
+                <fullName>All</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Corporate Affairs</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Corporate Leadership</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E&amp;C</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ethics and Compliance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Legal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>LRL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Medical</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Procurement</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Quality</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Six Sigma</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>General_Comments__c</fullName>
+        <description>Additional comments</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Specify any other information for the COE reviewer/approver</inlineHelpText>
+        <label>General Comments</label>
+        <length>1000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Intended_Audience__c</fullName>
+        <description>Audience for which the local document applies (Global, Regional, Local)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Geographic scope of the document
+Local: Specify one or more countries to which this document applies
+Regional: Specify one or more regions to which this document applies
+Global: Document applies worldwide</inlineHelpText>
+        <label>Intended Audience</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Local</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Regional</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Global</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Language__c</fullName>
+        <description>The local document is written in this language</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Language that the document is currently written in</inlineHelpText>
+        <label>Language</label>
+        <picklist>
+            <picklistValues>
+                <fullName>English</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Arabic</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bulgarian</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chinese Simplified</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chinese Traditional</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Czech</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dutch</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>French</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>German</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Greek</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hungarian</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Indonesian</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Italian</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Japanese</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Korean</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Polish</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Portuguese</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Romanian</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Russian</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Slovak</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Spanish</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Thai</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Turkish</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Legal_Representative_s_Text__c</fullName>
+        <description>Persons who reviewed the local document from a Legal perspective, could be a Lilly employee or outside person</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Optional – manually entered name(s) of individuals within Legal that were consulted on this document</inlineHelpText>
+        <label>Legal Representative(s)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Overall_Percentage__c</fullName>
+        <description>The overall percentage of the submission assessment taken.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The overall percentage of the submission assessment taken.</inlineHelpText>
+        <label>Overall Percentage</label>
+        <summarizedField>IRIS_Submission_Assessment__c.Overall_Percentage__c</summarizedField>
+        <summaryFilterItems>
+            <field>IRIS_Submission_Assessment__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Completed</value>
+        </summaryFilterItems>
+        <summaryForeignKey>IRIS_Submission_Assessment__c.Submission__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Overall_Rating_Number__c</fullName>
+        <description>The overall rating of the associated submission assessment.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The overall rating of the associated submission assessment.</inlineHelpText>
+        <label>Overall Rating</label>
+        <summarizedField>IRIS_Submission_Assessment__c.Overall_Rating_Number__c</summarizedField>
+        <summaryFilterItems>
+            <field>IRIS_Submission_Assessment__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Completed</value>
+        </summaryFilterItems>
+        <summaryForeignKey>IRIS_Submission_Assessment__c.Submission__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Periodic_Review_Date__c</fullName>
+        <description>Date of next periodic review</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date when document must be re-reviewed; defaults to two years from the effective date</inlineHelpText>
+        <label>Periodic Review Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Rationale_for_changes__c</fullName>
+        <description>Submitter will provide a rationale for the changes to the local document</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Specify why changes were made to the document that is being submitted for review</inlineHelpText>
+        <label>Rationale for changes</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Reason_Code__c</fullName>
+        <description>Used to store the resone of rejection.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Explanation of the decision that was made on the document that was submitted</inlineHelpText>
+        <label>Reason Code</label>
+        <picklist>
+            <controllingField>Decision_Taken__c</controllingField>
+            <picklistValues>
+                <fullName>Missing one or more requirements</fullName>
+                <controllingFieldValues>Reject</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Local exception denied</fullName>
+                <controllingFieldValues>Reject</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Typographical errors</fullName>
+                <controllingFieldValues>Reject</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Approved with Differences</fullName>
+                <controllingFieldValues>Approve</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Approved As Is</fullName>
+                <controllingFieldValues>Approve</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <controllingFieldValues>Reject</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Region_Text__c</fullName>
+        <description>Used to store the selected regions.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The regions for which the submission is related</inlineHelpText>
+        <label>Region</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <description>Current workflow status of Local Document</description>
+        <externalId>false</externalId>
+        <inlineHelpText>System generated description of the state of the document; status options include:  Submitted, In Progress, Awaiting Translation, Pending Decision, Approved, or Rejected</inlineHelpText>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>New</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Awaiting translation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pending decision</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Sub_Category__c</fullName>
+        <description>The policy requirement for which the document is referencing</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Specific type of document that is being submitted for review</inlineHelpText>
+        <label>Sub-Category</label>
+        <picklist>
+            <controllingField>COE_Category__c</controllingField>
+            <picklistValues>
+                <fullName>Anti-bribery</fullName>
+                <controllingFieldValues>Compliance Messaging Materials</controllingFieldValues>
+                <controllingFieldValues>Local E&amp;C Procedures</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Anti-corruption</fullName>
+                <controllingFieldValues>Compliance Messaging Materials</controllingFieldValues>
+                <controllingFieldValues>Local E&amp;C Procedures</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Conflicts of Interest</fullName>
+                <controllingFieldValues>Compliance Messaging Materials</controllingFieldValues>
+                <controllingFieldValues>Local E&amp;C Procedures</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealing with Suppliers</fullName>
+                <controllingFieldValues>Compliance Messaging Materials</controllingFieldValues>
+                <controllingFieldValues>Local E&amp;C Procedures</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EIC Assessment</fullName>
+                <controllingFieldValues>HR Investigations</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Financial</fullName>
+                <controllingFieldValues>Compliance Messaging Materials</controllingFieldValues>
+                <controllingFieldValues>Local E&amp;C Procedures</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>General Message</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gifts</fullName>
+                <controllingFieldValues>Compliance Messaging Materials</controllingFieldValues>
+                <controllingFieldValues>Local E&amp;C Procedures</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Grants and Donations</fullName>
+                <controllingFieldValues>Compliance Messaging Materials</controllingFieldValues>
+                <controllingFieldValues>Local E&amp;C Procedures</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HCP Transparency</fullName>
+                <controllingFieldValues>Compliance Messaging Materials</controllingFieldValues>
+                <controllingFieldValues>Local E&amp;C Procedures</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Health Education</fullName>
+                <controllingFieldValues>Compliance Messaging Materials</controllingFieldValues>
+                <controllingFieldValues>Local E&amp;C Procedures</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hospitality and Entertainment</fullName>
+                <controllingFieldValues>Compliance Messaging Materials</controllingFieldValues>
+                <controllingFieldValues>Local E&amp;C Procedures</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Individual HCP Sponsorships</fullName>
+                <controllingFieldValues>Compliance Messaging Materials</controllingFieldValues>
+                <controllingFieldValues>Local E&amp;C Procedures</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Interactions with External Parties</fullName>
+                <controllingFieldValues>Compliance Messaging Materials</controllingFieldValues>
+                <controllingFieldValues>Local E&amp;C Procedures</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Interactions with Government and Public Officials</fullName>
+                <controllingFieldValues>Compliance Messaging Materials</controllingFieldValues>
+                <controllingFieldValues>Local E&amp;C Procedures</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Local Investigation Procedure</fullName>
+                <controllingFieldValues>HR Investigations</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Meetings</fullName>
+                <controllingFieldValues>Compliance Messaging Materials</controllingFieldValues>
+                <controllingFieldValues>Local E&amp;C Procedures</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Partnering with External Organizations</fullName>
+                <controllingFieldValues>Compliance Messaging Materials</controllingFieldValues>
+                <controllingFieldValues>Local E&amp;C Procedures</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Payments</fullName>
+                <controllingFieldValues>Compliance Messaging Materials</controllingFieldValues>
+                <controllingFieldValues>Local E&amp;C Procedures</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Political Financial Support and Involvement</fullName>
+                <controllingFieldValues>Compliance Messaging Materials</controllingFieldValues>
+                <controllingFieldValues>Local E&amp;C Procedures</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Promotional</fullName>
+                <controllingFieldValues>Compliance Messaging Materials</controllingFieldValues>
+                <controllingFieldValues>Local E&amp;C Procedures</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Promotion of Products</fullName>
+                <controllingFieldValues>Compliance Messaging Materials</controllingFieldValues>
+                <controllingFieldValues>Local E&amp;C Procedures</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Providing Samples</fullName>
+                <controllingFieldValues>Compliance Messaging Materials</controllingFieldValues>
+                <controllingFieldValues>Local E&amp;C Procedures</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Public Policy Research and Analysis</fullName>
+                <controllingFieldValues>Compliance Messaging Materials</controllingFieldValues>
+                <controllingFieldValues>Local E&amp;C Procedures</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Public Relations Activities</fullName>
+                <controllingFieldValues>Compliance Messaging Materials</controllingFieldValues>
+                <controllingFieldValues>Local E&amp;C Procedures</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Red Book</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Safety</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Scientific Exchange</fullName>
+                <controllingFieldValues>Compliance Messaging Materials</controllingFieldValues>
+                <controllingFieldValues>Local E&amp;C Procedures</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Speaker Training</fullName>
+                <controllingFieldValues>Compliance Messaging Materials</controllingFieldValues>
+                <controllingFieldValues>Local E&amp;C Procedures</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sponsorship of Independent Meetings</fullName>
+                <controllingFieldValues>Compliance Messaging Materials</controllingFieldValues>
+                <controllingFieldValues>Local E&amp;C Procedures</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Training Assessment</fullName>
+                <controllingFieldValues>HR Investigations</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Submission_Date__c</fullName>
+        <description>Date the Local Document is submitted</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date automatically generated by the system based upon when the document is submitted; date displayed in local time</inlineHelpText>
+        <label>Submission Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <label>Compliance Submission</label>
+    <listViews>
+        <fullName>All_Compliance_Messaging_Materials</fullName>
+        <columns>NAME</columns>
+        <columns>COE_Category__c</columns>
+        <columns>Sub_Category__c</columns>
+        <columns>Intended_Audience__c</columns>
+        <columns>Document_Name__c</columns>
+        <columns>Status__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>COE_Category__c</field>
+            <operation>equals</operation>
+            <value>Compliance Messaging Materials</value>
+        </filters>
+        <label>All Compliance Messaging Materials</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>IRIS_Compliance_Msg_Material_Approver</group>
+            <group>IRIS_Compliance_Msg_Material_Assessor</group>
+            <group>IRIS_Shre_Application_Administrator</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All_HR_Investigations_Submissions</fullName>
+        <columns>NAME</columns>
+        <columns>COE_Category__c</columns>
+        <columns>Sub_Category__c</columns>
+        <columns>Intended_Audience__c</columns>
+        <columns>Document_Name__c</columns>
+        <columns>Status__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>COE_Category__c</field>
+            <operation>equals</operation>
+            <value>HR Investigations</value>
+        </filters>
+        <label>All HR Investigations Submissions</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>IRIS_Shre_Application_Administrator</group>
+            <group>IRIS_Shre_HR_Investigations_Approver</group>
+            <group>IRIS_Shre_HR_Investigations_Assessor</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All_Local_E_C_Procedures_Submissions</fullName>
+        <columns>NAME</columns>
+        <columns>COE_Category__c</columns>
+        <columns>Sub_Category__c</columns>
+        <columns>Intended_Audience__c</columns>
+        <columns>Document_Name__c</columns>
+        <columns>Status__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>COE_Category__c</field>
+            <operation>equals</operation>
+            <value>Local E&amp;C Procedures</value>
+        </filters>
+        <label>All Local E&amp;C Procedures Submissions</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>IRIS_Shre_Application_Administrator</group>
+            <group>IRIS_Shre_Local_E_C_Procedures_Approver</group>
+            <group>IRIS_Shre_Local_E_C_Procedures_Assessor</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Compliance_Messaging_Materials_Approver</fullName>
+        <columns>NAME</columns>
+        <columns>COE_Category__c</columns>
+        <columns>Sub_Category__c</columns>
+        <columns>Intended_Audience__c</columns>
+        <columns>Document_Name__c</columns>
+        <columns>Status__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>COE_Category__c</field>
+            <operation>equals</operation>
+            <value>Compliance Messaging Materials</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Pending decision</value>
+        </filters>
+        <label>Compliance Messaging Materials Approver</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>IRIS_Compliance_Msg_Material_Approver</group>
+            <group>IRIS_Shre_Application_Administrator</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Compliance_Messaging_Materials_Queue</fullName>
+        <columns>NAME</columns>
+        <columns>COE_Category__c</columns>
+        <columns>Sub_Category__c</columns>
+        <columns>Intended_Audience__c</columns>
+        <columns>Document_Name__c</columns>
+        <columns>Status__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Queue</filterScope>
+        <filters>
+            <field>COE_Category__c</field>
+            <operation>equals</operation>
+            <value>Compliance Messaging Materials</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>New,Awaiting translation</value>
+        </filters>
+        <label>Compliance Messaging Materials Queue</label>
+        <language>en_US</language>
+        <queue>IRIS_Compliance_Msg_Materials_Assessor</queue>
+        <sharedTo>
+            <group>IRIS_Compliance_Msg_Material_Assessor</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>HR_Investigations_Approver</fullName>
+        <columns>NAME</columns>
+        <columns>COE_Category__c</columns>
+        <columns>Sub_Category__c</columns>
+        <columns>Intended_Audience__c</columns>
+        <columns>Document_Name__c</columns>
+        <columns>Status__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>COE_Category__c</field>
+            <operation>equals</operation>
+            <value>HR Investigations</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Pending decision</value>
+        </filters>
+        <label>HR Investigations Approver</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>IRIS_Shre_Application_Administrator</group>
+            <group>IRIS_Shre_HR_Investigations_Approver</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>HR_Investigations_Queue</fullName>
+        <columns>NAME</columns>
+        <columns>COE_Category__c</columns>
+        <columns>Sub_Category__c</columns>
+        <columns>Intended_Audience__c</columns>
+        <columns>Document_Name__c</columns>
+        <columns>Status__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Queue</filterScope>
+        <filters>
+            <field>COE_Category__c</field>
+            <operation>equals</operation>
+            <value>HR Investigations</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>New,Awaiting translation</value>
+        </filters>
+        <label>HR Investigations Queue</label>
+        <language>en_US</language>
+        <queue>IRIS_HR_Investigations_Assessor</queue>
+        <sharedTo>
+            <group>IRIS_Shre_Application_Administrator</group>
+            <group>IRIS_Shre_HR_Investigations_Assessor</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Local_E_C_Procedures_Approver</fullName>
+        <columns>NAME</columns>
+        <columns>COE_Category__c</columns>
+        <columns>Sub_Category__c</columns>
+        <columns>Intended_Audience__c</columns>
+        <columns>Document_Name__c</columns>
+        <columns>Status__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>COE_Category__c</field>
+            <operation>equals</operation>
+            <value>Local E&amp;C Procedures</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Pending decision</value>
+        </filters>
+        <label>Local E&amp;C Procedures Approver</label>
+        <language>en_US</language>
+        <sharedTo>
+            <group>IRIS_Shre_Application_Administrator</group>
+            <group>IRIS_Shre_Local_E_C_Procedures_Approver</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Local_E_C_Procedures_Queue</fullName>
+        <columns>NAME</columns>
+        <columns>COE_Category__c</columns>
+        <columns>Sub_Category__c</columns>
+        <columns>Intended_Audience__c</columns>
+        <columns>Document_Name__c</columns>
+        <columns>Status__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Queue</filterScope>
+        <filters>
+            <field>COE_Category__c</field>
+            <operation>equals</operation>
+            <value>Local E&amp;C Procedures</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>New,Awaiting translation</value>
+        </filters>
+        <label>Local E&amp;C Procedures Queue</label>
+        <language>en_US</language>
+        <queue>IRIS_Local_EnC_Procedures_Assessor</queue>
+        <sharedTo>
+            <group>IRIS_Shre_Application_Administrator</group>
+            <group>IRIS_Shre_Local_E_C_Procedures_Assessor</group>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>My_Compliance_Submissions</fullName>
+        <columns>NAME</columns>
+        <columns>COE_Category__c</columns>
+        <columns>Sub_Category__c</columns>
+        <columns>Intended_Audience__c</columns>
+        <columns>Document_Name__c</columns>
+        <columns>Status__c</columns>
+        <columns>CREATED_DATE</columns>
+        <filterScope>Mine</filterScope>
+        <label>My Compliance Submissions</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <displayFormat>IS-{0000}</displayFormat>
+        <label>Compliance Submission Number</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Compliance Submissions</pluralLabel>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>COE_Category__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Sub_Category__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>COE_Category__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Sub_Category__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Status__c</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>COE_Category__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Sub_Category__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+    <validationRules>
+        <fullName>Intended_Audience_Local_Iriss</fullName>
+        <active>true</active>
+        <description>Validate when Intended Audience is Regional then user should select at least one Country.</description>
+        <errorConditionFormula>AND(ISPICKVAL(Intended_Audience__c, &apos;Local&apos;), OR( Country_Text__c = $Label.Iriss_Pre_Text_For_Country ,  ISNULL(Country_Text__c) ,  ISBLANK(Country_Text__c) ))</errorConditionFormula>
+        <errorMessage>Please select a Country when Intended Audience is Local.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Intended_Audience_Regional_Iriss</fullName>
+        <active>true</active>
+        <description>Validate when Intended Audience is Regional then user should select at least one  Region.</description>
+        <errorConditionFormula>AND(ISPICKVAL(Intended_Audience__c, &apos;Regional&apos;),OR( Region_Text__c =  $Label.Iriss_Pre_Text_For_Region, ISNULL(Region_Text__c) , ISBLANK(Region_Text__c) ))</errorConditionFormula>
+        <errorMessage>Please select a region when Intended Audience is Regional.</errorMessage>
+    </validationRules>
+</CustomObject>

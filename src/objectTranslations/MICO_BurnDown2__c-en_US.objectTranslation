@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Burndown Stat</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Burndown Stats</value>
+    </caseValues>
+    <fields>
+        <label><!-- Actual Burndown --></label>
+        <name>Actual_burndown__c</name>
+    </fields>
+    <fields>
+        <label><!-- Current Velocity --></label>
+        <name>Current_velocity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date --></label>
+        <name>Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Optimum Burndown --></label>
+        <name>Optimum_burndown__c</name>
+    </fields>
+    <fields>
+        <label><!-- Points Complete --></label>
+        <name>Points_Complete__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project --></label>
+        <name>Project__c</name>
+    </fields>
+    <fields>
+        <label><!-- Projected Burndown --></label>
+        <name>Projected_burndown__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sprint In Progress --></label>
+        <name>Sprint_In_Progress__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sprint --></label>
+        <name>Sprint__c</name>
+        <relationshipLabel><!-- Burndown Stats --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Today --></label>
+        <name>Today__c</name>
+    </fields>
+    <layouts>
+        <layout>Burndown Stat Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Statistics --></label>
+            <section>Statistics</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

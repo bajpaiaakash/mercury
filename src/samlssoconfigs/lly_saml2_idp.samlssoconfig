@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SamlSsoConfig xmlns="http://soap.sforce.com/2006/04/metadata">
+    <identityLocation>SubjectNameId</identityLocation>
+    <identityMapping>FederationId</identityMapping>
+    <issuer>lly:saml2:idp</issuer>
+    <loginUrl>https://federate.xh1.lilly.com/idp/SSO.saml2</loginUrl>
+    <name>GSO</name>
+    <oauthTokenEndpoint>https://gso.my.salesforce.com/services/oauth2/token?so=00Db0000000Z7IN</oauthTokenEndpoint>
+    <redirectBinding>false</redirectBinding>
+    <salesforceLoginUrl>https://gso.my.salesforce.com?so=00Db0000000Z7IN</salesforceLoginUrl>
+    <samlEntityId>https://gso.my.salesforce.com</samlEntityId>
+    <samlVersion>SAML2_0</samlVersion>
+    <userProvisioning>false</userProvisioning>
+    <validationCert>MIIB2zCCAUSgAwIBAgIGAULJdilTMA0GCSqGSIb3DQEBBQUAMDExCzAJBgNVBAYTAlVTMRMwEQYDVQQKEwpTYWxlc2ZvcmNlMQ0wCwYDVQQDEwRHQ08xMB4XDTEzMTIwNjE5NTAzM1oXDTE4MTIwNTE5NTAzM1owMTELMAkGA1UEBhMCVVMxEzARBgNVBAoTClNhbGVzZm9yY2UxDTALBgNVBAMTBEdDTzEwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAIdTn/70A7qITrrVhPTGg9sxc6chI1ckwT0KV1K/J2zdSK0cXbQuVkx8a65Nb6NlybvqTN2UF7l/lGzMaFC0eAnxmD0gFRsG2pSmhV4DzLpkKpRwyWd2WEvw1RHML3Y5I0t27zMoFhDROMZq9fPvqs9yBJsIpGD4uAE/w9hCPwd7AgMBAAEwDQYJKoZIhvcNAQEFBQADgYEAgc/gYNiT5ViKdVrAWF718DOvnP1z80ko2QWhGwRLxHqdF13PHWpghw2FITcyB665yDxef562BlFo2Sc6oHX/6GXFa3dbnmXdUEK92V2IuUOHOdj+Uod3GpmcB2FGWOrTZqpVRSR50hVpv7+oZYmeA+G/5lvfhjB22jJEB8Wrn78=</validationCert>
+</SamlSsoConfig>

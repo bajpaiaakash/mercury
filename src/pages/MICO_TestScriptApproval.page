@@ -1,0 +1,37 @@
+<apex:page standardController="MICO_Test_Templates__c" extensions="MICO_TestScriptApprovalClass">
+ <apex:sectionHeader title="Verify Password" rendered="{!Not(verified)}"/>
+    <apex:form rendered="{!Not(verified)}">
+     <apex:pageMessages />
+    <apex:pageBlock title="" mode="view">
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Verify" action="{!checkLogin}" />
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="Test Script Approval" columns="1">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Username" for="username"/>
+                    <apex:outputText value="{!username}" id="username"/>
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Password" for="password"/>
+                    <apex:inputSecret value="{!password}" id="password"/>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+   <apex:sectionHeader title="Approve/Reject" rendered="{!verified}"/>
+   <apex:form rendered="{!verified}">
+     <apex:pageBlock title="" mode="view">
+      <apex:pageBlockSection title="Approval Action" columns="2">
+        <apex:pageBlockSectionItem >
+            <apex:commandButton value="Approve" action="{!approveUserStory}" />
+            <apex:commandButton value="Reject" action="{!rejectUserStory}" />
+        </apex:pageBlockSectionItem>
+      </apex:pageBlockSection>
+      <apex:pageBlockSection title="Comments" columns="1">
+       <apex:pageBlockSectionItem >
+          <apex:inputTextArea style="width:300px; height:100px;"  value="{!comments}"/>
+      </apex:pageBlockSectionItem>
+      </apex:pageBlockSection>
+     </apex:pageBlock> 
+    </apex:form>
+</apex:page>

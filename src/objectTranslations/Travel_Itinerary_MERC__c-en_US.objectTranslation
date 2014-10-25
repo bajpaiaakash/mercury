@@ -1,0 +1,939 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Travel Itinerary</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Travel Itineraries</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account_MERC__c</name>
+        <relationshipLabel><!-- Travel Itineraries --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Account Number --></label>
+        <name>Account_Number_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Wheelchair access, no smoking, dust allergy, etc. --></help>
+        <label><!-- Additional Information --></label>
+        <name>Additional_Information_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Allowance Distance Description --></label>
+        <name>Allwnc_Dstnc_Desc_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Allowance Distance Type --></label>
+        <name>Allwnc_Dstnc_Typ_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Indicates that this record is related to a non-hcp meeting participant and should be anonymised (via workflows) --></help>
+        <label><!-- Anonymise Record --></label>
+        <name>Anonymise_Record_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Aircraft Type Code --></label>
+        <name>Arcrft_Typ_Cd_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Arrival Terminal Name --></label>
+        <name>Arrvl_Trmnl_Nm_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Begin Airport Code --></label>
+        <name>Bgn_Arprt_Cd_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Begin City --></label>
+        <name>Bgn_City_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Begin Station Code --></label>
+        <name>Bgn_Sttn_Cd_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Begin Station Name --></label>
+        <name>Bgn_Sttn_Nm_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Booking Date --></label>
+        <name>Booking_Date_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bus Number --></label>
+        <name>Bus_Nmbr_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Car Class Code --></label>
+        <name>Car_Clss_Cd_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Car Equipment Code --></label>
+        <name>Car_Equip_Cd_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Car Rate Code --></label>
+        <name>Car_Rate_Cd_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Car Type Code --></label>
+        <name>Car_Typ_Cd_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Code Share Remark --></label>
+        <name>Cd_Shr_Rmrk_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- City --></label>
+        <name>City_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Class of Service Code --></label>
+        <name>Clss_Sric_Cd_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Connection Type --></label>
+        <name>Cnnctn_Typ_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Combined ID --></label>
+        <name>Combined_ID_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Confirm ToV Reporting Change --></label>
+        <name>Confirm_ToV_Reporting_Change_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Confirmation Number --></label>
+        <name>Confirmation_Number_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Daily Extra Amount Description --></label>
+        <name>Dly_Ext_Amnt_Desc_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Departure Terminal Name --></label>
+        <name>Dprtr_Trmnl_Nm_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Drop off Location Description --></label>
+        <name>Drp_off_Lctn_Desc_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Distance Charge Amount Desc --></label>
+        <name>Dstnc_Chrg_Amnt_Desc_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- End Airport Code --></label>
+        <name>End_Arprt_Cd_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- End City --></label>
+        <name>End_City_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- End Station Code --></label>
+        <name>End_Sttn_Cd_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- End Station Name --></label>
+        <name>End_Sttn_Nm_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Exchange Transaction Flag --></label>
+        <name>Exchange_Transaction_Flag_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fare Basis Code --></label>
+        <name>Fare_Bss_Cd_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Field Name --></label>
+        <name>Field_Nm_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Field Value Description --></label>
+        <name>Field_Value_Description_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- First Name --></label>
+        <name>First_Name_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Flight Number --></label>
+        <name>Flght_Nmbr_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Force Unique Travel Itinerary --></label>
+        <name>Force_Unique_Travel_Itinerary_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Gauge Change Airport Code --></label>
+        <name>Gg_Chng_Arprt_Cd_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Hotel Name --></label>
+        <name>Hotel_Name_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Hourly Extra Charge Amount Description --></label>
+        <name>Hrly_Ext_Chrg_Amnt_Desc_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Hotel Address Type --></label>
+        <name>Htl_Addrss_Typ_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Hotel City Code --></label>
+        <name>Htl_City_Cd_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Hotel Fax Number --></label>
+        <name>Htl_Fax_Nmbr_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Hotel Phone Number --></label>
+        <name>Htl_Phone_Nmbr_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Hotel Property Code --></label>
+        <name>Htl_Prprty_Cd_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- In Flight Meal Description --></label>
+        <name>In_Flght_Ml_Desc_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Include ToV --></label>
+        <name>Include_ToV_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Check this field to include this record as Individual Ground Transportation ToV for Individual Travel during a meeting.  This will combined with any group Ground Transportation ToV attributed for the meeting day for this meeting participant. --></help>
+        <label><!-- Individual Travel ToV Applicable --></label>
+        <name>Individual_Travel_ToV_Applicable_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- International Flag --></label>
+        <name>International_Flag_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Issued GTM Timestamp --></label>
+        <name>Issued_GTM_Timestamp_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Name --></label>
+        <name>Last_Name_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Line1 --></label>
+        <name>Line1_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Low Fare Amount --></label>
+        <name>Lw_Fr_Amnt_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Manual Booking Flag --></label>
+        <name>Manual_Booking_Flag_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting End Date/Time --></label>
+        <name>Meeting_End_Date_Time_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting Id --></label>
+        <name>Meeting_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting Participant --></label>
+        <name>Meeting_Participant_MERC__c</name>
+        <relationshipLabel><!-- Travel Itineraries --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Meeting Start Date/Time --></label>
+        <name>Meeting_Start_Date_Time_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting Status --></label>
+        <name>Meeting_Status_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting Time Zone --></label>
+        <name>Meeting_Time_Zone_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting Vendor --></label>
+        <name>Meeting_Vendor_MERC__c</name>
+        <relationshipLabel><!-- Travel Itineraries --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Meeting Vendor Name --></label>
+        <name>Meeting_Vendor_Name_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mercury External Id --></label>
+        <name>Mercury_External_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Middle Name --></label>
+        <name>Middle_Name_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Missed Reason Code --></label>
+        <name>Mssd_Rsn_Cd_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Message Version --></label>
+        <name>Mssge_Vrsn_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Passenger Name Record # --></label>
+        <name>PNR_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pick Up Location Description --></label>
+        <name>Pck_Up_Lctn_Desc_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Priority --></label>
+        <name>Priority_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Property Name --></label>
+        <name>Prprty_Nm_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pseudo City --></label>
+        <name>Pseudo_City_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pseudo City Type --></label>
+        <name>Pseudo_City_Type_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rail Fare Basis Code --></label>
+        <name>Rail_Fr_Bss_Cd_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rate Fare Amount --></label>
+        <name>Rate_Fare_Amount_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reservation Type --></label>
+        <name>Reservation_Type_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Room Adult Quantity --></label>
+        <name>Rm_Adlt_Qntty_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Room Crib Quantity --></label>
+        <name>Rm_Crib_Qntty_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Room Extra Adult Quantity --></label>
+        <name>Rm_Ext_Adlt_Qntty_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Room Extra Child Quantity --></label>
+        <name>Rm_Ext_Chld_Qntty_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Room Type --></label>
+        <name>Rm_Typ_Cd_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Room Rate (excl VAT) --></label>
+        <name>Room_Rate_excl_VAT_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field is used to count the rooms that we are booking --></help>
+        <label><!-- Reserved Unit Quantity --></label>
+        <name>Rsrvd_Unt_Qntty_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Seat Number --></label>
+        <name>Seat_Nmbr_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Segment Begin --></label>
+        <name>Segment_Begin_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Segment Begin Timezone --></label>
+        <name>Segment_Begin_Timezone_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Central European Time (Europe/Amsterdam)</masterLabel>
+            <translation><!-- Central European Time (Europe/Amsterdam) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Central European Time (Europe/Berlin)</masterLabel>
+            <translation><!-- Central European Time (Europe/Berlin) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Central European Time (Europe/Brussels)</masterLabel>
+            <translation><!-- Central European Time (Europe/Brussels) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Central European Time (Europe/Paris)</masterLabel>
+            <translation><!-- Central European Time (Europe/Paris) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Central European Time (Europe/Prague)</masterLabel>
+            <translation><!-- Central European Time (Europe/Prague) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Central European Time (Europe/Rome)</masterLabel>
+            <translation><!-- Central European Time (Europe/Rome) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eastern European Time (Europe/Athens)</masterLabel>
+            <translation><!-- Eastern European Time (Europe/Athens) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eastern European Time (Europe/Bucharest)</masterLabel>
+            <translation><!-- Eastern European Time (Europe/Bucharest) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eastern European Time (Europe/Helsinki)</masterLabel>
+            <translation><!-- Eastern European Time (Europe/Helsinki) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eastern European Time (Europe/Istanbul)</masterLabel>
+            <translation><!-- Eastern European Time (Europe/Istanbul) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Further-eastern European Time (Europe/Minsk)</masterLabel>
+            <translation><!-- Further-eastern European Time (Europe/Minsk) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Greenwich Mean Time (Europe/Dublin)</masterLabel>
+            <translation><!-- Greenwich Mean Time (Europe/Dublin) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Greenwich Mean Time (Europe/London)</masterLabel>
+            <translation><!-- Greenwich Mean Time (Europe/London) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Greenwich Mean Time (GMT)</masterLabel>
+            <translation><!-- Greenwich Mean Time (GMT) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Moscow Standard Time (Europe/Moscow)</masterLabel>
+            <translation><!-- Moscow Standard Time (Europe/Moscow) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Western European Time (Europe/Lisbon)</masterLabel>
+            <translation><!-- Western European Time (Europe/Lisbon) --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Segment End --></label>
+        <name>Segment_End_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Segment End Timezone --></label>
+        <name>Segment_End_Timezone_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Central European Time (Europe/Amsterdam)</masterLabel>
+            <translation><!-- Central European Time (Europe/Amsterdam) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Central European Time (Europe/Berlin)</masterLabel>
+            <translation><!-- Central European Time (Europe/Berlin) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Central European Time (Europe/Brussels)</masterLabel>
+            <translation><!-- Central European Time (Europe/Brussels) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Central European Time (Europe/Paris)</masterLabel>
+            <translation><!-- Central European Time (Europe/Paris) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Central European Time (Europe/Prague)</masterLabel>
+            <translation><!-- Central European Time (Europe/Prague) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Central European Time (Europe/Rome)</masterLabel>
+            <translation><!-- Central European Time (Europe/Rome) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eastern European Time (Europe/Athens)</masterLabel>
+            <translation><!-- Eastern European Time (Europe/Athens) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eastern European Time (Europe/Bucharest)</masterLabel>
+            <translation><!-- Eastern European Time (Europe/Bucharest) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eastern European Time (Europe/Helsinki)</masterLabel>
+            <translation><!-- Eastern European Time (Europe/Helsinki) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eastern European Time (Europe/Istanbul)</masterLabel>
+            <translation><!-- Eastern European Time (Europe/Istanbul) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Further-eastern European Time (Europe/Minsk)</masterLabel>
+            <translation><!-- Further-eastern European Time (Europe/Minsk) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Greenwich Mean Time (Europe/Dublin)</masterLabel>
+            <translation><!-- Greenwich Mean Time (Europe/Dublin) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Greenwich Mean Time (Europe/London)</masterLabel>
+            <translation><!-- Greenwich Mean Time (Europe/London) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Greenwich Mean Time (GMT)</masterLabel>
+            <translation><!-- Greenwich Mean Time (GMT) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Moscow Standard Time (Europe/Moscow)</masterLabel>
+            <translation><!-- Moscow Standard Time (Europe/Moscow) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Western European Time (Europe/Lisbon)</masterLabel>
+            <translation><!-- Western European Time (Europe/Lisbon) --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Segment Number --></label>
+        <name>Segment_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Segment Type Description --></label>
+        <name>Segment_Type_Description_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Segment Begin Timestamp --></label>
+        <name>Sgmnt_Bgin_TS_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Segment End Timestamp --></label>
+        <name>Sgmnt_End_TS_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Segment Travel Duration Value --></label>
+        <name>Sgmnt_Trvl_Drtn_Vl_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- State Province --></label>
+        <name>State_Prvnc_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- If the HCP cancels attendance, or the ToV attributed to this record should not be reported within Mercury due to a No Show, the record can be updated to Cancelled.  Confirmed records are reportable. --></help>
+        <label><!-- Status --></label>
+        <name>Status_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Cancelled</masterLabel>
+            <translation><!-- Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Confirmed</masterLabel>
+            <translation><!-- Confirmed --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Supplier Service --></label>
+        <name>Supplier_Service_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Supplier Status Code --></label>
+        <name>Supplier_Status_Code_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tag Name --></label>
+        <name>Tag_Name_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ticket Number --></label>
+        <name>Ticket_Number_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- This value is reportable if the &quot;Individual Travel ToV Applicable&quot; checkbox is set for a Private Transfer Travel Itinerary record. --></help>
+        <label><!-- Total Fare Amount --></label>
+        <name>Total_Fare_Amount_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Transaction Id --></label>
+        <name>Transaction_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Transaction Type --></label>
+        <name>Transaction_Type_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Travel Detail Type --></label>
+        <name>Travel_Detail_Typ_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Accommodation</masterLabel>
+            <translation><!-- Accommodation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Connection Leg</masterLabel>
+            <translation><!-- Connection Leg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inbound Leg</masterLabel>
+            <translation><!-- Inbound Leg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outbound Leg</masterLabel>
+            <translation><!-- Outbound Leg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Private Transfer</masterLabel>
+            <translation><!-- Private Transfer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle Rental</masterLabel>
+            <translation><!-- Vehicle Rental --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Traveler Ref Id --></label>
+        <name>Traveler_Ref_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Traveller Name --></label>
+        <name>Traveller_Name_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Train Coach Number --></label>
+        <name>Trn_Cch_Nmbr_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Train Number --></label>
+        <name>Trn_Nmbr_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Travel Distance Value --></label>
+        <name>Trvl_Dstnc_Vl_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Traveler Id Reference --></label>
+        <name>Trvlr_Id_Rfrnc_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vendor Class Code --></label>
+        <name>Vendor_Class_Code_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vendor Classification --></label>
+        <name>Vendor_Classification_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vendor Code --></label>
+        <name>Vendor_Code_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vendor --></label>
+        <name>Vendor_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vendor Name --></label>
+        <name>Vendor_Name_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Zip Postal Code --></label>
+        <name>Zip_Pstl_Cd_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- eTicket Flag --></label>
+        <name>eTicket_Flg_MERC__c</name>
+    </fields>
+    <layouts>
+        <layout>MERC_Air</layout>
+        <sections>
+            <label><!-- Arrival --></label>
+            <section>Arrival</section>
+        </sections>
+        <sections>
+            <label><!-- Booking Reference --></label>
+            <section>Booking Reference</section>
+        </sections>
+        <sections>
+            <label><!-- Class --></label>
+            <section>Class</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Date/Time Information --></label>
+            <section>Date/Time Information</section>
+        </sections>
+        <sections>
+            <label><!-- Departure --></label>
+            <section>Departure</section>
+        </sections>
+        <sections>
+            <label><!-- Fare --></label>
+            <section>Fare</section>
+        </sections>
+        <sections>
+            <label><!-- Flight --></label>
+            <section>Flight</section>
+        </sections>
+        <sections>
+            <label><!-- Meeting Information --></label>
+            <section>Meeting Information</section>
+        </sections>
+        <sections>
+            <label><!-- Transportation Company --></label>
+            <section>Transportation Company</section>
+        </sections>
+        <sections>
+            <label><!-- Travel Segment --></label>
+            <section>Travel Segment</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Bus</layout>
+        <sections>
+            <label><!-- Arrival --></label>
+            <section>Arrival</section>
+        </sections>
+        <sections>
+            <label><!-- Booking Reference --></label>
+            <section>Booking Reference</section>
+        </sections>
+        <sections>
+            <label><!-- Bus --></label>
+            <section>Bus</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Date/Time Information --></label>
+            <section>Date/Time Information</section>
+        </sections>
+        <sections>
+            <label><!-- Departure --></label>
+            <section>Departure</section>
+        </sections>
+        <sections>
+            <label><!-- Fee --></label>
+            <section>Fee</section>
+        </sections>
+        <sections>
+            <label><!-- Meeting Information --></label>
+            <section>Meeting Information</section>
+        </sections>
+        <sections>
+            <label><!-- Transportation Company --></label>
+            <section>Transportation Company</section>
+        </sections>
+        <sections>
+            <label><!-- Travel Segment --></label>
+            <section>Travel Segment</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Car</layout>
+        <sections>
+            <label><!-- Arrival --></label>
+            <section>Arrival</section>
+        </sections>
+        <sections>
+            <label><!-- Booking Reference --></label>
+            <section>Booking Reference</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Date/Time Information --></label>
+            <section>Date/Time Information</section>
+        </sections>
+        <sections>
+            <label><!-- Departure --></label>
+            <section>Departure</section>
+        </sections>
+        <sections>
+            <label><!-- Fare --></label>
+            <section>Fare</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Meeting Information --></label>
+            <section>Meeting Information</section>
+        </sections>
+        <sections>
+            <label><!-- Travel Segment --></label>
+            <section>Travel Segment</section>
+        </sections>
+        <sections>
+            <label><!-- Vehicle --></label>
+            <section>Vehicle</section>
+        </sections>
+        <sections>
+            <label><!-- Vendor --></label>
+            <section>Vendor</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Hotel</layout>
+        <sections>
+            <label><!-- Booking Reference --></label>
+            <section>Booking Reference</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Date/Time Information --></label>
+            <section>Date/Time Information</section>
+        </sections>
+        <sections>
+            <label><!-- Fee --></label>
+            <section>Fee</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Hotel --></label>
+            <section>Hotel</section>
+        </sections>
+        <sections>
+            <label><!-- Meeting Information --></label>
+            <section>Meeting Information</section>
+        </sections>
+        <sections>
+            <label><!-- Room --></label>
+            <section>Room</section>
+        </sections>
+        <sections>
+            <label><!-- Travel Segment --></label>
+            <section>Travel Segment</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Limo_Service</layout>
+        <sections>
+            <label><!-- CWT Information --></label>
+            <section>CWT Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Meeting Information --></label>
+            <section>Meeting Information</section>
+        </sections>
+        <sections>
+            <label><!-- Travel Details --></label>
+            <section>Travel Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Rail</layout>
+        <sections>
+            <label><!-- Arrival --></label>
+            <section>Arrival</section>
+        </sections>
+        <sections>
+            <label><!-- Booking Reference --></label>
+            <section>Booking Reference</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Date/Time Information --></label>
+            <section>Date/Time Information</section>
+        </sections>
+        <sections>
+            <label><!-- Departure --></label>
+            <section>Departure</section>
+        </sections>
+        <sections>
+            <label><!-- Fee --></label>
+            <section>Fee</section>
+        </sections>
+        <sections>
+            <label><!-- Meeting Information --></label>
+            <section>Meeting Information</section>
+        </sections>
+        <sections>
+            <label><!-- Train --></label>
+            <section>Train</section>
+        </sections>
+        <sections>
+            <label><!-- Transportation Company --></label>
+            <section>Transportation Company</section>
+        </sections>
+        <sections>
+            <label><!-- Travel Segment --></label>
+            <section>Travel Segment</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Air --></label>
+        <name>Air_MERC</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Bus --></label>
+        <name>Bus</name>
+    </recordTypes>
+    <recordTypes>
+        <label>Rental Car</label>
+        <name>Car_MERC</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Hotel --></label>
+        <name>Hotel_MERC</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Rail --></label>
+        <name>Rail_MERC</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- ToV has already been reported this meeting participant. Customer Meeting Services needs to confirm this change before it can be made. --></errorMessage>
+        <name>Confirm_ToV_Reporting_Change_MERC</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- If Individual Travel ToV is applicable for private transfer the Total Fare Amount must be entered and must also be greater than 0. --></errorMessage>
+        <name>MERC_Enforce_Total_Fare_Amount</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- For Individual Sponsorship all ToV should be totalled and entered onto the meeting participant record. --></errorMessage>
+        <name>MERC_Prevent_Private_Transfer_ToV</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- ToV for the meeting has already been finalised.  No additional Itinerary items can be created.  Please contact a member of the customer meeting services team. --></errorMessage>
+        <name>Prevent_Travel_Records_post_ToV_Final</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The Segment Dates selected must be within 3 +/- days of the start or end of the meeting. --></errorMessage>
+        <name>Travel_Date_Range</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The travel itinerary items must be entered in the same currency as the meeting. --></errorMessage>
+        <name>Travel_Itinerary_currency_MERC</name>
+    </validationRules>
+</CustomObjectTranslation>

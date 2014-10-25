@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Web Service Error</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Web Service Errors</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account_GLBL__c</name>
+        <relationshipLabel><!-- Web Service Errors --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Action --></label>
+        <name>Action_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Email Address --></label>
+        <name>Case_Email_Address_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Case Email --></label>
+        <name>Case_Email_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country --></label>
+        <name>Country_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Error Detail --></label>
+        <name>Error_Detail_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Global Id --></label>
+        <name>Global_Id_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Language --></label>
+        <name>Language_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Name --></label>
+        <name>Name_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Object --></label>
+        <name>Object_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Record --></label>
+        <name>Primary_Record_GLBL__c</name>
+    </fields>
+    <layouts>
+        <layout>Web Service Error Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

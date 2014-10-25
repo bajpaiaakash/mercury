@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>PANG_Request__c.EXPERT_Review_Type__c</field>
+    </columns>
+    <columns>
+        <field>PANG_Request__c.Related_Project__c</field>
+    </columns>
+    <columns>
+        <field>PANG_Request__c.Primary_Request__c</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>CUST_RECORDTYPE</column>
+            <operator>equals</operator>
+            <value>PANG_Request__c.EXPERT_Review</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>EXPERT Review with Type Project Request</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$PANG_Request__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>PANG_Request__c.Confidentiality_Agreement_Expiration__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

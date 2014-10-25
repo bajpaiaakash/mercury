@@ -1,0 +1,9 @@
+{!PANG_Request__c.Name}
+
+Requestor:  {!PANG_Request__c.Requestor__c}
+
+Requestor Functional Area: {!PANG_Request__c.Requestor_Functional_Area__c}
+
+Request ID: {!PANG_Request__c.Request_ID__c}
+
+Link to Request: {!PANG_Request__c.Link}

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>New object to capture session information for Lilly IT Conference: Created by Preeti Grover on 21/08/2014:LITC</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Duration__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT( FLOOR( Session_End_Date_Time__c - Session_Start_Date_Time__c ) ) + &apos; days &apos; +
+TEXT( FLOOR( MOD((Session_End_Date_Time__c - Session_Start_Date_Time__c) * 1440, 1440) / 60) ) + &apos; hours &apos; +
+TEXT( ROUND(MOD( MOD((Session_End_Date_Time__c - Session_Start_Date_Time__c) * 1440, 1440), 60), 2) ) + &apos; mins&apos;</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Duration</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Key_Speakers__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Key speakers at the Session</inlineHelpText>
+        <label>Key Speakers</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Location__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Location where the Session will be held</inlineHelpText>
+        <label>Location</label>
+        <length>80</length>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Overview__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Synopsis of what the session is about</inlineHelpText>
+        <label>Overview</label>
+        <length>32768</length>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Publish__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This field is used in the criteria based sharing rule to give access to the users</description>
+        <externalId>false</externalId>
+        <label>Published</label>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Session_End_Date_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>Session End Date Time</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Session_Start_Date_Time__c</fullName>
+        <description>Start time of the session</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Start time of the session</inlineHelpText>
+        <label>Session Start Date Time</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <label>IT Conference</label>
+    <listViews>
+        <fullName>All_Session</fullName>
+        <columns>NAME</columns>
+        <columns>Location__c</columns>
+        <columns>Session_Start_Date_Time__c</columns>
+        <columns>Session_End_Date_Time__c</columns>
+        <columns>Key_Speakers__c</columns>
+        <columns>Overview__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Sessions</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <label>Session Name</label>
+        <trackFeedHistory>true</trackFeedHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>IT Conference</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Location__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Session_Start_Date_Time__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Session_End_Date_Time__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Key_Speakers__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Overview__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Location__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Session_Start_Date_Time__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Session_End_Date_Time__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Key_Speakers__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Overview__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Location__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Session_Start_Date_Time__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Session_End_Date_Time__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Key_Speakers__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Overview__c</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>Location__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Session_Start_Date_Time__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Session_End_Date_Time__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Key_Speakers__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Overview__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+</CustomObject>

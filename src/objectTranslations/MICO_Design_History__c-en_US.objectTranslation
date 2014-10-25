@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Design History</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Design History</value>
+    </caseValues>
+    <fields>
+        <label><!-- Apex Classes --></label>
+        <name>Apex_Classes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Apex Trigger --></label>
+        <name>Apex_Trigger__c</name>
+    </fields>
+    <fields>
+        <label><!-- Approval Date --></label>
+        <name>Approval_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Approver --></label>
+        <name>Approver__c</name>
+        <relationshipLabel><!-- Design History --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Data Model --></label>
+        <name>Data_Model__c</name>
+    </fields>
+    <fields>
+        <label><!-- Design Overview --></label>
+        <name>Design_Overview__c</name>
+    </fields>
+    <fields>
+        <label><!-- Design --></label>
+        <name>Design__c</name>
+        <relationshipLabel><!-- Design History --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Fields --></label>
+        <name>Fields__c</name>
+    </fields>
+    <fields>
+        <label><!-- Objects --></label>
+        <name>Objects__c</name>
+    </fields>
+    <fields>
+        <label><!-- Other Components --></label>
+        <name>Other_Components__c</name>
+    </fields>
+    <layouts>
+        <layout>Design History Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

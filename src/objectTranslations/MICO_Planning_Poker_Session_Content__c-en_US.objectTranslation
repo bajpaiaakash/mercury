@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Planning Poker Session Content</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Planning Poker Session Contents</value>
+    </caseValues>
+    <fields>
+        <label><!-- Planning Poker Session --></label>
+        <name>Planning_Poker_Session__c</name>
+        <relationshipLabel><!-- Planning Poker Session Contents --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- System_Is_Selected --></label>
+        <name>System_Is_Selected__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Story Points --></label>
+        <name>Total_Story_Points__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unique Id --></label>
+        <name>Unique_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- User Story Title --></label>
+        <name>User_Story_Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- User Story --></label>
+        <name>User_Story__c</name>
+        <relationshipLabel><!-- Planning Poker Session Contents --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Planning Poker Session Content Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

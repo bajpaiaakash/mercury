@@ -1,0 +1,64 @@
+<apex:page standardController="IRIS_Submission__c"  tabStyle="IRIS_Submission__c" cache="false"
+           sidebar="false" extensions="IRIS_ApprovalHistory_ControllerExtension" id="myPage">
+
+    <apex:form >
+    <apex:outputText value="{!$Label.Irss_No_records_to_display_on_Approval_History_Page}" rendered="{!NOT(histories.size>0)}"/>
+    <apex:pageBlock rendered="{!histories.size>0}">
+        <table class="standardtable current-irp" style="border:0"> 
+            <tr>
+                <th style="width:234px;">{!$Label.Iriss_Approval_History_Action_Column}</th>
+                <th style="width:300px;">{!$Label.Iriss_Approval_History_Date_Column}</th>
+                <th style="width:234px;">{!$Label.Iriss_Approval_History_Status_Column}</th>
+                <th style="width:234px;">{!$Label.Iriss_Approval_History_Assisgned_To_Column}</th>
+                <th style="width:234px;">{!$Label.Iriss_Approval_History_Actual_Approver_Column}</th>
+                <th style="width:234px;">{!$Label.Iriss_Approval_History_Overall_Status_Column}</th>
+            </tr>
+            
+            <apex:repeat id="requests" value="{!histories}" var="histRec">     
+                   
+                <apex:repeat id="wrkItems" value="{!histRec.Workitems}" var="histWorkItem" rendered="{!histRec.Workitems!=null}"> 
+                    <tr style="height:25px; background-color:#bf93cc" >
+                        <td colspan="5" style="color:white; font-size:small; font-weight: bold">
+                            <apex:outputText value="{!$Label.Iriss_Approval_Status}"/>
+                        </td>
+                        <td style="font-weight:bold; text-align:center;">
+                            <apex:outputText value="{!histRec.Status}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <apex:commandLink target="_top" action="{!doApprove}" id="mySubmitButton" 
+                                            value="{!$Label.Iriss_Review_Assessment}" style="color:blue;text-decoration:none" />
+                        </td>
+                        <td><apex:outputText value="{!histWorkItem.createdDate}"/></td>
+                        <td><apex:outputText value="{!histRec.Status}"/></td>
+                        <td><apex:outputText value="{!histWorkItem.OriginalActor.Name}"/></td>
+                        <td><apex:outputText value="{!histWorkItem.Actor.Name}"/></td>
+                    </tr>
+                </apex:repeat>
+                
+                <apex:repeat id="steps" value="{!histRec.Steps}" var="histStep"> 
+                    <tr style="height:25px; background-color:#bf93cc" >
+                        <td colspan="5" style="color:white; font-size:small; font-weight: bold">
+                            <apex:outputText value="{!$Label.Iriss_Approval_Status}" rendered="{!if((histStep.StepStatus != 'Started'),true, false)}"/>
+                            <apex:outputText value="{!$Label.Iriss_Approval_Request_Submitted}" rendered="{!if((histStep.StepStatus != 'Started'),false,true)}"/>
+                        </td>
+                        <td style="font-weight:bold; text-align:center;">
+                            <apex:outputText value="{!histRec.Status}" rendered="{!if((histStep.StepStatus != 'Started'),true, false)}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            
+                        </td>
+                        <td><apex:outputText value="{!histStep.createdDate}"/></td>
+                        <td><apex:outputText value="{!if((histStep.StepStatus == 'Started'),'Submitted', histStep.StepStatus)}"/></td>
+                        <td><apex:outputText value="{!histStep.OriginalActor.Name}"/></td>
+                        <td><apex:outputText value="{!histStep.Actor.Name}"/></td>
+                    </tr>
+                </apex:repeat>
+            </apex:repeat>  
+        </table>
+    <hr/></apex:pageBlock>
+    </apex:form>
+</apex:page>

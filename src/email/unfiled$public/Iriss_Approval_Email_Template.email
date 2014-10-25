@@ -1,0 +1,5 @@
+{!IRIS_Submission__c.Document_Name__c} has been assessed by {!IRIS_Submission__c.COE_Assessor__c} and is pending review and approval.  
+
+Approval/rejection of this submission must be done within the Affiliate Document Submission system ({!IRIS_Submission__c.Link}).  
+
+Once the decision is made to approve or reject the submission, an e-mail notification will be automatically sent to the document owner ({!IRIS_Submission__c.Document_Owner__c}) along with a copy of the completed assessment including the final decision and decision comments.

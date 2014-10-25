@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Italian language template for notifying a customer that a case has been logged</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>CMS Support Notification Email From Case Template (IT MALE)</name>
+    <style>none</style>
+    <subject>Lilly CMS: Caso {!Case.CaseNumber}  effettuato per {!Account.Title_Desc_GLBL__c} {!Account.Name}</subject>
+    <textOnly>www.lilly.com
+
+Eli Lilly and Company
+
+
+
+Egregio {!Account.Title_Desc_GLBL__c} {!Account.Name} ,
+
+Le confermiamo che il caso numero {!Case.CaseNumber} è stato registrato a suo nome in data {!Case.CreatedDate}.
+
+Informazioni sul caso:
+
+{!Case.Description}
+
+
+Cordialmente,
+
+
+Servizio di assistenza CMS - Customer Meeting Services</textOnly>
+    <type>custom</type>
+</EmailTemplate>

@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Test Execution</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Test Executions</value>
+    </caseValues>
+    <fields>
+        <help><!-- Date this has been approved by SME --></help>
+        <label><!-- Approval Date --></label>
+        <name>Approval_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- The status of the approval. This is auto populated as the Test Execution goes through the process. --></help>
+        <label><!-- Approval Status --></label>
+        <name>Approval_Status__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open</masterLabel>
+            <translation><!-- Open --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending Approval</masterLabel>
+            <translation><!-- Pending Approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Your approval indicates that the test was properly documented, the documented test results support the overall pass or fail status of the test case or script and the test cases/scripts are accurate, complete and meet the requirements of LQP-302-18 --></help>
+        <label><!-- Approver --></label>
+        <name>Approver__c</name>
+        <relationshipLabel><!-- Test Executions (Approver) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Which user ran this test --></help>
+        <label><!-- Tester --></label>
+        <name>Assigned_To__c</name>
+        <relationshipLabel><!-- Test Executions (Tester) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The description of this text script --></help>
+        <label><!-- Test Title --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter the environment that this test was performed in --></help>
+        <label><!-- Environment --></label>
+        <name>Environment__c</name>
+        <picklistValues>
+            <masterLabel>CI</masterLabel>
+            <translation><!-- CI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dev</masterLabel>
+            <translation><!-- Dev --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SAT</masterLabel>
+            <translation><!-- SAT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UAT</masterLabel>
+            <translation><!-- UAT --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- What is the overall aim of this test --></help>
+        <label><!-- Introduction --></label>
+        <name>Introduction__c</name>
+    </fields>
+    <fields>
+        <help><!-- Overall test comments. 
+
+You should note what happened in the test, e.g. for promotion creation &quot;Succesfully created promotion&quot;.
+
+This can be copy and pasted from the excel file. --></help>
+        <label><!-- Overall Test Comments --></label>
+        <name>Overall_Test_Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- The percentage of all steps that are passed or passed with minor issues --></help>
+        <label><!-- Pass Percentage --></label>
+        <name>Pass_Percentage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project --></label>
+        <name>ProjectNew__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project --></label>
+        <name>Project__c</name>
+        <relationshipLabel><!-- Test Executions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Recall Flag --></label>
+        <name>Recall_Flag__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sprint --></label>
+        <name>SprintNew__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sprint --></label>
+        <name>Sprint__c</name>
+        <relationshipLabel><!-- Test Executions --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The stage in the test lifecycle. A test case can be Status=Complete and fOutcome=&quot;Failed&quot; if a bug has been raised. Once the bug has been fixed the test case may be set to &quot;Awaiting Retest&quot; by the Test Lead --></help>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Awaiting Retest</masterLabel>
+            <translation><!-- Awaiting Retest --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Started</masterLabel>
+            <translation><!-- Not Started --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parked</masterLabel>
+            <translation><!-- Parked --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Started</masterLabel>
+            <translation><!-- Started --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Sums the number of steps who&apos;s outcome is not N/A --></help>
+        <label><!-- Steps Completed --></label>
+        <name>Steps_Completed__c</name>
+    </fields>
+    <fields>
+        <help><!-- The total number of steps passed or  passed with minor issues --></help>
+        <label><!-- Steps Passed --></label>
+        <name>Steps_Passed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Submitter --></label>
+        <name>Submitter__c</name>
+        <relationshipLabel><!-- Test Executions (Submitter) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The script being executed --></help>
+        <label><!-- Template --></label>
+        <name>Template__c</name>
+        <relationshipLabel><!-- Test Executions --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The percentage of steps that have an outcome not equal to &apos;N/A&apos; --></help>
+        <label><!-- Test Completion --></label>
+        <name>Test_Completion__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date when the Test execution was last run --></help>
+        <label><!-- Test Execution Date --></label>
+        <name>Test_Execution_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- The overall outcome of the test at it&apos;s current stage --></help>
+        <label><!-- Test Outcome --></label>
+        <name>Test_Outcome__c</name>
+        <picklistValues>
+            <masterLabel>Blocked from testing</masterLabel>
+            <translation><!-- Blocked from testing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Failed</masterLabel>
+            <translation><!-- Failed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Passed</masterLabel>
+            <translation><!-- Passed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Passed with minor issues</masterLabel>
+            <translation><!-- Passed with minor issues --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Test Phase --></label>
+        <name>Test_Phase__c</name>
+        <picklistValues>
+            <masterLabel>Performance Test</masterLabel>
+            <translation><!-- Performance Test --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regression Test</masterLabel>
+            <translation><!-- Regression Test --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sprint Test</masterLabel>
+            <translation><!-- Sprint Test --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Stability Test</masterLabel>
+            <translation><!-- Stability Test --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>User Acceptance Test</masterLabel>
+            <translation><!-- User Acceptance Test --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- The total number of steps in this test --></help>
+        <label><!-- Total Steps --></label>
+        <name>Total_Steps__c</name>
+    </fields>
+    <fields>
+        <label><!-- User Story --></label>
+        <name>User_Story__c</name>
+        <relationshipLabel><!-- Test Executions --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Test Execution Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Quality and Compliance --></label>
+            <section>Quality and Compliance</section>
+        </sections>
+        <sections>
+            <label><!-- Test Details --></label>
+            <section>Test Details</section>
+        </sections>
+        <sections>
+            <label><!-- Test Information --></label>
+            <section>Test Information</section>
+        </sections>
+        <sections>
+            <label><!-- Test Results --></label>
+            <section>Test Results</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- You can not make changes to an Approved Test Execution --></errorMessage>
+        <name>Lock_Down_Approved_Record</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You cannot change Approver once the Test Execution is approved --></errorMessage>
+        <name>MICO_Approved_Status_Validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The submitter can not be the approver of the Test Execution. Please select a valid user to approve the request. --></errorMessage>
+        <name>MICO_CannotSetYourselfAsApprover</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You cannot Edit a Test Execution if the Test Execution is in an &quot;Approved&quot; / &quot;Pending Approval&quot; status --></errorMessage>
+        <name>Pending_Approval_Status</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Recall_Approval_Request --></label>
+        <name>Recall_Approval_Request</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Run_Test_Script --></label>
+        <name>Run_Test_Script</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Submit_For_Approval --></label>
+        <name>Submit_For_Approval</name>
+    </webLinks>
+</CustomObjectTranslation>

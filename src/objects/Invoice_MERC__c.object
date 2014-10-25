@@ -1,0 +1,1850 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <comment>Overridden to allow for dependent lookups as picklists - K. Thornton 2014/05/22</comment>
+        <content>MERC_InvoiceNewEdit</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <comment>Overridden to allow for dependent lookups as picklists - K. Thornton 2014/05/22</comment>
+        <content>MERC_InvoiceNewEdit</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Object to store invoice header information, Integrates with SAP for HCP Payments : MERC : Created on 09/27/2013 by Katy Lorenti, Mavens Consulting</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fieldSets>
+        <fullName>Account_Merge_Invoices_MERC</fullName>
+        <description>MERC_MergedAccounts.page / MERC_MergedAccountsApex.cls / Custom Setting: Account Merge - Invoices .Oliver Dunford 8th May 2014</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Invoice_Type_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Invoice_Date_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Payee_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Participant_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Submit_for_Payment_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Account Merge - Invoices</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Invoice_Clone_Field_Set</fullName>
+        <description>MERC_InvoiceCreditNoteController</description>
+        <displayedFields>
+            <field>Line_Items_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Bank_Account_Number_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Bank_City_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Bank_Country_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Bank_Name_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Bank_Sort_Code_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Bank_State_Province_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Bank_Street_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Bank_Zip_Postal_Code_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Conditional_Invoice_Number_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Consulting_Project_Amount_excl_VAT_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Cost_Center_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CreatedById</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CreatedDate</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Credit_Note_Invoice_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Credit_Note_SAP_Doc_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CurrencyIsoCode</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Customer_Id_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Customer_Invoice_Number_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Days_Since_Created_Date_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Days_Until_Invoice_Submitted_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>IsDeleted</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>HCO_Beneficiary_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>IBAN_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Invoice_Attached_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Invoice_Date_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Invoice_Type_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Internal_Order_Number_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>LastModifiedById</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>LastModifiedDate</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lilly_Affiliate_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lilly_Affil_Add_Ln_1_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lilly_Affil_Add_Ln_2_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lilly_Affil_Add_City_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Company_Code_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lilly_Affil_Add_Country_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lilly_Affil_ID_VAT_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Lilly_Affil_Postal_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Meeting_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Meeting_City_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Meeting_Cost_Center_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Meeting_Country_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Meeting_Name_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Meeting_Participant_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Meeting_Participant_Account_Id_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Meeting_Start_Date_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Mercury_External_Id_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>RecordTypeId</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Mercury_Transaction_Id_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>OwnerId</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Participant_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Participant_Master_Id_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Payee_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Payee_City_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Payee_Country_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Payee_Name_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Payee_State_Province_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Payee_Street_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Payee_Zip_Postal_Code_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Purpose_of_Payment_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SAP_Vendor_Number_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Submit_for_Payment_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Submitted_for_Payment_Date_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Subtotal_NET_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SystemModstamp</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Tax_Id_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Terms_of_Payment_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>TOTAL_INCL_VAT_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Total_VAT_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Vendor_Invoice_Number_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>VAT_Identification_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Invoice Clone Field Set</label>
+    </fieldSets>
+    <fields>
+        <fullName>Bank_Account_Number_Encrypted_MERC__c</fullName>
+        <description>Bank Account Number encrypted and stamped from the Payee when the Invoice is created.</description>
+        <externalId>false</externalId>
+        <label>Bank Account Number (Encrypted)</label>
+        <length>80</length>
+        <maskChar>asterisk</maskChar>
+        <maskType>lastFour</maskType>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>EncryptedText</type>
+    </fields>
+    <fields>
+        <fullName>Bank_Account_Number_MERC__c</fullName>
+        <description>Bank Account Number loaded from payee by Workflow.
+Created by John A Adams 1/9/2014</description>
+        <externalId>false</externalId>
+        <label>Bank Account Number</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bank_City_MERC__c</fullName>
+        <description>Bank City loaded from Payee by Workflow.
+Created by John A Adams 1/9/2014</description>
+        <externalId>false</externalId>
+        <label>Bank City</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bank_Country_MERC__c</fullName>
+        <description>Bank Country loaded from Payee by Workflow.
+Created by John A Adams 1/9/2014</description>
+        <externalId>false</externalId>
+        <label>Bank Country</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bank_Name_MERC__c</fullName>
+        <description>Bank Name loaded from Payee by Workflow.
+Created by John A Adams 1/9/2014</description>
+        <externalId>false</externalId>
+        <label>Bank Name</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bank_Sort_Code_MERC__c</fullName>
+        <description>Sort Code loaded from Payee by Workflow.
+Created by John A Adams 1/9/2014</description>
+        <externalId>false</externalId>
+        <label>Bank Sort Code</label>
+        <length>16</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bank_State_Province_MERC__c</fullName>
+        <description>Bank State / Province loaded from Payee by Workflow.
+Created by John A Adams 1/9/2014</description>
+        <externalId>false</externalId>
+        <label>Bank State / Province</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bank_Street_MERC__c</fullName>
+        <description>Bank Street loaded from Payee by Workflow.
+Created by John A Adams 1/9/2014</description>
+        <externalId>false</externalId>
+        <label>Bank Street</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Bank_Zip_Postal_Code_MERC__c</fullName>
+        <description>Bank Zip / Postal Code loaded from Payee by Workflow.
+Created by John A Adams 1/9/2014</description>
+        <externalId>false</externalId>
+        <label>Bank Zip / Postal Code</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Company_Code_MERC__c</fullName>
+        <description>First 3 characters of Cost Center.  Used for SAP Interface. Oliver Dunford 4th Dec</description>
+        <externalId>false</externalId>
+        <formula>LEFT(Cost_Center_MERC__c ,3)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Lilly Affiliate Company Code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Conditional_Invoice_Number_MERC__c</fullName>
+        <description>Used by the SAP Interface.  If the Customer Invoice is populated this is used, otherwise the Mercury Invoice number is used.  Oliver Dunford 28th Jan 2014.</description>
+        <externalId>false</externalId>
+        <formula>IF(OR(ISNULL( Customer_Invoice_Number_MERC__c ),ISBLANK( Customer_Invoice_Number_MERC__c )),  Name , Customer_Invoice_Number_MERC__c)</formula>
+        <label>Conditional Invoice Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Consulting_Project_Amount_excl_VAT_MERC__c</fullName>
+        <description>Used to roll up the total value of Consulting Projects for an Invoice record.  This excludes VAT and is used to calculate CAP at Account level for HCP&apos;s when engaged in Consulting Projects with Lilly.  This is rolled up from the Invoice and NOT the meeting participant for Consulting Projects. Oliver Dunford 7th Jan 2014.</description>
+        <externalId>false</externalId>
+        <label>Consulting Project Amount (excl VAT)</label>
+        <summarizedField>Invoice_Line_Item_MERC__c.Consulting_Amount_Rollup_MERC__c</summarizedField>
+        <summaryFilterItems>
+            <field>Invoice_Line_Item_MERC__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Consulting Project</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Invoice_Line_Item_MERC__c.Invoice_MERC__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Cost_Center_MERC__c</fullName>
+        <description>Cost Centre id entered.
+Mercury Transaction Id 
+Created by John A Adams 10/30/2013</description>
+        <externalId>false</externalId>
+        <label>Cost Center</label>
+        <length>7</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Credit_Note_Invoice_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <label>Credit Note Invoice</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Invoice_MERC__c.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Invoice, Invoice Locked</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Invoice_MERC__c</referenceTo>
+        <relationshipLabel>Invoices</relationshipLabel>
+        <relationshipName>Invoices</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Credit_Note_SAP_Doc_MERC__c</fullName>
+        <description>Created by John A Adams 11/5/2013</description>
+        <externalId>false</externalId>
+        <formula>&quot;SAP:999-8999-1234567251&quot;</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Credit Note SAP Document #</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Customer_Id_MERC__c</fullName>
+        <description>Customer Id of Beneficiary.  If this this is the HCO, then the HCO Customer Id is populated, otherwise it&apos;s the meeting Participant.   Oliver Dunford 4th Dec 2013</description>
+        <externalId>false</externalId>
+        <formula>IF( OR(ISNULL(HCO_Beneficiary_MERC__c),ISBLANK(HCO_Beneficiary_MERC__c)) ,  Meeting_Participant_MERC__r.Account_MERC__r.Cust_Id_GLBL__c ,  HCO_Beneficiary_MERC__r.Cust_Id_GLBL__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Customer Id</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Customer_Invoice_Number_MERC__c</fullName>
+        <description>Customer Invoice Number.  Assume RMAT will need to record the Invoice number from HCP’s system.
+Created by John A Adams 10/20/2013</description>
+        <externalId>false</externalId>
+        <label>Customer Invoice Number</label>
+        <length>16</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Days_Since_Created_Date_MERC__c</fullName>
+        <description>Days since Invoice creation.  Used for Reporting.  Oliver Duford 30th Jan 2014.</description>
+        <externalId>false</externalId>
+        <formula>Today()- DateValue( CreatedDate )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Days Since Created Date</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Days_Until_Invoice_Submitted_MERC__c</fullName>
+        <description>Number of days from Invoice Date to date the Invoice was Submitted. Created 04/17/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>DATEVALUE(Submitted_for_Payment_Date_MERC__c)  -  Invoice_Date_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Days Until Invoice Submitted</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>HCO_Beneficiary_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Health Care Organizations
+Created by John A Adams 10/30/2013</description>
+        <externalId>false</externalId>
+        <label>HCO Beneficiary</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Health Care Organization</value>
+            </filterItems>
+            <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Invoices</relationshipLabel>
+        <relationshipName>Invoices</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>IBAN_MERC__c</fullName>
+        <description>IBAN loaded from Payee by Workflow.
+Created by John A Adams 1/9/2014</description>
+        <externalId>false</externalId>
+        <label>IBAN</label>
+        <length>34</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Internal_Order_Number_MERC__c</fullName>
+        <description>Pulled over from the Meeting record, should an Internal Order Number be stamped from the Budget onto the Meeting : MERC : Created on 12/5/2013 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Pulled from the Meeting Record should an Internal Order Number exist against the associated Meeting Budget.  This field remains editable if corrections are needed.  Leave this blank when creating an Invoice to accept the Meeting Internal Order Number</inlineHelpText>
+        <label>Internal Order Number</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Invoice_Attached_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Flag set by Drawloop when an Invoice has been created and attached.  This is used in validation rule to prevent Submit for Payment being set to Yes when no Invoice is present.
+Created by John A Adams 1/6/2014</description>
+        <externalId>false</externalId>
+        <label>Invoice Attached</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Invoice_Date_MERC__c</fullName>
+        <description>Date Invoice is issued.
+Created by John A Adams 10/20/2013</description>
+        <externalId>false</externalId>
+        <label>Invoice Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Invoice_Type_MERC__c</fullName>
+        <description>Stores the reason for the invoice.
+Created by John A Adams 10/24/2013</description>
+        <externalId>false</externalId>
+        <label>Invoice Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>IN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Lilly_Affil_Add_City_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>Lilly_Affiliate_MERC__r.Primary_Addr_City_GLBL__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Lilly Affiliate City</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lilly_Affil_Add_Country_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>Lilly_Affiliate_MERC__r.Primary_Address_Country_GLBL__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Lilly Affiliate Country</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lilly_Affil_Add_Ln_1_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>Lilly_Affiliate_MERC__r.Primary_Addr_Line1_GLBL__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Lilly Affiliate Address Line 1</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lilly_Affil_Add_Ln_2_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>Lilly_Affiliate_MERC__r.Primary_Addr_Line2_GLBL__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Lilly Affiliate Address Line 2</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lilly_Affil_ID_VAT_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>Lilly_Affiliate_MERC__r.Lilly_Company_VAT_ID_GLBL__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Lilly Affiliate ID/VAT</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lilly_Affil_Postal_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>Lilly_Affiliate_MERC__r.Primary_Pstl_Cd_Extnsn_GLBL__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Lilly Affiliate Postal Code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lilly_Affiliate_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup to Account to pull in Lilly Affiliate name.
+Created by John Adams 1/14/14</description>
+        <externalId>false</externalId>
+        <label>Lilly Affiliate</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.Name</field>
+                <operation>contains</operation>
+                <value>Lilly</value>
+            </filterItems>
+            <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Invoices (Lilly Affiliate)</relationshipLabel>
+        <relationshipName>Invoices1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Line_Items_MERC__c</fullName>
+        <description>Counts the number of line items for an Invoice. Oliver Dunford 4th Nov 2013.</description>
+        <externalId>false</externalId>
+        <label># Line Items</label>
+        <summaryForeignKey>Invoice_Line_Item_MERC__c.Invoice_MERC__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_City_MERC__c</fullName>
+        <description>The Meeting CIty, pulled over from the Meeting Participants associated Meeting.  Oliver Dunford 4th Dec</description>
+        <externalId>false</externalId>
+        <formula>Meeting_Participant_MERC__r.Meeting_MERC__r.City_of_Meeting_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting City</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Meeting_Cost_Center_MERC__c</fullName>
+        <description>Customer Facing Cost center pulled from the Meeting.  Created by J Adams 2/6/2014.</description>
+        <externalId>false</externalId>
+        <formula>Meeting_Participant_MERC__r.Meeting_MERC__r.Rep_Cost_Center_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting Cost Center</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Meeting_Country_MERC__c</fullName>
+        <description>Event country
+Created by John A Adams 10/25/2013</description>
+        <externalId>false</externalId>
+        <formula>TEXT(Meeting_Participant_MERC__r.Meeting_MERC__r.Event_Country_MERC__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting Country</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Meeting_MERC__c</fullName>
+        <description>Lookup of Meeting 
+Created by John A Adams 10/30/2013</description>
+        <externalId>false</externalId>
+        <formula>Meeting_Participant_MERC__r.Meeting_MERC__r.Event_Id_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Meeting_Name_MERC__c</fullName>
+        <description>Meeting to which the Invoice relates
+Created by John A Adams 10/20/2013</description>
+        <externalId>false</externalId>
+        <formula>Meeting_Participant_MERC__r.Meeting_MERC__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Meeting_Participant_Account_Id_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASESAFEID(Meeting_Participant_MERC__r.Account_MERC__r.Id )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting Participant Account Id</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Meeting_Participant_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup to find the meeting Participant this invoice is for.
+Created by John A Adams 10/4/2013</description>
+        <externalId>false</externalId>
+        <label>Meeting Participant</label>
+        <referenceTo>Meeting_Participant_MERC__c</referenceTo>
+        <relationshipLabel>Invoices</relationshipLabel>
+        <relationshipName>Invoices</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Start_Date_MERC__c</fullName>
+        <description>Date of Meeting
+Created by John A Adams 10/21/2013</description>
+        <externalId>false</externalId>
+        <formula>Meeting_Participant_MERC__r.Meeting_MERC__r.Date_of_Event_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Mercury_External_Id_MERC__c</fullName>
+        <description>Generated by Workflow used for Integration with External Systems.
+Created by J Adams 12/10/2013</description>
+        <externalId>true</externalId>
+        <label>Mercury External Id</label>
+        <length>150</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Mercury_Transaction_Id_MERC__c</fullName>
+        <description>Mercury Transaction Id - copy of Invoice SFDC Record ID
+Created by John A Adams 10/30/2013</description>
+        <externalId>false</externalId>
+        <formula>CASESAFEID(Id)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Mercury Transaction Id</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Participant_MERC__c</fullName>
+        <description>Name of HCP that is invoicing.
+Created by John A Adams 10/20/2013</description>
+        <externalId>false</externalId>
+        <formula>Meeting_Participant_MERC__r.Account_MERC__r.FirstName &amp; &quot; &quot; &amp;  Meeting_Participant_MERC__r.Account_MERC__r.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Participant</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Participant_Master_Id_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>Meeting_Participant_MERC__r.Account_MERC__r.Cust_Id_GLBL__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Participant Master Id</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Payee_City_MERC__c</fullName>
+        <description>Payee City loaded from Payee by Workflow.
+Created by John A Adams 1/9/2014</description>
+        <externalId>false</externalId>
+        <label>Payee City</label>
+        <length>254</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Payee_Country_MERC__c</fullName>
+        <description>Payee Country loaded from Payee by Workflow.
+Created by John A Adams 1/9/2014</description>
+        <externalId>false</externalId>
+        <label>Payee Country</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Payee_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup for Payee information
+Created by John A Adams 10/21/2013</description>
+        <externalId>false</externalId>
+        <label>Payee</label>
+        <referenceTo>Payee_MERC__c</referenceTo>
+        <relationshipLabel>Invoices</relationshipLabel>
+        <relationshipName>Invoices</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Payee_Name_MERC__c</fullName>
+        <description>Payee Name loaded from Payee by Workflow.
+Created by John A Adams 1/9/2014</description>
+        <externalId>false</externalId>
+        <label>Payee Name</label>
+        <length>35</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Payee_State_Province_MERC__c</fullName>
+        <description>Payee State / Province loaded from Payee by Workflow.
+Created by John A Adams 1/9/2014</description>
+        <externalId>false</externalId>
+        <label>Payee State / Province</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Payee_Street_MERC__c</fullName>
+        <description>Payee Street loaded from Payee by Workflow.
+Created by John A Adams 1/9/2014</description>
+        <externalId>false</externalId>
+        <label>Payee Street</label>
+        <length>150</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Payee_Zip_Postal_Code_MERC__c</fullName>
+        <description>Payee Zip / Postal Code loaded from Payee by Workflow.
+Created by John A Adams 1/9/2014</description>
+        <externalId>false</externalId>
+        <label>Payee Zip / Postal Code</label>
+        <length>32</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Purpose_of_Payment_MERC__c</fullName>
+        <description>The purpose of the payment
+Created by John A Adams 10/30/2013</description>
+        <externalId>false</externalId>
+        <formula>If ( Meeting_Participant_MERC__r.RecordType.Name = &quot;Service Provider&quot; || Meeting_Participant_MERC__r.RecordType.Name = &quot;Consulting&quot;,
+TEXT(Meeting_Participant_MERC__r.Types_of_Service_MERC__c)  &amp; &quot;-&quot; &amp;
+TEXT(DAY(DATEVALUE( Meeting_Participant_MERC__r.Meeting_MERC__r.Start_Time_of_Meeting_MERC__c  ))) &amp;
+TEXT(MONTH(DATEVALUE(Meeting_Participant_MERC__r.Meeting_MERC__r.Start_Time_of_Meeting_MERC__c  ))) &amp; 
+TEXT(YEAR(DATEVALUE(Meeting_Participant_MERC__r.Meeting_MERC__r.Start_Time_of_Meeting_MERC__c ))) &amp;  &quot;-&quot; &amp; Meeting_Participant_MERC__r.Meeting_MERC__r.City_of_Meeting_MERC__c, 
+
+TEXT(Meeting_Participant_MERC__r.Purpose_of_Payment_MERC__c)  &amp; &quot;-&quot; &amp;
+TEXT(DAY(DATEVALUE(Meeting_Participant_MERC__r.Meeting_MERC__r.Start_Time_of_Meeting_MERC__c  ))) &amp;
+TEXT(MONTH(DATEVALUE(Meeting_Participant_MERC__r.Meeting_MERC__r.Start_Time_of_Meeting_MERC__c  ))) &amp; 
+TEXT(YEAR(DATEVALUE(Meeting_Participant_MERC__r.Meeting_MERC__r.Start_Time_of_Meeting_MERC__c ))) &amp;  
+&quot;-&quot; &amp; Meeting_Participant_MERC__r.Meeting_MERC__r.City_of_Meeting_MERC__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Purpose of Payment</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SAP_Vendor_Number_MERC__c</fullName>
+        <description>Stores the SAP Vendor Number
+Created by John A Adams 10/7/2013.</description>
+        <externalId>false</externalId>
+        <label>SAP Vendor Number</label>
+        <length>16</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Submit_for_Payment_MERC__c</fullName>
+        <description>Used as final check before Invoice is submitted to SAP.  Created by Oliver Dunford 4th Nov 2013.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>A PDF Invoice must be generated and then uploaded before the record can be submitted for payment.</inlineHelpText>
+        <label>Submit for Payment</label>
+        <picklist>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Submitted_for_Payment_Date_MERC__c</fullName>
+        <description>Date the integrators can stamp a datetime when the record was successfully picked up and processed. This value is modified by the Informatica integration. Do not change, update, or add validation rules to this field.
+Created by John Adams 11/11/2013</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Stamped automatically by SAP integration. Do not edit.</inlineHelpText>
+        <label>Submitted for Payment</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Subtotal_NET_MERC__c</fullName>
+        <description>Subtotal of all line items
+Created by John A Adams 10/31/2013</description>
+        <externalId>false</externalId>
+        <label>Subtotal - NET</label>
+        <summarizedField>Invoice_Line_Item_MERC__c.Amount_MERC__c</summarizedField>
+        <summaryForeignKey>Invoice_Line_Item_MERC__c.Invoice_MERC__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>TOTAL_INCL_VAT_MERC__c</fullName>
+        <description>Invoice total amount
+Created by John A Adams 10/31/2013</description>
+        <externalId>false</externalId>
+        <formula>Subtotal_NET_MERC__c +  Total_VAT_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>TOTAL INCL. VAT</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Tax_Id_MERC__c</fullName>
+        <description>Pulled over from Payee record.  May or may not differ per Payee record added by HCP. Oliver Dunford 17th Feb 2014.</description>
+        <externalId>false</externalId>
+        <label>Tax Id</label>
+        <length>18</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Terms_of_Payment_MERC__c</fullName>
+        <externalId>false</externalId>
+        <label>Terms of Payment</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Net 10</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Net 14</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Net 30</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Net 45</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Net 60</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Total_VAT_MERC__c</fullName>
+        <description>Total VAT for all line items
+Created by John A Adams 10/31/2013</description>
+        <externalId>false</externalId>
+        <label>Total VAT</label>
+        <summarizedField>Invoice_Line_Item_MERC__c.Tax_Amount_MERC__c</summarizedField>
+        <summaryForeignKey>Invoice_Line_Item_MERC__c.Invoice_MERC__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>VAT_Identification_MERC__c</fullName>
+        <description>VAT Identification # loaded from Payee by Workflow.
+Created by John A Adams 1/9/2014</description>
+        <externalId>false</externalId>
+        <label>VAT Identification #</label>
+        <length>18</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Vendor_Invoice_Number_MERC__c</fullName>
+        <description>Vendor Invoice Number 
+Created by John A Adams 10/4/2013</description>
+        <externalId>false</externalId>
+        <label>Vendor Invoice Number</label>
+        <length>16</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Invoice</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Meeting_Participant_MERC__c</columns>
+        <columns>Participant_MERC__c</columns>
+        <columns>Vendor_Invoice_Number_MERC__c</columns>
+        <columns>Meeting_Name_MERC__c</columns>
+        <columns>Submit_for_Payment_MERC__c</columns>
+        <columns>RECORDTYPE</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Owner_Status</fullName>
+        <columns>NAME</columns>
+        <columns>Submit_for_Payment_MERC__c</columns>
+        <columns>Submitted_for_Payment_Date_MERC__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>CREATEDBY_USER.ALIAS</columns>
+        <columns>UPDATEDBY_USER.ALIAS</columns>
+        <columns>Meeting_Participant_MERC__c</columns>
+        <columns>Meeting_MERC__c</columns>
+        <columns>Line_Items_MERC__c</columns>
+        <columns>Subtotal_NET_MERC__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>notEqual</operation>
+            <value>Invoice_MERC__c.Credit_Note_MERC,Invoice_MERC__c.Credit_Note_Locked_MERC</value>
+        </filters>
+        <label>Invoice Owner &amp; Status</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Stress_Test_Invoices</fullName>
+        <columns>NAME</columns>
+        <columns>Submit_for_Payment_MERC__c</columns>
+        <columns>Submitted_for_Payment_Date_MERC__c</columns>
+        <columns>Days_Until_Invoice_Submitted_MERC__c</columns>
+        <columns>RECORDTYPE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CREATEDBY_USER</field>
+            <operation>equals</operation>
+            <value>Alex Gissel</value>
+        </filters>
+        <filters>
+            <field>CREATED_DATE</field>
+            <operation>equals</operation>
+            <value>6/30/2014 12:00 AM</value>
+        </filters>
+        <label>Stress Test Invoices</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <displayFormat>INV-{000000}</displayFormat>
+        <label>Invoice Number</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Invoices</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Credit_Note_Locked_MERC</fullName>
+        <active>true</active>
+        <description>Indicates a locked credit note</description>
+        <label>Credit Note Locked</label>
+        <picklistValues>
+            <picklist>Invoice_Type_MERC__c</picklist>
+            <values>
+                <fullName>CR</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Submit_for_Payment_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Terms_of_Payment_MERC__c</picklist>
+            <values>
+                <fullName>Net 10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Net 14</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Net 30</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Net 45</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Net 60</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Credit_Note_MERC</fullName>
+        <active>true</active>
+        <description>Used to create Credit Notes.</description>
+        <label>Credit Note</label>
+        <picklistValues>
+            <picklist>Invoice_Type_MERC__c</picklist>
+            <values>
+                <fullName>CR</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Submit_for_Payment_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Terms_of_Payment_MERC__c</picklist>
+            <values>
+                <fullName>Net 10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Net 14</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Net 30</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Net 45</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Net 60</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Invoice_Invalid_MERC</fullName>
+        <active>true</active>
+        <description>Invoice record no longer valid, never submitted successfully for processing</description>
+        <label>Invoice Invalid</label>
+        <picklistValues>
+            <picklist>Invoice_Type_MERC__c</picklist>
+            <values>
+                <fullName>CR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IN</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Submit_for_Payment_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Terms_of_Payment_MERC__c</picklist>
+            <values>
+                <fullName>Net 10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Net 14</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Net 30</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Net 45</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Net 60</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Invoice_Locked_MERC</fullName>
+        <active>true</active>
+        <description>Record Type for a locked Invoice</description>
+        <label>Invoice Locked</label>
+        <picklistValues>
+            <picklist>Invoice_Type_MERC__c</picklist>
+            <values>
+                <fullName>IN</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Submit_for_Payment_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Terms_of_Payment_MERC__c</picklist>
+            <values>
+                <fullName>Net 10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Net 14</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Net 30</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Net 45</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Net 60</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Invoice_MERC</fullName>
+        <active>true</active>
+        <description>Used to create Invoice records</description>
+        <label>Invoice</label>
+        <picklistValues>
+            <picklist>Invoice_Type_MERC__c</picklist>
+            <values>
+                <fullName>IN</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Submit_for_Payment_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Terms_of_Payment_MERC__c</picklist>
+            <values>
+                <fullName>Net 10</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Net 14</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Net 30</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Net 45</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Net 60</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>Invoice_Date_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Meeting_Participant_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Payee_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Participant_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Meeting_Name_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Meeting_Country_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Purpose_of_Payment_MERC__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Invoice_Date_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>RECORDTYPE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Meeting_Participant_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Payee_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Participant_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Meeting_Name_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Meeting_Country_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Purpose_of_Payment_MERC__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Meeting_Participant_MERC__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Invoice_Date_MERC__c</searchFilterFields>
+        <searchFilterFields>RECORDTYPE</searchFilterFields>
+        <searchFilterFields>Meeting_Participant_MERC__c</searchFilterFields>
+        <searchFilterFields>Payee_MERC__c</searchFilterFields>
+        <searchFilterFields>Participant_MERC__c</searchFilterFields>
+        <searchFilterFields>Meeting_Name_MERC__c</searchFilterFields>
+        <searchFilterFields>Meeting_Country_MERC__c</searchFilterFields>
+        <searchFilterFields>Purpose_of_Payment_MERC__c</searchFilterFields>
+        <searchResultsAdditionalFields>Invoice_Date_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Meeting_Participant_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Payee_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Participant_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Meeting_Name_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Meeting_Country_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Purpose_of_Payment_MERC__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <fullName>MERC_Cost_Center_completed</fullName>
+        <active>true</active>
+        <description>Ensure that the Cost Center is severn digits long : MERC : Created on 11/05/2013 by Oliver Dunford, Mavens Consulting</description>
+        <errorConditionFormula>NOT(REGEX( Cost_Center_MERC__c, &quot;[0-9]{7}&quot;))</errorConditionFormula>
+        <errorDisplayField>Cost_Center_MERC__c</errorDisplayField>
+        <errorMessage>The Cost Center must be seven digits long.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>MERC_Internal_Order_Number_Completed</fullName>
+        <active>true</active>
+        <description>Ensure that the Internal Order Number is six digits long : MERC : Created on 24/07/2014 by Oliver Dunford, Mavens Consulting</description>
+        <errorConditionFormula>NOT( 
+OR( 
+LEN ( Internal_Order_Number_MERC__c) = 0, 
+REGEX(Internal_Order_Number_MERC__c, &quot;[0-9]{6}&quot;) 
+) 
+)</errorConditionFormula>
+        <errorDisplayField>Internal_Order_Number_MERC__c</errorDisplayField>
+        <errorMessage>The Internal Order Number must be six digits long.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>MERC_Prevent_Line_Item_Changes_if_Locked</fullName>
+        <active>true</active>
+        <description>Prevents changes to Invoice Line Items if the Invoice/Credit Note is locked : MERC : Created on 11/05/2013 by Oliver Dunford, Mavens Consulting</description>
+        <errorConditionFormula>ISCHANGED(Line_Items_MERC__c) &amp;&amp;
+(RecordType.Name = &quot;Invoice Locked&quot; || RecordType.Name = &quot;Credit Note Locked&quot;)</errorConditionFormula>
+        <errorMessage>This Invoice/Credit Note is locked and cannot be edited.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>MERC_Submit_for_Payment_PDF_Check</fullName>
+        <active>true</active>
+        <description>Prevent an invoice being submitted for payment if the total value is less than zero or if there has not been a PDF generated and attached : MERC : Created on 11/05/2013 by Oliver Dunford, Mavens Consulting</description>
+        <errorConditionFormula>ISPICKVAL(Submit_for_Payment_MERC__c,&quot;Yes&quot;) &amp;&amp; 
+(Invoice_Attached_MERC__c = FALSE)</errorConditionFormula>
+        <errorMessage>PDF missing. Please press the &quot;Generate Content&quot; button at top of this detail page.
+
+An invoice record cannot be submitted for payment if the total is not greater than zero and an Invoice PDF has been created and attached.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>MERC_Submit_for_Payment_Total_Check</fullName>
+        <active>true</active>
+        <description>Prevent an invoice being submitted for payment if the total value is less than zero or if there has not been a PDF generated and attached : MERC : Created on 11/05/2013 by Oliver Dunford, Mavens Consulting</description>
+        <errorConditionFormula>ISPICKVAL(Submit_for_Payment_MERC__c,&quot;Yes&quot;) &amp;&amp; 
+(TOTAL_INCL_VAT_MERC__c &lt;=0)</errorConditionFormula>
+        <errorMessage>Total = 0
+
+An invoice record cannot be submitted for payment if the total is not greater than zero and an Invoice PDF has been created and attached.</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>Create_Credit_Note</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Create Credit Note</masterLabel>
+        <openType>replace</openType>
+        <page>MERC_InvoiceCreditNote</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>Create_Invoice</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Create Invoice</masterLabel>
+        <openType>replace</openType>
+        <page>MERC_InvoiceCreditNote</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>Generate_Content_MERC</fullName>
+        <availability>online</availability>
+        <description>Generates content for the Invoice
+Created by John Adams on 11/13/2013</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Generate Content</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>if ({!Invoice_MERC__c.Line_Items_MERC__c}&gt;=1)
+
+ {
+   location.replace(&apos;/apex/loop__looplus?eid={!Invoice_MERC__c.Id}&amp;sessionId={!$Api.Session_ID}&apos;);
+}
+
+else
+ 
+  {
+   if (confirm(&apos;There appear to be no Line Items. Continue anyway?&apos;)) 
+    {
+     location.replace(&apos;/apex/loop__looplus?eid={!Invoice_MERC__c.Id}&amp;sessionId= {!$Api.Session_ID}&apos;);
+     }
+
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Generate_PDF</fullName>
+        <availability>online</availability>
+        <description>Just for invoices and PDFs to trigger a deletion of any other PDFs before generating.</description>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Generate PDF</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>if ({!Invoice_MERC__c.Line_Items_MERC__c}&gt;=1 || confirm(&apos;There appear to be no Line Items. Continue anyway?&apos;)) { 
+location.replace(&apos;/apex/MERC_InvoiceDocFilter?type=PDF&amp;eid={!Invoice_MERC__c.Id}&amp;sessionId={!$Api.Session_ID}&amp;loopurl=/apex/loop__looplus&apos;); 
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Invalidate_Invoice_MERC</fullName>
+        <availability>online</availability>
+        <description>Used to cancel an Invoice record in case of error and/or failure to be processed and start a new record for resubmission.</description>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Invalidate Invoice</masterLabel>
+        <openType>replace</openType>
+        <page>MERC_InvoiceInvalidation</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>Upload_Content_MERC</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Upload Content</masterLabel>
+        <openType>sidebar</openType>
+        <page>MERC_NewInvoiceContent</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>Upload_TIF</fullName>
+        <availability>online</availability>
+        <description>Used to upload a digital scan in TIFF format</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Upload TIF</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/MERC_NewInvoiceContent?id={!Invoice_MERC__c.Id}&amp;tif=1</url>
+    </webLinks>
+</CustomObject>

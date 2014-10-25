@@ -1,0 +1,58 @@
+<apex:page controller="IRIS_UserSearchController" showHeader="false" sidebar="false" id="myUserPopupPage" cache="false">
+
+<script>
+     
+    var winMain=window.opener;
+    if (null==winMain)
+    {
+       winMain=window.parent.opener;
+    } 
+    
+    function sendBackResponse(UserIds, Useremails, Username)
+    {
+        //alert('Selected User Ids : ' + UserIds);
+        //alert('Selected User Names : ' + Username);
+        //alert('Selected User Email: ' + Useremails);
+        winMain.sendUserInfo(UserIds, Useremails, Username);
+    }
+        
+    function cancelWindow()
+    {
+        winMain.cancelResponsePopup();
+    }
+
+
+    </script>
+
+    <apex:outputPanel id="errorDisp">
+        <apex:pageMessages />
+    </apex:outputPanel>
+    
+        <apex:form id="myPopupForm" rendered="{!lstUserWrapp != null}">
+
+        <apex:pageBlock id="myPageBlockSec">
+        
+            <apex:pageBlockButtons id="myPageBlockButtons">
+                <apex:commandButton action="{!saveResponse}" id="mySelectButton" value="{!$Label.Iriss_Select_Button}" 
+                                        onComplete="sendBackResponse('{!selectedUserIds}', '{!selectedUserEmail}', '{!selectedUserNames}');"/>
+                <apex:commandButton id="myCancel" value="{!$Label.Iriss_Cancel}" onclick="cancelWindow()" immediate="true"/>
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockSection showHeader="false" id="myPageBlockSec" columns="1" collapsible="false">
+            
+                <apex:pageBlockTable value="{!lstUserWrapp}" var="UserWrapper" columns="2">
+                    <apex:column > 
+                        <apex:inputCheckbox value="{!UserWrapper.isSelected}"/>
+                    </apex:column>
+                    <apex:column > 
+                        <apex:outputText value="{!UserWrapper.oUser.name}"/>
+                    </apex:column>
+                    <apex:column > 
+                        <apex:outputText value="{!UserWrapper.oUser.Email}"/>
+                    </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+
+</apex:page>

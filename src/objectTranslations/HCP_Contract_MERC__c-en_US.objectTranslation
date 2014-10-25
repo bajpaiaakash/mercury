@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>HCP Contract</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>HCP Contracts</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account_MERC__c</name>
+        <relationshipLabel><!-- HCP Contracts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Additional Contract or Payment Condition --></label>
+        <name>Additional_Conditions_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Compliance Met - Contract Sent --></label>
+        <name>Compliance_Met_Contract_Sent_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Expiration Date --></label>
+        <name>Contract_Expiration_Date_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Request Status --></label>
+        <name>Contract_Request_Status_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contract cancelled</masterLabel>
+            <translation><!-- Contract cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contract in progress</masterLabel>
+            <translation><!-- Contract in progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sent</masterLabel>
+            <translation><!-- Sent --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Contract Search --></label>
+        <name>Contract_Search_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Sent Date/Time --></label>
+        <name>Contract_Sent_Date_Time_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Signed Date/Time --></label>
+        <name>Contract_Signed_Date_Time_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country --></label>
+        <name>Country_MERC__c</name>
+        <picklistValues>
+            <masterLabel>France</masterLabel>
+            <translation><!-- France --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Germany</masterLabel>
+            <translation><!-- Germany --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UK</masterLabel>
+            <translation><!-- UK --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Country --></label>
+        <name>Country_of_Residence_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Days Since Last Modified --></label>
+        <name>Days_Since_Last_Modified_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Days Until Contract Signed --></label>
+        <name>Days_Until_Contract_Signed_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Days from Contract Sent to Meeting Date --></label>
+        <name>Days_from_Contract_Sent_to_Mtg_Date_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Provide a description of service only if an ad hoc consulting --></help>
+        <label><!-- Description of Service --></label>
+        <name>Description_of_Service_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Docusign envelope ID generated when the contract was sent for signature. --></help>
+        <label><!-- Docusign Envelope Id --></label>
+        <name>Docusign_Envelope_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Docusign Envelope URL --></label>
+        <name>Docusign_Envelope_URL_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Institution --></label>
+        <name>Institution_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Internal Lilly Signee Email --></label>
+        <name>Internal_Lilly_Signee_Email_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Invoice Template Required --></label>
+        <name>Invoice_Template_Required_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- An HCP must NOT be selected for any business relationship in order to influence or reward an HCP for past, present or future support of Lilly products, to gain access to a customer or formulary decision makers, to influence the outcome of clinical trial --></help>
+        <label><!-- Justification --></label>
+        <name>Justification_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Other (please explain)</masterLabel>
+            <translation><!-- Other (please explain) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outstanding speaking ability</masterLabel>
+            <translation><!-- Outstanding speaking ability --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Proven effective Speaker / Moderator</masterLabel>
+            <translation><!-- Proven effective Speaker / Moderator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Published author in the Therapeutic Area</masterLabel>
+            <translation><!-- Published author in the Therapeutic Area --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recognized as a Thought Leader</masterLabel>
+            <translation><!-- Recognized as a Thought Leader --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recognized by local peers as a SME</masterLabel>
+            <translation><!-- Recognized by local peers as a SME --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Significant topic research / background</masterLabel>
+            <translation><!-- Significant topic research / background --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Therapeutic Area knowledge / experience</masterLabel>
+            <translation><!-- Therapeutic Area knowledge / experience --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trained to speak on this topic</masterLabel>
+            <translation><!-- Trained to speak on this topic --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Lilly Internal Signee --></label>
+        <name>Lilly_Internal_Signee_MERC__c</name>
+        <relationshipLabel><!-- HCP Contracts (Lilly Internal Signee) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- MSA End Date --></label>
+        <name>MSA_End_Date_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- MSA --></label>
+        <name>MSA_MERC__c</name>
+        <relationshipLabel><!-- Work Orders --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- MSA Start Date --></label>
+        <name>MSA_Start_Date_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting Name --></label>
+        <name>Meeting_Name_MERC__c</name>
+        <relationshipLabel><!-- HCP Contracts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Meeting Participant --></label>
+        <name>Meeting_Participant_MERC__c</name>
+        <relationshipLabel><!-- HCP Contracts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Meeting Start Date --></label>
+        <name>Meeting_Start_Date_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mercury External Id --></label>
+        <name>Mercury_External_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Other Details --></label>
+        <name>Other_Details_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payee --></label>
+        <name>Payee_MERC__c</name>
+        <relationshipLabel><!-- HCP Contracts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Payment Required --></label>
+        <name>Payment_Required_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Prior Parent Id --></label>
+        <name>Prior_Parent_Id_GLBL__c</name>
+    </fields>
+    <fields>
+        <help><!-- Identify which parties must sign the agreement? --></help>
+        <label><!-- Signing Parties --></label>
+        <name>Signing_Parties_MERC__c</name>
+        <picklistValues>
+            <masterLabel>HCP</masterLabel>
+            <translation><!-- HCP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HCP Legal Entity</masterLabel>
+            <translation><!-- HCP Legal Entity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HCP and HCP Legal Entity</masterLabel>
+            <translation><!-- HCP and HCP Legal Entity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HCP and Institution</masterLabel>
+            <translation><!-- HCP and Institution --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Institution</masterLabel>
+            <translation><!-- Institution --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>MERC_Contract</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Service --></label>
+            <section>Service</section>
+        </sections>
+        <sections>
+            <label><!-- Signees --></label>
+            <section>Signees</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_MSA Contract</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Signees --></label>
+            <section>Signees</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Work Order</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Service --></label>
+            <section>Service</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Master Service Agreement --></label>
+        <name>Master_Service_Agreement_MERC</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Single Event Contract --></label>
+        <name>Single_Event_Contract_MERC</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Work Order --></label>
+        <name>Work_Order_MERC</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- There is already a contract created for this Meeting Participant. --></errorMessage>
+        <name>MERC_Prevents_creating_dupe_Contracts</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Create_HCP_Contract --></label>
+        <name>Create_HCP_Contract</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Create_HCP_Contract_Backup --></label>
+        <name>Create_HCP_Contract_Backup</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Generate_Content_MERC --></label>
+        <name>Generate_Content_MERC</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Request_HCP_Signature_MERC --></label>
+        <name>Request_HCP_Signature_MERC</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Upload_Content_MERC --></label>
+        <name>Upload_Content_MERC</name>
+    </webLinks>
+</CustomObjectTranslation>

@@ -1,0 +1,3 @@
+Hi {!PANG_Request__c.OwnerFirstName},
+
+The request {!PANG_Request__c.Id} access expired today.

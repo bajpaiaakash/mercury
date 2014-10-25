@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>LPAD_Standard</letterhead>
+    <name>LPAD Assessment Completion Notification for Score D</name>
+    <style>formalLetter</style>
+    <subject>Thankyou for your Assessment</subject>
+    <textOnly>Dear  {!GLBL_Form_Execution__c.Form_Executor__c},
+This is an automated response from the LillyFit Assessment you have completed.
+
+Your idea appears to be suitable for Web Hosting. A member of the Enterprise Architecture team will contact you in the next few days to review your LillyFit Assessment responses. If you have any questions in the meantime please click below for the LillyFit chatter group.
+
+https://gso.my.salesforce.com/0F9b0000000HbAW
+
+
+Many thanks,
+
+Cirrus Team</textOnly>
+    <type>html</type>
+</EmailTemplate>

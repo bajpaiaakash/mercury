@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Create a VF tab with the label &quot;About RWE&quot;.  
+
+Make the tab available to all Profiles.
+
+Include the tab in the RWE app.
+
+For now, only include on the VF page the placeholder Latin text below.</description>
+    <icon>PANG_Pangaea_Logos_Images/PANG_Pangaea_User_Training_png.png</icon>
+    <label>Pangaea</label>
+    <mobileReady>false</mobileReady>
+    <motif>Custom189: TV Widescreen</motif>
+    <page>PANG_AboutRWE</page>
+</CustomTab>

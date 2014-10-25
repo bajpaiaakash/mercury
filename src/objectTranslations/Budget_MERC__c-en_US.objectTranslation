@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Budget</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Budgets</value>
+    </caseValues>
+    <fields>
+        <label><!-- Additional Information --></label>
+        <name>Additional_Information_Budget_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Budget Date --></label>
+        <name>Budget_Date_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- If more Cost Centers need to be entered, please enter in the Additional Information section below. --></help>
+        <label><!-- Cost Center --></label>
+        <name>Cost_Center_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Sum of current Budget Line Items --></help>
+        <label><!-- Current Budget Used --></label>
+        <name>Current_Budget_Used_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- InterCompany Billing Required --></label>
+        <name>InterCompany_Billing_Required_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Internal Order Number --></label>
+        <name>Internal_Order_Number_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Savings/Overage --></label>
+        <name>Master_Budget_Delta_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Master Budget --></label>
+        <name>Master_Budget_MERC__c</name>
+        <relationshipLabel><!-- Budget Versions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Meeting --></label>
+        <name>Meeting_MERC__c</name>
+        <relationshipLabel><!-- Budgets --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Mercury External Id --></label>
+        <name>Mercury_External_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Overage in comparison to the Current Budget Used within the Master Budget (this is not a comparison with the Planned Budget field) --></help>
+        <label><!-- Overage --></label>
+        <name>Overage_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- The planned budget for Forecasting --></help>
+        <label><!-- Planned Budget --></label>
+        <name>Planned_Budget_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Previous Budget Revision --></label>
+        <name>Previous_Budget_Revision_MERC__c</name>
+        <relationshipLabel><!-- Budgets (Previous Budget Revision) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Savings in comparison to the Current Budget Used within the Master Budget (this is not a comparison with the Planned Budget field) --></help>
+        <label><!-- Savings --></label>
+        <name>Savings_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Archived</masterLabel>
+            <translation><!-- Archived --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Draft</masterLabel>
+            <translation><!-- Draft --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Final</masterLabel>
+            <translation><!-- Final --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Version Number --></label>
+        <name>Version_Number_MERC__c</name>
+    </fields>
+    <layouts>
+        <layout>MERC_Budget_Active</layout>
+        <sections>
+            <label><!-- Additional Budget Information --></label>
+            <section>Additional Budget Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Shopping Cart Information --></label>
+            <section>Shopping Cart Information</section>
+        </sections>
+        <sections>
+            <label><!-- Version Details --></label>
+            <section>Version Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Budget_Archived</layout>
+        <sections>
+            <label><!-- Additional Budget Information --></label>
+            <section>Additional Budget Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Shopping Cart Information --></label>
+            <section>Shopping Cart Information</section>
+        </sections>
+        <sections>
+            <label><!-- Version Information --></label>
+            <section>Version Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Budget_Draft</layout>
+        <sections>
+            <label><!-- Additional Budget Information --></label>
+            <section>Additional Budget Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Shopping Cart Information --></label>
+            <section>Shopping Cart Information</section>
+        </sections>
+        <sections>
+            <label><!-- Version Information --></label>
+            <section>Version Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Budget_Final</layout>
+        <sections>
+            <label><!-- Additional Budget Information --></label>
+            <section>Additional Budget Information</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Shopping Cart Information --></label>
+            <section>Shopping Cart Information</section>
+        </sections>
+        <sections>
+            <label><!-- Version Details --></label>
+            <section>Version Details</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Active --></label>
+        <name>MERC_Budget_Active</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Archived --></label>
+        <name>MERC_Budget_Archived</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Draft --></label>
+        <name>MERC_Budget_Draft</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Final --></label>
+        <name>MERC_Budget_Final</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- The Cost Center must be seven digits long. --></errorMessage>
+        <name>MERC_Cost_Center_completed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The Internal Order Number must be six digits long. --></errorMessage>
+        <name>MERC_Internal_Order_Number_Completed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- A draft budget is already in process for this meeting. --></errorMessage>
+        <name>MERC_Only_one_Draft_Budget_at_a_Time</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You cannot modify an Active or Archived Budget. --></errorMessage>
+        <name>MERC_Prevent_Budget_Edit_Archived_Active</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You cannot modify a finalised budget. --></errorMessage>
+        <name>MERC_Prevent_Budget_Edit_Final</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Finalise_Budget_MERC --></label>
+        <name>Finalise_Budget_MERC</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- MERC_Activate_Budget --></label>
+        <name>MERC_Activate_Budget</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- MERC_New_Budget_Version --></label>
+        <name>MERC_New_Budget_Version</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Upload_Content --></label>
+        <name>Upload_Content</name>
+    </webLinks>
+</CustomObjectTranslation>
