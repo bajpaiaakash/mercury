@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <baseObject>ACED_Delivery_Indication_Actuals__c</baseObject>
+    <category>other</category>
+    <deployed>true</deployed>
+    <description>Delivery Indication Actuals</description>
+    <label>ACE Delivery Indication Actuals</label>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CreatedBy</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CreatedDate</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CurrencyIsoCode</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Delivery_Indication__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Id</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>true</checkedByDefault>
+            <field>Name</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LastModifiedBy</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LastModifiedDate</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Month__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Owner</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Effort_Value__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Actual_Value__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Month_Start_Date__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <masterLabel>Delivery Indication Actuals</masterLabel>
+    </sections>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Program Name</displayNameOverride>
+            <field>Delivery_Indication__c.Delivery__c.Activity__c.Program__c.Name</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>HUB</displayNameOverride>
+            <field>Delivery_Indication__c.Delivery__c.Activity__c.Program__c.HUB__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Affiliate</displayNameOverride>
+            <field>Delivery_Indication__c.Delivery__c.Activity__c.Program__c.Affiliate__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Scope</displayNameOverride>
+            <field>Delivery_Indication__c.Delivery__c.Activity__c.Program__c.Scope__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Regional Program</displayNameOverride>
+            <field>Delivery_Indication__c.Delivery__c.Activity__c.Program__c.Regional_Program__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>StandAlone Program Flag_TF</displayNameOverride>
+            <field>Delivery_Indication__c.Delivery__c.Activity__c.Program__c.StandAlone_Asset_Program_TF__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Year</displayNameOverride>
+            <field>Delivery_Indication__c.Delivery__c.Activity__c.Program__c.Year__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <masterLabel>Program</masterLabel>
+    </sections>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Activity Name</displayNameOverride>
+            <field>Delivery_Indication__c.Delivery__c.Activity__c.Activity_Name__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Actual Costs</displayNameOverride>
+            <field>Delivery_Indication__c.Delivery__c.Activity__c.Actual_Costs__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Actual eInt</displayNameOverride>
+            <field>Delivery_Indication__c.Delivery__c.Activity__c.Actual_eInt__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Estimated eInt</displayNameOverride>
+            <field>Delivery_Indication__c.Delivery__c.Activity__c.Estimated_eInt__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Planned eInt</displayNameOverride>
+            <field>Delivery_Indication__c.Delivery__c.Activity__c.Planned_eInt__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Actual vs Estim eInt</displayNameOverride>
+            <field>Delivery_Indication__c.Delivery__c.Activity__c.Actual_vs_EsteInt__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Cost Per eInt</displayNameOverride>
+            <field>Delivery_Indication__c.Delivery__c.Activity__c.Cost_Per_eInt__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Planned Cost</displayNameOverride>
+            <field>Delivery_Indication__c.Delivery__c.Activity__c.Planned_Cost__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Channel</displayNameOverride>
+            <field>Delivery_Indication__c.Delivery__c.Activity__c.Channel__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Channel Category</displayNameOverride>
+            <field>Delivery_Indication__c.Delivery__c.Activity__c.Channel__c.Channel_Category__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Status</displayNameOverride>
+            <field>Delivery_Indication__c.Delivery__c.Activity__c.Status__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Asset</displayNameOverride>
+            <field>Delivery_Indication__c.Delivery__c.Activity__c.Assets__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Planned Start Date</displayNameOverride>
+            <field>Delivery_Indication__c.Delivery__c.Activity__c.Planned_Start_Date__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Planned End Date</displayNameOverride>
+            <field>Delivery_Indication__c.Delivery__c.Activity__c.Planned_End_Date__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride># of Planned Activities</displayNameOverride>
+            <field>Delivery_Indication__c.Delivery__c.Activity__c.of_Planned_Activities__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride># of Executed Activities</displayNameOverride>
+            <field>Delivery_Indication__c.Delivery__c.Activity__c.of_Executed_Activities__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>eInt Cost</displayNameOverride>
+            <field>Delivery_Indication__c.Delivery__c.Activity__c.eInt_Cost__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride># Unplanned Activities</displayNameOverride>
+            <field>Delivery_Indication__c.Delivery__c.Activity__c.Unplanned_Activities__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride># Unplanned Executed Activities</displayNameOverride>
+            <field>Delivery_Indication__c.Delivery__c.Activity__c.Unplanned_Executed_Activities__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <masterLabel>Activity</masterLabel>
+    </sections>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Target Type</displayNameOverride>
+            <field>Delivery_Indication__c.Delivery__c.Activity__c.Assets__c.Target_Type__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Asset Name</displayNameOverride>
+            <field>Delivery_Indication__c.Delivery__c.Activity__c.Assets__c.Name</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Notes / Description</displayNameOverride>
+            <field>Delivery_Indication__c.Delivery__c.Activity__c.Assets__c.Notes_Description__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Location / url</displayNameOverride>
+            <field>Delivery_Indication__c.Delivery__c.Activity__c.Assets__c.Location_url__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Owner Description</displayNameOverride>
+            <field>Delivery_Indication__c.Delivery__c.Activity__c.Assets__c.Owner_Description__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Status</displayNameOverride>
+            <field>Delivery_Indication__c.Delivery__c.Activity__c.Assets__c.Status__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Third Party Collabration</displayNameOverride>
+            <field>Delivery_Indication__c.Delivery__c.Activity__c.Assets__c.Third_Party_Collabration__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Alive Since</displayNameOverride>
+            <field>Delivery_Indication__c.Delivery__c.Activity__c.Assets__c.Alive_Since__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Language</displayNameOverride>
+            <field>Delivery_Indication__c.Delivery__c.Activity__c.Assets__c.Language__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride># of eAsset</displayNameOverride>
+            <field>Delivery_Indication__c.Delivery__c.Activity__c.Assets__c.of_eAsset__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <masterLabel>Asset</masterLabel>
+    </sections>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Brand Indication</displayNameOverride>
+            <field>Delivery_Indication__c.Brand_Indication__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Business Unit</displayNameOverride>
+            <field>Delivery_Indication__c.Brand_Indication__c.Business_Unit__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Therapeutic Area</displayNameOverride>
+            <field>Delivery_Indication__c.Brand_Indication__c.Therapeutic_Area__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>Brand</displayNameOverride>
+            <field>Delivery_Indication__c.Brand_Indication__c.Brand__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <masterLabel>Brand Indication</masterLabel>
+    </sections>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <displayNameOverride>eInteraction Type</displayNameOverride>
+            <field>Delivery_Indication__c.Delivery__c.eInteraction_Type__c</field>
+            <table>ACED_Delivery_Indication_Actuals__c</table>
+        </columns>
+        <masterLabel>Delivery</masterLabel>
+    </sections>
+</ReportType>

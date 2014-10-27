@@ -2,5 +2,5 @@
 <RemoteSiteSetting xmlns="http://soap.sforce.com/2006/04/metadata">
     <disableProtocolSecurity>false</disableProtocolSecurity>
     <isActive>true</isActive>
-    <url>https://dlrs.eu2.visual.force.com</url>
+    <url>https://dlrs.cs18.visual.force.com</url>
 </RemoteSiteSetting>

@@ -122,7 +122,7 @@
            
             <apex:pageblocksectionItem >
                         <apex:outputlabel style="font-size:1.25em;"> Pangaea User Training</apex:outputlabel>
-                        <apex:outputLink value="/sfc/#workspaceView?selectedWorkspaceId=058b0000000HgIL" id="PangaeaLibraryLink" >
+                        <apex:outputLink value="/sfc/#workspaceView?selectedWorkspaceId=058110000000Cjt" id="PangaeaLibraryLink" >
                              <apex:image width="35" url="{!URLFOR($Resource.PANG_Pangaea_Logos, 'PANG_Pangaea_User_Training_png.png')}" >
                              </apex:image>
                         </apex:outputLink>

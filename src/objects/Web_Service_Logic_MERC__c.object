@@ -420,17 +420,8 @@ IF(RecordType.Name = &quot;HCP Info Package&quot;,
     <label>Web Service Logic</label>
     <listViews>
         <fullName>All</fullName>
-        <columns>NAME</columns>
-        <columns>Country_MERC__c</columns>
-        <columns>Meeting_Record_Type_MERC__c</columns>
-        <columns>Account_Record_Type_MERC__c</columns>
-        <columns>Air_Required_MERC__c</columns>
-        <columns>Hotel_Required_MERC__c</columns>
-        <columns>Participant_Record_Type_MERC__c</columns>
-        <columns>RSVP_Transparency_Reporting_Consent_MERC__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
-        <language>en_US</language>
     </listViews>
     <nameField>
         <label>Web Service Logic Name</label>

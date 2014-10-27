@@ -486,7 +486,7 @@ IF(INCLUDES( Academic_Qualifications_MERC__c , &quot;MD Specialist&quot;), 1, 0)
     <outboundMessages>
         <fullName>RTI_Account_Updated</fullName>
         <apiVersion>29.0</apiVersion>
-        <endpointUrl>https://mercuryintegrationprd.lilly.com/rti/v1/genericUpdated</endpointUrl>
+        <endpointUrl>https://gso1integration.xh1.lilly.com/rti/v1/genericUpdated</endpointUrl>
         <fields>Academic_Qualifications_MERC__c</fields>
         <fields>AccountNumber</fields>
         <fields>AccountSource</fields>

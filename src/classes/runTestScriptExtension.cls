@@ -58,10 +58,10 @@ public with sharing class runTestScriptExtension {
                     Tips__c,
                     Outcome__c,
                     Comments__c,
-                    Template_Step__c
+                    Template_Step__c,Test_Execution_Step_Number__c,createdDate
                     
                     FROM MICO_test_steps__c
-                    WHERE test__c = : Test ORDER BY Name
+                    WHERE test__c = : Test ORDER BY Test_Execution_Step_Number__c,Name ASC
                 ];
                 
                 testScriptAttachmentsMap = new Map<Id,Boolean>();

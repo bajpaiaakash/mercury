@@ -462,7 +462,7 @@ Name</formula>
     <outboundMessages>
         <fullName>RTI_Meeting_Updated_MERC</fullName>
         <apiVersion>29.0</apiVersion>
-        <endpointUrl>https://mercuryintegrationprd.lilly.com/rti/v1/genericUpdated</endpointUrl>
+        <endpointUrl>https://gso1integration.xh1.lilly.com/rti/v1/genericUpdated</endpointUrl>
         <fields>AODS_Venue_Id_MERC__c</fields>
         <fields>AODS_Venue_Name_MERC__c</fields>
         <fields>Accommodation_Information_MERC__c</fields>

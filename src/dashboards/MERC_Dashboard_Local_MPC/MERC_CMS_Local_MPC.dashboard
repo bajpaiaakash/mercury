@@ -209,7 +209,7 @@
             <indicatorHighColor>#54C254</indicatorHighColor>
             <indicatorLowColor>#C25454</indicatorLowColor>
             <indicatorMiddleColor>#C2C254</indicatorMiddleColor>
-            <report>MERC_Dashboard_Cork/CME_Acredited1</report>
+            <report>MERC_Dashboard_Local_MPC/CME_Acredited1</report>
             <showPicturesOnTables>true</showPicturesOnTables>
             <sortBy>RowLabelAscending</sortBy>
         </components>
@@ -246,7 +246,7 @@
             <indicatorHighColor>#54C254</indicatorHighColor>
             <indicatorLowColor>#C25454</indicatorLowColor>
             <indicatorMiddleColor>#C2C254</indicatorMiddleColor>
-            <report>MERC_Dashboard_Cork/DB_Contracts_pending_to_be_dispatched</report>
+            <report>MERC_Dashboard_Local_MPC/DB_Contracts_pending_to_be_dispatched</report>
             <showPicturesOnTables>true</showPicturesOnTables>
             <sortBy>RowLabelAscending</sortBy>
         </components>
@@ -268,7 +268,7 @@
             <sortBy>RowLabelAscending</sortBy>
         </components>
     </rightSection>
-    <runningUser>gso_platform_dashboard_runninguser@gso1.lly</runningUser>
+    <runningUser>tanase_florinela@gso1.lly</runningUser>
     <textColor>#000000</textColor>
     <title>CMS Local/MPC</title>
     <titleColor>#000000</titleColor>

@@ -18,7 +18,7 @@ public with sharing class MICO_Manage_Test_Script_Steps_Controller {
                                     Tips__c
                     
                                     FROM MICO_Test_Template_Steps__c
-                                    WHERE Test_Script__c = : testScriptId ORDER BY Test_Script_Step_Number__c];
+                                    WHERE Test_Script__c = : testScriptId ORDER BY Test_Script_Step_Number__c,Name ASC];
             }
             return testScriptSteps;
         }

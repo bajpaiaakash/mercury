@@ -19,6 +19,6 @@
     <siteAdmin>msw_bull@gso1.lly</siteAdmin>
     <siteTemplate>SiteTemplate</siteTemplate>
     <siteType>Visualforce</siteType>
-    <subdomain>gsosites</subdomain>
+    <subdomain>gso</subdomain>
     <urlPathPrefix>launchpad</urlPathPrefix>
 </CustomSite>

@@ -1,11 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
     <labels>
+        <fullName>ACED_AssetUpdate_ErrorMessage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_AssetUpdate_ErrorMessage</shortDescription>
+        <value>An error occurred while saving Asset Data. Please contact your system administrator</value>
+    </labels>
+    <labels>
+        <fullName>ACED_CreateProduct_label1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_CreateProduct_label1</shortDescription>
+        <value>Create Brand Indication from GSO Product Catalog</value>
+    </labels>
+    <labels>
+        <fullName>ACED_CreateProduct_label2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_CreateProduct_label2</shortDescription>
+        <value>ACE Brand Indication Creation Form</value>
+    </labels>
+    <labels>
+        <fullName>ACED_CreateProduct_label3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_CreateProduct_label3</shortDescription>
+        <value>Create Brand Indications</value>
+    </labels>
+    <labels>
+        <fullName>ACED_CreateProduct_label4</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_CreateProduct_label4</shortDescription>
+        <value>Search Brand Indication</value>
+    </labels>
+    <labels>
+        <fullName>ACED_CreateProduct_label5</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_CreateProduct_label5</shortDescription>
+        <value>GSO Products</value>
+    </labels>
+    <labels>
+        <fullName>ACED_CreateProduct_label6</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_CreateProduct_label6</shortDescription>
+        <value>Create Products</value>
+    </labels>
+    <labels>
+        <fullName>ACED_CreateProduct_label7</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_CreateProduct_label7</shortDescription>
+        <value>GSO Brand Name</value>
+    </labels>
+    <labels>
+        <fullName>ACED_CreateProduct_label8</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_CreateProduct_label8</shortDescription>
+        <value>Product Group Id</value>
+    </labels>
+    <labels>
+        <fullName>ACED_DeliveryNotEligible</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_DeliveryNotEligible</shortDescription>
+        <value>This delivery is not eligible for adding Interactions</value>
+    </labels>
+    <labels>
+        <fullName>ACED_ErrorMessage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_ErrorMessage</shortDescription>
+        <value>There is error occurred in creating/updating the record. Please contact system Admin</value>
+    </labels>
+    <labels>
         <fullName>ACED_Retire_Asset_Error_Msg</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>ACED_Retire_Asset_Error_Msg</shortDescription>
         <value>This asset record cannot be set to Retired as there are associated Assets that are still Active.</value>
+    </labels>
+    <labels>
+        <fullName>ACED_RightNow_EmailContent</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_RightNow_EmailContent</shortDescription>
+        <value>RightNow Batch job is complete, please check the below log files</value>
+    </labels>
+    <labels>
+        <fullName>ACED_RightNow_SubjectLine</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_RightNow_SubjectLine</shortDescription>
+        <value>RightNow Nighthly Job Scheduler is complete</value>
+    </labels>
+    <labels>
+        <fullName>ACED_Webtrends_EmailContent</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_Webtrends_EmailContent</shortDescription>
+        <value>WebTrends Nightly batch is completed, pls find below the summary of records updated</value>
+    </labels>
+    <labels>
+        <fullName>ACED_Webtrends_SubjectLine</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_Webtrends_SubjectLine</shortDescription>
+        <value>Webtrends Batch Job completed</value>
     </labels>
     <labels>
         <fullName>AudienceObj_Audience_Affiliate</fullName>
@@ -39,6 +144,95 @@
         <value>Passed (Complete)</value>
     </labels>
     <labels>
+        <fullName>C3AP_ATC_Approval_Feedback</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP ATC Approval Feedback label</shortDescription>
+        <value>ATC Approver Feedback</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_ATC_Approver</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP ATC Approver label used on Contract Request Form</shortDescription>
+        <value>ATC Approver</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_ATC_Rejection_Email</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP ATC Rejection Email</shortDescription>
+        <value>C3AP_Send_Notification_to_Initiator_for_ATC_Rejected_Australia</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_ATS_Approver</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP ATS Approver label used on Contract Request Form</shortDescription>
+        <value>ATS Approver</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Additional_Guidance_Information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Additional Guidance Information header on Homepage</shortDescription>
+        <value>Additional Guidance Information</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Additional_Links_For_Information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Additional Links for info column header on Homepage</shortDescription>
+        <value>Additional Links for Information (Click to Download)</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Amendment_Approved</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP_Amendment_Approved</shortDescription>
+        <value>You have successfully approved the amendment made by the Approver.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Amendment_Not_Approved</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP_Amendment_Not_Approved</shortDescription>
+        <value>The amendment has already been approved. Please validate if you have already approved the same by navigating to the Detail page and checking the Amendment Accepted check boxes.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Amendment_Popup</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Amendment Popup</shortDescription>
+        <value>Please make note of the following:
+
+1. Only ATC &amp; Legal Approver can request for Amend. 
+2. If ATC or Legal has previously approved or rejected the contract, they cannot Amend it later. 
+3. Amend is possible only after an amended contract has been attached by the  approver.
+4. Make sure to reject the approval after Amending the contract. This would help the requester re-submit the contract for approval.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Apex_Sharing_Access_Level</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Apex Sharing Access Level</shortDescription>
+        <value>Edit</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Application_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Application Name</shortDescription>
+        <value>C3</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Approval_Page_Layout_Comment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Approval Page Layout Comment</shortDescription>
+        <value>If you intend to amend the contract, please click cancel and then click Amend button on the contract request page.</value>
+    </labels>
+    <labels>
         <fullName>C3AP_Approval_Process_Name</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -46,11 +240,455 @@
         <value>04a11000000CdKx</value>
     </labels>
     <labels>
+        <fullName>C3AP_Approve_Button_label</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Approve Button label</shortDescription>
+        <value>Approve</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Approver_Feedback</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Legal Approval Feedback label</shortDescription>
+        <value>Approver Feedback</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Approver_Type_ATC</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP_Approver_Type_ATC</shortDescription>
+        <value>ATC</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Approver_Type_ATS</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP_Approver_Type_ATS</shortDescription>
+        <value>ATS</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Approver_Type_Legal</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP_Approver_Type_Legal</shortDescription>
+        <value>Legal</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Attach_Amended_Contract</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Attach Amended Contract</shortDescription>
+        <value>Contract has been Amended. Please provide the mandatory Amend Comments.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Cancel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Choose</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Choose label for uploading attachments on Contract Form</shortDescription>
+        <value>Choose</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Click_to_Download</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Click here to Download used on Contract Form on the Template Section</shortDescription>
+        <value>Click here to Download</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Close_Upload</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Contract Upload Section close button on Form page</shortDescription>
+        <value>Close Upload</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Contract_Attachments</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Contract Attachments Upload Section header on Form page</shortDescription>
+        <value>Contract Attachment</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Contract_Details</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Contract Details Section Header on Form Page</shortDescription>
+        <value>Contract Details</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Contract_Form_Attachment_Handling</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Contract Form Attachment Handling</shortDescription>
+        <value>You had selected an Attachment for upload. Please reselect the file and click &quot;Upload and Save&quot; first before saving the Contract Request if you wish to save it. 
+
+If you do not wish to upload the attachment, please click &quot;Close Upload&quot; and then save the Contract request.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Contract_Request</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Contract Request</shortDescription>
+        <value>C3 Contract Request</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Contract_Request_Approval</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Contract Approval Section header on Form page</shortDescription>
+        <value>Contract Request Approval</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Contract_Request_Form</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP  Contract Request Form Page Header</shortDescription>
+        <value>Contract Request Form</value>
+    </labels>
+    <labels>
         <fullName>C3AP_Contract_Request_Report_ID</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>C3AP Contract Request Report ID</shortDescription>
         <value>00O11000000VQrp</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Contract_Template</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Contract Template column header for Template download section</shortDescription>
+        <value>Contract Template</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Contract_Template_Download</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Contract Template Download  Section header on Form page</shortDescription>
+        <value>Download Contract Template</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Contract_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Contract Type Field label on Form Page</shortDescription>
+        <value>Contract Type</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Contrct_Completion_Email_Template</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Contrct Completion Email Template</shortDescription>
+        <value>C3AP_Send_Completed_Notification_to_Initiator</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Email_Template_NotSubmitted</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP_Email_Template_NotSubmitted</shortDescription>
+        <value>C3AP_Not_Submitted_Notification_Australia</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Error_Attachment_Uploaded_Successfully</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP_Error_Attachment_Uploaded _Successfully</shortDescription>
+        <value>Attachment uploaded successfully</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Error_Sharing_Records</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Error Sharing Records</shortDescription>
+        <value>Error sharing Contract Request:</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Error_Uploading_Attachment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Error  Uploading Attachment</shortDescription>
+        <value>Error Uploading Attachment</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_File_for_Upload</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP File for Upload</shortDescription>
+        <value>File for Upload</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Final_Sign</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Final Sign</shortDescription>
+        <value>Final Signature</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_GSO_Profile_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP GSO Profile Name</shortDescription>
+        <value>GSO Basic User_Platform</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Get_Contract_Template</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP_Get Contract Template on Contract Request Form</shortDescription>
+        <value>Get Contract Template</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Introductory_Questions</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Introductory Questions</shortDescription>
+        <value>Introductory Questions</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Legal_Approval_Feedback</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Legal Approval Feedback label</shortDescription>
+        <value>Legal Approver Feedback</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Legal_Approver</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Legal Approver label used on Contract Request Form</shortDescription>
+        <value>Legal Approver</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Legal_Questions</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Legal Questions</shortDescription>
+        <value>Legal Questions</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Legal_Review</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Contract Section Legal Review button title</shortDescription>
+        <value>Legal Review</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Legal_Review_URL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP_Legal_Review_URL</shortDescription>
+        <value>/apex/C3AP_Legal_Questionnaire?contractId=</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Legal_rejection_Email</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Legal rejection Email</shortDescription>
+        <value>C3AP_Send_Notification_to_Initiator_on_Legal_Reject_Australia</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_More_Information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP More Information</shortDescription>
+        <value>More Information</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_NO</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP NO</shortDescription>
+        <value>NO</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_New_Contract_Request</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP New Contract Request - Label for homepage button</shortDescription>
+        <value>New Contract Request</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_New_Contract_Request_URL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP_New_Contract_Request_URL</shortDescription>
+        <value>/apex/C3AP_Contract_Initiation?affiliateId=</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Next</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Next</shortDescription>
+        <value>Next</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_No_Additional_Guidance</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP No Additional Guidance Links message for affiliate on homepage</shortDescription>
+        <value>There are no Additional Guidance links available for this Affiliate. Please contact your administrator for more information.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_No_Templates_Available</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP No Tempaltes available for Download</shortDescription>
+        <value>There are no contract templates available for download. Please contact your administrator.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Org_Wide_Email_Display_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Org Wide Email Display Name</shortDescription>
+        <value>gso_noreply@lilly.com</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Proceed_to_Contract_Form</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Proceed to Contract Form</shortDescription>
+        <value>Proceed to Contract Form</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Question_Type_Information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Question Type Information</shortDescription>
+        <value>Information</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Question_Type_Introductory</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Question Type Introductory</shortDescription>
+        <value>Introductory</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Question_Type_Legal</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Question Type Legal</shortDescription>
+        <value>Legal</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Save_Contract_Request</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Used for Save Button on Contract Request Form Page</shortDescription>
+        <value>Save Contract Request</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Search_Existing_Request</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Search Existing Request button on Homepage</shortDescription>
+        <value>Search Existing Request</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Select_Affiliate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Select Affiliate option for the Affiliate picklist on Homepage</shortDescription>
+        <value>--Select Affiliate--</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Status_Completed</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Status Completed</shortDescription>
+        <value>Completed</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Status_Not_Approved_By_ATC</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Status Not Approved By ATC</shortDescription>
+        <value>Not Approved by ATC</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Status_Not_Approved_By_ATS</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Status Not Approved By ATS</shortDescription>
+        <value>Not Approved By ATS</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Status_Not_Approved_By_Legal</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Status Not Approved By Legal</shortDescription>
+        <value>Not Approved By Legal</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Status_Not_Submitted</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Status Not Submitted</shortDescription>
+        <value>Not Submitted</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Status_Pending_ATC_Approval</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Status Pending ATC Approval</shortDescription>
+        <value>Pending ATC Approval</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Status_Pending_ATS_Approval</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Status Pending ATS Approval</shortDescription>
+        <value>Pending ATS Approval</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Status_Pending_Final_Signatures</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Status Pending Final Signatures</shortDescription>
+        <value>Pending Final Signatures</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Status_Pending_Legal_Approval</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Status Pending Legal Approval</shortDescription>
+        <value>Pending Legal Approval</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Status_Pending_Requestor_Review</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Status Pending Requestor Review</shortDescription>
+        <value>Pending Requestor Review</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Upload_and_Save</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Upload and Save button on Contract Request Form</shortDescription>
+        <value>Upload and Save</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Welcome_Text</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Welcome Text</shortDescription>
+        <value>Welcome to C3! Before you begin, please read the C3
+Checklist link on the C3 homepage.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_YES</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP YES</shortDescription>
+        <value>YES</value>
     </labels>
     <labels>
         <fullName>Clear_Search_Results_Button_MVN</fullName>

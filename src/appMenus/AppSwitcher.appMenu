@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AppMenu xmlns="http://soap.sforce.com/2006/04/metadata">
     <appMenuItems>
-        <name>cirrus_launchpad</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
-    <appMenuItems>
         <name>standard__Platform</name>
         <type>CustomApplication</type>
     </appMenuItems>
@@ -41,6 +37,18 @@
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
+        <name>Loop__LOOP</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>cirrus_launchpad</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>BLND_DreamFactory_Utilities</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
         <name>MICO_Mission_Control</name>
         <type>CustomApplication</type>
     </appMenuItems>
@@ -50,14 +58,6 @@
     </appMenuItems>
     <appMenuItems>
         <name>MICO_Test_Management</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
-    <appMenuItems>
-        <name>Loop__LOOP</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
-    <appMenuItems>
-        <name>BLND_DreamFactory_Utilities</name>
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
@@ -94,6 +94,10 @@
     </appMenuItems>
     <appMenuItems>
         <name>RWE</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>ACED</name>
         <type>CustomApplication</type>
     </appMenuItems>
 </AppMenu>

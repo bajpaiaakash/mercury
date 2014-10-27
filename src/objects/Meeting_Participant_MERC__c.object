@@ -4172,8 +4172,9 @@ Proposed_Final_Fee_MERC__c = 0.00)</errorConditionFormula>
         <fullName>MERC_Services_Rendered</fullName>
         <active>true</active>
         <description>Only HCP Care or System Administrator can change Services Rendered value if it is already set to &quot;Yes&quot; : MERC : Created on 02/03/2014 by Katy Lorenti, Mavens Consulting</description>
-        <errorConditionFormula>$Profile.Name &lt;&gt; &quot;Mercury HCP Care&quot; &amp;&amp; 
-$Profile.Name &lt;&gt; &quot;System Administrator&quot; &amp;&amp;
+        <errorConditionFormula>$Profile.Name &lt;&gt; &quot;System Administrator&quot; &amp;&amp; 
+($User.Power_User_MERC__c = False ||   
+$User.Case_Application_GLBL__c != &quot;MERCURY&quot;)  &amp;&amp; 
 ISCHANGED(Services_Rendered_MERC__c) &amp;&amp;
 ISPICKVAL(PRIORVALUE(Services_Rendered_MERC__c),&quot;Yes&quot;)</errorConditionFormula>
         <errorDisplayField>Services_Rendered_MERC__c</errorDisplayField>

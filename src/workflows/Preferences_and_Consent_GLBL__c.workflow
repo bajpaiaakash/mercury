@@ -430,7 +430,7 @@ ISBLANK(  Cnsnt_Sts_Cd_Cap_GLBL__c  ),
         <fullName>RTI_Pref_and_Consent_Updated</fullName>
         <apiVersion>30.0</apiVersion>
         <description>Sends selected fields to Veeva orgs for update</description>
-        <endpointUrl>https://mercuryintegrationprd.lilly.com/rti/v1/genericUpdated</endpointUrl>
+        <endpointUrl>https://gso1integration.xh1.lilly.com/rti/v1/genericUpdated</endpointUrl>
         <fields>Account_External_Id_GLBL__c</fields>
         <fields>Account_Field_Update_MERC__c</fields>
         <fields>Account_GLBL__c</fields>

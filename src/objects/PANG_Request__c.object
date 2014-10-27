@@ -3486,29 +3486,6 @@ TODAY() + 9999)</formula>
         <language>en_US</language>
     </listViews>
     <listViews>
-        <fullName>BMBU_SC_Request_Test2</fullName>
-        <columns>NAME</columns>
-        <columns>RECORDTYPE</columns>
-        <columns>Primary_Therapeutic_BU__c</columns>
-        <columns>OWNER.FIRST_NAME</columns>
-        <columns>OWNER.LAST_NAME</columns>
-        <columns>Request_Status__c</columns>
-        <columns>Related_Project__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>PANG_Request__c.RWE_Strategic_Consultation</value>
-        </filters>
-        <filters>
-            <field>Primary_Therapeutic_BU__c</field>
-            <operation>startsWith</operation>
-            <value>Bio</value>
-        </filters>
-        <label>BMBU SC Requests</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
         <fullName>Created_Today</fullName>
         <columns>NAME</columns>
         <columns>CREATEDBY_USER</columns>
@@ -3531,7 +3508,6 @@ TODAY() + 9999)</formula>
     <listViews>
         <fullName>Datamart_Scientist</fullName>
         <columns>NAME</columns>
-        <columns>Primary_Therapeutic_BU__c</columns>
         <columns>Request_Status__c</columns>
         <columns>OWNER.ALIAS</columns>
         <columns>Request_Sub_Status__c</columns>
@@ -3547,29 +3523,6 @@ TODAY() + 9999)</formula>
         <sharedTo>
             <allInternalUsers></allInternalUsers>
         </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>Diabetes_SC_Requests</fullName>
-        <columns>NAME</columns>
-        <columns>RECORDTYPE</columns>
-        <columns>Primary_Therapeutic_BU__c</columns>
-        <columns>OWNER.FIRST_NAME</columns>
-        <columns>OWNER.LAST_NAME</columns>
-        <columns>Request_Status__c</columns>
-        <columns>Related_Project__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>PANG_Request__c.RWE_Strategic_Consultation</value>
-        </filters>
-        <filters>
-            <field>Primary_Therapeutic_BU__c</field>
-            <operation>startsWith</operation>
-            <value>Dia</value>
-        </filters>
-        <label>Diabetes SC Requests</label>
-        <language>en_US</language>
     </listViews>
     <listViews>
         <fullName>My_Active_Requests</fullName>
@@ -3613,56 +3566,24 @@ TODAY() + 9999)</formula>
         <language>en_US</language>
     </listViews>
     <listViews>
-        <fullName>Oncology_Datmart_Consults</fullName>
-        <columns>OBJECT_ID</columns>
-        <columns>NAME</columns>
-        <columns>Description__c</columns>
-        <columns>Request_Status__c</columns>
-        <columns>OWNER.ALIAS</columns>
-        <columns>CREATED_DATE</columns>
-        <columns>CREATEDBY_USER</columns>
-        <columns>Proposed_Due_Date__c</columns>
-        <columns>Date_In_Progress__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>PANG_Request__c.Datamart_Scientific_Consultation</value>
-        </filters>
-        <filters>
-            <field>Primary_Therapeutic_Area__c</field>
-            <operation>equals</operation>
-            <value>Oncology</value>
-        </filters>
-        <label>Oncology Datmart Consults</label>
-        <language>en_US</language>
-        <sharedTo>
-            <group>PANG_RWE_Datamart_Scientist</group>
-        </sharedTo>
-    </listViews>
-    <listViews>
         <fullName>Oncology_requests</fullName>
-        <columns>RECORDTYPE</columns>
         <columns>IMPACT_BoB_ID__c</columns>
         <columns>Priority__c</columns>
         <columns>NAME</columns>
         <columns>Related_Project__c</columns>
+        <columns>OBJECT_ID</columns>
         <columns>Data_Asset__c</columns>
         <columns>Molecule_multi__c</columns>
-        <columns>Primary_Disease_State__c</columns>
         <columns>Planned_Date_Completed__c</columns>
-        <columns>Proposed_Due_Date__c</columns>
-        <columns>Date_Submitted__c</columns>
-        <columns>Date_Accepted__c</columns>
-        <columns>Date_Completed__c</columns>
-        <columns>Date_Closed__c</columns>
+        <columns>Primary_Disease_State__c</columns>
+        <columns>Primary_Therapeutic_Area__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>Primary_Therapeutic_BU__c</field>
+            <field>Therapeutic_BU_PE__c</field>
             <operation>equals</operation>
             <value>Oncology</value>
         </filters>
-        <label>Oncology requests by Request Types</label>
+        <label>Oncology requests</label>
         <language>en_US</language>
     </listViews>
     <listViews>
@@ -3865,17 +3786,40 @@ TODAY() + 9999)</formula>
         <columns>Confidentiality_Agreement_in_Place__c</columns>
         <columns>Confidentiality_Agreement_Expiration__c</columns>
         <columns>Data_Asset__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>PANG_Request__c.RWE_Partnership_Exploration</value>
-        </filters>
+        <filterScope>Queue</filterScope>
         <label>RWE Partnership Exploration</label>
         <language>en_US</language>
+        <queue>PANG_QUE_RWE_Parternship_Exploration</queue>
         <sharedTo>
             <allInternalUsers></allInternalUsers>
         </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>michele_view</fullName>
+        <columns>NAME</columns>
+        <columns>OBJECT_ID</columns>
+        <columns>Analyst_Status_Notes__c</columns>
+        <columns>Proposed_Due_Date__c</columns>
+        <columns>Priority__c</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <filterScope>Queue</filterScope>
+        <filters>
+            <field>NAME</field>
+            <operation>equals</operation>
+        </filters>
+        <filters>
+            <field>OBJECT_ID</field>
+            <operation>equals</operation>
+        </filters>
+        <filters>
+            <field>Approval_Status__c</field>
+            <operation>equals</operation>
+            <value>Access Not Approved</value>
+        </filters>
+        <label>michele view</label>
+        <language>en_US</language>
+        <queue>PANG_QUE_RWD_Analysis</queue>
     </listViews>
     <nameField>
         <label>Request Name</label>

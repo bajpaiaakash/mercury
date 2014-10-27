@@ -40,6 +40,7 @@
 
     <apex:pageblockSection columns="1" title="Test Steps" id="testStep" collapsible="true">
         <apex:pageBlockTable value="{!TestSp}" var="step" columns="9">
+            <apex:column value="{!step.Test_Execution_Step_Number__c}" />
             <apex:column value="{!step.name}"/>
             <apex:column value="{!step.Action__c}"/>
             <apex:column value="{!step.Expected_Results__c}"/>

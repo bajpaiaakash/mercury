@@ -18,6 +18,6 @@
     <requireInsecurePortalAccess>false</requireInsecurePortalAccess>
     <siteAdmin>dhsadhwani@gso1.lly</siteAdmin>
     <siteType>ChatterNetwork</siteType>
-    <subdomain>gso</subdomain>
+    <subdomain>gso-communities</subdomain>
     <urlPathPrefix>rwepartners</urlPathPrefix>
 </CustomSite>

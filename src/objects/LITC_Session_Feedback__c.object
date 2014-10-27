@@ -144,7 +144,6 @@
     </fields>
     <fields>
         <fullName>Session__c</fullName>
-        <deleteConstraint>Restrict</deleteConstraint>
         <description>Session to which the feedback is related</description>
         <externalId>false</externalId>
         <inlineHelpText>The session for which the feedback is applicable</inlineHelpText>
@@ -152,10 +151,12 @@
         <referenceTo>LITC_Session__c</referenceTo>
         <relationshipLabel>Feedback on this Session</relationshipLabel>
         <relationshipName>Sessions_Feedback</relationshipName>
-        <required>true</required>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
         <trackFeedHistory>true</trackFeedHistory>
         <trackTrending>false</trackTrending>
-        <type>Lookup</type>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>true</writeRequiresMasterRead>
     </fields>
     <fields>
         <fullName>Session_content_met_my_expectations__c</fullName>
@@ -247,7 +248,7 @@
     </nameField>
     <pluralLabel>Sessions Feedback</pluralLabel>
     <searchLayouts/>
-    <sharingModel>Private</sharingModel>
+    <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
         <fullName>LITC_Only_Owners_can_Edit_Their_Feedback</fullName>
         <active>true</active>

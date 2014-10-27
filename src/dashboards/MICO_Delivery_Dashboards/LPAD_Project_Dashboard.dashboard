@@ -9,20 +9,19 @@
         <components>
             <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
             <chartAxisRange>Auto</chartAxisRange>
-            <componentType>Bar</componentType>
+            <componentType>Line</componentType>
             <displayUnits>Auto</displayUnits>
             <drillEnabled>false</drillEnabled>
             <drillToDetailEnabled>false</drillToDetailEnabled>
-            <enableHover>true</enableHover>
+            <enableHover>false</enableHover>
             <expandOthers>false</expandOthers>
             <legendPosition>Bottom</legendPosition>
             <report>LPAD_Delivery_Reports/LPAD_Burndown_Report</report>
             <showPercentage>false</showPercentage>
-            <showPicturesOnCharts>false</showPicturesOnCharts>
             <showValues>false</showValues>
             <sortBy>RowLabelAscending</sortBy>
             <title>Launchpad Burndown Chart</title>
-            <useReportChart>true</useReportChart>
+            <useReportChart>false</useReportChart>
         </components>
     </leftSection>
     <rightSection>
@@ -30,7 +29,7 @@
         <components>
             <autoselectColumnsFromReport>true</autoselectColumnsFromReport>
             <chartAxisRange>Auto</chartAxisRange>
-            <componentType>Bar</componentType>
+            <componentType>Funnel</componentType>
             <displayUnits>Auto</displayUnits>
             <drillEnabled>false</drillEnabled>
             <drillToDetailEnabled>false</drillToDetailEnabled>
@@ -39,11 +38,10 @@
             <legendPosition>Bottom</legendPosition>
             <report>LPAD_Delivery_Reports/LPAD_User_Story_Funnel</report>
             <showPercentage>false</showPercentage>
-            <showPicturesOnCharts>false</showPicturesOnCharts>
             <showValues>true</showValues>
             <sortBy>RowLabelAscending</sortBy>
             <title>Launchpad User Story Funnel</title>
-            <useReportChart>true</useReportChart>
+            <useReportChart>false</useReportChart>
         </components>
     </rightSection>
     <runningUser>smatharu@gso1.lly</runningUser>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
         <members>*</members>
@@ -93,7 +93,6 @@
         <name>CustomLabels</name>
     </types>
     <types>
-        <members>*</members>
         <members>Account</members>
         <members>AccountContactRole</members>
         <members>Activity</members>
@@ -126,6 +125,7 @@
         <members>WorkBadge</members>
         <members>WorkBadgeDefinition</members>
         <members>WorkThanks</members>
+        <members>*</members>
         <name>CustomObject</name>
     </types>
     <types>
@@ -210,8 +210,8 @@
         <name>CustomObjectCriteriaBasedSharingRule</name>
     </types>
     <types>
-        <members>IRIS_Submission__c.IRIS_AdminSharing</members>
         <members>Invoice_MERC__c.MERC_Invoice_CMS_Cork_Sharing_Rule</members>
+        <members>IRIS_Submission__c.IRIS_AdminSharing</members>
         <name>CustomObjectOwnerSharingRule</name>
     </types>
     <types>
@@ -235,25 +235,16 @@
         <name>CustomTab</name>
     </types>
     <types>
-        <members>CMS_Dashboard_Folder</members>
-        <members>CMS_Dashboard_Folder/Dashboard_CMS_Meetings_MERC</members>
-        <members>Chatter_Usage_Dashboards</members>
-        <members>Chatter_Usage_Dashboards/Chatter_Usage_Dashboard</members>
-        <members>CompanyDashboards</members>
-        <members>CompanyDashboards/AdoptionDashboard</members>
-        <members>CompanyDashboards/CompanyPerformanceDashboard</members>
-        <members>CompanyDashboards/My_Dashboard_MERC</members>
-        <members>HR_Dashboards</members>
-        <members>HR_Dashboards/HR_Investigations_Dashboards</members>
-        <members>MERC_CMS_Cork</members>
-        <members>MERC_CMS_Local</members>
-        <members>MERC_Dashboard_Cork</members>
-        <members>MERC_Dashboard_Cork/Cases_MERC</members>
-        <members>MERC_Dashboard_Cork/MERC_CMS_Cork</members>
-        <members>MERC_Dashboard_Local_MPC</members>
-        <members>MERC_Dashboard_Local_MPC/MERC_CMS_Local_MPC</members>
-        <members>MERC_Dashboard_SLA</members>
-        <members>MERC_Dashboard_SLA/SLA_Metrics</members>
+        <members>MICO_Delivery_Dashboards</members>
+        <members>MICO_Delivery_Dashboards/Forms_Sprint_1</members>
+        <members>MICO_Delivery_Dashboards/LPAD_Project_Dashboard</members>
+        <members>MICO_Delivery_Dashboards/Mission_Control_Enhancements_Project_Dashboard</members>
+        <members>MICO_Delivery_Dashboards/Mission_Control_Enhancements_Sprint_3_Dashboard</members>
+        <members>MICO_Delivery_Dashboards/Project_Dashboard_Forms_Builder_Sprint_11</members>
+        <members>RWE_Dashboards</members>
+        <members>RWE_Dashboards/RWE_Leadership_Portfolio_Metrics</members>
+        <members>RWE_Dashboards/RWE_Project_History_Dashboard</members>
+        <members>RWE_Dashboards/RWE_Requests_Dashboard</members>
         <members>MICO_Dashboard_Templates</members>
         <members>MICO_Dashboard_Templates/Sample_Cirrus_Project_Progress</members>
         <members>MICO_Dashboard_Templates/Sample_Defect_Summary</members>
@@ -263,25 +254,34 @@
         <members>MICO_Dashboard_Templates/Sample_Test_Summary_Dashboard</members>
         <members>MICO_Dashboard_Templates/Sample_Traceability_Dashboard</members>
         <members>MICO_Dashboard_Templates/Sample_User_Story_Approval_Dashboard</members>
-        <members>MICO_Delivery_Dashboards</members>
-        <members>MICO_Delivery_Dashboards/Forms_Sprint_1</members>
-        <members>MICO_Delivery_Dashboards/LPAD_Project_Dashboard</members>
-        <members>MICO_Delivery_Dashboards/Mission_Control_Enhancements_Project_Dashboard</members>
-        <members>MICO_Delivery_Dashboards/Mission_Control_Enhancements_Sprint_3_Dashboard</members>
-        <members>MICO_Delivery_Dashboards/Project_Dashboard_Forms_Builder_Sprint_11</members>
+        <members>Snapshot_Push_Actions_Dashboard04t40000000Fuso</members>
+        <members>Snapshot_Push_Actions_Dashboard04t40000000Fuso/Snapshot_Pushes04t40000000Fuso</members>
+        <members>MERC_CMS_Cork</members>
         <members>Meetings_Dashboard_Folder</members>
         <members>Meetings_Dashboard_Folder/Meetings_MERC</members>
+        <members>MERC_Dashboard_Local_MPC</members>
+        <members>MERC_Dashboard_Local_MPC/MERC_CMS_Local_MPC</members>
+        <members>MERC_Dashboard_Cork</members>
+        <members>MERC_Dashboard_Cork/Cases_MERC</members>
+        <members>MERC_Dashboard_Cork/MERC_CMS_Cork</members>
+        <members>SLA</members>
+        <members>CMS_Dashboard_Folder</members>
+        <members>CMS_Dashboard_Folder/Dashboard_CMS_Meetings_MERC</members>
+        <members>HR_Dashboards</members>
+        <members>HR_Dashboards/HR_Investigations_Dashboards</members>
+        <members>MERC_Dashboard_SLA</members>
+        <members>MERC_Dashboard_SLA/SLA_Metrics</members>
+        <members>MERC_CMS_Local</members>
         <members>PM_App_Dashboard</members>
         <members>PM_App_Dashboard/Lisa</members>
         <members>PM_App_Dashboard/Open_Mercury_Tickets</members>
         <members>PM_App_Dashboard/Test_Pangaea</members>
-        <members>RWE_Dashboards</members>
-        <members>RWE_Dashboards/RWE_Leadership_Portfolio_Metrics</members>
-        <members>RWE_Dashboards/RWE_Project_History_Dashboard</members>
-        <members>RWE_Dashboards/RWE_Requests_Dashboard</members>
-        <members>SLA</members>
-        <members>Snapshot_Push_Actions_Dashboard04t40000000Fuso</members>
-        <members>Snapshot_Push_Actions_Dashboard04t40000000Fuso/Snapshot_Pushes04t40000000Fuso</members>
+        <members>CompanyDashboards</members>
+        <members>CompanyDashboards/AdoptionDashboard</members>
+        <members>CompanyDashboards/CompanyPerformanceDashboard</members>
+        <members>CompanyDashboards/My_Dashboard_MERC</members>
+        <members>Chatter_Usage_Dashboards</members>
+        <members>Chatter_Usage_Dashboards/Chatter_Usage_Dashboard</members>
         <name>Dashboard</name>
     </types>
     <types>
@@ -289,18 +289,37 @@
         <name>DataCategoryGroup</name>
     </types>
     <types>
-        <members>BLND_Logos_Identity</members>
-        <members>BLND_Logos_Identity/BLND_DreamFactory_Logo.gif</members>
-        <members>Communities_Shared_Document_Folder</members>
-        <members>Communities_Shared_Document_Folder/LillyLogo_RGB_Red_png.png</members>
-        <members>Communities_Shared_Document_Folder/rwe_logo_png.png</members>
+        <members>Salesforce1_Branding_Resources</members>
+        <members>Salesforce1_Branding_Resources/lilly_logo_png.png</members>
+        <members>Salesforce1_Branding_Resources/lilly_logo_png1.png</members>
         <members>LPAD_Images</members>
         <members>LPAD_Images/LPAD_Logo.png</members>
+        <members>SharedDocuments</members>
+        <members>SharedDocuments/Lilly_Logo.png</members>
+        <members>SharedDocuments/Lilly_Logo_New.png</members>
+        <members>SharedDocuments/Lilly_Logo_updated.png</members>
+        <members>PANG_Pangaea_Logos_Images</members>
+        <members>PANG_Pangaea_Logos_Images/PANG_Chatter_Link_png.png</members>
+        <members>PANG_Pangaea_Logos_Images/PANG_External_Link_png.png</members>
+        <members>PANG_Pangaea_Logos_Images/PANG_Lilly_Header_Logo_jpg.png</members>
+        <members>PANG_Pangaea_Logos_Images/PANG_Pangaea_App_Logo_png.png</members>
+        <members>PANG_Pangaea_Logos_Images/PANG_Pangaea_User_Training_png.png</members>
+        <members>PANG_Pangaea_Logos_Images/PANG_RWE_Data_Assets_png.png</members>
+        <members>PANG_Pangaea_Logos_Images/PANG_RWE_External_Partnerships_png.png</members>
+        <members>PANG_Pangaea_Logos_Images/PANG_RWE_Partnerships_png.png</members>
+        <members>PANG_Pangaea_Logos_Images/PANG_RWE_Projects_png.png</members>
+        <members>PANG_Pangaea_Logos_Images/PANG_RWE_Request_png.png</members>
+        <members>PANG_Pangaea_Logos_Images/PANG_RWE_Request_Status_png.png</members>
         <members>Logo_s_Images</members>
         <members>Logo_s_Images/ADS_Logo.jpg</members>
         <members>Logo_s_Images/IT_Conference_logo.gif</members>
         <members>Logo_s_Images/Lilly_Mission_Control_Logo.png</members>
         <members>Logo_s_Images/Tracker_Logo.jpg</members>
+        <members>BLND_Logos_Identity</members>
+        <members>BLND_Logos_Identity/BLND_DreamFactory_Logo.gif</members>
+        <members>Communities_Shared_Document_Folder</members>
+        <members>Communities_Shared_Document_Folder/LillyLogo_RGB_Red_png.png</members>
+        <members>Communities_Shared_Document_Folder/rwe_logo_png.png</members>
         <members>Loop__LOOP_Files</members>
         <members>Loop__LOOP_Files/AT_CMS_01IMDE_b_Registration_accommodation_docx.docx</members>
         <members>Loop__LOOP_Files/AT_CMS_01IMDE_b_Registration_accommodation_docx2.docx</members>
@@ -326,21 +345,21 @@
         <members>Loop__LOOP_Files/AT_CMS_03LMDE_a_Registration_Confirmation_Mail_docx.docx</members>
         <members>Loop__LOOP_Files/AT_CMS_03LMDE_a_Registration_Confirmation_Mail_docx2.docx</members>
         <members>Loop__LOOP_Files/AT_CMS_03LMDE_a_Registration_Confirmation_Mail_docx3.docx</members>
-        <members>Loop__LOOP_Files/AT_CMS_03LMDE_b_Notify_Institution_KAV_DE.docx</members>
-        <members>Loop__LOOP_Files/AT_CMS_03LMDE_b_Notify_Institution_KAV_DE1.docx</members>
         <members>Loop__LOOP_Files/AT_CMS_03LMDE_b_Notify_Institution_general_DE.docx</members>
         <members>Loop__LOOP_Files/AT_CMS_03LMDE_b_Notify_Institution_general_DE1.docx</members>
+        <members>Loop__LOOP_Files/AT_CMS_03LMDE_b_Notify_Institution_KAV_DE.docx</members>
+        <members>Loop__LOOP_Files/AT_CMS_03LMDE_b_Notify_Institution_KAV_DE1.docx</members>
         <members>Loop__LOOP_Files/AT_CMS_03LMSP_a_My_Professional_Information_docx.docx</members>
         <members>Loop__LOOP_Files/AT_CMS_03LMSP_a_My_Professional_Information_docx2.docx</members>
         <members>Loop__LOOP_Files/AT_CMS_03LMSP_a_My_Professional_Information_docx3.docx</members>
-        <members>Loop__LOOP_Files/AT_CMS_03LMSP_b_Notify_Institution_KAV_AT_docx.docx</members>
-        <members>Loop__LOOP_Files/AT_CMS_03LMSP_b_Notify_Institution_KAV_AT_docx1.docx</members>
         <members>Loop__LOOP_Files/AT_CMS_03LMSP_b_Notify_Institution_general_docx.docx</members>
         <members>Loop__LOOP_Files/AT_CMS_03LMSP_b_Notify_Institution_general_docx1.docx</members>
-        <members>Loop__LOOP_Files/AT_CMS_03LMXX_b_Notify_Institution_KAV_AT_docx2.docx</members>
-        <members>Loop__LOOP_Files/AT_CMS_03LMXX_b_Notify_Institution_KAV_DE1.docx</members>
+        <members>Loop__LOOP_Files/AT_CMS_03LMSP_b_Notify_Institution_KAV_AT_docx.docx</members>
+        <members>Loop__LOOP_Files/AT_CMS_03LMSP_b_Notify_Institution_KAV_AT_docx1.docx</members>
         <members>Loop__LOOP_Files/AT_CMS_03LMXX_b_Notify_Institution_general_DE1.docx</members>
         <members>Loop__LOOP_Files/AT_CMS_03LMXX_b_Notify_Institution_general_docx2.docx</members>
+        <members>Loop__LOOP_Files/AT_CMS_03LMXX_b_Notify_Institution_KAV_AT_docx2.docx</members>
+        <members>Loop__LOOP_Files/AT_CMS_03LMXX_b_Notify_Institution_KAV_DE1.docx</members>
         <members>Loop__LOOP_Files/AT_CMS_04IMDE_a_Logistic_Confirmation_Details_docx.docx</members>
         <members>Loop__LOOP_Files/AT_CMS_04IMDE_a_Logistic_Confirmation_Details_docx2.docx</members>
         <members>Loop__LOOP_Files/AT_CMS_04IMDE_a_Logistic_Confirmation_Details_docx3.docx</members>
@@ -359,6 +378,12 @@
         <members>Loop__LOOP_Files/AT_CMS_05LMXX_b_Final_Info_Details_docx.docx</members>
         <members>Loop__LOOP_Files/AT_CMS_05LMXX_b_Final_Info_Details_docx2.docx</members>
         <members>Loop__LOOP_Files/AT_CMS_05LMXX_b_Final_Info_Details_docx3.docx</members>
+        <members>Loop__LOOP_Files/AT_CMS_06LMSP_a_Cover_Letter_for_Contract_docx.docx</members>
+        <members>Loop__LOOP_Files/AT_CMS_06LMSP_a_Cover_Letter_for_Contract_docx2.docx</members>
+        <members>Loop__LOOP_Files/AT_CMS_06LMSP_a_Cover_Letter_for_Contract_docx3.docx</members>
+        <members>Loop__LOOP_Files/AT_CMS_06LMSP_f_Service_agreement_consultant_docx.docx</members>
+        <members>Loop__LOOP_Files/AT_CMS_06LMSP_f_Service_agreement_consultant_docx2.docx</members>
+        <members>Loop__LOOP_Files/AT_CMS_06LMSP_f_Service_agreement_consultant_docx3.docx</members>
         <members>Loop__LOOP_Files/AT_CMS_06LMSP_MSA_HCP_docx.docx</members>
         <members>Loop__LOOP_Files/AT_CMS_06LMSP_MSA_HCP_docx2.docx</members>
         <members>Loop__LOOP_Files/AT_CMS_06LMSP_MSA_HCP_docx3.docx</members>
@@ -368,12 +393,6 @@
         <members>Loop__LOOP_Files/AT_CMS_06LMSP_Work_Order_docx.docx</members>
         <members>Loop__LOOP_Files/AT_CMS_06LMSP_Work_Order_docx2.docx</members>
         <members>Loop__LOOP_Files/AT_CMS_06LMSP_Work_Order_docx3.docx</members>
-        <members>Loop__LOOP_Files/AT_CMS_06LMSP_a_Cover_Letter_for_Contract_docx.docx</members>
-        <members>Loop__LOOP_Files/AT_CMS_06LMSP_a_Cover_Letter_for_Contract_docx2.docx</members>
-        <members>Loop__LOOP_Files/AT_CMS_06LMSP_a_Cover_Letter_for_Contract_docx3.docx</members>
-        <members>Loop__LOOP_Files/AT_CMS_06LMSP_f_Service_agreement_consultant_docx.docx</members>
-        <members>Loop__LOOP_Files/AT_CMS_06LMSP_f_Service_agreement_consultant_docx2.docx</members>
-        <members>Loop__LOOP_Files/AT_CMS_06LMSP_f_Service_agreement_consultant_docx3.docx</members>
         <members>Loop__LOOP_Files/AT_CMS_07LMDE_a_Thank_You_Cover_docx.docx</members>
         <members>Loop__LOOP_Files/AT_CMS_07LMDE_a_Thank_You_Cover_docx2.docx</members>
         <members>Loop__LOOP_Files/AT_CMS_07LMDE_a_Thank_You_Cover_docx3.docx</members>
@@ -621,11 +640,6 @@
         <members>Loop__LOOP_Files/CH_CMS_05LMXX_b_Final_Info_Details.docx</members>
         <members>Loop__LOOP_Files/CH_CMS_05LMXX_b_Final_Info_Details2.docx</members>
         <members>Loop__LOOP_Files/CH_CMS_05LMXX_b_Final_Info_Details3.docx</members>
-        <members>Loop__LOOP_Files/CH_CMS_06LMSP_G_Appendix_HCP_Payment_Info_DE.docx</members>
-        <members>Loop__LOOP_Files/CH_CMS_06LMSP_G_Appendix_HCP_Payment_Info_DE1.docx</members>
-        <members>Loop__LOOP_Files/CH_CMS_06LMSP_G_Appendix_HCP_Payment_Info_DE2.docx</members>
-        <members>Loop__LOOP_Files/CH_CMS_06LMSP_G_Appendix_HCP_Payment_Info_FR.docx</members>
-        <members>Loop__LOOP_Files/CH_CMS_06LMSP_G_Appendix_HCP_Payment_Info_FR1.docx</members>
         <members>Loop__LOOP_Files/CH_CMS_06LMSP_a_Cover_Letter_for_Contract.docx</members>
         <members>Loop__LOOP_Files/CH_CMS_06LMSP_a_Cover_Letter_for_Contract2.docx</members>
         <members>Loop__LOOP_Files/CH_CMS_06LMSP_a_Cover_Letter_for_Contract3.docx</members>
@@ -653,6 +667,11 @@
         <members>Loop__LOOP_Files/CH_CMS_06LMSP_e_Single_Event_French.docx</members>
         <members>Loop__LOOP_Files/CH_CMS_06LMSP_e_Single_Event_French2.docx</members>
         <members>Loop__LOOP_Files/CH_CMS_06LMSP_e_Single_Event_French3.docx</members>
+        <members>Loop__LOOP_Files/CH_CMS_06LMSP_G_Appendix_HCP_Payment_Info_DE.docx</members>
+        <members>Loop__LOOP_Files/CH_CMS_06LMSP_G_Appendix_HCP_Payment_Info_DE1.docx</members>
+        <members>Loop__LOOP_Files/CH_CMS_06LMSP_G_Appendix_HCP_Payment_Info_DE2.docx</members>
+        <members>Loop__LOOP_Files/CH_CMS_06LMSP_G_Appendix_HCP_Payment_Info_FR.docx</members>
+        <members>Loop__LOOP_Files/CH_CMS_06LMSP_G_Appendix_HCP_Payment_Info_FR1.docx</members>
         <members>Loop__LOOP_Files/CH_CMS_07LMDE_a_Thank_You_Cover.docx</members>
         <members>Loop__LOOP_Files/CH_CMS_07LMDE_a_Thank_You_Cover2.docx</members>
         <members>Loop__LOOP_Files/CH_CMS_07LMDE_a_Thank_You_Cover3.docx</members>
@@ -693,18 +712,18 @@
         <members>Loop__LOOP_Files/CMS_Mercury_Internal_Accounting8.docx</members>
         <members>Loop__LOOP_Files/CMS_Mercury_Internal_Accounting9.docx</members>
         <members>Loop__LOOP_Files/CZ_CMS_01LMXX_d_Notification_Agreement_for_Sponsorship.docx</members>
-        <members>Loop__LOOP_Files/CZ_CMS_03LMSP_HCP_Information_Form_Quasi_Employment.docx</members>
         <members>Loop__LOOP_Files/CZ_CMS_03LMSP_a_My_Professional_Information.docx</members>
         <members>Loop__LOOP_Files/CZ_CMS_03LMSP_b_HCP_Information_Form_Service_Agreement.docx</members>
+        <members>Loop__LOOP_Files/CZ_CMS_03LMSP_HCP_Information_Form_Quasi_Employment.docx</members>
         <members>Loop__LOOP_Files/CZ_CMS_03LMXX_b_Notify_Institution.docx</members>
+        <members>Loop__LOOP_Files/CZ_CMS_06LMSP_a_Cover_Letter_for_Contract.docx</members>
         <members>Loop__LOOP_Files/CZ_CMS_06LMSP_B_MSA.docx</members>
         <members>Loop__LOOP_Files/CZ_CMS_06LMSP_B_Quasi_MSA.docx</members>
         <members>Loop__LOOP_Files/CZ_CMS_06LMSP_D_WORK_ORDER.docx</members>
         <members>Loop__LOOP_Files/CZ_CMS_06LMSP_E_Quasi_Employment_SINGLE_EVENT.docx</members>
-        <members>Loop__LOOP_Files/CZ_CMS_06LMSP_HCP_Questionaire_Quasi_Employment_Osobni_Dotaznik.docx</members>
-        <members>Loop__LOOP_Files/CZ_CMS_06LMSP_a_Cover_Letter_for_Contract.docx</members>
         <members>Loop__LOOP_Files/CZ_CMS_06LMSP_g_Quasi_Employment_Service.docx</members>
         <members>Loop__LOOP_Files/CZ_CMS_06LMSP_g_Single_Service_Agreement.docx</members>
+        <members>Loop__LOOP_Files/CZ_CMS_06LMSP_HCP_Questionaire_Quasi_Employment_Osobni_Dotaznik.docx</members>
         <members>Loop__LOOP_Files/CZ_CMS_06LMXX_Appendix_Consent_for_Audio_Videotaping.docx</members>
         <members>Loop__LOOP_Files/CZ_CMS_07LMDE_d_Expense_reimbursement_form_for_delegates.docx</members>
         <members>Loop__LOOP_Files/CZ_CMS_07LMSP_d_Expense_reimbursement_form_for_Service_Provider.docx</members>
@@ -757,10 +776,6 @@
         <members>Loop__LOOP_Files/DE_CMS_05LMXX_b_Final_Info_Details.docx</members>
         <members>Loop__LOOP_Files/DE_CMS_05LMXX_b_Final_Info_Details2.docx</members>
         <members>Loop__LOOP_Files/DE_CMS_05LMXX_b_Final_Info_Details3.docx</members>
-        <members>Loop__LOOP_Files/DE_CMS_06LMSP_H_APPENDIX_CONSENT_AUDIO_VIDEO.docx</members>
-        <members>Loop__LOOP_Files/DE_CMS_06LMSP_H_APPENDIX_CONSENT_AUDIO_VIDEO1.docx</members>
-        <members>Loop__LOOP_Files/DE_CMS_06LMSP_H_APPENDIX_CONSENT_AUDIO_VIDEO2.docx</members>
-        <members>Loop__LOOP_Files/DE_CMS_06LMSP_H_APPENDIX_CONSENT_AUDIO_VIDEO3.docx</members>
         <members>Loop__LOOP_Files/DE_CMS_06LMSP_a_Cover_Letter_for_Contract.docx</members>
         <members>Loop__LOOP_Files/DE_CMS_06LMSP_a_Cover_Letter_for_Contract2.docx</members>
         <members>Loop__LOOP_Files/DE_CMS_06LMSP_a_Cover_Letter_for_Contract3.docx</members>
@@ -790,15 +805,19 @@
         <members>Loop__LOOP_Files/DE_CMS_06LMSP_e_Single_Event5.docx</members>
         <members>Loop__LOOP_Files/DE_CMS_06LMSP_e_Single_Event6.docx</members>
         <members>Loop__LOOP_Files/DE_CMS_06LMSP_e_Single_Event7.docx</members>
-        <members>Loop__LOOP_Files/DE_CMS_07LMDE_D_Expense_reimbursement_form_for_delegates.docx</members>
-        <members>Loop__LOOP_Files/DE_CMS_07LMDE_D_Expense_reimbursement_form_for_delegates2.docx</members>
-        <members>Loop__LOOP_Files/DE_CMS_07LMDE_D_Expense_reimbursement_form_for_delegates3.docx</members>
+        <members>Loop__LOOP_Files/DE_CMS_06LMSP_H_APPENDIX_CONSENT_AUDIO_VIDEO.docx</members>
+        <members>Loop__LOOP_Files/DE_CMS_06LMSP_H_APPENDIX_CONSENT_AUDIO_VIDEO1.docx</members>
+        <members>Loop__LOOP_Files/DE_CMS_06LMSP_H_APPENDIX_CONSENT_AUDIO_VIDEO2.docx</members>
+        <members>Loop__LOOP_Files/DE_CMS_06LMSP_H_APPENDIX_CONSENT_AUDIO_VIDEO3.docx</members>
         <members>Loop__LOOP_Files/DE_CMS_07LMDE_a_Thank_You_Cover.docx</members>
         <members>Loop__LOOP_Files/DE_CMS_07LMDE_a_Thank_You_Cover2.docx</members>
         <members>Loop__LOOP_Files/DE_CMS_07LMDE_a_Thank_You_Cover3.docx</members>
         <members>Loop__LOOP_Files/DE_CMS_07LMDE_b_Thank_You_Cover_with_Reimbursement.docx</members>
         <members>Loop__LOOP_Files/DE_CMS_07LMDE_b_Thank_You_Cover_with_Reimbursement2.docx</members>
         <members>Loop__LOOP_Files/DE_CMS_07LMDE_b_Thank_You_Cover_with_Reimbursement3.docx</members>
+        <members>Loop__LOOP_Files/DE_CMS_07LMDE_D_Expense_reimbursement_form_for_delegates.docx</members>
+        <members>Loop__LOOP_Files/DE_CMS_07LMDE_D_Expense_reimbursement_form_for_delegates2.docx</members>
+        <members>Loop__LOOP_Files/DE_CMS_07LMDE_D_Expense_reimbursement_form_for_delegates3.docx</members>
         <members>Loop__LOOP_Files/DE_CMS_07LMSP_d_Honorarium_and_Expense_reimbursement_form_for_Service_Provider.docx</members>
         <members>Loop__LOOP_Files/DE_CMS_07LMSP_d_Honorarium_and_Expense_reimbursement_form_for_Service_Provider2.docx</members>
         <members>Loop__LOOP_Files/DE_CMS_07LMSP_d_Honorarium_and_Expense_reimbursement_form_for_Service_Provider3.docx</members>
@@ -848,10 +867,6 @@
         <members>Loop__LOOP_Files/DK_CMS_03LMXX_b_Notify_Institution.docx</members>
         <members>Loop__LOOP_Files/DK_CMS_03LMXX_b_Notify_Institution1.docx</members>
         <members>Loop__LOOP_Files/DK_CMS_03LMXX_b_Notify_Institution2.docx</members>
-        <members>Loop__LOOP_Files/DK_CMS_06LMSP_H_APPENDIX_CONSENT_AUDIO_VIDEO.docx</members>
-        <members>Loop__LOOP_Files/DK_CMS_06LMSP_H_APPENDIX_CONSENT_AUDIO_VIDEO1.docx</members>
-        <members>Loop__LOOP_Files/DK_CMS_06LMSP_H_APPENDIX_CONSENT_AUDIO_VIDEO2.docx</members>
-        <members>Loop__LOOP_Files/DK_CMS_06LMSP_H_APPENDIX_CONSENT_AUDIO_VIDEO3.docx</members>
         <members>Loop__LOOP_Files/DK_CMS_06LMSP_a_Cover_Letter_for_Contract.docx</members>
         <members>Loop__LOOP_Files/DK_CMS_06LMSP_a_Cover_Letter_for_Contract1.docx</members>
         <members>Loop__LOOP_Files/DK_CMS_06LMSP_a_Cover_Letter_for_Contract2.docx</members>
@@ -865,6 +880,10 @@
         <members>Loop__LOOP_Files/DK_CMS_06LMSP_d_WORK_ORDER1.docx</members>
         <members>Loop__LOOP_Files/DK_CMS_06LMSP_d_WORK_ORDER2.docx</members>
         <members>Loop__LOOP_Files/DK_CMS_06LMSP_d_WORK_ORDER3.docx</members>
+        <members>Loop__LOOP_Files/DK_CMS_06LMSP_H_APPENDIX_CONSENT_AUDIO_VIDEO.docx</members>
+        <members>Loop__LOOP_Files/DK_CMS_06LMSP_H_APPENDIX_CONSENT_AUDIO_VIDEO1.docx</members>
+        <members>Loop__LOOP_Files/DK_CMS_06LMSP_H_APPENDIX_CONSENT_AUDIO_VIDEO2.docx</members>
+        <members>Loop__LOOP_Files/DK_CMS_06LMSP_H_APPENDIX_CONSENT_AUDIO_VIDEO3.docx</members>
         <members>Loop__LOOP_Files/DK_CMS_06MLSP_L_AMENDMENT_TEMPLATE.docx</members>
         <members>Loop__LOOP_Files/DK_CMS_06MLSP_L_AMENDMENT_TEMPLATE1.docx</members>
         <members>Loop__LOOP_Files/DK_CMS_06MLSP_L_AMENDMENT_TEMPLATE2.docx</members>
@@ -900,6 +919,8 @@
         <members>Loop__LOOP_Files/EE_CMS_03LMXX_B_Notify_Institution1.docx</members>
         <members>Loop__LOOP_Files/EE_CMS_03LMXX_E_HCP_Transparency_Reporting_Consent.docx</members>
         <members>Loop__LOOP_Files/EE_CMS_03LMXX_E_HCP_Transparency_Reporting_Consent1.docx</members>
+        <members>Loop__LOOP_Files/EE_CMS_06LMSP_a_Cover_Letter_for_Contract.docx</members>
+        <members>Loop__LOOP_Files/EE_CMS_06LMSP_a_Cover_Letter_for_Contract1.docx</members>
         <members>Loop__LOOP_Files/EE_CMS_06LMSP_E_SINGLE_EVENT.docx</members>
         <members>Loop__LOOP_Files/EE_CMS_06LMSP_E_SINGLE_EVENT1.docx</members>
         <members>Loop__LOOP_Files/EE_CMS_06LMSP_E_SINGLE_EVENT2.docx</members>
@@ -909,8 +930,6 @@
         <members>Loop__LOOP_Files/EE_CMS_06LMSP_H_APPENDIX_CONSENT_AUDIO_VIDEO.docx</members>
         <members>Loop__LOOP_Files/EE_CMS_06LMSP_H_APPENDIX_CONSENT_AUDIO_VIDEO1.docx</members>
         <members>Loop__LOOP_Files/EE_CMS_06LMSP_H_APPENDIX_CONSENT_AUDIO_VIDEO2.docx</members>
-        <members>Loop__LOOP_Files/EE_CMS_06LMSP_a_Cover_Letter_for_Contract.docx</members>
-        <members>Loop__LOOP_Files/EE_CMS_06LMSP_a_Cover_Letter_for_Contract1.docx</members>
         <members>Loop__LOOP_Files/EE_CMS_06MLSP_L_AMENDMENT_TEMPLATE.docx</members>
         <members>Loop__LOOP_Files/EE_CMS_06MLSP_L_AMENDMENT_TEMPLATE1.docx</members>
         <members>Loop__LOOP_Files/EE_CMS_07LMDE_a_Thank_You_Cover.docx</members>
@@ -939,12 +958,6 @@
         <members>Loop__LOOP_Files/FI_CMS_03LMXX_b_Notify_Institution1.docx</members>
         <members>Loop__LOOP_Files/FI_CMS_03LMXX_b_Notify_Institution2.docx</members>
         <members>Loop__LOOP_Files/FI_CMS_03LMXX_b_Notify_Institution3.docx</members>
-        <members>Loop__LOOP_Files/FI_CMS_06LMSP_E_Single_Event.docx</members>
-        <members>Loop__LOOP_Files/FI_CMS_06LMSP_E_Single_Event1.docx</members>
-        <members>Loop__LOOP_Files/FI_CMS_06LMSP_H_APPENDIX_CONSENT_AUDIO_VIDEO.docx</members>
-        <members>Loop__LOOP_Files/FI_CMS_06LMSP_H_APPENDIX_CONSENT_AUDIO_VIDEO1.docx</members>
-        <members>Loop__LOOP_Files/FI_CMS_06LMSP_L_Amendment_Template.docx</members>
-        <members>Loop__LOOP_Files/FI_CMS_06LMSP_L_Amendment_Template1.docx</members>
         <members>Loop__LOOP_Files/FI_CMS_06LMSP_a_Cover_Letter_for_Contract.docx</members>
         <members>Loop__LOOP_Files/FI_CMS_06LMSP_a_Cover_Letter_for_Contract1.docx</members>
         <members>Loop__LOOP_Files/FI_CMS_06LMSP_a_Cover_Letter_for_Contract2.docx</members>
@@ -952,6 +965,12 @@
         <members>Loop__LOOP_Files/FI_CMS_06LMSP_b_HCP_MSA1.docx</members>
         <members>Loop__LOOP_Files/FI_CMS_06LMSP_d_Work_Order.docx</members>
         <members>Loop__LOOP_Files/FI_CMS_06LMSP_d_Work_Order1.docx</members>
+        <members>Loop__LOOP_Files/FI_CMS_06LMSP_E_Single_Event.docx</members>
+        <members>Loop__LOOP_Files/FI_CMS_06LMSP_E_Single_Event1.docx</members>
+        <members>Loop__LOOP_Files/FI_CMS_06LMSP_H_APPENDIX_CONSENT_AUDIO_VIDEO.docx</members>
+        <members>Loop__LOOP_Files/FI_CMS_06LMSP_H_APPENDIX_CONSENT_AUDIO_VIDEO1.docx</members>
+        <members>Loop__LOOP_Files/FI_CMS_06LMSP_L_Amendment_Template.docx</members>
+        <members>Loop__LOOP_Files/FI_CMS_06LMSP_L_Amendment_Template1.docx</members>
         <members>Loop__LOOP_Files/FI_CMS_07LMDE_a_Thank_You_Cover.docx</members>
         <members>Loop__LOOP_Files/FI_CMS_07LMDE_a_Thank_You_Cover1.docx</members>
         <members>Loop__LOOP_Files/FI_CMS_07LMDE_a_Thank_You_Cover2.docx</members>
@@ -972,13 +991,13 @@
         <members>Loop__LOOP_Files/GB_CMS_05IMDE_a_Final_Info_Cover_Congress.docx</members>
         <members>Loop__LOOP_Files/GB_CMS_05IMDE_a_Final_Info_Cover_Sci_Exchange.docx</members>
         <members>Loop__LOOP_Files/GB_CMS_05IMDE_b_Final_Info_Details_Congress.docx</members>
+        <members>Loop__LOOP_Files/GB_CMS_06LMSP_a_Cover_Letter_for_Contract.docx</members>
+        <members>Loop__LOOP_Files/GB_CMS_06LMSP_a_Cover_Letter_for_Contract1.docx</members>
         <members>Loop__LOOP_Files/GB_CMS_06LMSP_B_MSA.docx</members>
         <members>Loop__LOOP_Files/GB_CMS_06LMSP_D_WORK_ORDER.docx</members>
         <members>Loop__LOOP_Files/GB_CMS_06LMSP_D_WORK_ORDER1.docx</members>
         <members>Loop__LOOP_Files/GB_CMS_06LMSP_H_APPENDIX_CONSENT_AUDIO_VIDEO.docx</members>
         <members>Loop__LOOP_Files/GB_CMS_06LMSP_H_APPENDIX_CONSENT_AUDIO_VIDEO1.docx</members>
-        <members>Loop__LOOP_Files/GB_CMS_06LMSP_a_Cover_Letter_for_Contract.docx</members>
-        <members>Loop__LOOP_Files/GB_CMS_06LMSP_a_Cover_Letter_for_Contract1.docx</members>
         <members>Loop__LOOP_Files/GB_CMS_07LMDE_d_Expense_Reimbursement_Form_for_Delegates.docx</members>
         <members>Loop__LOOP_Files/GB_CMS_07LMDE_d_Expense_Reimbursement_Form_for_Service_Providers.docx</members>
         <members>Loop__LOOP_Files/GB_CMS_07LMXX_b_Thank_You_Cover_with_Reimbursement.docx</members>
@@ -1068,15 +1087,15 @@
         <members>Loop__LOOP_Files/LT_CMS_01LMXX_D_Notification_agreement_for_sponsorship_LT.docx</members>
         <members>Loop__LOOP_Files/LT_CMS_01LMXX_D_Notification_agreement_for_sponsorship_LT1.docx</members>
         <members>Loop__LOOP_Files/LT_CMS_03LMXX_B_Notify_Institution_LT.docx</members>
+        <members>Loop__LOOP_Files/LT_CMS_06LMSP_a_Cover_Letter_for_Contract_paper_format_LT_final.docx</members>
+        <members>Loop__LOOP_Files/LT_CMS_06LMSP_a_Cover_Letter_for_Contract_paper_format_LT_final1.docx</members>
         <members>Loop__LOOP_Files/LT_CMS_06LMSP_B_MSA_EEA.docx</members>
+        <members>Loop__LOOP_Files/LT_CMS_06LMSP_d_Work_Order.docx</members>
+        <members>Loop__LOOP_Files/LT_CMS_06LMSP_e_SINGLE_EVENT.docx</members>
         <members>Loop__LOOP_Files/LT_CMS_06LMSP_G_APPENDIX_HCP_PAYMENT_INFO_LT_final.docx</members>
         <members>Loop__LOOP_Files/LT_CMS_06LMSP_G_APPENDIX_HCP_PAYMENT_INFO_LT_final1.docx</members>
         <members>Loop__LOOP_Files/LT_CMS_06LMSP_L_AMENDMENT_TEMPLATE_LT_final.docx</members>
         <members>Loop__LOOP_Files/LT_CMS_06LMSP_L_AMENDMENT_TEMPLATE_LT_final1.docx</members>
-        <members>Loop__LOOP_Files/LT_CMS_06LMSP_a_Cover_Letter_for_Contract_paper_format_LT_final.docx</members>
-        <members>Loop__LOOP_Files/LT_CMS_06LMSP_a_Cover_Letter_for_Contract_paper_format_LT_final1.docx</members>
-        <members>Loop__LOOP_Files/LT_CMS_06LMSP_d_Work_Order.docx</members>
-        <members>Loop__LOOP_Files/LT_CMS_06LMSP_e_SINGLE_EVENT.docx</members>
         <members>Loop__LOOP_Files/LT_CMS_07LMDE_A_Thank_You_Cover_LT.docx</members>
         <members>Loop__LOOP_Files/LT_CMS_07LMDE_A_Thank_You_Cover_LT1.docx</members>
         <members>Loop__LOOP_Files/LT_CMS_08LMXX_A_Meeting_Cancellation_LT.docx</members>
@@ -1091,6 +1110,9 @@
         <members>Loop__LOOP_Files/LV_CMS_03LMXX_B_notify_Institution.docx</members>
         <members>Loop__LOOP_Files/LV_CMS_03LMXX_B_notify_Institution1.docx</members>
         <members>Loop__LOOP_Files/LV_CMS_03LMXX_B_notify_Institution2.docx</members>
+        <members>Loop__LOOP_Files/LV_CMS_06LMSP_a_Cover_Letter_for_Contract.docx</members>
+        <members>Loop__LOOP_Files/LV_CMS_06LMSP_a_Cover_Letter_for_Contract1.docx</members>
+        <members>Loop__LOOP_Files/LV_CMS_06LMSP_a_Cover_Letter_for_Contract2.docx</members>
         <members>Loop__LOOP_Files/LV_CMS_06LMSP_B_MSA.docx</members>
         <members>Loop__LOOP_Files/LV_CMS_06LMSP_B_MSA1.docx</members>
         <members>Loop__LOOP_Files/LV_CMS_06LMSP_B_MSA2.docx</members>
@@ -1109,9 +1131,6 @@
         <members>Loop__LOOP_Files/LV_CMS_06LMSP_I_AMENDMENT_TEMPLATE.docx</members>
         <members>Loop__LOOP_Files/LV_CMS_06LMSP_I_AMENDMENT_TEMPLATE1.docx</members>
         <members>Loop__LOOP_Files/LV_CMS_06LMSP_I_AMENDMENT_TEMPLATE2.docx</members>
-        <members>Loop__LOOP_Files/LV_CMS_06LMSP_a_Cover_Letter_for_Contract.docx</members>
-        <members>Loop__LOOP_Files/LV_CMS_06LMSP_a_Cover_Letter_for_Contract1.docx</members>
-        <members>Loop__LOOP_Files/LV_CMS_06LMSP_a_Cover_Letter_for_Contract2.docx</members>
         <members>Loop__LOOP_Files/LV_CMS_07LMDE_a_Thank_You_Cover.docx</members>
         <members>Loop__LOOP_Files/LV_CMS_07LMDE_a_Thank_You_Cover1.docx</members>
         <members>Loop__LOOP_Files/LV_CMS_07LMDE_a_Thank_You_Cover2.docx</members>
@@ -1167,13 +1186,13 @@
         <members>Loop__LOOP_Files/PL_CMS_01LMXX_d_Notification_agreement_for_sponsorship1.docx</members>
         <members>Loop__LOOP_Files/PL_CMS_01LMXX_e_Transparency_Consent.docx</members>
         <members>Loop__LOOP_Files/PL_CMS_03LMSP_a_My_Professional_Information.docx</members>
-        <members>Loop__LOOP_Files/PL_CMS_06LMSP_G_Appendix_HCP_Payment_Info.docx</members>
-        <members>Loop__LOOP_Files/PL_CMS_06LMSP_G_Appendix_HCP_Payment_Info1.docx</members>
         <members>Loop__LOOP_Files/PL_CMS_06LMSP_a_Cover_Letter_for_Contract.docx</members>
         <members>Loop__LOOP_Files/PL_CMS_06LMSP_a_Cover_Letter_for_Contract1.docx</members>
         <members>Loop__LOOP_Files/PL_CMS_06LMSP_b_MSA.docx</members>
         <members>Loop__LOOP_Files/PL_CMS_06LMSP_d_Work_Order.docx</members>
         <members>Loop__LOOP_Files/PL_CMS_06LMSP_e_Single_Event.docx</members>
+        <members>Loop__LOOP_Files/PL_CMS_06LMSP_G_Appendix_HCP_Payment_Info.docx</members>
+        <members>Loop__LOOP_Files/PL_CMS_06LMSP_G_Appendix_HCP_Payment_Info1.docx</members>
         <members>Loop__LOOP_Files/PL_CMS_07LMDE_d_Expense_Reimbursement_form_for_delegates.docx</members>
         <members>Loop__LOOP_Files/PL_CMS_07LMSP_d_Expense_reimbursement_form_for_Service_Provider.docx</members>
         <members>Loop__LOOP_Files/PL_CMS_07LMXX_b_Thank_You_Cover_with_Reimbursement.docx</members>
@@ -1189,13 +1208,13 @@
         <members>Loop__LOOP_Files/ROI_CMS_05LMXX_Final_info_Cover_Congress.docx</members>
         <members>Loop__LOOP_Files/ROI_CMS_05LMXX_Final_info_Cover_Sci_Exchange.docx</members>
         <members>Loop__LOOP_Files/ROI_CMS_05LMXX_Final_info_Details_Congress.docx</members>
+        <members>Loop__LOOP_Files/ROI_CMS_06LMSP_a_Cover_Letter_for_Contract.docx</members>
+        <members>Loop__LOOP_Files/ROI_CMS_06LMSP_a_Cover_Letter_for_Contract1.docx</members>
         <members>Loop__LOOP_Files/ROI_CMS_06LMSP_B_MSA.docx</members>
         <members>Loop__LOOP_Files/ROI_CMS_06LMSP_D_WORK_ORDER.docx</members>
         <members>Loop__LOOP_Files/ROI_CMS_06LMSP_D_WORK_ORDER1.docx</members>
         <members>Loop__LOOP_Files/ROI_CMS_06LMSP_H_APPENDIX_CONSENT_AUDIO_VIDEO.docx</members>
         <members>Loop__LOOP_Files/ROI_CMS_06LMSP_H_APPENDIX_CONSENT_AUDIO_VIDEO1.docx</members>
-        <members>Loop__LOOP_Files/ROI_CMS_06LMSP_a_Cover_Letter_for_Contract.docx</members>
-        <members>Loop__LOOP_Files/ROI_CMS_06LMSP_a_Cover_Letter_for_Contract1.docx</members>
         <members>Loop__LOOP_Files/ROI_CMS_07LMSP_d_Expense_Reimbursement_Form_for_Service_Providers.docx</members>
         <members>Loop__LOOP_Files/ROI_CMS_07LMSP_d_Expense_Reimbursement_Form_for_Service_Providers1.docx</members>
         <members>Loop__LOOP_Files/ROI_CMS_07LMXX_b_Thank_you_cover_with_reimbursement.docx</members>
@@ -1210,22 +1229,22 @@
         <members>Loop__LOOP_Files/SE_CMS_03LMSP_a_My_Professional_Information.docx</members>
         <members>Loop__LOOP_Files/SE_CMS_03LMSP_a_My_Professional_Information1.docx</members>
         <members>Loop__LOOP_Files/SE_CMS_03LMSP_a_My_Professional_Information2.docx</members>
+        <members>Loop__LOOP_Files/SE_CMS_06LMSP_a_Cover_Letter_for_Contract.docx</members>
+        <members>Loop__LOOP_Files/SE_CMS_06LMSP_a_Cover_Letter_for_Contract1.docx</members>
+        <members>Loop__LOOP_Files/SE_CMS_06LMSP_a_Cover_Letter_for_Contract2.docx</members>
+        <members>Loop__LOOP_Files/SE_CMS_06LMSP_a_Cover_Letter_for_Contract3.docx</members>
         <members>Loop__LOOP_Files/SE_CMS_06LMSP_B_MSA.docx</members>
         <members>Loop__LOOP_Files/SE_CMS_06LMSP_B_MSA1.docx</members>
         <members>Loop__LOOP_Files/SE_CMS_06LMSP_B_MSA2.docx</members>
         <members>Loop__LOOP_Files/SE_CMS_06LMSP_D_Work_Order.docx</members>
         <members>Loop__LOOP_Files/SE_CMS_06LMSP_D_Work_Order1.docx</members>
         <members>Loop__LOOP_Files/SE_CMS_06LMSP_D_Work_Order2.docx</members>
-        <members>Loop__LOOP_Files/SE_CMS_06LMSP_L_Amendment_Template.docx</members>
-        <members>Loop__LOOP_Files/SE_CMS_06LMSP_L_Amendment_Template1.docx</members>
-        <members>Loop__LOOP_Files/SE_CMS_06LMSP_L_Amendment_Template2.docx</members>
-        <members>Loop__LOOP_Files/SE_CMS_06LMSP_a_Cover_Letter_for_Contract.docx</members>
-        <members>Loop__LOOP_Files/SE_CMS_06LMSP_a_Cover_Letter_for_Contract1.docx</members>
-        <members>Loop__LOOP_Files/SE_CMS_06LMSP_a_Cover_Letter_for_Contract2.docx</members>
-        <members>Loop__LOOP_Files/SE_CMS_06LMSP_a_Cover_Letter_for_Contract3.docx</members>
         <members>Loop__LOOP_Files/SE_CMS_06LMSP_h_Appendix_Consent_Audio_Video.docx</members>
         <members>Loop__LOOP_Files/SE_CMS_06LMSP_h_Appendix_Consent_Audio_Video1.docx</members>
         <members>Loop__LOOP_Files/SE_CMS_06LMSP_h_Appendix_Consent_Audio_Video2.docx</members>
+        <members>Loop__LOOP_Files/SE_CMS_06LMSP_L_Amendment_Template.docx</members>
+        <members>Loop__LOOP_Files/SE_CMS_06LMSP_L_Amendment_Template1.docx</members>
+        <members>Loop__LOOP_Files/SE_CMS_06LMSP_L_Amendment_Template2.docx</members>
         <members>Loop__LOOP_Files/SE_CMS_07LMDE_a_Thank_You_Cover.docx</members>
         <members>Loop__LOOP_Files/SE_CMS_07LMDE_a_Thank_You_Cover1.docx</members>
         <members>Loop__LOOP_Files/SE_CMS_07LMDE_a_Thank_You_Cover2.docx</members>
@@ -1246,18 +1265,18 @@
         <members>Loop__LOOP_Files/SE_CMS_HCP_Payment_Information_Form2.docx</members>
         <members>Loop__LOOP_Files/SK_CMS_01LMXX_d_Notification_Agreement_for_Sponsorship.docx</members>
         <members>Loop__LOOP_Files/SK_CMS_01LMXX_e_Transparency_Reporting_Consent.docx</members>
+        <members>Loop__LOOP_Files/SK_CMS_03LMSP_a_My_Professional_Information.docx</members>
         <members>Loop__LOOP_Files/SK_CMS_03LMSP_HCP_Information_Form_Quasi_SAP_CARD.docx</members>
         <members>Loop__LOOP_Files/SK_CMS_03LMSP_HCP_Information_Form_Service_Agreement_SAP_Card.docx</members>
         <members>Loop__LOOP_Files/SK_CMS_03LMSP_HCP_Questionaire_SK_Quasi_Osobny_Dotaznik.docx</members>
-        <members>Loop__LOOP_Files/SK_CMS_03LMSP_a_My_Professional_Information.docx</members>
         <members>Loop__LOOP_Files/SK_CMS_03LMXX_b_Notify_Institution.docx</members>
+        <members>Loop__LOOP_Files/SK_CMS_06LMSP_a_Cover_Letter_for_Contract.docx</members>
         <members>Loop__LOOP_Files/SK_CMS_06LMSP_B_MSA.docx</members>
         <members>Loop__LOOP_Files/SK_CMS_06LMSP_B_Quazi_MSA.docx</members>
         <members>Loop__LOOP_Files/SK_CMS_06LMSP_D_WORK_ORDER.docx</members>
         <members>Loop__LOOP_Files/SK_CMS_06LMSP_E_Quasi_SINGLE_EVENT.docx</members>
-        <members>Loop__LOOP_Files/SK_CMS_06LMSP_Work_Order_Quasi_Employment_Service.docx</members>
-        <members>Loop__LOOP_Files/SK_CMS_06LMSP_a_Cover_Letter_for_Contract.docx</members>
         <members>Loop__LOOP_Files/SK_CMS_06LMSP_f_Service_Agreement.docx</members>
+        <members>Loop__LOOP_Files/SK_CMS_06LMSP_Work_Order_Quasi_Employment_Service.docx</members>
         <members>Loop__LOOP_Files/SK_CMS_06LMXX_Appendix_Consent_for_Audio_Videotaping.docx</members>
         <members>Loop__LOOP_Files/SK_CMS_07LMDE_d_Expense_reimbursement_form_for_delegates.docx</members>
         <members>Loop__LOOP_Files/SK_CMS_07LMSP_d_Expense_reimbursement_form_for_Service_Provider.docx</members>
@@ -1265,28 +1284,20 @@
         <members>Loop__LOOP_Files/SK_CMS_10LMSP_c_DI_Validation_SK.docx</members>
         <members>MavensPM__Mavens_Manage_MVN</members>
         <members>MavensPM__Mavens_Manage_MVN/Lilly_Logo_PMApp.gif</members>
-        <members>PANG_Pangaea_Logos_Images</members>
-        <members>PANG_Pangaea_Logos_Images/PANG_Chatter_Link_png.png</members>
-        <members>PANG_Pangaea_Logos_Images/PANG_External_Link_png.png</members>
-        <members>PANG_Pangaea_Logos_Images/PANG_Lilly_Header_Logo_jpg.png</members>
-        <members>PANG_Pangaea_Logos_Images/PANG_Pangaea_App_Logo_png.png</members>
-        <members>PANG_Pangaea_Logos_Images/PANG_Pangaea_User_Training_png.png</members>
-        <members>PANG_Pangaea_Logos_Images/PANG_RWE_Data_Assets_png.png</members>
-        <members>PANG_Pangaea_Logos_Images/PANG_RWE_External_Partnerships_png.png</members>
-        <members>PANG_Pangaea_Logos_Images/PANG_RWE_Partnerships_png.png</members>
-        <members>PANG_Pangaea_Logos_Images/PANG_RWE_Projects_png.png</members>
-        <members>PANG_Pangaea_Logos_Images/PANG_RWE_Request_Status_png.png</members>
-        <members>PANG_Pangaea_Logos_Images/PANG_RWE_Request_png.png</members>
-        <members>Salesforce1_Branding_Resources</members>
-        <members>Salesforce1_Branding_Resources/lilly_logo_png.png</members>
-        <members>Salesforce1_Branding_Resources/lilly_logo_png1.png</members>
-        <members>SharedDocuments</members>
-        <members>SharedDocuments/Lilly_Logo.png</members>
-        <members>SharedDocuments/Lilly_Logo_New.png</members>
-        <members>SharedDocuments/Lilly_Logo_updated.png</members>
         <name>Document</name>
     </types>
     <types>
+        <members>Launchpad_templates</members>
+        <members>Launchpad_templates/LPAD_Assessment_Completion_Notification_for_Score_A</members>
+        <members>Launchpad_templates/LPAD_Assessment_Completion_Notification_for_Score_B</members>
+        <members>Launchpad_templates/LPAD_Assessment_Completion_Notification_for_Score_C</members>
+        <members>Launchpad_templates/LPAD_Assessment_Completion_Notification_for_Score_D</members>
+        <members>Launchpad_templates/LPAD_Assessment_Completion_Notification_for_Score_E</members>
+        <members>Launchpad_templates/LPAD_Form_Completion_Notification</members>
+        <members>CMS_IT_Email_Templates</members>
+        <members>CMS_IT_Email_Templates/CMS_Support_Blank_Email_From_Case_Template_IT</members>
+        <members>CMS_IT_Email_Templates/CMS_Support_Notification_Email_From_Case_Template_IT</members>
+        <members>CMS_IT_Email_Templates/CMS_Support_Notification_Email_From_Case_Template_IT_FEMALE</members>
         <members>CMS</members>
         <members>CMS/CMS_Support_Blank_Email_From_Case_Template_FR</members>
         <members>CMS/CMS_Support_General_Email_From_Case_Template_FR_FEMALE</members>
@@ -1295,31 +1306,6 @@
         <members>CMS/CMS_Support_Notification_Email_From_Case_Template_FR_FEMALE</members>
         <members>CMS/CMS_Support_Update_Email_From_Case_Template_FR</members>
         <members>CMS/CMS_Support_Update_Email_From_Case_Template_FR_FEMALE</members>
-        <members>CMS_DE_Email_Templates</members>
-        <members>CMS_DE_Email_Templates/CMS_Support_Blank_Email_From_Case_Template_DE</members>
-        <members>CMS_DE_Email_Templates/CMS_Support_General_Email_From_Case_Template_DE</members>
-        <members>CMS_DE_Email_Templates/CMS_Support_Notification_Email_From_Case_Template_DE</members>
-        <members>CMS_DE_Email_Templates/CMS_Support_Update_Email_From_Case_Template_DE</members>
-        <members>CMS_GBEN_Email_Templates</members>
-        <members>CMS_GBEN_Email_Templates/CMS_Support_Blank_Email_From_Case_Template_GBEN</members>
-        <members>CMS_GBEN_Email_Templates/CMS_Support_General_Email_From_Case_Template_GBEN</members>
-        <members>CMS_GBEN_Email_Templates/CMS_Support_Notification_Email_From_Case_Template_GBEN</members>
-        <members>CMS_GBEN_Email_Templates/CMS_Support_Update_Email_From_Case_Template_GBEN</members>
-        <members>CMS_IT_Email_Templates</members>
-        <members>CMS_IT_Email_Templates/CMS_Support_Blank_Email_From_Case_Template_IT</members>
-        <members>CMS_IT_Email_Templates/CMS_Support_Notification_Email_From_Case_Template_IT</members>
-        <members>CMS_IT_Email_Templates/CMS_Support_Notification_Email_From_Case_Template_IT_FEMALE</members>
-        <members>Customer_Search_Tool_CUST</members>
-        <members>Customer_Search_Tool_CUST/AccessRequestsAwaitingApproval</members>
-        <members>Customer_Search_Tool_CUST/Access_Request_Status_Change_CUST</members>
-        <members>Customer_Search_Tool_CUST/Expire_Notification</members>
-        <members>Launchpad_templates</members>
-        <members>Launchpad_templates/LPAD_Assessment_Completion_Notification_for_Score_A</members>
-        <members>Launchpad_templates/LPAD_Assessment_Completion_Notification_for_Score_B</members>
-        <members>Launchpad_templates/LPAD_Assessment_Completion_Notification_for_Score_C</members>
-        <members>Launchpad_templates/LPAD_Assessment_Completion_Notification_for_Score_D</members>
-        <members>Launchpad_templates/LPAD_Assessment_Completion_Notification_for_Score_E</members>
-        <members>Launchpad_templates/LPAD_Form_Completion_Notification</members>
         <members>MICO_Templates</members>
         <members>MICO_Templates/MICO_Design_Approval_Request</members>
         <members>MICO_Templates/MICO_Test_Execution_Approval_Request</members>
@@ -1333,6 +1319,39 @@
         <members>MICO_Templates/MICO_User_Story_Template_Computer_Systems_Quality</members>
         <members>MICO_Templates/MICO_User_Story_Template_System_Custodian</members>
         <members>MICO_Templates/MICO_User_Story_Template_System_Owner</members>
+        <members>unfiled$public</members>
+        <members>unfiled$public/CommunityChangePasswordEmailTemplate</members>
+        <members>unfiled$public/CommunityForgotPasswordEmailTemplate</members>
+        <members>unfiled$public/CommunityWelcomeEmailTemplate</members>
+        <members>unfiled$public/ContactFollowUpSAMPLE</members>
+        <members>unfiled$public/Document_Submission_Email_Template_Iriss</members>
+        <members>unfiled$public/IRIS_Queue_notification_iriss</members>
+        <members>unfiled$public/Iriss_Approval_Email_Template</members>
+        <members>unfiled$public/LeadsNewassignmentnotificationSAMPLE</members>
+        <members>unfiled$public/LeadsWebtoLeademailresponseSAMPLE</members>
+        <members>unfiled$public/SUPPORT%3A Self-Service New Comment %28SAMPLE%29</members>
+        <members>unfiled$public/SUPPORT%3A Self-Service New User Login %28SAMPLE%29</members>
+        <members>unfiled$public/SUPPORT%3A Self-Service Reset Password %28SAMPLE%29</members>
+        <members>unfiled$public/SUPPORTCaseescalationnotificationSAMPLE</members>
+        <members>unfiled$public/SUPPORTCaseResponsewithSolutionSAMPLE</members>
+        <members>unfiled$public/SUPPORTNewassignmentnotificationSAMPLE</members>
+        <members>unfiled$public/SUPPORTSelfServiceNewCommentNotificationSAMPLE</members>
+        <members>unfiled$public/SUPPORTSelfServiceNewUserLoginInformationSAMPLE</members>
+        <members>unfiled$public/SUPPORTSelfServiceResetPasswordSAMPLE</members>
+        <members>unfiled$public/SUPPORTWebtoCaseemailresponseSAMPLE</members>
+        <members>PANG_EXPERT_Email_Templates</members>
+        <members>PANG_EXPERT_Email_Templates/PANG_EXPERT_Re_Review_Invitation</members>
+        <members>PANG_EXPERT_Email_Templates/PANG_EXPERT_Review_Outcome_Major_Issue</members>
+        <members>PANG_EXPERT_Email_Templates/PANG_EXPERT_Review_Outcome_MINOR_ISSUE</members>
+        <members>PANG_EXPERT_Email_Templates/PANG_EXPERT_Review_Outcome_MODERATE_MINOR_Issue</members>
+        <members>PANG_EXPERT_Email_Templates/PANG_EXPERT_Review_Outcome_NO_ISSUES</members>
+        <members>PANG_EXPERT_Email_Templates/PANG_EXPERT_Reviewer_Instructions</members>
+        <members>PANG_EXPERT_Email_Templates/PANG_EXPERT_Reviewer_Invitation</members>
+        <members>CMS_GBEN_Email_Templates</members>
+        <members>CMS_GBEN_Email_Templates/CMS_Support_Blank_Email_From_Case_Template_GBEN</members>
+        <members>CMS_GBEN_Email_Templates/CMS_Support_General_Email_From_Case_Template_GBEN</members>
+        <members>CMS_GBEN_Email_Templates/CMS_Support_Notification_Email_From_Case_Template_GBEN</members>
+        <members>CMS_GBEN_Email_Templates/CMS_Support_Update_Email_From_Case_Template_GBEN</members>
         <members>Mercury_Email_Templates_MERC</members>
         <members>Mercury_Email_Templates_MERC/Approval_Required_MERC</members>
         <members>Mercury_Email_Templates_MERC/Cancelled_Meeting_MERC</members>
@@ -1348,14 +1367,15 @@
         <members>Mercury_Email_Templates_MERC/Scientific_Exchange_Request_for_Approval_MERC</members>
         <members>Mercury_Email_Templates_MERC/Tier_Calculation_Complete</members>
         <members>Mercury_Email_Templates_MERC/Two_week_Compliance_Notification_to_Owner</members>
-        <members>PANG_EXPERT_Email_Templates</members>
-        <members>PANG_EXPERT_Email_Templates/PANG_EXPERT_Re_Review_Invitation</members>
-        <members>PANG_EXPERT_Email_Templates/PANG_EXPERT_Review_Outcome_MINOR_ISSUE</members>
-        <members>PANG_EXPERT_Email_Templates/PANG_EXPERT_Review_Outcome_MODERATE_MINOR_Issue</members>
-        <members>PANG_EXPERT_Email_Templates/PANG_EXPERT_Review_Outcome_Major_Issue</members>
-        <members>PANG_EXPERT_Email_Templates/PANG_EXPERT_Review_Outcome_NO_ISSUES</members>
-        <members>PANG_EXPERT_Email_Templates/PANG_EXPERT_Reviewer_Instructions</members>
-        <members>PANG_EXPERT_Email_Templates/PANG_EXPERT_Reviewer_Invitation</members>
+        <members>CMS_DE_Email_Templates</members>
+        <members>CMS_DE_Email_Templates/CMS_Support_Blank_Email_From_Case_Template_DE</members>
+        <members>CMS_DE_Email_Templates/CMS_Support_General_Email_From_Case_Template_DE</members>
+        <members>CMS_DE_Email_Templates/CMS_Support_Notification_Email_From_Case_Template_DE</members>
+        <members>CMS_DE_Email_Templates/CMS_Support_Update_Email_From_Case_Template_DE</members>
+        <members>Customer_Search_Tool_CUST</members>
+        <members>Customer_Search_Tool_CUST/Access_Request_Status_Change_CUST</members>
+        <members>Customer_Search_Tool_CUST/AccessRequestsAwaitingApproval</members>
+        <members>Customer_Search_Tool_CUST/Expire_Notification</members>
         <members>PANG_Email_Templates</members>
         <members>PANG_Email_Templates/PANG_CommunityChangePasswordEmailTemplate</members>
         <members>PANG_Email_Templates/PANG_CommunityForgotPasswordEmailTemplate</members>
@@ -1372,26 +1392,6 @@
         <members>Tracker_Templates/Release_Approval</members>
         <members>Tracker_Templates/User_Story_Passed_HTM</members>
         <members>Tracker_Templates/User_Story_Ready_Test_HTM</members>
-        <members>unfiled$public</members>
-        <members>unfiled$public/CommunityChangePasswordEmailTemplate</members>
-        <members>unfiled$public/CommunityForgotPasswordEmailTemplate</members>
-        <members>unfiled$public/CommunityWelcomeEmailTemplate</members>
-        <members>unfiled$public/ContactFollowUpSAMPLE</members>
-        <members>unfiled$public/Document_Submission_Email_Template_Iriss</members>
-        <members>unfiled$public/IRIS_Queue_notification_iriss</members>
-        <members>unfiled$public/Iriss_Approval_Email_Template</members>
-        <members>unfiled$public/LeadsNewassignmentnotificationSAMPLE</members>
-        <members>unfiled$public/LeadsWebtoLeademailresponseSAMPLE</members>
-        <members>unfiled$public/SUPPORT%3A Self-Service New Comment %28SAMPLE%29</members>
-        <members>unfiled$public/SUPPORT%3A Self-Service New User Login %28SAMPLE%29</members>
-        <members>unfiled$public/SUPPORT%3A Self-Service Reset Password %28SAMPLE%29</members>
-        <members>unfiled$public/SUPPORTCaseResponsewithSolutionSAMPLE</members>
-        <members>unfiled$public/SUPPORTCaseescalationnotificationSAMPLE</members>
-        <members>unfiled$public/SUPPORTNewassignmentnotificationSAMPLE</members>
-        <members>unfiled$public/SUPPORTSelfServiceNewCommentNotificationSAMPLE</members>
-        <members>unfiled$public/SUPPORTSelfServiceNewUserLoginInformationSAMPLE</members>
-        <members>unfiled$public/SUPPORTSelfServiceResetPasswordSAMPLE</members>
-        <members>unfiled$public/SUPPORTWebtoCaseemailresponseSAMPLE</members>
         <name>EmailTemplate</name>
     </types>
     <types>
@@ -1480,15 +1480,136 @@
         <members>ACE_Project_Status/ACE_Sprint_1_User_Story_Report</members>
         <members>ACE_Project_Status/ACE_Test_Execution_Report</members>
         <members>ACE_Project_Status/ACE_UserStory_Status2</members>
+        <members>MERC_Dashboard_Cork</members>
+        <members>MERC_Dashboard_Cork/CME_Acredited1</members>
+        <members>MERC_Dashboard_Cork/Daily_Tasks</members>
+        <members>MERC_Dashboard_Cork/DB_Contracts_pending_to_be_dispatched</members>
+        <members>MERC_Dashboard_Cork/DB_Delegates_with_pending_I_N1</members>
+        <members>MERC_Dashboard_Cork/DB_IN_not_sent_SP1</members>
+        <members>MERC_Dashboard_Cork/DBREG_Info_Pack_to_be_checked</members>
+        <members>MERC_Dashboard_Cork/DBREG_Info_Pack_to_be_checked1</members>
+        <members>MERC_Dashboard_Cork/Delegates_pending_IN</members>
+        <members>MERC_Dashboard_Cork/Info_Pack_status_report</members>
+        <members>MERC_Dashboard_Cork/Info_Pack_to_be_created</members>
+        <members>MERC_Dashboard_Cork/Participants_without_invoices2</members>
+        <members>MERC_Dashboard_Cork/Service_Providers_without_contracts</members>
+        <members>MERC_CMS_Local</members>
+        <members>MERC_CMS_Local/Meetings_without_team_members</members>
+        <members>Snapshot_Push_Actions</members>
+        <members>Snapshot_Push_Actions/All_Changes_Made_Today</members>
+        <members>Snapshot_Push_Actions/All_Changes_Made_Today_By_User</members>
+        <members>Snapshot_Push_Actions/All_Successful_Changes_Made_Today</members>
+        <members>Snapshot_Push_Actions/All_Successful_Changes_Today_By_User</members>
+        <members>Snapshot_Push_Actions/All_Unsuccessful_Changes_Made_Today</members>
+        <members>Snapshot_Push_Actions/All_Unsuccessful_Changes_Today_By_User</members>
+        <members>Snapshot_Push_Actions/Asset_Pushes_This_Month_By_Success</members>
+        <members>Snapshot_Push_Actions/Num_pushes_this_mnth_by_wk_by_usr</members>
+        <members>Snapshot_Push_Actions/Today_s_Changes_by_Type</members>
+        <members>Snapshot_Push_Actions/Today_s_Changes_With_Details</members>
+        <members>Snapshot_Push_Actions/Usage_Assets_pushed_this_month_by_week</members>
+        <members>Snapshot_Push_Actions/Usage_of_pushes_this_month_by_week</members>
+        <members>Snapshot_Push_Actions/Usage_Pushes_This_Month_By_Success</members>
+        <members>Snapshot_Push_Actions/Usage_Pushes_This_Month_By_Type</members>
+        <members>Snapshot_Push_Actions/Usage_pushes_this_month_by_week_by_src</members>
+        <members>MERC_Regional_CMS</members>
+        <members>MERC_Regional_CMS/Expense_Reimbursements</members>
+        <members>MERC_Regional_CMS/R_Payee_Changes_Contract</members>
+        <members>MERC_Regional_CMS/R_Payee_Changes_Invoices</members>
+        <members>Trialforce</members>
+        <members>Trialforce/Trialforce_Daily_Report</members>
+        <members>MICO_System_Reports</members>
+        <members>MICO_System_Reports/Sprint_Object_Report_Burndown</members>
+        <members>MICO_System_Reports/Sprint_Object_Report_Burndown_Chart</members>
+        <members>MICO_System_Reports/Sprint_Object_Report_Kanban_Funnel</members>
+        <members>MICO_System_Reports/Sprint_Object_Report_Status_Funnel</members>
+        <members>MICO_System_Reports/Sprint_Report_Test_Script_Burndown_Chart</members>
+        <members>SLA_Reports</members>
+        <members>unfiled$public</members>
+        <members>unfiled$public/ACE_Digital_Dashboard_User_Stories</members>
+        <members>unfiled$public/All_RWE_Countries</members>
+        <members>unfiled$public/Biomedicines_Projects</members>
+        <members>unfiled$public/Datamart_Analysis_by_BU</members>
+        <members>unfiled$public/Datamart_Consults_by_BU</members>
+        <members>unfiled$public/Example_Report_File_Content_Engagement</members>
+        <members>unfiled$public/EXPERT_Review_with_Type</members>
+        <members>unfiled$public/For_Chandra</members>
+        <members>unfiled$public/Last_Minute_Search_Tool_Updates</members>
+        <members>unfiled$public/Mavens_Requirement_Owners</members>
+        <members>unfiled$public/Oncology_RWE_Projects_since_2014</members>
+        <members>unfiled$public/Pangaea_Test_Script_Completion_Report</members>
+        <members>unfiled$public/RWE_Partnerships</members>
+        <members>unfiled$public/RWE_Partnerships_by_Status1</members>
+        <members>unfiled$public/RWE_Partnerships_PROactive</members>
+        <members>unfiled$public/RWE_Partnerships_SHIRLOC</members>
+        <members>unfiled$public/RWE_Project_with_Functional_Area</members>
+        <members>unfiled$public/SampleReportActiveUsers</members>
+        <members>unfiled$public/SampleReportCasesStatusbyRep</members>
+        <members>unfiled$public/SampleReportClosedSales</members>
+        <members>unfiled$public/SampleReportCompletedActivities</members>
+        <members>unfiled$public/SampleReportCustomReportsbyUser</members>
+        <members>unfiled$public/SampleReportDocumentLibrary</members>
+        <members>unfiled$public/SampleReportLastModifiedBy</members>
+        <members>unfiled$public/SampleReportLeadsbyLeadSource</members>
+        <members>unfiled$public/SampleReportLoginLeaderboard</members>
+        <members>unfiled$public/SampleReportLoginWallofShame</members>
+        <members>unfiled$public/SampleReportMonthtoDateTrending</members>
+        <members>unfiled$public/SampleReportofAccounts</members>
+        <members>unfiled$public/SampleReportofCases</members>
+        <members>unfiled$public/SampleReportofContacts</members>
+        <members>unfiled$public/SampleReportofDocuments</members>
+        <members>unfiled$public/SampleReportofLeads</members>
+        <members>unfiled$public/SampleReportofOpenTasks</members>
+        <members>unfiled$public/SampleReportofOpportunities</members>
+        <members>unfiled$public/SampleReportofReports</members>
+        <members>unfiled$public/SampleReportofSolutions</members>
+        <members>unfiled$public/SampleReportofTasksandActivities</members>
+        <members>unfiled$public/SampleReportOpenCasesByPriority</members>
+        <members>unfiled$public/SampleReportOpenDeals</members>
+        <members>unfiled$public/SampleReportPipelineByCloseMonth</members>
+        <members>unfiled$public/SampleReportPipelineHistory</members>
+        <members>unfiled$public/SampleReportSalesLeaderboard</members>
+        <members>unfiled$public/SampleReportSalesPipelinebyStage</members>
+        <members>unfiled$public/SampleReportsLeadsbyStatus</members>
+        <members>unfiled$public/SampleReportSolutionsAdded</members>
+        <members>unfiled$public/SampleReportTopAccounts</members>
+        <members>unfiled$public/SampleReportUsersLoggedIn</members>
+        <members>MERC_Meetings_Oversight</members>
+        <members>MERC_Meetings_Oversight/Buha_List1</members>
+        <members>MERC_Meetings_Oversight/HCP_Contract_Cycle_Time</members>
+        <members>MERC_Meetings_Oversight/HCP_Contracts_Created_Per_Year</members>
+        <members>MERC_Meetings_Oversight/HCP_Contracts_Sent_in_Advance</members>
+        <members>MERC_Meetings_Oversight/HCPs_Created_per_Year</members>
+        <members>MERC_Meetings_Oversight/Institutional_Notifications_Sent</members>
+        <members>MERC_Meetings_Oversight/Invoices_Paid_Per_Year</members>
+        <members>MERC_Meetings_Oversight/IT_Report_for_for_global_metrics_reports1</members>
+        <members>MERC_Meetings_Oversight/Meeting_Agency_and_Venue_Sourcing</members>
+        <members>MERC_Meetings_Oversight/Meetings_with_Missing_TOV</members>
+        <members>MERC_Meetings_Oversight/Meetings_without_Errors_within_60_days</members>
+        <members>MERC_Meetings_Oversight/MPC_Data_Compliance_Timeliness</members>
+        <members>MERC_Meetings_Oversight/MPC_Handoff_to_Venue_Sourcing_Team</members>
+        <members>MERC_Meetings_Oversight/MPC_ToV_Complete_Mercury_Meetings</members>
+        <members>MERC_Meetings_Oversight/MPC_TOV_Complete_Sales_Force_Meetings</members>
+        <members>MERC_Meetings_Oversight/R_All_Meetings1</members>
+        <members>MERC_Meetings_Oversight/R_All_open_Veeva_meetings1</members>
+        <members>MERC_Meetings_Oversight/R_Independent_Sponsorship_Meetings2</members>
+        <members>MERC_Meetings_Oversight/R_Meeting_with_Parent_Meeting_Report1</members>
+        <members>MERC_Meetings_Oversight/R_Meetings_with_Products1</members>
+        <members>MICO_Delivery_Reports</members>
+        <members>MICO_Delivery_Reports/Burndown_Report</members>
+        <members>MICO_Delivery_Reports/MICO_Sample_User_Story_Funnel</members>
+        <members>MICO_Delivery_Reports/Mission_Control_User_Story_Funnel</members>
+        <members>MICO_Delivery_Reports/Risk_and_Issue</members>
+        <members>MICO_Delivery_Reports/Sprint_2_Proposed</members>
+        <members>MICO_Delivery_Reports/Test_Execution_Reports</members>
+        <members>My_Reports</members>
         <members>C3</members>
         <members>C3/C3_Burndown_Report</members>
         <members>C3/C3_User_Story_Funnel</members>
         <members>C3/User_Story_points_burned_today</members>
-        <members>C3_App_Reports</members>
-        <members>C3_App_Reports/C3_User_Stories_Allocation</members>
         <members>Chatter_Usage</members>
         <members>Chatter_Usage/Chatter_Group_Feeds_last_90_days</members>
         <members>Chatter_Usage/Chatter_Posts_last_90_days</members>
+        <members>Chatter_Usage/Groups_Comments</members>
         <members>Chatter_Usage/GUS_Chatter</members>
         <members>Chatter_Usage/GUS_Chatter_Feed_Item_Type_last_30d</members>
         <members>Chatter_Usage/GUS_Chatter_Group_posts_x_User</members>
@@ -1497,98 +1618,76 @@
         <members>Chatter_Usage/GUS_Chatter_Groups_of_Members</members>
         <members>Chatter_Usage/GUS_Chatter_User_of_Content_Posts</members>
         <members>Chatter_Usage/GUS_Chatter_User_of_Posts</members>
-        <members>Chatter_Usage/Groups_Comments</members>
         <members>Chatter_Usage/Users_with_Followers</members>
-        <members>HR_Investigations</members>
-        <members>HR_Investigations/Countries_with_Assessment_data</members>
-        <members>HR_Investigations/Progression_History_report</members>
-        <members>HR_Investigations/Regional_Progression_Historical_Report</members>
-        <members>HR_Investigations/Regions_with_Assessment_Data</members>
-        <members>HR_Investigations/StatusReport_for_HR_InvestigationsRegion</members>
-        <members>HR_Investigations/Status_Report_for_HR_Investigations</members>
-        <members>HR_Investigations/Submission_by_Country</members>
-        <members>HR_Investigations/Submission_by_Region</members>
-        <members>HR_Investigations/Submission_with_Sub_Assessment_and_Data</members>
+        <members>Meeting_Reports</members>
+        <members>Meeting_Reports/Active_Meetings</members>
+        <members>Meeting_Reports/All_Meetings_MERC</members>
+        <members>Meeting_Reports/Budget_Savings_and_Overages</members>
+        <members>Meeting_Reports/Cap_Cap_Spent_on_HCP</members>
+        <members>Meeting_Reports/Cap_Compare_Actual_Vs_Paid</members>
+        <members>Meeting_Reports/Cap_Overdue_Forecasting_Meetings</members>
+        <members>Meeting_Reports/Cap_Roll_UP</members>
+        <members>Meeting_Reports/Consulting_Project_Invoices_Fees_MERC</members>
+        <members>Meeting_Reports/Contract_Active</members>
+        <members>Meeting_Reports/Contract_Onboard_Speaker</members>
+        <members>Meeting_Reports/CST_User_Logs</members>
+        <members>Meeting_Reports/Email_Opt_Out</members>
+        <members>Meeting_Reports/Forecasted_Meetings_by_Last_Modify_Date</members>
+        <members>Meeting_Reports/Forecasted_Meetings_nearing_Start_MERC</members>
+        <members>Meeting_Reports/Global_Boundaries</members>
+        <members>Meeting_Reports/HCP_Added_to_Customer_ODS_Report</members>
+        <members>Meeting_Reports/HCP_CODS_Ending</members>
+        <members>Meeting_Reports/HCP_Contracts_in_Progress</members>
+        <members>Meeting_Reports/HCP_Information_Package_Completed</members>
+        <members>Meeting_Reports/HCP_Merged_Flag</members>
+        <members>Meeting_Reports/HCPs_Nearing_or_Exceeding_CAP_Limit_MERC</members>
+        <members>Meeting_Reports/Invoices_Created_not_Submitted_MERC</members>
+        <members>Meeting_Reports/Meeting_Cancellations</members>
+        <members>Meeting_Reports/Meeting_Execution_Package</members>
+        <members>Meeting_Reports/Meeting_Participant_Invitee_Status</members>
+        <members>Meeting_Reports/Meeting_Participant_Status_MERC</members>
+        <members>Meeting_Reports/Meeting_participant_with_Product</members>
+        <members>Meeting_Reports/Meeting_Participants_by_Meeting</members>
+        <members>Meeting_Reports/Meeting_Participants_by_Territory</members>
+        <members>Meeting_Reports/Meeting_Participants_Exception_Approval</members>
+        <members>Meeting_Reports/Meeting_Participants_Incomplete_Status</members>
+        <members>Meeting_Reports/Meeting_Participants_Pending_Approval</members>
+        <members>Meeting_Reports/Meeting_Team_Members</members>
+        <members>Meeting_Reports/Meeting_Venues</members>
+        <members>Meeting_Reports/Meetings_by_Start_Date_MERC</members>
+        <members>Meeting_Reports/Meetings_no_MPC_or_Meeting_Owner_MERC</members>
+        <members>Meeting_Reports/Meetings_with_Compliance_Risks</members>
+        <members>Meeting_Reports/Meetings_without_Signed_Contracts</members>
+        <members>Meeting_Reports/MSA_Expiration_MERC</members>
+        <members>Meeting_Reports/New_HCPs</members>
+        <members>Meeting_Reports/New_Non_HCPs</members>
+        <members>Meeting_Reports/Non_HCPs_Needing_Approval</members>
+        <members>Meeting_Reports/Open_Meetings_Passed_End_Date</members>
+        <members>Meeting_Reports/Participants_without_Invoices</members>
+        <members>Meeting_Reports/Payee_Changes_Contract</members>
+        <members>Meeting_Reports/Payee_Changes_Invoices</members>
+        <members>Meeting_Reports/Payment_Cycle_Time_by_Volume</members>
+        <members>Meeting_Reports/Registered_Meetings_by_Country</members>
+        <members>Meeting_Reports/Registered_Meetings_No_Team_Members_MERC</members>
+        <members>Meeting_Reports/Sales_force_Meetings_by_Type_MERC</members>
+        <members>Meeting_Reports/Service_Provide_Process_Contracts</members>
+        <members>Meeting_Reports/Service_Providers_who_need_Contracting</members>
+        <members>Meeting_Reports/Service_Providers_who_need_Tiering</members>
+        <members>Meeting_Reports/Service_Providers_without_Contracts_MERC</members>
+        <members>Meeting_Reports/Slot_Management_MERC</members>
+        <members>Meeting_Reports/Speaker_with_Product</members>
+        <members>Meeting_Reports/Sponsorship_Travel_Planning</members>
+        <members>Meeting_Reports/TBD_Independent_Meeting_ToV_for_PFT4</members>
+        <members>Meeting_Reports/TBD_Standard_Meeting_ToV_for_PFT4</members>
+        <members>Meeting_Reports/TBD_Testing_ToV_Report</members>
+        <members>Meeting_Reports/TBD_Testing_ToV_Report_Independent</members>
+        <members>Meeting_Reports/Transparency_Consent_Status</members>
+        <members>Meeting_Reports/Work_Order_Signed</members>
+        <members>Test_Project_Status</members>
+        <members>Test_Project_Status/Test_Project1</members>
         <members>LPAD_Delivery_Reports</members>
         <members>LPAD_Delivery_Reports/LPAD_Burndown_Report</members>
         <members>LPAD_Delivery_Reports/LPAD_User_Story_Funnel</members>
-        <members>MERC_CMS_Cork</members>
-        <members>MERC_CMS_Local</members>
-        <members>MERC_CMS_Local/Meetings_without_team_members</members>
-        <members>MERC_Compliance_Oversight</members>
-        <members>MERC_Compliance_Oversight/RU_R_Meetings1</members>
-        <members>MERC_Compliance_Oversight/R_Account_Overview1</members>
-        <members>MERC_Compliance_Oversight/R_HCP_Communication_Preferences1</members>
-        <members>MERC_Compliance_Oversight/R_Transparency_Consent_Status1</members>
-        <members>MERC_Dashboard_Cork</members>
-        <members>MERC_Dashboard_Cork/CME_Acredited1</members>
-        <members>MERC_Dashboard_Cork/DBREG_Info_Pack_to_be_checked</members>
-        <members>MERC_Dashboard_Cork/DBREG_Info_Pack_to_be_checked1</members>
-        <members>MERC_Dashboard_Cork/DB_Contracts_pending_to_be_dispatched</members>
-        <members>MERC_Dashboard_Cork/DB_Delegates_with_pending_I_N1</members>
-        <members>MERC_Dashboard_Cork/DB_IN_not_sent_SP1</members>
-        <members>MERC_Dashboard_Cork/Daily_Tasks</members>
-        <members>MERC_Dashboard_Cork/Delegates_pending_IN</members>
-        <members>MERC_Dashboard_Cork/Info_Pack_status_report</members>
-        <members>MERC_Dashboard_Cork/Info_Pack_to_be_created</members>
-        <members>MERC_Dashboard_Cork/Participants_without_invoices2</members>
-        <members>MERC_Dashboard_Cork/Service_Providers_without_contracts</members>
-        <members>MERC_Dashboard_Local_MPC</members>
-        <members>MERC_Dashboard_Local_MPC/DB_Participant_ToV_final_not_ticked1</members>
-        <members>MERC_Dashboard_Local_MPC/DB_Participants_pending_to_be_approved2</members>
-        <members>MERC_Dashboard_Local_MPC/DB_SP_Needed_Final_Fee_Confirmation1</members>
-        <members>MERC_Dashboard_Local_MPC/DB_Service_Rendered_Confirmation1</members>
-        <members>MERC_Dashboard_Local_MPC/IN_for_delegates_with_ToV1</members>
-        <members>MERC_Dashboard_Local_MPC/TU_DB_Meetings_30_days_after_the_event1</members>
-        <members>MERC_Dashboard_Local_MPC/TU_DB_Meetings_30_days_prior_to_event1</members>
-        <members>MERC_Dashboard_SLA</members>
-        <members>MERC_Logistics_Management</members>
-        <members>MERC_Logistics_Management/PT_R_Infarmed_Report_TOV1</members>
-        <members>MERC_Medical_Director</members>
-        <members>MERC_Meeting_Owner</members>
-        <members>MERC_Meeting_Owner/R_Budget_usage1</members>
-        <members>MERC_Meeting_Owner/R_Cap_limit_and_usage1</members>
-        <members>MERC_Meetings_Oversight</members>
-        <members>MERC_Meetings_Oversight/Buha_List1</members>
-        <members>MERC_Meetings_Oversight/HCP_Contract_Cycle_Time</members>
-        <members>MERC_Meetings_Oversight/HCP_Contracts_Created_Per_Year</members>
-        <members>MERC_Meetings_Oversight/HCP_Contracts_Sent_in_Advance</members>
-        <members>MERC_Meetings_Oversight/HCPs_Created_per_Year</members>
-        <members>MERC_Meetings_Oversight/IT_Report_for_for_global_metrics_reports1</members>
-        <members>MERC_Meetings_Oversight/Institutional_Notifications_Sent</members>
-        <members>MERC_Meetings_Oversight/Invoices_Paid_Per_Year</members>
-        <members>MERC_Meetings_Oversight/MPC_Data_Compliance_Timeliness</members>
-        <members>MERC_Meetings_Oversight/MPC_Handoff_to_Venue_Sourcing_Team</members>
-        <members>MERC_Meetings_Oversight/MPC_TOV_Complete_Sales_Force_Meetings</members>
-        <members>MERC_Meetings_Oversight/MPC_ToV_Complete_Mercury_Meetings</members>
-        <members>MERC_Meetings_Oversight/Meeting_Agency_and_Venue_Sourcing</members>
-        <members>MERC_Meetings_Oversight/Meetings_with_Missing_TOV</members>
-        <members>MERC_Meetings_Oversight/Meetings_without_Errors_within_60_days</members>
-        <members>MERC_Meetings_Oversight/R_All_Meetings1</members>
-        <members>MERC_Meetings_Oversight/R_All_open_Veeva_meetings1</members>
-        <members>MERC_Meetings_Oversight/R_Independent_Sponsorship_Meetings2</members>
-        <members>MERC_Meetings_Oversight/R_Meeting_with_Parent_Meeting_Report1</members>
-        <members>MERC_Meetings_Oversight/R_Meetings_with_Products1</members>
-        <members>MERC_Regional_CMS</members>
-        <members>MERC_Regional_CMS/Expense_Reimbursements</members>
-        <members>MERC_Regional_CMS/R_Payee_Changes_Contract</members>
-        <members>MERC_Regional_CMS/R_Payee_Changes_Invoices</members>
-        <members>MERC_Travel</members>
-        <members>MERC_Travel/Daniela_s_General_List1</members>
-        <members>MERC_Travel/Invitee_List_Response_Report</members>
-        <members>MERC_Travel/Meeting_participants_without_travel</members>
-        <members>MERC_Travel/R_Arrival_and_Departure_Overview1</members>
-        <members>MERC_Travel/R_Hotel_Rooming_List1</members>
-        <members>MERC_Travel/R_Slot_Allocation_List1</members>
-        <members>MERC_Travel/R_ToV_final1</members>
-        <members>MERC_Travel/R_ToV_not_final1</members>
-        <members>MICO_Delivery_Reports</members>
-        <members>MICO_Delivery_Reports/Burndown_Report</members>
-        <members>MICO_Delivery_Reports/MICO_Sample_User_Story_Funnel</members>
-        <members>MICO_Delivery_Reports/Mission_Control_User_Story_Funnel</members>
-        <members>MICO_Delivery_Reports/Risk_and_Issue</members>
-        <members>MICO_Delivery_Reports/Sprint_2_Proposed</members>
-        <members>MICO_Delivery_Reports/Test_Execution_Reports</members>
         <members>MICO_Report_Templates</members>
         <members>MICO_Report_Templates/Burndown_Report_Template</members>
         <members>MICO_Report_Templates/MICO_Sample_User_Story_Funnel_Template</members>
@@ -1610,96 +1709,81 @@
         <members>MICO_Report_Templates/Sample_User_Stories_Closed_today_list</members>
         <members>MICO_Report_Templates/Sample_User_Story_Approval_Report</members>
         <members>MICO_Report_Templates/Sample_User_Story_points_burned_today</members>
-        <members>MICO_System_Reports</members>
-        <members>MICO_System_Reports/Sprint_Object_Report_Burndown</members>
-        <members>MICO_System_Reports/Sprint_Object_Report_Burndown_Chart</members>
-        <members>MICO_System_Reports/Sprint_Object_Report_Kanban_Funnel</members>
-        <members>MICO_System_Reports/Sprint_Object_Report_Status_Funnel</members>
-        <members>MICO_System_Reports/Sprint_Report_Test_Script_Burndown_Chart</members>
-        <members>Meeting_Reports</members>
-        <members>Meeting_Reports/Active_Meetings</members>
-        <members>Meeting_Reports/All_Meetings_MERC</members>
-        <members>Meeting_Reports/Budget_Savings_and_Overages</members>
-        <members>Meeting_Reports/CST_User_Logs</members>
-        <members>Meeting_Reports/Cap_Cap_Spent_on_HCP</members>
-        <members>Meeting_Reports/Cap_Compare_Actual_Vs_Paid</members>
-        <members>Meeting_Reports/Cap_Overdue_Forecasting_Meetings</members>
-        <members>Meeting_Reports/Cap_Roll_UP</members>
-        <members>Meeting_Reports/Consulting_Project_Invoices_Fees_MERC</members>
-        <members>Meeting_Reports/Contract_Active</members>
-        <members>Meeting_Reports/Contract_Onboard_Speaker</members>
-        <members>Meeting_Reports/Email_Opt_Out</members>
-        <members>Meeting_Reports/Forecasted_Meetings_by_Last_Modify_Date</members>
-        <members>Meeting_Reports/Forecasted_Meetings_nearing_Start_MERC</members>
-        <members>Meeting_Reports/Global_Boundaries</members>
-        <members>Meeting_Reports/HCP_Added_to_Customer_ODS_Report</members>
-        <members>Meeting_Reports/HCP_CODS_Ending</members>
-        <members>Meeting_Reports/HCP_Contracts_in_Progress</members>
-        <members>Meeting_Reports/HCP_Information_Package_Completed</members>
-        <members>Meeting_Reports/HCP_Merged_Flag</members>
-        <members>Meeting_Reports/HCPs_Nearing_or_Exceeding_CAP_Limit_MERC</members>
-        <members>Meeting_Reports/Invoices_Created_not_Submitted_MERC</members>
-        <members>Meeting_Reports/MSA_Expiration_MERC</members>
-        <members>Meeting_Reports/Meeting_Cancellations</members>
-        <members>Meeting_Reports/Meeting_Execution_Package</members>
-        <members>Meeting_Reports/Meeting_Participant_Invitee_Status</members>
-        <members>Meeting_Reports/Meeting_Participant_Status_MERC</members>
-        <members>Meeting_Reports/Meeting_Participants_Exception_Approval</members>
-        <members>Meeting_Reports/Meeting_Participants_Incomplete_Status</members>
-        <members>Meeting_Reports/Meeting_Participants_Pending_Approval</members>
-        <members>Meeting_Reports/Meeting_Participants_by_Meeting</members>
-        <members>Meeting_Reports/Meeting_Participants_by_Territory</members>
-        <members>Meeting_Reports/Meeting_Team_Members</members>
-        <members>Meeting_Reports/Meeting_Venues</members>
-        <members>Meeting_Reports/Meeting_participant_with_Product</members>
-        <members>Meeting_Reports/Meetings_by_Start_Date_MERC</members>
-        <members>Meeting_Reports/Meetings_no_MPC_or_Meeting_Owner_MERC</members>
-        <members>Meeting_Reports/Meetings_with_Compliance_Risks</members>
-        <members>Meeting_Reports/Meetings_without_Signed_Contracts</members>
-        <members>Meeting_Reports/New_HCPs</members>
-        <members>Meeting_Reports/New_Non_HCPs</members>
-        <members>Meeting_Reports/Non_HCPs_Needing_Approval</members>
-        <members>Meeting_Reports/Open_Meetings_Passed_End_Date</members>
-        <members>Meeting_Reports/Participants_without_Invoices</members>
-        <members>Meeting_Reports/Payee_Changes_Contract</members>
-        <members>Meeting_Reports/Payee_Changes_Invoices</members>
-        <members>Meeting_Reports/Payment_Cycle_Time_by_Volume</members>
-        <members>Meeting_Reports/Registered_Meetings_No_Team_Members_MERC</members>
-        <members>Meeting_Reports/Registered_Meetings_by_Country</members>
-        <members>Meeting_Reports/Sales_force_Meetings_by_Type_MERC</members>
-        <members>Meeting_Reports/Service_Provide_Process_Contracts</members>
-        <members>Meeting_Reports/Service_Providers_who_need_Contracting</members>
-        <members>Meeting_Reports/Service_Providers_who_need_Tiering</members>
-        <members>Meeting_Reports/Service_Providers_without_Contracts_MERC</members>
-        <members>Meeting_Reports/Slot_Management_MERC</members>
-        <members>Meeting_Reports/Speaker_with_Product</members>
-        <members>Meeting_Reports/Sponsorship_Travel_Planning</members>
-        <members>Meeting_Reports/TBD_Independent_Meeting_ToV_for_PFT4</members>
-        <members>Meeting_Reports/TBD_Standard_Meeting_ToV_for_PFT4</members>
-        <members>Meeting_Reports/TBD_Testing_ToV_Report</members>
-        <members>Meeting_Reports/TBD_Testing_ToV_Report_Independent</members>
-        <members>Meeting_Reports/Transparency_Consent_Status</members>
-        <members>Meeting_Reports/Work_Order_Signed</members>
+        <members>PMApp_Reports</members>
+        <members>PMApp_Reports/CST_Open_Tickets</members>
+        <members>PMApp_Reports/CST_Ver_1_Reqs</members>
+        <members>PMApp_Reports/Mercury_Requirements_by_Effort</members>
+        <members>PMApp_Reports/Mercury_Requirements_by_Owner</members>
+        <members>PMApp_Reports/Mercury_Requirements_by_Use_Case</members>
+        <members>PMApp_Reports/Mercury_Tickets_by_Created_User</members>
+        <members>PMApp_Reports/Mercury_Tickets_by_User</members>
+        <members>NEC_Meeting_Report</members>
+        <members>Pangaea_Leadership_Metrics_Report</members>
+        <members>Pangaea_Leadership_Metrics_Report/All_RWE_Requests_by_Capability</members>
+        <members>Pangaea_Leadership_Metrics_Report/All_RWE_Requests_by_Status</members>
+        <members>Pangaea_Leadership_Metrics_Report/All_RWE_Requests_By_Year_and_Primary_BU</members>
+        <members>Pangaea_Leadership_Metrics_Report/IRWD_Analysis_Requests</members>
+        <members>Pangaea_Leadership_Metrics_Report/Pangaea_Sprint_2_Stories_and_Owners</members>
+        <members>Pangaea_Leadership_Metrics_Report/RWE_Chatter_Feed_Adoption</members>
+        <members>Pangaea_Leadership_Metrics_Report/RWE_Data_Assets_by_Database_Types</members>
+        <members>Pangaea_Leadership_Metrics_Report/RWE_Data_Assets_by_Region_Country</members>
+        <members>Pangaea_Leadership_Metrics_Report/RWE_Data_Assets_by_Status</members>
+        <members>Pangaea_Leadership_Metrics_Report/RWE_Partnership_Requests_by_Sponsor</members>
+        <members>Pangaea_Leadership_Metrics_Report/RWE_Partnership_Requests_by_Status</members>
+        <members>Pangaea_Leadership_Metrics_Report/RWE_Projects_with_Requests</members>
+        <members>Pangaea_Leadership_Metrics_Report/RWE_Sprint_2_Meeting_Summary</members>
+        <members>Pangaea_Leadership_Metrics_Report/RWE_Users_Request_Resources</members>
+        <members>MERC_Travel</members>
+        <members>MERC_Travel/Daniela_s_General_List1</members>
+        <members>MERC_Travel/Invitee_List_Response_Report</members>
+        <members>MERC_Travel/Meeting_participants_without_travel</members>
+        <members>MERC_Travel/R_Arrival_and_Departure_Overview1</members>
+        <members>MERC_Travel/R_Hotel_Rooming_List1</members>
+        <members>MERC_Travel/R_Slot_Allocation_List1</members>
+        <members>MERC_Travel/R_ToV_final1</members>
+        <members>MERC_Travel/R_ToV_not_final1</members>
+        <members>MERC_Logistics_Management</members>
+        <members>MERC_Logistics_Management/PT_R_Infarmed_Report_TOV1</members>
+        <members>HR_Investigations</members>
+        <members>HR_Investigations/Countries_with_Assessment_data</members>
+        <members>HR_Investigations/Progression_History_report</members>
+        <members>HR_Investigations/Regional_Progression_Historical_Report</members>
+        <members>HR_Investigations/Regions_with_Assessment_Data</members>
+        <members>HR_Investigations/Status_Report_for_HR_Investigations</members>
+        <members>HR_Investigations/StatusReport_for_HR_InvestigationsRegion</members>
+        <members>HR_Investigations/Submission_by_Country</members>
+        <members>HR_Investigations/Submission_by_Region</members>
+        <members>HR_Investigations/Submission_with_Sub_Assessment_and_Data</members>
+        <members>MERC_Dashboard_Local_MPC</members>
+        <members>MERC_Dashboard_Local_MPC/DB_Participant_ToV_final_not_ticked1</members>
+        <members>MERC_Dashboard_Local_MPC/DB_Participants_pending_to_be_approved2</members>
+        <members>MERC_Dashboard_Local_MPC/DB_Service_Rendered_Confirmation1</members>
+        <members>MERC_Dashboard_Local_MPC/DB_SP_Needed_Final_Fee_Confirmation1</members>
+        <members>MERC_Dashboard_Local_MPC/IN_for_delegates_with_ToV1</members>
+        <members>MERC_Dashboard_Local_MPC/TU_DB_Meetings_30_days_after_the_event1</members>
+        <members>MERC_Dashboard_Local_MPC/TU_DB_Meetings_30_days_prior_to_event1</members>
+        <members>MERC_Medical_Director</members>
         <members>Mercury</members>
         <members>Mercury/Meeting_Invitations_MERC</members>
-        <members>Mercury_Case_Reports</members>
-        <members>Mercury_Case_Reports/Case_Turnaround_Time</members>
-        <members>Mercury_Case_Reports/Cases_Transparency_Reporting_Follow_Up</members>
-        <members>Mercury_Case_Reports/Cases_by_Status</members>
-        <members>Mercury_Case_Reports/Cases_by_Status_and_Topic</members>
-        <members>Mercury_Case_Reports/Fulfillments_by_Case_Owner</members>
-        <members>Mercury_Case_Reports/My_Request_Volume_by_Status</members>
-        <members>Mercury_Case_Reports/My_Requests_Closed</members>
-        <members>Mercury_Case_Reports/Request_Ontime_Overdue</members>
-        <members>Mercury_Case_Reports/Total_Cases_by_Meeting</members>
-        <members>Mercury_Case_Reports/Total_Cases_by_Owner_MERC</members>
-        <members>Mercury_Case_Reports/Total_Cases_by_Topic</members>
-        <members>Mercury_Case_Reports/Total_Cases_by_Type</members>
-        <members>Mercury_Case_Reports/Total_Request_by_Country</members>
-        <members>Mercury_Case_Reports/Turnaround_Time_V2</members>
-        <members>My_Reports</members>
-        <members>NEC_Meeting_Report</members>
+        <members>MERC_CMS_Cork</members>
+        <members>MERC_Compliance_Oversight</members>
+        <members>MERC_Compliance_Oversight/R_Account_Overview1</members>
+        <members>MERC_Compliance_Oversight/R_HCP_Communication_Preferences1</members>
+        <members>MERC_Compliance_Oversight/R_Transparency_Consent_Status1</members>
+        <members>MERC_Compliance_Oversight/RU_R_Meetings1</members>
+        <members>PANG_RWE_Requests_Reports</members>
+        <members>PANG_RWE_Requests_Reports/Active_RWE_Requests_by_Workstream_Group</members>
+        <members>PANG_RWE_Requests_Reports/RWE_Active_Requests_by_Type</members>
+        <members>PANG_RWE_Requests_Reports/RWE_EXPERTS_by_Functional_Area</members>
+        <members>PANG_RWE_Requests_Reports/RWE_EXPERTS_by_Therapeutic_Area</members>
+        <members>PANG_RWE_Requests_Reports/RWE_EXPERTS_by_Therapeutic_Area_EX</members>
+        <members>PANG_RWE_Requests_Reports/RWE_Requests_by_BU</members>
+        <members>PANG_RWE_Requests_Reports/RWE_Requests_by_Functional_Areas</members>
+        <members>PANG_RWE_Requests_Reports/RWE_Requests_by_Molecule</members>
         <members>PANG_RWE_Pangaea_Adoption_Reports</members>
+        <members>C3_App_Reports</members>
+        <members>C3_App_Reports/C3_User_Stories_Allocation</members>
+        <members>MERC_Dashboard_SLA</members>
         <members>PANG_RWE_Projects_Reports</members>
         <members>PANG_RWE_Projects_Reports/Data_Assets_by_Status</members>
         <members>PANG_RWE_Projects_Reports/Partnerships_by_Sponsor</members>
@@ -1710,107 +1794,24 @@
         <members>PANG_RWE_Projects_Reports/RWE_Data_Assets_Inventory_Report</members>
         <members>PANG_RWE_Projects_Reports/RWE_Partnerships_by_BU</members>
         <members>PANG_RWE_Projects_Reports/RWE_Partnerships_by_Status</members>
-        <members>PANG_RWE_Requests_Reports</members>
-        <members>PANG_RWE_Requests_Reports/Active_RWE_Requests_by_Workstream_Group</members>
-        <members>PANG_RWE_Requests_Reports/RWE_Active_Requests_by_Type</members>
-        <members>PANG_RWE_Requests_Reports/RWE_EXPERTS_by_Functional_Area</members>
-        <members>PANG_RWE_Requests_Reports/RWE_EXPERTS_by_Therapeutic_Area</members>
-        <members>PANG_RWE_Requests_Reports/RWE_EXPERTS_by_Therapeutic_Area_EX</members>
-        <members>PANG_RWE_Requests_Reports/RWE_Requests_by_BU</members>
-        <members>PANG_RWE_Requests_Reports/RWE_Requests_by_Functional_Areas</members>
-        <members>PANG_RWE_Requests_Reports/RWE_Requests_by_Molecule</members>
-        <members>PMApp_Reports</members>
-        <members>PMApp_Reports/CST_Open_Tickets</members>
-        <members>PMApp_Reports/CST_Ver_1_Reqs</members>
-        <members>PMApp_Reports/Mercury_Requirements_by_Effort</members>
-        <members>PMApp_Reports/Mercury_Requirements_by_Owner</members>
-        <members>PMApp_Reports/Mercury_Requirements_by_Use_Case</members>
-        <members>PMApp_Reports/Mercury_Tickets_by_Created_User</members>
-        <members>PMApp_Reports/Mercury_Tickets_by_User</members>
-        <members>Pangaea_Leadership_Metrics_Report</members>
-        <members>Pangaea_Leadership_Metrics_Report/All_RWE_Requests_By_Year_and_Primary_BU</members>
-        <members>Pangaea_Leadership_Metrics_Report/All_RWE_Requests_by_Capability</members>
-        <members>Pangaea_Leadership_Metrics_Report/All_RWE_Requests_by_Status</members>
-        <members>Pangaea_Leadership_Metrics_Report/IRWD_Analysis_Requests</members>
-        <members>Pangaea_Leadership_Metrics_Report/Pangaea_Sprint_2_Stories_and_Owners</members>
-        <members>Pangaea_Leadership_Metrics_Report/RWE_Chatter_Feed_Adoption</members>
-        <members>Pangaea_Leadership_Metrics_Report/RWE_Data_Assets_by_Database_Types</members>
-        <members>Pangaea_Leadership_Metrics_Report/RWE_Data_Assets_by_Region_Country</members>
-        <members>Pangaea_Leadership_Metrics_Report/RWE_Data_Assets_by_Status</members>
-        <members>Pangaea_Leadership_Metrics_Report/RWE_Partnership_Requests_by_Sponsor</members>
-        <members>Pangaea_Leadership_Metrics_Report/RWE_Partnership_Requests_by_Status</members>
-        <members>Pangaea_Leadership_Metrics_Report/RWE_Projects_with_Requests</members>
-        <members>Pangaea_Leadership_Metrics_Report/RWE_Users_Request_Resources</members>
-        <members>SLA_Reports</members>
-        <members>Snapshot_Push_Actions</members>
-        <members>Snapshot_Push_Actions/All_Changes_Made_Today</members>
-        <members>Snapshot_Push_Actions/All_Changes_Made_Today_By_User</members>
-        <members>Snapshot_Push_Actions/All_Successful_Changes_Made_Today</members>
-        <members>Snapshot_Push_Actions/All_Successful_Changes_Today_By_User</members>
-        <members>Snapshot_Push_Actions/All_Unsuccessful_Changes_Made_Today</members>
-        <members>Snapshot_Push_Actions/All_Unsuccessful_Changes_Today_By_User</members>
-        <members>Snapshot_Push_Actions/Asset_Pushes_This_Month_By_Success</members>
-        <members>Snapshot_Push_Actions/Num_pushes_this_mnth_by_wk_by_usr</members>
-        <members>Snapshot_Push_Actions/Today_s_Changes_With_Details</members>
-        <members>Snapshot_Push_Actions/Today_s_Changes_by_Type</members>
-        <members>Snapshot_Push_Actions/Usage_Assets_pushed_this_month_by_week</members>
-        <members>Snapshot_Push_Actions/Usage_Pushes_This_Month_By_Success</members>
-        <members>Snapshot_Push_Actions/Usage_Pushes_This_Month_By_Type</members>
-        <members>Snapshot_Push_Actions/Usage_of_pushes_this_month_by_week</members>
-        <members>Snapshot_Push_Actions/Usage_pushes_this_month_by_week_by_src</members>
-        <members>Test_Project_Status</members>
-        <members>Test_Project_Status/Test_Project1</members>
-        <members>Trialforce</members>
-        <members>Trialforce/Trialforce_Daily_Report</members>
-        <members>unfiled$public</members>
-        <members>unfiled$public/ACE_Digital_Dashboard_User_Stories</members>
-        <members>unfiled$public/All_RWE_Countries</members>
-        <members>unfiled$public/Biomedicines_Projects</members>
-        <members>unfiled$public/Datamart_Analysis_by_BU</members>
-        <members>unfiled$public/Datamart_Consults_by_BU</members>
-        <members>unfiled$public/EXPERT_Review_with_Type</members>
-        <members>unfiled$public/Example_Report_File_Content_Engagement</members>
-        <members>unfiled$public/For_Chandra</members>
-        <members>unfiled$public/Last_Minute_Search_Tool_Updates</members>
-        <members>unfiled$public/Mavens_Requirement_Owners</members>
-        <members>unfiled$public/Oncology_RWE_Projects_since_2014</members>
-        <members>unfiled$public/Pangaea_Test_Script_Completion_Report</members>
-        <members>unfiled$public/RWE_Partnerships</members>
-        <members>unfiled$public/RWE_Partnerships_PROactive</members>
-        <members>unfiled$public/RWE_Partnerships_SHIRLOC</members>
-        <members>unfiled$public/RWE_Partnerships_by_Status1</members>
-        <members>unfiled$public/RWE_Project_with_Functional_Area</members>
-        <members>unfiled$public/SampleReportActiveUsers</members>
-        <members>unfiled$public/SampleReportCasesStatusbyRep</members>
-        <members>unfiled$public/SampleReportClosedSales</members>
-        <members>unfiled$public/SampleReportCompletedActivities</members>
-        <members>unfiled$public/SampleReportCustomReportsbyUser</members>
-        <members>unfiled$public/SampleReportDocumentLibrary</members>
-        <members>unfiled$public/SampleReportLastModifiedBy</members>
-        <members>unfiled$public/SampleReportLeadsbyLeadSource</members>
-        <members>unfiled$public/SampleReportLoginLeaderboard</members>
-        <members>unfiled$public/SampleReportLoginWallofShame</members>
-        <members>unfiled$public/SampleReportMonthtoDateTrending</members>
-        <members>unfiled$public/SampleReportOpenCasesByPriority</members>
-        <members>unfiled$public/SampleReportOpenDeals</members>
-        <members>unfiled$public/SampleReportPipelineByCloseMonth</members>
-        <members>unfiled$public/SampleReportPipelineHistory</members>
-        <members>unfiled$public/SampleReportSalesLeaderboard</members>
-        <members>unfiled$public/SampleReportSalesPipelinebyStage</members>
-        <members>unfiled$public/SampleReportSolutionsAdded</members>
-        <members>unfiled$public/SampleReportTopAccounts</members>
-        <members>unfiled$public/SampleReportUsersLoggedIn</members>
-        <members>unfiled$public/SampleReportofAccounts</members>
-        <members>unfiled$public/SampleReportofCases</members>
-        <members>unfiled$public/SampleReportofContacts</members>
-        <members>unfiled$public/SampleReportofDocuments</members>
-        <members>unfiled$public/SampleReportofLeads</members>
-        <members>unfiled$public/SampleReportofOpenTasks</members>
-        <members>unfiled$public/SampleReportofOpportunities</members>
-        <members>unfiled$public/SampleReportofReports</members>
-        <members>unfiled$public/SampleReportofSolutions</members>
-        <members>unfiled$public/SampleReportofTasksandActivities</members>
-        <members>unfiled$public/SampleReportsLeadsbyStatus</members>
+        <members>MERC_Meeting_Owner</members>
+        <members>MERC_Meeting_Owner/R_Budget_usage1</members>
+        <members>MERC_Meeting_Owner/R_Cap_limit_and_usage1</members>
+        <members>Mercury_Case_Reports</members>
+        <members>Mercury_Case_Reports/Case_Turnaround_Time</members>
+        <members>Mercury_Case_Reports/Cases_by_Status</members>
+        <members>Mercury_Case_Reports/Cases_by_Status_and_Topic</members>
+        <members>Mercury_Case_Reports/Cases_Transparency_Reporting_Follow_Up</members>
+        <members>Mercury_Case_Reports/Fulfillments_by_Case_Owner</members>
+        <members>Mercury_Case_Reports/My_Request_Volume_by_Status</members>
+        <members>Mercury_Case_Reports/My_Requests_Closed</members>
+        <members>Mercury_Case_Reports/Request_Ontime_Overdue</members>
+        <members>Mercury_Case_Reports/Total_Cases_by_Meeting</members>
+        <members>Mercury_Case_Reports/Total_Cases_by_Owner_MERC</members>
+        <members>Mercury_Case_Reports/Total_Cases_by_Topic</members>
+        <members>Mercury_Case_Reports/Total_Cases_by_Type</members>
+        <members>Mercury_Case_Reports/Total_Request_by_Country</members>
+        <members>Mercury_Case_Reports/Turnaround_Time_V2</members>
         <name>Report</name>
     </types>
     <types>
@@ -1828,6 +1829,10 @@
     <types>
         <members>*</members>
         <name>Scontrol</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>Settings</name>
     </types>
     <types>
         <members>*</members>
@@ -1860,10 +1865,6 @@
     <types>
         <members>*</members>
         <name>Workflow</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>Settings</name>
     </types>
     <version>31.0</version>
 </Package>

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Translations xmlns="http://soap.sforce.com/2006/04/metadata">
     <customApplications>
+        <label><!-- ACE --></label>
+        <name>ACED</name>
+    </customApplications>
+    <customApplications>
         <label><!-- DreamFactory Utilities --></label>
         <name>BLND_DreamFactory_Utilities</name>
     </customApplications>
@@ -53,8 +57,68 @@
         <name>cirrus_launchpad</name>
     </customApplications>
     <customLabels>
+        <label><!-- ACED_AssetUpdate_ErrorMessage --></label>
+        <name>ACED_AssetUpdate_ErrorMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ACED_CreateProduct_label1 --></label>
+        <name>ACED_CreateProduct_label1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ACED_CreateProduct_label2 --></label>
+        <name>ACED_CreateProduct_label2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ACED_CreateProduct_label3 --></label>
+        <name>ACED_CreateProduct_label3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ACED_CreateProduct_label4 --></label>
+        <name>ACED_CreateProduct_label4</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ACED_CreateProduct_label5 --></label>
+        <name>ACED_CreateProduct_label5</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ACED_CreateProduct_label6 --></label>
+        <name>ACED_CreateProduct_label6</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ACED_CreateProduct_label7 --></label>
+        <name>ACED_CreateProduct_label7</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ACED_CreateProduct_label8 --></label>
+        <name>ACED_CreateProduct_label8</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ACED_DeliveryNotEligible --></label>
+        <name>ACED_DeliveryNotEligible</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ACED_ErrorMessage --></label>
+        <name>ACED_ErrorMessage</name>
+    </customLabels>
+    <customLabels>
         <label><!-- ACED_Retire_Asset_Error_Msg --></label>
         <name>ACED_Retire_Asset_Error_Msg</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ACED_RightNow_EmailContent --></label>
+        <name>ACED_RightNow_EmailContent</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ACED_RightNow_SubjectLine --></label>
+        <name>ACED_RightNow_SubjectLine</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ACED_Webtrends_EmailContent --></label>
+        <name>ACED_Webtrends_EmailContent</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ACED_Webtrends_SubjectLine --></label>
+        <name>ACED_Webtrends_SubjectLine</name>
     </customLabels>
     <customLabels>
         <label><!-- Audience : Audience Affiliate --></label>
@@ -73,12 +137,312 @@
         <name>Burn_Status</name>
     </customLabels>
     <customLabels>
+        <label><!-- C3AP ATC Approval Feedback label --></label>
+        <name>C3AP_ATC_Approval_Feedback</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP ATC Approver label used on Contract Request Form --></label>
+        <name>C3AP_ATC_Approver</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP ATC Rejection Email --></label>
+        <name>C3AP_ATC_Rejection_Email</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP ATS Approver label used on Contract Request Form --></label>
+        <name>C3AP_ATS_Approver</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Additional Guidance Information header on Homepage --></label>
+        <name>C3AP_Additional_Guidance_Information</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Additional Links for info column header on Homepage --></label>
+        <name>C3AP_Additional_Links_For_Information</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP_Amendment_Approved --></label>
+        <name>C3AP_Amendment_Approved</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP_Amendment_Not_Approved --></label>
+        <name>C3AP_Amendment_Not_Approved</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Amendment Popup --></label>
+        <name>C3AP_Amendment_Popup</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Apex Sharing Access Level --></label>
+        <name>C3AP_Apex_Sharing_Access_Level</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Application Name --></label>
+        <name>C3AP_Application_Name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Approval Page Layout Comment --></label>
+        <name>C3AP_Approval_Page_Layout_Comment</name>
+    </customLabels>
+    <customLabels>
         <label><!-- C3AP Approval Process Name --></label>
         <name>C3AP_Approval_Process_Name</name>
     </customLabels>
     <customLabels>
+        <label><!-- C3AP Approve Button label --></label>
+        <name>C3AP_Approve_Button_label</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Legal Approval Feedback label --></label>
+        <name>C3AP_Approver_Feedback</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP_Approver_Type_ATC --></label>
+        <name>C3AP_Approver_Type_ATC</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP_Approver_Type_ATS --></label>
+        <name>C3AP_Approver_Type_ATS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP_Approver_Type_Legal --></label>
+        <name>C3AP_Approver_Type_Legal</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Attach Amended Contract --></label>
+        <name>C3AP_Attach_Amended_Contract</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Cancel --></label>
+        <name>C3AP_Cancel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Choose label for uploading attachments on Contract Form --></label>
+        <name>C3AP_Choose</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Click here to Download used on Contract Form on the Template Section --></label>
+        <name>C3AP_Click_to_Download</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Contract Upload Section close button on Form page --></label>
+        <name>C3AP_Close_Upload</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Contract Attachments Upload Section header on Form page --></label>
+        <name>C3AP_Contract_Attachments</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Contract Details Section Header on Form Page --></label>
+        <name>C3AP_Contract_Details</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Contract Form Attachment Handling --></label>
+        <name>C3AP_Contract_Form_Attachment_Handling</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Contract Request --></label>
+        <name>C3AP_Contract_Request</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Contract Approval Section header on Form page --></label>
+        <name>C3AP_Contract_Request_Approval</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP  Contract Request Form Page Header --></label>
+        <name>C3AP_Contract_Request_Form</name>
+    </customLabels>
+    <customLabels>
         <label><!-- C3AP Contract Request Report ID --></label>
         <name>C3AP_Contract_Request_Report_ID</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Contract Template column header for Template download section --></label>
+        <name>C3AP_Contract_Template</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Contract Template Download  Section header on Form page --></label>
+        <name>C3AP_Contract_Template_Download</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Contract Type Field label on Form Page --></label>
+        <name>C3AP_Contract_Type</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Contrct Completion Email Template --></label>
+        <name>C3AP_Contrct_Completion_Email_Template</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP_Email_Template_NotSubmitted --></label>
+        <name>C3AP_Email_Template_NotSubmitted</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP_Error_Attachment_Uploaded _Successfully --></label>
+        <name>C3AP_Error_Attachment_Uploaded_Successfully</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Error Sharing Records --></label>
+        <name>C3AP_Error_Sharing_Records</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Error  Uploading Attachment --></label>
+        <name>C3AP_Error_Uploading_Attachment</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP File for Upload --></label>
+        <name>C3AP_File_for_Upload</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Final Sign --></label>
+        <name>C3AP_Final_Sign</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP GSO Profile Name --></label>
+        <name>C3AP_GSO_Profile_Name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP_Get Contract Template on Contract Request Form --></label>
+        <name>C3AP_Get_Contract_Template</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Introductory Questions --></label>
+        <name>C3AP_Introductory_Questions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Legal Approval Feedback label --></label>
+        <name>C3AP_Legal_Approval_Feedback</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Legal Approver label used on Contract Request Form --></label>
+        <name>C3AP_Legal_Approver</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Legal Questions --></label>
+        <name>C3AP_Legal_Questions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Contract Section Legal Review button title --></label>
+        <name>C3AP_Legal_Review</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP_Legal_Review_URL --></label>
+        <name>C3AP_Legal_Review_URL</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Legal rejection Email --></label>
+        <name>C3AP_Legal_rejection_Email</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP More Information --></label>
+        <name>C3AP_More_Information</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP NO --></label>
+        <name>C3AP_NO</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP New Contract Request - Label for homepage button --></label>
+        <name>C3AP_New_Contract_Request</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP_New_Contract_Request_URL --></label>
+        <name>C3AP_New_Contract_Request_URL</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Next --></label>
+        <name>C3AP_Next</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP No Additional Guidance Links message for affiliate on homepage --></label>
+        <name>C3AP_No_Additional_Guidance</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP No Tempaltes available for Download --></label>
+        <name>C3AP_No_Templates_Available</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Org Wide Email Display Name --></label>
+        <name>C3AP_Org_Wide_Email_Display_Name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Proceed to Contract Form --></label>
+        <name>C3AP_Proceed_to_Contract_Form</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Question Type Information --></label>
+        <name>C3AP_Question_Type_Information</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Question Type Introductory --></label>
+        <name>C3AP_Question_Type_Introductory</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Question Type Legal --></label>
+        <name>C3AP_Question_Type_Legal</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Used for Save Button on Contract Request Form Page --></label>
+        <name>C3AP_Save_Contract_Request</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Search Existing Request button on Homepage --></label>
+        <name>C3AP_Search_Existing_Request</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Select Affiliate option for the Affiliate picklist on Homepage --></label>
+        <name>C3AP_Select_Affiliate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Status Completed --></label>
+        <name>C3AP_Status_Completed</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Status Not Approved By ATC --></label>
+        <name>C3AP_Status_Not_Approved_By_ATC</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Status Not Approved By ATS --></label>
+        <name>C3AP_Status_Not_Approved_By_ATS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Status Not Approved By Legal --></label>
+        <name>C3AP_Status_Not_Approved_By_Legal</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Status Not Submitted --></label>
+        <name>C3AP_Status_Not_Submitted</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Status Pending ATC Approval --></label>
+        <name>C3AP_Status_Pending_ATC_Approval</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Status Pending ATS Approval --></label>
+        <name>C3AP_Status_Pending_ATS_Approval</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Status Pending Final Signatures --></label>
+        <name>C3AP_Status_Pending_Final_Signatures</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Status Pending Legal Approval --></label>
+        <name>C3AP_Status_Pending_Legal_Approval</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Status Pending Requestor Review --></label>
+        <name>C3AP_Status_Pending_Requestor_Review</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Upload and Save button on Contract Request Form --></label>
+        <name>C3AP_Upload_and_Save</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP Welcome Text --></label>
+        <name>C3AP_Welcome_Text</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- C3AP YES --></label>
+        <name>C3AP_YES</name>
     </customLabels>
     <customLabels>
         <label><!-- Clear Search Results Button --></label>
@@ -5537,6 +5901,480 @@
         <name>NewTask</name>
     </quickActions>
     <reportTypes>
+        <description><!-- ACE Activities --></description>
+        <label><!-- ACE Activities --></label>
+        <name>ACE_Activities</name>
+        <sections>
+            <columns>
+                <label><!-- Channel Name --></label>
+                <name>Channel Name</name>
+            </columns>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <columns>
+                <label><!-- Target Type --></label>
+                <name>Target Type</name>
+            </columns>
+            <label><!-- Asset --></label>
+            <name>Asset</name>
+        </sections>
+        <sections>
+            <columns>
+                <label><!-- Affiliate --></label>
+                <name>Affiliate</name>
+            </columns>
+            <columns>
+                <label><!-- HUB --></label>
+                <name>HUB</name>
+            </columns>
+            <columns>
+                <label><!-- Program Name --></label>
+                <name>Program Name</name>
+            </columns>
+            <columns>
+                <label><!-- Scope --></label>
+                <name>Scope</name>
+            </columns>
+            <label><!-- Programs --></label>
+            <name>Programs</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- ACE Asset Attributes From WebTrends --></description>
+        <label><!-- ACE Asset Attributes From WebTrends --></label>
+        <name>ACE_Asset_Attributes_From_WebTrends</name>
+        <sections>
+            <label><!-- Assets --></label>
+            <name>Assets</name>
+        </sections>
+        <sections>
+            <label><!-- Deliveries --></label>
+            <name>Deliveries</name>
+        </sections>
+        <sections>
+            <label><!-- Delivery Actual Lines --></label>
+            <name>Delivery Actual Lines</name>
+        </sections>
+        <sections>
+            <label><!-- Delivery Actuals --></label>
+            <name>Delivery Actuals</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- ACE Assets --></description>
+        <label><!-- ACE Assets --></label>
+        <name>ACE_Assets</name>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <columns>
+                <label><!-- Channel Category --></label>
+                <name>Channel Category</name>
+            </columns>
+            <label><!-- Assets --></label>
+            <name>Assets</name>
+        </sections>
+        <sections>
+            <label><!-- Deliveries --></label>
+            <name>Deliveries</name>
+        </sections>
+        <sections>
+            <label><!-- Delivery Indications --></label>
+            <name>Delivery Indications</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- ACE Assets with Asset Attributes --></description>
+        <label><!-- ACE Assets with Asset Attributes --></label>
+        <name>ACE_Assets_with_Asset_Attributes</name>
+        <sections>
+            <label><!-- Assets --></label>
+            <name>Assets</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- ACE Assets with Asset Indications --></description>
+        <label><!-- ACE Assets with Asset Indications --></label>
+        <name>ACE_Assets_with_Asset_Indications</name>
+        <sections>
+            <label><!-- Asset Indications --></label>
+            <name>Asset Indications</name>
+        </sections>
+        <sections>
+            <label><!-- Assets --></label>
+            <name>Assets</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- ACE Brand Indications with Program Indication --></description>
+        <label><!-- ACE Brand Indications with Program Indication --></label>
+        <name>ACE_Brand_Indications_with_Program_Indication</name>
+        <sections>
+            <label><!-- Brand Indications --></label>
+            <name>Brand Indications</name>
+        </sections>
+        <sections>
+            <label><!-- Program Indications --></label>
+            <name>Program Indications</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- ACE Delivery --></description>
+        <label><!-- ACE Delivery --></label>
+        <name>ACE_Delivery</name>
+        <sections>
+            <columns>
+                <label><!-- Activity Name --></label>
+                <name>Activity Name</name>
+            </columns>
+            <label><!-- Activity --></label>
+            <name>Activity</name>
+        </sections>
+        <sections>
+            <label><!-- Deliveries --></label>
+            <name>Deliveries</name>
+        </sections>
+        <sections>
+            <columns>
+                <label><!-- Affiliate --></label>
+                <name>Affiliate</name>
+            </columns>
+            <columns>
+                <label><!-- HUB --></label>
+                <name>HUB</name>
+            </columns>
+            <columns>
+                <label><!-- Program Name --></label>
+                <name>Program Name</name>
+            </columns>
+            <label><!-- Program --></label>
+            <name>Program</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- ACE Delivery Indication --></description>
+        <label><!-- ACE Delivery Indication --></label>
+        <name>ACE_Delivery_Indication</name>
+        <sections>
+            <columns>
+                <label><!-- Activity Name --></label>
+                <name>Activity Name</name>
+            </columns>
+            <columns>
+                <label><!-- Planned Cost --></label>
+                <name>Planned Cost</name>
+            </columns>
+            <label><!-- Activity Fields --></label>
+            <name>Activity Fields</name>
+        </sections>
+        <sections>
+            <columns>
+                <label><!-- Brand Indication Name --></label>
+                <name>Brand Indication Name</name>
+            </columns>
+            <columns>
+                <label><!-- Business Unit --></label>
+                <name>Business Unit</name>
+            </columns>
+            <columns>
+                <label><!-- Therapeutic Area --></label>
+                <name>Therapeutic Area</name>
+            </columns>
+            <label><!-- Brand Indication Fields --></label>
+            <name>Brand Indication Fields</name>
+        </sections>
+        <sections>
+            <label><!-- Delivery Indications --></label>
+            <name>Delivery Indications</name>
+        </sections>
+        <sections>
+            <columns>
+                <label><!-- Affiliate --></label>
+                <name>Affiliate</name>
+            </columns>
+            <columns>
+                <label><!-- HUB --></label>
+                <name>HUB</name>
+            </columns>
+            <columns>
+                <label><!-- Program Name --></label>
+                <name>Program Name</name>
+            </columns>
+            <columns>
+                <label><!-- Regional Program --></label>
+                <name>Regional Program</name>
+            </columns>
+            <columns>
+                <label><!-- Scope --></label>
+                <name>Scope</name>
+            </columns>
+            <label><!-- Program Fields --></label>
+            <name>Program Fields</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- ACE Delivery Indication Actuals --></description>
+        <label><!-- ACE Delivery Indication Actuals --></label>
+        <name>ACE_Delivery_Indication_Actuals</name>
+        <sections>
+            <columns>
+                <label><!-- # Unplanned Activities --></label>
+                <name># Unplanned Activities</name>
+            </columns>
+            <columns>
+                <label><!-- # Unplanned Executed Activities --></label>
+                <name># Unplanned Executed Activities</name>
+            </columns>
+            <columns>
+                <label><!-- # of Executed Activities --></label>
+                <name># of Executed Activities</name>
+            </columns>
+            <columns>
+                <label><!-- # of Planned Activities --></label>
+                <name># of Planned Activities</name>
+            </columns>
+            <columns>
+                <label><!-- Activity Name --></label>
+                <name>Activity Name</name>
+            </columns>
+            <columns>
+                <label><!-- Actual Costs --></label>
+                <name>Actual Costs</name>
+            </columns>
+            <columns>
+                <label><!-- Actual eInt --></label>
+                <name>Actual eInt</name>
+            </columns>
+            <columns>
+                <label><!-- Actual vs Estim eInt --></label>
+                <name>Actual vs Estim eInt</name>
+            </columns>
+            <columns>
+                <label><!-- Asset --></label>
+                <name>Asset</name>
+            </columns>
+            <columns>
+                <label><!-- Channel --></label>
+                <name>Channel</name>
+            </columns>
+            <columns>
+                <label><!-- Channel Category --></label>
+                <name>Channel Category</name>
+            </columns>
+            <columns>
+                <label><!-- Cost Per eInt --></label>
+                <name>Cost Per eInt</name>
+            </columns>
+            <columns>
+                <label><!-- Estimated eInt --></label>
+                <name>Estimated eInt</name>
+            </columns>
+            <columns>
+                <label><!-- Planned Cost --></label>
+                <name>Planned Cost</name>
+            </columns>
+            <columns>
+                <label><!-- Planned End Date --></label>
+                <name>Planned End Date</name>
+            </columns>
+            <columns>
+                <label><!-- Planned Start Date --></label>
+                <name>Planned Start Date</name>
+            </columns>
+            <columns>
+                <label><!-- Planned eInt --></label>
+                <name>Planned eInt</name>
+            </columns>
+            <columns>
+                <label><!-- Status --></label>
+                <name>Status</name>
+            </columns>
+            <columns>
+                <label><!-- eInt Cost --></label>
+                <name>eInt Cost</name>
+            </columns>
+            <label><!-- Activity --></label>
+            <name>Activity</name>
+        </sections>
+        <sections>
+            <columns>
+                <label><!-- # of eAsset --></label>
+                <name># of eAsset</name>
+            </columns>
+            <columns>
+                <label><!-- Alive Since --></label>
+                <name>Alive Since</name>
+            </columns>
+            <columns>
+                <label><!-- Asset Name --></label>
+                <name>Asset Name</name>
+            </columns>
+            <columns>
+                <label><!-- Language --></label>
+                <name>Language</name>
+            </columns>
+            <columns>
+                <label><!-- Location / url --></label>
+                <name>Location / url</name>
+            </columns>
+            <columns>
+                <label><!-- Notes / Description --></label>
+                <name>Notes / Description</name>
+            </columns>
+            <columns>
+                <label><!-- Owner Description --></label>
+                <name>Owner Description</name>
+            </columns>
+            <columns>
+                <label><!-- Status --></label>
+                <name>Status</name>
+            </columns>
+            <columns>
+                <label><!-- Target Type --></label>
+                <name>Target Type</name>
+            </columns>
+            <columns>
+                <label><!-- Third Party Collabration --></label>
+                <name>Third Party Collabration</name>
+            </columns>
+            <label><!-- Asset --></label>
+            <name>Asset</name>
+        </sections>
+        <sections>
+            <columns>
+                <label><!-- Brand --></label>
+                <name>Brand</name>
+            </columns>
+            <columns>
+                <label><!-- Brand Indication --></label>
+                <name>Brand Indication</name>
+            </columns>
+            <columns>
+                <label><!-- Business Unit --></label>
+                <name>Business Unit</name>
+            </columns>
+            <columns>
+                <label><!-- Therapeutic Area --></label>
+                <name>Therapeutic Area</name>
+            </columns>
+            <label><!-- Brand Indication --></label>
+            <name>Brand Indication</name>
+        </sections>
+        <sections>
+            <columns>
+                <label><!-- eInteraction Type --></label>
+                <name>eInteraction Type</name>
+            </columns>
+            <label><!-- Delivery --></label>
+            <name>Delivery</name>
+        </sections>
+        <sections>
+            <label><!-- Delivery Indication Actuals --></label>
+            <name>Delivery Indication Actuals</name>
+        </sections>
+        <sections>
+            <columns>
+                <label><!-- Affiliate --></label>
+                <name>Affiliate</name>
+            </columns>
+            <columns>
+                <label><!-- HUB --></label>
+                <name>HUB</name>
+            </columns>
+            <columns>
+                <label><!-- Program Name --></label>
+                <name>Program Name</name>
+            </columns>
+            <columns>
+                <label><!-- Regional Program --></label>
+                <name>Regional Program</name>
+            </columns>
+            <columns>
+                <label><!-- Scope --></label>
+                <name>Scope</name>
+            </columns>
+            <columns>
+                <label><!-- StandAlone Program Flag_TF --></label>
+                <name>StandAlone Program Flag_TF</name>
+            </columns>
+            <columns>
+                <label><!-- Year --></label>
+                <name>Year</name>
+            </columns>
+            <label><!-- Program --></label>
+            <name>Program</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- ACE KPO Metrics --></description>
+        <label><!-- ACE KPO Metrics --></label>
+        <name>ACE_KPO_Metrics</name>
+        <sections>
+            <columns>
+                <label><!-- # KPO Metrics --></label>
+                <name># KPO Metrics</name>
+            </columns>
+            <columns>
+                <label><!-- Affiliate --></label>
+                <name>Affiliate</name>
+            </columns>
+            <columns>
+                <label><!-- HUB --></label>
+                <name>HUB</name>
+            </columns>
+            <columns>
+                <label><!-- KPO Result --></label>
+                <name>KPO Result</name>
+            </columns>
+            <columns>
+                <label><!-- Program Name --></label>
+                <name>Program Name</name>
+            </columns>
+            <columns>
+                <label><!-- eInt Cost --></label>
+                <name>eInt Cost</name>
+            </columns>
+            <label><!-- Asset/Activity --></label>
+            <name>Asset/Activity</name>
+        </sections>
+        <sections>
+            <columns>
+                <label><!-- Brand --></label>
+                <name>Brand</name>
+            </columns>
+            <columns>
+                <label><!-- Brand Indication --></label>
+                <name>Brand Indication</name>
+            </columns>
+            <columns>
+                <label><!-- Business Unit --></label>
+                <name>Business Unit</name>
+            </columns>
+            <columns>
+                <label><!-- Therapeutic Area --></label>
+                <name>Therapeutic Area</name>
+            </columns>
+            <label><!-- Brand --></label>
+            <name>Brand</name>
+        </sections>
+        <sections>
+            <columns>
+                <label><!-- KPO Short Name --></label>
+                <name>KPO Short Name</name>
+            </columns>
+            <label><!-- KPO --></label>
+            <name>KPO</name>
+        </sections>
+        <sections>
+            <label><!-- KPO Metrics --></label>
+            <name>KPO Metrics</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
         <description><!-- Accounts With Partnerships With Data Assets --></description>
         <label><!-- Accounts With Partnerships With Data Assets --></label>
         <name>Accounts_With_Partnerships_With_Data_Assets</name>
@@ -6079,6 +6917,49 @@
         </sections>
     </reportTypes>
     <reportTypes>
+        <description><!-- Program with Activity --></description>
+        <label><!-- Program with Activity --></label>
+        <name>Program_with_Activity</name>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <label><!-- Programs --></label>
+            <name>Programs</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Programs with Assests/Activities with Costs --></description>
+        <label><!-- Programs with Assests/Activities with Costs --></label>
+        <name>Programs_with_Assests_Activities_with_Costs</name>
+        <sections>
+            <label><!-- Asset/Activities --></label>
+            <name>Asset/Activities</name>
+        </sections>
+        <sections>
+            <label><!-- Costs --></label>
+            <name>Costs</name>
+        </sections>
+        <sections>
+            <label><!-- Programs --></label>
+            <name>Programs</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Programs with Plans with Products --></description>
+        <label><!-- Programs with Plans with Products --></label>
+        <name>Programs_with_Plans_with_Products</name>
+        <sections>
+            <label><!-- Plans --></label>
+            <name>Plans</name>
+        </sections>
+        <sections>
+            <label><!-- Programs --></label>
+            <name>Programs</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
         <description><!-- Projects with Defects with Related Defects --></description>
         <label><!-- Projects with Defects with Related Defects --></label>
         <name>Projects_with_Defects_with_Related_Defects</name>
@@ -6246,6 +7127,23 @@
         <sections>
             <label><!-- Submission Assessments --></label>
             <name>Submission Assessments</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Test Scripts --></description>
+        <label><!-- Test Scripts --></label>
+        <name>Test_Scripts</name>
+        <sections>
+            <label><!-- Test Execution Steps --></label>
+            <name>Test Execution Steps</name>
+        </sections>
+        <sections>
+            <label><!-- Test Executions --></label>
+            <name>Test Executions</name>
+        </sections>
+        <sections>
+            <label><!-- Test Scripts --></label>
+            <name>Test Scripts</name>
         </sections>
     </reportTypes>
     <reportTypes>

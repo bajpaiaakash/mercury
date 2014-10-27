@@ -139,7 +139,6 @@ private class IRIS_Test_AssessmentExtensionController {
                                   where id=: controller.oSubAssessment.id];
             System.assert(oAssess != null , 'Submission Assessment is not created.');
             System.assertEquals(controller.oSubAssessment.Status__c , Iris_Constants.SUBMISSION_ASSESSMENT_STATUS_COMPLETED);
-            
         }
     }
     
@@ -174,7 +173,6 @@ private class IRIS_Test_AssessmentExtensionController {
             
             System.assert(controller.lstAssessData!=null && controller.lstAssessData.size()>0, 'Assessment Data not found');
             System.assertEquals(controller.needsApproval , true);
-            
         }
     }
     
@@ -206,7 +204,6 @@ private class IRIS_Test_AssessmentExtensionController {
         // re-initializing the Iriss_AssessmentExtensionController class now with an submission assessment id
         ApexPages.currentPage().getParameters().put('id', '/'+controller.oSubAssessment.Id);
         controller = new IRIS_Assessment_ExtensionController(new ApexPages.StandardController(controller.oSubAssessment));
-        
         
         System.assert(controller.lstAssessData!=null && controller.lstAssessData.size()>0, 'Assessment Data not found');
         System.assertEquals(controller.needsApproval , true);

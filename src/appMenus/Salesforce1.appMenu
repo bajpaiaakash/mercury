@@ -13,11 +13,11 @@
         <type>StandardAppMenuItem</type>
     </appMenuItems>
     <appMenuItems>
-        <name>Search</name>
+        <name>MyDay</name>
         <type>StandardAppMenuItem</type>
     </appMenuItems>
     <appMenuItems>
-        <name>MyDay</name>
+        <name>Search</name>
         <type>StandardAppMenuItem</type>
     </appMenuItems>
     <appMenuItems>
@@ -26,6 +26,10 @@
     </appMenuItems>
     <appMenuItems>
         <name>Dashboards</name>
+        <type>StandardAppMenuItem</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>Events</name>
         <type>StandardAppMenuItem</type>
     </appMenuItems>
     <appMenuItems>

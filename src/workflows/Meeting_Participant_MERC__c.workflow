@@ -445,7 +445,7 @@
     <outboundMessages>
         <fullName>RTI_Meeting_Participant_Updated</fullName>
         <apiVersion>29.0</apiVersion>
-        <endpointUrl>https://mercuryintegrationprd.lilly.com/rti/v1/genericUpdated</endpointUrl>
+        <endpointUrl>https://gso1integration.xh1.lilly.com/rti/v1/genericUpdated</endpointUrl>
         <fields>Account_External_MERC__c</fields>
         <fields>Account_MERC__c</fields>
         <fields>Active_on_Web_Service_MERC__c</fields>

@@ -274,7 +274,7 @@
             <useReportChart>false</useReportChart>
         </components>
     </rightSection>
-    <runningUser>gso_platform_dashboard_runninguser@gso1.lly</runningUser>
+    <runningUser>dunfordoliver@gso1.lly</runningUser>
     <textColor>#000000</textColor>
     <title>Cases</title>
     <titleColor>#000000</titleColor>

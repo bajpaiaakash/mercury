@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Channel</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Channels</value>
+    </caseValues>
+    <fields>
+        <label><!-- # Act Channel Attributes --></label>
+        <name>Act_Channel_Attributes__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please enter Actual Attribute in the channel attribute section --></help>
+        <label><!-- Actual Attribute --></label>
+        <name>Actual_Attribute_F__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is a helptext for Actual Attribute --></help>
+        <label><!-- Actual Attribute --></label>
+        <name>Actual_Attribute__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is a helptext for Channel Category --></help>
+        <label><!-- Channel Category --></label>
+        <name>Channel_Category__c</name>
+        <picklistValues>
+            <masterLabel>Email</masterLabel>
+            <translation><!-- Email --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mobile</masterLabel>
+            <translation><!-- Mobile --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Social Media</masterLabel>
+            <translation><!-- Social Media --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Website</masterLabel>
+            <translation><!-- Website --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eLearning</masterLabel>
+            <translation><!-- eLearning --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- This is a helptext for Comments --></help>
+        <label><!-- Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data Load Id --></label>
+        <name>Data_Load_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- # Pot Channel Attributes --></label>
+        <name>Pot_Channel_Attributes__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please enter Potential Attribute in the channel attribute section --></help>
+        <label><!-- Potential Attribute --></label>
+        <name>Potential_Attribute_F__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is a helptext for Potential Attribute --></help>
+        <label><!-- Potential Attribute --></label>
+        <name>Potential_Attribute__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is a helptext for Weight --></help>
+        <label><!-- Weight --></label>
+        <name>Weight__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is a helptext for eAsset --></help>
+        <label><!-- eAsset --></label>
+        <name>eAsset__c</name>
+    </fields>
+    <layouts>
+        <layout>Channel Layout</layout>
+        <sections>
+            <label><!-- Comments --></label>
+            <section>Comments</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Performance Main Attributes --></label>
+            <section>Performance Main Attributes</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Channel Category is a required field --></errorMessage>
+        <name>Channel_Category_is_Required</name>
+    </validationRules>
+</CustomObjectTranslation>

@@ -57,6 +57,10 @@
         <relationshipLabel><!-- Test Execution Steps --></relationshipLabel>
     </fields>
     <fields>
+        <label><!-- Test Execution Step Number --></label>
+        <name>Test_Execution_Step_Number__c</name>
+    </fields>
+    <fields>
         <label><!-- Test --></label>
         <name>Test__c</name>
         <relationshipLabel><!-- Test Execution Steps --></relationshipLabel>

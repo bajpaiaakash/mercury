@@ -701,25 +701,6 @@
         <label>All</label>
         <language>en_US</language>
     </listViews>
-    <listViews>
-        <fullName>Oncology_requests</fullName>
-        <booleanFilter>1</booleanFilter>
-        <columns>NAME</columns>
-        <columns>Functional_Area__c</columns>
-        <columns>OBJECT_ID</columns>
-        <columns>Molecule__c</columns>
-        <columns>CREATEDBY_USER</columns>
-        <columns>CREATED_DATE</columns>
-        <columns>Project_Status__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Primary_Therapeutic_BU__c</field>
-            <operation>equals</operation>
-            <value>Oncology</value>
-        </filters>
-        <label>Oncology projects</label>
-        <language>en_US</language>
-    </listViews>
     <nameField>
         <label>Project Name</label>
         <trackFeedHistory>true</trackFeedHistory>

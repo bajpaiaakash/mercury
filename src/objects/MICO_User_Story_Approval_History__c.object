@@ -85,7 +85,7 @@
         <fullName>As_A_text__c</fullName>
         <externalId>false</externalId>
         <label>As A...</label>
-        <length>20</length>
+        <length>200</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>

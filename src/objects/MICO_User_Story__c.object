@@ -1721,33 +1721,6 @@ Created on 06/11/2014 by Preeti Grover: MICO</description>
         <language>en_US</language>
     </listViews>
     <listViews>
-        <fullName>Project_Form_Builder_Sprint_1_Allocated</fullName>
-        <columns>NAME</columns>
-        <columns>As_A_text__c</columns>
-        <columns>I_Want_To__c</columns>
-        <columns>So_that__c</columns>
-        <columns>Development_Stage__c</columns>
-        <columns>Developer__c</columns>
-        <columns>Story_Points__c</columns>
-        <columns>Story_Points_Other__c</columns>
-        <columns>Parent_Epic__c</columns>
-        <columns>Priority__c</columns>
-        <columns>Story_Points_Total__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Project__c</field>
-            <operation>equals</operation>
-            <value>Form Builder</value>
-        </filters>
-        <filters>
-            <field>Allocated_Sprint__c</field>
-            <operation>contains</operation>
-            <value>Sprint 1</value>
-        </filters>
-        <label>Project: Form Builder Sprint 1 Allocated</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
         <fullName>Status_8_Passed_Complete</fullName>
         <columns>NAME</columns>
         <columns>Full_User_Story__c</columns>
