@@ -49,7 +49,7 @@ public with sharing class GLBL_SobjectDataLoader
 			followMasterRelationships = new Set<Schema.SObjectField>();
 			omitFields = new Set<Schema.SObjectField>(); 			
 		}
-		
+
 		/**
 		 * Provide a field that represents the lookup relationship the serializer should follow
 		 **/
@@ -104,7 +104,33 @@ public with sharing class GLBL_SobjectDataLoader
 			searchRelationships(sObjectType, 0, 0, true, searched);	
 			return this;	
 		}
-		
+
+		public SerializeConfig init(Schema.SObjectType sObjectType, Integer lookupDepth, Integer childDepth, Boolean searchChildren)
+		{
+			if (lookupDepth==null) lookupDepth = 0;
+			if (childDepth==null)  childDepth = 0;
+			if (searchChildren==null) searchChildren = true;
+
+			followRelationships = new Set<Schema.SObjectField>();
+			followChildRelationships = new Set<Schema.SObjectField>();
+			omitFields = new Set<Schema.SObjectField>();
+			Set<Schema.SObjectType> searched = new Set<Schema.SObjectType>();
+			searchRelationships(sObjectType, lookupDepth, childDepth, searchChildren, searched);	
+			return this;	
+		}
+		public SerializeConfig init(Schema.SObjectType sObjectType, Integer lookupDepth, Integer childDepth)
+		{
+			return init(sObjectType, lookupDepth, childDepth, null);
+		}
+		public SerializeConfig init(Schema.SObjectType sObjectType, Integer lookupDepth)
+		{
+			return init(sObjectType, lookupDepth, null, null);
+		}
+		public SerializeConfig init(Schema.SObjectType sObjectType)
+		{
+			return auto(sObjectType);
+		}
+				
 		/**
 		 * Seek out recursively relationships
 		 **/
@@ -193,21 +219,112 @@ public with sharing class GLBL_SobjectDataLoader
 	 **/
 	public static String serialize(Set<Id> ids, SerializeConfig strategy)
 	{			
+		return serialize(ids, strategy, null, null);
+	}
+	public static String serialize(Set<Id> ids, SerializeConfig strategy, Integer lookupDepth)
+	{
+		return serialize(ids, strategy, lookupDepth, null);
+	}
+	public static String serialize(Set<Id> ids, SerializeConfig strategy, Integer lookupDepth, Integer childDepth)
+	{			
 		// Validate parameters
 		if(ids==null || ids.size()==0)
 			throw new SerializerException('List of Ids cannot be null or empty.');
+		if(lookupDepth==null)
+			lookupDepth = 0;
+		if(childDepth==null)
+			childDepth = 0;
 			
-		// Container to bundle record sets into 
+		// Container to bundle record sets into    /// why not initialize these in the overridden method when a null is passed for recordsToBundle
 		RecordsBundle recordsToBundle = new RecordsBundle();
 		recordsToBundle.recordSetBundles = new List<RecordSetBundle>();		
 		recordsToBundle.recordSetBundlesByType = new Map<String, RecordSetBundle>();
 		
 		// Begin recursive serialize from given records through to related records
 		Schema.SObjectType sObjectType = new List<Id>(ids)[0].getSObjectType();
-		serialize(ids, sObjectType, null, strategy, 0, 0, recordsToBundle);
+		serialize(ids, sObjectType, null, strategy, lookupDepth, childDepth, recordsToBundle);  // Mmmm... we seem to be setting the lookupDepth and childDepth here and within the SerializeConfig...
 				
 		// Serialise the records bundle container		
 		return JSON.serialize(recordsToBundle);		 		
+	}
+
+
+// this serialize method is fundementally different from the two serialize methods above!! 
+	private static void serialize(Set<ID> ids, Schema.SObjectType sObjectType, Schema.SObjectField queryByIdField, SerializeConfig config, Integer lookupDepth, Integer childDepth, RecordsBundle recordsToBundle)
+	{		
+		// Config?
+		if(config==null)
+			throw new SerializerException('Must pass a valid SerializeConfig instance.');
+		// Stop infinite recursion
+		if(lookupDepth > 3 || childDepth > 3) // TODO: Make max depth configurable
+			return;  // return nothing?? why not return new SerializerException?
+			
+		// Describe object and determine fields to serialize
+		Schema.DescribeSObjectResult sObjectDesc = sObjectType.getDescribe();
+		Map<String, Schema.SObjectField> sObjectFields = sObjectDesc.fields.getMap();
+		List<Schema.SObjectField> sObjectFieldsToSerialize = listFieldsToSerialize(sObjectFields, config);
+		
+		// Query records to serialize
+		String fieldList = null;
+		for(Schema.SObjectField sObjectField : sObjectFieldsToSerialize)
+			fieldList = fieldList == null ? sObjectField.getDescribe().getName() : fieldList + ',' + sObjectField.getDescribe().getName();
+		String query = String.format('select {0} from {1} where {2} in :ids order by {2}', 
+			new List<String> { fieldList, sObjectDesc.getName(), queryByIdField == null ? 'id' : queryByIdField.getDescribe().getName(), 'Name' });
+		Map<Id, SObject> recordsToSerializeById = new Map<Id, SObject>(Database.query(query));
+		if(recordsToSerializeById.size()==0)
+			return;
+
+		// Any lookup relationships to folow?
+		Set<Schema.SObjectField> sObjectFollowRelationships = config.followRelationships.clone();
+		sObjectFollowRelationships.retainAll(sObjectFields.values());
+		if(sObjectFollowRelationships.size()>0)
+		{				
+			// Build list of ID's for each related record
+			Map<Schema.DescribeFieldResult, Set<Id>> relationshipsByField = new Map<Schema.DescribeFieldResult, Set<Id>>(); 
+			for(Schema.SObjectField sObjectField : sObjectFollowRelationships)
+				relationShipsByField.put(sObjectField.getDescribe(), new Set<Id>() );			
+			for(SObject recordToSerialize : recordsToSerializeById.values())
+			{
+				for(Schema.DescribeFieldResult relationshipField : relationshipsByField.keySet())
+				{
+					Id relatedId = (Id) recordToSerialize.get(relationshipField.getSObjectField());
+					if(relatedId!=null)
+						relationshipsByField.get(relationshipField).add(relatedId);
+				}
+			}
+			// Serialise related records
+			for(Schema.DescribeFieldResult relationshipField : relationshipsByField.keySet())
+			{
+				Set<Id> relatedRecordIds = relationshipsByField.get(relationshipField);
+				if(relatedRecordIds.size()>0)
+					serialize(relatedRecordIds, relationshipField.getReferenceTo()[0], null, config, lookupDepth+1, childDepth, recordsToBundle);					
+			}
+		}
+					
+		// Add records to applicable record set bundle
+		RecordSetBundle recordSetBundle = recordsToBundle.recordSetBundlesByType.get(sObjectDesc.getName());
+		if(recordSetBundle!=null)
+		{
+			recordSetBundle.Records.addAll(recordsToSerializeById.values());
+		}
+		else if(recordSetBundle==null)
+		{
+			recordSetBundle = new RecordSetBundle();
+			recordSetBundle.ObjectType = sObjectDesc.getName();
+			recordSetBundle.Records = recordsToSerializeById.values();
+			recordsToBundle.recordSetBundles.add(recordSetBundle);
+			recordsToBundle.recordSetBundlesByType.put(recordSetBundle.ObjectType, recordSetBundle);
+		}
+				
+		// Any child relationships to follow?
+		List<Schema.ChildRelationship> childRelationships = sObjectDesc.getChildRelationships();
+		for(Schema.ChildRelationship childRelationship : childRelationships)
+		{ 
+			// Is this a child relationship we have been asked to follow?
+			Schema.SObjectType childSObjectType = childRelationship.getChildSObject();
+			if(config.followChildRelationships.contains(childRelationship.getField()))
+				serialize(recordsToSerializeById.keySet(), childSObjectType, childRelationship.getField(), config, lookupDepth, childDepth+1, recordsToBundle);
+		}
 	}
 
 	/**
@@ -292,84 +409,7 @@ public with sharing class GLBL_SobjectDataLoader
 		// Return Id list from the first bundle set
 		return new Map<Id, SObject>(recordsBundle.recordSetBundles[0].Records).keySet();
 	}
-			
-	private static void serialize(Set<ID> ids, Schema.SObjectType sObjectType, Schema.SObjectField queryByIdField, SerializeConfig config, Integer lookupDepth, Integer childDepth, RecordsBundle recordsToBundle)
-	{		
-		// Config?
-		if(config==null)
-			throw new SerializerException('Must pass a valid SerializeConfig instance.');
-		// Stop infinite recursion
-		if(lookupDepth > 3 || childDepth > 3) // TODO: Make max depth configurable
-			return;
-			
-		// Describe object and determine fields to serialize
-		Schema.DescribeSObjectResult sObjectDesc = sObjectType.getDescribe();
-		Map<String, Schema.SObjectField> sObjectFields = sObjectDesc.fields.getMap();
-		List<Schema.SObjectField> sObjectFieldsToSerialize = listFieldsToSerialize(sObjectFields, config);
-		
-		// Query records to serialize
-		String fieldList = null;
-		for(Schema.SObjectField sObjectField : sObjectFieldsToSerialize)
-			fieldList = fieldList == null ? sObjectField.getDescribe().getName() : fieldList + ',' + sObjectField.getDescribe().getName();
-		String query = String.format('select {0} from {1} where {2} in :ids order by {2}', 
-			new List<String> { fieldList, sObjectDesc.getName(), queryByIdField == null ? 'id' : queryByIdField.getDescribe().getName(), 'Name' });
-		Map<Id, SObject> recordsToSerializeById = new Map<Id, SObject>(Database.query(query));
-		if(recordsToSerializeById.size()==0)
-			return;
-
-		// Any lookup relationships to folow?
-		Set<Schema.SObjectField> sObjectFollowRelationships = config.followRelationships.clone();
-		sObjectFollowRelationships.retainAll(sObjectFields.values());
-		if(sObjectFollowRelationships.size()>0)
-		{				
-			// Build list of ID's for each related record
-			Map<Schema.DescribeFieldResult, Set<Id>> relationshipsByField = new Map<Schema.DescribeFieldResult, Set<Id>>(); 
-			for(Schema.SObjectField sObjectField : sObjectFollowRelationships)
-				relationShipsByField.put(sObjectField.getDescribe(), new Set<Id>() );			
-			for(SObject recordToSerialize : recordsToSerializeById.values())
-			{
-				for(Schema.DescribeFieldResult relationshipField : relationshipsByField.keySet())
-				{
-					Id relatedId = (Id) recordToSerialize.get(relationshipField.getSObjectField());
-					if(relatedId!=null)
-						relationshipsByField.get(relationshipField).add(relatedId);
-				}
-			}
-			// Serialise related records
-			for(Schema.DescribeFieldResult relationshipField : relationshipsByField.keySet())
-			{
-				Set<Id> relatedRecordIds = relationshipsByField.get(relationshipField);
-				if(relatedRecordIds.size()>0)
-					serialize(relatedRecordIds, relationshipField.getReferenceTo()[0], null, config, lookupDepth+1, childDepth, recordsToBundle);					
-			}
-		}
-					
-		// Add records to applicable record set bundle
-		RecordSetBundle recordSetBundle = recordsToBundle.recordSetBundlesByType.get(sObjectDesc.getName());
-		if(recordSetBundle!=null)
-		{
-			recordSetBundle.Records.addAll(recordsToSerializeById.values());
-		}
-		else if(recordSetBundle==null)
-		{
-			recordSetBundle = new RecordSetBundle();
-			recordSetBundle.ObjectType = sObjectDesc.getName();
-			recordSetBundle.Records = recordsToSerializeById.values();
-			recordsToBundle.recordSetBundles.add(recordSetBundle);
-			recordsToBundle.recordSetBundlesByType.put(recordSetBundle.ObjectType, recordSetBundle);
-		}
 				
-		// Any child relationships to follow?
-		List<Schema.ChildRelationship> childRelationships = sObjectDesc.getChildRelationships();
-		for(Schema.ChildRelationship childRelationship : childRelationships)
-		{ 
-			// Is this a child relationship we have been asked to follow?
-			Schema.SObjectType childSObjectType = childRelationship.getChildSObject();
-			if(config.followChildRelationships.contains(childRelationship.getField()))
-				serialize(recordsToSerializeById.keySet(), childSObjectType, childRelationship.getField(), config, lookupDepth, childDepth+1, recordsToBundle);
-		}
-	}
-	
 	private static List<Schema.SObjectField> listFieldsToSerialize(Map<String, Schema.SObjectField> sObjectFields, SerializeConfig config)
 	{
 		// Filter fields to serialise

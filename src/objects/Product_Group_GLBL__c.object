@@ -266,8 +266,8 @@ Created by John A Adams 11/1/2013</description>
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
-        <columns>Prod_Grp_Desc_Txt_GLBL__c</columns>
         <columns>Cntry_Cd_GLBL__c</columns>
+        <columns>Prod_Grp_Desc_Txt_GLBL__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
         <language>en_US</language>

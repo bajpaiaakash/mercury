@@ -5,7 +5,6 @@
 
 This version focuses on test management features and is aimed at those involved in test creation, execution and management</description>
     <label>Mission Control: Test Management</label>
-    <logo>Logo_s_Images/Lilly_Mission_Control_Logo.png</logo>
     <tab>MICO_User_Story__c</tab>
     <tab>MICO_Test_Templates__c</tab>
     <tab>MICO_Bug__c</tab>

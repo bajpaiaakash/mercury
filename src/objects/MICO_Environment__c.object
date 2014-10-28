@@ -138,10 +138,6 @@ Used In: Mission Control App</description>
         <picklist>
             <picklistValues>
                 <fullName>SFDC</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Heroku</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -194,38 +190,26 @@ Used In: Mission Control App</description>
         <picklist>
             <controllingField>Technology__c</controllingField>
             <picklistValues>
+                <fullName>Dev (10MB)</fullName>
+                <controllingFieldValues>SFDC</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Config (500MB)</fullName>
+                <controllingFieldValues>SFDC</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Full (80GB)</fullName>
+                <controllingFieldValues>SFDC</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>PI</fullName>
-                <controllingFieldValues>Other</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>ECC</fullName>
-                <controllingFieldValues>Other</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Developer</fullName>
-                <controllingFieldValues>SFDC</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Developer Pro</fullName>
-                <controllingFieldValues>SFDC</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Partial Data</fullName>
-                <controllingFieldValues>SFDC</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Full Copy</fullName>
-                <controllingFieldValues>SFDC</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Production</fullName>
-                <controllingFieldValues>SFDC</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -252,7 +236,6 @@ Used In: Mission Control App</description>
             <value>SFDC</value>
         </filters>
         <label>1) SFDC Environments</label>
-        <language>en_US</language>
     </listViews>
     <listViews>
         <fullName>nonSFDC</fullName>

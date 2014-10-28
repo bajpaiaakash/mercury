@@ -26,7 +26,7 @@
         <name>Additional_Travel_Details_MERC__c</name>
     </fields>
     <fields>
-        <label><!-- Air Travel No Longer Required --></label>
+        <label><!-- Was Air Travel offered and then declined --></label>
         <name>Air_Travel_No_Longer_Required_MERC__c</name>
         <picklistValues>
             <masterLabel>No</masterLabel>
@@ -116,7 +116,8 @@
         <name>CoPay_AODS_Registration_MERC__c</name>
     </fields>
     <fields>
-        <label><!-- CoPay Flight/Rail --></label>
+        <help><!-- CoPay Transportation paid by Lilly&apos;s Travel Agent --></help>
+        <label><!-- CoPay Transport Paid by Lilly --></label>
         <name>CoPay_Flight_Rail_MERC__c</name>
     </fields>
     <fields>
@@ -291,7 +292,7 @@
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Hotel No Longer Required --></label>
+        <label><!-- Was Hotel offered and then declined --></label>
         <name>Hotel_No_Longer_Required_MERC__c</name>
     </fields>
     <fields>
@@ -591,6 +592,10 @@
         <name>RTI_Transaction_ID_MERC__c</name>
     </fields>
     <fields>
+        <label><!-- Record_Type --></label>
+        <name>Record_Type_MERC__c</name>
+    </fields>
+    <fields>
         <label><!-- Record Type Name --></label>
         <name>Record_Type_Name_MERC__c</name>
     </fields>
@@ -783,7 +788,7 @@
         <name>Travel_Adjustment_Percentage_MERC__c</name>
     </fields>
     <fields>
-        <label><!-- Travel No Longer Required --></label>
+        <label><!-- Was Travel offered and then declined --></label>
         <name>Travel_No_Longer_Required_MERC__c</name>
     </fields>
     <fields>
@@ -980,6 +985,10 @@
             <section>For HCP Info Package Delivery Channel and Details</section>
         </sections>
         <sections>
+            <label><!-- Individual Email Results --></label>
+            <section>Individual Email Results</section>
+        </sections>
+        <sections>
             <label><!-- Participant Requirements --></label>
             <section>Participant Requirements</section>
         </sections>
@@ -1011,6 +1020,10 @@
             <section>For New and Changes to Preferences - Delegate Logistics</section>
         </sections>
         <sections>
+            <label><!-- Individual Email Results --></label>
+            <section>Individual Email Results</section>
+        </sections>
+        <sections>
             <label><!-- Participant Requirements --></label>
             <section>Participant Requirements</section>
         </sections>
@@ -1040,6 +1053,10 @@
         <sections>
             <label><!-- For New and Changes to Preferences - Delegate Logistics --></label>
             <section>For New and Changes to Preferences - Delegate Logistics</section>
+        </sections>
+        <sections>
+            <label><!-- Individual Email Results --></label>
+            <section>Individual Email Results</section>
         </sections>
         <sections>
             <label><!-- Participant Requirements --></label>
@@ -1081,6 +1098,10 @@
             <section>HCP Info Package Delivery Channel and Details</section>
         </sections>
         <sections>
+            <label><!-- Individual Email Results --></label>
+            <section>Individual Email Results</section>
+        </sections>
+        <sections>
             <label><!-- Participant Requirements --></label>
             <section>Participant Requirements</section>
         </sections>
@@ -1099,6 +1120,17 @@
         <sections>
             <label><!-- Web Service Information --></label>
             <section>Web Service Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Meeting Participant Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Individual Email Results --></label>
+            <section>Individual Email Results</section>
         </sections>
     </layouts>
     <recordTypes>
@@ -1147,7 +1179,7 @@
         <name>MERC_Prevent_Negative_Amount_in_CoPay</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- The Proposed Final Fee may not be blank or zero when the fee is confirmed --></errorMessage>
+        <errorMessage><!-- The Proposed Final Fee may not be blank or zero when the fee is confirmed and Payment Required for Meeting is set to &apos;Yes&apos; --></errorMessage>
         <name>MERC_Prevent_Zero_Null_in_Proposed_Fee</name>
     </validationRules>
     <validationRules>

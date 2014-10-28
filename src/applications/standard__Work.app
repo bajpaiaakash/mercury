@@ -11,4 +11,5 @@
     <tab>standard-Perform</tab>
     <tab>standard-WorkRewardFund</tab>
     <tab>standard-WorkRewardFundType</tab>
+    <tab>standard-WorkBadgeDefinition</tab>
 </CustomApplication>

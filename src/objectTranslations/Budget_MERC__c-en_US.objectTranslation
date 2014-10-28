@@ -101,6 +101,16 @@
         </picklistValues>
     </fields>
     <fields>
+        <help><!-- The total savings, based upon unit savings multiplied by quantity from associated budget line items --></help>
+        <label><!-- Total Savings --></label>
+        <name>Total_Savings_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- The total unit savings from associated budget line items --></help>
+        <label><!-- Total Unit Savings --></label>
+        <name>Total_Unit_Savings_MERC__c</name>
+    </fields>
+    <fields>
         <label><!-- Version Number --></label>
         <name>Version_Number_MERC__c</name>
     </fields>
@@ -197,10 +207,6 @@
         <name>MERC_Budget_Final</name>
     </recordTypes>
     <startsWith>Consonant</startsWith>
-    <validationRules>
-        <errorMessage><!-- The Cost Center must be seven digits long. --></errorMessage>
-        <name>MERC_Cost_Center_completed</name>
-    </validationRules>
     <validationRules>
         <errorMessage><!-- The Internal Order Number must be six digits long. --></errorMessage>
         <name>MERC_Internal_Order_Number_Completed</name>

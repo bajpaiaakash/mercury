@@ -17,11 +17,15 @@
         <type>StandardAppMenuItem</type>
     </appMenuItems>
     <appMenuItems>
+        <name>Tasks</name>
+        <type>StandardAppMenuItem</type>
+    </appMenuItems>
+    <appMenuItems>
         <name>Search</name>
         <type>StandardAppMenuItem</type>
     </appMenuItems>
     <appMenuItems>
-        <name>Tasks</name>
+        <name>ProcessInstanceWorkitem</name>
         <type>StandardAppMenuItem</type>
     </appMenuItems>
     <appMenuItems>
@@ -31,9 +35,5 @@
     <appMenuItems>
         <name>Events</name>
         <type>StandardAppMenuItem</type>
-    </appMenuItems>
-    <appMenuItems>
-        <name>LPAD_Launchpad</name>
-        <type>CustomTab</type>
     </appMenuItems>
 </AppMenu>

@@ -13,18 +13,13 @@ Modification Log    :
 private class Test_sprintPlanning {
 
     static testMethod void myUnitTest() {
-        //create a project
-        MICO_Project__c pro = new MICO_Project__c();
-        pro.Name = 'Test Project';
-        insert pro;
         
         // Perform  data preparation.
         List<MICO_Sprint__c> sprints = new List<MICO_Sprint__c>{};
             
         for(Integer i = 0; i < 200; i++){
             MICO_Sprint__c objSprint = new MICO_Sprint__c(Name        = 'Test-Sprint'+ i,
-                                                Status__c   = 'In Planning',
-                                                Project__c = pro.Id
+                                                Status__c   = 'In Planning'
                                             );
             sprints.add(objSprint);
         }
@@ -40,8 +35,7 @@ private class Test_sprintPlanning {
                                                     Development_Stage__c    = 'Backlog' ,
                                                     Priority__c             = 0,
                                                     Proposed_Sprint__c      = sprints[1].Id,
-                                                    Allocated_Sprint__c     = sprints[1].Id,
-                                                    Project__c = pro.Id
+                                                    Allocated_Sprint__c     = sprints[1].Id
             );
             requirements.add(objRequirement);
         }
@@ -83,18 +77,13 @@ private class Test_sprintPlanning {
     
     
     static testMethod void myUnitTest_ElseCases() {
-        //create a project
-        MICO_Project__c pro = new MICO_Project__c();
-        pro.Name = 'Test Project';
-        insert pro;
         
         // Perform  data preparation.
         List<MICO_Sprint__c> sprints = new List<MICO_Sprint__c>{};
             
         for(Integer i = 0; i < 200; i++){
             MICO_Sprint__c objSprint = new MICO_Sprint__c(Name        = 'Test-Sprint'+ i,
-                                                Status__c   = 'In Planning',
-                                                Project__c = pro.Id
+                                                Status__c   = 'In Planning'
                                             );
             sprints.add(objSprint);
         }
@@ -110,8 +99,7 @@ private class Test_sprintPlanning {
                                                     Development_Stage__c    = 'Backlog' ,
                                                     Priority__c             = 0,
                                                     Proposed_Sprint__c     = sprints[1].Id,
-                                                    Allocated_Sprint__c     = sprints[1].Id,
-                                                    Project__c = pro.Id
+                                                    Allocated_Sprint__c     = sprints[1].Id
             );
             requirements.add(objRequirement);
         }

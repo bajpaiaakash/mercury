@@ -213,8 +213,8 @@ Created by John A Adams 10/3/2013</description>
     <validationRules>
         <fullName>MERC_Prevent_Change_Once_on_Web_Service</fullName>
         <active>true</active>
-        <description>Once a meeting is activated on the web service the Speaker Topic Title can only be changed by CMS Cork : MERC : Created on 22/07/2014 by Oliver Dunford, Mavens Consulting</description>
+        <description>Once a meeting is activated on the web service the Speaker Topic Title can only be changed by CMS Cork or CMS Local: MERC : Created on 22/07/2014 by Oliver Dunford, Mavens Consulting</description>
         <errorConditionFormula>ISCHANGED(  Speaker_Topic_Title_MERC__c  ) &amp;&amp;  Meeting_Participant_MERC__r.Meeting_MERC__r.Expose_on_Portal_MERC__c = TRUE &amp;&amp;  Confirm_Web_Service_Change_MERC__c = FALSE &amp;&amp; AND(NOT(CONTAINS(LastModifiedBy.Username,&apos;mercuryintegration.veeva@&apos;)))</errorConditionFormula>
-        <errorMessage>Once a meeting has been published on the Web Service, only CMS Cork can change the Speaker Topic Title. Please contact a member of the CMS Cork team to request a change to this information.</errorMessage>
+        <errorMessage>Once a meeting has been published on the Web Service, only CMS Cork and CMS Local teams can change the Speaker Topic Title. Please contact a member of the CMS team to request a change to this information.</errorMessage>
     </validationRules>
 </CustomObject>

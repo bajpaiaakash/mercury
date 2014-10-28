@@ -74,7 +74,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>VAT_Description_MERC__c</field>
+                <field>VAT_Code_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

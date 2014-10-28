@@ -17,25 +17,33 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Sprint2__c</field>
+                <field>Project2__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>Project2__c</field>
+                <behavior>Edit</behavior>
+                <field>Sprint2__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>Status__c</field>
+                <behavior>Readonly</behavior>
+                <field>Test_Execution__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Reopened_Count__c</field>
+                <field>Script_Number__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>External_Reference__c</field>
+                <field>Logged_By__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Log_Time__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>Status__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -99,48 +107,17 @@
         <label>Development</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Developer__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Defect_Developer__c</field>
             </layoutItems>
         </layoutColumns>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Developer__c</field>
+            </layoutItems>
+        </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
-    </layoutSections>
-    <layoutSections>
-        <customLabel>true</customLabel>
-        <detailHeading>true</detailHeading>
-        <editHeading>true</editHeading>
-        <label>Testing</label>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Logged_By__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Log_Time__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Tester__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Script_Number__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Test_Execution__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <style>TwoColumnsLeftToRight</style>
     </layoutSections>
     <layoutSections>
         <customLabel>true</customLabel>
@@ -158,22 +135,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Production_Release__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Release_Impact__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Release_Impact_Analysis__c</field>
+                <field>Version__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Release_Note__c</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Fix_in_Environment__c</field>
@@ -184,11 +149,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Validation_Steps__c</field>
+                <field>Release_Steps_Automated__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Version__c</field>
+                <field>Validation_Steps__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -229,11 +194,17 @@
     </miniLayout>
     <relatedLists>
         <fields>Related_Bug__c</fields>
+        <fields>NAME</fields>
         <fields>Related_Bug_Status__c</fields>
         <fields>Related_Bug_Summary__c</fields>
         <relatedList>MICO_Related_Bug__c.Bug__c</relatedList>
-        <sortField>Related_Bug__c</sortField>
-        <sortOrder>Asc</sortOrder>
+    </relatedLists>
+    <relatedLists>
+        <fields>Bug__c</fields>
+        <fields>NAME</fields>
+        <fields>Related_Bug_Status__c</fields>
+        <fields>Related_Bug_Summary__c</fields>
+        <relatedList>MICO_Related_Bug__c.Related_Bug__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>MICO_Test_Steps__c.StepNum__c</fields>
@@ -245,30 +216,25 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>RECORDTYPE</fields>
+        <fields>Question__c</fields>
         <fields>Decision__c</fields>
-        <fields>Assigned__c</fields>
         <fields>Next_Steps__c</fields>
+        <fields>Source__c</fields>
         <fields>Status__c</fields>
         <relatedList>MICO_Decision_Question__c.Bug__c</relatedList>
-        <sortField>NAME</sortField>
-        <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
-        <fields>NAME</fields>
-        <fields>MICO_SCM_Commit__c.CREATED_DATE</fields>
-        <fields>MICO_SCM_Commit__c.Author__c</fields>
-        <fields>MICO_SCM_Commit__c.Body__c</fields>
-        <fields>MICO_SCM_Commit__c.Link__c</fields>
-        <relatedList>MICO_SCM_Commit_Bug_Link__c.Defect__c</relatedList>
-        <sortField>MICO_SCM_Commit__c.CREATED_DATE</sortField>
-        <sortOrder>Desc</sortOrder>
+        <relatedList>RelatedEntityHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedNoteList</relatedList>
     </relatedLists>
     <relatedLists>
-        <relatedList>RelatedEntityHistoryList</relatedList>
+        <fields>NAME</fields>
+        <fields>MICO_SCM_Commit__c.Author__c</fields>
+        <fields>MICO_SCM_Commit__c.Body__c</fields>
+        <fields>MICO_SCM_Commit__c.Link__c</fields>
+        <relatedList>MICO_SCM_Commit_Bug_Link__c.Defect__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
@@ -276,7 +242,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h11000000J4nw</masterLabel>
+        <masterLabel>00hD000000Noc60</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>1</sizeY>
         <summaryLayoutItems>

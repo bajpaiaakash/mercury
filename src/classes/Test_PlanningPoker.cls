@@ -23,6 +23,10 @@ public with sharing class Test_PlanningPoker {
      
     static testMethod void testPlanningPoker() {
         
+        //Create a user story
+        MICO_User_Story__c oUserStory = new MICO_User_Story__c();
+        //oUserStory.User_Story__c = 'Test User Story';
+        Database.insert(oUserStory);
         
         //Create a test uer
         User oUser = runAsUser('PP_User');
@@ -30,17 +34,6 @@ public with sharing class Test_PlanningPoker {
         
             //Test enter Session
         System.runAs(oUser){
-            //create a project
-            MICO_Project__c pro = new MICO_Project__c();
-            pro.Name = 'Test Project';
-            insert pro;
-            
-            //Create a user story
-            MICO_User_Story__c oUserStory = new MICO_User_Story__c();
-            //oUserStory.User_Story__c = 'Test User Story';
-            oUserStory.Project__c = pro.Id;
-            Database.insert(oUserStory);
-            
             //Set US for session generation
             ApexPages.currentPage().getParameters().put('generateSession',oUserStory.Id);
             Controller_PlanningPoker oControllerSession = new Controller_PlanningPoker();

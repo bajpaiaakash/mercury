@@ -76,18 +76,6 @@ Used In: Mission Control App</description>
         <type>TextArea</type>
     </fields>
     <fields>
-        <fullName>Test_Script_Step_Number__c</fullName>
-        <description>MICO: This field stores the step number of the Test Case Step associated with a Test Script</description>
-        <externalId>false</externalId>
-        <label>Test Script Step Number</label>
-        <precision>3</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Test_Script__c</fullName>
         <externalId>false</externalId>
         <label>Test Script</label>
@@ -117,23 +105,4 @@ Used In: Mission Control App</description>
     <pluralLabel>Test Script Steps</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
-    <validationRules>
-        <fullName>MICO_PreventFromEditStepsUntilApproved</fullName>
-        <active>true</active>
-        <description>MICO - This validation rule will prevent the user from creating/editing Test  Step record if the Test Script is in an &quot;Pending Approval&quot; status</description>
-        <errorConditionFormula>ISPICKVAL( Test_Script__r.Approval_Status__c , &apos;Pending Approval&apos;)</errorConditionFormula>
-        <errorMessage>You cannot Create / Edit a Test Script Step if the Test Script is Pending Approval.</errorMessage>
-    </validationRules>
-    <webLinks>
-        <fullName>Manage_Test_Script_Steps</fullName>
-        <availability>online</availability>
-        <description>MICO: This button will redirect to a VF page which will help the users in reordering and bulk modifying the Test Script Steps</description>
-        <displayType>massActionButton</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>Manage Test Script Steps</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <requireRowSelection>false</requireRowSelection>
-        <url>window.open(&quot;/apex/MICO_Manage_Test_Script_Steps?testScriptId={!MICO_Test_Templates__c.Id}&quot;);</url>
-    </webLinks>
 </CustomObject>

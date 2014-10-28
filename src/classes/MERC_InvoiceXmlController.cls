@@ -53,6 +53,7 @@ public with sharing class MERC_InvoiceXmlController {
                         Amount_MERC__c,
                         Description_MERC__c,
                         VAT_Rate_MERC__c,
+                        VAT_Code_MERC__c,
                         Tax_Amount_MERC__c,
                         Cost_Element_SAP_Code_MERC__c,
                         Invoice_Cost_Center_MERC__c,

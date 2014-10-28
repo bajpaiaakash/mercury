@@ -123,17 +123,16 @@ Used In: Mission Control App</description>
     </fields>
     <fields>
         <fullName>Project__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Project</label>
         <referenceTo>MICO_Project__c</referenceTo>
         <relationshipLabel>Processes</relationshipLabel>
         <relationshipName>MICO_Processes</relationshipName>
-        <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
-        <type>MasterDetail</type>
-        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Reference__c</fullName>
@@ -207,5 +206,5 @@ or a manual process (one that happens outside of the system, but whose results m
         <searchResultsAdditionalFields>Process_Group__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Description__c</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ControlledByParent</sharingModel>
+    <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

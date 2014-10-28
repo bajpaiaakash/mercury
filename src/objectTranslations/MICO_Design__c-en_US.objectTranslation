@@ -23,27 +23,6 @@
         <relationshipLabel><!-- Designs --></relationshipLabel>
     </fields>
     <fields>
-        <help><!-- The status of the approval. This is auto populated as the design goes through the process. --></help>
-        <label><!-- Approval Status --></label>
-        <name>Approval_Status__c</name>
-        <picklistValues>
-            <masterLabel>Approved</masterLabel>
-            <translation><!-- Approved --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Open</masterLabel>
-            <translation><!-- Open --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Pending Approval</masterLabel>
-            <translation><!-- Pending Approval --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Rejected</masterLabel>
-            <translation><!-- Rejected --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
         <help><!-- This will determine the amount of risk and amount of detailed design required. --></help>
         <label><!-- Complexity --></label>
         <name>Complexity__c</name>
@@ -69,26 +48,6 @@
         <name>Fields__c</name>
     </fields>
     <fields>
-        <label><!-- Is Design ready for Approval --></label>
-        <name>Is_Design_ready_for_Approval__c</name>
-    </fields>
-    <fields>
-        <help><!-- Date this has been approved by SME --></help>
-        <label><!-- Approval Date --></label>
-        <name>MICO_Approval_Date__c</name>
-    </fields>
-    <fields>
-        <help><!-- Your signature indicates that the design specifications are technically accurate, address how the computer system requirements are met, meet the requirements of LQP-302-16 and are traceable to one or more requirement. --></help>
-        <label><!-- Approver --></label>
-        <name>MICO_Approver__c</name>
-        <relationshipLabel><!-- Designs --></relationshipLabel>
-    </fields>
-    <fields>
-        <help><!-- The reason this Design is not valid. This should only be used if the Approval Status is Rejected --></help>
-        <label><!-- Rejection Reason --></label>
-        <name>MICO_Rejection_Reason__c</name>
-    </fields>
-    <fields>
         <label><!-- Objects --></label>
         <name>Objects__c</name>
     </fields>
@@ -111,15 +70,6 @@
         <relationshipLabel><!-- Designs --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Reason --></label>
-        <name>Reason__c</name>
-    </fields>
-    <fields>
-        <help><!-- Check to unlock design for editing and send for approval after making changes --></help>
-        <label><!-- Unlock Design --></label>
-        <name>Unlock_Design__c</name>
-    </fields>
-    <fields>
         <help><!-- A list of Visualforce pages used by this design --></help>
         <label><!-- Visualforce Pages --></label>
         <name>Visualforce_Pages__c</name>
@@ -137,10 +87,6 @@
         <sections>
             <label><!-- Overview --></label>
             <section>Overview</section>
-        </sections>
-        <sections>
-            <label><!-- Quality and Compliance --></label>
-            <section>Quality and Compliance</section>
         </sections>
         <sections>
             <label><!-- System Information --></label>
@@ -190,12 +136,4 @@
         <name>Sprint</name>
     </recordTypes>
     <startsWith>Consonant</startsWith>
-    <validationRules>
-        <errorMessage><!-- The submitter can not be the approver of the Design. Please select a valid user to approve the request. --></errorMessage>
-        <name>MICO_Approver_Validation</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage><!-- You can&apos;t amend the Design at this stage in the Design lifecycle. If you need to make an agreed change, check the &quot;Unlock Design&quot; flag and Chatter why you are making a change. The Design should be sent for approval after the agreed changes have been made --></errorMessage>
-        <name>MICO_Lock_Design</name>
-    </validationRules>
 </CustomObjectTranslation>

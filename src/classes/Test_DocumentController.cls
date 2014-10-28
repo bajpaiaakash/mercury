@@ -3,31 +3,15 @@ public class Test_DocumentController{
 
     static testMethod void DocumentController(){
             
-            //create a project
             MICO_Project__c pro = new MICO_Project__c();
             pro.Name = 'Test Project';
             insert pro;
             
-            // create a definition
-            MICO_Definitions__c def = new MICO_Definitions__c();
-            def.Project__c = pro.Id;
-            def.Name = 'Tracker';
-            def.Term_Acronym__c = 'TRK';
-            insert def;
-            
-            // create a sprint
-            MICO_References__c ref = new MICO_References__c();
-            ref.Project__c = pro.Id;
-            ref.Name = 'Tracker User Guide';
-            ref.Document_ID__c = 'TRK-000';
-            insert ref;
-            
             MICO_Sprint__c  sp = new MICO_Sprint__c();
             sp.Name = 'Test Sprint 1';
-            sp.Project__c = pro.Id;
             insert sp;
             
-            // create a standard story
+            // a standard story
             MICO_User_Story__c r = new MICO_User_Story__c();
             r.Proposed_Sprint__c = sp.Id;
             r.Allocated_Sprint__c = sp.Id;
@@ -36,7 +20,6 @@ public class Test_DocumentController{
             r.User__c = UserInfo.getUserId();
             r.Supporting_BA__c = UserInfo.getUserId();
             r.Development_Stage__c = '9. Done';
-            r.Project__c = pro.Id;
             insert r;
             
             MICO_UserStory2Design__c  usd = new MICO_UserStory2Design__c();
@@ -52,7 +35,6 @@ public class Test_DocumentController{
             r2.User__c = UserInfo.getUserId();
             r2.Supporting_BA__c = UserInfo.getUserId();
             r2.Development_Stage__c = '9. Done';
-            r2.Project__c = pro.Id;
             insert r2;
             
             MICO_UserStory2Design__c  usd2 = new MICO_UserStory2Design__c();
@@ -68,7 +50,6 @@ public class Test_DocumentController{
             r3.User__c = UserInfo.getUserId();
             r3.Supporting_BA__c = UserInfo.getUserId();
             r3.Development_Stage__c = '9. Done';
-            r3.Project__c = pro.Id;
             insert r3;
             
             MICO_UserStory2Design__c  usd3 = new MICO_UserStory2Design__c();
@@ -79,14 +60,7 @@ public class Test_DocumentController{
             DocumentController TDC = new DocumentController();
             
             String domainName = TDC.domainName;
-            TDC.Version = '1.0';
-            TDC.Organization = 'Deloitte';
             TDC.Project_Name = 'Tracker';
-            TDC.createDocument(); // run without stories, so we can generate definitions and references
-            TDC.CreateFunctionalDocument(); // run without stories, so we can generate definitions and references
-            TDC.Version = '';
-            TDC.Organization = '';
-            TDC.Project_Name = '--None--';
             TDC.getProjNameList();
             TDC.getUserStories(); 
             TDC.initUS= r ;
@@ -116,13 +90,8 @@ public class Test_DocumentController{
             TDC.selectedUS.add(r2);
             TDC.selectedUS.add(r3);
             TDC.createDocument();
+            TDC.createDocument(); // run this twice
             TDC.CreateFunctionalDocument();
-            
-            TDC.Version = '1.0';
-            TDC.Organization = 'Deloitte';
-            TDC.Project_Name = 'Tracker';
-            TDC.createDocument(); // run this again now that we've set up the fields
-            TDC.CreateFunctionalDocument(); // run this again now that we've set up the fields
             TDC.generateQAcards();
             
             

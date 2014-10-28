@@ -18,7 +18,7 @@
         <name>Cnfrm_Chg_Fnl_Agnd_MERC__c</name>
     </fields>
     <fields>
-        <help><!-- Used by CMS Cork to confirm updates to certain information once a meeting is activated on the web services. --></help>
+        <help><!-- Used by CMS Regional and Local to confirm updates to certain information once a meeting is activated on the web services. --></help>
         <label><!-- Confirm Web Service Change --></label>
         <name>Confirm_Web_Service_Change_MERC__c</name>
     </fields>
@@ -100,7 +100,7 @@
         <name>MERC_Ensure_End_After_Start</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- Once a meeting has been published on the Web Service, only CMS Cork can change the Agenda Item Name and Agenda Item Description. Please contact a member of the CMS Cork team to request a change to this information. --></errorMessage>
+        <errorMessage><!-- Once a meeting has been published on the Web Service, only CMS Cork and CMS Local teams can change the Agenda Item Name and Agenda Item Description. Please contact a member of the CMS team to request a change to this information. --></errorMessage>
         <name>MERC_Prevent_Change_Once_on_Web_Service</name>
     </validationRules>
     <webLinks>

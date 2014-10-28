@@ -70,28 +70,6 @@ Used In: Mission Control App</description>
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Sprint__c</fullName>
-        <externalId>false</externalId>
-        <formula>User_Story__r.Allocated_Sprint__r.Name</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Sprint</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>User_Story_Approval_Status__c</fullName>
-        <externalId>false</externalId>
-        <formula>TEXT(User_Story__r.Approval_Status__c)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>User Story Approval Status</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>User_Story__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>

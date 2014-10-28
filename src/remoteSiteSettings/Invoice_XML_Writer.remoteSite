@@ -3,5 +3,5 @@
     <description>Self-referential for future callout on Invoice trigger</description>
     <disableProtocolSecurity>false</disableProtocolSecurity>
     <isActive>true</isActive>
-    <url>https://gso--gso1full.cs18.my.salesforce.com</url>
+    <url>https://gso--merctest.cs18.my.salesforce.com</url>
 </RemoteSiteSetting>

@@ -47,10 +47,6 @@
         <label><!-- Technology --></label>
         <name>Technology__c</name>
         <picklistValues>
-            <masterLabel>Heroku</masterLabel>
-            <translation><!-- Heroku --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>Other</masterLabel>
             <translation><!-- Other --></translation>
         </picklistValues>
@@ -87,32 +83,24 @@
         <label><!-- Type --></label>
         <name>Type__c</name>
         <picklistValues>
-            <masterLabel>Developer</masterLabel>
-            <translation><!-- Developer --></translation>
+            <masterLabel>Config (500MB)</masterLabel>
+            <translation><!-- Config (500MB) --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Developer Pro</masterLabel>
-            <translation><!-- Developer Pro --></translation>
+            <masterLabel>Dev (10MB)</masterLabel>
+            <translation><!-- Dev (10MB) --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>ECC</masterLabel>
             <translation><!-- ECC --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Full Copy</masterLabel>
-            <translation><!-- Full Copy --></translation>
+            <masterLabel>Full (80GB)</masterLabel>
+            <translation><!-- Full (80GB) --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>PI</masterLabel>
             <translation><!-- PI --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Partial Data</masterLabel>
-            <translation><!-- Partial Data --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Production</masterLabel>
-            <translation><!-- Production --></translation>
         </picklistValues>
     </fields>
     <layouts>
@@ -122,8 +110,8 @@
             <section>Custom Links</section>
         </sections>
         <sections>
-            <label><!-- Description --></label>
-            <section>Description</section>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
         </sections>
         <sections>
             <label><!-- Updates &amp; Refreshes --></label>

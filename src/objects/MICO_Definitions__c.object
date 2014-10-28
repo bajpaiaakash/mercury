@@ -59,16 +59,15 @@ Used In: Mission Control App</description>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
         <fullName>Project__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Project</label>
         <referenceTo>MICO_Project__c</referenceTo>
         <relationshipLabel>Definitions</relationshipLabel>
         <relationshipName>Definitions</relationshipName>
-        <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>MasterDetail</type>
-        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Term_Acronym__c</fullName>
@@ -101,5 +100,5 @@ Used In: Mission Control App</description>
         <searchFilterFields>Term_Acronym__c</searchFilterFields>
         <searchResultsAdditionalFields>Term_Acronym__c</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ControlledByParent</sharingModel>
+    <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

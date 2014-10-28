@@ -62,63 +62,6 @@ Used In: Mission Control App</description>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
-        <fullName>Approval_Date__c</fullName>
-        <description>This field will capture the date and time when Test Execution gets approved: Created on 30/07/2014 by Himanshu Babaria : MICO</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Date this has been approved by SME</inlineHelpText>
-        <label>Approval Date</label>
-        <required>false</required>
-        <trackFeedHistory>true</trackFeedHistory>
-        <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>DateTime</type>
-    </fields>
-    <fields>
-        <fullName>Approval_Status__c</fullName>
-        <description>This field will capture the status of approval for Test Execution records. It will be auto-populated through the workflow process: Created on 30/07/2014 by Himanshu Babaria :MICO</description>
-        <externalId>false</externalId>
-        <inlineHelpText>The status of the approval. This is auto populated as the Test Execution goes through the process.</inlineHelpText>
-        <label>Approval Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Open</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Pending Approval</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>true</trackFeedHistory>
-        <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Approver__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>This field will capture the name of the approver for approving Test Executions: Created on 30/07/2014 by Himanshu Babaria :MICO</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Your approval indicates that the test was properly documented, the documented test results support the overall pass or fail status of the test case or script and the test cases/scripts are accurate, complete and meet the requirements of LQP-302-18</inlineHelpText>
-        <label>Approver</label>
-        <referenceTo>User</referenceTo>
-        <relationshipName>Test_Executions</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>true</trackFeedHistory>
-        <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>Assigned_To__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -128,7 +71,7 @@ Used In: Mission Control App</description>
         <relationshipName>MICO_Test_Cases</relationshipName>
         <required>false</required>
         <trackFeedHistory>true</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -138,7 +81,7 @@ Used In: Mission Control App</description>
         <formula>Template__r.Title__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <inlineHelpText>The description of this text script</inlineHelpText>
-        <label>Test Title</label>
+        <label>Description</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -199,7 +142,7 @@ This can be copy and pasted from the excel file.</inlineHelpText>
         <label>Overall Test Comments</label>
         <length>32000</length>
         <trackFeedHistory>true</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>10</visibleLines>
@@ -232,28 +175,17 @@ This can be copy and pasted from the excel file.</inlineHelpText>
     </fields>
     <fields>
         <fullName>Project__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Project</label>
         <referenceTo>MICO_Project__c</referenceTo>
         <relationshipLabel>Test Executions</relationshipLabel>
         <relationshipName>MICO_Test_Executions</relationshipName>
-        <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>MasterDetail</type>
-        <writeRequiresMasterRead>false</writeRequiresMasterRead>
-    </fields>
-    <fields>
-        <fullName>Recall_Flag__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Recall Flag</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>SprintNew__c</fullName>
@@ -347,19 +279,6 @@ This can be copy and pasted from the excel file.</inlineHelpText>
         <type>Summary</type>
     </fields>
     <fields>
-        <fullName>Submitter__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Submitter</label>
-        <referenceTo>User</referenceTo>
-        <relationshipName>Test_Executions1</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>Template__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -386,18 +305,6 @@ This can be copy and pasted from the excel file.</inlineHelpText>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Percent</type>
-    </fields>
-    <fields>
-        <fullName>Test_Execution_Date__c</fullName>
-        <description>MICO Sprint 2: This field is created as a part of User Story US-35859. This field will capture the date when the Test was executed.</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Date when the Test execution was last run</inlineHelpText>
-        <label>Test Execution Date</label>
-        <required>false</required>
-        <trackFeedHistory>true</trackFeedHistory>
-        <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Test_Outcome__c</fullName>
@@ -434,23 +341,27 @@ This can be copy and pasted from the excel file.</inlineHelpText>
         <label>Test Phase</label>
         <picklist>
             <picklistValues>
-                <fullName>Sprint Test</fullName>
+                <fullName>Sprint Acceptance Testing (SAT)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>User Acceptance Test</fullName>
+                <fullName>User Acceptance Testing (UAT)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Stability Test</fullName>
+                <fullName>Integration</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Regression Test</fullName>
+                <fullName>Performance</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Performance Test</fullName>
+                <fullName>Pre-check</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Regression</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -485,17 +396,6 @@ This can be copy and pasted from the excel file.</inlineHelpText>
         <type>Lookup</type>
     </fields>
     <label>Test Execution</label>
-    <listViews>
-        <fullName>All_Records</fullName>
-        <columns>NAME</columns>
-        <columns>ProjectNew__c</columns>
-        <columns>Project__c</columns>
-        <columns>Assigned_To__c</columns>
-        <columns>Status__c</columns>
-        <filterScope>Everything</filterScope>
-        <label>All Records</label>
-        <language>en_US</language>
-    </listViews>
     <nameField>
         <displayFormat>T-{0000}</displayFormat>
         <label>Test Execution Number</label>
@@ -512,208 +412,16 @@ This can be copy and pasted from the excel file.</inlineHelpText>
         <customTabListAdditionalFields>Test_Outcome__c</customTabListAdditionalFields>
         <searchFilterFields>NAME</searchFilterFields>
     </searchLayouts>
-    <sharingModel>ControlledByParent</sharingModel>
-    <validationRules>
-        <fullName>Lock_Down_Approved_Record</fullName>
-        <active>false</active>
-        <description>Lock the test execution record once approved: Created by Preeti Grover on 19/08/2014:MICO</description>
-        <errorConditionFormula>AND( ISPICKVAL(Approval_Status__c, &apos;Approved&apos;),
-OR ( 
-
-ISCHANGED(Approver__c), 
-ISCHANGED(Overall_Test_Comments__c), 
-ISCHANGED(ProjectNew__c), 
-ISCHANGED(Status__c), 
-ISCHANGED(Assigned_To__c), 
-ISCHANGED(Sprint__c), 
-ISCHANGED(Test_Outcome__c), 
-ISCHANGED(Test_Phase__c), 
-ISCHANGED(Description__c), 
-ISCHANGED(Total_Steps__c),
-ISCHANGED(Environment__c),
-ISCHANGED(Introduction__c),
-ISCHANGED(Template__c),
-ISCHANGED(Test_Execution_Date__c),
-ISCHANGED(Description__c),
-ISCHANGED(User_Story__c)
-) 
-)</errorConditionFormula>
-        <errorMessage>You can not make changes to an Approved Test Execution</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>MICO_Approved_Status_Validation</fullName>
-        <active>false</active>
-        <errorConditionFormula>IF(ISPICKVAL(Approval_Status__c , &quot;Approved&quot;) &amp;&amp; ISCHANGED( Approver__c),true,false)</errorConditionFormula>
-        <errorMessage>You cannot change Approver once the Test Execution is approved</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>MICO_CannotSetYourselfAsApprover</fullName>
-        <active>false</active>
-        <description>MICO - The logged in user cannot select himself / herself as the Approver on the Test Execution record</description>
-        <errorConditionFormula>IF(NOT(ISBLANK(Approver__c))&amp;&amp; NOT(ISBLANK(Submitter__c)) &amp;&amp; Approver__c = Submitter__c,true,false)</errorConditionFormula>
-        <errorMessage>The submitter can not be the approver of the Test Execution. Please select a valid user to approve the request.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Pending_Approval_Status</fullName>
-        <active>true</active>
-        <description>MICO - This validation rule will prevent the user from editing a Test Execution record if the Test Execution is in an &quot;Approved&quot;/&quot;Pending Approval status</description>
-        <errorConditionFormula>AND(
-OR (
-ISPICKVAL(Approval_Status__c, &apos;Approved&apos;),
-ISPICKVAL(Approval_Status__c, &apos;Pending Approval&apos;)
-),
-OR ( 
-ISCHANGED(Approver__c), 
-ISCHANGED(Overall_Test_Comments__c), 
-ISCHANGED(ProjectNew__c), 
-ISCHANGED(Status__c), 
-ISCHANGED(Assigned_To__c), 
-ISCHANGED(Sprint__c), 
-ISCHANGED(Test_Outcome__c), 
-ISCHANGED(Test_Phase__c), 
-ISCHANGED(Description__c), 
-ISCHANGED(Total_Steps__c), 
-ISCHANGED(Environment__c), 
-ISCHANGED(Introduction__c), 
-ISCHANGED(Template__c), 
-ISCHANGED(Test_Execution_Date__c), 
-ISCHANGED(Description__c), 
-ISCHANGED(User_Story__c) 
-) 
-)</errorConditionFormula>
-        <errorMessage>You cannot Edit a Test Execution if the Test Execution is in an &quot;Approved&quot; / &quot;Pending Approval&quot; status</errorMessage>
-    </validationRules>
-    <webLinks>
-        <fullName>Recall_Approval_Request</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>Recall Approval Request</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/connection.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)} 
-
-var templateStoryId = &quot;{!MICO_Test__c.Id}&quot; 
-var qr = sforce.connection.query(&quot;SELECT Id, submitter__c,Approval_Status__c,recall_flag__c FROM MICO_Test__c where Id=&apos;&quot; + &quot;{!MICO_Test__c.Id}&quot; + &quot;&apos;&quot;); 
-
-
-var records = qr.getArray(&quot;records&quot;); 
-
-
-
-// display the field from the query 
-
-if(qr.records.Approval_Status__c==&apos;Open&apos;) 
-alert(&apos;An approval request has not been submitted for this Test Script yet. You cannot recall at this stage&apos;); 
-else if(qr.records.Approval_Status__c==&apos;Approved&apos; ) { 
-alert(&apos;An approval request cannot be recalled when the status is Approved&apos;); 
-} 
-else if(qr.records.Approval_Status__c==&apos;Rejected&apos;) 
-{ 
-alert(&apos;An approval request cannot be recalled when the status is Rejected&apos;); 
-} 
-else{ 
-var o = new sforce.SObject(&quot;MICO_Test__c&quot;); 
-o.id = &quot;{!MICO_Test__c.Id}&quot;; 
-
-
-
-// make the field change 
-
-o.Approval_Status__c= &quot;Open&quot;; 
-o.recall_flag__c=true; 
-o.submitter__c=window.UserContext.userId; 
-// save the change 
-sforce.connection.update([o]); 
-//alert(&apos;recall&apos;+o.submitter__c); 
-//refresh the page 
-window.location.reload(); 
-}</url>
-    </webLinks>
+    <sharingModel>ReadWrite</sharingModel>
     <webLinks>
         <fullName>Run_Test_Script</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
-        <linkType>javascript</linkType>
+        <height>600</height>
+        <linkType>page</linkType>
         <masterLabel>Run Test Script</masterLabel>
-        <openType>onClickJavaScript</openType>
+        <openType>noSidebar</openType>
+        <page>runTestScript</page>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/28.0/connection.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/28.0/apex.js&quot;)} 
-
-try{
-    var testExecId = &apos;{!MICO_Test__c.Id}&apos;;
-	var result = sforce.apex.execute(&quot;MICO_Test_ExecutionTriggerClass&quot;,&quot;updateTestExecutionDate&quot;, {testID:testExecId});
-    if(result == &apos;success&apos;) {
-        location.replace(&apos;/apex/runTestScript?Id=&apos;+testExecId);
-    }
-    else{
-        location.replace(&apos;/apex/runTestScript?Id=&apos;+testExecId);
-    }
-}
-catch(err){
-    alert(&apos;An unexpected error has come. Please contact your Administrator.&apos;);
-}</url>
-    </webLinks>
-    <webLinks>
-        <fullName>Submit_For_Approval</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>Submit For Approval</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/connection.js&quot;)}
-{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)}
-
-var templateStoryId = &quot;{!MICO_Test__c.Id}&quot;
-var approvalStatus=&quot;{!MICO_Test__c.Status__c}&quot;
-var approver=&quot;{!MICO_Test__c.Approver__c}&quot;
-var app=&quot;{!MICO_Test__c.Approval_Status__c}&quot; 
-var qr = sforce.connection.query(&quot;SELECT Approver__c FROM MICO_Test__c where Id=&apos;&quot; + &quot;{!MICO_Test__c.Id}&quot; + &quot;&apos;&quot;);
-
-
-var records = qr.getArray(&quot;records&quot;);
-
-if(approvalStatus!=&apos;Complete&apos; &amp;&amp; (approver==&apos;&apos; || approver==null))
-alert(&apos;Please ensure all mandatory information has been completed and select an Approver before submitting the Test Execution for approval.&apos;);
-
-else if(approvalStatus!=&apos;Complete&apos;) {
-alert(&apos;Please ensure all mandatory information has been complete before submitting the Test Execution for approval.&apos;)
-
-}
-
-else if(approver==&apos;&apos; || approver==null){
-alert(&apos;Please select an Approver before submitting the Test Execution for approval.&apos;)
-
-}
-
-else if(app==&apos;Pending Approval&apos;){
-alert(&apos;This Test Execution is Pending Approval and cannot be resubmitted for approval.&apos;)
-
-}
-
-else if(app==&apos;Approved&apos;){
-alert(&apos;This Test Script has already been Approved and cannot be resubmitted for approval.&apos;)
-
-}
-
-else if(app==&apos;Rejected&apos;){
-alert(&apos;This Test Execution has been Rejected and cannot be resubmitted for approval.&apos;)
-
-} 
-else if(approver!=null &amp;&amp; approver!=&apos;&apos;){
-var test = qr.records.Approver__c.toString();
-var test1 = test.substring(0,15); 
-
-if(test1==window.UserContext.userId){
-alert(&apos;The submitter can not be the approver of the Test Execution. Please select a valid user to approve the request.&apos;) 
-}
-else{
-sforce.apex.execute(&quot;MICO_SubmitForApproval&quot;,&quot;SendEmailMethodTestExcecution&quot;,{localId:templateStoryId});
-location.reload(true);
-}
-}</url>
     </webLinks>
 </CustomObject>

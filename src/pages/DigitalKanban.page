@@ -235,7 +235,6 @@
          </script>
     </head>
     <body background="{!URLFOR($Resource.SFDCback)}">
-     
      <apex:form id="form" >
         <apex:actionFunction name="updateUserStroiesJSFucntion" action="{!updateUserStoriesSprint}" rerender="thepanel,planbBlock" >
             
@@ -278,7 +277,7 @@
     
     
     
-    <div style="float: left; width:12.5%;color:Black;text-align:center;15px;"><b>Backlog</b>
+    <div style="float: left; width:14.28%;color:Black;text-align:center;15px;"><b>Backlog</b>
     <div class="column" id="BacklogUS" style="width:100%;">
      <apex:repeat value="{!BacklogList}" var="us">
       <div class="dragbox" id="{!us.Id}" style="width:75%;height:auto;">   
@@ -299,9 +298,9 @@
     </div>
     </div>
     
-    <div style="float: left; width:12.5%;text-align:center;"><b>Story Definition</b>
-    <div class="column" id="StoryDefUS" style="width:100%">
-     <apex:repeat value="{!StoryDef}" var="us">
+    <div style="float: left; width:14.28%;text-align:center;"><b>With BPC</b>
+    <div class="column" id="BPC" style="width:100%">
+     <apex:repeat value="{!BPC}" var="us">
       <div class="dragbox" id="{!us.Id}" style="width:75%;height:auto;">
             <div class="dragbox-content-head" style="width:99%">
                 <div class="dragbox-content-head-content">
@@ -320,9 +319,9 @@
     </div>
     </div>
     
-    <div style="float: left; width:12.5%;text-align:center;"><b>Ready for Development</b>
-    <div class="column" id="ReadyforDevUS" style="width:100%">
-     <apex:repeat value="{!ReadyforDev}" var="us">
+    <div style="float: left; width:14.28%;text-align:center;"><b>Awaiting Dev</b>
+    <div class="column" id="AwaitingDevUS" style="width:100%">
+     <apex:repeat value="{!AwaitingDev}" var="us">
       <div class="dragbox" id="{!us.Id}" style="width:75%;height:auto;">
             <div class="dragbox-content-head" style="width:99%">
                 <div class="dragbox-content-head-content">
@@ -341,7 +340,7 @@
     </div>
     </div>
     
-    <div style="float: left; width:12.5%;text-align:center;"><b>In Development</b>
+    <div style="float: left; width:14.28%;text-align:center;"><b>In Development</b>
     <div class="column" id="InDevUS" style="width:100%">
      <apex:repeat value="{!InDev}" var="us">
       <div class="dragbox" id="{!us.Id}" style="width:75%;height:auto;">
@@ -361,9 +360,9 @@
     </apex:repeat>
     </div>
     </div>
-    <div style="float: left; width:12.5%;text-align:center;"><b>Ready for Test Release</b>
-    <div class="column" id="ReadyforTestRelUS" style="width:100%">
-     <apex:repeat value="{!ReadyforTestRel}" var="us">
+    <div style="float: left; width:14.28%;text-align:center;"><b>Awaiting SAT</b>
+    <div class="column" id="AwaitingSATUS" style="width:100%">
+     <apex:repeat value="{!AwaitingSAT}" var="us">
       <div class="dragbox" id="{!us.Id}" style="width:75%;height:auto;">
             <div class="dragbox-content-head" style="width:99%">
                 <div class="dragbox-content-head-content">
@@ -381,9 +380,9 @@
     </apex:repeat>
     </div>
     </div>
-    <div style="float: left; width:12.5%;text-align:center;"><b>Ready for Test</b>
-    <div class="column" id="ReadyforTestUS" style="width:100%">
-     <apex:repeat value="{!ReadyforTest}" var="us">
+    <div style="float: left; width:14.28%;text-align:center;"><b>In SAT</b>
+    <div class="column" id="InSATUS" style="width:100%">
+     <apex:repeat value="{!InSAT}" var="us">
       <div class="dragbox" id="{!us.Id}" style="width:75%;;height:auto;">
             <div class="dragbox-content-head" style="width:99%">
                 <div class="dragbox-content-head-content">
@@ -401,29 +400,9 @@
     </apex:repeat>
     </div>    
     </div>
-    <div style="float: left; width:12.5%;text-align:center;"><b>In Test</b>
-    <div class="column" id="InTestUS" style="width:100%">
-     <apex:repeat value="{!InTest}" var="us">
-      <div class="dragbox" id="{!us.Id}" style="width:75%;height:auto;">
-            <div class="dragbox-content-head" style="width:99%">
-                <div class="dragbox-content-head-content">
-                    <strong><a href="/{!us.id}" style="color:white">{!us.Name}</a></strong>
-                </div>
-             </div>
-            <div class="dragbox-content" style="width:95%;">
-                <p>As a {!us.As_A__c} I want to {!us.I_Want_To__c} so that {!us.So_that__c} </p>
-            </div>
-            
-            <div class="dragbox-footer">
-                <a id="{!us.Id}" href="#"  onclick="return showDialog('{!us.Id}')" style="color:white">Post Chatter</a>
-            </div>
-        </div>
-    </apex:repeat>
-    </div>
-    </div>
-        <div style="float: left; width:12.5%;text-align:center;"><b>Passed (Complete)</b>
-    <div class="column" id="PassedUS" style="width:100%">
-     <apex:repeat value="{!Passed}" var="us">
+    <div style="float: left; width:14.28%;text-align:center;"><b>Done</b>
+    <div class="column" id="DoneUS" style="width:100%">
+     <apex:repeat value="{!Done}" var="us">
       <div class="dragbox" id="{!us.Id}" style="width:75%;height:auto;">
             <div class="dragbox-content-head" style="width:99%">
                 <div class="dragbox-content-head-content">

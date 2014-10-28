@@ -18,27 +18,6 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
-    <fieldUpdates>
-        <fullName>MICO_increment_reopened_count</fullName>
-        <description>Increment the Reopened count field</description>
-        <field>Reopened_Count__c</field>
-        <formula>Reopened_Count__c + 1</formula>
-        <name>MICO increment reopened count</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Formula</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <rules>
-        <fullName>MICO increment reopened count</fullName>
-        <actions>
-            <name>MICO_increment_reopened_count</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <description>Increments the Reopened Count field each time a defect gets re-opened</description>
-        <formula>AND(   OR(     ISPICKVAL(Status__c, &apos;Raised&apos;),     ISPICKVAL(Status__c, &apos;Ready for Development&apos;),     ISPICKVAL(Status__c, &apos;In Development&apos;)   ),   OR(     ISPICKVAL(PRIORVALUE(Status__c), &apos;Ready for Testing&apos;),     ISPICKVAL(PRIORVALUE(Status__c), &apos;Ready for Test Release&apos;),     ISPICKVAL(PRIORVALUE(Status__c), &apos;In Test&apos;),     ISPICKVAL(PRIORVALUE(Status__c), &apos;Closed - Complete&apos;),     ISPICKVAL(PRIORVALUE(Status__c), &apos;Ready for Release&apos;)   ) )</formula>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
     <rules>
         <fullName>MICO_Defect Release Completeness</fullName>
         <actions>

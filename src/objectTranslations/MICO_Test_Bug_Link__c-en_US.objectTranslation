@@ -9,11 +9,11 @@
         <value>Test / Defect Links</value>
     </caseValues>
     <fields>
-        <label><!-- Defect Description --></label>
+        <label><!-- Bug Description --></label>
         <name>Bug_Description__c</name>
     </fields>
     <fields>
-        <label><!-- Defect --></label>
+        <label><!-- Bug --></label>
         <name>Bug__c</name>
         <relationshipLabel><!-- Test / Defect Links --></relationshipLabel>
     </fields>

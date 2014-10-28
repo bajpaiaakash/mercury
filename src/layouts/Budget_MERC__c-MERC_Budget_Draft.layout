@@ -45,11 +45,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Savings_MERC__c</field>
+                <field>Total_Unit_Savings_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Overage_MERC__c</field>
+                <field>Total_Savings_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -149,28 +149,30 @@
         <fields>Sub_Type_MERC__c</fields>
         <fields>Meeting_Vendor_MERC__c</fields>
         <fields>Vendor_Name_MERC__c</fields>
-        <fields>Amount_MERC__c</fields>
-        <fields>Savings_MERC__c</fields>
-        <fields>Overage_MERC__c</fields>
         <fields>Version_Number_MERC__c</fields>
+        <fields>Total_Amount_MERC__c</fields>
+        <fields>Unit_Savings_MERC__c</fields>
+        <fields>Total_Savings_MERC__c</fields>
         <fields>UPDATEDBY_USER</fields>
         <relatedList>Budget_Line_Item_MERC__c.Budget_MERC__c</relatedList>
         <sortField>Type_MERC__c</sortField>
         <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
-        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Budget_Date_MERC__c</fields>
         <fields>Status_MERC__c</fields>
-        <fields>Current_Budget_Used_MERC__c</fields>
-        <fields>Savings_MERC__c</fields>
-        <fields>Overage_MERC__c</fields>
-        <fields>Version_Number_MERC__c</fields>
+        <fields>Meeting_MERC__c</fields>
         <fields>CREATEDBY_USER</fields>
         <relatedList>Budget_MERC__c.Master_Budget_MERC__c</relatedList>
-        <sortField>Version_Number_MERC__c</sortField>
-        <sortOrder>Desc</sortOrder>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Budget_Date_MERC__c</fields>
+        <fields>Status_MERC__c</fields>
+        <fields>Meeting_MERC__c</fields>
+        <fields>CREATEDBY_USER</fields>
+        <relatedList>Budget_MERC__c.Previous_Budget_Revision_MERC__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>VERSION.TITLE</fields>
@@ -184,7 +186,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h11000000Mwfa</masterLabel>
+        <masterLabel>00hb0000000MSDR</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

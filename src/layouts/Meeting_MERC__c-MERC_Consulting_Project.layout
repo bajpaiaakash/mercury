@@ -228,14 +228,14 @@
         <excludeButtons>New</excludeButtons>
         <fields>Email_Send_Number_MERC__c</fields>
         <fields>Date_Sent_MERC__c</fields>
-        <fields>Email_Name_MERC__c</fields>
+        <fields>ET_Email_Name_MERC__c</fields>
         <fields>Deliverability_Rate_MERC__c</fields>
         <fields>Open_Rate_MERC__c</fields>
         <fields>Click_Through_Rate_MERC__c</fields>
         <fields>Unsubscribe_Rate_MERC__c</fields>
         <fields>Bounce_Rate_MERC__c</fields>
         <relatedList>Meeting_Email_Send_MERC__c.Meeting_MERC__c</relatedList>
-        <sortField>Date_Sent_MERC__c</sortField>
+        <sortField>Email_Send_Number_MERC__c</sortField>
         <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>

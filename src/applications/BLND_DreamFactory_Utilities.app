@@ -3,7 +3,6 @@
     <defaultLandingTab>standard-home</defaultLandingTab>
     <description>DreamFactory Utilities from DreamFactory Software includes three essential applications for system administrators. SnapShot remembers and compares schema and profiles, Monarch moves and merges data, and TableTop views offline and archived data sets.</description>
     <label>DreamFactory Utilities</label>
-    <logo>BLND_Logos_Identity/BLND_DreamFactory_Logo.gif</logo>
     <tab>BLND_Snapshot</tab>
     <tab>BLND_Monarch</tab>
     <tab>BLND_TableTop</tab>

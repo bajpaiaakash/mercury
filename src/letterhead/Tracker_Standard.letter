@@ -17,7 +17,6 @@
         <backgroundColor>#FFFFFF</backgroundColor>
         <height>55</height>
         <horizontalAlignment>Left</horizontalAlignment>
-        <logo>Logo_s_Images/Lilly_Mission_Control_Logo.png</logo>
         <verticalAlignment>Top</verticalAlignment>
     </header>
     <middleLine>

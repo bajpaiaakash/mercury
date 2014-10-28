@@ -9,15 +9,10 @@
         <value>Defects</value>
     </caseValues>
     <fields>
-        <help><!-- Critical - Unable to complete critical business process (CBP)
-
-Very High - CBP can be completed but inefficient
-
-High - Some processes cannot be completed
-
+        <help><!-- Critical - Stops user from completing critical business process (CBP)
+Major - CBP can be mostly be completed but inefficient. Some processes cannot be completed.
 Medium - Process is hindered but can be completed
-
-Low - Slight inconvenience to user --></help>
+Minor - Slight inconvenience to user --></help>
         <label><!-- Business Impact --></label>
         <name>BusinessImpact__c</name>
         <picklistValues>
@@ -47,62 +42,57 @@ Low - Slight inconvenience to user --></help>
         <name>Comments__c</name>
     </fields>
     <fields>
-        <help><!-- The developer assigned to fix this defect --></help>
         <label><!-- Defect Developer --></label>
         <name>Defect_Developer__c</name>
         <relationshipLabel><!-- Defects (Defect Developer) --></relationshipLabel>
     </fields>
     <fields>
-        <help><!-- The developer who built the original user story --></help>
+        <help><!-- The developer who built the original user story. --></help>
         <label><!-- Original Developer --></label>
         <name>Developer__c</name>
     </fields>
     <fields>
-        <help><!-- If this defect has been &quot;Closed - Consolidated&quot; into another defect, please enter that defect reference here --></help>
         <label><!-- Duplicate Reference --></label>
         <name>Duplicate_Reference__c</name>
     </fields>
     <fields>
-        <help><!-- An external reference for this defect in other systems --></help>
         <label><!-- External Reference --></label>
         <name>External_Reference__c</name>
     </fields>
     <fields>
-        <help><!-- The environments this defect has been fixed in --></help>
+        <help><!-- What environments (SFDC) or Code Base (Flex)  has this been fixed in? --></help>
         <label><!-- Fixed in --></label>
         <name>Fix_in_Environment__c</name>
         <picklistValues>
-            <masterLabel>Production</masterLabel>
-            <translation><!-- Production --></translation>
+            <masterLabel>Gold DVL</masterLabel>
+            <translation><!-- Gold DVL --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Sprint Dev</masterLabel>
-            <translation><!-- Sprint Dev --></translation>
+            <masterLabel>Gold DevPack</masterLabel>
+            <translation><!-- Gold DevPack --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Sprint Test</masterLabel>
-            <translation><!-- Sprint Test --></translation>
+            <masterLabel>Gold SAT</masterLabel>
+            <translation><!-- Gold SAT --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Support Dev</masterLabel>
-            <translation><!-- Support Dev --></translation>
+            <masterLabel>Silver DVL</masterLabel>
+            <translation><!-- Silver DVL --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Support Test</masterLabel>
-            <translation><!-- Support Test --></translation>
+            <masterLabel>Silver DevPack</masterLabel>
+            <translation><!-- Silver DevPack --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>UAT</masterLabel>
-            <translation><!-- UAT --></translation>
+            <masterLabel>Silver SAT</masterLabel>
+            <translation><!-- Silver SAT --></translation>
         </picklistValues>
     </fields>
     <fields>
-        <help><!-- When this defect was logged --></help>
         <label><!-- Log Time --></label>
         <name>Log_Time__c</name>
     </fields>
     <fields>
-        <help><!-- The user who originally logged the defect. Important in case the support team needs assistance during triage --></help>
         <label><!-- Logged By --></label>
         <name>Logged_By__c</name>
         <relationshipLabel><!-- Defects (Logged By) --></relationshipLabel>
@@ -114,60 +104,36 @@ Low - Slight inconvenience to user --></help>
         <relationshipLabel><!-- Defects --></relationshipLabel>
     </fields>
     <fields>
-        <help><!-- The internal project release for this defect --></help>
-        <label><!-- Project Release --></label>
+        <label><!-- Planned Release --></label>
         <name>Planned_Release__c</name>
         <relationshipLabel><!-- Defects --></relationshipLabel>
     </fields>
     <fields>
-        <help><!-- A detailed description of this defect. This should contain at least the following:
-
-- Login credentials (if applicable)
-- Replication Steps
-- Expected result
-- Actual result --></help>
         <label><!-- Problem Description --></label>
         <name>Problem_Description__c</name>
     </fields>
     <fields>
-        <help><!-- A headline summary for this defect --></help>
         <label><!-- Problem Summary --></label>
         <name>Problem__c</name>
     </fields>
     <fields>
-        <help><!-- The Cirrus release this defect will be put into --></help>
-        <label><!-- Cirrus Release --></label>
-        <name>Production_Release__c</name>
-        <relationshipLabel><!-- Defects (Cirrus Release) --></relationshipLabel>
-    </fields>
-    <fields>
-        <help><!-- The project this defect is associated to --></help>
         <label><!-- Project --></label>
         <name>Project2__c</name>
         <relationshipLabel><!-- Defects --></relationshipLabel>
     </fields>
     <fields>
-        <help><!-- The project this defect is associated to --></help>
         <label><!-- Project --></label>
         <name>Project__c</name>
     </fields>
     <fields>
-        <help><!-- Detailed manual steps to be completed as part of the deployment.
-
-Content should follow the format below:
-
-Pre-deployment steps:
-==================
-- steps 1...n
-
-Post-deployment steps:
-==================
-- steps 1...n --></help>
+        <help><!-- Elements which have to be deployed in a manual way.
+Please add the necessary level of detail. --></help>
         <label><!-- Release Steps (Manual) --></label>
         <name>Release_Comment__c</name>
     </fields>
     <fields>
-        <help><!-- Indicator to show if the release section of this defect has been completed --></help>
+        <help><!-- Has the release document been completed appropriately. 
+All required sections in the release --></help>
         <label><!-- Release Complete --></label>
         <name>Release_Completeness_Indicator__c</name>
     </fields>
@@ -176,46 +142,9 @@ Post-deployment steps:
         <name>Release_Completeness__c</name>
     </fields>
     <fields>
-        <help><!-- How does this defect impact the release?
-For example, &quot;because this defect modifies overnight batch jobs, if the overnight batches fail, it would require a data fix to be a applied post-release&quot; --></help>
-        <label><!-- Release Impact Analysis --></label>
-        <name>Release_Impact_Analysis__c</name>
-    </fields>
-    <fields>
-        <help><!-- High -  Any batch change, any trigger/validation rule on a &apos;batched&apos; object, any high profile VF Page
-
-Medium -  class/trigger/complex VF page
-
-Low - other --></help>
-        <label><!-- Release Impact --></label>
-        <name>Release_Impact__c</name>
-        <picklistValues>
-            <masterLabel>High</masterLabel>
-            <translation><!-- High --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Low</masterLabel>
-            <translation><!-- Low --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Medium</masterLabel>
-            <translation><!-- Medium --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <help><!-- The release note to be issued to the business regarding this defect --></help>
-        <label><!-- Business Release Note --></label>
-        <name>Release_Note__c</name>
-    </fields>
-    <fields>
-        <help><!-- Enter here anything that is deployed using automated tools, but is not part of the standard build process, otherwise &quot;n/a&quot; --></help>
+        <help><!-- Elements which have to be deployed in an automated way (Eclipse). --></help>
         <label><!-- Release Steps (Automated) --></label>
         <name>Release_Steps_Automated__c</name>
-    </fields>
-    <fields>
-        <help><!-- The number of times this defect has been sent back to the support or development team from a post-development state. Used to track &apos;first time fix&apos; reports --></help>
-        <label><!-- Reopened Count --></label>
-        <name>Reopened_Count__c</name>
     </fields>
     <fields>
         <help><!-- If this bug was raised when running a script, please note the script number here --></help>
@@ -223,23 +152,20 @@ Low - other --></help>
         <name>Script_Number__c</name>
     </fields>
     <fields>
-        <help><!-- The sprint this defect was raised in --></help>
         <label><!-- Sprint --></label>
         <name>Sprint2__c</name>
         <relationshipLabel><!-- Defects --></relationshipLabel>
     </fields>
     <fields>
-        <help><!-- The sprint this defect was raised in --></help>
         <label><!-- Sprint --></label>
         <name>Sprint__c</name>
     </fields>
     <fields>
-        <help><!-- The status of this defect --></help>
         <label><!-- Status --></label>
         <name>Status__c</name>
         <picklistValues>
-            <masterLabel>Closed - Cannot Replicate</masterLabel>
-            <translation><!-- Closed - Cannot Replicate --></translation>
+            <masterLabel>Blocked from testing</masterLabel>
+            <translation><!-- Blocked from testing --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Closed - Complete</masterLabel>
@@ -250,24 +176,32 @@ Low - other --></help>
             <translation><!-- Closed - Consolidated --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Closed - New User Story Created</masterLabel>
+            <translation><!-- Closed - New User Story Created --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Closed - New User Story Required</masterLabel>
+            <translation><!-- Closed - New User Story Required --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Closed - Rejected</masterLabel>
             <translation><!-- Closed - Rejected --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Deferred</masterLabel>
-            <translation><!-- Deferred --></translation>
+            <masterLabel>Closed - Unreplicable</masterLabel>
+            <translation><!-- Closed - Unreplicable --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>In Analysis</masterLabel>
-            <translation><!-- In Analysis --></translation>
+            <masterLabel>For Discussion</masterLabel>
+            <translation><!-- For Discussion --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>In Development</masterLabel>
-            <translation><!-- In Development --></translation>
+            <masterLabel>In development</masterLabel>
+            <translation><!-- In development --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>In Test</masterLabel>
-            <translation><!-- In Test --></translation>
+            <masterLabel>Parked</masterLabel>
+            <translation><!-- Parked --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Raised</masterLabel>
@@ -278,16 +212,12 @@ Low - other --></help>
             <translation><!-- Ready for Development --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Ready for Release</masterLabel>
-            <translation><!-- Ready for Release --></translation>
+            <masterLabel>Ready for sign-off</masterLabel>
+            <translation><!-- Ready for sign-off --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Ready for Test Release</masterLabel>
-            <translation><!-- Ready for Test Release --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Ready for Testing</masterLabel>
-            <translation><!-- Ready for Testing --></translation>
+            <masterLabel>Ready for testing</masterLabel>
+            <translation><!-- Ready for testing --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Triaged</masterLabel>
@@ -298,42 +228,27 @@ Low - other --></help>
         <label><!-- Technology --></label>
         <name>Technology__c</name>
         <picklistValues>
-            <masterLabel>Data</masterLabel>
-            <translation><!-- Data --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>ETL</masterLabel>
-            <translation><!-- ETL --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>External Application</masterLabel>
-            <translation><!-- External Application --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Integration</masterLabel>
-            <translation><!-- Integration --></translation>
+            <masterLabel>Informatica</masterLabel>
+            <translation><!-- Informatica --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Other</masterLabel>
             <translation><!-- Other --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>SFDC</masterLabel>
-            <translation><!-- SFDC --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Sharepoint</masterLabel>
-            <translation><!-- Sharepoint --></translation>
+            <masterLabel>SFDC/Veeva</masterLabel>
+            <translation><!-- SFDC/Veeva --></translation>
         </picklistValues>
     </fields>
     <fields>
-        <help><!-- If this defect was raised while running a test script, please enter the test execution here --></help>
         <label><!-- Test Execution --></label>
         <name>Test_Execution__c</name>
         <relationshipLabel><!-- Defects --></relationshipLabel>
     </fields>
     <fields>
-        <help><!-- The phase of testing this defect was raised in --></help>
+        <help><!-- The phase of testing this bug was raised in.
+
+For January testing this will either be System 1 or System 2 --></help>
         <label><!-- Test Phase --></label>
         <name>Test_Phase__c</name>
         <picklistValues>
@@ -350,25 +265,18 @@ Low - other --></help>
         </picklistValues>
     </fields>
     <fields>
-        <help><!-- The testing user for this defect --></help>
-        <label><!-- Tester --></label>
-        <name>Tester__c</name>
-        <relationshipLabel><!-- Defects (Tester) --></relationshipLabel>
-    </fields>
-    <fields>
-        <help><!-- The user story this defect relates to --></help>
         <label><!-- User Story --></label>
         <name>User_Story__c</name>
         <relationshipLabel><!-- Defects (User Story) --></relationshipLabel>
     </fields>
     <fields>
-        <help><!-- Any manual validation steps required after the release e.g. to check if a customer portal is up and running.
-There is no need to validate anything that should have been deployed in an automated fashion. --></help>
+        <help><!-- Add the steps that should be executed when validating the change in the UI
+Example: Field X was added to the object --></help>
         <label><!-- Validation Steps --></label>
         <name>Validation_Steps__c</name>
     </fields>
     <fields>
-        <help><!-- The source control tag this defect is associated to --></help>
+        <help><!-- Add the SVN revision number of the elements (SFDC) --></help>
         <label><!-- Version --></label>
         <name>Version__c</name>
     </fields>
@@ -401,10 +309,6 @@ There is no need to validate anything that should have been deployed in an autom
         <sections>
             <label><!-- System Information --></label>
             <section>System Information</section>
-        </sections>
-        <sections>
-            <label><!-- Testing --></label>
-            <section>Testing</section>
         </sections>
     </layouts>
     <startsWith>Consonant</startsWith>

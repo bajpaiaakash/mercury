@@ -1118,6 +1118,15 @@ Created by J Adams 12/10/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Power_User_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This field will be used for not firing validation rule for system admin and power users when changing Service rendered value.</description>
+        <externalId>false</externalId>
+        <label>Power User</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Procurement_Library_MERC__c</fullName>
         <description>Used only for MPC users.  This defines the MPC&apos;s company that the user works for and therefore which Content Library the Invoices (associated to Budgets) are assigned to.  Creates a firewall between MPCs and Procurement Invoices within Country.  Oliver Dunford 9th June 2014.</description>
         <externalId>false</externalId>

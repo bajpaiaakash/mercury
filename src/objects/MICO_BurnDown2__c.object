@@ -139,19 +139,6 @@ Used In: Mission Control App</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Sprint_In_Progress__c</fullName>
-        <description>Returns TRUE if the sprint status is in progress, otherwise returns FALSE. Used in filters to show current burndown stats</description>
-        <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Sprint__r.Status__c , &quot;In Progress&quot;),&quot;TRUE&quot;,&quot;FALSE&quot;)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Sprint In Progress</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Sprint__c</fullName>
         <externalId>false</externalId>
         <label>Sprint</label>
@@ -180,33 +167,11 @@ Used In: Mission Control App</description>
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
-        <columns>Project__c</columns>
-        <columns>Sprint__c</columns>
         <columns>Date__c</columns>
-        <columns>Points_Complete__c</columns>
         <columns>Optimum_burndown__c</columns>
         <columns>Actual_burndown__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>In_Progress</fullName>
-        <columns>NAME</columns>
-        <columns>Project__c</columns>
-        <columns>Sprint__c</columns>
-        <columns>Date__c</columns>
-        <columns>Points_Complete__c</columns>
-        <columns>Optimum_burndown__c</columns>
-        <columns>Actual_burndown__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Sprint_In_Progress__c</field>
-            <operation>equals</operation>
-            <value>TRUE</value>
-        </filters>
-        <label>Sprints In Progress</label>
-        <language>en_US</language>
     </listViews>
     <listViews>
         <fullName>Sprint_1_Burndowns</fullName>
@@ -223,13 +188,6 @@ Used In: Mission Control App</description>
         <type>Text</type>
     </nameField>
     <pluralLabel>Burndown Stats</pluralLabel>
-    <searchLayouts>
-        <customTabListAdditionalFields>Project__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Sprint__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Date__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Points_Complete__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Optimum_burndown__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Actual_burndown__c</customTabListAdditionalFields>
-    </searchLayouts>
+    <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

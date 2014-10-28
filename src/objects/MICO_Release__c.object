@@ -52,7 +52,7 @@ Used In: Mission Control App</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableEnhancedLookup>true</enableEnhancedLookup>
-    <enableFeeds>true</enableFeeds>
+    <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>false</enableReports>
     <enableSharing>true</enableSharing>
@@ -80,46 +80,17 @@ Used In: Mission Control App</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Code_Handover_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Code Handover Date</label>
-        <required>false</required>
-        <trackFeedHistory>true</trackFeedHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
     </fields>
     <fields>
         <fullName>Description__c</fullName>
         <externalId>false</externalId>
         <label>Description</label>
         <length>32768</length>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Gate_1_Review_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Gate 1 Review Date</label>
-        <required>false</required>
-        <trackFeedHistory>true</trackFeedHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Gate_2_Review_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Gate 2 Review Date</label>
-        <required>false</required>
-        <trackFeedHistory>true</trackFeedHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
     </fields>
     <fields>
         <fullName>Impact__c</fullName>
@@ -136,7 +107,6 @@ Used In: Mission Control App</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -145,37 +115,8 @@ Used In: Mission Control App</description>
         <externalId>false</externalId>
         <label>Planned Start</label>
         <required>false</required>
-        <trackFeedHistory>true</trackFeedHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
-    </fields>
-    <fields>
-        <fullName>Release_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Release Date</label>
-        <required>false</required>
-        <trackFeedHistory>true</trackFeedHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Release_Type__c</fullName>
-        <externalId>false</externalId>
-        <label>Release Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Cirrus Release</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Project Release</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Technology__c</fullName>
@@ -192,7 +133,6 @@ Used In: Mission Control App</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
         <visibleLines>5</visibleLines>
@@ -209,7 +149,6 @@ Used In: Mission Control App</description>
     </listViews>
     <nameField>
         <label>Release Name</label>
-        <trackFeedHistory>false</trackFeedHistory>
         <type>Text</type>
     </nameField>
     <pluralLabel>Releases</pluralLabel>

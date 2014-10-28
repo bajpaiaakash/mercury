@@ -15,7 +15,7 @@
     </fields>
     <fields>
         <help><!-- Notes and Comments about the test from the tester. This should be populated if a test step is failed in any way --></help>
-        <label><!-- Actual Results --></label>
+        <label><!-- Comments --></label>
         <name>Comments__c</name>
     </fields>
     <fields>
@@ -57,10 +57,6 @@
         <relationshipLabel><!-- Test Execution Steps --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Test Execution Step Number --></label>
-        <name>Test_Execution_Step_Number__c</name>
-    </fields>
-    <fields>
         <label><!-- Test --></label>
         <name>Test__c</name>
         <relationshipLabel><!-- Test Execution Steps --></relationshipLabel>
@@ -90,8 +86,4 @@
         </sections>
     </layouts>
     <startsWith>Consonant</startsWith>
-    <validationRules>
-        <errorMessage><!-- You cannot Create / Edit a Test Execution Step record if the Test Execution is in an &quot;Approved&quot; / &quot;Pending Approval&quot; status --></errorMessage>
-        <name>PreventFromCreateStepsUntilApproved</name>
-    </validationRules>
 </CustomObjectTranslation>

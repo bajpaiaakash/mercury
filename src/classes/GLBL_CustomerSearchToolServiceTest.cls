@@ -19,6 +19,7 @@ private class GLBL_CustomerSearchToolServiceTest {
 	/**
 	 * Exercise the token refresh, both it's error state and success
 	 */
+
 	@isTest
 	static void testRefreshToken() {
 		Mercury_Settings_MERC__c settings = new Mercury_Settings_MERC__c();
@@ -47,34 +48,90 @@ private class GLBL_CustomerSearchToolServiceTest {
 	}
 
 	/**
+	 * Initiate a simple search.
+	 * @see GLBL_CustomerSearchToolServiceMock
+	 **/
+	@isTest
+	static void testDoSearch() {
+		String searchId;
+		Test.setMock(HttpCalloutMock.class, mockServices);
+
+		// setup a pretend search id that will be returned by the mock CST service
+		GLBL_CustomerSearchToolService.SearchIdResult searchIdResult = new GLBL_CustomerSearchToolService.SearchIdResult();
+		searchIdResult.search_id = '012345678';
+		String s = JSON.serialize(searchIdResult);
+		mockServices.setBody(s);
+
+		Test.startTest();
+			GLBL_CustomerSearchToolService service = new GLBL_CustomerSearchToolService();
+			searchId = service.doSearch(new GLBL_CustomerSearchToolService.SearchRequest());
+		Test.stopTest();
+
+		// result set should be double our initial participant set size but only half should be selectable
+		System.assertEquals('012345678',searchId,'Unexpected search result size.');
+	}
+
+	/**
 	 * Exercise a simple search.
 	 * @see GLBL_CustomerSearchToolServiceMock
 	 **/
     @isTest
-	static void testSearch() {
+	static void testRetrieveResults() {
 		Test.setMock(HttpCalloutMock.class, mockServices);
-		mockServices.setBody(JSON.serialize(accts));
-
 		GLBL_CustomerSearchToolService service;
-		List<GLBL_CustomerSearchToolService.SearchResult> results;
+
+		// setup a pretend result list to be returned by the mock CST service
+		List<GLBL_CustomerSearchToolService.SearchResult> results = new List<GLBL_CustomerSearchToolService.SearchResult>();
+		System.debug('#### result building loop');
+		for (Integer i = 0; i < TEST_SET_SIZE; i++) {
+			GLBL_CustomerSearchToolService.SearchResult searchResult = new GLBL_CustomerSearchToolService.SearchResult();
+			searchResult.selected = true;
+			searchResult.selectable = true;
+			searchResult.sfid = i + '';
+			searchResult.lastname = 'lastname' ;
+			searchResult.firstname = 'firstname';
+			results.add(searchResult);
+		}
+
+		GLBL_CustomerSearchToolService.FullSearchResult resultWrapper = new GLBL_CustomerSearchToolService.FullSearchResult();
+		resultWrapper.status = 'complete';
+		resultWrapper.result = results;
+		mockServices.setBody(JSON.serialize(resultWrapper));
+		Boolean searching;
 
 		Test.startTest();
-		service = new GLBL_CustomerSearchToolService();
-		results = service.doSearch(new GLBL_CustomerSearchToolService.SearchRequest());
+			service = new GLBL_CustomerSearchToolService();
+			results = service.retrieveResults('012345678');
+			searching = service.searching;
 		Test.stopTest();
 
 		System.assertEquals((TEST_SET_SIZE),results.size(),'Unexpected search result size.');
+		
+		//make sure the service is returning correct state
+		System.assertEquals(false,searching,'Incorrect search state.');
 	}
 
 	/**
 	 * Cycle through various possible errors
 	 **/
+
 	@isTest
 	static void testSearchExceptions() {
 		Test.startTest();
-		testSearchException(400,'BAD REQUEST');
-		testSearchException(401,'NOT AUTHORIZED');
-		testSearchException(999,'UNKNOWN');
+		testDoSearchException(400,'BAD REQUEST');
+		testDoSearchException(401,'NOT AUTHORIZED');
+		testDoSearchException(403,'FORBIDDEN');
+		testDoSearchException(999,'UNKNOWN');
+		Test.stopTest();
+	}
+
+	@isTest
+	static void testRetrieveResultsExceptions() {	
+		Test.startTest();
+		testRetrieveResultsException(400,'BAD REQUEST');
+		testRetrieveResultsException(401,'NOT AUTHORIZED');
+		testRetrieveResultsException(403,'FORBIDDEN');
+		testRetrieveResultsException(999,'UNKNOWN');
 		Test.stopTest();
 	}
 
@@ -84,7 +141,7 @@ private class GLBL_CustomerSearchToolServiceTest {
 	 * @errNum    Integer for HTTP error code
 	 * @errStatus HTTP status string
 	 */
-	static void testSearchException(Integer errNum, String errStatus) {
+	static void testDoSearchException(Integer errNum, String errStatus) {
 		GLBL_CustomerSearchToolService.ErrorResult errOjb = new GLBL_CustomerSearchToolService.ErrorResult();
 		errOjb.Error = 'Hamlet';
 		errOjb.Message = 'Aye, there\'s the rub.';
@@ -92,12 +149,46 @@ private class GLBL_CustomerSearchToolServiceTest {
 		Test.setMock(HttpCalloutMock.class, new GLBL_CustomerSearchToolServiceMock(errNum, errStatus, errResponse, new Map<String, String>{'Content-Type'=>'application/json'}));
 
 		GLBL_CustomerSearchToolService service;
+		String searchId = 'test';
+		Boolean searching;
+
+		service = new GLBL_CustomerSearchToolService();
+		searchId = service.doSearch(new GLBL_CustomerSearchToolService.SearchRequest());
+		searching = service.searching;
+
+		//searchId should return nothing
+		System.assertEquals('',searchId,'Unexpected search result List returned after '+errNum);
+
+		//make sure the service is returning correct state
+		System.assertEquals(false,searching,'Incorrect search state.');
+	}
+
+	/**
+	 * Builds an ErrorResult based on the submitted info, initiates a search, then checks for the null result
+	 *
+	 * @errNum    Integer for HTTP error code
+	 * @errStatus HTTP status string
+	 */
+	static void testRetrieveResultsException(Integer errNum, String errStatus) {
+		GLBL_CustomerSearchToolService.ErrorResult errOjb = new GLBL_CustomerSearchToolService.ErrorResult();
+		errOjb.Error = 'Hamlet';
+		errOjb.Message = 'Aye, there\'s the rub.';
+        String errResponse = JSON.serialize(errOjb);
+		Test.setMock(HttpCalloutMock.class, new GLBL_CustomerSearchToolServiceMock(errNum, errStatus, errResponse, new Map<String, String>{'Content-Type'=>'application/json'}));
+		Boolean searching;
+
+		GLBL_CustomerSearchToolService service;
 		List<GLBL_CustomerSearchToolService.SearchResult> results;
 
 		service = new GLBL_CustomerSearchToolService();
-		results = service.doSearch(new GLBL_CustomerSearchToolService.SearchRequest());
+		results = service.retrieveResults('012345678');
+		searching = service.searching;
 
-		System.assertEquals(null,results,'Unexpected search result List returned after '+errNum);
+		//no results should be added
+		System.assertEquals(0,results.size(),'Unexpected search result List returned after '+errNum);
+
+		//make sure the service is returning correct state
+		System.assertEquals(false,searching,'Incorrect search state.');
 	}
 
 	/**

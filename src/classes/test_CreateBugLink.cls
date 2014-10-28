@@ -25,11 +25,8 @@ private class test_CreateBugLink {
         //insert new records
         list<MICO_Bug__c> newBugs = new List<MICO_Bug__c>();
         user assi = [select id from user where isActive = true limit 1];
-        MICO_Project__c testProj = new MICO_Project__c(name='testProj1');
-        insert testProj;
-        
-        newBugs.add(new MICO_Bug__c(problem__c = 'test1', status__c = 'raised', project2__c = testProj.Id));
-        newBugs.add(new MICO_Bug__c(problem__c = 'test2', status__c = 'raised', project2__c = testProj.Id));
+        newBugs.add(new MICO_Bug__c(problem__c = 'test1', status__c = 'raised'));
+        newBugs.add(new MICO_Bug__c(problem__c = 'test2', status__c = 'raised'));
         insert newBugs;
         MICO_Related_Bug__c link = new MICO_Related_Bug__c(Related_Bug__c=newBugs[0].id, Bug__c=newBugs[1].id);
         insert link;

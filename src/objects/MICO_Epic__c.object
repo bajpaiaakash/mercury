@@ -68,21 +68,6 @@ Used In: Mission Control App</description>
         <visibleLines>25</visibleLines>
     </fields>
     <fields>
-        <fullName>MICO_Project__c</fullName>
-        <description>This field is used to record the Project to which the Epic belongs: Created on 06/24/2014 by Preeti Grover:MICO</description>
-        <externalId>false</externalId>
-        <label>Project</label>
-        <referenceTo>MICO_Project__c</referenceTo>
-        <relationshipLabel>Epics</relationshipLabel>
-        <relationshipName>Epics</relationshipName>
-        <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>MasterDetail</type>
-        <writeRequiresMasterRead>false</writeRequiresMasterRead>
-    </fields>
-    <fields>
         <fullName>Status__c</fullName>
         <externalId>false</externalId>
         <label>Status</label>
@@ -113,13 +98,11 @@ Used In: Mission Control App</description>
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
-        <columns>MICO_Project__c</columns>
         <columns>Epic_Details__c</columns>
         <columns>Status__c</columns>
         <columns>LAST_UPDATE</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
-        <language>en_US</language>
     </listViews>
     <nameField>
         <displayFormat>E-{0000}</displayFormat>
@@ -142,5 +125,5 @@ Used In: Mission Control App</description>
         <searchResultsAdditionalFields>Epic_Details__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ControlledByParent</sharingModel>
+    <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

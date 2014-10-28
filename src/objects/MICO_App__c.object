@@ -54,7 +54,7 @@ MICO</description>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableEnhancedLookup>true</enableEnhancedLookup>
-    <enableFeeds>true</enableFeeds>
+    <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
     <enableSharing>true</enableSharing>
@@ -70,7 +70,6 @@ MICO</description>
         <label>App Code</label>
         <length>4</length>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -88,94 +87,31 @@ MICO</description>
         <referenceTo>User</referenceTo>
         <relationshipName>MICO_Apps2</relationshipName>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Business_Quality__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>The user responsible for this application from a Business Quality perspective
-Created on 06/26/2014 by SMills 
-MICO</description>
+        <fullName>Business_Criticality__c</fullName>
+        <description>This field is used to store the business criticality of the application: Created on 05/08/2014 by Preeti Grover:MICO</description>
         <externalId>false</externalId>
-        <inlineHelpText>The user responsible for this application from a Business Quality perspective</inlineHelpText>
-        <label>Business Quality</label>
-        <referenceTo>User</referenceTo>
-        <relationshipName>Apps</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>true</trackFeedHistory>
-        <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>CMDB_ID__c</fullName>
-        <description>External reference to the Configuration Managment Database application
-Created on 04/29/2014 by SMills 
-MICO</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Configuration Management Database ID</inlineHelpText>
-        <label>CMDB ID</label>
-        <length>100</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Computer_Systems_Quality__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>The user responsible for this application from a Computer Systems Quality perspective
-Created on 06/26/2014 by SMills 
-MICO</description>
-        <externalId>false</externalId>
-        <inlineHelpText>The user responsible for this application from a Computer Systems Quality perspective</inlineHelpText>
-        <label>Computer Systems Quality</label>
-        <referenceTo>User</referenceTo>
-        <relationshipName>MICOApps1</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>true</trackFeedHistory>
-        <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Data_Criticality__c</fullName>
-        <description>The data criticality for the application using the Lilly colour based framework
-Created on 06/26/2014 by SMills 
-MICO</description>
-        <externalId>false</externalId>
-        <inlineHelpText>The criticality of the data captured / used by this application.</inlineHelpText>
-        <label>Data Criticality</label>
+        <label>Business Criticality</label>
         <picklist>
             <picklistValues>
-                <fullName>Not Assessed</fullName>
+                <fullName>High</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Green</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Yellow</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Orange</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Red</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackFeedHistory>true</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -187,132 +123,49 @@ MICO</description>
         <externalId>false</externalId>
         <label>Detailed Description</label>
         <length>32768</length>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Html</type>
         <visibleLines>25</visibleLines>
     </fields>
     <fields>
-        <fullName>GxP__c</fullName>
-        <description>GxP Quality Assessment
-Created on 06/26/2014 by SMills 
-MICO</description>
-        <externalId>false</externalId>
-        <label>GxP</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Not Assessed</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GxP</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Not GxP</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>true</trackFeedHistory>
-        <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>IT_Responsible_Org__c</fullName>
-        <description>The IT organisation responsible for this app
+        <fullName>Org__c</fullName>
+        <description>The org this application is being delivered in
 Created on 04/29/2014 by SMills 
 MICO</description>
         <externalId>false</externalId>
-        <inlineHelpText>The IT organisation responsibe for this application</inlineHelpText>
-        <label>IT Responsible Org</label>
-        <length>100</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>PIC_Status__c</fullName>
-        <description>The stage of the PIC assessment associated with this application
-Created on 06/26/2014 by SMills 
-MICO</description>
-        <externalId>false</externalId>
-        <label>PIC Status</label>
+        <inlineHelpText>In what org is this app being delivered?</inlineHelpText>
+        <label>Org</label>
         <picklist>
             <picklistValues>
-                <fullName>Not Started</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>In Progress</fullName>
+                <fullName>Production: GSO</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Complete</fullName>
+                <fullName>Production: Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sandbox: GSO</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sandbox: Other</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackFeedHistory>true</trackFeedHistory>
-        <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>PIC_URL__c</fullName>
-        <description>The URL for the completed PIC record
-Created on 04/29/2014 by SMills 
-MICO</description>
-        <externalId>false</externalId>
-        <inlineHelpText>The URL for the completed PIC record</inlineHelpText>
-        <label>PIC URL</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Url</type>
-    </fields>
-    <fields>
-        <fullName>Quality_Critical__c</fullName>
-        <description>Stores if this application is quality critical
-Created on 06/26/2014 by SMills 
-MICO</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Is this application Quality Critical</inlineHelpText>
-        <label>Quality Critical</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Not Assessed</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Critical</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Not Critical</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>true</trackFeedHistory>
-        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Risk_Assessment_Notes__c</fullName>
-        <description>This field is used to capture quality and criticality assessment notes: Created on 05/08/2014 by Preeti Grover:MICO</description>
+        <description>This field is used to capture risk assessment notes: Created on 05/08/2014 by Preeti Grover:MICO</description>
         <externalId>false</externalId>
-        <label>Quality &amp; Criticality Notes</label>
+        <label>Risk Assessment Notes</label>
         <length>32768</length>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Html</type>
         <visibleLines>25</visibleLines>
@@ -345,8 +198,7 @@ MICO</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -385,8 +237,7 @@ MICO</description>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackFeedHistory>true</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
@@ -399,45 +250,10 @@ MICO</description>
         <inlineHelpText>High level summary of the app, including users, key functionality etc.</inlineHelpText>
         <label>Summary</label>
         <length>32768</length>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>8</visibleLines>
-    </fields>
-    <fields>
-        <fullName>System_Custodian__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>A point of contact about this application from a technical perspective
-Created on 06/26/2014 by SMills 
-MICO</description>
-        <externalId>false</externalId>
-        <inlineHelpText>The system custodian for this application</inlineHelpText>
-        <label>System Custodian</label>
-        <referenceTo>User</referenceTo>
-        <relationshipName>MICO_Apps3</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>true</trackFeedHistory>
-        <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>System_Owner__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>A first point of contact about this application
-Created on 06/25/2014 by SMills 
-MICO</description>
-        <externalId>false</externalId>
-        <inlineHelpText>The System Owner responsible for this application</inlineHelpText>
-        <label>System Owner</label>
-        <referenceTo>User</referenceTo>
-        <relationshipName>MICO_Apps4</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>true</trackFeedHistory>
-        <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Technical_Contact__c</fullName>
@@ -451,7 +267,6 @@ MICO</description>
         <referenceTo>User</referenceTo>
         <relationshipName>MICO_Apps</relationshipName>
         <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
@@ -464,18 +279,16 @@ MICO</description>
     </listViews>
     <nameField>
         <label>App Name</label>
-        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
     </nameField>
     <pluralLabel>Apps</pluralLabel>
     <searchLayouts>
-        <customTabListAdditionalFields>App_Code__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Summary__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>System_Custodian__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>System_Owner__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>IT_Responsible_Org__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Technical_Contact__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Business_Contact__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Org__c</customTabListAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <startsWith>Vowel</startsWith>

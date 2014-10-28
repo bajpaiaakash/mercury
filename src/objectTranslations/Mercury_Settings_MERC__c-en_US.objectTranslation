@@ -79,6 +79,11 @@
         <name>CST_URL_GLBL__c</name>
     </fields>
     <fields>
+        <help><!-- Initial timeout on the customer search tool when submitting a search. --></help>
+        <label><!-- Initial Search Timeout --></label>
+        <name>Initial_Search_Timeout__c</name>
+    </fields>
+    <fields>
         <help><!-- Determines the prefix of file names sent for processing. Used by the Informatica &amp; SAP integrations. --></help>
         <label><!-- Invoice File Prefix --></label>
         <name>Invoice_File_Prefix_MERC__c</name>
@@ -92,6 +97,11 @@
         <help><!-- Used for custom link on Meeting --></help>
         <label><!-- Meeting Participant Report Id --></label>
         <name>Meeting_Participant_Report_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Subsequent timeout on the customer search tool when submitting a search. --></help>
+        <label><!-- Subsequent Search Timeout --></label>
+        <name>Subsequent_Search_Timeout__c</name>
     </fields>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

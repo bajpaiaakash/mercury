@@ -118,7 +118,7 @@ Used In: Mission Control App</description>
         <externalId>false</externalId>
         <inlineHelpText>This number is the Revision number from the Repository when these changes have been committed</inlineHelpText>
         <label>Revision</label>
-        <length>50</length>
+        <length>7</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>

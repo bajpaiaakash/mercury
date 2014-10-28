@@ -5,18 +5,17 @@
 * 
 *****************************************************************************************************************************************/
 
-public with sharing class KanbanBoardCntrl {
+public class KanbanBoardCntrl {
 
     public MICO_Sprint__c spr {get; set;}
     public list <MICO_User_Story__c> Columns1List{get; set;}
     public list <MICO_User_Story__c> BacklogList{get; set;}
-    public list <MICO_User_Story__c> ReadyforDev{get; set;}
+    public list <MICO_User_Story__c> AwaitingDev{get; set;}
     public list <MICO_User_Story__c> InDev{get; set;}
-    public list <MICO_User_Story__c> ReadyforTestRel{get; set;}
-    public list <MICO_User_Story__c> ReadyforTest{get; set;}
-    public list <MICO_User_Story__c> InTest{get; set;}
-    public list <MICO_User_Story__c> Passed{get; set;}  
-    public list <MICO_User_Story__c> StoryDef{get; set;} 
+    public list <MICO_User_Story__c> AwaitingSAT{get; set;}
+    public list <MICO_User_Story__c> InSAT{get; set;}
+    public list <MICO_User_Story__c> Done{get; set;}
+    public list <MICO_User_Story__c> BPC{get; set;}  
     
     Public List <MICO_User_Story__c> completeUSList;
     Map<String,List<MICO_User_Story__c>> AllocatedSprintUSList ;
@@ -26,13 +25,8 @@ public with sharing class KanbanBoardCntrl {
     public Set <String> sprintNames = new Set<String>();
     public Set <Id> sprintIds = new Set<Id>();
     public List<MICO_Sprint__c> sprintList = new List<MICO_Sprint__c>();
-    
-    public String errorString {get; set;}
        
     public KanbanBoardCntrl(ApexPages.StandardController controller) {
-        errorString = 'START';
-        ApexPages.Message tempMsg = new ApexPages.Message(ApexPages.Severity.ERROR,'initial message');
-        ApexPages.addMessage(tempMsg);
         spr = new MICO_Sprint__c();
         spr = [select Name, id from MICO_Sprint__c where id =: apexpages.currentpage().getparameters().get('Id')];  
         sprintList = [select Name from MICO_Sprint__c where Status__c = 'In Progress'];    
@@ -116,32 +110,33 @@ public with sharing class KanbanBoardCntrl {
     
     
     BacklogList = new list <MICO_User_Story__c>();
-    ReadyforDev = new list <MICO_User_Story__c>();
+    AwaitingDev = new list <MICO_User_Story__c>();
     InDev = new list <MICO_User_Story__c>();
-    ReadyforTestRel = new list <MICO_User_Story__c>();
-    ReadyforTest = new list <MICO_User_Story__c>();
-    InTest = new list <MICO_User_Story__c>();
-    Passed = new list <MICO_User_Story__c>();
-    StoryDef = new list <MICO_User_Story__c>();
+    AwaitingSAT = new list <MICO_User_Story__c>();
+    InSAT = new list <MICO_User_Story__c>();
+    Done = new list <MICO_User_Story__c>();
+    BPC = new list <MICO_User_Story__c>();
     
     // Compose a list per status
     for(MICO_User_Story__c req : TempList2){
         if(req.Development_Stage__c.contains('Backlog'))
             BacklogList.add(req);
-        else if(req.Development_Stage__c.contains('Ready for Development'))
-            ReadyforDev.add(req);
+        else if(req.Development_Stage__c.contains('Awaiting Dev'))
+            AwaitingDev.add(req);
         else if(req.Development_Stage__c.contains('In Dev'))
-            InDev.add(req);
-        else if(req.Development_Stage__c.contains('Ready for Test Release'))
-            ReadyforTestRel.add(req);
-        else if(req.Development_Stage__c.contains('Ready for Test'))
-            ReadyforTest.add(req);
+            Indev.add(req);
+        else if(req.Development_Stage__c.contains('Review'))
+            Indev.add(req);
+        else if(req.Development_Stage__c.contains('Awaiting Release'))
+            Indev.add(req);
+        else if(req.Development_Stage__c.contains('Awaiting SAT'))
+            AwaitingSAT.add(req);
         else if(req.Development_Stage__c.contains('In Test'))
-            InTest.add(req);
-        else if(req.Development_Stage__c.contains('Passed (Complete)'))
-            Passed.add(req);
-        else if(req.Development_Stage__c.contains('Story Definition'))
-            StoryDef.add(req);
+            InSAT.add(req);
+        else if(req.Development_Stage__c.contains('Done'))
+            Done.add(req);
+        else if(req.Development_Stage__c.contains('BPC'))
+            BPC.add(req);
     }
   }
   
@@ -156,45 +151,27 @@ public with sharing class KanbanBoardCntrl {
     
     }  
  
-     public Pagereference updateUserStoriesSprint(){
-         try {
-             String  UpdateSwing     = Apexpages.currentPage().getParameters().get('UpdateSwing');
-             String  userStroyID     = Apexpages.currentPage().getParameters().get('UserStoryID');
-             MICO_User_Story__c req = new MICO_User_Story__c(id=userStroyID);
-             
-             if(UpdateSwing == 'ReadyforDevUS')
-                 req.Development_Stage__c = 'Ready for Development';
-             else if(UpdateSwing == 'InDevUS')
-                 req.Development_Stage__c = 'In Development';
-             else if(UpdateSwing == 'BacklogUS')
-                 req.Development_Stage__c = 'Backlog';
-             else if(UpdateSwing == 'ReadyforTestRelUS')
-                 req.Development_Stage__c = 'Ready for Test Release';
-             else if(UpdateSwing == 'ReadyforTestUS')
-                 req.Development_Stage__c = 'Ready for Test';
-             else if(UpdateSwing == 'InTestUS')
-                 req.Development_Stage__c = 'In Test';
-             else if(UpdateSwing == 'PassedUS')
-                 req.Development_Stage__c = 'Passed (Complete)';
-                  else if(UpdateSwing == 'StoryDefUS')
-                 req.Development_Stage__c = 'Story Definition';
-             update req;
-             errorString = 'OK';
-             return null;
-         }
-         catch(Exception e){
-             System.debug('SUNNY');
-             ApexPages.Message myMsg = new ApexPages.Message(ApexPages.Severity.ERROR,'If other is selected please enter a description');
-             ApexPages.addMessage(myMsg);
-             //return Apexpages.currentPage();
-             errorString = 'NOT ALLOWED';
-             PageReference nextPg = Page.MICO_AccessDenied;
-             //currentPg.setRedirect(true);
-             return nextPg;
-
-         }
-     }
+ public void updateUserStoriesSprint(){
+     String  UpdateSwing     = Apexpages.currentPage().getParameters().get('UpdateSwing');
+     String  userStroyID     = Apexpages.currentPage().getParameters().get('UserStoryID');
+     MICO_User_Story__c req = new MICO_User_Story__c(id=userStroyID);
      
+     if(UpdateSwing == 'AwaitingDevUS')
+         req.Development_Stage__c = '5.3 Sprint Team - Awaiting Development';
+     else if(UpdateSwing == 'InDevUS')
+         req.Development_Stage__c = '5.4 Sprint Team - In Development';
+     else if(UpdateSwing == 'BacklogUS')
+         req.Development_Stage__c = '5.1 Sprint Team - Sprint Backlog';
+     else if(UpdateSwing == 'AwaitingSATUS')
+         req.Development_Stage__c = '5.7. Sprint - Awaiting SAT';
+     else if(UpdateSwing == 'InSATUS')
+         req.Development_Stage__c = '5.8. Sprint - In Test';
+     else if(UpdateSwing == 'DoneUS')
+         req.Development_Stage__c = '5.9. Done';
+          else if(UpdateSwing == 'BPC')
+         req.Development_Stage__c = '5.2 Sprint Team - With BPC';
+     update req;
+     }
      public void addChatterComment(){
         String  chatterComment  = Apexpages.currentPage().getParameters().get('ChatterComment');
         String  userStroyID     = Apexpages.currentPage().getParameters().get('UserStoryID');

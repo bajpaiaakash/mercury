@@ -116,6 +116,7 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Question__c</fields>
         <fields>Decision__c</fields>
         <fields>Next_Steps__c</fields>
         <fields>Source__c</fields>

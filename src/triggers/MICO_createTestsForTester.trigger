@@ -32,7 +32,7 @@ for(MICO_Tester__c t : trigger.new){
     user_story__c = template2story.get(t.Test_Template__c).user_story__c,
     project__c = template2story.get(t.Test_Template__c).user_story__r.Project__c,
     sprint__c = template2story.get(t.Test_Template__c).user_story__r.Allocated_Sprint__c,
-    //OwnerId=t.User__c, 
+    OwnerId=t.User__c, 
     Status__c = 'Not Started',
     Test_Phase__c = t.Test_Phase__c,
     Assigned_To__c = t.User__c));
@@ -42,14 +42,14 @@ for(MICO_Tester__c t : trigger.new){
 id ParId = null;
 List<MICO_Test_Steps__c> toMap = new List<MICO_Test_Steps__c>();
 List<MICO_Test_Steps__c> toMap2 = new List<MICO_Test_Steps__c>();
-for(MICO_Test_Template_Steps__c ts : [select id, Name, Test_Script__c,Test_Script_Step_Number__c from MICO_Test_Template_Steps__c where Test_Script__c in :TempDetails]){
+for(MICO_Test_Template_Steps__c ts : [select id, Name, Test_Script__c from MICO_Test_Template_Steps__c where Test_Script__c in :TempDetails]){
     
     if((ParId ==  ts.Test_Script__c) || (ParId == null)){
-        toMap.add(new MICO_Test_Steps__c(Template_Step__c=ts.id, Name = ts.name,Test_Execution_Step_Number__c=ts.Test_Script_Step_Number__c));
+        toMap.add(new MICO_Test_Steps__c(Template_Step__c=ts.id, Name = ts.name));
     }else{
         TempSteps.put(ParId, new List<MICO_Test_Steps__c>(toMap.deepClone()));
         toMap.clear();
-        toMap.add(new MICO_Test_Steps__c(Template_Step__c=ts.id, Name = ts.name,Test_Execution_Step_Number__c=ts.Test_Script_Step_Number__c));
+        toMap.add(new MICO_Test_Steps__c(Template_Step__c=ts.id, Name = ts.name));
     }
     
     ParId = ts.Test_Script__c;
@@ -73,8 +73,8 @@ for(MICO_Test__c ab : tst){
         tomap2.add(new MICO_Test_Steps__c(
         Test__c = ab.Id,
         Name=x.Name,
-        Template_Step__c = x.Template_Step__c,
-        Test_Execution_Step_Number__c=x.Test_Execution_Step_Number__c
+        Template_Step__c = x.Template_Step__c
+        
         ));
     }
     system.debug(zy);

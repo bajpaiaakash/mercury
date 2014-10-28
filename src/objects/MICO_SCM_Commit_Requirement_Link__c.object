@@ -85,8 +85,8 @@ Used In: Mission Control App</description>
     </fields>
     <label>SCM Commit User Story Link</label>
     <nameField>
-        <displayFormat>SCMU-{000000}</displayFormat>
-        <label>SCM Commit User Story Link Name</label>
+        <displayFormat>SCMR-{000000}</displayFormat>
+        <label>SCM Commit Requirement Link Name</label>
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>SCM Commit User Story Links</pluralLabel>

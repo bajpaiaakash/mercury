@@ -26,7 +26,7 @@
         <relationshipLabel><!-- Decisions &amp; Questions --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Decision or Question --></label>
+        <label><!-- Decision --></label>
         <name>Decision__c</name>
     </fields>
     <fields>
@@ -59,6 +59,10 @@
         <relationshipLabel><!-- Decisions &amp; Questions --></relationshipLabel>
     </fields>
     <fields>
+        <label><!-- Question --></label>
+        <name>Question__c</name>
+    </fields>
+    <fields>
         <label><!-- User Story --></label>
         <name>Requirement__c</name>
         <relationshipLabel><!-- Decisions &amp; Questions --></relationshipLabel>
@@ -77,16 +81,28 @@
         <label><!-- Status --></label>
         <name>Status__c</name>
         <picklistValues>
-            <masterLabel>Cancelled</masterLabel>
-            <translation><!-- Cancelled --></translation>
+            <masterLabel>Closed</masterLabel>
+            <translation><!-- Closed --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Decision Made</masterLabel>
             <translation><!-- Decision Made --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>In Discussion</masterLabel>
-            <translation><!-- In Discussion --></translation>
+            <masterLabel>Draft</masterLabel>
+            <translation><!-- Draft --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation><!-- In Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On Hold</masterLabel>
+            <translation><!-- On Hold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending Acceptance</masterLabel>
+            <translation><!-- Pending Acceptance --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Question Answered</masterLabel>
@@ -95,6 +111,18 @@
         <picklistValues>
             <masterLabel>Question Raised</masterLabel>
             <translation><!-- Question Raised --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ready for Review</masterLabel>
+            <translation><!-- Ready for Review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Resolved</masterLabel>
+            <translation><!-- Resolved --></translation>
         </picklistValues>
     </fields>
     <fields>

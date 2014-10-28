@@ -149,7 +149,7 @@
 		function confirmComplete()
 		{
 			return confirm('Marking a record as complete will delete all related objects for the losing account.'
-						  +'\n\nYou will be unable to manage this record on this screen even if records are undeleted in the recylce bin.'
+						  +'\n\nIf you continue, you will be unable to manage the merging of this record, even if the deleted records are undeleted from the recycle bin.'
 				          +'\n\nAre you sure?');
 		}
 

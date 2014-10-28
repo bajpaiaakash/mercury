@@ -5,7 +5,6 @@
 
 This version includes all end to end project and programme management features.</description>
     <label>Mission Control</label>
-    <logo>Logo_s_Images/Lilly_Mission_Control_Logo.png</logo>
     <tab>standard-Chatter</tab>
     <tab>MICO_Project__c</tab>
     <tab>MICO_Meeting__c</tab>

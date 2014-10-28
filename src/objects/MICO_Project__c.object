@@ -58,50 +58,32 @@ Used In: Mission Control App</description>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
-        <fullName>App__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>The user responsible for this application from a Business Quality perspective 
-
-The application this project is related to
-Created on 06/26/2014 by SMills 
-MICO</description>
-        <externalId>false</externalId>
-        <label>App</label>
-        <referenceTo>MICO_App__c</referenceTo>
-        <relationshipName>MICOProjects</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>Benefit_Drivers__c</fullName>
         <externalId>false</externalId>
         <label>Benefit Drivers</label>
         <picklist>
             <picklistValues>
-                <fullName>Collaborative Productivity</fullName>
+                <fullName>Cost Reduction</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Compliance/Risk Mitigation</fullName>
+                <fullName>Time Efficiency</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Cost Savings/Avoidance</fullName>
+                <fullName>Licence Utilisation</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Operational Efficiency</fullName>
+                <fullName>Reason A</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Revenue Generation</fullName>
+                <fullName>Reason B</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Speed Innovation/Pipeline</fullName>
+                <fullName>Reason C</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -113,64 +95,9 @@ MICO</description>
         <visibleLines>8</visibleLines>
     </fields>
     <fields>
-        <fullName>Checkpoint_1__c</fullName>
-        <externalId>false</externalId>
-        <label>Checkpoint 1</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Pending</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Checkpoint_2__c</fullName>
-        <externalId>false</externalId>
-        <label>Checkpoint 2</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Pending</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Cirrus_POC__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>To capture Cirrus Point of Contact for the Project: Created by Preeti Grover on 14/08/2014: MICO</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Cirrus Point of Contact for the Project.</inlineHelpText>
-        <label>Cirrus POC</label>
-        <referenceTo>User</referenceTo>
-        <relationshipName>Projects1</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>Days_Remaining__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(End_Date__c - TODAY() &gt; 0, End_Date__c - TODAY(), 0)</formula>
+        <formula>End_Date__c - TODAY()</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Days Remaining</label>
         <precision>18</precision>
@@ -179,20 +106,6 @@ MICO</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Delivery_Partner__c</fullName>
-        <description>Text field to capture the Delivery partner information: Created on 06/26/2014 by Preeti Grover:MICO</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Record name of the delivery partner for this project</inlineHelpText>
-        <label>Delivery Partner</label>
-        <length>50</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -229,291 +142,6 @@ MICO</description>
         <visibleLines>10</visibleLines>
     </fields>
     <fields>
-        <fullName>MICO_Anticipated_Start_Date__c</fullName>
-        <description>Field to capture the tentative start date for Projects: Created on 06/26/2014 by Preeti Grover: MICO</description>
-        <externalId>false</externalId>
-        <label>Anticipated Start Date</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>MICO_Build_Effort__c</fullName>
-        <description>Build effort to capture the indicative amount of effort required for the Project: Created on 06/26/2014 by Preeti Grover: MICO</description>
-        <externalId>false</externalId>
-        <label>Build Effort</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>High</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>MICO_Cirrus_Stage__c</fullName>
-        <externalId>false</externalId>
-        <label>Cirrus Stage</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Ideation</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Assessment</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sprint 0</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sprinting</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Final deployment</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Care</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Support</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>MICO_Development_Track__c</fullName>
-        <description>Picklist field to capture the development track information: Created on 06/26/2014 by Preeti Grover: MICO</description>
-        <externalId>false</externalId>
-        <label>Development Track</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>High</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Citizen</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Support</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>MICO_Project_Owner__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>This field will be used to capture the Project Owner name: Created on 06/26/2014 by Preeti Grover: MICO</description>
-        <externalId>false</externalId>
-        <label>Project Owner</label>
-        <referenceTo>User</referenceTo>
-        <relationshipName>Projects</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>MICO_Project_Size__c</fullName>
-        <description>This field will be used to capture the size of the project in terms of duration: Created on 06/26/2014 by Preeti Grover: MICO</description>
-        <externalId>false</externalId>
-        <label>Project Size</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Less than 1 month</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Less than 2 months</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Between 2 and 6 months</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Greater than 6 months</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>MICO_Quality_Critical__c</fullName>
-        <description>Picklist field used to capture criticality of Projects: Created on 06/26/2014 by Preeti Grover: MICO</description>
-        <externalId>false</externalId>
-        <label>Quality Critical</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Critical</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Non-Critical</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>MICO_Rejection_Reason__c</fullName>
-        <description>Free text field to capture the rejection reason (if any) for Projects: Created on 06/26/2014 by Preeti Grover:MICO</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Free text field to capture the rejection reason (if any) for the Project</inlineHelpText>
-        <label>Rejection Reason</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>TextArea</type>
-    </fields>
-    <fields>
-        <fullName>MICO_Status__c</fullName>
-        <description>Picklist field to capture the status of the Project: Created on 06/26/2014 by Preeti Grover: MICO</description>
-        <externalId>false</externalId>
-        <label>Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Draft</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Ready for review</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>In review</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Deferred</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Complete</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>MICO_WIP_Reference_Number__c</fullName>
-        <description>This field will be used to store the WIP reference on Project object: Created on 06/26/2014 by Preeti Grover:MICO</description>
-        <externalId>false</externalId>
-        <label>WIP Reference Number</label>
-        <length>10</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>MICO_WIP_URL__c</fullName>
-        <description>Field to capture the hyperlink to associated WIP record: Created on 06/26/2014 by Preeti Grover:MICO</description>
-        <externalId>false</externalId>
-        <label>WIP URL</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Url</type>
-    </fields>
-    <fields>
-        <fullName>No_of_completed_Test_Execution__c</fullName>
-        <externalId>false</externalId>
-        <label>No of completed Test Execution</label>
-        <summaryFilterItems>
-            <field>MICO_Test__c.Status__c</field>
-            <operation>equals</operation>
-            <value>Complete</value>
-        </summaryFilterItems>
-        <summaryForeignKey>MICO_Test__c.Project__c</summaryForeignKey>
-        <summaryOperation>count</summaryOperation>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Summary</type>
-    </fields>
-    <fields>
-        <fullName>Number_of_test_executed__c</fullName>
-        <externalId>false</externalId>
-        <formula>(No_of_completed_Test_Execution__c  /  Total_Test_Execution__c )</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Number of test executed</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Percent</type>
-    </fields>
-    <fields>
-        <fullName>Number_of_test_to_be_executed__c</fullName>
-        <externalId>false</externalId>
-        <label>Number of test to be executed</label>
-        <summaryFilterItems>
-            <field>MICO_Test__c.Status__c</field>
-            <operation>equals</operation>
-            <value>Not Started</value>
-        </summaryFilterItems>
-        <summaryForeignKey>MICO_Test__c.Project__c</summaryForeignKey>
-        <summaryOperation>count</summaryOperation>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Summary</type>
-    </fields>
-    <fields>
         <fullName>Prioritisation_Score__c</fullName>
         <externalId>false</externalId>
         <label>Prioritisation Score</label>
@@ -527,18 +155,6 @@ MICO</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Project_CR_Reference__c</fullName>
-        <externalId>false</externalId>
-        <label>Project CR Reference</label>
-        <length>80</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Project_Description__c</fullName>
         <externalId>false</externalId>
         <label>Project Description</label>
@@ -548,18 +164,6 @@ MICO</description>
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>5</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Project_Owner__c</fullName>
-        <externalId>false</externalId>
-        <formula>HYPERLINK(&quot;/&quot;&amp;OwnerId , Owner:User.FirstName + &apos; &apos;+ Owner:User.LastName,&quot;_self&quot;)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Project Owner</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Realised_Benefits_Statement__c</fullName>
@@ -582,28 +186,16 @@ MICO</description>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
-    <fields>
-        <fullName>Total_Test_Execution__c</fullName>
-        <externalId>false</externalId>
-        <label>Total Test Execution</label>
-        <summaryForeignKey>MICO_Test__c.Project__c</summaryForeignKey>
-        <summaryOperation>count</summaryOperation>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Summary</type>
-    </fields>
-    <label>Project</label>
+    <label>Project mico</label>
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
-        <columns>Project_Description__c</columns>
         <columns>Start_Date__c</columns>
         <columns>End_Date__c</columns>
         <columns>Days_Remaining__c</columns>
         <columns>OWNER.ALIAS</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
-        <language>en_US</language>
     </listViews>
     <nameField>
         <label>Project Name</label>
@@ -613,74 +205,19 @@ MICO</description>
     </nameField>
     <pluralLabel>Projects</pluralLabel>
     <searchLayouts>
-        <customTabListAdditionalFields>Project_Description__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Start_Date__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>End_Date__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Days_Remaining__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>MICO_Project_Owner__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>MICO_Status__c</customTabListAdditionalFields>
         <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
         <excludedStandardButtons>Accept</excludedStandardButtons>
-        <lookupDialogsAdditionalFields>Project_Description__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Start_Date__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>End_Date__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Days_Remaining__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>MICO_Project_Owner__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>MICO_Status__c</lookupDialogsAdditionalFields>
-        <lookupFilterFields>NAME</lookupFilterFields>
-        <lookupPhoneDialogsAdditionalFields>Project_Description__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Start_Date__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>End_Date__c</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>Days_Remaining__c</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>MICO_Project_Owner__c</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>MICO_Status__c</lookupPhoneDialogsAdditionalFields>
         <searchFilterFields>NAME</searchFilterFields>
         <searchFilterFields>Start_Date__c</searchFilterFields>
         <searchFilterFields>End_Date__c</searchFilterFields>
-        <searchFilterFields>Days_Remaining__c</searchFilterFields>
-        <searchFilterFields>MICO_Project_Owner__c</searchFilterFields>
-        <searchFilterFields>MICO_Status__c</searchFilterFields>
-        <searchResultsAdditionalFields>Project_Description__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Start_Date__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>End_Date__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Days_Remaining__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>MICO_Project_Owner__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>MICO_Status__c</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>Read</sharingModel>
-    <webLinks>
-        <fullName>Change_Owner</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>Change Owner</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/24.0/connection.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/24.0/apex.js&quot;)} 
-
- var userId =&apos;{!$User.Id}&apos;;
-
-result = sforce.connection.query(&quot;select Id,Assignee.Id, Assignee.Name,PermissionSet.Name from PermissionSetAssignment where Assignee.Id = &apos;{!$User.Id}&apos; AND PermissionSet.Name = &apos;MICO_ADMIN&apos; &quot;);
-
-
-records = result.getArray(&quot;records&quot;);
-
-
- if(records.length==0)
-  {
-     alert(&quot;You are not authorized to change the Owner. Please contact your Administrator for changing the Owner&quot;);
-  }
- else
-  {
-    // alert(&quot;Hi,You are Authorized to Change the Owner!&quot;);
-     var projectID12=&apos;{!MICO_Project__c.Id}&apos;;
-
-     window.location.href=&apos;/&apos;+projectID12+&apos;/a?retURL=%2F&apos;+projectID12,&apos;name&apos;; 
-
-
-  
-
-}</url>
-    </webLinks>
+    <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

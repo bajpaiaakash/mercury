@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customButtons>Change_Owner</customButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -16,92 +15,54 @@
                 <behavior>Edit</behavior>
                 <field>Project_Description__c</field>
             </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>App__c</field>
+                <field>OwnerId</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Days_Remaining__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <style>TwoColumnsTopToBottom</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>true</editHeading>
+        <label>Expected Benefits &amp; Prioritisation</label>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Benefit_Drivers__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Prioritisation_Score__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Project_CR_Reference__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>MICO_Status__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>MICO_Rejection_Reason__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Project_Owner__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Delivery_Partner__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <style>TwoColumnsTopToBottom</style>
-    </layoutSections>
-    <layoutSections>
-        <customLabel>true</customLabel>
-        <detailHeading>true</detailHeading>
-        <editHeading>true</editHeading>
-        <label>Cirrus Stages</label>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Checkpoint_1__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Checkpoint_2__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>MICO_Cirrus_Stage__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Cirrus_POC__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <style>TwoColumnsTopToBottom</style>
-    </layoutSections>
-    <layoutSections>
-        <customLabel>true</customLabel>
-        <detailHeading>true</detailHeading>
-        <editHeading>true</editHeading>
-        <label>Assessment &amp; Categorisation</label>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>MICO_Build_Effort__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>MICO_Project_Size__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>MICO_Development_Track__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>MICO_Quality_Critical__c</field>
+                <field>Estimated_Net_Benefit__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>false</detailHeading>
+        <editHeading>false</editHeading>
+        <label>Description</label>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Expected_Benefit_statement__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <style>OneColumn</style>
     </layoutSections>
     <layoutSections>
         <customLabel>true</customLabel>
@@ -111,18 +72,10 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>MICO_Anticipated_Start_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Days_Remaining__c</field>
+                <field>Start_Date__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Start_Date__c</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>End_Date__c</field>
@@ -134,47 +87,14 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>WIP Information</label>
+        <label>Post Project Evaluation</label>
         <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>MICO_WIP_Reference_Number__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>MICO_WIP_URL__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <style>TwoColumnsLeftToRight</style>
-    </layoutSections>
-    <layoutSections>
-        <customLabel>true</customLabel>
-        <detailHeading>true</detailHeading>
-        <editHeading>true</editHeading>
-        <label>Benefits</label>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Benefit_Drivers__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Expected_Benefit_statement__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Estimated_Net_Benefit__c</field>
-            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Realised_Benefits_Statement__c</field>
             </layoutItems>
         </layoutColumns>
-        <style>TwoColumnsLeftToRight</style>
+        <style>OneColumn</style>
     </layoutSections>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -207,6 +127,7 @@
     </layoutSections>
     <miniLayout>
         <fields>Name</fields>
+        <fields>OwnerId</fields>
         <fields>Days_Remaining__c</fields>
         <fields>End_Date__c</fields>
     </miniLayout>
@@ -235,11 +156,8 @@
     </quickActionList>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Type__c</fields>
-        <fields>Title__c</fields>
         <fields>Date_Raised__c</fields>
-        <fields>Weighting__c</fields>
-        <fields>Risk_Level_Icon__c</fields>
+        <fields>Title__c</fields>
         <fields>Status__c</fields>
         <relatedList>MICO_Risks_Issues__c.Project__c</relatedList>
         <sortField>NAME</sortField>
@@ -247,9 +165,8 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Question__c</fields>
         <fields>Decision__c</fields>
-        <fields>Next_Steps__c</fields>
-        <fields>Source__c</fields>
         <fields>Status__c</fields>
         <relatedList>MICO_Decision_Question__c.Project__c</relatedList>
         <sortField>NAME</sortField>
@@ -257,69 +174,32 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Purpose__c</fields>
-        <fields>Type__c</fields>
         <fields>Start__c</fields>
-        <fields>Location__c</fields>
+        <fields>End__c</fields>
         <relatedList>MICO_Meeting__c.Project__c</relatedList>
         <sortField>Start__c</sortField>
         <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Objective__c</fields>
+        <fields>Status__c</fields>
         <fields>Start_Date__c</fields>
         <fields>End_Date__c</fields>
-        <fields>Status__c</fields>
         <relatedList>MICO_Sprint__c.Project__c</relatedList>
         <sortField>NAME</sortField>
         <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Epic_Details__c</fields>
-        <fields>Status__c</fields>
-        <relatedList>MICO_Epic__c.MICO_Project__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>Parent_Epic__c</fields>
-        <fields>As_A_text__c</fields>
+        <fields>Functional_Area__c</fields>
+        <fields>Sub_Process__c</fields>
+        <fields>As_A__c</fields>
         <fields>I_Want_To__c</fields>
         <fields>So_that__c</fields>
-        <fields>Story_Points_Total__c</fields>
         <fields>Development_Stage__c</fields>
         <relatedList>MICO_User_Story__c.Project__c</relatedList>
         <sortField>NAME</sortField>
         <sortOrder>Desc</sortOrder>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>Overview__c</fields>
-        <fields>Complexity__c</fields>
-        <fields>CREATED_DATE</fields>
-        <fields>CREATEDBY_USER.ALIAS</fields>
-        <relatedList>MICO_Design__c.Project__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>Problem__c</fields>
-        <fields>BusinessImpact__c</fields>
-        <fields>Logged_By__c</fields>
-        <fields>Defect_Developer__c</fields>
-        <fields>Tester__c</fields>
-        <fields>Planned_Release__c</fields>
-        <fields>Status__c</fields>
-        <relatedList>MICO_Bug__c.Project2__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>TASK.SUBJECT</fields>
-        <fields>ACT_Ref__c</fields>
-        <fields>TASK.DUE_DATE</fields>
-        <fields>TASK.PRIORITY</fields>
-        <fields>TASK.STATUS</fields>
-        <fields>CORE.USERS.FULL_NAME</fields>
-        <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedNoteList</relatedList>
@@ -333,7 +213,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hb0000000MLtM</masterLabel>
+        <masterLabel>00h11000000IyKH</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

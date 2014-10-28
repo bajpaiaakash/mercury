@@ -82,6 +82,6 @@ public abstract with sharing class GLBL_SObjectSelector
 	public void assertIsAccessible()
 	{
     	if(!getSObjectType().getDescribe().isAccessible())
-    	   throw new GLBL_SObjectDomain.DomainException('Permission to access an ' + getSObjectType().getDescribe().getName() + ' dennied.');		
+    	   throw new GLBL_SObjectDomain.DomainException('Permission to access an ' + getSObjectType().getDescribe().getName() + ' denied.');		
 	}
 }

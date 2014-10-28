@@ -450,10 +450,6 @@
     </recordTypes>
     <startsWith>Vowel</startsWith>
     <validationRules>
-        <errorMessage><!-- The Cost Center must be seven digits long. --></errorMessage>
-        <name>MERC_Cost_Center_completed</name>
-    </validationRules>
-    <validationRules>
         <errorMessage><!-- The Internal Order Number must be six digits long. --></errorMessage>
         <name>MERC_Internal_Order_Number_Completed</name>
     </validationRules>

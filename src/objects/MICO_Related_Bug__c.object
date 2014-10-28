@@ -75,7 +75,7 @@ Used In: Mission Control App</description>
         <externalId>false</externalId>
         <formula>text(Related_Bug__r.Status__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Related Defect Status</label>
+        <label>Related Bug Status</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -87,7 +87,7 @@ Used In: Mission Control App</description>
         <formula>Related_Bug__r.Problem__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <inlineHelpText>The summary of the related bug</inlineHelpText>
-        <label>Related Defect Summary</label>
+        <label>Related Bug Summary</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -99,7 +99,7 @@ Used In: Mission Control App</description>
         <externalId>false</externalId>
         <label>Related Defect</label>
         <referenceTo>MICO_Bug__c</referenceTo>
-        <relationshipLabel>Related Defects (Inverse)</relationshipLabel>
+        <relationshipLabel>Related Defects (Defect)</relationshipLabel>
         <relationshipName>MICO_Related_Defects1</relationshipName>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -108,7 +108,7 @@ Used In: Mission Control App</description>
     <label>Related Defect</label>
     <nameField>
         <displayFormat>BugRel-{00000}</displayFormat>
-        <label>Related Defect Ref</label>
+        <label>Related Bug Name</label>
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Related Defects</pluralLabel>

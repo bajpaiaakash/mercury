@@ -59,11 +59,12 @@ Used In: Mission Control App</description>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
         <fullName>Acceptance_Criteria__c</fullName>
-        <description>The Acceptance Criteria for this user story
-Created on 01/07/2014 by SMills 
-MICO</description>
         <externalId>false</externalId>
-        <inlineHelpText>Acceptance Criteria are the specific, testable and complete needs of this user story. They may follow a structure such as &quot;Given When Then&quot; or list out specific attributes and fields as needed. The Acceptance Criteria are used by developers and testers</inlineHelpText>
+        <inlineHelpText>Basis for business sign off. Needs to be specific, testable and complete.
+For example: 
+The search functionality must cover my entire territory 
+The search must be case-sensitive 
+(*) should allow open-ended search, or cover for missing letters</inlineHelpText>
         <label>Acceptance Criteria</label>
         <length>32000</length>
         <trackFeedHistory>true</trackFeedHistory>
@@ -75,14 +76,10 @@ MICO</description>
     <fields>
         <fullName>Allocated_Sprint__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
-        <description>The sprint this story has been allocated to. Used for sprint planning and in the burndown
-Created on 04/07/2014 by SMills 
-MICO</description>
         <externalId>false</externalId>
-        <inlineHelpText>The sprint that this story has been committed to</inlineHelpText>
         <label>Allocated Sprint</label>
         <referenceTo>MICO_Sprint__c</referenceTo>
-        <relationshipLabel>Allocated User Stories</relationshipLabel>
+        <relationshipLabel>User Stories (Allocated Sprint)</relationshipLabel>
         <relationshipName>MICO_Allocated_User_Stories</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -93,11 +90,9 @@ MICO</description>
     <fields>
         <fullName>App__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
-        <description>The application this user story will enhance
-Created on 01/07/2014 by SMills 
-MICO</description>
+        <description>The app this user story relates to</description>
         <externalId>false</externalId>
-        <inlineHelpText>The app or application this user story relates to</inlineHelpText>
+        <inlineHelpText>The app this user story relates to</inlineHelpText>
         <label>App</label>
         <referenceTo>MICO_App__c</referenceTo>
         <relationshipLabel>User Stories</relationshipLabel>
@@ -109,40 +104,11 @@ MICO</description>
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Approval_Status__c</fullName>
-        <description>This field is used to capture the status of the approval process in User stories: Created on 06/11/2014 by Preeti Grover:MICO</description>
-        <externalId>false</externalId>
-        <label>Approval Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Open</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Pending Approval</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>true</trackFeedHistory>
-        <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>As_A__c</fullName>
         <description>Used to define the core role using the piece of functionality described by the user story</description>
         <externalId>false</externalId>
         <inlineHelpText>The main user type(s) that this story is for.</inlineHelpText>
-        <label>(Deprecated) As a...</label>
+        <label>As a...</label>
         <picklist>
             <picklistValues>
                 <fullName>Any User</fullName>
@@ -191,58 +157,14 @@ MICO</description>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>true</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
         <visibleLines>10</visibleLines>
     </fields>
     <fields>
-        <fullName>As_A_text__c</fullName>
-        <description>The type of user(s) this story provides functionality for
-Created on 01/07/2014 by SMills 
-MICO</description>
-        <externalId>false</externalId>
-        <inlineHelpText>The type of user(s) this story is about. Please ensure consistency with your app user groups</inlineHelpText>
-        <label>As A...</label>
-        <length>200</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>BQ_Approval_Status__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF( MICO_Business_Quality_Approved__c = TRUE, &quot;Approved&quot;, &quot;&quot;)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>BQ Approval Status</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>CSQ_Approval_Status__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF( MICO_Computer_Systems_Quality_Approved__c = TRUE, &quot;Approved&quot;, &quot;&quot;)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>CSQ Approval Status</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Cancellation_Reason__c</fullName>
-        <description>The reason a user story has been cancelled
-Created on 01/07/2014 by SMills 
-MICO</description>
         <externalId>false</externalId>
-        <inlineHelpText>The reason this User Story is no longer being considered as valid. This should only be used if the User Story Status has been set to Cancelled</inlineHelpText>
         <label>Cancellation Reason</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -251,30 +173,11 @@ MICO</description>
         <type>TextArea</type>
     </fields>
     <fields>
-        <fullName>Cirrus_Release__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>The Cirrus release this story will be put in to.
-Created on 01/07/2014 by SMills 
-MICO</description>
-        <externalId>false</externalId>
-        <inlineHelpText>The Cirrus release this story will be put in to</inlineHelpText>
-        <label>Cirrus Release</label>
-        <referenceTo>MICO_Release__c</referenceTo>
-        <relationshipLabel>User Stories (Cirrus Release)</relationshipLabel>
-        <relationshipName>MICO_Cirrus_User_Stories</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>Close_Date__c</fullName>
-        <description>Date the user story was Done. Driven by workflow from the status field. Used in reporting
-Created on 01/07/2014 by SMills 
-MICO</description>
         <externalId>false</externalId>
-        <inlineHelpText>The date a User Story was completed. This is populated automatically when the USer Story Status is set to Passed (Complete)</inlineHelpText>
+        <inlineHelpText>Record the data a user story is closed (Passed Complete)
+Is populated automatically by workflow.
+Is used in the report Points Closed Today</inlineHelpText>
         <label>Close Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -289,17 +192,16 @@ MICO</description>
         <label>Compliance Approved Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Compliance_Criteria__c</fullName>
-        <description>Compliance / Quality Notes
-Created on 01/07/2014 by SMills 
-MICO</description>
         <externalId>false</externalId>
-        <inlineHelpText>Legal, regulatory or compliance related requirements and observations</inlineHelpText>
+        <inlineHelpText>Please enter any legal, regulatory or compliance related requirements
+For example:
+When disbursing a sample, you must specify a Sample Lot Number. This sample lot number cannot be edited after the call is saved.</inlineHelpText>
         <label>Compliance Criteria</label>
         <length>32768</length>
         <trackFeedHistory>true</trackFeedHistory>
@@ -311,12 +213,9 @@ MICO</description>
     <fields>
         <fullName>Compliance_Owner__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
-        <description>The Business Quality user responsible for this User Story
-Created on 01/07/2014 by SMills 
-MICO</description>
         <externalId>false</externalId>
-        <inlineHelpText>The Business Quality user responsible for this User Story</inlineHelpText>
-        <label>Business Quality</label>
+        <inlineHelpText>The Compliance or Quality officer signing off this user story</inlineHelpText>
+        <label>Compliance Owner</label>
         <referenceTo>User</referenceTo>
         <relationshipName>MICO_User_Stories1</relationshipName>
         <required>false</required>
@@ -326,56 +225,9 @@ MICO</description>
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Computer_Systems_Quality__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>The Computer Systems Quality User responsible for this User Story
-Created on 01/07/2014 by SMills 
-MICO</description>
-        <externalId>false</externalId>
-        <inlineHelpText>The Computer Systems Quality User responsible for this User Story</inlineHelpText>
-        <label>Computer Systems Quality</label>
-        <referenceTo>User</referenceTo>
-        <relationshipName>MICO_User_Stories5</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Critical__c</fullName>
-        <description>This field is used to capture the criticality information: Created on 06/11/2014 by Preeti Grover:MICO</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Is this User Story considered Quality Critical</inlineHelpText>
-        <label>Quality Critical</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Not Assessed</fullName>
-                <default>true</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>Developer__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
-        <description>The Computer Systems Quality User responsible for this User Story
-Created on 01/07/2014 by SMills 
-MICO</description>
         <externalId>false</externalId>
-        <inlineHelpText>The primary Developer responsible for developing this User Story</inlineHelpText>
         <label>Developer</label>
         <referenceTo>User</referenceTo>
         <relationshipName>MICO_User_Stories</relationshipName>
@@ -387,66 +239,96 @@ MICO</description>
     </fields>
     <fields>
         <fullName>Development_Stage__c</fullName>
-        <description>User story status. This drives burndown, kanban and reporting
-Created on 01/07/2014 by SMills 
-MICO</description>
         <externalId>false</externalId>
-        <inlineHelpText>The stage this User Story is at in the Sprint lifecycle. User Stories are &quot;burned&quot; in the Sprint Dashboard when they are set to &quot;Passed (Complete)&quot;</inlineHelpText>
         <label>Status</label>
         <picklist>
             <picklistValues>
-                <fullName>Cancelled</fullName>
-                <color>#663333</color>
+                <fullName>1. Backlog - Draft</fullName>
+                <color>#0B6FCE</color>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Backlog</fullName>
-                <color>#999999</color>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Story Definition</fullName>
-                <color>#FF6666</color>
+                <fullName>2. Backlog - Awaiting estimation</fullName>
+                <color>#FF0000</color>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Ready for Development</fullName>
-                <color>#FFCC66</color>
+                <fullName>3. Backlog - Awaiting ordering</fullName>
+                <color>#333333</color>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>In Development</fullName>
-                <color>#FFCC33</color>
+                <fullName>4. Backlog - Awaiting Sprint Assignment</fullName>
+                <color>#DDDDDD</color>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Ready for Test Release</fullName>
-                <color>#66FF99</color>
+                <fullName>5.1 Sprint Team - Sprint Backlog</fullName>
+                <color>#A845DC</color>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Ready for Test</fullName>
-                <color>#78C953</color>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>In Test</fullName>
-                <color>#33CC00</color>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Passed (Complete)</fullName>
-                <color>#009900</color>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Production - Ready for Release</fullName>
+                <fullName>5.2 Sprint Team - With BPC</fullName>
                 <color>#66E9BD</color>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Production - Released</fullName>
-                <color>#006600</color>
+                <fullName>5.3 Sprint Team - Awaiting Development</fullName>
+                <color>#2F5D85</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5.4 Sprint Team - In Development</fullName>
+                <color>#EFAE73</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5.5. Sprint - Awaiting review</fullName>
+                <color>#33CCFF</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5.6. Sprint - Awaiting Release to SAT</fullName>
+                <color>#FF9900</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5.7. Sprint - Awaiting SAT</fullName>
+                <color>#F3D904</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5.8. Sprint - In Test</fullName>
+                <color>#F96FB7</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5.9. Done</fullName>
+                <color>#33CC00</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>6. UAT - Awaiting testing</fullName>
+                <color>#8F6429</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>7. UAT – In Test</fullName>
+                <color>#8F6429</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>8. Production – Ready for Release</fullName>
+                <color>#CC6600</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>9. Production – Released</fullName>
+                <color>#CC6600</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>99. Cancelled</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -457,26 +339,25 @@ MICO</description>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>External_Reference__c</fullName>
-        <externalId>true</externalId>
-        <inlineHelpText>An external reference that can be used to identify this User Story in another system</inlineHelpText>
-        <label>External Reference</label>
-        <length>200</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Full_User_Story__c</fullName>
-        <description>Combines the three fields As A. I Want To. So That
-Created on 01/07/2014 by SMills 
-MICO</description>
         <externalId>false</externalId>
-        <formula>&quot;As a &quot; &amp;  As_A_text__c  &amp;&quot; I want to &quot; &amp;  I_Want_To__c &amp; &quot; so that &quot; &amp; So_that__c</formula>
-        <inlineHelpText>The Complete User Story in the format &quot;As a... I want to... So That...&quot;</inlineHelpText>
+        <formula>&quot;As a &quot; &amp;  IF(INCLUDES( As_A__c , &quot;Any User&quot;), &quot;Any User &quot;, NULL)  + BR() + 
+IF(INCLUDES( As_A__c , &quot;Booking Agent&quot;), &quot;Booking Agent User &quot; + BR() , NULL) + 
+IF(INCLUDES( As_A__c , &quot;Business Administration&quot;), &quot;Business Administration User &quot; + BR() , NULL) +
+IF(INCLUDES( As_A__c , &quot;Chatter Only&quot;), &quot;Chatter Only User &quot; + BR(), NULL)  +
+IF(INCLUDES( As_A__c , &quot;Commercial&quot;), &quot;Commercial User &quot;  + BR() , NULL) +
+IF(INCLUDES( As_A__c , &quot;Compliance&quot;), &quot;Compliance User &quot; + BR(), NULL)  +
+IF(INCLUDES( As_A__c , &quot;Events&quot;), &quot;Events User &quot; + BR() , NULL) +
+IF(INCLUDES( As_A__c , &quot;Executive &amp; Report Only&quot;), &quot;Executive &amp; Report Only User &quot; + BR(), NULL)  +
+IF(INCLUDES( As_A__c , &quot;Market Access&quot;), &quot;Market Access User &quot; + BR(), NULL)  +
+IF(INCLUDES( As_A__c , &quot;Marketing&quot;), &quot;Marketing User &quot; + BR(), NULL)  +
+IF(INCLUDES( As_A__c , &quot;Medical&quot;), &quot;Medical User &quot; + BR(), NULL)  +
+IF(INCLUDES( As_A__c , &quot;Medical Info&quot;), &quot;Medical Info User &quot; + BR(), NULL)  +
+IF(INCLUDES( As_A__c , &quot;Sales&quot;), &quot;Sales User &quot; + BR(), NULL)  +
+IF(INCLUDES( As_A__c , &quot;Service Management&quot;), &quot;Service Management User &quot; + BR(), NULL)  +
+IF(INCLUDES( As_A__c , &quot;Support Administration&quot;), &quot;Support Administration User &quot; + BR(), NULL)  +
+IF(INCLUDES( As_A__c, &quot;System Administration&quot;), &quot;System Administration User &quot;, NULL) 
+&amp;&quot; I want to &quot; &amp;  I_Want_To__c &amp; &quot; So That &quot; &amp; So_that__c</formula>
         <label>Full User Story</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -527,41 +408,9 @@ MICO</description>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>GXP__c</fullName>
-        <description>This field is used to capture GXP related information: Created on 06/11/2014 by Preeti Grover: MICO</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Is this User Story considered subject to GxP</inlineHelpText>
-        <label>GxP</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Not Assessed</fullName>
-                <default>true</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>I_Want_To__c</fullName>
-        <description>&quot;I want to&quot; part of the user story
-Created on 01/07/2014 by SMills 
-MICO</description>
         <externalId>false</externalId>
-        <inlineHelpText>What the user needs to achieve. 
-
-E.g. 
-I want To...Be able to search for customers on different fields (e.g. First Name, Surname, Address, and Product Metrics) in my territory</inlineHelpText>
+        <inlineHelpText>I want to be able to (achieve xyz)... For example : Be able to search for customers on different fields (e.g. First Name, Surname, Address, and Product Metrics) in my territory</inlineHelpText>
         <label>I want to...</label>
         <required>false</required>
         <trackFeedHistory>true</trackFeedHistory>
@@ -572,157 +421,11 @@ I want To...Be able to search for customers on different fields (e.g. First Name
     <fields>
         <fullName>Legal__c</fullName>
         <defaultValue>false</defaultValue>
-        <description>Captures if the User Story has legal implications.
-Created on 01/07/2014 by SMills 
-MICO</description>
         <externalId>false</externalId>
-        <inlineHelpText>Does this User Story have any legal implications? If checked, please ensure these are detailed in the Compliance Criteria field.</inlineHelpText>
+        <inlineHelpText>Please tick if this user story has some legal implications</inlineHelpText>
         <label>Legal</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>MICO_Business_Quality_Approval_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Business Quality Approval Date</label>
-        <required>false</required>
-        <trackFeedHistory>true</trackFeedHistory>
-        <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>DateTime</type>
-    </fields>
-    <fields>
-        <fullName>MICO_Business_Quality_Approved__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <inlineHelpText>Please review LQP -302-16 for signature meanings</inlineHelpText>
-        <label>Business Quality Approved</label>
-        <trackFeedHistory>true</trackFeedHistory>
-        <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>MICO_Computer_System_Qty_Approval_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Computer Systems Quality Approval Date</label>
-        <required>false</required>
-        <trackFeedHistory>true</trackFeedHistory>
-        <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>DateTime</type>
-    </fields>
-    <fields>
-        <fullName>MICO_Computer_Systems_Quality_Approved__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <inlineHelpText>Please review LQP -302-16 for signature meanings</inlineHelpText>
-        <label>Computer Systems Quality Approved</label>
-        <trackFeedHistory>true</trackFeedHistory>
-        <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>MICO_Decision_Taken__c</fullName>
-        <externalId>false</externalId>
-        <label>Decision Taken</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>MICO_Overall_Approval_Status__c</fullName>
-        <externalId>false</externalId>
-        <label>Overall Approval Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Open</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Awaiting Approval</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Approved</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>MICO_Send_for_approval__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>This field will be used to send user stories for approval: Created on 06/19/2014 by Preeti Grover:MICO</description>
-        <externalId>false</externalId>
-        <label>Send for approval</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>MICO_System_Custodian_Approval_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>System Custodian Approval Date</label>
-        <required>false</required>
-        <trackFeedHistory>true</trackFeedHistory>
-        <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>DateTime</type>
-    </fields>
-    <fields>
-        <fullName>MICO_System_Custodian_Approved__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <inlineHelpText>Please review LQP -302-16 for signature meanings</inlineHelpText>
-        <label>System Custodian Approved</label>
-        <trackFeedHistory>true</trackFeedHistory>
-        <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>MICO_System_Owner_Approval_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>System Owner Approval Date</label>
-        <required>false</required>
-        <trackFeedHistory>true</trackFeedHistory>
-        <trackHistory>true</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>DateTime</type>
-    </fields>
-    <fields>
-        <fullName>MICO_System_Owner_Approved__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <inlineHelpText>Please review LQP -302-16 for signature meanings</inlineHelpText>
-        <label>System Owner Approved</label>
-        <trackFeedHistory>true</trackFeedHistory>
-        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -741,33 +444,54 @@ MICO</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Non_Functional_Requirement__c</fullName>
-        <description>Non Functionals
-Created on 01/07/2014 by SMills 
-MICO</description>
-        <externalId>false</externalId>
-        <inlineHelpText>The non-functional qualities the solution needs to exhibit. Examples include
-Scalability (number of records processed) 
-Responsiveness (must respond in x seconds)</inlineHelpText>
-        <label>Non Functional Requirement</label>
-        <length>32768</length>
+        <fullName>PCE_ID__c</fullName>
+        <description>Created for US-1675</description>
+        <externalId>true</externalId>
+        <label>PCE ID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>LongTextArea</type>
-        <visibleLines>3</visibleLines>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PCE_Time_Remaining__c</fullName>
+        <description>Created for US-1675</description>
+        <externalId>false</externalId>
+        <label>PCE Time Remaining</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PCE_Total_Duration__c</fullName>
+        <description>Created for US-1675</description>
+        <externalId>false</externalId>
+        <label>PCE Total Duration</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Parent_Epic__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
-        <description>Lookup to the epic 
-Created on 01/07/2014 by SMills 
-MICO</description>
         <externalId>false</externalId>
-        <inlineHelpText>The high level functionality that this user story could be grouped under</inlineHelpText>
         <label>Parent Epic</label>
         <referenceTo>MICO_Epic__c</referenceTo>
-        <relationshipLabel>User Stories</relationshipLabel>
+        <relationshipLabel>Related User Stories</relationshipLabel>
         <relationshipName>MICO_User_Stories</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -778,14 +502,10 @@ MICO</description>
     <fields>
         <fullName>Planned_Release__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
-        <description>Internal project release, prior to joining the Cirrus process
-Created on 01/07/2014 by SMills 
-MICO</description>
         <externalId>false</externalId>
-        <inlineHelpText>The internal project release for this user story</inlineHelpText>
-        <label>Project Release</label>
+        <label>Planned Release</label>
         <referenceTo>MICO_Release__c</referenceTo>
-        <relationshipLabel>User Stories (Project)</relationshipLabel>
+        <relationshipLabel>User Stories</relationshipLabel>
         <relationshipName>MICO_User_Stories</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -795,11 +515,8 @@ MICO</description>
     </fields>
     <fields>
         <fullName>Priority__c</fullName>
-        <description>The priority of this user story, this is used in sprint planning
-Created on 01/07/2014 by SMills 
-MICO</description>
         <externalId>false</externalId>
-        <inlineHelpText>The relative priority of this User Story. 1 is the most important, 99 is the least. This can be used during Sprint Planning</inlineHelpText>
+        <inlineHelpText>1 is the highest order, 99 is lowest.</inlineHelpText>
         <label>Priority</label>
         <precision>2</precision>
         <required>false</required>
@@ -813,9 +530,6 @@ MICO</description>
     <fields>
         <fullName>Privacy__c</fullName>
         <defaultValue>false</defaultValue>
-        <description>Does this User Story have privacy implications
-Created on 01/07/2014 by SMills 
-MICO</description>
         <externalId>false</externalId>
         <inlineHelpText>Flag this when the user story concerns personal identifiable information linked to your process</inlineHelpText>
         <label>Privacy</label>
@@ -826,34 +540,25 @@ MICO</description>
     </fields>
     <fields>
         <fullName>Project__c</fullName>
-        <description>The Project responsible for delivering this User Story
-Created on 01/07/2014 by SMills 
-MICO</description>
+        <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <inlineHelpText>The Project responsible for delivering this User Story</inlineHelpText>
         <label>Project</label>
         <referenceTo>MICO_Project__c</referenceTo>
         <relationshipLabel>User Stories</relationshipLabel>
         <relationshipName>MICO_Project_User_Stories</relationshipName>
-        <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>MasterDetail</type>
-        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Proposed_Sprint__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
-        <description>Proposed Sprint. Used in Sprint Planning
-Created on 01/07/2014 by SMills 
-MICO</description>
         <externalId>false</externalId>
-        <inlineHelpText>Following Release Planning this User Story can be proposed for a particular sprint. Stories can the be taken in or rejected from this sprint during the Sprint Planning process, as determined by the Product Owner</inlineHelpText>
         <label>Proposed Sprint</label>
         <referenceTo>MICO_Sprint__c</referenceTo>
-        <relationshipLabel>Proposed User Stories</relationshipLabel>
+        <relationshipLabel>User Stories</relationshipLabel>
         <relationshipName>MICO_Proposed_User_Stories</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -875,14 +580,10 @@ MICO</description>
     </fields>
     <fields>
         <fullName>Release_Completeness_Indicator__c</fullName>
-        <description>Icon to show release completeness
-Created on 01/07/2014 by SMills 
-MICO</description>
         <externalId>false</externalId>
         <formula>IF ( Release_Completeness__c , IMAGE(&quot;/img/msg_icons/confirm16.png&quot;,&quot;Complete&quot;), IMAGE(&quot;/img/msg_icons/error16.png&quot;, &quot;Not Complete&quot;))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <inlineHelpText>The manual release steps and the validation steps must be completed. If there are none, these must be specifically declared as &quot;N/A&quot;</inlineHelpText>
-        <label>Release Completeness</label>
+        <label>Release Completeness Indicator</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -892,72 +593,12 @@ MICO</description>
     <fields>
         <fullName>Release_Completeness__c</fullName>
         <defaultValue>false</defaultValue>
-        <description>System field to show release completeness, populated by workflow
-Created on 01/07/2014 by SMills 
-MICO</description>
         <externalId>false</externalId>
         <label>Release Completeness</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Release_Impact_Analysis__c</fullName>
-        <description>How does this story impact the release: Created by SMatharu on 09/07/2014</description>
-        <externalId>false</externalId>
-        <inlineHelpText>How does this story impact the release?
-For example, &quot;because this story modifies overnight batch jobs, if the overnight batches fail, it would require a data fix to be a applied post-release&quot;</inlineHelpText>
-        <label>Release Impact Analysis</label>
-        <length>32768</length>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>LongTextArea</type>
-        <visibleLines>3</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Release_Impact__c</fullName>
-        <description>The impact on the release. Based on the kind of change going through as part of the release: Created by SMatharu on 09/07/2014</description>
-        <externalId>false</externalId>
-        <inlineHelpText>High -  Any batch change, any trigger/validation rule on a &apos;batched&apos; object, any high profile VF Page
-
-Medium -  class/trigger/complex VF page
-
-Low - other</inlineHelpText>
-        <label>Release Impact</label>
-        <picklist>
-            <picklistValues>
-                <fullName>High</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Medium</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Release_Note__c</fullName>
-        <description>The release note to be issued to the business regarding this story: Created on 09/07/2014 by SMatharu</description>
-        <externalId>false</externalId>
-        <inlineHelpText>The release note to be issued to the business regarding this story</inlineHelpText>
-        <label>Business Release Note</label>
-        <length>32768</length>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>LongTextArea</type>
-        <visibleLines>3</visibleLines>
     </fields>
     <fields>
         <fullName>Release_Steps_Automated__c</fullName>
@@ -974,13 +615,9 @@ Please put N/A when not applicable</inlineHelpText>
     </fields>
     <fields>
         <fullName>Release_Steps_Manual__c</fullName>
-        <description>List of manual steps needed to deploy this user story.
-Created on 01/07/2014 by SMills 
-MICO</description>
         <externalId>false</externalId>
-        <inlineHelpText>Deployment steps that aren&apos;t captured by part of the automated metadata deployment process. Please ensure these are clear, concise, complete and specify whether they are pre or post deployment steps.
-
-Put N/A if none are needed</inlineHelpText>
+        <inlineHelpText>Elements which have to be deployed in a manual way. 
+Please put N/A when not applicable</inlineHelpText>
         <label>Release Steps (Manual)</label>
         <length>32768</length>
         <trackFeedHistory>false</trackFeedHistory>
@@ -990,37 +627,10 @@ Put N/A if none are needed</inlineHelpText>
         <visibleLines>10</visibleLines>
     </fields>
     <fields>
-        <fullName>SC_Approval_Status__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF( MICO_System_Custodian_Approved__c = TRUE, &quot;Approved&quot;, &quot;&quot;)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>SC Approval Status</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>SO_Approval_Status__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF( MICO_System_Owner_Approved__c = TRUE, &quot;Approved&quot; , &quot;&quot;)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>SO Approval Status</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Security__c</fullName>
         <defaultValue>false</defaultValue>
-        <description>Captures if the User Story has security implications.
-Created on 01/07/2014 by SMills 
-MICO</description>
         <externalId>false</externalId>
-        <inlineHelpText>Does this User Story have any security implications? If checked, please ensure these are detailed in the Compliance Criteria field.</inlineHelpText>
+        <inlineHelpText>Please tick if this user story has some security implications</inlineHelpText>
         <label>Security</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
@@ -1029,12 +639,9 @@ MICO</description>
     </fields>
     <fields>
         <fullName>So_that__c</fullName>
-        <description>Business Value of this User Story
-Created on 01/07/2014 by SMills 
-MICO</description>
         <externalId>false</externalId>
-        <inlineHelpText>Please enter the business value of this User Story. This helps Developers and Business Analysts understand the important essence of what the user needs to ultimately achieve.
-
+        <inlineHelpText>Please enter the business value of this user story
+For example: 
 I can easily find my  relevant target customer information</inlineHelpText>
         <label>So that...</label>
         <required>false</required>
@@ -1044,29 +651,8 @@ I can easily find my  relevant target customer information</inlineHelpText>
         <type>TextArea</type>
     </fields>
     <fields>
-        <fullName>Sprint_Tester__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>The Tester responsible for this User Story
-Created on 04/07/2014 by SMills 
-MICO</description>
-        <externalId>false</externalId>
-        <inlineHelpText>The Tester responsible for testing this User Story during the sprint</inlineHelpText>
-        <label>Sprint Tester</label>
-        <referenceTo>User</referenceTo>
-        <relationshipName>MICO_User_Stories_Tester</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>Story_Points_Other__c</fullName>
-        <description>Story points for non SFDC dev
-Created on 01/07/2014 by SMills 
-MICO</description>
         <externalId>false</externalId>
-        <inlineHelpText>The level of complexity as estimated in Story Points NOT related to force.com development. For example, related to Integration effort</inlineHelpText>
         <label>Story Points (Other)</label>
         <picklist>
             <picklistValues>
@@ -1110,12 +696,8 @@ MICO</description>
     </fields>
     <fields>
         <fullName>Story_Points_Total__c</fullName>
-        <description>Total Story Points for this story. Sums SFDC and Other Story point fields
-Created on 01/07/2014 by SMills 
-MICO</description>
         <externalId>false</externalId>
         <formula>nullvalue(value(text( Story_Points__c )), 0)  + nullvalue(value(text(  Story_Points_Other__c)),0)</formula>
-        <inlineHelpText>The total level of complexity as estimated in Story Points related to delivering this User Story. Includes both SFDC Story Points and Other Story Points</inlineHelpText>
         <label>Story Points Total</label>
         <precision>18</precision>
         <required>false</required>
@@ -1127,11 +709,7 @@ MICO</description>
     </fields>
     <fields>
         <fullName>Story_Points__c</fullName>
-        <description>Story points for SFDC dev
-Created on 01/07/2014 by SMills 
-MICO</description>
         <externalId>false</externalId>
-        <inlineHelpText>The level of complexity as estimated in Story Points related to force.com development</inlineHelpText>
         <label>Story Points SFDC</label>
         <picklist>
             <picklistValues>
@@ -1397,36 +975,10 @@ MICO</description>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Submit_for_Approval__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Submit for Approval</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Submitter__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Submitter</label>
-        <referenceTo>User</referenceTo>
-        <relationshipName>User_Stories</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>Supporting_BA__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
-        <description>The Business Analyst responsible for defining the acceptance criteria
-Created on 01/07/2014 by SMills 
-MICO</description>
         <externalId>false</externalId>
-        <inlineHelpText>The Business Analyst responsible for helping define and refine Acceptance Criteria in this User Story</inlineHelpText>
+        <inlineHelpText>Business Analyst responsible for this User Story</inlineHelpText>
         <label>Business Analyst</label>
         <referenceTo>User</referenceTo>
         <relationshipName>MICO_User_Stories3</relationshipName>
@@ -1437,45 +989,11 @@ MICO</description>
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>System_Custodian__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>This field will store the System Custodian information for the app: 
-Created on 06/11/2014 by Preeti Grover: MICO</description>
-        <externalId>false</externalId>
-        <inlineHelpText>The System Custodian for the application this User Story is related to. If not set when initially saving the User Story, it should be populated automatically based on the value on the associated App record</inlineHelpText>
-        <label>System Custodian</label>
-        <referenceTo>User</referenceTo>
-        <relationshipName>MICO_User_Stories4</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>System_Owner__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>This field is used to capture the System owner for the App: Created on 06/11/2014 by Preeti Grover: MICO</description>
-        <externalId>false</externalId>
-        <inlineHelpText>The System Owner for the application this User Story is related to. If not set when initially saving the User Story, it should be populated automatically based on the value on the associated App record</inlineHelpText>
-        <label>System Owner</label>
-        <referenceTo>User</referenceTo>
-        <relationshipName>MICO_User_Stories2</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>User__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
-        <description>The Product Owner User responsible for this User Story
-Created on 01/07/2014 by SMills 
-MICO</description>
         <externalId>false</externalId>
         <inlineHelpText>Business/Product Owner for this User Story</inlineHelpText>
-        <label>Product / Process Owner</label>
+        <label>Business Process/Product Owner</label>
         <referenceTo>User</referenceTo>
         <relationshipName>MICO_Requirements</relationshipName>
         <required>false</required>
@@ -1486,12 +1004,8 @@ MICO</description>
     </fields>
     <fields>
         <fullName>Validation_steps__c</fullName>
-        <description>Validation Steps for this user story
-Created on 06/11/2014 by Preeti Grover: MICO</description>
         <externalId>false</externalId>
-        <inlineHelpText>For exception cases, please list any specific validation checks that are required to ensure this User Story has been deployed successfully. These will then be run by the Technical Release Team post deployment
-
-If none are needed please put &apos;N/A&quot;</inlineHelpText>
+        <inlineHelpText>If deploying objects or page layouts please specify the exact change</inlineHelpText>
         <label>Validation steps</label>
         <length>32768</length>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1503,7 +1017,7 @@ If none are needed please put &apos;N/A&quot;</inlineHelpText>
     <fields>
         <fullName>Version__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>The source control tag related to this User Story</inlineHelpText>
+        <inlineHelpText>Jenkins build number to Packaging</inlineHelpText>
         <label>Version</label>
         <length>100</length>
         <required>false</required>
@@ -1515,10 +1029,8 @@ If none are needed please put &apos;N/A&quot;</inlineHelpText>
     </fields>
     <fields>
         <fullName>Work_Type__c</fullName>
-        <description>The type of effort involved in this user story
-Created on 06/11/2014 by Preeti Grover: MICO</description>
         <externalId>false</externalId>
-        <inlineHelpText>The type of work involved in delivering this User Story. This can be used when resource planning and should be populated by Developers or other technical experts as needed</inlineHelpText>
+        <inlineHelpText>What type of work is likely to be involved? (what skills are needed?)</inlineHelpText>
         <label>Work Type</label>
         <picklist>
             <picklistValues>
@@ -1538,7 +1050,11 @@ Created on 06/11/2014 by Preeti Grover: MICO</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Heroku</fullName>
+                <fullName>Out-of-the-box Veeva/SFDC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Veeva Customization</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1565,16 +1081,107 @@ Created on 06/11/2014 by Preeti Grover: MICO</description>
     <listViews>
         <fullName>All_User_Stories</fullName>
         <columns>NAME</columns>
-        <columns>Full_User_Story__c</columns>
-        <columns>Proposed_Sprint__c</columns>
-        <columns>Allocated_Sprint__c</columns>
-        <columns>Story_Points_Total__c</columns>
-        <columns>App__c</columns>
-        <columns>Project__c</columns>
-        <columns>Development_Stage__c</columns>
+        <columns>As_A__c</columns>
+        <columns>I_Want_To__c</columns>
+        <columns>So_that__c</columns>
+        <columns>Functional_Area__c</columns>
+        <columns>User__c</columns>
+        <columns>Supporting_BA__c</columns>
+        <columns>Developer__c</columns>
         <filterScope>Everything</filterScope>
         <label>All User Stories</label>
-        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Analytics_Insights_User_Stories</fullName>
+        <columns>NAME</columns>
+        <columns>As_A__c</columns>
+        <columns>I_Want_To__c</columns>
+        <columns>So_that__c</columns>
+        <columns>Functional_Area__c</columns>
+        <columns>Compliance_Criteria__c</columns>
+        <columns>Development_Stage__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Functional_Area__c</field>
+            <operation>equals</operation>
+            <value>Analytics / Insights</value>
+        </filters>
+        <label>Analytics / Insights User Stories</label>
+    </listViews>
+    <listViews>
+        <fullName>Customer_Services_User_Stories</fullName>
+        <columns>NAME</columns>
+        <columns>As_A__c</columns>
+        <columns>I_Want_To__c</columns>
+        <columns>So_that__c</columns>
+        <columns>Functional_Area__c</columns>
+        <columns>Sub_Process__c</columns>
+        <columns>Compliance_Criteria__c</columns>
+        <columns>Development_Stage__c</columns>
+        <columns>Developer__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Functional_Area__c</field>
+            <operation>equals</operation>
+            <value>Customer Services</value>
+        </filters>
+        <filters>
+            <field>Sub_Process__c</field>
+            <operation>equals</operation>
+            <value>Creating</value>
+        </filters>
+        <label>Customer Services User Stories</label>
+    </listViews>
+    <listViews>
+        <fullName>Event_User_Stories</fullName>
+        <columns>NAME</columns>
+        <columns>As_A__c</columns>
+        <columns>I_Want_To__c</columns>
+        <columns>So_that__c</columns>
+        <columns>Functional_Area__c</columns>
+        <columns>Compliance_Criteria__c</columns>
+        <columns>Development_Stage__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Functional_Area__c</field>
+            <operation>equals</operation>
+            <value>Event / Medical</value>
+        </filters>
+        <label>Event/Medical User Stories</label>
+    </listViews>
+    <listViews>
+        <fullName>Market_Access_User_Stories</fullName>
+        <columns>NAME</columns>
+        <columns>As_A__c</columns>
+        <columns>I_Want_To__c</columns>
+        <columns>So_that__c</columns>
+        <columns>Functional_Area__c</columns>
+        <columns>Compliance_Criteria__c</columns>
+        <columns>Development_Stage__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Functional_Area__c</field>
+            <operation>equals</operation>
+            <value>Market Access</value>
+        </filters>
+        <label>Market Access User Stories</label>
+    </listViews>
+    <listViews>
+        <fullName>Marketing_Multichannel_User_Stories</fullName>
+        <columns>NAME</columns>
+        <columns>As_A__c</columns>
+        <columns>I_Want_To__c</columns>
+        <columns>So_that__c</columns>
+        <columns>Functional_Area__c</columns>
+        <columns>Compliance_Criteria__c</columns>
+        <columns>Development_Stage__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Functional_Area__c</field>
+            <operation>equals</operation>
+            <value>Marketing / Multichannel</value>
+        </filters>
+        <label>Marketing / Multichannel User Stories</label>
     </listViews>
     <listViews>
         <fullName>Pre_Production_User_Stories</fullName>
@@ -1591,343 +1198,36 @@ Created on 06/11/2014 by Preeti Grover: MICO</description>
         <language>en_US</language>
     </listViews>
     <listViews>
-        <fullName>Project_All_ACE</fullName>
+        <fullName>SFA_User_Stories</fullName>
         <columns>NAME</columns>
+        <columns>As_A__c</columns>
+        <columns>I_Want_To__c</columns>
+        <columns>So_that__c</columns>
+        <columns>Functional_Area__c</columns>
+        <columns>Compliance_Criteria__c</columns>
         <columns>Development_Stage__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>Project__c</field>
+            <field>Functional_Area__c</field>
             <operation>equals</operation>
-            <value>ACE Digital Dashboard</value>
+            <value>SFA</value>
         </filters>
-        <label>Project: ACE Digital Dashboard</label>
-        <language>en_US</language>
+        <label>SFA User Stories</label>
     </listViews>
     <listViews>
-        <fullName>Project_All_C3</fullName>
-        <columns>NAME</columns>
-        <columns>Development_Stage__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Project__c</field>
-            <operation>equals</operation>
-            <value>C3</value>
-        </filters>
-        <label>Project: C3</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>Project_All_Cirrus</fullName>
-        <columns>NAME</columns>
-        <columns>Development_Stage__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Project__c</field>
-            <operation>equals</operation>
-            <value>Stand Up Cirrus</value>
-        </filters>
-        <label>Project: Stand Up Cirrus</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>Project_All_HCP</fullName>
-        <columns>NAME</columns>
-        <columns>Development_Stage__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Project__c</field>
-            <operation>equals</operation>
-            <value>HCP Transparency Smart Form</value>
-        </filters>
-        <label>Project: HCP Transparency Smart Form</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>Project_All_IRiSS</fullName>
-        <columns>NAME</columns>
-        <columns>Development_Stage__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Project__c</field>
-            <operation>equals</operation>
-            <value>IRiSS</value>
-        </filters>
-        <label>Project: IRiSS</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>Project_All_LaunchPad</fullName>
-        <columns>NAME</columns>
-        <columns>Development_Stage__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Project__c</field>
-            <operation>startsWith</operation>
-            <value>Launchpad</value>
-        </filters>
-        <label>Project: LaunchPad</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>Project_All_NTM</fullName>
-        <columns>NAME</columns>
-        <columns>Development_Stage__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Project__c</field>
-            <operation>equals</operation>
-            <value>NTM</value>
-        </filters>
-        <label>Project: NTM</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>Project_All_RWE</fullName>
-        <columns>NAME</columns>
-        <columns>Development_Stage__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Project__c</field>
-            <operation>equals</operation>
-            <value>RWE Knowledge Management</value>
-        </filters>
-        <label>Project: RWE Knowledge Management</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>Project_All_SAPMAT</fullName>
-        <columns>NAME</columns>
-        <columns>Development_Stage__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Project__c</field>
-            <operation>equals</operation>
-            <value>SAP Material Data</value>
-        </filters>
-        <label>Project: SAP Material Data</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>Project_All_TrialForce</fullName>
-        <columns>NAME</columns>
-        <columns>Development_Stage__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Project__c</field>
-            <operation>equals</operation>
-            <value>Trialforce Migration</value>
-        </filters>
-        <label>Project: Trialforce Migration</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>Status_8_Passed_Complete</fullName>
+        <fullName>User_Stories_Done</fullName>
         <columns>NAME</columns>
         <columns>Full_User_Story__c</columns>
-        <columns>Proposed_Sprint__c</columns>
-        <columns>Allocated_Sprint__c</columns>
         <columns>Story_Points_Total__c</columns>
-        <columns>App__c</columns>
-        <columns>Project__c</columns>
         <columns>Development_Stage__c</columns>
+        <columns>Release_Completeness_Indicator__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>Development_Stage__c</field>
-            <operation>equals</operation>
-            <value>Passed (Complete)</value>
+            <operation>contains</operation>
+            <value>5.9. Done</value>
         </filters>
-        <label>Status: 08. Passed (Complete)</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>Status_Backlog</fullName>
-        <columns>NAME</columns>
-        <columns>Full_User_Story__c</columns>
-        <columns>Proposed_Sprint__c</columns>
-        <columns>Allocated_Sprint__c</columns>
-        <columns>Story_Points_Total__c</columns>
-        <columns>App__c</columns>
-        <columns>Project__c</columns>
-        <columns>Development_Stage__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Development_Stage__c</field>
-            <operation>equals</operation>
-            <value>Backlog</value>
-        </filters>
-        <label>Status: 01. Backlog</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>Status_Cancelled</fullName>
-        <columns>NAME</columns>
-        <columns>Full_User_Story__c</columns>
-        <columns>Proposed_Sprint__c</columns>
-        <columns>Allocated_Sprint__c</columns>
-        <columns>Story_Points_Total__c</columns>
-        <columns>App__c</columns>
-        <columns>Project__c</columns>
-        <columns>Development_Stage__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Development_Stage__c</field>
-            <operation>equals</operation>
-            <value>Cancelled</value>
-        </filters>
-        <label>Status: 00. Cancelled</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>Status_In_Development</fullName>
-        <columns>NAME</columns>
-        <columns>Full_User_Story__c</columns>
-        <columns>Proposed_Sprint__c</columns>
-        <columns>Allocated_Sprint__c</columns>
-        <columns>Story_Points_Total__c</columns>
-        <columns>App__c</columns>
-        <columns>Project__c</columns>
-        <columns>Development_Stage__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Development_Stage__c</field>
-            <operation>equals</operation>
-            <value>In Development</value>
-        </filters>
-        <label>Status: 04. In Development</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>Status_In_Test</fullName>
-        <columns>NAME</columns>
-        <columns>Full_User_Story__c</columns>
-        <columns>Proposed_Sprint__c</columns>
-        <columns>Allocated_Sprint__c</columns>
-        <columns>Story_Points_Total__c</columns>
-        <columns>App__c</columns>
-        <columns>Project__c</columns>
-        <columns>Development_Stage__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Development_Stage__c</field>
-            <operation>equals</operation>
-            <value>In Test</value>
-        </filters>
-        <label>Status: 07. In Test</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>Status_Production_Ready_for_Release</fullName>
-        <columns>NAME</columns>
-        <columns>Full_User_Story__c</columns>
-        <columns>Proposed_Sprint__c</columns>
-        <columns>Allocated_Sprint__c</columns>
-        <columns>Story_Points_Total__c</columns>
-        <columns>App__c</columns>
-        <columns>Project__c</columns>
-        <columns>Development_Stage__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Development_Stage__c</field>
-            <operation>equals</operation>
-            <value>Production - Ready for Release</value>
-        </filters>
-        <label>Status: 09. Production-Ready for Release</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>Status_Production_Released</fullName>
-        <columns>NAME</columns>
-        <columns>Full_User_Story__c</columns>
-        <columns>Proposed_Sprint__c</columns>
-        <columns>Allocated_Sprint__c</columns>
-        <columns>Story_Points_Total__c</columns>
-        <columns>App__c</columns>
-        <columns>Project__c</columns>
-        <columns>Development_Stage__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Development_Stage__c</field>
-            <operation>equals</operation>
-            <value>Production - Released</value>
-        </filters>
-        <label>Status: 10. Production - Released</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>Status_Ready_for_Development</fullName>
-        <columns>NAME</columns>
-        <columns>Full_User_Story__c</columns>
-        <columns>Proposed_Sprint__c</columns>
-        <columns>Allocated_Sprint__c</columns>
-        <columns>Story_Points_Total__c</columns>
-        <columns>App__c</columns>
-        <columns>Project__c</columns>
-        <columns>Development_Stage__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Development_Stage__c</field>
-            <operation>equals</operation>
-            <value>Ready for Development</value>
-        </filters>
-        <label>Status: 03. Ready for Development</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>Status_Ready_for_Test</fullName>
-        <columns>NAME</columns>
-        <columns>Full_User_Story__c</columns>
-        <columns>Proposed_Sprint__c</columns>
-        <columns>Allocated_Sprint__c</columns>
-        <columns>Story_Points_Total__c</columns>
-        <columns>App__c</columns>
-        <columns>Project__c</columns>
-        <columns>Development_Stage__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Development_Stage__c</field>
-            <operation>equals</operation>
-            <value>Ready for Test</value>
-        </filters>
-        <label>Status: 06. Ready for Test</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>Status_Ready_for_Test_Release</fullName>
-        <columns>NAME</columns>
-        <columns>Full_User_Story__c</columns>
-        <columns>Proposed_Sprint__c</columns>
-        <columns>Allocated_Sprint__c</columns>
-        <columns>Story_Points_Total__c</columns>
-        <columns>App__c</columns>
-        <columns>Project__c</columns>
-        <columns>Development_Stage__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Development_Stage__c</field>
-            <operation>equals</operation>
-            <value>Ready for Test Release</value>
-        </filters>
-        <label>Status: 05. Ready for Test Release</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>Status_Story_Definition</fullName>
-        <columns>NAME</columns>
-        <columns>Full_User_Story__c</columns>
-        <columns>Proposed_Sprint__c</columns>
-        <columns>Allocated_Sprint__c</columns>
-        <columns>Story_Points_Total__c</columns>
-        <columns>App__c</columns>
-        <columns>Project__c</columns>
-        <columns>Development_Stage__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Development_Stage__c</field>
-            <operation>equals</operation>
-            <value>Story Definition</value>
-        </filters>
-        <label>Status: 02. Story Definition</label>
-        <language>en_US</language>
+        <label>User Stories - Done</label>
     </listViews>
     <nameField>
         <displayFormat>US-{0000}</displayFormat>
@@ -1938,58 +1238,60 @@ Created on 06/11/2014 by Preeti Grover: MICO</description>
     </nameField>
     <pluralLabel>User Stories</pluralLabel>
     <searchLayouts>
-        <customTabListAdditionalFields>Full_User_Story__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Proposed_Sprint__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Allocated_Sprint__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>App__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Project__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Story_Points_Total__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Functional_Area__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Sub_Process__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>As_A__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>I_Want_To__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>So_that__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Development_Stage__c</customTabListAdditionalFields>
         <excludedStandardButtons>Accept</excludedStandardButtons>
         <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
-        <lookupDialogsAdditionalFields>As_A_text__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Functional_Area__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Sub_Process__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>As_A__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>I_Want_To__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>So_that__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Development_Stage__c</lookupDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>As_A_text__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Functional_Area__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Sub_Process__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>As_A__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>I_Want_To__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>So_that__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Development_Stage__c</lookupPhoneDialogsAdditionalFields>
         <searchFilterFields>NAME</searchFilterFields>
-        <searchFilterFields>Parent_Epic__c</searchFilterFields>
-        <searchFilterFields>As_A_text__c</searchFilterFields>
+        <searchFilterFields>Functional_Area__c</searchFilterFields>
+        <searchFilterFields>Sub_Process__c</searchFilterFields>
+        <searchFilterFields>As_A__c</searchFilterFields>
         <searchFilterFields>I_Want_To__c</searchFilterFields>
         <searchFilterFields>So_that__c</searchFilterFields>
         <searchFilterFields>Development_Stage__c</searchFilterFields>
-        <searchResultsAdditionalFields>As_A_text__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Functional_Area__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Sub_Process__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>As_A__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>I_Want_To__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>So_that__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Development_Stage__c</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ControlledByParent</sharingModel>
+    <sharingModel>ReadWrite</sharingModel>
     <validationRules>
-        <fullName>Acceptance_Criteria_Freeze</fullName>
+        <fullName>Champion_BPC_Name</fullName>
         <active>true</active>
-        <description>Loclks accpetance criteria so it can only be edited by users with the &quot;Over ride Acceptance Criteria&quot; enabled on their user page</description>
         <errorConditionFormula>AND(
-ISCHANGED( Acceptance_Criteria__c ),   
-OR(
-ISPICKVAL(Development_Stage__c,&quot;Ready for Test&quot;), 
-ISPICKVAL(Development_Stage__c,&quot;In Test&quot;), 
-ISPICKVAL(Development_Stage__c,&quot;Passed (Complete)&quot;),
-ISPICKVAL(Development_Stage__c,&quot;Production - Ready for Release&quot;),
-ISPICKVAL(Development_Stage__c,&quot;Production - Released&quot;)
-)
+CONTAINS( $Profile.Name , &apos;Admin&apos;),
+OR (ISBLANK(User__c), ISBLANK( Supporting_BA__c )),
+OR( 
+ISPICKVAL(Development_Stage__c,&quot;5.3 Sprint Team - Awaiting Development &quot;), 
+ISPICKVAL(Development_Stage__c,&quot;5.4 Sprint Team - In Development&quot;), 
+ISPICKVAL(Development_Stage__c,&quot;5.5. Sprint - Awaiting Review&quot;), 
+ISPICKVAL(Development_Stage__c,&quot;5.6. Sprint - Awaiting Release to SAT&quot;), 
+ISPICKVAL(Development_Stage__c,&quot;5.7. Sprint - Awaiting SAT&quot;), ISPICKVAL(Development_Stage__c,&quot;5.8. Sprint - In Test&quot;), 
+ISPICKVAL(Development_Stage__c,&quot;5.9. Done&quot;), 
+ISPICKVAL(Development_Stage__c,&quot;6. UAT - Awaiting testing&quot;), 
+ISPICKVAL(Development_Stage__c,&quot;7. UAT – In Test&quot;), 
+ISPICKVAL(Development_Stage__c,&quot;8. Production – Ready for Release&quot;), 
+ISPICKVAL(Development_Stage__c,&quot;9. Production – Released&quot;)) 
 )</errorConditionFormula>
-        <errorDisplayField>Acceptance_Criteria__c</errorDisplayField>
-        <errorMessage>You can&apos;t amend the Acceptance Criteria at this stage in the User Story lifecycle. If you need to make an agreed change, revert the User Story Status and Chatter why you are making a change. Late changes should be agreed with the User Story team</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Cancellation_Reason_Check</fullName>
-        <active>true</active>
-        <description>Checks that the cancellation reason is populate if the story is set to cancelled</description>
-        <errorConditionFormula>AND( ISPICKVAL( Development_Stage__c , &quot;Cancelled&quot;) , ISBLANK( Cancellation_Reason__c ) )</errorConditionFormula>
-        <errorMessage>You must enter a cancellation reason if you are cancelling this story</errorMessage>
+        <errorMessage>Please complete both the Business Process/Product Owner &amp; Business Analyst Name before updating the Stage of this User Story</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Lock_Down</fullName>
@@ -2014,44 +1316,13 @@ ISPICKVAL(Development_Stage__c,&quot;9. Production – Released&quot;))
         <errorMessage>You can&apos;t amend the Acceptance and/or Compliance Criteria once the user story is categorized as ready for development. Move the status back to &apos;With BPC&apos; to indicate you are working again on the Acceptance and/or Compliance Criteria and Chatter the reason</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>MICO_Approved_Status_Validation</fullName>
+        <fullName>Ready_for_Release</fullName>
         <active>true</active>
-        <errorConditionFormula>IF((ISPICKVAL(Approval_Status__c , &quot;Approved&quot;) || ISPICKVAL(Approval_Status__c , &quot;Pending Approval&quot;))&amp;&amp; (ISCHANGED(  System_Custodian__c )||  ISCHANGED(Computer_Systems_Quality__c) ||  ISCHANGED(Compliance_Owner__c) ||  ISCHANGED(System_Owner__c) ),true,false)</errorConditionFormula>
-        <errorMessage>You cannot change Approver once the User Story is approved or is in Pending Approval</errorMessage>
+        <errorConditionFormula>AND (
+ Release_Completeness__c = FALSE,  
+OR (ISPICKVAL (Development_Stage__c, &apos;5.6. Sprint - Awaiting Release to SAT&apos;), ISPICKVAL (Development_Stage__c, &apos;5.7. Sprint - Awaiting SAT&apos;)))</errorConditionFormula>
+        <errorMessage>Please make sure the release section is completed correctly before moving the story to Awaiting Release to SAT</errorMessage>
     </validationRules>
-    <validationRules>
-        <fullName>Mandatory_GxP_and_Criticality</fullName>
-        <active>true</active>
-        <description>Makes sure users populate the GxP and criticality picklists</description>
-        <errorConditionFormula>OR( ISPICKVAL(GXP__c, &apos;&apos;), ISPICKVAL(Critical__c, &apos;&apos;))</errorConditionFormula>
-        <errorMessage>You must populate both the Quality Critical and GxP fields</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Pending_Approval_Status</fullName>
-        <active>true</active>
-        <description>Locks the &apos;As A…&apos;, &apos;I want to…&apos; or  &apos;so that…&apos; fields when the Approval Status is Pending Approval</description>
-        <errorConditionFormula>AND(
-ISPICKVAL(Approval_Status__c,&quot;Pending Approval&quot;), 
-OR(
-ISCHANGED(As_A_text__c),
-ISCHANGED(I_Want_To__c),
-ISCHANGED(So_that__c)
-)
-)</errorConditionFormula>
-        <errorMessage>You can&apos;t amend the &apos;As A…&apos;, &apos;I want to…&apos; or  &apos;so that…&apos; fields when the Approval Status is Pending Approval</errorMessage>
-    </validationRules>
-    <webLinks>
-        <fullName>Acceptance_Criteria_Editor</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <height>600</height>
-        <linkType>url</linkType>
-        <masterLabel>Acceptance Criteria Editor</masterLabel>
-        <openType>noSidebar</openType>
-        <protected>false</protected>
-        <url>/apex/MICO_User_Story_Acceptance?id={!MICO_User_Story__c.Id}</url>
-    </webLinks>
     <webLinks>
         <fullName>Create_HL_Design</fullName>
         <availability>online</availability>
@@ -2065,101 +1336,5 @@ ISCHANGED(So_that__c)
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
         <url>{!URLFOR($Action.MICO_Design__c.New, MICO_Design__c.Id, [retURL=URLFOR($Action.MICO_Design__c.View, MICO_Design__c.Id),  MICO_Design__c.from_id__c=MICO_User_Story__c.Id])}</url>
-    </webLinks>
-    <webLinks>
-        <fullName>MICO_Submit_for_Approval</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>Submit for Approval</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/connection.js&quot;)}
-{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)}
-
-var userStoryId = &quot;{!MICO_User_Story__c.Id}&quot;
-var approvalStatus=&quot;{!MICO_User_Story__c.Approval_Status__c}&quot;
-var gxp=&quot;{!MICO_User_Story__c.GXP__c}&quot;
-var critical=&quot;{!MICO_User_Story__c.Critical__c}&quot;
-var quality=&quot;{!MICO_User_Story__c.Computer_Systems_Quality__c}&quot;
-var compliance=&quot;{!MICO_User_Story__c.Compliance_Owner__c}&quot;
-
-
-if(approvalStatus==&apos;Pending Approval&apos;)
-alert(&apos;This User Story is Pending Approval and cannot be resubmitted for approval.&apos;)
-else if(approvalStatus==&apos;Approved&apos;)
-alert(&apos;This User Story is Approved and cannot be resubmitted for approval.&apos;)
-
-else if(approvalStatus==&apos;Rejected&apos;){
-alert(&apos;This User Story is Rejected and cannot be resubmitted for approval.&apos;)
-}
-else if(gxp==&quot;Not Assessed&quot; &amp;&amp; critical==&quot;Not Assessed&quot; &amp;&amp; compliance==&quot;&quot; &amp;&amp; quality==&quot;&quot;)
-alert(&apos;Please select a Business Quality and Computer Systems Quality Approver before submitting the User Story for approval.&apos;)
-else if(gxp==&quot;Not Assessed&quot; &amp;&amp; critical==&quot;Not Assessed&quot; &amp;&amp; compliance==&quot;&quot; )
-alert(&apos;Please select a Business Quality Approver before submitting the User Story for approval.&apos;)
-else if(gxp==&quot;Not Assessed&quot; &amp;&amp; critical==&quot;Not Assessed&quot; &amp;&amp; quality==&quot;&quot;)
-alert(&apos;Please select a Computer Systems Quality Approver before submitting the User Story for approval.&apos;)
-
-else if(gxp==&quot;Yes&quot; &amp;&amp; critical==&quot;Not Assessed&quot; &amp;&amp; compliance==&quot;&quot; &amp;&amp; quality==&quot;&quot;)
-alert(&apos;Please select a Business Quality and Computer Systems Quality Approver before submitting the User Story for approval.&apos;)
-else if(gxp==&quot;Yes&quot; &amp;&amp; critical==&quot;Not Assessed&quot; &amp;&amp; compliance==&quot;&quot; )
-alert(&apos;Please select a Business Quality Approver before submitting the User Story for approval.&apos;)
-else if(gxp==&quot;Yes&quot; &amp;&amp; critical==&quot;Not Assessed&quot; &amp;&amp; quality==&quot;&quot;)
-alert(&apos;Please select a Computer Systems Quality Approver before submitting the User Story for approval.&apos;)
-
-
-else if(gxp==&quot;Yes&quot; &amp;&amp; critical==&quot;No&quot; &amp;&amp; compliance==&quot;&quot; &amp;&amp; quality==&quot;&quot;)
-alert(&apos;Please select a Business Quality and Computer Systems Quality Approver before submitting the User Story for approval.&apos;)
-else if(gxp==&quot;Yes&quot; &amp;&amp; critical==&quot;No&quot; &amp;&amp; compliance==&quot;&quot; )
-alert(&apos;Please select a Business Quality Approver before submitting the User Story for approval.&apos;)
-else if(gxp==&quot;Yes&quot; &amp;&amp; critical==&quot;No&quot; &amp;&amp; quality==&quot;&quot;)
-alert(&apos;Please select a Computer Systems Quality Approver before submitting the User Story for approval.&apos;)
-
-
-else if(gxp==&quot;Not Assessed&quot; &amp;&amp; critical==&quot;Yes&quot; &amp;&amp; compliance==&quot;&quot; &amp;&amp; quality==&quot;&quot;)
-alert(&apos;Please select a Business Quality and Computer Systems Quality Approver before submitting the User Story for approval.&apos;)
-else if(gxp==&quot;Not Assessed&quot; &amp;&amp; critical==&quot;Yes&quot; &amp;&amp; compliance==&quot;&quot; )
-alert(&apos;Please select a Business Quality Approver before submitting the User Story for approval.&apos;)
-else if(gxp==&quot;Not Assessed&quot; &amp;&amp; critical==&quot;Yes&quot; &amp;&amp; quality==&quot;&quot;)
-alert(&apos;Please select a Computer Systems Quality Approver before submitting the User Story for approval.&apos;)
-
-else if(gxp==&quot;Not Assessed&quot; &amp;&amp; critical==&quot;No&quot; &amp;&amp; compliance==&quot;&quot; &amp;&amp; quality==&quot;&quot;)
-alert(&apos;Please select a Business Quality and Computer Systems Quality Approver before submitting the User Story for approval.&apos;)
-else if(gxp==&quot;Not Assessed&quot; &amp;&amp; critical==&quot;No&quot; &amp;&amp; compliance==&quot;&quot; )
-alert(&apos;Please select a Business Quality Approver before submitting the User Story for approval.&apos;)
-else if(gxp==&quot;Not Assessed&quot; &amp;&amp; critical==&quot;No&quot; &amp;&amp; quality==&quot;&quot;)
-alert(&apos;Please select a Computer Systems Quality Approver before submitting the User Story for approval.&apos;)
-
-else if(gxp==&quot;No&quot; &amp;&amp; critical==&quot;Yes&quot; &amp;&amp; compliance==&quot;&quot; &amp;&amp; quality==&quot;&quot;)
-alert(&apos;Please select a Business Quality and Computer Systems Quality Approver before submitting the User Story for approval.&apos;)
-else if(gxp==&quot;No&quot; &amp;&amp; critical==&quot;Yes&quot; &amp;&amp; quality==&quot;&quot;)
-alert(&apos;Please select a Computer Systems Quality Approver before submitting the User Story for approval.&apos;)
-else if(gxp==&quot;No&quot; &amp;&amp; critical==&quot;Yes&quot; &amp;&amp; compliance==&quot;&quot;)
-alert(&apos;Please select a Business Quality Approver before submitting the User Story for approval.&apos;)
-
-else if(gxp==&quot;No&quot; &amp;&amp; critical==&quot;Not Assessed&quot; &amp;&amp; compliance==&quot;&quot; &amp;&amp; quality==&quot;&quot;)
-alert(&apos;Please select a Business Quality and Computer Systems Quality Approver before submitting the User Story for approval.&apos;)
-else if(gxp==&quot;No&quot; &amp;&amp; critical==&quot;Not Assessed&quot; &amp;&amp; compliance==&quot;&quot; )
-alert(&apos;Please select a Business Quality Approver before submitting the User Story for approval.&apos;)
-else if(gxp==&quot;No&quot; &amp;&amp; critical==&quot;Not Assessed&quot; &amp;&amp; quality==&quot;&quot;)
-alert(&apos;Please select a Computer Systems Quality Approver before submitting the User Story for approval.&apos;)
-
-else if(gxp==&quot;Yes&quot; &amp;&amp; critical==&quot;Yes&quot; &amp;&amp; compliance==&quot;&quot; &amp;&amp; quality==&quot;&quot;)
-alert(&apos;Please select a Business Quality and Computer Systems Quality Approver before submitting the User Story for approval.&apos;)
-
-
-/*else if((gxp==&quot;No&quot; &amp;&amp; critical==&quot;Yes&quot; || gxp==&quot;Yes&quot; &amp;&amp; critical==&quot;No&quot; ) &amp;&amp; compliance==&quot;&quot; )
-alert(&apos;Please select a Business Quality Approver before submitting the User Story for approval.&apos;)
-else if((gxp==&quot;No&quot; &amp;&amp; critical==&quot;Yes&quot; || gxp==&quot;Yes&quot; &amp;&amp; critical==&quot;No&quot; ) &amp;&amp; quality==&quot;&quot;)
-alert(&apos;Please select a Computer Systems Quality Approver before submitting the User Story for approval.&apos;)*/
-
-else if(gxp==&quot;Yes&quot; &amp;&amp; critical==&quot;Yes&quot; &amp;&amp; compliance==&quot;&quot; )
-alert(&apos;Please select a Business Quality Approver before submitting the User Story for approval.&apos;)
-else if(gxp==&quot;Yes&quot; &amp;&amp; critical==&quot;Yes&quot; &amp;&amp; quality==&quot;&quot;)
-alert(&apos;Please select a Computer Systems Quality Approver before submitting the User Story for approval.&apos;)
-else{
-sforce.apex.execute(&quot;MICO_SubmitForApproval&quot;,&quot;SendEmailMethod&quot;,{localId:userStoryId});
-location.reload(true);
-}</url>
     </webLinks>
 </CustomObject>

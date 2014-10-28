@@ -21,26 +21,6 @@
     <fields>
         <fullName>Categories</fullName>
         <picklist>
-            <picklistValues>
-                <fullName>Pangaea - General Enhancements</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Pangaea - Reporting Enhancements</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Pangaea - Business Process Changes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Pangaea - Content Suggestions</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Pangaea - External Partnership Ideas</fullName>
-                <default>false</default>
-            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <type>Picklist</type>
@@ -76,35 +56,6 @@
         <active>true</active>
         <description>Record Type used to associate ideas with a specific community</description>
         <label>Internal Ideas: Idea Record Type</label>
-    </recordTypes>
-    <recordTypes>
-        <fullName>Record_type_for_community_09ab0000000L8ndAAC_entity_Idea</fullName>
-        <active>true</active>
-        <description>Record type used to associate Idea with a specific zone</description>
-        <label>Pangaea Idea Zone: Idea Record Type</label>
-        <picklistValues>
-            <picklist>Categories</picklist>
-            <values>
-                <fullName>Pangaea - Business Process Changes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pangaea - Content Suggestions</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pangaea - External Partnership Ideas</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pangaea - General Enhancements</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pangaea - Reporting Enhancements</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
     </recordTypes>
     <searchLayouts>
         <customTabListAdditionalFields>IDEA.TITLE</customTabListAdditionalFields>

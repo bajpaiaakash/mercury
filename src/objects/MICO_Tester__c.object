@@ -63,23 +63,27 @@ Used In: Mission Control App</description>
         <label>Test Phase</label>
         <picklist>
             <picklistValues>
-                <fullName>Sprint Test</fullName>
+                <fullName>Peer Review</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>User Acceptance Test</fullName>
+                <fullName>SAT</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Stability Test</fullName>
+                <fullName>UAT</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Regression Test</fullName>
+                <fullName>Integration</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Performance Test</fullName>
+                <fullName>Performance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Regression</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -119,14 +123,4 @@ Used In: Mission Control App</description>
     <pluralLabel>Testers</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
-    <validationRules>
-        <fullName>PreventFromCreatingTesterUntilApproved</fullName>
-        <active>true</active>
-        <description>MICO - This validation rule will prevent the user from creating a tester record if the Test Script is not in &quot;Approved&quot; status</description>
-        <errorConditionFormula>AND(
-    ISNEW(),
-    NOT(ISPICKVAL(Test_Template__r.Approval_Status__c,&apos;Approved&apos;))
-)</errorConditionFormula>
-        <errorMessage>You cannot create a Tester record until the related Test Script is in an &quot;Approved&quot; status</errorMessage>
-    </validationRules>
 </CustomObject>

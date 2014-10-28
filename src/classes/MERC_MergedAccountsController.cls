@@ -41,8 +41,10 @@ public with sharing class MERC_MergedAccountsController {
                                               , Winning_Id_GLBL__c
                                               , Original_Account_ID_GLBL__c
                                               , Merge_Processed_MERC__c
+                                              , Merge_Marked_Complete_MERC__c
                                           FROM Merge_History_GLBL__c
                                           WHERE Merge_Processed_MERC__c = false
+                                          AND Merge_Marked_Complete_MERC__c = false
                                           LIMIT 300])
         {
             mergeHistoryByWinningAccount.put(mh.Winning_Id_GLBL__c, mh);
@@ -109,14 +111,23 @@ public with sharing class MERC_MergedAccountsController {
             if (mergeHistoryByWinningAccount.containsKey(completedMergeId))
             {
                 Merge_History_GLBL__c activeMH = mergeHistoryByWinningAccount.get(completedMergeId);
-                MERC_MergedAccountApex deleteObject = new MERC_MergedAccountApex(activeMH.Winning_Id_GLBL__c, activeMH.Original_Account_ID_GLBL__c);
-
-                /*----- delete all child records associated with the losing account -----*/
-                deleteObject.destroyLosingRecords();
-
-                /*----- set the merge history object to processed -----*/
-                activeMH.Merge_Processed_MERC__c = true;
+                activeMH.Merge_Marked_Complete_MERC__c = true;
                 update activeMH;
+
+// remove after debugging
+            //p('starting delete');
+            //MERC_MergedAccountApex deleteObject = 
+            //    new MERC_MergedAccountApex(activeMH.Winning_Id_GLBL__c, activeMH.Original_Account_ID_GLBL__c);
+
+            //----- delete all child records associated with the losing account -----
+            //deleteObject.destroyLosingRecords();
+
+            ///*----- set the merge history object to processed -----*/
+            //activeMH.Merge_Processed_MERC__c = true;
+            //p('completed process of '+activeMH);
+// end remove
+
+
 
                 /*----- clear the mergeObject so there is no confusion which account related lists belong to
                         after clicking a "completed" button for a row in the account table -----*/
@@ -132,7 +143,6 @@ public with sharing class MERC_MergedAccountsController {
             {
                 throw new MERC_Exception('Unable to process this row. Please contact an administrator.');
             }
-
         }
         catch (Exception ex)
         {
@@ -140,4 +150,7 @@ public with sharing class MERC_MergedAccountsController {
             ApexPages.addMessages(ex);
         }
     }
+        static void p(String m) {
+            System.debug('\n\n\nYYZ - '+m+'\n\n\n\n');
+        }
 }

@@ -8,13 +8,20 @@ private class MERC_TeamMemberDeletePMOTest {
 	
 	static final Integer TEST_SET_SIZE = 200;
 
+	static User testUser;
 	static List<Account> accounts;
 	static List<User> users;
 	static List<Meeting_MERC__c> meetings;
 
 	static {
-		users = MERC_TestFactory.insertTestUsers(TEST_SET_SIZE, null);
-		meetings = MERC_TestFactory.insertMeetings(TEST_SET_SIZE);
+		System.runAs(new User(Id=UserInfo.getUserId())) {
+			users = MERC_TestFactory.insertTestUsers(TEST_SET_SIZE, null);
+			testUser = MERC_TestFactory.getTestingUser();
+		}
+
+		System.runAs(testUser) {
+			meetings = MERC_TestFactory.insertMeetings(TEST_SET_SIZE);
+		}	
 	}
 
 	@isTest 
@@ -36,5 +43,4 @@ private class MERC_TeamMemberDeletePMOTest {
 			System.assert(m.Meeting_Owner_Email_MERC__c==null && m.Prmry_Mtng_Ownr_Nm_MERC__c==null,'Meeting fields not getting cleared. e.g. '+m);
 		}
 	}
-
 }

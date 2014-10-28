@@ -20,45 +20,19 @@
         <relationshipLabel><!-- Apps (Business Contact) --></relationshipLabel>
     </fields>
     <fields>
-        <help><!-- The user responsible for this application from a Business Quality perspective --></help>
-        <label><!-- Business Quality --></label>
-        <name>Business_Quality__c</name>
-        <relationshipLabel><!-- Apps (Business Quality) --></relationshipLabel>
-    </fields>
-    <fields>
-        <help><!-- Configuration Management Database ID --></help>
-        <label><!-- CMDB ID --></label>
-        <name>CMDB_ID__c</name>
-    </fields>
-    <fields>
-        <help><!-- The user responsible for this application from a Computer Systems Quality perspective --></help>
-        <label><!-- Computer Systems Quality --></label>
-        <name>Computer_Systems_Quality__c</name>
-        <relationshipLabel><!-- Apps (Computer Systems Quality) --></relationshipLabel>
-    </fields>
-    <fields>
-        <help><!-- The criticality of the data captured / used by this application. --></help>
-        <label><!-- Data Criticality --></label>
-        <name>Data_Criticality__c</name>
+        <label><!-- Business Criticality --></label>
+        <name>Business_Criticality__c</name>
         <picklistValues>
-            <masterLabel>Green</masterLabel>
-            <translation><!-- Green --></translation>
+            <masterLabel>High</masterLabel>
+            <translation><!-- High --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Not Assessed</masterLabel>
-            <translation><!-- Not Assessed --></translation>
+            <masterLabel>Low</masterLabel>
+            <translation><!-- Low --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Orange</masterLabel>
-            <translation><!-- Orange --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Red</masterLabel>
-            <translation><!-- Red --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Yellow</masterLabel>
-            <translation><!-- Yellow --></translation>
+            <masterLabel>Medium</masterLabel>
+            <translation><!-- Medium --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -66,66 +40,28 @@
         <name>Detailed_Description__c</name>
     </fields>
     <fields>
-        <label><!-- GxP --></label>
-        <name>GxP__c</name>
+        <help><!-- In what org is this app being delivered? --></help>
+        <label><!-- Org --></label>
+        <name>Org__c</name>
         <picklistValues>
-            <masterLabel>GxP</masterLabel>
-            <translation><!-- GxP --></translation>
+            <masterLabel>Production: GSO</masterLabel>
+            <translation><!-- Production: GSO --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Not Assessed</masterLabel>
-            <translation><!-- Not Assessed --></translation>
+            <masterLabel>Production: Other</masterLabel>
+            <translation><!-- Production: Other --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Not GxP</masterLabel>
-            <translation><!-- Not GxP --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <help><!-- The IT organisation responsibe for this application --></help>
-        <label><!-- IT Responsible Org --></label>
-        <name>IT_Responsible_Org__c</name>
-    </fields>
-    <fields>
-        <label><!-- PIC Status --></label>
-        <name>PIC_Status__c</name>
-        <picklistValues>
-            <masterLabel>Complete</masterLabel>
-            <translation><!-- Complete --></translation>
+            <masterLabel>Sandbox: GSO</masterLabel>
+            <translation><!-- Sandbox: GSO --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>In Progress</masterLabel>
-            <translation><!-- In Progress --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Not Started</masterLabel>
-            <translation><!-- Not Started --></translation>
+            <masterLabel>Sandbox: Other</masterLabel>
+            <translation><!-- Sandbox: Other --></translation>
         </picklistValues>
     </fields>
     <fields>
-        <help><!-- The URL for the completed PIC record --></help>
-        <label><!-- PIC URL --></label>
-        <name>PIC_URL__c</name>
-    </fields>
-    <fields>
-        <help><!-- Is this application Quality Critical --></help>
-        <label><!-- Quality Critical --></label>
-        <name>Quality_Critical__c</name>
-        <picklistValues>
-            <masterLabel>Critical</masterLabel>
-            <translation><!-- Critical --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Not Assessed</masterLabel>
-            <translation><!-- Not Assessed --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Not Critical</masterLabel>
-            <translation><!-- Not Critical --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <label><!-- Quality &amp; Criticality Notes --></label>
+        <label><!-- Risk Assessment Notes --></label>
         <name>Risk_Assessment_Notes__c</name>
     </fields>
     <fields>
@@ -187,18 +123,6 @@
         <name>Summary__c</name>
     </fields>
     <fields>
-        <help><!-- The system custodian for this application --></help>
-        <label><!-- System Custodian --></label>
-        <name>System_Custodian__c</name>
-        <relationshipLabel><!-- Apps (System Custodian) --></relationshipLabel>
-    </fields>
-    <fields>
-        <help><!-- The System Owner responsible for this application --></help>
-        <label><!-- System Owner --></label>
-        <name>System_Owner__c</name>
-        <relationshipLabel><!-- Apps (System Owner) --></relationshipLabel>
-    </fields>
-    <fields>
         <help><!-- The first point of contact about this application from a technical perspective --></help>
         <label><!-- Technical Contact --></label>
         <name>Technical_Contact__c</name>
@@ -206,6 +130,10 @@
     </fields>
     <layouts>
         <layout>App Layout</layout>
+        <sections>
+            <label><!-- Contacts --></label>
+            <section>Contacts</section>
+        </sections>
         <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
@@ -215,16 +143,8 @@
             <section>Descriptions</section>
         </sections>
         <sections>
-            <label><!-- Key Contacts --></label>
-            <section>Key Contacts</section>
-        </sections>
-        <sections>
-            <label><!-- Quality and Criticality --></label>
-            <section>Quality and Criticality</section>
-        </sections>
-        <sections>
-            <label><!-- spacer --></label>
-            <section>spacer</section>
+            <label><!-- Risk Assessment --></label>
+            <section>Risk Assessment</section>
         </sections>
     </layouts>
     <startsWith>Vowel</startsWith>

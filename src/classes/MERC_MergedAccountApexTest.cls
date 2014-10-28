@@ -11,89 +11,90 @@
 private class MERC_MergedAccountApexTest
 {
 
-	//static User testUser;
-	//static User odsUser;  /* need to be sys admin (or maybe owner of ALL records?) */
-	//static {
-	//	System.runas(new User(Id=UserInfo.getUserId()))
-	//	{
-	//		testUser = MERC_TestFactory.insertTestUsers(1, null).get(0);
-	//		PermissionSet ps = [SELECT Id FROM PermissionSet WHERE Name='Mercury_Customer_Meeting_Services_Edit' limit 1];
-	//		insert new PermissionSetAssignment(PermissionSetId=ps.Id, AssigneeId=testUser.id);
-	//		update new User(id=testUser.Id, UserRoleId=[SELECT Id FROM UserRole WHERE Name='CEO' limit 1].id);
+	static User testUser;
+	static User odsUser;  /* need to be sys admin (or maybe owner of ALL records?) */
+	static {
+		System.runas(new User(Id=UserInfo.getUserId()))
+		{
+			testUser = MERC_TestFactory.insertTestUsers(1, 'GSO Basic User_Salesforce','CEO','MERC_Content_Regional_GB').get(0);
+			PermissionSet ps = [SELECT Id FROM PermissionSet WHERE Name='Mercury_Customer_Meeting_Services_Edit' limit 1];
+			insert new PermissionSetAssignment(PermissionSetId=ps.Id, AssigneeId=testUser.id);
+	  		odsUser = MERC_TestFactory.insertTestUsers(1, 'Mercury Integration ODS - Platform','Lilly Employee','MERC_Content_Regional_GB').get(0);
+		}
+	}
 
-	//		Profile p = [SELECT id from Profile WHERE Profile.Name = 'Mercury Integration ODS - Platform' limit 1];
-	//		String testemail = 'testuserods@unittest.com';
-	//		odsUser = new User(profileId = p.id, username = testemail, email = testemail,
-	//                           emailencodingkey = 'UTF-8', localesidkey = 'en_US',
-	//                           languagelocalekey = 'en_US', timezonesidkey = 'GMT',
-	//                           alias='utusrods', lastname='lastname');
-	//		insert odsUser;
-	//	}
-	//}
-	static Account winningAccount = MERC_TestFactory.insertMasterAccountsInCountry(1, 'GB').get(0);
-	static Account losingAccount  = MERC_TestFactory.insertMasterAccountsInCountry(1, 'GB').get(0);
+	static Account winningAccount;
+	static Account losingAccount;
 	static
 	{
-		MERC_TestFactory.insertMercuryCustomSettings();
+		MERC_TriggerHandlerStateManager.deactivateAll();
+		System.runAs(testUser)
+		{
+			winningAccount = MERC_TestFactory.insertMasterAccountsInCountry(1, 'GB').get(0);
+			losingAccount = MERC_TestFactory.insertMasterAccountsInCountry(1, 'GB').get(0);
+			MERC_TestFactory.insertMercuryCustomSettings();
 
-		losingAccount.put('Cust_Id_GLBL__c','CUSTID1234');
-		update losingAccount;
+			losingAccount.put('Cust_Id_GLBL__c','CUSTID1234');
+			update losingAccount;
+
+			List<Preferences_and_Consent_GLBL__c> prefConsentRecords = new List<Preferences_and_Consent_GLBL__c>();
+			List<String> prefTypes  = new List<String>{'Language Preference','Communication Preference','Speaker Interest', 'Contract Delivery', 'Payment Required'};
+			List<String> prefValues = new List<String>{'English','E-Mail','Contract Request', 'E-Mail', 'Yes'};
+			for (Integer i=0; i<5; i++)
+			{
+				prefConsentRecords.add(
+					new Preferences_and_Consent_GLBL__c( Preference_Type_MERC__c     = prefTypes[i]+'x' //add uniqueness
+	                 								   , Preference_Sub_Type_MERC__c = prefValues[i]
+	                 								   , Account_GLBL__c             = winningAccount.Id)
+				);
+				prefConsentRecords.add(
+					new Preferences_and_Consent_GLBL__c( Preference_Type_MERC__c     = prefTypes[i]
+	                 								   , Preference_Sub_Type_MERC__c = prefValues[i]
+	                 								   , Account_GLBL__c             = losingAccount.Id)
+				);
+			}
+			insert prefConsentRecords;
+		}
 
 		insert new Merge_History_GLBL__c( Winning_Id_GLBL__c=winningAccount.Cust_Id_GLBL__c, Original_Account_ID_GLBL__c='CUSTID1234');
+		MERC_TriggerHandlerStateManager.activateAll();
 
-		List<Preferences_and_Consent_GLBL__c> prefConsentRecords = new List<Preferences_and_Consent_GLBL__c>();
-		List<String> prefTypes  = new List<String>{'Language Preference','Communication Preference','Speaker Interest', 'Contract Delivery', 'Payment Required'};
-		List<String> prefValues = new List<String>{'English','E-Mail','Contract Request', 'E-Mail', 'Yes'};
-		for (Integer i=0; i<5; i++)
+		// perform the merge that will put all of the pref and consent records to the winning account
+		System.runAs(odsUser)
 		{
-			prefConsentRecords.add(
-				new Preferences_and_Consent_GLBL__c( Preference_Type_MERC__c     = prefTypes[i]+'x' //add uniqueness
-                 								   , Preference_Sub_Type_MERC__c = prefValues[i]
-                 								   , Account_GLBL__c             = winningAccount.Id)
-			);
-			prefConsentRecords.add(
-				new Preferences_and_Consent_GLBL__c( Preference_Type_MERC__c     = prefTypes[i]
-                 								   , Preference_Sub_Type_MERC__c = prefValues[i]
-                 								   , Account_GLBL__c             = losingAccount.Id)
-			);
-			// new Preferences_and_Consent_GLBL__c(Account_GLBL__c=winningAccount.Id,Cmnctn_Chnl_Cd_Cap_GLBL__c='989',Preference_Type_MERC__c='Meals Allergy Preferences'),
-			// new Preferences_and_Consent_GLBL__c(Account_GLBL__c=losingAccount.Id,Cmnctn_Chnl_Cd_Cap_GLBL__c='YYZ',Preference_Type_MERC__c='High/Low Verbal')
-		}
-		insert prefConsentRecords;
-
-		//perform the merge that will put all of the pref and consent records to the winning account
-
-		//System.runAs(odsUser)
-		//{
 			merge winningAccount losingAccount;
-		//}
+		}
 
 	}
 
-	@isTest static void test_should_initialize_object_and_related_lists()
+	@isTest 
+	static void test_should_initialize_object_and_related_lists()
 	{
-		//System.runAs(testUser)
-		//{
-			MERC_MergedAccountApex maa = new MERC_MergedAccountApex(winningAccount.Cust_Id_GLBL__c, losingAccount.Cust_Id_GLBL__c);
-			System.assertEquals(8, maa.getAllRelatedLists().size(), 'Check MERC_TestFactory.insertMercuryCustomSettings() if this fails. Custom setting creation may have been modified.');
-			//pref and consent has order 8 so it's the last one in the list. so get(7).
-			System.assertEquals(5, maa.getAllRelatedLists().get(7).losingList.size());
-			System.assertEquals(5, maa.getAllRelatedLists().get(7).winningList.size());
 
-		//}
+		MERC_MergedAccountApex maa;
+		Test.startTest();
+		System.runAs(testUser)
+		{
+			maa = new MERC_MergedAccountApex(winningAccount.Cust_Id_GLBL__c, losingAccount.Cust_Id_GLBL__c);
+		}
+		Test.stopTest();
+		System.assertEquals(8, maa.getAllRelatedLists().size(), 'Check MERC_TestFactory.insertMercuryCustomSettings() if this fails. Custom setting creation may have been modified.');
+
+		//pref and consent has order 8 so it's the last one in the list. so get(7).
+		System.assertEquals(5, maa.getAllRelatedLists().get(7).losingList.size(),'LosingList size is unexpected.');
+		System.assertEquals(5, maa.getAllRelatedLists().get(7).winningList.size(),'WinningList size is unexpected.');
 	}
 
-	// TODO - Business process has changed. Skipping for now...
-	// @isTest   
+	@isTest   
 	static void test_should_handle_query_exception_gracefully()
 	{
-		//update new User(id=testUser.Id, UserRoleId=null);
-		//System.runAs(testUser)
-		//{
+		System.runAs(testUser)
+		{
 			Boolean exceptionCaught = false;
 			try
 			{
-				MERC_MergedAccountApex maa = new MERC_MergedAccountApex(winningAccount.Cust_Id_GLBL__c, losingAccount.Cust_Id_GLBL__c);
+				//MERC_MergedAccountApex maa = new MERC_MergedAccountApex(winningAccount.Cust_Id_GLBL__c, losingAccount.Cust_Id_GLBL__c);
+				MERC_MergedAccountApex maa = new MERC_MergedAccountApex('abcxyz0123456789', losingAccount.Cust_Id_GLBL__c);
 			}
 			catch(MERC_Exception ex)
 			{
@@ -101,34 +102,37 @@ private class MERC_MergedAccountApexTest
 				exceptionCaught = true;
 			}
 			System.assert(exceptionCaught, 'No exception was caught.');
-		//}
+		}
 	}
 
-	@isTest static void test_should_return_winning_account()
+	@isTest 
+	static void test_should_return_winning_account()
 	{
-		//System.runAs(testUser)
-		//{
+		System.runAs(testUser)
+		{
 			MERC_MergedAccountApex maa = new MERC_MergedAccountApex(winningAccount.Cust_Id_GLBL__c, losingAccount.Cust_Id_GLBL__c);
 			System.assertEquals(winningAccount.Id, maa.getAccount().Id);
-		//}
+		}
 	}
 
-	@isTest static void test_should_remove_all_records_from_losing_account()
+	@isTest 
+	static void test_should_remove_all_records_from_losing_account()
 	{
-		//System.runAs(testUser)
-		//{
+		System.runAs(testUser)
+		{
 			Test.startTest();
 			MERC_MergedAccountApex maa = new MERC_MergedAccountApex(winningAccount.Cust_Id_GLBL__c, losingAccount.Cust_Id_GLBL__c);
 			maa.destroyLosingRecords();
 			Test.stopTest();
 			System.assertEquals(0, maa.getAllRelatedLists().get(0).losingList.size());
-		//}
+		}
 	}
 
-	@isTest static void test_should_delete_selected_records_from_winning_account()
+	@isTest 
+	static void test_should_delete_selected_records_from_winning_account()
 	{
-		//System.runAs(testUser)
-		//{
+		System.runAs(testUser)
+		{
 			MERC_MergedAccountApex maa = new MERC_MergedAccountApex(winningAccount.Cust_Id_GLBL__c, losingAccount.Cust_Id_GLBL__c);
 			for (MERC_MergedAccountApex.SelectableSObject so : maa.getAllRelatedLists().get(0).winningList)
 			{
@@ -136,17 +140,18 @@ private class MERC_MergedAccountApexTest
 			}
 			maa.getAllRelatedLists().get(0).deleteSelectedWinningRecords();
 			System.assertEquals(0, maa.getAllRelatedLists().get(0).winningList.size());
-		//}
+		}
 	}
 
-	@isTest static void test_should_remove_Prior_Parent_Id_when_merged()
+	@isTest 
+	static void test_should_remove_Prior_Parent_Id_when_merged()
 	{
 		/*----- remove the prefs from the winning account so we don't get duplicate pref type errors -----*/
 		Test.startTest();
 		delete [SELECT Id FROM Preferences_and_Consent_GLBL__c WHERE Account_GLBL__c=:winningAccount.Id AND Prior_Parent_Id_GLBL__c = ''];
 
-		//System.runAs(testUser)
-		//{
+		System.runAs(testUser)
+		{
 			MERC_MergedAccountApex maa = new MERC_MergedAccountApex(winningAccount.Cust_Id_GLBL__c, losingAccount.Cust_Id_GLBL__c);
 			for (MERC_MergedAccountApex.SelectableSObject so : maa.getAllRelatedLists().get(7).losingList)
 			{
@@ -155,14 +160,15 @@ private class MERC_MergedAccountApexTest
 			maa.getAllRelatedLists().get(7).mergeSelectedRecords();
 			System.assertEquals(5, maa.getAllRelatedLists().get(7).winningList.size());
 			System.assertEquals(0, maa.getAllRelatedLists().get(7).losingList.size());
-		//}
+		}
 		Test.stopTest();
 	}
 
-	@isTest static void test_exceptions_should_be_caught()
+	@isTest 
+	static void test_exceptions_should_be_caught()
 	{
-		//System.runAs(testUser)
-		//{
+		System.runAs(testUser)
+		{
 			Test.startTest();
 			MERC_MergedAccountApex maa = new MERC_MergedAccountApex(winningAccount.Cust_Id_GLBL__c, losingAccount.Cust_Id_GLBL__c);
 
@@ -171,7 +177,7 @@ private class MERC_MergedAccountApexTest
 
 			/*----- attempt destroy losing records, ensure error caught -----*/
 			maa.destroyLosingRecords();
-			System.assertEquals(1, ApexPages.getMessages().size());
+			System.assertEquals(1, ApexPages.getMessages().size(),'No page message after delete!');
 
 			/*----- attempt delete selected winning records, ensure error caught -----*/
 			maa.getAllRelatedLists().get(7).winningList.get(0).selected=true;
@@ -183,6 +189,6 @@ private class MERC_MergedAccountApexTest
 			maa.getAllRelatedLists().get(7).mergeSelectedRecords();
 			System.assertEquals(3, ApexPages.getMessages().size());
 			Test.stopTest();
-		//}
+		}
 	}
 }

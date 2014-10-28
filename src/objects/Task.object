@@ -180,17 +180,4 @@
         <type>Lookup</type>
     </fields>
     <sharingModel>Private</sharingModel>
-    <webLinks>
-        <fullName>IRIS_Custom_Send_Email</fullName>
-        <availability>online</availability>
-        <displayType>massActionButton</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <height>600</height>
-        <linkType>url</linkType>
-        <masterLabel>Custom Send Email</masterLabel>
-        <openType>sidebar</openType>
-        <protected>false</protected>
-        <requireRowSelection>true</requireRowSelection>
-        <url>/apex/IRIS_SendEmail?subId={!IRIS_Submission__c.Id}</url>
-    </webLinks>
 </CustomObject>

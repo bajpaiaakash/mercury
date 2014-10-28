@@ -85,8 +85,8 @@ Used In: Mission Control App</description>
     </fields>
     <label>SCM Commit Defect Link</label>
     <nameField>
-        <displayFormat>SCMD-{000000}</displayFormat>
-        <label>SCM Commit Defect Link Name</label>
+        <displayFormat>SCMB-{000000}</displayFormat>
+        <label>SCM Commit Bug Link Name</label>
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>SCM Commit Defect Link</pluralLabel>

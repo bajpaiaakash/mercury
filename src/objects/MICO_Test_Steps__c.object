@@ -77,7 +77,7 @@ Used In: Mission Control App</description>
         <fullName>Comments__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>Notes and Comments about the test from the tester. This should be populated if a test step is failed in any way</inlineHelpText>
-        <label>Actual Results</label>
+        <label>Comments</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -160,19 +160,6 @@ Used In: Mission Control App</description>
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Test_Execution_Step_Number__c</fullName>
-        <description>This field should be populated with the step number from Test Script Step</description>
-        <externalId>false</externalId>
-        <label>Test Execution Step Number</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Test__c</fullName>
         <externalId>false</externalId>
         <label>Test</label>
@@ -207,12 +194,4 @@ Used In: Mission Control App</description>
     <pluralLabel>Test Execution Steps</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
-    <validationRules>
-        <fullName>PreventFromCreateStepsUntilApproved</fullName>
-        <active>true</active>
-        <description>MICO - This validation rule will prevent the user from creating/editing a Test Execution Step record if the Test Execution is in an &quot;Approved&quot; status</description>
-        <errorConditionFormula>ISPICKVAL(Test__r.Approval_Status__c ,&apos;Approved&apos;) ||
-ISPICKVAL(Test__r.Approval_Status__c ,&apos;Pending Approval&apos;)</errorConditionFormula>
-        <errorMessage>You cannot Create / Edit a Test Execution Step record if the Test Execution is in an &quot;Approved&quot; / &quot;Pending Approval&quot; status</errorMessage>
-    </validationRules>
 </CustomObject>

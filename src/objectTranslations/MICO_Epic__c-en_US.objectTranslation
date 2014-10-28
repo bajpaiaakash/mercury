@@ -13,11 +13,6 @@
         <name>Epic_Details__c</name>
     </fields>
     <fields>
-        <label><!-- Project --></label>
-        <name>MICO_Project__c</name>
-        <relationshipLabel><!-- Epics --></relationshipLabel>
-    </fields>
-    <fields>
         <label><!-- Status --></label>
         <name>Status__c</name>
         <picklistValues>

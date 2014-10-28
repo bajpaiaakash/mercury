@@ -14,14 +14,6 @@
         <relationshipLabel><!-- User Story / Design Links --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Sprint --></label>
-        <name>Sprint__c</name>
-    </fields>
-    <fields>
-        <label><!-- User Story Approval Status --></label>
-        <name>User_Story_Approval_Status__c</name>
-    </fields>
-    <fields>
         <label><!-- User Story --></label>
         <name>User_Story__c</name>
         <relationshipLabel><!-- User Story / Design Links --></relationshipLabel>

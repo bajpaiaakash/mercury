@@ -33,14 +33,6 @@
         <type>Default</type>
     </actionOverrides>
     <enableFeeds>false</enableFeeds>
-    <fields>
-        <fullName>ACT_Ref__c</fullName>
-        <description>This field will act as a unique identifier for Activities: Created on 07/02/2014 by Preeti Grover:MICO</description>
-        <displayFormat>ACT-{0000}</displayFormat>
-        <externalId>false</externalId>
-        <label>Ref</label>
-        <type>AutoNumber</type>
-    </fields>
     <listViews>
         <fullName>MyActivities</fullName>
         <filterScope>Mine</filterScope>

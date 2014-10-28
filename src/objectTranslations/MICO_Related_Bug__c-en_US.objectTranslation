@@ -14,18 +14,18 @@
         <relationshipLabel><!-- Related Defects --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Related Defect Status --></label>
+        <label><!-- Related Bug Status --></label>
         <name>Related_Bug_Status__c</name>
     </fields>
     <fields>
         <help><!-- The summary of the related bug --></help>
-        <label><!-- Related Defect Summary --></label>
+        <label><!-- Related Bug Summary --></label>
         <name>Related_Bug_Summary__c</name>
     </fields>
     <fields>
         <label><!-- Related Defect --></label>
         <name>Related_Bug__c</name>
-        <relationshipLabel><!-- Related Defects (Inverse) --></relationshipLabel>
+        <relationshipLabel><!-- Related Defects (Defect) --></relationshipLabel>
     </fields>
     <layouts>
         <layout>Related Bug Layout</layout>

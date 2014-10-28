@@ -18,9 +18,9 @@
         </actions>
         <active>true</active>
         <criteriaItems>
-            <field>MICO_Risks_Issues__c.Status__c</field>
+            <field>MICO_Risks_Issues__c.State__c</field>
             <operation>equals</operation>
-            <value>Resolved,Duplicate,No Issue</value>
+            <value>Closed</value>
         </criteriaItems>
         <criteriaItems>
             <field>MICO_Risks_Issues__c.Closed_Date__c</field>

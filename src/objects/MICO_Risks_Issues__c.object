@@ -60,14 +60,11 @@ Used In: Mission Control App</description>
     <fields>
         <fullName>App__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
-        <description>The app this risk or issue relates to
-Created on 01/07/2014 by SMills 
-MICO</description>
+        <description>The app this risk / issue is related to</description>
         <externalId>false</externalId>
-        <inlineHelpText>The app this risk or issue is related to</inlineHelpText>
+        <inlineHelpText>The app this risk / issue is related to</inlineHelpText>
         <label>App</label>
         <referenceTo>MICO_App__c</referenceTo>
-        <relationshipLabel>Risks &amp; Issues</relationshipLabel>
         <relationshipName>Risks_Issues</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -77,9 +74,6 @@ MICO</description>
     </fields>
     <fields>
         <fullName>Category__c</fullName>
-        <description>A categorisation of the risk and issue
-Created on 01/07/2014 by SMills 
-MICO</description>
         <externalId>false</externalId>
         <label>Category</label>
         <picklist>
@@ -116,9 +110,6 @@ MICO</description>
     </fields>
     <fields>
         <fullName>Closed_Date__c</fullName>
-        <description>The date the risk or issue is closed
-Created on 01/07/2014 by SMills 
-MICO</description>
         <externalId>false</externalId>
         <label>Closed Date</label>
         <required>false</required>
@@ -130,11 +121,8 @@ MICO</description>
     <fields>
         <fullName>Date_Raised__c</fullName>
         <defaultValue>Today()</defaultValue>
-        <description>The date an issue was raised. May pre date the issue being added to Mission Control
-Created on 01/07/2014 by SMills 
-MICO</description>
         <externalId>false</externalId>
-        <inlineHelpText>Record the date the issue was raised. NB: This may be different to the day it was logged in Mission Control</inlineHelpText>
+        <inlineHelpText>Record the date the issue was raised. This may be different to the day it was logged in Tracker</inlineHelpText>
         <label>Date Raised</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -144,9 +132,6 @@ MICO</description>
     </fields>
     <fields>
         <fullName>Description__c</fullName>
-        <description>A detailed description of this risk or issue
-Created on 01/07/2014 by SMills 
-MICO</description>
         <externalId>false</externalId>
         <label>Description</label>
         <length>32000</length>
@@ -159,11 +144,8 @@ MICO</description>
     <fields>
         <fullName>Identified_By__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
-        <description>The person who raised or identified this risk. NB This may be different to the person who added this to Mission Control
-Created on 01/07/2014 by SMills 
-MICO</description>
+        <description>The originator of the risk or issue</description>
         <externalId>false</externalId>
-        <inlineHelpText>The person who raised or identified this risk. NB This may be different to the person who added this to Mission Control</inlineHelpText>
         <label>Identified By</label>
         <referenceTo>User</referenceTo>
         <relationshipName>Risks_Issues</relationshipName>
@@ -175,31 +157,23 @@ MICO</description>
     </fields>
     <fields>
         <fullName>Impact_CC__c</fullName>
-        <description>The business impact that this risk would have. Used in calculating the Risk Score
-Created on 01/07/2014 by SMills 
-MICO</description>
         <externalId>false</externalId>
-        <inlineHelpText>Links to Impact &amp; Likelihood Rating Grids can be located on the Global IT Risk Management collaboration site.</inlineHelpText>
-        <label>Business Impact</label>
+        <inlineHelpText>What is the impact (or severity) of this item occurring?</inlineHelpText>
+        <label>Impact</label>
         <picklist>
             <picklistValues>
-                <fullName>Minor</fullName>
-                <color>#33CC00</color>
+                <fullName>Low Impact</fullName>
+                <color>#78C953</color>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Moderate</fullName>
+                <fullName>High Impact</fullName>
                 <color>#F3D904</color>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Material</fullName>
-                <color>#FF9900</color>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Catastrophic</fullName>
-                <color>#990000</color>
+                <fullName>Critical</fullName>
+                <color>#A53711</color>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -212,14 +186,9 @@ MICO</description>
     <fields>
         <fullName>Meeting__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
-        <description>A meeting that this risk or issue was raised in
-Created on 01/07/2014 by SMills 
-MICO</description>
         <externalId>false</externalId>
-        <inlineHelpText>A meeting this risk or issue was raised in.</inlineHelpText>
         <label>Meeting</label>
         <referenceTo>MICO_Meeting__c</referenceTo>
-        <relationshipLabel>Risks &amp; Issues</relationshipLabel>
         <relationshipName>Risks_Issues</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -229,12 +198,8 @@ MICO</description>
     </fields>
     <fields>
         <fullName>Mitigating_Actions__c</fullName>
-        <description>What will be done to treat or mitigate this risk or issue
-Created on 01/07/2014 by SMills 
-MICO</description>
         <externalId>false</externalId>
-        <inlineHelpText>What will be done to treat or mitigate this risk or issue</inlineHelpText>
-        <label>Treatment Plan</label>
+        <label>Mitigating Actions</label>
         <length>32000</length>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
@@ -244,34 +209,30 @@ MICO</description>
     </fields>
     <fields>
         <fullName>Probability__c</fullName>
-        <description>The probability or likelihood of this risk occuring
-Created on 01/07/2014 by SMills 
-MICO</description>
+        <description>How likely is this item from occurring?
+Low = Not very likely to occur
+Medium = Even chance to occur
+High = Sure to occur</description>
         <externalId>false</externalId>
-        <inlineHelpText>Unlikely: New incident not expected
-Possible: New incident not expected within next 3 years
-Probable: New incident anticipated within the year
-Very Likely/Imminent: New incident anticipated within the next quarter</inlineHelpText>
-        <label>Likelihood</label>
+        <inlineHelpText>How likely is this item from occurring?
+Low = Not very likely to occur
+Medium = Even chance to occur
+High = Sure to occur</inlineHelpText>
+        <label>Probability</label>
         <picklist>
             <picklistValues>
-                <fullName>Unlikely</fullName>
-                <color>#33CC00</color>
+                <fullName>Low</fullName>
+                <color>#78C953</color>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Possible</fullName>
+                <fullName>Medium</fullName>
                 <color>#F3D904</color>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Probable</fullName>
-                <color>#E27001</color>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Very Likely / Imminent</fullName>
-                <color>#990000</color>
+                <fullName>High</fullName>
+                <color>#A53711</color>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -283,82 +244,23 @@ Very Likely/Imminent: New incident anticipated within the next quarter</inlineHe
     </fields>
     <fields>
         <fullName>Project__c</fullName>
-        <description>The project this issue or risk relates to
-Created on 01/07/2014 by SMills 
-MICO</description>
+        <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <inlineHelpText>The project this issue or risk relates to</inlineHelpText>
         <label>Project</label>
         <referenceTo>MICO_Project__c</referenceTo>
-        <relationshipLabel>Risks &amp; Issues</relationshipLabel>
         <relationshipName>MICO_Risks_Issues</relationshipName>
-        <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>MasterDetail</type>
-        <writeRequiresMasterRead>false</writeRequiresMasterRead>
-    </fields>
-    <fields>
-        <fullName>Risk_Level_Icon__c</fullName>
-        <description>An icon that shows the visually the risk score. 
-Created on 01/07/2014 by SMills 
-MICO</description>
-        <externalId>false</externalId>
-        <formula>CASE( Weighting__c , 
-1, IMAGE(&quot;/img/msg_icons/confirm16.png&quot;, &quot;Low&quot;), 
-2, IMAGE(&quot;/img/msg_icons/confirm16.png&quot;, &quot;Low&quot;), 
-3, IMAGE(&quot;/img/msg_icons/info16.png&quot;, &quot;Medium&quot;), 
-4, IMAGE(&quot;/img/msg_icons/info16.png&quot;, &quot;Medium&quot;),  
-6, IMAGE(&quot;/img/msg_icons/warning16.png&quot;, &quot;High&quot;), 
-8, IMAGE(&quot;/img/msg_icons/warning16.png&quot;, &quot;High&quot;), 
-9, IMAGE(&quot;/img/msg_icons/error16.png&quot;, &quot;Severe&quot;),
-9, IMAGE(&quot;/img/msg_icons/error16.png&quot;, &quot;Severe&quot;),
-12,IMAGE(&quot;/img/msg_icons/error16.png&quot;, &quot;Severe&quot;),
-16,IMAGE(&quot;/img/msg_icons/error16.png&quot;, &quot;Severe&quot;),
-&quot;&quot;)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Risk Icon</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Risk_Level__c</fullName>
-        <description>A calculated risk level based on multiplying Likelihood and Business Impact
-Created on 01/07/2014 by SMills 
-MICO</description>
-        <externalId>false</externalId>
-        <formula>CASE( Weighting__c , 
-1, &quot;Low&quot;,
-2, &quot;Low&quot;,
-3, &quot;Medium&quot;,
-4, &quot;Medium&quot;,
-6, &quot;High&quot;,
-8, &quot;High&quot;,
-9, &quot;Severe&quot;,
-9,&quot;Severe&quot;,
-12,&quot;Severe&quot;,
-16,&quot;Severe&quot;,
-&quot;N/A&quot;)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <inlineHelpText>A calculated risk level based on the Likelihood and the Business Impact of this risk.</inlineHelpText>
-        <label>Risk Level</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>State__c</fullName>
         <description>The state of a risk or issue, according to the originator</description>
         <externalId>false</externalId>
         <inlineHelpText>Overall State (Open / Closed) of this risk or issue</inlineHelpText>
-        <label>(Deprecated) State</label>
+        <label>State</label>
         <picklist>
             <picklistValues>
                 <fullName>Open</fullName>
@@ -379,10 +281,8 @@ MICO</description>
     </fields>
     <fields>
         <fullName>Status__c</fullName>
-        <description>The status of this risk or issue
-Created on 01/07/2014 by SMills 
-MICO</description>
         <externalId>false</externalId>
+        <inlineHelpText>What is the status of this risk or issue?</inlineHelpText>
         <label>Status</label>
         <picklist>
             <picklistValues>
@@ -448,9 +348,6 @@ MICO</description>
     </fields>
     <fields>
         <fullName>Title__c</fullName>
-        <description>A brief summary of this risk or issue
-Created on 01/07/2014 by SMills 
-MICO</description>
         <externalId>false</externalId>
         <label>Summary</label>
         <required>false</required>
@@ -460,45 +357,11 @@ MICO</description>
         <type>TextArea</type>
     </fields>
     <fields>
-        <fullName>Treatment__c</fullName>
-        <description>How is this risk or issue to be dealt with
-Created on 01/07/2014 by SMills 
-MICO</description>
-        <externalId>false</externalId>
-        <label>Treatment</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Transfer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Avoid</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Reduce</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Accept</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>Type__c</fullName>
-        <description>Type: Risk or Issue
-Created on 01/07/2014 by SMills 
-MICO</description>
         <externalId>false</externalId>
-        <inlineHelpText>Risk: an event that has the probability of occurring and an impact to the project quality, scope, time, cost and/or schedule.
-
-Issue: has occurred and has a negative impact that must be dealt with (recovery).</inlineHelpText>
+        <inlineHelpText>Is this a Risk or an issue?
+- Risk: an event that has the probability of occurring and an impact to the project quality, scope, time, cost and/or schedule.
+- Issue: has occurred and has a negative impact that must be dealt with (recovery).</inlineHelpText>
         <label>Type</label>
         <picklist>
             <picklistValues>
@@ -519,13 +382,9 @@ Issue: has occurred and has a negative impact that must be dealt with (recovery)
     <fields>
         <fullName>User_Story__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
-        <description>Lookup to user story if this risk or issue relates to one
-Created on 01/07/2014 by SMills 
-MICO</description>
         <externalId>false</externalId>
         <label>User Story</label>
         <referenceTo>MICO_User_Story__c</referenceTo>
-        <relationshipLabel>Risks &amp; Issues</relationshipLabel>
         <relationshipName>MICO_Risks_Issues</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -535,15 +394,12 @@ MICO</description>
     </fields>
     <fields>
         <fullName>Weighting__c</fullName>
-        <description>A score based on Likelihood and Business Impact
-Created on 01/07/2014 by SMills 
-MICO</description>
         <externalId>false</externalId>
-        <formula>CASE( Impact_CC__c , &quot;Catastrophic&quot;, 4, &quot;Material&quot;, 3,&quot;Moderate&quot;,2, 1)*
-CASE(  Probability__c  , &quot;Very Likely / Imminent&quot;, 4, &quot;Probable&quot;, 3,&quot;Possible&quot;,2,1)</formula>
+        <formula>CASE( Impact_CC__c , &quot;Critical&quot;, 3, &quot;High Impact&quot;, 2,&quot;Low Impact&quot;,1, 0)*
+CASE(  Probability__c  , &quot;High&quot;, 3, &quot;Medium&quot;, 2,&quot;Low&quot;,1, 3)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <inlineHelpText>A score based on Likelihood and Business Impact</inlineHelpText>
-        <label>Risk Score</label>
+        <inlineHelpText>An indicator as to the importance of this risk or issue. Calculated as an impact score multiplied by a probability score.</inlineHelpText>
+        <label>Weighting</label>
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
@@ -556,282 +412,87 @@ CASE(  Probability__c  , &quot;Very Likely / Imminent&quot;, 4, &quot;Probable&q
     <listViews>
         <fullName>All_Closed_Risks_Issues</fullName>
         <columns>NAME</columns>
-        <columns>Type__c</columns>
         <columns>Title__c</columns>
-        <columns>Date_Raised__c</columns>
-        <columns>Weighting__c</columns>
-        <columns>Risk_Level_Icon__c</columns>
-        <columns>Project__c</columns>
+        <columns>State__c</columns>
         <columns>Status__c</columns>
+        <columns>Probability__c</columns>
+        <columns>Impact_CC__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>Date_Raised__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>Status__c</field>
+            <field>State__c</field>
             <operation>equals</operation>
-            <value>Resolved,Duplicate,No Issue</value>
+            <value>Closed</value>
         </filters>
         <label>2) All Closed Risks &amp; Issues</label>
-        <language>en_US</language>
     </listViews>
     <listViews>
         <fullName>All_Open_Risks_Issues</fullName>
         <columns>NAME</columns>
-        <columns>Type__c</columns>
         <columns>Title__c</columns>
-        <columns>Date_Raised__c</columns>
-        <columns>Weighting__c</columns>
-        <columns>Risk_Level_Icon__c</columns>
-        <columns>Project__c</columns>
+        <columns>State__c</columns>
         <columns>Status__c</columns>
+        <columns>Probability__c</columns>
+        <columns>Impact_CC__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>Date_Raised__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>Status__c</field>
+            <field>State__c</field>
             <operation>equals</operation>
-            <value>In Progress</value>
+            <value>Open</value>
         </filters>
         <label>1) All Open Risks &amp; Issues</label>
-        <language>en_US</language>
     </listViews>
     <listViews>
         <fullName>My_Closed_Risks_Issues</fullName>
         <columns>NAME</columns>
-        <columns>Type__c</columns>
         <columns>Title__c</columns>
-        <columns>Date_Raised__c</columns>
-        <columns>Weighting__c</columns>
-        <columns>Risk_Level_Icon__c</columns>
-        <columns>Project__c</columns>
+        <columns>State__c</columns>
         <columns>Status__c</columns>
+        <columns>Probability__c</columns>
+        <columns>Impact_CC__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>Date_Raised__c</columns>
         <filterScope>Mine</filterScope>
         <filters>
-            <field>Status__c</field>
+            <field>State__c</field>
             <operation>equals</operation>
-            <value>Resolved,Duplicate,No Issue</value>
+            <value>Closed</value>
         </filters>
         <label>5) My Closed Risks &amp; Issues</label>
-        <language>en_US</language>
     </listViews>
     <listViews>
         <fullName>My_Open_Risks_Issues</fullName>
         <columns>NAME</columns>
-        <columns>Type__c</columns>
         <columns>Title__c</columns>
-        <columns>Date_Raised__c</columns>
-        <columns>Risk_Level_Icon__c</columns>
-        <columns>Risk_Level__c</columns>
-        <columns>Project__c</columns>
+        <columns>State__c</columns>
         <columns>Status__c</columns>
+        <columns>Probability__c</columns>
+        <columns>Impact_CC__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>Date_Raised__c</columns>
         <filterScope>Mine</filterScope>
         <filters>
-            <field>Status__c</field>
+            <field>State__c</field>
             <operation>equals</operation>
-            <value>In Progress</value>
+            <value>Open</value>
         </filters>
         <label>4) My Open Risks &amp; Issues</label>
-        <language>en_US</language>
     </listViews>
     <listViews>
         <fullName>My_Risks_Issues</fullName>
         <columns>NAME</columns>
-        <columns>Type__c</columns>
         <columns>Title__c</columns>
-        <columns>Date_Raised__c</columns>
-        <columns>Weighting__c</columns>
-        <columns>Risk_Level_Icon__c</columns>
-        <columns>Project__c</columns>
+        <columns>State__c</columns>
         <columns>Status__c</columns>
+        <columns>Probability__c</columns>
+        <columns>Impact_CC__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>Date_Raised__c</columns>
         <filterScope>Mine</filterScope>
         <label>3) My Risks &amp; Issues</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>Project_All_ACE</fullName>
-        <columns>NAME</columns>
-        <columns>Type__c</columns>
-        <columns>Title__c</columns>
-        <columns>Date_Raised__c</columns>
-        <columns>Weighting__c</columns>
-        <columns>Risk_Level_Icon__c</columns>
-        <columns>Project__c</columns>
-        <columns>Status__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Project__c</field>
-            <operation>equals</operation>
-            <value>ACE Digital Dashboard</value>
-        </filters>
-        <label>Project: ACE Digital Dashboard</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>Project_All_C3</fullName>
-        <columns>NAME</columns>
-        <columns>Type__c</columns>
-        <columns>Title__c</columns>
-        <columns>Date_Raised__c</columns>
-        <columns>Weighting__c</columns>
-        <columns>Risk_Level_Icon__c</columns>
-        <columns>Project__c</columns>
-        <columns>Status__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Project__c</field>
-            <operation>equals</operation>
-            <value>C3</value>
-        </filters>
-        <label>Project: C3</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>Project_All_Cirrus</fullName>
-        <columns>NAME</columns>
-        <columns>Type__c</columns>
-        <columns>Title__c</columns>
-        <columns>Date_Raised__c</columns>
-        <columns>Weighting__c</columns>
-        <columns>Risk_Level_Icon__c</columns>
-        <columns>Project__c</columns>
-        <columns>Status__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Project__c</field>
-            <operation>equals</operation>
-            <value>Stand Up Cirrus</value>
-        </filters>
-        <label>Project: Stand Up Cirrus</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>Project_All_HCP</fullName>
-        <columns>NAME</columns>
-        <columns>Type__c</columns>
-        <columns>Title__c</columns>
-        <columns>Date_Raised__c</columns>
-        <columns>Weighting__c</columns>
-        <columns>Risk_Level_Icon__c</columns>
-        <columns>Project__c</columns>
-        <columns>Status__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Project__c</field>
-            <operation>equals</operation>
-            <value>HCP Transparency Smart Form</value>
-        </filters>
-        <label>Project: HCP Transparency Smart Form</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>Project_All_IRiSS</fullName>
-        <columns>NAME</columns>
-        <columns>Type__c</columns>
-        <columns>Title__c</columns>
-        <columns>Date_Raised__c</columns>
-        <columns>Weighting__c</columns>
-        <columns>Risk_Level_Icon__c</columns>
-        <columns>Project__c</columns>
-        <columns>Status__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Project__c</field>
-            <operation>equals</operation>
-            <value>IRiSS</value>
-        </filters>
-        <label>Project: IRiSS</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>Project_All_LaunchPad</fullName>
-        <columns>NAME</columns>
-        <columns>Type__c</columns>
-        <columns>Title__c</columns>
-        <columns>Date_Raised__c</columns>
-        <columns>Weighting__c</columns>
-        <columns>Risk_Level_Icon__c</columns>
-        <columns>Project__c</columns>
-        <columns>Status__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Project__c</field>
-            <operation>startsWith</operation>
-            <value>Launchpad</value>
-        </filters>
-        <label>Project: LaunchPad</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>Project_All_NTM</fullName>
-        <columns>NAME</columns>
-        <columns>Type__c</columns>
-        <columns>Title__c</columns>
-        <columns>Date_Raised__c</columns>
-        <columns>Weighting__c</columns>
-        <columns>Risk_Level_Icon__c</columns>
-        <columns>Project__c</columns>
-        <columns>Status__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Project__c</field>
-            <operation>equals</operation>
-            <value>NTM</value>
-        </filters>
-        <label>Project: NTM</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>Project_All_RWE</fullName>
-        <columns>NAME</columns>
-        <columns>Type__c</columns>
-        <columns>Title__c</columns>
-        <columns>Date_Raised__c</columns>
-        <columns>Weighting__c</columns>
-        <columns>Risk_Level_Icon__c</columns>
-        <columns>Project__c</columns>
-        <columns>Status__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Project__c</field>
-            <operation>equals</operation>
-            <value>RWE Knowledge Management</value>
-        </filters>
-        <label>Project: RWE Knowledge Management</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>Project_All_SAPMAT</fullName>
-        <columns>NAME</columns>
-        <columns>Type__c</columns>
-        <columns>Title__c</columns>
-        <columns>Date_Raised__c</columns>
-        <columns>Weighting__c</columns>
-        <columns>Risk_Level_Icon__c</columns>
-        <columns>Project__c</columns>
-        <columns>Status__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Project__c</field>
-            <operation>equals</operation>
-            <value>SAP Material Data</value>
-        </filters>
-        <label>Project: SAP Material Data</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>Project_All_TrialForce</fullName>
-        <columns>NAME</columns>
-        <columns>Type__c</columns>
-        <columns>Title__c</columns>
-        <columns>Date_Raised__c</columns>
-        <columns>Weighting__c</columns>
-        <columns>Risk_Level_Icon__c</columns>
-        <columns>Project__c</columns>
-        <columns>Status__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Project__c</field>
-            <operation>equals</operation>
-            <value>Trialforce Migration</value>
-        </filters>
-        <label>Project: Trialforce Migration</label>
-        <language>en_US</language>
     </listViews>
     <nameField>
         <displayFormat>RI-{0000}</displayFormat>
@@ -842,12 +503,9 @@ CASE(  Probability__c  , &quot;Very Likely / Imminent&quot;, 4, &quot;Probable&q
     </nameField>
     <pluralLabel>Risks &amp; Issues</pluralLabel>
     <searchLayouts>
-        <customTabListAdditionalFields>Type__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Title__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Date_Raised__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Weighting__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Risk_Level_Icon__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Project__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Title__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Type__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
         <excludedStandardButtons>Accept</excludedStandardButtons>
         <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
@@ -868,7 +526,7 @@ CASE(  Probability__c  , &quot;Very Likely / Imminent&quot;, 4, &quot;Probable&q
         <searchResultsAdditionalFields>Type__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ControlledByParent</sharingModel>
+    <sharingModel>ReadWrite</sharingModel>
     <validationRules>
         <fullName>No_future_dates</fullName>
         <active>true</active>

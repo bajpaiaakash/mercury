@@ -9,45 +9,28 @@
         <value>User Stories</value>
     </caseValues>
     <fields>
-        <help><!-- Acceptance Criteria are the specific, testable and complete needs of this user story. They may follow a structure such as &quot;Given When Then&quot; or list out specific attributes and fields as needed. The Acceptance Criteria are used by developers and testers --></help>
+        <help><!-- Basis for business sign off. Needs to be specific, testable and complete.
+For example: 
+The search functionality must cover my entire territory 
+The search must be case-sensitive 
+(*) should allow open-ended search, or cover for missing letters --></help>
         <label><!-- Acceptance Criteria --></label>
         <name>Acceptance_Criteria__c</name>
     </fields>
     <fields>
-        <help><!-- The sprint that this story has been committed to --></help>
         <label><!-- Allocated Sprint --></label>
         <name>Allocated_Sprint__c</name>
-        <relationshipLabel><!-- Allocated User Stories --></relationshipLabel>
+        <relationshipLabel><!-- User Stories (Allocated Sprint) --></relationshipLabel>
     </fields>
     <fields>
-        <help><!-- The app or application this user story relates to --></help>
+        <help><!-- The app this user story relates to --></help>
         <label><!-- App --></label>
         <name>App__c</name>
         <relationshipLabel><!-- User Stories --></relationshipLabel>
     </fields>
     <fields>
-        <label><!-- Approval Status --></label>
-        <name>Approval_Status__c</name>
-        <picklistValues>
-            <masterLabel>Approved</masterLabel>
-            <translation><!-- Approved --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Open</masterLabel>
-            <translation><!-- Open --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Pending Approval</masterLabel>
-            <translation><!-- Pending Approval --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Rejected</masterLabel>
-            <translation><!-- Rejected --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
         <help><!-- The main user type(s) that this story is for. --></help>
-        <label><!-- (Deprecated) As a... --></label>
+        <label><!-- As a... --></label>
         <name>As_A__c</name>
         <picklistValues>
             <masterLabel>Any User</masterLabel>
@@ -95,31 +78,13 @@
         </picklistValues>
     </fields>
     <fields>
-        <help><!-- The type of user(s) this story is about. Please ensure consistency with your app user groups --></help>
-        <label><!-- As A... --></label>
-        <name>As_A_text__c</name>
-    </fields>
-    <fields>
-        <label><!-- BQ Approval Status --></label>
-        <name>BQ_Approval_Status__c</name>
-    </fields>
-    <fields>
-        <label><!-- CSQ Approval Status --></label>
-        <name>CSQ_Approval_Status__c</name>
-    </fields>
-    <fields>
-        <help><!-- The reason this User Story is no longer being considered as valid. This should only be used if the User Story Status has been set to Cancelled --></help>
         <label><!-- Cancellation Reason --></label>
         <name>Cancellation_Reason__c</name>
     </fields>
     <fields>
-        <help><!-- The Cirrus release this story will be put in to --></help>
-        <label><!-- Cirrus Release --></label>
-        <name>Cirrus_Release__c</name>
-        <relationshipLabel><!-- User Stories (Cirrus Release) --></relationshipLabel>
-    </fields>
-    <fields>
-        <help><!-- The date a User Story was completed. This is populated automatically when the USer Story Status is set to Passed (Complete) --></help>
+        <help><!-- Record the data a user story is closed (Passed Complete)
+Is populated automatically by workflow.
+Is used in the report Points Closed Today --></help>
         <label><!-- Close Date --></label>
         <name>Close_Date__c</name>
     </fields>
@@ -129,101 +94,100 @@
         <name>Compliance_Approve_Date__c</name>
     </fields>
     <fields>
-        <help><!-- Legal, regulatory or compliance related requirements and observations --></help>
+        <help><!-- Please enter any legal, regulatory or compliance related requirements
+For example:
+When disbursing a sample, you must specify a Sample Lot Number. This sample lot number cannot be edited after the call is saved. --></help>
         <label><!-- Compliance Criteria --></label>
         <name>Compliance_Criteria__c</name>
     </fields>
     <fields>
-        <help><!-- The Business Quality user responsible for this User Story --></help>
-        <label><!-- Business Quality --></label>
+        <help><!-- The Compliance or Quality officer signing off this user story --></help>
+        <label><!-- Compliance Owner --></label>
         <name>Compliance_Owner__c</name>
-        <relationshipLabel><!-- User Stories (Business Quality) --></relationshipLabel>
+        <relationshipLabel><!-- User Stories (Compliance Owner) --></relationshipLabel>
     </fields>
     <fields>
-        <help><!-- The Computer Systems Quality User responsible for this User Story --></help>
-        <label><!-- Computer Systems Quality --></label>
-        <name>Computer_Systems_Quality__c</name>
-        <relationshipLabel><!-- User Stories (Computer Systems Quality) --></relationshipLabel>
-    </fields>
-    <fields>
-        <help><!-- Is this User Story considered Quality Critical --></help>
-        <label><!-- Quality Critical --></label>
-        <name>Critical__c</name>
-        <picklistValues>
-            <masterLabel>No</masterLabel>
-            <translation><!-- No --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Not Assessed</masterLabel>
-            <translation><!-- Not Assessed --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Yes</masterLabel>
-            <translation><!-- Yes --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <help><!-- The primary Developer responsible for developing this User Story --></help>
         <label><!-- Developer --></label>
         <name>Developer__c</name>
         <relationshipLabel><!-- User Stories (Developer) --></relationshipLabel>
     </fields>
     <fields>
-        <help><!-- The stage this User Story is at in the Sprint lifecycle. User Stories are &quot;burned&quot; in the Sprint Dashboard when they are set to &quot;Passed (Complete)&quot; --></help>
         <label><!-- Status --></label>
         <name>Development_Stage__c</name>
         <picklistValues>
-            <masterLabel>Backlog</masterLabel>
-            <translation><!-- Backlog --></translation>
+            <masterLabel>1. Backlog - Draft</masterLabel>
+            <translation><!-- 1. Backlog - Draft --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Cancelled</masterLabel>
-            <translation><!-- Cancelled --></translation>
+            <masterLabel>2. Backlog - Awaiting estimation</masterLabel>
+            <translation><!-- 2. Backlog - Awaiting estimation --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>In Development</masterLabel>
-            <translation><!-- In Development --></translation>
+            <masterLabel>3. Backlog - Awaiting ordering</masterLabel>
+            <translation><!-- 3. Backlog - Awaiting ordering --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>In Test</masterLabel>
-            <translation><!-- In Test --></translation>
+            <masterLabel>4. Backlog - Awaiting Sprint Assignment</masterLabel>
+            <translation><!-- 4. Backlog - Awaiting Sprint Assignment --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Passed (Complete)</masterLabel>
-            <translation><!-- Passed (Complete) --></translation>
+            <masterLabel>5.1 Sprint Team - Sprint Backlog</masterLabel>
+            <translation><!-- 5.1 Sprint Team - Sprint Backlog --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Production - Ready for Release</masterLabel>
-            <translation><!-- Production - Ready for Release --></translation>
+            <masterLabel>5.2 Sprint Team - With BPC</masterLabel>
+            <translation><!-- 5.2 Sprint Team - With BPC --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Production - Released</masterLabel>
-            <translation><!-- Production - Released --></translation>
+            <masterLabel>5.3 Sprint Team - Awaiting Development</masterLabel>
+            <translation><!-- 5.3 Sprint Team - Awaiting Development --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Ready for Development</masterLabel>
-            <translation><!-- Ready for Development --></translation>
+            <masterLabel>5.4 Sprint Team - In Development</masterLabel>
+            <translation><!-- 5.4 Sprint Team - In Development --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Ready for Test</masterLabel>
-            <translation><!-- Ready for Test --></translation>
+            <masterLabel>5.5. Sprint - Awaiting review</masterLabel>
+            <translation><!-- 5.5. Sprint - Awaiting review --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Ready for Test Release</masterLabel>
-            <translation><!-- Ready for Test Release --></translation>
+            <masterLabel>5.6. Sprint - Awaiting Release to SAT</masterLabel>
+            <translation><!-- 5.6. Sprint - Awaiting Release to SAT --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Story Definition</masterLabel>
-            <translation><!-- Story Definition --></translation>
+            <masterLabel>5.7. Sprint - Awaiting SAT</masterLabel>
+            <translation><!-- 5.7. Sprint - Awaiting SAT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5.8. Sprint - In Test</masterLabel>
+            <translation><!-- 5.8. Sprint - In Test --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5.9. Done</masterLabel>
+            <translation><!-- 5.9. Done --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>6. UAT - Awaiting testing</masterLabel>
+            <translation><!-- 6. UAT - Awaiting testing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>7. UAT – In Test</masterLabel>
+            <translation><!-- 7. UAT – In Test --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8. Production – Ready for Release</masterLabel>
+            <translation><!-- 8. Production – Ready for Release --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>9. Production – Released</masterLabel>
+            <translation><!-- 9. Production – Released --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>99. Cancelled</masterLabel>
+            <translation><!-- 99. Cancelled --></translation>
         </picklistValues>
     </fields>
     <fields>
-        <help><!-- An external reference that can be used to identify this User Story in another system --></help>
-        <label><!-- External Reference --></label>
-        <name>External_Reference__c</name>
-    </fields>
-    <fields>
-        <help><!-- The Complete User Story in the format &quot;As a... I want to... So That...&quot; --></help>
         <label><!-- Full User Story --></label>
         <name>Full_User_Story__c</name>
     </fields>
@@ -256,132 +220,43 @@
         </picklistValues>
     </fields>
     <fields>
-        <help><!-- Is this User Story considered subject to GxP --></help>
-        <label><!-- GxP --></label>
-        <name>GXP__c</name>
-        <picklistValues>
-            <masterLabel>No</masterLabel>
-            <translation><!-- No --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Not Assessed</masterLabel>
-            <translation><!-- Not Assessed --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Yes</masterLabel>
-            <translation><!-- Yes --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <help><!-- What the user needs to achieve. 
-
-E.g. 
-I want To...Be able to search for customers on different fields (e.g. First Name, Surname, Address, and Product Metrics) in my territory --></help>
+        <help><!-- I want to be able to (achieve xyz)... For example : Be able to search for customers on different fields (e.g. First Name, Surname, Address, and Product Metrics) in my territory --></help>
         <label><!-- I want to... --></label>
         <name>I_Want_To__c</name>
     </fields>
     <fields>
-        <help><!-- Does this User Story have any legal implications? If checked, please ensure these are detailed in the Compliance Criteria field. --></help>
+        <help><!-- Please tick if this user story has some legal implications --></help>
         <label><!-- Legal --></label>
         <name>Legal__c</name>
-    </fields>
-    <fields>
-        <label><!-- Business Quality Approval Date --></label>
-        <name>MICO_Business_Quality_Approval_Date__c</name>
-    </fields>
-    <fields>
-        <help><!-- Please review LQP -302-16 for signature meanings --></help>
-        <label><!-- Business Quality Approved --></label>
-        <name>MICO_Business_Quality_Approved__c</name>
-    </fields>
-    <fields>
-        <label><!-- Computer Systems Quality Approval Date --></label>
-        <name>MICO_Computer_System_Qty_Approval_Date__c</name>
-    </fields>
-    <fields>
-        <help><!-- Please review LQP -302-16 for signature meanings --></help>
-        <label><!-- Computer Systems Quality Approved --></label>
-        <name>MICO_Computer_Systems_Quality_Approved__c</name>
-    </fields>
-    <fields>
-        <label><!-- Decision Taken --></label>
-        <name>MICO_Decision_Taken__c</name>
-        <picklistValues>
-            <masterLabel>Approved</masterLabel>
-            <translation><!-- Approved --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Rejected</masterLabel>
-            <translation><!-- Rejected --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <label><!-- Overall Approval Status --></label>
-        <name>MICO_Overall_Approval_Status__c</name>
-        <picklistValues>
-            <masterLabel>Approved</masterLabel>
-            <translation><!-- Approved --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Awaiting Approval</masterLabel>
-            <translation><!-- Awaiting Approval --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Open</masterLabel>
-            <translation><!-- Open --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Rejected</masterLabel>
-            <translation><!-- Rejected --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <label><!-- Send for approval --></label>
-        <name>MICO_Send_for_approval__c</name>
-    </fields>
-    <fields>
-        <label><!-- System Custodian Approval Date --></label>
-        <name>MICO_System_Custodian_Approval_Date__c</name>
-    </fields>
-    <fields>
-        <help><!-- Please review LQP -302-16 for signature meanings --></help>
-        <label><!-- System Custodian Approved --></label>
-        <name>MICO_System_Custodian_Approved__c</name>
-    </fields>
-    <fields>
-        <label><!-- System Owner Approval Date --></label>
-        <name>MICO_System_Owner_Approval_Date__c</name>
-    </fields>
-    <fields>
-        <help><!-- Please review LQP -302-16 for signature meanings --></help>
-        <label><!-- System Owner Approved --></label>
-        <name>MICO_System_Owner_Approved__c</name>
     </fields>
     <fields>
         <label><!-- Master Priority --></label>
         <name>Master_Priority__c</name>
     </fields>
     <fields>
-        <help><!-- The non-functional qualities the solution needs to exhibit. Examples include
-Scalability (number of records processed) 
-Responsiveness (must respond in x seconds) --></help>
-        <label><!-- Non Functional Requirement --></label>
-        <name>Non_Functional_Requirement__c</name>
+        <label><!-- PCE ID --></label>
+        <name>PCE_ID__c</name>
     </fields>
     <fields>
-        <help><!-- The high level functionality that this user story could be grouped under --></help>
+        <label><!-- PCE Time Remaining --></label>
+        <name>PCE_Time_Remaining__c</name>
+    </fields>
+    <fields>
+        <label><!-- PCE Total Duration --></label>
+        <name>PCE_Total_Duration__c</name>
+    </fields>
+    <fields>
         <label><!-- Parent Epic --></label>
         <name>Parent_Epic__c</name>
+        <relationshipLabel><!-- Related User Stories --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Planned Release --></label>
+        <name>Planned_Release__c</name>
         <relationshipLabel><!-- User Stories --></relationshipLabel>
     </fields>
     <fields>
-        <help><!-- The internal project release for this user story --></help>
-        <label><!-- Project Release --></label>
-        <name>Planned_Release__c</name>
-        <relationshipLabel><!-- User Stories (Project) --></relationshipLabel>
-    </fields>
-    <fields>
-        <help><!-- The relative priority of this User Story. 1 is the most important, 99 is the least. This can be used during Sprint Planning --></help>
+        <help><!-- 1 is the highest order, 99 is lowest. --></help>
         <label><!-- Priority --></label>
         <name>Priority__c</name>
     </fields>
@@ -391,61 +266,26 @@ Responsiveness (must respond in x seconds) --></help>
         <name>Privacy__c</name>
     </fields>
     <fields>
-        <help><!-- The Project responsible for delivering this User Story --></help>
         <label><!-- Project --></label>
         <name>Project__c</name>
         <relationshipLabel><!-- User Stories --></relationshipLabel>
     </fields>
     <fields>
-        <help><!-- Following Release Planning this User Story can be proposed for a particular sprint. Stories can the be taken in or rejected from this sprint during the Sprint Planning process, as determined by the Product Owner --></help>
         <label><!-- Proposed Sprint --></label>
         <name>Proposed_Sprint__c</name>
-        <relationshipLabel><!-- Proposed User Stories --></relationshipLabel>
+        <relationshipLabel><!-- User Stories --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- QRCode --></label>
         <name>QRCode__c</name>
     </fields>
     <fields>
-        <help><!-- The manual release steps and the validation steps must be completed. If there are none, these must be specifically declared as &quot;N/A&quot; --></help>
-        <label><!-- Release Completeness --></label>
+        <label><!-- Release Completeness Indicator --></label>
         <name>Release_Completeness_Indicator__c</name>
     </fields>
     <fields>
         <label><!-- Release Completeness --></label>
         <name>Release_Completeness__c</name>
-    </fields>
-    <fields>
-        <help><!-- How does this story impact the release?
-For example, &quot;because this story modifies overnight batch jobs, if the overnight batches fail, it would require a data fix to be a applied post-release&quot; --></help>
-        <label><!-- Release Impact Analysis --></label>
-        <name>Release_Impact_Analysis__c</name>
-    </fields>
-    <fields>
-        <help><!-- High -  Any batch change, any trigger/validation rule on a &apos;batched&apos; object, any high profile VF Page
-
-Medium -  class/trigger/complex VF page
-
-Low - other --></help>
-        <label><!-- Release Impact --></label>
-        <name>Release_Impact__c</name>
-        <picklistValues>
-            <masterLabel>High</masterLabel>
-            <translation><!-- High --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Low</masterLabel>
-            <translation><!-- Low --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Medium</masterLabel>
-            <translation><!-- Medium --></translation>
-        </picklistValues>
-    </fields>
-    <fields>
-        <help><!-- The release note to be issued to the business regarding this story --></help>
-        <label><!-- Business Release Note --></label>
-        <name>Release_Note__c</name>
     </fields>
     <fields>
         <help><!-- Elements which have to be deployed in an automated way (Eclipse).
@@ -454,40 +294,24 @@ Please put N/A when not applicable --></help>
         <name>Release_Steps_Automated__c</name>
     </fields>
     <fields>
-        <help><!-- Deployment steps that aren&apos;t captured by part of the automated metadata deployment process. Please ensure these are clear, concise, complete and specify whether they are pre or post deployment steps.
-
-Put N/A if none are needed --></help>
+        <help><!-- Elements which have to be deployed in a manual way. 
+Please put N/A when not applicable --></help>
         <label><!-- Release Steps (Manual) --></label>
         <name>Release_Steps_Manual__c</name>
     </fields>
     <fields>
-        <label><!-- SC Approval Status --></label>
-        <name>SC_Approval_Status__c</name>
-    </fields>
-    <fields>
-        <label><!-- SO Approval Status --></label>
-        <name>SO_Approval_Status__c</name>
-    </fields>
-    <fields>
-        <help><!-- Does this User Story have any security implications? If checked, please ensure these are detailed in the Compliance Criteria field. --></help>
+        <help><!-- Please tick if this user story has some security implications --></help>
         <label><!-- Security --></label>
         <name>Security__c</name>
     </fields>
     <fields>
-        <help><!-- Please enter the business value of this User Story. This helps Developers and Business Analysts understand the important essence of what the user needs to ultimately achieve.
-
+        <help><!-- Please enter the business value of this user story
+For example: 
 I can easily find my  relevant target customer information --></help>
         <label><!-- So that... --></label>
         <name>So_that__c</name>
     </fields>
     <fields>
-        <help><!-- The Tester responsible for testing this User Story during the sprint --></help>
-        <label><!-- Sprint Tester --></label>
-        <name>Sprint_Tester__c</name>
-        <relationshipLabel><!-- User Stories (Sprint Tester) --></relationshipLabel>
-    </fields>
-    <fields>
-        <help><!-- The level of complexity as estimated in Story Points NOT related to force.com development. For example, related to Integration effort --></help>
         <label><!-- Story Points (Other) --></label>
         <name>Story_Points_Other__c</name>
         <picklistValues>
@@ -524,12 +348,10 @@ I can easily find my  relevant target customer information --></help>
         </picklistValues>
     </fields>
     <fields>
-        <help><!-- The total level of complexity as estimated in Story Points related to delivering this User Story. Includes both SFDC Story Points and Other Story Points --></help>
         <label><!-- Story Points Total --></label>
         <name>Story_Points_Total__c</name>
     </fields>
     <fields>
-        <help><!-- The level of complexity as estimated in Story Points related to force.com development --></help>
         <label><!-- Story Points SFDC --></label>
         <name>Story_Points__c</name>
         <picklistValues>
@@ -738,61 +560,34 @@ I can easily find my  relevant target customer information --></help>
         </picklistValues>
     </fields>
     <fields>
-        <label><!-- Submit for Approval --></label>
-        <name>Submit_for_Approval__c</name>
-    </fields>
-    <fields>
-        <label><!-- Submitter --></label>
-        <name>Submitter__c</name>
-        <relationshipLabel><!-- User Stories (Submitter) --></relationshipLabel>
-    </fields>
-    <fields>
-        <help><!-- The Business Analyst responsible for helping define and refine Acceptance Criteria in this User Story --></help>
+        <help><!-- Business Analyst responsible for this User Story --></help>
         <label><!-- Business Analyst --></label>
         <name>Supporting_BA__c</name>
         <relationshipLabel><!-- User Stories (Business Analyst) --></relationshipLabel>
     </fields>
     <fields>
-        <help><!-- The System Custodian for the application this User Story is related to. If not set when initially saving the User Story, it should be populated automatically based on the value on the associated App record --></help>
-        <label><!-- System Custodian --></label>
-        <name>System_Custodian__c</name>
-        <relationshipLabel><!-- User Stories (System Custodian) --></relationshipLabel>
-    </fields>
-    <fields>
-        <help><!-- The System Owner for the application this User Story is related to. If not set when initially saving the User Story, it should be populated automatically based on the value on the associated App record --></help>
-        <label><!-- System Owner --></label>
-        <name>System_Owner__c</name>
-        <relationshipLabel><!-- User Stories (System Owner) --></relationshipLabel>
-    </fields>
-    <fields>
         <help><!-- Business/Product Owner for this User Story --></help>
-        <label><!-- Product / Process Owner --></label>
+        <label><!-- Business Process/Product Owner --></label>
         <name>User__c</name>
-        <relationshipLabel><!-- User Stories (Product / Process Owner) --></relationshipLabel>
+        <relationshipLabel><!-- User Stories (Business Process/Product Owner) --></relationshipLabel>
     </fields>
     <fields>
-        <help><!-- For exception cases, please list any specific validation checks that are required to ensure this User Story has been deployed successfully. These will then be run by the Technical Release Team post deployment
-
-If none are needed please put &apos;N/A&quot; --></help>
+        <help><!-- If deploying objects or page layouts please specify the exact change --></help>
         <label><!-- Validation steps --></label>
         <name>Validation_steps__c</name>
     </fields>
     <fields>
-        <help><!-- The source control tag related to this User Story --></help>
+        <help><!-- Jenkins build number to Packaging --></help>
         <label><!-- Version --></label>
         <name>Version__c</name>
     </fields>
     <fields>
-        <help><!-- The type of work involved in delivering this User Story. This can be used when resource planning and should be populated by Developers or other technical experts as needed --></help>
+        <help><!-- What type of work is likely to be involved? (what skills are needed?) --></help>
         <label><!-- Work Type --></label>
         <name>Work_Type__c</name>
         <picklistValues>
             <masterLabel>Data Migration</masterLabel>
             <translation><!-- Data Migration --></translation>
-        </picklistValues>
-        <picklistValues>
-            <masterLabel>Heroku</masterLabel>
-            <translation><!-- Heroku --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Integration</masterLabel>
@@ -801,6 +596,10 @@ If none are needed please put &apos;N/A&quot; --></help>
         <picklistValues>
             <masterLabel>Other</masterLabel>
             <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Out-of-the-box Veeva/SFDC</masterLabel>
+            <translation><!-- Out-of-the-box Veeva/SFDC --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SFDC Apex</masterLabel>
@@ -818,16 +617,24 @@ If none are needed please put &apos;N/A&quot; --></help>
             <masterLabel>SFDC Visualforce</masterLabel>
             <translation><!-- SFDC Visualforce --></translation>
         </picklistValues>
+        <picklistValues>
+            <masterLabel>Veeva Customization</masterLabel>
+            <translation><!-- Veeva Customization --></translation>
+        </picklistValues>
     </fields>
     <layouts>
         <layout>User Story Layout</layout>
         <sections>
-            <label><!-- Approvers --></label>
-            <section>Approvers</section>
+            <label><!-- Assessment &amp; Categorisation --></label>
+            <section>Assessment &amp; Categorisation</section>
         </sections>
         <sections>
             <label><!-- Compliance Criteria --></label>
             <section>Compliance Criteria</section>
+        </sections>
+        <sections>
+            <label><!-- Compliance Details --></label>
+            <section>Compliance Details</section>
         </sections>
         <sections>
             <label><!-- Custom Links --></label>
@@ -838,20 +645,24 @@ If none are needed please put &apos;N/A&quot; --></help>
             <section>Detail</section>
         </sections>
         <sections>
-            <label><!-- Quality &amp; Criticality --></label>
-            <section>Quality &amp; Criticality</section>
+            <label><!-- PCE Information --></label>
+            <section>PCE Information</section>
+        </sections>
+        <sections>
+            <label><!-- Planning --></label>
+            <section>Planning</section>
+        </sections>
+        <sections>
+            <label><!-- QR Code --></label>
+            <section>QR Code</section>
         </sections>
         <sections>
             <label><!-- Release Information --></label>
             <section>Release Information</section>
         </sections>
         <sections>
-            <label><!-- Sprint Planning --></label>
-            <section>Sprint Planning</section>
-        </sections>
-        <sections>
-            <label><!-- Sprint Team --></label>
-            <section>Sprint Team</section>
+            <label><!-- Team Members --></label>
+            <section>Team Members</section>
         </sections>
         <sections>
             <label><!-- User Story Description --></label>
@@ -860,39 +671,19 @@ If none are needed please put &apos;N/A&quot; --></help>
     </layouts>
     <startsWith>Consonant</startsWith>
     <validationRules>
-        <errorMessage><!-- You can&apos;t amend the Acceptance Criteria at this stage in the User Story lifecycle. If you need to make an agreed change, revert the User Story Status and Chatter why you are making a change. Late changes should be agreed with the User Story team --></errorMessage>
-        <name>Acceptance_Criteria_Freeze</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage><!-- You must enter a cancellation reason if you are cancelling this story --></errorMessage>
-        <name>Cancellation_Reason_Check</name>
+        <errorMessage><!-- Please complete both the Business Process/Product Owner &amp; Business Analyst Name before updating the Stage of this User Story --></errorMessage>
+        <name>Champion_BPC_Name</name>
     </validationRules>
     <validationRules>
         <errorMessage><!-- You can&apos;t amend the Acceptance and/or Compliance Criteria once the user story is categorized as ready for development. Move the status back to &apos;With BPC&apos; to indicate you are working again on the Acceptance and/or Compliance Criteria and Chatter the reason --></errorMessage>
         <name>Lock_Down</name>
     </validationRules>
     <validationRules>
-        <errorMessage><!-- You cannot change Approver once the User Story is approved or is in Pending Approval --></errorMessage>
-        <name>MICO_Approved_Status_Validation</name>
+        <errorMessage><!-- Please make sure the release section is completed correctly before moving the story to Awaiting Release to SAT --></errorMessage>
+        <name>Ready_for_Release</name>
     </validationRules>
-    <validationRules>
-        <errorMessage><!-- You must populate both the Quality Critical and GxP fields --></errorMessage>
-        <name>Mandatory_GxP_and_Criticality</name>
-    </validationRules>
-    <validationRules>
-        <errorMessage><!-- You can&apos;t amend the &apos;As A…&apos;, &apos;I want to…&apos; or  &apos;so that…&apos; fields when the Approval Status is Pending Approval --></errorMessage>
-        <name>Pending_Approval_Status</name>
-    </validationRules>
-    <webLinks>
-        <label><!-- Acceptance_Criteria_Editor --></label>
-        <name>Acceptance_Criteria_Editor</name>
-    </webLinks>
     <webLinks>
         <label><!-- Create_HL_Design --></label>
         <name>Create_HL_Design</name>
-    </webLinks>
-    <webLinks>
-        <label><!-- MICO_Submit_for_Approval --></label>
-        <name>MICO_Submit_for_Approval</name>
     </webLinks>
 </CustomObjectTranslation>

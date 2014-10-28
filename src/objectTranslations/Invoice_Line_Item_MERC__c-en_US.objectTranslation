@@ -146,6 +146,10 @@
         <name>Unit_Price_MERC__c</name>
     </fields>
     <fields>
+        <label><!-- VAT Code --></label>
+        <name>VAT_Code_MERC__c</name>
+    </fields>
+    <fields>
         <label><!-- VAT Description --></label>
         <name>VAT_Description_MERC__c</name>
     </fields>

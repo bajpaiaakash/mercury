@@ -24,7 +24,9 @@ Public class Test_MobileQRCodeExtension {
     }
     
     public static testmethod void MobileQRCodeExtensionWrongPass() {
-        
+        MICO_Project__c p = new MICO_Project__c();
+        p.Name = 'PR2';
+        insert p;
         
         User u = new user();
         u.LastName = 'blblb';
@@ -40,10 +42,7 @@ Public class Test_MobileQRCodeExtension {
         insert u;
         
         System.RunAs(u) {
-        	MICO_Project__c p = new MICO_Project__c();
-	        p.Name = 'PR2';
-	        insert p;
-	        
+        
             MICO_User_Story__c req = new MICO_User_Story__c();
             req.Project__c = p.Id;
             req.Compliance_Criteria__c = 'AAAA';

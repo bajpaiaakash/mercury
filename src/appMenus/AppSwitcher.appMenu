@@ -76,28 +76,4 @@
         <name>Mercury</name>
         <type>CustomApplication</type>
     </appMenuItems>
-    <appMenuItems>
-        <name>LITC_IT_Conference</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
-    <appMenuItems>
-        <name>IRIS_ADS</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
-    <appMenuItems>
-        <name>LPAD_Launchpad_Administration</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
-    <appMenuItems>
-        <name>LPAD_Launchpad_App</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
-    <appMenuItems>
-        <name>RWE</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
-    <appMenuItems>
-        <name>ACED</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
 </AppMenu>

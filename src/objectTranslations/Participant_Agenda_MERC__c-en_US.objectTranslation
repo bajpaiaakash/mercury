@@ -63,7 +63,7 @@
     </layouts>
     <startsWith>Consonant</startsWith>
     <validationRules>
-        <errorMessage><!-- Once a meeting has been published on the Web Service, only CMS Cork can change the Speaker Topic Title. Please contact a member of the CMS Cork team to request a change to this information. --></errorMessage>
+        <errorMessage><!-- Once a meeting has been published on the Web Service, only CMS Cork and CMS Local teams can change the Speaker Topic Title. Please contact a member of the CMS team to request a change to this information. --></errorMessage>
         <name>MERC_Prevent_Change_Once_on_Web_Service</name>
     </validationRules>
 </CustomObjectTranslation>

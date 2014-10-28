@@ -20,6 +20,7 @@ private class MERC_AnonymiseNonHCPDataHandlerTest {
 	{
 		User employeeUser = MERC_TestFactory.getUserInRole('Lilly Employee');
 		System.runAs(employeeUser){
+			MERC_TriggerHandlerStateManager.deactivateAll();
 			nonHcpAccounts = MERC_TestFactory.insertAccounts(TEST_DATA_SIZE, Schema.SObjectType.Account.getRecordTypeInfosByName().get('Non-HCP').getRecordTypeId());
 
 			for (Account a : nonHcpAccounts)
@@ -45,6 +46,7 @@ private class MERC_AnonymiseNonHCPDataHandlerTest {
 			System.debug('\n\n\nItineraries: ' + itineraries + '\n\n\n');
 			insert itineraries;
 			insert agendaItems;
+			MERC_TriggerHandlerStateManager.activateAll();
 		}
 	}
 

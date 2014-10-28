@@ -12,24 +12,28 @@
         <label><!-- Test Phase --></label>
         <name>Test_Phase__c</name>
         <picklistValues>
-            <masterLabel>Performance Test</masterLabel>
-            <translation><!-- Performance Test --></translation>
+            <masterLabel>Integration</masterLabel>
+            <translation><!-- Integration --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Regression Test</masterLabel>
-            <translation><!-- Regression Test --></translation>
+            <masterLabel>Peer Review</masterLabel>
+            <translation><!-- Peer Review --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Sprint Test</masterLabel>
-            <translation><!-- Sprint Test --></translation>
+            <masterLabel>Performance</masterLabel>
+            <translation><!-- Performance --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Stability Test</masterLabel>
-            <translation><!-- Stability Test --></translation>
+            <masterLabel>Regression</masterLabel>
+            <translation><!-- Regression --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>User Acceptance Test</masterLabel>
-            <translation><!-- User Acceptance Test --></translation>
+            <masterLabel>SAT</masterLabel>
+            <translation><!-- SAT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UAT</masterLabel>
+            <translation><!-- UAT --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -50,8 +54,4 @@
         </sections>
     </layouts>
     <startsWith>Consonant</startsWith>
-    <validationRules>
-        <errorMessage><!-- You cannot create a Tester record until the related Test Script is in an &quot;Approved&quot; status --></errorMessage>
-        <name>PreventFromCreatingTesterUntilApproved</name>
-    </validationRules>
 </CustomObjectTranslation>

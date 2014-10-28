@@ -15,8 +15,7 @@ public with sharing class MERC_AnonymiseNonHCPDataHandler implements GLBL_Trigge
 
     public void handle()
     {
-        List<sObject> toProcess = new List<sObject>();
-
+        List<sObject> toProcess = new List<sObject>();        
         /*-----  If a meeting is updatd to Complete closed/cancelled then we need to process it to remove anonymous data -----*/
         for (Meeting_MERC__c meeting : (List<Meeting_MERC__c>)Trigger.new)
         {

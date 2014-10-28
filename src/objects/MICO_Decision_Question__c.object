@@ -105,7 +105,7 @@ Used In: Mission Control App</description>
     <fields>
         <fullName>Decision__c</fullName>
         <externalId>false</externalId>
-        <label>Decision or Question</label>
+        <label>Decision</label>
         <length>10000</length>
         <trackFeedHistory>true</trackFeedHistory>
         <trackHistory>true</trackHistory>
@@ -179,18 +179,27 @@ Used In: Mission Control App</description>
     </fields>
     <fields>
         <fullName>Project__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Project</label>
         <referenceTo>MICO_Project__c</referenceTo>
         <relationshipLabel>Decisions &amp; Questions</relationshipLabel>
         <relationshipName>MICO_Decisions_Questions</relationshipName>
-        <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>MasterDetail</type>
-        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Question__c</fullName>
+        <externalId>false</externalId>
+        <label>Question</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Requirement__c</fullName>
@@ -250,11 +259,35 @@ Used In: Mission Control App</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Cancelled</fullName>
+                <fullName>Draft</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>In Discussion</fullName>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ready for Review</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Resolved</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pending Acceptance</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -282,11 +315,10 @@ Used In: Mission Control App</description>
     <listViews>
         <fullName>Answered</fullName>
         <columns>NAME</columns>
+        <columns>Question__c</columns>
         <columns>Decision__c</columns>
         <columns>Next_Steps__c</columns>
         <columns>Source__c</columns>
-        <columns>Project__c</columns>
-        <columns>Assigned__c</columns>
         <columns>Status__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
@@ -295,17 +327,15 @@ Used In: Mission Control App</description>
             <value>Question Answered</value>
         </filters>
         <label>3) Questions Answered</label>
-        <language>en_US</language>
     </listViews>
     <listViews>
         <fullName>DecMade</fullName>
         <columns>NAME</columns>
+        <columns>Question__c</columns>
+        <columns>Status__c</columns>
         <columns>Decision__c</columns>
         <columns>Next_Steps__c</columns>
         <columns>Source__c</columns>
-        <columns>Project__c</columns>
-        <columns>Assigned__c</columns>
-        <columns>Status__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>Status__c</field>
@@ -313,11 +343,11 @@ Used In: Mission Control App</description>
             <value>Decision Made</value>
         </filters>
         <label>1) Decisions Made</label>
-        <language>en_US</language>
     </listViews>
     <listViews>
         <fullName>Mine</fullName>
         <columns>NAME</columns>
+        <columns>Question__c</columns>
         <columns>Decision__c</columns>
         <columns>Next_Steps__c</columns>
         <columns>Source__c</columns>
@@ -328,12 +358,8 @@ Used In: Mission Control App</description>
     <listViews>
         <fullName>Raised</fullName>
         <columns>NAME</columns>
+        <columns>Question__c</columns>
         <columns>Decision__c</columns>
-        <columns>Next_Steps__c</columns>
-        <columns>Source__c</columns>
-        <columns>Project__c</columns>
-        <columns>Assigned__c</columns>
-        <columns>Status__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>Status__c</field>
@@ -341,7 +367,6 @@ Used In: Mission Control App</description>
             <value>Question Raised</value>
         </filters>
         <label>2) Questions Raised</label>
-        <language>en_US</language>
     </listViews>
     <nameField>
         <displayFormat>QD-{000000}</displayFormat>
@@ -361,16 +386,16 @@ Used In: Mission Control App</description>
         <picklistValues>
             <picklist>Status__c</picklist>
             <values>
-                <fullName>Cancelled</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Decision Made</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>In Discussion</fullName>
-                <default>true</default>
+                <fullName>Question Answered</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Question Raised</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
     </recordTypes>
@@ -382,36 +407,53 @@ Used In: Mission Control App</description>
         <picklistValues>
             <picklist>Status__c</picklist>
             <values>
-                <fullName>Cancelled</fullName>
+                <fullName>Closed</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Question Answered</fullName>
+                <fullName>Draft</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Question Raised</fullName>
-                <default>true</default>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready for Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Resolved</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
     </recordTypes>
     <searchLayouts>
+        <customTabListAdditionalFields>Question__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Decision__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Next_Steps__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Source__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Project__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Assigned__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
         <excludedStandardButtons>Accept</excludedStandardButtons>
         <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
+        <lookupDialogsAdditionalFields>Question__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Decision__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Status__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Question__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Decision__c</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Status__c</lookupPhoneDialogsAdditionalFields>
         <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Question__c</searchFilterFields>
         <searchFilterFields>Status__c</searchFilterFields>
+        <searchResultsAdditionalFields>Question__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Decision__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ControlledByParent</sharingModel>
+    <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

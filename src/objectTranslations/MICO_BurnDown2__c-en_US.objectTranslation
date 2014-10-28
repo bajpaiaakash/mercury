@@ -37,10 +37,6 @@
         <name>Projected_burndown__c</name>
     </fields>
     <fields>
-        <label><!-- Sprint In Progress --></label>
-        <name>Sprint_In_Progress__c</name>
-    </fields>
-    <fields>
         <label><!-- Sprint --></label>
         <name>Sprint__c</name>
         <relationshipLabel><!-- Burndown Stats --></relationshipLabel>
@@ -54,10 +50,6 @@
         <sections>
             <label><!-- Custom Links --></label>
             <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label><!-- Statistics --></label>
-            <section>Statistics</section>
         </sections>
     </layouts>
     <startsWith>Consonant</startsWith>

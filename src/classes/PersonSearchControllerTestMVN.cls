@@ -9,8 +9,8 @@ private class PersonSearchControllerTestMVN {
   
     static {
     
+        MERC_TriggerHandlerStateManager.deactivateAll();
         TestDataFactoryMVN.createSettings();
-
 
         //Product_vod__c product = new Product_vod__c(Name='Test Product', External_ID_vod__c = 'testid');
         //insert product;
@@ -20,6 +20,7 @@ private class PersonSearchControllerTestMVN {
     
         TestDataFactoryMVN.createTestAddress(hcp);
         TestDataFactoryMVN.createTestAddress(employee);
+        MERC_TriggerHandlerStateManager.activateAll();
   }
 
   static Case interaction = new Case(); 

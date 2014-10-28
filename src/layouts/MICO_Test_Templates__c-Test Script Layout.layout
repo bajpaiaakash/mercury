@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customButtons>Submit_for_Approval</customButtons>
-    <customButtons>Recall_Approval_Request</customButtons>
     <excludeButtons>Clone</excludeButtons>
     <excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
@@ -25,6 +23,10 @@
                 <behavior>Edit</behavior>
                 <field>Status__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>OwnerId</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -35,11 +37,11 @@
         <label>Test Summary</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Edit</behavior>
                 <field>Title__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Edit</behavior>
                 <field>Introduction__c</field>
             </layoutItems>
             <layoutItems>
@@ -52,41 +54,11 @@
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
-        <editHeading>true</editHeading>
-        <label>Quality and Compliance</label>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Approver__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Approval_Date__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <height>30</height>
-                <page>MICO_ApproveReject_TestScript</page>
-                <showLabel>false</showLabel>
-                <showScrollbars>false</showScrollbars>
-                <width>50%</width>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Approval_Status__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <style>TwoColumnsLeftToRight</style>
-    </layoutSections>
-    <layoutSections>
-        <customLabel>true</customLabel>
-        <detailHeading>true</detailHeading>
         <editHeading>false</editHeading>
         <label>User Story Info</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Required</behavior>
+                <behavior>Edit</behavior>
                 <field>User_Story__c</field>
             </layoutItems>
             <layoutItems>
@@ -136,14 +108,12 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
-        <customButtons>Manage_Test_Script_Steps</customButtons>
-        <fields>Test_Script_Step_Number__c</fields>
         <fields>NAME</fields>
         <fields>Action__c</fields>
         <fields>Expected_Result__c</fields>
         <fields>Tips__c</fields>
         <relatedList>MICO_Test_Template_Steps__c.Test_Script__c</relatedList>
-        <sortField>Test_Script_Step_Number__c</sortField>
+        <sortField>NAME</sortField>
         <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
@@ -157,21 +127,11 @@
         <fields>NAME</fields>
         <fields>Test_Phase__c</fields>
         <fields>Assigned_To__c</fields>
-        <fields>Test_Execution_Date__c</fields>
         <fields>Test_Completion__c</fields>
         <fields>Pass_Percentage__c</fields>
         <fields>Test_Outcome__c</fields>
         <fields>Status__c</fields>
         <relatedList>MICO_Test__c.Template__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <excludeButtons>New</excludeButtons>
-        <fields>NAME</fields>
-        <fields>Expected_Result__c</fields>
-        <fields>Approval_Status__c</fields>
-        <fields>Approval_Date__c</fields>
-        <fields>Approver__c</fields>
-        <relatedList>MICO_Test_Template_History__c.Test_Script__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
@@ -179,7 +139,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hb0000000MLtY</masterLabel>
+        <masterLabel>00hi0000000MslE</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

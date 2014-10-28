@@ -96,8 +96,7 @@ private class TestCommitInboundEmailHandler {
         DefTest.Technology__c = 'SFDC/Veeva';
         DefTest.Problem__c = 'Problem Summary';  
         DefTest.Problem_Description__c = 'Blablablabla';
-        DefTest.User_Story__c = instUSTest.Id; 
-        DefTest.Project2__c = project.Id;  
+        DefTest.User_Story__c = instUSTest.Id;   
         insert(DefTest);
         
         MICO_Bug__c instDefTest = [SELECT Name FROM MICO_Bug__c WHERE Id=:DefTest.Id];

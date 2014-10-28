@@ -138,18 +138,17 @@ NB: Ensure you use same &quot;Firstname Lastname&quot; as listed in Tracker for 
     </fields>
     <fields>
         <fullName>Project__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Project</label>
         <referenceTo>MICO_Project__c</referenceTo>
         <relationshipLabel>Meetings</relationshipLabel>
         <relationshipName>MICO_Project_Meetings</relationshipName>
-        <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>MasterDetail</type>
-        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Purpose__c</fullName>
@@ -386,5 +385,5 @@ NB: Ensure you use same &quot;Firstname Lastname&quot; as listed in Tracker for 
         <searchResultsAdditionalFields>Start__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>End__c</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ControlledByParent</sharingModel>
+    <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

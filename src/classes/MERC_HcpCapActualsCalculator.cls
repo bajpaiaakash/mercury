@@ -75,6 +75,6 @@ public with sharing class MERC_HcpCapActualsCalculator implements GLBL_TriggerHa
 	}
 
 		static void p(String m) {
-			System.debug(LoggingLevel.INFO, '\n\n\nYYZ - '+m+'\n\n\n\n');
+			// System.debug(LoggingLevel.INFO, '\n\n\nYYZ - '+m+'\n\n\n\n');
 		}
 }

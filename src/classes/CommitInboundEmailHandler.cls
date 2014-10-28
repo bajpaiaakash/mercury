@@ -199,37 +199,29 @@ global class CommitInboundEmailHandler implements Messaging.Inboundemailhandler 
     * @param e: The error message
     */
     public void sendErrorMail(DMLException e, String body) {
-    	
-    	// only try to send emails where it is enabled in the org.
-    	try {
-	        // Make sure we wont exceed our daily email limits
-	        Messaging.reserveSingleEmailCapacity(1);
-	        
-	        // Create Email Object
-	        Messaging.Singleemailmessage errorMail = new Messaging.Singleemailmessage();
-	        
-	        // Mail address
-	        String[] toAddresses = new String[] {'rwijnen2@its.jnj.com'};
-	        
-	        // Assign mail address to To
-	        errorMail.setToAddresses(toAddresses);
-	        
-	        // Set display name
-	        errorMail.setSenderDisplayName('Tracker Jenkins Inbound Generator');
-	        
-	        errorMail.setSubject('Tracker error: Jenkins Inbound Email handler');
-	        errorMail.setBccSender(false);
-	        errorMail.setUseSignature(false);
-	        
-	        // Specify the content
-	        errorMail.setPlainTextBody('Error log: ' + e + '/n Send Message: ' + body);
-	        
-	        // Send
-	        Messaging.sendEmail(new Messaging.Singleemailmessage[] {errorMail});
-    	}
-    	catch (Exception ex) {
-    		System.debug('Unable to send error mail!: ' + ex);
-    	}
-
+        // Make sure we wont exceed our daily email limits
+        Messaging.reserveSingleEmailCapacity(1);
+        
+        // Create Email Object
+        Messaging.Singleemailmessage errorMail = new Messaging.Singleemailmessage();
+        
+        // Mail address
+        String[] toAddresses = new String[] {'rwijnen2@its.jnj.com'};
+        
+        // Assign mail address to To
+        errorMail.setToAddresses(toAddresses);
+        
+        // Set display name
+        errorMail.setSenderDisplayName('Tracker Jenkins Inbound Generator');
+        
+        errorMail.setSubject('Tracker error: Jenkins Inbound Email handler');
+        errorMail.setBccSender(false);
+        errorMail.setUseSignature(false);
+        
+        // Specify the content
+        errorMail.setPlainTextBody('Error log: ' + e + '/n Send Message: ' + body);
+        
+        // Send
+        Messaging.sendEmail(new Messaging.Singleemailmessage[] {errorMail});
     }
 }

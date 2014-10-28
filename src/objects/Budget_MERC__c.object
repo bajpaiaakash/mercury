@@ -82,7 +82,7 @@ Created by John A Adams 10/11/2013</description>
         <externalId>false</externalId>
         <inlineHelpText>If more Cost Centers need to be entered, please enter in the Additional Information section below.</inlineHelpText>
         <label>Cost Center</label>
-        <length>10</length>
+        <length>7</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -95,7 +95,7 @@ Created by John A Adams 10/11/2013</description>
         <externalId>false</externalId>
         <inlineHelpText>Sum of current Budget Line Items</inlineHelpText>
         <label>Current Budget Used</label>
-        <summarizedField>Budget_Line_Item_MERC__c.Amount_MERC__c</summarizedField>
+        <summarizedField>Budget_Line_Item_MERC__c.Total_Amount_MERC__c</summarizedField>
         <summaryForeignKey>Budget_Line_Item_MERC__c.Budget_MERC__c</summaryForeignKey>
         <summaryOperation>sum</summaryOperation>
         <trackHistory>false</trackHistory>
@@ -273,6 +273,32 @@ Created by J Adams 12/10/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Total_Savings_MERC__c</fullName>
+        <description>Rolls up unit savings from all associated Budget Line Items.  Created on 25/09/2014 by Oliver Dunford, Mavens Consulting.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The total savings, based upon unit savings multiplied by quantity from associated budget line items</inlineHelpText>
+        <label>Total Savings</label>
+        <summarizedField>Budget_Line_Item_MERC__c.Total_Savings_MERC__c</summarizedField>
+        <summaryForeignKey>Budget_Line_Item_MERC__c.Budget_MERC__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Total_Unit_Savings_MERC__c</fullName>
+        <description>Rolls up unit savings from all associated Budget Line Items.  Created on 25/09/2014 by Oliver Dunford, Mavens Consulting.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The total unit savings from associated budget line items</inlineHelpText>
+        <label>Total Unit Savings</label>
+        <summarizedField>Budget_Line_Item_MERC__c.Unit_Savings_MERC__c</summarizedField>
+        <summaryForeignKey>Budget_Line_Item_MERC__c.Budget_MERC__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
         <fullName>Version_Number_MERC__c</fullName>
         <defaultValue>1</defaultValue>
         <externalId>false</externalId>
@@ -446,14 +472,6 @@ Created by J Adams 12/10/2013</description>
         <searchResultsAdditionalFields>CREATEDBY_USER</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
-    <validationRules>
-        <fullName>MERC_Cost_Center_completed</fullName>
-        <active>true</active>
-        <description>Ensure that the Cost Center is severn digits long : MERC : Created on 01/05/2014 by Katy Lorenti, Mavens Consulting</description>
-        <errorConditionFormula>NOT(REGEX( Cost_Center_MERC__c, &quot;[0-9]{7}&quot;))</errorConditionFormula>
-        <errorDisplayField>Cost_Center_MERC__c</errorDisplayField>
-        <errorMessage>The Cost Center must be seven digits long.</errorMessage>
-    </validationRules>
     <validationRules>
         <fullName>MERC_Internal_Order_Number_Completed</fullName>
         <active>true</active>
