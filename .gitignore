@@ -1,0 +1,8 @@
+# ignore me
+# .gitignore
+
+# ignore Eclipse files
+.DS_Store
+.project
+.settings
+Referenced Packages
