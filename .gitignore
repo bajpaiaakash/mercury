@@ -1,5 +1,5 @@
 # ignore me
-# .gitignore
+.gitignore
 
 # ignore Eclipse files
 .DS_Store
