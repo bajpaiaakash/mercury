@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>FMV Settings</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Speakers Fee</value>
+    </caseValues>
+    <fields>
+        <label><!-- Country Code --></label>
+        <name>Country_Code_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Currency Code --></label>
+        <name>Currency_Code_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Maximum Hourly Rate --></label>
+        <name>Maximum_Hourly_Rate_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Minimum Hourly Rate --></label>
+        <name>Minimum_Hourly_Rate_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tier Value --></label>
+        <name>Tier_Value_MERC__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

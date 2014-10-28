@@ -1,0 +1,8 @@
+Hello, <br><br>
+
+The meeting, {!Meeting_MERC__c.Name} 
+{!IF(Meeting_MERC__c.End_Date_Meeting_Time_Zone_MERC__c <> Meeting_MERC__c.Start_Date_Meeting_Time_Zone_MERC__c, Meeting_MERC__c.Start_Date_Meeting_Time_Zone_MERC__c + " - " + Meeting_MERC__c.End_Date_Meeting_Time_Zone_MERC__c, Meeting_MERC__c.Start_Date_Meeting_Time_Zone_MERC__c) } has been cancelled. <br><br>
+
+More information regarding this meeting can be found at {!Meeting_MERC__c.Link}.<br><br>
+
+Should you have any questions, please contact your local Customer Meeting Services team. This is an auto-generated email; please do not reply.<br>

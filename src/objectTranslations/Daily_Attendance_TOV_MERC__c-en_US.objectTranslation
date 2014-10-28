@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Daily Attendance &amp; TOV</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Daily Attendance &amp; TOV</value>
+    </caseValues>
+    <fields>
+        <label><!-- Confirm ToV Reporting Change --></label>
+        <name>Confirm_ToV_Reporting_Change_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Food and Beverage ToV --></label>
+        <name>Est_Food_Bev_ToV_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ground Transportation TOV --></label>
+        <name>Est_Grnd_Transp_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Group Ground Transportation TOV --></label>
+        <name>Est_Grp_Grnd_Transp_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Hotel ToV --></label>
+        <name>Est_Hotel_ToV_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Individual Travel ToV --></label>
+        <name>Est_Indv_Transfer_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Registration Amount ToV --></label>
+        <name>Est_Reg_Amt_ToV_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- External ID --></label>
+        <name>External_ID_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting Day Date --></label>
+        <name>Meeting_Day_Date_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting Day --></label>
+        <name>Meeting_Day_MERC__c</name>
+        <relationshipLabel><!-- Daily Attendance &amp; TOV --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Meeting Event Id --></label>
+        <name>Meeting_Event_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting Id --></label>
+        <name>Meeting_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting Participant Account Name --></label>
+        <name>Meeting_Participant_Account_Name_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting Participant --></label>
+        <name>Meeting_Participant_MERC__c</name>
+        <relationshipLabel><!-- Daily Attendance &amp; TOV --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Meeting Participant Record Type --></label>
+        <name>Meeting_Participant_Record_Type_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting Vendor --></label>
+        <name>Meeting_Vendor_MERC__c</name>
+        <relationshipLabel><!-- Daily Attendance &amp; TOV --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Room Rate --></label>
+        <name>Room_Rate_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status Change Post ToV Final --></label>
+        <name>Status_Change_Post_ToV_Final_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Attended</masterLabel>
+            <translation><!-- Attended --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Show</masterLabel>
+            <translation><!-- No Show --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Transparency Reporting Consent --></label>
+        <name>Transparency_Reporting_Consent_MERC__c</name>
+    </fields>
+    <layouts>
+        <layout>MERC_Daily Attendance &amp; TOV</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- ToV Detail --></label>
+            <section>ToV Detail</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- ToV has already been reported for this meeting participant. Customer Meeting Services needs to confirm this change before it can be made. --></errorMessage>
+        <name>MERC_Confirm_ToV_Reporting_Change</name>
+    </validationRules>
+</CustomObjectTranslation>

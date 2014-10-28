@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Meeting Day</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Meeting Days</value>
+    </caseValues>
+    <fields>
+        <label><!-- Confirm ToV Reporting Change --></label>
+        <name>Confirm_ToV_Reporting_Change_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Values per day per person. Please leave this field blank if no ToV is to be reported for Food &amp; Beverage for this meeting. --></help>
+        <label><!-- Daily Food &amp; Beverage Amount --></label>
+        <name>Daily_Food_Beverage_Amount_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Values per day per person. Please leave this field blank if no ToV is to be reported for Ground Transportation for this meeting. --></help>
+        <label><!-- Daily Ground Transportation Amount --></label>
+        <name>Daily_Ground_Trans_Amount_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please leave this field blank if no ToV is to be reported for Registration Fees for this meeting. --></help>
+        <label><!-- Registration Amount --></label>
+        <name>Daily_Registration_Amount_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date --></label>
+        <name>Date_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date (Meeting Time Zone) --></label>
+        <name>Date_Meeting_Time_Zone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Force Unique Meeting Day --></label>
+        <name>Force_Unique_Meeting_Day_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting --></label>
+        <name>Meeting_MERC__c</name>
+        <relationshipLabel><!-- Meeting Days --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Meeting Time Zone --></label>
+        <name>Meeting_Time_Zone_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mercury External Id --></label>
+        <name>Mercury_External_Id_MERC__c</name>
+    </fields>
+    <layouts>
+        <layout>MERC_Meeting Day</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Daily Amounts --></label>
+            <section>Daily Amounts</section>
+        </sections>
+        <sections>
+            <label><!-- Date Information --></label>
+            <section>Date Information</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- ToV has already been reported for participants of this Meeting. Customer Meeting Services needs to confirm this change before it can be made. --></errorMessage>
+        <name>MERC_Check_if_any_ToV_has_been_reported</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You may not enter 0.00 unless ToV has already been reported for this Meeting --></errorMessage>
+        <name>MERC_Enter_Blank_If_Not_Reported</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You may not enter a blank value if ToV has already been reported for this Meeting --></errorMessage>
+        <name>MERC_Enter_Zero_If_Reported</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The Meeting Day selected must be within 3 +/- days of the start or end of the meeting. --></errorMessage>
+        <name>MERC_Meeting_Day_Range</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You may not enter a value less than zero. --></errorMessage>
+        <name>MERC_Prevent_Negative_Amount</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Manage_Daily_Attendance_MERC --></label>
+        <name>Manage_Daily_Attendance_MERC</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Manage_Meeting_Days_MERC --></label>
+        <name>Manage_Meeting_Days_MERC</name>
+    </webLinks>
+</CustomObjectTranslation>

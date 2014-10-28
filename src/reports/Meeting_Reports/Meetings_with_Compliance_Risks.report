@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Meeting_MERC__c.Formatted_Name_MERC__c</field>
+    </columns>
+    <columns>
+        <field>Meeting_MERC__c.End_Date_of_Event_MERC__c</field>
+    </columns>
+    <columns>
+        <field>Meeting_MERC__c.Type_MERC__c</field>
+    </columns>
+    <columns>
+        <field>Meeting_MERC__c.City_of_Meeting_MERC__c</field>
+    </columns>
+    <columns>
+        <field>Meeting_MERC__c.Functional_Area_MERC__c</field>
+    </columns>
+    <columns>
+        <field>CUST_OWNER_NAME</field>
+    </columns>
+    <currency>EUR</currency>
+    <description>R-0322 R-0141 - 
+* MERC0001-0912 (#13) Report used to identify meetings with compliance risks</description>
+    <filter>
+        <criteriaItems>
+            <column>Meeting_MERC__c.Compliant_MERC__c</column>
+            <operator>equals</operator>
+            <value>Yes</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Meeting_MERC__c.Meeting_Status_MERC__c</column>
+            <operator>equals</operator>
+            <value>Registered,Active</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>MonthInYear</dateGranularity>
+        <field>Meeting_MERC__c.Date_of_Event_MERC__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Meeting_MERC__c.Event_Country_MERC__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Meetings with Compliance Risks</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Meeting_MERC__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Meeting_MERC__c.Date_of_Event_MERC__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

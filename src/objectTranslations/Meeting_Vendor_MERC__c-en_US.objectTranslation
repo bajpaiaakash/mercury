@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Meeting Vendor</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Meeting Vendors</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account_MERC__c</name>
+        <relationshipLabel>Meetings</relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Area of Service --></label>
+        <name>Area_of_Service_MERC__c</name>
+        <picklistValues>
+            <masterLabel>AV</masterLabel>
+            <translation><!-- AV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Catering</masterLabel>
+            <translation><!-- Catering --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hotel</masterLabel>
+            <translation><!-- Hotel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing</masterLabel>
+            <translation><!-- Marketing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Planning</masterLabel>
+            <translation><!-- Planning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Printing</masterLabel>
+            <translation><!-- Printing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Transportation</masterLabel>
+            <translation><!-- Transportation --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Confirm ToV Reporting Change --></label>
+        <name>Confirm_ToV_Reporting_Change_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting --></label>
+        <name>Meeting_MERC__c</name>
+        <relationshipLabel><!-- Vendors --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Meeting Status --></label>
+        <name>Meeting_Status_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mercury External Id --></label>
+        <name>Mercury_External_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Does not include Room Tax. Please leave this field blank if no ToV is to be reported for hotels for this meeting. --></help>
+        <label><!-- Room Rate (excl Tax) --></label>
+        <name>Room_Rate_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vendor Search --></label>
+        <name>Vendor_Search_MERC__c</name>
+    </fields>
+    <layouts>
+        <layout>MERC_Meeting Vendor Hotel</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Meeting Vendor Other</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Hotel --></label>
+        <name>Hotel_MERC</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Other --></label>
+        <name>Other</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- ToV has already been reported for participants of this Meeting. Customer Meeting Services needs to confirm this change before it can be made. --></errorMessage>
+        <name>MERC_Confirm_ToV_Reporting_Change</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The currency of the Meeting Vendor should match the currency of the Meeting.  All ToV should be entered in the currency of the Meeting. --></errorMessage>
+        <name>MERC_Enforce_Currency</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You may not enter a blank value unless ToV has not been reported. --></errorMessage>
+        <name>MERC_Enter_blank_amount</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You may not enter an amount of 0.00 unless ToV has already been reported. Please leave this value blank. --></errorMessage>
+        <name>MERC_Enter_zero_amount</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You many not enter a negative value. --></errorMessage>
+        <name>MERC_Prevent_Negative_Amount</name>
+    </validationRules>
+</CustomObjectTranslation>

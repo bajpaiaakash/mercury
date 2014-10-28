@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Payee</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Payee</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account_MERC__c</name>
+        <relationshipLabel><!-- Payee --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Associated Address --></label>
+        <name>Associated_Address_MERC__c</name>
+        <relationshipLabel><!-- Payee --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Bank Account Number (Encrypted) --></label>
+        <name>Bank_Account_Number_Encrypted__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bank Account Number --></label>
+        <name>Bank_Account_Number_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bank City --></label>
+        <name>Bank_City_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bank Country --></label>
+        <name>Bank_Country_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bank IBAN --></label>
+        <name>Bank_IBAN_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bank Name --></label>
+        <name>Bank_Name_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Payee&apos;s Bank Sort Code. --></help>
+        <label><!-- Bank Sort Code --></label>
+        <name>Bank_Sort_Code_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bank State/Province --></label>
+        <name>Bank_State_Province_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bank Street --></label>
+        <name>Bank_Street_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bank Zip/Postal Code --></label>
+        <name>Bank_Zip_Postal_Code_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mercury External Id --></label>
+        <name>Mercury_External_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payee Auto Number --></label>
+        <name>Payee_Auto_Number_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payee City --></label>
+        <name>Payee_City_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payee Country --></label>
+        <name>Payee_Country_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payee Email --></label>
+        <name>Payee_Email_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payee Fax Number --></label>
+        <name>Payee_Fax_Number_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payee State /Province --></label>
+        <name>Payee_State_Province_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payee Street --></label>
+        <name>Payee_Street_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payee Zip / Postal Code --></label>
+        <name>Payee_Zip_Postal_Code_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payment Method --></label>
+        <name>Payment_Method_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Automatic Bank Transfer</masterLabel>
+            <translation><!-- Automatic Bank Transfer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cheque</masterLabel>
+            <translation><!-- Cheque --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Prior Parent Id --></label>
+        <name>Prior_Parent_Id_GLBL__c</name>
+    </fields>
+    <fields>
+        <help><!-- Priority Rank Number 1 is maintained on the Web Service.  There may only be one Payee with a Priority Rank Number of 1. --></help>
+        <label><!-- Priority Rank Number --></label>
+        <name>Priority_Rank_Nbr_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- SAP Vendor ID --></label>
+        <name>SAP_Vendor_ID_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tax Id --></label>
+        <name>Tax_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Transfer Information Complete --></label>
+        <name>Transfer_Information_Complete_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- A value added tax identification number or VAT identification number (VATIN) is an identifier used in many countries, including the countries of the European Union, for value added tax purposes. --></help>
+        <label><!-- VAT Identification # --></label>
+        <name>VAT_ID_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Web Service Update Date --></label>
+        <name>WS_Updt_Dt_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Web Service Update HCP Action --></label>
+        <name>WS_Updt_HCP_Actn_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Web Service Update HCP Global Id --></label>
+        <name>WS_Updt_HCP_Global_ID_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Web Service Update HCP Name --></label>
+        <name>WS_Updt_HCP_Name_MERC__c</name>
+    </fields>
+    <layouts>
+        <layout>MERC_Payee</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Financial Institution --></label>
+            <section>Financial Institution</section>
+        </sections>
+        <sections>
+            <label><!-- Payee --></label>
+            <section>Payee</section>
+        </sections>
+        <sections>
+            <label><!-- Payment Details --></label>
+            <section>Payment Details</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- There may only be one Payee with Priority Rank Number = 1 at a time --></errorMessage>
+        <name>MERC_Check_Priority_Rank_Number</name>
+    </validationRules>
+</CustomObjectTranslation>

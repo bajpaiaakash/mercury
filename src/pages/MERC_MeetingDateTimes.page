@@ -1,0 +1,14 @@
+<!--
+	Embedded in Meeting detail pages to show user-friendly Date/Times
+-->
+<apex:page sidebar="false" standardController="Meeting_MERC__c">
+	<apex:pageBlock mode="maindetail">
+		<apex:pageBlockSection collapsible="false" columns="2">
+			<apex:outputField value="{!Meeting_MERC__c.Meeting_Time_Zone_MERC__c}"/>
+			<apex:pageBlockSectionItem >&nbsp;</apex:pageBlockSectionItem>
+			<apex:repeat value="{!$ObjectType.Meeting_MERC__c.FieldSets.Meeting_Date_Time_View_MERC}" var="f"> 
+				<apex:outputField value="{!Meeting_MERC__c[f]}"/>
+		    </apex:repeat>
+		</apex:pageBlockSection>
+	</apex:pageBlock>
+</apex:page>

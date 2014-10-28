@@ -1,0 +1,994 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveNoteAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <enableFeeds>false</enableFeeds>
+    <fieldSets>
+        <fullName>Account_MERC</fullName>
+        <description>Upload Content to Account object</description>
+        <displayedFields>
+            <field>Account_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Title</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Document_Type_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Customer_Id_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Code_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Account_Archive_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Expose_on_Portal_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Account</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Budget_MERC</fullName>
+        <description>Upload Content to Budget Object</description>
+        <displayedFields>
+            <field>Budget_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Title</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Meeting_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Document_Type_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Code_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Budget</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>HCP_Contract_MERC</fullName>
+        <description>Visualforce page for uploading HCP Contract content -JFerraro 2013-10-29</description>
+        <displayedFields>
+            <field>HCP_Contract_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Title</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Document_Type_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>HCP_Name_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Contract_Start_Date_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Contract_End_Date_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Code_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Upload_Date_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Contract_Archive_Date_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Expose_on_Portal_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>HCP Contract</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Invoice_MERC</fullName>
+        <description>Upload Content to Invoice Object</description>
+        <displayedFields>
+            <field>Invoice_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Title</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Document_Type_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Participant_Name_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Code_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>RecordTypeId</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Invoice_Archive_Date_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Invoice</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Meeting_MERC</fullName>
+        <description>Visualforce Page for creating new meeting-related content. -JFerraro 2013-10-29</description>
+        <displayedFields>
+            <field>Meeting_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Title</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Document_Type_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Approval_Reference_Number_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Description</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Product_1_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Product_2_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Product_3_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Expose_on_Portal_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Meeting_MERC</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Meeting_Participant_MERC</fullName>
+        <description>Upload Content to Meeting Participant Object</description>
+        <displayedFields>
+            <field>Meeting_Participant_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Title</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Document_Type_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Expose_on_Portal_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Meeting Participant</label>
+    </fieldSets>
+    <fields>
+        <fullName>Account_Archive_Date__c</fullName>
+        <description>One year from date of document upload.  Created 01/16/2014 by Klorenti, Mavens Consultant</description>
+        <externalId>false</externalId>
+        <formula>Upload_Date_MERC__c + 365</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account Archive Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Account_GLBL__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Content</relationshipLabel>
+        <relationshipName>Content</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Approval_Reference_Number_MERC__c</fullName>
+        <description>When content has been approved for usage within the Meeting, it should be uploaded with an Approval Reference Number. Oliver Dunford 6th Nov 2013.</description>
+        <externalId>false</externalId>
+        <label>Approval Reference Number</label>
+        <length>15</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Archive_Date_MERC__c</fullName>
+        <description>Populate Date the document is to be Archived. Created 12/3/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Archive Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Budget_Archive_Date_MERC__c</fullName>
+        <description>One year from Budget Date. Created 01/16/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Budget_MERC__r.Budget_Date_MERC__c + 365</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Budget Archive Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Budget_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup relationship from Content to Budget. Created 01/17/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Budget</label>
+        <referenceTo>Budget_MERC__c</referenceTo>
+        <relationshipLabel>Content</relationshipLabel>
+        <relationshipName>Content</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Code_MERC__c</fullName>
+        <description>Populates Retention Code based on Document Type. Created 01/15/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>CASE( Document_Type_MERC__c,
+&quot;Institutional Notification&quot;,&quot;ICO210&quot;,
+&quot;Notification agreement for services (filled version by HCP)&quot;,&quot;ICO210&quot;,
+&quot;Notification agreement for sponsorship (filled version by HCP)&quot;,&quot;ICO210&quot;,
+&quot;FMV&quot;,&quot;ICO210&quot;,
+&quot;Service Rendered Documents&quot;,&quot;ICO210&quot; ,
+&quot;HCP Transparency Reporting Consent (filled version by HCP)&quot;,&quot;ICO210&quot;,
+&quot;CV&quot;,&quot;ICO210&quot;,
+&quot;HCP Related Items&quot; ,&quot;ICO210&quot;,
+&quot;HCP Exceptions&quot;,&quot;ICO210&quot;,
+&quot;Invitations&quot;,&quot;MKT100&quot;,
+&quot;Meeting Documents&quot;,&quot;MKT100&quot;,
+&quot;Registration Form&quot;,&quot;MKT100&quot;,
+&quot;Slide Kits&quot;,&quot;MKT100&quot;,
+&quot;Approvals and Supporting Documents&quot;,&quot;MKT100&quot;,
+&quot;Agendas&quot;,&quot;MKT100&quot;,
+&quot;Meeting Exceptions&quot;,&quot;MKT100&quot;,
+&quot;Cover Letter for Contract&quot;,&quot;LEG500&quot;,
+&quot;Single Event Contract and Appendices&quot;,&quot;LEG500&quot;,
+&quot;C2P Documents&quot;,&quot;LEG500&quot;,
+&quot;MSA&quot;,&quot;LEG500&quot;,
+&quot;Work Order&quot;,&quot;LEG500&quot;,
+&quot;Services Rendered Documents&quot;,&quot;LEG500&quot;,
+&quot;Partial Payment Justification&quot;,&quot;LEG500&quot;,
+&quot;Contract Exceptions&quot;,&quot;LEG500&quot;,
+&quot;Invoices&quot;,&quot;ACT100&quot;, 
+&quot;Expense Reimbursement&quot;,&quot;ACT100&quot;,
+&quot;MPC Budget and Invoices&quot;,&quot;ACT100&quot;,
+&quot;Invoice Exceptions&quot;,&quot;ACT100&quot;,
+&quot;Certificate of Attendance&quot;,&quot;MKT100&quot;,
+&quot;Meeting Participant Notice&quot;,&quot;MKT100&quot;,
+&quot;Registration Confirmation Details&quot;,&quot;MKT100&quot;,
+&quot;Sponsorship Agreement&quot;,&quot;MKT100&quot;,
+&quot;Proof of Consulting Services&quot;,&quot;MKT100&quot;,
+&quot;None&quot;)</formula>
+        <label>Retention Code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contract_Archive_Date_MERC__c</fullName>
+        <description>One year from Contract Expiration Date. Created 01/17/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>HCP_Contract_MERC__r.Contract_Expiration_Date_MERC__c + 365</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contract Archive Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Contract_End_Date_MERC__c</fullName>
+        <description>Capture End Date of Contract when uploading documents to HCP Contract. Created 12/3/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF(HCP_Contract_MERC__r.RecordType.Name = &quot;Master Service Agreement&quot;, 
+HCP_Contract_MERC__r.MSA_End_Date_MERC__c, 
+HCP_Contract_MERC__r.Contract_Expiration_Date_MERC__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contract End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Start_Date_MERC__c</fullName>
+        <description>Populate the Contract Start Date based on the type of Contract.  If a MSA then use the MSA Start Date.  If a Single Event to Work Order then populate with the Meeting Start Date.  Created by John A Adams 4/21/2014</description>
+        <externalId>false</externalId>
+        <formula>IF(HCP_Contract_MERC__r.RecordType.Name = &quot;Master Service Agreement&quot;, 
+HCP_Contract_MERC__r.MSA_Start_Date_MERC__c,  HCP_Contract_MERC__r.Meeting_Name_MERC__r.Date_of_Event_MERC__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Contract Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Country_of_Residence_MERC__c</fullName>
+        <description>Capture Country of Residence for HCP. Created 12/3/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>TEXT(HCP_Contract_MERC__r.Account_MERC__r.Country_of_Residence_GLBL__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Country of Residence</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Credit_Note_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Associates copies of attachments of the original invoice to a credit note. This should only be populated programmatically when an Invoice is cloned to be a credit note.</description>
+        <externalId>false</externalId>
+        <label>Credit Note</label>
+        <referenceTo>Invoice_MERC__c</referenceTo>
+        <relationshipLabel>Original Invoice Content</relationshipLabel>
+        <relationshipName>Content_CN</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>CurrencyIsoCode</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Customer_Id_MERC__c</fullName>
+        <description>Pull in Customer ID for HCP that document will be attached to. Created 12/6/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Account_GLBL__r.Cust_Id_GLBL__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Customer Id</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Description</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Document_Type_MERC__c</fullName>
+        <description>Created to capture types of Documents uploaded. Created 12/2/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Document Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Institutional Notification</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Notification agreement for services (filled version by HCP)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Notification agreement for sponsorship (filled version by HCP)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>FMV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HCP Transparency Reporting Consent (filled version by HCP)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Meeting Minutes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Invitations</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Meeting Documents</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Registration Form</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Slide Kits</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Approvals and Supporting Documents</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cover Letter for Contract</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Single Event Contract and Appendices</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C2P Documents</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MSA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Work Order</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Services Rendered Documents</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Partial Payment Justification</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Expense Reimbursement</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MPC Budget and Invoices</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Agendas</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HCP Exceptions</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Invoice Exceptions</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contract Exceptions</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Invoices</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Certificate of Attendance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Meeting Participant Notice</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Registration Confirmation Details</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sponsorship Agreement</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Proof of Consulting Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Meeting Exceptions</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Rendered Documents</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Expose_on_Portal_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Allows the content to be available on the Portal. Created 01/13/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Expose on Portal</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>FileType</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>HCP_Contract_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>HCP Contract</label>
+        <referenceTo>HCP_Contract_MERC__c</referenceTo>
+        <relationshipLabel>Content</relationshipLabel>
+        <relationshipName>Content</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>HCP_Name_MERC__c</fullName>
+        <description>Pull in name of customer/HCP from Account. Created 12/6/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>HCP_Contract_MERC__r.Account_MERC__r.FirstName &amp; &quot; &quot; &amp;  HCP_Contract_MERC__r.Account_MERC__r.LastName</formula>
+        <label>HCP Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Invoice_Archive_Date_MERC__c</fullName>
+        <description>One year from Invoice Date. Created 01/17/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Invoice_MERC__r.Invoice_Date_MERC__c + 365</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Invoice Archive Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Invoice_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup relationship to Invoice. Created 12/6/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Invoice</label>
+        <referenceTo>Invoice_MERC__c</referenceTo>
+        <relationshipLabel>Content</relationshipLabel>
+        <relationshipName>Content</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Language</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Meeting_Archive_Date_MERC__c</fullName>
+        <description>Meeting Start Date plus 1 year to capture the Meeting Archive Date. Created 01/16/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Meeting_MERC__r.Date_of_Event_MERC__c + 365</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting Archive Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_City_MERC__c</fullName>
+        <description>Capture City of Meeting when uploading documents to the Meeting. Created 12/3/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Meeting_MERC__r.City_of_Meeting_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting City</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Meeting_Country_MERC__c</fullName>
+        <description>Capture Country of Meeting when uploading documents to a meeting. Created 12/3/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>TEXT(Meeting_MERC__r.Event_Country_MERC__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting Country</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Meeting_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Meeting</label>
+        <referenceTo>Meeting_MERC__c</referenceTo>
+        <relationshipLabel>Content</relationshipLabel>
+        <relationshipName>Content</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Participant_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup relationship from Content to Meeting Participant. Created 01/16/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Meeting Participant</label>
+        <referenceTo>Meeting_Participant_MERC__c</referenceTo>
+        <relationshipLabel>Content</relationshipLabel>
+        <relationshipName>Content</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Start_Date_MERC__c</fullName>
+        <description>Capture Meeting Start Date when uploading a document to the meeting. Created 12/3/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Meeting_MERC__r.Date_of_Event_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>OwnerId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Participant_Name_MERC__c</fullName>
+        <description>Pulls in Name of Meeting Participant from Invoice. Created 2/5/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Invoice_MERC__r.Participant_MERC__c</formula>
+        <label>Participant Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product_1_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Product 1</label>
+        <referenceTo>Product_Group_GLBL__c</referenceTo>
+        <relationshipLabel>Content (Product 1)</relationshipLabel>
+        <relationshipName>Content1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Product_2_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Product 2</label>
+        <referenceTo>Product_Group_GLBL__c</referenceTo>
+        <relationshipLabel>Content (Product 2)</relationshipLabel>
+        <relationshipName>Content2</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Product_3_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Product 3</label>
+        <referenceTo>Product_Group_GLBL__c</referenceTo>
+        <relationshipLabel>Content (Product 3)</relationshipLabel>
+        <relationshipName>Content3</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>TagCsv</fullName>
+    </fields>
+    <fields>
+        <fullName>Title</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Upload_Date_MERC__c</fullName>
+        <description>Today&apos;s date. Created 01/16/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>TODAY()</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Upload Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <recordTypes>
+        <fullName>Account_MERC</fullName>
+        <active>true</active>
+        <label>Account_MERC</label>
+        <picklistValues>
+            <picklist>Document_Type_MERC__c</picklist>
+            <values>
+                <fullName>CV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FMV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP Exceptions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP Transparency Reporting Consent %28filled version by HCP%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Institutional Notification</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Notification agreement for services %28filled version by HCP%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Notification agreement for sponsorship %28filled version by HCP%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service%C2%A0Rendered Documents</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Budget_MERC</fullName>
+        <active>true</active>
+        <label>Budget_MERC</label>
+        <picklistValues>
+            <picklist>Document_Type_MERC__c</picklist>
+            <values>
+                <fullName>Approvals and Supporting Documents</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invoices</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>HCP_Contract_MERC</fullName>
+        <active>true</active>
+        <label>HCP_Contract_MERC</label>
+        <picklistValues>
+            <picklist>Document_Type_MERC__c</picklist>
+            <values>
+                <fullName>C2P Documents</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contract Exceptions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cover Letter for Contract</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP Exceptions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MSA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partial Payment Justification</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Services Rendered Documents</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Event Contract and Appendices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Work Order</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Invoice_MERC</fullName>
+        <active>true</active>
+        <label>Invoice_MERC</label>
+        <picklistValues>
+            <picklist>Document_Type_MERC__c</picklist>
+            <values>
+                <fullName>Expense Reimbursement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invoice Exceptions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invoices</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MPC Budget and Invoices</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Meeting_MERC</fullName>
+        <active>true</active>
+        <label>Meeting_MERC</label>
+        <picklistValues>
+            <picklist>Document_Type_MERC__c</picklist>
+            <values>
+                <fullName>Agendas</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Approvals and Supporting Documents</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP Exceptions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invitations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting Documents</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting Exceptions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting Minutes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Registration Form</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Slide Kits</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Meeting_Participant_MERC</fullName>
+        <active>true</active>
+        <label>Meeting_Participant_MERC</label>
+        <picklistValues>
+            <picklist>Document_Type_MERC__c</picklist>
+            <values>
+                <fullName>Certificate of Attendance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting Participant Notice</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partial Payment Justification</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Proof of Consulting Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Registration Confirmation Details</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sponsorship Agreement</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+</CustomObject>

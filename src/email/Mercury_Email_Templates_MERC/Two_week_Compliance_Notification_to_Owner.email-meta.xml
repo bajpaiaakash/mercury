@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Two Week Compliance Notification to Meeting Owner</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Two-week Compliance Notification to Owner</name>
+    <style>none</style>
+    <subject>{!Meeting_MERC__c.Name} begins in 2 weeks</subject>
+    <type>text</type>
+</EmailTemplate>

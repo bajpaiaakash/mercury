@@ -1,0 +1,720 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <criteriaBasedRules>
+        <fullName>AT_Public</fullName>
+        <sharedTo>
+            <territory>Austria</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>AT</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Preferences</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares preferences based on HCP Country of residence to appropriate territories.</description>
+        <name>AT - Public</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>BE_Public</fullName>
+        <sharedTo>
+            <territory>Belgium</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>BE</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Preferences</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares preferences based on HCP Country of residence to appropriate territories.</description>
+        <name>BE - Public</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>BG_Public</fullName>
+        <sharedTo>
+            <territory>Bulgaria</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>BG</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Preferences</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares preferences based on HCP Country of residence to appropriate territories.</description>
+        <name>BG - Public</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>CH_Public</fullName>
+        <sharedTo>
+            <territory>Switzerland</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>CH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Preferences</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares public preferences based on HCP Country of residence to appropriate territories.</description>
+        <name>CH - Public</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>CY_Public</fullName>
+        <sharedTo>
+            <territory>Cyprus</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>CY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Preferences</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares preferences based on HCP Country of residence to appropriate territories.</description>
+        <name>CY - Public</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>CZ_Public</fullName>
+        <sharedTo>
+            <territory>Czech</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>CZ</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Preferences</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares preferences based on HCP Country of residence to appropriate territories.</description>
+        <name>CZ  - Public</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>DE_Public</fullName>
+        <sharedTo>
+            <territory>Germany</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>DE</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Preferences</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares preferences based on HCP Country of residence to appropriate territories.</description>
+        <name>DE - Public</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>DK_Public</fullName>
+        <sharedTo>
+            <territory>Denmark</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>DK</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Preferences</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares preferences based on HCP Country of residence to appropriate territories.</description>
+        <name>DK - Public</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>EE_Public</fullName>
+        <sharedTo>
+            <territory>Estonia</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>EE</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Preferences</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares preferences based on HCP Country of residence to appropriate territories.</description>
+        <name>EE - Public</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>ES_Public</fullName>
+        <sharedTo>
+            <territory>Spain</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>ES</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Preferences</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares preferences based on HCP Country of residence to appropriate territories.</description>
+        <name>ES - Public</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>FI_Public</fullName>
+        <sharedTo>
+            <territory>Finland</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>FI</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Preferences</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares preferences based on HCP Country of residence to appropriate territories.</description>
+        <name>FI - Public</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>FR_Public</fullName>
+        <sharedTo>
+            <territory>France</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>FR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Preferences</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares preferences based on HCP Country of residence to appropriate territories.</description>
+        <name>FR - Public</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>France_Hub_Private</fullName>
+        <sharedTo>
+            <territory>France_Hub</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>BE,FR,NL</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Preferences</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares preferences and consents based on HCP Country of residence to appropriate territory hub.</description>
+        <name>France Hub - Private</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>GB_Public</fullName>
+        <sharedTo>
+            <territory>United_Kingdom</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>GB</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Preferences</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares public preferences based on HCP Country of residence to appropriate territories.</description>
+        <name>GB - Public</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>German_Hub_Private</fullName>
+        <sharedTo>
+            <territory>Germany_Hub</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>AT,DE,CH</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Preferences</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares preferences and consents based on HCP Country of residence to appropriate territory hub.</description>
+        <name>German Hub- Private</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>HR_Pubic</fullName>
+        <sharedTo>
+            <territory>Croatia</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>HR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Preferences</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares preferences based on HCP Country of residence to appropriate territories.</description>
+        <name>HR - Pubic</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>HU_Public</fullName>
+        <sharedTo>
+            <territory>Hungary</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>HU</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Preferences</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares preferences based on HCP Country of residence to appropriate territories.</description>
+        <name>HU - Public</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>IE_Public</fullName>
+        <sharedTo>
+            <territory>Ireland</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>IE</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Preferences</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares preferences based on HCP Country of residence to appropriate territories.</description>
+        <name>IE - Public</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>IT_Public</fullName>
+        <sharedTo>
+            <territory>Italy</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>IT</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Preferences</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares preferences based on HCP Country of residence to appropriate territories.</description>
+        <name>IT - Public</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Italy_Hub_Private</fullName>
+        <sharedTo>
+            <territory>Italy_Hub</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>BG,HR,CY,CZ,HU,IT,MT,PL,RO,RS,SK,SI</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Preferences</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares preferences and consents based on HCP Country of residence to appropriate territory hub.</description>
+        <name>Italy Hub - Private</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>LT_Public</fullName>
+        <sharedTo>
+            <territory>Lithuania</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>LT</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Preferences</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares preferences based on HCP Country of residence to appropriate territories.</description>
+        <name>LT - Public</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>LV_Public</fullName>
+        <sharedTo>
+            <territory>Latvia</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>LV</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Preferences</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares preferences based on HCP Country of residence to appropriate territories.</description>
+        <name>LV - Public</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>MERC_Consent_CMS_Cork_Sharing</fullName>
+        <sharedTo>
+            <group>MERC_Meetings_CMS_Cork</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Consent</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares Consent Records as Read/Write with CMS Cork.  This enables creation and management of Transparency Consent Records.</description>
+        <name>MERC_Consent CMS Cork Sharing</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>MT_Public</fullName>
+        <sharedTo>
+            <territory>Malta</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>MT</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Preferences</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares preferences based on HCP Country of residence to appropriate territories.</description>
+        <name>MT - Public</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>NL_Public</fullName>
+        <sharedTo>
+            <territory>Netherlands</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>NL</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Preferences</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares preferences based on HCP Country of residence to appropriate territories.</description>
+        <name>NL - Public</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>NO_Public</fullName>
+        <sharedTo>
+            <territory>Norway</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>NO</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Preferences</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares preferences based on HCP Country of residence to appropriate territories.</description>
+        <name>NO - Public</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>PL_Public</fullName>
+        <sharedTo>
+            <territory>Poland</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>PL</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Preferences</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares preferences based on HCP Country of residence to appropriate territories.</description>
+        <name>PL - Public</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>PT_Public</fullName>
+        <sharedTo>
+            <territory>Portugal</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>PT</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Preferences</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares preferences based on HCP Country of residence to appropriate territories.</description>
+        <name>PT - Public</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>RO_Public</fullName>
+        <sharedTo>
+            <territory>Romania</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>RO</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Preferences</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares preferences based on HCP Country of residence to appropriate territories.</description>
+        <name>RO - Public</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>RS_Public</fullName>
+        <sharedTo>
+            <territory>Serbia</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>RS</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Preferences</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares preferences based on HCP Country of residence to appropriate territories.</description>
+        <name>RS - Public</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>RU_Public</fullName>
+        <sharedTo>
+            <territory>Russia</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>RU</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Preferences</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares public preferences based on HCP Country of residence to appropriate territories.</description>
+        <name>RU - Public</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>SE_Public</fullName>
+        <sharedTo>
+            <territory>Sweden</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>SE</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Preferences</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares public preferences based on HCP Country of residence to appropriate territories.</description>
+        <name>SE - Public</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>SK_Public</fullName>
+        <sharedTo>
+            <territory>Slovakia</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>SK</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Preferences</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares preferences based on HCP Country of residence to appropriate territories.</description>
+        <name>SK - Public</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>SL_Public</fullName>
+        <sharedTo>
+            <territory>Slovenia</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>SL</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Preferences</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares public preferences based on HCP Country of residence to appropriate territories.</description>
+        <name>SL - Public</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Spain_Hub_Private</fullName>
+        <sharedTo>
+            <territory>Spain_Hub</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>PT,ES</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Preferences</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares preferences and consents based on HCP Country of residence to appropriate territory hub.</description>
+        <name>Spain Hub - Private</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>TR_Public</fullName>
+        <sharedTo>
+            <territory>Turkey</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>TR</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Preferences</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares preferences based on HCP Country of residence to appropriate territories.</description>
+        <name>TR - Public</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>UA_Public</fullName>
+        <sharedTo>
+            <territory>Ukraine</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>UA</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Preferences</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares preferences based on HCP Country of residence to appropriate territories.</description>
+        <name>UA - Public</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>UK_Hub_Private</fullName>
+        <sharedTo>
+            <territory>UK_Hub</territory>
+        </sharedTo>
+        <criteriaItems>
+            <field>HCP_Country_of_Residence_Stamped_MERC__c</field>
+            <operation>equals</operation>
+            <value>DK,EE,FI,IE,LV,LT,NO,SE,GB</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Preferences</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares preferences and consents based on HCP Country of residence to appropriate territory hub.</description>
+        <name>UK Hub - Private</name>
+    </criteriaBasedRules>
+</CustomObjectSharingRules>

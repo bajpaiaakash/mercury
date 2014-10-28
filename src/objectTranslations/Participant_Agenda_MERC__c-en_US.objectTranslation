@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Participant Agenda Item</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Participant Agenda Items</value>
+    </caseValues>
+    <fields>
+        <help><!-- Indicates that this record is related to a non-hcp meeting participant and should be anonymised (via workflows) --></help>
+        <label><!-- Anonymise Record --></label>
+        <name>Anonymise_Record_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- The agenda topic title assigned to the Speaker for the meeting. --></help>
+        <label><!-- Assigned Topic --></label>
+        <name>Assigned_Topic_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Used by CMS Cork to confirm updates to certain information once a meeting is activated on the web services. --></help>
+        <label><!-- Confirm Web Service Change --></label>
+        <name>Confirm_Web_Service_Change_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting Day --></label>
+        <name>Meeting_Day_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting ID --></label>
+        <name>Meeting_ID_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting Participant --></label>
+        <name>Meeting_Participant_MERC__c</name>
+        <relationshipLabel><!-- Participant Agendas Items --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Mercury External Id --></label>
+        <name>Mercury_External_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Name --></label>
+        <name>Name_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Agenda Item --></label>
+        <name>Session_MERC__c</name>
+        <relationshipLabel><!-- Participant Agendas Items --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The agenda topic title sent back to Lilly by the HCP.  This title should be displayed on the Agenda. --></help>
+        <label><!-- Speaker Topic Title --></label>
+        <name>Speaker_Topic_Title_MERC__c</name>
+    </fields>
+    <layouts>
+        <layout>MERC_Participant Session</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Once a meeting has been published on the Web Service, only CMS Cork and CMS Local teams can change the Speaker Topic Title. Please contact a member of the CMS team to request a change to this information. --></errorMessage>
+        <name>MERC_Prevent_Change_Once_on_Web_Service</name>
+    </validationRules>
+</CustomObjectTranslation>

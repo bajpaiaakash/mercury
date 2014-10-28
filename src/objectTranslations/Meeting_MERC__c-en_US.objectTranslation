@@ -1,0 +1,2927 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Meeting</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Meetings</value>
+    </caseValues>
+    <fields>
+        <label><!-- AODS Venue Id --></label>
+        <name>AODS_Venue_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- AODS Venue Name --></label>
+        <name>AODS_Venue_Name_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Accommodation Information --></label>
+        <name>Accommodation_Information_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Activities --></label>
+        <name>Activities_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address &amp; Contact Person Information --></label>
+        <name>Address_Contact_Information_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Agenda Status --></label>
+        <name>Agenda_Status_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Draft</masterLabel>
+            <translation><!-- Draft --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Final</masterLabel>
+            <translation><!-- Final --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Working</masterLabel>
+            <translation><!-- Working --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Alignment Internal Id --></label>
+        <name>Alignment_Internal_Id_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Amount to be Paid --></label>
+        <name>Amount_to_be_Paid_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Approve Sponsorship --></label>
+        <name>Approve_Sponsorship_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Senior Medical Director Approved --></label>
+        <name>Approved_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Associated Countries --></label>
+        <name>Associated_Countries_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Budget Final Date/Time --></label>
+        <name>Budget_Final_Date_Time_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Budget is Final --></label>
+        <name>Budget_is_Final_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Primary Meeting Business Unit --></help>
+        <label><!-- Business Unit --></label>
+        <name>Business_Unit_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Bio-Medicines</masterLabel>
+            <translation><!-- Bio-Medicines --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Diabetes</masterLabel>
+            <translation><!-- Diabetes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Emerging Markets</masterLabel>
+            <translation><!-- Emerging Markets --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oncology</masterLabel>
+            <translation><!-- Oncology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- CME Accredited --></label>
+        <name>CME_Accredited_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- City of Meeting --></label>
+        <name>City_of_Meeting_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comments --></label>
+        <name>Comments_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Compliance Met - Initiate Sourcing --></label>
+        <name>Compliance_Met_Initiate_Sourcing_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Compliance Met - Invoices --></label>
+        <name>Compliance_Met_Invoices_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Compliance Met - Meeting Closure --></label>
+        <name>Compliance_Met_Meeting_Closure_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Compliance Met - Meeting Errors --></label>
+        <name>Compliance_Met_Meeting_Errors_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Compliance Met - ToV Finalized --></label>
+        <name>Compliance_Met_ToV_Finalized_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Compliance Met - Venue Sourcing --></label>
+        <name>Compliance_Met_Venue_Sourcing_MER__c</name>
+    </fields>
+    <fields>
+        <help><!-- To the best of your knowledge, were there any potential compliance issues during the meeting related to HCP services, HCP sponsorships , meeting content, venue, hospitality, travel, gifts and any other global or local meeting requirements? --></help>
+        <label><!-- Potential Compliance Issue --></label>
+        <name>Compliant_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Confirm Meeting Cancellation --></label>
+        <name>Confirm_Meeting_Cancellation_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- I agree to and confirm the meeting date change. --></help>
+        <label><!-- Confirm Meeting Date/Time Change --></label>
+        <name>Confirm_Meeting_Date_Change_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Confirm ToV Reporting Change --></label>
+        <name>Confirm_ToV_Reporting_Change_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Used by CMS Regional and Local to confirm updates to certain information once a meeting is activated on the web services. --></help>
+        <label><!-- Confirm Web Service Change --></label>
+        <name>Confirm_Web_Service_Change_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Confirmation of Complete Invoice Date --></label>
+        <name>Confirmation_Comp_Invoice_Dt_Tm_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- # Confirmed Attendees --></label>
+        <name>Confirmed_Attendees_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Content Approval Needed --></label>
+        <name>Content_Approval_Needed_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Who is creating the content? --></help>
+        <label><!-- Content Creator --></label>
+        <name>Content_Creator_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Facing End Time --></label>
+        <name>Customer_Facing_End_Time_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Facing Meeting Organiser --></label>
+        <name>Customer_Facing_Meeting_Organiser_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Facing Start Time --></label>
+        <name>Customer_Facing_Start_Time_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting Start Date --></label>
+        <name>Date_of_Event_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date to Send Invitations --></label>
+        <name>Date_to_Send_Invitations_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Days Until Meeting --></label>
+        <name>Days_Until_Meeting_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Days Until Venue Contracted --></label>
+        <name>Days_Until_Venue_Contracted_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of Days from End Date to ToV Reported --></label>
+        <name>Days_from_End_Date_to_ToV_Reported_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- # Days from MPC to Initiate Sourcing --></label>
+        <name>Days_from_MPC_to_Initiate_Sourcing_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Can be checked to prevent any additional RSVPs via the Web Service.  Primarily for the scenario when a Meeting is at capacity and invitations are still pending. --></help>
+        <label><!-- Disable Portal Registration --></label>
+        <name>Disable_Portal_Registration_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Employee Accommodation Covered by --></label>
+        <name>Employee_Accommodation_Covered_By_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Individual Cost Center</masterLabel>
+            <translation><!-- Individual Cost Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Meeting Budget</masterLabel>
+            <translation><!-- Meeting Budget --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Employee Travel Covered by --></label>
+        <name>Employee_Travel_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Individual Cost Center</masterLabel>
+            <translation><!-- Individual Cost Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Meeting Budget</masterLabel>
+            <translation><!-- Meeting Budget --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- # Employees Attended --></label>
+        <name>Employees_Attended_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- End Date (Meeting Time Zone) --></label>
+        <name>End_Date_Meeting_Time_Zone_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- End Date Year --></label>
+        <name>End_Date_Year_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting End Date --></label>
+        <name>End_Date_of_Event_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- End Date of Meeting plus 60 Days --></label>
+        <name>End_Date_of_Meeting_plus_60_Days_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- End Time (Meeting Time Zone) --></label>
+        <name>End_Time_In_Meeting_Time_Zone_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- End Time of Meeting --></label>
+        <name>End_Time_of_Meeting_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country of Meeting --></label>
+        <name>Event_Country_MERC__c</name>
+        <picklistValues>
+            <masterLabel>AD</masterLabel>
+            <translation>ANDORRA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AE</masterLabel>
+            <translation>UNITED ARAB EMIRATES</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AF</masterLabel>
+            <translation>AFGHANISTAN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AG</masterLabel>
+            <translation>ANTIGUA AND BARBUDA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AI</masterLabel>
+            <translation>ANGUILLA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AL</masterLabel>
+            <translation>ALBANIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AM</masterLabel>
+            <translation>ARMENIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AO</masterLabel>
+            <translation>ANGOLA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AQ</masterLabel>
+            <translation>ANTARCTICA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AR</masterLabel>
+            <translation>ARGENTINA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AS</masterLabel>
+            <translation>AMERICAN SAMOA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AT</masterLabel>
+            <translation>AUSTRIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AU</masterLabel>
+            <translation>AUSTRALIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AW</masterLabel>
+            <translation>ARUBA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AX</masterLabel>
+            <translation>ÅLAND ISLANDS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AZ</masterLabel>
+            <translation>AZERBAIJAN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BA</masterLabel>
+            <translation>BOSNIA AND HERZEGOVINA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BB</masterLabel>
+            <translation>BARBADOS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BD</masterLabel>
+            <translation>BANGLADESH</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BE</masterLabel>
+            <translation>BELGIUM</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BF</masterLabel>
+            <translation>BURKINA FASO</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BG</masterLabel>
+            <translation>BULGARIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BH</masterLabel>
+            <translation>BAHRAIN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BI</masterLabel>
+            <translation>BURUNDI</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BJ</masterLabel>
+            <translation>BENIN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BL</masterLabel>
+            <translation>SAINT BARTHƒLEMY</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BM</masterLabel>
+            <translation>BERMUDA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BN</masterLabel>
+            <translation>BRUNEI DARUSSALAM</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BO</masterLabel>
+            <translation>BOLIVIA, PLURINATIONAL STATE OF</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BQ</masterLabel>
+            <translation>BONAIRE, SINT EUSTATIUS AND SABA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BR</masterLabel>
+            <translation>BRAZIL</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BS</masterLabel>
+            <translation>BAHAMAS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BT</masterLabel>
+            <translation>BHUTAN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BV</masterLabel>
+            <translation>BOUVET ISLAND</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BW</masterLabel>
+            <translation>BOTSWANA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BY</masterLabel>
+            <translation>BELARUS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BZ</masterLabel>
+            <translation>BELIZE</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA</masterLabel>
+            <translation>CANADA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CC</masterLabel>
+            <translation>COCOS (KEELING) ISLANDS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CD</masterLabel>
+            <translation>CONGO, THE DEMOCRATIC REPUBLIC OF THE</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CF</masterLabel>
+            <translation>CENTRAL AFRICAN REPUBLIC</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CG</masterLabel>
+            <translation>CONGO</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CH</masterLabel>
+            <translation>SWITZERLAND</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CI</masterLabel>
+            <translation>CÔTE D&apos;IVOIRE</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CK</masterLabel>
+            <translation>COOK ISLANDS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CL</masterLabel>
+            <translation>CHILE</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CM</masterLabel>
+            <translation>CAMEROON</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CN</masterLabel>
+            <translation>CHINA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CO</masterLabel>
+            <translation>COLOMBIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CR</masterLabel>
+            <translation>COSTA RICA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CU</masterLabel>
+            <translation>CUBA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CV</masterLabel>
+            <translation>CAPE VERDE</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CW</masterLabel>
+            <translation>CURAÇAO</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CX</masterLabel>
+            <translation>CHRISTMAS ISLAND</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CY</masterLabel>
+            <translation>CYPRUS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CZ</masterLabel>
+            <translation>CZECH REPUBLIC</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DE</masterLabel>
+            <translation>GERMANY</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DJ</masterLabel>
+            <translation>DJIBOUTI</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DK</masterLabel>
+            <translation>DENMARK</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DM</masterLabel>
+            <translation>DOMINICA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DO</masterLabel>
+            <translation>DOMINICAN REPUBLIC</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DZ</masterLabel>
+            <translation>ALGERIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EC</masterLabel>
+            <translation>ECUADOR</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EE</masterLabel>
+            <translation>ESTONIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EG</masterLabel>
+            <translation>EGYPT</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EH</masterLabel>
+            <translation>WESTERN SAHARA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ER</masterLabel>
+            <translation>ERITREA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ES</masterLabel>
+            <translation>SPAIN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ET</masterLabel>
+            <translation>ETHIOPIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FI</masterLabel>
+            <translation>FINLAND</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FJ</masterLabel>
+            <translation>FIJI</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FK</masterLabel>
+            <translation>FALKLAND ISLANDS (MALVINAS)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM</masterLabel>
+            <translation>MICRONESIA, FEDERATED STATES OF</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FO</masterLabel>
+            <translation>FAROE ISLANDS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FR</masterLabel>
+            <translation>FRANCE</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GA</masterLabel>
+            <translation>GABON</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GB</masterLabel>
+            <translation>UNITED KINGDOM</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GD</masterLabel>
+            <translation>GRENADA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GE</masterLabel>
+            <translation>GEORGIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GF</masterLabel>
+            <translation>FRENCH GUIANA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GG</masterLabel>
+            <translation>GUERNSEY</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GH</masterLabel>
+            <translation>GHANA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GI</masterLabel>
+            <translation>GIBRALTAR</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GL</masterLabel>
+            <translation>GREENLAND</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GM</masterLabel>
+            <translation>GAMBIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GN</masterLabel>
+            <translation>GUINEA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GP</masterLabel>
+            <translation>GUADELOUPE</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GQ</masterLabel>
+            <translation>EQUATORIAL GUINEA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GR</masterLabel>
+            <translation>GREECE</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GS</masterLabel>
+            <translation>SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GT</masterLabel>
+            <translation>GUATEMALA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GU</masterLabel>
+            <translation>GUAM</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GW</masterLabel>
+            <translation>GUINEA-BISSAU</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GY</masterLabel>
+            <translation>GUYANA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HK</masterLabel>
+            <translation>HONG KONG</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HM</masterLabel>
+            <translation>HEARD ISLAND AND MCDONALD ISLANDS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HN</masterLabel>
+            <translation>HONDURAS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR</masterLabel>
+            <translation>CROATIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HT</masterLabel>
+            <translation>HAITI</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HU</masterLabel>
+            <translation>HUNGARY</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ID</masterLabel>
+            <translation>INDONESIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IE</masterLabel>
+            <translation>IRELAND</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IL</masterLabel>
+            <translation>ISRAEL</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IM</masterLabel>
+            <translation>ISLE OF MAN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IN</masterLabel>
+            <translation>INDIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IO</masterLabel>
+            <translation>BRITISH INDIAN OCEAN TERRITORY</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IQ</masterLabel>
+            <translation>IRAQ</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IR</masterLabel>
+            <translation>IRAN, ISLAMIC REPUBLIC OF</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IS</masterLabel>
+            <translation>ICELAND</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IT</masterLabel>
+            <translation>ITALY</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>JE</masterLabel>
+            <translation>JERSEY</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>JM</masterLabel>
+            <translation>JAMAICA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>JO</masterLabel>
+            <translation>JORDAN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>JP</masterLabel>
+            <translation>JAPAN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KE</masterLabel>
+            <translation>KENYA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KG</masterLabel>
+            <translation>KYRGYZSTAN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KH</masterLabel>
+            <translation>CAMBODIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KI</masterLabel>
+            <translation>KIRIBATI</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KM</masterLabel>
+            <translation>COMOROS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KN</masterLabel>
+            <translation>SAINT KITTS AND NEVIS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KP</masterLabel>
+            <translation>KOREA, DEMOCRATIC PEOPLE&apos;S REPUBLIC OF</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KR</masterLabel>
+            <translation>KOREA, REPUBLIC OF</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KW</masterLabel>
+            <translation>KUWAIT</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KY</masterLabel>
+            <translation>CAYMAN ISLANDS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KZ</masterLabel>
+            <translation>KAZAKHSTAN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LA</masterLabel>
+            <translation>LAO PEOPLE&apos;S DEMOCRATIC REPUBLIC</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LB</masterLabel>
+            <translation>LEBANON</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LC</masterLabel>
+            <translation>SAINT LUCIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LI</masterLabel>
+            <translation>LIECHTENSTEIN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LK</masterLabel>
+            <translation>SRI LANKA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LR</masterLabel>
+            <translation>LIBERIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LS</masterLabel>
+            <translation>LESOTHO</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LT</masterLabel>
+            <translation>LITHUANIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LU</masterLabel>
+            <translation>LUXEMBOURG</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LV</masterLabel>
+            <translation>LATVIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LY</masterLabel>
+            <translation>LIBYA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MA</masterLabel>
+            <translation>MOROCCO</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MC</masterLabel>
+            <translation>MONACO</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MD</masterLabel>
+            <translation>MOLDOVA, REPUBLIC OF</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ME</masterLabel>
+            <translation>MONTENEGRO</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MF</masterLabel>
+            <translation>SAINT MARTIN (FRENCH PART)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MG</masterLabel>
+            <translation>MADAGASCAR</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MH</masterLabel>
+            <translation>MARSHALL ISLANDS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MK</masterLabel>
+            <translation>MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML</masterLabel>
+            <translation>MALI</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MM</masterLabel>
+            <translation>MYANMAR</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MN</masterLabel>
+            <translation>MONGOLIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MO</masterLabel>
+            <translation>MACAO</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MP</masterLabel>
+            <translation>NORTHERN MARIANA ISLANDS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MQ</masterLabel>
+            <translation>MARTINIQUE</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MR</masterLabel>
+            <translation>MAURITANIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MS</masterLabel>
+            <translation>MONTSERRAT</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MT</masterLabel>
+            <translation>MALTA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MU</masterLabel>
+            <translation>MAURITIUS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MV</masterLabel>
+            <translation>MALDIVES</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MW</masterLabel>
+            <translation>MALAWI</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MX</masterLabel>
+            <translation>MEXICO</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MY</masterLabel>
+            <translation>MALAYSIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MZ</masterLabel>
+            <translation>MOZAMBIQUE</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NA</masterLabel>
+            <translation>NAMIBIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NC</masterLabel>
+            <translation>NEW CALEDONIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NE</masterLabel>
+            <translation>NIGER</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NF</masterLabel>
+            <translation>NORFOLK ISLAND</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NG</masterLabel>
+            <translation>NIGERIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NI</masterLabel>
+            <translation>NICARAGUA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NL</masterLabel>
+            <translation>NETHERLANDS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NO</masterLabel>
+            <translation>NORWAY</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NP</masterLabel>
+            <translation>NEPAL</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NR</masterLabel>
+            <translation>NAURU</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NU</masterLabel>
+            <translation>NIUE</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NZ</masterLabel>
+            <translation>NEW ZEALAND</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OM</masterLabel>
+            <translation>OMAN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PA</masterLabel>
+            <translation>PANAMA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PE</masterLabel>
+            <translation>PERU</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PF</masterLabel>
+            <translation>FRENCH POLYNESIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PG</masterLabel>
+            <translation>PAPUA NEW GUINEA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PH</masterLabel>
+            <translation>PHILIPPINES</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PK</masterLabel>
+            <translation>PAKISTAN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PL</masterLabel>
+            <translation>POLAND</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PM</masterLabel>
+            <translation>SAINT PIERRE AND MIQUELON</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PN</masterLabel>
+            <translation>PITCAIRN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PR</masterLabel>
+            <translation>PUERTO RICO</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PS</masterLabel>
+            <translation>PALESTINE, STATE OF</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PT</masterLabel>
+            <translation>PORTUGAL</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PW</masterLabel>
+            <translation>PALAU</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PY</masterLabel>
+            <translation>PARAGUAY</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>QA</masterLabel>
+            <translation>QATAR</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RE</masterLabel>
+            <translation>RÉUNION</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RO</masterLabel>
+            <translation>ROMANIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RS</masterLabel>
+            <translation>SERBIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RU</masterLabel>
+            <translation>RUSSIAN FEDERATION</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RW</masterLabel>
+            <translation>RWANDA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SA</masterLabel>
+            <translation>SAUDI ARABIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SB</masterLabel>
+            <translation>SOLOMON ISLANDS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SC</masterLabel>
+            <translation>SEYCHELLES</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SD</masterLabel>
+            <translation>SUDAN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SE</masterLabel>
+            <translation>SWEDEN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SG</masterLabel>
+            <translation>SINGAPORE</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SH</masterLabel>
+            <translation>SAINT HELENA, ASCENSION AND TRISTAN DA CUNHA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SI</masterLabel>
+            <translation>SLOVENIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SJ</masterLabel>
+            <translation>SVALBARD AND JAN MAYEN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SK</masterLabel>
+            <translation>SLOVAKIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SL</masterLabel>
+            <translation>SIERRA LEONE</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SM</masterLabel>
+            <translation>SAN MARINO</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SN</masterLabel>
+            <translation>SENEGAL</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SO</masterLabel>
+            <translation>SOMALIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SR</masterLabel>
+            <translation>SURINAME</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SS</masterLabel>
+            <translation>SOUTH SUDAN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ST</masterLabel>
+            <translation>SAO TOME AND PRINCIPE</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SV</masterLabel>
+            <translation>EL SALVADOR</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SX</masterLabel>
+            <translation>SINT MAARTEN (DUTCH PART)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SY</masterLabel>
+            <translation>SYRIAN ARAB REPUBLIC</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SZ</masterLabel>
+            <translation>SWAZILAND</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TC</masterLabel>
+            <translation>TURKS AND CAICOS ISLANDS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TD</masterLabel>
+            <translation>CHAD</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TF</masterLabel>
+            <translation>FRENCH SOUTHERN TERRITORIES</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TG</masterLabel>
+            <translation>TOGO</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TH</masterLabel>
+            <translation>THAILAND</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TJ</masterLabel>
+            <translation>TAJIKISTAN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TK</masterLabel>
+            <translation>TOKELAU</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TL</masterLabel>
+            <translation>TIMOR-LESTE</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TM</masterLabel>
+            <translation>TURKMENISTAN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TN</masterLabel>
+            <translation>TUNISIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TO</masterLabel>
+            <translation>TONGA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TR</masterLabel>
+            <translation>TURKEY</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TT</masterLabel>
+            <translation>TRINIDAD AND TOBAGO</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TV</masterLabel>
+            <translation>TUVALU</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TW</masterLabel>
+            <translation>TAIWAN, PROVINCE OF CHINA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TZ</masterLabel>
+            <translation>TANZANIA, UNITED REPUBLIC OF</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UA</masterLabel>
+            <translation>UKRAINE</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UG</masterLabel>
+            <translation>UGANDA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UM</masterLabel>
+            <translation>UNITED STATES MINOR OUTLYING ISLANDS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>US</masterLabel>
+            <translation>UNITED STATES</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UY</masterLabel>
+            <translation>URUGUAY</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UZ</masterLabel>
+            <translation>UZBEKISTAN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VA</masterLabel>
+            <translation>HOLY SEE (VATICAN CITY STATE)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VC</masterLabel>
+            <translation>SAINT VINCENT AND THE GRENADINES</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VE</masterLabel>
+            <translation>VENEZUELA, BOLIVARIAN REPUBLIC OF</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VG</masterLabel>
+            <translation>VIRGIN ISLANDS, BRITISH</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VI</masterLabel>
+            <translation>VIRGIN ISLANDS, U.S.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VN</masterLabel>
+            <translation>VIET NAM</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VU</masterLabel>
+            <translation>VANUATU</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WF</masterLabel>
+            <translation>WALLIS AND FUTUNA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WS</masterLabel>
+            <translation>SAMOA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>YE</masterLabel>
+            <translation>YEMEN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>YT</masterLabel>
+            <translation>MAYOTTE</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ZA</masterLabel>
+            <translation>SOUTH AFRICA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ZM</masterLabel>
+            <translation>ZAMBIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ZW</masterLabel>
+            <translation>ZIMBABWE</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Event Id --></label>
+        <name>Event_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting Occurred --></label>
+        <name>Event_Occurred_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Official congress website for independent meetings or website for Lilly originated meetings --></help>
+        <label><!-- Meeting Website --></label>
+        <name>Event_Website_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Do you want a web site for the event where the delegate can register? --></help>
+        <label><!-- Meeting Website Needed --></label>
+        <name>Event_Website_Needed_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Once checked, these will exclude travel options from the web service (within the RSVP process). These do not need to be set if the travel option has already been excluded at the country level (e.g. No Rail travel in the UK for all meetings). --></help>
+        <label><!-- Exclude Bus Transport --></label>
+        <name>Exclude_Bus_Transport_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Once checked, these will exclude travel options from the web service (within the RSVP process). These do not need to be set if the travel option has already been excluded at the country level (e.g. No Rail travel in the UK for all meetings). --></help>
+        <label><!-- Exclude Personal Transfer --></label>
+        <name>Exclude_Personal_Transfer_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Once checked, these will exclude travel options from the web service (within the RSVP process). These do not need to be set if the travel option has already been excluded at the country level (e.g. No Rail travel in the UK for all meetings). --></help>
+        <label><!-- Exclude Rail Transport --></label>
+        <name>Exclude_Rail_Transport_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Exclude from Open Meeting Fee Calc --></label>
+        <name>Exclude_from_Open_Meeting_Fee_Calc_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Expenses --></label>
+        <name>Expenses_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Accommodation</masterLabel>
+            <translation><!-- Accommodation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Registration Fee</masterLabel>
+            <translation><!-- Registration Fee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Transportation</masterLabel>
+            <translation><!-- Transportation --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Activate Meeting on Web Services --></label>
+        <name>Expose_on_Portal_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- External Delegates --></label>
+        <name>External_Delegates_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Food and Beverage Requirements --></label>
+        <name>Food_and_Beverage_Requirements_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Forecasting Information --></label>
+        <name>Forecasting_Information_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Formatted Name --></label>
+        <name>Formatted_Name_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Functional Area --></label>
+        <name>Functional_Area_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Corporate Affairs</masterLabel>
+            <translation><!-- Corporate Affairs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing</masterLabel>
+            <translation><!-- Marketing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical</masterLabel>
+            <translation><!-- Medical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales</masterLabel>
+            <translation><!-- Sales --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- This box is checked if there are Meeting Participants added to the meeting of type &quot;Delegate&quot; --></help>
+        <label><!-- Group Sponsorship Meeting --></label>
+        <name>Group_Sponsorship_Meeting_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Beneficiary for Transparency Reporting Purposes. --></help>
+        <label><!-- HCO --></label>
+        <name>HCO_MERC__c</name>
+        <relationshipLabel><!-- Meetings (HCO) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- This box is checked if an HCO is selected on the Meeting. --></help>
+        <label><!-- HCO Sponsorship --></label>
+        <name>HCO_Sponsorship_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- According to the Lilly Standard on Independent Meetings the following eligibility criteria for Lilly sponsorship must be met: equal opportunities to sponsor, transparent costs, public disclosure, documentation, payment recipient requirements. --></help>
+        <label><!-- HCP Eligible for Sponsorship --></label>
+        <name>HCP_Eligibile_for_Sponsorship_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- # HCP&apos;s Attended --></label>
+        <name>HCPs_Attended_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Hospitality Desk Required --></label>
+        <name>Hospitality_Desk_Required_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Hours for Education --></label>
+        <name>Hours_for_Education_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Immediate Source --></label>
+        <name>Immediate_Source_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Healthcare Organisation --></help>
+        <label><!-- Independent Meeting Organiser --></label>
+        <name>Independent_Meeting_Organiser_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- This box is checked if there are Meeting Participants added to the meeting of type &quot;Individual Sponsorship&quot; --></help>
+        <label><!-- Individual Sponsorship Meeting --></label>
+        <name>Individual_Sponsorship_Meeting_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Initiate Venue Sourcing Date/Time --></label>
+        <name>Initiate_Venue_Sourcing_Date_Time_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Interaction Type --></label>
+        <name>Interaction_Type_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Face to Face</masterLabel>
+            <translation><!-- Face to Face --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Virtual</masterLabel>
+            <translation><!-- Virtual --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Internal Delegates --></label>
+        <name>Internal_Delegates_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Internal Order Number --></label>
+        <name>Internal_Order_Number_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Invitation Template --></label>
+        <name>Invitation_Template_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Template 1</masterLabel>
+            <translation><!-- Template 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Template 2</masterLabel>
+            <translation><!-- Template 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Template 3</masterLabel>
+            <translation><!-- Template 3 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Invitee List Status --></label>
+        <name>Invitee_List_Status_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending Approval</masterLabel>
+            <translation><!-- Pending Approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Who is Inviting Delegates --></label>
+        <name>Inviting_Delegates_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Marketing</masterLabel>
+            <translation><!-- Marketing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical</masterLabel>
+            <translation><!-- Medical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales</masterLabel>
+            <translation><!-- Sales --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- If &quot;Other&quot; is selected above, please describe here --></help>
+        <label><!-- Other Comments --></label>
+        <name>Inviting_Delegates_Other_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Confirmation of Complete Invoice --></label>
+        <name>Invoicing_Completed_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Justification for Sourced Venue --></label>
+        <name>Justification_for_Venue_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- If checked, the meeting and all related records are locked from editing. --></help>
+        <label><!-- Lock Meeting --></label>
+        <name>Lock_Meeting_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Logistics Information --></label>
+        <name>Logistics_Information_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting Planning Company Work Approved --></label>
+        <name>MCP_work_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Applicable</masterLabel>
+            <translation><!-- Not Applicable --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- MPC Date/Time --></label>
+        <name>MPC_Date_Time_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Make Payment To --></label>
+        <name>Make_Payment_To_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Materials to be Shipped --></label>
+        <name>Materials_to_be_Shipped_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Meeting Auto Number --></label>
+        <name>Meeting_Auto_Nmber_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting Cancellation Date --></label>
+        <name>Meeting_Cancellation_Date_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- All meeting financial data is complete and without errors.  Affiliate Account Managers include the number of errors encountered within this field to drive SLA reporting. --></help>
+        <label><!-- Meeting Errors --></label>
+        <name>Meeting_Errors_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Record the meeting overview and objectives, excluding the agenda.  This information will be displayed on the web service and must be professional and compliant. --></help>
+        <label><!-- Meeting Objectives --></label>
+        <name>Meeting_Objectives_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting Organiser Type --></label>
+        <name>Meeting_Organiser_Type_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Healthcare Organisation</masterLabel>
+            <translation><!-- Healthcare Organisation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Patient Organisation</masterLabel>
+            <translation><!-- Patient Organisation --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Meeting Owner Email --></label>
+        <name>Meeting_Owner_Email_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting Owner --></label>
+        <name>Meeting_Owner_MERC__c</name>
+        <relationshipLabel><!-- Meetings --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Meeting Owner/Sales Rep --></label>
+        <name>Meeting_Owner_Sales_Rep_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Meeting Room Setup --></label>
+        <name>Meeting_Room_Setup_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Boardroom</masterLabel>
+            <translation><!-- Boardroom --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cabaret</masterLabel>
+            <translation><!-- Cabaret --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Classroom</masterLabel>
+            <translation><!-- Classroom --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Theatre</masterLabel>
+            <translation><!-- Theatre --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>U-Shaped</masterLabel>
+            <translation><!-- U-Shaped --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Geography --></label>
+        <name>Meeting_Scope_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Country Grouping</masterLabel>
+            <translation><!-- Country Grouping --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Facing Team Initiated</masterLabel>
+            <translation><!-- Customer Facing Team Initiated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>International</masterLabel>
+            <translation><!-- International --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Local Affiliate</masterLabel>
+            <translation><!-- Local Affiliate --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Meeting Status --></label>
+        <name>Meeting_Status_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Complete - Cancelled</masterLabel>
+            <translation><!-- Complete - Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Complete - Closed</masterLabel>
+            <translation><!-- Complete - Closed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forecasted</masterLabel>
+            <translation><!-- Forecasted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Registered</masterLabel>
+            <translation><!-- Registered --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Functional Ownership --></label>
+        <name>Meeting_Sub_Type_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Corporate Affairs</masterLabel>
+            <translation><!-- Corporate Affairs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing</masterLabel>
+            <translation><!-- Marketing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical</masterLabel>
+            <translation><!-- Medical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales</masterLabel>
+            <translation><!-- Sales --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Meeting Time Zone --></label>
+        <name>Meeting_Time_Zone_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Central European Time (Europe/Amsterdam)</masterLabel>
+            <translation><!-- Central European Time (Europe/Amsterdam) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Central European Time (Europe/Berlin)</masterLabel>
+            <translation><!-- Central European Time (Europe/Berlin) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Central European Time (Europe/Brussels)</masterLabel>
+            <translation><!-- Central European Time (Europe/Brussels) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Central European Time (Europe/Paris)</masterLabel>
+            <translation><!-- Central European Time (Europe/Paris) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Central European Time (Europe/Prague)</masterLabel>
+            <translation><!-- Central European Time (Europe/Prague) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Central European Time (Europe/Rome)</masterLabel>
+            <translation><!-- Central European Time (Europe/Rome) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eastern European Time (Europe/Athens)</masterLabel>
+            <translation><!-- Eastern European Time (Europe/Athens) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eastern European Time (Europe/Bucharest)</masterLabel>
+            <translation><!-- Eastern European Time (Europe/Bucharest) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eastern European Time (Europe/Helsinki)</masterLabel>
+            <translation><!-- Eastern European Time (Europe/Helsinki) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eastern European Time (Europe/Istanbul)</masterLabel>
+            <translation><!-- Eastern European Time (Europe/Istanbul) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Further-eastern European Time (Europe/Minsk)</masterLabel>
+            <translation><!-- Further-eastern European Time (Europe/Minsk) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Greenwich Mean Time (Europe/Dublin)</masterLabel>
+            <translation><!-- Greenwich Mean Time (Europe/Dublin) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Greenwich Mean Time (Europe/London)</masterLabel>
+            <translation><!-- Greenwich Mean Time (Europe/London) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Greenwich Mean Time (GMT)</masterLabel>
+            <translation><!-- Greenwich Mean Time (GMT) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Moscow Standard Time (Europe/Moscow)</masterLabel>
+            <translation><!-- Moscow Standard Time (Europe/Moscow) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Western European Time (Europe/Lisbon)</masterLabel>
+            <translation><!-- Western European Time (Europe/Lisbon) --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Meeting Type Abbreviation --></label>
+        <name>Meeting_Type_Abbreviation_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mercury External Id --></label>
+        <name>Mercury_External_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mercury Owner Master Id --></label>
+        <name>Mercury_Owner_Master_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mercury Worker Country Code --></label>
+        <name>Mercury_Worker_Country_Code_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- # No Show&apos;s --></label>
+        <name>No_Shows_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- # Non HCP&apos;s Attended --></label>
+        <name>Non_HCPs_Attended_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of Break Out Rooms --></label>
+        <name>Number_of_Break_Out_Rooms_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Total number including break out rooms --></help>
+        <label><!-- # of Meeting Rooms --></label>
+        <name>Number_of_Conference_Rooms_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Draft Budgets --></label>
+        <name>Number_of_Draft_Budgets_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of Expected Delegates --></label>
+        <name>Number_of_Expected_Deletgates_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of Expected Employees --></label>
+        <name>Number_of_Expected_Employees_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of Expected Non-Lilly/Non-HCPs --></label>
+        <name>Number_of_Expected_Non_HCP_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of Expected Service Providers --></label>
+        <name>Number_of_Expected_Speakers_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of Hotel Rooms --></label>
+        <name>Number_of_Hotel_Rooms_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of Restaurants --></label>
+        <name>Number_of_Restaurants_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- On Site Support Required --></label>
+        <name>On_Site_Support_Required_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Owner Master Id --></label>
+        <name>Owner_Master_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- PO Number --></label>
+        <name>PO_Number_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Parent Meeting Event Id --></label>
+        <name>Parent_Meeting_Event_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Parent Meeting External --></label>
+        <name>Parent_Meeting_External_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Parent Meeting --></label>
+        <name>Parent_Meeting_MERC__c</name>
+        <relationshipLabel>Child Meetings</relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Participant CoPay Updated Date --></label>
+        <name>Participant_CoPay_Updated_Date_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Participant ToV Final Date/Time --></label>
+        <name>Participant_ToV_Final_Date_Time_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Sends the ToV data to Activity ODS for reporting.  Only check this box when data is final and correct. --></help>
+        <label><!-- Participant ToV Final --></label>
+        <name>Participant_ToV_Final_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Participant ToV Updated Date --></label>
+        <name>Participant_ToV_Updated_Date_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- # Participants Attended --></label>
+        <name>Participants_Attended_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- # Planned Attendees --></label>
+        <name>Planned_Attendees_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Include total meeting spend. Exclude recoverable taxes where practical --></help>
+        <label><!-- Budget --></label>
+        <name>Planned_Budget_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Used during forecasting to indicate the desired meeting location --></help>
+        <label><!-- Preferred Location --></label>
+        <name>Preferred_Location_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Venue information entered by Customer Facing User during meeting creation in Veeva --></help>
+        <label><!-- Venue Addr 1 --></label>
+        <name>Preferred_Venue_Addr_1_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Venue information entered by Customer Facing User during meeting creation in Veeva --></help>
+        <label><!-- Venue Addr 2 --></label>
+        <name>Preferred_Venue_Addr_2_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Venue information entered by Customer Facing User during meeting creation in Veeva. --></help>
+        <label><!-- Venue Name --></label>
+        <name>Preferred_Venue_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Venue information entered by Customer Facing User during meeting creation in Veeva --></help>
+        <label><!-- Venue Postal Code --></label>
+        <name>Preferred_Venue_Postal_Code_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Meeting Owner Name --></label>
+        <name>Prmry_Mtng_Ownr_Nm_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- RTI Transaction ID --></label>
+        <name>RTI_Transaction_ID_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Initiate Sourcing --></label>
+        <name>Ready_for_Sourcing_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Facing User&apos;s Cost Center --></label>
+        <name>Rep_Cost_Center_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Responses Due Date --></label>
+        <name>Responses_Due_Date_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Restaurant Information --></label>
+        <name>Restauraunt_Information_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Facing User --></label>
+        <lookupFilter>
+            <errorMessage><!-- To expand your search, select the &apos;All Fields&apos; option and run your search again. --></errorMessage>
+            <informationalMessage><!-- If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria. --></informationalMessage>
+        </lookupFilter>
+        <name>Sales_Rep_MERC__c</name>
+        <relationshipLabel><!-- Meetings --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Send Meeting Team Cancelled Email --></label>
+        <name>Send_Meeting_Team_Cancelled_Email_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Do you want the ability to send a &quot;Save the Date&quot; to delegates? --></help>
+        <label><!-- Send Save the Date --></label>
+        <name>Send_Save_the_Date_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Shipping Address for Invitations --></label>
+        <name>Shipping_Address_for_Invitations_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Source --></label>
+        <name>Source_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Populate for Meetings created in Mercury. --></help>
+        <label><!-- Sourced Venue Addr 1 --></label>
+        <name>Sourced_Venue_Addr1_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Venue information where Meeting took place if Meeting was created in Mercury. --></help>
+        <label><!-- Venue Addr 1 (Historical) --></label>
+        <name>Sourced_Venue_Addr_1_Hist_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Venue information where Meeting took place if Meeting was created in Mercury. --></help>
+        <label><!-- Venue Addr 2 (Historical) --></label>
+        <name>Sourced_Venue_Addr_2_Hist_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Populate for Meetings created in Mercury. --></help>
+        <label><!-- Sourced Venue Addr 2 --></label>
+        <name>Sourced_Venue_Addr_2_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Venue information where Meeting took place if Meeting was created in Mercury. --></help>
+        <label><!-- Venue City (Historical) --></label>
+        <name>Sourced_Venue_City_Hist_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Populate for Meetings created in Mercury. --></help>
+        <label><!-- Sourced Venue City --></label>
+        <name>Sourced_Venue_City_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Venue information where Meeting took place if Meeting was created in Mercury. --></help>
+        <label><!-- Venue Country (Historical) --></label>
+        <name>Sourced_Venue_Country_Hist_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Populate for Meetings created in Mercury. --></help>
+        <label><!-- Sourced Venue Country --></label>
+        <name>Sourced_Venue_Country_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Venue where Meeting took place if Meeting was created in Mercury. --></help>
+        <label><!-- Venue Name (Historical) --></label>
+        <name>Sourced_Venue_Name_Hist_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Populate for Meetings created in Mercury. --></help>
+        <label><!-- Sourced Venue Name --></label>
+        <name>Sourced_Venue_Name_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Venue information where Meeting took place if Meeting was created in Mercury. --></help>
+        <label><!-- Venue Postal Code (Historical) --></label>
+        <name>Sourced_Venue_Postal_Code_Hist_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Populate for Meetings created in Mercury. --></help>
+        <label><!-- Sourced Venue Postal Code --></label>
+        <name>Sourced_Venue_Postal_Code_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Speaker --></label>
+        <name>Speaker_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Sponsorship Category --></label>
+        <name>Sponsorship_Category_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Group Sponsorship</masterLabel>
+            <translation><!-- Group Sponsorship --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HCO Sponsorship</masterLabel>
+            <translation><!-- HCO Sponsorship --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Individual Sponsorship</masterLabel>
+            <translation><!-- Individual Sponsorship --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- The following eligibility criteria for Lilly sponsorship must be met: equal opprtunities to sponsor, transparent costs, public disclosure, documentation, and payment recipient requirements. --></help>
+        <label><!-- Sponsorship Eligibility Criteria Met --></label>
+        <name>Sponsorship_Eligibility_Crit_Met_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Sponsorship Processed --></label>
+        <name>Sponsorship_Processed_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Levels of Sponsorship such as Advertisement, Booth, Bronze, Gold, Silver, etc. --></help>
+        <label><!-- Level of Sponsorship --></label>
+        <name>Sponsorship_Type_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sponsorship Without Lilly Assistance --></label>
+        <name>Sponsorship_WO_Lilly_Assistance_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Sponsorship With Lilly Assistance --></label>
+        <name>Sponsorship_W_Lilly_Assistance_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Start Date (Meeting Time Zone) --></label>
+        <name>Start_Date_Meeting_Time_Zone_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Start Time (Meeting Time Zone) --></label>
+        <name>Start_Time_In_Meeting_Time_Zone__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter the start time of the meeting in the TIME ZONE OF THE MEETING --></help>
+        <label><!-- Start Time of Meeting --></label>
+        <name>Start_Time_of_Meeting_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Initiate HCP Services Contracting --></label>
+        <name>Submit_for_Contracting_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Target Audience --></label>
+        <name>Target_Audience_List_MERC__c</name>
+        <picklistValues>
+            <masterLabel>General Practitioner</masterLabel>
+            <translation><!-- General Practitioner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nurse</masterLabel>
+            <translation><!-- Nurse --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PhD</masterLabel>
+            <translation><!-- PhD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pharmacist</masterLabel>
+            <translation><!-- Pharmacist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Specialist</masterLabel>
+            <translation><!-- Specialist --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- If choosing &quot;Other&quot; as the Target Audience, please describe here. --></help>
+        <label><!-- Target Audience Comments --></label>
+        <name>Target_Audience_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Technical Requirements --></label>
+        <name>Technical_Requirements_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Territory Description --></label>
+        <name>Territory_Description_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Territory Id --></label>
+        <name>Territory_Id_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Therapeutic Area --></label>
+        <name>Therapeutic_Area_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Autoimmune</masterLabel>
+            <translation><!-- Autoimmune --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bone, Muscle, Joint (BMJ)</masterLabel>
+            <translation><!-- Bone, Muscle, Joint (BMJ) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cardiovascular</masterLabel>
+            <translation><!-- Cardiovascular --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Diabetes</masterLabel>
+            <translation><!-- Diabetes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Neuroscience</masterLabel>
+            <translation><!-- Neuroscience --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oncology</masterLabel>
+            <translation><!-- Oncology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Urology</masterLabel>
+            <translation><!-- Urology --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Time for Restaurant Booking --></label>
+        <name>Time_for_Restaurant_Booking_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Transfers --></label>
+        <name>Transfers_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Travel Information --></label>
+        <name>Travel_Information_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting Type --></label>
+        <name>Type_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Clinical Trial</masterLabel>
+            <translation><!-- Clinical Trial --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Consultant</masterLabel>
+            <translation><!-- Consultant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Health Education</masterLabel>
+            <translation><!-- Health Education --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Independent</masterLabel>
+            <translation><!-- Independent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internal</masterLabel>
+            <translation><!-- Internal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Promotional</masterLabel>
+            <translation><!-- Promotional --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Scientific Exchange</masterLabel>
+            <translation><!-- Scientific Exchange --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Speaker Training</masterLabel>
+            <translation><!-- Speaker Training --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Meeting location or conference venue. Address appears on web service under &quot;Time and Location&quot; --></help>
+        <label><!-- Sourced Venue --></label>
+        <name>Venue_MERC__c</name>
+        <relationshipLabel><!-- Meetings --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Venue Sourced Date/Time --></label>
+        <name>Venue_Sourced_Date_Time_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Virtual Meeting --></label>
+        <name>Virtual_Meeting_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Worker Country Code --></label>
+        <name>Work_Cntry_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of Days Until Invoice Reviewed --></label>
+        <name>of_Days_Until_Invoice_Reviewed_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of Sponsored Individuals --></label>
+        <name>of_Sponsored_Individuals_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of Sponsorship Group Individuals --></label>
+        <name>of_Sponsorship_Group_MERC__c</name>
+    </fields>
+    <layouts>
+        <layout>MERC_Active</layout>
+        <sections>
+            <label><!-- Compliance --></label>
+            <section>Compliance</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Invitations --></label>
+            <section>Invitations</section>
+        </sections>
+        <sections>
+            <label><!-- Logistics --></label>
+            <section>Logistics</section>
+        </sections>
+        <sections>
+            <label><!-- Logistics Information --></label>
+            <section>Logistics Information</section>
+        </sections>
+        <sections>
+            <label><!-- Meeting Dates &amp; Times --></label>
+            <section>Meeting Dates &amp; Times</section>
+        </sections>
+        <sections>
+            <label><!-- Meeting Information --></label>
+            <section>Meeting Information</section>
+        </sections>
+        <sections>
+            <label><!-- Meeting Objectives --></label>
+            <section>Meeting Objectives</section>
+        </sections>
+        <sections>
+            <label><!-- Planned Participants --></label>
+            <section>Planned Participants</section>
+        </sections>
+        <sections>
+            <label><!-- Post Event --></label>
+            <section>Post Event</section>
+        </sections>
+        <sections>
+            <label><!-- SLA Information --></label>
+            <section>SLA Information</section>
+        </sections>
+        <sections>
+            <label><!-- Surveys --></label>
+            <section>Surveys</section>
+        </sections>
+        <sections>
+            <label><!-- Travel --></label>
+            <section>Travel</section>
+        </sections>
+        <sections>
+            <label><!-- Travel Information --></label>
+            <section>Travel Information</section>
+        </sections>
+        <sections>
+            <label><!-- Venue --></label>
+            <section>Venue</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Completed</layout>
+        <sections>
+            <label><!-- Compliance --></label>
+            <section>Compliance</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Invitations --></label>
+            <section>Invitations</section>
+        </sections>
+        <sections>
+            <label><!-- Logistics --></label>
+            <section>Logistics</section>
+        </sections>
+        <sections>
+            <label><!-- Logistics Information --></label>
+            <section>Logistics Information</section>
+        </sections>
+        <sections>
+            <label><!-- Meeting Dates &amp; Times --></label>
+            <section>Meeting Dates &amp; Times</section>
+        </sections>
+        <sections>
+            <label><!-- Meeting Information --></label>
+            <section>Meeting Information</section>
+        </sections>
+        <sections>
+            <label><!-- Meeting Objectives --></label>
+            <section>Meeting Objectives</section>
+        </sections>
+        <sections>
+            <label><!-- Planned Participants --></label>
+            <section>Planned Participants</section>
+        </sections>
+        <sections>
+            <label><!-- Post Event --></label>
+            <section>Post Event</section>
+        </sections>
+        <sections>
+            <label><!-- SLA Information --></label>
+            <section>SLA Information</section>
+        </sections>
+        <sections>
+            <label><!-- Surveys --></label>
+            <section>Surveys</section>
+        </sections>
+        <sections>
+            <label><!-- Travel --></label>
+            <section>Travel</section>
+        </sections>
+        <sections>
+            <label><!-- Travel Information --></label>
+            <section>Travel Information</section>
+        </sections>
+        <sections>
+            <label><!-- Venue --></label>
+            <section>Venue</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Consulting_Project</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Meeting Dates &amp; Times --></label>
+            <section>Meeting Dates &amp; Times</section>
+        </sections>
+        <sections>
+            <label><!-- Meeting Information --></label>
+            <section>Meeting Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Forecasted_Meeting</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Forecasting --></label>
+            <section>Forecasting</section>
+        </sections>
+        <sections>
+            <label><!-- Meeting Dates &amp; Times --></label>
+            <section>Meeting Dates &amp; Times</section>
+        </sections>
+        <sections>
+            <label><!-- Meeting Information --></label>
+            <section>Meeting Information</section>
+        </sections>
+        <sections>
+            <label><!-- Planned Participants --></label>
+            <section>Planned Participants</section>
+        </sections>
+        <sections>
+            <label><!-- Venue --></label>
+            <section>Venue</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Independent_Sponsorship</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Independent Meeting Sponsorship --></label>
+            <section>Independent Meeting Sponsorship</section>
+        </sections>
+        <sections>
+            <label><!-- Invitations --></label>
+            <section>Invitations</section>
+        </sections>
+        <sections>
+            <label><!-- Logistics --></label>
+            <section>Logistics</section>
+        </sections>
+        <sections>
+            <label><!-- Logistics Information --></label>
+            <section>Logistics Information</section>
+        </sections>
+        <sections>
+            <label><!-- Meeting Dates &amp; Times --></label>
+            <section>Meeting Dates &amp; Times</section>
+        </sections>
+        <sections>
+            <label><!-- Meeting Information --></label>
+            <section>Meeting Information</section>
+        </sections>
+        <sections>
+            <label><!-- Meeting Objectives --></label>
+            <section>Meeting Objectives</section>
+        </sections>
+        <sections>
+            <label><!-- Planned Participants --></label>
+            <section>Planned Participants</section>
+        </sections>
+        <sections>
+            <label><!-- Post Event --></label>
+            <section>Post Event</section>
+        </sections>
+        <sections>
+            <label><!-- SLA Information --></label>
+            <section>SLA Information</section>
+        </sections>
+        <sections>
+            <label><!-- Sponsorship Details --></label>
+            <section>Sponsorship Details</section>
+        </sections>
+        <sections>
+            <label><!-- Travel --></label>
+            <section>Travel</section>
+        </sections>
+        <sections>
+            <label><!-- Venue --></label>
+            <section>Venue</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Portal_API</layout>
+        <sections>
+            <label><!-- Actual Sourced Venue --></label>
+            <section>Actual Sourced Venue</section>
+        </sections>
+        <sections>
+            <label><!-- Compliance --></label>
+            <section>Compliance</section>
+        </sections>
+        <sections>
+            <label><!-- Content --></label>
+            <section>Content</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Invitations --></label>
+            <section>Invitations</section>
+        </sections>
+        <sections>
+            <label><!-- Logistics --></label>
+            <section>Logistics</section>
+        </sections>
+        <sections>
+            <label><!-- Logistics Information --></label>
+            <section>Logistics Information</section>
+        </sections>
+        <sections>
+            <label><!-- Meeting Dates &amp; Times --></label>
+            <section>Meeting Dates &amp; Times</section>
+        </sections>
+        <sections>
+            <label><!-- Meeting Information --></label>
+            <section>Meeting Information</section>
+        </sections>
+        <sections>
+            <label><!-- Meeting Objectives --></label>
+            <section>Meeting Objectives</section>
+        </sections>
+        <sections>
+            <label><!-- Planned Participants --></label>
+            <section>Planned Participants</section>
+        </sections>
+        <sections>
+            <label><!-- Post Event --></label>
+            <section>Post Event</section>
+        </sections>
+        <sections>
+            <label><!-- Surveys --></label>
+            <section>Surveys</section>
+        </sections>
+        <sections>
+            <label><!-- Travel --></label>
+            <section>Travel</section>
+        </sections>
+        <sections>
+            <label><!-- Travel Information --></label>
+            <section>Travel Information</section>
+        </sections>
+        <sections>
+            <label><!-- Venue --></label>
+            <section>Venue</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Program</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Meeting Dates &amp; Times --></label>
+            <section>Meeting Dates &amp; Times</section>
+        </sections>
+        <sections>
+            <label><!-- Meeting Information --></label>
+            <section>Meeting Information</section>
+        </sections>
+        <sections>
+            <label><!-- Meeting Objectives --></label>
+            <section>Meeting Objectives</section>
+        </sections>
+        <sections>
+            <label><!-- Planned Participants --></label>
+            <section>Planned Participants</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Registered_Meeting</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Logistics --></label>
+            <section>Logistics</section>
+        </sections>
+        <sections>
+            <label><!-- Logistics Information --></label>
+            <section>Logistics Information</section>
+        </sections>
+        <sections>
+            <label><!-- Meeting Dates &amp; Times --></label>
+            <section>Meeting Dates &amp; Times</section>
+        </sections>
+        <sections>
+            <label><!-- Meeting Information --></label>
+            <section>Meeting Information</section>
+        </sections>
+        <sections>
+            <label><!-- Meeting Objectives --></label>
+            <section>Meeting Objectives</section>
+        </sections>
+        <sections>
+            <label><!-- Planned Participants --></label>
+            <section>Planned Participants</section>
+        </sections>
+        <sections>
+            <label><!-- Venue --></label>
+            <section>Venue</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Meeting Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Consulting Project --></label>
+        <name>Ad_Hoc_Consulting</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Meeting - Completed --></label>
+        <name>Completed</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Meeting - Forecasted --></label>
+        <name>Forecasted</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Independent Meeting --></label>
+        <name>Independent_Sponsorship</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Meeting - Active --></label>
+        <name>Meeting_Active</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Meeting Program --></label>
+        <name>Meeting_Program</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Meeting - Registered --></label>
+        <name>Registered</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- The Amount to be Paid cannot be less than zero --></errorMessage>
+        <name>MERC_Amount_paid_cannot_be_Negative</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The Budget amount must be a positive number. --></errorMessage>
+        <name>MERC_Budget_Cannot_be_Negative</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The Compliance Risk must be selected in order to Complete the Meeting. --></errorMessage>
+        <name>MERC_Compliance_Risk_before_Complete</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The Budget must be Final before the Meeting can be Completed. --></errorMessage>
+        <name>MERC_Confirm_Budget_is_Final</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The Meeting Planning Companies performance must be evaluated before completing. --></errorMessage>
+        <name>MERC_Confirm_MCP_Evaluation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please confirm you would like this Meeting to be Cancelled. --></errorMessage>
+        <name>MERC_Confirm_Meeting_Cancellation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please agree to/confirm the Meeting Date/Time Change. --></errorMessage>
+        <name>MERC_Confirm_Meeting_Date_Change</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- ToV has already been reported for this meeting. Customer Meeting Services need to confirm and implement this change.  All related ToV values against the meeting should be updated to align with the new meeting currency. --></errorMessage>
+        <name>MERC_Confirm_ToV_Reporting_Change</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The Meeting must have occurred in order to Complete the Meeting. --></errorMessage>
+        <name>MERC_Event_Occurred_before_Complete</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The &apos;Participant ToV Final&apos; field cannot be checked until after the meeting has ended. --></errorMessage>
+        <name>MERC_Participant_ToV_Final_Meet_over</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The Meeting cannot be cancelled if it has already occurred. --></errorMessage>
+        <name>MERC_Prevent_Cancel_Meeting_if_Occurred</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Once a meeting has been published on the Web Service, only CMS Cork and CMS Local teams can change the Meeting Name and Meeting Objectives.  Please contact a member of the CMS team to request a change to this information. --></errorMessage>
+        <name>MERC_Prevent_Change_Once_on_Web_Service</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You may not change this value once it has been set to Yes. --></errorMessage>
+        <name>MERC_Prevent_Participant_ToV_Final_Chg</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- NOTE: Meetings must follow the correct Status process (Forecasted - Registered - Active - Complete - etc). You cannot skip Status steps (e.g. from Forecasted to Active).  Please set the Status to the next Status in the process to continue. --></errorMessage>
+        <name>MERC_Restrict_Meeting_Status_Changes</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The Meeting Objectives is required before status can be changed to Active --></errorMessage>
+        <name>MERC_Validate_Active_Meeting_Obj</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The Target Audience is required before status can be changed to Active --></errorMessage>
+        <name>MERC_Validate_Active_Target_Audience</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The  End Time of Meeting must be after the Start Time of Meeting --></errorMessage>
+        <name>MERC_Validate_End_date_is_after_Start</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The number of expected participants must be a positive number --></errorMessage>
+        <name>MERC_Validate_Positive_Planned_Partici</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The City of Meeting is required before status can be changed to Registered --></errorMessage>
+        <name>MERC_Validate_Registered_City_of_Meeting</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The # of Expected Employees is required before status can be changed to Registered --></errorMessage>
+        <name>MERC_Validate_Registered_Expected_Emp</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The # of Expected Non-Lilly/Non-HCPs is required before status can be changed to Registered --></errorMessage>
+        <name>MERC_Validate_Registered_Expected_Non</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The # of Expected Speakers is required before status can be changed to Registered --></errorMessage>
+        <name>MERC_Validate_Registered_Expected_Speakr</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The Interaction Type is required before status can be changed to Registered --></errorMessage>
+        <name>MERC_Validate_Registered_Interact_Type</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The Budget is required before status can be changed to Registered --></errorMessage>
+        <name>MERC_Validate_Registered_Planned_Budget</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Affiliate_Resource_Center_MERC --></label>
+        <name>Affiliate_Resource_Center_MERC</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Generate_Content_MERC --></label>
+        <name>Generate_Content_MERC</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Mass_LOOP_Plus --></label>
+        <name>Mass_LOOP_Plus</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Meeting_Date_Times --></label>
+        <name>Meeting_Date_Times</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Meeting_Report_MERC --></label>
+        <name>Meeting_Report_MERC</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Meetings_with_HCPs_Resources_MERC --></label>
+        <name>Meetings_with_HCPs_Resources_MERC</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_ExactTarget_Email_MERC --></label>
+        <name>Send_ExactTarget_Email_MERC</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Upload_Content_MERC --></label>
+        <name>Upload_Content_MERC</name>
+    </webLinks>
+</CustomObjectTranslation>

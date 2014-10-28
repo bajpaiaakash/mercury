@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Affiliation</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Affiliations</value>
+    </caseValues>
+    <fields>
+        <label><!-- Affiliate Account --></label>
+        <name>Account_Cust_Id_GLBL__c</name>
+        <relationshipLabel><!-- Affiliations (Affiliate Account) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Affiliate Account Name --></label>
+        <name>Account_Cust_Name_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account_GLBL__c</name>
+        <relationshipLabel><!-- Affiliations --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Account Global Id --></label>
+        <name>Account_Global_Id_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Affiliation Classification Code --></label>
+        <name>Afltn_Clsfctn_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Affiliate Party Record Type Code --></label>
+        <name>Afltn_Party_Rcrd_Typ_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Affiliation Role Code --></label>
+        <name>Afltn_Role_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Role --></label>
+        <name>Afltn_Role_Desc_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Affiliation Original Source Code --></label>
+        <name>Afltn_Src_Sys_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <help><!-- Flag for the gathering of distinct values in the identified fields. Entries must match the API name of a field on this object. See the object CST App Menu Pool for more info. --></help>
+        <label><!-- CST App Menu Flag --></label>
+        <name>CST_App_Menu_Flag_CUST__c</name>
+        <picklistValues>
+            <masterLabel>Afltn_Role_Desc_GLBL__c</masterLabel>
+            <translation><!-- Afltn_Role_Desc_GLBL__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rltnshp_Typ_Desc_GLBL__c</masterLabel>
+            <translation><!-- Rltnshp_Typ_Desc_GLBL__c --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Delete Date --></label>
+        <name>Del_Date_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Delete Flag --></label>
+        <name>Del_Flg_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Department Party Id --></label>
+        <name>Dept_Cust_Id_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- End Date --></label>
+        <name>Efctv_End_Dt_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Effective Date --></label>
+        <name>Efctv_Start_Dt_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Phone1 Country Prefix Code --></label>
+        <name>Elctrnc_Adrs_Cntry_Prfx_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email Address --></label>
+        <name>Elctrnc_Adrs_Elc_Txt_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Phone Number Ext --></label>
+        <name>Elctrnc_Adrs_Extnsn_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fax Country Prefix Code --></label>
+        <name>Elctrnc_Adrs_Fax_Cntry_Prfx_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fax Number Ext --></label>
+        <name>Elctrnc_Adrs_Fax_Extnsn_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fax Number --></label>
+        <name>Elctrnc_Adrs_Fax_Txt_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Phone Number --></label>
+        <name>Elctrnc_Adrs_Txt_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Web Address --></label>
+        <name>Elctrnc_Adrs_Web_Txt_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Party Affiliation Id --></label>
+        <name>Gco_Party_Afltn_Id_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Hierarchy Code --></label>
+        <name>Hierarchy_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Hierarchy Level Text --></label>
+        <name>Hierarchy_Lvl_Txt_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Influence Level Code --></label>
+        <name>Inflnc_Lvl_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Influence Therapuetic Area Code --></label>
+        <name>Inflnc_Thrptc_Area_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mercury External Id --></label>
+        <name>Mercury_External_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Source Load Timestamp --></label>
+        <name>ODS_Ld_Tmstmp_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- ODS Load User --></label>
+        <name>ODS_Ld_Usr_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Source Update Timestamp --></label>
+        <name>ODS_Lst_Updt_Tmstmp_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- ODS Last Update User --></label>
+        <name>ODS_Lst_Updt_Usr_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Party Country Code --></label>
+        <name>Party_Cntry_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Party Record Type Code --></label>
+        <name>Party_Rcrd_Typ_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Priority Rank Number --></label>
+        <name>Priority_Rank_Nbr_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Relationship Status Code --></label>
+        <name>Rltnshp_Sts_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Rltnshp_Sts_Desc_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Relationship Type Code --></label>
+        <name>Rltnshp_Typ_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Rltnshp_Typ_Desc_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Role --></label>
+        <name>Role_GLBL__c</name>
+        <picklistValues>
+            <masterLabel>Affiliated with</masterLabel>
+            <translation><!-- Affiliated with --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Board Member</masterLabel>
+            <translation><!-- Board Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CFO</masterLabel>
+            <translation><!-- CFO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contracts Administrator</masterLabel>
+            <translation><!-- Contracts Administrator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Department Head</masterLabel>
+            <translation><!-- Department Head --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical Director</masterLabel>
+            <translation><!-- Medical Director --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>P&amp;T Committee Member</masterLabel>
+            <translation><!-- P&amp;T Committee Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Plan Administrator</masterLabel>
+            <translation><!-- Plan Administrator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Practice member</masterLabel>
+            <translation><!-- Practice member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VP Compliance</masterLabel>
+            <translation><!-- VP Compliance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VP Marketing</masterLabel>
+            <translation><!-- VP Marketing --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Role ID --></label>
+        <name>Role_ID_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Source Block Flag --></label>
+        <name>Src_Block_Flg_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Source System Code --></label>
+        <name>Src_Sys_Cd_GLBL__c</name>
+    </fields>
+    <layouts>
+        <layout>Affiliation Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Customer ODS --></label>
+            <section>Customer ODS</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

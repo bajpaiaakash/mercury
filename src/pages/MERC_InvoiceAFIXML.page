@@ -1,0 +1,113 @@
+<apex:page contentType="application/xml" showHeader="false" standardController="Invoice_MERC__c" extensions="MERC_InvoiceXmlController">
+	<DirectINVOICEControl>
+	  <RGCONTROL>
+	    <ID />
+	    <EXTID>{!Invoice_MERC__c.Mercury_Transaction_Id_MERC__c}</EXTID>
+	    <Date>{!now}</Date>
+	    <Time />
+	    <Status />
+	    <RGHEAD>
+	      <InvoiceNumber>{!Invoice_MERC__c.Conditional_Invoice_Number_MERC__c}</InvoiceNumber>
+	      <InvoiceType>{!HTMLENCODE(Invoice_MERC__c.Invoice_Type_MERC__c)}</InvoiceType>
+	      <InvoiceDate>{!invoiceDate}</InvoiceDate>
+	      <InvTotalAmount>{!Invoice_MERC__c.TOTAL_INCL_VAT_MERC__c}</InvTotalAmount>
+	      <InvNetAmount>{!Invoice_MERC__c.Subtotal_NET_MERC__c}</InvNetAmount>
+	      <InvCurrency>{!Invoice_MERC__c.CurrencyIsoCode}</InvCurrency>
+	      <InvExpenses />
+	      <InvActType />
+	      <InvPaymentBlock />
+	      <InBrtFlag />
+	      <Skontoday1 />
+	      <Skontoday2 />
+	      <Skontopercent1 />
+	      <Skontopercent2 />
+	      <Dueday />
+	      <Postingdate />
+	      <Text01>
+	      </Text01>
+	      <Receiptdate />
+	      <RGVAT />
+	      <RGBANK>
+	        <BankCtry />
+	        <BankNo />
+	        <BankAcct />
+	      </RGBANK>
+		<apex:repeat value="{!invoiceLines}" var="line">
+			<RGPOS>
+				<Posnr>{!line.position}</Posnr>
+		        <ItemQuantity>{!line.lineItem.Quantity_MERC__c}</ItemQuantity>
+		        <ItemUnit>EA</ItemUnit>
+		        <ItemUnitPrice>{!line.lineItem.Unit_Price_MERC__c}</ItemUnitPrice>
+		        <ItemPriceUnit>1</ItemPriceUnit>
+		        <ItemAmount>{!line.lineItem.Amount_MERC__c}</ItemAmount>
+		        <ItemNumber>1</ItemNumber>
+		        <ItemText>{!HTMLENCODE(line.lineItem.Description_MERC__c)}</ItemText>
+		        <ItemPONumber />
+		        <ItemMaterialNumber />
+		        <ItemPOPosition />
+		        <ItemVatRate>{!line.lineItem.VAT_Rate_MERC__c}</ItemVATRate>
+		        <ItemVatSAP>{!line.lineItem.VAT_Code_MERC__c}</ItemVatSAP>
+		        <ItemVatAmount>{!line.lineItem.Tax_Amount_MERC__c}</ItemVatAmount>
+		        <ItemAccountGL>{!HTMLENCODE(line.SAPCostElement)}</ItemAccountGL>
+		        <ItemCostCenter>000{!HTMLENCODE(line.lineItem.Invoice_Cost_Center_MERC__c)}</ItemCostCenter>
+		        <ItemOrderNumber>{!HTMLENCODE(line.lineItem.Internal_Order_Number_MERC__c)}</ItemOrderNumber>
+		        <ItemReferenceDokNo />
+		        <ItemReferenceDokPosition /> 
+		        <ItemReferenceDokYear />
+			</RGPOS>
+		</apex:repeat>
+      <RGPARTNER>
+        <Parttype>LF</Parttype>
+        <PartNumber>{!HTMLENCODE(Invoice_MERC__c.SAP_Vendor_Number_MERC__c)}</PartNumber>
+        <Name1>{!HTMLENCODE(Invoice_MERC__c.Payee_Name_MERC__c)}</Name1>
+        <Name2 />
+        <Name3 />
+        <Strasse />
+        <PLZStrasse />
+        <Postfach />
+        <PLZPostfach />
+        <Ort />
+        <Land />
+        <Steuernummer />
+        <UStIDNummer />
+        <AnsprechpartnerName />
+        <AnsprechpartnerEmail />
+      </RGPARTNER>
+      <RGPARTNER>
+        <Parttype>RE</Parttype>
+        <PartNumber>{!HTMLENCODE(Invoice_MERC__c.Company_Code_MERC__c)}</PartNumber>
+        <Name1 />
+        <Name2 />
+        <Name3 />
+        <Strasse />
+        <PLZStrasse />
+        <Postfach />
+        <PLZPostfach />
+        <Ort />
+        <Land />
+        <Steuernummer />
+        <UStIDNummer />
+        <AnsprechpartnerName />
+        <AnsprechpartnerEmail />
+      </RGPARTNER>
+      <FData>
+		<Data>
+			{!cdataLines}
+		</Data>
+      </FData>
+		</RGHEAD>
+	  </RGCONTROL>
+	  <ArchiveFile>
+	    <ID />
+	    <EXTID>{!Invoice_MERC__c.Mercury_Transaction_Id_MERC__c}</EXTID>
+	    <SYSTEM_ID />
+	    <SYSTEM_NAME />
+	    <STATUS />
+	    <ARCID />
+	    <SAPID />
+	    <FILENAME>{!filePrefix}{!Invoice_MERC__c.Mercury_Transaction_Id_MERC__c}.PDF</FILENAME>
+	    <DOKTYP>PDF</DOKTYP>
+	  </ArchiveFile>
+		{!scannedTifSection}
+	</DirectINVOICEControl>	
+</apex:page>
