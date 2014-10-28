@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>SCM Commit</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>SCM Commits</value>
+    </caseValues>
+    <fields>
+        <help><!-- User that performed the code commit --></help>
+        <label><!-- Author --></label>
+        <name>Author__c</name>
+    </fields>
+    <fields>
+        <help><!-- Commit message body --></help>
+        <label><!-- Body --></label>
+        <name>Body__c</name>
+    </fields>
+    <fields>
+        <help><!-- This list are files that have been changed with this commit --></help>
+        <label><!-- Files --></label>
+        <name>Files__c</name>
+    </fields>
+    <fields>
+        <label><!-- Link --></label>
+        <name>Link__c</name>
+    </fields>
+    <fields>
+        <help><!-- Commit message relationships (Defects, User Stories) --></help>
+        <label><!-- Related To --></label>
+        <name>Related_To__c</name>
+    </fields>
+    <fields>
+        <help><!-- This number is the Revision number from the Repository when these changes have been committed --></help>
+        <label><!-- Revision --></label>
+        <name>Revision__c</name>
+    </fields>
+    <layouts>
+        <layout>SCM Commit Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

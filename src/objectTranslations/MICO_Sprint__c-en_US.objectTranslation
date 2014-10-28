@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Sprint</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Sprints</value>
+    </caseValues>
+    <fields>
+        <help><!-- Where we should be within the sprint on current selected date --></help>
+        <label><!-- Burndown --></label>
+        <name>Burndown__c</name>
+    </fields>
+    <fields>
+        <label><!-- Complete Test Executions --></label>
+        <name>Complete_Test_Executions__c</name>
+    </fields>
+    <fields>
+        <help><!-- Manually populate this field at the end of the sprint to calculate your velocity for this sprint --></help>
+        <label><!-- Completed story points --></label>
+        <name>Completed_story_points__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dev Man Days --></label>
+        <name>Dev_Man_Days__c</name>
+    </fields>
+    <fields>
+        <help><!-- The day this Sprint is due to end. This is used when creating the Burndown chart --></help>
+        <label><!-- End Date --></label>
+        <name>End_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Track the progress of sprint throughout the approval process --></help>
+        <label><!-- Gate 1 --></label>
+        <name>Gate_1__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Track the progress of sprints throughout the approval process --></help>
+        <label><!-- Gate 2 --></label>
+        <name>Gate_2__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Track the progress of sprint throughout the approval process --></help>
+        <label><!-- Gate 3 --></label>
+        <name>Gate_3__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- The approximate number of working days in the sprint. This is calculated automatically to exclude weekends, but does not count public holidays --></help>
+        <label><!-- Working Days (Approx) --></label>
+        <name>Number_Working_Days_in_Sprint__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of days in sprint --></label>
+        <name>Number_of_days_in_sprint__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of full time devs in sprint --></label>
+        <name>Number_of_full_time_devs_in_sprint__c</name>
+    </fields>
+    <fields>
+        <help><!-- The primary objective of this sprint, articulated from a business perspective --></help>
+        <label><!-- Objective --></label>
+        <name>Objective__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project --></label>
+        <name>Project__c</name>
+        <relationshipLabel><!-- Sprints --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The approximate number of whole work days remaining in the sprint --></help>
+        <label><!-- Days Remaining --></label>
+        <name>Remaining_Sprint_Days__c</name>
+    </fields>
+    <fields>
+        <help><!-- The day this Sprint is due to start. This is used when creating the Burndown chart --></help>
+        <label><!-- Start Date --></label>
+        <name>Start_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Sprints must be &quot;In Planning&quot; for the sprint planning tool to work
+They must be &quot;In Progress&quot; for the burndown to work --></help>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Planning</masterLabel>
+            <translation><!-- In Planning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation><!-- In Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Started</masterLabel>
+            <translation><!-- Not Started --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Testing</masterLabel>
+            <translation><!-- Testing --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Story Points --></label>
+        <name>Story_Points__c</name>
+    </fields>
+    <fields>
+        <help><!-- The number of points the SFDC team has capability to deliver. Used in Sprint Planning to ensure the correct volume of User Stories are allocated to the Sprint --></help>
+        <label><!-- SFDC Capacity (Points) --></label>
+        <name>Tech1_Story_Points__c</name>
+    </fields>
+    <fields>
+        <help><!-- The number of story points the team has capability to deliver --></help>
+        <label><!-- Other Capacity (Points) --></label>
+        <name>Tech2_Story_Points__c</name>
+    </fields>
+    <fields>
+        <help><!-- The total capacity in Story Points for both SFDC and other development --></help>
+        <label><!-- Total Capacity (Points) --></label>
+        <name>Total_Capacity_Points__c</name>
+    </fields>
+    <fields>
+        <help><!-- The number of working days (Monday-Friday) in this sprint.
+
+NB: This does not take in to account public holidays. --></help>
+        <label><!-- Total Working Days in Sprint --></label>
+        <name>Total_Working_Days_in_Sprint__c</name>
+    </fields>
+    <fields>
+        <help><!-- If Dev Man Days and Story Points Completed ispopulated, shows the velocity achieved at the end of the sprint in Points Per Dev Day. This can be used when calculating your capacity for the next sprint --></help>
+        <label><!-- Velocity --></label>
+        <name>Velocity__c</name>
+    </fields>
+    <fields>
+        <help><!-- The approximate number of working days through the sprint --></help>
+        <label><!-- Days Gone --></label>
+        <name>Working_Days_Through_Sprint__c</name>
+    </fields>
+    <layouts>
+        <layout>Sprint Layout - Dev Team</layout>
+        <sections>
+            <label><!-- Capacity --></label>
+            <section>Capacity</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Dashboards --></label>
+            <section>Dashboards</section>
+        </sections>
+        <sections>
+            <label><!-- Gate Reviews --></label>
+            <section>Gate Reviews</section>
+        </sections>
+        <sections>
+            <label><!-- Key Dates &amp; Duration --></label>
+            <section>Key Dates &amp; Duration</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Draw_Burndown --></label>
+        <name>Draw_Burndown</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Kanban_Board --></label>
+        <name>Kanban_Board</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Plan_Sprint --></label>
+        <name>Plan_Sprint</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Print_Stories --></label>
+        <name>Print_Stories</name>
+    </webLinks>
+</CustomObjectTranslation>

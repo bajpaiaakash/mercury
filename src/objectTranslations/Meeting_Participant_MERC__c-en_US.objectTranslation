@@ -1,0 +1,1185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Meeting Participant</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Meeting Participants</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account External --></label>
+        <name>Account_External_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account --></label>
+        <name>Account_MERC__c</name>
+        <relationshipLabel>Meetings</relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Active on Web Service --></label>
+        <name>Active_on_Web_Service_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Additional Travel Details --></label>
+        <name>Additional_Travel_Details_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Air Travel No Longer Required --></label>
+        <name>Air_Travel_No_Longer_Required_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Air Travel Required --></label>
+        <name>Air_Travel_Required_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Select the applicable alliance partner if the meeting is within scope of an alliance partnership --></help>
+        <label><!-- Alliance --></label>
+        <name>Alliance_MERC__c</name>
+        <picklistValues>
+            <masterLabel>AME</masterLabel>
+            <translation><!-- AME --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AVID</masterLabel>
+            <translation><!-- AVID --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BI Diabetes</masterLabel>
+            <translation><!-- BI Diabetes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DSE</masterLabel>
+            <translation><!-- DSE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Applicable</masterLabel>
+            <translation><!-- Not Applicable --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Amount to be Paid --></label>
+        <name>Amount_to_be_Paid_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Indicates that this record is related to a non-hcp meeting participant and should be anonymised (via workflows) --></help>
+        <label><!-- Anonymise Record --></label>
+        <name>Anonymise_Record_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Associated Countries --></label>
+        <name>Associated_Countries_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cancellation Notice Sent --></label>
+        <name>Cancellation_Notice_Sent_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Classification --></label>
+        <name>Classification_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- CoPay AODS Flight/Rail --></label>
+        <name>CoPay_AODS_Flight_Rail_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- CoPay AODS Food Beverage --></label>
+        <name>CoPay_AODS_Food_Beverage_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- CoPay AODS Ground Transportation --></label>
+        <name>CoPay_AODS_Ground_Transport_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- CoPay AODS Hotel --></label>
+        <name>CoPay_AODS_Hotel_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- CoPay AODS Registration --></label>
+        <name>CoPay_AODS_Registration_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- CoPay Flight/Rail --></label>
+        <name>CoPay_Flight_Rail_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- CoPay Food &amp; Beverage --></label>
+        <name>CoPay_Food_Beverage_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- CoPay Ground Transport --></label>
+        <name>CoPay_Ground_Transport_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- CoPay Hotel --></label>
+        <name>CoPay_Hotel_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- CoPay Registration --></label>
+        <name>CoPay_Registration_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Confirm Final Fee --></label>
+        <name>Confirm_Final_Fee_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Confirmed</masterLabel>
+            <translation><!-- Confirmed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending Confirmation</masterLabel>
+            <translation><!-- Pending Confirmation --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Confirm Partial Payment Amount --></label>
+        <name>Confirm_Partial_Payment_Amount_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Confirm ToV Reporting Change --></label>
+        <name>Confirm_ToV_Reporting_Change_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Congress Additional Information --></label>
+        <name>Congress_Additional_Information_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Congress Membership Id --></label>
+        <name>Congress_Membership_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Limitations on Use --></label>
+        <name>Contract_Limitations_on_Use_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- CoPay values must be entered as positive amounts. --></help>
+        <label><!-- Copay Required? --></label>
+        <name>Copay_Required_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country of Residence --></label>
+        <name>Country_of_Residence_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Id --></label>
+        <name>Customer_Id_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date of Check-In --></label>
+        <name>Date_of_Check_In_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date of Check-Out --></label>
+        <name>Date_of_Check_Out_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Days Until Meeting --></label>
+        <name>Days_Until_Meeting_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description of Service --></label>
+        <name>Description_of_Service_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dietary Preferences Step Complete --></label>
+        <name>Dietary_Preferences_Step_Complete_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Docusign Contract Status --></label>
+        <name>Docusign_Contract_Status_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Docusign Envelope Id --></label>
+        <name>Docusign_Envelope_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- The HCPs email address for Meeting and Contract correspondence. --></help>
+        <label><!-- Participant Email --></label>
+        <name>Email_Formula_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email --></label>
+        <name>Email_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Not required if “Service provider” box is checked on HCP profile. You must ask HCP to provide this data to you for the purposes of logistics and for web services. --></help>
+        <label><!-- Email to Invite HCP to Web Service --></label>
+        <name>Email_to_Invite_HCP_to_Portal_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Emergency Contact Step Complete --></label>
+        <name>Emergency_Contact_Step_Complete_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Event Customer Id --></label>
+        <name>Event_Customer_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Rounds Event Time to nearest 15 minutes upon save.  A preparation value of 1.25 indicates 1hr and 15 minutes. --></help>
+        <label><!-- Event Time (hrs) --></label>
+        <name>Event_Time_Hrs_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- FMV Criteria Map --></label>
+        <name>FMV_Criteria_Map_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Final Fee --></label>
+        <name>Final_Fee_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Final Fee Rollup MERC --></label>
+        <name>Final_Fee_Rollup_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Force Unique Participant --></label>
+        <name>Force_Unique_Participant_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Global Id --></label>
+        <name>Global_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Not required if “Service provider” box is checked on HCP profile. You must ask HCP to provide this data to you for the purposes of logistics. E.g. Fax 44 2222 33333. --></help>
+        <label><!-- HCP Info Package Communication Details --></label>
+        <name>HCP_Info_Package_Comm_Details_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Whether the HCP currently has an Active MSA agreement with Lilly --></help>
+        <label><!-- Has Active MSA --></label>
+        <name>Has_Active_MSA_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Whether the HCP currently has a signed Work Order or Single Event Contract for the Meeting --></help>
+        <label><!-- Has Signed Contract --></label>
+        <name>Has_Signed_Contract_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Exception Approval --></label>
+        <name>Higher_Fee_Approval__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Required</masterLabel>
+            <translation><!-- Not Required --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Required</masterLabel>
+            <translation><!-- Required --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Hotel No Longer Required --></label>
+        <name>Hotel_No_Longer_Required_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Hotel Required --></label>
+        <name>Hotel_Required_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Hotel Step Complete --></label>
+        <name>Hotel_Step_Complete_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Immediate Source --></label>
+        <name>Immediate_Source_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Include CAP Roll Up --></label>
+        <name>Include_CAP_Roll_Up_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- The number of days before meeting that the institutional notification was sent. --></help>
+        <label><!-- Institutional Notification Lead Time --></label>
+        <name>Inst_Notification_Lead_Time_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Institutional Notification Complete --></label>
+        <name>Institutional_Notification_Complete_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date Institutional Notification was sent to Designated Individuals --></help>
+        <label><!-- Institutional Notification Sent --></label>
+        <name>Institutional_Notification_Sent_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Invoice Template Needed --></label>
+        <name>Invoice_Template_Needed_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Items to be Sponsored --></label>
+        <name>Items_to_be_Sponsored_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Accommodation</masterLabel>
+            <translation><!-- Accommodation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Air Transportation</masterLabel>
+            <translation><!-- Air Transportation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Out of Pocket Expenses</masterLabel>
+            <translation><!-- Out of Pocket Expenses --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rail/Bus Transportation</masterLabel>
+            <translation><!-- Rail/Bus Transportation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Registration</masterLabel>
+            <translation><!-- Registration --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- An HCP must NOT be selected for any business relationship in order to influence or reward an HCP for past, present or future support of Lilly products, to gain access to a customer or formulary decision makers, to influence the outcome of clinical trial. --></help>
+        <label><!-- Justification --></label>
+        <name>Justification_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Outstanding speaking ability</masterLabel>
+            <translation><!-- Outstanding speaking ability --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Proven effective Speaker / Moderator</masterLabel>
+            <translation><!-- Proven effective Speaker / Moderator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Published author in the Therapeutic Area</masterLabel>
+            <translation><!-- Published author in the Therapeutic Area --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recognized as a Thought Leader</masterLabel>
+            <translation><!-- Recognized as a Thought Leader --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recognized by local peers as a SME</masterLabel>
+            <translation><!-- Recognized by local peers as a SME --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Significant topic research / background</masterLabel>
+            <translation><!-- Significant topic research / background --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Therapeutic Area knowledge / experience</masterLabel>
+            <translation><!-- Therapeutic Area knowledge / experience --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trained to speak on this topic</masterLabel>
+            <translation><!-- Trained to speak on this topic --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Based upon the maximum hourly rate multiplied by total hours of service. Includes Travel Adjustment. --></help>
+        <label><!-- Maximum Fee --></label>
+        <name>Maximum_Fee_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Maximum Hourly Rate --></label>
+        <name>Maximum_Rate_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting Date --></label>
+        <name>Meeting_Date_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting End Date --></label>
+        <name>Meeting_End_Date_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting External --></label>
+        <name>Meeting_External_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting --></label>
+        <name>Meeting_MERC__c</name>
+        <relationshipLabel><!-- Meeting Participants --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Meeting Owner Email --></label>
+        <name>Meeting_Owner_Email_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting Owner Global Id --></label>
+        <name>Meeting_Owner_Global_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mercury External Id --></label>
+        <name>Mercury_External_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Based upon the minimum hourly rate multiplied by total hours of service. Includes Travel Adjustment. --></help>
+        <label><!-- Minimum Fee --></label>
+        <name>Minimum_Fee_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Minimum Hourly Rate --></label>
+        <name>Minimum_Rate_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Completed Contracts --></label>
+        <name>Number_of_Completed_Contracts_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Contracts --></label>
+        <name>Number_of_Contracts_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Partial Payment Amount --></label>
+        <name>Partial_Payment_Amount_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Partial Payment Justification Needed --></label>
+        <name>Partial_Payment_Justification_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Participant Approved --></label>
+        <name>Participant_Approved_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Participant Search --></label>
+        <name>Participant_Search_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Participant Type --></label>
+        <name>Participant_Typ_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payee Information Consent --></label>
+        <name>Payee_Info_Consent_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payee and Bank Info Complete --></label>
+        <name>Payee_and_Bank_Info_Complete_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payment Required --></label>
+        <name>Payment_Required_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payment Required for Meeting --></label>
+        <name>Payment_Required_for_Meeting_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Contact Id --></label>
+        <name>Person_Contact_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Highlights those instances where the Participant&apos;s Country of Residence differs from that of the meeting and additional approvals or processes may be required --></help>
+        <label><!-- Potential Cross Border Activity --></label>
+        <name>Potential_Cross_Border_Activity_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Preferred Departure Airport --></label>
+        <name>Preferred_Departure_Airport_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Preferred Departure Depot --></label>
+        <name>Preferred_Departure_Depot_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Preferred Departure Station --></label>
+        <name>Preferred_Departure_Station_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Rounds Preparation Time to nearest 15 minutes upon save.  A preparation value of 1.25 indicates 1hr and 15 minutes. --></help>
+        <label><!-- Preparation Time (hrs) --></label>
+        <name>Preparation_Time_Hrs_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Presentation Approval Needed --></label>
+        <name>Presentation_Approval_Needed_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Prior Parent Id --></label>
+        <name>Prior_Parent_Id_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Processing of Data Consent --></label>
+        <name>Processing_of_Data_Consent_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Proposed Final Fee --></label>
+        <name>Proposed_Final_Fee_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Proposed Final Fee Rollup MERC --></label>
+        <name>Proposed_Final_Fee_Rollup_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Purpose of Payment --></label>
+        <name>Purpose_of_Payment_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Expenses</masterLabel>
+            <translation><!-- Expenses --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Qualifications and Experience Complete --></label>
+        <name>Qualifications_Experience_Complete_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- RTI Transaction ID --></label>
+        <name>RTI_Transaction_ID_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Record Type Name --></label>
+        <name>Record_Type_Name_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Registration Comments --></label>
+        <name>Registration_Comments_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Require Congress Registration --></label>
+        <name>Require_Congress_Registration_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Customer Facing User --></label>
+        <name>Sales_Rep_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Diverts paper information package to Meeting Owner, not HCP. --></help>
+        <label><!-- Send HCP Info Package to Meeting Owner --></label>
+        <name>Send_HCP_Info_Package_to_Rep__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Provider Tier --></label>
+        <name>Service_Provider_Tier_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- This must only be selected once services has been complete. --></help>
+        <label><!-- Services Rendered --></label>
+        <name>Services_Rendered_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Source --></label>
+        <name>Source_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Speaking --></label>
+        <name>Speaking_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Speciality --></label>
+        <name>Speciality_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Checked by CMS if a paper copy of the Sponsorship Package has been received.  The agreement should also be uploaded against the Meeting Participant.  This will complete this step for the HCP in the RSVP section of the web service. --></help>
+        <label><!-- Sponsorship Agreement Consent --></label>
+        <name>Sponsorship_Agreement_Consent_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Web Service acknowledgment that the HCP knows that a wet signature is required. --></help>
+        <label><!-- Sponsorship Wet Signature Acknowledged --></label>
+        <name>Sponsorship_Wet_Signature_Acknowled_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Should be checked upon receiving and uploading a sponsorship agreement from those affiliates that require a wet signature. --></help>
+        <label><!-- Sponsorship Wet Signature Received --></label>
+        <name>Sponsorship_Wet_Signature_Received_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status Change Post ToV Final --></label>
+        <name>Status_Change_Post_ToV_Final_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Accepted</masterLabel>
+            <translation><!-- Accepted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Attended</masterLabel>
+            <translation><!-- Attended --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancelled</masterLabel>
+            <translation><!-- Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Declined</masterLabel>
+            <translation><!-- Declined --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interested in Meeting</masterLabel>
+            <translation><!-- Interested in Meeting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Invited</masterLabel>
+            <translation><!-- Invited --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Show</masterLabel>
+            <translation><!-- No Show --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending Approval</masterLabel>
+            <translation><!-- Pending Approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Summary Step Complete --></label>
+        <name>Summary_Step_Complete_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- ToV Currency reflects the currency of the meeting, all ToV should be entered in the currency of the meeting.  The Service Provider Fee can be managed in a different currency. This can be set by editing the record and changing the Currency field. --></help>
+        <label><!-- ToV Currency --></label>
+        <name>ToV_Currency_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Name of presentation or service. --></help>
+        <label><!-- Topic Area --></label>
+        <name>Topic_Area_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Food &amp; Beverage ToV --></label>
+        <name>Total_Food_Beverage_ToV_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Food Beverage ToV Rollup --></label>
+        <name>Total_Food_Beverage_ToV_Rollup_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Ground Transport ToV --></label>
+        <name>Total_Ground_Transporation_ToV_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Ground Transport ToV Rollup --></label>
+        <name>Total_Ground_Transport_ToV_Rollup_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Honorarium --></label>
+        <name>Total_Honorarium_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Hotel ToV --></label>
+        <name>Total_Hotel_ToV_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Hotel ToV Rollup --></label>
+        <name>Total_Hotel_ToV_Rollup_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Based upon the Service Providers Preparation Time + Event Time. --></help>
+        <label><!-- Total Hours of Service --></label>
+        <name>Total_Hours_of_Service_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Registration ToV --></label>
+        <name>Total_Registration_ToV_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Registration ToV Rollup --></label>
+        <name>Total_Registration_ToV_Rollup_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Transparency Reporting Consent --></label>
+        <name>Transparency_Reporting_Consent_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Transparency Reporting Step Complete --></label>
+        <name>Transparency_Step_Complete_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Travel Adjustment Amount --></label>
+        <name>Travel_Adjustment_Amount_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Travel Adjustment --></label>
+        <name>Travel_Adjustment_Percentage_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Travel No Longer Required --></label>
+        <name>Travel_No_Longer_Required_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Travel Step Complete --></label>
+        <name>Travel_Step_Complete_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Travel Time (hrs) --></label>
+        <name>Travel_Time_Hrs_MERC__c</name>
+        <picklistValues>
+            <masterLabel>0-2 hrs</masterLabel>
+            <translation><!-- 0-2 hrs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>11-20 hrs</masterLabel>
+            <translation><!-- 11-20 hrs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2-10 hrs</masterLabel>
+            <translation><!-- 2-10 hrs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>More than 20 hrs</masterLabel>
+            <translation><!-- More than 20 hrs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Travel by Air --></label>
+        <name>Travel_by_Air_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Travel by Bus --></label>
+        <name>Travel_by_Bus_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Travel by Car --></label>
+        <name>Travel_by_Car_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Travel by Train --></label>
+        <name>Travel_by_Train_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Transaction Type --></label>
+        <name>Trnsctn_Typ_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Territory Code --></label>
+        <name>Trtry_Cd_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Territory Description --></label>
+        <name>Trtry_Desc_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- MSA is Master Service Agreement. If the HCP does not want to sign MSA, please select Single Event Contract. --></help>
+        <label><!-- Type of Contract --></label>
+        <name>Type_of_Contract_MERC__c</name>
+        <picklistValues>
+            <masterLabel>MSA</masterLabel>
+            <translation><!-- MSA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Single Event</masterLabel>
+            <translation><!-- Single Event --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Work Order</masterLabel>
+            <translation><!-- Work Order --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- By selecting this value, I confirm that this person has relevant experience on the topic and is well respected and influential within the local community --></help>
+        <label><!-- Type of Service --></label>
+        <name>Types_of_Service_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Advisory Board - Chairman</masterLabel>
+            <translation><!-- Advisory Board - Chairman --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Advisory Board - Participant</masterLabel>
+            <translation><!-- Advisory Board - Participant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Consulting Project</masterLabel>
+            <translation><!-- Consulting Project --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Expenses</masterLabel>
+            <translation><!-- Expenses --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical Research Consultant</masterLabel>
+            <translation><!-- Medical Research Consultant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Speaker Training</masterLabel>
+            <translation><!-- Speaker Training --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Speaking - Chairman Meeting</masterLabel>
+            <translation><!-- Speaking - Chairman Meeting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Speaking - Speaker</masterLabel>
+            <translation><!-- Speaking - Speaker --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Video/Audio Recording --></label>
+        <name>Video_Audio_Recording_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Web Service Update Date --></label>
+        <name>WS_Updt_Dt_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Web Service Update HCP Action --></label>
+        <name>WS_Updt_HCP_Actn_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Web Service Update HCP Global Id --></label>
+        <name>WS_Updt_HCP_Global_ID_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Web Service Update HCP Name --></label>
+        <name>WS_Updt_HCP_Name_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Maps to the web service logic object to determine a HCPs view of the Meeting Registration Information. --></help>
+        <label><!-- Web Service Logic Key --></label>
+        <name>Web_Service_Logic_Key_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of Locked Invoices --></label>
+        <name>of_Locked_Invoices_MERC__c</name>
+    </fields>
+    <layouts>
+        <layout>MERC_Consulting</layout>
+        <sections>
+            <label><!-- Calculation of Fee --></label>
+            <section>Calculation of Fee</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- For HCP Info Package Delivery Channel and Details --></label>
+            <section>For HCP Info Package Delivery Channel and Details</section>
+        </sections>
+        <sections>
+            <label><!-- Participant Requirements --></label>
+            <section>Participant Requirements</section>
+        </sections>
+        <sections>
+            <label><!-- Registration Information --></label>
+            <section>Registration Information</section>
+        </sections>
+        <sections>
+            <label><!-- Service --></label>
+            <section>Service</section>
+        </sections>
+        <sections>
+            <label><!-- Web Service Information --></label>
+            <section>Web Service Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Delegate</layout>
+        <sections>
+            <label><!-- Copays --></label>
+            <section>Copays</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- For New and Changes to Preferences - Delegate Logistics --></label>
+            <section>For New and Changes to Preferences - Delegate Logistics</section>
+        </sections>
+        <sections>
+            <label><!-- Participant Requirements --></label>
+            <section>Participant Requirements</section>
+        </sections>
+        <sections>
+            <label><!-- Registration Information --></label>
+            <section>Registration Information</section>
+        </sections>
+        <sections>
+            <label><!-- Reported ToV --></label>
+            <section>Reported ToV</section>
+        </sections>
+        <sections>
+            <label><!-- Web Service Information --></label>
+            <section>Web Service Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Individual Sponsorship</layout>
+        <sections>
+            <label><!-- Copays --></label>
+            <section>Copays</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- For New and Changes to Preferences - Delegate Logistics --></label>
+            <section>For New and Changes to Preferences - Delegate Logistics</section>
+        </sections>
+        <sections>
+            <label><!-- Participant Requirements --></label>
+            <section>Participant Requirements</section>
+        </sections>
+        <sections>
+            <label><!-- Registration Information --></label>
+            <section>Registration Information</section>
+        </sections>
+        <sections>
+            <label><!-- Reported ToV --></label>
+            <section>Reported ToV</section>
+        </sections>
+        <sections>
+            <label><!-- Sponsorship Information --></label>
+            <section>Sponsorship Information</section>
+        </sections>
+        <sections>
+            <label><!-- Web Service Information --></label>
+            <section>Web Service Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Service Provider</layout>
+        <sections>
+            <label><!-- Calculation of Fee --></label>
+            <section>Calculation of Fee</section>
+        </sections>
+        <sections>
+            <label><!-- CoPays --></label>
+            <section>CoPays</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- HCP Info Package Delivery Channel and Details --></label>
+            <section>HCP Info Package Delivery Channel and Details</section>
+        </sections>
+        <sections>
+            <label><!-- Participant Requirements --></label>
+            <section>Participant Requirements</section>
+        </sections>
+        <sections>
+            <label><!-- Registration Information --></label>
+            <section>Registration Information</section>
+        </sections>
+        <sections>
+            <label><!-- Reportable ToV --></label>
+            <section>Reportable ToV</section>
+        </sections>
+        <sections>
+            <label><!-- Service --></label>
+            <section>Service</section>
+        </sections>
+        <sections>
+            <label><!-- Web Service Information --></label>
+            <section>Web Service Information</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Consulting --></label>
+        <name>Consulting</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Delegate --></label>
+        <name>Delegate_MERC</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Individual Sponsorship --></label>
+        <name>Individual_Sponsorship</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Service Provider --></label>
+        <name>Service_Provider_MERC</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- You cannot confirm the final fee if the Exception Approval is Required or Rejected. --></errorMessage>
+        <name>MERC_Confirm_Final_Fee</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please confirm the Final Fee should be updated with the Partial Payment Amount. --></errorMessage>
+        <name>MERC_Confirm_Partial_Payment</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You may not enter 0.00 unless ToV has already been reported for this Meeting --></errorMessage>
+        <name>MERC_Enter_Blank_If_Not_Reported</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You may not enter a Partial Payment Amount if services have not been rendered or if the Final Fee has not been confirmed. --></errorMessage>
+        <name>MERC_Partial_Payment_Allowed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You cannot change the Participant&apos;s status if the Participant ToV is final. --></errorMessage>
+        <name>MERC_Prevent_Change_Status_if_ToV_Final</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You many not delete Invoices or Credit Notes that are locked. --></errorMessage>
+        <name>MERC_Prevent_Delete_Locked_Invoices</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You may not enter a CoPay value less than zero. --></errorMessage>
+        <name>MERC_Prevent_Negative_Amount_in_CoPay</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The Proposed Final Fee may not be blank or zero when the fee is confirmed --></errorMessage>
+        <name>MERC_Prevent_Zero_Null_in_Proposed_Fee</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You may not enter a Proposed Final Fee if the Minimum and Maximum Hourly Rate values are not present. Tiering must be complete and Country of Residence indicated. --></errorMessage>
+        <name>MERC_Proposed_Final_Fee</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You may not change this value after services has been rendered. Please contact Customer Meeting Services. --></errorMessage>
+        <name>MERC_Services_Rendered</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Add_Participants_MERC --></label>
+        <name>Add_Participants_MERC</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Generate_Content_MERC --></label>
+        <name>Generate_Content_MERC</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Generate_Welcome_Letter --></label>
+        <name>Generate_Welcome_Letter</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Mass_Approve_Participants_MERC --></label>
+        <name>Mass_Approve_Participants_MERC</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Mass_LOOP_Plus --></label>
+        <name>Mass_LOOP_Plus</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Upload_Content --></label>
+        <name>Upload_Content</name>
+    </webLinks>
+</CustomObjectTranslation>

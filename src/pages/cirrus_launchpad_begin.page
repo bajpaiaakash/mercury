@@ -1,0 +1,173 @@
+<apex:page docType="html-5.0" controller="ieCompatibility" standardStylesheets="false" showHeader="false" sidebar="false">
+    <head>
+
+        <!-- Meta -->
+        <meta charset="UTF-8" />
+        <title>Cirrus - Launchpad</title>
+        <meta name="keywords" content="Eli Lilly & Company, Lilly, Cirrus, Salesforce.com, SFDC, Force.com" />
+        <meta name="description" content="Cirrus Launchpad" />
+        <meta name="author" content="Matthew Bull" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- CSS -->
+        <apex:stylesheet value="{!URLFOR($Resource.cirrus_launchpad, 'css/reset.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.cirrus_launchpad, 'css/bootstrap.min.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.cirrus_launchpad, 'css/font-awesome.min.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.cirrus_launchpad, 'css/googlefonts.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.cirrus_launchpad, 'css/idangerous.swiper.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.cirrus_launchpad, 'css/style.css')}" />
+
+    </head>
+
+    <body>
+
+        <!-- Preloader -->
+        <div id="preloader">
+            <div id="status"></div>
+        </div>
+
+        <!-- Overlay -->
+        <div id="overlay"></div>
+
+        <!-- Top header -->
+        <div id="top">
+
+            <!-- Sidebar button -->
+            <a href="#" id="sidebar-button"></a>
+
+            <!-- Logo -->
+            <header id="logo">
+                <h1>Cirrus</h1>
+                <h2>Simple &amp; Agile</h2>
+            </header>
+
+        </div>
+
+        <!-- Main wrapper -->
+        <div id="main-wrapper">
+
+            <!-- Content -->
+            <div id="content">
+
+                <!-- Fluid container -->
+                <div class="container-fluid">
+
+                    <!-- Page heading -->
+                    <div id="heading" class="row">
+                        <div class="col-12">
+
+                            <header>
+                                <h1>Next Steps</h1>
+                                <h2>Where do I go from here?</h2>
+                            </header>
+
+                        </div>
+                    </div>
+
+                    <!-- Main content -->
+                    <div class="row">
+                        <div class="col-12">
+
+                            <!-- Inner -->
+                            <article class="inner">
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h4>Step 1</h4>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis, nisl ut sagittis tempor, ante orci dignissim diam, at sodales neque lorem vel justo. Vestibulum non mauris placerat, placerat justo sit amet, aliquam lorem. Pellentesque et interdum augue. Ut ullamcorper lectus dolor, vel congue turpis placerat vel. Pellentesque quis felis ut magna sollicitudin accumsan. Fusce elementum nisl ut semper fermentum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam mollis quis lorem commodo tristique.</p>
+                                    </div>
+                                </div>
+
+                                <hr />
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h4>Step 2</h4>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis, nisl ut sagittis tempor, ante orci dignissim diam, at sodales neque lorem vel justo. Vestibulum non mauris placerat, placerat justo sit amet, aliquam lorem. Pellentesque et interdum augue. Ut ullamcorper lectus dolor, vel congue turpis placerat vel. Pellentesque quis felis ut magna sollicitudin accumsan. Fusce elementum nisl ut semper fermentum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam mollis quis lorem commodo tristique.</p>
+                                    </div>
+                                </div>
+
+                                <hr />
+                                
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h4>Step 3</h4>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis, nisl ut sagittis tempor, ante orci dignissim diam, at sodales neque lorem vel justo. Vestibulum non mauris placerat, placerat justo sit amet, aliquam lorem. Pellentesque et interdum augue. Ut ullamcorper lectus dolor, vel congue turpis placerat vel. Pellentesque quis felis ut magna sollicitudin accumsan. Fusce elementum nisl ut semper fermentum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam mollis quis lorem commodo tristique.</p>
+                                    </div>
+                                </div>
+
+                                <hr />                              
+
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h4>Step 4</h4>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis, nisl ut sagittis tempor, ante orci dignissim diam, at sodales neque lorem vel justo. Vestibulum non mauris placerat, placerat justo sit amet, aliquam lorem. Pellentesque et interdum augue. Ut ullamcorper lectus dolor, vel congue turpis placerat vel. Pellentesque quis felis ut magna sollicitudin accumsan. Fusce elementum nisl ut semper fermentum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam mollis quis lorem commodo tristique.</p>
+                                    </div>
+                                </div>
+
+                                <hr />
+                                
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h4>Step 5</h4>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mattis, nisl ut sagittis tempor, ante orci dignissim diam, at sodales neque lorem vel justo. Vestibulum non mauris placerat, placerat justo sit amet, aliquam lorem. Pellentesque et interdum augue. Ut ullamcorper lectus dolor, vel congue turpis placerat vel. Pellentesque quis felis ut magna sollicitudin accumsan. Fusce elementum nisl ut semper fermentum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam mollis quis lorem commodo tristique.</p>
+                                    </div>
+                                </div>
+
+                            </article>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Collapsible sidebar -->
+            <div id="sidebar">
+
+                <!-- Widget Area -->
+                <div id="widgets">
+
+                    <!-- Main menu -->
+                    <nav id="mainmenu">
+                        <ul>
+                            <li><a href="/apex/cirrus_launchpad_vision">Vision</a></li>
+                            <li><a href="/apex/cirrus_launchpad_principles">Principles</a></li> 
+                            <li><a href="/apex/cirrus_launchpad_success">Success</a></li>
+                            <li>
+                                <a href="#">Learn</a>
+                                <ul>
+                                    <li><a href="/apex/cirrus_launchpad_learn_overview">Overview</a></li>
+                                    <li><a href="/apex/cirrus_launchpad_learn_basic">Basic Training</a></li>
+                                    <li><a href="/apex/cirrus_launchpad_learn_developer">Developer Training</a></li>
+                                    <li><a href="/apex/cirrus_launchpad_learn_play">Start Playing</a></li>
+                                </ul>
+                            </li>                           
+                            <li><a href="/apex/cirrus_launchpad_begin" class="active">Next Steps</a></li>
+                            <li><a href="/">Back to Force.com</a></li>
+                        </ul>
+                    </nav>
+
+                </div>
+
+                <!-- Copyright -->
+                <footer>
+                    <apex:image url="{!URLFOR($Resource.cirrus_launchpad, '/img/misc/lilly_logo.png')}" alt="Lilly Logo" styleClass="footerlogo" />
+                </footer>
+
+            </div>
+
+        </div>
+
+        <!-- JavaScript -->
+        <apex:includeScript value="{!URLFOR($Resource.cirrus_launchpad, 'js/jquery.min.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.cirrus_launchpad, 'js/bootstrap.min.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.cirrus_launchpad, 'js/swiper/idangerous.swiper.min.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.cirrus_launchpad, 'js/masonry/masonry.pkgd.min.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.cirrus_launchpad, 'js/isotope/jquery.isotope.min.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.cirrus_launchpad, 'js/custom.js')}" />
+
+    </body>
+</apex:page>

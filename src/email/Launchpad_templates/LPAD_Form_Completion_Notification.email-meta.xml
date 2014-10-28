@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>LPAD_Standard</letterhead>
+    <name>LPAD Form Completion Notification</name>
+    <style>formalLetter</style>
+    <subject>Cirrus Assessment Form Completion</subject>
+    <textOnly>Hello,
+This is an automated message from Cirrus Launchpad.
+
+{!User.FirstName} {!User.LastName} has just completed the LillyFit Assessment. Please review their assessment responses and contact them directly to discuss the next steps they need to take.
+
+Associated record : {!GLBL_Form_Execution__c.Link}
+
+E-mail address: {!User.Email}
+Telephone number: {!User.Phone}</textOnly>
+    <type>html</type>
+</EmailTemplate>

@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Budget Line Item</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Budget Line Items</value>
+    </caseValues>
+    <fields>
+        <label><!-- Additional information --></label>
+        <name>Additional_information_Budget_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please include Room Taxes in Amount if for Hotel. --></help>
+        <label><!-- Amount --></label>
+        <name>Amount_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Approved PO Number --></label>
+        <name>Approved_PO_Number_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Budget --></label>
+        <name>Budget_MERC__c</name>
+        <relationshipLabel><!-- Budget Line Items --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Savings/Overage --></label>
+        <name>Master_Budget_Line_Item_Delta_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Master Budget Line Item --></label>
+        <name>Master_Budget_Line_Item_MERC__c</name>
+        <relationshipLabel><!-- Budget Line Item Versions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Vendor --></label>
+        <name>Meeting_Vendor_MERC__c</name>
+        <relationshipLabel><!-- Budget Line Items --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Mercury External Id --></label>
+        <name>Mercury_External_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Overage --></label>
+        <name>Overage_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Previous Budget Line Item Version --></label>
+        <name>Previous_Budget_Line_Item_Version_MERC__c</name>
+        <relationshipLabel><!-- Budget Line Items (Previous Budget Line Item Version) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Savings --></label>
+        <name>Savings_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sub-Type --></label>
+        <name>Sub_Type_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Air Travel</masterLabel>
+            <translation><!-- Air Travel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Airport Transfer</masterLabel>
+            <translation><!-- Airport Transfer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Attrition</masterLabel>
+            <translation><!-- Attrition --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Beverage Service</masterLabel>
+            <translation><!-- Beverage Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Break Out Room</masterLabel>
+            <translation><!-- Break Out Room --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Breakfast</masterLabel>
+            <translation><!-- Breakfast --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancellation Fees</masterLabel>
+            <translation><!-- Cancellation Fees --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coffee Break</masterLabel>
+            <translation><!-- Coffee Break --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deliveries</masterLabel>
+            <translation><!-- Deliveries --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dinner</masterLabel>
+            <translation><!-- Dinner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>General Session</masterLabel>
+            <translation><!-- General Session --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Incidentals</masterLabel>
+            <translation><!-- Incidentals --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Information Desk</masterLabel>
+            <translation><!-- Information Desk --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Luggage Storage</masterLabel>
+            <translation><!-- Luggage Storage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lunch</masterLabel>
+            <translation><!-- Lunch --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Material Storage</masterLabel>
+            <translation><!-- Material Storage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Meeting Planning Office</masterLabel>
+            <translation><!-- Meeting Planning Office --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Meeting Room Setup</masterLabel>
+            <translation><!-- Meeting Room Setup --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On Site Expenses</masterLabel>
+            <translation><!-- On Site Expenses --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On Site Per Diems</masterLabel>
+            <translation><!-- On Site Per Diems --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rail Transportation/Train</masterLabel>
+            <translation><!-- Rail Transportation/Train --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Railway Transfer</masterLabel>
+            <translation><!-- Railway Transfer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reception</masterLabel>
+            <translation><!-- Reception --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Room Including Breakfast</masterLabel>
+            <translation><!-- Room Including Breakfast --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Room Only</masterLabel>
+            <translation><!-- Room Only --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Room Rental for Dinner or Reception</masterLabel>
+            <translation><!-- Room Rental for Dinner or Reception --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shipping Pre/Post</masterLabel>
+            <translation><!-- Shipping Pre/Post --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Site Inspection</masterLabel>
+            <translation><!-- Site Inspection --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Transfer To and From Congress Venue</masterLabel>
+            <translation><!-- Transfer To and From Congress Venue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Travel Costs</masterLabel>
+            <translation><!-- Travel Costs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Travel Insurance</masterLabel>
+            <translation><!-- Travel Insurance --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type_MERC__c</name>
+        <picklistValues>
+            <masterLabel>AV Equipment</masterLabel>
+            <translation><!-- AV Equipment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Assistance On Site</masterLabel>
+            <translation><!-- Assistance On Site --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Congress Registration</masterLabel>
+            <translation><!-- Congress Registration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Graphic Design</masterLabel>
+            <translation><!-- Graphic Design --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ground Transportation</masterLabel>
+            <translation><!-- Ground Transportation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Honorarium</masterLabel>
+            <translation><!-- Honorarium --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hotel</masterLabel>
+            <translation><!-- Hotel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Management Fee</masterLabel>
+            <translation><!-- Management Fee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Meals</masterLabel>
+            <translation><!-- Meals --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Meeting Space</masterLabel>
+            <translation><!-- Meeting Space --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Miscellaneous</masterLabel>
+            <translation><!-- Miscellaneous --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Printed Material</masterLabel>
+            <translation><!-- Printed Material --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reimbursable Expenses</masterLabel>
+            <translation><!-- Reimbursable Expenses --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Signage/Banners</masterLabel>
+            <translation><!-- Signage/Banners --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Technical Assistance</masterLabel>
+            <translation><!-- Technical Assistance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Transportation</masterLabel>
+            <translation><!-- Transportation --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Vendor Name --></label>
+        <name>Vendor_Name_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Version Number --></label>
+        <name>Version_Number_MERC__c</name>
+    </fields>
+    <layouts>
+        <layout>MERC_Budget Line Item</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Version Information --></label>
+            <section>Version Information</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- The Budget Line Item amount may not be less than zero --></errorMessage>
+        <name>Amount_must_not_be_less_than_zero_MERC</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You cannot modify Budget Lines on Active or Archived Budgets. --></errorMessage>
+        <name>MERC_Prevent_Budget_Line_Edit_Active_Arc</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- New_Line_Item --></label>
+        <name>New_Line_Item</name>
+    </webLinks>
+</CustomObjectTranslation>

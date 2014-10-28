@@ -1,0 +1,124 @@
+<apex:page controller="LPAD_CirrusProcessPageController" showheader="false" sidebar="false" standardStylesheets="false">
+    
+    <apex:composition template="LPAD_Template">
+        
+        <apex:define name="body">
+            
+            <!-- start title section -->
+            <div class="container-fluid" id="assess_landing">
+                <div class="row margin_right_0">
+                    
+                    <!-- start desktop version -->
+                    <div class="background_jumbotron img-responsive padding_right_0 col-lg-12 col-md-12 hidden-sm hidden-xs">
+                        <img class="center-block logo_margintop" src="{!URLFOR($Resource.LPAD_Assets, 'images/landing/PROCESS-LG.png')}" />
+                        <h1 class="font_for_headings text-center text_margintop_assess font_size_h1 letter_spacing">
+                            {!$Label.LPAD_CirrusProcessPage_Title}
+                        </h1>
+                        <p class="margin_paragraph margin_paragraph_992 p_margintop_assess text_marginbottom_assess text-center fonts_p">
+                            {!$Label.LPAD_CirrusProcessPage_Description}
+                        </p>
+                        <br />
+                    </div>
+                    <!-- end desktop version -->
+                    
+                    <!-- start mobile version -->
+                    <div class="background_jumbotron img-responsive padding_right_0 col-xs-12 hidden-lg hidden-md col-sm-12">
+                        <img class="center-block logo_margintop_xs" src="{!URLFOR($Resource.LPAD_Assets, 'images/landing/PROCESS.png')}" />
+                        <h1 class="font_for_headings text-center text_margintop_assess_xs letter_spacing">
+                            {!$Label.LPAD_CirrusProcessPage_Title}
+                        </h1>
+                        <p class="margin_paragraph_992  margin_paragraph p_margintop_assess_xs text-center fonts_p">
+                            {!$Label.LPAD_CirrusProcessPage_Description}
+                        </p>
+                        <br />
+                       
+                    </div>
+                    <!-- end mobile version -->
+    
+                </div>  
+            </div>
+        
+            <div class="container-fluid">
+                <div class="row background_jumbotron margin_right_0 hidden-xs hidden-sm">
+                    <div>
+                        <div class="btn_margin_bottom text-center col-lg-offset-6 col-lg-3 margin_left_btn col-md-offset-6 col-md-3 col-sm-offset-6 col-sm-3">
+                            <a href="#step1" class="btn btn-primary btn_paddings_1 btn-danger btn-lg" role="button">
+                                {!$Label.LPAD_CirrusProcessPage_Start}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row background_jumbotron margin_right_0 hidden-xs">
+                    <div>
+                        <div class="full_circle full_circle_margin_bottom text-center col-lg-offset-6 col-lg-2 col-lg-offset-6 margin_left_circle col-md-offset-6 col-md-2 col-md-offset-6 col-sm-offset-6 col-sm-2 col-sm-offset-6 col-xs-2 col-xs-offset-6">
+                            <a href="#step1">
+                                <span class="chevron_down_color img-responsive">
+                                    <img class="" src="{!URLFOR($Resource.LPAD_Assets, 'images/landing/arrow.png')}" />
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                 <div class="row background_jumbotron margin_right_0 hidden-lg hidden-md hidden-sm">
+                    <div>
+                        <div class="full_circle full_circle_margin_bottom text-center col-lg-offset-6 col-lg-2 col-lg-offset-6 p_margin_left_circle col-md-offset-6 col-md-2 col-md-offset-6 col-sm-offset-6 col-sm-2 col-sm-offset-6 col-xs-2 col-xs-offset-6">
+                            <a href="#step1">
+                               
+                                <span class="chevron_down_color img-responsive">
+                                    <img class="" src="{!URLFOR($Resource.LPAD_Assets, 'images/landing/arrow.png')}" />
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                              
+                <div class="row p_padding_bott margin_right_0" id="show_progress">
+                </div>   
+
+            </div>
+            <!-- end title section -->
+            
+            <!-- start process steps section -->
+            <apex:repeat value="{!processSteps}" var="processStep" id="processStep">
+            
+                <div class="container">
+            
+                    <div class="row" id="step{!processStep.Sequence_Number__c}">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="padding_img p_leftMargin">
+                                <img class="img-responsive center-block p_margin_bott" src="{!processStep.Process_Step_Image_URL__c}" />
+                            </div>
+                        </div>
+                        <div class="background_jumbotron p_margin_bott col-lg-offset-1 col-lg-5 col-md-offset-1 col-md-5 col-sm-offset-1 col-sm-5 hidden-xs">
+                            <h2 class="font_for_headings col-lg-offset-1 col-md-offset-1 col-sm-offset-1 hidden-xs">
+                                {!processStep.Name}
+                            </h2>
+                            <p class="fonts_p col-lg-offset-1 col-md-offset-1 col-sm-offset-1 hidden-xs">
+                                {!processStep.Description__c}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="container-fluid hidden-lg hidden-md hidden-sm">
+                    <div class="row margin_right_0">
+                        <div class="p_padding">
+                            <div class="background_jumbotron">
+                                <h2 class="font_for_headings col-xs-offset-1 text-center p_topPadding">
+                                    {!processStep.Name}
+                                </h2>
+                                <p class="fonts_p col-xs-offset-1">
+                                    {!processStep.Description__c}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </apex:repeat>
+            
+        </apex:define>
+        
+    </apex:composition>
+</apex:page>

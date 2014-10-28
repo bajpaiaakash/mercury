@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>MICO_Test_Script_Burndown_Stat__c.Total_Test_Scripts__c:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA1</developerName>
+        <downGroupingContext>MICO_Project__c.MICO_Sprints__r.Test_Script_Burndown_Stats__r$Date__c</downGroupingContext>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Test Scripts</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>IF(MICO_Test_Script_Burndown_Stat__c.Total_Test_Script_Approved__c:SUM=0, null, MICO_Test_Script_Burndown_Stat__c.Total_Test_Script_Approved__c:SUM)</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA2</developerName>
+        <downGroupingContext>MICO_Project__c.MICO_Sprints__r.Test_Script_Burndown_Stats__r$Date__c</downGroupingContext>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Total Test Scripts Approved</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <chart>
+        <backgroundColor1>#FFFFFF</backgroundColor1>
+        <backgroundColor2>#FFFFFF</backgroundColor2>
+        <backgroundFadeDir>Diagonal</backgroundFadeDir>
+        <chartSummaries>
+            <axisBinding>y</axisBinding>
+            <column>FORMULA1</column>
+        </chartSummaries>
+        <chartSummaries>
+            <axisBinding>y</axisBinding>
+            <column>FORMULA2</column>
+        </chartSummaries>
+        <chartType>Line</chartType>
+        <enableHoverLabels>true</enableHoverLabels>
+        <expandOthers>true</expandOthers>
+        <groupingColumn>MICO_Project__c.MICO_Sprints__r.Test_Script_Burndown_Stats__r$Date__c</groupingColumn>
+        <legendPosition>Right</legendPosition>
+        <location>CHART_TOP</location>
+        <showAxisLabels>true</showAxisLabels>
+        <showPercentage>false</showPercentage>
+        <showTotal>false</showTotal>
+        <showValues>false</showValues>
+        <size>Medium</size>
+        <summaryAxisRange>Auto</summaryAxisRange>
+        <textColor>#000000</textColor>
+        <textSize>12</textSize>
+        <titleColor>#000000</titleColor>
+        <titleSize>18</titleSize>
+    </chart>
+    <columns>
+        <field>MICO_Project__c$App__c</field>
+    </columns>
+    <columns>
+        <field>MICO_Project__c$Name</field>
+    </columns>
+    <columns>
+        <field>MICO_Project__c.MICO_Sprints__r.Test_Script_Burndown_Stats__r$Sprint__c</field>
+    </columns>
+    <columns>
+        <field>MICO_Project__c.MICO_Sprints__r.Test_Script_Burndown_Stats__r$Total_Test_Script_Approved__c</field>
+    </columns>
+    <columns>
+        <field>MICO_Project__c.MICO_Sprints__r.Test_Script_Burndown_Stats__r$Total_Test_Scripts__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <description>Generic Burndown report and chart that is embedded as part of the Sprint page layout. Do not edit or move this report, including saving additional filters.</description>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>MICO_Project__c.MICO_Sprints__r.Test_Script_Burndown_Stats__r$Date__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Sprint Report:Test Script Burndown Chart</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>MICO_Projects_with_Sprints_with_TS_Burndown__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>MICO_Project__c$End_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

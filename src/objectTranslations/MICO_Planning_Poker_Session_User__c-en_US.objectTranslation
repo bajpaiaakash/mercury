@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Planning Poker Session User</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Planning Poker Session Users</value>
+    </caseValues>
+    <fields>
+        <label><!-- IsActive --></label>
+        <name>IsActive__c</name>
+    </fields>
+    <fields>
+        <label><!-- Session Leader --></label>
+        <name>IsLeader__c</name>
+    </fields>
+    <fields>
+        <label><!-- Planning Poker Session --></label>
+        <name>Planning_Poker_Session__c</name>
+        <relationshipLabel><!-- Planning Poker Session --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- User_Name --></label>
+        <name>User_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- User --></label>
+        <name>User__c</name>
+        <relationshipLabel><!-- Planning Poker Session Users --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Planning Poker Session User Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

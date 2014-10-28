@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>Meeting_Participant_MERC__c.Total_Honorarium_MERC__c.CONVERT:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <description>Total Honorarium paid to HCP</description>
+        <developerName>FORMULA1</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Paid Amount</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <columns>
+        <field>CHILD_NAME</field>
+    </columns>
+    <columns>
+        <field>Meeting_Participant_MERC__c.Country_of_Residence_MERC__c</field>
+    </columns>
+    <columns>
+        <field>Meeting_Participant_MERC__c.Participant_Typ_MERC__c</field>
+    </columns>
+    <columns>
+        <field>Meeting_Participant_MERC__c.Total_Honorarium_MERC__c.CONVERT</field>
+    </columns>
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>Meeting_Participant_MERC__c.Meeting_Date_MERC__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <description>R-0100: Amount of Honorarium paid to HCP annually</description>
+    <filter>
+        <criteriaItems>
+            <column>Meeting_Participant_MERC__c.Participant_Typ_MERC__c</column>
+            <operator>equals</operator>
+            <value>HCP</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>FK_NAME</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Cap: Cap Spent on HCP</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntityCustomEntity$Meeting_MERC__c$Meeting_Participant_MERC__c@Meeting_Participant_MERC__c.Account_MERC__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Meeting_MERC__c.Date_to_Send_Invitations_MERC__c</dateColumn>
+        <interval>INTERVAL_CURY</interval>
+    </timeFrameFilter>
+</Report>

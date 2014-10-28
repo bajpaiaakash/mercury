@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Territory xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accountAccessLevel>Edit</accountAccessLevel>
+    <caseAccessLevel>Edit</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <description>Luxembourg</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>Luxembourg</name>
+    <opportunityAccessLevel>Read</opportunityAccessLevel>
+    <parentTerritory>Belgium</parentTerritory>
+</Territory>

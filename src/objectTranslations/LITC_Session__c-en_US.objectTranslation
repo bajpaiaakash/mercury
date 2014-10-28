@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>IT Conference</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>IT Conference</value>
+    </caseValues>
+    <fields>
+        <label><!-- Duration --></label>
+        <name>Duration__c</name>
+    </fields>
+    <fields>
+        <help><!-- Key speakers at the Session --></help>
+        <label><!-- Key Speakers --></label>
+        <name>Key_Speakers__c</name>
+    </fields>
+    <fields>
+        <help><!-- Location where the Session will be held --></help>
+        <label><!-- Location --></label>
+        <name>Location__c</name>
+    </fields>
+    <fields>
+        <help><!-- Synopsis of what the session is about --></help>
+        <label><!-- Overview --></label>
+        <name>Overview__c</name>
+    </fields>
+    <fields>
+        <label><!-- Published --></label>
+        <name>Publish__c</name>
+    </fields>
+    <fields>
+        <label><!-- Session End Date Time --></label>
+        <name>Session_End_Date_Time__c</name>
+    </fields>
+    <fields>
+        <help><!-- Start time of the session --></help>
+        <label><!-- Session Start Date Time --></label>
+        <name>Session_Start_Date_Time__c</name>
+    </fields>
+    <layouts>
+        <layout>Session Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Time and Location --></label>
+            <section>Time and Location</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label><!-- Publish --></label>
+        <name>Publish</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- Session Feedback --></label>
+        <name>Session_Feedback</name>
+    </quickActions>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

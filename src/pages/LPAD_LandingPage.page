@@ -1,0 +1,182 @@
+<apex:page controller="LPAD_LandingPageController" showheader="false" sidebar="false" standardStylesheets="false">
+    
+    <apex:composition template="LPAD_Template">
+        
+        <apex:define name="body">
+            
+            <!-- start headings container-fluid -->
+            <div class="container-fluid">
+                
+                <!-- start headings -->
+                <div class="row margin_right_0">
+                
+                    <!-- heading div for web view -->
+                    <div class="adBanner img-responsive col-lg-12 col-md-12 hidden-sm hidden-xs">
+                        <img class="center-block logo_margintop" src="{!URLFOR($Resource.LPAD_Assets, 'images/landing/Cirrus-Identity.png')}" alt="Cirrus logo" />
+                        <h1 class="font_for_headings font_size_h1 text-center text_margintop letter_spacing">
+                            {!$Label.LPAD_LandingPage_Title}
+                        </h1>
+                        <p class="margin_paragraph text-center text_margintop text_marginbottom fonts_p">
+                            {!$Label.LPAD_LandingPage_Description}
+                        </p>  
+                        <br />
+                    </div>
+                
+                    <!-- heading div for mobile header -->
+                    <div class="adBanner img-responsive  hidden-lg hidden-md col-sm-12 col-xs-12">
+                        <img class="center-block logo_margintop_xs" src="{!URLFOR($Resource.LPAD_Assets, 'images/landing/Cirrus_Identity_mobile.png')}" />
+                        <h1 class="font_for_headings text-center text_margintop_xs letter_spacing">
+                            {!$Label.LPAD_LandingPage_Title}
+                        </h1>
+                        <p class="margin_paragraph_992  text_margintop_xs text_marginbottom_xs text-center fonts_p hidden-lg hidden-md">
+                            {!$Label.LPAD_LandingPage_Description}
+                        </p>
+                        <br />
+                    </div>
+                    
+                </div>
+                <!-- end headings -->
+                
+                <!-- start smooth scroll arrow (nothing renders TODO) -->
+                <div class="row margin_right_0 hidden-lg hidden-md">
+                    <div>
+                        <div id="first_arrow" class="full_circle text-center margin_left_circle_xs col-sm-offset-6 col-sm-2 col-xs-2">
+                            <a href="#scroll_to">
+                                <span class="chevron_down_color img-responsive">
+                                    <img class="" src="{!URLFOR($Resource.LPAD_Assets, 'images/landing/arrow.png')}"/>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end smooth scroll arrow -->
+                
+                <!-- start smooth scroll arrow -->
+                <div class="row background_jumbotron margin_right_0 hidden-xs hidden-sm">
+                    <div>
+                        <div id="first_arrow" class="full_circle text-center col-lg-offset-6 col-lg-2 col-lg-offset-6 margin_left_circle col-md-offset-6 col-md-2 col-md-offset-6">
+                            <a href="#scroll_to">
+                                <span class="chevron_down_color img-responsive">
+                                    <img class="" src="{!URLFOR($Resource.LPAD_Assets, 'images/landing/arrow.png')}"/>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end smooth scroll arrow -->
+
+            </div>
+            <!-- end headings container-fluid -->
+
+            <!-- start middle container-fluid -->
+            <div class="container-fluid" id="scroll_to">
+                <!-- start webview components -->
+                <div class="row background_jumbotron hidden-xs hidden-sm margin_right_0">
+                    
+                    <!-- start view information image -->
+                    <div class=" padding_4_illus_landing padding_right_0">
+                        <div class="center_layout1">
+                            <div class="center_layout2 space_bet_rowItems paddingRight_100">
+                                <h2 class="font_for_headings">{!$Label.LPAD_Header_Menu_Information}</h2>
+                           
+                                <apex:outputLink value="{!$Page.LPAD_InformationPage}">
+                                    <img class="img-responsive center-block" src="{!URLFOR($Resource.LPAD_Assets, 'images/landing/illustration-1.png')}" />
+                                </apex:outputLink>
+                            </div>
+                            <div class="space_bet_rowItems center_layout2 paddingLeft_100"> 
+                
+                    
+                    <!-- start take assessment image -->
+                 
+                                <h2 class="font_for_headings">{!$Label.LPAD_Header_Menu_Assessment}</h2>
+                                
+                            
+                                <apex:outputLink value="{!$Page.LPAD_AssessmentPage}">
+                                    <img class="img-responsive center-block" src="{!URLFOR($Resource.LPAD_Assets, 'images/landing/Illustration-2.png')}" />
+                                </apex:outputLink>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- start take assessment image -->
+                </div>
+                <!-- end webview components -->
+                
+                <!-- start mobile / xs components --> 
+                <div class="row hidden-lg hidden-md background_white margin_right_0">
+                    
+                    <!-- start view information image -->
+                    <div class="col-sm-offset-2 col-sm-3 col-xs-offset-1 col-xs-5 padding_right_0">
+                        <div class="row_padding_bottom_xs">
+                            <div class="text-center space_bet_rowItems_xs">
+                                <h4 class="font_for_headings hidden-lg hidden-md">{!$Label.LPAD_Header_Menu_Information}</h4>
+                            </div> 
+                            <div>
+                                <apex:outputLink value="{!$Page.LPAD_InformationPage}">
+                                    <img class="img-responsive center-block hidden-lg hidden-md" src="{!URLFOR($Resource.LPAD_Assets, 'images/landing/illustration-1-xs.png')}" />
+                                </apex:outputLink>
+                            </div>  
+                         
+                        </div>
+                    </div>
+                    <!-- end view information image -->
+                    
+                    <!-- start take assessment image -->
+                    <div class="col-sm-offset-2 col-sm-3 col-xs-5 padding_right_0">
+                        <div class="row_padding_bottom_xs">
+                            <div class="text-center space_bet_rowItems_xs">
+                                
+                                <h4 class="font_for_headings hidden-lg hidden-md">{!$Label.LPAD_Header_Menu_Assessment}</h4>
+                            </div> 
+                             <div>
+                                <apex:outputLink value="{!$Page.LPAD_AssessmentPage}">
+                                    <img class="img-responsive center-block hidden-lg hidden-md" src="{!URLFOR($Resource.LPAD_Assets, 'images/landing/Illustration-2-xs.png')}" />
+                                </apex:outputLink>
+                            </div> 
+                        </div>
+                    </div>
+                    <!-- start take assessment image -->
+                    
+                </div> 
+                <!-- end mobile / xs components-->
+                
+                <!-- start smooth scroll arrow --> 
+                <div class="row background_jumbotron margin_right_0 hidden-xs hidden-sm">
+                    <div>
+                        <div id="second_arrow" class="full_circle full_circle_margin_bottom text-center col-lg-offset-6 col-lg-2 col-lg-offset-6 margin_left_circle col-md-offset-6 col-md-2 col-md-offset-6 col-sm-offset-6 col-sm-2 col-sm-offset-6 col-xs-2 col-xs-offset-6">
+                            <a href="#chatter">
+                                <span class="chevron_down_color img-responsive">
+                                    <img class="" src="{!URLFOR($Resource.LPAD_Assets, 'images/landing/arrow.png')}" />
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- end smooth scroll arrow -->
+                
+            </div>
+            <!-- end middle container-fluid -->
+
+            
+            <!-- start chatter -->
+            <div class="container-fluid hidden-xs" id="chatter" >
+                <div class="row row_padding">
+                    <div class="col-lg-offset-3 col-md-offset-3 col-sm-offset-2">
+                    <div class="media center-block fonts_p">
+                        <a class="pull-left" href="#">
+                            <img class="media-object" src="" alt="" />
+                        </a>
+                        <div class="media-body">
+                            <h2 class="media-heading font_for_headings">
+                                {!$Label.LPAD_Chatter_Heading}
+                            </h2>
+                            <apex:iframe src="{!$Page.LPAD_ChatterPage}" scrolling="false" id="chatterIFrame"/>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end chatter -->
+            
+        </apex:define>
+    </apex:composition>
+</apex:page>

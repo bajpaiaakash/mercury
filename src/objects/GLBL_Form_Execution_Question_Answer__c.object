@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Stores the snapshot of answers chosen by the front end user for the question in the form</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Form_Execution__c</fullName>
+        <description>Stores reference to Form Execution Object</description>
+        <externalId>false</externalId>
+        <label>Form Execution</label>
+        <referenceTo>GLBL_Form_Execution__c</referenceTo>
+        <relationshipLabel>Form Execution Question &amp; Answers</relationshipLabel>
+        <relationshipName>Form_Execution_Question_Answers</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Helptext__c</fullName>
+        <description>Stores information to guide the front end user</description>
+        <externalId>false</externalId>
+        <label>Helptext</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Question_Text__c</fullName>
+        <description>Stores Text of a question to be displayed to the front end user for each form context</description>
+        <externalId>false</externalId>
+        <label>Question Text</label>
+        <length>500</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Response_Boolean__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Response Boolean</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Response_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Response Number</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>8</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Response_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>Response Text</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Sequence__c</fullName>
+        <description>Stores the order in which each snapshot is placed</description>
+        <externalId>false</externalId>
+        <label>Sequence</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Source_Question__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Stores the reference id of the question related</description>
+        <externalId>false</externalId>
+        <label>Source Question</label>
+        <referenceTo>GLBL_Form_Template_Question__c</referenceTo>
+        <relationshipLabel>Form Execution Question &amp; Answers</relationshipLabel>
+        <relationshipName>Form_Execution_Question_Answers</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Total_Score_A__c</fullName>
+        <description>The Force.com score for the completed question &amp; answer: Created by J Mohanan Pillai</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Force.com score for the completed question &amp; answer</inlineHelpText>
+        <label>Force.com score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Score_B__c</fullName>
+        <description>The SharePoint score for the completed question &amp; answer: Created by J Mohanan Pillai</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The SharePoint score for the completed question &amp; answer</inlineHelpText>
+        <label>SharePoint score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Score_C__c</fullName>
+        <description>The LillyCloud score for the completed question &amp; answer: Created by J Mohanan Pillai</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The LillyCloud score for the completed question &amp; answer</inlineHelpText>
+        <label>LillyCloud score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Score_D__c</fullName>
+        <description>The Web Hosting score for the completed question &amp; answer: Created by J Mohanan Pillai</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Web Hosting score for the completed question &amp; answer</inlineHelpText>
+        <label>Web Hosting score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Score_E__c</fullName>
+        <description>The Business Strategic / Custom score for the completed question &amp; answer: Created by J Mohanan Pillai</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Business Strategic / Custom score for the completed question &amp; answer</inlineHelpText>
+        <label>Business Strategic / Custom score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Form Execution Question &amp; Answer</label>
+    <nameField>
+        <displayFormat>FEQA-{000000}</displayFormat>
+        <label>Name</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Form Execution Question &amp; Answers</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

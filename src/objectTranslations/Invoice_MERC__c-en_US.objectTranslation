@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Invoice</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Invoices</value>
+    </caseValues>
+    <fields>
+        <label><!-- Bank Account Number (Encrypted) --></label>
+        <name>Bank_Account_Number_Encrypted_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bank Account Number --></label>
+        <name>Bank_Account_Number_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bank City --></label>
+        <name>Bank_City_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bank Country --></label>
+        <name>Bank_Country_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bank Name --></label>
+        <name>Bank_Name_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bank Sort Code --></label>
+        <name>Bank_Sort_Code_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bank State / Province --></label>
+        <name>Bank_State_Province_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bank Street --></label>
+        <name>Bank_Street_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bank Zip / Postal Code --></label>
+        <name>Bank_Zip_Postal_Code_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lilly Affiliate Company Code --></label>
+        <name>Company_Code_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Conditional Invoice Number --></label>
+        <name>Conditional_Invoice_Number_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Consulting Project Amount (excl VAT) --></label>
+        <name>Consulting_Project_Amount_excl_VAT_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cost Center --></label>
+        <name>Cost_Center_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Credit Note Invoice --></label>
+        <name>Credit_Note_Invoice_MERC__c</name>
+        <relationshipLabel><!-- Invoices --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Credit Note SAP Document # --></label>
+        <name>Credit_Note_SAP_Doc_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Id --></label>
+        <name>Customer_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Invoice Number --></label>
+        <name>Customer_Invoice_Number_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Days Since Created Date --></label>
+        <name>Days_Since_Created_Date_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Days Until Invoice Submitted --></label>
+        <name>Days_Until_Invoice_Submitted_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- HCO Beneficiary --></label>
+        <name>HCO_Beneficiary_MERC__c</name>
+        <relationshipLabel><!-- Invoices --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- IBAN --></label>
+        <name>IBAN_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Pulled from the Meeting Record should an Internal Order Number exist against the associated Meeting Budget.  This field remains editable if corrections are needed.  Leave this blank when creating an Invoice to accept the Meeting Internal Order Number --></help>
+        <label><!-- Internal Order Number --></label>
+        <name>Internal_Order_Number_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Invoice Attached --></label>
+        <name>Invoice_Attached_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Invoice Date --></label>
+        <name>Invoice_Date_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Invoice Type --></label>
+        <name>Invoice_Type_MERC__c</name>
+        <picklistValues>
+            <masterLabel>CR</masterLabel>
+            <translation><!-- CR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IN</masterLabel>
+            <translation><!-- IN --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Lilly Affiliate City --></label>
+        <name>Lilly_Affil_Add_City_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lilly Affiliate Country --></label>
+        <name>Lilly_Affil_Add_Country_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lilly Affiliate Address Line 1 --></label>
+        <name>Lilly_Affil_Add_Ln_1_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lilly Affiliate Address Line 2 --></label>
+        <name>Lilly_Affil_Add_Ln_2_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lilly Affiliate ID/VAT --></label>
+        <name>Lilly_Affil_ID_VAT_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lilly Affiliate Postal Code --></label>
+        <name>Lilly_Affil_Postal_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lilly Affiliate --></label>
+        <name>Lilly_Affiliate_MERC__c</name>
+        <relationshipLabel><!-- Invoices (Lilly Affiliate) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- # Line Items --></label>
+        <name>Line_Items_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting City --></label>
+        <name>Meeting_City_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting Cost Center --></label>
+        <name>Meeting_Cost_Center_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting Country --></label>
+        <name>Meeting_Country_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting --></label>
+        <name>Meeting_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting Name --></label>
+        <name>Meeting_Name_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting Participant Account Id --></label>
+        <name>Meeting_Participant_Account_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting Participant --></label>
+        <name>Meeting_Participant_MERC__c</name>
+        <relationshipLabel><!-- Invoices --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Meeting Start Date --></label>
+        <name>Meeting_Start_Date_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mercury External Id --></label>
+        <name>Mercury_External_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mercury Transaction Id --></label>
+        <name>Mercury_Transaction_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Participant --></label>
+        <name>Participant_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Participant Master Id --></label>
+        <name>Participant_Master_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payee City --></label>
+        <name>Payee_City_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payee Country --></label>
+        <name>Payee_Country_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payee --></label>
+        <name>Payee_MERC__c</name>
+        <relationshipLabel><!-- Invoices --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Payee Name --></label>
+        <name>Payee_Name_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payee State / Province --></label>
+        <name>Payee_State_Province_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payee Street --></label>
+        <name>Payee_Street_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payee Zip / Postal Code --></label>
+        <name>Payee_Zip_Postal_Code_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Purpose of Payment --></label>
+        <name>Purpose_of_Payment_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- SAP Vendor Number --></label>
+        <name>SAP_Vendor_Number_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- A PDF Invoice must be generated and then uploaded before the record can be submitted for payment. --></help>
+        <label><!-- Submit for Payment --></label>
+        <name>Submit_for_Payment_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Stamped automatically by SAP integration. Do not edit. --></help>
+        <label><!-- Submitted for Payment --></label>
+        <name>Submitted_for_Payment_Date_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Subtotal - NET --></label>
+        <name>Subtotal_NET_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- TOTAL INCL. VAT --></label>
+        <name>TOTAL_INCL_VAT_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tax Id --></label>
+        <name>Tax_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Terms of Payment --></label>
+        <name>Terms_of_Payment_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Net 10</masterLabel>
+            <translation><!-- Net 10 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Net 14</masterLabel>
+            <translation><!-- Net 14 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Net 30</masterLabel>
+            <translation><!-- Net 30 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Net 45</masterLabel>
+            <translation><!-- Net 45 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Net 60</masterLabel>
+            <translation><!-- Net 60 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Total VAT --></label>
+        <name>Total_VAT_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- VAT Identification # --></label>
+        <name>VAT_Identification_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vendor Invoice Number --></label>
+        <name>Vendor_Invoice_Number_MERC__c</name>
+    </fields>
+    <layouts>
+        <layout>MERC_Credit Note</layout>
+        <sections>
+            <label><!-- Bank Account Details --></label>
+            <section>Bank Account Details</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- HCP Details --></label>
+            <section>HCP Details</section>
+        </sections>
+        <sections>
+            <label><!-- Invoice --></label>
+            <section>Invoice</section>
+        </sections>
+        <sections>
+            <label><!-- Lilly Affiliate --></label>
+            <section>Lilly Affiliate</section>
+        </sections>
+        <sections>
+            <label><!-- Payment Details --></label>
+            <section>Payment Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Credit Note Locked</layout>
+        <sections>
+            <label><!-- Bank Account Details --></label>
+            <section>Bank Account Details</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- HCP Details --></label>
+            <section>HCP Details</section>
+        </sections>
+        <sections>
+            <label><!-- Invoice --></label>
+            <section>Invoice</section>
+        </sections>
+        <sections>
+            <label><!-- Lilly Affiliate --></label>
+            <section>Lilly Affiliate</section>
+        </sections>
+        <sections>
+            <label><!-- Payment Details --></label>
+            <section>Payment Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Invoice</layout>
+        <sections>
+            <label><!-- Bank Account Details --></label>
+            <section>Bank Account Details</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- HCP Details --></label>
+            <section>HCP Details</section>
+        </sections>
+        <sections>
+            <label><!-- Invoice --></label>
+            <section>Invoice</section>
+        </sections>
+        <sections>
+            <label><!-- Lilly Affiliate --></label>
+            <section>Lilly Affiliate</section>
+        </sections>
+        <sections>
+            <label><!-- Payment Details --></label>
+            <section>Payment Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Invoice_Locked</layout>
+        <sections>
+            <label><!-- Bank Account Details --></label>
+            <section>Bank Account Details</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- HCP Details --></label>
+            <section>HCP Details</section>
+        </sections>
+        <sections>
+            <label><!-- Invoice --></label>
+            <section>Invoice</section>
+        </sections>
+        <sections>
+            <label><!-- Lilly Affiliate --></label>
+            <section>Lilly Affiliate</section>
+        </sections>
+        <sections>
+            <label><!-- Payment Details --></label>
+            <section>Payment Details</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Credit Note Locked --></label>
+        <name>Credit_Note_Locked_MERC</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Credit Note --></label>
+        <name>Credit_Note_MERC</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Invoice Invalid --></label>
+        <name>Invoice_Invalid_MERC</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Invoice Locked --></label>
+        <name>Invoice_Locked_MERC</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Invoice --></label>
+        <name>Invoice_MERC</name>
+    </recordTypes>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <errorMessage><!-- The Cost Center must be seven digits long. --></errorMessage>
+        <name>MERC_Cost_Center_completed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The Internal Order Number must be six digits long. --></errorMessage>
+        <name>MERC_Internal_Order_Number_Completed</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This Invoice/Credit Note is locked and cannot be edited. --></errorMessage>
+        <name>MERC_Prevent_Line_Item_Changes_if_Locked</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- PDF missing. Please press the &quot;Generate Content&quot; button at top of this detail page.
+
+An invoice record cannot be submitted for payment if the total is not greater than zero and an Invoice PDF has been created and attached. --></errorMessage>
+        <name>MERC_Submit_for_Payment_PDF_Check</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Total = 0
+
+An invoice record cannot be submitted for payment if the total is not greater than zero and an Invoice PDF has been created and attached. --></errorMessage>
+        <name>MERC_Submit_for_Payment_Total_Check</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Create_Credit_Note --></label>
+        <name>Create_Credit_Note</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Create_Invoice --></label>
+        <name>Create_Invoice</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Generate_Content_MERC --></label>
+        <name>Generate_Content_MERC</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Generate_PDF --></label>
+        <name>Generate_PDF</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Invalidate_Invoice_MERC --></label>
+        <name>Invalidate_Invoice_MERC</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Upload_Content_MERC --></label>
+        <name>Upload_Content_MERC</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Upload_TIF --></label>
+        <name>Upload_TIF</name>
+    </webLinks>
+</CustomObjectTranslation>

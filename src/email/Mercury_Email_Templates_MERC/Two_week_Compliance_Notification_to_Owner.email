@@ -1,0 +1,7 @@
+Dear {!Meeting_MERC__c.Prmry_Mtng_Ownr_Nm_MERC__c}, 
+
+This email is to remind you that {!Meeting_MERC__c.Name}, {!IF(Meeting_MERC__c.End_Date_Meeting_Time_Zone_MERC__c <> Meeting_MERC__c.Start_Date_Meeting_Time_Zone_MERC__c, Meeting_MERC__c.Start_Date_Meeting_Time_Zone_MERC__c + " - " + Meeting_MERC__c.End_Date_Meeting_Time_Zone_MERC__c, Meeting_MERC__c.Start_Date_Meeting_Time_Zone_MERC__c) } is planned to occur in two weeks.  Please ensure that all compliance-related activities are complete in order to proceed.  If meeting cancellation is required, please contact Customer Meeting Services"
+
+More information regarding this meeting can be found at {!Meeting_MERC__c.Link}.
+
+Should you have any questions, please contact your local Customer Meeting Services team.  This is an auto-generated email; please do not reply

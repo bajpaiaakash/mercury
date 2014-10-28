@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Submission Region</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Submission Regions</value>
+    </caseValues>
+    <fields>
+        <label><!-- Compliance Submission --></label>
+        <name>Compliance_Submission__c</name>
+        <relationshipLabel><!-- Submission Regions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Region Name --></label>
+        <name>Region_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Region --></label>
+        <name>Region__c</name>
+        <relationshipLabel><!-- Submission Regions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Submission Decision --></label>
+        <name>Submission_Decision__c</name>
+    </fields>
+    <fields>
+        <label><!-- Submission Name --></label>
+        <name>Submission_Name__c</name>
+    </fields>
+    <layouts>
+        <layout>Submission Region Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

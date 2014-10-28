@@ -1,0 +1,3 @@
+<apex:page showHeader="true" sidebar="true" standardController="Invoice_MERC__c">
+	<c:MERC_NewContentGeneric />
+</apex:page>

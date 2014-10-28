@@ -1,0 +1,2 @@
+<apex:page standardController="ACED_Audience__c" extensions="ACED_RedirectOnNew" action="{!Redirect}" >
+</apex:page>

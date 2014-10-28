@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>RWE EXPERT Member</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>RWE EXPERTS Members</value>
+    </caseValues>
+    <fields>
+        <label><!-- Area of Expertise --></label>
+        <name>Area_of_Expertise__c</name>
+        <picklistValues>
+            <masterLabel>ADHD</masterLabel>
+            <translation><!-- ADHD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Alzheimers</masterLabel>
+            <translation><!-- Alzheimers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ankylosing Spondylitis</masterLabel>
+            <translation><!-- Ankylosing Spondylitis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Anxiety</masterLabel>
+            <translation><!-- Anxiety --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bayesian Methods</masterLabel>
+            <translation><!-- Bayesian Methods --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bipolar</masterLabel>
+            <translation><!-- Bipolar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CV</masterLabel>
+            <translation><!-- CV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancer</masterLabel>
+            <translation><!-- Cancer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clinical Operations</masterLabel>
+            <translation><!-- Clinical Operations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cost and Resource Use Analysis</masterLabel>
+            <translation><!-- Cost and Resource Use Analysis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cross Therapeutic Expertise</masterLabel>
+            <translation><!-- Cross Therapeutic Expertise --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DSS Obs. Research Process Owner</masterLabel>
+            <translation><!-- DSS Obs. Research Process Owner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DataMart SME</masterLabel>
+            <translation><!-- DataMart SME --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Depression</masterLabel>
+            <translation><!-- Depression --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Diabetes</masterLabel>
+            <translation><!-- Diabetes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Diabetes (Humatrope-Specific)</masterLabel>
+            <translation><!-- Diabetes (Humatrope-Specific) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ED</masterLabel>
+            <translation><!-- ED --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EU Study Requirements</masterLabel>
+            <translation><!-- EU Study Requirements --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FDAMA 114 Hub Member</masterLabel>
+            <translation><!-- FDAMA 114 Hub Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FDAMA114</masterLabel>
+            <translation><!-- FDAMA114 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FDAMA114 Hub Member</masterLabel>
+            <translation><!-- FDAMA114 Hub Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Insomnia</masterLabel>
+            <translation><!-- Insomnia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Meta-Analysis</masterLabel>
+            <translation><!-- Meta-Analysis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Osteoporosis</masterLabel>
+            <translation><!-- Osteoporosis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Painful Conditions</masterLabel>
+            <translation><!-- Painful Conditions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Patient Reported Outcomes/COA</masterLabel>
+            <translation><!-- Patient Reported Outcomes/COA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pediatrics</masterLabel>
+            <translation><!-- Pediatrics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Primary Care</masterLabel>
+            <translation><!-- Primary Care --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prospective Observational Studies</masterLabel>
+            <translation><!-- Prospective Observational Studies --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Psoriasis</masterLabel>
+            <translation><!-- Psoriasis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Psoriatic Arthritis</masterLabel>
+            <translation><!-- Psoriatic Arthritis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rheumatoid Arthritis</masterLabel>
+            <translation><!-- Rheumatoid Arthritis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Schizophrenia</masterLabel>
+            <translation><!-- Schizophrenia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Survival Analysis</masterLabel>
+            <translation><!-- Survival Analysis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Treatment Resistant Depression</masterLabel>
+            <translation><!-- Treatment Resistant Depression --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- DataLoad ID --></label>
+        <name>DataLoad_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- EXPERT Member Functional Area --></label>
+        <name>EXPERT_Member_Functional_Area__c</name>
+        <picklistValues>
+            <masterLabel>CDIO</masterLabel>
+            <translation><!-- CDIO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GPORWE</masterLabel>
+            <translation><!-- GPORWE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GPS</masterLabel>
+            <translation><!-- GPS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GSS</masterLabel>
+            <translation><!-- GSS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MEDICAL</masterLabel>
+            <translation><!-- MEDICAL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OTHER (BIOMETRICS, REGULATORY ETC.)</masterLabel>
+            <translation><!-- OTHER (BIOMETRICS, REGULATORY ETC.) --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- EXPERT Member Role --></label>
+        <name>EXPERT_Member_Role__c</name>
+        <picklistValues>
+            <masterLabel>Consultant</masterLabel>
+            <translation><!-- Consultant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Executive Team</masterLabel>
+            <translation><!-- Executive Team --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Extended Member</masterLabel>
+            <translation><!-- Extended Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Operations Team</masterLabel>
+            <translation><!-- Operations Team --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PRC Liaison</masterLabel>
+            <translation><!-- PRC Liaison --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reviewer</masterLabel>
+            <translation><!-- Reviewer --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- EXPERT Member Status --></label>
+        <name>EXPERT_Member_Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive</masterLabel>
+            <translation><!-- Inactive --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Governing SOP Expertise --></label>
+        <name>Governing_SOP_Expertise__c</name>
+        <picklistValues>
+            <masterLabel>FDAMA114</masterLabel>
+            <translation><!-- FDAMA114 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Observational</masterLabel>
+            <translation><!-- Observational --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PMSS</masterLabel>
+            <translation><!-- PMSS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pragmatic</masterLabel>
+            <translation><!-- Pragmatic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retrospective</masterLabel>
+            <translation><!-- Retrospective --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Region Expertise --></label>
+        <name>Region_Expertise__c</name>
+        <picklistValues>
+            <masterLabel>China</masterLabel>
+            <translation><!-- China --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EU</masterLabel>
+            <translation><!-- EU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Emerging Markets</masterLabel>
+            <translation><!-- Emerging Markets --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>JP PMSS</masterLabel>
+            <translation><!-- JP PMSS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Japan</masterLabel>
+            <translation><!-- Japan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Taiwan</masterLabel>
+            <translation><!-- Taiwan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>US</masterLabel>
+            <translation><!-- US --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Salesforce User --></label>
+        <name>Salesforce_User__c</name>
+        <relationshipLabel><!-- RWE EXPERTS Members --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Therapeutic Area --></label>
+        <name>Therapeutic_Area__c</name>
+        <picklistValues>
+            <masterLabel>Alzheimer&apos;s &amp; Neurodegenerative Diseases</masterLabel>
+            <translation><!-- Alzheimer&apos;s &amp; Neurodegenerative Diseases --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Autoimmune</masterLabel>
+            <translation><!-- Autoimmune --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bone, Muscle, Joint</masterLabel>
+            <translation><!-- Bone, Muscle, Joint --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cardiovascular</masterLabel>
+            <translation><!-- Cardiovascular --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Diabetes</masterLabel>
+            <translation><!-- Diabetes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Business Unit-Specific</masterLabel>
+            <translation><!-- Not Business Unit-Specific --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oncology</masterLabel>
+            <translation><!-- Oncology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Psychiatry &amp; Pain</masterLabel>
+            <translation><!-- Psychiatry &amp; Pain --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Urology</masterLabel>
+            <translation><!-- Urology --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>RWE EXPERT Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Expertise --></label>
+            <section>Expertise</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

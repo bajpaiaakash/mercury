@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Test Execution Step</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Test Execution Steps</value>
+    </caseValues>
+    <fields>
+        <help><!-- What a user needs to do, including point and click instructions where appropriate --></help>
+        <label><!-- Action --></label>
+        <name>Action__c</name>
+    </fields>
+    <fields>
+        <help><!-- Notes and Comments about the test from the tester. This should be populated if a test step is failed in any way --></help>
+        <label><!-- Actual Results --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- The name of the user who is the &quot;Completed by&quot; at the test level --></help>
+        <label><!-- Completed by --></label>
+        <name>Completed_by__c</name>
+    </fields>
+    <fields>
+        <help><!-- The result or behaviour that is expected --></help>
+        <label><!-- Expected Results --></label>
+        <name>Expected_Results__c</name>
+    </fields>
+    <fields>
+        <help><!-- What was the result of this step? If it Failed or had minor issues please note what these were. --></help>
+        <label><!-- Outcome --></label>
+        <name>Outcome__c</name>
+        <picklistValues>
+            <masterLabel>Failed</masterLabel>
+            <translation><!-- Failed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pass</masterLabel>
+            <translation><!-- Pass --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Passed with issues</masterLabel>
+            <translation><!-- Passed with issues --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- The step number for this step --></help>
+        <label><!-- Step # --></label>
+        <name>StepNum__c</name>
+    </fields>
+    <fields>
+        <help><!-- A link to the template step for this test. Action, Expected, Results, Tips etc are all calculated based on this link --></help>
+        <label><!-- Template Step --></label>
+        <name>Template_Step__c</name>
+        <relationshipLabel><!-- Test Execution Steps --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Test Execution Step Number --></label>
+        <name>Test_Execution_Step_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Test --></label>
+        <name>Test__c</name>
+        <relationshipLabel><!-- Test Execution Steps --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Hints &amp; Tips for completing this step --></help>
+        <label><!-- Tips --></label>
+        <name>Tips__c</name>
+    </fields>
+    <layouts>
+        <layout>Test Execution Step Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Instructions --></label>
+            <section>Instructions</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label><!-- Results --></label>
+            <section>Results</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- You cannot Create / Edit a Test Execution Step record if the Test Execution is in an &quot;Approved&quot; / &quot;Pending Approval&quot; status --></errorMessage>
+        <name>PreventFromCreateStepsUntilApproved</name>
+    </validationRules>
+</CustomObjectTranslation>

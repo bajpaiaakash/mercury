@@ -1,0 +1,151 @@
+<apex:page standardController="IRIS_Submission__c" tabStyle="IRIS_Submission__c" cache="false"
+               sidebar="false" showHeader="true" extensions="IRIS_Submission_FormControllerExtension" id="myPage">
+        
+        <style>
+            .bPageHeader, .bPageFooter { display: none; }
+        </style>
+        
+        <apex:sectionHeader title="{!$Label.Iriss_Submission_From_SubTitle}" description="{!$Label.Iriss_Submission_form_description}"/>
+        <apex:outputPanel id="errorDisp">
+            <apex:pageMessages />
+        </apex:outputPanel>
+        
+        <apex:form id="myForm">
+            <apex:pageBlock title="Form Details" tabStyle="IRIS_Submission__c" id="myPageBlock">
+            
+                <apex:pageBlockButtons id="myPageBlockButtons">
+                    <apex:commandButton action="{!doSubmit}" id="mySubmitButton" value="{!$Label.Iriss_Submit}" status="ProcessingStatus"/>
+                    <apex:commandButton action="{!doReload}" id="myClearButton" value="{!$Label.Iriss_Clear}" immediate="true"/>
+                    <apex:commandButton onclick="confirmCancel()" id="myExitButton" value="{!$Label.Iriss_Exit} " immediate="true"/>
+                    <apex:commandButton action="{!doBack}" value="{!$Label.Iriss_Back}" immediate="true" rendered="{!isBack}"/>
+                </apex:pageBlockButtons>
+                
+                <apex:pageBlockSection showHeader="false" id="myPageBlockSecFormData">
+                    <apex:repeat value="{!$ObjectType.IRIS_Submission__c.FieldSets.FieldsOnSubmissionForm}" var="fieldAPIName" > 
+                        <apex:outputField value="{!IRIS_Submission__c[fieldAPIName]}" 
+                                     rendered="{!if((fieldAPIName = 'Document_Submitter__c'),true, false)}" /> 
+                        <apex:inputField value="{!IRIS_Submission__c[fieldAPIName]}" required="{!OR(fieldAPIName.required, fieldAPIName.dbrequired)}"
+                                rendered="{!if((fieldAPIName != 'Document_Submitter__c'),true, false)}"  />
+                    </apex:repeat>
+                    
+                    <apex:outputText value=" "/>
+                    <apex:inputField value="{!IRIS_Submission__c.Intended_Audience__c}" id="intededAudience" required="true">
+                        <apex:actionSupport event="onchange" action="{!checkAudience}"/> 
+                    </apex:inputField>
+                    <apex:outputText value=" "/>
+                    
+                    <apex:outputField value="{!IRIS_Submission__c.Region_Text__c}" id="RegionNames"  rendered="{!showRegion}" style="width:90%">
+                        <a href="#" onclick="openRegionSearchPopup();">
+                            <apex:image style="vertical-align:middle;" value="{!$Resource.IRIS_Lookup}"/>
+                        </a>
+                    </apex:outputField>
+                    
+                    <apex:outputField value="{!IRIS_Submission__c.Country_Text__c}" id="CountryNames" rendered="{!showCountry}" style="width:90%">
+                        <a href="#" onclick="openCountrySearchPopup();">
+                            <apex:image style="vertical-align:baseline;" value="{!$Resource.IRIS_Lookup}"/>
+                         </a>
+                     </apex:outputField>
+                     <apex:inputHidden id="regionIds" value="{!selectedRegionIds}" rendered="{!showRegion}"/>
+                     <apex:inputHidden id="RegionText" value="{!IRIS_Submission__c.Region_Text__c}" rendered="{!showRegion}"/>
+                     <apex:inputHidden id="countryIds" value="{!selectedCountryIds}" rendered="{!showCountry}"/>
+                     <apex:inputHidden id="CountryText" value="{!IRIS_Submission__c.Country_Text__c}" rendered="{!showCountry}"/>
+                </apex:pageBlockSection>
+                
+                <apex:pageBlockSection title="{!$Label.Iriss_Section_Title_Additional_Information}" id="myPageBlockSecAdditionalInfo" columns="1">
+                    <apex:repeat value="{!$ObjectType.IRIS_Submission__c.FieldSets.AdditionalInformationOnSubmissionForm}" var="fieldAPIName"> 
+                        <apex:inputField value="{!IRIS_Submission__c[fieldAPIName]}" 
+                                        required="{!OR(fieldAPIName.required, fieldAPIName.dbrequired)}" style="width:90%" />
+                    </apex:repeat>
+                </apex:pageBlockSection>
+                
+                <apex:pageblocksection id="myPageBlockSecFileUpload" title="{!$ObjectType.Attachment.label}" columns="2">   
+                    <apex:pageBlockSectionItem >   
+                        <apex:outputLabel value="{!$Label.Iriss_Submission_Form_Attachment_Message}"/> 
+                    </apex:pageBlockSectionItem>  
+                    <apex:pageBlockSectionItem >
+                        <apex:selectList onchange="ChangeCount() ;" multiselect="false" size="1" value="{!FileCount}">   
+                            <apex:selectOption itemLabel="--None--" itemValue=""/>   
+                            <apex:selectOptions value="{!filesCountList}"/>   
+                        </apex:selectList>   
+                    </apex:pageBlockSectionItem>   
+                </apex:pageblocksection>
+                
+                <apex:pageBlockSection title="{!$Label.Iriss_Section_Title_Select_Files}" rendered="{!IF(FileCount!=null && FileCount!='',true,false)}">   
+                    <apex:repeat value="{!allFileList}" var="AFL">   
+                        <apex:inputfile value="{!AFL.body}" filename="{!AFL.Name}" />   
+                    </apex:repeat>   
+                </apex:pageBlockSection>   
+                
+                <apex:actionFunction name="ChangeCount" action="{!ChangeCount}"/> 
+                <apex:actionFunction action="{!doReload}" name="reloadPage"/>
+                   
+            
+            </apex:pageBlock>
+        </apex:form>
+      
+        <script>
+            var refreshIntervalId = setInterval(function()
+            {
+                var isSubmitted = "{!isFormSubmitted}";
+                if(isSubmitted == "true")
+                {
+                    alert("The form along with the document has been submitted with the submission number : {!submissionName}");
+                    clearInterval(refreshIntervalId);
+                    reloadPage();
+                }
+            },500);
+            
+            function confirmCancel() {
+                var isConfirm = confirm("Are you sure you want to exit?");
+                if(isConfirm){
+                    window:close();
+                }
+            }
+        </script>
+        <script> 
+            var newWin=null;
+            function openCountrySearchPopup()
+            {
+                var selCountryIds = document.getElementById("myPage:myForm:myPageBlock:myPageBlockSecFormData:countryIds").value;
+                //alert(selCountryIds);
+                var url="/apex/IRIS_CountrySearch?countryIds=" + selCountryIds;
+                newWin=window.open(url, 'Popup','height=400,width=650,left=500,top=100,resizable=no,scrollbars=yes,toolbar=no,status=no,titlebar=no');
+                newWin.focus();
+            }
+            
+            function sendCountryInfo(countryIds , countryNames)
+            {
+                cancelResponsePopup();
+                document.getElementById("myPage:myForm:myPageBlock:myPageBlockSecFormData:CountryText").value = countryNames;
+                document.getElementById("myPage:myForm:myPageBlock:myPageBlockSecFormData:CountryNames").innerHTML = countryNames;
+                document.getElementById("myPage:myForm:myPageBlock:myPageBlockSecFormData:countryIds").value = countryIds;
+                
+            }
+            
+            function openRegionSearchPopup()
+            {
+                var selRegionIds = document.getElementById("myPage:myForm:myPageBlock:myPageBlockSecFormData:regionIds").value;
+                //alert(selRegionIds);
+                var url="/apex/IRIS_RegionSearch?regionIds=" + selRegionIds;
+                newWin=window.open(url, 'Popup','height=400,width=650,left=500,top=100,resizable=no,scrollbars=yes,toolbar=no,status=no,titlebar=no');
+                newWin.focus();
+            }
+            
+            function sendRegionInfo(regionIds , regionNames)
+            {
+                cancelResponsePopup();
+                document.getElementById("myPage:myForm:myPageBlock:myPageBlockSecFormData:RegionText").value = regionNames;
+                document.getElementById("myPage:myForm:myPageBlock:myPageBlockSecFormData:RegionNames").innerHTML = regionNames;
+                document.getElementById("myPage:myForm:myPageBlock:myPageBlockSecFormData:regionIds").value = regionIds;
+                
+            }
+            
+             function cancelResponsePopup()
+            {
+                if(newWin != null)
+                {
+                    newWin.close();
+                }
+            }
+        </script>
+    </apex:page>

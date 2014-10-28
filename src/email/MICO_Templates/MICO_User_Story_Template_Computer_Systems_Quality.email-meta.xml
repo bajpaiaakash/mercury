@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <letterhead>Tracker_Standard</letterhead>
+    <name>MICO_User Story Template Computer Systems Quality</name>
+    <style>freeForm</style>
+    <subject>User Story Approval Request - {!MICO_User_Story__c.Name}</subject>
+    <textOnly>Dear {!MICO_User_Story__c.Computer_Systems_Quality__c}
+
+This is an approval request for User Story {!MICO_User_Story__c.Name}
+
+Please click on the link below to review and approve the request.
+
+User Story Link:
+
+{!MICO_User_Story__c.Link}
+
+
+
+
+
+Many thanks,
+
+{!MICO_User_Story__c.Submitter__c}</textOnly>
+    <type>html</type>
+</EmailTemplate>

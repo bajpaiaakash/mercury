@@ -1,0 +1,625 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Object used to drive the Mercury Web Service RSVP and HCP Information Package logic.  Determines the modals that are displayed based upon the multiple scenarios for a HCP using the Web Service and interacting with Meetings : MERC : Created on 05/12/2014 by Oliver Dunford, Mavens Consulting</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Account_Record_Type_MERC__c</fullName>
+        <description>Used to help organise and show the fields that make up the specific Key, used to generate the Key in part. Not used to lookup and return the values, only the Key is used for this. Oliver Dunford 12th May 2014.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to help organise and show the fields that make up the specific Key, used to generate the Key in part.</inlineHelpText>
+        <label>Account Record Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Employee</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HCP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Air_Required_MERC__c</fullName>
+        <description>Used to help organise and show the fields that make up the specific Key, used to generate the Key in part. Not used to lookup and return the values, only the Key is used for this. Oliver Dunford 12th May 2014.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to help organise and show the fields that make up the specific Key, used to generate the Key in part.</inlineHelpText>
+        <label>Air Required</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Country_MERC__c</fullName>
+        <description>Used to help organise and show the fields that make up the specific Key, used to generate the Key in part. Not used to lookup and return the values, only the Key is used for this. Oliver Dunford 12th May 2014.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to help organise and show the fields that make up the specific Key, used to generate the Key in part.</inlineHelpText>
+        <label>Country</label>
+        <picklist>
+            <picklistValues>
+                <fullName>GB</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Hotel_Required_MERC__c</fullName>
+        <description>Used to help organise and show the fields that make up the specific Key, used to generate the Key in part. Not used to lookup and return the values, only the Key is used for this. Oliver Dunford 12th May 2014.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to help organise and show the fields that make up the specific Key, used to generate the Key in part.</inlineHelpText>
+        <label>Hotel Required</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>InfoPack_Institutional_Notification_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>InfoPack: Step: Institutional Notification: Captures Institutional Notification Information. Oliver Dunford 12th May 2014.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>InfoPack: Step: Institutional Notification: Captures Institutional Notification Information.</inlineHelpText>
+        <label>InfoPack Institutional Notification</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>InfoPack_Payee_Information_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>InfoPack: Step: Payee Information: Captures Payee Name and Address. Oliver Dunford 12th May 2014.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>InfoPack: Step: Payee Information: Captures Payee Name and Address.</inlineHelpText>
+        <label>InfoPack Payee Information</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>InfoPack_Qualifications_Experience_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>InfoPack: Step: Qualifications: Captures the HCPs Qualifications and Experience. Oliver Dunford 12th May 2014.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>InfoPack: Step: Captures the HCPs qualifications.</inlineHelpText>
+        <label>InfoPack Qualifications &amp; Experience</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Key_Description_MERC__c</fullName>
+        <description>Used to describe the rules or use case behind the specific Key record. Oliver Dunford 12th May 2014.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to describe the rules or use case behind the specific Key record.</inlineHelpText>
+        <label>Key Description</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Key_for_Lookup_MERC__c</fullName>
+        <description>Derived from Input Criteria.  Will calculate the key for each rule.  This field is then used by the Web Service logic to lookup and display the right content based on the current state. Matched against Account and Meeting Participant &quot;Web Service Logic&quot; fields.  Oliver Dunford 12th May 2014.</description>
+        <externalId>false</externalId>
+        <formula>IF(RecordType.Name = &quot;RSVP&quot;, 
+	TEXT(Country_MERC__c) &amp; &quot;;&quot; &amp; 
+	TEXT(Participant_Record_Type_MERC__c) &amp; &quot;;&quot; &amp; 
+	TEXT(Account_Record_Type_MERC__c) &amp; &quot;;&quot; &amp; 
+	TEXT(Meeting_Record_Type_MERC__c) &amp; &quot;;&quot; &amp; 
+	TEXT(Hotel_Required_MERC__c) &amp; &quot;;&quot; &amp;  
+	TEXT(Air_Required_MERC__c) &amp; &quot;;&quot; &amp;  
+	TEXT(Transparency_Consent_Exists_MERC__c) &amp; &quot;;&quot;
+, 
+IF(RecordType.Name = &quot;HCP Info Package&quot;,
+	TEXT(Country_MERC__c) &amp; &quot;;&quot;,&quot;&quot;)
+)</formula>
+        <inlineHelpText>The actual key compared to the logged in HCP Account Mercury record and also the Meeting Participant Record for a given Meeting Registration.</inlineHelpText>
+        <label>Key for Lookup</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Key_for_Uniqueness_Check_MERC__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>Stamped via workflow to ensure the uploaded Key is unique based on input criteria. Oliver Dunford 12th May 2014.  Must be unique.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Key that is looked up to determine the correct scenario.</inlineHelpText>
+        <label>Key for Uniqueness Check</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Meeting_Record_Type_MERC__c</fullName>
+        <description>Used to help organise and show the fields that make up the specific Key, used to generate the Key in part. Oliver Dunford 12th Yay 2014.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to help organise and show the fields that make up the specific Key, used to generate the Key in part.</inlineHelpText>
+        <label>Meeting Record Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Consulting Project</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Independent Meeting</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Meeting Standard Process</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Participant_Record_Type_MERC__c</fullName>
+        <description>Used to help organise and show the fields that make up the specific Key, used to generate the Key in part.  Not used to lookup and return the values, only the Key is used for this.  Oliver Dunford 12th May 2014.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to help organise and show the fields that make up the specific Key, used to generate the Key in part.</inlineHelpText>
+        <label>Participant Record Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Delegate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Individual Sponsorship</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Provider</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>RSVP_Accommodation_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>RSVP: Step: Accommodation: Should Hotel be Required, captures the Check-In and Check-Out Dates.  Oliver Dunford 12th May 2014.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>RSVP: Step: Accommodation: Should Hotel be Required, captures the Check-In and Check-Out Dates.</inlineHelpText>
+        <label>RSVP Accommodation</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RSVP_Congress_Registration_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>RSVP: Step: Congress Registration: Registration modal should a HCP be attending an Independent Meeting. Used to capture Membership Id and Independent meeting details unique to Independent Meetings.  Oliver Dunford 12th May 2014.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>RSVP: Step: Congress Registration: Used to capture Independent Meeting Registration Information such as Membership Id for Registration.</inlineHelpText>
+        <label>RSVP Congress Registration</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RSVP_Dietary_Restrictions__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>RSVP: Step: Dietary Restrictions: Captures food and dietary restrictions. Oliver Dunford 12th May 2014.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>RSVP: Step: Dietary Restrictions: Captures any allergies or food restrictions.</inlineHelpText>
+        <label>RSVP Dietary Restrictions</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RSVP_Emergency_Contact_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>RSVP: Step: Emergency Contact: Captures Emergency Contact Information. Oliver Dunford 12th May 2014.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>RSVP: Step: Emergency Contact: Captures Emergency Contact Information</inlineHelpText>
+        <label>RSVP Emergency Contact</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RSVP_Institutional_Notification_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>RSVP: Step: Institutional Notification: Captures Institutional Notification Information for HCPs. Oliver Dunford 12th May 2014.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>RSVP: Step: Institutional Notification: Captures Institutional Notification Information for HCPs.</inlineHelpText>
+        <label>RSVP Institutional Notification</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RSVP_Institutional_Wet_Signature_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Defines whether a wet signature is required for Institutuonal Notification: MERC : Created on 21/07/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Drives the inclusion of a note on the web services indicating that a wet signature is required for Institutional Notification.  Also prevents Registration until documentation has been provided.</inlineHelpText>
+        <label>RSVP Institutional Wet Signature</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RSVP_Sponsorship_Agreement_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>RSVP: Step: Sponsorship Agreement: Captures Sponsorship Agreement Information for HCPs.  Oliver Dunford 12th May 2013.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>RSVP: Step: Sponsorship Agreement: Captures Sponsorship Agreement Information for HCPs</inlineHelpText>
+        <label>RSVP Sponsorship Agreement</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RSVP_Summary_and_Comments_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>RSVP: Step: Summary and Comments: The final summary of all populated information during the RSVP process. Oliver Dunford 12th May 2014.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>RSVP: Step: Summary and Comments: The final summary of all populated information during the RSVP process.</inlineHelpText>
+        <label>RSVP Summary and Comments</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RSVP_Transparency_Reporting_Consent_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>RSVP: Step: Transparency Reporting Consent: Captures Transparency Reporting Consent. Oliver Dunford 12th May 2014.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>RSVP: Step: Transparency Reporting Consent: Captures the Transparency Reporting Consent Information.</inlineHelpText>
+        <label>RSVP Transparency Reporting Consent</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RSVP_Travel_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>RSVP: Step: Travel: Should Travel be Required, captures Information such as preferred departure stations.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>RSVP: Step: Travel: Should Travel be Required, captures Information such as preferred departure stations.</inlineHelpText>
+        <label>RSVP Travel</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RSVP_Welcome_Privacy_Consent_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>RSVP: Step: Welcome Privacy Consent: The generic Privacy Consent Module on the Welcome tab.   Used to ensure the HCP is aware of and consents to Lilly capturing information about them for the RSVP &amp; HCP Info Package Process.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>RSVP: Step: Welcome Privacy Consent: The generic Privacy Consent Module on the Welcome Tab.</inlineHelpText>
+        <label>RSVP Welcome Privacy Consent</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Transparency_Consent_Exists_MERC__c</fullName>
+        <description>Used to help organise and show the fields that make up the specific Key, used to generate the Key in part. Not used to lookup and return the values, only the Key is used for this. Oliver Dunford 12th May 2014.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to help organise and show the fields that make up the specific Key, used to generate the Key in part.</inlineHelpText>
+        <label>Transparency Consent Exists</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <label>Web Service Logic</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Web Service Logic Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Web Service Logic</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>HCP_Info_Package_MERC</fullName>
+        <active>true</active>
+        <description>Used to organise all HCP Information Package web service tabs and according visibility.</description>
+        <label>HCP Info Package</label>
+        <picklistValues>
+            <picklist>Account_Record_Type_MERC__c</picklist>
+            <values>
+                <fullName>Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Air_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Country_MERC__c</picklist>
+            <values>
+                <fullName>DE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GB</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Hotel_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Meeting_Record_Type_MERC__c</picklist>
+            <values>
+                <fullName>Consulting Project</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Independent Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting Standard Process</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Participant_Record_Type_MERC__c</picklist>
+            <values>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delegate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Individual Sponsorship</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Provider</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Transparency_Consent_Exists_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>RSVP_MERC</fullName>
+        <active>true</active>
+        <description>Used to organise all RSVP portal tabs and according visibility.</description>
+        <label>RSVP</label>
+        <picklistValues>
+            <picklist>Account_Record_Type_MERC__c</picklist>
+            <values>
+                <fullName>Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Air_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Country_MERC__c</picklist>
+            <values>
+                <fullName>DE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GB</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Hotel_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Meeting_Record_Type_MERC__c</picklist>
+            <values>
+                <fullName>Consulting Project</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Independent Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting Standard Process</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Participant_Record_Type_MERC__c</picklist>
+            <values>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delegate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Individual Sponsorship</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Provider</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Transparency_Consent_Exists_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

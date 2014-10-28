@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>CST App Settings</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>CST App Settings</value>
+    </caseValues>
+    <fields>
+        <help><!-- Default values for Additional Details: Professional Designation (US Only) multi-select picklist --></help>
+        <label><!-- Professional Designation (US Only) --></label>
+        <name>Account_Bnft_Dsgn_Cd_CUST__c</name>
+    </fields>
+    <fields>
+        <help><!-- Default values for Classification search control --></help>
+        <label><!-- Account Classification --></label>
+        <name>Account_Clsfctn_Cd_CUST__c</name>
+    </fields>
+    <fields>
+        <help><!-- Values for the Additional Details: Status multi-select picklist --></help>
+        <label><!-- Account Status Types --></label>
+        <name>Account_Status_Types_CUST__c</name>
+    </fields>
+    <fields>
+        <help><!-- Values for the Relationship Information (Affiliations): Relationship Country multi-select picklist --></help>
+        <label><!-- Affiliation Countries --></label>
+        <name>Affiliation_Countries_CUST__c</name>
+    </fields>
+    <fields>
+        <help><!-- Values for the Relationship Information (Affiliations): Priority Rank multi-select picklist --></help>
+        <label><!-- Affiliation Priority Rank --></label>
+        <name>Affiliation_Priority_Rank_Nbr_CUST__c</name>
+    </fields>
+    <fields>
+        <help><!-- Values for the Relationship Information (Affiliations): Relationship Role multi-select picklist --></help>
+        <label><!-- Affiliation Role Types --></label>
+        <name>Affiliation_Role_Types_CUST__c</name>
+    </fields>
+    <fields>
+        <help><!-- Values for the Additional Details: Alternate Id Type picklist --></help>
+        <label><!-- Alternate Id Type --></label>
+        <name>Altid_Altrnt_Id_Typ_Cd_CUST__c</name>
+    </fields>
+    <fields>
+        <help><!-- Default values for Consent Purpose Code search control --></help>
+        <label><!-- Consent Purpose Code --></label>
+        <name>Cnsnt_Prps_Cd_CUST__c</name>
+    </fields>
+    <fields>
+        <help><!-- Default values for Consent Status search control --></help>
+        <label><!-- Consent Status --></label>
+        <name>Cnsnt_Sts_Cd_CUST__c</name>
+    </fields>
+    <fields>
+        <help><!-- A comma-delimited list of Account record types used for Employees. Entries should match RecordType.DeveloperName when viewing the schema directly or the &quot;Record Type Name&quot; when viewing Record Type Detail UI.  E.g. Employee_GLBL --></help>
+        <label><!-- Employee Record Type --></label>
+        <name>Employee_Record_Type_CUST__c</name>
+    </fields>
+    <fields>
+        <help><!-- Do not edit. This field filled programmatically based on the record type names in Employee_Record_Type_CUST --></help>
+        <label><!-- Employee Record Type Id --></label>
+        <name>Employee_Record_Type_Id_CUST__c</name>
+    </fields>
+    <fields>
+        <help><!-- Do not edit. This field filled programmatically based on the record type names in HCO_Record_Types_CUST --></help>
+        <label><!-- HCO Record Type Ids --></label>
+        <name>HCO_Record_Type_Ids_CUST__c</name>
+    </fields>
+    <fields>
+        <help><!-- A comma-delimited list of Account record types used for HCOs. Entries should match RecordType.DeveloperName when viewing the schema directly or the &quot;Record Type Name&quot; when viewing Record Type Detail UI. E.g. HCO_GLBL --></help>
+        <label><!-- HCO Record Types --></label>
+        <name>HCO_Record_Types_CUST__c</name>
+    </fields>
+    <fields>
+        <help><!-- Default values for Consent Channel search control --></help>
+        <label><!-- Consent Channel --></label>
+        <name>Interaction_Channel_Type_CUST__c</name>
+    </fields>
+    <fields>
+        <help><!-- Tool should display a user message to user before allowing any access to data, the user must check a box to accept the terms before they are granted access to data --></help>
+        <label><!-- Login Message --></label>
+        <name>Login_Message_CUST__c</name>
+    </fields>
+    <fields>
+        <help><!-- Do not edit. This field filled programmatically based on the record type names in Record_Types_CUST --></help>
+        <label><!-- Record Type Ids --></label>
+        <name>Record_Type_Ids_CUST__c</name>
+    </fields>
+    <fields>
+        <help><!-- A comma-delimited list of Account record types to include for searching. Entries should match RecordType.DeveloperName when viewing the schema directly or the &quot;Record Type Name&quot; when viewing Record Type Detail UI.  E.g. HCP_GLBL,Non_HCP_GLBL,HCO_GLBL --></help>
+        <label><!-- Record Types --></label>
+        <name>Record_Types_CUST__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please type in the two character ISO value for the language, all lower case. --></help>
+        <label><!-- Settings Language --></label>
+        <name>Settings_Language_CUST__c</name>
+    </fields>
+    <fields>
+        <help><!-- Default values for Additional Details:Specialty multi-select picklist --></help>
+        <label><!-- Specialty --></label>
+        <name>Specialty_Spclty_Cd_CUST__c</name>
+    </fields>
+    <fields>
+        <help><!-- Default values for Additional Details:Only Specialty Ranks multi-select picklist --></help>
+        <label><!-- Specialty Priority Rank --></label>
+        <name>Specialty_priority_rank_CUST__c</name>
+    </fields>
+    <layouts>
+        <layout>CST App Settings Layout</layout>
+        <sections>
+            <label><!-- App Config --></label>
+            <section>App Config</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Language --></label>
+            <section>Language</section>
+        </sections>
+        <sections>
+            <label><!-- Search Fields - Additional Details --></label>
+            <section>Search Fields - Additional Details</section>
+        </sections>
+        <sections>
+            <label><!-- Search Fields - Affiliations --></label>
+            <section>Search Fields - Affiliations</section>
+        </sections>
+        <sections>
+            <label><!-- Search Fields - Consent --></label>
+            <section>Search Fields - Consent</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Refresh --></label>
+        <name>Refresh</name>
+    </webLinks>
+</CustomObjectTranslation>

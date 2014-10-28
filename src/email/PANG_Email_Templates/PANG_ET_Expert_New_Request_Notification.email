@@ -1,0 +1,9 @@
+Please note that a new Expert Request has been submitted:
+
+A New EXPERT Request of {!PANG_Request__c.RecordType} Type has been submitted.
+
+Requestor: {!PANG_Request__c.Requestor__c}
+
+Requestor Functional Area: {!PANG_Request__c.Requestor_Functional_Area__c}
+
+Link to Request:  {!PANG_Request__c.Link}

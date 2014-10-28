@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Activity</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Activities</value>
+    </caseValues>
+    <fields>
+        <help><!-- Short description, in English, about this Activity --></help>
+        <label><!-- Activity Description --></label>
+        <name>Activity_Description__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter a name that would be recognizable by Cross-Functional Team members. (ex. &quot;Dr. Barkley&apos;s Webcast: ADHD in Adults&quot;,  &quot;Cymbalta MDD Newsletter 1&quot;) --></help>
+        <label><!-- Activity Name --></label>
+        <name>Activity_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is a helptext for Actual Costs --></help>
+        <label><!-- Actual Costs --></label>
+        <name>Actual_Costs__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual Weighted eInt --></label>
+        <name>Actual_Weighted_eInt__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is a helptext for eInteractions --></help>
+        <label><!-- Actual eInt --></label>
+        <name>Actual_eInt__c</name>
+    </fields>
+    <fields>
+        <label><!-- Actual vs Estim eInt --></label>
+        <name>Actual_vs_EsteInt__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is a helptext for Affiliate --></help>
+        <label><!-- Affiliate --></label>
+        <name>Affiliate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Asset that this activity is using; the asset should be available in the asset portfolio. Leave it blank if the activity does not make use of an asset --></help>
+        <label><!-- Asset --></label>
+        <name>Assets__c</name>
+        <relationshipLabel><!-- Activities --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Channel this activity is using to distribute the content. --></help>
+        <label><!-- Channel --></label>
+        <name>Channel__c</name>
+        <relationshipLabel><!-- Activities --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- This is a helptext for # Completed/Started Deliveries --></help>
+        <label><!-- # Completed/Started Deliveries --></label>
+        <name>Completed_Deliveries__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cost Per eInt --></label>
+        <name>Cost_Per_eInt__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data Load Id --></label>
+        <name>Data_Load_Id__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is a helptext for # Deliveries --></help>
+        <label><!-- # Deliveries --></label>
+        <name>Deliveries__c</name>
+    </fields>
+    <fields>
+        <help><!-- Read-only. # of Deliveries in the activity where the Customer Satisfaction has bewen measured --></help>
+        <label><!-- Deliveries with Cust. Satisfaction --></label>
+        <name>Deliveries_with_Cust_Satisfaction__c</name>
+    </fields>
+    <fields>
+        <label><!-- Estimated Weighted eInt --></label>
+        <name>Estimated_Weighted_eInt__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is a helptext for Estimated eInt --></help>
+        <label><!-- Estimated eInt --></label>
+        <name>Estimated_eInt__c</name>
+    </fields>
+    <fields>
+        <label><!-- Indication Details --></label>
+        <name>Indication_Details__c</name>
+    </fields>
+    <fields>
+        <label><!-- # KPO Metrics Completed --></label>
+        <name>KPO_Metrics_Completed__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is a helptext for # KPO Metrics --></help>
+        <label><!-- # KPO Metrics --></label>
+        <name>KPO_Metrics__c</name>
+    </fields>
+    <fields>
+        <help><!-- Read-only. Average of the Normalized Value of the KPO metrics defined for this activity that have been meassured --></help>
+        <label><!-- KPO Result --></label>
+        <name>KPO_Result__c</name>
+    </fields>
+    <fields>
+        <label><!-- My Activity --></label>
+        <name>My_Activity__c</name>
+    </fields>
+    <fields>
+        <help><!-- Budget reserved to run the activity --></help>
+        <label><!-- Planned Cost --></label>
+        <name>Planned_Cost__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date when the activity is planned to finalize. In the case on an email consider 15 days after being sent, for a website could be several months after being launched…) --></help>
+        <label><!-- Planned End Date --></label>
+        <name>Planned_End_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date when the activity has to be executed. Leave it blank if the activity is included after the brand plan was created and agreed; in that case the activity is considered as Not Planned --></help>
+        <label><!-- Planned Start Date --></label>
+        <name>Planned_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Planned Weighted eInt --></label>
+        <name>Planned_Weighted_eInt__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is a helptext for Planned eInt --></help>
+        <label><!-- Planned eInt --></label>
+        <name>Planned_eInt__c</name>
+    </fields>
+    <fields>
+        <help><!-- Choose from the list of programs in the lookup table the one this activity belongs to --></help>
+        <label><!-- Program --></label>
+        <name>Program__c</name>
+        <relationshipLabel><!-- Activities --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- This is a helptext for Rate Planned eInt Q1 --></help>
+        <label><!-- Rate Planned eInt Q1 --></label>
+        <name>Rate_Planned_eInt_Q1__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is a helptext for Rate Planned eInt Q2 --></help>
+        <label><!-- Rate Planned eInt Q2 --></label>
+        <name>Rate_Planned_eInt_Q2__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is a helptext for Rate Planned eInt Q3 --></help>
+        <label><!-- Rate Planned eInt Q3 --></label>
+        <name>Rate_Planned_eInt_Q3__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is a helptext for Rate Planned eInt Q4 --></help>
+        <label><!-- Rate Planned eInt Q4 --></label>
+        <name>Rate_Planned_eInt_Q4__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is a helptext for StandAlone Asset Upsert --></help>
+        <label><!-- StandAlone Asset Upsert --></label>
+        <name>StandAlone_Asset_Upsert__c</name>
+    </fields>
+    <fields>
+        <help><!-- Indicates whether any of the deliveries of this activity have started (value is Executed) or not (value remain as Not Executed) --></help>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Executed</masterLabel>
+            <translation><!-- Executed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Executed</masterLabel>
+            <translation><!-- Not Executed --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- # Unplanned Activities --></label>
+        <name>Unplanned_Activities__c</name>
+    </fields>
+    <fields>
+        <label><!-- # Unplanned Executed Activities --></label>
+        <name>Unplanned_Executed_Activities__c</name>
+    </fields>
+    <fields>
+        <help><!-- Read-only. Cost per Interaction obtained for this activity. It divides the Actual cost of the activity by the # of actual eInteractions --></help>
+        <label><!-- eInt Cost --></label>
+        <name>eInt_Cost__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of Executed Activities --></label>
+        <name>of_Executed_Activities__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of Planned Activities --></label>
+        <name>of_Planned_Activities__c</name>
+    </fields>
+    <layouts>
+        <layout>Assets/Activity Layout</layout>
+        <sections>
+            <label><!-- Activity Name --></label>
+            <section>Activity Name</section>
+        </sections>
+        <sections>
+            <label><!-- Asset Details --></label>
+            <section>Asset Details</section>
+        </sections>
+        <sections>
+            <label><!-- Cost Details --></label>
+            <section>Cost Details</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Follow-Up Information --></label>
+            <section>Follow-Up Information</section>
+        </sections>
+        <sections>
+            <label><!-- Plan Information --></label>
+            <section>Plan Information</section>
+        </sections>
+        <sections>
+            <label><!-- eInteraction Details --></label>
+            <section>eInteraction Details</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Program should have atleast one Brand Indication associated before they can be associated to Activity --></errorMessage>
+        <name>ACED_Program_Should_have_Indications</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please select a Channel --></errorMessage>
+        <name>Channel_Selection</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- End date cannot be lesser than start date --></errorMessage>
+        <name>EndDateNotLessStartDate</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Start and end dates should match the program year --></errorMessage>
+        <name>StartDateAndEndOfProgram</name>
+    </validationRules>
+</CustomObjectTranslation>

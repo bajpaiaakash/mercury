@@ -1,0 +1,53 @@
+<apex:page showHeader="false" cache="false" Controller="IRIS_CountrySearchController"
+           sidebar="false" id="myCountryPopupPage">
+<script>
+     
+    var winMain=window.opener;
+    if (null==winMain)
+    {
+       winMain=window.parent.opener;
+    } 
+    
+    function sendBackResponse(countryIds, countryNames)
+    {
+        //alert('Selected Country Ids : ' + countryIds);
+        //alert('Selected Country Names : ' + countryNames);
+        winMain.sendCountryInfo(countryIds, countryNames);
+    }
+        
+    function cancelWindow()
+    {
+        winMain.cancelResponsePopup();
+    }
+
+
+    </script>
+    
+    <apex:outputPanel id="errorDisp">
+        <apex:pageMessages />
+    </apex:outputPanel>
+    
+    <apex:form id="myPopupForm" rendered="{!lstCounWrapp != null}">
+
+        <apex:pageBlock tabStyle="IRIS_Submission__c" id="myPageBlockSec">
+        
+            <apex:pageBlockButtons id="myPageBlockButtons">
+                <apex:commandButton action="{!saveResponse}" id="mySelectButton" value="{!$Label.Iriss_Select_Button}" 
+                                        onComplete="sendBackResponse('{!selectedCountryIds}' , '{!selectedCountryNames}');"/>
+                <apex:commandButton id="myCancel" value="{!$Label.Iriss_Cancel}" onclick="cancelWindow()" immediate="true"/>
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockSection showHeader="false" id="myPageBlockSec" columns="1" collapsible="false">
+            
+                <apex:pageBlockTable value="{!lstCounWrapp}" var="countryWrapper" columns="2">
+                    <apex:column > 
+                        <apex:inputCheckbox value="{!countryWrapper.isSelected}"/>
+                    </apex:column>
+                    <apex:column > 
+                        <apex:outputField value="{!countryWrapper.country.name}"/>
+                    </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>Meeting_MERC__c.Formatted_Name_MERC__c</field>
+    </columns>
+    <columns>
+        <field>Meeting_MERC__c.Type_MERC__c</field>
+    </columns>
+    <columns>
+        <field>Meeting_MERC__c.Meeting_Owner_MERC__c</field>
+    </columns>
+    <columns>
+        <field>Meeting_MERC__c.Event_Country_MERC__c</field>
+    </columns>
+    <columns>
+        <field>Meeting_MERC__c.City_of_Meeting_MERC__c</field>
+    </columns>
+    <columns>
+        <field>Meeting_MERC__c.Start_Date_Meeting_Time_Zone_MERC__c</field>
+    </columns>
+    <columns>
+        <field>Meeting_MERC__c.End_Date_Meeting_Time_Zone_MERC__c</field>
+    </columns>
+    <columns>
+        <field>Meeting_MERC__c.Number_of_Expected_Non_HCP_MERC__c</field>
+    </columns>
+    <columns>
+        <field>Meeting_MERC__c.Planned_Attendees_MERC__c</field>
+    </columns>
+    <columns>
+        <field>Meeting_MERC__c.Confirmed_Attendees_MERC__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <description>R-0035; R-0050: A summary of Meetings by Meeting Status.</description>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Meeting_MERC__c.Meeting_Status_MERC__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>All Meetings</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Meeting_MERC__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Meeting_MERC__c.Date_to_Send_Invitations_MERC__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

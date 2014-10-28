@@ -1,0 +1,13 @@
+{!PANG_Request__c.OwnerFullName}
+
+The following request requires your attention to assign Resources for Validation.
+
+Link to Request: {!PANG_Request__c.Link}
+
+Request Name: {!PANG_Request__c.Name}
+
+Requestor: {!PANG_Request__c.Requestor__c}
+
+Request Status: {!PANG_Request__c.Request_Status__c}
+
+Request Sub-Status: {!PANG_Request__c.Request_Sub_Status__c}

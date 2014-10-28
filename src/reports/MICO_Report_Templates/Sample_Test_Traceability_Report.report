@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>RowCount</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA1</developerName>
+        <downGroupingContext>MICO_User_Story__c$Allocated_Sprint__c</downGroupingContext>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>No of Test Scripts</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <buckets>
+        <bucketType>text</bucketType>
+        <developerName>BucketField_9875072</developerName>
+        <masterLabel>Test Script</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <sourceColumnName>MICO_User_Story__c.MICO_Test_Templates__r$Title__c</sourceColumnName>
+        <useOther>false</useOther>
+    </buckets>
+    <columns>
+        <field>MICO_User_Story__c$App__c</field>
+    </columns>
+    <columns>
+        <field>MICO_User_Story__c$Project__c</field>
+    </columns>
+    <columns>
+        <field>MICO_User_Story__c.MICO_Test_Templates__r$Name</field>
+    </columns>
+    <columns>
+        <field>MICO_User_Story__c.MICO_Test_Templates__r$Approval_Status__c</field>
+    </columns>
+    <columns>
+        <field>MICO_User_Story__c.MICO_Test_Templates__r.MICO_Test__r$Name</field>
+    </columns>
+    <columns>
+        <field>MICO_User_Story__c.MICO_Test_Templates__r.MICO_Test__r$Approval_Status__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <description>Template to trace Test Scripts and Test Executions with User Stories</description>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>MICO_User_Story__c$Allocated_Sprint__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>MICO_User_Story__c$Approval_Status__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>MICO_User_Story__c$Name</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Sample: Test Traceability Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>MICO_User_Stories_with_Test_Scripts_and_Test_Exec__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>MICO_User_Story__c$MICO_Business_Quality_Approval_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,131 @@
+<apex:page showheader="false" sidebar="false" standardStylesheets="false">
+    
+    <apex:composition template="LPAD_Template">
+        
+        <apex:define name="body">
+            <div class="container-fluid">
+                <div class="row margin_right_0">
+                
+                    <!-- start web view -->
+                    <div class="adBanner img-responsive col-lg-12 col-md-12 hidden-xs hidden-sm">
+                        <img class="center-block logo_info_margintop" src="{!URLFOR($Resource.LPAD_Assets, 'images/landing/illustration-1.png')}" alt="Cirrus logo" />
+                        <h1 class="font_for_headings font_size_h1 text-center text_margintop letter_spacing">
+                            {!$Label.LPAD_InformationPage_Title}
+                        </h1>
+                        <p class="margin_paragraph text-center text_margintop text_marginbottom fonts_p">
+                            {!$Label.LPAD_InformationPage_Description}
+                        </p>
+                        <br />
+                    </div>
+                    <!--end web view -->
+                    
+                    
+                    <!--start mobile header -->
+                    <div class="adBanner img-responsive  hidden-lg hidden-md col-sm-12 col-xs-12">
+                        <img class="center-block logo_margintop_xs" src="{!URLFOR($Resource.LPAD_Assets, 'images/landing/illustration-1-xs.png')}" />
+                        <h1 class="font_for_headings text-center text_margintop_xs letter_spacing_xs">
+                            {!$Label.LPAD_InformationPage_Title}
+                        </h1>
+                        <p class="margin_paragraph_992 text_margintop_xs text_marginbottom_xs text-center fonts_p hidden-lg hidden-md">
+                            {!$Label.LPAD_InformationPage_Description}
+                        </p>
+                        <br />
+                    </div>
+                    <!--end mobile header -->
+    
+                </div>
+                <div class="row margin_right_0 hidden-lg hidden-md">
+                    <div>
+                        <div id="first_arrow" class="full_circle text-center margin_left_circle_xs col-sm-offset-6 col-sm-2 col-xs-2">
+                            <a href="#scroll_to">
+                                <span class="chevron_down_color img-responsive">
+                                    <img class="" src="{!URLFOR($Resource.LPAD_Assets, 'images/landing/arrow.png')}" />
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="row margin_right_0 hidden-xs hidden-sm">
+                    <div>
+                        <div id="first_arrow" class="full_circle text-center col-lg-offset-6 col-lg-2 col-lg-offset-6 margin_left_circle col-md-offset-6 col-md-2 col-md-offset-6">
+                            <a href="#scroll_to">
+                                <span class="chevron_down_color img-responsive">
+                                    <img class="" src="{!URLFOR($Resource.LPAD_Assets, 'images/landing/arrow.png')}" />
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            
+    
+            <div class="container-fluid" id="scroll_to">
+                <div class="row hidden-xs hidden-sm margin_right_0">
+                    <div class="padding_right_0">
+                        <div class="padding_between_rows center_layout1">
+                            <div class="center_layout2 space_bet_rowItems paddingRight_100">
+                                <h2 class="font_for_headings">
+                                    {!$Label.LPAD_Header_Menu_Cirrus_Process}
+                                </h2>
+                           
+                           
+                                <a href="{!$Page.LPAD_CirrusProcessPage}">
+                                    <img class="img-responsive center-block hidden-xs hidden-sm" src="{!URLFOR($Resource.LPAD_Assets, 'images/landing/PROCESS-LG.png')}" />
+                                </a>
+                            </div>  
+                       
+                            <div class="space_bet_rowItems center_layout2 paddingLeft_100">
+                                <h2 class="font_for_headings">
+                                    {!$Label.LPAD_Header_Menu_Success_Stories}
+                                </h2>
+                            
+                                 <a href="{!$Page.LPAD_SuccessStoriesPage}">
+                                    <img class="img-responsive center-block hidden-xs hidden-sm" src="{!URLFOR($Resource.LPAD_Assets, 'images/landing/SS-LG.png')}" />
+                                 </a>
+                            </div> 
+                        </div> 
+                    </div>
+                </div> 
+                
+                <!-- Row for XS starts-->
+                <div class="row hidden-lg hidden-md background_white margin_right_0">
+                    <div class="col-sm-offset-2 col-sm-3 col-xs-offset-1 col-xs-5 padding_right_0">
+                        <div class="row_padding_bottom_xs">
+                            <div class="text-center space_bet_rowItems_xs">
+                                <h4 class="font_for_headings hidden-lg hidden-md">
+                                    {!$Label.LPAD_Header_Menu_Cirrus_Process}
+                                </h4>
+                            </div> 
+                            <div>
+                                <a href="{!$Page.LPAD_CirrusProcessPage}">
+                                    <img class="img-responsive center-block hidden-lg hidden-md" src="{!URLFOR($Resource.LPAD_Assets, 'images/landing/PROCESS.png')}" />
+                                </a>
+                            </div>  
+                         
+                        </div>
+                    </div>
+                    <div class="col-sm-offset-2 col-sm-3 col-xs-5 padding_right_0">
+                        <div class="row_padding_bottom_xs">
+                            <div class="text-center space_bet_rowItems_xs">
+                                
+                                <h4 class="font_for_headings hidden-lg hidden-md">
+                                    {!$Label.LPAD_Header_Menu_Success_Stories}
+                                </h4>
+                            </div> 
+                             <div>
+                                 <a href="{!$Page.LPAD_SuccessStoriesPage}">
+                                   
+                                    <img class="img-responsive center-block hidden-lg hidden-md" src="{!URLFOR($Resource.LPAD_Assets, 'images/landing/SS.png')}" />
+                                 </a>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+                <!--end of row for xs-->
+    
+            </div>
+        </apex:define>
+        
+    </apex:composition>
+</apex:page>

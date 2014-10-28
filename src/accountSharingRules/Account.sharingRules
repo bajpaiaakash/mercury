@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AccountSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <criteriaBasedRules>
+        <fullName>MERC_Lilly_Business_Affiliates</fullName>
+        <sharedTo>
+            <territoryAndSubordinates>CMS_Global</territoryAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Lilly Affiliate Business</value>
+        </criteriaItems>
+        <accountAccessLevel>Read</accountAccessLevel>
+        <caseAccessLevel>None</caseAccessLevel>
+        <contactAccessLevel>Read</contactAccessLevel>
+        <description>Shares Lilly Affiliates as read-only down the Territory Hierarchy for Mercury users.</description>
+        <name>MERC_Meetings_CMS_Local</name>
+        <opportunityAccessLevel>None</opportunityAccessLevel>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>MERC_Vendor_CMS_Access</fullName>
+        <sharedTo>
+            <group>MERC_Meetings_CMS_Local</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Vendor</value>
+        </criteriaItems>
+        <accountAccessLevel>Edit</accountAccessLevel>
+        <caseAccessLevel>None</caseAccessLevel>
+        <contactAccessLevel>Edit</contactAccessLevel>
+        <description>Opens up Read/Write access for Vendors to CMS Cork and CMS Local.</description>
+        <name>MERC_Vendor_CMS_Access</name>
+        <opportunityAccessLevel>None</opportunityAccessLevel>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>MERC_Vendor_CMS_Cork_Access</fullName>
+        <sharedTo>
+            <group>MERC_Meetings_CMS_Cork</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Vendor</value>
+        </criteriaItems>
+        <accountAccessLevel>Edit</accountAccessLevel>
+        <caseAccessLevel>None</caseAccessLevel>
+        <contactAccessLevel>Edit</contactAccessLevel>
+        <description>Opens read/write access to Vendors for CMS Cork.</description>
+        <name>MERC_Vendor_CMS_Cork_Access</name>
+        <opportunityAccessLevel>None</opportunityAccessLevel>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>MERC_Vendors</fullName>
+        <sharedTo>
+            <territoryAndSubordinates>Zone_2</territoryAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Vendor</value>
+        </criteriaItems>
+        <accountAccessLevel>Read</accountAccessLevel>
+        <caseAccessLevel>None</caseAccessLevel>
+        <contactAccessLevel>Read</contactAccessLevel>
+        <description>Gives read-only access to Vendors across the Zone 2 and Subordinate Territories.</description>
+        <name>MERC_Vendors</name>
+        <opportunityAccessLevel>None</opportunityAccessLevel>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>PANG_RWE_Accounts</fullName>
+        <sharedTo>
+            <group>PANG_RWE_Account_Share</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>RWE Account</value>
+        </criteriaItems>
+        <accountAccessLevel>Edit</accountAccessLevel>
+        <caseAccessLevel>None</caseAccessLevel>
+        <contactAccessLevel>Edit</contactAccessLevel>
+        <name>RWE Accounts</name>
+        <opportunityAccessLevel>None</opportunityAccessLevel>
+    </criteriaBasedRules>
+</AccountSharingRules>

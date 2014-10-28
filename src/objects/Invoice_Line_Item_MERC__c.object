@@ -1,0 +1,680 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Object to store invoice line item information, rolls up to Invoice header information, Integrates with SAP for HCP Payments : MERC : Created on 09/27/2013 by Katy Lorenti, Mavens Consulting</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fieldSets>
+        <fullName>Invoice_Clone_Field_Set</fullName>
+        <description>Used in the MERC_InvoiceCreditNoteController to indicate the fields that should be cloned to the invoice line items</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Amount_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Consulting_Amount_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Cost_Element_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SystemModstamp</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>VAT_Rate_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>VAT_Description_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Unit_Price_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Tax_Amount_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>RecordTypeId</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Quantity_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Payment_Required_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Mercury_External_Id_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>LastModifiedDate</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>LastModifiedById</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Invoice_Cost_Center_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Invoice_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Cost_Element_SAP_Code_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CreatedById</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CreatedDate</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CurrencyIsoCode</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>IsDeleted</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Description_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Hours_of_Service_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Invoice Clone Field Set</label>
+    </fieldSets>
+    <fields>
+        <fullName>Amount_MERC__c</fullName>
+        <description>Amount of Line Item
+Created by John A Adams 10/31/2013</description>
+        <externalId>false</externalId>
+        <label>Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Consulting_Amount_MERC__c</fullName>
+        <description>Used to capture a manually typed value for consulting projects.  Oliver Dunford 13th Dec.</description>
+        <externalId>false</externalId>
+        <label>Consulting Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Consulting_Amount_Rollup_MERC__c</fullName>
+        <description>Shadow field for rolling up Consulting Amount without currency issues.</description>
+        <externalId>false</externalId>
+        <label>Consulting Amount Rollup</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Cost_Element_MERC__c</fullName>
+        <description>Selection of cost elements to select for Invoice items 
+Created by John A Adams 10/15/2013
+Updated picklist values 02/17/2014, KLorenti</description>
+        <externalId>false</externalId>
+        <label>Cost Element</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Delegate Out of Pocket Registration Fees (where paid by HCP in error) - 6040</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Delegate Out of Pocket Travel Expenses - 3940</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Provider Fees - 4865</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Provider Out of Pocket Travel Expenses - 4866</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Food &amp; Beverage Expenses (non-reportable) - 4167</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Misc non-reportable Expenses - 4864</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Provider Fees Local - 4868</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Provider Contract Labor Local - 4869</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Provider Fees HCO Contract Local - 29010042</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Provider Mileage - 4867</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Provider Expenses Tax Non-Deductible - 4863</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Start-up Meeting Investigator expenses - 4870</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Delegate Expenses Ind Mtg with Lilly - 3941</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Delegate Expenses Ind Mtg non Lilly Tax non-deductible - 3942</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Delegate Out of Pocket Reg Fee Tax non-deductible - 6041</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Food &amp; Beverage Expenses Ind Mtg with Lilly – 4168</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Food &amp; Beverage Expenses Ind Mtg non Lilly – 4169</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Misc non reportable Expenses Ind Mtg with Lilly– 4861</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Misc non reportable Expenses Tax non-deductible– 4862</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Cost_Element_SAP_Code_MERC__c</fullName>
+        <description>Returns the cost element digits after the dash within each picklist value (&quot; - &quot;).   These can vary in length between 4 and 7 digits  : MERC : Created on 01/26/2013 by Katy Lorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>RIGHT(TEXT(Cost_Element_MERC__c), 
+	((LEN(TEXT(Cost_Element_MERC__c)) - FIND(&quot; - &quot;, TEXT(Cost_Element_MERC__c)) - 2)
+	)
+)</formula>
+        <label>Cost Element SAP Code MERC</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Description_MERC__c</fullName>
+        <description>Line Item Description
+Created by John A Adams 10/4/2013</description>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Hours_of_Service_MERC__c</fullName>
+        <description>Retrieves total hours of service from HPC Contract
+Created by John A Adams 10/21/2013</description>
+        <externalId>false</externalId>
+        <formula>IF (ISPICKVAL(Cost_Element_MERC__c, &quot;Speaking Services - 9078&quot;), 
+
+ (Invoice_MERC__r.Meeting_Participant_MERC__r.Total_Hours_of_Service_MERC__c ),
+
+  Null )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Hours of Service</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Internal_Order_Number_MERC__c</fullName>
+        <description>Pulled down from the Invoice record, sent through to SAP via XML : MERC : Created on 24/07/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Invoice_MERC__r.Internal_Order_Number_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Internal Order Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Invoice_Cost_Center_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>Invoice_MERC__r.Cost_Center_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Invoice Cost Center</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Invoice_MERC__c</fullName>
+        <description>Master-Detail relationship to Invoice object. Created 9/28/2013 by KLorenti</description>
+        <externalId>false</externalId>
+        <label>Invoice</label>
+        <referenceTo>Invoice_MERC__c</referenceTo>
+        <relationshipLabel>Invoice Line Items</relationshipLabel>
+        <relationshipName>Invoice_Line_Items</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Mercury_External_Id_MERC__c</fullName>
+        <description>Generated by Workflow used for Integration with External Systems.
+Created by J Adams 12/10/2013</description>
+        <externalId>true</externalId>
+        <label>Mercury External Id</label>
+        <length>150</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Payment_Required_MERC__c</fullName>
+        <description>Displays Payment Required value from Account Profile. Created 01/22/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>TEXT(Invoice_MERC__r.Payee_MERC__r.Account_MERC__r.Payment_Required_MERC__c)</formula>
+        <label>Payment Required</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quantity_MERC__c</fullName>
+        <description>Quantity of line items
+Created by John A Adams 10/27/2013</description>
+        <externalId>false</externalId>
+        <label>Quantity</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tax_Amount_MERC__c</fullName>
+        <description>Tax Amount (currency, calc based on value &amp; tax rate) 
+Created by John A Adams 10/4/2013</description>
+        <externalId>false</externalId>
+        <formula>IF( Amount_MERC__c &lt;&gt; 0, Amount_MERC__c *(VAT_Rate_MERC__c / 100),  
+  (Consulting_Amount_MERC__c *(VAT_Rate_MERC__c / 100)) + 
+  (Quantity_MERC__c *  Unit_Price_MERC__c *(VAT_Rate_MERC__c / 100))
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Tax Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Unit_Price_MERC__c</fullName>
+        <description>Unit Price of Line Items.
+Created by John A Adams 10/27/2013</description>
+        <externalId>false</externalId>
+        <label>Unit Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>VAT_Description_MERC__c</fullName>
+        <description>Description of VAT rate
+Created by John A Adams 10/24/2013</description>
+        <externalId>false</externalId>
+        <label>VAT Description</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>VAT_Rate_MERC__c</fullName>
+        <description>Tax Rate Percentage
+Created by John A Adams 10/4/2013</description>
+        <externalId>false</externalId>
+        <label>VAT Rate %</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Invoice Line Item</label>
+    <nameField>
+        <displayFormat>IL-{000000}</displayFormat>
+        <label>Invoice Line Item #</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Invoice Line Items</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Consulting_Project_MERC</fullName>
+        <active>true</active>
+        <description>To represent consulting engagements.  The amount is entered manually based on the invoiced amount in these cases.</description>
+        <label>Consulting Project</label>
+        <picklistValues>
+            <picklist>Cost_Element_MERC__c</picklist>
+            <values>
+                <fullName>Service Provider Contract Labor Local - 4869</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Provider Fees - 4865</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Provider Fees HCO Contract Local - 29010042</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Provider Fees Local - 4868</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Contracted_Services_MERC</fullName>
+        <active>true</active>
+        <description>Services provided by HCP or Non-HCP under contract</description>
+        <label>Contracted Services</label>
+        <picklistValues>
+            <picklist>Cost_Element_MERC__c</picklist>
+            <values>
+                <fullName>Service Provider Contract Labor Local - 4869</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Provider Fees - 4865</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Provider Fees HCO Contract Local - 29010042</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Provider Fees Local - 4868</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Other_Items</fullName>
+        <active>true</active>
+        <description>Other items for reimbursements</description>
+        <label>Other Items</label>
+        <picklistValues>
+            <picklist>Cost_Element_MERC__c</picklist>
+            <values>
+                <fullName>Delegate Expenses Ind Mtg non Lilly Tax non-deductible - 3942</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delegate Expenses Ind Mtg with Lilly - 3941</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delegate Out of Pocket Reg Fee Tax non-deductible - 6041</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delegate Out of Pocket Registration Fees %28where paid by HCP in error%29 - 6040</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Delegate Out of Pocket Travel Expenses - 3940</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food %26 Beverage Expenses %28non-reportable%29 - 4167</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food %26 Beverage Expenses Ind Mtg non Lilly %E2%80%93 4169</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food %26 Beverage Expenses Ind Mtg with Lilly %E2%80%93 4168</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Misc non reportable Expenses Ind Mtg with Lilly%E2%80%93 4861</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Misc non reportable Expenses Tax non-deductible%E2%80%93 4862</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Misc non-reportable Expenses - 4864</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Provider Expenses Tax Non-Deductible - 4863</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Provider Mileage - 4867</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Provider Out of Pocket Travel Expenses - 4866</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Start-up Meeting Investigator expenses - 4870</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>Invoice_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Description_MERC__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Invoice_MERC__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Description_MERC__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Invoice_MERC__c</searchFilterFields>
+        <searchFilterFields>Description_MERC__c</searchFilterFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <fullName>Adding_Invoice_Line_Item</fullName>
+        <active>true</active>
+        <description>Prevents an Invoice Line Item being added unless services have been rendered or partial payment has been approved. Created by John A Adams 2/5/2014</description>
+        <errorConditionFormula>(
+  (
+   (Invoice_MERC__r.Meeting_Participant_MERC__r.RecordType.Name = &quot;Consulting&quot;) ||
+    (Invoice_MERC__r.Meeting_Participant_MERC__r.RecordType.Name = &quot;Service Provider&quot;)
+   )
+&amp;&amp;
+ (
+  ISPICKVAL (Invoice_MERC__r.Meeting_Participant_MERC__r.Services_Rendered_MERC__c, &quot;&quot;) ||
+  ISPICKVAL (Invoice_MERC__r.Meeting_Participant_MERC__r.Services_Rendered_MERC__c, &quot;NO&quot;)
+ )
+)</errorConditionFormula>
+        <errorMessage>The Meeting Participant must have rendered services</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Invoice_Line_Item_Currency</fullName>
+        <active>true</active>
+        <description>Invoice Line Item Currency must match that of Invoice.  Created by J Adams July 4, 2014</description>
+        <errorConditionFormula>TEXT(CurrencyIsoCode) &lt;&gt;  TEXT(Invoice_MERC__r.CurrencyIsoCode)</errorConditionFormula>
+        <errorDisplayField>CurrencyIsoCode</errorDisplayField>
+        <errorMessage>The currency of the line item must match that of the Invoice.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Prevent_Invoice_Line_Item_Activity</fullName>
+        <active>true</active>
+        <description>Prevent a new Invoice Line Item record being created or an existing record edited when the Invoice has been submitted for Payment.</description>
+        <errorConditionFormula>ISPICKVAL(Invoice_MERC__r.Submit_for_Payment_MERC__c, &quot;Yes&quot;)</errorConditionFormula>
+        <errorMessage>The Invoice has already been submitted for payment and no changes can be made.</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>New_Line_Item</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Line Item</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/apex/GLBL_NewButtonPrepopulator?cObj=Invoice_Line_Item_MERC__c&amp;cObjURL={!URLENCODE(URLFOR($Action.Invoice_Line_Item_MERC__c.New))}&amp;cf_Invoice_MERC__c={!Invoice_MERC__c.Name}&amp;
+cf_Invoice_MERC__c_lkid={!Invoice_MERC__c.Id}&amp;cObjParent=Invoice_MERC__c&amp;cObjParentId={!Invoice_MERC__c.Id}&amp;cf_CurrencyIsoCode={!Invoice_MERC__c.CurrencyIsoCode}</url>
+    </webLinks>
+</CustomObject>

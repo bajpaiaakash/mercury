@@ -1,0 +1,2950 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Fax Phone Number</value>
+        </caseValues>
+        <name>fax_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Work Phone Number</value>
+        </caseValues>
+        <name>phone_account</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <help><!-- Please indicate your most relevant degrees/certifications: select all that applies. Note that Non-MD Health care professional includes: nurse, pharmacist, psychologist, dietician --></help>
+        <label><!-- Academic Qualifications --></label>
+        <name>Academic_Qualifications_MERC__c</name>
+        <picklistValues>
+            <masterLabel>MD Specialist</masterLabel>
+            <translation><!-- MD Specialist --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MD non- specialist or GP</masterLabel>
+            <translation><!-- MD non- specialist or GP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MSc, BSc</masterLabel>
+            <translation><!-- MSc, BSc --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non-MD Health care professional</masterLabel>
+            <translation><!-- Non-MD Health care professional --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PhD non-MD</masterLabel>
+            <translation><!-- PhD non-MD --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <name>AccountSource</name>
+        <picklistValues>
+            <masterLabel>Advertisement</masterLabel>
+            <translation><!-- Advertisement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Employee Referral</masterLabel>
+            <translation><!-- Employee Referral --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>External Referral</masterLabel>
+            <translation><!-- External Referral --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partner</masterLabel>
+            <translation><!-- Partner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Public Relations</masterLabel>
+            <translation><!-- Public Relations --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Seminar - Internal</masterLabel>
+            <translation><!-- Seminar - Internal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Seminar - Partner</masterLabel>
+            <translation><!-- Seminar - Partner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trade Show</masterLabel>
+            <translation><!-- Trade Show --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web</masterLabel>
+            <translation><!-- Web --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Word of mouth</masterLabel>
+            <translation><!-- Word of mouth --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Account Add Reason --></label>
+        <name>Account_Add_Reason_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account_Auto_Number --></label>
+        <name>Account_Auto_Number_GLBL__c</name>
+    </fields>
+    <fields>
+        <help><!-- Have you participated in advisory boards? --></help>
+        <label><!-- Advisory Board Experience --></label>
+        <name>Advisory_Board_Experience_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Committed money, but service not yet performed. Cap is released in case of cancellation. --></help>
+        <label><!-- Allocated CAP --></label>
+        <name>Allocated_CAP_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Alternate Name --></label>
+        <name>Altrnt_Nm_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Annual CAP Limit --></label>
+        <name>Annual_CAP_Limit_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Indicates that this record is related to a non-hcp meeting participant and should be anonymised (via workflows) --></help>
+        <label><!-- Anonymise Record --></label>
+        <name>Anonymise_Record_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Approval --></label>
+        <name>Approval_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Need Approval</masterLabel>
+            <translation><!-- Need Approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Approved</masterLabel>
+            <translation><!-- Not Approved --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Do you have current or previous experience at a teaching institution as Associate or Full Professor? --></help>
+        <label><!-- Associate or Full Professor --></label>
+        <name>Associate_or_Full_Professor_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Benefit Designation --></label>
+        <name>Bnft_Dsgn_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Business Name 2 --></label>
+        <name>Bsns_Nm2_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Business Name 3 --></label>
+        <name>Bsns_Nm3_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- CAP Usage Note --></label>
+        <name>CAP_Usage_Note_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- CODS End Date --></label>
+        <name>CODS_End_Date_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- CODS Merge --></label>
+        <name>CODS_Merge_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Rollup to assist in LOV scoping. See CST App Menu Pool object for more details. --></help>
+        <label><!-- CST App Menu Flag Affil --></label>
+        <name>CST_App_Menu_Flag_Affil_CUST__c</name>
+    </fields>
+    <fields>
+        <help><!-- Rollup to assist in LOV scoping. See CST App Menu Pool object for more details. --></help>
+        <label><!-- CST_App_Menu_Flag_AltId_CUST --></label>
+        <name>CST_App_Menu_Flag_AltId_CUST__c</name>
+    </fields>
+    <fields>
+        <help><!-- Flag for the gathering of distinct values in the identified fields. Entries must match the API name of a field on the Account. see the object CST App Menu Pool for more info. --></help>
+        <label><!-- CST App Menu Flag --></label>
+        <name>CST_App_Menu_Flag_CUST__c</name>
+        <picklistValues>
+            <masterLabel>Bnft_Dsgn_Cd_GLBL__c</masterLabel>
+            <translation><!-- Bnft_Dsgn_Cd_GLBL__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Clsfctn_Cd_GLBL__c</masterLabel>
+            <translation><!-- Clsfctn_Cd_GLBL__c --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Party_Sts_Cd_GLBL__c</masterLabel>
+            <translation><!-- Party_Sts_Cd_GLBL__c --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- CST Approver Global ID --></label>
+        <name>CST_Approver_ID_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- CST Email Stamp --></label>
+        <name>CST_Email_Stamp_CUST__c</name>
+    </fields>
+    <fields>
+        <help><!-- Set automatically by the Web Service when a HCP uploads a CV.  This should be set manually by CMS Cork should a HCP follow a paper based process and require their CV verifying. --></help>
+        <label><!-- CV Upload File Name --></label>
+        <name>CV_Upload_File_Name_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Set automatically by the Web Service if a HCP uploads their CV.  Should be set manually by CMS Cork should a HCP be following a paper based process and their CV needs uploading for verification. --></help>
+        <label><!-- CV Upload Step Complete --></label>
+        <name>CV_Upload_Step_Complete_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Check this box to update all Meeting Participant Fee calculations based on a new or updated HCP Tier.  This will only update those meetings which do not have a Status of Closed or Cancelled. --></help>
+        <label><!-- Calculate Open Meeting Fees --></label>
+        <name>Calculate_Open_Meeting_Fees_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cell Phone Country Code --></label>
+        <name>Cellular_Phone_Cntry_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <help><!-- Have you acted as the Primary Investigator in a Clinical Trial --></help>
+        <label><!-- Clinical Trial PI --></label>
+        <name>Clinical_Trial_PI_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes - 1</masterLabel>
+            <translation><!-- Yes - 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes - 2 or more</masterLabel>
+            <translation><!-- Yes - 2 or more --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Classification Code --></label>
+        <name>Clsfctn_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Classification --></label>
+        <name>Clsfctn_Desc_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Eligible Status --></label>
+        <name>Cntrct_Elgblty_Sts_Txt_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Name --></label>
+        <name>Cntrct_Nm_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Short Name --></label>
+        <name>Cntrct_Shrt_Nm_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Party Country Code --></label>
+        <name>Cntry_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Communication Preference --></label>
+        <name>Communication_Preference_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Consulting Project Paid CAP --></label>
+        <name>Consulting_Project_Paid_CAP_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Expiration Date --></label>
+        <name>Contract_Expiration_Date_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Used to capture any Contract restrictions. --></help>
+        <label><!-- Contract Limitations on Use --></label>
+        <name>Contract_Limitations_on_Use_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Signatory --></label>
+        <name>Contract_Signatory_MERC__c</name>
+        <picklistValues>
+            <masterLabel>My Institution</masterLabel>
+            <translation><!-- My Institution --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>My Legal Entity</masterLabel>
+            <translation><!-- My Legal Entity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>My Name (self)</masterLabel>
+            <translation><!-- My Name (self) --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Contract Signing Parties Step Complete --></label>
+        <name>Contract_Signing_Parties_Complete_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contracting Parties Counter --></label>
+        <name>Contracting_Parties_Counter_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cost Center --></label>
+        <name>Cost_Cntr_Nbr_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cost Center Name --></label>
+        <name>Cost_Cntr_Nm_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Count Bank Transfer --></label>
+        <name>Count_Bank_Transfer_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- # Dietary Preferences --></label>
+        <name>Count_Dietary_Preferences_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Count Tax/Invoices Info --></label>
+        <name>Count_Tax_Invoices_Info_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country Code --></label>
+        <name>Country_Code_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country for Territory Assignment CP --></label>
+        <name>Country_for_Territory_Assignment_CP__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country for Territory Assignment DI --></label>
+        <name>Country_for_Territory_Assignment_DI_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country of Residence --></label>
+        <name>Country_of_Residence_GLBL__c</name>
+        <picklistValues>
+            <masterLabel>AD</masterLabel>
+            <translation>ANDORRA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AE</masterLabel>
+            <translation>UNITED ARAB EMIRATES</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AF</masterLabel>
+            <translation>AFGHANISTAN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AG</masterLabel>
+            <translation>ANTIGUA AND BARBUDA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AI</masterLabel>
+            <translation>ANGUILLA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AL</masterLabel>
+            <translation>ALBANIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AM</masterLabel>
+            <translation>ARMENIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AO</masterLabel>
+            <translation>ANGOLA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AQ</masterLabel>
+            <translation>ANTARCTICA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AR</masterLabel>
+            <translation>ARGENTINA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AS</masterLabel>
+            <translation>AMERICAN SAMOA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AT</masterLabel>
+            <translation>AUSTRIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AU</masterLabel>
+            <translation>AUSTRALIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AW</masterLabel>
+            <translation>ARUBA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AX</masterLabel>
+            <translation>ÅLAND ISLANDS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AZ</masterLabel>
+            <translation>AZERBAIJAN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BA</masterLabel>
+            <translation>BOSNIA AND HERZEGOVINA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BB</masterLabel>
+            <translation>BARBADOS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BD</masterLabel>
+            <translation>BANGLADESH</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BE</masterLabel>
+            <translation>BELGIUM</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BF</masterLabel>
+            <translation>BURKINA FASO</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BG</masterLabel>
+            <translation>BULGARIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BH</masterLabel>
+            <translation>BAHRAIN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BI</masterLabel>
+            <translation>BURUNDI</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BJ</masterLabel>
+            <translation>BENIN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BL</masterLabel>
+            <translation>SAINT BARTHƒLEMY</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BM</masterLabel>
+            <translation>BERMUDA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BN</masterLabel>
+            <translation>BRUNEI DARUSSALAM</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BO</masterLabel>
+            <translation>BOLIVIA, PLURINATIONAL STATE OF</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BQ</masterLabel>
+            <translation>BONAIRE, SINT EUSTATIUS AND SABA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BR</masterLabel>
+            <translation>BRAZIL</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BS</masterLabel>
+            <translation>BAHAMAS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BT</masterLabel>
+            <translation>BHUTAN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BV</masterLabel>
+            <translation>BOUVET ISLAND</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BW</masterLabel>
+            <translation>BOTSWANA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BY</masterLabel>
+            <translation>BELARUS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BZ</masterLabel>
+            <translation>BELIZE</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CA</masterLabel>
+            <translation>CANADA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CC</masterLabel>
+            <translation>COCOS (KEELING) ISLANDS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CD</masterLabel>
+            <translation>CONGO, THE DEMOCRATIC REPUBLIC OF THE</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CF</masterLabel>
+            <translation>CENTRAL AFRICAN REPUBLIC</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CG</masterLabel>
+            <translation>CONGO</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CH</masterLabel>
+            <translation>SWITZERLAND</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CI</masterLabel>
+            <translation>CÔTE D&apos;IVOIRE</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CK</masterLabel>
+            <translation>COOK ISLANDS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CL</masterLabel>
+            <translation>CHILE</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CM</masterLabel>
+            <translation>CAMEROON</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CN</masterLabel>
+            <translation>CHINA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CO</masterLabel>
+            <translation>COLOMBIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CR</masterLabel>
+            <translation>COSTA RICA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CU</masterLabel>
+            <translation>CUBA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CV</masterLabel>
+            <translation>CAPE VERDE</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CW</masterLabel>
+            <translation>CURAÇAO</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CX</masterLabel>
+            <translation>CHRISTMAS ISLAND</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CY</masterLabel>
+            <translation>CYPRUS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CZ</masterLabel>
+            <translation>CZECH REPUBLIC</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DE</masterLabel>
+            <translation>GERMANY</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DJ</masterLabel>
+            <translation>DJIBOUTI</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DK</masterLabel>
+            <translation>DENMARK</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DM</masterLabel>
+            <translation>DOMINICA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DO</masterLabel>
+            <translation>DOMINICAN REPUBLIC</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DZ</masterLabel>
+            <translation>ALGERIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EC</masterLabel>
+            <translation>ECUADOR</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EE</masterLabel>
+            <translation>ESTONIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EG</masterLabel>
+            <translation>EGYPT</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EH</masterLabel>
+            <translation>WESTERN SAHARA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ER</masterLabel>
+            <translation>ERITREA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ES</masterLabel>
+            <translation>SPAIN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ET</masterLabel>
+            <translation>ETHIOPIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FI</masterLabel>
+            <translation>FINLAND</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FJ</masterLabel>
+            <translation>FIJI</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FK</masterLabel>
+            <translation>FALKLAND ISLANDS (MALVINAS)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FM</masterLabel>
+            <translation>MICRONESIA, FEDERATED STATES OF</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FO</masterLabel>
+            <translation>FAROE ISLANDS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FR</masterLabel>
+            <translation>FRANCE</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GA</masterLabel>
+            <translation>GABON</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GB</masterLabel>
+            <translation>UNITED KINGDOM</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GD</masterLabel>
+            <translation>GRENADA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GE</masterLabel>
+            <translation>GEORGIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GF</masterLabel>
+            <translation>FRENCH GUIANA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GG</masterLabel>
+            <translation>GUERNSEY</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GH</masterLabel>
+            <translation>GHANA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GI</masterLabel>
+            <translation>GIBRALTAR</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GL</masterLabel>
+            <translation>GREENLAND</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GM</masterLabel>
+            <translation>GAMBIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GN</masterLabel>
+            <translation>GUINEA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GP</masterLabel>
+            <translation>GUADELOUPE</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GQ</masterLabel>
+            <translation>EQUATORIAL GUINEA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GR</masterLabel>
+            <translation>GREECE</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GS</masterLabel>
+            <translation>SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GT</masterLabel>
+            <translation>GUATEMALA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GU</masterLabel>
+            <translation>GUAM</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GW</masterLabel>
+            <translation>GUINEA-BISSAU</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GY</masterLabel>
+            <translation>GUYANA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HK</masterLabel>
+            <translation>HONG KONG</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HM</masterLabel>
+            <translation>HEARD ISLAND AND MCDONALD ISLANDS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HN</masterLabel>
+            <translation>HONDURAS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HR</masterLabel>
+            <translation>CROATIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HT</masterLabel>
+            <translation>HAITI</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HU</masterLabel>
+            <translation>HUNGARY</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ID</masterLabel>
+            <translation>INDONESIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IE</masterLabel>
+            <translation>IRELAND</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IL</masterLabel>
+            <translation>ISRAEL</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IM</masterLabel>
+            <translation>ISLE OF MAN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IN</masterLabel>
+            <translation>INDIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IO</masterLabel>
+            <translation>BRITISH INDIAN OCEAN TERRITORY</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IQ</masterLabel>
+            <translation>IRAQ</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IR</masterLabel>
+            <translation>IRAN, ISLAMIC REPUBLIC OF</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IS</masterLabel>
+            <translation>ICELAND</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IT</masterLabel>
+            <translation>ITALY</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>JE</masterLabel>
+            <translation>JERSEY</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>JM</masterLabel>
+            <translation>JAMAICA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>JO</masterLabel>
+            <translation>JORDAN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>JP</masterLabel>
+            <translation>JAPAN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KE</masterLabel>
+            <translation>KENYA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KG</masterLabel>
+            <translation>KYRGYZSTAN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KH</masterLabel>
+            <translation>CAMBODIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KI</masterLabel>
+            <translation>KIRIBATI</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KM</masterLabel>
+            <translation>COMOROS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KN</masterLabel>
+            <translation>SAINT KITTS AND NEVIS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KP</masterLabel>
+            <translation>KOREA, DEMOCRATIC PEOPLE&apos;S REPUBLIC OF</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KR</masterLabel>
+            <translation>KOREA, REPUBLIC OF</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KW</masterLabel>
+            <translation>KUWAIT</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KY</masterLabel>
+            <translation>CAYMAN ISLANDS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KZ</masterLabel>
+            <translation>KAZAKHSTAN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LA</masterLabel>
+            <translation>LAO PEOPLE&apos;S DEMOCRATIC REPUBLIC</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LB</masterLabel>
+            <translation>LEBANON</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LC</masterLabel>
+            <translation>SAINT LUCIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LI</masterLabel>
+            <translation>LIECHTENSTEIN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LK</masterLabel>
+            <translation>SRI LANKA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LR</masterLabel>
+            <translation>LIBERIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LS</masterLabel>
+            <translation>LESOTHO</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LT</masterLabel>
+            <translation>LITHUANIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LU</masterLabel>
+            <translation>LUXEMBOURG</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LV</masterLabel>
+            <translation>LATVIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LY</masterLabel>
+            <translation>LIBYA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MA</masterLabel>
+            <translation>MOROCCO</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MC</masterLabel>
+            <translation>MONACO</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MD</masterLabel>
+            <translation>MOLDOVA, REPUBLIC OF</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ME</masterLabel>
+            <translation>MONTENEGRO</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MF</masterLabel>
+            <translation>SAINT MARTIN (FRENCH PART)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MG</masterLabel>
+            <translation>MADAGASCAR</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MH</masterLabel>
+            <translation>MARSHALL ISLANDS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MK</masterLabel>
+            <translation>MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML</masterLabel>
+            <translation>MALI</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MM</masterLabel>
+            <translation>MYANMAR</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MN</masterLabel>
+            <translation>MONGOLIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MO</masterLabel>
+            <translation>MACAO</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MP</masterLabel>
+            <translation>NORTHERN MARIANA ISLANDS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MQ</masterLabel>
+            <translation>MARTINIQUE</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MR</masterLabel>
+            <translation>MAURITANIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MS</masterLabel>
+            <translation>MONTSERRAT</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MT</masterLabel>
+            <translation>MALTA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MU</masterLabel>
+            <translation>MAURITIUS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MV</masterLabel>
+            <translation>MALDIVES</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MW</masterLabel>
+            <translation>MALAWI</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MX</masterLabel>
+            <translation>MEXICO</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MY</masterLabel>
+            <translation>MALAYSIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MZ</masterLabel>
+            <translation>MOZAMBIQUE</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NA</masterLabel>
+            <translation>NAMIBIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NC</masterLabel>
+            <translation>NEW CALEDONIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NE</masterLabel>
+            <translation>NIGER</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NF</masterLabel>
+            <translation>NORFOLK ISLAND</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NG</masterLabel>
+            <translation>NIGERIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NI</masterLabel>
+            <translation>NICARAGUA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NL</masterLabel>
+            <translation>NETHERLANDS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NO</masterLabel>
+            <translation>NORWAY</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NP</masterLabel>
+            <translation>NEPAL</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NR</masterLabel>
+            <translation>NAURU</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NU</masterLabel>
+            <translation>NIUE</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NZ</masterLabel>
+            <translation>NEW ZEALAND</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OM</masterLabel>
+            <translation>OMAN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PA</masterLabel>
+            <translation>PANAMA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PE</masterLabel>
+            <translation>PERU</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PF</masterLabel>
+            <translation>FRENCH POLYNESIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PG</masterLabel>
+            <translation>PAPUA NEW GUINEA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PH</masterLabel>
+            <translation>PHILIPPINES</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PK</masterLabel>
+            <translation>PAKISTAN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PL</masterLabel>
+            <translation>POLAND</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PM</masterLabel>
+            <translation>SAINT PIERRE AND MIQUELON</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PN</masterLabel>
+            <translation>PITCAIRN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PR</masterLabel>
+            <translation>PUERTO RICO</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PS</masterLabel>
+            <translation>PALESTINE, STATE OF</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PT</masterLabel>
+            <translation>PORTUGAL</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PW</masterLabel>
+            <translation>PALAU</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PY</masterLabel>
+            <translation>PARAGUAY</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>QA</masterLabel>
+            <translation>QATAR</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RE</masterLabel>
+            <translation>RÉUNION</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RO</masterLabel>
+            <translation>ROMANIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RS</masterLabel>
+            <translation>SERBIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RU</masterLabel>
+            <translation>RUSSIAN FEDERATION</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RW</masterLabel>
+            <translation>RWANDA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SA</masterLabel>
+            <translation>SAUDI ARABIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SB</masterLabel>
+            <translation>SOLOMON ISLANDS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SC</masterLabel>
+            <translation>SEYCHELLES</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SD</masterLabel>
+            <translation>SUDAN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SE</masterLabel>
+            <translation>SWEDEN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SG</masterLabel>
+            <translation>SINGAPORE</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SH</masterLabel>
+            <translation>SAINT HELENA, ASCENSION AND TRISTAN DA CUNHA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SI</masterLabel>
+            <translation>SLOVENIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SJ</masterLabel>
+            <translation>SVALBARD AND JAN MAYEN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SK</masterLabel>
+            <translation>SLOVAKIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SL</masterLabel>
+            <translation>SIERRA LEONE</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SM</masterLabel>
+            <translation>SAN MARINO</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SN</masterLabel>
+            <translation>SENEGAL</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SO</masterLabel>
+            <translation>SOMALIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SR</masterLabel>
+            <translation>SURINAME</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SS</masterLabel>
+            <translation>SOUTH SUDAN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ST</masterLabel>
+            <translation>SAO TOME AND PRINCIPE</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SV</masterLabel>
+            <translation>EL SALVADOR</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SX</masterLabel>
+            <translation>SINT MAARTEN (DUTCH PART)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SY</masterLabel>
+            <translation>SYRIAN ARAB REPUBLIC</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SZ</masterLabel>
+            <translation>SWAZILAND</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TC</masterLabel>
+            <translation>TURKS AND CAICOS ISLANDS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TD</masterLabel>
+            <translation>CHAD</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TF</masterLabel>
+            <translation>FRENCH SOUTHERN TERRITORIES</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TG</masterLabel>
+            <translation>TOGO</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TH</masterLabel>
+            <translation>THAILAND</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TJ</masterLabel>
+            <translation>TAJIKISTAN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TK</masterLabel>
+            <translation>TOKELAU</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TL</masterLabel>
+            <translation>TIMOR-LESTE</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TM</masterLabel>
+            <translation>TURKMENISTAN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TN</masterLabel>
+            <translation>TUNISIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TO</masterLabel>
+            <translation>TONGA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TR</masterLabel>
+            <translation>TURKEY</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TT</masterLabel>
+            <translation>TRINIDAD AND TOBAGO</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TV</masterLabel>
+            <translation>TUVALU</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TW</masterLabel>
+            <translation>TAIWAN, PROVINCE OF CHINA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TZ</masterLabel>
+            <translation>TANZANIA, UNITED REPUBLIC OF</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UA</masterLabel>
+            <translation>UKRAINE</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UG</masterLabel>
+            <translation>UGANDA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UM</masterLabel>
+            <translation>UNITED STATES MINOR OUTLYING ISLANDS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>US</masterLabel>
+            <translation>UNITED STATES</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UY</masterLabel>
+            <translation>URUGUAY</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UZ</masterLabel>
+            <translation>UZBEKISTAN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VA</masterLabel>
+            <translation>HOLY SEE (VATICAN CITY STATE)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VC</masterLabel>
+            <translation>SAINT VINCENT AND THE GRENADINES</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VE</masterLabel>
+            <translation>VENEZUELA, BOLIVARIAN REPUBLIC OF</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VG</masterLabel>
+            <translation>VIRGIN ISLANDS, BRITISH</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VI</masterLabel>
+            <translation>VIRGIN ISLANDS, U.S.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VN</masterLabel>
+            <translation>VIET NAM</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VU</masterLabel>
+            <translation>VANUATU</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WF</masterLabel>
+            <translation>WALLIS AND FUTUNA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WS</masterLabel>
+            <translation>SAMOA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>YE</masterLabel>
+            <translation>YEMEN</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>YT</masterLabel>
+            <translation>MAYOTTE</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ZA</masterLabel>
+            <translation>SOUTH AFRICA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ZM</masterLabel>
+            <translation>ZAMBIA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ZW</masterLabel>
+            <translation>ZIMBABWE</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Credential Code 2 --></label>
+        <name>Crdntl_Cd2_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Credential Code 3 --></label>
+        <name>Crdntl_Cd3_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Credential Level 2 --></label>
+        <name>Crdntl_Lvl2_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Credential Level 3 --></label>
+        <name>Crdntl_Lvl3_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Credential Level --></label>
+        <name>Crdntl_Lvl_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Credential Type Code 2 --></label>
+        <name>Crdntl_Typ_Cd2_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Credential Type Code 3 --></label>
+        <name>Crdntl_Typ_Cd3_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Credential Type Code --></label>
+        <name>Crdntl_Typ_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Credential Code --></label>
+        <name>Credential_Code_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Group Code --></label>
+        <name>Cust_Grp_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Id --></label>
+        <name>Cust_Id_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Type Code --></label>
+        <name>Cust_Typ_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Type --></label>
+        <name>Cust_Typ_Desc_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deceased Flag --></label>
+        <name>Decd_Flg_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Delete Date --></label>
+        <name>Del_Date_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Delete Flag --></label>
+        <name>Del_Flg_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Department Flag --></label>
+        <name>Dept_Flg_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Designated Individual Count --></label>
+        <name>Designated_Individual_Count_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Designated Individual Counter --></label>
+        <name>Designated_Individual_Counter_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dispensing Account Flag --></label>
+        <name>Dspnsng_Acct_Flg_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- End Date --></label>
+        <name>Efctv_End_Dt_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Effective Date --></label>
+        <name>Efctv_Start_Dt_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Phone2 Country Prefix Code --></label>
+        <name>Elctrnc_Adrs2_Cntry_Prfx_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Phone Number 2 Ext --></label>
+        <name>Elctrnc_Adrs2_Extnsn_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Phone Number 2 --></label>
+        <name>Elctrnc_Adrs2_Txt_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Phone1 Country Prefix Code --></label>
+        <name>Elctrnc_Adrs_Cntry_Prfx_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email Address --></label>
+        <name>Elctrnc_Adrs_Elc_Txt_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Phone Number 1 Ext --></label>
+        <name>Elctrnc_Adrs_Extnsn_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fax Country Prefix Code --></label>
+        <name>Elctrnc_Adrs_Fax_Cntry_Prfx_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fax Number Ext --></label>
+        <name>Elctrnc_Adrs_Fax_Extnsn_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fax Number --></label>
+        <name>Elctrnc_Adrs_Fax_Txt_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Phone Number 1 --></label>
+        <name>Elctrnc_Adrs_Txt_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Web Address --></label>
+        <name>Elctrnc_Adrs_Web_Txt_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Emergency Contact Name --></label>
+        <name>Emergency_Contact_Name_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Emergency Contact Phone Number --></label>
+        <name>Emergency_Contact_Phone_Number_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Employed by Government Institution --></label>
+        <name>Employed_by_Government_Institution_GLBL__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Employment Specification --></label>
+        <name>Employment_Specification_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Employed by one or more Institutions</masterLabel>
+            <translation><!-- Employed by one or more Institutions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Self-Employed</masterLabel>
+            <translation><!-- Self-Employed --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Executive Summary Note --></label>
+        <name>Exec_Smmry_Note_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Experience Step Complete --></label>
+        <name>Experience_Step_Complete_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Returns the primary qualification which is used to determine the HCPs Minimum and Maximum hourly rate from the fair market value criteria. --></help>
+        <label><!-- FMV Criteria Map --></label>
+        <name>FMV_Criteria_Map_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- FMV Tier Exists --></label>
+        <name>FMV_Tier_Exists_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fax Phone Country Code --></label>
+        <name>Fax_Phone_Cntry_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Flag CST Email --></label>
+        <name>Flag_CST_Email_CUST__c</name>
+    </fields>
+    <fields>
+        <label><!-- Flag CST Expire Email --></label>
+        <name>Flag_CST_Expire_Email_CUST__c</name>
+    </fields>
+    <fields>
+        <label><!-- Flag CST User Email --></label>
+        <name>Flag_CST_User_Email_CUST__c</name>
+    </fields>
+    <fields>
+        <label><!-- Formulary Id --></label>
+        <name>Formulary_Id_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Former Name --></label>
+        <name>Frmr_Nm_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Full Name --></label>
+        <name>Full_Nm_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Global Consent Authorization --></label>
+        <name>Global_Consent_Authorization_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Gender Code --></label>
+        <name>Gndr_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Gender --></label>
+        <name>Gndr_Desc_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Governance Level --></label>
+        <name>Governance_Level_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Government Flag --></label>
+        <name>Govt_Flg_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- HCP for Contracting Party --></label>
+        <name>HCP_Contracting_Party_MERC__c</name>
+        <relationshipLabel><!-- Contracting Parties --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- HCP Country of Residence --></label>
+        <name>HCP_Country_of_Residence_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- The HCP who indicated this person as their Designated Individual --></help>
+        <label><!-- HCP for Designated Individual --></label>
+        <name>HCP_Designated_Individuals_MERC__c</name>
+        <relationshipLabel><!-- Designated Individuals --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- For paper, manually key in the HCP Information Package information.  Once completed, set this value to &apos;Submitted&apos;.  The HCP will then see a completed status for their HCP Information Package section when logged into the Web Service. --></help>
+        <label><!-- HCP Info Package Status --></label>
+        <name>HCP_Info_Package_Status_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Not Populated</masterLabel>
+            <translation><!-- Not Populated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Saved but not Submitted</masterLabel>
+            <translation><!-- Saved but not Submitted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Submitted</masterLabel>
+            <translation><!-- Submitted --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- HCP has a signed contract that is not passed the Contract Expiration Date --></help>
+        <label><!-- Has Signed Contract --></label>
+        <name>Has_Contract_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Has MSA --></label>
+        <name>Has_MSA_Contract_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Have you held a leadership role at a hospital (e.g., Dept Head or Chief of Staff)? --></help>
+        <label><!-- Hospital Leadership Role --></label>
+        <name>Hospital_Leadership_Role_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Ims Prescriber Flag --></label>
+        <name>Ims_Prscrbr_Flg_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ims Xponent Flag --></label>
+        <name>Ims_Xponent_Flg_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Industry Group Code --></label>
+        <name>Indstry_Grp_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <name>Industry</name>
+        <picklistValues>
+            <masterLabel>Agriculture</masterLabel>
+            <translation><!-- Agriculture --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Apparel</masterLabel>
+            <translation><!-- Apparel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Banking</masterLabel>
+            <translation><!-- Banking --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Biotechnology</masterLabel>
+            <translation><!-- Biotechnology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chemicals</masterLabel>
+            <translation><!-- Chemicals --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Communications</masterLabel>
+            <translation><!-- Communications --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Construction</masterLabel>
+            <translation><!-- Construction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Consulting</masterLabel>
+            <translation><!-- Consulting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Education</masterLabel>
+            <translation><!-- Education --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Electronics</masterLabel>
+            <translation><!-- Electronics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Energy</masterLabel>
+            <translation><!-- Energy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Engineering</masterLabel>
+            <translation><!-- Engineering --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Entertainment</masterLabel>
+            <translation><!-- Entertainment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Environmental</masterLabel>
+            <translation><!-- Environmental --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance</masterLabel>
+            <translation><!-- Finance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Food &amp; Beverage</masterLabel>
+            <translation><!-- Food &amp; Beverage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Government</masterLabel>
+            <translation><!-- Government --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Healthcare</masterLabel>
+            <translation><!-- Healthcare --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hospitality</masterLabel>
+            <translation><!-- Hospitality --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Insurance</masterLabel>
+            <translation><!-- Insurance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Machinery</masterLabel>
+            <translation><!-- Machinery --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manufacturing</masterLabel>
+            <translation><!-- Manufacturing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Media</masterLabel>
+            <translation><!-- Media --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not For Profit</masterLabel>
+            <translation><!-- Not For Profit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recreation</masterLabel>
+            <translation><!-- Recreation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retail</masterLabel>
+            <translation><!-- Retail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shipping</masterLabel>
+            <translation><!-- Shipping --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Technology</masterLabel>
+            <translation><!-- Technology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Telecommunications</masterLabel>
+            <translation><!-- Telecommunications --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Transportation</masterLabel>
+            <translation><!-- Transportation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Utilities</masterLabel>
+            <translation><!-- Utilities --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Initials --></label>
+        <name>Initials_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Initiate Tiering --></label>
+        <name>Initiate_Tiering_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Institution Administrator --></label>
+        <name>Institution_Administrator_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Institution Name --></label>
+        <name>Institution_Name_GLBL__c</name>
+    </fields>
+    <fields>
+        <help><!-- If the HCP has provided designated individuals for notification or they&apos;re self-employed, this field will be checked. --></help>
+        <label><!-- Institutional Notification Info Exists --></label>
+        <name>Institutional_Notif_Info_Exists_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Institutional Notification Step Complete --></label>
+        <name>Institutional_Notification_Complete_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Institutional Notification Consent --></label>
+        <name>Institutional_Notification_Consent_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Do you have current or previous experience at a teaching institution as an:  Instructor / Assistant Clinical Professor / Clinical Professor / Assistant Professor? --></help>
+        <label><!-- Instructor/Assistant/Clinical Professor --></label>
+        <name>Instructor_Assistant_Clinical_Prof_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- How many peer-reviewed journal articles or textbooks have you authored/co-authored  in the past 10 years? --></help>
+        <label><!-- Journal Articles or Textbooks --></label>
+        <name>Journal_Articles_MERC__c</name>
+        <picklistValues>
+            <masterLabel>0-2</masterLabel>
+            <translation><!-- 0-2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3-4</masterLabel>
+            <translation><!-- 3-4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5+</masterLabel>
+            <translation><!-- 5+ --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Justification for Preferred Venue --></label>
+        <name>Justification_for_Preferred_Venue_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Key Opinion Leader --></label>
+        <name>Key_Opinion_Leader_GLBL__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- This is the a HCPs preferred language for all meeting based correspondence.  This is set via the preferences and consent records and shown on the HCP profile for ease of reference. --></help>
+        <label><!-- Language Preference --></label>
+        <name>Language_Preference_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Review Date --></label>
+        <name>Last_Review_Date_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Leadership/Committee Step Complete --></label>
+        <name>Leadership_Committee_Step_Complete_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lilly Company Code --></label>
+        <name>Lilly_Company_Code_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lilly Company VAT ID --></label>
+        <name>Lilly_Company_VAT_ID_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- MSA Expiration Date --></label>
+        <name>MSA_Contract_Expiration_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Middle Name --></label>
+        <name>Mdl_Nm_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mercury External Id --></label>
+        <name>Mercury_External_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Merge DT --></label>
+        <name>Merge_DT_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Military Flag --></label>
+        <name>Mltry_Flg_GLBL__c</name>
+    </fields>
+    <fields>
+        <help><!-- Do you have multiple specialties? --></help>
+        <label><!-- Multiple Specialties --></label>
+        <name>Multiple_Specialties_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Name of Institution --></label>
+        <name>Name_of_Institution_GLBL__c</name>
+    </fields>
+    <fields>
+        <help><!-- Do you have experience in any national or international medical associations/committees/scientific groups/clinical research position (e.g., National Diabetes Association) --></help>
+        <label><!-- National / International Leadership Role --></label>
+        <name>National_Inter_Leadership_Role_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Source Load Timestamp --></label>
+        <name>ODS_Ld_Tmstmp_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- ODS Load User --></label>
+        <name>ODS_Ld_Usr_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Source Update Timestamp --></label>
+        <name>ODS_Lst_Updt_Tmstmp_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- ODS Last Update User --></label>
+        <name>ODS_Lst_Updt_Usr_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Organization Unit Code --></label>
+        <name>Org_Unit_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Organization Unit Description --></label>
+        <name>Org_Unit_Desc_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Original Party Record Type Code --></label>
+        <name>Orig_Party_Rec_Type_CD_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Original Party ID --></label>
+        <name>Original_Party_ID_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Other Specialities --></label>
+        <name>Other_Specialities_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Other Specialty Codes --></label>
+        <name>Other_Specialty_Codes_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Other Title --></label>
+        <name>Othr_Ttl_Txt_GLBL__c</name>
+    </fields>
+    <fields>
+        <name>Ownership</name>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Private</masterLabel>
+            <translation><!-- Private --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Public</masterLabel>
+            <translation><!-- Public --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Subsidiary</masterLabel>
+            <translation><!-- Subsidiary --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- RWE Accountability --></label>
+        <name>PANG_Accountability__c</name>
+        <picklistValues>
+            <masterLabel>SHIRLOC</masterLabel>
+            <translation><!-- SHIRLOC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>USHO</masterLabel>
+            <translation><!-- USHO --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- RWE Areas of Expertise Notes --></label>
+        <name>PANG_Areas_of_Expertise_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- RWE Areas of Expertise --></label>
+        <name>PANG_Areas_of_Expertise__c</name>
+        <picklistValues>
+            <masterLabel>Autoimmune</masterLabel>
+            <translation><!-- Autoimmune --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cardiovascular</masterLabel>
+            <translation><!-- Cardiovascular --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Diabetes</masterLabel>
+            <translation><!-- Diabetes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Musculoskeletal</masterLabel>
+            <translation><!-- Musculoskeletal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Neuroscience</masterLabel>
+            <translation><!-- Neuroscience --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oncology</masterLabel>
+            <translation><!-- Oncology --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Urology</masterLabel>
+            <translation><!-- Urology --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- RWE Business Research/Vision --></label>
+        <name>PANG_Business_Research_Vision__c</name>
+    </fields>
+    <fields>
+        <label><!-- RWE Existing Business --></label>
+        <name>PANG_Existing_Business__c</name>
+    </fields>
+    <fields>
+        <label><!-- RWE Organizational Structure Comment --></label>
+        <name>PANG_Organizational_Structure_Comment__c</name>
+    </fields>
+    <fields>
+        <label><!-- RWE Research Priorities --></label>
+        <name>PANG_Research_Priorities__c</name>
+    </fields>
+    <fields>
+        <label><!-- RWE Work With Other Companies --></label>
+        <name>PANG_Work_With_Other_Companies__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Paid CAP for all Services Provided for the current year. --></help>
+        <label><!-- Paid CAP --></label>
+        <name>Paid_CAP_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Have you participated in clinical trials? --></help>
+        <label><!-- Participated in Clinical Trials --></label>
+        <name>Participated_in_Clinical_Trials_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Party Record Type Code --></label>
+        <name>Party_Rcrd_Typ_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Party Status Code --></label>
+        <name>Party_Sts_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <help><!-- Indicates Account Status from Customer ODS --></help>
+        <label><!-- Party Status Description --></label>
+        <name>Party_Sts_Desc_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payee and Bank Information Consent --></label>
+        <name>Payee_Bank_Information_Consent_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payee Count --></label>
+        <name>Payee_Count_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payee Information Step Complete --></label>
+        <name>Payee_Info_Step_Complete_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payee and Bank Info Complete --></label>
+        <name>Payee_and_Bank_Info_Complete_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payment Required --></label>
+        <name>Payment_Required_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Personal Address City --></label>
+        <name>Personal_Address_City_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Personal Address Country --></label>
+        <name>Personal_Address_Country_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Personal Address Line 1 --></label>
+        <name>Personal_Address_Line_1_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Personal Address Line 2 --></label>
+        <name>Personal_Address_Line_2_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Personal Postal Code Extension --></label>
+        <name>Personal_Postal_Code_Extension_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Plan Type Code --></label>
+        <name>Plan_Typ_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payment Name --></label>
+        <name>Pmt_Nm_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Position Code --></label>
+        <name>Position_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Position Description --></label>
+        <name>Position_Desc_GLBL__c</name>
+    </fields>
+    <fields>
+        <help><!-- How long have you been practicing? --></help>
+        <label><!-- Practicing for --></label>
+        <name>Practicing_for_MERC__c</name>
+        <picklistValues>
+            <masterLabel>11-20 Years</masterLabel>
+            <translation><!-- 11-20 Years --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>20+ Years</masterLabel>
+            <translation><!-- 20+ Years --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>6-10 Years</masterLabel>
+            <translation><!-- 6-10 Years --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>&lt;5 Years</masterLabel>
+            <translation><!-- &lt;5 Years --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Preferred Contact Method --></label>
+        <name>Preferred_Contact_Method_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Email</masterLabel>
+            <translation><!-- Email --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Postal Address</masterLabel>
+            <translation><!-- Postal Address --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Preferred Venue --></label>
+        <name>Preferred_Venue_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- The HCPs Preferred Language from master data, should one exist.  This is not editable within Mercury. --></help>
+        <label><!-- Preferred Language --></label>
+        <name>Prfrd_Lang_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Preferred Name --></label>
+        <name>Prfrd_Nm_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Party Start Date --></label>
+        <name>Prfsnl_Start_Dt_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Affiliation Address City --></label>
+        <name>Prim_Affil_Addr_City_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Affiliation Address Country --></label>
+        <name>Prim_Affil_Addr_Country_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Affiliation Address Line 1 --></label>
+        <name>Prim_Affil_Addr_Line1_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Affiliation Address Line 2 --></label>
+        <name>Prim_Affil_Addr_Line2_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Affiliation HCO Name --></label>
+        <name>Prim_Affil_HCO_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Affiliate Postal Code Extension --></label>
+        <name>Prim_Affil_Pstl_Cd_Extnsn_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Address City --></label>
+        <name>Primary_Addr_City_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Address Line 1 --></label>
+        <name>Primary_Addr_Line1_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Address Line 2 --></label>
+        <name>Primary_Addr_Line2_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Address Country --></label>
+        <name>Primary_Address_Country_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary HCO --></label>
+        <name>Primary_HCO_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Postal Code Extension --></label>
+        <name>Primary_Pstl_Cd_Extnsn_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Region Code --></label>
+        <name>Primary_St_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prior Parent Id --></label>
+        <name>Prior_Parent_Id_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Professional Title --></label>
+        <name>Prof_Title_Txt_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Property Remarks --></label>
+        <name>Property_Remarks_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Global ID --></label>
+        <name>Prsnl_Nbr_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Qualifications and Experience Complete --></label>
+        <name>Qualifications_Experience_Complete_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Qualifications and Experience Consent --></label>
+        <name>Qualifications_Experience_Consent_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Qualifications Step Complete --></label>
+        <name>Qualifications_Step_Complete_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quality Level --></label>
+        <name>Quality_Level_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- RTI Transaction ID --></label>
+        <name>RTI_Transaction_ID_MERC__c</name>
+    </fields>
+    <fields>
+        <name>Rating</name>
+        <picklistValues>
+            <masterLabel>Cold</masterLabel>
+            <translation><!-- Cold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hot</masterLabel>
+            <translation><!-- Hot --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Warm</masterLabel>
+            <translation><!-- Warm --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Have experience in leadership role in any regional medical associations/committees/scientific groups/clinical research position (e.g., provincial/state med association) ? --></help>
+        <label><!-- Regional Leadership Role --></label>
+        <name>Regional_Leadership_Role_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Relationship Owner --></label>
+        <name>Relationship_Owner_MERC__c</name>
+        <relationshipLabel><!-- Accounts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Remaining CAP --></label>
+        <name>Remaining_CAP_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Research/Publications Step Complete --></label>
+        <name>Research_Publications_Step_Complete_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Hold money for future. Only possible to reserve cap with a forecasted meeting in the system. --></help>
+        <label><!-- Reserved CAP --></label>
+        <name>Reserved_CAP_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Have you been a reviewer or a member of a peer-reviewed editorial board? --></help>
+        <label><!-- Reviewer or Editor --></label>
+        <name>Reviewer_or_Editor_MERC__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Sales Force Code --></label>
+        <name>Sales_Force_Code_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sales Force Description --></label>
+        <name>Sales_Force_Description_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Salutation --></label>
+        <name>Salutation_Txt_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Second Last Name --></label>
+        <name>Scnd_Nm_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Second Title --></label>
+        <name>Scnd_Ttl_Txt_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Provider? --></label>
+        <name>Service_Provider_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Provider Tier --></label>
+        <name>Service_Provider_Tier_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Suffix --></label>
+        <name>Sfx_Nm_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Source Block --></label>
+        <name>Source_Block_GLBL__c</name>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation><!-- No --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yes</masterLabel>
+            <translation><!-- Yes --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Primary Specialty Code --></label>
+        <name>Spclty_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary Specialty --></label>
+        <name>Spclty_Desc_GLBL__c</name>
+    </fields>
+    <fields>
+        <help><!-- Service rendered, payment triggered. (After &apos;Services Rendered&apos; box ticked) --></help>
+        <label><!-- Speaking Paid CAP --></label>
+        <name>Speaking_Paid_CAP_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sponsor Global ID --></label>
+        <name>Sponsor_Prsnl_Nbr_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Source Block Flag --></label>
+        <name>Src_Block_Flg_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Source System Code --></label>
+        <name>Src_Sys_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status Code --></label>
+        <name>Status_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status_Desc_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Validated by LMM</masterLabel>
+            <translation><!-- Validated by LMM --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Store Loc Number --></label>
+        <name>Store_Loc_Nbr_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sub Classification Code --></label>
+        <name>Sub_Clsfctn_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sub Classification --></label>
+        <name>Sub_Clsfctn_Desc_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Supervisor Global ID --></label>
+        <name>Supervisor_Prsnl_Nbr_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- System Logon Id --></label>
+        <name>System_Id_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tax/Invoices Step Complete --></label>
+        <name>Tax_Invoices_Step_Complete_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Teaching/Advising Step Complete --></label>
+        <name>Teaching_Advising_Step_Complete_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Territory Id --></label>
+        <name>Territory_Id_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tier 1 Criteria Met --></label>
+        <name>Tier_1_Criteria_Met_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- All Tier 1 HCP&apos;s must have their CV&apos;s verified before Tier 1 can be set. --></help>
+        <label><!-- Tier 1 HCP CV Checked --></label>
+        <name>Tier_1_HCP_CV_Checked_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Confirmed HCP is Tier 1</masterLabel>
+            <translation><!-- Confirmed HCP is Tier 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HCP is NOT Tier 1</masterLabel>
+            <translation><!-- HCP is NOT Tier 1 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Tier 1 Score --></label>
+        <name>Tier_1_Score_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tier 2 Criteria Met --></label>
+        <name>Tier_2_Criteria_Met_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tier 2 Score --></label>
+        <name>Tier_2_Score_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tier 3 Criteria Met --></label>
+        <name>Tier_3_Criteria_Met_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Title --></label>
+        <name>Title_Desc_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Transfer Information Step Complete --></label>
+        <name>Transfer_Info_Step_Complete_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Whether the HCP consents to having their information included in Transparency Reports --></help>
+        <label><!-- Transparency Reporting Consent --></label>
+        <name>Transparency_Reporting_Opt_Out_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Training Account Flag --></label>
+        <name>Trng_Acct_Flg_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Territory Code --></label>
+        <name>Trtry_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Territory Description --></label>
+        <name>Trtry_Desc_GLBL__c</name>
+    </fields>
+    <fields>
+        <name>Type</name>
+        <picklistValues>
+            <masterLabel>Analyst</masterLabel>
+            <translation><!-- Analyst --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Competitor</masterLabel>
+            <translation><!-- Competitor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer</masterLabel>
+            <translation><!-- Customer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Integrator</masterLabel>
+            <translation><!-- Integrator --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Investor</masterLabel>
+            <translation><!-- Investor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partner</masterLabel>
+            <translation><!-- Partner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Press</masterLabel>
+            <translation><!-- Press --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prospect</masterLabel>
+            <translation><!-- Prospect --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reseller</masterLabel>
+            <translation><!-- Reseller --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Unique Identifier --></label>
+        <name>Unique_Identifier__c</name>
+    </fields>
+    <fields>
+        <label><!-- Utilised CAP --></label>
+        <name>Utilised_CAP_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Veeva Organization --></label>
+        <name>Veeva_Organization_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Venue Preference Type --></label>
+        <name>Venue_Preference_Type_MERC__c</name>
+        <picklistValues>
+            <masterLabel>International Approved Venue</masterLabel>
+            <translation><!-- International Approved Venue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Large Meeting Venue</masterLabel>
+            <translation><!-- Large Meeting Venue --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Small Meeting Venue</masterLabel>
+            <translation><!-- Small Meeting Venue --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- VoiceMail Phone Country Code --></label>
+        <name>Voicemail_Phone_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Voice Mail Phone Number --></label>
+        <name>Voicemail_Phone_Nbr_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Web Service Update Date --></label>
+        <name>WS_Updt_Dt_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Web Service Update HCP Action --></label>
+        <name>WS_Updt_HCP_Actn_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Web Service Update HCP Global Id --></label>
+        <name>WS_Updt_HCP_Global_ID_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Web Service Update HCP Name --></label>
+        <name>WS_Updt_HCP_Name_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Maps to the web service logic object to determine a HCPs view of the Meetings Profile. --></help>
+        <label><!-- Web Service Logic Key --></label>
+        <name>Web_Service_Logic_Key_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Wholesaler Code --></label>
+        <name>Whlslr_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Work Country Code --></label>
+        <name>Work_Cntry_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Work Country Description --></label>
+        <name>Work_Country_Desc_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Work Phone Country Code --></label>
+        <name>Work_Phone_Cntry_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of Contracting Parties --></label>
+        <name>of_Contracting_Parties_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of Designated Individuals --></label>
+        <name>of_Designated_Individuals_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- # of Payees with Priority Rank 1 --></label>
+        <name>of_Payees_with_Priority_Rank_1_MERC__c</name>
+    </fields>
+    <layouts>
+        <layout>GLBL_Employee</layout>
+        <layoutType>PersonAccount</layoutType>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Lilly Organization --></label>
+            <section>Lilly Organization</section>
+        </sections>
+        <sections>
+            <label><!-- Workforce ODS --></label>
+            <section>Workforce ODS</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>GLBL_HCO Organization</layout>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>GLBL_HCP Account</layout>
+        <layoutType>PersonAccount</layoutType>
+        <sections>
+            <label><!-- CAP --></label>
+            <section>CAP</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contact Information - Mastered Data --></label>
+            <section>Contact Information - Mastered Data</section>
+        </sections>
+        <sections>
+            <label><!-- Contractual Information --></label>
+            <section>Contractual Information</section>
+        </sections>
+        <sections>
+            <label><!-- Leadership Experience --></label>
+            <section>Leadership Experience</section>
+        </sections>
+        <sections>
+            <label><!-- Portal Information --></label>
+            <section>Portal Information</section>
+        </sections>
+        <sections>
+            <label><!-- Professional Qualifications Summary --></label>
+            <section>Professional Qualifications Summary</section>
+        </sections>
+        <sections>
+            <label><!-- Teaching and Advising --></label>
+            <section>Teaching and Advising</section>
+        </sections>
+        <sections>
+            <label><!-- Tier Information --></label>
+            <section>Tier Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Contracting_Party</layout>
+        <sections>
+            <label><!-- Primary Address Information --></label>
+            <section>Primary Address Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Designated Individual</layout>
+        <layoutType>PersonAccount</layoutType>
+        <sections>
+            <label><!-- Primary Address --></label>
+            <section>Primary Address</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Lilly Affiliate Business</layout>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Non-HCP</layout>
+        <layoutType>PersonAccount</layoutType>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Contractual Information --></label>
+            <section>Contractual Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Third Party Organization</layout>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Vendor</layout>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Primary Address Information --></label>
+            <section>Primary Address Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Venue</layout>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Primary Address Information --></label>
+            <section>Primary Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- Property Information --></label>
+            <section>Property Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>PANG_RWE_Account</layout>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Business Account --></label>
+        <name>Business_Account</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Contracting Party --></label>
+        <name>Contracting_Party_GLBL</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Health Care Organization --></label>
+        <name>Health_Care_Organization_GLBL</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Lilly Affiliate Business --></label>
+        <name>Lilly_Affiliate_Business_GLBL</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Meeting Planning Company --></label>
+        <name>Meeting_Planning_Company_GLBL</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- RWE Account --></label>
+        <name>PANG_RWE_Account</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Third Party Organization --></label>
+        <name>Third_Party_Organization_GLBL</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Vendor --></label>
+        <name>Vendor_GLBL</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Venue --></label>
+        <name>Venue_GLBL</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- You cannot update the Tier 1 HCP CV Checked field unless the HCP Tier 1 Criteria are met and therefore the HCP is eligible to be a Tier 1 HCP.  Set this value back to blank to continue. --></errorMessage>
+        <name>MERC_Confirm_Tier_1_HCP_CV</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You may not edit the Account Name of an HCP, HCO, or Employee. --></errorMessage>
+        <name>MERC_Prevent_Editing_of_Account_Name</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The Service Provider Tier must be blank or between values 1 and 5. --></errorMessage>
+        <name>MERC_Verify_Service_Provider_Tier_Value</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- AltavistaNews --></label>
+        <name>AltavistaNews</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- BLND_FormFactoryAccountLink --></label>
+        <name>BLND_FormFactoryAccountLink</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Generate_Content_MERC --></label>
+        <name>Generate_Content_MERC</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleMaps --></label>
+        <name>GoogleMaps</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleNews --></label>
+        <name>GoogleNews</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- GoogleSearch --></label>
+        <name>GoogleSearch</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- HooversProfile --></label>
+        <name>HooversProfile</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LOOP --></label>
+        <name>Loop__LOOP</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LOOP_Merge --></label>
+        <name>Loop__LOOP_Merge</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- LOOPlus --></label>
+        <name>Loop__LOOPlus</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Mass_LOOP_Merge --></label>
+        <name>Loop__Mass_LOOP_Merge</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Mass_LOOPlus --></label>
+        <name>Loop__Mass_LOOPlus</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Re_subscribe_in_ExactTarget --></label>
+        <name>Re_subscribe_in_ExactTarget</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- SendExactTargetEmail --></label>
+        <name>SendExactTargetEmail</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_ET_Email --></label>
+        <name>Send_ET_Email</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Upload_Content_MERC --></label>
+        <name>Upload_Content_MERC</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- YahooMaps --></label>
+        <name>YahooMaps</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_with_DocuSign --></label>
+        <name>dsfs__Send_with_DocuSign</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- ExactTarget_Resubscribe --></label>
+        <name>et4ae5__ExactTarget_Resubscribe</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- ExactTarget_Unsubscribe --></label>
+        <name>et4ae5__ExactTarget_Unsubscribe</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Send_ExactTarget_Email --></label>
+        <name>et4ae5__Send_ExactTarget_Email</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- View_ExactTarget_Analytics --></label>
+        <name>et4ae5__View_ExactTarget_Analytics</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Countdown --></label>
+        <name>primest__Countdown</name>
+    </webLinks>
+</CustomObjectTranslation>

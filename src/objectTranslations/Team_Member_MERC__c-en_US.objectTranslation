@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Team Member</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Team Members</value>
+    </caseValues>
+    <fields>
+        <label><!-- Access --></label>
+        <name>Access_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Can Add Attendees</masterLabel>
+            <translation><!-- Can Add Attendees --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cannot Add Attendees</masterLabel>
+            <translation><!-- Cannot Add Attendees --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- External User External --></label>
+        <name>Account_External_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Facing Team Member --></label>
+        <name>Account_MERC__c</name>
+        <relationshipLabel><!-- Team Members --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Associated Countries --></label>
+        <name>Associated_Countries_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Identifies how many people a Sales Reps can invite to the meeting. --></help>
+        <label><!-- Attendee Invite Limit --></label>
+        <name>Attendee_Invite_Limit_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting External --></label>
+        <name>Meeting_External_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting --></label>
+        <name>Meeting_MERC__c</name>
+        <relationshipLabel><!-- Team Members --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Mercury External Id --></label>
+        <name>Mercury_External_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- RTI Transaction ID --></label>
+        <name>RTI_Transaction_ID_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Role --></label>
+        <name>Role_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Budget Owner</masterLabel>
+            <translation><!-- Budget Owner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Facing Team</masterLabel>
+            <translation><!-- Customer Facing Team --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Final Budget Approver</masterLabel>
+            <translation><!-- Final Budget Approver --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Home Approver</masterLabel>
+            <translation><!-- Home Approver --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Host Approver</masterLabel>
+            <translation><!-- Host Approver --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>International Event Approver</masterLabel>
+            <translation><!-- International Event Approver --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Local CMS Manager</masterLabel>
+            <translation><!-- Local CMS Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Local CMS Team</masterLabel>
+            <translation><!-- Local CMS Team --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical Director</masterLabel>
+            <translation><!-- Medical Director --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical Liaison</masterLabel>
+            <translation><!-- Medical Liaison --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Meeting Owner</masterLabel>
+            <translation><!-- Meeting Owner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Meeting Planning Company</masterLabel>
+            <translation><!-- Meeting Planning Company --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Onsite Attendance Checker</masterLabel>
+            <translation><!-- Onsite Attendance Checker --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Primary Meeting Owner</masterLabel>
+            <translation><!-- Primary Meeting Owner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Travel Agent</masterLabel>
+            <translation><!-- Travel Agent --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Sales Rep Country Code --></label>
+        <name>Sales_Rep_Country_Code_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mercury Team Member --></label>
+        <name>User_MERC__c</name>
+        <relationshipLabel><!-- Team Members --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>MERC_External_Team Member</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Sales Representatives --></label>
+            <section>Sales Representatives</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Mercury_Team Member</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Non-Mercury Users --></label>
+        <name>External_User_MERC</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Mercury Users --></label>
+        <name>Mercury_User_MERC</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- A Team Member must be associated with either an External Account or a Mercury User. --></errorMessage>
+        <name>MERC_Mercury_User_or_External_User</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only one team member can be the Primary Meeting Owner. Please chose a different role for this or existing team member. --></errorMessage>
+        <name>MERC_Single_Primary_Meeting_Owner</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Meeting_Team_Manager_MERC --></label>
+        <name>Meeting_Team_Manager_MERC</name>
+    </webLinks>
+</CustomObjectTranslation>

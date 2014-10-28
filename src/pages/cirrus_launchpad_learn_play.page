@@ -1,0 +1,166 @@
+<apex:page docType="html-5.0" controller="ieCompatibility" standardStylesheets="false" showHeader="false" sidebar="false">
+    <head>
+
+        <!-- Meta -->
+        <meta charset="UTF-8" />
+        <title>Cirrus - Launchpad</title>
+        <meta name="keywords" content="Eli Lilly & Company, Lilly, Cirrus, Salesforce.com, SFDC, Force.com" />
+        <meta name="description" content="Cirrus Launchpad" />
+        <meta name="author" content="Matthew Bull" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- CSS -->
+        <apex:stylesheet value="{!URLFOR($Resource.cirrus_launchpad, 'css/reset.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.cirrus_launchpad, 'css/bootstrap.min.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.cirrus_launchpad, 'css/font-awesome.min.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.cirrus_launchpad, 'css/googlefonts.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.cirrus_launchpad, 'css/idangerous.swiper.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.cirrus_launchpad, 'css/style.css')}" />
+
+    </head>
+
+    <body>
+
+        <!-- Preloader -->
+        <div id="preloader">
+            <div id="status"></div>
+        </div>
+
+        <!-- Overlay -->
+        <div id="overlay"></div>
+
+        <!-- Top header -->
+        <div id="top">
+
+            <!-- Sidebar button -->
+            <a href="#" id="sidebar-button"></a>
+
+            <!-- Logo -->
+            <header id="logo">
+                <h1>Cirrus</h1>
+                <h2>Simple &amp; Agile</h2>             
+            </header>
+            
+        </div>
+
+        <!-- Main wrapper -->
+        <div id="main-wrapper">
+
+            <!-- Content -->
+            <div id="content">
+
+                <!-- Fluid container -->
+                <div class="container-fluid">
+
+                    <!-- Page heading -->
+                    <div id="heading" class="row">
+                        <div class="col-12">
+
+                            <header>
+                                <h1>Play</h1>
+                                <h2>Your very own environment</h2>
+                            </header>
+
+                        </div>
+                    </div>
+
+                    <!-- Main content -->
+                    <div class="row">
+                        <div class="col-12">
+
+                            <!-- Inner -->
+                            <article class="inner">
+
+                                <!-- Content -->
+                                <div class="alert alert-danger fade in">
+                                    <i class="fa fa-exclamation-circle"></i>
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    <p>Warning! Personal Sandboxes are for learning only. No Lilly data should be used!</p>
+                                </div>
+                                <h2>Start Playing Now!</h2>
+                                <p>The fastest and safest way to get started with force.com is to head over to <a href="https://developer.salesforce.com" target="_blank">developer.salesforce.com</a>. Here you can <a href="https://developer.salesforce.com/signup" target="_blank">sign-up for a free developer account</a>, which will give you access to a dedicated Force.com org, where you can immediately start building applications.</p>
+                                <p>Before starting, we recommend you checkout our other "learn" resources. For example, <a href="/apex/cirrus_launchpad_learn_overview">Overview</a>, <a href="/apex/cirrus_launchpad_learn_basic">Basic Training</a> and <a href="/apex/cirrus_launchpad_learn_developer">Developer Training</a>.</p>
+                                <p><a href="https://developer.salesforce.com" target="_blank">Developer.force.com</a> also has a wealth of information, for example:</p>
+                                <div class="contentlist">   
+                                    <ul>
+                                        <li><a href="https://developer.salesforce.com/gettingstarted" target="_blank">Getting Started with the SFDC Platform</a></li>
+                                        <li><a href="https://developer.salesforce.com/platform/use-cases" target="_blank">Getting Started with Force.com Development</a></li>
+                                        <li><a href="https://developer.salesforce.com/page/Wiki" target="_blank">Developer Resources</a></li>
+                                        <li><a href="https://developer.salesforce.com/page/Architect_Core_Resources" target="_blank">Architect Resources</a></li>
+                                    </ul>
+                                </div>
+                                <p>As Force.com is primarily declarative development, you should be able to start building simple applications very quickly, that are instantly social enabled and mobile optimised. However, you can also leverage APEX, Visualforce and Heroku to further enhance your applications. For this I would point you towards the following resources:</p>
+                                <div class="contentlist">   
+                                    <ul>
+                                        <li><a href="http://developer.force.com/codeshare" target="_blank">Code Share</a></li>
+                                        <li><a href="http://developer.force.com/cookbook" target="_blank">Cookbook</a></li>
+                                        <li><a href="https://developer.salesforce.com/page/Cheat_Sheets" target="_blank">Cheat Sheets</a></li>
+                                    </ul>
+                                </div>                              
+                                <p>If you prefer watching, instead of reading. I recommend hitting the following video channels:</p>
+                                <div class="contentlist">   
+                                    <ul>
+                                        <li><a href="https://www.youtube.com/channel/UCUpquzY878NEaZm5bc7m2sQ" target="_blank">YouTube – Salesforce.com Videos</a></li>
+                                        <li><a href="https://www.youtube.com/channel/UCKORm8sxh3cheBpqs0akkhg" target="_blank">YouTube – Salesforce.com Developers</a></li>
+                                        <li><a href="https://www.youtube.com/playlist?list=PLB39017CE69F42E50&feature=view_all" target="_blank">YouTube – Salesforce.com How To Videos</a></li>
+                                    </ul>
+                                </div>      
+                                <p>Hopefully you will be up to speed in no time! If you do have questions or feedback, head over to <a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9b0000000HZZz">Chatter</a>.</p>                                              
+                            </article>
+
+                        </div>
+                        
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Collapsible sidebar -->
+            <div id="sidebar">
+
+                <!-- Widget Area -->
+                <div id="widgets">
+
+                    <!-- Main menu -->
+                    <nav id="mainmenu">
+                        <ul>
+                            <li><a href="/apex/cirrus_launchpad_vision">Vision</a></li>
+                            <li><a href="/apex/cirrus_launchpad_principles">Principles</a></li> 
+                            <li><a href="/apex/cirrus_launchpad_success">Success</a></li>
+                            <li>
+                                <a href="#" class="active">Learn</a>
+                                <ul>
+                                    <li><a href="/apex/cirrus_launchpad_learn_overview">Overview</a></li>
+                                    <li><a href="/apex/cirrus_launchpad_learn_basic">Basic Training</a></li>
+                                    <li><a href="/apex/cirrus_launchpad_learn_developer">Developer Training</a></li>
+                                    <li><a href="/apex/cirrus_launchpad_learn_play">Start Playing</a></li>
+                                </ul>
+                            </li>                           
+                            <li><a href="/apex/cirrus_launchpad_begin">Next Steps</a></li>
+                            <li><a href="/">Back to Force.com</a></li>
+                        </ul>
+                    </nav>
+
+                </div>
+
+                <!-- Copyright -->
+                <footer>
+                    <apex:image url="{!URLFOR($Resource.cirrus_launchpad, '/img/misc/lilly_logo.png')}" alt="Lilly Logo" styleClass="footerlogo" />
+                </footer>
+
+            </div>
+
+        </div>
+
+        <!-- JavaScript -->
+        <apex:includeScript value="{!URLFOR($Resource.cirrus_launchpad, 'js/jquery.min.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.cirrus_launchpad, 'js/bootstrap.min.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.cirrus_launchpad, 'js/swiper/idangerous.swiper.min.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.cirrus_launchpad, 'js/masonry/masonry.pkgd.min.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.cirrus_launchpad, 'js/isotope/jquery.isotope.min.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.cirrus_launchpad, 'js/custom.js')}" />
+
+    </body>
+</apex:page>

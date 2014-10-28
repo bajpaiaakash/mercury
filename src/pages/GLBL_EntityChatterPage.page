@@ -1,0 +1,5 @@
+<apex:page controller="GLBL_EntityChatterPageController" showheader="false" sidebar="false" standardStylesheets="true">
+
+	<chatter:feed entityId="{!entityId}" />
+	
+</apex:page>

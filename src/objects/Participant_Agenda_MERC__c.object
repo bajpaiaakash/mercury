@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <comment>Overridden to allow for dependent lookups as picklists - K. Thornton 2014/05/2</comment>
+        <content>MERC_ParticipantAgendaNewEdit</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <comment>Overridden to allow for dependent lookups as picklists - K. Thornton 2014/05/22</comment>
+        <content>MERC_ParticipantAgendaNewEdit</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Junction object between Meeting Participant and Agenda, used to associate Speakers to Agenda Items : MERC : Created on 10/03/2013 by John Adams, Mavens Consulting</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Anonymise_Record_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicates that this record is related to a non-hcp meeting participant and should be anonymised (via workflows)</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates that this record is related to a non-hcp meeting participant and should be anonymised (via workflows)</inlineHelpText>
+        <label>Anonymise Record</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Assigned_Topic_MERC__c</fullName>
+        <description>Track topic assigned to speaker. Created 10/08/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The agenda topic title assigned to the Speaker for the meeting.</inlineHelpText>
+        <label>Assigned Topic</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Confirm_Web_Service_Change_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used to accept text based changes to information that is active on the Web Services. Exposed to CMS Cork only who make such changes : MERC : Created on 21/07/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used by CMS Cork to confirm updates to certain information once a meeting is activated on the web services.</inlineHelpText>
+        <label>Confirm Web Service Change</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Day_MERC__c</fullName>
+        <description>Meeting Day</description>
+        <externalId>false</externalId>
+        <formula>TEXT(Session_MERC__r.Start_Time_MERC__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting Day</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Meeting_ID_MERC__c</fullName>
+        <description>Formula Field to Capture Meeting ID. Not for display purposes. Created 12/16/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>CASESAFEID(Session_MERC__r.Meeting_MERC__r.Id)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting ID</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Meeting_Participant_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Associates Meeting Participant with Session trough junction object
+Created by John A Adams 10/3/2013</description>
+        <externalId>false</externalId>
+        <label>Meeting Participant</label>
+        <referenceTo>Meeting_Participant_MERC__c</referenceTo>
+        <relationshipLabel>Participant Agendas Items</relationshipLabel>
+        <relationshipName>Participant_Sessions</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Mercury_External_Id_MERC__c</fullName>
+        <description>Generated by Workflow used for Integration with External Systems.
+Created by J Adams 12/10/2013</description>
+        <externalId>true</externalId>
+        <label>Mercury External Id</label>
+        <length>150</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Name_MERC__c</fullName>
+        <description>Pulls the name of the Service Provider for Incorporation onto the Agenda. Oliver Dunford 13th Feb 2014.</description>
+        <externalId>false</externalId>
+        <formula>TEXT(Meeting_Participant_MERC__r.Account_MERC__r.Salutation) 
+&amp; &quot; &quot; &amp;
+Meeting_Participant_MERC__r.Account_MERC__r.FirstName
+&amp; &quot; &quot; &amp;
+Meeting_Participant_MERC__r.Account_MERC__r.LastName</formula>
+        <label>Name</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Session_MERC__c</fullName>
+        <description>One to Many relationship between Participant Session and Session
+Created by John A Adams 10/3/2013</description>
+        <externalId>false</externalId>
+        <label>Agenda Item</label>
+        <referenceTo>Agenda_Item_MERC__c</referenceTo>
+        <relationshipLabel>Participant Agendas Items</relationshipLabel>
+        <relationshipName>Participant_Sessions</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Speaker_Topic_Title_MERC__c</fullName>
+        <description>Track Speaker Topic where speaker may choose title of the session. Created 10/08/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The agenda topic title sent back to Lilly by the HCP.  This title should be displayed on the Agenda.</inlineHelpText>
+        <label>Speaker Topic Title</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Participant Agenda Item</label>
+    <nameField>
+        <displayFormat>PA-{000000}</displayFormat>
+        <label>Participant Agenda #</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Participant Agenda Items</pluralLabel>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>Meeting_Participant_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Meeting_Day_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Session_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Assigned_Topic_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Speaker_Topic_Title_MERC__c</lookupDialogsAdditionalFields>
+        <lookupFilterFields>NAME</lookupFilterFields>
+        <lookupFilterFields>Session_MERC__c</lookupFilterFields>
+        <lookupFilterFields>Assigned_Topic_MERC__c</lookupFilterFields>
+        <lookupFilterFields>Meeting_Participant_MERC__c</lookupFilterFields>
+        <lookupFilterFields>Speaker_Topic_Title_MERC__c</lookupFilterFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Session_MERC__c</searchFilterFields>
+        <searchFilterFields>Assigned_Topic_MERC__c</searchFilterFields>
+        <searchFilterFields>Speaker_Topic_Title_MERC__c</searchFilterFields>
+        <searchFilterFields>Meeting_Participant_MERC__c</searchFilterFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>MERC_Prevent_Change_Once_on_Web_Service</fullName>
+        <active>true</active>
+        <description>Once a meeting is activated on the web service the Speaker Topic Title can only be changed by CMS Cork : MERC : Created on 22/07/2014 by Oliver Dunford, Mavens Consulting</description>
+        <errorConditionFormula>ISCHANGED(  Speaker_Topic_Title_MERC__c  ) &amp;&amp;  Meeting_Participant_MERC__r.Meeting_MERC__r.Expose_on_Portal_MERC__c = TRUE &amp;&amp;  Confirm_Web_Service_Change_MERC__c = FALSE &amp;&amp; AND(NOT(CONTAINS(LastModifiedBy.Username,&apos;mercuryintegration.veeva@&apos;)))</errorConditionFormula>
+        <errorMessage>Once a meeting has been published on the Web Service, only CMS Cork can change the Speaker Topic Title. Please contact a member of the CMS Cork team to request a change to this information.</errorMessage>
+    </validationRules>
+</CustomObject>

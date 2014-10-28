@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>App</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Apps</value>
+    </caseValues>
+    <fields>
+        <help><!-- The 4 letter application code used to namespace this application --></help>
+        <label><!-- App Code --></label>
+        <name>App_Code__c</name>
+    </fields>
+    <fields>
+        <help><!-- The first point of contact about this application from a business perspective --></help>
+        <label><!-- Business Contact --></label>
+        <name>Business_Contact__c</name>
+        <relationshipLabel><!-- Apps (Business Contact) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The user responsible for this application from a Business Quality perspective --></help>
+        <label><!-- Business Quality --></label>
+        <name>Business_Quality__c</name>
+        <relationshipLabel><!-- Apps (Business Quality) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Configuration Management Database ID --></help>
+        <label><!-- CMDB ID --></label>
+        <name>CMDB_ID__c</name>
+    </fields>
+    <fields>
+        <help><!-- The user responsible for this application from a Computer Systems Quality perspective --></help>
+        <label><!-- Computer Systems Quality --></label>
+        <name>Computer_Systems_Quality__c</name>
+        <relationshipLabel><!-- Apps (Computer Systems Quality) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The criticality of the data captured / used by this application. --></help>
+        <label><!-- Data Criticality --></label>
+        <name>Data_Criticality__c</name>
+        <picklistValues>
+            <masterLabel>Green</masterLabel>
+            <translation><!-- Green --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Assessed</masterLabel>
+            <translation><!-- Not Assessed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Orange</masterLabel>
+            <translation><!-- Orange --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Red</masterLabel>
+            <translation><!-- Red --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yellow</masterLabel>
+            <translation><!-- Yellow --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Detailed Description --></label>
+        <name>Detailed_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- GxP --></label>
+        <name>GxP__c</name>
+        <picklistValues>
+            <masterLabel>GxP</masterLabel>
+            <translation><!-- GxP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Assessed</masterLabel>
+            <translation><!-- Not Assessed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not GxP</masterLabel>
+            <translation><!-- Not GxP --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- The IT organisation responsibe for this application --></help>
+        <label><!-- IT Responsible Org --></label>
+        <name>IT_Responsible_Org__c</name>
+    </fields>
+    <fields>
+        <label><!-- PIC Status --></label>
+        <name>PIC_Status__c</name>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation><!-- In Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Started</masterLabel>
+            <translation><!-- Not Started --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- The URL for the completed PIC record --></help>
+        <label><!-- PIC URL --></label>
+        <name>PIC_URL__c</name>
+    </fields>
+    <fields>
+        <help><!-- Is this application Quality Critical --></help>
+        <label><!-- Quality Critical --></label>
+        <name>Quality_Critical__c</name>
+        <picklistValues>
+            <masterLabel>Critical</masterLabel>
+            <translation><!-- Critical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Assessed</masterLabel>
+            <translation><!-- Not Assessed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Critical</masterLabel>
+            <translation><!-- Not Critical --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Quality &amp; Criticality Notes --></label>
+        <name>Risk_Assessment_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Risk Category --></label>
+        <name>Risk_Category__c</name>
+        <picklistValues>
+            <masterLabel>Cost</masterLabel>
+            <translation><!-- Cost --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>External</masterLabel>
+            <translation><!-- External --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Operational</masterLabel>
+            <translation><!-- Operational --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Schedule</masterLabel>
+            <translation><!-- Schedule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Technology</masterLabel>
+            <translation><!-- Technology --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- What stage is this application in it&apos;s lifecycle. Note that applications can be in Long Term Support and still receiving significant enhancements. --></help>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Funding Allocated</masterLabel>
+            <translation><!-- Funding Allocated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Build</masterLabel>
+            <translation><!-- In Build --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Stabilisation</masterLabel>
+            <translation><!-- In Stabilisation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initial Idea</masterLabel>
+            <translation><!-- Initial Idea --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Long Term Support</masterLabel>
+            <translation><!-- Long Term Support --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Timeline Planned</masterLabel>
+            <translation><!-- Timeline Planned --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- High level summary of the app, including users, key functionality etc. --></help>
+        <label><!-- Summary --></label>
+        <name>Summary__c</name>
+    </fields>
+    <fields>
+        <help><!-- The system custodian for this application --></help>
+        <label><!-- System Custodian --></label>
+        <name>System_Custodian__c</name>
+        <relationshipLabel><!-- Apps (System Custodian) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The System Owner responsible for this application --></help>
+        <label><!-- System Owner --></label>
+        <name>System_Owner__c</name>
+        <relationshipLabel><!-- Apps (System Owner) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The first point of contact about this application from a technical perspective --></help>
+        <label><!-- Technical Contact --></label>
+        <name>Technical_Contact__c</name>
+        <relationshipLabel><!-- Apps (Technical Contact) --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>App Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Descriptions --></label>
+            <section>Descriptions</section>
+        </sections>
+        <sections>
+            <label><!-- Key Contacts --></label>
+            <section>Key Contacts</section>
+        </sections>
+        <sections>
+            <label><!-- Quality and Criticality --></label>
+            <section>Quality and Criticality</section>
+        </sections>
+        <sections>
+            <label><!-- spacer --></label>
+            <section>spacer</section>
+        </sections>
+    </layouts>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

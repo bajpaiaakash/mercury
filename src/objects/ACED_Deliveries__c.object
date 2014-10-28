@@ -1,0 +1,836 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fieldSets>
+        <fullName>Delivery_Header</fullName>
+        <description>Delivery Header</description>
+        <displayedFields>
+            <field>Activity__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Activity_Name__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Status__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Channel__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Program__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Start_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>End_Date__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>PIM_Segment__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Notes__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Delivery_Header</label>
+    </fieldSets>
+    <fields>
+        <fullName>Activity_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Activity__r.Activity_Name__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>This is a helptext for Activity Name</inlineHelpText>
+        <label>Activity Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Activity__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Activity this delivery belongs to</inlineHelpText>
+        <label>Activity</label>
+        <referenceTo>ACED_Activity__c</referenceTo>
+        <relationshipLabel>Deliveries</relationshipLabel>
+        <relationshipName>Deliveries1</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Actual_Attribute__c</fullName>
+        <externalId>false</externalId>
+        <formula>Activity__r.Channel__r.Actual_Attribute__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Actual Attribute</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Actual_Value__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>This is a helptext for # eInteractions</inlineHelpText>
+        <label>Actual Value</label>
+        <summarizedField>ACED_Delivery_Actuals__c.Value__c</summarizedField>
+        <summaryForeignKey>ACED_Delivery_Actuals__c.Delivery__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Actual_Weighted_eInt__c</fullName>
+        <externalId>false</externalId>
+        <formula>Actual_Value__c *  Activity__r.Channel__r.Weight__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Actual Weighted eInt</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Affilliate__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Activity__r.Program__r.Affiliate__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>This is a helptext for Affilliate</inlineHelpText>
+        <label>Affilliate</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Asset_Type_TF__c</fullName>
+        <description>Asset type of assets</description>
+        <externalId>false</externalId>
+        <label>Asset Type TF</label>
+        <picklist>
+            <picklistValues>
+                <fullName>HCP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Non-HCP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Audience__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the group targeted by the delivery. It should had been previously created in the Audience table</inlineHelpText>
+        <label>Audience</label>
+        <lookupFilter>
+            <active>true</active>
+            <booleanFilter>(1 AND 3) OR 2</booleanFilter>
+            <errorMessage>Only Audience belonging to your HUB are displayed</errorMessage>
+            <filterItems>
+                <field>$User.ACED_HUB__c</field>
+                <operation>equals</operation>
+                <valueField>ACED_Audience__c.HUB__c</valueField>
+            </filterItems>
+            <filterItems>
+                <field>$User.ACED_HUB__c</field>
+                <operation>equals</operation>
+                <value>ACE HUB</value>
+            </filterItems>
+            <filterItems>
+                <field>ACED_Audience__c.Audience_Type__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.Asset_Type_TF__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>ACED_Audience__c</referenceTo>
+        <relationshipLabel>Deliveries</relationshipLabel>
+        <relationshipName>Deliveries</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Channel_Provider_Rate_TF__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>This is a helptext for Channel Provider Rate TF</inlineHelpText>
+        <label>Channel Provider Rate TF</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Channel__c</fullName>
+        <externalId>false</externalId>
+        <formula>Activity__r.Channel__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>This is a helptext for Channel</inlineHelpText>
+        <label>Channel</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CustSat__c</fullName>
+        <description>User can enter percentage value ranging -100% to 100% in this  field</description>
+        <externalId>false</externalId>
+        <inlineHelpText>NTS obtained by the delviery</inlineHelpText>
+        <label>Customer Satisfaction</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Data_Load_Id__c</fullName>
+        <externalId>false</externalId>
+        <label>Data Load Id</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Effort_TF__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>This is a helptext for #Effort_TF</inlineHelpText>
+        <label>#Effort_TF</label>
+        <summarizedField>ACED_Delivery_Indication__c.Effort__c</summarizedField>
+        <summaryForeignKey>ACED_Delivery_Indication__c.Delivery__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>End_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Date when the delivery gets finalized</inlineHelpText>
+        <label>End Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Estimated_Weighted_eInt__c</fullName>
+        <externalId>false</externalId>
+        <formula>Estimated_eInt__c  * Activity__r.Channel__r.Weight__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>This is a helptext for Estimated Weighted eInt</inlineHelpText>
+        <label>Estimated Weighted eInt</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Estimated_eInt__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Read-only. # of eInteractions expected by this delivery based on the target Audience and the registered Provider &quot;success rate&quot; for the specific channel used by the delivery. This apply only to Non Planned Activities</inlineHelpText>
+        <label>Estimated eInt</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Hyperlinks__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Link to the actual content (if available)</inlineHelpText>
+        <label>Hyperlinks</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Indication_Details__c</fullName>
+        <description>This field displays indication details to filter by in list views</description>
+        <externalId>false</externalId>
+        <formula>Activity__r.Indication_Details__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Indication Details</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>My_Delivery__c</fullName>
+        <externalId>false</externalId>
+        <formula>Activity__r.Program__r.My_Programs__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>My Delivery</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>No_of_Attendees_TF__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>This is a helptext for No of Attendees TF</inlineHelpText>
+        <label>No of Attendees TF</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Notes__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Description of the delivery</inlineHelpText>
+        <label>Notes</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>PIM_Segment__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>PIM segment targetted by the delivery. If the delivery targets all the Audience group then use All</inlineHelpText>
+        <label>PIM Segment</label>
+        <picklist>
+            <picklistValues>
+                <fullName>All</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Not segmented</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Patient Focus Professional</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Patient Idealist</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Scientific Innovator</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Traditionalist</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Planned_Weighted_eInt__c</fullName>
+        <externalId>false</externalId>
+        <formula>Planned_eInt__c * Activity__r.Channel__r.Weight__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>This is a helptext for Planned Weighted eInt</inlineHelpText>
+        <label>Planned Weighted eInt</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Planned_eInt__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Read-only. # of eInteractions expected by this delivery based on the target Audience and the registered Provider &quot;success rate&quot; for the specific channel used by the delivery</inlineHelpText>
+        <label>Planned eInt</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Potential_Attribute__c</fullName>
+        <externalId>false</externalId>
+        <formula>Activity__r.Channel__r.Potential_Attribute__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Potential Attribute</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Potential_Value__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What this value means</inlineHelpText>
+        <label>Potential Value</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ProgramID_TF__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASESAFEID(Activity__r.Program__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>This is a helptext for ProgramID_TF</inlineHelpText>
+        <label>ProgramID_TF</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Program__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK( &apos;/&apos;&amp;Activity__r.Program__c ,  Activity__r.Program__r.Name,&apos;_blank&apos;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>This is a helptext for Program</inlineHelpText>
+        <label>Program</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Provider__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Provider of the database containing the Audience. It should had been defined previously in the Providers table</inlineHelpText>
+        <label>Provider</label>
+        <lookupFilter>
+            <active>true</active>
+            <booleanFilter>1 OR 2</booleanFilter>
+            <errorMessage>Only Providers belonging to your HUB are displayed</errorMessage>
+            <filterItems>
+                <field>$User.ACED_HUB__c</field>
+                <operation>equals</operation>
+                <valueField>ACED_Providers__c.HUB__c</valueField>
+            </filterItems>
+            <filterItems>
+                <field>$User.ACED_HUB__c</field>
+                <operation>equals</operation>
+                <value>ACE HUB</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>ACED_Providers__c</referenceTo>
+        <relationshipLabel>Deliveries</relationshipLabel>
+        <relationshipName>Deliveries</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>StandAlone_Asset__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>This is a helptext for StandAlone Asset</inlineHelpText>
+        <label>StandAlone Asset</label>
+        <referenceTo>ACED_Asset__c</referenceTo>
+        <relationshipName>Deliveries</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>StandAlone_Upsert_Attribute__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <inlineHelpText>This is a helptext for StandAlone Upsert Attribute</inlineHelpText>
+        <label>StandAlone Upsert Attribute</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Date when the delivery gets started</inlineHelpText>
+        <label>Start Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Current status of the delivery. Has to be updated when the status of the delivery changes (i.e gets started, gets finalized…)</inlineHelpText>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Not Initiated</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Started</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>eInteraction_Type__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Audience__c !=null &amp;&amp; TEXT(Audience__r.Audience_Type__c)!=null, TEXT(Audience__r.Audience_Type__c),  TEXT(Activity__r.Assets__r.Target_Type__c) )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>eInteraction Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Delivery</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Affilliate__c</columns>
+        <columns>Activity__c</columns>
+        <columns>Program__c</columns>
+        <columns>Status__c</columns>
+        <columns>Channel__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Start_Date__c</columns>
+        <columns>End_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>1. All</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Brand</fullName>
+        <columns>NAME</columns>
+        <columns>Activity__c</columns>
+        <columns>Indication_Details__c</columns>
+        <columns>Program__c</columns>
+        <columns>Affilliate__c</columns>
+        <columns>Channel__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>My_Delivery__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>Indication_Details__c</field>
+            <operation>contains</operation>
+        </filters>
+        <label>2. Brand</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Brand_Indication</fullName>
+        <columns>NAME</columns>
+        <columns>Activity__c</columns>
+        <columns>Activity_Name__c</columns>
+        <columns>Program__c</columns>
+        <columns>Affilliate__c</columns>
+        <columns>Status__c</columns>
+        <columns>Channel__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>My_Delivery__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>Indication_Details__c</field>
+            <operation>contains</operation>
+        </filters>
+        <label>3. Brand Indication</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Business_Function</fullName>
+        <columns>NAME</columns>
+        <columns>Activity_Name__c</columns>
+        <columns>Affilliate__c</columns>
+        <columns>Program__c</columns>
+        <columns>Status__c</columns>
+        <columns>Audience__c</columns>
+        <columns>Channel__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>My_Delivery__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>Indication_Details__c</field>
+            <operation>contains</operation>
+        </filters>
+        <label>4. Business Function</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Business_Unit</fullName>
+        <columns>NAME</columns>
+        <columns>Activity__c</columns>
+        <columns>Affilliate__c</columns>
+        <columns>Channel__c</columns>
+        <columns>Start_Date__c</columns>
+        <columns>Program__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>My_Delivery__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>Indication_Details__c</field>
+            <operation>contains</operation>
+        </filters>
+        <label>5. Business Unit</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Therapeutic_Area</fullName>
+        <columns>NAME</columns>
+        <columns>Activity__c</columns>
+        <columns>Affilliate__c</columns>
+        <columns>Channel__c</columns>
+        <columns>Start_Date__c</columns>
+        <columns>Program__c</columns>
+        <columns>Status__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>My_Delivery__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>Indication_Details__c</field>
+            <operation>contains</operation>
+        </filters>
+        <label>6. Therapeutic Area</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <displayFormat>DE-{000000}</displayFormat>
+        <label>Deliveries ID</label>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Deliveries</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Activity__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Activity_Name__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Affilliate__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Program__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Channel__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Audience__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>End_Date__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Activity_Name__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Affilliate__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Audience__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Channel__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Program__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Provider__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Activity__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Affilliate__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Channel__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Status__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Activity__c</searchFilterFields>
+        <searchFilterFields>Activity_Name__c</searchFilterFields>
+        <searchFilterFields>Affilliate__c</searchFilterFields>
+        <searchFilterFields>Channel__c</searchFilterFields>
+        <searchFilterFields>Program__c</searchFilterFields>
+        <searchFilterFields>Start_Date__c</searchFilterFields>
+        <searchFilterFields>End_Date__c</searchFilterFields>
+        <searchResultsAdditionalFields>Activity__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Activity_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Affilliate__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Channel__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Program__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Start_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>End_Date__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>ACED_CustomerSatisfaction</fullName>
+        <active>true</active>
+        <description>This rule will stop user from entering values  not more than 100 or less than -100</description>
+        <errorConditionFormula>OR(CustSat__c &gt; 1, CustSat__c &lt; -1)</errorConditionFormula>
+        <errorDisplayField>CustSat__c</errorDisplayField>
+        <errorMessage>Please enter a value between 100 and -100</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>ACED_EndDate_GreaterThan_StartDate</fullName>
+        <active>true</active>
+        <description>End date should be Greater than Start Date</description>
+        <errorConditionFormula>End_Date__c  &lt;  Start_Date__c</errorConditionFormula>
+        <errorDisplayField>End_Date__c</errorDisplayField>
+        <errorMessage>Please enter End date greater than Start Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>StartDateAndEndOfProgram</fullName>
+        <active>false</active>
+        <errorConditionFormula>(((YEAR( Start_Date__c ) != YEAR( End_Date__c )) || ((TEXT( Activity__r.Program__r.Year__c ) != TEXT(YEAR(Start_Date__c ))))))</errorConditionFormula>
+        <errorDisplayField>Start_Date__c</errorDisplayField>
+        <errorMessage>Start and end dates should match the program year</errorMessage>
+    </validationRules>
+</CustomObject>
