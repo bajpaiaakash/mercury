@@ -121,7 +121,7 @@ public with sharing class MERC_InvoiceXmlController {
         get {
             if (scannedTifSection == null) {
                 // See if TIF file is attached
-                List<ContentVersion> tifObj = [SELECT ContentDocumentId From ContentVersion WHERE Invoice_MERC__c = :invoice.Id AND FileType = 'TIFF' LIMIT 1];
+                List<ContentVersion> tifObj = [SELECT ContentDocumentId From ContentVersion WHERE Invoice_MERC__c = :invoice.Id AND FileType = 'TIF' LIMIT 1];
                 if (tifObj != null && !tifObj.isEmpty()) {
                     // write out XML                
                     scannedTifSection = '<ArchiveFile><ID /><EXTID>'+invoice.Mercury_Transaction_Id_MERC__c+'</EXTID><SYSTEM_ID />'+
@@ -132,5 +132,5 @@ public with sharing class MERC_InvoiceXmlController {
             return scannedTifSection;
         }
         private set;
-    }   
+    }
 }
