@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Environment</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Environments</value>
+    </caseValues>
+    <fields>
+        <label><!-- Days since last refresh --></label>
+        <name>Days_since_last_refresh__c</name>
+    </fields>
+    <fields>
+        <help><!-- Purpose of the environment and the users involved --></help>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <help><!-- The date this environment was last refreshed --></help>
+        <label><!-- Last Refresh --></label>
+        <name>Last_Refresh__c</name>
+    </fields>
+    <fields>
+        <help><!-- The SFDC Org ID or other technology specific technical reference number --></help>
+        <label><!-- Org ID --></label>
+        <name>Org_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deleted</masterLabel>
+            <translation><!-- Deleted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive</masterLabel>
+            <translation><!-- Inactive --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Technology --></label>
+        <name>Technology__c</name>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SFDC</masterLabel>
+            <translation><!-- SFDC --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Track --></label>
+        <name>Track__c</name>
+        <picklistValues>
+            <masterLabel>Non Track</masterLabel>
+            <translation><!-- Non Track --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Production</masterLabel>
+            <translation><!-- Production --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sprint</masterLabel>
+            <translation><!-- Sprint --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Support</masterLabel>
+            <translation><!-- Support --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Training/Demo</masterLabel>
+            <translation><!-- Training/Demo --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>Config (500MB)</masterLabel>
+            <translation><!-- Config (500MB) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dev (10MB)</masterLabel>
+            <translation><!-- Dev (10MB) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ECC</masterLabel>
+            <translation><!-- ECC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Full (80GB)</masterLabel>
+            <translation><!-- Full (80GB) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PI</masterLabel>
+            <translation><!-- PI --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Environment Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label><!-- Updates &amp; Refreshes --></label>
+            <section>Updates &amp; Refreshes</section>
+        </sections>
+    </layouts>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

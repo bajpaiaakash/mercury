@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Business Description: This object is used to record the tests which have been executed. 
+
+Each test is a copy of a &quot;Test Template&quot; which has been set up by a Test Manager or other Test Script writer. 
+
+Tests are created by the system automatically when a user is added to the Testers Related list on a Test Template.
+
+Used In: Mission Control App</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Assigned_To__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Which user ran this test</inlineHelpText>
+        <label>Tester</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>MICO_Test_Cases</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <externalId>false</externalId>
+        <formula>Template__r.Title__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>The description of this text script</inlineHelpText>
+        <label>Description</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Environment__c</fullName>
+        <description>Enter the environment that this test was performed in</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the environment that this test was performed in</inlineHelpText>
+        <label>Environment</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Dev</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CI</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SAT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>UAT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Introduction__c</fullName>
+        <externalId>false</externalId>
+        <formula>Template__r.Introduction__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>What is the overall aim of this test</inlineHelpText>
+        <label>Introduction</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Overall_Test_Comments__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Overall test comments. 
+
+You should note what happened in the test, e.g. for promotion creation &quot;Succesfully created promotion&quot;.
+
+This can be copy and pasted from the excel file.</inlineHelpText>
+        <label>Overall Test Comments</label>
+        <length>32000</length>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Pass_Percentage__c</fullName>
+        <externalId>false</externalId>
+        <formula>Steps_Passed__c / Total_Steps__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>The percentage of all steps that are passed or passed with minor issues</inlineHelpText>
+        <label>Pass Percentage</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>ProjectNew__c</fullName>
+        <externalId>false</externalId>
+        <formula>User_Story__r.Project__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Project</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Project__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Project</label>
+        <referenceTo>MICO_Project__c</referenceTo>
+        <relationshipLabel>Test Executions</relationshipLabel>
+        <relationshipName>MICO_Test_Executions</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>SprintNew__c</fullName>
+        <externalId>false</externalId>
+        <formula>User_Story__r.Allocated_Sprint__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Sprint</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sprint__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Sprint</label>
+        <referenceTo>MICO_Sprint__c</referenceTo>
+        <relationshipLabel>Test Executions</relationshipLabel>
+        <relationshipName>MICO_Test_Executions</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The stage in the test lifecycle. A test case can be Status=Complete and fOutcome=&quot;Failed&quot; if a bug has been raised. Once the bug has been fixed the test case may be set to &quot;Awaiting Retest&quot; by the Test Lead</inlineHelpText>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Not Started</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Started</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Complete</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Awaiting Retest</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Parked</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Steps_Completed__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Sums the number of steps who&apos;s outcome is not N/A</inlineHelpText>
+        <label>Steps Completed</label>
+        <summaryFilterItems>
+            <field>MICO_Test_Steps__c.Outcome__c</field>
+            <operation>notEqual</operation>
+            <value>TBC</value>
+        </summaryFilterItems>
+        <summaryForeignKey>MICO_Test_Steps__c.Test__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Steps_Passed__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The total number of steps passed or  passed with minor issues</inlineHelpText>
+        <label>Steps Passed</label>
+        <summaryFilterItems>
+            <field>MICO_Test_Steps__c.Outcome__c</field>
+            <operation>equals</operation>
+            <value>Pass, Passed with issues</value>
+        </summaryFilterItems>
+        <summaryForeignKey>MICO_Test_Steps__c.Test__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Template__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>The script being executed</inlineHelpText>
+        <label>Template</label>
+        <referenceTo>MICO_Test_Templates__c</referenceTo>
+        <relationshipName>MICO_Test</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Test_Completion__c</fullName>
+        <externalId>false</externalId>
+        <formula>Steps_Completed__c / Total_Steps__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>The percentage of steps that have an outcome not equal to &apos;N/A&apos;</inlineHelpText>
+        <label>Test Completion</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Test_Outcome__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The overall outcome of the test at it&apos;s current stage</inlineHelpText>
+        <label>Test Outcome</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Passed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Passed with minor issues</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Failed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Blocked from testing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Test_Phase__c</fullName>
+        <externalId>false</externalId>
+        <label>Test Phase</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Sprint Acceptance Testing (SAT)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>User Acceptance Testing (UAT)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Integration</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Performance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pre-check</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Regression</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Total_Steps__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The total number of steps in this test</inlineHelpText>
+        <label>Total Steps</label>
+        <summaryForeignKey>MICO_Test_Steps__c.Test__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>User_Story__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>User Story</label>
+        <referenceTo>MICO_User_Story__c</referenceTo>
+        <relationshipName>MICO_Tests</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Test Execution</label>
+    <nameField>
+        <displayFormat>T-{0000}</displayFormat>
+        <label>Test Execution Number</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Test Executions</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>User_Story__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Test_Phase__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Assigned_To__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Test_Outcome__c</customTabListAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <webLinks>
+        <fullName>Run_Test_Script</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Run Test Script</masterLabel>
+        <openType>noSidebar</openType>
+        <page>runTestScript</page>
+        <protected>false</protected>
+    </webLinks>
+</CustomObject>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <buckets>
+        <bucketType>text</bucketType>
+        <developerName>BucketField_73606429</developerName>
+        <masterLabel>Work Order</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <sourceColumnName>MavensPM__Requirement__c.Work_Order__c</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <value>Work Order : New</value>
+        </values>
+        <values>
+            <value>Work Order : Original</value>
+        </values>
+    </buckets>
+    <columns>
+        <field>MavensPM__Requirement__c.LLY_Project_Name__c</field>
+    </columns>
+    <columns>
+        <field>MavensPM__Requirement__c.MavensPM__Req_Number__c</field>
+    </columns>
+    <columns>
+        <field>MavensPM__Requirement__c.Lilly_Requirement_Id__c</field>
+    </columns>
+    <columns>
+        <field>MavensPM__Requirement__c.MavensPM__Status__c</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>MavensPM__Requirement__c.MavensPM__Details__c</field>
+    </columns>
+    <columns>
+        <field>MavensPM__Requirement__c.MavensPM__Solution_Detail__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <description>Requirements by Release, Status, Type, Effort and Solution.</description>
+    <filter>
+        <criteriaItems>
+            <column>MavensPM__Requirement__c.MavensPM__Status__c</column>
+            <operator>notEqual</operator>
+            <value>Duplicate,Deferred,Cancelled</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>MavensPM__Requirement__c.LLY_Project_Name__c</column>
+            <operator>equals</operator>
+            <value>Mercury,Customer Search Tool</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>MavensPM__Requirement__c.Release__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Mercury Requirements by Effort</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$MavensPM__Requirement__c@MavensPM__Requirement__c.MavensPM__Use_Case__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>MavensPM__Requirement__c.MavensPM__Date_Captured__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

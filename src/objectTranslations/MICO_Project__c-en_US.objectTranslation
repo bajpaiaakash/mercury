@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Project mico</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Projects</value>
+    </caseValues>
+    <fields>
+        <label><!-- Benefit Drivers --></label>
+        <name>Benefit_Drivers__c</name>
+        <picklistValues>
+            <masterLabel>Cost Reduction</masterLabel>
+            <translation><!-- Cost Reduction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Licence Utilisation</masterLabel>
+            <translation><!-- Licence Utilisation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reason A</masterLabel>
+            <translation><!-- Reason A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reason B</masterLabel>
+            <translation><!-- Reason B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reason C</masterLabel>
+            <translation><!-- Reason C --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Time Efficiency</masterLabel>
+            <translation><!-- Time Efficiency --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Days Remaining --></label>
+        <name>Days_Remaining__c</name>
+    </fields>
+    <fields>
+        <label><!-- End Date --></label>
+        <name>End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Estimated Net Benefit --></label>
+        <name>Estimated_Net_Benefit__c</name>
+    </fields>
+    <fields>
+        <label><!-- Expected Benefit statement --></label>
+        <name>Expected_Benefit_statement__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prioritisation Score --></label>
+        <name>Prioritisation_Score__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project Description --></label>
+        <name>Project_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Realised Benefits Statement --></label>
+        <name>Realised_Benefits_Statement__c</name>
+    </fields>
+    <fields>
+        <label><!-- Start Date --></label>
+        <name>Start_Date__c</name>
+    </fields>
+    <layouts>
+        <layout>Project Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Expected Benefits &amp; Prioritisation --></label>
+            <section>Expected Benefits &amp; Prioritisation</section>
+        </sections>
+        <sections>
+            <label><!-- Key Dates --></label>
+            <section>Key Dates</section>
+        </sections>
+        <sections>
+            <label><!-- Post Project Evaluation --></label>
+            <section>Post Project Evaluation</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

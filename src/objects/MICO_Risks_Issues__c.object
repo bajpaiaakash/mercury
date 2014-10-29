@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Business Description: This object is used as a Risks and Issues register to capture and escalate risks and issues, and track their resolution.
+
+Used In: Mission Control App</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>App__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The app this risk / issue is related to</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The app this risk / issue is related to</inlineHelpText>
+        <label>App</label>
+        <referenceTo>MICO_App__c</referenceTo>
+        <relationshipName>Risks_Issues</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Category__c</fullName>
+        <externalId>false</externalId>
+        <label>Category</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Organisation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Methodology</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tools</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Training</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Project Delivery</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Budget</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Closed_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Closed Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_Raised__c</fullName>
+        <defaultValue>Today()</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Record the date the issue was raised. This may be different to the day it was logged in Tracker</inlineHelpText>
+        <label>Date Raised</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <length>32000</length>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>15</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Identified_By__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The originator of the risk or issue</description>
+        <externalId>false</externalId>
+        <label>Identified By</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Risks_Issues</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Impact_CC__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What is the impact (or severity) of this item occurring?</inlineHelpText>
+        <label>Impact</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Low Impact</fullName>
+                <color>#78C953</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>High Impact</fullName>
+                <color>#F3D904</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Critical</fullName>
+                <color>#A53711</color>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Meeting__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Meeting</label>
+        <referenceTo>MICO_Meeting__c</referenceTo>
+        <relationshipName>Risks_Issues</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Mitigating_Actions__c</fullName>
+        <externalId>false</externalId>
+        <label>Mitigating Actions</label>
+        <length>32000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Probability__c</fullName>
+        <description>How likely is this item from occurring?
+Low = Not very likely to occur
+Medium = Even chance to occur
+High = Sure to occur</description>
+        <externalId>false</externalId>
+        <inlineHelpText>How likely is this item from occurring?
+Low = Not very likely to occur
+Medium = Even chance to occur
+High = Sure to occur</inlineHelpText>
+        <label>Probability</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Low</fullName>
+                <color>#78C953</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Medium</fullName>
+                <color>#F3D904</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>High</fullName>
+                <color>#A53711</color>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Project__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Project</label>
+        <referenceTo>MICO_Project__c</referenceTo>
+        <relationshipName>MICO_Risks_Issues</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>State__c</fullName>
+        <description>The state of a risk or issue, according to the originator</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Overall State (Open / Closed) of this risk or issue</inlineHelpText>
+        <label>State</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Open</fullName>
+                <color>#FF0000</color>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Closed</fullName>
+                <color>#78C953</color>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What is the status of this risk or issue?</inlineHelpText>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>In Progress</fullName>
+                <color>#AFCADF</color>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Resolved</fullName>
+                <color>#78C953</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Duplicate</fullName>
+                <color>#B6E32E</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No Issue</fullName>
+                <color>#A845DC</color>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Sub_Type__c</fullName>
+        <description>The sub type of this risk / issue</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The sub type of this risk / issue</inlineHelpText>
+        <label>Sub Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Financial</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Organisational</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>People</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Scope</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Technical</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Title__c</fullName>
+        <externalId>false</externalId>
+        <label>Summary</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Is this a Risk or an issue?
+- Risk: an event that has the probability of occurring and an impact to the project quality, scope, time, cost and/or schedule.
+- Issue: has occurred and has a negative impact that must be dealt with (recovery).</inlineHelpText>
+        <label>Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Risk</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Issue</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>User_Story__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>User Story</label>
+        <referenceTo>MICO_User_Story__c</referenceTo>
+        <relationshipName>MICO_Risks_Issues</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Weighting__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE( Impact_CC__c , &quot;Critical&quot;, 3, &quot;High Impact&quot;, 2,&quot;Low Impact&quot;,1, 0)*
+CASE(  Probability__c  , &quot;High&quot;, 3, &quot;Medium&quot;, 2,&quot;Low&quot;,1, 3)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>An indicator as to the importance of this risk or issue. Calculated as an impact score multiplied by a probability score.</inlineHelpText>
+        <label>Weighting</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Risk &amp; Issue</label>
+    <listViews>
+        <fullName>All_Closed_Risks_Issues</fullName>
+        <columns>NAME</columns>
+        <columns>Title__c</columns>
+        <columns>State__c</columns>
+        <columns>Status__c</columns>
+        <columns>Probability__c</columns>
+        <columns>Impact_CC__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>Date_Raised__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>State__c</field>
+            <operation>equals</operation>
+            <value>Closed</value>
+        </filters>
+        <label>2) All Closed Risks &amp; Issues</label>
+    </listViews>
+    <listViews>
+        <fullName>All_Open_Risks_Issues</fullName>
+        <columns>NAME</columns>
+        <columns>Title__c</columns>
+        <columns>State__c</columns>
+        <columns>Status__c</columns>
+        <columns>Probability__c</columns>
+        <columns>Impact_CC__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>Date_Raised__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>State__c</field>
+            <operation>equals</operation>
+            <value>Open</value>
+        </filters>
+        <label>1) All Open Risks &amp; Issues</label>
+    </listViews>
+    <listViews>
+        <fullName>My_Closed_Risks_Issues</fullName>
+        <columns>NAME</columns>
+        <columns>Title__c</columns>
+        <columns>State__c</columns>
+        <columns>Status__c</columns>
+        <columns>Probability__c</columns>
+        <columns>Impact_CC__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>Date_Raised__c</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>State__c</field>
+            <operation>equals</operation>
+            <value>Closed</value>
+        </filters>
+        <label>5) My Closed Risks &amp; Issues</label>
+    </listViews>
+    <listViews>
+        <fullName>My_Open_Risks_Issues</fullName>
+        <columns>NAME</columns>
+        <columns>Title__c</columns>
+        <columns>State__c</columns>
+        <columns>Status__c</columns>
+        <columns>Probability__c</columns>
+        <columns>Impact_CC__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>Date_Raised__c</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>State__c</field>
+            <operation>equals</operation>
+            <value>Open</value>
+        </filters>
+        <label>4) My Open Risks &amp; Issues</label>
+    </listViews>
+    <listViews>
+        <fullName>My_Risks_Issues</fullName>
+        <columns>NAME</columns>
+        <columns>Title__c</columns>
+        <columns>State__c</columns>
+        <columns>Status__c</columns>
+        <columns>Probability__c</columns>
+        <columns>Impact_CC__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>Date_Raised__c</columns>
+        <filterScope>Mine</filterScope>
+        <label>3) My Risks &amp; Issues</label>
+    </listViews>
+    <nameField>
+        <displayFormat>RI-{0000}</displayFormat>
+        <label>Risk/Issue ID</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Risks &amp; Issues</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Date_Raised__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Title__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <excludedStandardButtons>Accept</excludedStandardButtons>
+        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
+        <lookupDialogsAdditionalFields>Date_Raised__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Type__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Title__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Date_Raised__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Type__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Title__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Status__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>Type__c</searchFilterFields>
+        <searchFilterFields>Title__c</searchFilterFields>
+        <searchFilterFields>Status__c</searchFilterFields>
+        <searchFilterFields>State__c</searchFilterFields>
+        <searchResultsAdditionalFields>Date_Raised__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Title__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>No_future_dates</fullName>
+        <active>true</active>
+        <description>Prevents date raised being later than today</description>
+        <errorConditionFormula>Date_Raised__c &gt;TODAY()</errorConditionFormula>
+        <errorDisplayField>Date_Raised__c</errorDisplayField>
+        <errorMessage>&quot;Date Raised&quot; cannot be in the future</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Risk_requires_probability</fullName>
+        <active>true</active>
+        <description>If Type is Risk - then Probability is required</description>
+        <errorConditionFormula>AND( ISPICKVAL( Type__c , &quot;Risk&quot;), ISBLANK( TEXT(Probability__c )) )</errorConditionFormula>
+        <errorDisplayField>Probability__c</errorDisplayField>
+        <errorMessage>Risks must have a probability value</errorMessage>
+    </validationRules>
+</CustomObject>

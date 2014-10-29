@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Test Script</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Test Scripts</value>
+    </caseValues>
+    <fields>
+        <label><!-- Development Stage --></label>
+        <name>Development_Stage__c</name>
+    </fields>
+    <fields>
+        <help><!-- The expected result of this test --></help>
+        <label><!-- Expected Result --></label>
+        <name>Expected_Result__c</name>
+    </fields>
+    <fields>
+        <help><!-- The introduction to this test script. This will be shown to testers before they start executing the test. --></help>
+        <label><!-- Introduction --></label>
+        <name>Introduction__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project --></label>
+        <name>Project__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sprint --></label>
+        <name>Sprint__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Draft Ready</masterLabel>
+            <translation><!-- Draft Ready --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation><!-- In Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Started</masterLabel>
+            <translation><!-- Not Started --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- The title of the test script --></help>
+        <label><!-- Test Title --></label>
+        <name>Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- User Story Description --></label>
+        <name>USerSToryDescription__c</name>
+    </fields>
+    <fields>
+        <label><!-- User Story --></label>
+        <name>User_Story__c</name>
+        <relationshipLabel><!-- Test Scripts --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Test Script Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Test Summary --></label>
+            <section>Test Summary</section>
+        </sections>
+        <sections>
+            <label><!-- User Story Info --></label>
+            <section>User Story Info</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

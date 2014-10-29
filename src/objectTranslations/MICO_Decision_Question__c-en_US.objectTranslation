@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Decision &amp; Question</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Decisions &amp; Questions</value>
+    </caseValues>
+    <fields>
+        <help><!-- The app this decision / question is related to --></help>
+        <label><!-- App --></label>
+        <name>App__c</name>
+        <relationshipLabel><!-- Decisions &amp; Questions --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The person who needs to take action over this question/decision --></help>
+        <label><!-- Assigned To --></label>
+        <name>Assigned__c</name>
+        <relationshipLabel><!-- Decisions &amp; Questions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Defect --></label>
+        <name>Bug__c</name>
+        <relationshipLabel><!-- Decisions &amp; Questions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Decision --></label>
+        <name>Decision__c</name>
+    </fields>
+    <fields>
+        <label><!-- Design --></label>
+        <name>Design__c</name>
+        <relationshipLabel><!-- Decisions &amp; Questions --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Further question details --></help>
+        <label><!-- Details --></label>
+        <name>Details__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting --></label>
+        <name>Meeting__c</name>
+        <relationshipLabel><!-- Decisions &amp; Questions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Next Steps --></label>
+        <name>Next_Steps__c</name>
+    </fields>
+    <fields>
+        <label><!-- Process Step --></label>
+        <name>Process_Step__c</name>
+        <relationshipLabel><!-- Decisions &amp; Questions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Project --></label>
+        <name>Project__c</name>
+        <relationshipLabel><!-- Decisions &amp; Questions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Question --></label>
+        <name>Question__c</name>
+    </fields>
+    <fields>
+        <label><!-- User Story --></label>
+        <name>Requirement__c</name>
+        <relationshipLabel><!-- Decisions &amp; Questions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Risks &amp; Issues --></label>
+        <name>Risks_Issues__c</name>
+        <relationshipLabel><!-- Decisions &amp; Questions --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The source of this particular question or decision as listed in Relationships --></help>
+        <label><!-- Source --></label>
+        <name>Source__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Closed</masterLabel>
+            <translation><!-- Closed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Decision Made</masterLabel>
+            <translation><!-- Decision Made --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Draft</masterLabel>
+            <translation><!-- Draft --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation><!-- In Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On Hold</masterLabel>
+            <translation><!-- On Hold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending Acceptance</masterLabel>
+            <translation><!-- Pending Acceptance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Question Answered</masterLabel>
+            <translation><!-- Question Answered --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Question Raised</masterLabel>
+            <translation><!-- Question Raised --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ready for Review</masterLabel>
+            <translation><!-- Ready for Review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejected</masterLabel>
+            <translation><!-- Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Resolved</masterLabel>
+            <translation><!-- Resolved --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Test Result --></label>
+        <name>Test_Result__c</name>
+        <relationshipLabel><!-- Decisions &amp; Questions --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Decision Layout</layout>
+        <sections>
+            <label><!-- Assesment &amp; Categorisation --></label>
+            <section>Assesment &amp; Categorisation</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label><!-- Relationships --></label>
+            <section>Relationships</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Question Layout</layout>
+        <sections>
+            <label><!-- Assesment &amp; Categorisation --></label>
+            <section>Assesment &amp; Categorisation</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label><!-- Relationships --></label>
+            <section>Relationships</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Decision --></label>
+        <name>Decision</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Question --></label>
+        <name>Question</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

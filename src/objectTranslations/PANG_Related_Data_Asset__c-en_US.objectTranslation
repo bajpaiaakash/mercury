@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>RWE Related Data Asset</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>RWE Related Data Assets</value>
+    </caseValues>
+    <fields>
+        <label><!-- Customer Comment --></label>
+        <name>Customer_Comment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Decision --></label>
+        <name>Customer_Decision__c</name>
+        <picklistValues>
+            <masterLabel>Will Not Use</masterLabel>
+            <translation><!-- Will Not Use --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Will Use</masterLabel>
+            <translation><!-- Will Use --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- DataLoad ID --></label>
+        <name>DataLoad_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data Asset --></label>
+        <name>Data_Asset__c</name>
+        <relationshipLabel><!-- Projects / Requests --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Project --></label>
+        <name>Project__c</name>
+        <relationshipLabel><!-- Data Assets --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Request --></label>
+        <name>Request__c</name>
+        <relationshipLabel><!-- Data Assets --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>RWE Related Data Asset Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Details --></label>
+            <section>Details</section>
+        </sections>
+        <sections>
+            <label><!-- Request / Project --></label>
+            <section>Request / Project</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Cost</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Costs</value>
+    </caseValues>
+    <fields>
+        <help><!-- This is a helptext for Assest/Activity --></help>
+        <label><!-- Assets/Activity --></label>
+        <name>Assets_Activity__c</name>
+        <relationshipLabel><!-- Actual Costs --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- This is a helptext for Cost --></help>
+        <label><!-- Cost --></label>
+        <name>Cost__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data Load Id --></label>
+        <name>Data_Load_Id__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is a helptext for Description --></help>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is a helptext for Notes --></help>
+        <label><!-- Notes --></label>
+        <name>Notes__c</name>
+    </fields>
+    <layouts>
+        <layout>Cost Layout</layout>
+        <sections>
+            <label><!-- Cost Details --></label>
+            <section>Cost Details</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

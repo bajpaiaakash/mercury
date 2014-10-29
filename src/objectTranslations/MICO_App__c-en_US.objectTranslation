@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>App</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Apps</value>
+    </caseValues>
+    <fields>
+        <help><!-- The 4 letter application code used to namespace this application --></help>
+        <label><!-- App Code --></label>
+        <name>App_Code__c</name>
+    </fields>
+    <fields>
+        <help><!-- The first point of contact about this application from a business perspective --></help>
+        <label><!-- Business Contact --></label>
+        <name>Business_Contact__c</name>
+        <relationshipLabel><!-- Apps (Business Contact) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Business Criticality --></label>
+        <name>Business_Criticality__c</name>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation><!-- High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation><!-- Low --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium</masterLabel>
+            <translation><!-- Medium --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Detailed Description --></label>
+        <name>Detailed_Description__c</name>
+    </fields>
+    <fields>
+        <help><!-- In what org is this app being delivered? --></help>
+        <label><!-- Org --></label>
+        <name>Org__c</name>
+        <picklistValues>
+            <masterLabel>Production: GSO</masterLabel>
+            <translation><!-- Production: GSO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Production: Other</masterLabel>
+            <translation><!-- Production: Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sandbox: GSO</masterLabel>
+            <translation><!-- Sandbox: GSO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sandbox: Other</masterLabel>
+            <translation><!-- Sandbox: Other --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Risk Assessment Notes --></label>
+        <name>Risk_Assessment_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Risk Category --></label>
+        <name>Risk_Category__c</name>
+        <picklistValues>
+            <masterLabel>Cost</masterLabel>
+            <translation><!-- Cost --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>External</masterLabel>
+            <translation><!-- External --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Operational</masterLabel>
+            <translation><!-- Operational --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Schedule</masterLabel>
+            <translation><!-- Schedule --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Technology</masterLabel>
+            <translation><!-- Technology --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- What stage is this application in it&apos;s lifecycle. Note that applications can be in Long Term Support and still receiving significant enhancements. --></help>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Funding Allocated</masterLabel>
+            <translation><!-- Funding Allocated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Build</masterLabel>
+            <translation><!-- In Build --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Stabilisation</masterLabel>
+            <translation><!-- In Stabilisation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initial Idea</masterLabel>
+            <translation><!-- Initial Idea --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Long Term Support</masterLabel>
+            <translation><!-- Long Term Support --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Timeline Planned</masterLabel>
+            <translation><!-- Timeline Planned --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- High level summary of the app, including users, key functionality etc. --></help>
+        <label><!-- Summary --></label>
+        <name>Summary__c</name>
+    </fields>
+    <fields>
+        <help><!-- The first point of contact about this application from a technical perspective --></help>
+        <label><!-- Technical Contact --></label>
+        <name>Technical_Contact__c</name>
+        <relationshipLabel><!-- Apps (Technical Contact) --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>App Layout</layout>
+        <sections>
+            <label><!-- Contacts --></label>
+            <section>Contacts</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Descriptions --></label>
+            <section>Descriptions</section>
+        </sections>
+        <sections>
+            <label><!-- Risk Assessment --></label>
+            <section>Risk Assessment</section>
+        </sections>
+    </layouts>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

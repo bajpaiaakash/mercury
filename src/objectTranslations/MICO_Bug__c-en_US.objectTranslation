@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Defect</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Defects</value>
+    </caseValues>
+    <fields>
+        <help><!-- Critical - Stops user from completing critical business process (CBP)
+Major - CBP can be mostly be completed but inefficient. Some processes cannot be completed.
+Medium - Process is hindered but can be completed
+Minor - Slight inconvenience to user --></help>
+        <label><!-- Business Impact --></label>
+        <name>BusinessImpact__c</name>
+        <picklistValues>
+            <masterLabel>1-Low</masterLabel>
+            <translation><!-- 1-Low --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2-Medium</masterLabel>
+            <translation><!-- 2-Medium --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3-High</masterLabel>
+            <translation><!-- 3-High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4-Very High</masterLabel>
+            <translation><!-- 4-Very High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5-Critical</masterLabel>
+            <translation><!-- 5-Critical --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Comments and notes can be used by developers, testers and managers to record comments, questions etc about issues. You should never overwrite others comments but should add yours to the top of the comment section, followed by your name. --></help>
+        <label><!-- Comments / notes --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Defect Developer --></label>
+        <name>Defect_Developer__c</name>
+        <relationshipLabel><!-- Defects (Defect Developer) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The developer who built the original user story. --></help>
+        <label><!-- Original Developer --></label>
+        <name>Developer__c</name>
+    </fields>
+    <fields>
+        <label><!-- Duplicate Reference --></label>
+        <name>Duplicate_Reference__c</name>
+    </fields>
+    <fields>
+        <label><!-- External Reference --></label>
+        <name>External_Reference__c</name>
+    </fields>
+    <fields>
+        <help><!-- What environments (SFDC) or Code Base (Flex)  has this been fixed in? --></help>
+        <label><!-- Fixed in --></label>
+        <name>Fix_in_Environment__c</name>
+        <picklistValues>
+            <masterLabel>Gold DVL</masterLabel>
+            <translation><!-- Gold DVL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gold DevPack</masterLabel>
+            <translation><!-- Gold DevPack --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gold SAT</masterLabel>
+            <translation><!-- Gold SAT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Silver DVL</masterLabel>
+            <translation><!-- Silver DVL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Silver DevPack</masterLabel>
+            <translation><!-- Silver DevPack --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Silver SAT</masterLabel>
+            <translation><!-- Silver SAT --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Log Time --></label>
+        <name>Log_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Logged By --></label>
+        <name>Logged_By__c</name>
+        <relationshipLabel><!-- Defects (Logged By) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Populate this if this defect required a new user story. Link to the new user story here. --></help>
+        <label><!-- New User Story --></label>
+        <name>New_User_Story__c</name>
+        <relationshipLabel><!-- Defects --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Planned Release --></label>
+        <name>Planned_Release__c</name>
+        <relationshipLabel><!-- Defects --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Problem Description --></label>
+        <name>Problem_Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Problem Summary --></label>
+        <name>Problem__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project --></label>
+        <name>Project2__c</name>
+        <relationshipLabel><!-- Defects --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Project --></label>
+        <name>Project__c</name>
+    </fields>
+    <fields>
+        <help><!-- Elements which have to be deployed in a manual way.
+Please add the necessary level of detail. --></help>
+        <label><!-- Release Steps (Manual) --></label>
+        <name>Release_Comment__c</name>
+    </fields>
+    <fields>
+        <help><!-- Has the release document been completed appropriately. 
+All required sections in the release --></help>
+        <label><!-- Release Complete --></label>
+        <name>Release_Completeness_Indicator__c</name>
+    </fields>
+    <fields>
+        <label><!-- Release Completeness --></label>
+        <name>Release_Completeness__c</name>
+    </fields>
+    <fields>
+        <help><!-- Elements which have to be deployed in an automated way (Eclipse). --></help>
+        <label><!-- Release Steps (Automated) --></label>
+        <name>Release_Steps_Automated__c</name>
+    </fields>
+    <fields>
+        <help><!-- If this bug was raised when running a script, please note the script number here --></help>
+        <label><!-- Script Number --></label>
+        <name>Script_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sprint --></label>
+        <name>Sprint2__c</name>
+        <relationshipLabel><!-- Defects --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Sprint --></label>
+        <name>Sprint__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Blocked from testing</masterLabel>
+            <translation><!-- Blocked from testing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Closed - Complete</masterLabel>
+            <translation><!-- Closed - Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Closed - Consolidated</masterLabel>
+            <translation><!-- Closed - Consolidated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Closed - New User Story Created</masterLabel>
+            <translation><!-- Closed - New User Story Created --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Closed - New User Story Required</masterLabel>
+            <translation><!-- Closed - New User Story Required --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Closed - Rejected</masterLabel>
+            <translation><!-- Closed - Rejected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Closed - Unreplicable</masterLabel>
+            <translation><!-- Closed - Unreplicable --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>For Discussion</masterLabel>
+            <translation><!-- For Discussion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In development</masterLabel>
+            <translation><!-- In development --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parked</masterLabel>
+            <translation><!-- Parked --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Raised</masterLabel>
+            <translation><!-- Raised --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ready for Development</masterLabel>
+            <translation><!-- Ready for Development --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ready for sign-off</masterLabel>
+            <translation><!-- Ready for sign-off --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ready for testing</masterLabel>
+            <translation><!-- Ready for testing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Triaged</masterLabel>
+            <translation><!-- Triaged --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Technology --></label>
+        <name>Technology__c</name>
+        <picklistValues>
+            <masterLabel>Informatica</masterLabel>
+            <translation><!-- Informatica --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SFDC/Veeva</masterLabel>
+            <translation><!-- SFDC/Veeva --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Test Execution --></label>
+        <name>Test_Execution__c</name>
+        <relationshipLabel><!-- Defects --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The phase of testing this bug was raised in.
+
+For January testing this will either be System 1 or System 2 --></help>
+        <label><!-- Test Phase --></label>
+        <name>Test_Phase__c</name>
+        <picklistValues>
+            <masterLabel>Regression</masterLabel>
+            <translation><!-- Regression --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SAT</masterLabel>
+            <translation><!-- SAT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UAT</masterLabel>
+            <translation><!-- UAT --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- User Story --></label>
+        <name>User_Story__c</name>
+        <relationshipLabel><!-- Defects (User Story) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Add the steps that should be executed when validating the change in the UI
+Example: Field X was added to the object --></help>
+        <label><!-- Validation Steps --></label>
+        <name>Validation_Steps__c</name>
+    </fields>
+    <fields>
+        <help><!-- Add the SVN revision number of the elements (SFDC) --></help>
+        <label><!-- Version --></label>
+        <name>Version__c</name>
+    </fields>
+    <layouts>
+        <layout>Defect Layout</layout>
+        <sections>
+            <label><!-- Assesment &amp; Categorisation --></label>
+            <section>Assesment &amp; Categorisation</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Defect Description --></label>
+            <section>Defect Description</section>
+        </sections>
+        <sections>
+            <label><!-- Development --></label>
+            <section>Development</section>
+        </sections>
+        <sections>
+            <label><!-- Release --></label>
+            <section>Release</section>
+        </sections>
+        <sections>
+            <label><!-- Summary Information --></label>
+            <section>Summary Information</section>
+        </sections>
+        <sections>
+            <label><!-- System Information --></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

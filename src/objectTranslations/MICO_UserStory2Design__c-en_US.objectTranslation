@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>User Story / Design Link</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>User Story / Design Links</value>
+    </caseValues>
+    <fields>
+        <label><!-- Design --></label>
+        <name>Design__c</name>
+        <relationshipLabel><!-- User Story / Design Links --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- User Story --></label>
+        <name>User_Story__c</name>
+        <relationshipLabel><!-- User Story / Design Links --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Req2Design Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Design Information --></label>
+            <section>Design Information</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- CreateDesign --></label>
+        <name>CreateDesign</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Link_to_Source_Req --></label>
+        <name>Link_to_Source_Req</name>
+    </webLinks>
+</CustomObjectTranslation>

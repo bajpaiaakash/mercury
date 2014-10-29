@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <criteriaBasedRules>
+        <fullName>IRIS_Compliance_Messaging_Materials_Approver</fullName>
+        <sharedTo>
+            <group>IRIS_Compliance_Msg_Material_Approver</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>COE_Category__c</field>
+            <operation>equals</operation>
+            <value>Compliance Messaging Materials</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Rejected,Approved,Pending decision</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <name>IRIS Compliance Messaging Materials Approver</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>IRIS_Compliance_Messaging_Materials_Approver_RO</fullName>
+        <sharedTo>
+            <group>IRIS_Compliance_Msg_Material_Approver</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>COE_Category__c</field>
+            <operation>equals</operation>
+            <value>Compliance Messaging Materials</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <name>IRIS Compliance Messaging Materials Approver RO</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>IRIS_Compliance_Messaging_Materials_Assesor_RO</fullName>
+        <sharedTo>
+            <group>IRIS_Compliance_Msg_Material_Assessor</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>COE_Category__c</field>
+            <operation>equals</operation>
+            <value>Compliance Messaging Materials</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <name>IRIS Compliance Messaging Materials Assesor RO</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>IRIS_HR_Investigations_Approver</fullName>
+        <sharedTo>
+            <group>IRIS_Shre_HR_Investigations_Approver</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>COE_Category__c</field>
+            <operation>equals</operation>
+            <value>HR Investigations</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Rejected,Approved,Pending decision</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <name>IRIS HR Investigations Approver</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>IRIS_HR_Investigations_Approver_RO</fullName>
+        <sharedTo>
+            <group>IRIS_Shre_HR_Investigations_Approver</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>COE_Category__c</field>
+            <operation>equals</operation>
+            <value>HR Investigations</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <name>IRIS HR Investigations Approver RO</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>IRIS_HR_Investigations_Assesor_RO</fullName>
+        <sharedTo>
+            <group>IRIS_Shre_HR_Investigations_Assessor</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>COE_Category__c</field>
+            <operation>equals</operation>
+            <value>HR Investigations</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <name>IRIS HR Investigations Assesor RO</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>IRIS_Local_EC_Procedures_Approver</fullName>
+        <sharedTo>
+            <group>IRIS_Shre_Local_E_C_Procedures_Approver</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>COE_Category__c</field>
+            <operation>equals</operation>
+            <value>Local E&amp;C Procedures</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Rejected,Approved,Pending decision</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <name>IRIS Local E&amp;C Procedures Approver</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Local_E_C_Procedures_Approver_RO</fullName>
+        <sharedTo>
+            <group>IRIS_Shre_Local_E_C_Procedures_Approver</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>COE_Category__c</field>
+            <operation>equals</operation>
+            <value>Local E&amp;C Procedures</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <name>Local E&amp;C Procedures Approver RO</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Local_E_C_Procedures_Sharing_Rule</fullName>
+        <sharedTo>
+            <group>IRIS_Shre_Local_E_C_Procedures_Assessor</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>COE_Category__c</field>
+            <operation>equals</operation>
+            <value>Local E&amp;C Procedures</value>
+        </criteriaItems>
+        <accessLevel>Read</accessLevel>
+        <name>Local E&amp;C Procedures Sharing Rule</name>
+    </criteriaBasedRules>
+    <ownerRules>
+        <fullName>IRIS_AdminSharing</fullName>
+        <sharedTo>
+            <group>IRIS_Shre_Application_Administrator</group>
+        </sharedTo>
+        <sharedFrom>
+            <allInternalUsers></allInternalUsers>
+        </sharedFrom>
+        <accessLevel>Edit</accessLevel>
+        <name>IRIS_AdminSharing</name>
+    </ownerRules>
+</CustomObjectSharingRules>

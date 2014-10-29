@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <block>
+        <blockInfo>
+            <blockId>B1</blockId>
+            <joinTable>x</joinTable>
+        </blockInfo>
+        <columns>
+            <field>FK_NAME</field>
+        </columns>
+        <columns>
+            <field>IRIS_Submission__c.Overall_Rating_Number__c</field>
+        </columns>
+        <columns>
+            <field>IRIS_Submission__c.Overall_Percentage__c</field>
+        </columns>
+        <filter>
+            <criteriaItems>
+                <column>IRIS_Submission__c.Intended_Audience__c</column>
+                <operator>equals</operator>
+                <value>Local</value>
+            </criteriaItems>
+        </filter>
+        <format>Summary</format>
+        <name>Compliance Submissions with Subm block 1</name>
+        <params>
+            <name>co</name>
+            <value>1</value>
+        </params>
+        <reportType>CustomEntityCustomEntity$IRIS_Submission__c$IRIS_Submission_Country__c@IRIS_Submission_Country__c.Country__c</reportType>
+        <scope>organization</scope>
+        <timeFrameFilter>
+            <dateColumn>IRIS_Submission__c.Decision_Date__c</dateColumn>
+            <interval>INTERVAL_CUSTOM</interval>
+        </timeFrameFilter>
+    </block>
+    <block>
+        <blockInfo>
+            <blockId>B0</blockId>
+            <joinTable>IRIS_Submission__c</joinTable>
+        </blockInfo>
+        <columns>
+            <field>IRIS_Submission__c.Assessments__r.Assessment_data__r$Question_Number__c</field>
+        </columns>
+        <columns>
+            <field>IRIS_Submission__c.Assessments__r.Assessment_data__r$Question__c</field>
+        </columns>
+        <columns>
+            <field>IRIS_Submission__c.Assessments__r.Assessment_data__r$Rating_Colour__c</field>
+        </columns>
+        <filter>
+            <criteriaItems>
+                <column>IRIS_Submission__c$Intended_Audience__c</column>
+                <operator>equals</operator>
+                <value>Local</value>
+            </criteriaItems>
+        </filter>
+        <format>Summary</format>
+        <name>Iriss Submissions with Assessmen block 2</name>
+        <params>
+            <name>co</name>
+            <value>1</value>
+        </params>
+        <reportType>Iriss_Submissions_with_Assessments_with_Assessment__c</reportType>
+        <scope>organization</scope>
+        <timeFrameFilter>
+            <dateColumn>IRIS_Submission__c$CreatedDate</dateColumn>
+            <interval>INTERVAL_CUSTOM</interval>
+        </timeFrameFilter>
+    </block>
+    <blockInfo>
+        <blockId xsi:nil="true"/>
+        <joinTable>x</joinTable>
+    </blockInfo>
+    <description>Countries with Assessment data - Joined Reports</description>
+    <format>MultiBlock</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>IRIS_Submission__c.Sub_Category__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>CUST_NAME</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Countries with Assessment Data</name>
+    <params>
+        <name>lsk</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntityCustomEntity$IRIS_Submission__c$IRIS_Submission_Country__c@IRIS_Submission_Country__c.Country__c</reportType>
+    <showDetails>true</showDetails>
+</Report>

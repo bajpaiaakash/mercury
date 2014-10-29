@@ -1,0 +1,671 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Business Description: This object is used to track defects (bugs) from being raised to resolved or rejected
+
+Used In: Mission Control App</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>BusinessImpact__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Critical - Stops user from completing critical business process (CBP)
+Major - CBP can be mostly be completed but inefficient. Some processes cannot be completed.
+Medium - Process is hindered but can be completed
+Minor - Slight inconvenience to user</inlineHelpText>
+        <label>Business Impact</label>
+        <picklist>
+            <picklistValues>
+                <fullName>5-Critical</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4-Very High</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3-High</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2-Medium</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1-Low</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Comments__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Comments and notes can be used by developers, testers and managers to record comments, questions etc about issues. You should never overwrite others comments but should add yours to the top of the comment section, followed by your name.</inlineHelpText>
+        <label>Comments / notes</label>
+        <length>32000</length>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Defect_Developer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Defect Developer</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>MICO_Defects</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Developer__c</fullName>
+        <externalId>false</externalId>
+        <formula>User_Story__r.Developer__r.FirstName +&quot; &quot;+User_Story__r.Developer__r.LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>The developer who built the original user story.</inlineHelpText>
+        <label>Original Developer</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Duplicate_Reference__c</fullName>
+        <externalId>false</externalId>
+        <label>Duplicate Reference</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>External_Reference__c</fullName>
+        <externalId>true</externalId>
+        <label>External Reference</label>
+        <length>32</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Fix_in_Environment__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What environments (SFDC) or Code Base (Flex)  has this been fixed in?</inlineHelpText>
+        <label>Fixed in</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Silver DVL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Silver DevPack</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Silver SAT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gold DevPack</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gold DVL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gold SAT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Log_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>Log Time</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Logged_By__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Logged By</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>MICO_Defects1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>New_User_Story__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Populate this if this defect required a new user story. Link to the new user story here.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Populate this if this defect required a new user story. Link to the new user story here.</inlineHelpText>
+        <label>New User Story</label>
+        <referenceTo>MICO_User_Story__c</referenceTo>
+        <relationshipLabel>Defects</relationshipLabel>
+        <relationshipName>MICO_Defects</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Planned_Release__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Planned Release</label>
+        <referenceTo>MICO_Release__c</referenceTo>
+        <relationshipLabel>Defects</relationshipLabel>
+        <relationshipName>MICO_Defects</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Problem_Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Problem Description</label>
+        <length>32000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Problem__c</fullName>
+        <externalId>false</externalId>
+        <label>Problem Summary</label>
+        <length>255</length>
+        <required>true</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Project2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Project</label>
+        <referenceTo>MavensPM__Project__c</referenceTo>
+        <relationshipLabel>Defects</relationshipLabel>
+        <relationshipName>MICO_Defects</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Project__c</fullName>
+        <externalId>false</externalId>
+        <formula>User_Story__r.Project__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Project</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Release_Comment__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Elements which have to be deployed in a manual way.
+Please add the necessary level of detail.</inlineHelpText>
+        <label>Release Steps (Manual)</label>
+        <length>1500</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Release_Completeness_Indicator__c</fullName>
+        <externalId>false</externalId>
+        <formula>IMAGE( 
+             IF ( Release_Completeness__c, &quot;/img/msg_icons/confirm16.png&quot;, &quot;/img/msg_icons/error16.png&quot;), 
+            IF ( Release_Completeness__c, &quot;Completed OK&quot;,&quot;Information is missing&quot;),
+            16,
+            16
+            )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Has the release document been completed appropriately. 
+All required sections in the release</inlineHelpText>
+        <label>Release Complete</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Release_Completeness__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Release Completeness</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Release_Steps_Automated__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Elements which have to be deployed in an automated way (Eclipse).</inlineHelpText>
+        <label>Release Steps (Automated)</label>
+        <length>1500</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Script_Number__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>If this bug was raised when running a script, please note the script number here</inlineHelpText>
+        <label>Script Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sprint2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Sprint</label>
+        <referenceTo>MICO_Sprint__c</referenceTo>
+        <relationshipLabel>Defects</relationshipLabel>
+        <relationshipName>MICO_Defects</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Sprint__c</fullName>
+        <externalId>false</externalId>
+        <formula>User_Story__r.Allocated_Sprint__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Sprint</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Raised</fullName>
+                <color>#000000</color>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Triaged</fullName>
+                <color>#333333</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Parked</fullName>
+                <color>#0B24BE</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>For Discussion</fullName>
+                <color>#999999</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ready for Development</fullName>
+                <color>#FF0000</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>In development</fullName>
+                <color>#CC6600</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ready for testing</fullName>
+                <color>#FFFF66</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Blocked from testing</fullName>
+                <color>#993399</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ready for sign-off</fullName>
+                <color>#33CC00</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Closed - Complete</fullName>
+                <color>#006600</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Closed - Consolidated</fullName>
+                <color>#006600</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Closed - New User Story Required</fullName>
+                <color>#006600</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Closed - New User Story Created</fullName>
+                <color>#006600</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Closed - Rejected</fullName>
+                <color>#006600</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Closed - Unreplicable</fullName>
+                <color>#006600</color>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Technology__c</fullName>
+        <externalId>false</externalId>
+        <label>Technology</label>
+        <picklist>
+            <picklistValues>
+                <fullName>SFDC/Veeva</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Informatica</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Test_Execution__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Test Execution</label>
+        <referenceTo>MICO_Test__c</referenceTo>
+        <relationshipLabel>Defects</relationshipLabel>
+        <relationshipName>MICO_Defects</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Test_Phase__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The phase of testing this bug was raised in.
+
+For January testing this will either be System 1 or System 2</inlineHelpText>
+        <label>Test Phase</label>
+        <picklist>
+            <picklistValues>
+                <fullName>UAT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SAT</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Regression</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>User_Story__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>User Story</label>
+        <referenceTo>MICO_User_Story__c</referenceTo>
+        <relationshipLabel>Defects (User Story)</relationshipLabel>
+        <relationshipName>MICO_Story_Defects</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Validation_Steps__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Add the steps that should be executed when validating the change in the UI
+Example: Field X was added to the object</inlineHelpText>
+        <label>Validation Steps</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Version__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Add the SVN revision number of the elements (SFDC)</inlineHelpText>
+        <label>Version</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Defect</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>X0_All_Defects</fullName>
+        <columns>NAME</columns>
+        <columns>Status__c</columns>
+        <columns>Defect_Developer__c</columns>
+        <columns>Logged_By__c</columns>
+        <columns>Problem__c</columns>
+        <columns>BusinessImpact__c</columns>
+        <columns>Technology__c</columns>
+        <columns>External_Reference__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>0) All Defects</label>
+    </listViews>
+    <listViews>
+        <fullName>X1_All_Completed_Sprint1_Defects</fullName>
+        <columns>NAME</columns>
+        <columns>Defect_Developer__c</columns>
+        <columns>Fix_in_Environment__c</columns>
+        <columns>Release_Steps_Automated__c</columns>
+        <columns>Release_Comment__c</columns>
+        <columns>Validation_Steps__c</columns>
+        <columns>Version__c</columns>
+        <columns>Release_Completeness__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Closed - Complete</value>
+        </filters>
+        <label>2) All Completed Sprint 1 Defects</label>
+    </listViews>
+    <listViews>
+        <fullName>X1_All_Open_Defects</fullName>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <columns>NAME</columns>
+        <columns>Defect_Developer__c</columns>
+        <columns>Logged_By__c</columns>
+        <columns>Problem__c</columns>
+        <columns>Status__c</columns>
+        <columns>BusinessImpact__c</columns>
+        <columns>Technology__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>,Raised,Triaged,Parked,For Discussion,Ready for Development,In development</value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>Ready for testing</value>
+        </filters>
+        <label>1) All Open Defects</label>
+    </listViews>
+    <nameField>
+        <displayFormat>DEF-{000000}</displayFormat>
+        <label>Ref</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Defects</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Problem__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>BusinessImpact__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <excludedStandardButtons>Accept</excludedStandardButtons>
+        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
+        <lookupDialogsAdditionalFields>Problem__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Defect_Developer__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Problem__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Defect_Developer__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Status__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Problem__c</searchFilterFields>
+        <searchFilterFields>Defect_Developer__c</searchFilterFields>
+        <searchFilterFields>Status__c</searchFilterFields>
+        <searchResultsAdditionalFields>Problem__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CREATED_DATE</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>

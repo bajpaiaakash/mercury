@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Process</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Processes</value>
+    </caseValues>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <help><!-- The number of steps associated with this process --></help>
+        <label><!-- No. Process Steps --></label>
+        <name>No_Process_Steps__c</name>
+    </fields>
+    <fields>
+        <label><!-- Participants --></label>
+        <name>Participants__c</name>
+    </fields>
+    <fields>
+        <help><!-- The level 2 process --></help>
+        <label><!-- Process Group --></label>
+        <name>Process_Group__c</name>
+        <picklistValues>
+            <masterLabel>Analytics / Insights</masterLabel>
+            <translation><!-- Analytics / Insights --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Services</masterLabel>
+            <translation><!-- Customer Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Event / Medical</masterLabel>
+            <translation><!-- Event / Medical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Market Access</masterLabel>
+            <translation><!-- Market Access --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing / Multichannel</masterLabel>
+            <translation><!-- Marketing / Multichannel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SFA</masterLabel>
+            <translation><!-- SFA --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Project --></label>
+        <name>Project__c</name>
+        <relationshipLabel><!-- Processes --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Optional external reference (e.g. to a spreadsheet or third party application) --></help>
+        <label><!-- Reference --></label>
+        <name>Reference__c</name>
+    </fields>
+    <fields>
+        <help><!-- Is this a system process (one that needs to be directly supported within the application)
+or a manual process (one that happens outside of the system, but whose results may feed in to the system at some point) --></help>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>Manual</masterLabel>
+            <translation><!-- Manual --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>System</masterLabel>
+            <translation><!-- System --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>HL Processes Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

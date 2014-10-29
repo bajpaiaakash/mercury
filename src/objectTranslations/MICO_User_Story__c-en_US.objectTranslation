@@ -1,0 +1,689 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>User Story</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>User Stories</value>
+    </caseValues>
+    <fields>
+        <help><!-- Basis for business sign off. Needs to be specific, testable and complete.
+For example: 
+The search functionality must cover my entire territory 
+The search must be case-sensitive 
+(*) should allow open-ended search, or cover for missing letters --></help>
+        <label><!-- Acceptance Criteria --></label>
+        <name>Acceptance_Criteria__c</name>
+    </fields>
+    <fields>
+        <label><!-- Allocated Sprint --></label>
+        <name>Allocated_Sprint__c</name>
+        <relationshipLabel><!-- User Stories (Allocated Sprint) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The app this user story relates to --></help>
+        <label><!-- App --></label>
+        <name>App__c</name>
+        <relationshipLabel><!-- User Stories --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The main user type(s) that this story is for. --></help>
+        <label><!-- As a... --></label>
+        <name>As_A__c</name>
+        <picklistValues>
+            <masterLabel>Any User</masterLabel>
+            <translation><!-- Any User --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Business Administration</masterLabel>
+            <translation><!-- Business Administration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chatter Only</masterLabel>
+            <translation><!-- Chatter Only --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Compliance</masterLabel>
+            <translation><!-- Compliance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer</masterLabel>
+            <translation><!-- Customer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Services</masterLabel>
+            <translation><!-- Customer Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Events</masterLabel>
+            <translation><!-- Events --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Executive &amp; Report Only</masterLabel>
+            <translation><!-- Executive &amp; Report Only --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing</masterLabel>
+            <translation><!-- Marketing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sales</masterLabel>
+            <translation><!-- Sales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>System Administration</masterLabel>
+            <translation><!-- System Administration --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Cancellation Reason --></label>
+        <name>Cancellation_Reason__c</name>
+    </fields>
+    <fields>
+        <help><!-- Record the data a user story is closed (Passed Complete)
+Is populated automatically by workflow.
+Is used in the report Points Closed Today --></help>
+        <label><!-- Close Date --></label>
+        <name>Close_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date this has been reviewed and approved by Compliance --></help>
+        <label><!-- Compliance Approved Date --></label>
+        <name>Compliance_Approve_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please enter any legal, regulatory or compliance related requirements
+For example:
+When disbursing a sample, you must specify a Sample Lot Number. This sample lot number cannot be edited after the call is saved. --></help>
+        <label><!-- Compliance Criteria --></label>
+        <name>Compliance_Criteria__c</name>
+    </fields>
+    <fields>
+        <help><!-- The Compliance or Quality officer signing off this user story --></help>
+        <label><!-- Compliance Owner --></label>
+        <name>Compliance_Owner__c</name>
+        <relationshipLabel><!-- User Stories (Compliance Owner) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Developer --></label>
+        <name>Developer__c</name>
+        <relationshipLabel><!-- User Stories (Developer) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Development_Stage__c</name>
+        <picklistValues>
+            <masterLabel>1. Backlog - Draft</masterLabel>
+            <translation><!-- 1. Backlog - Draft --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2. Backlog - Awaiting estimation</masterLabel>
+            <translation><!-- 2. Backlog - Awaiting estimation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3. Backlog - Awaiting ordering</masterLabel>
+            <translation><!-- 3. Backlog - Awaiting ordering --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4. Backlog - Awaiting Sprint Assignment</masterLabel>
+            <translation><!-- 4. Backlog - Awaiting Sprint Assignment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5.1 Sprint Team - Sprint Backlog</masterLabel>
+            <translation><!-- 5.1 Sprint Team - Sprint Backlog --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5.2 Sprint Team - With BPC</masterLabel>
+            <translation><!-- 5.2 Sprint Team - With BPC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5.3 Sprint Team - Awaiting Development</masterLabel>
+            <translation><!-- 5.3 Sprint Team - Awaiting Development --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5.4 Sprint Team - In Development</masterLabel>
+            <translation><!-- 5.4 Sprint Team - In Development --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5.5. Sprint - Awaiting review</masterLabel>
+            <translation><!-- 5.5. Sprint - Awaiting review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5.6. Sprint - Awaiting Release to SAT</masterLabel>
+            <translation><!-- 5.6. Sprint - Awaiting Release to SAT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5.7. Sprint - Awaiting SAT</masterLabel>
+            <translation><!-- 5.7. Sprint - Awaiting SAT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5.8. Sprint - In Test</masterLabel>
+            <translation><!-- 5.8. Sprint - In Test --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5.9. Done</masterLabel>
+            <translation><!-- 5.9. Done --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>6. UAT - Awaiting testing</masterLabel>
+            <translation><!-- 6. UAT - Awaiting testing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>7. UAT – In Test</masterLabel>
+            <translation><!-- 7. UAT – In Test --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8. Production – Ready for Release</masterLabel>
+            <translation><!-- 8. Production – Ready for Release --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>9. Production – Released</masterLabel>
+            <translation><!-- 9. Production – Released --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>99. Cancelled</masterLabel>
+            <translation><!-- 99. Cancelled --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Full User Story --></label>
+        <name>Full_User_Story__c</name>
+    </fields>
+    <fields>
+        <label><!-- Functional Area --></label>
+        <name>Functional_Area__c</name>
+        <picklistValues>
+            <masterLabel>Analytics / Insights</masterLabel>
+            <translation><!-- Analytics / Insights --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Services</masterLabel>
+            <translation><!-- Customer Services --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Event</masterLabel>
+            <translation><!-- Event --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Market Access</masterLabel>
+            <translation><!-- Market Access --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing / Multichannel</masterLabel>
+            <translation><!-- Marketing / Multichannel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SFA</masterLabel>
+            <translation><!-- SFA --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- I want to be able to (achieve xyz)... For example : Be able to search for customers on different fields (e.g. First Name, Surname, Address, and Product Metrics) in my territory --></help>
+        <label><!-- I want to... --></label>
+        <name>I_Want_To__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please tick if this user story has some legal implications --></help>
+        <label><!-- Legal --></label>
+        <name>Legal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Master Priority --></label>
+        <name>Master_Priority__c</name>
+    </fields>
+    <fields>
+        <label><!-- PCE ID --></label>
+        <name>PCE_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- PCE Time Remaining --></label>
+        <name>PCE_Time_Remaining__c</name>
+    </fields>
+    <fields>
+        <label><!-- PCE Total Duration --></label>
+        <name>PCE_Total_Duration__c</name>
+    </fields>
+    <fields>
+        <label><!-- Parent Epic --></label>
+        <name>Parent_Epic__c</name>
+        <relationshipLabel><!-- Related User Stories --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Planned Release --></label>
+        <name>Planned_Release__c</name>
+        <relationshipLabel><!-- User Stories --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- 1 is the highest order, 99 is lowest. --></help>
+        <label><!-- Priority --></label>
+        <name>Priority__c</name>
+    </fields>
+    <fields>
+        <help><!-- Flag this when the user story concerns personal identifiable information linked to your process --></help>
+        <label><!-- Privacy --></label>
+        <name>Privacy__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project --></label>
+        <name>Project__c</name>
+        <relationshipLabel><!-- User Stories --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Proposed Sprint --></label>
+        <name>Proposed_Sprint__c</name>
+        <relationshipLabel><!-- User Stories --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- QRCode --></label>
+        <name>QRCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Release Completeness Indicator --></label>
+        <name>Release_Completeness_Indicator__c</name>
+    </fields>
+    <fields>
+        <label><!-- Release Completeness --></label>
+        <name>Release_Completeness__c</name>
+    </fields>
+    <fields>
+        <help><!-- Elements which have to be deployed in an automated way (Eclipse).
+Please put N/A when not applicable --></help>
+        <label><!-- Release Steps (Automated) --></label>
+        <name>Release_Steps_Automated__c</name>
+    </fields>
+    <fields>
+        <help><!-- Elements which have to be deployed in a manual way. 
+Please put N/A when not applicable --></help>
+        <label><!-- Release Steps (Manual) --></label>
+        <name>Release_Steps_Manual__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please tick if this user story has some security implications --></help>
+        <label><!-- Security --></label>
+        <name>Security__c</name>
+    </fields>
+    <fields>
+        <help><!-- Please enter the business value of this user story
+For example: 
+I can easily find my  relevant target customer information --></help>
+        <label><!-- So that... --></label>
+        <name>So_that__c</name>
+    </fields>
+    <fields>
+        <label><!-- Story Points (Other) --></label>
+        <name>Story_Points_Other__c</name>
+        <picklistValues>
+            <masterLabel>0</masterLabel>
+            <translation><!-- 0 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1</masterLabel>
+            <translation><!-- 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>13</masterLabel>
+            <translation><!-- 13 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2</masterLabel>
+            <translation><!-- 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>21</masterLabel>
+            <translation><!-- 21 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3</masterLabel>
+            <translation><!-- 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5</masterLabel>
+            <translation><!-- 5 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8</masterLabel>
+            <translation><!-- 8 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Story Points Total --></label>
+        <name>Story_Points_Total__c</name>
+    </fields>
+    <fields>
+        <label><!-- Story Points SFDC --></label>
+        <name>Story_Points__c</name>
+        <picklistValues>
+            <masterLabel>0</masterLabel>
+            <translation><!-- 0 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1</masterLabel>
+            <translation><!-- 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>13</masterLabel>
+            <translation><!-- 13 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2</masterLabel>
+            <translation><!-- 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>21</masterLabel>
+            <translation><!-- 21 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3</masterLabel>
+            <translation><!-- 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5</masterLabel>
+            <translation><!-- 5 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8</masterLabel>
+            <translation><!-- 8 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Sub-Process --></label>
+        <name>Sub_Process__c</name>
+        <picklistValues>
+            <masterLabel>Account Planning</masterLabel>
+            <translation><!-- Account Planning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Account Profile</masterLabel>
+            <translation><!-- Account Profile --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Analytics &amp; Reporting</masterLabel>
+            <translation><!-- Analytics &amp; Reporting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Automation</masterLabel>
+            <translation><!-- Automation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Banner Campaign</masterLabel>
+            <translation><!-- Banner Campaign --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Call Campaign</masterLabel>
+            <translation><!-- Call Campaign --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Call Management</masterLabel>
+            <translation><!-- Call Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Campaign Design and Creation</masterLabel>
+            <translation><!-- Campaign Design and Creation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Campaign Execution</masterLabel>
+            <translation><!-- Campaign Execution --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Campaign Monitoring</masterLabel>
+            <translation><!-- Campaign Monitoring --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Collaboration</masterLabel>
+            <translation><!-- Collaboration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Feedback</masterLabel>
+            <translation><!-- Customer Feedback --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Journey</masterLabel>
+            <translation><!-- Customer Journey --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer Request</masterLabel>
+            <translation><!-- Customer Request --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data Feeds</masterLabel>
+            <translation><!-- Data Feeds --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data Quality</masterLabel>
+            <translation><!-- Data Quality --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Edetail</masterLabel>
+            <translation><!-- Edetail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email</masterLabel>
+            <translation><!-- Email --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Event Execution and Follow up</masterLabel>
+            <translation><!-- Event Execution and Follow up --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Event Planning  and Approval</masterLabel>
+            <translation><!-- Event Planning  and Approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fax</masterLabel>
+            <translation><!-- Fax --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Insights</masterLabel>
+            <translation><!-- Insights --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing Plan</masterLabel>
+            <translation><!-- Marketing Plan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medical</masterLabel>
+            <translation><!-- Medical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Message</masterLabel>
+            <translation><!-- Message --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mobile/Apps</masterLabel>
+            <translation><!-- Mobile/Apps --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Phone</masterLabel>
+            <translation><!-- Phone --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Push Notification on Mobile</masterLabel>
+            <translation><!-- Push Notification on Mobile --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reporting</masterLabel>
+            <translation><!-- Reporting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SMS</masterLabel>
+            <translation><!-- SMS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sample Management</masterLabel>
+            <translation><!-- Sample Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Segmentation &amp; Cycle Planning</masterLabel>
+            <translation><!-- Segmentation &amp; Cycle Planning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sharing Information</masterLabel>
+            <translation><!-- Sharing Information --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Social Media Campaign</masterLabel>
+            <translation><!-- Social Media Campaign --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Territory Management</masterLabel>
+            <translation><!-- Territory Management --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Time Registration</masterLabel>
+            <translation><!-- Time Registration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Traditional Mail</masterLabel>
+            <translation><!-- Traditional Mail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web Call</masterLabel>
+            <translation><!-- Web Call --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web Self Care</masterLabel>
+            <translation><!-- Web Self Care --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Webcall</masterLabel>
+            <translation><!-- Webcall --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Webinars</masterLabel>
+            <translation><!-- Webinars --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Websites / Portal</masterLabel>
+            <translation><!-- Websites / Portal --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Business Analyst responsible for this User Story --></help>
+        <label><!-- Business Analyst --></label>
+        <name>Supporting_BA__c</name>
+        <relationshipLabel><!-- User Stories (Business Analyst) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Business/Product Owner for this User Story --></help>
+        <label><!-- Business Process/Product Owner --></label>
+        <name>User__c</name>
+        <relationshipLabel><!-- User Stories (Business Process/Product Owner) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- If deploying objects or page layouts please specify the exact change --></help>
+        <label><!-- Validation steps --></label>
+        <name>Validation_steps__c</name>
+    </fields>
+    <fields>
+        <help><!-- Jenkins build number to Packaging --></help>
+        <label><!-- Version --></label>
+        <name>Version__c</name>
+    </fields>
+    <fields>
+        <help><!-- What type of work is likely to be involved? (what skills are needed?) --></help>
+        <label><!-- Work Type --></label>
+        <name>Work_Type__c</name>
+        <picklistValues>
+            <masterLabel>Data Migration</masterLabel>
+            <translation><!-- Data Migration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Integration</masterLabel>
+            <translation><!-- Integration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Out-of-the-box Veeva/SFDC</masterLabel>
+            <translation><!-- Out-of-the-box Veeva/SFDC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SFDC Apex</masterLabel>
+            <translation><!-- SFDC Apex --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SFDC Config</masterLabel>
+            <translation><!-- SFDC Config --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SFDC Reporting</masterLabel>
+            <translation><!-- SFDC Reporting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SFDC Visualforce</masterLabel>
+            <translation><!-- SFDC Visualforce --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Veeva Customization</masterLabel>
+            <translation><!-- Veeva Customization --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>User Story Layout</layout>
+        <sections>
+            <label><!-- Assessment &amp; Categorisation --></label>
+            <section>Assessment &amp; Categorisation</section>
+        </sections>
+        <sections>
+            <label><!-- Compliance Criteria --></label>
+            <section>Compliance Criteria</section>
+        </sections>
+        <sections>
+            <label><!-- Compliance Details --></label>
+            <section>Compliance Details</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Detail --></label>
+            <section>Detail</section>
+        </sections>
+        <sections>
+            <label><!-- PCE Information --></label>
+            <section>PCE Information</section>
+        </sections>
+        <sections>
+            <label><!-- Planning --></label>
+            <section>Planning</section>
+        </sections>
+        <sections>
+            <label><!-- QR Code --></label>
+            <section>QR Code</section>
+        </sections>
+        <sections>
+            <label><!-- Release Information --></label>
+            <section>Release Information</section>
+        </sections>
+        <sections>
+            <label><!-- Team Members --></label>
+            <section>Team Members</section>
+        </sections>
+        <sections>
+            <label><!-- User Story Description --></label>
+            <section>User Story Description</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Please complete both the Business Process/Product Owner &amp; Business Analyst Name before updating the Stage of this User Story --></errorMessage>
+        <name>Champion_BPC_Name</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You can&apos;t amend the Acceptance and/or Compliance Criteria once the user story is categorized as ready for development. Move the status back to &apos;With BPC&apos; to indicate you are working again on the Acceptance and/or Compliance Criteria and Chatter the reason --></errorMessage>
+        <name>Lock_Down</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please make sure the release section is completed correctly before moving the story to Awaiting Release to SAT --></errorMessage>
+        <name>Ready_for_Release</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Create_HL_Design --></label>
+        <name>Create_HL_Design</name>
+    </webLinks>
+</CustomObjectTranslation>

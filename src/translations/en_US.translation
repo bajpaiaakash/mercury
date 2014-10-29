@@ -1,12 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Translations xmlns="http://soap.sforce.com/2006/04/metadata">
     <customApplications>
+        <label><!-- DreamFactory Utilities --></label>
+        <name>BLND_DreamFactory_Utilities</name>
+    </customApplications>
+    <customApplications>
         <label><!-- Customer Search Tool --></label>
         <name>CST</name>
     </customApplications>
     <customApplications>
+        <label><!-- Get Started --></label>
+        <name>Get_Started</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- Mission Control --></label>
+        <name>MICO_Mission_Control</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- Mission Control: Sprint Management --></label>
+        <name>MICO_Sprint_Management</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- Mission Control: Test Management --></label>
+        <name>MICO_Test_Management</name>
+    </customApplications>
+    <customApplications>
         <label><!-- Mercury --></label>
         <name>Mercury</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- Launchpad --></label>
+        <name>cirrus_launchpad</name>
     </customApplications>
     <customLabels>
         <label><!-- Burn Status --></label>
@@ -4889,13 +4913,89 @@
         <name>Welcome_Rollup_GLBL</name>
     </customPageWebLinks>
     <customTabs>
+        <label><!-- Monarch --></label>
+        <name>BLND_Monarch</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Snapshot --></label>
+        <name>BLND_Snapshot</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- TableTop --></label>
+        <name>BLND_TableTop</name>
+    </customTabs>
+    <customTabs>
         <label><!-- CST Admin Utilities --></label>
         <name>CST_Admin_Utilities</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Get Started --></label>
+        <name>Get_Started</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Getting Started --></label>
+        <name>Getting_Started</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Document Generator --></label>
+        <name>MICO_Document_Generator</name>
     </customTabs>
     <customTabs>
         <label><!-- Merged Accounts --></label>
         <name>Merged_Accounts</name>
     </customTabs>
+    <customTabs>
+        <label><!-- Cirrus --></label>
+        <name>cirrus_launchpad</name>
+    </customTabs>
+    <quickActions>
+        <label><!-- LogACall --></label>
+        <name>LogACall</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Decision &amp; Question --></label>
+        <name>LogADecision</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewAccount --></label>
+        <name>NewAccount</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewCase --></label>
+        <name>NewCase</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewContact --></label>
+        <name>NewContact</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewEvent --></label>
+        <name>NewEvent</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewGroup --></label>
+        <name>NewGroup</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewLead --></label>
+        <name>NewLead</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewNote --></label>
+        <name>NewNote</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewOpportunity --></label>
+        <name>NewOpportunity</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- New Risk &amp; Issue --></label>
+        <name>NewRisk</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewTask --></label>
+        <name>NewTask</name>
+    </quickActions>
     <reportTypes>
         <description><!-- Accounts with Meeting Participants with Daily Attendance &amp; TOV --></description>
         <label><!-- Accounts with Meeting Participants with Daily Attendance &amp; TOV --></label>
@@ -4937,6 +5037,49 @@
         <sections>
             <label><!-- Accounts --></label>
             <name>Accounts</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Chatter Groups with Group Feed --></description>
+        <label><!-- Chatter Groups with Group Feed --></label>
+        <name>Chatter_Groups_with_Group_Feed</name>
+        <sections>
+            <label><!-- Chatter Group Feed --></label>
+            <name>Chatter Group Feed</name>
+        </sections>
+        <sections>
+            <label><!-- Chatter Groups --></label>
+            <name>Chatter Groups</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Chatter Groups with Group Feed and Comments --></description>
+        <label><!-- Chatter Groups with Group Feed and Comments --></label>
+        <name>Chatter_Groups_with_Group_Feed_and_Comments</name>
+        <sections>
+            <label><!-- Chatter Group Feed --></label>
+            <name>Chatter Group Feed</name>
+        </sections>
+        <sections>
+            <label><!-- Chatter Groups --></label>
+            <name>Chatter Groups</name>
+        </sections>
+        <sections>
+            <label><!-- Comments --></label>
+            <name>Comments</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Chatter Groups with Group Members --></description>
+        <label><!-- Chatter Groups with Group Members --></label>
+        <name>Chatter_Groups_with_Group_Members</name>
+        <sections>
+            <label><!-- Chatter Group Members --></label>
+            <name>Chatter Group Members</name>
+        </sections>
+        <sections>
+            <label><!-- Chatter Groups --></label>
+            <name>Chatter Groups</name>
         </sections>
     </reportTypes>
     <reportTypes>
@@ -5204,6 +5347,66 @@
         <sections>
             <label><!-- Payee --></label>
             <name>Payee</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Projects with Use cases and Requirements --></description>
+        <label><!-- Projects with Use cases and Requirements --></label>
+        <name>Projects_with_Use_cases_and_Requirements</name>
+        <sections>
+            <label><!-- Projects --></label>
+            <name>Projects</name>
+        </sections>
+        <sections>
+            <label><!-- Requirements --></label>
+            <name>Requirements</name>
+        </sections>
+        <sections>
+            <label><!-- Use Cases --></label>
+            <name>Use Cases</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Users with Followers --></description>
+        <label><!-- Users with Followers --></label>
+        <name>Users_with_Followers</name>
+        <sections>
+            <label><!-- Followers --></label>
+            <name>Followers</name>
+        </sections>
+        <sections>
+            <label><!-- Users --></label>
+            <name>Users</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Users with User Feed --></description>
+        <label><!-- Users with User Feed --></label>
+        <name>Users_with_User_Feed</name>
+        <sections>
+            <label><!-- User Feed --></label>
+            <name>User Feed</name>
+        </sections>
+        <sections>
+            <label><!-- Users --></label>
+            <name>Users</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Users with User Feed and Comments --></description>
+        <label><!-- Users with User Feed and Comments --></label>
+        <name>Users_with_User_Feed_and_Comments</name>
+        <sections>
+            <label><!-- Comments --></label>
+            <name>Comments</name>
+        </sections>
+        <sections>
+            <label><!-- User Feed --></label>
+            <name>User Feed</name>
+        </sections>
+        <sections>
+            <label><!-- Users --></label>
+            <name>Users</name>
         </sections>
     </reportTypes>
 </Translations>

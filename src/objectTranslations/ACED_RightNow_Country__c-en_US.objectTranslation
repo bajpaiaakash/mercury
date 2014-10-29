@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>RightNow Country</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>RightNow Countries</value>
+    </caseValues>
+    <fields>
+        <help><!-- This is a helptext for Affilliate --></help>
+        <label><!-- Cluster --></label>
+        <name>Cluster__c</name>
+        <picklistValues>
+            <masterLabel>Baltics</masterLabel>
+            <translation><!-- Baltics --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Belgium</masterLabel>
+            <translation><!-- Belgium --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>France</masterLabel>
+            <translation><!-- France --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Italy</masterLabel>
+            <translation><!-- Italy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Netherlands</masterLabel>
+            <translation><!-- Netherlands --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sweden</masterLabel>
+            <translation><!-- Sweden --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UK</masterLabel>
+            <translation><!-- UK --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- This is a helptext for Integration Console --></help>
+        <label><!-- Integration Console --></label>
+        <name>Integration_Console__c</name>
+        <relationshipLabel><!-- RightNow Countries --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Report ID --></label>
+        <name>Report_ID__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is a helptext for RightNow Service URL --></help>
+        <label><!-- RightNow Service URL --></label>
+        <name>RightNow_Service_URL__c</name>
+    </fields>
+    <layouts>
+        <layout>RightNow Country Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- RightNow Credentials &amp; Report Id --></label>
+            <section>RightNow Credentials &amp; Report Id</section>
+        </sections>
+        <sections>
+            <label><!-- Service URL --></label>
+            <section>Service URL</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

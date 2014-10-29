@@ -1,0 +1,279 @@
+<apex:page docType="html-5.0" controller="ieCompatibility" standardStylesheets="false" showHeader="false" sidebar="false">
+    <head>
+
+        <!-- Meta -->
+        <meta charset="UTF-8" />
+        <title>Cirrus - Launchpad</title>
+        <meta name="keywords" content="Eli Lilly & Company, Lilly, Cirrus, Salesforce.com, SFDC, Force.com" />
+        <meta name="description" content="Cirrus Launchpad" />
+        <meta name="author" content="Matthew Bull" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- CSS -->
+        <apex:stylesheet value="{!URLFOR($Resource.cirrus_launchpad, 'css/reset.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.cirrus_launchpad, 'css/bootstrap.min.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.cirrus_launchpad, 'css/font-awesome.min.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.cirrus_launchpad, 'css/googlefonts.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.cirrus_launchpad, 'css/idangerous.swiper.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.cirrus_launchpad, 'css/style.css')}" />
+
+    </head>
+
+    <body>
+
+        <!-- Preloader -->
+        <div id="preloader">
+            <div id="status"></div>
+        </div>
+
+        <!-- Overlay -->
+        <div id="overlay"></div>
+
+        <!-- Top header -->
+        <div id="top">
+
+            <!-- Sidebar button -->
+            <a href="#" id="sidebar-button"></a>
+
+            <!-- Logo -->
+            <header id="logo">
+                <h1>Cirrus</h1>
+                <h2>Simple &amp; Agile</h2>             
+            </header>
+
+            <!-- Portfolio close button -->
+            <a href="#" id="portfolio-close"></a>
+
+        </div>
+
+        <!-- Main wrapper -->
+        <div id="main-wrapper">
+
+            <!-- Content -->
+            <div id="content" class="isotope-container">
+
+                <!-- Fluid container -->
+                <div class="container-fluid">
+
+                    <!-- Page heading -->
+                    <div id="heading" class="row">
+                        <div class="filter col-12">
+
+                            <header>
+                                <h1>Learn</h1>
+                                <h2>Get started with the basics</h2>
+                            </header>
+
+                            <!-- Filters -->
+                            <div class="filter-dropdown">
+                                <div class="selected"><span class="name">Filter:</span> <span class="val">All</span></div>
+                                <ul>
+                                    <li data-filter="*">All</li>
+                                    <li data-filter=".force">Force.com</li>
+                                    <li data-filter=".chatter">Chatter</li>
+                                    <li data-filter=".mobile">Mobile</li>
+                                    <li data-filter=".reports">Reports</li>
+                                </ul>
+                                <div class="arrow"></div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Main content -->
+                    <div class="isotope isotope-3 row">
+
+                        <!-- Portfolio item -->
+                        <article class="portfolio isotope-item force col-4">
+                            <a href="#navigating_force" class="image">
+                                <apex:image url="{!URLFOR($Resource.cirrus_launchpad, '/img/portfolio-images/navigating_force.jpg')}" alt="Navigating Force.com" />
+                            </a>
+                            <div class="inner">
+                                <header>
+                                    <h3>Navigating Force.com</h3>
+                                </header>
+                            </div>
+                        </article>
+
+                        <!-- Portfolio item -->
+                        <article class="portfolio isotope-item chatter col-4">
+                            <a href="#chatter_feeds" class="image">
+                                <apex:image url="{!URLFOR($Resource.cirrus_launchpad, '/img/portfolio-images/chatter_feeds.jpg')}" alt="Chatter Feeds" />
+                            </a>
+                            <div class="inner">
+                                <header>
+                                    <h3>Chatter Feeds</h3>
+                                </header>
+                            </div>
+                        </article>
+
+                        <!-- Portfolio item -->
+                        <article class="portfolio isotope-item chatter col-4">
+                            <a href="#chatter_groups" class="image">
+                                <apex:image url="{!URLFOR($Resource.cirrus_launchpad, '/img/portfolio-images/chatter_groups.jpg')}" alt="Using Chatter Groups" />
+                            </a>
+                            <div class="inner">
+                                <header>
+                                    <h3>Using Chatter Groups</h3>
+                                </header>
+                            </div>
+                        </article>
+
+                        <!-- Portfolio item -->
+                        <article class="portfolio isotope-item chatter col-4">
+                            <a href="#searching_chatter" class="image">
+                                <apex:image url="{!URLFOR($Resource.cirrus_launchpad, '/img/portfolio-images/searching_chatter.jpg')}" alt="Searching Chatter" />
+                            </a>
+                            <div class="inner">
+                                <header>
+                                    <h3>Searching Chatter</h3>
+                                </header>
+                            </div>
+                        </article>
+
+                        <!-- Portfolio item -->
+                        <article class="portfolio isotope-item mobile col-4">
+                            <a href="#using_salesforce1" class="image">
+                                <apex:image url="{!URLFOR($Resource.cirrus_launchpad, '/img/portfolio-images/using_salesforce1.jpg')}" alt="Using Salesforce1" />
+                            </a>
+                            <div class="inner">
+                                <header>
+                                    <h3>Using Salesforce1</h3>
+                                </header>
+                            </div>
+                        </article>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Collapsible sidebar -->
+            <div id="sidebar">
+
+                <!-- Widget Area -->
+                <div id="widgets">
+
+                    <!-- Main menu -->
+                    <nav id="mainmenu">
+                        <ul>
+                            <li><a href="/apex/cirrus_launchpad_vision">Vision</a></li>
+                            <li><a href="/apex/cirrus_launchpad_principles">Principles</a></li> 
+                            <li><a href="/apex/cirrus_launchpad_success">Success</a></li>
+                            <li>
+                                <a href="#" class="active">Learn</a>
+                                <ul>
+                                    <li><a href="/apex/cirrus_launchpad_learn_overview">Overview</a></li>
+                                    <li><a href="/apex/cirrus_launchpad_learn_basic">Basic Training</a></li>
+                                    <li><a href="/apex/cirrus_launchpad_learn_developer">Developer Training</a></li>
+                                    <li><a href="/apex/cirrus_launchpad_learn_play">Start Playing</a></li>
+                                </ul>
+                            </li>                           
+                            <li><a href="/apex/cirrus_launchpad_begin">Next Steps</a></li>
+                            <li><a href="/">Back to Force.com</a></li>
+                        </ul>
+                    </nav>
+
+                </div>
+
+                <!-- Copyright -->
+                <footer>
+                    <p class="copyright">Eli Lilly &amp; Company</p>
+                </footer>
+
+            </div>
+
+            <!-- Portfolio Content -->
+            <div id="navigating_force" class="portfolio-full portfolio-full-slidedown">
+
+                <!-- Portfolio description -->
+                <div class="portfolio-description">
+                    <h3>Navigating Force.com</h3>
+                    <p>This video will give you a brief walk-through of what you are looking at when you initially log into Salesforce.com. It will highlight important pages in the end-user experience by walking through a simple custom cloud app.</p>
+                    <div class="video"><object width="640" height="360"><param name="movie" value="https://www.youtube.com/v/s-wpzufWm7M?hl=en_GB&amp;version=3&amp;rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="https://www.youtube.com/v/s-wpzufWm7M?hl=en_GB&amp;version=3&amp;rel=0" type="application/x-shockwave-flash" width="640" height="360" allowscriptaccess="always" allowfullscreen="true"></embed></object></div>
+                    <div class="icon-text">
+                        <i class="fa fa-comments"></i>
+                        <p><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9b0000000HZZz">Ask a question on Chatter (Hashtag: #Force.com)</a></p>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- Portfolio Content -->
+            <div id="chatter_feeds" class="portfolio-full portfolio-full-slidedown">
+
+                <!-- Portfolio description -->
+                <div class="portfolio-description">
+                    <h3>Chatter Feeds</h3>
+                    <p>Use Salesforce Chatter to create posts, polls, and bookmarks to collaborate effectively with your coworkers in Chatter. You learn how to post to your followers or a group, bookmark a post so you can find it later, and how to create a poll on the fly so you can gather results fast!</p>
+                    <div class="video"><object width="640" height="360"><param name="movie" value="https://www.youtube.com/v/rlmfykFnXjA?version=3&amp;hl=en_GB&amp;rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="https://www.youtube.com/v/rlmfykFnXjA?version=3&amp;hl=en_GB&amp;rel=0" type="application/x-shockwave-flash" width="640" height="360" allowscriptaccess="always" allowfullscreen="true"></embed></object></div>
+                    <div class="icon-text">
+                        <i class="fa fa-comments"></i>
+                        <p><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9b0000000HZZz">Ask a question on Chatter (Hashtag: #Chatter)</a></p>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- Portfolio Content -->
+            <div id="chatter_groups" class="portfolio-full portfolio-full-slidedown">
+
+                <!-- Portfolio description -->
+                <div class="portfolio-description">
+                    <h3>Using Chatter Groups</h3>
+                    <p>With Chatter Groups you can invite people outside your company to safely collaborate with you and your group members. Consultants, partners, board members.... now you can select anyone to join you on Chatter!</p>
+                    <div class="video"><object width="640" height="360"><param name="movie" value="https://www.youtube.com/v/HDTU5QDGeYk?hl=en_GB&amp;version=3&amp;rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="https://www.youtube.com/v/HDTU5QDGeYk?hl=en_GB&amp;version=3&amp;rel=0" type="application/x-shockwave-flash" width="640" height="360" allowscriptaccess="always" allowfullscreen="true"></embed></object></div>
+                    <div class="icon-text">
+                        <i class="fa fa-comments"></i>
+                        <p><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9b0000000HZZz">Ask a question on Chatter (Hashtag: #Chatter)</a></p>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- Portfolio Content -->
+            <div id="searching_chatter" class="portfolio-full portfolio-full-slidedown">
+
+                <!-- Portfolio description -->
+                <div class="portfolio-description">
+                    <h3>Searching Chatter</h3>
+                    <p>Watch this short video to see how you can find what you need quickly and easily, in Salesforce Chatter, using smart search.</p>
+                    <div class="video"><object width="640" height="360"><param name="movie" value="https://www.youtube.com/v/n0HLO4_d3Vg?hl=en_GB&amp;version=3&amp;rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="https://www.youtube.com/v/n0HLO4_d3Vg?hl=en_GB&amp;version=3&amp;rel=0" type="application/x-shockwave-flash" width="640" height="360" allowscriptaccess="always" allowfullscreen="true"></embed></object></div>
+                    <div class="icon-text">
+                        <i class="fa fa-comments"></i>
+                        <p><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9b0000000HZZz">Ask a question on Chatter (Hashtag: #Chatter)</a></p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Portfolio Content -->
+            <div id="using_salesforce1" class="portfolio-full portfolio-full-slidedown">
+
+                <!-- Portfolio description -->
+                <div class="portfolio-description">
+                    <h3>Using Salesforce1</h3>
+                    <p>Experience Salesforce everywhere. Built on the Customer Platform, the Salesforce1 Mobile App supercharges sales, service, and marketing to take you to the next level.</p>
+                    <div class="video"><object width="640" height="360"><param name="movie" value="https://www.youtube.com/v/GpXYphy1psE?version=3&amp;hl=en_GB&amp;rel=0"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="https://www.youtube.com/v/GpXYphy1psE?version=3&amp;hl=en_GB&amp;rel=0" type="application/x-shockwave-flash" width="640" height="360" allowscriptaccess="always" allowfullscreen="true"></embed></object></div>
+                    <div class="icon-text">
+                        <i class="fa fa-comments"></i>
+                        <p><a href="/_ui/core/chatter/groups/GroupProfilePage?g=0F9b0000000HZZz">Ask a question on Chatter (Hashtag: #Salesforce1)</a></p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- JavaScript -->
+        <apex:includeScript value="{!URLFOR($Resource.cirrus_launchpad, 'js/jquery.min.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.cirrus_launchpad, 'js/bootstrap.min.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.cirrus_launchpad, 'js/swiper/idangerous.swiper.min.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.cirrus_launchpad, 'js/masonry/masonry.pkgd.min.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.cirrus_launchpad, 'js/isotope/jquery.isotope.min.js')}" />
+        <apex:includeScript value="{!URLFOR($Resource.cirrus_launchpad, 'js/custom.js')}" />
+
+    </body>
+</apex:page>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>MavensPM__Ticket__c.MavensPM__Ticket_Number__c</field>
+    </columns>
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>CUST_OWNER_NAME</field>
+    </columns>
+    <columns>
+        <field>MavensPM__Ticket__c.MavensPM__Due_Date__c</field>
+    </columns>
+    <columns>
+        <field>MavensPM__Ticket__c.MavensPM__Priority__c</field>
+    </columns>
+    <columns>
+        <field>MavensPM__Ticket__c.MavensPM__Status__c</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_$MavensPM__Requirement__c.Mavens_Owner__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <filter>
+        <criteriaItems>
+            <column>FK_$MavensPM__Requirement__c.MavensPM__Use_Case__c</column>
+            <operator>equals</operator>
+            <value>Customer Search Tool</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>MavensPM__Ticket__c.MavensPM__Status__c</column>
+            <operator>equals</operator>
+            <value>New,Working</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>CST - Open Tickets</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$MavensPM__Ticket__c@MavensPM__Ticket__c.MavensPM__Requirement__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>MavensPM__Ticket__c.MavensPM__Due_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

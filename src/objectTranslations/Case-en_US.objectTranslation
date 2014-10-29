@@ -495,6 +495,10 @@
             <translation><!-- Information/Query --></translation>
         </picklistValues>
     </fields>
+    <quickActions>
+        <label><!-- NewChildCase --></label>
+        <name>NewChildCase</name>
+    </quickActions>
     <webLinks>
         <label><!-- LOOP --></label>
         <name>Loop__LOOP</name>

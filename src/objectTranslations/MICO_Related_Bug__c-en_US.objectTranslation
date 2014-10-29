@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Related Defect</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Related Defects</value>
+    </caseValues>
+    <fields>
+        <label><!-- Defect --></label>
+        <name>Bug__c</name>
+        <relationshipLabel><!-- Related Defects --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Related Bug Status --></label>
+        <name>Related_Bug_Status__c</name>
+    </fields>
+    <fields>
+        <help><!-- The summary of the related bug --></help>
+        <label><!-- Related Bug Summary --></label>
+        <name>Related_Bug_Summary__c</name>
+    </fields>
+    <fields>
+        <label><!-- Related Defect --></label>
+        <name>Related_Bug__c</name>
+        <relationshipLabel><!-- Related Defects (Defect) --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Related Bug Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

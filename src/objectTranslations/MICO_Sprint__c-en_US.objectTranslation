@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Sprint</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Sprints</value>
+    </caseValues>
+    <fields>
+        <help><!-- Where we should be within the sprint on current selected date --></help>
+        <label><!-- Burndown --></label>
+        <name>Burndown__c</name>
+    </fields>
+    <fields>
+        <help><!-- Manually populate this field at the end of the sprint to calculate your velocity for this sprint --></help>
+        <label><!-- Completed story points --></label>
+        <name>Completed_story_points__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dev Man Days --></label>
+        <name>Dev_Man_Days__c</name>
+    </fields>
+    <fields>
+        <label><!-- End Date --></label>
+        <name>End_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- The number of working days in this sprint --></help>
+        <label><!-- Number Working Days in Sprint --></label>
+        <name>Number_Working_Days_in_Sprint__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of days in sprint --></label>
+        <name>Number_of_days_in_sprint__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of full time devs in sprint --></label>
+        <name>Number_of_full_time_devs_in_sprint__c</name>
+    </fields>
+    <fields>
+        <help><!-- What are the main central purposed of this sprint? --></help>
+        <label><!-- Objective --></label>
+        <name>Objective__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project --></label>
+        <name>Project__c</name>
+        <relationshipLabel><!-- Sprints --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Remaining Sprint Days --></label>
+        <name>Remaining_Sprint_Days__c</name>
+    </fields>
+    <fields>
+        <label><!-- Start Date --></label>
+        <name>Start_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Sprints must be &quot;In Planning&quot; for the sprint planning tool to work
+They must be &quot;In Progress&quot; for the burndown to work --></help>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Planning</masterLabel>
+            <translation><!-- In Planning --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation><!-- In Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Started</masterLabel>
+            <translation><!-- Not Started --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Testing</masterLabel>
+            <translation><!-- Testing --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Story Points --></label>
+        <name>Story_Points__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total SFDC Capacity --></label>
+        <name>Tech1_Story_Points__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Other Capacity --></label>
+        <name>Tech2_Story_Points__c</name>
+    </fields>
+    <fields>
+        <help><!-- The number of working days (Monday-Friday) in this sprint.
+
+NB: This does not take in to account public holidays. --></help>
+        <label><!-- Total Working Days in Sprint --></label>
+        <name>Total_Working_Days_in_Sprint__c</name>
+    </fields>
+    <fields>
+        <help><!-- If Dev Man Days and Story Points Completed ispopulated, shows the velocity achieved at the end of the sprint in Points Per Dev Day. This can be used when calculating your capacity for the next sprint --></help>
+        <label><!-- Velocity --></label>
+        <name>Velocity__c</name>
+    </fields>
+    <fields>
+        <help><!-- The number of working days in to the sprint we are today --></help>
+        <label><!-- Working Days Through Sprint --></label>
+        <name>Working_Days_Through_Sprint__c</name>
+    </fields>
+    <layouts>
+        <layout>Sprint Layout - Dev Team</layout>
+        <sections>
+            <label><!-- Capacity --></label>
+            <section>Capacity</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Duration --></label>
+            <section>Duration</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Draw_Burndown --></label>
+        <name>Draw_Burndown</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Kanban_Board --></label>
+        <name>Kanban_Board</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Plan_Sprint --></label>
+        <name>Plan_Sprint</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Print_Stories --></label>
+        <name>Print_Stories</name>
+    </webLinks>
+</CustomObjectTranslation>

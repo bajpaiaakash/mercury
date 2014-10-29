@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Test Execution</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Test Executions</value>
+    </caseValues>
+    <fields>
+        <help><!-- Which user ran this test --></help>
+        <label><!-- Tester --></label>
+        <name>Assigned_To__c</name>
+        <relationshipLabel><!-- Test Executions --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The description of this text script --></help>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <help><!-- Enter the environment that this test was performed in --></help>
+        <label><!-- Environment --></label>
+        <name>Environment__c</name>
+        <picklistValues>
+            <masterLabel>CI</masterLabel>
+            <translation><!-- CI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dev</masterLabel>
+            <translation><!-- Dev --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SAT</masterLabel>
+            <translation><!-- SAT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UAT</masterLabel>
+            <translation><!-- UAT --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- What is the overall aim of this test --></help>
+        <label><!-- Introduction --></label>
+        <name>Introduction__c</name>
+    </fields>
+    <fields>
+        <help><!-- Overall test comments. 
+
+You should note what happened in the test, e.g. for promotion creation &quot;Succesfully created promotion&quot;.
+
+This can be copy and pasted from the excel file. --></help>
+        <label><!-- Overall Test Comments --></label>
+        <name>Overall_Test_Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- The percentage of all steps that are passed or passed with minor issues --></help>
+        <label><!-- Pass Percentage --></label>
+        <name>Pass_Percentage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project --></label>
+        <name>ProjectNew__c</name>
+    </fields>
+    <fields>
+        <label><!-- Project --></label>
+        <name>Project__c</name>
+        <relationshipLabel><!-- Test Executions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Sprint --></label>
+        <name>SprintNew__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sprint --></label>
+        <name>Sprint__c</name>
+        <relationshipLabel><!-- Test Executions --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The stage in the test lifecycle. A test case can be Status=Complete and fOutcome=&quot;Failed&quot; if a bug has been raised. Once the bug has been fixed the test case may be set to &quot;Awaiting Retest&quot; by the Test Lead --></help>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Awaiting Retest</masterLabel>
+            <translation><!-- Awaiting Retest --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Complete</masterLabel>
+            <translation><!-- Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Started</masterLabel>
+            <translation><!-- Not Started --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parked</masterLabel>
+            <translation><!-- Parked --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Started</masterLabel>
+            <translation><!-- Started --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Sums the number of steps who&apos;s outcome is not N/A --></help>
+        <label><!-- Steps Completed --></label>
+        <name>Steps_Completed__c</name>
+    </fields>
+    <fields>
+        <help><!-- The total number of steps passed or  passed with minor issues --></help>
+        <label><!-- Steps Passed --></label>
+        <name>Steps_Passed__c</name>
+    </fields>
+    <fields>
+        <help><!-- The script being executed --></help>
+        <label><!-- Template --></label>
+        <name>Template__c</name>
+        <relationshipLabel><!-- Test Executions --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The percentage of steps that have an outcome not equal to &apos;N/A&apos; --></help>
+        <label><!-- Test Completion --></label>
+        <name>Test_Completion__c</name>
+    </fields>
+    <fields>
+        <help><!-- The overall outcome of the test at it&apos;s current stage --></help>
+        <label><!-- Test Outcome --></label>
+        <name>Test_Outcome__c</name>
+        <picklistValues>
+            <masterLabel>Blocked from testing</masterLabel>
+            <translation><!-- Blocked from testing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Failed</masterLabel>
+            <translation><!-- Failed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Passed</masterLabel>
+            <translation><!-- Passed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Passed with minor issues</masterLabel>
+            <translation><!-- Passed with minor issues --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Test Phase --></label>
+        <name>Test_Phase__c</name>
+        <picklistValues>
+            <masterLabel>Integration</masterLabel>
+            <translation><!-- Integration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Performance</masterLabel>
+            <translation><!-- Performance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pre-check</masterLabel>
+            <translation><!-- Pre-check --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regression</masterLabel>
+            <translation><!-- Regression --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sprint Acceptance Testing (SAT)</masterLabel>
+            <translation><!-- Sprint Acceptance Testing (SAT) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>User Acceptance Testing (UAT)</masterLabel>
+            <translation><!-- User Acceptance Testing (UAT) --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- The total number of steps in this test --></help>
+        <label><!-- Total Steps --></label>
+        <name>Total_Steps__c</name>
+    </fields>
+    <fields>
+        <label><!-- User Story --></label>
+        <name>User_Story__c</name>
+        <relationshipLabel><!-- Test Executions --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Test Execution Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Test Details --></label>
+            <section>Test Details</section>
+        </sections>
+        <sections>
+            <label><!-- Test Information --></label>
+            <section>Test Information</section>
+        </sections>
+        <sections>
+            <label><!-- Test Results --></label>
+            <section>Test Results</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Run_Test_Script --></label>
+        <name>Run_Test_Script</name>
+    </webLinks>
+</CustomObjectTranslation>

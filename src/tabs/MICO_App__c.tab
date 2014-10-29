@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customObject>true</customObject>
+    <description>Business Description: This object is used to store a list of applications, capturing their name, use, technical and business contacts as well as physical location. 
+
+Used In: Mission Control App</description>
+    <mobileReady>false</mobileReady>
+    <motif>Custom21: Computer</motif>
+</CustomTab>

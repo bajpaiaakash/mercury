@@ -1,0 +1,14 @@
+<table height="400" width="600" cellpadding="5" border="0" cellspacing="5" >
+<tr height="50" valign="top" >
+<td style=" color:#000000; font-size:12pt; background-color:#FFFFFF; font-family:arial; bLabel:main; bEditID:r3st1;" tEditID="c1r1" locked="0" aEditID="c1r1" >
+<![CDATA[<span style="color: rgb(34, 34, 34); background-color: rgb(255, 255, 255);">Dear&nbsp;</span><span style="font-size: 12pt;">&nbsp;{!GLBL_Form_Execution__c.Form_Executor__c},</span>]]></td>
+</tr>
+<tr height="300" valign="top" >
+<td style=" color:#000000; font-size:12pt; background-color:#FFFFFF; font-family:arial; bLabel:main; bEditID:r3st1;" tEditID="c1r2" locked="0" aEditID="c1r2" >
+<![CDATA[<div><div style="font-size: 12pt; background-color: rgb(255, 255, 255);"><span style="color: rgb(34, 34, 34); font-size: 12pt;">This is an automated response from the LillyFit Assessment you have completed.</span></div><div style="font-size: 12pt; background-color: rgb(255, 255, 255);"><span style="color: rgb(34, 34, 34); font-size: 12pt;"><br></span></div><div style="background-color: rgb(255, 255, 255);"><font color="#222222" face="arial" size="3">Your idea appears to be suitable&nbsp;</font><font color="#222222" face="arial">for</font><font color="#222222" face="arial" size="3">&nbsp;Web Hosting. A member of the Enterprise Architecture team will contact you in the next few days to review your LillyFit Assessment responses. If you have any questions in the meantime please click <a href="https://gso.my.salesforce.com/0F9b0000000HbAW">here</a> for the LillyFit chatter group.&nbsp;</font></div></div><div><font face="arial"><br></font></div><div><font face="arial">&nbsp;</font></div><div><font face="arial"><br></font></div><div><br></div>]]></td>
+</tr>
+<tr height="50" valign="top" >
+<td style=" color:#000000; font-size:12pt; background-color:#FFFFFF; font-family:arial; bLabel:main; bEditID:r3st1;" tEditID="c1r3" locked="0" aEditID="c1r3" >
+<![CDATA[<div><font face="arial">Many thanks,</font></div><div><font face="arial"><br></font></div><div><font face="arial">Cirrus Team</font></div>]]></td>
+</tr>
+</table>

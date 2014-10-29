@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Submission Assessment</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Submission Assessments</value>
+    </caseValues>
+    <fields>
+        <help><!-- Sum of ratings assigned to each element of the submission document that was assessed; rating scale used for each element is 1=Low to 5=High --></help>
+        <label><!-- Actual Score --></label>
+        <name>Actual_Score__c</name>
+    </fields>
+    <fields>
+        <label><!-- Assessment --></label>
+        <name>Assessment__c</name>
+        <relationshipLabel><!-- Submission Assessments --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Assessor comments of the submission that was assessed; information entered will be viewable to the document owner when a report is generated --></help>
+        <label><!-- Overall Comments --></label>
+        <name>Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Observations --></label>
+        <name>Observations__c</name>
+    </fields>
+    <fields>
+        <help><!-- Percentage of Actual Score divided by Total Score --></help>
+        <label><!-- Overall Percentage --></label>
+        <name>Overall_Percentage__c</name>
+    </fields>
+    <fields>
+        <label><!-- #Overall Rating --></label>
+        <name>Overall_Rating_Number__c</name>
+    </fields>
+    <fields>
+        <help><!-- Average of the ratings that were assigned --></help>
+        <label><!-- Overall Rating --></label>
+        <name>Overall_Rating__c</name>
+    </fields>
+    <fields>
+        <help><!-- The status of the Submission Assessment --></help>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In-Progress</masterLabel>
+            <translation><!-- In-Progress --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Submission --></label>
+        <name>Submission__c</name>
+        <relationshipLabel><!-- Submission Assessments --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Highest possible score if each element assessed received a 5=High rating --></help>
+        <label><!-- Total Score --></label>
+        <name>Total_Score__c</name>
+    </fields>
+    <layouts>
+        <layout>Submission Assessment Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Observations --></label>
+            <section>Observations</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Master --></label>
+        <name>Master</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

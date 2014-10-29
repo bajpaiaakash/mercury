@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Business Description: This object is used to store a list of applications, capturing their name, use, technical and business contacts as well as physical location.
+Used In: Mission Control App
+
+Created on 04/29/2014 by SMills
+MICO</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>App_Code__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>The 4 letter application code used to namespace this application
+Created on 04/29/2014 by SMills
+MICO</description>
+        <externalId>true</externalId>
+        <inlineHelpText>The 4 letter application code used to namespace this application</inlineHelpText>
+        <label>App Code</label>
+        <length>4</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Business_Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The first point of contact about this application from a business perspective
+Created on 04/29/2014 by SMills 
+MICO</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The first point of contact about this application from a business perspective</inlineHelpText>
+        <label>Business Contact</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>MICO_Apps2</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Business_Criticality__c</fullName>
+        <description>This field is used to store the business criticality of the application: Created on 05/08/2014 by Preeti Grover:MICO</description>
+        <externalId>false</externalId>
+        <label>Business Criticality</label>
+        <picklist>
+            <picklistValues>
+                <fullName>High</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Detailed_Description__c</fullName>
+        <description>A detailed description of the application
+Created on 04/29/2014 by SMills 
+MICO</description>
+        <externalId>false</externalId>
+        <label>Detailed Description</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Org__c</fullName>
+        <description>The org this application is being delivered in
+Created on 04/29/2014 by SMills 
+MICO</description>
+        <externalId>false</externalId>
+        <inlineHelpText>In what org is this app being delivered?</inlineHelpText>
+        <label>Org</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Production: GSO</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Production: Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sandbox: GSO</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sandbox: Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Risk_Assessment_Notes__c</fullName>
+        <description>This field is used to capture risk assessment notes: Created on 05/08/2014 by Preeti Grover:MICO</description>
+        <externalId>false</externalId>
+        <label>Risk Assessment Notes</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Risk_Category__c</fullName>
+        <description>This field is used to capture the risk category associated with the application: Created on 05/8/2014 by Preeti Grover:MICO</description>
+        <externalId>false</externalId>
+        <label>Risk Category</label>
+        <picklist>
+            <picklistValues>
+                <fullName>External</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cost</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Schedule</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Technology</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Operational</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <description>Stage in application development lifecycle
+Created on 04/29/2014 by SMills 
+MICO</description>
+        <externalId>false</externalId>
+        <inlineHelpText>What stage is this application in it&apos;s lifecycle. Note that applications can be in Long Term Support and still receiving significant enhancements.</inlineHelpText>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Initial Idea</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Funding Allocated</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Timeline Planned</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>In Build</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>In Stabilisation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Long Term Support</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Summary__c</fullName>
+        <description>High level summary of the app, including users, key functionality etc.
+Created on 04/29/2014 by SMills 
+MICO</description>
+        <externalId>false</externalId>
+        <inlineHelpText>High level summary of the app, including users, key functionality etc.</inlineHelpText>
+        <label>Summary</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>8</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Technical_Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The first point of contact about this application from a technical perspective
+Created on 04/29/2014 by SMills 
+MICO</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The first point of contact about this application from a technical perspective</inlineHelpText>
+        <label>Technical Contact</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>MICO_Apps</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>App</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>App Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Apps</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Summary__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Technical_Contact__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Business_Contact__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Org__c</customTabListAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <startsWith>Vowel</startsWith>
+</CustomObject>

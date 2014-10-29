@@ -1,0 +1,1340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Business Description: This object is used to record User Stories with their acceptance criteria. These are linked to a sprint during sprint planning and delivered throughout the sprint process.
+
+Used In: Mission Control App</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Acceptance_Criteria__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Basis for business sign off. Needs to be specific, testable and complete.
+For example: 
+The search functionality must cover my entire territory 
+The search must be case-sensitive 
+(*) should allow open-ended search, or cover for missing letters</inlineHelpText>
+        <label>Acceptance Criteria</label>
+        <length>32000</length>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>20</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Allocated_Sprint__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Allocated Sprint</label>
+        <referenceTo>MICO_Sprint__c</referenceTo>
+        <relationshipLabel>User Stories (Allocated Sprint)</relationshipLabel>
+        <relationshipName>MICO_Allocated_User_Stories</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>App__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The app this user story relates to</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The app this user story relates to</inlineHelpText>
+        <label>App</label>
+        <referenceTo>MICO_App__c</referenceTo>
+        <relationshipLabel>User Stories</relationshipLabel>
+        <relationshipName>User_Stories</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>As_A__c</fullName>
+        <description>Used to define the core role using the piece of functionality described by the user story</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The main user type(s) that this story is for.</inlineHelpText>
+        <label>As a...</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Any User</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Business Administration</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chatter Only</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Compliance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Customer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Customer Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Events</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Executive &amp; Report Only</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>System Administration</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Cancellation_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Cancellation Reason</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Close_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Record the data a user story is closed (Passed Complete)
+Is populated automatically by workflow.
+Is used in the report Points Closed Today</inlineHelpText>
+        <label>Close Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Compliance_Approve_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Date this has been reviewed and approved by Compliance</inlineHelpText>
+        <label>Compliance Approved Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Compliance_Criteria__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please enter any legal, regulatory or compliance related requirements
+For example:
+When disbursing a sample, you must specify a Sample Lot Number. This sample lot number cannot be edited after the call is saved.</inlineHelpText>
+        <label>Compliance Criteria</label>
+        <length>32768</length>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Compliance_Owner__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>The Compliance or Quality officer signing off this user story</inlineHelpText>
+        <label>Compliance Owner</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>MICO_User_Stories1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Developer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Developer</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>MICO_User_Stories</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Development_Stage__c</fullName>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>1. Backlog - Draft</fullName>
+                <color>#0B6FCE</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2. Backlog - Awaiting estimation</fullName>
+                <color>#FF0000</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3. Backlog - Awaiting ordering</fullName>
+                <color>#333333</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4. Backlog - Awaiting Sprint Assignment</fullName>
+                <color>#DDDDDD</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5.1 Sprint Team - Sprint Backlog</fullName>
+                <color>#A845DC</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5.2 Sprint Team - With BPC</fullName>
+                <color>#66E9BD</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5.3 Sprint Team - Awaiting Development</fullName>
+                <color>#2F5D85</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5.4 Sprint Team - In Development</fullName>
+                <color>#EFAE73</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5.5. Sprint - Awaiting review</fullName>
+                <color>#33CCFF</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5.6. Sprint - Awaiting Release to SAT</fullName>
+                <color>#FF9900</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5.7. Sprint - Awaiting SAT</fullName>
+                <color>#F3D904</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5.8. Sprint - In Test</fullName>
+                <color>#F96FB7</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5.9. Done</fullName>
+                <color>#33CC00</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>6. UAT - Awaiting testing</fullName>
+                <color>#8F6429</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>7. UAT – In Test</fullName>
+                <color>#8F6429</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>8. Production – Ready for Release</fullName>
+                <color>#CC6600</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>9. Production – Released</fullName>
+                <color>#CC6600</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>99. Cancelled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Full_User_Story__c</fullName>
+        <externalId>false</externalId>
+        <formula>&quot;As a &quot; &amp;  IF(INCLUDES( As_A__c , &quot;Any User&quot;), &quot;Any User &quot;, NULL)  + BR() + 
+IF(INCLUDES( As_A__c , &quot;Booking Agent&quot;), &quot;Booking Agent User &quot; + BR() , NULL) + 
+IF(INCLUDES( As_A__c , &quot;Business Administration&quot;), &quot;Business Administration User &quot; + BR() , NULL) +
+IF(INCLUDES( As_A__c , &quot;Chatter Only&quot;), &quot;Chatter Only User &quot; + BR(), NULL)  +
+IF(INCLUDES( As_A__c , &quot;Commercial&quot;), &quot;Commercial User &quot;  + BR() , NULL) +
+IF(INCLUDES( As_A__c , &quot;Compliance&quot;), &quot;Compliance User &quot; + BR(), NULL)  +
+IF(INCLUDES( As_A__c , &quot;Events&quot;), &quot;Events User &quot; + BR() , NULL) +
+IF(INCLUDES( As_A__c , &quot;Executive &amp; Report Only&quot;), &quot;Executive &amp; Report Only User &quot; + BR(), NULL)  +
+IF(INCLUDES( As_A__c , &quot;Market Access&quot;), &quot;Market Access User &quot; + BR(), NULL)  +
+IF(INCLUDES( As_A__c , &quot;Marketing&quot;), &quot;Marketing User &quot; + BR(), NULL)  +
+IF(INCLUDES( As_A__c , &quot;Medical&quot;), &quot;Medical User &quot; + BR(), NULL)  +
+IF(INCLUDES( As_A__c , &quot;Medical Info&quot;), &quot;Medical Info User &quot; + BR(), NULL)  +
+IF(INCLUDES( As_A__c , &quot;Sales&quot;), &quot;Sales User &quot; + BR(), NULL)  +
+IF(INCLUDES( As_A__c , &quot;Service Management&quot;), &quot;Service Management User &quot; + BR(), NULL)  +
+IF(INCLUDES( As_A__c , &quot;Support Administration&quot;), &quot;Support Administration User &quot; + BR(), NULL)  +
+IF(INCLUDES( As_A__c, &quot;System Administration&quot;), &quot;System Administration User &quot;, NULL) 
+&amp;&quot; I want to &quot; &amp;  I_Want_To__c &amp; &quot; So That &quot; &amp; So_that__c</formula>
+        <label>Full User Story</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Functional_Area__c</fullName>
+        <externalId>false</externalId>
+        <label>Functional Area</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Customer Services</fullName>
+                <color>#0B6FCE</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event</fullName>
+                <color>#78C953</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Market Access</fullName>
+                <color>#E27001</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Marketing / Multichannel</fullName>
+                <color>#A845DC</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SFA</fullName>
+                <color>#F3D904</color>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Analytics / Insights</fullName>
+                <color>#A53711</color>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>I_Want_To__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>I want to be able to (achieve xyz)... For example : Be able to search for customers on different fields (e.g. First Name, Surname, Address, and Product Metrics) in my territory</inlineHelpText>
+        <label>I want to...</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Legal__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Please tick if this user story has some legal implications</inlineHelpText>
+        <label>Legal</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Master_Priority__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(value(text(Priority__c))&gt;0, value(text(Priority__c)), 99 )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Master Priority</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PCE_ID__c</fullName>
+        <description>Created for US-1675</description>
+        <externalId>true</externalId>
+        <label>PCE ID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PCE_Time_Remaining__c</fullName>
+        <description>Created for US-1675</description>
+        <externalId>false</externalId>
+        <label>PCE Time Remaining</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PCE_Total_Duration__c</fullName>
+        <description>Created for US-1675</description>
+        <externalId>false</externalId>
+        <label>PCE Total Duration</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Parent_Epic__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Parent Epic</label>
+        <referenceTo>MICO_Epic__c</referenceTo>
+        <relationshipLabel>Related User Stories</relationshipLabel>
+        <relationshipName>MICO_User_Stories</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Planned_Release__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Planned Release</label>
+        <referenceTo>MICO_Release__c</referenceTo>
+        <relationshipLabel>User Stories</relationshipLabel>
+        <relationshipName>MICO_User_Stories</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Priority__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>1 is the highest order, 99 is lowest.</inlineHelpText>
+        <label>Priority</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Privacy__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Flag this when the user story concerns personal identifiable information linked to your process</inlineHelpText>
+        <label>Privacy</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Project__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Project</label>
+        <referenceTo>MICO_Project__c</referenceTo>
+        <relationshipLabel>User Stories</relationshipLabel>
+        <relationshipName>MICO_Project_User_Stories</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Proposed_Sprint__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Proposed Sprint</label>
+        <referenceTo>MICO_Sprint__c</referenceTo>
+        <relationshipLabel>User Stories</relationshipLabel>
+        <relationshipName>MICO_Proposed_User_Stories</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>QRCode__c</fullName>
+        <externalId>false</externalId>
+        <formula>IMAGE(&apos;https://chart.googleapis.com/chart?chf=bg,s,ffffff&amp;cht=qr&amp;chs=220x220&amp;chl=http://tracker.force.com/QRScan/?id=&apos;&amp; Id&amp;&apos;&amp;chld=|0&apos; , &apos;Scan the QR code to see User Story in your mobile&apos; )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>QRCode</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Release_Completeness_Indicator__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF ( Release_Completeness__c , IMAGE(&quot;/img/msg_icons/confirm16.png&quot;,&quot;Complete&quot;), IMAGE(&quot;/img/msg_icons/error16.png&quot;, &quot;Not Complete&quot;))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Release Completeness Indicator</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Release_Completeness__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Release Completeness</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Release_Steps_Automated__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Elements which have to be deployed in an automated way (Eclipse).
+Please put N/A when not applicable</inlineHelpText>
+        <label>Release Steps (Automated)</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Release_Steps_Manual__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Elements which have to be deployed in a manual way. 
+Please put N/A when not applicable</inlineHelpText>
+        <label>Release Steps (Manual)</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Security__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Please tick if this user story has some security implications</inlineHelpText>
+        <label>Security</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>So_that__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Please enter the business value of this user story
+For example: 
+I can easily find my  relevant target customer information</inlineHelpText>
+        <label>So that...</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Story_Points_Other__c</fullName>
+        <externalId>false</externalId>
+        <label>Story Points (Other)</label>
+        <picklist>
+            <picklistValues>
+                <fullName>0</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>8</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>13</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>21</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Story_Points_Total__c</fullName>
+        <externalId>false</externalId>
+        <formula>nullvalue(value(text( Story_Points__c )), 0)  + nullvalue(value(text(  Story_Points_Other__c)),0)</formula>
+        <label>Story Points Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Story_Points__c</fullName>
+        <externalId>false</externalId>
+        <label>Story Points SFDC</label>
+        <picklist>
+            <picklistValues>
+                <fullName>0</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>5</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>8</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>13</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>21</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Sub_Process__c</fullName>
+        <externalId>false</externalId>
+        <label>Sub-Process</label>
+        <picklist>
+            <controllingField>Functional_Area__c</controllingField>
+            <picklistValues>
+                <fullName>Account Planning</fullName>
+                <controllingFieldValues>Market Access</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Account Profile</fullName>
+                <controllingFieldValues>Market Access</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Analytics &amp; Reporting</fullName>
+                <controllingFieldValues>Analytics / Insights</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Call Management</fullName>
+                <controllingFieldValues>SFA</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Campaign Design and Creation</fullName>
+                <controllingFieldValues>Marketing / Multichannel</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Campaign Execution</fullName>
+                <controllingFieldValues>Marketing / Multichannel</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Campaign Monitoring</fullName>
+                <controllingFieldValues>Marketing / Multichannel</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Collaboration</fullName>
+                <controllingFieldValues>Market Access</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Customer Feedback</fullName>
+                <controllingFieldValues>Analytics / Insights</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Data Feeds</fullName>
+                <controllingFieldValues>Analytics / Insights</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Data Quality</fullName>
+                <controllingFieldValues>Analytics / Insights</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event Execution and Follow up</fullName>
+                <controllingFieldValues>Event</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event Planning  and Approval</fullName>
+                <controllingFieldValues>Event</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Insights</fullName>
+                <controllingFieldValues>Analytics / Insights</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Marketing Plan</fullName>
+                <controllingFieldValues>Marketing / Multichannel</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Medical</fullName>
+                <controllingFieldValues>Event</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mobile/Apps</fullName>
+                <controllingFieldValues>Marketing / Multichannel</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sample Management</fullName>
+                <controllingFieldValues>SFA</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Segmentation &amp; Cycle Planning</fullName>
+                <controllingFieldValues>SFA</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sharing Information</fullName>
+                <controllingFieldValues>Market Access</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Territory Management</fullName>
+                <controllingFieldValues>SFA</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Time Registration</fullName>
+                <controllingFieldValues>SFA</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Web Call</fullName>
+                <controllingFieldValues>Marketing / Multichannel</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Websites / Portal</fullName>
+                <controllingFieldValues>Marketing / Multichannel</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Email</fullName>
+                <controllingFieldValues>Marketing / Multichannel</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Webcall</fullName>
+                <controllingFieldValues>Marketing / Multichannel</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Edetail</fullName>
+                <controllingFieldValues>Marketing / Multichannel</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Customer Journey</fullName>
+                <controllingFieldValues>Marketing / Multichannel</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Message</fullName>
+                <controllingFieldValues>Marketing / Multichannel</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Webinars</fullName>
+                <controllingFieldValues>Marketing / Multichannel</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Phone</fullName>
+                <controllingFieldValues>Marketing / Multichannel</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fax</fullName>
+                <controllingFieldValues>Marketing / Multichannel</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SMS</fullName>
+                <controllingFieldValues>Marketing / Multichannel</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Traditional Mail</fullName>
+                <controllingFieldValues>Marketing / Multichannel</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Banner Campaign</fullName>
+                <controllingFieldValues>Marketing / Multichannel</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Push Notification on Mobile</fullName>
+                <controllingFieldValues>Marketing / Multichannel</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Social Media Campaign</fullName>
+                <controllingFieldValues>Marketing / Multichannel</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Reporting</fullName>
+                <controllingFieldValues>Customer Services</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Automation</fullName>
+                <controllingFieldValues>Customer Services</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Customer Request</fullName>
+                <controllingFieldValues>Customer Services</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Call Campaign</fullName>
+                <controllingFieldValues>Customer Services</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Web Self Care</fullName>
+                <controllingFieldValues>Customer Services</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Supporting_BA__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Business Analyst responsible for this User Story</inlineHelpText>
+        <label>Business Analyst</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>MICO_User_Stories3</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>User__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Business/Product Owner for this User Story</inlineHelpText>
+        <label>Business Process/Product Owner</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>MICO_Requirements</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Validation_steps__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>If deploying objects or page layouts please specify the exact change</inlineHelpText>
+        <label>Validation steps</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Version__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Jenkins build number to Packaging</inlineHelpText>
+        <label>Version</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Work_Type__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>What type of work is likely to be involved? (what skills are needed?)</inlineHelpText>
+        <label>Work Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>SFDC Config</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SFDC Apex</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SFDC Visualforce</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SFDC Reporting</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Out-of-the-box Veeva/SFDC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Veeva Customization</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Integration</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Data Migration</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>6</visibleLines>
+    </fields>
+    <label>User Story</label>
+    <listViews>
+        <fullName>All_User_Stories</fullName>
+        <columns>NAME</columns>
+        <columns>As_A__c</columns>
+        <columns>I_Want_To__c</columns>
+        <columns>So_that__c</columns>
+        <columns>Functional_Area__c</columns>
+        <columns>User__c</columns>
+        <columns>Supporting_BA__c</columns>
+        <columns>Developer__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All User Stories</label>
+    </listViews>
+    <listViews>
+        <fullName>Analytics_Insights_User_Stories</fullName>
+        <columns>NAME</columns>
+        <columns>As_A__c</columns>
+        <columns>I_Want_To__c</columns>
+        <columns>So_that__c</columns>
+        <columns>Functional_Area__c</columns>
+        <columns>Compliance_Criteria__c</columns>
+        <columns>Development_Stage__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Functional_Area__c</field>
+            <operation>equals</operation>
+            <value>Analytics / Insights</value>
+        </filters>
+        <label>Analytics / Insights User Stories</label>
+    </listViews>
+    <listViews>
+        <fullName>Customer_Services_User_Stories</fullName>
+        <columns>NAME</columns>
+        <columns>As_A__c</columns>
+        <columns>I_Want_To__c</columns>
+        <columns>So_that__c</columns>
+        <columns>Functional_Area__c</columns>
+        <columns>Sub_Process__c</columns>
+        <columns>Compliance_Criteria__c</columns>
+        <columns>Development_Stage__c</columns>
+        <columns>Developer__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Functional_Area__c</field>
+            <operation>equals</operation>
+            <value>Customer Services</value>
+        </filters>
+        <filters>
+            <field>Sub_Process__c</field>
+            <operation>equals</operation>
+            <value>Creating</value>
+        </filters>
+        <label>Customer Services User Stories</label>
+    </listViews>
+    <listViews>
+        <fullName>Event_User_Stories</fullName>
+        <columns>NAME</columns>
+        <columns>As_A__c</columns>
+        <columns>I_Want_To__c</columns>
+        <columns>So_that__c</columns>
+        <columns>Functional_Area__c</columns>
+        <columns>Compliance_Criteria__c</columns>
+        <columns>Development_Stage__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Functional_Area__c</field>
+            <operation>equals</operation>
+            <value>Event / Medical</value>
+        </filters>
+        <label>Event/Medical User Stories</label>
+    </listViews>
+    <listViews>
+        <fullName>Market_Access_User_Stories</fullName>
+        <columns>NAME</columns>
+        <columns>As_A__c</columns>
+        <columns>I_Want_To__c</columns>
+        <columns>So_that__c</columns>
+        <columns>Functional_Area__c</columns>
+        <columns>Compliance_Criteria__c</columns>
+        <columns>Development_Stage__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Functional_Area__c</field>
+            <operation>equals</operation>
+            <value>Market Access</value>
+        </filters>
+        <label>Market Access User Stories</label>
+    </listViews>
+    <listViews>
+        <fullName>Marketing_Multichannel_User_Stories</fullName>
+        <columns>NAME</columns>
+        <columns>As_A__c</columns>
+        <columns>I_Want_To__c</columns>
+        <columns>So_that__c</columns>
+        <columns>Functional_Area__c</columns>
+        <columns>Compliance_Criteria__c</columns>
+        <columns>Development_Stage__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Functional_Area__c</field>
+            <operation>equals</operation>
+            <value>Marketing / Multichannel</value>
+        </filters>
+        <label>Marketing / Multichannel User Stories</label>
+    </listViews>
+    <listViews>
+        <fullName>Pre_Production_User_Stories</fullName>
+        <columns>NAME</columns>
+        <columns>Full_User_Story__c</columns>
+        <columns>Proposed_Sprint__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Proposed_Sprint__c</field>
+            <operation>equals</operation>
+            <value>Pre production Updates</value>
+        </filters>
+        <label>Pre Production User Stories</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>SFA_User_Stories</fullName>
+        <columns>NAME</columns>
+        <columns>As_A__c</columns>
+        <columns>I_Want_To__c</columns>
+        <columns>So_that__c</columns>
+        <columns>Functional_Area__c</columns>
+        <columns>Compliance_Criteria__c</columns>
+        <columns>Development_Stage__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Functional_Area__c</field>
+            <operation>equals</operation>
+            <value>SFA</value>
+        </filters>
+        <label>SFA User Stories</label>
+    </listViews>
+    <listViews>
+        <fullName>User_Stories_Done</fullName>
+        <columns>NAME</columns>
+        <columns>Full_User_Story__c</columns>
+        <columns>Story_Points_Total__c</columns>
+        <columns>Development_Stage__c</columns>
+        <columns>Release_Completeness_Indicator__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Development_Stage__c</field>
+            <operation>contains</operation>
+            <value>5.9. Done</value>
+        </filters>
+        <label>User Stories - Done</label>
+    </listViews>
+    <nameField>
+        <displayFormat>US-{0000}</displayFormat>
+        <label>US Ref</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>User Stories</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Functional_Area__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Sub_Process__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>As_A__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>I_Want_To__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>So_that__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Development_Stage__c</customTabListAdditionalFields>
+        <excludedStandardButtons>Accept</excludedStandardButtons>
+        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
+        <lookupDialogsAdditionalFields>Functional_Area__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Sub_Process__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>As_A__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>I_Want_To__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>So_that__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Development_Stage__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Functional_Area__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Sub_Process__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>As_A__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>I_Want_To__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>So_that__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Development_Stage__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Functional_Area__c</searchFilterFields>
+        <searchFilterFields>Sub_Process__c</searchFilterFields>
+        <searchFilterFields>As_A__c</searchFilterFields>
+        <searchFilterFields>I_Want_To__c</searchFilterFields>
+        <searchFilterFields>So_that__c</searchFilterFields>
+        <searchFilterFields>Development_Stage__c</searchFilterFields>
+        <searchResultsAdditionalFields>Functional_Area__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Sub_Process__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>As_A__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>I_Want_To__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>So_that__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Development_Stage__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Champion_BPC_Name</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+CONTAINS( $Profile.Name , &apos;Admin&apos;),
+OR (ISBLANK(User__c), ISBLANK( Supporting_BA__c )),
+OR( 
+ISPICKVAL(Development_Stage__c,&quot;5.3 Sprint Team - Awaiting Development &quot;), 
+ISPICKVAL(Development_Stage__c,&quot;5.4 Sprint Team - In Development&quot;), 
+ISPICKVAL(Development_Stage__c,&quot;5.5. Sprint - Awaiting Review&quot;), 
+ISPICKVAL(Development_Stage__c,&quot;5.6. Sprint - Awaiting Release to SAT&quot;), 
+ISPICKVAL(Development_Stage__c,&quot;5.7. Sprint - Awaiting SAT&quot;), ISPICKVAL(Development_Stage__c,&quot;5.8. Sprint - In Test&quot;), 
+ISPICKVAL(Development_Stage__c,&quot;5.9. Done&quot;), 
+ISPICKVAL(Development_Stage__c,&quot;6. UAT - Awaiting testing&quot;), 
+ISPICKVAL(Development_Stage__c,&quot;7. UAT – In Test&quot;), 
+ISPICKVAL(Development_Stage__c,&quot;8. Production – Ready for Release&quot;), 
+ISPICKVAL(Development_Stage__c,&quot;9. Production – Released&quot;)) 
+)</errorConditionFormula>
+        <errorMessage>Please complete both the Business Process/Product Owner &amp; Business Analyst Name before updating the Stage of this User Story</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Lock_Down</fullName>
+        <active>true</active>
+        <description>Loclks accpetance criteria so it can only be edited by users with the &quot;Over ride Acceptance Criteria&quot; enabled on their user page</description>
+        <errorConditionFormula>AND(
+ISCHANGED( Acceptance_Criteria__c ), 
+ $Profile.Name &lt;&gt; &apos;System Administrator&apos;,  
+OR(
+ISPICKVAL(Development_Stage__c,&quot;5.3 Sprint Team - Awaiting Development &quot;), 
+ISPICKVAL(Development_Stage__c,&quot;5.4 Sprint Team - In Development&quot;), 
+ISPICKVAL(Development_Stage__c,&quot;5.5. Sprint - Awaiting Review&quot;), 
+ISPICKVAL(Development_Stage__c,&quot;5.6. Sprint - Awaiting Release to SAT&quot;), 
+ISPICKVAL(Development_Stage__c,&quot;5.7. Sprint - Awaiting SAT&quot;), ISPICKVAL(Development_Stage__c,&quot;5.8. Sprint - In Test&quot;),
+ISPICKVAL(Development_Stage__c,&quot;5.9. Done&quot;), 
+ISPICKVAL(Development_Stage__c,&quot;6. UAT - Awaiting testing&quot;), 
+ISPICKVAL(Development_Stage__c,&quot;7. UAT – In Test&quot;), 
+ISPICKVAL(Development_Stage__c,&quot;8. Production – Ready for Release&quot;),
+ISPICKVAL(Development_Stage__c,&quot;9. Production – Released&quot;))
+ )</errorConditionFormula>
+        <errorDisplayField>Acceptance_Criteria__c</errorDisplayField>
+        <errorMessage>You can&apos;t amend the Acceptance and/or Compliance Criteria once the user story is categorized as ready for development. Move the status back to &apos;With BPC&apos; to indicate you are working again on the Acceptance and/or Compliance Criteria and Chatter the reason</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Ready_for_Release</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND (
+ Release_Completeness__c = FALSE,  
+OR (ISPICKVAL (Development_Stage__c, &apos;5.6. Sprint - Awaiting Release to SAT&apos;), ISPICKVAL (Development_Stage__c, &apos;5.7. Sprint - Awaiting SAT&apos;)))</errorConditionFormula>
+        <errorMessage>Please make sure the release section is completed correctly before moving the story to Awaiting Release to SAT</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>Create_HL_Design</fullName>
+        <availability>online</availability>
+        <description>Create high level design record</description>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Create HL Design</masterLabel>
+        <openType>noSidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!URLFOR($Action.MICO_Design__c.New, MICO_Design__c.Id, [retURL=URLFOR($Action.MICO_Design__c.View, MICO_Design__c.Id),  MICO_Design__c.from_id__c=MICO_User_Story__c.Id])}</url>
+    </webLinks>
+</CustomObject>
