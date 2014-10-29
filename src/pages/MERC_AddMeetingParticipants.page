@@ -216,10 +216,39 @@
 			  			<apex:pageBlock title="" mode="edit" id="mercuryUserBlock">
 			  				<apex:pageMessages ></apex:pageMessages>
 			  				<apex:pageBlockButtons >
-			  					<apex:commandButton onclick="showLoading()" oncomplete="hideLoading();j('#searchResultTabAnchor').click()"
-			  						action="{!doSearch}" value="Search" rerender="resultTableWrapper, srCountWrapper" id="searchParticipants"/>
+			  					<apex:commandButton onclick="showLoading()" action="{!doSearch}" value="Search" rerender="search-start" id="searchParticipants"/>
 			  					<apex:commandButton action="{!cancel}" value="Back to Meeting"/>
 			  				</apex:pageBlockButtons>
+			  				<apex:actionFunction name="retrieveSearch" action="{!retrieveResults}" rerender="retrieve-results, resultTableWrapper, srCountWrapper"/>
+
+			  				<apex:outputPanel id="search-start">
+			  					<apex:outputPanel rendered="{!searching}">
+			  						<script>
+			  							setTimeout(function(){
+											retrieveSearch();
+										}, {!$Setup.Mercury_Settings_MERC__c.Initial_Search_Timeout__c});
+			  						</script>
+			  					</apex:outputPanel>
+			  				</apex:outputPanel>
+
+			  				<apex:outputPanel id="retrieve-results">
+			  					<apex:outputPanel rendered="{!searching}">
+			  						<script>
+			  							setTimeout(function(){
+											retrieveSearch();
+										}, {!$Setup.Mercury_Settings_MERC__c.Subsequent_Search_Timeout__c});
+			  						</script>
+			  					</apex:outputPanel>
+			  					<apex:outputPanel rendered="{!NOT(searching)}">
+			  						<script>
+			  							hideLoading();
+			  							if ({!searchPerformed}) { //prevents the search results tab from showing when page initially loads
+			  								j('#searchResultTabAnchor').click();
+			  							}
+			  						</script>
+			  					</apex:outputPanel>
+			  				</apex:outputPanel>
+
 			  				<apex:pageBlockSection title="Basic Information">
 
 			  					<!-- FIRST NAME -->

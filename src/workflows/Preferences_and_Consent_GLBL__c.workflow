@@ -353,33 +353,15 @@ IF(($Profile.Name = &apos;Mercury Metadata API&apos; || $Profile.Name = &apos;Me
         <fullName>Set_Transparency_Consent_On_Account_MERC</fullName>
         <description>Sets Transparency Consent Value on Account.</description>
         <field>Account_Field_Update_MERC__c</field>
-        <formula>IF( ISBLANK(TEXT(Cnsnt_Sts_Desc_CMS_MERC__c)),
+        <formula>IF(ISBLANK(TEXT(Cnsnt_Sts_Desc_CMS_MERC__c)),
 
+  IF(ISBLANK(Cnsnt_Sts_Cd_Cap_GLBL__c), 
+     &quot;Transparency_Reporting_Opt_Out_MERC__c=&quot; &amp; UPPER(Cnsnt_Sts_Desc_GLBL__c),
+     &quot;Transparency_Reporting_Opt_Out_MERC__c=&quot; &amp;  Cnsnt_Sts_Cd_Cap_GLBL__c 
+    ),
 
-
- 
-
-
-
-IF(
-
-
-
-ISBLANK(  Cnsnt_Sts_Cd_Cap_GLBL__c  ), 
-
-
-
-&quot;Transparency_Reporting_Opt_Out_MERC__c=&quot; &amp;  Cnsnt_Sts_Cd_GLBL__c ,
-
-
-
-&quot;Transparency_Reporting_Opt_Out_MERC__c=&quot; &amp;  Cnsnt_Sts_Cd_Cap_GLBL__c 
-
- 
-
-),
-
-&quot;Transparency_Reporting_Opt_Out_MERC__c=&quot; &amp; TEXT(Cnsnt_Sts_Desc_CMS_MERC__c))</formula>
+  &quot;Transparency_Reporting_Opt_Out_MERC__c=&quot; &amp; TEXT(Cnsnt_Sts_Desc_CMS_MERC__c)
+)</formula>
         <name>Set Transparency Consent On Account_MERC</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
@@ -858,8 +840,12 @@ ISBLANK(  Cnsnt_Sts_Cd_Cap_GLBL__c  ),
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
+        <criteriaItems>
+            <field>Preferences_and_Consent_GLBL__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Consent</value>
+        </criteriaItems>
         <description>Updates the Consent External Key for the Consent Interfaces to ensure existing records are updated and no duplicates are created : MERC : Created by Oliver Dunford on 20/08/2014</description>
-        <formula>TRUE</formula>
         <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>

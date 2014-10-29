@@ -5,9 +5,9 @@
     <issuer>lly:saml2:idp</issuer>
     <loginUrl>https://federate.xh1.lilly.com/idp/SSO.saml2</loginUrl>
     <name>GSO</name>
-    <oauthTokenEndpoint>https://gso--GSO1Full.cs18.my.salesforce.com/services/oauth2/token?so=00D110000008IhC</oauthTokenEndpoint>
+    <oauthTokenEndpoint>https://gso--MercDev.cs18.my.salesforce.com/services/oauth2/token?so=00D110000007ycq</oauthTokenEndpoint>
     <redirectBinding>false</redirectBinding>
-    <salesforceLoginUrl>https://gso--GSO1Full.cs18.my.salesforce.com?so=00D110000008IhC</salesforceLoginUrl>
+    <salesforceLoginUrl>https://gso--MercDev.cs18.my.salesforce.com?so=00D110000007ycq</salesforceLoginUrl>
     <samlEntityId>https://gso.my.salesforce.com</samlEntityId>
     <samlVersion>SAML2_0</samlVersion>
     <userProvisioning>false</userProvisioning>

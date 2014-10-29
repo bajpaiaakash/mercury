@@ -14,7 +14,9 @@ private class MERC_TeamMemberShareHandlerTest {
 	static List<Account> employeeAccs;
 
 	static {
-		testUsers = MERC_TestFactory.insertTestUsers(3, null);
+		System.runAs(new User(Id=UserInfo.getUserId())) {
+			testUsers = MERC_TestFactory.insertTestUsers(3, null);
+		}
 		mercuryUserRecordTypeId = [SELECT ID FROM RecordType WHERE DeveloperName = 'Mercury_User_MERC' AND SobjectType = 'Team_Member_MERC__c'].ID;
 		nonMercuryUserRecordTypeId = [SELECT ID FROM RecordType WHERE DeveloperName = 'External_User_MERC' AND SobjectType = 'Team_Member_MERC__c'].ID;
 		employeeAccs = MERC_TestFactory.insertEmployeeAccounts(1);

@@ -68,14 +68,7 @@ private class MERC_ParticipantTovStampHandlerTest {
 		}
 	}
 
-	/* TODO - fix Too many SOQL queries: 101
-	 *
-	 * Class.MERC_ParticipantFMVCalculator.execute: line 71, column 1 
-	 * Class.MERC_ParticipantFMVCalculator.handle: line 22, column 1 
-	 * Class.GLBL_TriggerHandler.manage: line 104, column 1 
-	 * Trigger.MERC_MeetingParticipant: line 30, column 1
-	 */
-	// @isTest
+	@isTest
 	static void test_daily_attendance_update_stamps_meeting()
 	{
 		insertDailyTov();
@@ -129,6 +122,7 @@ private class MERC_ParticipantTovStampHandlerTest {
 
 	private static void insertItineraries()
 	{
+		MERC_TriggerHandlerStateManager.deactivateAll();
 		Account vendorAcct = new Account( Name         = 'Vendor'
 			                            , RecordTypeId = [SELECT Id FROM RecordType WHERE sObjectType='Account' AND DeveloperName='Vendor_GLBL' limit 1].Id);
 		insert vendorAcct;
@@ -150,6 +144,7 @@ private class MERC_ParticipantTovStampHandlerTest {
 			);
 		}
 		insert itineraries;
+		MERC_TriggerHandlerStateManager.activateAll();
 	}
 
 	private static void insertDailyTov()
@@ -165,5 +160,4 @@ private class MERC_ParticipantTovStampHandlerTest {
 		}
 		insert tovs;
 	}
-
 }

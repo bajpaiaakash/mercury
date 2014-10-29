@@ -131,7 +131,6 @@ ISPICKVAL(Role_MERC__c, &quot;Primary Meeting Owner&quot;),
         <fields>Access_MERC__c</fields>
         <fields>Account_External_MERC__c</fields>
         <fields>Account_MERC__c</fields>
-        <fields>Associated_Countries_MERC__c</fields>
         <fields>Attendee_Invite_Limit_MERC__c</fields>
         <fields>CreatedById</fields>
         <fields>CreatedDate</fields>
@@ -140,13 +139,10 @@ ISPICKVAL(Role_MERC__c, &quot;Primary Meeting Owner&quot;),
         <fields>IsDeleted</fields>
         <fields>LastModifiedById</fields>
         <fields>LastModifiedDate</fields>
-        <fields>LastReferencedDate</fields>
-        <fields>LastViewedDate</fields>
         <fields>Meeting_External_MERC__c</fields>
         <fields>Meeting_MERC__c</fields>
         <fields>Mercury_External_Id_MERC__c</fields>
         <fields>Name</fields>
-        <fields>RTI_Transaction_ID_MERC__c</fields>
         <fields>RecordTypeId</fields>
         <fields>Role_MERC__c</fields>
         <fields>Sales_Rep_Country_Code_MERC__c</fields>

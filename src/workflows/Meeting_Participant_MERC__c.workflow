@@ -452,7 +452,6 @@
         <fields>Additional_Travel_Details_MERC__c</fields>
         <fields>Air_Travel_No_Longer_Required_MERC__c</fields>
         <fields>Air_Travel_Required_MERC__c</fields>
-        <fields>Alliance_MERC__c</fields>
         <fields>Amount_to_be_Paid_MERC__c</fields>
         <fields>Anonymise_Record_MERC__c</fields>
         <fields>Associated_Countries_MERC__c</fields>
@@ -471,8 +470,6 @@
         <fields>Confirm_Final_Fee_MERC__c</fields>
         <fields>Confirm_Partial_Payment_Amount_MERC__c</fields>
         <fields>Confirm_ToV_Reporting_Change_MERC__c</fields>
-        <fields>Congress_Additional_Information_MERC__c</fields>
-        <fields>Congress_Membership_Id_MERC__c</fields>
         <fields>Contract_Limitations_on_Use_MERC__c</fields>
         <fields>Copay_Required_MERC__c</fields>
         <fields>Country_of_Residence_MERC__c</fields>
@@ -495,7 +492,6 @@
         <fields>Event_Time_Hrs_MERC__c</fields>
         <fields>FMV_Criteria_Map_MERC__c</fields>
         <fields>Final_Fee_MERC__c</fields>
-        <fields>Final_Fee_Rollup_MERC__c</fields>
         <fields>Force_Unique_Participant_MERC__c</fields>
         <fields>Global_Id_MERC__c</fields>
         <fields>HCP_Info_Package_Comm_Details_MERC__c</fields>
@@ -517,8 +513,6 @@
         <fields>Justification_MERC__c</fields>
         <fields>LastModifiedById</fields>
         <fields>LastModifiedDate</fields>
-        <fields>LastReferencedDate</fields>
-        <fields>LastViewedDate</fields>
         <fields>Maximum_Fee_MERC__c</fields>
         <fields>Maximum_Rate_MERC__c</fields>
         <fields>Meeting_Date_MERC__c</fields>
@@ -543,7 +537,6 @@
         <fields>Payment_Required_MERC__c</fields>
         <fields>Payment_Required_for_Meeting_MERC__c</fields>
         <fields>Person_Contact_Id_MERC__c</fields>
-        <fields>Potential_Cross_Border_Activity_MERC__c</fields>
         <fields>Preferred_Departure_Airport_MERC__c</fields>
         <fields>Preferred_Departure_Depot_MERC__c</fields>
         <fields>Preferred_Departure_Station_MERC__c</fields>
@@ -552,14 +545,12 @@
         <fields>Prior_Parent_Id_GLBL__c</fields>
         <fields>Processing_of_Data_Consent_MERC__c</fields>
         <fields>Proposed_Final_Fee_MERC__c</fields>
-        <fields>Proposed_Final_Fee_Rollup_MERC__c</fields>
         <fields>Purpose_of_Payment_MERC__c</fields>
         <fields>Qualifications_Experience_Complete_MERC__c</fields>
         <fields>RTI_Transaction_ID_MERC__c</fields>
         <fields>RecordTypeId</fields>
         <fields>Record_Type_Name_MERC__c</fields>
         <fields>Registration_Comments_MERC__c</fields>
-        <fields>Require_Congress_Registration_MERC__c</fields>
         <fields>Sales_Rep_MERC__c</fields>
         <fields>Send_HCP_Info_Package_to_Rep__c</fields>
         <fields>Service_Provider_Tier_MERC__c</fields>
@@ -568,8 +559,6 @@
         <fields>Speaking_MERC__c</fields>
         <fields>Speciality_MERC__c</fields>
         <fields>Sponsorship_Agreement_Consent_MERC__c</fields>
-        <fields>Sponsorship_Wet_Signature_Acknowled_MERC__c</fields>
-        <fields>Sponsorship_Wet_Signature_Received_MERC__c</fields>
         <fields>Status_Change_Post_ToV_Final_MERC__c</fields>
         <fields>Status_MERC__c</fields>
         <fields>Summary_Step_Complete_MERC__c</fields>
@@ -593,7 +582,6 @@
         <fields>Travel_No_Longer_Required_MERC__c</fields>
         <fields>Travel_Step_Complete_MERC__c</fields>
         <fields>Travel_Time_Hrs_MERC__c</fields>
-        <fields>Travel_by_Air_MERC__c</fields>
         <fields>Travel_by_Bus_MERC__c</fields>
         <fields>Travel_by_Car_MERC__c</fields>
         <fields>Travel_by_Train_MERC__c</fields>
@@ -845,7 +833,8 @@
         </actions>
         <active>true</active>
         <description>If the &quot;Air Travel Required&quot; field is changed from Yes to No, the &quot;Air Travel No Longer Required&quot; and &quot;Travel by Air&quot; fields should be set to None. This is to make sure the correct options are displayed on the Web Service.</description>
-        <formula>ISCHANGED(Air_Travel_Required_MERC__c) &amp;&amp;  TEXT(Air_Travel_Required_MERC__c) = &quot;No&quot;</formula>
+        <formula>ISCHANGED(Air_Travel_Required_MERC__c) &amp;&amp; 
+TEXT(Air_Travel_Required_MERC__c) = &quot;No&quot;</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -860,7 +849,15 @@
         </actions>
         <active>true</active>
         <description>Round Preparation Time and Event Time to nearest 15 minutes, changed in Mercury Release 2 from 30 minute rounding : MERC : Created on 21/07/2014 by Oliver Dunford, Mavens Consulting</description>
-        <formula>(Preparation_Time_Hrs_MERC__c - FLOOR(Preparation_Time_Hrs_MERC__c) &lt;&gt; 0.25 &amp;&amp;  Preparation_Time_Hrs_MERC__c - FLOOR(Preparation_Time_Hrs_MERC__c) &lt;&gt; 0.50 &amp;&amp;  Preparation_Time_Hrs_MERC__c - FLOOR(Preparation_Time_Hrs_MERC__c) &lt;&gt; 0.75 &amp;&amp;  Preparation_Time_Hrs_MERC__c - FLOOR(Preparation_Time_Hrs_MERC__c) &lt;&gt; 0.00)  ||  (Event_Time_Hrs_MERC__c - FLOOR(Event_Time_Hrs_MERC__c ) &lt;&gt; 0.25 &amp;&amp;  Event_Time_Hrs_MERC__c - FLOOR(Event_Time_Hrs_MERC__c ) &lt;&gt; 0.50 &amp;&amp;  Event_Time_Hrs_MERC__c - FLOOR(Event_Time_Hrs_MERC__c ) &lt;&gt; 0.75 &amp;&amp;  Event_Time_Hrs_MERC__c - FLOOR(Event_Time_Hrs_MERC__c ) &lt;&gt; 0.00)</formula>
+        <formula>(Preparation_Time_Hrs_MERC__c - FLOOR(Preparation_Time_Hrs_MERC__c) &lt;&gt; 0.25 &amp;&amp; 
+Preparation_Time_Hrs_MERC__c - FLOOR(Preparation_Time_Hrs_MERC__c) &lt;&gt; 0.50 &amp;&amp; 
+Preparation_Time_Hrs_MERC__c - FLOOR(Preparation_Time_Hrs_MERC__c) &lt;&gt; 0.75 &amp;&amp; 
+Preparation_Time_Hrs_MERC__c - FLOOR(Preparation_Time_Hrs_MERC__c) &lt;&gt; 0.00) 
+|| 
+(Event_Time_Hrs_MERC__c - FLOOR(Event_Time_Hrs_MERC__c ) &lt;&gt; 0.25 &amp;&amp; 
+Event_Time_Hrs_MERC__c - FLOOR(Event_Time_Hrs_MERC__c ) &lt;&gt; 0.50 &amp;&amp; 
+Event_Time_Hrs_MERC__c - FLOOR(Event_Time_Hrs_MERC__c ) &lt;&gt; 0.75 &amp;&amp; 
+Event_Time_Hrs_MERC__c - FLOOR(Event_Time_Hrs_MERC__c ) &lt;&gt; 0.00)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -953,7 +950,7 @@
             <name>Update_Participant_Countries_MERC</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
         <description>Updates Associated Countries field on the Meeting when the HCPs Country of Residence differs from that of the Meeting.  This may then need to be sent to another Veeva Org : MERC : Created on 11/05/2013 by Oliver Dunford, Mavens Consulting</description>
         <formula>NOT(CONTAINS( Meeting_MERC__r.Associated_Countries_MERC__c,  TEXT(Account_MERC__r.Country_of_Residence_GLBL__c)))</formula>
         <triggerType>onAllChanges</triggerType>
@@ -1048,7 +1045,7 @@
             <type>OutboundMessage</type>
         </actions>
         <active>true</active>
-        <formula>(NOT(CONTAINS(LastModifiedBy.Username,&apos;mercuryintegration.veeva@&apos;)) || ISCHANGED(  Maximum_Fee_MERC__c  ) || (NOT(ISBLANK(Maximum_Fee_MERC__c)) &amp;&amp; ISNEW())) &amp;&amp; NOT(ISBLANK( Account_External_MERC__c ))</formula>
+        <formula>(NOT(CONTAINS(LastModifiedBy.Username,&apos;mercuryintegration.veeva@&apos;)) || ISCHANGED( Maximum_Fee_MERC__c ) || (NOT(ISBLANK(Maximum_Fee_MERC__c)) &amp;&amp; ISNEW())) &amp;&amp; NOT(ISBLANK( Account_External_MERC__c ))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>

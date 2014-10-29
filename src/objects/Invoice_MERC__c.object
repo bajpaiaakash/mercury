@@ -1419,6 +1419,22 @@ Created by John A Adams 10/4/2013</description>
         <label>Stress Test Invoices</label>
         <language>en_US</language>
     </listViews>
+    <listViews>
+        <fullName>not_locked</fullName>
+        <columns>NAME</columns>
+        <columns>Line_Items_MERC__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>TOTAL_INCL_VAT_MERC__c</columns>
+        <columns>CREATEDBY_USER.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>notEqual</operation>
+            <value>Invoice_MERC__c.Credit_Note_Locked_MERC,Invoice_MERC__c.Invoice_Locked_MERC</value>
+        </filters>
+        <label>not locked</label>
+        <language>en_US</language>
+    </listViews>
     <nameField>
         <displayFormat>INV-{000000}</displayFormat>
         <label>Invoice Number</label>
@@ -1704,14 +1720,6 @@ Created by John A Adams 10/4/2013</description>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <startsWith>Vowel</startsWith>
-    <validationRules>
-        <fullName>MERC_Cost_Center_completed</fullName>
-        <active>true</active>
-        <description>Ensure that the Cost Center is severn digits long : MERC : Created on 11/05/2013 by Oliver Dunford, Mavens Consulting</description>
-        <errorConditionFormula>NOT(REGEX( Cost_Center_MERC__c, &quot;[0-9]{7}&quot;))</errorConditionFormula>
-        <errorDisplayField>Cost_Center_MERC__c</errorDisplayField>
-        <errorMessage>The Cost Center must be seven digits long.</errorMessage>
-    </validationRules>
     <validationRules>
         <fullName>MERC_Internal_Order_Number_Completed</fullName>
         <active>true</active>

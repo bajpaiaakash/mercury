@@ -203,7 +203,7 @@ Created by John A Adams 12/19/2013</description>
         <defaultValue>false</defaultValue>
         <description>Used to accept text based changes to information that is active on the Web Services. Exposed to CMS Cork only who make such changes : MERC : Created on 21/07/2014 by Oliver Dunford, Mavens Consulting</description>
         <externalId>false</externalId>
-        <inlineHelpText>Used by CMS Cork to confirm updates to certain information once a meeting is activated on the web services.</inlineHelpText>
+        <inlineHelpText>Used by CMS Regional and Local to confirm updates to certain information once a meeting is activated on the web services.</inlineHelpText>
         <label>Confirm Web Service Change</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -400,9 +400,9 @@ Created by John A Adams 10/8/2013</description>
     <validationRules>
         <fullName>MERC_Prevent_Change_Once_on_Web_Service</fullName>
         <active>true</active>
-        <description>Once a meeting is activated on the web service Agenda Item Name and Agenda Item Description can only be changed by CMS Cork : MERC : Created on 22/07/2014 by Oliver Dunford, Mavens Consulting</description>
+        <description>Once a meeting is activated on the web service Agenda Item Name and Agenda Item Description can only be changed by CMS Cork or CMS Local: MERC : Created on 22/07/2014 by Oliver Dunford, Mavens Consulting</description>
         <errorConditionFormula>(ISCHANGED( Name ) || ISCHANGED(  Agenda_Item_Description_MERC__c )) &amp;&amp;  Meeting_MERC__r.Expose_on_Portal_MERC__c = TRUE &amp;&amp;  Confirm_Web_Service_Change_MERC__c = FALSE &amp;&amp; AND(NOT(CONTAINS(LastModifiedBy.Username,&apos;mercuryintegration.veeva@&apos;)))</errorConditionFormula>
-        <errorMessage>Once a meeting has been published on the Web Service, only CMS Cork can change the Agenda Item Name and Agenda Item Description. Please contact a member of the CMS Cork team to request a change to this information.</errorMessage>
+        <errorMessage>Once a meeting has been published on the Web Service, only CMS Cork and CMS Local teams can change the Agenda Item Name and Agenda Item Description. Please contact a member of the CMS team to request a change to this information.</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>Agenda_Builder_MERC</fullName>

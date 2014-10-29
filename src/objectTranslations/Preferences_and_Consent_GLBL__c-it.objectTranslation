@@ -764,15 +764,15 @@
         <name>Preference_Sub_Type_MERC__c</name>
         <picklistValues>
             <masterLabel>Call</masterLabel>
-            <translation>Chiamata telefonica</translation>
+            <translation><!-- Call --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Contract Request</masterLabel>
-            <translation>Contratto richiesto</translation>
+            <translation><!-- Contract Request --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Contract with Restrictions</masterLabel>
-            <translation>Contratto con restrizioni</translation>
+            <translation><!-- Contract with Restrictions --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Dairy Free</masterLabel>
@@ -780,7 +780,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Do Not Contract</masterLabel>
-            <translation>Non serve contratto</translation>
+            <translation><!-- Do Not Contract --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>E-mail</masterLabel>
@@ -792,7 +792,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Gluten Free</masterLabel>
-            <translation>Senza glutine</translation>
+            <translation><!-- Gluten Free --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Halal</masterLabel>
@@ -800,7 +800,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>I would rather not say</masterLabel>
-            <translation>Preferisco non dire</translation>
+            <translation><!-- I would rather not say --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Kosher</masterLabel>
@@ -808,7 +808,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Mail</masterLabel>
-            <translation>Posta</translation>
+            <translation><!-- Mail --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>No</masterLabel>
@@ -816,43 +816,43 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>No Alcohol</masterLabel>
-            <translation>No alcol</translation>
+            <translation><!-- No Alcohol --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>No Beef</masterLabel>
-            <translation>No carne bovina</translation>
+            <translation><!-- No Beef --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>No Pork</masterLabel>
-            <translation>No carne suina</translation>
+            <translation><!-- No Pork --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>No Red meat</masterLabel>
-            <translation>No carne rossa</translation>
+            <translation><!-- No Red meat --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>No Seafood</masterLabel>
-            <translation>No pesce</translation>
+            <translation><!-- No Seafood --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>No Shellfish</masterLabel>
-            <translation>No frutti di mare</translation>
+            <translation><!-- No Shellfish --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>None</masterLabel>
-            <translation>Nessuna</translation>
+            <translation><!-- None --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Nut Allergy</masterLabel>
-            <translation>Allergia alle noci</translation>
+            <translation><!-- Nut Allergy --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Other</masterLabel>
-            <translation>Altro</translation>
+            <translation><!-- Other --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Phone</masterLabel>
-            <translation>Telefono</translation>
+            <translation><!-- Phone --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SMS</masterLabel>
@@ -860,15 +860,15 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Vegan</masterLabel>
-            <translation>Vegano</translation>
+            <translation><!-- Vegan --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Vegetarian</masterLabel>
-            <translation>Vegetariano</translation>
+            <translation><!-- Vegetarian --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Yes</masterLabel>
-            <translation>Si&apos;</translation>
+            <translation><!-- Yes --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>cs</masterLabel>
@@ -952,39 +952,39 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Communication Preference</masterLabel>
-            <translation>Canale preferenziale di comunicazione</translation>
+            <translation><!-- Communication Preference --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Contract Delivery</masterLabel>
-            <translation>Modalita&apos; di consegna del contratto</translation>
+            <translation><!-- Contract Delivery --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Hotel Travel Preferences</masterLabel>
-            <translation>Preference di viaggio e Hotel</translation>
+            <translation><!-- Hotel Travel Preferences --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Interaction/Channel Type</masterLabel>
-            <translation>Tipo di canale</translation>
+            <translation><!-- Interaction/Channel Type --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Language Preference</masterLabel>
-            <translation>Lingua</translation>
+            <translation><!-- Language Preference --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Meals Allergy Preferences</masterLabel>
-            <translation>Allergie o preferenze alimentari</translation>
+            <translation><!-- Meals Allergy Preferences --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Name as in Passport</masterLabel>
-            <translation>Nome come nel documento di viaggio</translation>
+            <translation><!-- Name as in Passport --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Payment Required</masterLabel>
-            <translation>Pagamento richiesto</translation>
+            <translation><!-- Payment Required --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Rail / Frequent Program Number</masterLabel>
-            <translation>Ferrovia/Frequent Program Number</translation>
+            <translation><!-- Rail / Frequent Program Number --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Speaker Interest</masterLabel>

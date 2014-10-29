@@ -52,17 +52,55 @@ private class MERC_AddMeetingParticipantsCntlrTest {
 		System.runAs(testUser) {
 			init();
 
-			// setup a pretend result list to be returned by the mock CST service
-			List<Account> acctResultList = MERC_TestFactory.insertAccounts(TEST_SET_SIZE);
-			acctResultList.addAll(accts);
+			// setup a pretend search id that will be returned by the mock CST service
+			GLBL_CustomerSearchToolService.SearchIdResult searchIdResult = new GLBL_CustomerSearchToolService.SearchIdResult();
+			searchIdResult.search_id = '012345678';
+			String s = JSON.serialize(searchIdResult);
+			mockServices.setBody(s);
 
-			String s = JSON.serialize(acctResultList);
-			List<GLBL_CustomerSearchToolService.SearchResult> results =
-				(List<GLBL_CustomerSearchToolService.SearchResult>) JSON.deserialize(s, List<GLBL_CustomerSearchToolService.SearchResult>.class);
-			for (GLBL_CustomerSearchToolService.SearchResult sr : results) {
-				sr.sfid = sr.id;   // real service would have SFDC record id in this field, not in "id"
+			// check things before the search (and get this property and this method covered)
+			System.assertEquals(null,c.searchId,'Result list should be empty before execution.');
+
+			Test.startTest();
+			// meeting id is passed at request time
+			ApexPages.currentPage().getParameters().put('id',meetings[0].Id);
+			c.doSearch();
+			Test.stopTest();
+
+			System.debug('#### Search Id is ' + c.searchId);
+
+			// result set should be double our initial participant set size but only half should be selectable
+			System.assertEquals('012345678',c.searchId,'Unexpected search result size.');
+		}
+	}
+
+	@isTest
+	static void retrieveResults() {
+		System.runAs(testUser) {
+			init();
+
+			// setup a pretend result list to be returned by the mock CST service
+			List<GLBL_CustomerSearchToolService.SearchResult> results = new List<GLBL_CustomerSearchToolService.SearchResult>();
+			System.debug('#### result building loop');
+			for (Integer i = 0; i < TEST_SET_SIZE; i++) {
+				GLBL_CustomerSearchToolService.SearchResult searchResult = new GLBL_CustomerSearchToolService.SearchResult();
+				searchResult.selected = true;
+				searchResult.selectable = true;
+				searchResult.sfid = i + '';
+				searchResult.lastname = 'lastname';
+				searchResult.firstname = 'firstname';
+				results.add(searchResult);
 			}
-			mockServices.setBody(JSON.serialize(results));
+
+			GLBL_CustomerSearchToolService.FullSearchResult resultWrapper = new GLBL_CustomerSearchToolService.FullSearchResult();
+			resultWrapper.status = 'complete';
+			resultWrapper.result = results;
+
+			System.debug('#### results = ' + results);
+			System.debug('#### results before serialization = ' + resultWrapper);
+
+			mockServices.setBody(JSON.serialize(resultWrapper));
+			System.debug('#### resultWrapper serialized = ' + JSON.serialize(resultWrapper));
 
 			// check things before the search (and get this property and this method covered)
 			System.assertEquals(null,c.results,'Result list should be empty before execution.');
@@ -71,11 +109,13 @@ private class MERC_AddMeetingParticipantsCntlrTest {
 			Test.startTest();
 			// meeting id is passed at request time
 			ApexPages.currentPage().getParameters().put('id',meetings[0].Id);
-			c.doSearch();
+			c.retrieveResults();
 			Test.stopTest();
 
+			System.debug('#### results are ' + c.searchResults);
+
 			// result set should be double our initial participant set size but only half should be selectable
-			System.assertEquals((TEST_SET_SIZE*2),c.getSrCount(),'Unexpected search result size.');
+			System.assertEquals((TEST_SET_SIZE),c.getSrCount(),'Unexpected search result size.');
 			Integer selectableCount = 0;
 			for (GLBL_CustomerSearchToolService.SearchResult sr : c.searchResults) {
 				if (sr.selectable) selectableCount++;
@@ -204,6 +244,7 @@ private class MERC_AddMeetingParticipantsCntlrTest {
 	 *  This is covered by other testMethods but let's test it explicitly so it's easy
 	 *  to see if it's ever a problem
 	 */
+
  	@isTest
 	static void instantiateAndGetCSTToken() {
 		System.runAs(testUser) {

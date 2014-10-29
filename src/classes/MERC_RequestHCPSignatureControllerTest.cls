@@ -27,7 +27,7 @@ private class MERC_RequestHCPSignatureControllerTest {
 	 */
 	@isTest
 	static void testRequestForSignature() {
-		//can't runas test user since initiDocusignt calls setupContractContent which needs access to a content library and that can't be setup in a test
+		//can't runas test user since initDocusign() calls setupContractContent which needs access to a content library and that can't be setup in a test
 		MERC_RequestHCPSignatureController controller = initDocusign();
 
         //serialize mock response to mimic MERC_DocusignService.EnvelopeResponse
@@ -43,7 +43,7 @@ private class MERC_RequestHCPSignatureControllerTest {
         PageReference result = controller.requestSignature();
         Test.stopTest();
 		System.assertEquals(null,result,'requestSignature returned an unexpected PageReference: '+result);
-		System.assertEquals(true,controller.isSent,'Expected isSent property to be false but it was :'+controller.isSent);
+		System.assertEquals(true,controller.isSent,'Unexpected isSent property value.');
 	}
 
 	/*

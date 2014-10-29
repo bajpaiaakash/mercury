@@ -15,6 +15,18 @@
         <template>Customer_Search_Tool_CUST/Expire_Notification</template>
     </alerts>
     <alerts>
+        <fullName>MERC_Notify_CMS_Cork_and_Create_Case</fullName>
+        <description>MERC_Notify CMS Cork and Create Case</description>
+        <protected>false</protected>
+        <recipients>
+            <field>LastModifiedById</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderAddress>gso_noreply@lilly.com</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Mercury_Email_Templates_MERC/MERC_HCP_Email_Address_Change</template>
+    </alerts>
+    <alerts>
         <fullName>Send_email_to_CST_User_CUST</fullName>
         <description>Email requests awaiting to CST User</description>
         <protected>false</protected>
@@ -491,13 +503,11 @@ IF(INCLUDES( Academic_Qualifications_MERC__c , &quot;MD Specialist&quot;), 1, 0)
         <fields>AccountNumber</fields>
         <fields>AccountSource</fields>
         <fields>Account_Add_Reason_MERC__c</fields>
-        <fields>Account_Auto_Number_GLBL__c</fields>
         <fields>Advisory_Board_Experience_MERC__c</fields>
         <fields>Allocated_CAP_MERC__c</fields>
         <fields>Altrnt_Nm_GLBL__c</fields>
         <fields>AnnualRevenue</fields>
         <fields>Annual_CAP_Limit_MERC__c</fields>
-        <fields>Anonymise_Record_MERC__c</fields>
         <fields>Approval_MERC__c</fields>
         <fields>Associate_or_Full_Professor_MERC__c</fields>
         <fields>BillingCity</fields>
@@ -513,13 +523,7 @@ IF(INCLUDES( Academic_Qualifications_MERC__c , &quot;MD Specialist&quot;), 1, 0)
         <fields>CAP_Usage_Note_MERC__c</fields>
         <fields>CODS_End_Date_GLBL__c</fields>
         <fields>CODS_Merge_MERC__c</fields>
-        <fields>CST_App_Menu_Flag_Affil_CUST__c</fields>
-        <fields>CST_App_Menu_Flag_AltId_CUST__c</fields>
-        <fields>CST_App_Menu_Flag_CUST__c</fields>
-        <fields>CST_Approver_ID_GLBL__c</fields>
         <fields>CST_Email_Stamp_CUST__c</fields>
-        <fields>CV_Upload_File_Name_MERC__c</fields>
-        <fields>CV_Upload_Step_Complete_MERC__c</fields>
         <fields>Calculate_Open_Meeting_Fees_MERC__c</fields>
         <fields>Cellular_Phone_Cntry_Cd_GLBL__c</fields>
         <fields>Clinical_Trial_PI_MERC__c</fields>
@@ -533,17 +537,9 @@ IF(INCLUDES( Academic_Qualifications_MERC__c , &quot;MD Specialist&quot;), 1, 0)
         <fields>Consulting_Project_Paid_CAP_MERC__c</fields>
         <fields>Contract_Expiration_Date_MERC__c</fields>
         <fields>Contract_Limitations_on_Use_MERC__c</fields>
-        <fields>Contract_Signatory_MERC__c</fields>
-        <fields>Contract_Signing_Parties_Complete_MERC__c</fields>
-        <fields>Contracting_Parties_Counter_MERC__c</fields>
         <fields>Cost_Cntr_Nbr_GLBL__c</fields>
         <fields>Cost_Cntr_Nm_GLBL__c</fields>
-        <fields>Count_Bank_Transfer_MERC__c</fields>
-        <fields>Count_Dietary_Preferences_MERC__c</fields>
-        <fields>Count_Tax_Invoices_Info_MERC__c</fields>
         <fields>Country_Code_MERC__c</fields>
-        <fields>Country_for_Territory_Assignment_CP__c</fields>
-        <fields>Country_for_Territory_Assignment_DI_MERC__c</fields>
         <fields>Country_of_Residence_GLBL__c</fields>
         <fields>Crdntl_Cd2_GLBL__c</fields>
         <fields>Crdntl_Cd3_GLBL__c</fields>
@@ -566,8 +562,6 @@ IF(INCLUDES( Academic_Qualifications_MERC__c , &quot;MD Specialist&quot;), 1, 0)
         <fields>Del_Flg_GLBL__c</fields>
         <fields>Dept_Flg_GLBL__c</fields>
         <fields>Description</fields>
-        <fields>Designated_Individual_Count_MERC__c</fields>
-        <fields>Designated_Individual_Counter_MERC__c</fields>
         <fields>Dspnsng_Acct_Flg_GLBL__c</fields>
         <fields>Efctv_End_Dt_GLBL__c</fields>
         <fields>Efctv_Start_Dt_GLBL__c</fields>
@@ -582,33 +576,21 @@ IF(INCLUDES( Academic_Qualifications_MERC__c , &quot;MD Specialist&quot;), 1, 0)
         <fields>Elctrnc_Adrs_Fax_Txt_GLBL__c</fields>
         <fields>Elctrnc_Adrs_Txt_GLBL__c</fields>
         <fields>Elctrnc_Adrs_Web_Txt_GLBL__c</fields>
-        <fields>Emergency_Contact_Name_MERC__c</fields>
-        <fields>Emergency_Contact_Phone_Number_MERC__c</fields>
         <fields>Employed_by_Government_Institution_GLBL__c</fields>
-        <fields>Employment_Specification_MERC__c</fields>
         <fields>Exec_Smmry_Note_MERC__c</fields>
-        <fields>Experience_Step_Complete_MERC__c</fields>
         <fields>FMV_Criteria_Map_MERC__c</fields>
         <fields>FMV_Tier_Exists_MERC__c</fields>
         <fields>Fax</fields>
         <fields>Fax_Phone_Cntry_Cd_GLBL__c</fields>
         <fields>FirstName</fields>
         <fields>Flag_CST_Email_CUST__c</fields>
-        <fields>Flag_CST_Expire_Email_CUST__c</fields>
-        <fields>Flag_CST_User_Email_CUST__c</fields>
         <fields>Formulary_Id_GLBL__c</fields>
         <fields>Frmr_Nm_GLBL__c</fields>
         <fields>Full_Nm_GLBL__c</fields>
-        <fields>Global_Consent_Authorization_GLBL__c</fields>
         <fields>Gndr_Cd_GLBL__c</fields>
         <fields>Gndr_Desc_GLBL__c</fields>
         <fields>Governance_Level_GLBL__c</fields>
         <fields>Govt_Flg_GLBL__c</fields>
-        <fields>HCP_Contracting_Party_MERC__c</fields>
-        <fields>HCP_Country_of_Residence_MERC__c</fields>
-        <fields>HCP_Designated_Individuals_MERC__c</fields>
-        <fields>HCP_Info_Package_Status_MERC__c</fields>
-        <fields>Has_Contract_MERC__c</fields>
         <fields>Has_MSA_Contract_MERC__c</fields>
         <fields>Hospital_Leadership_Role_MERC__c</fields>
         <fields>Id</fields>
@@ -619,10 +601,6 @@ IF(INCLUDES( Academic_Qualifications_MERC__c , &quot;MD Specialist&quot;), 1, 0)
         <fields>Initials_GLBL__c</fields>
         <fields>Initiate_Tiering_MERC__c</fields>
         <fields>Institution_Administrator_GLBL__c</fields>
-        <fields>Institution_Name_GLBL__c</fields>
-        <fields>Institutional_Notif_Info_Exists_MERC__c</fields>
-        <fields>Institutional_Notification_Complete_MERC__c</fields>
-        <fields>Institutional_Notification_Consent_MERC__c</fields>
         <fields>Instructor_Assistant_Clinical_Prof_MERC__c</fields>
         <fields>IsDeleted</fields>
         <fields>IsExcludedFromRealign</fields>
@@ -638,9 +616,7 @@ IF(INCLUDES( Academic_Qualifications_MERC__c , &quot;MD Specialist&quot;), 1, 0)
         <fields>LastModifiedDate</fields>
         <fields>LastName</fields>
         <fields>LastReferencedDate</fields>
-        <fields>LastViewedDate</fields>
         <fields>Last_Review_Date_MERC__c</fields>
-        <fields>Leadership_Committee_Step_Complete_MERC__c</fields>
         <fields>Lilly_Company_Code_GLBL__c</fields>
         <fields>Lilly_Company_VAT_ID_GLBL__c</fields>
         <fields>MSA_Contract_Expiration_MERC__c</fields>
@@ -673,10 +649,6 @@ IF(INCLUDES( Academic_Qualifications_MERC__c , &quot;MD Specialist&quot;), 1, 0)
         <fields>Party_Rcrd_Typ_Cd_GLBL__c</fields>
         <fields>Party_Sts_Cd_GLBL__c</fields>
         <fields>Party_Sts_Desc_GLBL__c</fields>
-        <fields>Payee_Bank_Information_Consent_MERC__c</fields>
-        <fields>Payee_Count_MERC__c</fields>
-        <fields>Payee_Info_Step_Complete_MERC__c</fields>
-        <fields>Payee_and_Bank_Info_Complete_MERC__c</fields>
         <fields>Payment_Required_MERC__c</fields>
         <fields>PersonAssistantName</fields>
         <fields>PersonAssistantPhone</fields>
@@ -721,7 +693,6 @@ IF(INCLUDES( Academic_Qualifications_MERC__c , &quot;MD Specialist&quot;), 1, 0)
         <fields>Position_Cd_GLBL__c</fields>
         <fields>Position_Desc_GLBL__c</fields>
         <fields>Practicing_for_MERC__c</fields>
-        <fields>Preferred_Contact_Method_MERC__c</fields>
         <fields>Preferred_Venue_MERC__c</fields>
         <fields>Prfrd_Lang_Cd_GLBL__c</fields>
         <fields>Prfrd_Nm_GLBL__c</fields>
@@ -738,22 +709,15 @@ IF(INCLUDES( Academic_Qualifications_MERC__c , &quot;MD Specialist&quot;), 1, 0)
         <fields>Primary_Address_Country_GLBL__c</fields>
         <fields>Primary_HCO_GLBL__c</fields>
         <fields>Primary_Pstl_Cd_Extnsn_GLBL__c</fields>
-        <fields>Primary_St_Cd_GLBL__c</fields>
-        <fields>Prior_Parent_Id_GLBL__c</fields>
         <fields>Prof_Title_Txt_GLBL__c</fields>
         <fields>Property_Remarks_MERC__c</fields>
         <fields>Prsnl_Nbr_GLBL__c</fields>
-        <fields>Qualifications_Experience_Complete_MERC__c</fields>
-        <fields>Qualifications_Experience_Consent_MERC__c</fields>
-        <fields>Qualifications_Step_Complete_MERC__c</fields>
         <fields>Quality_Level_GLBL__c</fields>
-        <fields>RTI_Transaction_ID_MERC__c</fields>
         <fields>Rating</fields>
         <fields>RecordTypeId</fields>
         <fields>Regional_Leadership_Role_MERC__c</fields>
         <fields>Relationship_Owner_MERC__c</fields>
         <fields>Remaining_CAP_MERC__c</fields>
-        <fields>Research_Publications_Step_Complete_MERC__c</fields>
         <fields>Reserved_CAP_MERC__c</fields>
         <fields>Reviewer_or_Editor_MERC__c</fields>
         <fields>Sales_Force_Code_GLBL__c</fields>
@@ -779,7 +743,6 @@ IF(INCLUDES( Academic_Qualifications_MERC__c , &quot;MD Specialist&quot;), 1, 0)
         <fields>Spclty_Cd_GLBL__c</fields>
         <fields>Spclty_Desc_GLBL__c</fields>
         <fields>Speaking_Paid_CAP_MERC__c</fields>
-        <fields>Sponsor_Prsnl_Nbr_GLBL__c</fields>
         <fields>Src_Block_Flg_GLBL__c</fields>
         <fields>Src_Sys_Cd_GLBL__c</fields>
         <fields>Status_Cd_GLBL__c</fields>
@@ -791,8 +754,6 @@ IF(INCLUDES( Academic_Qualifications_MERC__c , &quot;MD Specialist&quot;), 1, 0)
         <fields>Supervisor_Prsnl_Nbr_GLBL__c</fields>
         <fields>SystemModstamp</fields>
         <fields>System_Id_GLBL__c</fields>
-        <fields>Tax_Invoices_Step_Complete_MERC__c</fields>
-        <fields>Teaching_Advising_Step_Complete_MERC__c</fields>
         <fields>Territory_Id_GLBL__c</fields>
         <fields>TickerSymbol</fields>
         <fields>Tier_1_Criteria_Met_MERC__c</fields>
@@ -802,7 +763,6 @@ IF(INCLUDES( Academic_Qualifications_MERC__c , &quot;MD Specialist&quot;), 1, 0)
         <fields>Tier_2_Score_MERC__c</fields>
         <fields>Tier_3_Criteria_Met_MERC__c</fields>
         <fields>Title_Desc_GLBL__c</fields>
-        <fields>Transfer_Info_Step_Complete_MERC__c</fields>
         <fields>Transparency_Reporting_Opt_Out_MERC__c</fields>
         <fields>Trng_Acct_Flg_GLBL__c</fields>
         <fields>Trtry_Cd_GLBL__c</fields>
@@ -817,15 +777,11 @@ IF(INCLUDES( Academic_Qualifications_MERC__c , &quot;MD Specialist&quot;), 1, 0)
         <fields>WS_Updt_HCP_Actn_MERC__c</fields>
         <fields>WS_Updt_HCP_Global_ID_MERC__c</fields>
         <fields>WS_Updt_HCP_Name_MERC__c</fields>
-        <fields>Web_Service_Logic_Key_MERC__c</fields>
         <fields>Website</fields>
         <fields>Whlslr_Cd_GLBL__c</fields>
         <fields>Work_Cntry_Cd_GLBL__c</fields>
         <fields>Work_Country_Desc_GLBL__c</fields>
         <fields>Work_Phone_Cntry_Cd_GLBL__c</fields>
-        <fields>of_Contracting_Parties_MERC__c</fields>
-        <fields>of_Designated_Individuals_MERC__c</fields>
-        <fields>of_Payees_with_Priority_Rank_1_MERC__c</fields>
         <includeSessionId>true</includeSessionId>
         <integrationUser>mercuryintegration.veeva@gso1.lly</integrationUser>
         <name>RTI - Account Updated</name>
@@ -1000,6 +956,19 @@ IF(INCLUDES( Academic_Qualifications_MERC__c , &quot;MD Specialist&quot;), 1, 0)
             <value>True</value>
         </criteriaItems>
         <description>Clears down information about the Non HCP post the closure of the meeting that they attended.  This workflow clears down the Account object only : MERC : Created on 05/08/2014 by Oliver Dunford, Mavens Consulting</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>MERC_Notification of HCP Email Address Change</fullName>
+        <actions>
+            <name>MERC_Notify_CMS_Cork_and_Create_Case</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <description>Sends the CMS Cork Europe an email when a HCP has an email address added or the email address is changed.  Not for mastered email addresses : MERC : Created on 16/09/2014 by Oliver Dunford, Mavens Consulting</description>
+        <formula>RecordType.DeveloperName = &quot;HCP_GLBL&quot; &amp;&amp; !CONTAINS($User.Username, &quot;unittest&quot;) &amp;&amp; 
+!CONTAINS( FirstName , &quot;unittest&quot;) &amp;&amp; 
+OR((ISNEW() &amp;&amp; !ISBLANK(PersonEmail)), ISCHANGED(PersonEmail) )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>

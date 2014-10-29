@@ -6,36 +6,43 @@
 
 public with sharing class MERC_AddMeetingParticipantsController {
 
+    public String searchId;
+    public String searchStatus;
+    public String errorDescription;
     public GLBL_CustomerSearchToolService cstService = new GLBL_CustomerSearchToolService();
-	public GLBL_CustomerSearchToolService.SearchRequest searchRequest { get; set; }
+    public GLBL_CustomerSearchToolService.SearchRequest searchRequest { get; set; }
     public Boolean hasError { get; private set; }
     private String oldParticipantRecordTypeId { get; set; }
     public Meeting_Participant_MERC__c meetingParticipant { get; set; }
+    public Boolean searching { get; private set; }
+    public Boolean searchPerformed { get; private set; }
 
-	public MERC_AddMeetingParticipantsController(ApexPages.StandardSetController controller) {
+    public MERC_AddMeetingParticipantsController(ApexPages.StandardSetController controller) {
         this.searchRequest = new GLBL_CustomerSearchToolService.SearchRequest();
         meetingParticipant = new Meeting_Participant_MERC__c();
-	}
+        searching = false;
+        searchPerformed = false;
+    }
 
     //if cst token is expired, it will grab a new one
     public void ensureCstToken() {
         this.cstService.refreshToken();
     }
 
-	public Meeting_MERC__c meeting {
-		get {
-			if (meeting == null) {
-				meeting = [Select Id, Name From Meeting_MERC__c Where Id = :ApexPages.currentPage().getParameters().get('id')];
-			}
-			return meeting;
-		}
-		private set;
-	}
+    public Meeting_MERC__c meeting {
+        get {
+            if (meeting == null) {
+                meeting = [Select Id, Name From Meeting_MERC__c Where Id = :ApexPages.currentPage().getParameters().get('id')];
+            }
+            return meeting;
+        }
+        private set;
+    }
 
-	public ApexPages.StandardSetController setCon {
+    public ApexPages.StandardSetController setCon {
         get {
             setCon = new ApexPages.StandardSetController(Database.getQueryLocator(
-            	[SELECT ID, Account_MERC__c, Services_Rendered_MERC__c, Account_MERC__r.Name, Status_MERC__c FROM Meeting_Participant_MERC__c WHERE Meeting_MERC__c = :ApexPages.currentPage().getParameters().get('id')]));
+                [SELECT ID, Account_MERC__c, Services_Rendered_MERC__c, Account_MERC__r.Name, Status_MERC__c FROM Meeting_Participant_MERC__c WHERE Meeting_MERC__c = :ApexPages.currentPage().getParameters().get('id')]));
             return setCon;
         }
         set;
@@ -67,20 +74,19 @@ public with sharing class MERC_AddMeetingParticipantsController {
     }
 
     public Set<String> meetingParticipantAccountIds {
-    	get {
-			if (meetingParticipantAccountIds == null) {
+        get {
+            if (meetingParticipantAccountIds == null) {
                 meetingParticipantAccountIds = new Set<String>();
                 for (Meeting_Participant_MERC__c mp : [SELECT ID, Account_MERC__c FROM Meeting_Participant_MERC__c WHERE Meeting_MERC__c = :this.Meeting.Id AND Account_MERC__c != null]) {
                     meetingParticipantAccountIds.add(mp.Account_MERC__c);
                 }
             }
-    		return meetingParticipantAccountIds;
-    	}
-    	set;
+            return meetingParticipantAccountIds;
+        }
+        set;
     }
 
     /* the following set up the select options based on CST settings */
-
     public List<SelectOption> specialtyPriorityRanks {
         get {
             return MERC_Util.getCSTPicklistValuesForFieldName('Specialty_priority_rank_CUST__c', false);
@@ -131,17 +137,17 @@ public with sharing class MERC_AddMeetingParticipantsController {
      *           CST_User_Settings_CUST__c.Country_Code_CUST__c
      */
     public List<SelectOption> countries {
-    	get {
+        get {
            return MERC_Util.getCountryPicklistValuesForCurrentUser(true);
-    	}
+        }
     }
 
     public List<SelectOption> dummy {
-    	get {
-    		List<SelectOption> options = new List<SelectOption>();
-    		options.add(new SelectOption('',''));
-    		return options;
-    	}
+        get {
+            List<SelectOption> options = new List<SelectOption>();
+            options.add(new SelectOption('',''));
+            return options;
+        }
     }
 
     public List<GLBL_CustomerSearchToolService.SearchResult> searchResults {
@@ -158,18 +164,43 @@ public with sharing class MERC_AddMeetingParticipantsController {
         }
     }
 
-    //performs the search against the CST
+    /* doSearch
+     * This initiates the search in the GLBL_CustomerSearchToolService 
+     * and then sets the searchId which will be needed to retrieve the results
+     * in the retrieveResults method.
+     */
     public PageReference doSearch() {
         p('Entering doSearch!!!!!!');
-    	system.debug('>>>>>> '+this.searchRequest);
-        this.searchResults = this.cstService.doSearch(this.searchRequest);
+        searching = true;
+        searchPerformed = true;
+        system.debug('>>>>>> '+this.searchRequest);
+        searchId = this.cstService.doSearch(this.searchRequest);
+        // if error, returns null & cstService.error will be available
+        if (searchId=='' && this.cstService.error != null) {
+            this.hasError = true;
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, this.cstService.error.Error+': '+this.cstService.error.Message));
+        }
+        return null;
+    }
+
+    /* retrieveResults
+     * Retieves the results from the search via the retrieveResults method
+     * in the GLBL_CustomerSerachToolSearvice class.
+     */
+    public PageReference retrieveResults() {
+        p('Entering retrieveResult!!!!!!');
+        system.debug('>>>>>> searchId = '+searchId);
+        this.searchResults = this.cstService.retrieveResults(searchId);
+        searching = this.cstService.searching;
+        searchStatus = this.cstService.searchStatus;
+        errorDescription = this.cstService.errorDescription;
         // if error, returns null & cstService.error will be available
         if (this.searchResults==null && this.cstService.error != null) {
             this.hasError = true;
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, this.cstService.error.Error+': '+this.cstService.error.Message));
         }
         this.searchRequest = new GLBL_CustomerSearchToolService.SearchRequest();
-    	return null;
+        return null;
     }
 
     static void p(String m) {
@@ -229,8 +260,8 @@ public with sharing class MERC_AddMeetingParticipantsController {
     }
 
     public PageReference addToMeeting() {
-    	addAcctToMeeting();
-	    return null;
+        addAcctToMeeting();
+        return null;
     }
 
     public Id addAcctToMeeting(){
@@ -263,40 +294,40 @@ public with sharing class MERC_AddMeetingParticipantsController {
     }
 
     public PageReference removeFromMeeting() {
-    	try {
-    		String meetingParticipantId = MERC_Util.getUrlParam('pid');
+        try {
+            String meetingParticipantId = MERC_Util.getUrlParam('pid');
             Meeting_Participant_MERC__c mp = [SELECT Id, Account_MERC__c, Status_MERC__c FROM Meeting_Participant_MERC__c WHERE ID = :meetingParticipantId];
             mp.Status_MERC__c = 'Cancelled';
             update mp;
             //String accountId = mp.Account_MERC__c;
             //delete mp;
             //this.meetingParticipantAccountIds.remove(accountId);
-    	} catch(Exception e) {
-			this.hasError = true;
-			ApexPages.addMessages(e);
+        } catch(Exception e) {
+            this.hasError = true;
+            ApexPages.addMessages(e);
             return null;
-    	}
-    	this.hasError = false;
-    	return null;
+        }
+        this.hasError = false;
+        return null;
     }
 
-	//public List<MeetingParticipantWrapper> participants {
-	//	get {
-	//		for (Meeting_Participant_MERC__c p : );
-	//	}
-	//}
+    //public List<MeetingParticipantWrapper> participants {
+    //  get {
+    //      for (Meeting_Participant_MERC__c p : );
+    //  }
+    //}
 
-	//public class MeetingParticipantWrapper {
-	//	public Boolean selected { get; set; }
-	//	public Meeting_Participant_MERC__c participant { get; set; }
-	//	public MeetingParticipantWrapper(Meeting_Participant_MERC__c p) {
-	//		this.participant = p;
-	//	}
-	//}
+    //public class MeetingParticipantWrapper {
+    //  public Boolean selected { get; set; }
+    //  public Meeting_Participant_MERC__c participant { get; set; }
+    //  public MeetingParticipantWrapper(Meeting_Participant_MERC__c p) {
+    //      this.participant = p;
+    //  }
+    //}
 
-	public List<GLBL_CustomerSearchToolService.SearchResult> results {
-		get {
-			return null;
-		}
-	}
+    public List<GLBL_CustomerSearchToolService.SearchResult> results {
+        get {
+            return null;
+        }
+    }
 }

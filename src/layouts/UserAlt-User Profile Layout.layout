@@ -18,6 +18,10 @@
                 <behavior>Edit</behavior>
                 <field>AboutMe</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Power_User_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

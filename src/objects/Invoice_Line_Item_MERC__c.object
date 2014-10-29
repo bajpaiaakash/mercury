@@ -89,7 +89,7 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>VAT_Description_MERC__c</field>
+            <field>VAT_Code_MERC__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -467,9 +467,20 @@ Created by John A Adams 10/27/2013</description>
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>VAT_Code_MERC__c</fullName>
+        <description>To capture and map value to the &lt;ItemVatSAP&gt; field in the SAP XML file which populates the 2-digit Tax Code field</description>
+        <externalId>false</externalId>
+        <label>VAT Code</label>
+        <length>2</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>VAT_Description_MERC__c</fullName>
-        <description>Description of VAT rate
-Created by John A Adams 10/24/2013</description>
+        <description>deprecated as of Sept. 2014.</description>
         <externalId>false</externalId>
         <label>VAT Description</label>
         <length>80</length>

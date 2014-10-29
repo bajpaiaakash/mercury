@@ -117,11 +117,12 @@ private class MERC_AgendaBuilderControllerTest {
 		}
 	}
 
-	// @isTest   
-	// TODO - this controller is in flux. Update test method when finished with update 08/28/2014
+	@isTest   
 	static void test_should_prevent_finalized_agenda_change_without_confirm() {
 		Id meetingId = meetings.get(0).Id;
 		Meeting_MERC__c meeting = meetings.get(0);
+		meeting.Expose_on_Portal_MERC__c = true;
+		update meeting;
 
 		Agenda_Item_MERC__c agendaItem1 = new Agenda_Item_MERC__c();
 		agendaItem1.Meeting_MERC__c = meetingId;
@@ -147,6 +148,7 @@ private class MERC_AgendaBuilderControllerTest {
 			ApexPages.StandardSetController setController = new ApexPages.StandardSetController(new List<Agenda_Item_MERC__c>());
 			MERC_AgendaBuilderController controller = new MERC_AgendaBuilderController(setController);
 			controller.confirmAgendaChange = false;
+			controller.confirmAgendaChange2 = false;
 
 			controller.add();
 			controller.children.get(1).so.put('Name', 'A Cool Agenda Item');
@@ -154,11 +156,13 @@ private class MERC_AgendaBuilderControllerTest {
 			controller.children.get(1).so.put('Session_Type_MERC__c', 'Breakout Session');
 
 			controller.save();
-			System.assert(controller.pageMessage == 'Please confirm the change to the final agenda',
+			System.assert(controller.pageMessage.startsWith('This meeting has been'),
 				'Absent or unexpected error: '+controller.pageMessage);
 			controller.confirmAgendaChange = true;
-			// TODO - finish updates to agenda page
-			// TODO - check web service status also
+			controller.save();
+			System.assert(controller.pageMessage == 'This meeting has been activated on the Web Service',
+				'Absent or unexpected error: '+controller.pageMessage);
+			controller.confirmAgendaChange2 = true;
 			controller.save();
 
 			system.assertEquals(2, [SELECT count() FROM Agenda_Item_MERC__c WHERE Meeting_MERC__c = :meetingId]);

@@ -148,13 +148,7 @@ public with sharing class MERC_LockedRecordHandler implements GLBL_TriggerHandle
                 return (Boolean)parent.get(this.lockedFieldAPIName) && !isSystemAdmin;
             }
     	} else {
-//    		return (Boolean)s.get(this.lockedFieldAPIName) && !isSystemAdmin;
-    		Boolean notSysAdmin = !isSystemAdmin;
-    		String lockedField = this.lockedFieldAPIName;
-    		Boolean locked = (Boolean) s.get(lockedField);
-    		return locked && notSysAdmin;
-    		
-    		
+    		return (Boolean)s.get(this.lockedFieldAPIName) && !isSystemAdmin;
     	}
     }
 

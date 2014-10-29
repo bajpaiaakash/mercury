@@ -23,7 +23,6 @@
         <fullName>RTI_Meeting_Product_Updated_MERC</fullName>
         <apiVersion>29.0</apiVersion>
         <endpointUrl>https://gso1integration.xh1.lilly.com/rti/v1/genericUpdated</endpointUrl>
-        <fields>Associated_Countries_MERC__c</fields>
         <fields>CreatedById</fields>
         <fields>CreatedDate</fields>
         <fields>CurrencyIsoCode</fields>
@@ -47,7 +46,6 @@
         <fields>Product_MERC__c</fields>
         <fields>Product_Name_MERC__c</fields>
         <fields>Product_vod_External_ID_MERC__c</fields>
-        <fields>RTI_Transaction_ID_MERC__c</fields>
         <fields>SystemModstamp</fields>
         <includeSessionId>true</includeSessionId>
         <integrationUser>mercuryintegration.veeva@gso1.lly</integrationUser>

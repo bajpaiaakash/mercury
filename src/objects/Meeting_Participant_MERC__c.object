@@ -347,7 +347,7 @@
         <fullName>Air_Travel_No_Longer_Required_MERC__c</fullName>
         <description>Used by portal to capture if Meeting Participant no longer requires Air Travel, if Air Travel was previously required. Created 04/02/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <label>Air Travel No Longer Required</label>
+        <label>Was Air Travel offered and then declined</label>
         <picklist>
             <picklistValues>
                 <fullName>Yes</fullName>
@@ -543,7 +543,8 @@
         <fullName>CoPay_Flight_Rail_MERC__c</fullName>
         <description>Capture CoPay amount for Flight/Rail ToV as a credit. Created 11/22/2013 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <label>CoPay Flight/Rail</label>
+        <inlineHelpText>CoPay Transportation paid by Lilly&apos;s Travel Agent</inlineHelpText>
+        <label>CoPay Transport Paid by Lilly</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -1008,7 +1009,7 @@ Created by John Adams on 12/9/2013</description>
         <defaultValue>false</defaultValue>
         <description>Used by portal to capture if Meeting Participant originally required accommodations, but changed their mind and no longer need them.  Created 04/02/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <label>Hotel No Longer Required</label>
+        <label>Was Hotel offered and then declined</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -1677,6 +1678,19 @@ Created by John A Adams 10/31/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Record_Type_MERC__c</fullName>
+        <description>Returns the Record Type display name.</description>
+        <externalId>false</externalId>
+        <formula>RecordType.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Record_Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Record_Type_Name_MERC__c</fullName>
         <description>Used by AODS to determine at which level the ToV should be obtained from.  For individual sponsorship or consulting services this will be participant level.  For anything else this will be from the Daily Attendance &amp; ToV object. Oliver Dunford 3rd Feb 2014.</description>
         <externalId>false</externalId>
@@ -2165,7 +2179,7 @@ IF(ISPICKVAL(Travel_Time_Hrs_MERC__c, &quot;More than 20 hrs&quot;),
         <defaultValue>false</defaultValue>
         <description>Used by portal to capture if Meeting Participant no longer requires travel, when Travel Required was originally set to Yes. Created 04/02/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <label>Travel No Longer Required</label>
+        <label>Was Travel offered and then declined</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -2518,8 +2532,9 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
     <label>Meeting Participant</label>
     <listViews>
         <fullName>All</fullName>
-        <columns>Account_MERC__c</columns>
         <columns>NAME</columns>
+        <columns>Account_MERC__c</columns>
+        <columns>RECORDTYPE</columns>
         <columns>Meeting_MERC__c</columns>
         <columns>Status_MERC__c</columns>
         <filterScope>Everything</filterScope>
@@ -2533,9 +2548,9 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
         <columns>Meeting_MERC__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>Record_Type_Name_MERC__c</field>
+            <field>RECORDTYPE</field>
             <operation>equals</operation>
-            <value>Service Provider</value>
+            <value>Meeting_Participant_MERC__c.Service_Provider_MERC</value>
         </filters>
         <label>Service Providers</label>
         <language>en_US</language>
@@ -4150,13 +4165,12 @@ CoPay_Registration_MERC__c &lt;0)</errorConditionFormula>
         <fullName>MERC_Prevent_Zero_Null_in_Proposed_Fee</fullName>
         <active>true</active>
         <description>Prevent Nulls or Zeros from being entered in Proposed Final Fee : MERC : Created on 01/07/2014 by Katy Lorenti, Mavens Consulting</description>
-        <errorConditionFormula>ISCHANGED(Confirm_Final_Fee_MERC__c) &amp;&amp;
-ISPICKVAL(Confirm_Final_Fee_MERC__c,&apos;Confirmed&apos;) &amp;&amp; 
+        <errorConditionFormula>ISPICKVAL(Confirm_Final_Fee_MERC__c,&apos;Confirmed&apos;) &amp;&amp; 
 (ISBLANK(Proposed_Final_Fee_MERC__c) ||
 ISNULL(Proposed_Final_Fee_MERC__c) ||
-Proposed_Final_Fee_MERC__c = 0.00)</errorConditionFormula>
+(Proposed_Final_Fee_MERC__c = 0.00 &amp;&amp; TEXT(Payment_Required_for_Meeting_MERC__c)!=&apos;No&apos;))</errorConditionFormula>
         <errorDisplayField>Proposed_Final_Fee_MERC__c</errorDisplayField>
-        <errorMessage>The Proposed Final Fee may not be blank or zero when the fee is confirmed</errorMessage>
+        <errorMessage>The Proposed Final Fee may not be blank or zero when the fee is confirmed and Payment Required for Meeting is set to &apos;Yes&apos;</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>MERC_Proposed_Final_Fee</fullName>
@@ -4240,18 +4254,16 @@ Created by John Adams on 11/13/2013</description>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/26.0/connection.js&quot;)}
-{!REQUIRESCRIPT(&quot;/support/console/26.0/integration.js&quot;)}
-
-var ids = {!GETRECORDIDS($ObjectType.Meeting_Participant_MERC__c)};
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)}
+var ids = {!GETRECORDIDS( $ObjectType.Meeting_Participant_MERC__c )};
 if (!ids || ids.length &lt; 1)
-    alert(&quot;Please select at least one record.&quot;);
+    alert(&apos;Please select at least one record.&apos;);
 else
 {
-    var redirectUrl = &quot;/apex/loop__masslooplus?&amp;retURL=&quot; + encodeURI(window.location.pathname+window.location.search);
-    redirectUrl += &quot;&amp;recordIds=&quot;+ids.join(&quot;,&quot;);
-    redirectUrl += &quot;&amp;sessionId={!$Api.Session_ID}&quot;;
-        window.location.href = redirectUrl;
+    var url = &quot;/apex/loop__masslooplus?retURL=&quot; + encodeURI(window.location.pathname+window.location.search) + &quot;&amp;contactfield=&quot;;
+    url += &quot;&amp;recordIds=&quot;+ids.join(&apos;,&apos;);
+    url += &quot;&amp;sessionId={!$Api.Session_ID}&quot;;
+    window.location.href = url;
 }</url>
     </webLinks>
     <webLinks>

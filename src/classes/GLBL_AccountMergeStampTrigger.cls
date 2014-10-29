@@ -40,6 +40,7 @@ public with sharing class GLBL_AccountMergeStampTrigger implements GLBL_TriggerH
 
 	public void handle()
 	{
+	
 		if (Trigger.isDelete)
 		{
 			if (Trigger.isBefore)
@@ -146,7 +147,7 @@ public with sharing class GLBL_AccountMergeStampTrigger implements GLBL_TriggerH
 		 * and create sObjects to update. Populate those SObjects with the id from the keyset and
 		 * old customer id from the mapped value
 		 */
-		List<SObject> sObjectsToUpdate = new List<SObject>();
+		LIST<SObject> sObjectsToUpdate = new LIST<SObject>();
 		for (Id childId : childIdToOldCustomerId.keySet())
 		{
 			Schema.SObjectType soType = childId.getSObjectType();

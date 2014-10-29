@@ -1216,26 +1216,6 @@ Expired: Access expired before it was reviewed</inlineHelpText>
         <label>All</label>
         <language>en_US</language>
     </listViews>
-    <listViews>
-        <fullName>issueswithmanager</fullName>
-        <columns>Access_Status_CUST__c</columns>
-        <columns>NAME</columns>
-        <columns>CST_User_CUST__c</columns>
-        <columns>LAST_UPDATE</columns>
-        <columns>Manager_Global_ID_CUST__c</columns>
-        <columns>CREATED_DATE</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Manager_Global_ID_CUST__c</field>
-            <operation>contains</operation>
-            <value>.</value>
-        </filters>
-        <label>Access Requests with Manager issues</label>
-        <language>en_US</language>
-        <sharedTo>
-            <group>System_Administrators</group>
-        </sharedTo>
-    </listViews>
     <nameField>
         <displayFormat>CSTUS-{000000}</displayFormat>
         <label>CST User Settings Name</label>

@@ -2215,10 +2215,6 @@ Created by John A Adams 11/4/2013</description>
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>DunsNumber</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
         <fullName>Efctv_End_Dt_GLBL__c</fullName>
         <description>End Date
 Customer ODS to Mercury Mapping
@@ -3023,19 +3019,24 @@ Created by John A Adams 10/22/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>IsCustomerPortal</fullName>
-    </fields>
-    <fields>
         <fullName>IsExcludedFromRealign</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>IsPartner</fullName>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>Jigsaw</fullName>
         <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Job_Title_MERC__c</fullName>
+        <description>The Job Title of the HCP, primarily used for Mercury Designated Individuals.  No mastered field exists for HCPs for this field.  Used a custom field and not the SFDC field &apos;Title&apos; to eliminate any confusion for its use : MERC : Created on 15/9/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Job Title of the HCP e.g. General Practitioner</inlineHelpText>
+        <label>Job Title</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Journal_Articles_MERC__c</fullName>
@@ -3238,14 +3239,6 @@ Created by John A Adams 10/16/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>NaicsCode</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>NaicsDesc</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
         <fullName>Name</fullName>
         <trackHistory>true</trackHistory>
     </fields>
@@ -3437,126 +3430,6 @@ Created by John A Adams 12/15/2013</description>
             </picklistValues>
             <picklistValues>
                 <fullName>Other</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>PANG_Accountability__c</fullName>
-        <externalId>false</externalId>
-        <label>RWE Accountability</label>
-        <picklist>
-            <picklistValues>
-                <fullName>SHIRLOC</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>USHO</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>PANG_Areas_of_Expertise_Notes__c</fullName>
-        <externalId>false</externalId>
-        <label>RWE Areas of Expertise Notes</label>
-        <length>32768</length>
-        <trackHistory>false</trackHistory>
-        <type>LongTextArea</type>
-        <visibleLines>3</visibleLines>
-    </fields>
-    <fields>
-        <fullName>PANG_Areas_of_Expertise__c</fullName>
-        <externalId>false</externalId>
-        <label>RWE Areas of Expertise</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Autoimmune</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Cardiovascular</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Diabetes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Musculoskeletal</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Neuroscience</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Oncology</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Urology</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackHistory>false</trackHistory>
-        <type>MultiselectPicklist</type>
-        <visibleLines>4</visibleLines>
-    </fields>
-    <fields>
-        <fullName>PANG_Business_Research_Vision__c</fullName>
-        <externalId>false</externalId>
-        <label>RWE Business Research/Vision</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>TextArea</type>
-    </fields>
-    <fields>
-        <fullName>PANG_Existing_Business__c</fullName>
-        <externalId>false</externalId>
-        <label>RWE Existing Business</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>TextArea</type>
-    </fields>
-    <fields>
-        <fullName>PANG_Organizational_Structure_Comment__c</fullName>
-        <externalId>false</externalId>
-        <label>RWE Organizational Structure Comment</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>TextArea</type>
-    </fields>
-    <fields>
-        <fullName>PANG_Research_Priorities__c</fullName>
-        <externalId>false</externalId>
-        <label>RWE Research Priorities</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>TextArea</type>
-    </fields>
-    <fields>
-        <fullName>PANG_Work_With_Other_Companies__c</fullName>
-        <externalId>false</externalId>
-        <label>RWE Work With Other Companies</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -4838,10 +4711,6 @@ Created by John A Adams 12/10/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Tradestyle</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
         <fullName>Transfer_Info_Step_Complete_MERC__c</fullName>
         <description>Used by portal to indicate that the Bank Transfer Information sub-step is complete on the HCP Information Package. Created on 04/18/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -4944,16 +4813,6 @@ Created by John A Adams 11/4/2013</description>
         </picklist>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Unique_Identifier__c</fullName>
-        <externalId>true</externalId>
-        <label>Unique Identifier</label>
-        <length>90</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Utilised_CAP_MERC__c</fullName>
@@ -5132,10 +4991,6 @@ Created by John A Adams 11/4/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>YearStarted</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
         <fullName>of_Contracting_Parties_MERC__c</fullName>
         <defaultValue>1</defaultValue>
         <description>Calculates # of Contracting Parties for HCP using Lookup Summary Tool. Created 05/06/2014 by KLorenti, Mavens Consulting</description>
@@ -5243,6 +5098,23 @@ Created by John A Adams 11/4/2013</description>
         <language>en_US</language>
     </listViews>
     <listViews>
+        <fullName>All_Suppliers</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>Primary_Addr_Line1_GLBL__c</columns>
+        <columns>Primary_Addr_Line2_GLBL__c</columns>
+        <columns>Primary_Addr_City_GLBL__c</columns>
+        <columns>Primary_Address_Country_GLBL__c</columns>
+        <columns>Prim_Affil_Pstl_Cd_Extnsn_GLBL__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>ACCOUNT.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Account.Supplier_GLBL</value>
+        </filters>
+        <label>All Suppliers</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
         <fullName>All_Vendors</fullName>
         <columns>ACCOUNT.NAME</columns>
         <columns>Primary_Addr_Line1_GLBL__c</columns>
@@ -5276,23 +5148,6 @@ Created by John A Adams 11/4/2013</description>
             <value>Account.Venue_GLBL</value>
         </filters>
         <label>All Venues</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>HCOs</fullName>
-        <columns>ACCOUNT.NAME</columns>
-        <columns>ACCOUNT.SITE</columns>
-        <columns>ACCOUNT.ADDRESS1_STATE</columns>
-        <columns>ACCOUNT.PHONE1</columns>
-        <columns>Language_Preference_MERC__c</columns>
-        <columns>ACCOUNT.TYPE</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>ACCOUNT.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Account.Health_Care_Organization_GLBL</value>
-        </filters>
-        <label>HCOs</label>
         <language>en_US</language>
     </listViews>
     <listViews>
@@ -5345,7 +5200,6 @@ Created by John A Adams 11/4/2013</description>
     <listViews>
         <fullName>NewThisWeek</fullName>
         <columns>ACCOUNT.NAME</columns>
-        <columns>Cust_Id_GLBL__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>ACCOUNT.CREATED_DATE</field>
@@ -11062,26 +10916,14 @@ Created by John A Adams 11/4/2013</description>
         </picklistValues>
     </recordTypes>
     <recordTypes>
-        <fullName>PANG_RWE_Account</fullName>
+        <fullName>Supplier_GLBL</fullName>
         <active>true</active>
-        <description>Used for RWE Account records</description>
-        <label>RWE Account</label>
+        <description>Suppliers such as affiliate MPCs</description>
+        <label>Supplier</label>
         <picklistValues>
             <picklist>Academic_Qualifications_MERC__c</picklist>
             <values>
-                <fullName>MD Specialist</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MD non- specialist or GP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MSc%2C BSc</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Non-MD Health care professional</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12486,63 +12328,6 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>PANG_Accountability__c</picklist>
-            <values>
-                <fullName>SHIRLOC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>USHO</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>PANG_Areas_of_Expertise__c</picklist>
-            <values>
-                <fullName>Autoimmune</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cardiovascular</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Diabetes</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Musculoskeletal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Neuroscience</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Oncology</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Urology</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>PANG_Work_With_Other_Companies__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Participated_in_Clinical_Trials_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -12561,7 +12346,7 @@ Created by John A Adams 11/4/2013</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -12657,10 +12442,6 @@ Created by John A Adams 11/4/2013</description>
             <picklist>Tier_1_HCP_CV_Checked_MERC__c</picklist>
             <values>
                 <fullName>Confirmed HCP is Tier 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HCP is NOT Tier 1</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -17540,6 +17321,7 @@ Created by John A Adams 11/4/2013</description>
         <errorConditionFormula>(ISCHANGED( FirstName )
 || ISCHANGED( LastName )
 || ISCHANGED ( Salutation ) 
+|| ISCHANGED (  Mdl_Nm_GLBL__c  ) 
 )
 &amp;&amp;  
 (
@@ -17763,30 +17545,6 @@ else
     url += &quot;&amp;sessionId={!$Api.Session_ID}&quot;;
     window.location.href = url;
 }</url>
-    </webLinks>
-    <webLinks>
-        <fullName>Re_subscribe_in_ExactTarget</fullName>
-        <availability>online</availability>
-        <description>Resubscribe a Person Account record Type in ExactTarget</description>
-        <displayType>link</displayType>
-        <height>600</height>
-        <linkType>sControl</linkType>
-        <masterLabel>Re-subscribe in ExactTarget</masterLabel>
-        <openType>sidebar</openType>
-        <protected>false</protected>
-        <scontrol>EXTG_person_resub</scontrol>
-    </webLinks>
-    <webLinks>
-        <fullName>SendExactTargetEmail</fullName>
-        <availability>online</availability>
-        <description>Send ExactTarget Email from Person Account record types</description>
-        <displayType>link</displayType>
-        <height>600</height>
-        <linkType>sControl</linkType>
-        <masterLabel>Send ExactTarget Email</masterLabel>
-        <openType>sidebar</openType>
-        <protected>false</protected>
-        <scontrol>EXTG_person_email</scontrol>
     </webLinks>
     <webLinks>
         <fullName>Send_ET_Email</fullName>

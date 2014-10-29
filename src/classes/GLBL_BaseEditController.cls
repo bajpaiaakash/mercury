@@ -7,7 +7,6 @@
  * Also included is functionality that allows for lookups to be dependent on other lookups. The child lookup is rendered as a selectlist
  * limited to the records that match those configured. e.g. the indication options of a meeting product will be only those of the selected prodcut.
  */
-
 global virtual with sharing class GLBL_BaseEditController {
 
 	public Sobject mySobject { get; set; }

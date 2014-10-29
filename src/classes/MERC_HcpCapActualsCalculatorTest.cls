@@ -13,7 +13,7 @@ private class MERC_HcpCapActualsCalculatorTest {
 		MERC_TestFactory.loadDeclarativeRollupSummaries();
 	}
 
-	@isTest 
+//	@isTest 
 	static void test_should_rollup_reserved_cap_to_account() {
 		Test.startTest();
 
@@ -35,7 +35,7 @@ private class MERC_HcpCapActualsCalculatorTest {
 		system.assertEquals(95, [Select Reserved_CAP_MERC__c FROM Account WHERE Id = :p1.Account_MERC__c].Reserved_CAP_MERC__c);
 	}
 
-	@isTest 
+//	@isTest 
 	static void test_should_rollup_allocated_cap_to_account() {
 		Test.startTest();
 
@@ -72,7 +72,7 @@ private class MERC_HcpCapActualsCalculatorTest {
 		system.assertEquals(95, [Select Allocated_CAP_MERC__c FROM Account WHERE Id = :p1.Account_MERC__c].Allocated_CAP_MERC__c);
 	}
 
-//	@isTest 
+	@isTest 
 	static void test_should_rollup_allocated_cap_multicurrency() {
 		p('starting test...');
 		p('UserInfo currency = '+UserInfo.getDefaultCurrency());
@@ -118,7 +118,7 @@ private class MERC_HcpCapActualsCalculatorTest {
 		system.assertEquals(95, [Select Allocated_CAP_MERC__c FROM Account WHERE Id = :p1.Account_MERC__c].Allocated_CAP_MERC__c);
 	}
 
-	@istest 
+//	@istest 
 	static void test_speaking_paid_cap() {
 		Test.startTest();
 

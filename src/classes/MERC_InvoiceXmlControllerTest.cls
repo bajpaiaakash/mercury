@@ -43,7 +43,7 @@ private class MERC_InvoiceXmlControllerTest {
         PageReference ref = Page.MERC_InvoiceAFIXML;
         Test.setCurrentPage(ref);
 
-        Test.startTest();
+        Test.startTest(); 
         MERC_InvoiceXmlController controller = new MERC_InvoiceXmlController(new ApexPages.StandardController(invoices[0]));
         Test.stopTest();
 
@@ -91,7 +91,7 @@ private class MERC_InvoiceXmlControllerTest {
     /*
      * Format of SAP Cost Element is variable - make sure we are formatting correctly
      */
-     @isTest
+    @isTest
     static void testSAPCostElementIsCorrect() {
         for (Invoice_Line_Item_MERC__c li : lineItems) li.Cost_Element_MERC__c = 'Extra cash for First Fridays - 7654321';
         update lineitems;

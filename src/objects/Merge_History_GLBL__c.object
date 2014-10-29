@@ -79,6 +79,17 @@ Created by J Adams 12/10/2013</description>
         <type>DateTime</type>
     </fields>
     <fields>
+        <fullName>Merge_Marked_Complete_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Marks this record as ready for final processing. Mercury Users select this on the MERC_MergedAccounts page as confirmation that the merge is correct.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Marks this record as ready for final processing. Mercury Users select this on the MERC_MergedAccounts page as confirmation that the merge is correct.</inlineHelpText>
+        <label>Merge Marked Complete</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Merge_Processed_MERC__c</fullName>
         <defaultValue>false</defaultValue>
         <description>Indicates whether a Mercury Merge has been complete.  This will be set post a Mercury merge process has taken place, this would be in addition to the master data merge that has already taken place.  Oliver Dunford 11th April 2014.</description>

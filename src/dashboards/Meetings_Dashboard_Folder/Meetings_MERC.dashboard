@@ -228,7 +228,7 @@
             <footer>Shows all of your meetings by Status</footer>
             <header>Meetings by Status</header>
             <legendPosition>Bottom</legendPosition>
-            <report>Meeting_Reports/All_Meetings_MERC</report>
+            <report>MERC_Meetings_Oversight/All_Meetings_MERC</report>
             <showPercentage>false</showPercentage>
             <showValues>true</showValues>
             <sortBy>RowLabelAscending</sortBy>
