@@ -121,6 +121,37 @@
         <members>MERC_DocusignService</members>
         <members>MERC_DocusignServiceMock</members>
         <members>MERC_DocusignServiceTest</members>
+        <members>MERC_ETAuthorizer</members>
+        <members>MERC_ETAuthorizerCallout_Mock</members>
+        <members>MERC_ETAuthorizer_Test</members>
+        <members>MERC_ETCallControl</members>
+        <members>MERC_ETDataExtension</members>
+        <members>MERC_ETDataExtensionCallout_Mock</members>
+        <members>MERC_ETDataExtensionPopulateCallout_Mock</members>
+        <members>MERC_ETDataExtensionProcessor</members>
+        <members>MERC_ETDataExtensionProcessor_Test</members>
+        <members>MERC_ETEndToEndDataExtCallouts_Mock</members>
+        <members>MERC_ETFolderedEmail</members>
+        <members>MERC_ETMeetingEmailSendExtension</members>
+        <members>MERC_ETMeetingEmailSendExtension_Test</members>
+        <members>MERC_ETMeetingEmailSendFutureProc_Test</members>
+        <members>MERC_ETMeetingEmailSendFutureProcessor</members>
+        <members>MERC_ETMeetingEmailSendTriggerImpl</members>
+        <members>MERC_ETMeetingEmailSendTriggerImpl_Test</members>
+        <members>MERC_ETMeetingParticTrackingContExt_Test</members>
+        <members>MERC_ETMeetingParticipantTrackingContExt</members>
+        <members>MERC_ETMockHttpResponseGenerator</members>
+        <members>MERC_ETNoSendClassificationException</members>
+        <members>MERC_ETObject</members>
+        <members>MERC_ETParseString</members>
+        <members>MERC_ETSendAndAuthorize_Mock</members>
+        <members>MERC_ETSendClassification</members>
+        <members>MERC_ETSendDefinition</members>
+        <members>MERC_ETSendDefinitionCallout_Mock</members>
+        <members>MERC_ETSendDefinitionProcessor</members>
+        <members>MERC_ETSendDefinitionProcessor_Test</members>
+        <members>MERC_ETSendEmailWrapper</members>
+        <members>MERC_ETTestUtils</members>
         <members>MERC_Exception</members>
         <members>MERC_HCPContractRollupManager</members>
         <members>MERC_HCPContractRollupManagerTest</members>
@@ -286,6 +317,8 @@
         <members>MERC_RequestHCPSignature</members>
         <members>MERC_TravelItineraryDateTimesDetail</members>
         <members>MERC_TravelItineraryNewEdit</members>
+        <members>MeetingEmailSend</members>
+        <members>MeetingParticipantTracking</members>
         <members>PersonSearchMVN</members>
         <name>ApexPage</name>
     </types>
@@ -394,6 +427,7 @@
         <members>Preferences_and_Consent_GLBL__c</members>
         <members>Product_Group_GLBL__c</members>
         <members>Service_Cloud_Settings_MVN__c</members>
+        <members>Sonoma_ET_Config__c</members>
         <members>Sonoma_ET_Config__c</members>
         <members>Speciality_MERC__c</members>
         <members>Task</members>
@@ -1073,6 +1107,7 @@
         <members>ContentLibraryLookup_MERC</members>
         <members>CurrencyTypes</members>
         <members>DeclarativeRollupTestData_MERC</members>
+        <members>ExactTargetImages</members>
         <members>FMV_MERC</members>
         <members>GLBL_Rollup_jszip</members>
         <members>GlobalAssetsMVN</members>
@@ -1156,6 +1191,11 @@
         <members>Web_Service_Error_GLBL__c</members>
         <members>Web_Service_Logic_MERC__c</members>
         <name>Workflow</name>
+    </types>
+    <types>
+        <members>et4ae5__SendDefinition__c.ETBackupWorkflow</members>
+        <members>et4ae5__SendDefinition__c.ETScheduledSend</members>
+        <name>WorkflowRule</name>
     </types>
     <version>31.0</version>
 </Package>

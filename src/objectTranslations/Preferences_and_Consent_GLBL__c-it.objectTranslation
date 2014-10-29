@@ -776,7 +776,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Dairy Free</masterLabel>
-            <translation><!-- Dairy Free --></translation>
+            <translation>No Latticini</translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Do Not Contract</masterLabel>
