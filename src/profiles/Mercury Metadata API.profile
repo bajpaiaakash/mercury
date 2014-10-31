@@ -5929,7 +5929,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_MERC__c.Venue_ET_Email_Template_MERC__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -9183,6 +9183,12 @@
         <saturdayStart>300</saturdayStart>
         <sundayEnd>480</sundayEnd>
         <sundayStart>300</sundayStart>
+        <thursdayEnd>480</thursdayEnd>
+        <thursdayStart>300</thursdayStart>
+        <tuesdayEnd>480</tuesdayEnd>
+        <tuesdayStart>300</tuesdayStart>
+        <wednesdayEnd>480</wednesdayEnd>
+        <wednesdayStart>300</wednesdayStart>
     </loginHours>
     <loginIpRanges>
         <endAddress>23.23.255.255</endAddress>
@@ -9877,7 +9883,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>MeetingParticipantTracking</apexPage>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>PersonSearchMVN</apexPage>

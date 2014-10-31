@@ -578,7 +578,7 @@ HCP_Contract_MERC__r.MSA_Start_Date_MERC__c,  HCP_Contract_MERC__r.Meeting_Name_
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Service Rendered Documents</fullName>
+                <fullName>Service Rendered Documents</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -826,7 +826,7 @@ HCP_Contract_MERC__r.MSA_Start_Date_MERC__c,  HCP_Contract_MERC__r.Meeting_Name_
                 <default>false</default>
             </values>
             <values>
-                <fullName>Service%C2%A0Rendered Documents</fullName>
+                <fullName>Service Rendered Documents</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

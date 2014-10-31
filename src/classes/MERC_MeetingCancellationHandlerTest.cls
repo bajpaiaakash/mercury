@@ -47,7 +47,9 @@ private class MERC_MeetingCancellationHandlerTest {
 			accnt.PersonEmail = 'dummy@dummy.com';
 			insert accnt;
 
+			MERC_TriggerHandlerStateManager.deactivateAll();  // reduce some of the overhead
 			meetings  = MERC_TestFactory.insertMeetings(200);
+			MERC_TriggerHandlerStateManager.activateAll();
 		}
 
 		   	/* set up sosl serach results */
