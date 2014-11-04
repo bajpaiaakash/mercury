@@ -609,7 +609,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_HCPContractRollupManager</apexClass>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_HCPContractRollupManagerTest</apexClass>
@@ -617,7 +617,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_HandleDocusignAttachmentInsert</apexClass>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_HandleDocusignAttachmentInsertTest</apexClass>
@@ -5928,7 +5928,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_MERC__c.Venue_ET_Email_Template_MERC__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -6458,7 +6458,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Record_Type_MERC__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -8776,8 +8776,19 @@
         <readable>false</readable>
     </fieldPermissions>
     <layoutAssignments>
+        <layout>Account-GLBL_HCO Organization</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account-GLBL_HCO Organization</layout>
+        <recordType>Account.Business_Account</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Account-MERC_Contracting_Party</layout>
         <recordType>Account.Contracting_Party_GLBL</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account-MERC_Supplier</layout>
+        <recordType>Account.Supplier_GLBL</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Address_GLBL__c-Address Layout</layout>

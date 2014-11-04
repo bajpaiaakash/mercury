@@ -230,6 +230,37 @@
         <members>TestDataFactoryMVN</members>
         <members>sobjectPartnerSoapSforceCom</members>
         <members>sobjectPartnerSoapSforceComTest</members>
+        <members>MERC_ETAuthorizer</members>
+        <members>MERC_ETAuthorizerCallout_Mock</members>
+        <members>MERC_ETAuthorizer_Test</members>
+        <members>MERC_ETCallControl</members>
+        <members>MERC_ETDataExtension</members>
+        <members>MERC_ETDataExtensionCallout_Mock</members>
+        <members>MERC_ETDataExtensionPopulateCallout_Mock</members>
+        <members>MERC_ETDataExtensionProcessor</members>
+        <members>MERC_ETDataExtensionProcessor_Test</members>
+        <members>MERC_ETEndToEndDataExtCallouts_Mock</members>
+        <members>MERC_ETFolderedEmail</members>
+        <members>MERC_ETMeetingEmailSendExtension</members>
+        <members>MERC_ETMeetingEmailSendExtension_Test</members>
+        <members>MERC_ETMeetingEmailSendFutureProc_Test</members>
+        <members>MERC_ETMeetingEmailSendFutureProcessor</members>
+        <members>MERC_ETMeetingEmailSendTriggerImpl</members>
+        <members>MERC_ETMeetingEmailSendTriggerImpl_Test</members>
+        <members>MERC_ETMeetingParticTrackingContExt_Test</members>
+        <members>MERC_ETMeetingParticipantTrackingContExt</members>
+        <members>MERC_ETMockHttpResponseGenerator</members>
+        <members>MERC_ETNoSendClassificationException</members>
+        <members>MERC_ETObject</members>
+        <members>MERC_ETParseString</members>
+        <members>MERC_ETSendAndAuthorize_Mock</members>
+        <members>MERC_ETSendClassification</members>
+        <members>MERC_ETSendDefinition</members>
+        <members>MERC_ETSendDefinitionCallout_Mock</members>
+        <members>MERC_ETSendDefinitionProcessor</members>
+        <members>MERC_ETSendDefinitionProcessor_Test</members>
+        <members>MERC_ETSendEmailWrapper</members>
+        <members>MERC_ETTestUtils</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -287,6 +318,8 @@
         <members>MERC_TravelItineraryDateTimesDetail</members>
         <members>MERC_TravelItineraryNewEdit</members>
         <members>PersonSearchMVN</members>
+        <members>MeetingEmailSend</members>
+        <members>MeetingParticipantTracking</members>
         <name>ApexPage</name>
     </types>
     <types>
@@ -1053,6 +1086,7 @@
         <members>CST_Test_Settings</members>
         <members>ContentLibraryLookup_MERC</members>
         <members>DeclarativeRollupTestData_MERC</members>
+        <members>ExactTargetImages</members>
         <members>FMV_MERC</members>
         <members>GLBL_Rollup_jszip</members>
         <members>GlobalAssetsMVN</members>
@@ -1156,6 +1190,11 @@
     <types>
         <members>*</members>
         <name>SamlSsoConfig</name>
+    </types>
+    <types>
+        <members>et4ae5__SendDefinition__c.ETBackupWorkflow</members>
+        <members>et4ae5__SendDefinition__c.ETScheduledSend</members>
+        <name>WorkflowRule</name>
     </types>
     <version>31.0</version>
 </Package>

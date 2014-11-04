@@ -5928,7 +5928,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_MERC__c.Venue_ET_Email_Template_MERC__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -9436,11 +9436,11 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>MeetingEmailSend</apexPage>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MeetingParticipantTracking</apexPage>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>PersonSearchMVN</apexPage>
