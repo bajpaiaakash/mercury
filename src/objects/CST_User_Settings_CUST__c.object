@@ -1212,7 +1212,6 @@ Expired: Access expired before it was reviewed</inlineHelpText>
         <columns>Access_Level_CUST__c</columns>
         <columns>Country_Code_CUST__c</columns>
         <columns>LAST_UPDATE</columns>
-        <columns>UPDATEDBY_USER</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
         <language>en_US</language>
