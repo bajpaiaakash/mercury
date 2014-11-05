@@ -2371,6 +2371,10 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Venue (ET Email Template) --></label>
+        <name>Venue_ET_Email_Template_MERC__c</name>
+    </fields>
+    <fields>
         <help><!-- Meeting location or conference venue. Address appears on web service under &quot;Time and Location&quot; --></help>
         <label><!-- Sourced Venue --></label>
         <name>Venue_MERC__c</name>

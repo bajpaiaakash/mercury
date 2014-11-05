@@ -683,6 +683,13 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+<<<<<<< HEAD
+=======
+        <apexClass>MERC_ETNoSendClassificationException</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+>>>>>>> test-Dec2014Release
         <apexClass>MERC_ETObject</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -9721,6 +9728,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_MERC__c.Venue_ET_Email_Template_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Meeting_MERC__c.Venue_MERC__c</field>
         <readable>true</readable>
@@ -13707,6 +13719,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>MeetingEmailSend</apexPage>
+<<<<<<< HEAD
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -13719,6 +13732,12 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>MyProfilePage</apexPage>
+=======
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>MeetingParticipantTracking</apexPage>
+>>>>>>> test-Dec2014Release
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>

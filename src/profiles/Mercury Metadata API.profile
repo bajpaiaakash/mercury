@@ -683,6 +683,13 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+<<<<<<< HEAD
+=======
+        <apexClass>MERC_ETNoSendClassificationException</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+>>>>>>> test-Dec2014Release
         <apexClass>MERC_ETObject</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -6293,7 +6300,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+<<<<<<< HEAD
         <field>HCP_Contract_MERC__c.Contract_Request_Status_MERC__c</field>
+=======
+        <field>Meeting_MERC__c.Venue_ET_Email_Template_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_MERC__c.Venue_MERC__c</field>
+>>>>>>> test-Dec2014Release
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -13385,6 +13401,12 @@
         <saturdayStart>300</saturdayStart>
         <sundayEnd>480</sundayEnd>
         <sundayStart>300</sundayStart>
+        <thursdayEnd>480</thursdayEnd>
+        <thursdayStart>300</thursdayStart>
+        <tuesdayEnd>480</tuesdayEnd>
+        <tuesdayStart>300</tuesdayStart>
+        <wednesdayEnd>480</wednesdayEnd>
+        <wednesdayStart>300</wednesdayStart>
     </loginHours>
     <loginIpRanges>
         <endAddress>23.23.255.255</endAddress>
@@ -14724,6 +14746,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>MeetingParticipantTracking</apexPage>
+<<<<<<< HEAD
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -14732,6 +14755,8 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>MyProfilePage</apexPage>
+=======
+>>>>>>> test-Dec2014Release
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>

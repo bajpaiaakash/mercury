@@ -683,6 +683,13 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+<<<<<<< HEAD
+=======
+        <apexClass>MERC_ETNoSendClassificationException</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+>>>>>>> test-Dec2014Release
         <apexClass>MERC_ETObject</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -9722,6 +9729,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_MERC__c.Venue_ET_Email_Template_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Meeting_MERC__c.Venue_MERC__c</field>
         <readable>true</readable>
@@ -13670,6 +13682,7 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+<<<<<<< HEAD
         <apexPage>MobileQRcode</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -13678,6 +13691,8 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+=======
+>>>>>>> test-Dec2014Release
         <apexPage>PersonSearchMVN</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
