@@ -1,7 +1,7 @@
 public with sharing class MERC_ETSendDefinition {
     public MERC_ETSendDefinition() {}
 
-    public MERC_ETSendDefinition(String dataExtensionId, Boolean deduplicateByEmail, String description, Integer emailId, String key, String name, String emailSubject, string senderProfileId) {
+    public MERC_ETSendDefinition(String dataExtensionId, Boolean deduplicateByEmail, String description, Integer emailId, String key, String name, String emailSubject, String sendClassificationId) {
         this.dataExtensionId = dataExtensionId;
         this.deduplicateByEmail = deduplicateByEmail;
         this.description = description;
@@ -12,7 +12,7 @@ public with sharing class MERC_ETSendDefinition {
         this.name = name;
         this.type = 'GENERICEXTENSIONSEND';
         this.emailSubject = emailSubject;
-        this.senderProfileId = senderProfileId;
+        this.sendClassificationId = sendClassificationId;
     }
 
     public String dataExtensionId;
@@ -25,7 +25,7 @@ public with sharing class MERC_ETSendDefinition {
     public String name;
     public String type;
     public String emailSubject;
-    public String senderProfileId;
+    public String sendClassificationId;
 
     public class CreateResponse {
         public String id;
@@ -43,27 +43,5 @@ public with sharing class MERC_ETSendDefinition {
         public String sendStatus;
         public String jobId;
         public String clientId;
-    }
-
-    public class SenderProfileCreate {
-        public String key { get; set; }
-        public String profileName { get; set; }
-        public String description { get; set; }
-        public String fromName { get; set; }
-        public String fromEmail { get; set; }
-
-        public SenderProfileCreate(String fromName, String fromEmail)
-        {
-            String key = 'SFDCLilly' + datetime.now().getTime();
-            this.key = key;
-            this.profileName = key;
-            this.description = 'Default sender policy used for the SFDC Lilly Integration';
-            this.fromName = fromName;
-            this.fromEmail = fromEmail;
-        }
-    }
-
-    public class CreateSenderProfileResponse{
-        public String id;
     }
 }

@@ -22,7 +22,7 @@ public without sharing class MERC_InvoiceDocFilterController {
 	public void deleteOldInvoiceContent() {
         Id currRecId = (Id)ApexPages.currentPage().getParameters().get('id');
         if (ApexPages.currentPage().getParameters().containsKey('tif') && ApexPages.currentPage().getParameters().get('tif') == '1') {
-            deleteOldDocsInContent(new List<Id>{currRecId},'TIFF');
+            deleteOldDocsInContent(new List<Id>{currRecId},'TIF');
         }
         if (ApexPages.currentPage().getParameters().containsKey('pdf') && ApexPages.currentPage().getParameters().get('pdf') == '1') {
             deleteOldDocsInContent(new List<Id>{currRecId},'PDF');

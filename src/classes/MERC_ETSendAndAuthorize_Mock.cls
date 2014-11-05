@@ -24,8 +24,6 @@ global with sharing class MERC_ETSendAndAuthorize_Mock implements HTTPCalloutMoc
             res = etSendCallout.createResponse(req);
         } else if (req.getEndpoint().containsIgnoreCase('?action=start&oauth_token=')) {
             res = etSendCallout.startResponse(req);
-        } else if (req.getEndpoint().containsIgnoreCase('senderpolicy/?oauth_token')) {
-            res = etSendCallout.createSenderProfileResponse(req);
         } else if (req.getEndpoint().containsIgnoreCase('sendclassification/?oauth_token')) {
             res = etSendCallout.createSendClassificationResponse(req);
         } else {

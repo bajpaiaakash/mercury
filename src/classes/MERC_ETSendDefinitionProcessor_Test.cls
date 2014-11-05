@@ -5,7 +5,7 @@ private class MERC_ETSendDefinitionProcessor_Test {
         etConfig.et4ae5__Root_Rest_API_URL__c = 's1.qa1';
         insert etConfig;
 
-        MERC_ETSendDefinition sd = new MERC_ETSendDefinition('ExtensionId', true, 'Description', 1234, 'Key', 'Send Definition Name', 'Subject', 'SenderProfileId');
+        MERC_ETSendDefinition sd = new MERC_ETSendDefinition('ExtensionId', true, 'Description', 1234, 'Key', 'Send Definition Name', 'Subject', 'SendClassificationId');
 
         Test.startTest();
             Test.setMock(HttpCalloutMock.class, new MERC_ETSendDefinitionCallout_Mock());
@@ -84,7 +84,7 @@ private class MERC_ETSendDefinitionProcessor_Test {
         etConfig.et4ae5__Root_Rest_API_URL__c = 's1.qa1';
         insert etConfig;
 
-        MERC_ETSendDefinition sd = new MERC_ETSendDefinition('ExtensionId', true, 'Description', 1234, 'Key', 'Send Definition Name', 'Subject', 'SenderProfileId');
+        MERC_ETSendDefinition sd = new MERC_ETSendDefinition('ExtensionId', true, 'Description', 1234, 'Key', 'Send Definition Name', 'Subject', 'SendClassificationId');
         boolean threwException = false;
         MERC_ETSendDefinitionCallout_Mock mockCallout = new MERC_ETSendDefinitionCallout_Mock();
         mockCallout.returnError = true;

@@ -59,7 +59,7 @@ public with sharing class MERC_ETDataExtensionProcessor {
             throw new DataExtensionException('There was an error creating the data extension.');
         }
 
-        Meeting_MERC__c theMeeting = [SELECT Id, Name, City_of_Meeting_MERC__c, Preferred_Venue_MERC__c, Date_of_Event_MERC__c, End_Date_of_Event_MERC__c, Event_Id_MERC__c, Start_Time_of_Meeting_MERC__c, End_Time_of_Meeting_MERC__c
+        Meeting_MERC__c theMeeting = [SELECT Id, Name, City_of_Meeting_MERC__c, Venue_ET_Email_Template_MERC__c, Date_of_Event_MERC__c, End_Date_of_Event_MERC__c, Event_Id_MERC__c, Start_Time_of_Meeting_MERC__c, End_Time_of_Meeting_MERC__c
                                       FROM Meeting_MERC__c
                                       WHERE Id = :meetingId];
         Set<Id> personAccountIds = new Set<Id>();
@@ -104,7 +104,7 @@ public with sharing class MERC_ETDataExtensionProcessor {
                 
                 MERC_ETDataExtension.FieldEntry fe3 = new MERC_ETDataExtension.FieldEntry();
                 fe3.fieldName = 'Venue Name';
-                fe3.fieldValue = theMeeting.Preferred_Venue_MERC__c;
+                fe3.fieldValue = theMeeting.Venue_ET_Email_Template_MERC__c;
                 e.values.add(fe3);
                 
                 String dateFormatString = 'MM/dd/yyyy HH:mm:ss z';

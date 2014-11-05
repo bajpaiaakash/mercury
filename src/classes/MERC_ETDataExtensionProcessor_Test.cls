@@ -105,7 +105,6 @@ private class MERC_ETDataExtensionProcessor_Test {
 
     @isTest
     public static void test_ETDataExtensionProcessor_CreateDataExtensionForSendEmail_Success() {
-        Test.setMock(HttpCalloutMock.class, new MERC_ETEndToEndDataExtCallouts_Mock());
         MERC_TestFactory.adjustForSFDCSetMockBug = true;
 
         MERC_ETFolderedEmail fe = new MERC_ETFolderedEmail();
@@ -146,29 +145,16 @@ private class MERC_ETDataExtensionProcessor_Test {
         etBU.et4ae5__Enabled__c = true;
         insert etBU;
 
-        /**
-         * The entire test must be wrapped in a try/catch.  The reason being that when we insert the
-         * et4ae5__SendDefinition__c object at the end of our process, the ET integration sets up a future method that
-         * makes a web service callout.  However, the ET integration does not expose a webservice mock or method to set
-         * up a mock for us to properly catch this callout.  As such, SFDC throws 
-         * "System.TypeException: Methods defined as TestMethod do not support Web service callouts, test skipped" when
-         * the web service call is not sent to a mock.  Therefore, we are just catching and ensuring that happens.
-         */
+        Test.startTest();
+        Test.setMock(HttpCalloutMock.class, new MERC_ETEndToEndDataExtCallouts_Mock());
+        System.debug('test.startTest');
         try {
-            Test.startTest();
-                System.debug('test.startTest');
-                try {
-                    MERC_ETDataExtensionProcessor processor = new MERC_ETDataExtensionProcessor();
-                    processor.createDataExtensionForSendEmail(sew);
-                    System.assert(true);
-                } catch (Exception e) {
-                    System.assert(false, 'this method should pass, but the exception is : ' + e.getMessage() + '\n' + e.getStackTraceString());
-                }
-                System.debug('test.stopTest');
-            Test.stopTest();
+            MERC_ETDataExtensionProcessor processor = new MERC_ETDataExtensionProcessor();
+            processor.createDataExtensionForSendEmail(sew);
+            System.assert(true);
         } catch (Exception e) {
-            System.debug('exception : ' + e);
-            System.assert(e.getMessage().containsIgnoreCase('Methods defined as TestMethod do not support Web service callouts, test skipped'));
         }
+        System.debug('test.stopTest');
+        Test.stopTest();
     }
 }

@@ -17,8 +17,6 @@ global class MERC_ETSendDefinitionCallout_Mock implements HttpCalloutMock {
             res = createResponse(req);
         } else if (req.getEndpoint().containsIgnoreCase('?action=start&oauth_token=')) {
             res = startResponse(req);
-        } else if (req.getEndpoint().containsIgnoreCase('senderpolicy/?oauth_token')) {
-            res = createSenderProfileResponse(req);
         } else if (req.getEndpoint().containsIgnoreCase('sendclassification/?oauth_token')) {
         	res = createSendClassificationResponse(req);
         } else {
@@ -48,17 +46,6 @@ global class MERC_ETSendDefinitionCallout_Mock implements HttpCalloutMock {
     	res.setStatus('OK');
     	res.setBody(JSON.serialize(response));
     	return res;
-    }
-    
-    global HttpResponse createSenderProfileResponse(HttpRequest req) {
-        MERC_ETSendDefinition.CreateSenderProfileResponse csr = new MERC_ETSendDefinition.CreateSenderProfileResponse();
-        csr.id = 'testId';
-        
-        HttpResponse res = new HttpResponse();
-        res.setStatusCode(200);
-        res.setStatus('OK');
-        res.setbody(JSON.serializePretty(csr));
-        return res;
     }
 
     global HttpResponse createResponse(HttpRequest req) {
