@@ -6,10 +6,10 @@
 * the "ParticipantGroup" class which contains a list of SelectableParticipant objects and methods to update the status
 * of each participant contained in the list that has been selected.
 *
-* There are three groups 1. Pending Approval 2. Approved 3. Rejected. each group is lazy loaded and can be forced into
+* There are four groups 1. Pending Approval 2. Approved 3. Rejected and 4. Invited. each group is lazy loaded and can be forced into
 * a refresh by calling refreshTables() which will null each object out and force them to reload.
 *
-* updateSinglParticipant() uses activeparticipantId and activeparticipantstatus values to update a single meeting
+* updateSingleParticipant() uses activeparticipantId and activeparticipantstatus values to update a single meeting
 * participant status.
 *
 * Finally, there are two public variables with getters for use on the visualforce page: 1. meeting 2. statusoptions
@@ -57,6 +57,7 @@ public with sharing class MERC_MassApproveParticipantsController {
         participantsPendingApproval = null;
         participantsApproved        = null;
         participantsRejected        = null;
+        participantsInvited         = null;
     }
 
     /*----- called from an action function, updates a single record -----*/
@@ -110,6 +111,18 @@ public with sharing class MERC_MassApproveParticipantsController {
         }
         set;
     }
+    public ParticipantGroup participantsInvited
+    {
+        get
+        {
+            if (participantsInvited == null)
+            {
+                participantsInvited = new ParticipantGroup('Invited', theMeetingId);
+            }
+            return participantsInvited;
+        }
+        set;
+    }
     /*===== END GETTERS FOR PARTICIPANTGROUPS =====*/
 
     /*----- Helper method to build a query string from a fieldset, perform a query, wrap the
@@ -154,6 +167,11 @@ public with sharing class MERC_MassApproveParticipantsController {
         public PageReference rejectSelected()
         {
             return updateSelected('Rejected');
+        }
+
+        public PageReference inviteSelected()
+        {
+            return updateSelected('Invited');
         }
 
         private PageReference updateSelected(String status)

@@ -27,9 +27,11 @@ public with sharing class MERC_BudgetVersionController {
         Set<Id> budgetIds = new Set<Id>{budget.Id};
         String serializedData = GLBL_SobjectDataLoader.serialize(budgetIds, 
             new GLBL_SobjectDataLoader.SerializeConfig().
-                followMaster(Budget_MERC__c.Meeting_MERC__c). //this tells the serializer to set the new budget with the existing meeting id
-                followChild(Budget_Line_Item_MERC__c.Master_Budget_Line_Item_MERC__c).  // Serialize any related Budget Lines
-                followChild(Budget_Line_Item_MERC__c.Budget_MERC__c));  // Serialize any related Budget Lines
+                followMaster(Budget_MERC__c.Meeting_MERC__c). // this tells the serializer to set the new budget with the existing meeting id
+                followChild(Budget_Line_Item_MERC__c.Master_Budget_Line_Item_MERC__c).  // Set Line Item fields to include
+                followChild(Budget_Line_Item_MERC__c.Budget_MERC__c).
+                followChild(Budget_Line_Item_MERC__c.Supplier_MERC__c).
+                followChild(Budget_Line_Item_MERC__c.Meeting_Vendor_MERC__c));
         Set<Id> resultIds = GLBL_SobjectDataLoader.deserialize(serializedData, new BudgetCloneCallback());
         List<Id> resultIdList = new List<Id>();
         resultIdList.addAll(resultIds);

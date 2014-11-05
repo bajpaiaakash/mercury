@@ -256,14 +256,13 @@
             <layoutItems>
                 <customLink>et4ae5__Send_ExactTarget_Email</customLink>
             </layoutItems>
-            <layoutItems>
-                <customLink>Send_ET_Email</customLink>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <customLink>et4ae5__View_ExactTarget_Analytics</customLink>
             </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
             <layoutItems>
                 <customLink>et4ae5__ExactTarget_Resubscribe</customLink>
             </layoutItems>
@@ -271,7 +270,6 @@
                 <customLink>et4ae5__ExactTarget_Unsubscribe</customLink>
             </layoutItems>
         </layoutColumns>
-        <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
     <miniLayout>

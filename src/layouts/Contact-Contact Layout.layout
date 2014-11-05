@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <excludeButtons>DataDotComClean</excludeButtons>
+    <excludeButtons>RequestUseSfdc</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -167,6 +169,9 @@
             <layoutItems>
                 <customLink>GoogleMaps</customLink>
             </layoutItems>
+            <layoutItems>
+                <customLink>et4ae5__Send_ExactTarget_Email</customLink>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -269,31 +274,6 @@
         <fields>CM.RESPONDED</fields>
         <fields>CM.LAST_UPDATE</fields>
         <relatedList>RelatedCampaignList</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>Data_Asset__c</fields>
-        <fields>CREATED_DATE</fields>
-        <fields>CREATEDBY_USER</fields>
-        <relatedList>PANG_Data_Asset_Contact__c.Contact__c</relatedList>
-        <sortField>Data_Asset__c</sortField>
-        <sortOrder>Asc</sortOrder>
-    </relatedLists>
-    <relatedLists>
-        <fields>Project__c</fields>
-        <fields>Request__c</fields>
-        <fields>CREATEDBY_USER</fields>
-        <fields>CREATED_DATE</fields>
-        <relatedList>PANG_Related_Contact__c.Contact__c</relatedList>
-        <sortField>Project__c</sortField>
-        <sortOrder>Asc</sortOrder>
-    </relatedLists>
-    <relatedLists>
-        <fields>Partnership__c</fields>
-        <fields>CREATEDBY_USER</fields>
-        <fields>CREATED_DATE</fields>
-        <relatedList>PANG_Partnership_Contacts__c.Contact__c</relatedList>
-        <sortField>Partnership__c</sortField>
-        <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedObjects>AccountId</relatedObjects>
     <showEmailCheckbox>false</showEmailCheckbox>

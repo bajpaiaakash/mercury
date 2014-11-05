@@ -33,15 +33,6 @@ private class MERC_NewContentControllerTest {
     		}
     	}
 
-    	// UK user groups for membership in Content Libraries
-        List<Group> groups = [SELECT Id FROM Group WHERE Name LIKE '%GB'];
-        List<GroupMember> members = new List<GroupMember>();
-        for (Group g : groups) {
-        	members.add(new GroupMember(GroupId=g.Id,UserOrGroupId=testUser.Id));
-        	members.add(new GroupMember(GroupId=g.Id,UserOrGroupId=runningUser.Id));
-        }
-        insert members;
-
 		System.runAs(runningUser) {
 			accounts = MERC_TestFactory.insertHcpAccountsInCountry(1, 'GB');
 			meetings = MERC_TestFactory.insertMeetings(1, 'GB');
@@ -160,12 +151,47 @@ private class MERC_NewContentControllerTest {
 	@isTest
 	static void testUploadInvoiceContent() {
 		System.runAs(testUser) {
-			PageReference ref = Page.MERC_NewMeetingContent;
+			PageReference ref = Page.MERC_NewInvoiceContent;
 			ref.getParameters().put('id', invoices.get(0).Id);
 			Test.setCurrentPage(ref);
 
 			Test.startTest();
 
+			for (String type : docTypesByRecType.get('Invoice_MERC')) {
+				MERC_NewContentController controller = new MERC_NewContentController();
+				populateFile(controller, type);
+				PageReference returnRef = controller.upload();
+				if (returnRef != null) System.debug(returnRef.getUrl());
+				System.assertNotEquals(null,returnRef,'Expected a PageRef but got null: ' + ApexPages.getMessages());
+			}
+			Test.stopTest();
+		}
+	}
+
+	@isTest
+	static void testUploadInvoiceContentAfterDelete() {
+
+        String suffix  = [SELECT Library_String_MERC__c
+                             FROM Content_Library_Lookup_MERC__c
+                            WHERE Content_Record_Type_MERC__c='Invoice_MERC'
+                              AND Content_Document_Type_MERC__c='Invoices'].Library_String_MERC__c;
+        String libraryName = 'GB' + ' - ' + suffix;
+		ContentVersion file = new ContentVersion();
+		file.FirstPublishLocationId = [select Id from ContentWorkspace WHERE Name = :libraryName].Id;
+		file.Invoice_MERC__c = invoices.get(0).Id;
+        file.RecordTypeId = [Select Id From RecordType WHERE DeveloperName = 'Invoice_MERC' AND SobjectType = 'ContentVersion' LIMIT 1].Id;
+        file.Title = Mercury_Settings_MERC__c.getOrgDefaults().Invoice_File_Prefix_MERC__c + String.valueOf(invoices.get(0).Id) + '.tif';
+        file.Document_Type_MERC__c = 'Invoices';
+		file.PathOnClient = Mercury_Settings_MERC__c.getOrgDefaults().Invoice_File_Prefix_MERC__c + String.valueOf(invoices.get(0).Id) + '.tif';
+		file.VersionData = Blob.valueOf('For naught so vile that on the earth doth live but to the earth some special good doth give.');
+		insert file;
+
+		System.runAs(runningUser) {
+			Test.startTest();
+			PageReference ref = Page.MERC_NewInvoiceContent;
+			ref.getParameters().put('id', invoices.get(0).Id);
+			ref.getParameters().put('tif','1');
+			Test.setCurrentPage(ref);
 			for (String type : docTypesByRecType.get('Invoice_MERC')) {
 				MERC_NewContentController controller = new MERC_NewContentController();
 				populateFile(controller, type);
@@ -389,5 +415,4 @@ private class MERC_NewContentControllerTest {
 		controller.file.VersionData = Blob.valueOf('For naught so vile that on the earth doth live but to the earth some special good doth give.');
 		controller.file.Document_Type_MERC__c = type;
 	}
-
 }

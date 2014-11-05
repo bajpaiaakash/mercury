@@ -47,14 +47,18 @@ private class MERC_DocusignServiceTest {
     static void testSendToSigners() {
 
         //generate signers
-        List<Account> signingAccounts = MERC_TestFactory.insertAccounts(2);
         List<MERC_DocusignService.RequiredSigner> requiredSigners = new List<MERC_DocusignService.RequiredSigner>();
-        for (Integer i = 0; i < signingAccounts.size(); i++) {
-            MERC_DocusignService.RequiredSigner signer = new MERC_DocusignService.RequiredSigner();
-            signer.acc = signingAccounts.get(i);
-            signer.order = i+1;
-            signer.isLilly = i == 0 ? true : false;
-            requiredSigners.add(signer);
+        User testUser = MERC_TestFactory.getTestingUser();
+        System.runAs(testUser) {
+            List<Account> signingAccounts = MERC_TestFactory.insertAccounts(2);
+            
+            for (Integer i = 0; i < signingAccounts.size(); i++) {
+                MERC_DocusignService.RequiredSigner signer = new MERC_DocusignService.RequiredSigner();
+                signer.acc = signingAccounts.get(i);
+                signer.order = i+1;
+                signer.isLilly = i == 0 ? true : false;
+                requiredSigners.add(signer);
+            }
         }
 
         Test.startTest();
@@ -80,7 +84,8 @@ private class MERC_DocusignServiceTest {
         System.assertEquals(r.status, mockResponse.status);
     }
 
-    @isTest static void testTASresponse() {
+    @isTest 
+    static void testTASresponse() {
         MERC_DocusignService.EnvelopeResponse envelope = new MERC_DocusignService.EnvelopeResponse();
         TASResponseObj mockResponse = new TASResponseObj();
         mockResponse.url = 'http://mavensconsulting.com';
@@ -102,13 +107,15 @@ private class MERC_DocusignServiceTest {
      * even though the method above, testTASresponse(), clearly exercizes the code in question. To make the
      * compiler happy, I'll just set the value here...
      */
-    @isTest static void coverTagAndSendResponseClass() {
+    @isTest 
+    static void coverTagAndSendResponseClass() {
         MERC_DocusignService.TagAndSendResponse tasResponse = new MERC_DocusignService.TagAndSendResponse();
         tasResponse.url = 'http://mavensconsulting.com';
         System.assertEquals('http://mavensconsulting.com',tasResponse.url,'url has unexpected value: '+tasResponse.url);
     }
 
-    @isTest static void testGetEnvelopeDetail() {
+    @isTest 
+    static void testGetEnvelopeDetail() {
         Test.startTest();
         //serialize mock response
         MERC_DocusignService.EnvelopeDetailResponse mockResponse = new MERC_DocusignService.EnvelopeDetailResponse();
@@ -129,7 +136,8 @@ private class MERC_DocusignServiceTest {
         System.assertEquals(r.status, mockResponse.status);
     }
 
-    @isTest static void testDeleteSigner() {
+    @isTest 
+    static void testDeleteSigner() {
         Test.startTest();
         //serialize mock response
         String envelopeResponseJSONString = JSON.serializePretty('');
@@ -145,7 +153,8 @@ private class MERC_DocusignServiceTest {
         Test.stopTest();
     }
 
-    @isTest static void testUpdateSigner() {
+    @isTest 
+    static void testUpdateSigner() {
         Test.startTest();
         //serialize mock response
         String envelopeResponseJSONString = JSON.serializePretty('');
@@ -161,7 +170,8 @@ private class MERC_DocusignServiceTest {
         Test.stopTest();
     }
 
-    @isTest static void testAddSigner() {
+    @isTest 
+    static void testAddSigner() {
         MERC_DocusignService.Signer signer = new MERC_DocusignService.Signer('test@mavensconsulting.com', 'Test user', 'recpId', 'routId');
         MERC_DocusignService.Recipient mockResponse = new MERC_DocusignService.Recipient();
         mockResponse.signers = new List<MERC_DocusignService.Signer>{signer};
@@ -183,7 +193,8 @@ private class MERC_DocusignServiceTest {
         System.assertEquals(signer.name, r.get(0).name);
     }
 
-    @isTest static void testGetTabsForRecipient() {
+    @isTest 
+    static void testGetTabsForRecipient() {
         MERC_DocusignService.SignHereTabResponse tab = new MERC_DocusignService.SignHereTabResponse();
         tab.documentId = 'documentId';
         tab.anchorString = '<--DOCUSIGN SIGNATURE MARKER-->';
@@ -211,7 +222,8 @@ private class MERC_DocusignServiceTest {
         System.assertEquals(tab.anchorYOffset, r.signHereTabs.get(0).anchorYOffset);
     }
 
-    @isTest static void testGetEmbeddedSignUrl() {
+    @isTest 
+    static void testGetEmbeddedSignUrl() {
         MERC_DocusignService.EmbeddedSignResponse mockResponse = new MERC_DocusignService.EmbeddedSignResponse();
         mockResponse.url ='http://google.com';
 
@@ -240,7 +252,4 @@ private class MERC_DocusignServiceTest {
         // properties from MERC_DocusignService.TagAndSendResponse
         public String url;
     }
-
-
-
 }

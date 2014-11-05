@@ -2,15 +2,30 @@
  * @author Joseph Ferraro
  *
  * Service which submits query to Customer Search Tool running on Heroku
- * -It relies on clientid/clientsecret distributed by the CST to retrieve a token
- * -Because of Apex constraints re: DML/calling out, we retrieve a new access token each time the page is loaded
- * 		-we can refactor in the future to possibly implement a @future method which updates an expired access token on a 401 response
+ *  -It relies on clientid/clientsecret distributed by the CST to retrieve a token
+ *  -Because of Apex constraints re: DML/calling out, we retrieve a new access token each time the page is loaded
+ * 	-we can refactor in the future to possibly implement a @future method which updates an expired access token on a 401 response
  */
 public with sharing class GLBL_CustomerSearchToolService {
 
+	public Boolean searching {
+		get {
+			if (searchStatus == null) {
+				return false;
+			}
+			else if (searchStatus.toUpperCase() == 'SEARCHING' || searchStatus.toUpperCase() == 'QUEUED') {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+	}
+	public String searchStatus;
+	public String errorDescription;
 	private String baseUrl;
-	public  String accessToken { get; private set; }
-	public  Mercury_Settings_MERC__c appSettings {
+	public String accessToken { get; private set; }
+	public Mercury_Settings_MERC__c appSettings {
 		get {
 			if (appSettings == null) {
 				appSettings = Mercury_Settings_MERC__c.getOrgDefaults();
@@ -19,6 +34,7 @@ public with sharing class GLBL_CustomerSearchToolService {
 		}
 		private set;
 	}
+
 	public ErrorResult error {get; private set;}
 
 	public GLBL_CustomerSearchToolService() {
@@ -26,13 +42,18 @@ public with sharing class GLBL_CustomerSearchToolService {
 	}
 
 	//performs search against the CST
-	public List<SearchResult> doSearch(SearchRequest req) {
+	public String doSearch(SearchRequest req) {
 		String requestJson = JSON.serialize(req);
 		system.debug('>>> '+requestJson);
 
 		return processResponse(tryCallout(requestJson), requestJson);
 	}
 
+
+	/* retrieveResults
+	 * Called to submit search and returns a search id,
+	 * necessary for retrieving the results.
+	 */ 
 	private HttpResponse tryCallout(String requestJson) {
 		HttpRequest r = new HttpRequest();
 		r.setHeader('Content-type', 'application/json');
@@ -49,28 +70,137 @@ public with sharing class GLBL_CustomerSearchToolService {
 		return h.send(r);
 	}
 
-	private List<SearchResult> processResponse(HttpResponse response, String requestJson) {
-		List<SearchResult> results;
+	/* processResponse
+	 * Parses response and returns search id and/or errors.
+	 */
+	private String processResponse(HttpResponse response, String requestJson) {
+		String result = '';
+		System.debug('\n\n\nResponse body is: ' + response.getBody() + '\n\n\n');
+		
+		// 400 Bad Request: The request could not be understood by the server due to malformed syntax.
 		if (response.getStatusCode() == 400) {
 			error = (ErrorResult)JSON.deserialize(response.getBody(), ErrorResult.class);
+		
+		// 401 Unauthorized: The request requires user authentication.
 		} else if (response.getStatusCode() == 401) {
-			/** if the user is unauthorized refresh the token and try again, only one more time**/
+			// If the user is unauthorized refresh the token and try again, only one more time
 			if (String.isNotBlank(requestJson)) {
 				refreshToken();
 				HttpResponse retryResponse = tryCallout(requestJson);
-				results = processResponse(retryResponse, ''); //pass empty string this time so we won't try again if we get another 401 response.
-				return results;
+				result = processResponse(retryResponse, ''); //pass empty string this time so we won't try again if we get another 401 response.
+				return result;
 			}
 			error = (ErrorResult)JSON.deserialize(response.getBody(), ErrorResult.class);
+		
+		// 200 The request has succeeded.
+		// Returning Search Id, if none retrieved, try one more time.
 		} else if (response.getStatusCode() == 200) {
-			String s = response.getBody().replaceAll('__c"','"');
-			results = (List<SearchResult>)JSON.deserialize(s, List<SearchResult>.class);
-			system.debug('>>> results from search tool: '+results);
+			String s = response.getBody();
+			System.debug('\n\n\nresponse body  is: ' + s + '\n\n\n');
+			SearchIdResult searchIdRes = (SearchIdResult)JSON.deserialize(s, SearchIdResult.class);
+			if(String.isNotBlank(searchIdRes.search_id)) {
+				refreshToken();
+				//return result;
+				return searchIdRes.search_id;
+			} else if (String.isNotBlank(requestJson)) {
+				HttpResponse retrieveSearch = tryCallout(requestJson);
+				result = processResponse(retrieveSearch, ''); //pass empty string this time so we won't try again if we get another 401 response.
+				return result;
+			} else {
+				error = new ErrorResult();
+				error.Error = 'Search Id not found.';
+				error.Message = response.getBody();
+			}
+
+		// Unknown response.
 		} else {
 			error = new ErrorResult();
 			error.Error = 'UNEXPECTED';
 			error.Message = response.getBody();
 		}
+
+		return result;
+	}
+
+	/* retrieveResults
+	 * Called to retrieve results.
+	 * Results are returned back through this method.
+	 */ 
+	public List<SearchResult> retrieveResults(String searchId) {
+		system.debug('>>> '+searchId);
+		return processResultResponse(tryCalloutRetrieve(searchId), searchId);
+	}
+
+	/* tryCallOutRetrieve
+	 * Collects search results by passing a HttpRequest
+	 * with the Search Id.
+	 */
+	public HttpResponse tryCallOutRetrieve(String searchId) {
+		HttpRequest r = new HttpRequest();
+		r.setHeader('Content-type', 'application/json');
+		r.setHeader('Authorization', 'Bearer '+this.accessToken);
+		r.setHeader('Accept', 'application/json');
+		r.setEndpoint(this.baseUrl+'/search/'+searchId);
+		System.debug(r.getEndpoint());
+		r.setMethod('GET');
+		r.setTimeout(30000); //match heroku timeout
+
+		system.debug('>>>  '+r.getHeader('Authorization'));
+		error = null;
+		Http h = new Http();
+		return h.send(r);
+	}
+
+	/* processResultResponse
+	 * Used for processing the HttpResponse from an attempt to retrieve
+	 * the results.
+	 */
+	private List<SearchResult> processResultResponse(HttpResponse response, String searchId) {
+		List<SearchResult> results = new List<SearchResult>();
+		
+		// 400 Bad Request: The request could not be understood by the server due to malformed syntax.
+		if (response.getStatusCode() == 400) {
+			error = (ErrorResult)JSON.deserialize(response.getBody(), ErrorResult.class);
+		
+		// 401 Unauthorized: The request requires user authentication.
+		} else if (response.getStatusCode() == 401) {
+			// If the user is unauthorized refresh the token and try again, only one more time
+			if (String.isNotBlank(searchId)) {
+				refreshToken();
+				HttpResponse retryResponse = tryCallOutRetrieve(searchId);
+				results = processResultResponse(retryResponse, ''); //pass empty string this time so we won't try again if we get another 401 response.
+			}
+			error = (ErrorResult)JSON.deserialize(response.getBody(), ErrorResult.class);
+		
+		// 200 The request has succeeded.
+		// Process response and return result.
+		} else if (response.getStatusCode() == 200) {
+			String s = response.getBody().replaceAll('__c"','"');
+			system.debug('\n\n\nFull result is: ' + s + '\n\n\n');
+			FullSearchResult fullResult = (FullSearchResult)JSON.deserialize(s, FullSearchResult.class);
+			system.debug('\n\n\nFull result is: ' + fullResult + '\n\n\n');
+			if(fullResult.status == null) {
+				error = new ErrorResult();
+				error.Error = 'NULL RESPONSE';
+				error.Message = response.getBody();
+			}
+			if(fullResult.status.toUpperCase() == 'SEARCHING') {
+				searchStatus = fullResult.status;
+				errorDescription = fullResult.error;
+			} else {
+				results = fullResult.result;
+				searchStatus = fullResult.status;
+				errorDescription = fullResult.error;
+				system.debug('>>> results from search tool: '+results);
+			}
+		
+		// Any other type of response.
+		} else {
+			error = new ErrorResult();
+			error.Error = 'UNEXPECTED';
+			error.Message = response.getBody();
+		}
+		
 		return results;
 	}
 
@@ -116,6 +246,11 @@ public with sharing class GLBL_CustomerSearchToolService {
 	//  "expires_in" : 7200
 	//}
 
+
+	/* SearchRequest
+	 * Inner request used to JSON.serialize 
+	 * for the httpRequest.
+	 */
 	public class SearchRequest {
 		public String fn { get; set; } //first name
 		public String ls { get; set; } //last name
@@ -145,12 +280,35 @@ public with sharing class GLBL_CustomerSearchToolService {
 		public String sortOrder { get; set; }
 		public Boolean strict { get; set; } //"off" or "on"
 	}
-
+	// ErrorResult
 	public class ErrorResult {
 		public String Error { get; set; }
 		public String Message { get; set; }
 	}
 
+	/* SearchIdResult
+	 * Used to deserialize the Json response.
+	 * The Search Id will be then used to retrieve
+	 * results in the next httpRequests.
+	 */
+	public class SearchIdResult {
+		public String search_id {get; set;}
+	}
+
+	/* FullSearchResult
+	 * Used for deserialization of the Json's search results.
+	 * It includes a list of SearchResults.
+	 */
+	public class FullSearchResult {
+		public String status { get; set; } //should be queued/searching/complete/error/expired
+		public String error {get; set; }
+		public List<SearchResult> result {get; set;}
+	}
+
+	/* SearchResult
+	 * The deserialization class for the results. Used in list
+	 * form inside FullSearchResult.
+	 */
 	public class SearchResult {
 		public Boolean selected { get; set; }
 		public Boolean selectable { get; set; }
@@ -185,4 +343,6 @@ public with sharing class GLBL_CustomerSearchToolService {
 	    public String prim_affil_addr_city_glbl { get; set; }
 	    public String recordtypeid { get; set; }
 	}
+
+
 }

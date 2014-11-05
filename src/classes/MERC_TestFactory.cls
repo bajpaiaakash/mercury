@@ -42,7 +42,7 @@ public with sharing class MERC_TestFactory {
 		for (Integer i = 0; i < numberOfAccounts; i++) {
 			String randomString = MERC_Util.generateRandomString(8);
 			Account a = new Account();
-			a.Name = 'UnitTest'+randomString;
+			a.Name = 'unittest'+randomString;
 			a.RecordTypeId = recordTypeId;
 			accs.add(a);
 		}
@@ -55,7 +55,7 @@ public with sharing class MERC_TestFactory {
 		for (Integer i = 0; i < numberOfOpportunities; i++) {
 			String randomString = MERC_Util.generateRandomString(8);
 			Opportunity o = new Opportunity();
-			o.Name = 'UnitTest'+randomString;
+			o.Name = 'unittest'+randomString;
 			o.StageName = 'Reviewing';
 			o.AccountId = accountId;
 			o.CloseDate = Date.today().addDays(5);
@@ -74,10 +74,10 @@ public with sharing class MERC_TestFactory {
 		for (Integer i = 0; i < numberOfAccounts; i++) {
 			String randomString = MERC_Util.generateRandomString(8);
 			Account a = new Account();
-			a.FirstName = 'UnitTest';
+			a.FirstName = 'unittest';
 			a.LastName = randomString;
 			a.RecordTypeId = recordTypeId;
-			a.PersonEmail = 'ut-'+randomString+'@gmail.com';
+			a.PersonEmail = 'ut-'+randomString+'@unittest.com';
 			accs.add(a);
 		}
 		insert accs;
@@ -89,10 +89,10 @@ public with sharing class MERC_TestFactory {
 		for (Integer i = 0; i < numberOfAccounts; i++) {
 			String randomString = MERC_Util.generateRandomString(8);
 			Account a = new Account();
-			a.FirstName = 'UnitTest';
+			a.FirstName = 'unittest';
 			a.LastName = randomString;
 			a.RecordTypeId = hcpRecordTypeId;
-			a.PersonEmail = 'ut-'+randomString+'@gmail.com';
+			a.PersonEmail = 'ut-'+randomString+'@unittest.com';
 			a.Cust_Id_GLBL__c = randomString;
 			a.Country_of_Residence_GLBL__c = country;
 			accs.add(a);
@@ -106,10 +106,10 @@ public with sharing class MERC_TestFactory {
 		for (Integer i = 0; i < numberOfAccounts; i++) {
 			String randomString = MERC_Util.generateRandomString(8);
 			Account a = new Account();
-			a.FirstName = 'UnitTest';
+			a.FirstName = 'unittest';
 			a.LastName = randomString;
 			a.RecordTypeId = hcpRecordTypeId;
-			a.PersonEmail = 'ut-'+randomString+'@gmail.com';
+			a.PersonEmail = 'ut-'+randomString+'@unittest.com';
 			a.Country_of_Residence_GLBL__c = country;
 			accs.add(a);
 		}
@@ -121,10 +121,10 @@ public with sharing class MERC_TestFactory {
 		List<Account> accs = new List<Account>();
 		for (Integer i = 0; i < numberOfAccounts; i++) {
 			Account a = new Account();
-			a.FirstName = 'UnitTest';
+			a.FirstName = 'unittest';
 			a.LastName = 'Smith'+numberOfAccounts;
 			a.RecordTypeId = employeeRecordTypeId;
-			a.PersonEmail = 'unittest'+i+'@gmail.com';
+			a.PersonEmail = 'unittest'+i+'@unittest.com';
 			accs.add(a);
 		}
 		insert accs;
@@ -467,7 +467,8 @@ public with sharing class MERC_TestFactory {
 	}
 
 	public static User getTestingUser() {
-		return getUserInRole('CEO');
+		User u = getUserInRole('CEO');
+		return u;
 	}
 
 	public static List<User> insertTestUsers(Integer numberOfUsers, String profileName) {
@@ -480,6 +481,11 @@ public with sharing class MERC_TestFactory {
 		return insertTestUsers(numberOfUsers, profileName, null, null);
 	}
 
+	/*
+	 * Some Mercury workflows may conflict with unit tests (known issue: https://success.salesforce.com/ideaview?id=08730000000BrpCAAS)
+	 * In these cases, confirm these test users have username with "unitest" string & 
+	 * use formula qualifier: !CONTAINS($User.Username, "unittest") 
+	 */
 	private static Integer userIndex = 0;
 	public static List<User> insertTestUsers(Integer numberOfUsers, String profileName, String roleName, String groupName) {
 		List<User> users = new List<User>();
@@ -505,6 +511,13 @@ public with sharing class MERC_TestFactory {
         List<GroupMember> members = new List<GroupMember>();
         for (User u : users) {
         	members.add(new GroupMember(GroupId=g.Id,UserOrGroupId=u.Id));
+        }
+        List<Group> groups = [SELECT Id FROM Group WHERE Name LIKE '%GB'];
+        for (Group grp : groups) {
+        	for (User u : users)
+        	{
+        		members.add(new GroupMember(GroupId=grp.Id,UserOrGroupId=u.Id));
+        	}
         }
         insert members;
 

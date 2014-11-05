@@ -191,6 +191,21 @@ Created by J Adams 12/10/2013</description>
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Quantity_MERC__c</fullName>
+        <defaultValue>1</defaultValue>
+        <description>The quantity of units for the budget line item : MERC : Created on 24/09/2014 by by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The unit quantity, if not applicable for the category please leave as 1.</inlineHelpText>
+        <label>Quantity</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Savings_MERC__c</fullName>
         <externalId>false</externalId>
         <formula>IF( Master_Budget_Line_Item_Delta_MERC__c &lt; 0 , ABS(Master_Budget_Line_Item_Delta_MERC__c), 0)</formula>
@@ -383,6 +398,59 @@ Created by J Adams 12/10/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Supplier_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Used to associate the Supplier who negotiated savings on behalf of Lilly to each Budget Line Item.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Supplier who negotiated savings for this Budget Line Item.</inlineHelpText>
+        <label>Supplier</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.RecordType.DeveloperName</field>
+                <operation>equals</operation>
+                <value>Supplier_GLBL</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Budget Line Items (Negotiated Savings)</relationshipLabel>
+        <relationshipName>Budget_Line_Items_MERC</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Total_Amount_MERC__c</fullName>
+        <description>Total Amount based upon quantity multiplied by unit cost.  Created on 25/09/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Unit_Cost_MERC__c *  Quantity_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Quantity multiplied by Unit Cost</inlineHelpText>
+        <label>Total Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Savings_MERC__c</fullName>
+        <description>The total savings based upon quantity multiplied by unit savings : MERC : Created on 24/09/2014 by Oliver Dunford, Mavens Consulting.</description>
+        <externalId>false</externalId>
+        <formula>Unit_Savings_MERC__c *  Quantity_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Savings</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>Type_MERC__c</fullName>
         <description>Track type of Budget Line item. Created 9/30/2013 by KLorenti.</description>
         <externalId>false</externalId>
@@ -394,6 +462,10 @@ Created by J Adams 12/10/2013</description>
             </picklistValues>
             <picklistValues>
                 <fullName>AV Equipment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancellation Expenses</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -457,6 +529,32 @@ Created by J Adams 12/10/2013</description>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Unit_Cost_MERC__c</fullName>
+        <description>The cost per unit for the budget line item : MERC : Created on 24/09/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The cost of each budget line item unit.   Please include room taxes if the category is hotel rooms.</inlineHelpText>
+        <label>Unit Cost</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Unit_Savings_MERC__c</fullName>
+        <description>The saving per unit, negotiated by the Supplier : MERC : Created on 24/09/2014 by Oliver Dunford, Mavens Consulting.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The negotiated savings per unit.  For example, the savings generated for each individual hotel room (rather than the total savings across all hotel rooms)</inlineHelpText>
+        <label>Unit Savings</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
     </fields>
     <fields>
         <fullName>Vendor_Name_MERC__c</fullName>
@@ -526,6 +624,22 @@ Budget_MERC__r.RecordType.DeveloperName == &apos;MERC_Budget_Active&apos;
 Budget_MERC__r.RecordType.DeveloperName == &apos;MERC_Budget_Archived&apos;
 )</errorConditionFormula>
         <errorMessage>You cannot modify Budget Lines on Active or Archived Budgets.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>MERC_Quantity_Greater_than_0</fullName>
+        <active>true</active>
+        <description>Ensures a positive value for unit quantity : MERC : Created on 29/09/2014 by Oliver Dunford, Mavens Consulting</description>
+        <errorConditionFormula>Quantity_MERC__c &lt; 0</errorConditionFormula>
+        <errorDisplayField>Quantity_MERC__c</errorDisplayField>
+        <errorMessage>The quantity must be greater than or equal to 1.  Please enter a positive number.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>MERC_Unit_Cost_Greater_than_0</fullName>
+        <active>true</active>
+        <description>Ensures a positive value for the unit cost : MERC : Created on 24/09/2014 by Oliver Dunford, Mavens Consulting</description>
+        <errorConditionFormula>Unit_Cost_MERC__c &lt; 0</errorConditionFormula>
+        <errorDisplayField>Unit_Cost_MERC__c</errorDisplayField>
+        <errorMessage>Please ensure the unit cost is a positive value.</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>New_Line_Item</fullName>

@@ -7,5 +7,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>Luxembourg</name>
     <opportunityAccessLevel>Read</opportunityAccessLevel>
-    <parentTerritory>Belgium</parentTerritory>
+    <parentTerritory>Zone_2</parentTerritory>
 </Territory>

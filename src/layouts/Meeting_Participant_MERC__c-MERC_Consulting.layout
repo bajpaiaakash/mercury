@@ -41,6 +41,10 @@
                 <behavior>Edit</behavior>
                 <field>Institutional_Notification_Sent_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Record_Type_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -149,6 +153,10 @@
                 <behavior>Edit</behavior>
                 <field>Travel_Time_Hrs_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Total_Hours_of_Service_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -201,12 +209,23 @@
                 <field>Service_Provider_Tier_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Proposed_Final_Fee_MERC__c</field>
+                <behavior>Readonly</behavior>
+                <field>Travel_Adjustment_Percentage_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Travel_Adjustment_Percentage_MERC__c</field>
+                <field>Minimum_Fee_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Maximum_Fee_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <emptySpace>true</emptySpace>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Proposed_Final_Fee_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -294,6 +313,10 @@
                 <behavior>Edit</behavior>
                 <field>Additional_Travel_Details_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Require_Congress_Registration_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -367,6 +390,22 @@
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>false</editHeading>
+        <label>Individual Email Results</label>
+        <layoutColumns>
+            <layoutItems>
+                <height>200</height>
+                <page>MeetingParticipantTracking</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>true</showScrollbars>
+                <width>100%</width>
+            </layoutItems>
+        </layoutColumns>
+        <style>OneColumn</style>
     </layoutSections>
     <layoutSections>
         <customLabel>false</customLabel>

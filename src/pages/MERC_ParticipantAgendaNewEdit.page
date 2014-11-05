@@ -14,19 +14,19 @@
 			<apex:pagemessages id="pageMessage"/>
 
 			<apex:repeat value="{!sections}" var="section">
-				<apex:pageBlockSection title="{!section.title}" columns="{!section.columns}">
-					<apex:repeat value="{!section.fields}" var="field">
-						<apex:pageBlockSectionItem >
-							<apex:outputLabel value="{!field.label}"/>
-							<apex:actionRegion >
-								<apex:inputField required="{!field.required}"
-								                 value="{!mySobject[field.value]}"
-								                 rendered="{!field.readOnly == false && not(field.blankSpace) && not(field.isChildField)}"
-								                 onchange="{!field.onChange}"
-								                 styleClass="{!field.styleClass}"
-								                 html-data-related-id="{!IF(field.isParentField, mySobject[field.value], '')}"/>
+				<apex:actionRegion >
+					<apex:pageBlockSection title="{!section.title}" columns="{!section.columns}">
+						<apex:repeat value="{!section.fields}" var="field">
+							<apex:inputField required="{!field.required}"
+							                 value="{!mySobject[field.value]}"
+							                 rendered="{!field.readOnly == false && not(field.blankSpace) && not(field.isChildField)}"
+							                 onchange="{!field.onChange}"
+							                 styleClass="{!field.styleClass}"
+							                 html-data-related-id="{!IF(field.isParentField, mySobject[field.value], '')}"/>
 
-								<!-- below is functionality to handle rendering of lookups as dependant picklists. If configured in the Lookup Picklist custom setting   -->
+							<!-- below is functionality to handle rendering of lookups as dependant picklists. If configured in the Lookup Picklist custom setting   -->
+							<apex:pageBlockSectionItem rendered="{!field.readOnly == false && not(field.blankSpace) && field.isChildField}">
+								<apex:outputLabel value="{!field.label}"/>
 								<apex:outputpanel id="selectblock"
 								                  layout="block"
 								                  styleClass="requiredInput"
@@ -57,13 +57,13 @@
 										})();
 									</script>
 								</apex:outputpanel>
+							</apex:pageBlockSectionItem>
 
-								<apex:outputField value="{!mySobject[field.value]}" rendered="{!field.readOnly}"/>
-								<apex:pageBlockSection rendered="{!field.blankSpace}">&nbsp;</apex:pageBlockSection>
-							</apex:actionRegion>
-						</apex:pageBlockSectionItem>
-					</apex:repeat>
-				</apex:pageBlockSection>
+							<apex:outputField value="{!mySobject[field.value]}" rendered="{!field.readOnly}"/>
+							<apex:pageBlockSection rendered="{!field.blankSpace}">&nbsp;</apex:pageBlockSection>
+						</apex:repeat>
+					</apex:pageBlockSection>
+				</apex:actionRegion>
 			</apex:repeat>
 		</apex:pageBlock>
 	</apex:form>

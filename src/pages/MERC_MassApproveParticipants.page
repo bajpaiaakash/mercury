@@ -148,6 +148,7 @@
 						<apex:outputPanel rendered="{!participantsApproved.participants.size > 0}">
 							<div class="selectApprovedActions selectActions">
 								<apex:commandButton value="Reject Selected"  action="{!participantsApproved.rejectSelected}"  onclick="toggleLoading()" oncomplete="refreshTables()" rerender="messages"/>
+								<apex:commandButton value="Invite Selected"  action="{!participantsApproved.inviteSelected}"  onclick="toggleLoading()" oncomplete="refreshTables()" rerender="messages"/>
 							</div>
 							<apex:pageBlockTable value="{!participantsApproved.participants}" var="p" styleClass="participantTable">
 								<apex:column styleClass="selectApprovedColumn">
@@ -159,6 +160,35 @@
 								<apex:column headerValue="{!$ObjectType.Meeting_Participant_MERC__c.fields.Status_MERC__c.label}">
 									<apex:selectList size="1" value="{!p.detail.Status_MERC__c}" onchange="toggleLoading();updateSingleParticipant('{!p.detail.id}', this.value)">
 										<apex:selectOptions value="{!statusOptions}"/>
+										<apex:selectOption itemLabel="Invited" itemValue="Invited"/>
+									</apex:selectList>
+								</apex:column>
+								<apex:repeat value="{!$ObjectType.Meeting_Participant_MERC__c.FieldSets.Mass_Approve_Meeting_Participants_MERC}" var="field">
+									<apex:column value="{!p.detail[field]}"/>
+								</apex:repeat>
+							</apex:pageBlockTable>
+						</apex:outputPanel>
+					</apex:tab>
+
+					<!-- INVITED TAB -->
+					<apex:tab label="Invited" title="Invited" name="invitedTab" id="invitedTab">
+						<apex:pageMessage summary="No participants currently have a status of invited for this meeting." severity="Info" strength="3" rendered="{!participantsInvited.participants.size == 0}"/>
+						<apex:outputPanel rendered="{!participantsInvited.participants.size > 0}">
+							<div class="selectInvitedActions selectActions">
+								<apex:commandButton value="Reject Selected"  action="{!participantsApproved.rejectSelected}"  onclick="toggleLoading()" oncomplete="refreshTables()" rerender="messages"/>
+								<apex:commandButton value="Approve Selected"  action="{!participantsInvited.approveSelected}"  onclick="toggleLoading()" oncomplete="refreshTables();" rerender="messages"/>
+							</div>
+							<apex:pageBlockTable value="{!participantsInvited.participants}" var="p" styleClass="participantTable">
+								<apex:column styleClass="selectInvitedColumn">
+									<apex:facet name="header">
+										<input type="checkbox" id="selectInvited" class="toggleSelectAll"/>
+									</apex:facet>
+									<apex:inputCheckbox value="{!p.selected}" styleClass="chkSelected Invited" html-data-type="Invited"/>
+								</apex:column>
+								<apex:column headerValue="{!$ObjectType.Meeting_Participant_MERC__c.fields.Status_MERC__c.label}">
+									<apex:selectList size="1" value="{!p.detail.Status_MERC__c}" onchange="toggleLoading();updateSingleParticipant('{!p.detail.id}', this.value)">
+										<apex:selectOptions value="{!statusOptions}"/>
+										<apex:selectOption itemLabel="Invited" itemValue="Invited"/>
 									</apex:selectList>
 								</apex:column>
 								<apex:repeat value="{!$ObjectType.Meeting_Participant_MERC__c.FieldSets.Mass_Approve_Meeting_Participants_MERC}" var="field">
@@ -174,6 +204,7 @@
 						<apex:outputPanel rendered="{!participantsRejected.participants.size > 0}">
 							<div class="selectRejectedActions selectActions">
 								<apex:commandButton value="Approve Selected"  action="{!participantsRejected.approveSelected}"  onclick="toggleLoading()" oncomplete="refreshTables();" rerender="messages"/>
+								<apex:commandButton value="Invite Selected"  action="{!participantsApproved.inviteSelected}"  onclick="toggleLoading()" oncomplete="refreshTables()" rerender="messages"/>
 							</div>
 							<apex:pageBlockTable value="{!participantsRejected.participants}" var="p" styleClass="participantTable">
 								<apex:column styleClass="selectRejectedColumn">
@@ -185,6 +216,7 @@
 								<apex:column headerValue="{!$ObjectType.Meeting_Participant_MERC__c.fields.Status_MERC__c.label}">
 									<apex:selectList size="1" value="{!p.detail.Status_MERC__c}" onchange="toggleLoading();updateSingleParticipant('{!p.detail.id}', this.value)">
 										<apex:selectOptions value="{!statusOptions}"/>
+										<apex:selectOption itemLabel="Invited" itemValue="Invited"/>
 									</apex:selectList>
 								</apex:column>
 								<apex:repeat value="{!$ObjectType.Meeting_Participant_MERC__c.FieldSets.Mass_Approve_Meeting_Participants_MERC}" var="field">
@@ -193,6 +225,7 @@
 							</apex:pageBlockTable>
 						</apex:outputPanel>
 					</apex:tab>
+
 				</apex:tabPanel>
 			</apex:pageBlock>
 			<c:MERC_LoadingMask />

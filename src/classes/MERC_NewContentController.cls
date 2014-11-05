@@ -33,12 +33,6 @@ public with sharing class MERC_NewContentController {
     }
 
     public void setContentDefaults() {
-        //set to mercury library (replaced by getLibraryId)
-        //try {
-        //    this.file.FirstPublishLocationId = [select Id from ContentWorkspace WHERE Name = 'Mercury'].Id;
-        //} catch(Exception e) {
-        //    throw new MERC_Exception('Insufficient access to the Mercury Content Workspace. Please contact your system administrator.');
-        //}
 
         //set record type and lookup(s)
         this.recordId = (Id)this.mysObject.get('Id');
@@ -60,12 +54,10 @@ public with sharing class MERC_NewContentController {
             if (ApexPages.currentPage().getParameters().containsKey('tif') && ApexPages.currentPage().getParameters().get('tif') == '1') {
                 this.file.Title = Mercury_Settings_MERC__c.getOrgDefaults().Invoice_File_Prefix_MERC__c + String.valueOf(this.recordId) + '.tif';
                 this.file.Document_Type_MERC__c = 'Invoices';
-                MERC_InvoiceDocFilterController.deleteOldDocsInContent(new List<Id>{this.recordId},'TIFF');
             }
             if (ApexPages.currentPage().getParameters().containsKey('pdf') && ApexPages.currentPage().getParameters().get('pdf') == '1') {
                 this.file.Title = Mercury_Settings_MERC__c.getOrgDefaults().Invoice_File_Prefix_MERC__c + String.valueOf(this.recordId) + '.pdf';
                 this.file.Document_Type_MERC__c = 'Invoices';
-                MERC_InvoiceDocFilterController.deleteOldDocsInContent(new List<Id>{this.recordId},'PDF');
             }
         } else if (objectAPIName == 'Account') {
             this.file.Account_GLBL__c = this.recordId;
@@ -207,15 +199,4 @@ public with sharing class MERC_NewContentController {
             return null;
         }
     }
-
-    // UNUSED CONSTRUCTOR
-    // public MERC_NewContentController(ApexPages.StandardController stdController) {
-    //     this.stdController = stdController;
-    //     if (!Test.isRunningTest()) {
-    //         this.stdController.addFields(new List<String>{ 'Id', 'Name' });
-    //     }
-    //     this.mysObject = (sObject)stdController.getRecord();
-    //     this.file = new ContentVersion();
-    //     setContentDefaults();
-    // }
 }

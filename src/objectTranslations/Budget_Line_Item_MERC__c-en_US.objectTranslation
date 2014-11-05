@@ -54,6 +54,11 @@
         <relationshipLabel><!-- Budget Line Items (Previous Budget Line Item Version) --></relationshipLabel>
     </fields>
     <fields>
+        <help><!-- The unit quantity, if not applicable for the category please leave as 1. --></help>
+        <label><!-- Quantity --></label>
+        <name>Quantity_MERC__c</name>
+    </fields>
+    <fields>
         <label><!-- Savings --></label>
         <name>Savings_MERC__c</name>
     </fields>
@@ -190,6 +195,21 @@
         </picklistValues>
     </fields>
     <fields>
+        <help><!-- The Supplier who negotiated savings for this Budget Line Item. --></help>
+        <label><!-- Supplier --></label>
+        <name>Supplier_MERC__c</name>
+        <relationshipLabel><!-- Budget Line Items (Negotiated Savings) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Quantity multiplied by Unit Cost --></help>
+        <label><!-- Total Amount --></label>
+        <name>Total_Amount_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Savings --></label>
+        <name>Total_Savings_MERC__c</name>
+    </fields>
+    <fields>
         <label><!-- Type --></label>
         <name>Type_MERC__c</name>
         <picklistValues>
@@ -199,6 +219,10 @@
         <picklistValues>
             <masterLabel>Assistance On Site</masterLabel>
             <translation><!-- Assistance On Site --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancellation Expenses</masterLabel>
+            <translation><!-- Cancellation Expenses --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Congress Registration</masterLabel>
@@ -258,6 +282,16 @@
         </picklistValues>
     </fields>
     <fields>
+        <help><!-- The cost of each budget line item unit.   Please include room taxes if the category is hotel rooms. --></help>
+        <label><!-- Unit Cost --></label>
+        <name>Unit_Cost_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- The negotiated savings per unit.  For example, the savings generated for each individual hotel room (rather than the total savings across all hotel rooms) --></help>
+        <label><!-- Unit Savings --></label>
+        <name>Unit_Savings_MERC__c</name>
+    </fields>
+    <fields>
         <label><!-- Vendor Name --></label>
         <name>Vendor_Name_MERC__c</name>
     </fields>
@@ -284,6 +318,14 @@
     <validationRules>
         <errorMessage><!-- You cannot modify Budget Lines on Active or Archived Budgets. --></errorMessage>
         <name>MERC_Prevent_Budget_Line_Edit_Active_Arc</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The quantity must be greater than or equal to 1.  Please enter a positive number. --></errorMessage>
+        <name>MERC_Quantity_Greater_than_0</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please ensure the unit cost is a positive value. --></errorMessage>
+        <name>MERC_Unit_Cost_Greater_than_0</name>
     </validationRules>
     <webLinks>
         <label><!-- New_Line_Item --></label>

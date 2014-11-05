@@ -14,7 +14,41 @@
         <caseAccessLevel>None</caseAccessLevel>
         <contactAccessLevel>Read</contactAccessLevel>
         <description>Shares Lilly Affiliates as read-only down the Territory Hierarchy for Mercury users.</description>
-        <name>MERC_Meetings_CMS_Local</name>
+        <name>MERC_Lilly_Business_Affiliates</name>
+        <opportunityAccessLevel>None</opportunityAccessLevel>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>MERC_Supplier</fullName>
+        <sharedTo>
+            <territoryAndSubordinates>Zone_2</territoryAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Supplier</value>
+        </criteriaItems>
+        <accountAccessLevel>Read</accountAccessLevel>
+        <caseAccessLevel>None</caseAccessLevel>
+        <contactAccessLevel>Read</contactAccessLevel>
+        <description>Shares Suppliers down the Territory Hierarchy for Mercury Users</description>
+        <name>MERC_Supplier</name>
+        <opportunityAccessLevel>None</opportunityAccessLevel>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>MERC_Supplier_CMS_Cork_Access</fullName>
+        <sharedTo>
+            <group>MERC_Meetings_CMS_Cork</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Supplier</value>
+        </criteriaItems>
+        <accountAccessLevel>Edit</accountAccessLevel>
+        <caseAccessLevel>None</caseAccessLevel>
+        <contactAccessLevel>Edit</contactAccessLevel>
+        <description>Shares Suppliers as Read/Write for CMS Cork Users.</description>
+        <name>MERC_Supplier_CMS_Cork_Access</name>
         <opportunityAccessLevel>None</opportunityAccessLevel>
     </criteriaBasedRules>
     <criteriaBasedRules>
@@ -66,22 +100,6 @@
         <contactAccessLevel>Read</contactAccessLevel>
         <description>Gives read-only access to Vendors across the Zone 2 and Subordinate Territories.</description>
         <name>MERC_Vendors</name>
-        <opportunityAccessLevel>None</opportunityAccessLevel>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>PANG_RWE_Accounts</fullName>
-        <sharedTo>
-            <group>PANG_RWE_Account_Share</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>RecordTypeId</field>
-            <operation>equals</operation>
-            <value>RWE Account</value>
-        </criteriaItems>
-        <accountAccessLevel>Edit</accountAccessLevel>
-        <caseAccessLevel>None</caseAccessLevel>
-        <contactAccessLevel>Edit</contactAccessLevel>
-        <name>RWE Accounts</name>
         <opportunityAccessLevel>None</opportunityAccessLevel>
     </criteriaBasedRules>
 </AccountSharingRules>

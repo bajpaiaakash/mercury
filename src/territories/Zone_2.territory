@@ -3,7 +3,7 @@
     <accountAccessLevel>Edit</accountAccessLevel>
     <caseAccessLevel>Edit</caseAccessLevel>
     <contactAccessLevel>Edit</contactAccessLevel>
-    <description>Europe</description>
+    <description>Zone 2</description>
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>Zone 2</name>
     <opportunityAccessLevel>Read</opportunityAccessLevel>

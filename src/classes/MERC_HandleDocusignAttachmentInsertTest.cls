@@ -13,30 +13,31 @@ private class MERC_HandleDocusignAttachmentInsertTest {
     static User testUser = MERC_TestFactory.getTestingUser();
 
     static {
-        // UK user groups for membership in Content Libraries
-        List<Group> groups = [SELECT Id FROM Group WHERE Name LIKE '%GB'];
-        List<GroupMember> members = new List<GroupMember>();
-        for (Group g : groups) {
-            members.add(new GroupMember(GroupId=g.Id,UserOrGroupId=testUser.Id));
-            members.add(new GroupMember(GroupId=g.Id,UserOrGroupId=runningUser.Id));
-        }
-        insert members;
-
         System.runAs(runningUser) {
-            accts = MERC_TestFactory.insertAccounts(1);
+            accts = MERC_TestFactory.insertHcpAccountsInCountry(1,'GB');
             contract = MERC_TestFactory.insertHCPContract((String)accts[0].Id);
+            // generate initial contract
+            ContentVersion file = new ContentVersion();
+            file.Title = 'Generated Contract';
+            file.VersionData = Blob.valueOf('A kingdom for a stage, princes to act and monarchs to behold the swelling scene');
+            file.HCP_Contract_MERC__c = contract.Id;
+            file.RecordTypeId = [Select Id From RecordType WHERE DeveloperName = 'HCP_Contract_MERC' AND SobjectType = 'ContentVersion' LIMIT 1].Id;
+            file.PathOnClient = 'GeneratedContract.pdf';
+            file.FirstPublishLocationId = [select Id from ContentWorkspace WHERE Name = 'GB - Regional'].Id;
+            insert file;
         }
     }
 
-    // TODO: failing due to changing business flows. Skipping for now
-    // @isTest 
+    @isTest 
     static void contractAttachementBecomesContent() {
 
-        Test.startTest();
-        Attachment a = new Attachment(ParentId = contract.Id, Name = 'Henry V');
-        a.Body = Blob.valueOf('Oh, for a muse of fire that would ascend the brightest heaven of invention!');
-        insert a;
-        Test.stopTest();
+        System.runAs(runningUser) {
+            Test.startTest();
+            Attachment a = new Attachment(ParentId = contract.Id, Name = 'Henry V');
+            a.Body = Blob.valueOf('Oh, for a muse of fire that would ascend the brightest heaven of invention!');
+            insert a;
+            Test.stopTest();
+        }
 
         System.runAs(testUser) {
             List<Attachment> shouldBeEmpty = new List<Attachment>([SELECT Id FROM Attachment WHERE ParentId = :contract.Id]);

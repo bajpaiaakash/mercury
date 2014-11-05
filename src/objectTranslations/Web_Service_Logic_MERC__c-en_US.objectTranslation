@@ -149,6 +149,21 @@
         <name>RSVP_Emergency_Contact_MERC__c</name>
     </fields>
     <fields>
+        <help><!-- Used to define whether Bus Transport is permitted for a Country within the RSVP process.  Used in conjunction with the &apos;Exclude Bus Transport&apos; meeting field. --></help>
+        <label><!-- RSVP Include Bus --></label>
+        <name>RSVP_Include_Bus_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Used to define whether Personal Transfer is permitted for a Country within the RSVP process.  Used in conjunction with the &apos;Exclude Personal Transfer&apos; meeting field. --></help>
+        <label><!-- RSVP Include Personal Transfer --></label>
+        <name>RSVP_Include_Personal_Transfer_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Used to define whether Rail Transport is permitted for a Country within the RSVP process.  Used in conjunction with the &apos;Exclude Rail Transport&apos; meeting field. --></help>
+        <label><!-- RSVP Include Rail --></label>
+        <name>RSVP_Include_Rail_MERC__c</name>
+    </fields>
+    <fields>
         <help><!-- RSVP: Step: Institutional Notification: Captures Institutional Notification Information for HCPs. --></help>
         <label><!-- RSVP Institutional Notification --></label>
         <name>RSVP_Institutional_Notification_MERC__c</name>
@@ -222,8 +237,8 @@
             <section>Known Criteria for Key Generation</section>
         </sections>
         <sections>
-            <label><!-- RSVP Tabs to Display --></label>
-            <section>RSVP Tabs to Display</section>
+            <label><!-- RSVP Tabs/Options to Display --></label>
+            <section>RSVP Tabs/Options to Display</section>
         </sections>
     </layouts>
     <recordTypes>

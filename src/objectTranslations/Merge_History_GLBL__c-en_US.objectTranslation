@@ -17,6 +17,11 @@
         <name>Merge_Date_GLBL__c</name>
     </fields>
     <fields>
+        <help><!-- Marks this record as ready for final processing. Mercury Users select this on the MERC_MergedAccounts page as confirmation that the merge is correct. --></help>
+        <label><!-- Merge Marked Complete --></label>
+        <name>Merge_Marked_Complete_MERC__c</name>
+    </fields>
+    <fields>
         <label><!-- Merge Processed --></label>
         <name>Merge_Processed_MERC__c</name>
     </fields>

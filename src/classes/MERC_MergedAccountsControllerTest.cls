@@ -4,14 +4,34 @@
 * This is the unit test class for the MERC_MergedAccountsController class.
 * If you make changes to the setup in this test class you may also want to review if the same
 * changes need to be made to MERC_MergedAccountApextTest.cls
+* 
+* To test manually:
+* Merge_History_GLBL__c mh = new Merge_History_GLBL__c();
+* mh.Winning_Id_GLBL__c = 'HCP-11180';
+* mh.Original_Account_ID_GLBL__c = 'GB-0013';
+* insert mh;
+* 
 */
 @isTest
 private class MERC_MergedAccountsControllerTest {
 
-    static User runningUser = MERC_TestFactory.getRunningUser();
-    static User testUser = MERC_TestFactory.getTestingUser();
-    static User odsUser;  /* need to be sys admin (or maybe owner of ALL records?) */
-    static {
+    //maxed out at 3. if we try to do a merge of more than 4 we run into all sorts of limits
+    //since a merge can only be done for one winning account at at time
+    static final Integer TEST_ACCT_SIZE = 2;
+    static User testUser;
+    static User odsUser;
+    static List<Account> winningAccounts;
+    static List<Account> losingAccounts;
+    static List<Merge_History_GLBL__c> mergeHistory;
+    static List<String> prefTypes;
+    static List<String> prefValues;
+
+    static
+    {
+        MERC_TriggerHandlerStateManager.deactivateAll();
+        MERC_TestFactory.insertMercuryCustomSettings();
+
+        testUser = MERC_TestFactory.getTestingUser();
         System.runAs(new User(Id=UserInfo.getUserId()))
         {
             Profile p = [SELECT id from Profile WHERE Profile.Name = 'Mercury Integration ODS - Platform' limit 1];
@@ -22,35 +42,27 @@ private class MERC_MergedAccountsControllerTest {
                                alias='utusrods', lastname='lastname');
             insert odsUser;
         }
-    }
-    //maxed out at 3. if we try to do a merge of more than 4 we run into all sorts of limits
-    //since a merge can only be done for one winning account at at time
-    static final Integer TEST_ACCT_SIZE  = 2;
-    static List<Account> winningAccounts = MERC_TestFactory.insertMasterAccountsInCountry(TEST_ACCT_SIZE, 'GB');
-    static List<Account> losingAccounts  = MERC_TestFactory.insertMasterAccountsInCountry(TEST_ACCT_SIZE, 'GB');
 
-    static List<Merge_History_GLBL__c> mergeHistory = new List<Merge_History_GLBL__c>();
-
-    static
-    {
-        MERC_TestFactory.insertMercuryCustomSettings();
-        MERC_TriggerHandlerStateManager.deactivateAll();
+        winningAccounts = MERC_TestFactory.insertMasterAccountsInCountry(TEST_ACCT_SIZE, 'GB');
+        losingAccounts  = MERC_TestFactory.insertMasterAccountsInCountry(TEST_ACCT_SIZE, 'GB');
+        mergeHistory = new List<Merge_History_GLBL__c>();
+        prefTypes  = new List<String>{'Language Preference','Communication Preference','Speaker Interest', 'Contract Delivery', 'Payment Required'};
+        prefValues = new List<String>{'English','E-Mail','Contract Request', 'E-Mail', 'Yes'};
 
         for (Integer i=0; i<TEST_ACCT_SIZE; i++)
         {
             losingAccounts[i].put('Cust_Id_GLBL__c','CUSTID12'+i);
+            winningAccounts[i].put('Cust_Id_GLBL__c','CUSTID11'+i);
             mergeHistory.add( new Merge_History_GLBL__c(Winning_Id_GLBL__c=winningAccounts[i].Cust_ID_GLBL__c, Original_Account_ID_GLBL__c=losingAccounts[i].Cust_ID_GLBL__c ));
         }
         insert mergeHistory;
         update losingAccounts;
 
         List<Preferences_and_Consent_GLBL__c> prefConsentRecords = new List<Preferences_and_Consent_GLBL__c>();
-        List<String> prefTypes  = new List<String>{'Language Preference','Communication Preference','Speaker Interest', 'Contract Delivery', 'Payment Required'};
-        List<String> prefValues = new List<String>{'English','E-Mail','Contract Request', 'E-Mail', 'Yes'};
-        /*----- for each account create 5 preferences -----*/
+        /*----- for each account create 5 (prefTypes.size()) preferences -----*/
         for (Integer a=0; a<TEST_ACCT_SIZE; a++)
         {
-            for (Integer i=0; i<5; i++)
+            for (Integer i=0; i<prefTypes.size(); i++)
             {
                 prefConsentRecords.add(
                     new Preferences_and_Consent_GLBL__c( Preference_Type_MERC__c     = prefTypes[i]
@@ -72,12 +84,18 @@ private class MERC_MergedAccountsControllerTest {
             for (Integer i=0; i<TEST_ACCT_SIZE; i++)
             {
                 merge winningAccounts[i] losingAccounts[i];
+                // reset between each merge
+                GLBL_AccountMergeStampTrigger.runAfterUpdate = false;
+                GLBL_AccountMergeStampTrigger.beforeDeleteHasRun = false;
+                GLBL_AccountMergeStampTrigger.afterDeleteHasRun = false;
+                GLBL_AccountMergeStampTrigger.afterUpdateHasRun = false;
             }
         }
         MERC_TriggerHandlerStateManager.activateAll();
     }
 
-    @isTest static void test_should_initialize_controller()
+    @isTest 
+    static void test_should_initialize_controller()
     {
         System.runAs(testUser)
         {
@@ -89,7 +107,8 @@ private class MERC_MergedAccountsControllerTest {
         }
     }
 
-    @isTest static void test_should_return_different_accounts_on_navigation()
+    @isTest 
+    static void test_should_return_different_accounts_on_navigation()
     {
         System.runAs(testUser)
         {
@@ -107,7 +126,8 @@ private class MERC_MergedAccountsControllerTest {
         }
     }
 
-    @isTest static void test_should_return_empty_list_of_accounts_for_no_merge_history()
+    @isTest 
+    static void test_should_return_empty_list_of_accounts_for_no_merge_history()
     {
         delete mergeHistory;
         System.runAs(testUser)
@@ -119,7 +139,8 @@ private class MERC_MergedAccountsControllerTest {
         }
     }
 
-    @isTest static void test_should_set_MERC_MergedAccountApex_object_correctly()
+    @isTest 
+    static void test_should_set_MERC_MergedAccountApex_object_correctly()
     {
         System.runAs(testUser)
         {
@@ -137,29 +158,37 @@ private class MERC_MergedAccountsControllerTest {
         }
     }
 
-    // This code is in flux. Users currently cannot delete related records
-    // @isTest 
+    @isTest 
     static void test_should_mark_object_complete_and_delete_all_losing_records()
     {
+
+        Test.startTest();
         System.runAs(testUser)
         {
-            Test.startTest();
-            MERC_MergedAccountsController controller = new MERC_MergedAccountsController();
-            controller.completedMergeId = mergeHistory.get(0).Winning_Id_GLBL__c;
-            controller.markMergeObjectComplete();
-
-            Test.stopTest();
-            /*----- for each account there were 5 pref and consent records created; there are TEST_ACCT_SIZE
-                    winning and TEST_ACCT_SIZE losing accounts; 5 pref records should be removed after
-                    marking the merge object complete -----*/
-            System.assertEquals(TEST_ACCT_SIZE*5*2-5, [SELECT COUNT() FROM Preferences_and_Consent_GLBL__c]);
-            System.assert([SELECT Merge_Processed_MERC__c
-                             FROM Merge_History_GLBL__c
-                            WHERE Id=:mergeHistory.get(0).Id].Merge_Processed_MERC__c);
+            for (Merge_History_GLBL__c mh : mergeHistory) 
+            {
+                MERC_MergedAccountsController controller = new MERC_MergedAccountsController();
+                controller.completedMergeId = mh.Winning_Id_GLBL__c;
+                controller.markMergeObjectComplete();
+                System.assert([SELECT Merge_Marked_Complete_MERC__c FROM Merge_History_GLBL__c
+                    WHERE Id=:mh.Id].Merge_Marked_Complete_MERC__c, 'Record not marked complete.');
+            }
         }
+        Database.executeBatch(new MERC_MergedAccountsFinalProcessJob());
+        Test.stopTest();
+
+        System.assert([SELECT Merge_Processed_MERC__c
+                         FROM Merge_History_GLBL__c
+                        WHERE Id=:mergeHistory.get(0).Id].Merge_Processed_MERC__c, 'First record not marked processed.');
+
+        /*----- for each account there were 5 pref and consent records created (prefTypes.size()); there are TEST_ACCT_SIZE
+                winning and TEST_ACCT_SIZE losing accounts; 5 pref records should be removed after
+                marking the merge object complete for each account. -----*/
+        System.assertEquals(TEST_ACCT_SIZE*prefTypes.size(), [SELECT COUNT() FROM Preferences_and_Consent_GLBL__c],'Unexpected count of Pref&Consent remaining.');
     }
 
-    @isTest static void test_should_capture_and_handle_exceptions_in_mark_complete_gracefully()
+    @isTest 
+    static void test_should_capture_and_handle_exceptions_in_mark_complete_gracefully()
     {
         System.runAs(testUser)
         {

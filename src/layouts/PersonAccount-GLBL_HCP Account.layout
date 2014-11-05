@@ -2,7 +2,6 @@
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Upload_Content_MERC</customButtons>
     <customButtons>Generate_Content_MERC</customButtons>
-    <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>EnableSelfService</excludeButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
     <excludeButtons>RequestUpdate</excludeButtons>
@@ -22,6 +21,10 @@
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Name</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Mdl_Nm_GLBL__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -506,9 +509,6 @@
         <editHeading>false</editHeading>
         <label>Custom Links</label>
         <layoutColumns>
-            <layoutItems>
-                <customLink>Send_ET_Email</customLink>
-            </layoutItems>
             <layoutItems>
                 <customLink>et4ae5__Send_ExactTarget_Email</customLink>
             </layoutItems>

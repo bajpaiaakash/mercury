@@ -463,10 +463,7 @@ Name</formula>
         <fullName>RTI_Meeting_Updated_MERC</fullName>
         <apiVersion>29.0</apiVersion>
         <endpointUrl>https://gso1integration.xh1.lilly.com/rti/v1/genericUpdated</endpointUrl>
-        <fields>AODS_Venue_Id_MERC__c</fields>
-        <fields>AODS_Venue_Name_MERC__c</fields>
         <fields>Accommodation_Information_MERC__c</fields>
-        <fields>Activities_MERC__c</fields>
         <fields>Address_Contact_Information_MERC__c</fields>
         <fields>Agenda_Status_MERC__c</fields>
         <fields>Alignment_Internal_Id_GLBL__c</fields>
@@ -490,11 +487,8 @@ Name</formula>
         <fields>Confirm_Meeting_Cancellation_MERC__c</fields>
         <fields>Confirm_Meeting_Date_Change_MERC__c</fields>
         <fields>Confirm_ToV_Reporting_Change_MERC__c</fields>
-        <fields>Confirm_Web_Service_Change_MERC__c</fields>
         <fields>Confirmation_Comp_Invoice_Dt_Tm_MERC__c</fields>
         <fields>Confirmed_Attendees_MERC__c</fields>
-        <fields>Content_Approval_Needed_MERC__c</fields>
-        <fields>Content_Creator_MERC__c</fields>
         <fields>CreatedById</fields>
         <fields>CreatedDate</fields>
         <fields>CurrencyIsoCode</fields>
@@ -544,7 +538,6 @@ Name</formula>
         <fields>Initiate_Venue_Sourcing_Date_Time_MERC__c</fields>
         <fields>Interaction_Type_MERC__c</fields>
         <fields>Internal_Delegates_MERC__c</fields>
-        <fields>Internal_Order_Number_MERC__c</fields>
         <fields>Invitation_Template_MERC__c</fields>
         <fields>Invitee_List_Status_MERC__c</fields>
         <fields>Inviting_Delegates_MERC__c</fields>
@@ -552,11 +545,8 @@ Name</formula>
         <fields>Invoicing_Completed_MERC__c</fields>
         <fields>IsDeleted</fields>
         <fields>Justification_for_Venue_MERC__c</fields>
-        <fields>LastActivityDate</fields>
         <fields>LastModifiedById</fields>
         <fields>LastModifiedDate</fields>
-        <fields>LastReferencedDate</fields>
-        <fields>LastViewedDate</fields>
         <fields>Lock_Meeting_MERC__c</fields>
         <fields>Logistics_Information_MERC__c</fields>
         <fields>MCP_work_MERC__c</fields>
@@ -645,7 +635,6 @@ Name</formula>
         <fields>Start_Date_Meeting_Time_Zone_MERC__c</fields>
         <fields>Start_Time_In_Meeting_Time_Zone__c</fields>
         <fields>Start_Time_of_Meeting_MERC__c</fields>
-        <fields>Submit_for_Contracting_MERC__c</fields>
         <fields>SystemModstamp</fields>
         <fields>Target_Audience_List_MERC__c</fields>
         <fields>Target_Audience_MERC__c</fields>

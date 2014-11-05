@@ -320,6 +320,39 @@ IF(RecordType.Name = &quot;HCP Info Package&quot;,
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>RSVP_Include_Bus_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used to defined whether Bus transport is permitted for a Country.  Not included within the Web Service logic key as this is a country by country rule which will not change based on the web service logic combinations : MERC : Created on 18/09/2014 by Oliver Dunford</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to define whether Bus Transport is permitted for a Country within the RSVP process.  Used in conjunction with the &apos;Exclude Bus Transport&apos; meeting field.</inlineHelpText>
+        <label>RSVP Include Bus</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RSVP_Include_Personal_Transfer_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used to defined whether Personal Transfer is permitted for a Country.  Not included within the Web Service logic key as this is a country by country rule which will not change based on the web service logic combinations : MERC : Created on 18/09/2014 by Oliver Dunford</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to define whether Personal Transfer is permitted for a Country within the RSVP process.  Used in conjunction with the &apos;Exclude Personal Transfer&apos; meeting field.</inlineHelpText>
+        <label>RSVP Include Personal Transfer</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>RSVP_Include_Rail_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used to defined whether Rail transport is permitted for a Country.  Not included within the Web Service logic key as this is a country by country rule which will not change based on the web service logic combinations : MERC : Created on 18/09/2014 by Oliver Dunford</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used to define whether Rail Transport is permitted for a Country within the RSVP process.  Used in conjunction with the &apos;Exclude Rail Transport&apos; meeting field.</inlineHelpText>
+        <label>RSVP Include Rail</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>RSVP_Institutional_Notification_MERC__c</fullName>
         <defaultValue>false</defaultValue>
         <description>RSVP: Step: Institutional Notification: Captures Institutional Notification Information for HCPs. Oliver Dunford 12th May 2014.</description>
@@ -420,8 +453,17 @@ IF(RecordType.Name = &quot;HCP Info Package&quot;,
     <label>Web Service Logic</label>
     <listViews>
         <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Country_MERC__c</columns>
+        <columns>Meeting_Record_Type_MERC__c</columns>
+        <columns>Account_Record_Type_MERC__c</columns>
+        <columns>Air_Required_MERC__c</columns>
+        <columns>Hotel_Required_MERC__c</columns>
+        <columns>Participant_Record_Type_MERC__c</columns>
+        <columns>Key_for_Lookup_MERC__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
+        <language>en_US</language>
     </listViews>
     <nameField>
         <label>Web Service Logic Name</label>

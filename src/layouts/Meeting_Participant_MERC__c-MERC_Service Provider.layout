@@ -57,6 +57,10 @@
                 <behavior>Readonly</behavior>
                 <field>Potential_Cross_Border_Activity_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Record_Type_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -106,6 +110,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Number_of_Contracts_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Sponsorship_Wet_Signature_Acknowled_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -353,6 +361,10 @@
                 <behavior>Edit</behavior>
                 <field>Additional_Travel_Details_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Require_Congress_Registration_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -440,10 +452,6 @@
                 <field>Processing_of_Data_Consent_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Sponsorship_Agreement_Consent_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Transparency_Step_Complete_MERC__c</field>
             </layoutItems>
@@ -499,6 +507,22 @@
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>false</editHeading>
+        <label>Individual Email Results</label>
+        <layoutColumns>
+            <layoutItems>
+                <height>200</height>
+                <page>MeetingParticipantTracking</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>true</showScrollbars>
+                <width>100%</width>
+            </layoutItems>
+        </layoutColumns>
+        <style>OneColumn</style>
     </layoutSections>
     <layoutSections>
         <customLabel>false</customLabel>

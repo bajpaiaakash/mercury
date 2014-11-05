@@ -79,7 +79,7 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>RSVP Tabs to Display</label>
+        <label>RSVP Tabs/Options to Display</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -126,7 +126,20 @@
                 <field>RSVP_Institutional_Wet_Signature_MERC__c</field>
             </layoutItems>
         </layoutColumns>
-        <layoutColumns/>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>RSVP_Include_Bus_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>RSVP_Include_Rail_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>RSVP_Include_Personal_Transfer_MERC__c</field>
+            </layoutItems>
+        </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
     <layoutSections>

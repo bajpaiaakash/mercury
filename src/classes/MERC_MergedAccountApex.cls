@@ -33,7 +33,7 @@ public class MERC_MergedAccountApex {
         soqlQuery = soqlQuery.left(soqlQuery.length() - 2);
         soqlQuery += ' FROM Account WHERE Cust_Id_GLBL__c = \'' + winnerId +'\' LIMIT 1';
 
-        System.debug(soqlQuery);
+        // System.debug(soqlQuery);
 
         /*----- Use the query string to get the winning and losing account -----*/
         if (String.isNotBlank(winnerId))
@@ -158,10 +158,7 @@ public class MERC_MergedAccountApex {
         catch (System.Exception ex)
         {
             System.debug('\n\n\nException: ' + ex + '\n\n\n');
-            ApexPages.addMessages(ex);
         }
-
-
     }
 
     public class RelatedListGroup
@@ -324,7 +321,7 @@ public class MERC_MergedAccountApex {
         }
         soql += ' FROM ' + objectName + ' WHERE ' + parentField + '=\'' + parentId+ '\'';
         soql += ' AND Prior_Parent_Id_GLBL__c' + (isWinningSoql ? '=' : '!=') + '\'' + losingId + '\'';
-        System.debug('\n\n\nBuilt SOQL String is:\n' + soql +'\n\n\n');
+        System.debug('\n\n\nYYZ: Built SOQL String is:\n' + soql +'\n\n\n');
         return soql;
     }
 }

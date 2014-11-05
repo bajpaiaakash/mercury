@@ -316,7 +316,7 @@
             <useReportChart>false</useReportChart>
         </components>
     </rightSection>
-    <runningUser>riff_nicolas@gso1.lly</runningUser>
+    <runningUser>dunfordoliver@gso1.lly</runningUser>
     <textColor>#000000</textColor>
     <title>SLA Metrics</title>
     <titleColor>#000000</titleColor>

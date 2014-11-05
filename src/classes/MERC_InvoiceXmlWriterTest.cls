@@ -24,6 +24,7 @@ private class MERC_InvoiceXmlWriterTest {
 		//the error 'You have uncommitted work pending. Please commit or rollback before calling out site:developer.salesforce.com'
 		//to to be thrown for the testCallOut method below
 		MERC_TestFactory.adjustForSFDCSetMockBug = true;
+		MERC_TriggerHandlerStateManager.deactivateAll();
 		accounts = MERC_TestFactory.insertAccounts(1);
 		meetings = MERC_TestFactory.insertMeetings(1);
 		participants = MERC_TestFactory.insertParticipants(meetings[0].Id, accounts);
@@ -49,6 +50,7 @@ private class MERC_InvoiceXmlWriterTest {
 			item.RecordTypeId = rt.Id;
 		}
 		update lineItems;
+		MERC_TriggerHandlerStateManager.activateAll();
 
 		Test.startTest();
 		List<String> invoiceIds = new List<String>();
@@ -78,6 +80,7 @@ private class MERC_InvoiceXmlWriterTest {
 		update invoices;
 
 		MERC_InvoiceXmlWriter.writeXml(invoiceIds);
+		Test.stopTest();
 
 		contentVers = [SELECT ContentDocumentId From ContentVersion WHERE Invoice_MERC__c in :invoices AND Title like '%.xml%'];
 		System.assert(!contentVers.isEmpty(), 'no XML files in ContentVersion table');

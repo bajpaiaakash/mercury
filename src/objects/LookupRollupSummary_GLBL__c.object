@@ -242,6 +242,7 @@ MERC : Created on 2014-05-27 by Joe Ferraro, Mavens Consulting</description>
         <columns>RelationshipCriteriaFields_GLBL__c</columns>
         <columns>RelationshipField_GLBL__c</columns>
         <columns>TreatZeroAsNull_GLBL__c</columns>
+        <columns>LAST_UPDATE</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
         <language>en_US</language>
