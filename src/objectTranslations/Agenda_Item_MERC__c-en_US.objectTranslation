@@ -79,17 +79,6 @@
         <label><!-- Start Time (Meeting Time Zone) --></label>
         <name>Start_Time_in_Meeting_Time_Zone_MERC__c</name>
     </fields>
-    <layouts>
-        <layout>MERC_Session</layout>
-        <sections>
-            <label><!-- Custom Links --></label>
-            <section>Custom Links</section>
-        </sections>
-        <sections>
-            <label><!-- Session Date/Time Information --></label>
-            <section>Session Date/Time Information</section>
-        </sections>
-    </layouts>
     <startsWith>Consonant</startsWith>
     <validationRules>
         <errorMessage><!-- Please confirm you would like to change an item on the Final Agenda. --></errorMessage>

@@ -15,14 +15,6 @@ public without sharing class MERC_ETMeetingEmailSendFutureProcessor {
             meetingEmailSend.Send_Status__c = 'Create Sender Profile';
         }
         
-<<<<<<< HEAD
-        MERC_ETSendDefinition.SenderProfileCreate sendProfCreate;   
-        MERC_ETSendClassification cls;
-        if (meetingEmailSend.Send_Status__c == 'Create Sender Profile') {
-            try{
-                sendProfCreate = new MERC_ETSendDefinition.SenderProfileCreate(sendDefinition.et4ae5__FromName__c, sendDefinition.et4ae5__FromEmail__c);
-                cls = processor.getSendClassification(authorizer.soapAuthToken);
-=======
         MERC_ETSendClassification cls;
         if (meetingEmailSend.Send_Status__c == 'Create Sender Profile') {
             try{
@@ -30,7 +22,6 @@ public without sharing class MERC_ETMeetingEmailSendFutureProcessor {
                 if(cls == null){
                     throw new MERC_ETNoSendClassificationException('No send classification, matching the custom setting, could be found!');
                 }
->>>>>>> test-Dec2014Release
                 meetingEmailSend.ET_Sender_Profile_Id_MERC__c = cls.id;
                 sendDefinition.et4ae5__SendClassificationId__c = cls.id;
                 
@@ -39,11 +30,7 @@ public without sharing class MERC_ETMeetingEmailSendFutureProcessor {
                 meetingEmailSend.Send_Status__c = 'Create Send Definition';
             }
             catch(Exception e){
-<<<<<<< HEAD
-                System.debug('There was an error creating the Sender Profile : ' + e.getMessage() + '\n' + e.getStackTraceString());
-=======
                 System.debug('There was an error querying the Send Classification : ' + e.getMessage() + '\n' + e.getStackTraceString());
->>>>>>> test-Dec2014Release
                 setMeetingEmailSendForRetry(meetingEmailSend, 2);
                 return;
             }
@@ -53,11 +40,7 @@ public without sharing class MERC_ETMeetingEmailSendFutureProcessor {
         if (meetingEmailSend.Send_Status__c == 'Create Send Definition') {
             String key = String.valueof(datetime.now().getTime());
             String name = 'LillySendDef' + datetime.now() + meetingEmailSend.Meeting_MERC__c;
-<<<<<<< HEAD
-            MERC_ETSendDefinition newSendDef = new MERC_ETSendDefinition(sendDefinition.et4ae5__DataExtensionId__c, sendDefinition.et4ae5__DedupeSubscribers__c, 'Eli Lilly Send Definition Description', Integer.valueOf(sendDefinition.et4ae5__EmailId__c), key, name, sendDefinition.et4ae5__Subject__c, sendDefinition.et4ae5__SenderProfileId__c);
-=======
             MERC_ETSendDefinition newSendDef = new MERC_ETSendDefinition(sendDefinition.et4ae5__DataExtensionId__c, sendDefinition.et4ae5__DedupeSubscribers__c, 'Eli Lilly Send Definition Description', Integer.valueOf(sendDefinition.et4ae5__EmailId__c), key, name, sendDefinition.et4ae5__Subject__c, sendDefinition.et4ae5__SendClassificationId__c);
->>>>>>> test-Dec2014Release
 
             try {
                 
