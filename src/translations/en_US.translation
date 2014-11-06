@@ -1,0 +1,4900 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Translations xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customApplications>
+        <label><!-- Customer Search Tool --></label>
+        <name>CST</name>
+    </customApplications>
+    <customLabels>
+        <label><!-- Burn Status --></label>
+        <name>Burn_Status</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Clear Search Results Button --></label>
+        <name>Clear_Search_Results_Button_MVN</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Create New Person Prompt --></label>
+        <name>Create_New_Person_Prompt_MVN</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Create Person Button --></label>
+        <name>Create_Person_Button_MVN</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Create Person Record Type Required --></label>
+        <name>Create_Person_Record_Type_Required_MVN</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Create Referred By Button --></label>
+        <name>Create_Referred_By_Button_MVN</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Create Requester Button --></label>
+        <name>Create_Requester_Button_MVN</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Currently Creating --></label>
+        <name>Currently_Creating_MVN</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Data Design Fields --></label>
+        <name>Data_Design_Fields</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Error - Can&apos;t Delete Locked Invoice --></label>
+        <name>Error_Can_t_Delete_Locked_Invoice</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Error Tab Name --></label>
+        <name>Error_Tab_Name_MVN</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Functional Document Descriptions --></label>
+        <name>Functional_Document_Descriptions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Generic Phone Field Label --></label>
+        <name>Generic_Phone_Field_Label_MVN</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Generic Search Button --></label>
+        <name>Generic_Search_Button_MVN</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Generic Search Status --></label>
+        <name>Generic_Search_Status_MVN</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Integration Design Fields --></label>
+        <name>Integration_Design_Fields</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Invalid Email Address --></label>
+        <name>Invalid_Email_Address_MVN</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DDP Attach To --></label>
+        <name>Loop__DDP_Attach_To</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DDP Breadcrumb --></label>
+        <name>Loop__DDP_Breadcrumb</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DDP Cancel --></label>
+        <name>Loop__DDP_Cancel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DDP Delivery --></label>
+        <name>Loop__DDP_Delivery</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DDP Instructions --></label>
+        <name>Loop__DDP_Instructions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DDP None --></label>
+        <name>Loop__DDP_None</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DDP Optional Docs --></label>
+        <name>Loop__DDP_Optional_Docs</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DDP Reminders and Expirations --></label>
+        <name>Loop__DDP_RemindExpires</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DDP Run --></label>
+        <name>Loop__DDP_Run</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DDP Select --></label>
+        <name>Loop__DDP_Select</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DDP Select Contact --></label>
+        <name>Loop__DDP_Select_Contact</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DDP Select Library --></label>
+        <name>Loop__DDP_Select_Library</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- IE Compatibility View Warning --></label>
+        <name>Loop__IE_Compatibility_View_Warning</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- IE Higher Version Required --></label>
+        <name>Loop__IE_Higher_Version_Required</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Loop Edit Label --></label>
+        <name>Loop__Loop_Edit</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Meeting_Locked_MERC --></label>
+        <name>Meeting_Locked_MERC</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- New Person Button --></label>
+        <name>New_Person_Button_MVN</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Error No Search Results --></label>
+        <name>No_Search_Results_MVN</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Person Search All Record Types --></label>
+        <name>Person_Search_All_Record_Types_MVN</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Person Search Results Record Type Column Label --></label>
+        <name>Person_Search_Results_Record_Type_Column_Label_MVN</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Person Search Tab --></label>
+        <name>Person_Search_Tab_MVN</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Please Select Requester or Referred By --></label>
+        <name>Please_Select_Requester_or_Referred_By_MVN</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- QR Cards Password --></label>
+        <name>QR_Cards_Password</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Remove Person Button --></label>
+        <name>Remove_Person_Button_MVN</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Return To Interaction Button --></label>
+        <name>Return_To_Interaction_Button_MVN</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Return to Request --></label>
+        <name>Return_to_Request_MVN</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Error SOSL Phone Search Min Char --></label>
+        <name>SOSL_Phone_Search_Min_Char_MVN</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Search Term Required --></label>
+        <name>Search_Term_Required_MVN</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Selected Referrer --></label>
+        <name>Selected_Referrer_MVN</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Selected Reqester --></label>
+        <name>Selected_Reqester_MVN</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Service Cloud Knowledge Search Cancel --></label>
+        <name>Service_Cloud_Knowledge_Search_Cancel_MVN</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Sprint Design Fields --></label>
+        <name>Sprint_Design_Fields</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Team_Member_Access_MERC --></label>
+        <name>Team_Member_Access_MERC</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ToV Already Reported --></label>
+        <name>ToV_Already_Reported</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Error Too Many Results --></label>
+        <name>Too_Many_Results_MVN</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Tov Cannot be null after reported --></label>
+        <name>Tov_Cannot_be_null_after_reported</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AboutDS --></label>
+        <name>dsfs__AboutDS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccessCode --></label>
+        <name>dsfs__AccessCode</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Account --></label>
+        <name>dsfs__Account</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountAlreadyExistEmailName --></label>
+        <name>dsfs__AccountAlreadyExistEmailName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountCreation --></label>
+        <name>dsfs__AccountCreation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountID --></label>
+        <name>dsfs__AccountID</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountInfo --></label>
+        <name>dsfs__AccountInfo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountInfo.AccountName --></label>
+        <name>dsfs__AccountInfoAccountName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountInfo.CredentialMessage --></label>
+        <name>dsfs__AccountInfoCredentialMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountInfo.NotConfigured --></label>
+        <name>dsfs__AccountInfoNotConfigured</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountInformation --></label>
+        <name>dsfs__AccountInformation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountManagement --></label>
+        <name>dsfs__AccountManagement</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountMustBeConfigured --></label>
+        <name>dsfs__AccountMustBeConfigured</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountNotConfig --></label>
+        <name>dsfs__AccountNotConfig</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountNumber --></label>
+        <name>dsfs__AccountNumber</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountPageLayout --></label>
+        <name>dsfs__AccountPageLayout</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AccountSuspended --></label>
+        <name>dsfs__AccountSuspended</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Accounts --></label>
+        <name>dsfs__Accounts</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AcknowledgeReceipt --></label>
+        <name>dsfs__AcknowledgeReceipt</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Action --></label>
+        <name>dsfs__Action</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ActionStatus --></label>
+        <name>dsfs__ActionStatus</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ActivateMembers --></label>
+        <name>dsfs__ActivateMembers</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ActivateMembersError --></label>
+        <name>dsfs__ActivateMembersError</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Activated --></label>
+        <name>dsfs__Activated</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ActivatedBySalesforce --></label>
+        <name>dsfs__ActivatedBySalesforce</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ActivationMessage --></label>
+        <name>dsfs__ActivationMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Add --></label>
+        <name>dsfs__Add</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AddAdminUsers --></label>
+        <name>dsfs__AddAdminUsers</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AddAdminUsersAddTheDocuSignPackage --></label>
+        <name>dsfs__AddAdminUsersAddTheDocuSignPackage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AddButtons --></label>
+        <name>dsfs__AddButtons</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AddDSButtonsToSF --></label>
+        <name>dsfs__AddDSButtonsToSF</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AddDSTrusted --></label>
+        <name>dsfs__AddDSTrusted</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AddDoc --></label>
+        <name>dsfs__AddDoc</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AddDocuSignAsATrustedNetwork --></label>
+        <name>dsfs__AddDocuSignAsATrustedNetwork</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AddDocuSignPackageForSelectedUsers --></label>
+        <name>dsfs__AddDocuSignPackageForSelectedUsers</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AddMe --></label>
+        <name>dsfs__AddMe</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AddNewDoc --></label>
+        <name>dsfs__AddNewDoc</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AddPlaceholderRecipient --></label>
+        <name>dsfs__AddPlaceholderRecipient</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AddRecipient --></label>
+        <name>dsfs__AddRecipient</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AddRecipientFrom --></label>
+        <name>dsfs__AddRecipientFrom</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AddRole --></label>
+        <name>dsfs__AddRole</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AddSelectedAvailableFields --></label>
+        <name>dsfs__AddSelectedAvailableFields</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AddTheDocuSignButtonToDefaultLayout --></label>
+        <name>dsfs__AddTheDocuSignButtonToDefaultLayout</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AddUsers --></label>
+        <name>dsfs__AddUsers</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AddUsersAddTheDocuSignPackage --></label>
+        <name>dsfs__AddUsersAddTheDocuSignPackage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AdddocuSignPackageMakeUsersAdministrators --></label>
+        <name>dsfs__AdddocuSignPackageMakeUsersAdministrators</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Address --></label>
+        <name>dsfs__Address</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AddressLine1 --></label>
+        <name>dsfs__AddressLine1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AddressLine2 --></label>
+        <name>dsfs__AddressLine2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AddressRecipients --></label>
+        <name>dsfs__AddressRecipients</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AdminAccessReq --></label>
+        <name>dsfs__AdminAccessReq</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AdminHomeSearchDocumentation --></label>
+        <name>dsfs__AdminHomeSearchDocumentation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ApplySelectedActionToSelectedUsers --></label>
+        <name>dsfs__ApplySelectedActionToSelectedUsers</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AreYouSureVoidEnvelope --></label>
+        <name>dsfs__AreYouSureVoidEnvelope</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AtLeastOneDocumentIsRequired --></label>
+        <name>dsfs__AtLeastOneDocumentIsRequired</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AtLeastOneRecipientHasError --></label>
+        <name>dsfs__AtLeastOneRecipientHasError</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AtLeastOneRecipientRequired --></label>
+        <name>dsfs__AtLeastOneRecipientRequired</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Attachments --></label>
+        <name>dsfs__Attachments</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AuthenticateDSAccount --></label>
+        <name>dsfs__AuthenticateDSAccount</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutoSetupStep1 --></label>
+        <name>dsfs__AutoSetupStep1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutoSetupStep2 --></label>
+        <name>dsfs__AutoSetupStep2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutoSetupStep3 --></label>
+        <name>dsfs__AutoSetupStep3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutoSetupStep4 --></label>
+        <name>dsfs__AutoSetupStep4</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AvailableDocs --></label>
+        <name>dsfs__AvailableDocs</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AvailableFields --></label>
+        <name>dsfs__AvailableFields</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Back --></label>
+        <name>dsfs__Back</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- BackSelectDocuSignAccount --></label>
+        <name>dsfs__BackSelectDocuSignAccount</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ButtonBelow --></label>
+        <name>dsfs__ButtonBelow</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CVV2 --></label>
+        <name>dsfs__CVV2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Cancel --></label>
+        <name>dsfs__Cancel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CannotRemoveYourselfFromActiveDocuSignUsers --></label>
+        <name>dsfs__CannotRemoveYourselfFromActiveDocuSignUsers</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CarbonCopy --></label>
+        <name>dsfs__CarbonCopy</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CertifiedDelivery --></label>
+        <name>dsfs__CertifiedDelivery</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Change --></label>
+        <name>dsfs__Change</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CharactersRemaining200 --></label>
+        <name>dsfs__CharactersRemaining200</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ChatterOnTheseEnvelopeEvents --></label>
+        <name>dsfs__ChatterOnTheseEnvelopeEvents</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ChatterOnTheseRecipientEvents --></label>
+        <name>dsfs__ChatterOnTheseRecipientEvents</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ChatterSettings --></label>
+        <name>dsfs__ChatterSettings</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ChatterUpdates --></label>
+        <name>dsfs__ChatterUpdates</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CheckEmailCreatePassword --></label>
+        <name>dsfs__CheckEmailCreatePassword</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CheckingThisBoxMeansThat --></label>
+        <name>dsfs__CheckingThisBoxMeansThat</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CheckingThisBoxMeansThatWhen --></label>
+        <name>dsfs__CheckingThisBoxMeansThatWhen</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ChineseSimplified --></label>
+        <name>dsfs__ChineseSimplified</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ChooseFields --></label>
+        <name>dsfs__ChooseFields</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ChooseFilterOption --></label>
+        <name>dsfs__ChooseFilterOption</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ChooseNumberOfRows --></label>
+        <name>dsfs__ChooseNumberOfRows</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ChooseRecipient --></label>
+        <name>dsfs__ChooseRecipient</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ChooseTheFieldsToDisplay --></label>
+        <name>dsfs__ChooseTheFieldsToDisplay</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- City --></label>
+        <name>dsfs__City</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ClickHere --></label>
+        <name>dsfs__ClickHere</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ClickHereToReconnect --></label>
+        <name>dsfs__ClickHereToReconnect</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ClickOnEditDocuSignPassword --></label>
+        <name>dsfs__ClickOnEditDocuSignPassword</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ClosePopUpAfterComplete --></label>
+        <name>dsfs__ClosePopUpAfterComplete</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ClosePopup --></label>
+        <name>dsfs__ClosePopup</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CompanyName --></label>
+        <name>dsfs__CompanyName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Completed --></label>
+        <name>dsfs__Completed</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ConfigSFDC --></label>
+        <name>dsfs__ConfigSFDC</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ConfigSFDCDemo --></label>
+        <name>dsfs__ConfigSFDCDemo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ConfigSFDCDemoMessage --></label>
+        <name>dsfs__ConfigSFDCDemoMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ConfigSFDCEasy --></label>
+        <name>dsfs__ConfigSFDCEasy</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ConfigSendWithDSButton --></label>
+        <name>dsfs__ConfigSendWithDSButton</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ConfigTagger --></label>
+        <name>dsfs__ConfigTagger</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ConfigurationErrorColon --></label>
+        <name>dsfs__ConfigurationErrorColon</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ConfigureAccount --></label>
+        <name>dsfs__ConfigureAccount</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ConfiguredDSAdmin --></label>
+        <name>dsfs__ConfiguredDSAdmin</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Confirm --></label>
+        <name>dsfs__Confirm</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ConfirmActivateLoginMessage --></label>
+        <name>dsfs__ConfirmActivateLoginMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ConfirmDeleteTheDocuSignCredentials --></label>
+        <name>dsfs__ConfirmDeleteTheDocuSignCredentials</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ConfirmPassword --></label>
+        <name>dsfs__ConfirmPassword</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ConnectDSToSF --></label>
+        <name>dsfs__ConnectDSToSF</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ConnectDocuSignToSalesforce --></label>
+        <name>dsfs__ConnectDocuSignToSalesforce</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ConnectErrorDash --></label>
+        <name>dsfs__ConnectErrorDash</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Console --></label>
+        <name>dsfs__Console</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Contact --></label>
+        <name>dsfs__Contact</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ContactAdminForConfig --></label>
+        <name>dsfs__ContactAdminForConfig</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ContactPageLayout --></label>
+        <name>dsfs__ContactPageLayout</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ContactSFAdminForAccess --></label>
+        <name>dsfs__ContactSFAdminForAccess</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ContactSupport --></label>
+        <name>dsfs__ContactSupport</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Contacts --></label>
+        <name>dsfs__Contacts</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Content --></label>
+        <name>dsfs__Content</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ContentWorkspaceListSelectWorkspace --></label>
+        <name>dsfs__ContentWorkspaceListSelectWorkspace</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Continue --></label>
+        <name>dsfs__Continue</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Contract --></label>
+        <name>dsfs__Contract</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ContractPageLayout --></label>
+        <name>dsfs__ContractPageLayout</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CouldNotAuthenticateUser --></label>
+        <name>dsfs__CouldNotAuthenticateUser</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CoultNotBeActivatedDash --></label>
+        <name>dsfs__CoultNotBeActivatedDash</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Country --></label>
+        <name>dsfs__Country</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CreateANewUserView --></label>
+        <name>dsfs__CreateANewUserView</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CreateAccount --></label>
+        <name>dsfs__CreateAccount</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CreateAccountForm --></label>
+        <name>dsfs__CreateAccountForm</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CreateDSOrUseExisting --></label>
+        <name>dsfs__CreateDSOrUseExisting</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CreateMemberStatusMessage --></label>
+        <name>dsfs__CreateMemberStatusMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CreateMembership --></label>
+        <name>dsfs__CreateMembership</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CreateMyAccount --></label>
+        <name>dsfs__CreateMyAccount</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CreateNewMembershipFor --></label>
+        <name>dsfs__CreateNewMembershipFor</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CreateNewView --></label>
+        <name>dsfs__CreateNewView</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CreateTrialOrLinkExisting --></label>
+        <name>dsfs__CreateTrialOrLinkExisting</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CreditCardInfo --></label>
+        <name>dsfs__CreditCardInfo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CurrentBillingPeriodEndDate --></label>
+        <name>dsfs__CurrentBillingPeriodEndDate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CurrentBillingPeriodStartDate --></label>
+        <name>dsfs__CurrentBillingPeriodStartDate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CurrentSalesforceUser --></label>
+        <name>dsfs__CurrentSalesforceUser</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DSAccountConfig --></label>
+        <name>dsfs__DSAccountConfig</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DSAdmin --></label>
+        <name>dsfs__DSAdmin</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DSClient.AuthenticationException --></label>
+        <name>dsfs__DSClientAuthenticationException</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DSClient.USER_AUTHENTICATION_FAILED --></label>
+        <name>dsfs__DSClient_USER_AUTHENTICATION_FAILED</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DSCreateEnvRecordEmailIs --></label>
+        <name>dsfs__DSCreateEnvRecordEmailIs</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DSEmail --></label>
+        <name>dsfs__DSEmail</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DSEnvelope --></label>
+        <name>dsfs__DSEnvelope</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DSForSF --></label>
+        <name>dsfs__DSForSF</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DSPassword --></label>
+        <name>dsfs__DSPassword</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DSPushToSFOnLogin --></label>
+        <name>dsfs__DSPushToSFOnLogin</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DSRecipient --></label>
+        <name>dsfs__DSRecipient</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DSRecipientEmail --></label>
+        <name>dsfs__DSRecipientEmail</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DSRecipientName --></label>
+        <name>dsfs__DSRecipientName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DSResendResult --></label>
+        <name>dsfs__DSResendResult</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DSStatusResult --></label>
+        <name>dsfs__DSStatusResult</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DSTermsConditions --></label>
+        <name>dsfs__DSTermsConditions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DSToSFComplete --></label>
+        <name>dsfs__DSToSFComplete</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Declined --></label>
+        <name>dsfs__Declined</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DefInTemplate --></label>
+        <name>dsfs__DefInTemplate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DefaultEmailMessage --></label>
+        <name>dsfs__DefaultEmailMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DefaultEmailSubject --></label>
+        <name>dsfs__DefaultEmailSubject</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DefaultExpireEnvelope --></label>
+        <name>dsfs__DefaultExpireEnvelope</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DefaultRepeatReminder --></label>
+        <name>dsfs__DefaultRepeatReminder</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DefaultSendReminder --></label>
+        <name>dsfs__DefaultSendReminder</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DefaultWarnOfExpiration --></label>
+        <name>dsfs__DefaultWarnOfExpiration</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Del --></label>
+        <name>dsfs__Del</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Delete --></label>
+        <name>dsfs__Delete</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DeleteMembership --></label>
+        <name>dsfs__DeleteMembership</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DeleteMembershipFor --></label>
+        <name>dsfs__DeleteMembershipFor</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DeleteUppercase --></label>
+        <name>dsfs__DeleteUppercase</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Delivered --></label>
+        <name>dsfs__Delivered</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Details --></label>
+        <name>dsfs__Details</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DisableUserEmailMessageEditing --></label>
+        <name>dsfs__DisableUserEmailMessageEditing</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DisableUserEmailSubjectEditing --></label>
+        <name>dsfs__DisableUserEmailSubjectEditing</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Disabled --></label>
+        <name>dsfs__Disabled</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DiscardTheChangesToSelectedFields --></label>
+        <name>dsfs__DiscardTheChangesToSelectedFields</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Display0Of1Accounts --></label>
+        <name>dsfs__Display0Of1Accounts</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DisplayAccountPageLayout --></label>
+        <name>dsfs__DisplayAccountPageLayout</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DisplayAccountSettings --></label>
+        <name>dsfs__DisplayAccountSettings</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DisplayConsole --></label>
+        <name>dsfs__DisplayConsole</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DisplayContactPageLayout --></label>
+        <name>dsfs__DisplayContactPageLayout</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DisplayContractPageLayout --></label>
+        <name>dsfs__DisplayContractPageLayout</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DisplayEnvelopSettings --></label>
+        <name>dsfs__DisplayEnvelopSettings</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DisplayLeadPageLayout --></label>
+        <name>dsfs__DisplayLeadPageLayout</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DisplayManageUsers --></label>
+        <name>dsfs__DisplayManageUsers</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DisplayManageUsersAdd --></label>
+        <name>dsfs__DisplayManageUsersAdd</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DisplayManageUsersDeactivate --></label>
+        <name>dsfs__DisplayManageUsersDeactivate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DisplayOpportunityPageLayout --></label>
+        <name>dsfs__DisplayOpportunityPageLayout</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DisplayRowsWhere --></label>
+        <name>dsfs__DisplayRowsWhere</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DisplayTheDocuSignInPerson --></label>
+        <name>dsfs__DisplayTheDocuSignInPerson</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DisplayTheDocuSignTaggerPage --></label>
+        <name>dsfs__DisplayTheDocuSignTaggerPage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DisplayWelcomePage --></label>
+        <name>dsfs__DisplayWelcomePage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DisplayingPage --></label>
+        <name>dsfs__DisplayingPage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DoMoreWithDocuSign --></label>
+        <name>dsfs__DoMoreWithDocuSign</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DocOrder --></label>
+        <name>dsfs__DocOrder</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DocsForSignature --></label>
+        <name>dsfs__DocsForSignature</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DocuSignAccountAlreadyConfigured --></label>
+        <name>dsfs__DocuSignAccountAlreadyConfigured</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DocuSignAccountInformation --></label>
+        <name>dsfs__DocuSignAccountInformation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DocuSignChatter --></label>
+        <name>dsfs__DocuSignChatter</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DocuSignDidNotReturnStatus --></label>
+        <name>dsfs__DocuSignDidNotReturnStatus</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DocuSignEmailAddress --></label>
+        <name>dsfs__DocuSignEmailAddress</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DocuSignEnvelopeCancelled --></label>
+        <name>dsfs__DocuSignEnvelopeCancelled</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DocuSignEnvelopeNotSentOrDeilivered --></label>
+        <name>dsfs__DocuSignEnvelopeNotSentOrDeilivered</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DocuSignEnvelopeSaved --></label>
+        <name>dsfs__DocuSignEnvelopeSaved</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DocuSignInc --></label>
+        <name>dsfs__DocuSignInc</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DocuSignMemberManagement --></label>
+        <name>dsfs__DocuSignMemberManagement</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DocuSignNotConfigured --></label>
+        <name>dsfs__DocuSignNotConfigured</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DocuSignNotConfiguredContactAdmin --></label>
+        <name>dsfs__DocuSignNotConfiguredContactAdmin</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DocuSignSendingCompleted --></label>
+        <name>dsfs__DocuSignSendingCompleted</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DocuSignSetup --></label>
+        <name>dsfs__DocuSignSetup</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DocuSignSystemSenderNotConfigured --></label>
+        <name>dsfs__DocuSignSystemSenderNotConfigured</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DocuSignSystemSenderUser --></label>
+        <name>dsfs__DocuSignSystemSenderUser</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DocuSignSystemSenderUserId --></label>
+        <name>dsfs__DocuSignSystemSenderUserId</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DocuSignSystemSenderUserInformation --></label>
+        <name>dsfs__DocuSignSystemSenderUserInformation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DocuSignTemplates --></label>
+        <name>dsfs__DocuSignTemplates</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DocuSignUser --></label>
+        <name>dsfs__DocuSignUser</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DocuSignUserId --></label>
+        <name>dsfs__DocuSignUserId</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DocuSignUserNotConfigured --></label>
+        <name>dsfs__DocuSignUserNotConfigured</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DocuSignUsername --></label>
+        <name>dsfs__DocuSignUsername</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Document --></label>
+        <name>dsfs__Document</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DocumentFolderListSelectFolder --></label>
+        <name>dsfs__DocumentFolderListSelectFolder</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Documents --></label>
+        <name>dsfs__Documents</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Done --></label>
+        <name>dsfs__Done</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Dutch --></label>
+        <name>dsfs__Dutch</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EachRoleNameMustBeEntered --></label>
+        <name>dsfs__EachRoleNameMustBeEntered</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Edit --></label>
+        <name>dsfs__Edit</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EditAccountInfo --></label>
+        <name>dsfs__EditAccountInfo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EditChatterSettings --></label>
+        <name>dsfs__EditChatterSettings</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EditDocFromEnvelope --></label>
+        <name>dsfs__EditDocFromEnvelope</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EditDocuSignPassword --></label>
+        <name>dsfs__EditDocuSignPassword</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EditEmailMessage --></label>
+        <name>dsfs__EditEmailMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EditEnvelopeReminder --></label>
+        <name>dsfs__EditEnvelopeReminder</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EditLinkInfo --></label>
+        <name>dsfs__EditLinkInfo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EditPageLayouts --></label>
+        <name>dsfs__EditPageLayouts</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EditRecipient --></label>
+        <name>dsfs__EditRecipient</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EditSalesforceUser --></label>
+        <name>dsfs__EditSalesforceUser</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EditSelectedUser --></label>
+        <name>dsfs__EditSelectedUser</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EditSenderNPassword --></label>
+        <name>dsfs__EditSenderNPassword</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EditTheUserView --></label>
+        <name>dsfs__EditTheUserView</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EmailAddress --></label>
+        <name>dsfs__EmailAddress</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EmailAddressMissing --></label>
+        <name>dsfs__EmailAddressMissing</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EmailBodyLimitedTwoThousand --></label>
+        <name>dsfs__EmailBodyLimitedTwoThousand</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EmailMessage --></label>
+        <name>dsfs__EmailMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EmailNotSent --></label>
+        <name>dsfs__EmailNotSent</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EmailNowAllowedEmailRestricted --></label>
+        <name>dsfs__EmailNowAllowedEmailRestricted</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EmailRequired --></label>
+        <name>dsfs__EmailRequired</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EmailSettings --></label>
+        <name>dsfs__EmailSettings</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EmailSubject --></label>
+        <name>dsfs__EmailSubject</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EmailSubjectNotBeBlank --></label>
+        <name>dsfs__EmailSubjectNotBeBlank</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EmailUsAt --></label>
+        <name>dsfs__EmailUsAt</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EnableChatterUpdates --></label>
+        <name>dsfs__EnableChatterUpdates</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EnableReminderExpiration --></label>
+        <name>dsfs__EnableReminderExpiration</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Enable Reminder and Expiration Settings Help Text --></label>
+        <name>dsfs__EnableReminderExpirationHelpText</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EnableSalesforceCalloutLimit --></label>
+        <name>dsfs__EnableSalesforceCalloutLimit</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EnableSendDataToSF --></label>
+        <name>dsfs__EnableSendDataToSF</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EnabledAlwaysOn --></label>
+        <name>dsfs__EnabledAlwaysOn</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EnabledOffByDefault --></label>
+        <name>dsfs__EnabledOffByDefault</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EnabledOnByDefault --></label>
+        <name>dsfs__EnabledOnByDefault</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- English --></label>
+        <name>dsfs__English</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EnsureDocuSignAccountHasSession --></label>
+        <name>dsfs__EnsureDocuSignAccountHasSession</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EnterCredentialsLinkAccount --></label>
+        <name>dsfs__EnterCredentialsLinkAccount</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EnterDocuSignSystemSenderCredentials --></label>
+        <name>dsfs__EnterDocuSignSystemSenderCredentials</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EnterPasswordClickUpdateDocuSign --></label>
+        <name>dsfs__EnterPasswordClickUpdateDocuSign</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EnterPasswordandClickUpdatePassword --></label>
+        <name>dsfs__EnterPasswordandClickUpdatePassword</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EnterRemoveDefaultRoles --></label>
+        <name>dsfs__EnterRemoveDefaultRoles</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EnterValueSalesforceCustomURL --></label>
+        <name>dsfs__EnterValueSalesforceCustomURL</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Envelope --></label>
+        <name>dsfs__Envelope</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EnvelopeCannotBeResent --></label>
+        <name>dsfs__EnvelopeCannotBeResent</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EnvelopeCouldNotBeCreated --></label>
+        <name>dsfs__EnvelopeCouldNotBeCreated</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EnvelopeEmaillCannotBeResent --></label>
+        <name>dsfs__EnvelopeEmaillCannotBeResent</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EnvelopeEmailsNotResent --></label>
+        <name>dsfs__EnvelopeEmailsNotResent</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EnvelopeID --></label>
+        <name>dsfs__EnvelopeID</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EnvelopeIDColon --></label>
+        <name>dsfs__EnvelopeIDColon</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EnvelopeInfo --></label>
+        <name>dsfs__EnvelopeInfo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EnvelopeReminder --></label>
+        <name>dsfs__EnvelopeReminder</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- EnvelopeSettings --></label>
+        <name>dsfs__EnvelopeSettings</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Envelopes --></label>
+        <name>dsfs__Envelopes</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Environment --></label>
+        <name>dsfs__Environment</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ErrorAddingMembersToAccountColon --></label>
+        <name>dsfs__ErrorAddingMembersToAccountColon</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ErrorAdminPageStartOver --></label>
+        <name>dsfs__ErrorAdminPageStartOver</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ErrorAuthenticating --></label>
+        <name>dsfs__ErrorAuthenticating</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ErrorAuthenticatingInsufficientUserObject --></label>
+        <name>dsfs__ErrorAuthenticatingInsufficientUserObject</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ErrorAuthenticatingNotHaveProperPermissions --></label>
+        <name>dsfs__ErrorAuthenticatingNotHaveProperPermissions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ErrorBadURLVar --></label>
+        <name>dsfs__ErrorBadURLVar</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ErrorColon --></label>
+        <name>dsfs__ErrorColon</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ErrorContactingDocuSignActivatingSalesforce --></label>
+        <name>dsfs__ErrorContactingDocuSignActivatingSalesforce</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ErrorCreatingEnvelopeInsufficientAccess --></label>
+        <name>dsfs__ErrorCreatingEnvelopeInsufficientAccess</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ErrorDeactivatingDocuSignAccounts --></label>
+        <name>dsfs__ErrorDeactivatingDocuSignAccounts</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ErrorDeactivingDocuSignAccountColon --></label>
+        <name>dsfs__ErrorDeactivingDocuSignAccountColon</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ErrorEquals --></label>
+        <name>dsfs__ErrorEquals</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ErrorFrom --></label>
+        <name>dsfs__ErrorFrom</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ErrorIn --></label>
+        <name>dsfs__ErrorIn</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ErrorInsufficientAccessToUserObject --></label>
+        <name>dsfs__ErrorInsufficientAccessToUserObject</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ErrorMessages --></label>
+        <name>dsfs__ErrorMessages</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ErrorNetworkIssueRetry --></label>
+        <name>dsfs__ErrorNetworkIssueRetry</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ErrorOccurredContact --></label>
+        <name>dsfs__ErrorOccurredContact</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ErrorRequestingActivation --></label>
+        <name>dsfs__ErrorRequestingActivation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ErrorRetrievingDocuSignConsoleInformation --></label>
+        <name>dsfs__ErrorRetrievingDocuSignConsoleInformation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ErrorSalesforceCredentialsVerify --></label>
+        <name>dsfs__ErrorSalesforceCredentialsVerify</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ErrorSavingAccountConnectInformation --></label>
+        <name>dsfs__ErrorSavingAccountConnectInformation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ErrorSavingMembersInsufficientAccessUserObject --></label>
+        <name>dsfs__ErrorSavingMembersInsufficientAccessUserObject</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ErrorSending --></label>
+        <name>dsfs__ErrorSending</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ErrorUnableToSendEvenlopeNotExist --></label>
+        <name>dsfs__ErrorUnableToSendEvenlopeNotExist</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ExampleIfTheFirstRoleIsCustomer --></label>
+        <name>dsfs__ExampleIfTheFirstRoleIsCustomer</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ExpirationMonth --></label>
+        <name>dsfs__ExpirationMonth</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ExpirationYear --></label>
+        <name>dsfs__ExpirationYear</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Ext --></label>
+        <name>dsfs__Ext</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- FName --></label>
+        <name>dsfs__FName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Fax --></label>
+        <name>dsfs__Fax</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- FieldsThatWillBeDisplayed --></label>
+        <name>dsfs__FieldsThatWillBeDisplayed</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- FinalSteps --></label>
+        <name>dsfs__FinalSteps</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Folder --></label>
+        <name>dsfs__Folder</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ForFreeDSTrial --></label>
+        <name>dsfs__ForFreeDSTrial</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ForgotDocuSignPassword --></label>
+        <name>dsfs__ForgotDocuSignPassword</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ForgotPassword --></label>
+        <name>dsfs__ForgotPassword</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ForgottenPassAnswer --></label>
+        <name>dsfs__ForgottenPassAnswer</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ForgottenPassQuestion --></label>
+        <name>dsfs__ForgottenPassQuestion</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- French --></label>
+        <name>dsfs__French</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- German --></label>
+        <name>dsfs__German</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GetSendNRealTimeVisibility --></label>
+        <name>dsfs__GetSendNRealTimeVisibility</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- GetSigningURLRedirectErrorMessage --></label>
+        <name>dsfs__GetSigningURLRedirectErrorMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- HideChatterSettings --></label>
+        <name>dsfs__HideChatterSettings</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- HideEmailMessageField --></label>
+        <name>dsfs__HideEmailMessageField</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- HideEmailSubjectField --></label>
+        <name>dsfs__HideEmailSubjectField</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- HideTheRemindAndExpireSettings --></label>
+        <name>dsfs__HideTheRemindAndExpireSettings</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- HideTheSendNowButton --></label>
+        <name>dsfs__HideTheSendNowButton</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- HideTheTagButton --></label>
+        <name>dsfs__HideTheTagButton</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Home --></label>
+        <name>dsfs__Home</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- HostInPerson --></label>
+        <name>dsfs__HostInPerson</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- HostInPersonDashSignNow --></label>
+        <name>dsfs__HostInPersonDashSignNow</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- HowToEditYourDocuSignActivity --></label>
+        <name>dsfs__HowToEditYourDocuSignActivity</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- HowToSendUsingDocuSignSalesforce --></label>
+        <name>dsfs__HowToSendUsingDocuSignSalesforce</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- IAgreeToThe --></label>
+        <name>dsfs__IAgreeToThe</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- IHaveDSAccount --></label>
+        <name>dsfs__IHaveDSAccount</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- INeedDSAccount --></label>
+        <name>dsfs__INeedDSAccount</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- IfDoesntWorkContact --></label>
+        <name>dsfs__IfDoesntWorkContact</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- IfYouSeeTheDocuSignLoginScreen --></label>
+        <name>dsfs__IfYouSeeTheDocuSignLoginScreen</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Incomplete --></label>
+        <name>dsfs__Incomplete</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- InsufficientAccessDocuSignEnvelopeDocument --></label>
+        <name>dsfs__InsufficientAccessDocuSignEnvelopeDocument</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- InsufficientAccessInformation --></label>
+        <name>dsfs__InsufficientAccessInformation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- InsufficientAccessToConfig --></label>
+        <name>dsfs__InsufficientAccessToConfig</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- InsufficientAccessToContact --></label>
+        <name>dsfs__InsufficientAccessToContact</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- InsufficientAccessToLead --></label>
+        <name>dsfs__InsufficientAccessToLead</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- InsufficientAccessToUser --></label>
+        <name>dsfs__InsufficientAccessToUser</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- InsufficientAccessUserObject --></label>
+        <name>dsfs__InsufficientAccessUserObject</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- InsufficientDocuSignEnvelopeRecipientc --></label>
+        <name>dsfs__InsufficientDocuSignEnvelopeRecipientc</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- InsufficientPriviliegesSelectUserRecords --></label>
+        <name>dsfs__InsufficientPriviliegesSelectUserRecords</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- InsufficientReadPermissions --></label>
+        <name>dsfs__InsufficientReadPermissions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- InvalidDocuSignEmailPassword --></label>
+        <name>dsfs__InvalidDocuSignEmailPassword</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- InvalidDocuSignPermissionToUseThisProduct --></label>
+        <name>dsfs__InvalidDocuSignPermissionToUseThisProduct</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- InvalidSourceId --></label>
+        <name>dsfs__InvalidSourceId</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- InvalidTemplateIdDash --></label>
+        <name>dsfs__InvalidTemplateIdDash</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Italian --></label>
+        <name>dsfs__Italian</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Japanese --></label>
+        <name>dsfs__Japanese</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Korean --></label>
+        <name>dsfs__Korean</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- LName --></label>
+        <name>dsfs__LName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Language --></label>
+        <name>dsfs__Language</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Lead --></label>
+        <name>dsfs__Lead</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- LeadPageLayout --></label>
+        <name>dsfs__LeadPageLayout</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Leads --></label>
+        <name>dsfs__Leads</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- LearnMore --></label>
+        <name>dsfs__LearnMore</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- LearnMoreColon --></label>
+        <name>dsfs__LearnMoreColon</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Library --></label>
+        <name>dsfs__Library</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- LikelyFileMissingFileExtension --></label>
+        <name>dsfs__LikelyFileMissingFileExtension</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- LinkAccount --></label>
+        <name>dsfs__LinkAccount</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- LinkDSAccount --></label>
+        <name>dsfs__LinkDSAccount</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- LinkExistingMembershipFor --></label>
+        <name>dsfs__LinkExistingMembershipFor</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- LinkMembership --></label>
+        <name>dsfs__LinkMembership</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- LogIn --></label>
+        <name>dsfs__LogIn</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Manage --></label>
+        <name>dsfs__Manage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ManageAccount --></label>
+        <name>dsfs__ManageAccount</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ManageDocuSignUsersHelp --></label>
+        <name>dsfs__ManageDocuSignUsersHelp</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ManageEnvelope --></label>
+        <name>dsfs__ManageEnvelope</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ManageEnvelopes --></label>
+        <name>dsfs__ManageEnvelopes</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ManageUsers --></label>
+        <name>dsfs__ManageUsers</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MemberListDocuSignNotSameLengthListSent --></label>
+        <name>dsfs__MemberListDocuSignNotSameLengthListSent</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MemberListFromDocuSignNotSameLengthList --></label>
+        <name>dsfs__MemberListFromDocuSignNotSameLengthList</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MembershipFor --></label>
+        <name>dsfs__MembershipFor</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Message --></label>
+        <name>dsfs__Message</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MessageEquals --></label>
+        <name>dsfs__MessageEquals</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MiddleName --></label>
+        <name>dsfs__MiddleName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MissingSettingToBePrimaryAccountSFDC --></label>
+        <name>dsfs__MissingSettingToBePrimaryAccountSFDC</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MoveDown --></label>
+        <name>dsfs__MoveDown</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MoveTheSelectedFieldDown --></label>
+        <name>dsfs__MoveTheSelectedFieldDown</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MoveTheSelectedFieldUp --></label>
+        <name>dsfs__MoveTheSelectedFieldUp</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MoveTheSelectedFields --></label>
+        <name>dsfs__MoveTheSelectedFields</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MoveUp --></label>
+        <name>dsfs__MoveUp</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MustAgreeDocuSignTerms --></label>
+        <name>dsfs__MustAgreeDocuSignTerms</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MustHaveAdminPermissionsPerformOperation --></label>
+        <name>dsfs__MustHaveAdminPermissionsPerformOperation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MustHaveDocuSignAdminPermissionsPerformOperation --></label>
+        <name>dsfs__MustHaveDocuSignAdminPermissionsPerformOperation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MustHavePermissionsToPerformOperations --></label>
+        <name>dsfs__MustHavePermissionsToPerformOperations</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MustProvideValidSalesforceUserAndPassword --></label>
+        <name>dsfs__MustProvideValidSalesforceUserAndPassword</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MustSelectAnAccount --></label>
+        <name>dsfs__MustSelectAnAccount</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MustSpecifyCompanyName --></label>
+        <name>dsfs__MustSpecifyCompanyName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MustSpecifyEmailAddress --></label>
+        <name>dsfs__MustSpecifyEmailAddress</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MustSpecifyName --></label>
+        <name>dsfs__MustSpecifyName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MustSpecifyPassword --></label>
+        <name>dsfs__MustSpecifyPassword</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MyDocuments --></label>
+        <name>dsfs__MyDocuments</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Name --></label>
+        <name>dsfs__Name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NameOnCard --></label>
+        <name>dsfs__NameOnCard</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- New --></label>
+        <name>dsfs__New</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Next --></label>
+        <name>dsfs__Next</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NextOrBackMessage --></label>
+        <name>dsfs__NextOrBackMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NextUppercase --></label>
+        <name>dsfs__NextUppercase</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NoAccessToPage --></label>
+        <name>dsfs__NoAccessToPage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NoConnectionDocuSignAvailable --></label>
+        <name>dsfs__NoConnectionDocuSignAvailable</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NoDocuSignAccess --></label>
+        <name>dsfs__NoDocuSignAccess</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NoDocuments --></label>
+        <name>dsfs__NoDocuments</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NoPermissionConfig --></label>
+        <name>dsfs__NoPermissionConfig</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NoPermissionCustomObj --></label>
+        <name>dsfs__NoPermissionCustomObj</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NoRecipients --></label>
+        <name>dsfs__NoRecipients</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NoRowsToDisplay --></label>
+        <name>dsfs__NoRowsToDisplay</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NotAssociatedSalesforceUserToDocuSign --></label>
+        <name>dsfs__NotAssociatedSalesforceUserToDocuSign</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NotEnvelopeOwner --></label>
+        <name>dsfs__NotEnvelopeOwner</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NotHavePermissionsToUpdateSalesforceUserRecords --></label>
+        <name>dsfs__NotHavePermissionsToUpdateSalesforceUserRecords</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NotHaveSufficientPermissionResend --></label>
+        <name>dsfs__NotHaveSufficientPermissionResend</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NotHaveSystemSenderPassword --></label>
+        <name>dsfs__NotHaveSystemSenderPassword</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NotSupposedToBeShown --></label>
+        <name>dsfs__NotSupposedToBeShown</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NoteForRecipient --></label>
+        <name>dsfs__NoteForRecipient</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- NoteSendWithDocuSign --></label>
+        <name>dsfs__NoteSendWithDocuSign</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Of --></label>
+        <name>dsfs__Of</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- OnlyEnvelopeInSentOrDelivered --></label>
+        <name>dsfs__OnlyEnvelopeInSentOrDelivered</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Opportunity --></label>
+        <name>dsfs__Opportunity</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- OpportunityPageLayout --></label>
+        <name>dsfs__OpportunityPageLayout</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Or --></label>
+        <name>dsfs__Or</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Order --></label>
+        <name>dsfs__Order</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- OrderOfTheRolesDetermines --></label>
+        <name>dsfs__OrderOfTheRolesDetermines</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Page --></label>
+        <name>dsfs__Page</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Password --></label>
+        <name>dsfs__Password</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- PersonalInfo --></label>
+        <name>dsfs__PersonalInfo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- PhoneNumber --></label>
+        <name>dsfs__PhoneNumber</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- PlaceholderRole --></label>
+        <name>dsfs__PlaceholderRole</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- PlanEndDate --></label>
+        <name>dsfs__PlanEndDate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- PlanID --></label>
+        <name>dsfs__PlanID</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- PlanName --></label>
+        <name>dsfs__PlanName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- PlanStartDate --></label>
+        <name>dsfs__PlanStartDate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- PleaseContactDocuSignSupportAt --></label>
+        <name>dsfs__PleaseContactDocuSignSupportAt</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- PleaseContactDocuSignSupportTo --></label>
+        <name>dsfs__PleaseContactDocuSignSupportTo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- PleaseContactYourSalesforceAdministratorToBeGranted --></label>
+        <name>dsfs__PleaseContactYourSalesforceAdministratorToBeGranted</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- PortugueseBrazilian --></label>
+        <name>dsfs__PortugueseBrazilian</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- PossibleErrorConditions --></label>
+        <name>dsfs__PossibleErrorConditions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- PostCode --></label>
+        <name>dsfs__PostCode</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Previous --></label>
+        <name>dsfs__Previous</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ProblemWithTransaction --></label>
+        <name>dsfs__ProblemWithTransaction</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- QuickLinks --></label>
+        <name>dsfs__QuickLinks</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ReceiveCopy --></label>
+        <name>dsfs__ReceiveCopy</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Recipient --></label>
+        <name>dsfs__Recipient</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RecipientMustHaveEmailAddress --></label>
+        <name>dsfs__RecipientMustHaveEmailAddress</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RecipientRoleSettings --></label>
+        <name>dsfs__RecipientRoleSettings</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RecipientsAndRouting --></label>
+        <name>dsfs__RecipientsAndRouting</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RecipientsHaveNeenNotifiedEmail --></label>
+        <name>dsfs__RecipientsHaveNeenNotifiedEmail</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RecipientsWhoHaveNotSigned --></label>
+        <name>dsfs__RecipientsWhoHaveNotSigned</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RecipientsWillNoLongerAccess --></label>
+        <name>dsfs__RecipientsWillNoLongerAccess</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Region --></label>
+        <name>dsfs__Region</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ReminderExpirationsMustBeNumbers --></label>
+        <name>dsfs__ReminderExpirationsMustBeNumbers</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Remove --></label>
+        <name>dsfs__Remove</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RemoveAndCloseUsers --></label>
+        <name>dsfs__RemoveAndCloseUsers</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RemoveAndCloseUsersDocuSignPackage --></label>
+        <name>dsfs__RemoveAndCloseUsersDocuSignPackage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RemoveDocuSignPackageSelectedUsersKeepAccount --></label>
+        <name>dsfs__RemoveDocuSignPackageSelectedUsersKeepAccount</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RemoveDocuSignPackageSelectedUsrsClose --></label>
+        <name>dsfs__RemoveDocuSignPackageSelectedUsrsClose</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RemoveUsers --></label>
+        <name>dsfs__RemoveUsers</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RemoveUsersRemoveTheDocuSignPackage --></label>
+        <name>dsfs__RemoveUsersRemoveTheDocuSignPackage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ResendEmails --></label>
+        <name>dsfs__ResendEmails</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ResendEmailsComplete --></label>
+        <name>dsfs__ResendEmailsComplete</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ResetPassword --></label>
+        <name>dsfs__ResetPassword</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ResizeWelcomePanel --></label>
+        <name>dsfs__ResizeWelcomePanel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Return --></label>
+        <name>dsfs__Return</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ReturnTo --></label>
+        <name>dsfs__ReturnTo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ReturnToEnvelope --></label>
+        <name>dsfs__ReturnToEnvelope</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Role --></label>
+        <name>dsfs__Role</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RoleNames --></label>
+        <name>dsfs__RoleNames</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RoleOrRecipientNameRequired --></label>
+        <name>dsfs__RoleOrRecipientNameRequired</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RolesAreUsedToMapDefaultAnchorTabs --></label>
+        <name>dsfs__RolesAreUsedToMapDefaultAnchorTabs</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RoutingOrder --></label>
+        <name>dsfs__RoutingOrder</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RoutingOrderMustBeOneOrHeigher --></label>
+        <name>dsfs__RoutingOrderMustBeOneOrHeigher</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- RowsDisplayedPerPage --></label>
+        <name>dsfs__RowsDisplayedPerPage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Russian --></label>
+        <name>dsfs__Russian</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SFDCCompleteManageAdminTab --></label>
+        <name>dsfs__SFDCCompleteManageAdminTab</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SFDCSetupComplete --></label>
+        <name>dsfs__SFDCSetupComplete</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SalesforceEnv --></label>
+        <name>dsfs__SalesforceEnv</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SalesforceEnvironment --></label>
+        <name>dsfs__SalesforceEnvironment</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SalesforcePass --></label>
+        <name>dsfs__SalesforcePass</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SalesforcePassword --></label>
+        <name>dsfs__SalesforcePassword</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SalesforceToken --></label>
+        <name>dsfs__SalesforceToken</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SalesforceUser --></label>
+        <name>dsfs__SalesforceUser</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Save --></label>
+        <name>dsfs__Save</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SaveDocuSignEnvelopeChanges --></label>
+        <name>dsfs__SaveDocuSignEnvelopeChanges</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SaveRecipient --></label>
+        <name>dsfs__SaveRecipient</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SaveTheChangesToTheSelectedFields --></label>
+        <name>dsfs__SaveTheChangesToTheSelectedFields</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SearchDocumentation --></label>
+        <name>dsfs__SearchDocumentation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SeeMoreAccounts --></label>
+        <name>dsfs__SeeMoreAccounts</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Select --></label>
+        <name>dsfs__Select</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SelectAUser --></label>
+        <name>dsfs__SelectAUser</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SelectAllUsersOnThisPage --></label>
+        <name>dsfs__SelectAllUsersOnThisPage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SelectAtLeastOneUserActivatedDSProSFUsername --></label>
+        <name>dsfs__SelectAtLeastOneUserActivatedDSProSFUsername</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SelectAtLeastOneUserDSProSFUsername --></label>
+        <name>dsfs__SelectAtLeastOneUserDSProSFUsername</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SelectColumnHeaderToSort --></label>
+        <name>dsfs__SelectColumnHeaderToSort</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SelectFieldsToDisplayInList --></label>
+        <name>dsfs__SelectFieldsToDisplayInList</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SelectFilterToApply --></label>
+        <name>dsfs__SelectFilterToApply</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SelectOneEmailForSFDC --></label>
+        <name>dsfs__SelectOneEmailForSFDC</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SelectOnlyUsersHavePermissionDSProSFUsername --></label>
+        <name>dsfs__SelectOnlyUsersHavePermissionDSProSFUsername</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SelectSignature --></label>
+        <name>dsfs__SelectSignature</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SelectUserToBeAdded --></label>
+        <name>dsfs__SelectUserToBeAdded</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SelectedDocs --></label>
+        <name>dsfs__SelectedDocs</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SelectedFields --></label>
+        <name>dsfs__SelectedFields</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SendComplete --></label>
+        <name>dsfs__SendComplete</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SendFailed --></label>
+        <name>dsfs__SendFailed</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SendNow --></label>
+        <name>dsfs__SendNow</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SendSettings --></label>
+        <name>dsfs__SendSettings</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SendUpdate --></label>
+        <name>dsfs__SendUpdate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SendWithDS --></label>
+        <name>dsfs__SendWithDS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SendWithDSRecipient --></label>
+        <name>dsfs__SendWithDSRecipient</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SendingEnvelope --></label>
+        <name>dsfs__SendingEnvelope</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Sent --></label>
+        <name>dsfs__Sent</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SetEmailMessage --></label>
+        <name>dsfs__SetEmailMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SetUpDocuSignAccountComplete --></label>
+        <name>dsfs__SetUpDocuSignAccountComplete</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SetupDSAccount --></label>
+        <name>dsfs__SetupDSAccount</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SetupError --></label>
+        <name>dsfs__SetupError</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SetupNotComplete --></label>
+        <name>dsfs__SetupNotComplete</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SetupUsersInSFToUseDS --></label>
+        <name>dsfs__SetupUsersInSFToUseDS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ShareExperienceWithCommunity --></label>
+        <name>dsfs__ShareExperienceWithCommunity</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ShowTheFirstPage --></label>
+        <name>dsfs__ShowTheFirstPage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ShowTheLastPage --></label>
+        <name>dsfs__ShowTheLastPage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ShowTheNextPage --></label>
+        <name>dsfs__ShowTheNextPage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ShowThePreviousPage --></label>
+        <name>dsfs__ShowThePreviousPage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Sign --></label>
+        <name>dsfs__Sign</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SignInPerson --></label>
+        <name>dsfs__SignInPerson</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SignNowStatus --></label>
+        <name>dsfs__SignNowStatus</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SignUp --></label>
+        <name>dsfs__SignUp</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SignUpFreeDSTrial --></label>
+        <name>dsfs__SignUpFreeDSTrial</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- DocuSign --></label>
+        <name>dsfs__SignWithDocuSign</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Signature --></label>
+        <name>dsfs__Signature</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Signed --></label>
+        <name>dsfs__Signed</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Signer --></label>
+        <name>dsfs__Signer</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SignerDashSignNow --></label>
+        <name>dsfs__SignerDashSignNow</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SignerName --></label>
+        <name>dsfs__SignerName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SignerRole --></label>
+        <name>dsfs__SignerRole</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SignerRoleAlreadyInUse --></label>
+        <name>dsfs__SignerRoleAlreadyInUse</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SignerType --></label>
+        <name>dsfs__SignerType</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Source --></label>
+        <name>dsfs__Source</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Spanish --></label>
+        <name>dsfs__Spanish</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SpecifiedEnvelopeNoLonerExist --></label>
+        <name>dsfs__SpecifiedEnvelopeNoLonerExist</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SpecifiedUserNotRecipient --></label>
+        <name>dsfs__SpecifiedUserNotRecipient</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- StartDocuSigning --></label>
+        <name>dsfs__StartDocuSigning</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- StartSetUp --></label>
+        <name>dsfs__StartSetUp</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- State --></label>
+        <name>dsfs__State</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Status --></label>
+        <name>dsfs__Status</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- StatusCorrectInDocuSignErrorMessage --></label>
+        <name>dsfs__StatusCorrectInDocuSignErrorMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Status Resend DocuSign Error --></label>
+        <name>dsfs__StatusVoidEnvelopeError</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- StatusVoidEnvelopeErrorMessage --></label>
+        <name>dsfs__StatusVoidEnvelopeErrorMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Step1 --></label>
+        <name>dsfs__Step1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Step1SetUpConnToDS --></label>
+        <name>dsfs__Step1SetUpConnToDS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Step2 --></label>
+        <name>dsfs__Step2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Step2ConnectDSToSF --></label>
+        <name>dsfs__Step2ConnectDSToSF</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- StepOneSetupDocuSignAccount --></label>
+        <name>dsfs__StepOneSetupDocuSignAccount</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- StepTwoConnectDocuSignToSalesforce --></label>
+        <name>dsfs__StepTwoConnectDocuSignToSalesforce</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- StreetAddress --></label>
+        <name>dsfs__StreetAddress</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Subject --></label>
+        <name>dsfs__Subject</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Suffix} --></label>
+        <name>dsfs__Suffix</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SupportSite --></label>
+        <name>dsfs__SupportSite</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SystemSender --></label>
+        <name>dsfs__SystemSender</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SystemSenderAlreadyConfigured --></label>
+        <name>dsfs__SystemSenderAlreadyConfigured</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Tag --></label>
+        <name>dsfs__Tag</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- TheFirstRoleInTheListWillMap --></label>
+        <name>dsfs__TheFirstRoleInTheListWillMap</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Title --></label>
+        <name>dsfs__Title</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ToExistingDSAccount --></label>
+        <name>dsfs__ToExistingDSAccount</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ToVoidThisEnvelopeProvideReason --></label>
+        <name>dsfs__ToVoidThisEnvelopeProvideReason</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Top --></label>
+        <name>dsfs__Top</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- TotalRow --></label>
+        <name>dsfs__TotalRow</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- TransactionProblem --></label>
+        <name>dsfs__TransactionProblem</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- TransctionInfo --></label>
+        <name>dsfs__TransctionInfo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- TrustedNetwork --></label>
+        <name>dsfs__TrustedNetwork</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Type --></label>
+        <name>dsfs__Type</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UnableAddAttachmentInsufficientAccess --></label>
+        <name>dsfs__UnableAddAttachmentInsufficientAccess</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UnableAddContentInsufficientAccessContentVersion --></label>
+        <name>dsfs__UnableAddContentInsufficientAccessContentVersion</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UnableAddUpdateDocument --></label>
+        <name>dsfs__UnableAddUpdateDocument</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UnableAddUpdateEnvelopes --></label>
+        <name>dsfs__UnableAddUpdateEnvelopes</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UnableAddUpdateRecipients --></label>
+        <name>dsfs__UnableAddUpdateRecipients</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UnableConfigureDocuSignSalesforce --></label>
+        <name>dsfs__UnableConfigureDocuSignSalesforce</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UnableDeleteDocuSignEnvelopeRecipientc --></label>
+        <name>dsfs__UnableDeleteDocuSignEnvelopeRecipientc</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UnableFindEvenlopeWithIdEquals --></label>
+        <name>dsfs__UnableFindEvenlopeWithIdEquals</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UnableGetAttachmentNameInsufficientAccess --></label>
+        <name>dsfs__UnableGetAttachmentNameInsufficientAccess</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UnableGetContactInformationFromCase --></label>
+        <name>dsfs__UnableGetContactInformationFromCase</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UnableGetContactsFromOpportunity --></label>
+        <name>dsfs__UnableGetContactsFromOpportunity</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UnableGetContentInformationInsufficientContentWorkspace --></label>
+        <name>dsfs__UnableGetContentInformationInsufficientContentWorkspace</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UnableGetDocumentInformationInsufficientAccess --></label>
+        <name>dsfs__UnableGetDocumentInformationInsufficientAccess</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UnableGetDocumentInformationInsufficientAccessContentVersion --></label>
+        <name>dsfs__UnableGetDocumentInformationInsufficientAccessContentVersion</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UnableInitializeDocuSignAccountConfiguration --></label>
+        <name>dsfs__UnableInitializeDocuSignAccountConfiguration</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UnableLoadProvisioningAccount --></label>
+        <name>dsfs__UnableLoadProvisioningAccount</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UnableLoadProvisioningInformation --></label>
+        <name>dsfs__UnableLoadProvisioningInformation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UnablePopulateFolderList --></label>
+        <name>dsfs__UnablePopulateFolderList</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UnableSendEvelopeNotExist --></label>
+        <name>dsfs__UnableSendEvelopeNotExist</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UnableToAuthticateUserWithDocuSign --></label>
+        <name>dsfs__UnableToAuthticateUserWithDocuSign</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UnableToEditDocuments --></label>
+        <name>dsfs__UnableToEditDocuments</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UnableUpdateRecipientDocuSignEnvelopeRecipientc --></label>
+        <name>dsfs__UnableUpdateRecipientDocuSignEnvelopeRecipientc</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Unknown --></label>
+        <name>dsfs__Unknown</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UpdateDSAccSettings --></label>
+        <name>dsfs__UpdateDSAccSettings</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UpdateDoc --></label>
+        <name>dsfs__UpdateDoc</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UpdateDocuSignCredentials --></label>
+        <name>dsfs__UpdateDocuSignCredentials</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UpdateDocuSignPassword --></label>
+        <name>dsfs__UpdateDocuSignPassword</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UpdateInfoDSAdminTab --></label>
+        <name>dsfs__UpdateInfoDSAdminTab</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UpdatePassword --></label>
+        <name>dsfs__UpdatePassword</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UploadAttachment --></label>
+        <name>dsfs__UploadAttachment</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UseDSAccount --></label>
+        <name>dsfs__UseDSAccount</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- User --></label>
+        <name>dsfs__User</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UserAlreadyConfiguredWithDocuSign --></label>
+        <name>dsfs__UserAlreadyConfiguredWithDocuSign</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UserLacksSufficientPermissions --></label>
+        <name>dsfs__UserLacksSufficientPermissions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UserLinkedDocuSignMembershipDeleted --></label>
+        <name>dsfs__UserLinkedDocuSignMembershipDeleted</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UserMustBeProvided --></label>
+        <name>dsfs__UserMustBeProvided</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UserSuccessfullyLinkedDocuSignMembership --></label>
+        <name>dsfs__UserSuccessfullyLinkedDocuSignMembership</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Users --></label>
+        <name>dsfs__Users</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UsersPeriod --></label>
+        <name>dsfs__UsersPeriod</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UsingAnchorTagsToPlaceSignature --></label>
+        <name>dsfs__UsingAnchorTagsToPlaceSignature</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ViewColon --></label>
+        <name>dsfs__ViewColon</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- VoidEnvelope --></label>
+        <name>dsfs__VoidEnvelope</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- VoidEnvelopeComplete --></label>
+        <name>dsfs__VoidEnvelopeComplete</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Voided --></label>
+        <name>dsfs__Voided</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- VoidingEnvelopeWillRemoveAccess --></label>
+        <name>dsfs__VoidingEnvelopeWillRemoveAccess</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Welcome --></label>
+        <name>dsfs__Welcome</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- WhereToStart --></label>
+        <name>dsfs__WhereToStart</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Workspace --></label>
+        <name>dsfs__Workspace</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- WriteAReview --></label>
+        <name>dsfs__WriteAReview</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- YouCannotManageEnvelopeSettings --></label>
+        <name>dsfs__YouCannotManageEnvelopeSettings</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- YouCannotSelectMoreThan --></label>
+        <name>dsfs__YouCannotSelectMoreThan</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- YouDoNotHavePasswordSet --></label>
+        <name>dsfs__YouDoNotHavePasswordSet</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- YouHaveNotAssociatedSalesforceUser --></label>
+        <name>dsfs__YouHaveNotAssociatedSalesforceUser</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- YouHaveNotBeenGrantedDocuSign --></label>
+        <name>dsfs__YouHaveNotBeenGrantedDocuSign</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- YourDocuSignAccountNotYetConfigured --></label>
+        <name>dsfs__YourDocuSignAccountNotYetConfigured</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- YourDocuSignUserInformation --></label>
+        <name>dsfs__YourDocuSignUserInformation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- YourName --></label>
+        <name>dsfs__YourName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Zip --></label>
+        <name>dsfs__Zip</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Mobile - Edit Page - Add Another Signer --></label>
+        <name>dsfs__m_AddAnotherSigner</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Mobile - Edit Page - Cancel --></label>
+        <name>dsfs__m_Cancel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Mobile - Edit Page - Documents --></label>
+        <name>dsfs__m_DOCUMENTS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Mobile - Edit Page - DocuSign --></label>
+        <name>dsfs__m_DocuSign</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Mobile - Edit Page - Done --></label>
+        <name>dsfs__m_Done</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Mobile - Edit Page - Email Address --></label>
+        <name>dsfs__m_EmailAddress</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Mobile - Edit Page - Email Here --></label>
+        <name>dsfs__m_EmailHere</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Mobile - Edit Page - Error - In Person --></label>
+        <name>dsfs__m_Error_InPerson</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Mobile - Edit Page - Error - Invalid Email --></label>
+        <name>dsfs__m_Error_InvalidEmail</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Mobile - Edit Page - Full Name --></label>
+        <name>dsfs__m_FullName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Mobile - Edit Page - Full Name Here --></label>
+        <name>dsfs__m_FullNameHere</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Mobile - Edit Page - In Person --></label>
+        <name>dsfs__m_InPerson</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Mobile - Edit Page - Reorder --></label>
+        <name>dsfs__m_Reorder</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Mobile - Edit Page - SIGNERS --></label>
+        <name>dsfs__m_SIGNERS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Mobile - Edit Page - Save Signer --></label>
+        <name>dsfs__m_SaveSigner</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Mobile - Edit Page - Via Email --></label>
+        <name>dsfs__m_ViaEmail</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AB_Test_From_Name_A --></label>
+        <name>et4ae5__AB_Test_From_Name_A</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AB_Test_From_Name_B --></label>
+        <name>et4ae5__AB_Test_From_Name_B</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AB_Test_Send_Date_A --></label>
+        <name>et4ae5__AB_Test_Send_Date_A</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AB_Test_Send_Date_B --></label>
+        <name>et4ae5__AB_Test_Send_Date_B</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AB_Test_Subject_A --></label>
+        <name>et4ae5__AB_Test_Subject_A</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AB_Test_Subject_B --></label>
+        <name>et4ae5__AB_Test_Subject_B</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ALL_DATES --></label>
+        <name>et4ae5__ALL_DATES</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CURRENT_FISCAL_QUARTER --></label>
+        <name>et4ae5__CURRENT_FISCAL_QUARTER</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CURRENT_FISCAL_YEAR --></label>
+        <name>et4ae5__CURRENT_FISCAL_YEAR</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CURRENT_MONTH --></label>
+        <name>et4ae5__CURRENT_MONTH</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CURRENT_QUARTER --></label>
+        <name>et4ae5__CURRENT_QUARTER</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CURRENT_WEEK --></label>
+        <name>et4ae5__CURRENT_WEEK</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CURRENT_YEAR --></label>
+        <name>et4ae5__CURRENT_YEAR</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CUSTOM_DATE --></label>
+        <name>et4ae5__CUSTOM_DATE</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- IERs --></label>
+        <name>et4ae5__IERs</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- LAST_120_DAYS --></label>
+        <name>et4ae5__LAST_120_DAYS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- LAST_2_FISCAL_YEARS --></label>
+        <name>et4ae5__LAST_2_FISCAL_YEARS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- LAST_2_YEARS --></label>
+        <name>et4ae5__LAST_2_YEARS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- LAST_30_DAYS --></label>
+        <name>et4ae5__LAST_30_DAYS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- LAST_60_DAYS --></label>
+        <name>et4ae5__LAST_60_DAYS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- LAST_7_DAYS --></label>
+        <name>et4ae5__LAST_7_DAYS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- LAST_90_DAYS --></label>
+        <name>et4ae5__LAST_90_DAYS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- LAST_FISCAL_QUARTER --></label>
+        <name>et4ae5__LAST_FISCAL_QUARTER</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- LAST_FISCAL_YEAR --></label>
+        <name>et4ae5__LAST_FISCAL_YEAR</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- LAST_MONTH --></label>
+        <name>et4ae5__LAST_MONTH</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- LAST_QUARTER --></label>
+        <name>et4ae5__LAST_QUARTER</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- LAST_WEEK --></label>
+        <name>et4ae5__LAST_WEEK</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- LAST_YEAR --></label>
+        <name>et4ae5__LAST_YEAR</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- aauReqd --></label>
+        <name>et4ae5__aauReqd</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- abNotificationConditions --></label>
+        <name>et4ae5__abNotificationConditions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- abNotificationError --></label>
+        <name>et4ae5__abNotificationError</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- abNotificationRemainder --></label>
+        <name>et4ae5__abNotificationRemainder</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- abNotificationWinner --></label>
+        <name>et4ae5__abNotificationWinner</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- abSliderPct --></label>
+        <name>et4ae5__abSliderPct</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- abTestAfterWinner --></label>
+        <name>et4ae5__abTestAfterWinner</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- abTestDeclareWinner --></label>
+        <name>et4ae5__abTestDeclareWinner</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- abTestDetermineWinnerBy --></label>
+        <name>et4ae5__abTestDetermineWinnerBy</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- abTestEmailNotifications --></label>
+        <name>et4ae5__abTestEmailNotifications</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- abTests --></label>
+        <name>et4ae5__abTests</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- accept --></label>
+        <name>et4ae5__accept</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- acctInform --></label>
+        <name>et4ae5__acctInform</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- action --></label>
+        <name>et4ae5__action</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- activity --></label>
+        <name>et4ae5__activity</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- add --></label>
+        <name>et4ae5__add</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- admin --></label>
+        <name>et4ae5__admin</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- aggrLnkDet --></label>
+        <name>et4ae5__aggrLnkDet</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- aggrLvlTrc --></label>
+        <name>et4ae5__aggrLvlTrc</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- aggrgt --></label>
+        <name>et4ae5__aggrgt</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- all --></label>
+        <name>et4ae5__all</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- allActSFUs --></label>
+        <name>et4ae5__allActSFUs</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- allBuUnits --></label>
+        <name>et4ae5__allBuUnits</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- allowMPCR --></label>
+        <name>et4ae5__allowMPCR</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- altRTs --></label>
+        <name>et4ae5__altRTs</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- anytxFTEm --></label>
+        <name>et4ae5__anytxFTEm</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- apply --></label>
+        <name>et4ae5__apply</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- at_lc --></label>
+        <name>et4ae5__at_lc</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- authApiUrl --></label>
+        <name>et4ae5__authApiUrl</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- authTokens --></label>
+        <name>et4ae5__authTokens</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- backTo --></label>
+        <name>et4ae5__backTo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- bounced --></label>
+        <name>et4ae5__bounced</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- bounces --></label>
+        <name>et4ae5__bounces</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- buId --></label>
+        <name>et4ae5__buId</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- buMgmt --></label>
+        <name>et4ae5__buMgmt</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- buName --></label>
+        <name>et4ae5__buName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- busUnit --></label>
+        <name>et4ae5__busUnit</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- campRpts --></label>
+        <name>et4ae5__campRpts</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- campaign --></label>
+        <name>et4ae5__campaign</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- campaigns --></label>
+        <name>et4ae5__campaigns</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- cancel --></label>
+        <name>et4ae5__cancel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- canceled --></label>
+        <name>et4ae5__canceled</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- cannotAuth --></label>
+        <name>et4ae5__cannotAuth</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- cannotCanc --></label>
+        <name>et4ae5__cannotCanc</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- changeApiU --></label>
+        <name>et4ae5__changeApiU</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- clEsInfo --></label>
+        <name>et4ae5__clEsInfo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- clear --></label>
+        <name>et4ae5__clear</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- clicked --></label>
+        <name>et4ae5__clicked</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- clicks --></label>
+        <name>et4ae5__clicks</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- close --></label>
+        <name>et4ae5__close</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- comment --></label>
+        <name>et4ae5__comment</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- complete --></label>
+        <name>et4ae5__complete</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- completed --></label>
+        <name>et4ae5__completed</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- configInt --></label>
+        <name>et4ae5__configInt</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- connError --></label>
+        <name>et4ae5__connError</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- contact --></label>
+        <name>et4ae5__contact</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- cpnSdDsbld --></label>
+        <name>et4ae5__cpnSdDsbld</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ctOptedOut --></label>
+        <name>et4ae5__ctOptedOut</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- daily --></label>
+        <name>et4ae5__daily</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- dateCreate --></label>
+        <name>et4ae5__dateCreate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- dateSent_c --></label>
+        <name>et4ae5__dateSent_c</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- dateUnsub --></label>
+        <name>et4ae5__dateUnsub</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- days --></label>
+        <name>et4ae5__days</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- dedupeSubs --></label>
+        <name>et4ae5__dedupeSubs</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- default --></label>
+        <name>et4ae5__default</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- delRate --></label>
+        <name>et4ae5__delRate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- delRate_c --></label>
+        <name>et4ae5__delRate_c</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- delete --></label>
+        <name>et4ae5__delete</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- delivered --></label>
+        <name>et4ae5__delivered</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- delivered_c --></label>
+        <name>et4ae5__delivered_c</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- details --></label>
+        <name>et4ae5__details</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- didntClick --></label>
+        <name>et4ae5__didntClick</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- didntOpen --></label>
+        <name>et4ae5__didntOpen</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- disBUs --></label>
+        <name>et4ae5__disBUs</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- disILT --></label>
+        <name>et4ae5__disILT</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- disThisSd --></label>
+        <name>et4ae5__disThisSd</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- dispBuBeg --></label>
+        <name>et4ae5__dispBuBeg</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- dispEmBeg --></label>
+        <name>et4ae5__dispEmBeg</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- dispUsBeg --></label>
+        <name>et4ae5__dispUsBeg</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- dmlExcp --></label>
+        <name>et4ae5__dmlExcp</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- done --></label>
+        <name>et4ae5__done</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- down --></label>
+        <name>et4ae5__down</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- dtrmnWinner --></label>
+        <name>et4ae5__dtrmnWinner</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- dynaPrev --></label>
+        <name>et4ae5__dynaPrev</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- eCleanup --></label>
+        <name>et4ae5__eCleanup</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- edit --></label>
+        <name>et4ae5__edit</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- editUrl --></label>
+        <name>et4ae5__editUrl</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- elMgmt --></label>
+        <name>et4ae5__elMgmt</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- emSentTo --></label>
+        <name>et4ae5__emSentTo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- email --></label>
+        <name>et4ae5__email</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- emailAddr --></label>
+        <name>et4ae5__emailAddr</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- emailHelp --></label>
+        <name>et4ae5__emailHelp</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- emailId --></label>
+        <name>et4ae5__emailId</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- emailName --></label>
+        <name>et4ae5__emailName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- emailSend --></label>
+        <name>et4ae5__emailSend</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- emailSends --></label>
+        <name>et4ae5__emailSends</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- email_A --></label>
+        <name>et4ae5__email_A</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- email_B --></label>
+        <name>et4ae5__email_B</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- emailsDeld --></label>
+        <name>et4ae5__emailsDeld</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- emailsSent --></label>
+        <name>et4ae5__emailsSent</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- emlASub --></label>
+        <name>et4ae5__emlASub</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- emlBSub --></label>
+        <name>et4ae5__emlBSub</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- emlThmbnl --></label>
+        <name>et4ae5__emlThmbnl</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- enDsBu --></label>
+        <name>et4ae5__enDsBu</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- enDsEl --></label>
+        <name>et4ae5__enDsEl</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- enDsUs --></label>
+        <name>et4ae5__enDsUs</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- enabled --></label>
+        <name>et4ae5__enabled</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- enbldBUs --></label>
+        <name>et4ae5__enbldBUs</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- envirnmnt --></label>
+        <name>et4ae5__envirnmnt</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- erCrDaSync --></label>
+        <name>et4ae5__erCrDaSync</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- erCrSndDef --></label>
+        <name>et4ae5__erCrSndDef</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- erCrSndPrf --></label>
+        <name>et4ae5__erCrSndPrf</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- erQuSend --></label>
+        <name>et4ae5__erQuSend</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- erQuSendE103 --></label>
+        <name>et4ae5__erQuSendE103</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- erQuSendE104 --></label>
+        <name>et4ae5__erQuSendE104</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- erQuSendE112 --></label>
+        <name>et4ae5__erQuSendE112</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- erQuSendE113 --></label>
+        <name>et4ae5__erQuSendE113</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- erQuSendE114 --></label>
+        <name>et4ae5__erQuSendE114</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- erQuSendE200 --></label>
+        <name>et4ae5__erQuSendE200</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- erRtData --></label>
+        <name>et4ae5__erRtData</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- error --></label>
+        <name>et4ae5__error</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- errorHndlg --></label>
+        <name>et4ae5__errorHndlg</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- errorLogng --></label>
+        <name>et4ae5__errorLogng</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- errorNoRes --></label>
+        <name>et4ae5__errorNoRes</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- errored --></label>
+        <name>et4ae5__errored</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- estblshCnn --></label>
+        <name>et4ae5__estblshCnn</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- etAcctType --></label>
+        <name>et4ae5__etAcctType</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- etAnlytcs --></label>
+        <name>et4ae5__etAnlytcs</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- etConfig --></label>
+        <name>et4ae5__etConfig</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- etConnectn --></label>
+        <name>et4ae5__etConnectn</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- etEmSend --></label>
+        <name>et4ae5__etEmSend</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- etLists --></label>
+        <name>et4ae5__etLists</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- etMoSend --></label>
+        <name>et4ae5__etMoSend</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- etPassword --></label>
+        <name>et4ae5__etPassword</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- etSubLists --></label>
+        <name>et4ae5__etSubLists</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- etSupReq --></label>
+        <name>et4ae5__etSupReq</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- etUsername --></label>
+        <name>et4ae5__etUsername</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- exclAudnc --></label>
+        <name>et4ae5__exclAudnc</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- exclCmpns --></label>
+        <name>et4ae5__exclCmpns</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- exclRepts --></label>
+        <name>et4ae5__exclRepts</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- exclSS --></label>
+        <name>et4ae5__exclSS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- exclusions --></label>
+        <name>et4ae5__exclusions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- fail --></label>
+        <name>et4ae5__fail</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- failObtDet --></label>
+        <name>et4ae5__failObtDet</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- failed --></label>
+        <name>et4ae5__failed</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- filterCrit --></label>
+        <name>et4ae5__filterCrit</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- find --></label>
+        <name>et4ae5__find</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- firstEmSnt --></label>
+        <name>et4ae5__firstEmSnt</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- folder --></label>
+        <name>et4ae5__folder</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- forwards --></label>
+        <name>et4ae5__forwards</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- frequency --></label>
+        <name>et4ae5__frequency</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- friendlyName --></label>
+        <name>et4ae5__friendlyName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- from --></label>
+        <name>et4ae5__from</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- fromDate --></label>
+        <name>et4ae5__fromDate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- fromName --></label>
+        <name>et4ae5__fromName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- genExcp --></label>
+        <name>et4ae5__genExcp</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- goToCf --></label>
+        <name>et4ae5__goToCf</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- goToES --></label>
+        <name>et4ae5__goToES</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- goToEt --></label>
+        <name>et4ae5__goToEt</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- goToMS --></label>
+        <name>et4ae5__goToMS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- goToSAn --></label>
+        <name>et4ae5__goToSAn</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- goToSAu --></label>
+        <name>et4ae5__goToSAu</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- histEngt --></label>
+        <name>et4ae5__histEngt</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- hrdBnc_c --></label>
+        <name>et4ae5__hrdBnc_c</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- hrdBncd --></label>
+        <name>et4ae5__hrdBncd</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- id --></label>
+        <name>et4ae5__id</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- immedtly --></label>
+        <name>et4ae5__immedtly</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- indTrk_c --></label>
+        <name>et4ae5__indTrk_c</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- indlLvlTr --></label>
+        <name>et4ae5__indlLvlTr</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- indvLnkDet --></label>
+        <name>et4ae5__indvLnkDet</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- initLog --></label>
+        <name>et4ae5__initLog</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- initiatdOn --></label>
+        <name>et4ae5__initiatdOn</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- insufUsPrm --></label>
+        <name>et4ae5__insufUsPrm</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- intAdmins --></label>
+        <name>et4ae5__intAdmins</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- intNotCnfg --></label>
+        <name>et4ae5__intNotCnfg</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- intType --></label>
+        <name>et4ae5__intType</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- intUsrMgmt --></label>
+        <name>et4ae5__intUsrMgmt</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- intgrtdMid --></label>
+        <name>et4ae5__intgrtdMid</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- intgrtdUs --></label>
+        <name>et4ae5__intgrtdUs</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- invalid --></label>
+        <name>et4ae5__invalid</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- jobId_c --></label>
+        <name>et4ae5__jobId_c</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- keyword --></label>
+        <name>et4ae5__keyword</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lastEmSnt --></label>
+        <name>et4ae5__lastEmSnt</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lastSent --></label>
+        <name>et4ae5__lastSent</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ldOptedOut --></label>
+        <name>et4ae5__ldOptedOut</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- lead --></label>
+        <name>et4ae5__lead</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- loadingCal --></label>
+        <name>et4ae5__loadingCal</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- manage --></label>
+        <name>et4ae5__manage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- manageBUs --></label>
+        <name>et4ae5__manageBUs</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- manageELs --></label>
+        <name>et4ae5__manageELs</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- manageUs --></label>
+        <name>et4ae5__manageUs</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- markBUPrnt --></label>
+        <name>et4ae5__markBUPrnt</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- message --></label>
+        <name>et4ae5__message</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- mobile --></label>
+        <name>et4ae5__mobile</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- mobileSend --></label>
+        <name>et4ae5__mobileSend</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- monthly --></label>
+        <name>et4ae5__monthly</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0002 --></label>
+        <name>et4ae5__msg0002</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0003 --></label>
+        <name>et4ae5__msg0003</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0004 --></label>
+        <name>et4ae5__msg0004</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0005 --></label>
+        <name>et4ae5__msg0005</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0006 --></label>
+        <name>et4ae5__msg0006</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0007 --></label>
+        <name>et4ae5__msg0007</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0008 --></label>
+        <name>et4ae5__msg0008</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0009 --></label>
+        <name>et4ae5__msg0009</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0010 --></label>
+        <name>et4ae5__msg0010</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0011 --></label>
+        <name>et4ae5__msg0011</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0012 --></label>
+        <name>et4ae5__msg0012</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0013 --></label>
+        <name>et4ae5__msg0013</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0014 --></label>
+        <name>et4ae5__msg0014</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0015 --></label>
+        <name>et4ae5__msg0015</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0016 --></label>
+        <name>et4ae5__msg0016</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0017 --></label>
+        <name>et4ae5__msg0017</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0018 --></label>
+        <name>et4ae5__msg0018</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0019 --></label>
+        <name>et4ae5__msg0019</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0020 --></label>
+        <name>et4ae5__msg0020</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0021 --></label>
+        <name>et4ae5__msg0021</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0022 --></label>
+        <name>et4ae5__msg0022</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0023 --></label>
+        <name>et4ae5__msg0023</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0024 --></label>
+        <name>et4ae5__msg0024</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0025 --></label>
+        <name>et4ae5__msg0025</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0026 --></label>
+        <name>et4ae5__msg0026</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0027 --></label>
+        <name>et4ae5__msg0027</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0029 --></label>
+        <name>et4ae5__msg0029</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0030 --></label>
+        <name>et4ae5__msg0030</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0031 --></label>
+        <name>et4ae5__msg0031</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0032 --></label>
+        <name>et4ae5__msg0032</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0033 --></label>
+        <name>et4ae5__msg0033</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0034 --></label>
+        <name>et4ae5__msg0034</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0035 --></label>
+        <name>et4ae5__msg0035</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0036 --></label>
+        <name>et4ae5__msg0036</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0037 --></label>
+        <name>et4ae5__msg0037</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0038 --></label>
+        <name>et4ae5__msg0038</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0039 --></label>
+        <name>et4ae5__msg0039</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0040 --></label>
+        <name>et4ae5__msg0040</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0041 --></label>
+        <name>et4ae5__msg0041</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0042 --></label>
+        <name>et4ae5__msg0042</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0043 --></label>
+        <name>et4ae5__msg0043</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0044 --></label>
+        <name>et4ae5__msg0044</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0045 --></label>
+        <name>et4ae5__msg0045</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0046 --></label>
+        <name>et4ae5__msg0046</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0047 --></label>
+        <name>et4ae5__msg0047</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0048 --></label>
+        <name>et4ae5__msg0048</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0049 --></label>
+        <name>et4ae5__msg0049</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0050 --></label>
+        <name>et4ae5__msg0050</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0051 --></label>
+        <name>et4ae5__msg0051</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0052 --></label>
+        <name>et4ae5__msg0052</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0053 --></label>
+        <name>et4ae5__msg0053</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0054 --></label>
+        <name>et4ae5__msg0054</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0055 --></label>
+        <name>et4ae5__msg0055</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0056 --></label>
+        <name>et4ae5__msg0056</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0057 --></label>
+        <name>et4ae5__msg0057</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0058 --></label>
+        <name>et4ae5__msg0058</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0059 --></label>
+        <name>et4ae5__msg0059</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0060 --></label>
+        <name>et4ae5__msg0060</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0061 --></label>
+        <name>et4ae5__msg0061</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0062 --></label>
+        <name>et4ae5__msg0062</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0063 --></label>
+        <name>et4ae5__msg0063</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0064 --></label>
+        <name>et4ae5__msg0064</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0065 --></label>
+        <name>et4ae5__msg0065</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0066 --></label>
+        <name>et4ae5__msg0066</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0067 --></label>
+        <name>et4ae5__msg0067</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0068 --></label>
+        <name>et4ae5__msg0068</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0069 --></label>
+        <name>et4ae5__msg0069</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0070 --></label>
+        <name>et4ae5__msg0070</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0072 --></label>
+        <name>et4ae5__msg0072</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0073 --></label>
+        <name>et4ae5__msg0073</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0074 --></label>
+        <name>et4ae5__msg0074</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0075 --></label>
+        <name>et4ae5__msg0075</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0076 --></label>
+        <name>et4ae5__msg0076</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0077 --></label>
+        <name>et4ae5__msg0077</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0078 --></label>
+        <name>et4ae5__msg0078</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0079 --></label>
+        <name>et4ae5__msg0079</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0080 --></label>
+        <name>et4ae5__msg0080</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0081 --></label>
+        <name>et4ae5__msg0081</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0082 --></label>
+        <name>et4ae5__msg0082</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0083 --></label>
+        <name>et4ae5__msg0083</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0084 --></label>
+        <name>et4ae5__msg0084</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0085 --></label>
+        <name>et4ae5__msg0085</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0086 --></label>
+        <name>et4ae5__msg0086</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0087 --></label>
+        <name>et4ae5__msg0087</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0088 --></label>
+        <name>et4ae5__msg0088</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0089 --></label>
+        <name>et4ae5__msg0089</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0090 --></label>
+        <name>et4ae5__msg0090</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0091 --></label>
+        <name>et4ae5__msg0091</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0092 --></label>
+        <name>et4ae5__msg0092</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0093 --></label>
+        <name>et4ae5__msg0093</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0094 --></label>
+        <name>et4ae5__msg0094</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0095 --></label>
+        <name>et4ae5__msg0095</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0096 --></label>
+        <name>et4ae5__msg0096</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0097 --></label>
+        <name>et4ae5__msg0097</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0098 --></label>
+        <name>et4ae5__msg0098</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0099 --></label>
+        <name>et4ae5__msg0099</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0100 --></label>
+        <name>et4ae5__msg0100</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0101 --></label>
+        <name>et4ae5__msg0101</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0102 --></label>
+        <name>et4ae5__msg0102</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0103 --></label>
+        <name>et4ae5__msg0103</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0104 --></label>
+        <name>et4ae5__msg0104</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0105 --></label>
+        <name>et4ae5__msg0105</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0106 --></label>
+        <name>et4ae5__msg0106</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0107 --></label>
+        <name>et4ae5__msg0107</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0108 --></label>
+        <name>et4ae5__msg0108</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0109 --></label>
+        <name>et4ae5__msg0109</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0110 --></label>
+        <name>et4ae5__msg0110</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0111 --></label>
+        <name>et4ae5__msg0111</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0112 --></label>
+        <name>et4ae5__msg0112</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0113 --></label>
+        <name>et4ae5__msg0113</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0114 --></label>
+        <name>et4ae5__msg0114</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0115 --></label>
+        <name>et4ae5__msg0115</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0116 --></label>
+        <name>et4ae5__msg0116</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0117 --></label>
+        <name>et4ae5__msg0117</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0118 --></label>
+        <name>et4ae5__msg0118</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0119 --></label>
+        <name>et4ae5__msg0119</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0119 --></label>
+        <name>et4ae5__msg0119x</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0120 --></label>
+        <name>et4ae5__msg0120</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0120 --></label>
+        <name>et4ae5__msg0120x</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0121 --></label>
+        <name>et4ae5__msg0121</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0121 --></label>
+        <name>et4ae5__msg0121x</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0122 --></label>
+        <name>et4ae5__msg0122</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0122x --></label>
+        <name>et4ae5__msg0122x</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0123 --></label>
+        <name>et4ae5__msg0123</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0123x --></label>
+        <name>et4ae5__msg0123x</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0124 --></label>
+        <name>et4ae5__msg0124</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0124x --></label>
+        <name>et4ae5__msg0124x</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0125 --></label>
+        <name>et4ae5__msg0125</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0125x --></label>
+        <name>et4ae5__msg0125x</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0126 --></label>
+        <name>et4ae5__msg0126</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0127 --></label>
+        <name>et4ae5__msg0127</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0128 --></label>
+        <name>et4ae5__msg0128</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0129 --></label>
+        <name>et4ae5__msg0129</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0130 --></label>
+        <name>et4ae5__msg0130</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msg0132 --></label>
+        <name>et4ae5__msg0132</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- msgText --></label>
+        <name>et4ae5__msgText</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- myPCR --></label>
+        <name>et4ae5__myPCR</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- name --></label>
+        <name>et4ae5__name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- name_c --></label>
+        <name>et4ae5__name_c</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- next --></label>
+        <name>et4ae5__next</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- noBUs --></label>
+        <name>et4ae5__noBUs</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- noDataFnd --></label>
+        <name>et4ae5__noDataFnd</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- noPBUFnd --></label>
+        <name>et4ae5__noPBUFnd</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- noSndClsss --></label>
+        <name>et4ae5__noSndClsss</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- noSndTypes --></label>
+        <name>et4ae5__noSndTypes</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- noThumbnail --></label>
+        <name>et4ae5__noThumbnail</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- none_dashes --></label>
+        <name>et4ae5__none_dashes</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- nonintUs --></label>
+        <name>et4ae5__nonintUs</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- notSelectd --></label>
+        <name>et4ae5__notSelectd</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- note --></label>
+        <name>et4ae5__note</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- numDaysTrk --></label>
+        <name>et4ae5__numDaysTrk</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- objId --></label>
+        <name>et4ae5__objId</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- objType --></label>
+        <name>et4ae5__objType</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ok --></label>
+        <name>et4ae5__ok</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- oldrCustom --></label>
+        <name>et4ae5__oldrCustom</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- oldrNinety --></label>
+        <name>et4ae5__oldrNinety</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- oldrOneEighty --></label>
+        <name>et4ae5__oldrOneEighty</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- oldrSixty --></label>
+        <name>et4ae5__oldrSixty</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- oldrThirty --></label>
+        <name>et4ae5__oldrThirty</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- openPerf --></label>
+        <name>et4ae5__openPerf</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- openRate_c --></label>
+        <name>et4ae5__openRate_c</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- opened --></label>
+        <name>et4ae5__opened</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- opens --></label>
+        <name>et4ae5__opens</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- opnRate --></label>
+        <name>et4ae5__opnRate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- optInCrtfy --></label>
+        <name>et4ae5__optInCrtfy</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- optInSingle --></label>
+        <name>et4ae5__optInSingle</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- pageOfOf --></label>
+        <name>et4ae5__pageOfOf</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- pageOfPg --></label>
+        <name>et4ae5__pageOfPg</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- pageSize --></label>
+        <name>et4ae5__pageSize</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- phone --></label>
+        <name>et4ae5__phone</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- prevExpd --></label>
+        <name>et4ae5__prevExpd</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- previewEm --></label>
+        <name>et4ae5__previewEm</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- previous --></label>
+        <name>et4ae5__previous</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- procData --></label>
+        <name>et4ae5__procData</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- provided --></label>
+        <name>et4ae5__provided</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- pwConfReq --></label>
+        <name>et4ae5__pwConfReq</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- pwNoMatch --></label>
+        <name>et4ae5__pwNoMatch</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- pwReq --></label>
+        <name>et4ae5__pwReq</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- queuedFP --></label>
+        <name>et4ae5__queuedFP</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- range --></label>
+        <name>et4ae5__range</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- reEnterPw --></label>
+        <name>et4ae5__reEnterPw</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- recipients --></label>
+        <name>et4ae5__recipients</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- recordOwnr --></label>
+        <name>et4ae5__recordOwnr</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- recpSourcs --></label>
+        <name>et4ae5__recpSourcs</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- refrshData --></label>
+        <name>et4ae5__refrshData</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- relIerRep --></label>
+        <name>et4ae5__relIerRep</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- remove --></label>
+        <name>et4ae5__remove</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- replyToMgmt --></label>
+        <name>et4ae5__replyToMgmt</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- reply-to --></label>
+        <name>et4ae5__reply_to</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- report --></label>
+        <name>et4ae5__report</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- reports --></label>
+        <name>et4ae5__reports</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- reqdInfo --></label>
+        <name>et4ae5__reqdInfo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- requestdBy --></label>
+        <name>et4ae5__requestdBy</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- results --></label>
+        <name>et4ae5__results</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- retry --></label>
+        <name>et4ae5__retry</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- retryHelp --></label>
+        <name>et4ae5__retryHelp</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- rootRestAU --></label>
+        <name>et4ae5__rootRestAU</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- rootSoapAU --></label>
+        <name>et4ae5__rootSoapAU</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- rrauReq --></label>
+        <name>et4ae5__rrauReq</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- rsauReq --></label>
+        <name>et4ae5__rsauReq</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- rtdCrSdDef --></label>
+        <name>et4ae5__rtdCrSdDef</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- rtdCrSrPrf --></label>
+        <name>et4ae5__rtdCrSrPrf</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- rtdDataRet --></label>
+        <name>et4ae5__rtdDataRet</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- rtdDataSyn --></label>
+        <name>et4ae5__rtdDataSyn</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- rtdQueuSnd --></label>
+        <name>et4ae5__rtdQueuSnd</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- sTRReq --></label>
+        <name>et4ae5__sTRReq</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- save --></label>
+        <name>et4ae5__save</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- schInPast --></label>
+        <name>et4ae5__schInPast</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- schedFutSd --></label>
+        <name>et4ae5__schedFutSd</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- scheduled --></label>
+        <name>et4ae5__scheduled</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- search --></label>
+        <name>et4ae5__search</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- selected --></label>
+        <name>et4ae5__selected</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- send --></label>
+        <name>et4ae5__send</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- sendClass --></label>
+        <name>et4ae5__sendClass</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- sendPerf --></label>
+        <name>et4ae5__sendPerf</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- sendQueued --></label>
+        <name>et4ae5__sendQueued</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- sendTypes --></label>
+        <name>et4ae5__sendTypes</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- senderOpts --></label>
+        <name>et4ae5__senderOpts</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- sending --></label>
+        <name>et4ae5__sending</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- sent --></label>
+        <name>et4ae5__sent</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- sfNoConnct --></label>
+        <name>et4ae5__sfNoConnct</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- sftBnc_c --></label>
+        <name>et4ae5__sftBnc_c</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- sftBncd --></label>
+        <name>et4ae5__sftBncd</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- shortCode --></label>
+        <name>et4ae5__shortCode</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- show --></label>
+        <name>et4ae5__show</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- shwEmSnds --></label>
+        <name>et4ae5__shwEmSnds</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- slctBU --></label>
+        <name>et4ae5__slctBU</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- slctChoose --></label>
+        <name>et4ae5__slctChoose</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- slctEmail --></label>
+        <name>et4ae5__slctEmail</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- slctSbscrbr --></label>
+        <name>et4ae5__slctSbscrbr</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- sndClasHlp --></label>
+        <name>et4ae5__sndClasHlp</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- sndDAndT --></label>
+        <name>et4ae5__sndDAndT</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- sndDSlsT --></label>
+        <name>et4ae5__sndDSlsT</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- sndPreview --></label>
+        <name>et4ae5__sndPreview</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- sndRecips --></label>
+        <name>et4ae5__sndRecips</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- sndTstEmTo --></label>
+        <name>et4ae5__sndTstEmTo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- srchCrit --></label>
+        <name>et4ae5__srchCrit</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- status --></label>
+        <name>et4ae5__status</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- subList --></label>
+        <name>et4ae5__subList</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- subj_c --></label>
+        <name>et4ae5__subj_c</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- subject --></label>
+        <name>et4ae5__subject</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- submit --></label>
+        <name>et4ae5__submit</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- subsEngt --></label>
+        <name>et4ae5__subsEngt</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- subscriber --></label>
+        <name>et4ae5__subscriber</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- subscribers --></label>
+        <name>et4ae5__subscribers</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- supTicRecp --></label>
+        <name>et4ae5__supTicRecp</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- suprtReq --></label>
+        <name>et4ae5__suprtReq</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- syncSbFail --></label>
+        <name>et4ae5__syncSbFail</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- targetAud --></label>
+        <name>et4ae5__targetAud</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- testEmSent --></label>
+        <name>et4ae5__testEmSent</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- testSdFail --></label>
+        <name>et4ae5__testSdFail</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- testSend --></label>
+        <name>et4ae5__testSend</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- testsSent --></label>
+        <name>et4ae5__testsSent</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- timeEngt --></label>
+        <name>et4ae5__timeEngt</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- to --></label>
+        <name>et4ae5__to</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- toDate --></label>
+        <name>et4ae5__toDate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- totBncs_c --></label>
+        <name>et4ae5__totBncs_c</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- totClicks --></label>
+        <name>et4ae5__totClicks</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- totDel --></label>
+        <name>et4ae5__totDel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- totDel_c --></label>
+        <name>et4ae5__totDel_c</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- totJobs --></label>
+        <name>et4ae5__totJobs</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- totOpens --></label>
+        <name>et4ae5__totOpens</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- totOpens_c --></label>
+        <name>et4ae5__totOpens_c</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- totSent_c --></label>
+        <name>et4ae5__totSent_c</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- total --></label>
+        <name>et4ae5__total</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- trkAsOf_c --></label>
+        <name>et4ae5__trkAsOf_c</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- trkDetail --></label>
+        <name>et4ae5__trkDetail</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- trkExp_c --></label>
+        <name>et4ae5__trkExp_c</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- trkLinkDet --></label>
+        <name>et4ae5__trkLinkDet</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- trkPrefs --></label>
+        <name>et4ae5__trkPrefs</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- trkSentEvt --></label>
+        <name>et4ae5__trkSentEvt</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- trkWait --></label>
+        <name>et4ae5__trkWait</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- tstType --></label>
+        <name>et4ae5__tstType</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- unReqd --></label>
+        <name>et4ae5__unReqd</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- undo --></label>
+        <name>et4ae5__undo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- unengagSub --></label>
+        <name>et4ae5__unengagSub</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- unique --></label>
+        <name>et4ae5__unique</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- uniqueCtr --></label>
+        <name>et4ae5__uniqueCtr</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- unkError --></label>
+        <name>et4ae5__unkError</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- unqClicks --></label>
+        <name>et4ae5__unqClicks</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- unqOpens --></label>
+        <name>et4ae5__unqOpens</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- unqOpens_c --></label>
+        <name>et4ae5__unqOpens_c</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- unsubRate --></label>
+        <name>et4ae5__unsubRate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- unsubbed --></label>
+        <name>et4ae5__unsubbed</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- up --></label>
+        <name>et4ae5__up</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- user --></label>
+        <name>et4ae5__user</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- userCreds --></label>
+        <name>et4ae5__userCreds</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- username --></label>
+        <name>et4ae5__username</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- warning --></label>
+        <name>et4ae5__warning</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- wasResub --></label>
+        <name>et4ae5__wasResub</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- wasUnsub --></label>
+        <name>et4ae5__wasUnsub</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- weekly --></label>
+        <name>et4ae5__weekly</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- winner --></label>
+        <name>et4ae5__winner</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- yearly --></label>
+        <name>et4ae5__yearly</name>
+    </customLabels>
+    <reportTypes>
+        <description><!-- Meetings with Budgets with Budget Line Items --></description>
+        <label><!-- Meetings with Budgets with Budget Line Items --></label>
+        <name>Meetings_with_Budgets_with_Budget_Line_Items</name>
+        <sections>
+            <label><!-- Budget Line Items --></label>
+            <name>Budget Line Items</name>
+        </sections>
+        <sections>
+            <label><!-- Budgets --></label>
+            <name>Budgets</name>
+        </sections>
+        <sections>
+            <label><!-- Meetings --></label>
+            <name>Meetings</name>
+        </sections>
+    </reportTypes>
+</Translations>

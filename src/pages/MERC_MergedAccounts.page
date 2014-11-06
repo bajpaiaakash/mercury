@@ -1,0 +1,194 @@
+<apex:page showHeader="true" sidebar="false" tabStyle="Account" controller="MERC_MergedAccountsController">
+	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/jquery.min.js')}"/>
+	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/mercury.js')}"/>
+	<apex:stylesheet value="{!urlfor($Resource.mercury, 'css/style.css')}"/>
+	<apex:sectionHeader title="Accounts" subtitle="Merge Related Data" />
+	<style>
+		.selected-row { background-color: #B0C4DE; }
+
+		.table-div {
+			width:48%;
+			display:inline-block;
+			overflow-x:scroll;
+			margin-top: 20px;
+		}
+
+		.collapse-section {
+			cursor: pointer;
+			position: relative;
+			top: 2px;
+		}
+
+		.show { display: inline;}
+		.hide { display: none; }
+	</style>
+
+	<apex:form >
+		<div style="position:relative;">
+			<!-- TOP SECTION SHOWING ACCOUNTS -->
+			<apex:pageBlock id="accountsBlock" title="Merged Accounts">
+				<apex:pageMessages />
+				<apex:pageMessage summary="Click on an account to view related objects for merging." severity="Info" strength="3" rendered="{!accounts.size > 0}"/>
+				<apex:pageBlockButtons location="top">
+					<apex:commandButton value="Previous" action="{!ssc.previous}" rendered="{!ssc.hasPrevious}" onclick="toggleLoading();" oncomplete="toggleLoading();bindDomHandlers();" reRender="accountsBlock"/>
+					<apex:commandButton value="Next" action="{!ssc.next}" rendered="{!ssc.hasNext}" onclick="toggleLoading();" oncomplete="toggleLoading();bindDomHandlers();" reRender="accountsBlock"/>
+				</apex:pageBlockButtons>
+				<apex:pageBlockTable value="{!accounts}" var="acct" rowClasses="clickable" id="accountTable">
+					<apex:column html-data-record-id="{!acct.Cust_Id_GLBL__c}" width="130px;">
+						<a href="/{!acct.id}" target="_blank" class="row-link">View</a>
+						<apex:outputText value=" | "/>
+						<apex:commandLink value="Mark Complete"
+					                      styleClass="row-link"
+					                      onclick="if(!confirmComplete()) return; toggleLoading();"
+					                      oncomplete="toggleLoading();bindDomHandlers();"
+					                      reRender="accountTable,relatedLists"
+					                      action="{!markMergeObjectComplete}">
+						    <apex:param assignTo="{!completedMergeId}" name="completedRowId" value="{!acct.Cust_Id_GLBL__c}"/>
+						</apex:commandLink>
+					</apex:column>
+					<apex:repeat value="{!$ObjectType.Account.FieldSets.Merge_Account_Page_Main_List}" var="f">
+        				<apex:column value="{!acct[f]}"/>
+    				</apex:repeat>
+				</apex:pageBlockTable>
+			</apex:pageBlock>
+
+			<!-- JAVASCRIPT METHOD TO UPDATE THE RELATED LISTS -->
+			<apex:actionFunction name="updateMergeObject" action="{!updateMergeObject}" oncomplete="toggleLoading();bindDomHandlers();" reRender="relatedLists">
+				<apex:param assignTo="{!activeAccountId}" name="selectedAccount" value=""/>
+			</apex:actionFunction>
+
+
+			<!-- THE RELATED LISTS -->
+			<apex:outputPanel id="relatedLists">
+				<apex:pageBlock title="{!mergeObject.account.name}" rendered="{!mergeObject != null}">
+					<apex:repeat value="{!mergeObject.allRelatedLists}" var="rl">
+
+						<div data-object-class="{!rl.sObjectClass}" style="height:20px;background-color:#B0C4DE;margin-top:20px;font-size:18px;font-weight:bold;clear:both;">
+							<div style="margin:0 10px;" class="collapse-section show">
+								<apex:image url="{!URLFOR($Resource.mercury, 'img/minus.png')}" height="16px;"/>
+							</div>
+							<div style="margin:0 10px;" class="collapse-section hide">
+								<apex:image url="{!URLFOR($Resource.mercury, 'img/add.png')}" height="16px;"/>
+							</div>
+							{!rl.settings.Name}
+						</div>
+
+						<apex:pageMessages id="messages"/>
+
+						<div style="position:relative;display:inline-block;width:100%;" id="{!rl.sObjectClass}-body">
+							<!-- FIRST COLUMN -->
+							<apex:outputPanel id="winningList" layout="block" styleClass="table-div" style="margin-right:1%;float:left;">
+								<div style="text-align:center;width:100%;font-weight:bold;font-size:16px"><span style="font-style:italic;color:green;">Winning Account</span> {!rl.settings.Name} Records</div>
+								<div style="min-height:25px;">
+									<apex:commandButton value="Delete Selected Records"
+									                    action="{!rl.deleteSelectedWinningRecords}"
+									                    rendered="{!rl.settings.Allow_Winning_Account_Deletes__c && rl.winningList.size > 0}"
+									                    onclick="if( !confirm('Are you sure you want to delete these {!rl.sObjectLabel} records?') ) return false; toggleLoading();"
+									                    oncomplete="toggleLoading();bindDomHandlers();"
+									                    reRender="winningList"/>
+								</div>
+								<apex:pageMessage summary="No {!rl.sObjectLabel} records exist for this account" severity="Info" strength="1" rendered="{!rl.winningList.size == 0}"/>
+								<apex:pageBlockTable value="{!rl.winningList}" var="object" rendered="{!rl.winningList.size > 0}">
+									<apex:column rendered="{!rl.settings.Allow_Winning_Account_Deletes__c}">
+										<apex:facet name="header">
+											<input type="checkbox" id="{!rl.sObjectClass}-win-select" class="select-all"/>
+										</apex:facet>
+										<apex:inputCheckbox value="{!object.selected}" styleClass="{!rl.sObjectClass}-win-select"/>
+									</apex:column>
+									<apex:column ><a href="/{!object.detail.id}" target="_blank">View</a></apex:column>
+									<apex:repeat value="{!rl.winningFields}" var="field">
+										<apex:column value="{!object.detail[field]}">
+											<apex:facet name="header">{!field.label}</apex:facet>
+										</apex:column>
+									</apex:repeat>
+								</apex:pageBlockTable>
+							</apex:outputPanel>
+
+
+							<!-- SECOND COLUMN -->
+							<apex:outputPanel id="losingList" layout="block" styleClass="table-div" style="margin-left:1%;">
+								<div style="text-align:center;width:100%;font-weight:bold;font-size:16px"><span style="font-style:italic;color:red;">Losing Account</span> {!rl.settings.Name} Records</div>
+								<div style="min-height:25px;">
+									<apex:commandButton value="Merge Selected Records"
+									                    action="{!rl.mergeSelectedRecords}"
+									                    onclick="toggleLoading();"
+									                    oncomplete="toggleLoading();bindDomHandlers();"
+									                    reRender="winningList, losingList, messages"
+									                    rendered="{!rl.losingList.size > 0}"/>
+								</div>
+								<apex:pageMessage summary="No {!rl.sObjectLabel} records exist for this account" severity="Info" strength="1" rendered="{!rl.losingList.size == 0}"/>
+								<apex:pageBlockTable value="{!rl.losingList}" var="object" rendered="{!rl.losingList.size > 0}">
+									<apex:column >
+										<apex:facet name="header">
+											<input type="checkbox" id="{!rl.sObjectClass}-lose-select" class="select-all"/>
+										</apex:facet>
+										<apex:inputCheckbox value="{!object.selected}" styleClass="{!rl.sObjectClass}-lose-select"/>
+									</apex:column>
+									<apex:column ><a href="/{!object.detail.id}" target="_blank">View</a></apex:column>
+									<apex:repeat value="{!rl.losingFields}" var="field">
+										<apex:column value="{!object.detail[field]}">
+											<apex:facet name="header">{!field.label}</apex:facet>
+										</apex:column>
+									</apex:repeat>
+								</apex:pageBlockTable>
+							</apex:outputPanel>
+						</div>
+					</apex:repeat>
+				</apex:pageBlock>
+			</apex:outputPanel>
+		</div>
+		<c:MERC_LoadingMask />
+		<script>
+
+		</script>
+	</apex:form>
+
+	<script>
+		j = jQuery.noConflict();
+
+		function confirmComplete()
+		{
+			return confirm('Marking a record as complete will delete all related objects for the losing account.'
+						  +'\n\nIf you continue, you will be unable to manage the merging of this record, even if the deleted records are undeleted from the recycle bin.'
+				          +'\n\nAre you sure?');
+		}
+
+		function bindDomHandlers() {
+			j('.row-link').off('click');
+			j('.row-link').on('click', function(e){
+				//The buttons live inside the clickable rows. prevent the click of a
+				//button from invoking the row click
+				e.stopPropagation();
+			});
+
+			j('tr.clickable').off('click');
+			j('tr.clickable').on('click', function(){
+				//When a row is clicked get the account record Id
+				//and call the actionfunction to update the related lists
+				j('tr.clickable').removeClass('selected-row');
+				j(this).addClass('selected-row');
+				toggleLoading();
+				updateMergeObject(j(this).children().first().data('record-id'));
+
+			});
+
+			j('input.select-all').off('click');
+			j('input.select-all').on('click', function() {
+				var jThis = j(this);
+				j('.' + jThis.attr('id')).prop('checked', jThis.prop('checked'));
+			});
+
+			j('.collapse-section').off('click');
+			j('.collapse-section').on('click', function() {
+				var jThis = j(this);
+				j('#'+jThis.parent().data('object-class')+'-body').slideToggle(400);
+				jThis.parent().children('.collapse-section').removeClass('hide').addClass('show')
+				jThis.removeClass('show').addClass('hide');
+			});
+		}
+
+		j(function () {
+			bindDomHandlers();
+		});
+	</script>
+</apex:page>

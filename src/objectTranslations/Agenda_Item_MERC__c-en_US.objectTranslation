@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Agenda Item</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Agenda Items</value>
+    </caseValues>
+    <fields>
+        <help><!-- Please provide description of this agenda item to be displayed to the customer. --></help>
+        <label><!-- Agenda Item Description --></label>
+        <name>Agenda_Item_Description_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Confirm Change to Final Agenda --></label>
+        <name>Cnfrm_Chg_Fnl_Agnd_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Used by CMS Regional and Local to confirm updates to certain information once a meeting is activated on the web services. --></help>
+        <label><!-- Confirm Web Service Change --></label>
+        <name>Confirm_Web_Service_Change_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- End Time --></label>
+        <name>End_Time_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- End Time (Meeting Time Zone) --></label>
+        <name>End_Time_in_Meeting_Time_Zone_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meeting --></label>
+        <name>Meeting_MERC__c</name>
+        <relationshipLabel><!-- Agenda Items --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Meeting Time Zone --></label>
+        <name>Meeting_Time_Zone_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mercury External Id --></label>
+        <name>Mercury_External_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- RTI Transaction Id --></label>
+        <name>RTI_Transaction_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Room --></label>
+        <name>Room_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Session Type --></label>
+        <name>Session_Type_MERC__c</name>
+        <picklistValues>
+            <masterLabel>Break</masterLabel>
+            <translation><!-- Break --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Breakout Session</masterLabel>
+            <translation><!-- Breakout Session --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>General Session</masterLabel>
+            <translation><!-- General Session --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lunch</masterLabel>
+            <translation><!-- Lunch --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Start Time --></label>
+        <name>Start_Time_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Start Time (Meeting Time Zone) --></label>
+        <name>Start_Time_in_Meeting_Time_Zone_MERC__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Please confirm you would like to change an item on the Final Agenda. --></errorMessage>
+        <name>MERC_Agenda_Item_Change</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The agenda item end time must be after the start time --></errorMessage>
+        <name>MERC_Ensure_End_After_Start</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Once a meeting has been published on the Web Service, only CMS Cork and CMS Local teams can change the Agenda Item Name and Agenda Item Description. Please contact a member of the CMS team to request a change to this information. --></errorMessage>
+        <name>MERC_Prevent_Change_Once_on_Web_Service</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Agenda_Builder_MERC --></label>
+        <name>Agenda_Builder_MERC</name>
+    </webLinks>
+</CustomObjectTranslation>
