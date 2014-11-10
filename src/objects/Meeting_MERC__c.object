@@ -2848,6 +2848,38 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Kaliningrad Time Zone (Europe/Kaliningrad)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yekaterinburg Time Zone (Asia/Yekaterinburg)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Omsk Time Zone (Asia/Omsk)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Krasnoyarsk Time Zone (Asia/Krasnoyarsk)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Irkutsk Time Zone (Asia/Irkutsk)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yakutsk Time Zone (Asia/Yakutsk)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vladivostok Standard Time (Asia/Vladivostok)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Srednekolymsk Time  (Asia/Srednekolymsk)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Eastern European Time (Europe/Athens)</fullName>
                 <default>false</default>
             </picklistValues>
