@@ -1195,10 +1195,6 @@ Created by John A Adams 12/13/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Further-eastern European Time (Europe/Minsk)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Kaliningrad Time Zone (Europe/Kaliningrad)</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1308,10 +1304,6 @@ Created by John A Adams 12/13/2013</description>
         <picklist>
             <picklistValues>
                 <fullName>Moscow Standard Time (Europe/Moscow)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Further-eastern European Time (Europe/Minsk)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1862,10 +1854,6 @@ Created by John A Adams 12/13/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Further-eastern European Time %28Europe%2FMinsk%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Greenwich Mean Time %28Europe%2FDublin%29</fullName>
                 <default>false</default>
             </values>
@@ -1958,10 +1946,6 @@ Created by John A Adams 12/13/2013</description>
             </values>
             <values>
                 <fullName>Eastern European Time %28Europe%2FIstanbul%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Further-eastern European Time %28Europe%2FMinsk%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2092,10 +2076,6 @@ Created by John A Adams 12/13/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Further-eastern European Time %28Europe%2FMinsk%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Greenwich Mean Time %28Europe%2FDublin%29</fullName>
                 <default>false</default>
             </values>
@@ -2188,10 +2168,6 @@ Created by John A Adams 12/13/2013</description>
             </values>
             <values>
                 <fullName>Eastern European Time %28Europe%2FIstanbul%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Further-eastern European Time %28Europe%2FMinsk%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2330,10 +2306,6 @@ Created by John A Adams 12/13/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Further-eastern European Time %28Europe%2FMinsk%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Greenwich Mean Time %28Europe%2FDublin%29</fullName>
                 <default>false</default>
             </values>
@@ -2426,10 +2398,6 @@ Created by John A Adams 12/13/2013</description>
             </values>
             <values>
                 <fullName>Eastern European Time %28Europe%2FIstanbul%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Further-eastern European Time %28Europe%2FMinsk%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2556,10 +2524,6 @@ Created by John A Adams 12/13/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Further-eastern European Time %28Europe%2FMinsk%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Greenwich Mean Time %28Europe%2FDublin%29</fullName>
                 <default>false</default>
             </values>
@@ -2652,10 +2616,6 @@ Created by John A Adams 12/13/2013</description>
             </values>
             <values>
                 <fullName>Eastern European Time %28Europe%2FIstanbul%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Further-eastern European Time %28Europe%2FMinsk%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2778,10 +2738,6 @@ Created by John A Adams 12/13/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Further-eastern European Time %28Europe%2FMinsk%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Greenwich Mean Time %28Europe%2FDublin%29</fullName>
                 <default>false</default>
             </values>
@@ -2874,10 +2830,6 @@ Created by John A Adams 12/13/2013</description>
             </values>
             <values>
                 <fullName>Eastern European Time %28Europe%2FIstanbul%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Further-eastern European Time %28Europe%2FMinsk%29</fullName>
                 <default>false</default>
             </values>
             <values>
