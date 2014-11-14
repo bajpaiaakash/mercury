@@ -62,6 +62,7 @@
     </types>
     <types>
         <members>MERC_DailyAttendanceControllerStressTest</members>
+        <members>MERC_MVIMeetingTimeZoneHandlerTest</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -661,6 +662,10 @@
         <name>Dashboard</name>
     </types>
     <types>
+        <members>Mercury_Email_Templates_MERC/New_Team_Member_Notification_MERC</members>
+        <name>EmailTemplate</name>
+    </types>
+    <types>
         <members>Mercury_Email_Templates_MERC/MERC_HCP_Email_Address_Change</members>
         <members>Mercury_Email_Templates_MERC/New_Team_Member_Notification_MERC</members>
         <name>EmailTemplate</name>
@@ -903,6 +908,23 @@
     </types>
     <types>
         <members>MERC_Dashboard_Local_MPC/DB_Contracts_pending_to_be_dispatched</members>
+        <name>Report</name>
+    </types>
+    <types>
+        <members>MERC_Compliance_Oversight</members>
+        <members>MERC_Dashboard_Cork</members>
+        <members>MERC_Dashboard_Local_MPC</members>
+        <members>MERC_Dashboard_SLA</members>
+        <members>MERC_Logistics_Management</members>
+        <members>MERC_Medical_Director</members>
+        <members>MERC_Meeting_Owner</members>
+        <members>MERC_Meetings_Oversight</members>
+        <members>MERC_Regional_CMS</members>
+        <members>MERC_Reports_in_Development</members>
+        <members>MERC_Travel</members>
+        <members>Meeting_Reports</members>
+        <members>Mercury</members>
+        <members>Mercury_Case_Reports</members>
         <name>Report</name>
     </types>
     <types>

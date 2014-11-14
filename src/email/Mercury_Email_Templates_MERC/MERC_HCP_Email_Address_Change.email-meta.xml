@@ -2,7 +2,7 @@
 <EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
     <available>true</available>
     <description>Used for send an automated email to CMS Cork should a HCP email address change.</description>
-    <encodingKey>ISO-8859-1</encodingKey>
+    <encodingKey>UTF-8</encodingKey>
     <name>HCP Email Address Change</name>
     <style>none</style>
     <subject>HCP Email Address Change : {!Account.Name}</subject>
