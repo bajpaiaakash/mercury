@@ -226,6 +226,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_MVIMeetingTimeZoneHandlerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_MassApproveParticipantsController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
