@@ -574,6 +574,7 @@
         <name>CustomObject</name>
     </types>
     <types>
+        <members>Travel_Itinerary_MERC__c</members>
         <members>Web_Service_Logic_MERC__c</members>
         <name>CustomObject</name>
     </types>
