@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ApexPage xmlns="http://soap.sforce.com/2006/04/metadata">
-    <apiVersion>29.0</apiVersion>
-    <availableInTouch>false</availableInTouch>
-    <confirmationTokenRequired>false</confirmationTokenRequired>
-    <description>This page is used to generate the pdf of the assessment which will be sent as attachment in the e-mail</description>
-    <label>IRIS_Assessment_Report</label>
-</ApexPage>
