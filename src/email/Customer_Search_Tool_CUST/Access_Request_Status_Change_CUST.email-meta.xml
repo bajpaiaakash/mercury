@@ -2,7 +2,7 @@
 <EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
     <available>true</available>
     <description>Sent to users when their access requests change status.</description>
-    <encodingKey>ISO-8859-1</encodingKey>
+    <encodingKey>UTF-8</encodingKey>
     <name>Access Request Status Change</name>
     <style>none</style>
     <subject>Access Requests Status Update</subject>

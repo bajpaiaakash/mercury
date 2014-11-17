@@ -217,6 +217,7 @@
         <members>MERC_MergedAccountApexTest</members>
         <members>MERC_MergedAccountsController</members>
         <members>MERC_MergedAccountsControllerTest</members>
+        <members>MERC_MergedAccountsFinalProcessJob</members>
         <members>MERC_NewContentController</members>
         <members>MERC_NewContentControllerTest</members>
         <members>MERC_NewEditControllersTest</members>
@@ -527,11 +528,13 @@
         <members>Meeting_MERC__c.MERC_Meetings_Portugal</members>
         <members>Meeting_MERC__c.MERC_Meetings_Romania</members>
         <members>Meeting_MERC__c.MERC_Meetings_Russian_Federation</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Serbia</members>
         <members>Meeting_MERC__c.MERC_Meetings_Slovakia</members>
         <members>Meeting_MERC__c.MERC_Meetings_Slovenia</members>
         <members>Meeting_MERC__c.MERC_Meetings_Spain</members>
         <members>Meeting_MERC__c.MERC_Meetings_Sweden</members>
         <members>Meeting_MERC__c.MERC_Meetings_Switzerland</members>
+        <members>Meeting_MERC__c.MERC_Meetings_Turkey</members>
         <members>Meeting_MERC__c.MERC_Meetings_Ukraine</members>
         <members>Meeting_MERC__c.MERC_Meetings_United_Kingdom</members>
         <members>Preferences_and_Consent_GLBL__c.AT_Public</members>
@@ -720,7 +723,9 @@
         <members>Mercury_Email_Templates_MERC/Cancelled_Meeting_MERC</members>
         <members>Mercury_Email_Templates_MERC/Case_Test_Email_Template</members>
         <members>Mercury_Email_Templates_MERC/Contract_Signed_MERC</members>
+        <members>Mercury_Email_Templates_MERC/Docusign_Service_Signature_Request_MERC</members>
         <members>Mercury_Email_Templates_MERC/Final_Fee_Calculation_Email</members>
+        <members>Mercury_Email_Templates_MERC/MERC_HCP_Email_Address_Change</members>
         <members>Mercury_Email_Templates_MERC/New_Team_Member_Notification_MERC</members>
         <members>Mercury_Email_Templates_MERC/New_Work_Order_MERC</members>
         <members>Mercury_Email_Templates_MERC/Non_Compliant_Notification_MERC</members>
@@ -749,6 +754,7 @@
         <members>Account-MERC_Contracting_Party</members>
         <members>Account-MERC_Lilly Affiliate Business</members>
         <members>Account-MERC_Supplier</members>
+        <members>Account-MERC_Supplier</members>
         <members>Account-MERC_Third Party Organization</members>
         <members>Account-MERC_Vendor</members>
         <members>Account-MERC_Venue</members>
@@ -762,6 +768,7 @@
         <members>Agenda_Item_MERC__c-Agenda Item Layout</members>
         <members>Agenda_Item_MERC__c-MERC_Session</members>
         <members>Alternate_Id_GLBL__c-Alternate ID Layout</members>
+        <members>Budget_Line_Item_MERC__c-Budget Line Item Layout</members>
         <members>Budget_Line_Item_MERC__c-Budget Line Item Layout</members>
         <members>Budget_Line_Item_MERC__c-MERC_Budget Line Item</members>
         <members>Budget_MERC__c-Budget Layout</members>
@@ -877,7 +884,10 @@
         <members>DDP_User_Mercury</members>
         <members>ExactTarget_Meeting_Integration_MERC</members>
         <members>GLBL_Chatter_Group_Creator</members>
+        <members>GLBL_Mange_Public_Reports</members>
         <members>Mercury_Account_Manager_Edit</members>
+        <members>Mercury_Account_Manager_Edit</members>
+        <members>Mercury_Case_Management_Access</members>
         <members>Mercury_Case_Management_Access</members>
         <members>Mercury_Customer_Meeting_Services_Edit</members>
         <members>Mercury_Legal_Edit</members>
@@ -964,7 +974,6 @@
         <members>MERC_Meetings_Oversight/Meeting_Agency_and_Venue_Sourcing</members>
         <members>MERC_Meetings_Oversight/Meetings_with_Missing_TOV</members>
         <members>MERC_Meetings_Oversight/Meetings_without_Errors_within_60_days</members>
-        <members>MERC_Meetings_Oversight/R_All_Meetings1</members>
         <members>MERC_Meetings_Oversight/R_All_open_Veeva_meetings1</members>
         <members>MERC_Meetings_Oversight/R_Independent_Sponsorship_Meetings2</members>
         <members>MERC_Meetings_Oversight/R_Meeting_with_Parent_Meeting_Report1</members>
@@ -985,7 +994,6 @@
         <members>MERC_Travel/R_ToV_not_final1</members>
         <members>Meeting_Reports</members>
         <members>Meeting_Reports/Active_Meetings</members>
-        <members>Meeting_Reports/All_Meetings_MERC</members>
         <members>Meeting_Reports/Budget_Savings_and_Overages</members>
         <members>Meeting_Reports/CST_User_Logs</members>
         <members>Meeting_Reports/Cap_Cap_Spent_on_HCP</members>
@@ -1113,6 +1121,7 @@
         <members>PersonSearchMVN</members>
         <members>TimeZoneMappingTestData_MERC</members>
         <members>mercury</members>
+        <members>tablesorter</members>
         <name>StaticResource</name>
     </types>
     <types>
@@ -1130,6 +1139,10 @@
     <types>
         <members>*</members>
         <name>UserMembershipSharingRule</name>
+    </types>
+    <types>
+        <members>Meeting_MERC__c.Send_ExactTarget_Email_MERC</members>
+        <name>WebLink</name>
     </types>
     <types>
         <members>Account</members>

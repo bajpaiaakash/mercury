@@ -1843,10 +1843,6 @@
             <translation><!-- Eastern European Time (Europe/Istanbul) --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Further-eastern European Time (Europe/Minsk)</masterLabel>
-            <translation><!-- Further-eastern European Time (Europe/Minsk) --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>Greenwich Mean Time (Europe/Dublin)</masterLabel>
             <translation><!-- Greenwich Mean Time (Europe/Dublin) --></translation>
         </picklistValues>
@@ -1859,12 +1855,44 @@
             <translation><!-- Greenwich Mean Time (GMT) --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Irkutsk Time Zone (Asia/Irkutsk)</masterLabel>
+            <translation><!-- Irkutsk Time Zone (Asia/Irkutsk) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kaliningrad Time Zone (Europe/Kaliningrad)</masterLabel>
+            <translation><!-- Kaliningrad Time Zone (Europe/Kaliningrad) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Krasnoyarsk Time Zone (Asia/Krasnoyarsk)</masterLabel>
+            <translation><!-- Krasnoyarsk Time Zone (Asia/Krasnoyarsk) --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Moscow Standard Time (Europe/Moscow)</masterLabel>
             <translation><!-- Moscow Standard Time (Europe/Moscow) --></translation>
         </picklistValues>
         <picklistValues>
+            <masterLabel>Omsk Time Zone (Asia/Omsk)</masterLabel>
+            <translation><!-- Omsk Time Zone (Asia/Omsk) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Srednekolymsk Time  (Asia/Srednekolymsk)</masterLabel>
+            <translation><!-- Srednekolymsk Time  (Asia/Srednekolymsk) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vladivostok Standard Time (Asia/Vladivostok)</masterLabel>
+            <translation><!-- Vladivostok Standard Time (Asia/Vladivostok) --></translation>
+        </picklistValues>
+        <picklistValues>
             <masterLabel>Western European Time (Europe/Lisbon)</masterLabel>
             <translation><!-- Western European Time (Europe/Lisbon) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yakutsk Time Zone (Asia/Yakutsk)</masterLabel>
+            <translation><!-- Yakutsk Time Zone (Asia/Yakutsk) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yekaterinburg Time Zone (Asia/Yekaterinburg)</masterLabel>
+            <translation><!-- Yekaterinburg Time Zone (Asia/Yekaterinburg) --></translation>
         </picklistValues>
     </fields>
     <fields>

@@ -864,6 +864,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_MergedAccountsFinalProcessJob</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_NewContentController</apexClass>
         <enabled>true</enabled>
     </classAccesses>

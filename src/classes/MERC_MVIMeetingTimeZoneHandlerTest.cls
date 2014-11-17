@@ -11,17 +11,32 @@ private class MERC_MVIMeetingTimeZoneHandlerTest
 	static User runningUser = MERC_TestFactory.getRunningUser();
 	static User testUser = MERC_TestFactory.getTestingUser();
 	static List<Meeting_MERC__c> meetings;
+	static String timeZoneId = 'Europe/Moscow';  // GMT + 4 (or 3 depending on daylight savings observance)
+	static Integer timeZoneOffset;
 	static
 	{
-		MERC_TestFactory.loadTimeZoneFieldMapSettings();
+		// Get current offset
+		String testemail = 'testuser_MERC_MVIMeetingTimeZoneHandlerTest@unittest.com';
+		System.runAs(new User(username = testemail, email = testemail, profileId = testUser.profileId, timezonesidkey = timeZoneId, 
+               alias='utusrMM', lastname='lastname', emailencodingkey = 'UTF-8', localesidkey = 'en_US', languagelocalekey = 'en_US'))
+		{
+			Date d = Date.today();
+			DateTime dt = DateTime.newInstance(d, Time.newInstance(2, 0, 0, 0));
+			System.debug('tz = '+UserInfo.getTimeZone());
+			System.debug('off = '+UserInfo.getTimeZone().getOffset(dt));
+			timeZoneOffset = UserInfo.getTimeZone().getOffset(dt);
+			timeZoneOffset = (timeZoneOffset/1000)/3600;
+	    }
+
 		System.runAs(runningUser)
 		{
+			MERC_TestFactory.loadTimeZoneFieldMapSettings();
 			meetings = MERC_TestFactory.insertMeetings(200);
 		}
 	}
 
-
-	@isTest static void test_should_set_dates_per_timezone_when_MVI_updates()
+	@isTest 
+	static void test_should_set_dates_per_timezone_when_MVI_updates()
 	{
 		User mviUser = [SELECT Id FROM user WHERE username LIKE 'mercuryintegration.veeva@%' limit 1];
 		System.runAs(mviUser)
@@ -32,7 +47,7 @@ private class MERC_MVIMeetingTimeZoneHandlerTest
 				meeting.Start_Time_of_Meeting_MERC__c = DateTime.newInstance(meeting.Date_of_Event_MERC__c, Time.newInstance(2, 0, 0, 0)); //2am will convert to prior day gmt
 				meeting.End_Date_of_Event_MERC__c = Date.today().addDays(3);
 				meeting.End_Time_of_Meeting_MERC__c = DateTime.newInstance(meeting.End_Date_of_Event_MERC__c, Time.newInstance(2, 0, 0, 0));
-				meeting.Meeting_Time_Zone_MERC__c = 'Moscow Standard Time (Europe/Moscow)'; // GMT + 4
+				meeting.Meeting_Time_Zone_MERC__c = 'Moscow Standard Time ('+timeZoneId+')'; 
 				meeting.Confirm_Meeting_Date_Change_MERC__c = true;
 			}
 			Test.startTest();
@@ -42,16 +57,18 @@ private class MERC_MVIMeetingTimeZoneHandlerTest
 
 		meetings = [SELECT Date_of_Event_MERC__c, Start_Time_of_Meeting_MERC__c, End_Date_of_Event_MERC__c, End_Time_of_Meeting_MERC__c FROM Meeting_MERC__c];
 		System.assertEquals(200, meetings.size());
+		Integer adjustedHour = 24 + 2 - timeZoneOffset;
 		for (Meeting_MERC__c meeting : meetings)
 		{
 			System.assertEquals(Date.today().addDays(1), meeting.Date_of_Event_MERC__c);
-			System.assertEquals(Datetime.newInstance(Date.today(), Time.newInstance(22,0,0,0)), meeting.Start_Time_of_Meeting_MERC__c);
+			System.assertEquals(Datetime.newInstance(Date.today(), Time.newInstance(adjustedHour,0,0,0)), meeting.Start_Time_of_Meeting_MERC__c);
 			System.assertEquals(Date.today().addDays(3), meeting.End_Date_of_Event_MERC__c);
-			System.assertEquals(Datetime.newInstance(Date.today().addDays(2), Time.newInstance(22,0,0,0)), meeting.End_Time_of_Meeting_MERC__c);
+			System.assertEquals(Datetime.newInstance(Date.today().addDays(2), Time.newInstance(adjustedHour,0,0,0)), meeting.End_Time_of_Meeting_MERC__c);
 		}
 	}
 
-	@isTest static void test_should_not_set_dates_when_non_MVI_updates()
+	@isTest 
+	static void test_should_not_set_dates_when_non_MVI_updates()
 	{
 
 		System.runAs(testUser)
@@ -62,7 +79,7 @@ private class MERC_MVIMeetingTimeZoneHandlerTest
 				meeting.Start_Time_of_Meeting_MERC__c = DateTime.newInstance(meeting.Date_of_Event_MERC__c, Time.newInstance(2, 0, 0, 0)); //2am will convert to prior day gmt
 				meeting.End_Date_of_Event_MERC__c = Date.today().addDays(3);
 				meeting.End_Time_of_Meeting_MERC__c = DateTime.newInstance(meeting.End_Date_of_Event_MERC__c, Time.newInstance(2, 0, 0, 0));
-				meeting.Meeting_Time_Zone_MERC__c = 'Moscow Standard Time (Europe/Moscow)'; // GMT + 4
+				meeting.Meeting_Time_Zone_MERC__c = 'Moscow Standard Time ('+timeZoneId+')';
 				meeting.Confirm_Meeting_Date_Change_MERC__c = true;
 			}
 			Test.startTest();

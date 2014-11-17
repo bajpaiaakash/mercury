@@ -47,7 +47,7 @@
 						<apex:repeat value="{!section.fields}" var="field">
 							<apex:inputField onblur="{!field.onBlur}" required="{!field.required}" 
 								value="{!meetingParticipant[field.value]}" 
-								rendered="{!field.readOnly == false && not(field.blankSpace)}"/>
+								rendered="{!field.readOnly == false && not(field.blankSpace)}" html-notarealparam="hello,world"/>
 							<apex:outputField value="{!meetingParticipant[field.value]}" rendered="{!field.readOnly && not(field.blankSpace)}"/>
 							<apex:pageBlockSection rendered="{!field.blankSpace}">&nbsp;</apex:pageBlockSection>
 						</apex:repeat>

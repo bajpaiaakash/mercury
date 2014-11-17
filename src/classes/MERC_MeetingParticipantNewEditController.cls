@@ -26,6 +26,13 @@ public with sharing class MERC_MeetingParticipantNewEditController extends GLBL_
 
 		if (this.meetingParticipant.Id != null) {
 			this.meetingParticipant = Database.query(meetingParticipantSelectAllSoql);
+p('RT before: '+this.meetingParticipant.RecordTypeId);
+// check and reset RT id[?]
+		//set record type
+		if (ApexPages.currentPage().getParameters().containsKey('RecordType')) {
+			this.meetingParticipant.RecordTypeId = MERC_Util.getUrlParam('RecordType');
+		}
+p('RT after: '+this.meetingParticipant.RecordTypeId);
 
 			//we can't run this code during a test because of quirkiness with setMock and test data creation -JFERRARO
 			if (!Test.isRunningTest()) {
@@ -41,6 +48,11 @@ public with sharing class MERC_MeetingParticipantNewEditController extends GLBL_
 			}
 		}
 	}
+
+	static void p(String m) {
+		System.debug('\n\n\nYYZ - '+m+'\n\n\n\n');
+	}
+
 
 	//these fields, will fire the onblur javascript event to prompt the page to update the MP
 	//and rerender from the server

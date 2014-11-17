@@ -323,6 +323,20 @@
         <name>MERC_Meetings_Russian_Federation</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
+        <fullName>MERC_Meetings_Serbia</fullName>
+        <sharedTo>
+            <group>MERC_Meetings_RS</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Event_Country_MERC__c</field>
+            <operation>equals</operation>
+            <value>SERBIA</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Used to share Mercury Meeting and related data across a Country.</description>
+        <name>MERC_Meetings_Serbia</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>MERC_Meetings_Slovakia</fullName>
         <sharedTo>
             <group>MERC_Meetings_SK</group>
@@ -391,6 +405,20 @@
         <accessLevel>Edit</accessLevel>
         <description>Used to share Mercury Meeting and related data across a Country.</description>
         <name>MERC_Meetings_Switzerland</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>MERC_Meetings_Turkey</fullName>
+        <sharedTo>
+            <group>MERC_Meetings_TR</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Event_Country_MERC__c</field>
+            <operation>equals</operation>
+            <value>TURKEY</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <description>Used to share Mercury Meeting and related data across a Country.</description>
+        <name>MERC_Meetings_Turkey</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>MERC_Meetings_Ukraine</fullName>
