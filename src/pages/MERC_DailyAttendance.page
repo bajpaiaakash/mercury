@@ -1,0 +1,121 @@
+<apex:page showHeader="true" sidebar="true" tabStyle="Meeting_MERC__c" standardController="Meeting_Day_MERC__c" recordSetVar="a" extensions="MERC_DailyAttendanceController" action="{!upsertMissingTovRecords}">
+	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/jquery.min.js')}"/>
+	<apex:includeScript value="{!urlfor($Resource.mercury, 'js/mercury.js')}"/>
+	<apex:stylesheet value="{!urlfor($Resource.mercury, 'css/style.css')}"/>
+	<apex:sectionHeader title="{!meeting.Name}" subtitle="{!$ObjectType.Daily_Attendance_TOV_MERC__c.label}" />
+	<style>
+		table.attendanceTable tr {
+			cursor:pointer;
+		}
+
+		select.selectMeetingDay {
+			font-size:16px !important;
+		}
+
+		div.selectActions {
+			padding:5px;
+			background-color: #ffc;
+			border:1px solid #390;
+			margin-bottom: 5px;
+			display: none;
+		}
+
+		div.selectActions.show {
+			display: inline-block;
+		}
+
+		div.selectActions.hide {
+			display: none;
+		}
+	</style>
+	<script>
+		$(function() {
+			bindDomHandlers()
+		})
+
+		function bindDomHandlers() {
+			$('table.attendanceTable tr td.accountNameCell').bind('selectstart', function(event) {
+			    event.preventDefault();
+			});
+
+			$("table.attendanceTable tr td.selectCell").click(function() {
+				var attendedCheckbox = $(this).parent().find('input[type="checkbox"].chkSelected')
+				attendedCheckbox.prop("checked", !attendedCheckbox.prop("checked"))
+			})
+
+			$("input#chkSelectAll").click(function() {
+				var isSelectAllChecked = $(this).prop("checked")
+				if (isSelectAllChecked) {
+					$("input.chkSelected").prop("checked", true)
+					showMassActions()
+				} else {
+					$("input.chkSelected").prop("checked", false)
+					hideMassActions()
+				}
+			})
+
+			$("table.attendanceTable tr input.chkSelected").click(function() {
+				var selectedBoxes = $("table.attendanceTable tr input.chkSelected:checked");
+				if (selectedBoxes.size() === 0) {
+					hideMassActions()
+				} else {
+					showMassActions()
+				}
+			})
+		}
+
+		function showMassActions() {
+			$("div.selectActions").removeClass("hide").addClass("show")
+		}
+
+		function hideMassActions() {
+			$("div.selectActions").removeClass("show").addClass("hide")
+		}
+	</script>
+	<apex:form >
+		<div class="loading-wrapper" style="position:relative;">
+			<apex:pageMessage severity="INFO" strength="2" summary="Set the status of Meeting Participants for each Meeting Day." rendered="{!not(hasError)}"/>
+			<apex:pageBlock title="Meeting Participants" id="mainBlock">
+				<apex:pageBlockButtons location="top">
+					<apex:selectList value="{!selectedMeetingDayId}" size="1" styleclass="selectMeetingDay" rendered="{!not(hasError)}">
+						<apex:selectOptions value="{!meetingDayOptions}"/>
+						<apex:actionSupport action="{!changeDay}" onsubmit="toggleLoading()" oncomplete="bindDomHandlers();toggleLoading()" event="onchange" rerender="mainBlock"/>
+					</apex:selectList>
+					<apex:commandButton value="Save" action="{!saveAll}" rendered="{!$ObjectType.Daily_Attendance_TOV_MERC__c.Fields.Confirm_ToV_Reporting_Change_MERC__c.updateable}"/>
+					<apex:commandButton value="Back to Meeting" action="{!cancel}"/>
+				</apex:pageBlockButtons>
+				<apex:pageMessages />
+				<div class="selectActions">
+					<apex:commandButton value="Set Selected To Attended" rendered="{!not(hasError)}" action="{!setSelectedToAttended}" onclick="toggleLoading()" oncomplete="bindDomHandlers();toggleLoading()" rerender="mainBlock"/>
+					<apex:commandButton value="Set Selected To No-Show" rendered="{!not(hasError)}" action="{!setSelectedToNoShow}" onclick="toggleLoading()" oncomplete="bindDomHandlers();toggleLoading()" rerender="mainBlock"/>
+				</div>
+				<apex:pageBlockTable value="{!participants}" var="p" styleclass="attendanceTable" rendered="{!not(hasError)}">
+					<apex:column headerValue="Attended" width="30">
+						<apex:facet name="header">
+							<input type="checkbox" id="chkSelectAll"/>
+						</apex:facet>
+						<apex:inputCheckbox value="{!p.selected}" styleClass="chkSelected"/>
+					</apex:column>
+					<apex:column width="140" headerValue="{!$ObjectType.Daily_Attendance_TOV_MERC__c.Fields.Status_MERC__c.label}">
+						<apex:inputField value="{!p.tov.Status_MERC__c}">
+							<apex:actionSupport action="{!updateTov}" event="onchange" reRender="mainBlock" oncomplete="bindDomHandlers();toggleLoading()" onsubmit="toggleLoading()" rendered="{!NOT($ObjectType.Daily_Attendance_TOV_MERC__c.Fields.Confirm_ToV_Reporting_Change_MERC__c.updateable)}">
+								<apex:param value="{!p.tov.Id}" name="tovRecordId"/>
+							</apex:actionSupport>
+						</apex:inputField>
+					</apex:column>
+					<apex:column value="{!p.tov.Meeting_Participant_Account_Name_MERC__c}" styleClass="selectCell"/>
+					<apex:column value="{!p.tov.Meeting_Participant_Record_Type_MERC__c}" headerValue="{!$ObjectType.RecordType.label}" styleClass="selectCell"/>
+					<apex:column value="{!p.tov.Est_Food_Bev_ToV_MERC__c}" styleClass="selectCell"/>
+					<apex:column value="{!p.tov.Est_Grnd_Transp_MERC__c}" styleClass="selectCell"/>
+					<apex:column value="{!p.tov.Est_Reg_Amt_ToV_MERC__c}" styleClass="selectCell"/>
+					<apex:column value="{!p.tov.Est_Hotel_ToV_MERC__c}" styleClass="selectCell"/>
+					<apex:column headerValue="{!$ObjectType.Daily_Attendance_TOV_MERC__c.Fields.Confirm_ToV_Reporting_Change_MERC__c.label}"
+					             rendered="{!$ObjectType.Daily_Attendance_TOV_MERC__c.Fields.Confirm_ToV_Reporting_Change_MERC__c.updateable}">
+						<apex:inputField value="{!p.tov.Confirm_ToV_Reporting_Change_MERC__c}"/>
+					</apex:column>
+				</apex:pageBlockTable>
+			</apex:pageBlock>
+			<c:MERC_LoadingMask />
+		</div>
+	</apex:form>
+</apex:page>

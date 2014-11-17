@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Indication</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Indications</value>
+    </caseValues>
+    <fields>
+        <label><!-- Approval Date --></label>
+        <name>Approval_Dt_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Approval Status --></label>
+        <name>Approval_Sts_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cease Publish Date --></label>
+        <name>Cease_Pblsh_Dt_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country Code --></label>
+        <name>Country_Cd_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- ODS Created Date --></label>
+        <name>Crt_Dt_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dialect Name --></label>
+        <name>Dialect_Nm_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- End Date --></label>
+        <name>End_Dt_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Indctn_Desc_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Indication External Key --></label>
+        <name>Indctn_External_Id_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Indication Id --></label>
+        <name>Indctn_Id_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Short Description --></label>
+        <name>Indctn_Short_Desc_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Indctn_Sts_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Indctn_Typ_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Publish Date --></label>
+        <name>Lst_Pblsh_Dt_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mercury External Id --></label>
+        <name>Mercury_External_Id_MERC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Product Group --></label>
+        <name>Prod_Grp_Prnt_Id_GLBL__c</name>
+        <relationshipLabel><!-- Indications --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Revoke Date --></label>
+        <name>Revoke_Dt_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Start Date --></label>
+        <name>Start_Dt_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Translated Description --></label>
+        <name>Trnsltd_Indctn_Desc_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- Translated Short Description --></label>
+        <name>Trnsltd_Indctn_Short_Desc_GLBL__c</name>
+    </fields>
+    <fields>
+        <label><!-- ODS Updated Date --></label>
+        <name>Updt_Dt_GLBL__c</name>
+    </fields>
+    <layouts>
+        <layout>MERC_Product Indication Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

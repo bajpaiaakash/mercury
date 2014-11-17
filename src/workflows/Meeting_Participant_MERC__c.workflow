@@ -833,7 +833,8 @@
         </actions>
         <active>true</active>
         <description>If the &quot;Air Travel Required&quot; field is changed from Yes to No, the &quot;Air Travel No Longer Required&quot; and &quot;Travel by Air&quot; fields should be set to None. This is to make sure the correct options are displayed on the Web Service.</description>
-        <formula>ISCHANGED(Air_Travel_Required_MERC__c) &amp;&amp;  TEXT(Air_Travel_Required_MERC__c) = &quot;No&quot;</formula>
+        <formula>ISCHANGED(Air_Travel_Required_MERC__c) &amp;&amp; 
+TEXT(Air_Travel_Required_MERC__c) = &quot;No&quot;</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -848,7 +849,15 @@
         </actions>
         <active>true</active>
         <description>Round Preparation Time and Event Time to nearest 15 minutes, changed in Mercury Release 2 from 30 minute rounding : MERC : Created on 21/07/2014 by Oliver Dunford, Mavens Consulting</description>
-        <formula>(Preparation_Time_Hrs_MERC__c - FLOOR(Preparation_Time_Hrs_MERC__c) &lt;&gt; 0.25 &amp;&amp;  Preparation_Time_Hrs_MERC__c - FLOOR(Preparation_Time_Hrs_MERC__c) &lt;&gt; 0.50 &amp;&amp;  Preparation_Time_Hrs_MERC__c - FLOOR(Preparation_Time_Hrs_MERC__c) &lt;&gt; 0.75 &amp;&amp;  Preparation_Time_Hrs_MERC__c - FLOOR(Preparation_Time_Hrs_MERC__c) &lt;&gt; 0.00)  ||  (Event_Time_Hrs_MERC__c - FLOOR(Event_Time_Hrs_MERC__c ) &lt;&gt; 0.25 &amp;&amp;  Event_Time_Hrs_MERC__c - FLOOR(Event_Time_Hrs_MERC__c ) &lt;&gt; 0.50 &amp;&amp;  Event_Time_Hrs_MERC__c - FLOOR(Event_Time_Hrs_MERC__c ) &lt;&gt; 0.75 &amp;&amp;  Event_Time_Hrs_MERC__c - FLOOR(Event_Time_Hrs_MERC__c ) &lt;&gt; 0.00)</formula>
+        <formula>(Preparation_Time_Hrs_MERC__c - FLOOR(Preparation_Time_Hrs_MERC__c) &lt;&gt; 0.25 &amp;&amp; 
+Preparation_Time_Hrs_MERC__c - FLOOR(Preparation_Time_Hrs_MERC__c) &lt;&gt; 0.50 &amp;&amp; 
+Preparation_Time_Hrs_MERC__c - FLOOR(Preparation_Time_Hrs_MERC__c) &lt;&gt; 0.75 &amp;&amp; 
+Preparation_Time_Hrs_MERC__c - FLOOR(Preparation_Time_Hrs_MERC__c) &lt;&gt; 0.00) 
+|| 
+(Event_Time_Hrs_MERC__c - FLOOR(Event_Time_Hrs_MERC__c ) &lt;&gt; 0.25 &amp;&amp; 
+Event_Time_Hrs_MERC__c - FLOOR(Event_Time_Hrs_MERC__c ) &lt;&gt; 0.50 &amp;&amp; 
+Event_Time_Hrs_MERC__c - FLOOR(Event_Time_Hrs_MERC__c ) &lt;&gt; 0.75 &amp;&amp; 
+Event_Time_Hrs_MERC__c - FLOOR(Event_Time_Hrs_MERC__c ) &lt;&gt; 0.00)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>

@@ -89,7 +89,7 @@ public class MERC_ETTestUtils {
             Integer localCounter = accountCounter++;
             Account a = new Account(
                 RecordTypeId = rt.Id,
-                FirstName = 'Test',
+                FirstName = 'unittest',
                 LastName = 'A ' + String.valueOf(localCounter),
                 PersonMailingStreet = 'Test street',
                 PersonMailingPostalCode = '12345',

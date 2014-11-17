@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Add Participant Rec Type Req Fields</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Add Participant Rec Type Req Fields</value>
+    </caseValues>
+    <fields>
+        <help><!-- The field set name which indicates the required fields for the record type. --></help>
+        <label><!-- Meeting Participant Field Set --></label>
+        <name>Meeting_Participant_Field_Set_MERC__c</name>
+    </fields>
+    <fields>
+        <help><!-- The developer name of the meeting participant record type. --></help>
+        <label><!-- Record Type Developer Name --></label>
+        <name>Record_Type_Developer_Name_MERC__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

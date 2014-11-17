@@ -16,7 +16,6 @@
     </alerts>
     <alerts>
         <fullName>MERC_Notify_CMS_Cork_and_Create_Case</fullName>
-        <ccEmails>sean+1339@mavensconsulting.com</ccEmails>
         <description>MERC_Notify CMS Cork and Create Case</description>
         <protected>false</protected>
         <recipients>
@@ -967,8 +966,8 @@ IF(INCLUDES( Academic_Qualifications_MERC__c , &quot;MD Specialist&quot;), 1, 0)
         </actions>
         <active>true</active>
         <description>Sends the CMS Cork Europe an email when a HCP has an email address added or the email address is changed.  Not for mastered email addresses : MERC : Created on 16/09/2014 by Oliver Dunford, Mavens Consulting</description>
-        <formula>RecordType.DeveloperName = &quot;HCP_GLBL&quot;  &amp;&amp; !CONTAINS($User.Username, &quot;unittest&quot;)  &amp;&amp; 
-!CONTAINS( FirstName , &quot;unittest&quot;)  &amp;&amp; 
+        <formula>RecordType.DeveloperName = &quot;HCP_GLBL&quot; &amp;&amp; !CONTAINS($User.Username, &quot;unittest&quot;) &amp;&amp; 
+!CONTAINS( FirstName , &quot;unittest&quot;) &amp;&amp; 
 OR((ISNEW() &amp;&amp; !ISBLANK(PersonEmail)), ISCHANGED(PersonEmail) )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>

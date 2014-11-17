@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Notifies Meeting Owner of a Signed Contract</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Contract Signed</name>
+    <style>none</style>
+    <subject>{!HCP_Contract_MERC__c.Account_MERC__c}: Contracting is complete for Meeting {!Meeting_MERC__c.Name}</subject>
+    <type>text</type>
+</EmailTemplate>

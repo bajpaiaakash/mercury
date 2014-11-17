@@ -1,0 +1,35 @@
+<apex:page showHeader="true" sidebar="true" controller="CUST_AdminUtilitiesController">
+<style>
+	.AdminUtilitiesError {
+		color: red;
+	}
+</style>
+	<apex:sectionHeader title="Customer Search Tool" subtitle="CST Administration Utilities" />
+	<apex:form >
+	<apex:pageBlock >
+		<apex:pageBlockButtons location="top">
+			
+		</apex:pageBlockButtons>
+		<apex:pageBlockSection id="initJobs" title="Schedule Recurring Jobs" columns="1">
+			<div>There are three batch jobs that enable and maintain Customer Search Tool authorizations. Use the button below to initiate these recurring scheduled apex jobs if they are not already running.</div>
+			<ul>
+				<li>Manage Apex Jobs in <em>Setup > Monitor > Jobs > Scheduled Jobs</em></li>
+				<li>Review the settings for these scheduled Jobs at <em>Setup > Build > Develop > Custom Settings > Mercury Settings</em></li>
+			</ul>
+			<apex:pageBlockSectionItem >
+				<apex:commandButton action="{!initJobs}" value="Set Schedule and Queue All Apex Jobs" rerender="initJobsResult"></apex:commandButton>
+				<apex:commandButton action="{!stopJobs}" value="Remove All Apex Jobs from running Queue" rendered="{!jobsActive}" rerender="initJobsResult"></apex:commandButton>
+			</apex:pageBlockSectionItem>
+			<apex:pageBlockSectionItem >
+				<apex:outputPanel id="initJobsResult">
+					<apex:outputText value="{0,date,MMM d, hh:mm:ss z}: {1}" styleClass="{!result}" rendered="{!status!=null}" escape="false">
+						<apex:param value="{!NOW()}"></apex:param>
+						<apex:param value="{!message}"></apex:param>
+					</apex:outputText>
+				</apex:outputPanel>
+			</apex:pageBlockSectionItem>
+
+		</apex:pageBlockSection>
+	</apex:pageBlock>
+	</apex:form>
+</apex:page>

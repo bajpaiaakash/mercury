@@ -6,11 +6,11 @@
         <name>Academic_Qualifications_MERC__c</name>
         <picklistValues>
             <masterLabel>MD Specialist</masterLabel>
-            <translation>Médico especialista</translation>
+            <translation><!-- MD Specialist --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MD non- specialist or GP</masterLabel>
-            <translation>Médico no especialilsta o Médico General</translation>
+            <translation><!-- MD non- specialist or GP --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MSc, BSc</masterLabel>
@@ -18,11 +18,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Non-MD Health care professional</masterLabel>
-            <translation>Profesional Sanitario, no médico</translation>
+            <translation><!-- Non-MD Health care professional --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>PhD non-MD</masterLabel>
-            <translation>Doctor, no médico</translation>
+            <translation><!-- PhD non-MD --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -236,11 +236,11 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Yes - 1</masterLabel>
-            <translation>Sí - 1</translation>
+            <translation><!-- Yes - 1 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Yes - 2 or more</masterLabel>
-            <translation>Sí - 2 o más</translation>
+            <translation><!-- Yes - 2 or more --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -289,15 +289,15 @@
         <name>Contract_Signatory_MERC__c</name>
         <picklistValues>
             <masterLabel>My Institution</masterLabel>
-            <translation>Mi institución</translation>
+            <translation><!-- My Institution --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>My Legal Entity</masterLabel>
-            <translation>Mi entidad legal</translation>
+            <translation><!-- My Legal Entity --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>My Name (self)</masterLabel>
-            <translation>My nombro (yo mismo)</translation>
+            <translation><!-- My Name (self) --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -2081,19 +2081,19 @@
         <name>Practicing_for_MERC__c</name>
         <picklistValues>
             <masterLabel>11-20 Years</masterLabel>
-            <translation>12 - 20 años</translation>
+            <translation><!-- 11-20 Years --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>20+ Years</masterLabel>
-            <translation>20+ años</translation>
+            <translation><!-- 20+ Years --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>6-10 Years</masterLabel>
-            <translation>6 - 10 años</translation>
+            <translation><!-- 6-10 Years --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>&lt;5 Years</masterLabel>
-            <translation>&lt; 5 años</translation>
+            <translation><!-- &lt;5 Years --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -2105,7 +2105,7 @@
         </picklistValues>
         <picklistValues>
             <masterLabel>Postal Address</masterLabel>
-            <translation>Dirección de correo</translation>
+            <translation><!-- Postal Address --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -2654,6 +2654,13 @@
         </sections>
     </layouts>
     <layouts>
+        <layout>MERC_Lilly Affiliate Business</layout>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+    </layouts>
+    <layouts>
         <layout>MERC_Non-HCP</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
@@ -2674,6 +2681,39 @@
         <sections>
             <label><!-- Primary Address Information --></label>
             <section>Primary Address Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Third Party Organization</layout>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Vendor</layout>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Primary Address Information --></label>
+            <section>Primary Address Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Venue</layout>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Primary Address Information --></label>
+            <section>Primary Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- Property Information --></label>
+            <section>Property Information</section>
         </sections>
     </layouts>
     <recordTypes>

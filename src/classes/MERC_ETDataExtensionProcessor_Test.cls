@@ -106,6 +106,16 @@ private class MERC_ETDataExtensionProcessor_Test {
     @isTest
     public static void test_ETDataExtensionProcessor_CreateDataExtensionForSendEmail_Success() {
         MERC_TestFactory.adjustForSFDCSetMockBug = true;
+        MERC_TriggerHandlerStateManager.deactivateAll();
+        MERC_TriggerHandlerStateManager.deactivate(MERC_ParticipantFMVCalculator.class);
+        MERC_TriggerHandlerStateManager.deactivate(MERC_AccountDesignatedIndividualsCounter.class);
+        MERC_TriggerHandlerStateManager.deactivate(GLBL_AccountMergeStampTrigger.class);
+        MERC_TriggerHandlerStateManager.deactivate(MERC_MeetingParticipantTovValidation.class);
+        MERC_TriggerHandlerStateManager.deactivate(MERC_MeetingParticipantCurrencyConvert.class);
+        MERC_TriggerHandlerStateManager.deactivate(MERC_MVIMeetingTimeZoneHandler.class);
+
+        GLBL_TestContext.AccountTestTriggerEnabled = false;
+        GLBL_TestContext.OpportunityTestTriggerEnabled = false;
 
         MERC_ETFolderedEmail fe = new MERC_ETFolderedEmail();
         fe.id = 'folderedid';
@@ -135,7 +145,7 @@ private class MERC_ETDataExtensionProcessor_Test {
         etConfig.et4ae5__UserName__c = 'testusername';
         etConfig.et4ae5__Password__c = 'testuserpassword';
         etConfig.et4ae5__Auth_API_URL__c = 'www.testauthurl.com/Auth.svc';
-        etConfig.et4ae5__Root_Rest_API_URL__c = 'www.testrootrest.com';
+        etConfig.et4ae5__Root_Rest_API_URL__c = 's1.qa1'; // 'www.testrootrest.com';
         insert etConfig;
 
         Sonoma_ET_Config__c config = MERC_ETTestUtils.CreateConfig();
@@ -146,15 +156,12 @@ private class MERC_ETDataExtensionProcessor_Test {
         insert etBU;
 
         Test.startTest();
-        Test.setMock(HttpCalloutMock.class, new MERC_ETEndToEndDataExtCallouts_Mock());
-        System.debug('test.startTest');
-        try {
+            Test.setMock(HttpCalloutMock.class, new MERC_ETEndToEndDataExtCallouts_Mock());
+            System.debug('test.startTest');
             MERC_ETDataExtensionProcessor processor = new MERC_ETDataExtensionProcessor();
             processor.createDataExtensionForSendEmail(sew);
             System.assert(true);
-        } catch (Exception e) {
-        }
-        System.debug('test.stopTest');
+            System.debug('test.stopTest');
         Test.stopTest();
     }
 }

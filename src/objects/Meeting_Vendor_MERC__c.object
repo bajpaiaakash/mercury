@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Junction object between Account for the meeting vendors e.g. (Hotel, Catering, Transportation, AV, Security) and the meeting : MERC : Created on 10/03/2013 by John Adams, Mavens Consulting</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fieldSets>
+        <fullName>Meeting_Day_Manager_MERC</fullName>
+        <description>Used in Meeting Day Manager -JFerraro Mar 21 2014</description>
+        <displayedFields>
+            <field>Room_Rate_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Meeting Day Manager</label>
+    </fieldSets>
+    <fields>
+        <fullName>Account_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Master Detail relationship between Account and Meeting vendor to establish a relationship to Meeting
+Created by John A Adams 10/3/2013</description>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <lookupFilter>
+            <active>true</active>
+            <booleanFilter>1 OR 2 OR 3</booleanFilter>
+            <filterItems>
+                <field>Account.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Vendor</value>
+            </filterItems>
+            <filterItems>
+                <field>Account.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Third Party Organization</value>
+            </filterItems>
+            <filterItems>
+                <field>Account.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Venue</value>
+            </filterItems>
+            <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Meeting Vendors</relationshipLabel>
+        <relationshipName>Meeting_Vendors</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Area_of_Service_MERC__c</fullName>
+        <description>Select the type of service vendor is providing
+Created by John A Adams 10/4/2013</description>
+        <externalId>false</externalId>
+        <label>Area of Service</label>
+        <picklist>
+            <picklistValues>
+                <fullName>AV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Catering</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hotel</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Printing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Confirm_ToV_Reporting_Change_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>If Hotel Room Rate changes, HCP Care needs to Confirm it is ok to change the reported ToV. Created 01/08/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Confirm ToV Reporting Change</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_MERC__c</fullName>
+        <description>Master Detail relationship with Meeting
+Created by John A Adams 10/3/2013</description>
+        <externalId>false</externalId>
+        <label>Meeting</label>
+        <referenceTo>Meeting_MERC__c</referenceTo>
+        <relationshipLabel>Vendors</relationshipLabel>
+        <relationshipName>Meeting_Vendors</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Meeting_Status_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>text(Meeting_MERC__r.Meeting_Status_MERC__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Mercury_External_Id_MERC__c</fullName>
+        <description>Generated by Workflow used for Integration with External Systems.
+Created by J Adams 12/10/2013</description>
+        <externalId>true</externalId>
+        <label>Mercury External Id</label>
+        <length>150</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Room_Rate_MERC__c</fullName>
+        <description>Room Rate for Hotels
+Created by John A Adams 10/10/2013</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Does not include Room Tax. Please leave this field blank if no ToV is to be reported for hotels for this meeting.</inlineHelpText>
+        <label>Room Rate (excl Tax)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Vendor_Search_MERC__c</fullName>
+        <description>Enables searching across Meeting Vendors for Meeting Day object.  Oliver Dunford 4th November.</description>
+        <externalId>false</externalId>
+        <label>Vendor Search</label>
+        <length>150</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Meeting Vendor</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>Meeting_MERC__c</columns>
+        <columns>Account_MERC__c</columns>
+        <columns>Area_of_Service_MERC__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <displayFormat>MV-{000000}</displayFormat>
+        <label>Vendor #</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Meeting Vendors</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Hotel_MERC</fullName>
+        <active>true</active>
+        <description>Meeting Vendors that are Hotels</description>
+        <label>Hotel</label>
+        <picklistValues>
+            <picklist>Area_of_Service_MERC__c</picklist>
+            <values>
+                <fullName>Hotel</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Other</fullName>
+        <active>true</active>
+        <description>Meeting Vendors that are not a Hotel</description>
+        <label>Other</label>
+        <picklistValues>
+            <picklist>Area_of_Service_MERC__c</picklist>
+            <values>
+                <fullName>AV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Catering</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planning</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Printing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>Account_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Meeting_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Area_of_Service_MERC__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Account_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Area_of_Service_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Room_Rate_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Meeting_MERC__c</lookupDialogsAdditionalFields>
+        <lookupFilterFields>NAME</lookupFilterFields>
+        <lookupFilterFields>Account_MERC__c</lookupFilterFields>
+        <lookupFilterFields>Area_of_Service_MERC__c</lookupFilterFields>
+        <lookupFilterFields>Meeting_MERC__c</lookupFilterFields>
+        <lookupPhoneDialogsAdditionalFields>Account_MERC__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Area_of_Service_MERC__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Account_MERC__c</searchFilterFields>
+        <searchFilterFields>Area_of_Service_MERC__c</searchFilterFields>
+        <searchFilterFields>Meeting_MERC__c</searchFilterFields>
+        <searchFilterFields>Room_Rate_MERC__c</searchFilterFields>
+        <searchResultsAdditionalFields>Account_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Area_of_Service_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Meeting_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Room_Rate_MERC__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>MERC_Confirm_ToV_Reporting_Change</fullName>
+        <active>true</active>
+        <description>HCP Care to confirm if Hotel Room Rate is changed and ToV has already been reported : MERC : Created on 01/08/2014 by Katy Lorenti, Mavens Consulting</description>
+        <errorConditionFormula>ISPICKVAL( Meeting_MERC__r.Participant_ToV_Final_MERC__c,&quot;Yes&quot;)  &amp;&amp;
+ISCHANGED( Room_Rate_MERC__c ) &amp;&amp;
+!Confirm_ToV_Reporting_Change_MERC__c</errorConditionFormula>
+        <errorDisplayField>Confirm_ToV_Reporting_Change_MERC__c</errorDisplayField>
+        <errorMessage>ToV has already been reported for participants of this Meeting. Customer Meeting Services needs to confirm this change before it can be made.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>MERC_Enforce_Currency</fullName>
+        <active>true</active>
+        <description>Ensures Meeting Vendor Currency is the same as the meeting.  All ToV must be in the Meeting currency : MERC : Created on 20/08/2014 by Oliver Dunford, Mavens Consulting</description>
+        <errorConditionFormula>TEXT(CurrencyIsoCode) &lt;&gt; TEXT( Meeting_MERC__r.CurrencyIsoCode)</errorConditionFormula>
+        <errorDisplayField>CurrencyIsoCode</errorDisplayField>
+        <errorMessage>The currency of the Meeting Vendor should match the currency of the Meeting.  All ToV should be entered in the currency of the Meeting.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>MERC_Enter_blank_amount</fullName>
+        <active>true</active>
+        <description>Prevent the ability to enter a blank amount as the Room Rate amount unless ToV has not been reported : MERC : Created on 01/28/2014 by Katy Lorenti, Mavens Consulting</description>
+        <errorConditionFormula>ISCHANGED(Room_Rate_MERC__c) &amp;&amp;
+ISBLANK(Room_Rate_MERC__c) &amp;&amp;
+(ISPICKVAL(Meeting_MERC__r.Participant_ToV_Final_MERC__c,&quot;Yes&quot;))</errorConditionFormula>
+        <errorDisplayField>Room_Rate_MERC__c</errorDisplayField>
+        <errorMessage>You may not enter a blank value unless ToV has not been reported.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>MERC_Enter_zero_amount</fullName>
+        <active>true</active>
+        <description>Prevent the ability to enter 0.00 as the Room Rate amount unless ToV has been reported : MERC : Created on 01/10/2014 by Katy Lorenti, Mavens Consulting</description>
+        <errorConditionFormula>ISCHANGED(Room_Rate_MERC__c) &amp;&amp;
+Room_Rate_MERC__c = 0.00 &amp;&amp;
+(ISPICKVAL(Meeting_MERC__r.Participant_ToV_Final_MERC__c,&quot;No&quot;) || ISPICKVAL(Meeting_MERC__r.Participant_ToV_Final_MERC__c,&quot;&quot;))</errorConditionFormula>
+        <errorDisplayField>Room_Rate_MERC__c</errorDisplayField>
+        <errorMessage>You may not enter an amount of 0.00 unless ToV has already been reported. Please leave this value blank.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>MERC_Prevent_Negative_Amount</fullName>
+        <active>true</active>
+        <description>Prevent a negative amount from being entered : MERC : Created on 01/08/2014 by Katy Lorenti, Mavens Consulting</description>
+        <errorConditionFormula>(ISCHANGED(Room_Rate_MERC__c) &amp;&amp;
+Room_Rate_MERC__c &lt; 0 )</errorConditionFormula>
+        <errorDisplayField>Room_Rate_MERC__c</errorDisplayField>
+        <errorMessage>You many not enter a negative value.</errorMessage>
+    </validationRules>
+</CustomObject>

@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <content>MERC_MeetingDayNewEdit</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <content>MERC_MeetingDayNewEdit</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <content>MERC_MeetingDayNewEdit</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Object to track days of meetings and ToV cost of each day : MERC : Created on 10/10/2013 by Katy Lorenti, Mavens Consulting</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fieldSets>
+        <fullName>Meeting_Day_Basic_Information_MERC</fullName>
+        <description>Controls the form when creating/editing a meeting day. -JFerraro 1/9/2014</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Meeting_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Basic Information</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Meeting_Day_Daily_Amounts_MERC</fullName>
+        <description>Controls the form when creating/editing a meeting day. -JFerraro 1/9/2014</description>
+        <displayedFields>
+            <field>Daily_Ground_Trans_Amount_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Daily_Food_Beverage_Amount_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Daily_Registration_Amount_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Confirm_ToV_Reporting_Change_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CurrencyIsoCode</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Daily Amounts</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Meeting_Day_Date_Information_MERC</fullName>
+        <description>Controls the form when creating/editing a meeting day. -JFerraro 1/9/2014</description>
+        <displayedFields>
+            <field>Date_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Date Information</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Meeting_Day_Manager_Columns_MERC</fullName>
+        <description>Used in the Meeting Day Manager -JFerraro Mar 21 2014</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Date_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Daily_Ground_Trans_Amount_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Daily_Food_Beverage_Amount_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Daily_Registration_Amount_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Confirm_ToV_Reporting_Change_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Meeting Day Manager Columns</label>
+    </fieldSets>
+    <fields>
+        <fullName>Confirm_ToV_Reporting_Change_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Validation checkbox for HCP Care to confirm that the ToV is being updated/corrected. Created 01/07/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Confirm ToV Reporting Change</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Daily_Food_Beverage_Amount_MERC__c</fullName>
+        <description>Food and Beverage 
+Created by John A Adams 10/15/2013</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Values per day per person. Please leave this field blank if no ToV is to be reported for Food &amp; Beverage for this meeting.</inlineHelpText>
+        <label>Daily Food &amp; Beverage Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Daily_Ground_Trans_Amount_MERC__c</fullName>
+        <description>Daily ground transportation
+Created by John A Adams 10/15/2013</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Values per day per person. Please leave this field blank if no ToV is to be reported for Ground Transportation for this meeting.</inlineHelpText>
+        <label>Daily Ground Transportation Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Daily_Registration_Amount_MERC__c</fullName>
+        <description>Store ToV estimate for Registration cost. Oliver Dunford 10/10/2013</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please leave this field blank if no ToV is to be reported for Registration Fees for this meeting.</inlineHelpText>
+        <label>Registration Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Date_MERC__c</fullName>
+        <description>Date of the Meeting Day. Created 10/10/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <label>Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_Meeting_Time_Zone__c</fullName>
+        <description>Stamped with the date locale based on the meeting time zone</description>
+        <externalId>false</externalId>
+        <label>Date (Meeting Time Zone)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Force_Unique_Meeting_Day_MERC__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>Stamped via workflow to enforce a that each Meeting Day has a unique date.</description>
+        <externalId>false</externalId>
+        <label>Force Unique Meeting Day</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Meeting_MERC__c</fullName>
+        <description>Lookup relationship to Meeting. Created 10/10/2013 by KLorenti 
+Changed to a Master Detail relationship.  4/2/2014 J Adams</description>
+        <externalId>false</externalId>
+        <label>Meeting</label>
+        <referenceTo>Meeting_MERC__c</referenceTo>
+        <relationshipLabel>Meeting Days</relationshipLabel>
+        <relationshipName>Meeting_Days</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Meeting_Time_Zone_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>text(Meeting_MERC__r.Meeting_Time_Zone_MERC__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting Time Zone</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Mercury_External_Id_MERC__c</fullName>
+        <description>Generated by Workflow used for Integration with External Systems.
+Created by J Adams 12/10/2013</description>
+        <externalId>true</externalId>
+        <label>Mercury External Id</label>
+        <length>150</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Meeting Day</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Meeting Day</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Meeting Days</pluralLabel>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>Meeting_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Date_MERC__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Meeting_MERC__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Date_MERC__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Meeting_MERC__c</searchFilterFields>
+        <searchFilterFields>Date_MERC__c</searchFilterFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>MERC_Check_if_any_ToV_has_been_reported</fullName>
+        <active>true</active>
+        <description>Checks to see if any Meeting Participants have had ToV reported : MERC : Created on 01/08/2014 by Katy Lorenti, Mavens Consulting</description>
+        <errorConditionFormula>ISPICKVAL( Meeting_MERC__r.Participant_ToV_Final_MERC__c,&quot;Yes&quot;) &amp;&amp;
+(ISCHANGED ( Daily_Registration_Amount_MERC__c ) ||
+ISCHANGED ( Daily_Ground_Trans_Amount_MERC__c) ||
+ISCHANGED ( Daily_Food_Beverage_Amount_MERC__c )) &amp;&amp;
+! Confirm_ToV_Reporting_Change_MERC__c</errorConditionFormula>
+        <errorDisplayField>Confirm_ToV_Reporting_Change_MERC__c</errorDisplayField>
+        <errorMessage>ToV has already been reported for participants of this Meeting. Customer Meeting Services needs to confirm this change before it can be made.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>MERC_Enter_Blank_If_Not_Reported</fullName>
+        <active>true</active>
+        <description>Users cannot enter a 0.00 if ToV has not been reported : MERC : Created on 01/08/2014 by Katy Lorenti, Mavens Consulting</description>
+        <errorConditionFormula>(Daily_Food_Beverage_Amount_MERC__c = 0.00 ||
+Daily_Ground_Trans_Amount_MERC__c = 0.00 ||
+Daily_Registration_Amount_MERC__c = 0.00) &amp;&amp;  (ISPICKVAL(Meeting_MERC__r.Participant_ToV_Final_MERC__c,&quot;No&quot;) || ISPICKVAL(Meeting_MERC__r.Participant_ToV_Final_MERC__c,&quot;&quot;))</errorConditionFormula>
+        <errorMessage>You may not enter 0.00 unless ToV has already been reported for this Meeting</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>MERC_Enter_Zero_If_Reported</fullName>
+        <active>true</active>
+        <description>Users cannot enter a blank if ToV has been reported : MERC : Created on 01/09/2014 by Katy Lorenti, Mavens Consulting</description>
+        <errorConditionFormula>((ISCHANGED(Daily_Food_Beverage_Amount_MERC__c) &amp;&amp; 
+ISBLANK(Daily_Food_Beverage_Amount_MERC__c)) || 
+
+(ISCHANGED(Daily_Ground_Trans_Amount_MERC__c) &amp;&amp; 
+ISBLANK(Daily_Ground_Trans_Amount_MERC__c)) || 
+
+(ISCHANGED(Daily_Registration_Amount_MERC__c) &amp;&amp; 
+ISBLANK(Daily_Registration_Amount_MERC__c)) )
+
+&amp;&amp; (ISPICKVAL(Meeting_MERC__r.Participant_ToV_Final_MERC__c,&quot;Yes&quot;))</errorConditionFormula>
+        <errorMessage>You may not enter a blank value if ToV has already been reported for this Meeting</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>MERC_Meeting_Day_Range</fullName>
+        <active>true</active>
+        <description>Ensure that a Meeting Date is within 3 days +/- of the Meeting Start or End Date.  This is to accommodate shoulder dates but also limit the dates that can be chosen for Meeting Days : MERC : Created on 02/03/2014 by John Adams, Mavens Consulting</description>
+        <errorConditionFormula>(Date_MERC__c &gt; (Meeting_MERC__r.End_Date_of_Event_MERC__c + 3))  ||
+(Date_MERC__c &lt; (Meeting_MERC__r.Date_of_Event_MERC__c  - 3))</errorConditionFormula>
+        <errorDisplayField>Date_MERC__c</errorDisplayField>
+        <errorMessage>The Meeting Day selected must be within 3 +/- days of the start or end of the meeting.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>MERC_Prevent_Negative_Amount</fullName>
+        <active>true</active>
+        <description>Prevent a negative amount from being entered : MERC : Created on 02/04/2014 by John Adams, Mavens Consulting</description>
+        <errorConditionFormula>(ISCHANGED(Daily_Food_Beverage_Amount_MERC__c) &amp;&amp;
+Daily_Food_Beverage_Amount_MERC__c &lt; 0 ) ||
+
+(ISCHANGED(Daily_Ground_Trans_Amount_MERC__c ) &amp;&amp;
+Daily_Ground_Trans_Amount_MERC__c &lt; 0 ) ||
+
+(ISCHANGED(Daily_Registration_Amount_MERC__c ) &amp;&amp;
+Daily_Registration_Amount_MERC__c &lt; 0)</errorConditionFormula>
+        <errorMessage>You may not enter a value less than zero.</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>Manage_Daily_Attendance_MERC</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Manage Daily Attendance</masterLabel>
+        <openType>sidebar</openType>
+        <page>MERC_DailyAttendance</page>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+    </webLinks>
+    <webLinks>
+        <fullName>Manage_Meeting_Days_MERC</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Manage Meeting Days</masterLabel>
+        <openType>sidebar</openType>
+        <page>MERC_MeetingDayManager</page>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+    </webLinks>
+</CustomObject>

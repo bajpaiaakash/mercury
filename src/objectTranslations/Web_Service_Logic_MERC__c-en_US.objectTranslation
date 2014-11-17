@@ -212,6 +212,21 @@
         </picklistValues>
     </fields>
     <layouts>
+        <layout>MERC_HCP_Info_Pack</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- HCP Information Package Tabs to Display --></label>
+            <section>HCP Information Package Tabs to Display</section>
+        </sections>
+        <sections>
+            <label><!-- Known Criteria for Key Generation --></label>
+            <section>Known Criteria for Key Generation</section>
+        </sections>
+    </layouts>
+    <layouts>
         <layout>MERC_RSVP</layout>
         <sections>
             <label><!-- Custom Links --></label>

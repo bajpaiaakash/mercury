@@ -6,23 +6,23 @@
         <name>Academic_Qualifications_MERC__c</name>
         <picklistValues>
             <masterLabel>MD Specialist</masterLabel>
-            <translation>Specialista</translation>
+            <translation><!-- MD Specialist --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MD non- specialist or GP</masterLabel>
-            <translation>Medico generico</translation>
+            <translation><!-- MD non- specialist or GP --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>MSc, BSc</masterLabel>
-            <translation>MSc, BSc</translation>
+            <translation><!-- MSc, BSc --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Non-MD Health care professional</masterLabel>
-            <translation>Operatore sanitario non medico</translation>
+            <translation><!-- Non-MD Health care professional --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>PhD non-MD</masterLabel>
-            <translation>PhD non medico</translation>
+            <translation><!-- PhD non-MD --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -232,15 +232,15 @@
         <name>Clinical_Trial_PI_MERC__c</name>
         <picklistValues>
             <masterLabel>No</masterLabel>
-            <translation>No</translation>
+            <translation><!-- No --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Yes - 1</masterLabel>
-            <translation>Si&apos; - 1</translation>
+            <translation><!-- Yes - 1 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Yes - 2 or more</masterLabel>
-            <translation>Si&apos; - 2 o piu&apos;</translation>
+            <translation><!-- Yes - 2 or more --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -289,15 +289,15 @@
         <name>Contract_Signatory_MERC__c</name>
         <picklistValues>
             <masterLabel>My Institution</masterLabel>
-            <translation>L&apos;istituzione per la quale lavoro</translation>
+            <translation><!-- My Institution --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>My Legal Entity</masterLabel>
-            <translation>La mia entita&apos; legale</translation>
+            <translation><!-- My Legal Entity --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>My Name (self)</masterLabel>
-            <translation>Me stesso</translation>
+            <translation><!-- My Name (self) --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -1819,15 +1819,15 @@
         <name>Journal_Articles_MERC__c</name>
         <picklistValues>
             <masterLabel>0-2</masterLabel>
-            <translation>0-2</translation>
+            <translation><!-- 0-2 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>3-4</masterLabel>
-            <translation>3-4</translation>
+            <translation><!-- 3-4 --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>5+</masterLabel>
-            <translation>5+</translation>
+            <translation><!-- 5+ --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -2081,19 +2081,19 @@
         <name>Practicing_for_MERC__c</name>
         <picklistValues>
             <masterLabel>11-20 Years</masterLabel>
-            <translation>11-20 anni</translation>
+            <translation><!-- 11-20 Years --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>20+ Years</masterLabel>
-            <translation>20+ anni</translation>
+            <translation><!-- 20+ Years --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>6-10 Years</masterLabel>
-            <translation>6-10 anni</translation>
+            <translation><!-- 6-10 Years --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>&lt;5 Years</masterLabel>
-            <translation>&lt;5 anni</translation>
+            <translation><!-- &lt;5 Years --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -2101,11 +2101,11 @@
         <name>Preferred_Contact_Method_MERC__c</name>
         <picklistValues>
             <masterLabel>Email</masterLabel>
-            <translation>Email</translation>
+            <translation><!-- Email --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Postal Address</masterLabel>
-            <translation>Posta</translation>
+            <translation><!-- Postal Address --></translation>
         </picklistValues>
     </fields>
     <fields>
@@ -2654,6 +2654,13 @@
         </sections>
     </layouts>
     <layouts>
+        <layout>MERC_Lilly Affiliate Business</layout>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+    </layouts>
+    <layouts>
         <layout>MERC_Non-HCP</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
@@ -2674,6 +2681,39 @@
         <sections>
             <label><!-- Primary Address Information --></label>
             <section>Primary Address Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Third Party Organization</layout>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Vendor</layout>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Primary Address Information --></label>
+            <section>Primary Address Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Venue</layout>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Primary Address Information --></label>
+            <section>Primary Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- Property Information --></label>
+            <section>Property Information</section>
         </sections>
     </layouts>
     <recordTypes>

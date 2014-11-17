@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>Meeting_MERC__c.Compliance_Met_Initiate_Sourcing_MERC__c:SUM/RowCount</calculatedFormula>
+        <datatype>percent</datatype>
+        <description>Percentage Met</description>
+        <developerName>FORMULA1</developerName>
+        <downGroupingContext>Meeting_MERC__c.Date_of_Event_MERC__c</downGroupingContext>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Percentage Met</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <buckets>
+        <bucketType>number</bucketType>
+        <developerName>BucketField_53317865</developerName>
+        <masterLabel>+/- 3 days</masterLabel>
+        <nullTreatment>z</nullTreatment>
+        <sourceColumnName>Meeting_MERC__c.Days_from_MPC_to_Initiate_Sourcing_MERC__c</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <to>3</to>
+            </sourceValues>
+            <value>On Time</value>
+        </values>
+        <values>
+            <sourceValues>
+                <from>3</from>
+            </sourceValues>
+            <value>Over Due</value>
+        </values>
+    </buckets>
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>Meeting_MERC__c.Formatted_Name_MERC__c</field>
+    </columns>
+    <columns>
+        <field>Meeting_MERC__c.MPC_Date_Time_MERC__c</field>
+    </columns>
+    <columns>
+        <field>Meeting_MERC__c.Days_from_MPC_to_Initiate_Sourcing_MERC__c</field>
+    </columns>
+    <columns>
+        <field>Meeting_MERC__c.Compliance_Met_Initiate_Sourcing_MERC__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <description>MERC0001-0913
+Shows # of days from handoff from MPC to Venue Sourcing Team</description>
+    <filter>
+        <criteriaItems>
+            <column>Meeting_MERC__c.MPC_Date_Time_MERC__c</column>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>MonthInYear</dateGranularity>
+        <field>Meeting_MERC__c.Date_of_Event_MERC__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>SLA-MPC Handoff to Venue Sourcing Team</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Meeting_MERC__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Meeting_MERC__c.Date_of_Event_MERC__c</dateColumn>
+        <interval>INTERVAL_PREVCURY</interval>
+    </timeFrameFilter>
+</Report>

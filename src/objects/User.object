@@ -1364,47 +1364,6 @@ Created by J Adams 12/10/2013</description>
         <language>en_US</language>
     </listViews>
     <listViews>
-        <fullName>Test_Users</fullName>
-        <booleanFilter>(1 OR 2) AND (3 OR 4) AND 5</booleanFilter>
-        <columns>FULL_NAME</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <columns>CORE.USERS.USERNAME</columns>
-        <columns>CORE.USERS.EMAIL</columns>
-        <columns>CORE.USER_ROLE.NAME</columns>
-        <columns>CORE.PROFILE.NAME</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>CORE.USERS.ADDRESS_COUNTRY</field>
-            <operation>equals</operation>
-            <value>DE</value>
-        </filters>
-        <filters>
-            <field>CREATED_BY_NAME</field>
-            <operation>equals</operation>
-            <value>Alex Gissel</value>
-        </filters>
-        <filters>
-            <field>CORE.USER_ROLE.NAME</field>
-            <operation>contains</operation>
-            <value>Germany</value>
-        </filters>
-        <filters>
-            <field>CORE.USER_ROLE.NAME</field>
-            <operation>equals</operation>
-            <value>Europe</value>
-        </filters>
-        <filters>
-            <field>CORE.USERS.LAST_NAME</field>
-            <operation>notContain</operation>
-            <value>REP</value>
-        </filters>
-        <label>Test Users</label>
-        <language>en_US</language>
-        <sharedTo>
-            <group>System_Administrators</group>
-        </sharedTo>
-    </listViews>
-    <listViews>
         <fullName>dsfs__DocuSignActiveUsers</fullName>
         <columns>FULL_NAME</columns>
         <columns>CORE.USERS.ALIAS</columns>

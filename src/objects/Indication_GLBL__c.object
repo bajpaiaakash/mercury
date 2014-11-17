@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Holds Product Indication Information from Material ODS : MERC : Created on 10/23/2013 by Oliver Dunford, Mavens Consulting</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Approval_Dt_GLBL__c</fullName>
+        <description>The day, month, year, and century in which the Product Group has been legally approved to be used for the related Indication.
+Created by John Adams on 11/18/2013</description>
+        <externalId>false</externalId>
+        <label>Approval Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Approval_Sts_GLBL__c</fullName>
+        <description>Legal Status of Indication for the Product Group. It can have following possible value:
+Created by John Adams on 11/13/2013</description>
+        <externalId>false</externalId>
+        <label>Approval Status</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Cease_Pblsh_Dt_GLBL__c</fullName>
+        <description>This represents the last date on which that record was published/refreshed in the Material ODS.   When this date is populated, it indicates that the record has been deleted.  This is one of the two fields that would be used for delta detection of changes to the Material ODS.
+Created by John A Adams 11/1/2013</description>
+        <externalId>false</externalId>
+        <label>Cease Publish Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Country_Cd_GLBL__c</fullName>
+        <description>Country Code for indication
+Created by John Adams on 11/18/2013</description>
+        <externalId>false</externalId>
+        <label>Country Code</label>
+        <length>2</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Crt_Dt_GLBL__c</fullName>
+        <description>This represents the date on which the record was initially created in the Material Master Hub database.
+Created by John A Adams 11/1/2013</description>
+        <externalId>false</externalId>
+        <label>ODS Created Date</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Dialect_Nm_GLBL__c</fullName>
+        <description>Language dialect of the translated data.
+Created by John A Adams 11/1/2013</description>
+        <externalId>false</externalId>
+        <label>Dialect Name</label>
+        <length>10</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>End_Dt_GLBL__c</fullName>
+        <description>Unapproved, Approved, Revoked
+Created by John Adams on 11/13/2013</description>
+        <externalId>false</externalId>
+        <label>End Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Indctn_Desc_GLBL__c</fullName>
+        <description>Description for Indication
+Created by John A Adams 11/1/2013</description>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <length>100</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Indctn_External_Id_GLBL__c</fullName>
+        <description>Mastered ODS Data.</description>
+        <externalId>true</externalId>
+        <label>Indication External Key</label>
+        <length>250</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Indctn_Id_GLBL__c</fullName>
+        <description>System generated unique ID for Indication
+Created by John A Adams 11/1/2013</description>
+        <externalId>false</externalId>
+        <label>Indication Id</label>
+        <length>10</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Indctn_Short_Desc_GLBL__c</fullName>
+        <description>Populated via material ODS master data integration.  Oliver Dunford 13th Feb 2014.</description>
+        <externalId>false</externalId>
+        <label>Short Description</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Indctn_Sts_GLBL__c</fullName>
+        <description>Status of Indication (A – Active, I – Inactive)
+Created by John A Adams 11/1/2013</description>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <length>1</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Indctn_Typ_GLBL__c</fullName>
+        <description>Indication Type (IND - Indication, IND_GRP – Indication Group)
+Created by John A Adams 11/1/2013</description>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <length>10</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lst_Pblsh_Dt_GLBL__c</fullName>
+        <description>This represents the date on which information was last published for this record to the Material ODS.  This date will be populated when the record is initially created in the ODS or when it is updated.  This is one of the two fields that would be used for delta detection of changes to the Material ODS.  
+Created by John A Adams 11/1/2013</description>
+        <externalId>false</externalId>
+        <label>Last Publish Date</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Mercury_External_Id_MERC__c</fullName>
+        <description>Generated by Workflow used for Integration with External Systems.
+Created by J Adams 12/10/2013</description>
+        <externalId>true</externalId>
+        <label>Mercury External Id</label>
+        <length>150</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Prod_Grp_Prnt_Id_GLBL__c</fullName>
+        <description>Master detail relationship with  product group in relationship.
+Created by John Adams on 11/13/2013</description>
+        <externalId>false</externalId>
+        <label>Product Group</label>
+        <referenceTo>Product_Group_GLBL__c</referenceTo>
+        <relationshipLabel>Indications</relationshipLabel>
+        <relationshipName>Indications</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Revoke_Dt_GLBL__c</fullName>
+        <description>The day, month, year, and century in which the approval on the Product Group to be used for an Indication has been revoked.
+Created by John Adams on 11/13/2013</description>
+        <externalId>false</externalId>
+        <label>Revoke Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Start_Dt_GLBL__c</fullName>
+        <description>The day, month, year, and century in which the relationship becomes effective.
+Created by John Adams on 11/13/2013</description>
+        <externalId>false</externalId>
+        <label>Start Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Trnsltd_Indctn_Desc_GLBL__c</fullName>
+        <description>Indication Description Text captured in the language dialect specified in DIALECT_NM.
+Created by John A Adams 11/1/2013</description>
+        <externalId>false</externalId>
+        <label>Translated Description</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Trnsltd_Indctn_Short_Desc_GLBL__c</fullName>
+        <description>Indication Abbreviated Description Text captured in the language dialect specified in DIALECT_NM. This field is used for applications that are limited on display space, but need to display information about the indication.
+Created by John A Adams 11/1/2013</description>
+        <externalId>false</externalId>
+        <label>Translated Short Description</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Updt_Dt_GLBL__c</fullName>
+        <description>This represents the date on which the record was last updated in the Material Master Hub database.
+Created by John A Adams 11/1/2013</description>
+        <externalId>false</externalId>
+        <label>ODS Updated Date</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <label>Indication</label>
+    <nameField>
+        <label>Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Indications</pluralLabel>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>Indctn_Desc_GLBL__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Country_Cd_GLBL__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Indctn_Typ_GLBL__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Indctn_Sts_GLBL__c</lookupDialogsAdditionalFields>
+        <lookupFilterFields>NAME</lookupFilterFields>
+        <lookupFilterFields>Indctn_Desc_GLBL__c</lookupFilterFields>
+        <lookupFilterFields>Country_Cd_GLBL__c</lookupFilterFields>
+        <lookupFilterFields>Indctn_Typ_GLBL__c</lookupFilterFields>
+        <lookupFilterFields>Indctn_Sts_GLBL__c</lookupFilterFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Indctn_Desc_GLBL__c</searchFilterFields>
+        <searchFilterFields>Country_Cd_GLBL__c</searchFilterFields>
+        <searchFilterFields>Indctn_Typ_GLBL__c</searchFilterFields>
+        <searchFilterFields>Indctn_Sts_GLBL__c</searchFilterFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

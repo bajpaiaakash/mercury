@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>Invoice_MERC__c.Payee_MERC__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Meeting_Participant_MERC__c.Types_of_Service_MERC__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Meeting_Participant_MERC__c.Status_MERC__c</field>
+    </columns>
+    <columns>
+        <field>Invoice_MERC__c.Submit_for_Payment_MERC__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>FK_$Meeting_Participant_MERC__c.Final_Fee_MERC__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Invoice_MERC__c.Consulting_Project_Amount_excl_VAT_MERC__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <description>Compares Consulting Project Invoiced amount against Final Fee for Consulting Projects to ensure Invoice Amount does not exceed Fee.</description>
+    <filter>
+        <criteriaItems>
+            <column>FK_$Meeting_Participant_MERC__c.Types_of_Service_MERC__c</column>
+            <operator>equals</operator>
+            <value>Consulting Project</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>FK_NAME</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>FK_$Meeting_Participant_MERC__c.Account_MERC__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Consulting Project Invoices &amp; Final Fees</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Invoice_MERC__c@Invoice_MERC__c.Meeting_Participant_MERC__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Invoice_MERC__c.Invoice_Date_MERC__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

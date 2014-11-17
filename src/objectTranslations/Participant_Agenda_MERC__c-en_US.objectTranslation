@@ -54,6 +54,13 @@
         <label><!-- Speaker Topic Title --></label>
         <name>Speaker_Topic_Title_MERC__c</name>
     </fields>
+    <layouts>
+        <layout>MERC_Participant Session</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
     <startsWith>Consonant</startsWith>
     <validationRules>
         <errorMessage><!-- Once a meeting has been published on the Web Service, only CMS Cork and CMS Local teams can change the Speaker Topic Title. Please contact a member of the CMS team to request a change to this information. --></errorMessage>

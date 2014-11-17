@@ -321,7 +321,7 @@ public class MERC_MergedAccountApex {
         }
         soql += ' FROM ' + objectName + ' WHERE ' + parentField + '=\'' + parentId+ '\'';
         soql += ' AND Prior_Parent_Id_GLBL__c' + (isWinningSoql ? '=' : '!=') + '\'' + losingId + '\'';
-        System.debug('\n\n\nYYZ: Built SOQL String is:\n' + soql +'\n\n\n');
+        // System.debug('\n\n\nBuilt SOQL String is:\n' + soql +'\n\n\n');
         return soql;
     }
 }

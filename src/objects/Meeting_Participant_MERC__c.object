@@ -3638,14 +3638,6 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
                 <fullName>MSA</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Single Event</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Work Order</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Types_of_Service_MERC__c</picklist>

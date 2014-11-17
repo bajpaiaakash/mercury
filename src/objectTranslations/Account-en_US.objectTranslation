@@ -2670,6 +2670,13 @@
         </sections>
     </layouts>
     <layouts>
+        <layout>MERC_Lilly Affiliate Business</layout>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+    </layouts>
+    <layouts>
         <layout>MERC_Non-HCP</layout>
         <layoutType>PersonAccount</layoutType>
         <sections>
@@ -2690,6 +2697,39 @@
         <sections>
             <label><!-- Primary Address Information --></label>
             <section>Primary Address Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Third Party Organization</layout>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Vendor</layout>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Primary Address Information --></label>
+            <section>Primary Address Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MERC_Venue</layout>
+        <sections>
+            <label><!-- Contact Information --></label>
+            <section>Contact Information</section>
+        </sections>
+        <sections>
+            <label><!-- Primary Address Information --></label>
+            <section>Primary Address Information</section>
+        </sections>
+        <sections>
+            <label><!-- Property Information --></label>
+            <section>Property Information</section>
         </sections>
     </layouts>
     <recordTypes>
