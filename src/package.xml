@@ -663,6 +663,7 @@
         <name>Dashboard</name>
     </types>
     <types>
+        <members>Mercury_Email_Templates_MERC/Docusign_Service_Signature_Request_MERC</members>
         <members>Mercury_Email_Templates_MERC/New_Team_Member_Notification_MERC</members>
         <name>EmailTemplate</name>
     </types>
@@ -780,6 +781,7 @@
         <name>Layout</name>
     </types>
     <types>
+        <members>Meeting_Participant_Email_Send_MERC__c-Meeting Participant Email Send Layout</members>
         <members>Meeting_Participant_MERC__c-MERC_Service Provider</members>
         <name>Layout</name>
     </types>

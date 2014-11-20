@@ -4863,6 +4863,10 @@
         <recordType>Web_Service_Logic_MERC__c.RSVP_MERC</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
+    <tabSettings>
+        <tab>Meeting_Participant_MERC__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
     <userPermissions>
         <enabled>true</enabled>
         <name>ApiEnabled</name>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Sent to customers to request signatures for contracts and/or other Docusign managed documents</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Docusign Service Signature Request</name>
+    <style>none</style>
+    <subject>Your Signature is Requested by Lilly</subject>
+    <type>custom</type>
+</EmailTemplate>
