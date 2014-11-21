@@ -25,6 +25,7 @@ private class MERC_MeetingCancellationHandlerTest {
 		Contact dummyContact;
 		Account accnt;
 
+		MERC_TriggerHandlerStateManager.deactivateAll();  // reduce some of the overhead
 		System.runAs(runningUser) {
 			testUsers = MERC_TestFactory.insertTestUsers(2, null);
 			mercuryUserRecordTypeId = [SELECT ID FROM RecordType WHERE DeveloperName = 'Mercury_User_MERC' AND SobjectType = 'Team_Member_MERC__c'].ID;
@@ -47,15 +48,16 @@ private class MERC_MeetingCancellationHandlerTest {
 			accnt.PersonEmail = 'dummy@dummy.com';
 			insert accnt;
 
-			MERC_TriggerHandlerStateManager.deactivateAll();  // reduce some of the overhead
 			meetings  = MERC_TestFactory.insertMeetings(200);
-			MERC_TriggerHandlerStateManager.activateAll();
 		}
 
-		   	/* set up sosl serach results */
-		   	Id [] fixedSearchResults= new Id[1];
-	       	fixedSearchResults[0] = accnt.Id;
-	       	Test.setFixedSearchResults(fixedSearchResults);
+		/* set up sosl serach results */
+		Id [] fixedSearchResults= new Id[1];
+	    fixedSearchResults[0] = accnt.Id;
+	    Test.setFixedSearchResults(fixedSearchResults);
+
+        MERC_TriggerHandlerStateManager.activate(MERC_LockedRecordHandler.class);
+        MERC_TriggerHandlerStateManager.activate(MERC_MeetingCancellationHandler.class);
 	}
 
 	@isTest static void test_should_send_emails_to_team_members() {
@@ -82,6 +84,7 @@ private class MERC_MeetingCancellationHandlerTest {
 		Test.startTest();
 		Integer emailInvocationsBefore = Limits.getEmailInvocations();
 		System.runAs(testUser) {
+
 	        update meetings;
 	    }
         System.assertNotEquals(emailInvocationsBefore, Limits.getEmailInvocations());
