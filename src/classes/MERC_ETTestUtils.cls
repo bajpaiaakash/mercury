@@ -19,7 +19,9 @@ public class MERC_ETTestUtils {
         return profileMap.get(name);
     }
 
+    private static Integer UserCounter = 0;
     public static User CreateUser(String profileName) {
+        String localCounter = String.valueOf(UserCounter++);
         return new User(
             Alias = 'newUser', 
             Email='newuser@testorg.com', 
@@ -29,7 +31,7 @@ public class MERC_ETTestUtils {
             LocaleSidKey='en_US', 
             ProfileId = GetProfile(profileName).Id, 
             TimeZoneSidKey='America/Los_Angeles', 
-            UserName='newuser@testorg.com'
+            UserName='merc_et_newuser' + localCounter + '@testorg.com'
         );
     }
 
@@ -89,7 +91,7 @@ public class MERC_ETTestUtils {
             Integer localCounter = accountCounter++;
             Account a = new Account(
                 RecordTypeId = rt.Id,
-                FirstName = 'Test',
+                FirstName = 'unittest',
                 LastName = 'A ' + String.valueOf(localCounter),
                 PersonMailingStreet = 'Test street',
                 PersonMailingPostalCode = '12345',
