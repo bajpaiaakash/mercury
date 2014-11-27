@@ -7,8 +7,11 @@
         <members>Case</members>
         <members>ContentVersion</members>
         <members>Content_Library_Lookup_MERC__c</members>
+        <members>HCP_Contract_MERC__c</members>
         <members>Invoice_Line_Item_MERC__c</members>
         <members>Invoice_MERC__c</members>
+        <members>Meeting_MERC__c</members>
+        <members>Meeting_Participant_MERC__c</members>
         <members>Meeting_Vendor_MERC__c</members>
         <name>CustomObject</name>
     </types>
@@ -35,6 +38,16 @@
         <members>Mercury_Email_Templates_MERC/Tier_Calculation_Complete</members>
         <members>Mercury_Email_Templates_MERC/Two_week_Compliance_Notification_to_Owner</members>
         <name>EmailTemplate</name>
+    </types>
+    <types>
+        <members>ContentVersion-Account_MERC</members>
+        <members>ContentVersion-Budget_MERC</members>
+        <members>ContentVersion-General</members>
+        <members>ContentVersion-HCP_Contract_MERC</members>
+        <members>ContentVersion-Invoice_MERC</members>
+        <members>ContentVersion-Meeting_MERC</members>
+        <members>ContentVersion-Meeting_Participant_MERC</members>
+        <name>Layout</name>
     </types>
     <types>
         <members>Mercury_Account_Manager_Edit</members>
