@@ -2,9 +2,12 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
         <members>Account</members>
+        <members>Budget_Line_Item_MERC__c</members>
         <members>Budget_MERC__c</members>
         <members>Case</members>
         <members>ContentVersion</members>
+        <members>Content_Library_Lookup_MERC__c</members>
+        <members>Invoice_Line_Item_MERC__c</members>
         <members>Invoice_MERC__c</members>
         <members>Meeting_Vendor_MERC__c</members>
         <name>CustomObject</name>
