@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>ContentVersion.Code_MERC__c</members>
-        <name>CustomField</name>
-    </types>
-    <types>
         <members>Account</members>
         <members>Budget_Line_Item_MERC__c</members>
         <members>Budget_MERC__c</members>
+        <members>ContentVersion</members>
         <members>Invoice_Line_Item_MERC__c</members>
         <members>Invoice_MERC__c</members>
         <members>Meeting_Vendor_MERC__c</members>
@@ -37,15 +34,6 @@
         <members>Mercury_Account_Manager_Edit</members>
         <members>Mercury_Legal_Edit</members>
         <name>PermissionSet</name>
-    </types>
-    <types>
-        <members>ContentVersion.Account_MERC</members>
-        <members>ContentVersion.Budget_MERC</members>
-        <members>ContentVersion.HCP_Contract_MERC</members>
-        <members>ContentVersion.Invoice_MERC</members>
-        <members>ContentVersion.Meeting_MERC</members>
-        <members>ContentVersion.Meeting_Participant_MERC</members>
-        <name>RecordType</name>
     </types>
     <version>31.0</version>
 </Package>
