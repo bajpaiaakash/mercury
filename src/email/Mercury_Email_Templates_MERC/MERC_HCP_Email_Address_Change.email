@@ -1,9 +1,0 @@
-Hello,<br><br>
-
-The email address for {!Account.Name} has been changed.  Please review the HCP profile in Mercury and determine whether an update is required for related vendor master data.<br><br>
-
-The HCP profile is as follows: <br><br>
-
-{!Account.Link} <br><br>
-
-This is an auto-generated email; please do not reply
