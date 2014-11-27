@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Code_MERC__c</fullName>
+        <description>Populates Retention Code based on Document Type. Created 01/15/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>CASE( Document_Type_MERC__c,
+&quot;Institutional Notification&quot;,&quot;ICO210&quot;,
+&quot;Notification agreement for services (filled version by HCP)&quot;,&quot;ICO210&quot;,
+&quot;Notification agreement for sponsorship (filled version by HCP)&quot;,&quot;ICO210&quot;,
+&quot;FMV&quot;,&quot;ICO210&quot;,
+&quot;Service Rendered Documents&quot;,&quot;ICO210&quot; ,
+&quot;HCP Transparency Reporting Consent (filled version by HCP)&quot;,&quot;ICO210&quot;,
+&quot;CV&quot;,&quot;ICO210&quot;,
+&quot;HCP Related Items&quot; ,&quot;ICO210&quot;,
+&quot;HCP Exceptions&quot;,&quot;ICO210&quot;,
+&quot;Invitations&quot;,&quot;MKT100&quot;,
+&quot;Meeting Documents&quot;,&quot;MKT100&quot;,
+&quot;Registration Form&quot;,&quot;MKT100&quot;,
+&quot;Slide Kits&quot;,&quot;MKT100&quot;,
+&quot;Approvals and Supporting Documents&quot;,&quot;MKT100&quot;,
+&quot;Agendas&quot;,&quot;MKT100&quot;,
+&quot;Meeting Exceptions&quot;,&quot;MKT100&quot;,
+&quot;Cover Letter for Contract&quot;,&quot;LEG500&quot;,
+&quot;Single Event Contract and Appendices&quot;,&quot;LEG500&quot;,
+&quot;C2P Documents&quot;,&quot;LEG500&quot;,
+&quot;MSA&quot;,&quot;LEG500&quot;,
+&quot;Work Order&quot;,&quot;LEG500&quot;,
+&quot;Services Rendered Documents&quot;,&quot;LEG500&quot;,
+&quot;Partial Payment Justification&quot;,&quot;LEG500&quot;,
+&quot;Contract Exceptions&quot;,&quot;LEG500&quot;,
+&quot;Invoices&quot;,&quot;ACT100&quot;, 
+&quot;Expense Reimbursement&quot;,&quot;ACT100&quot;,
+&quot;MPC Budget and Invoices&quot;,&quot;ACT100&quot;,
+&quot;Invoice Exceptions&quot;,&quot;ACT100&quot;,
+&quot;Certificate of Attendance&quot;,&quot;MKT100&quot;,
+&quot;Meeting Participant Notice&quot;,&quot;MKT100&quot;,
+&quot;Registration Confirmation Details&quot;,&quot;MKT100&quot;,
+&quot;Sponsorship Agreement&quot;,&quot;MKT100&quot;,
+&quot;Proof of Consulting Services&quot;,&quot;MKT100&quot;,
+&quot;None&quot;)</formula>
+        <label>Retention Code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <recordTypes>
+        <fullName>Account_MERC</fullName>
+        <active>true</active>
+        <label>Account_MERC</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Budget_MERC</fullName>
+        <active>true</active>
+        <label>Budget_MERC</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>HCP_Contract_MERC</fullName>
+        <active>true</active>
+        <label>HCP_Contract_MERC</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Invoice_MERC</fullName>
+        <active>true</active>
+        <label>Invoice_MERC</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Meeting_MERC</fullName>
+        <active>true</active>
+        <label>Meeting_MERC</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Meeting_Participant_MERC</fullName>
+        <active>true</active>
+        <label>Meeting_Participant_MERC</label>
+    </recordTypes>
+</CustomObject>

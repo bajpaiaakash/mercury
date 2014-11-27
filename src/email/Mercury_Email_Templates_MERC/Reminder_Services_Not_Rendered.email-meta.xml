@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>Remind that Services Rendered is No</description>
+    <encodingKey>UTF-8</encodingKey>
+    <name>Reminder - Services Not Rendered</name>
+    <style>none</style>
+    <subject>{!Meeting_Participant_MERC__c.Account_MERC__c}: Reminder - Services Not Rendered</subject>
+    <type>text</type>
+</EmailTemplate>
