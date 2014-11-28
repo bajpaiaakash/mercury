@@ -1,0 +1,7 @@
+Hello,
+
+A potential compliance issue has been raised against {!Meeting_MERC__c.Name}, {!Meeting_MERC__c.Date_of_Event_MERC__c} - {!Meeting_MERC__c.End_Date_of_Event_MERC__c}.  You are receiving this message as you are cited the meeting owner for this meeting.  This is a reminder that you are responsible for contacting your local Compliance team as part of the investigation process.
+
+More information regarding this meeting can be found at {!Meeting_MERC__c.Link}.
+
+Should you have any questions, please contact your local Customer Meeting Services team.  This is an auto-generated email; please do not reply.
