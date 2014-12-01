@@ -5,6 +5,6 @@
     <encodingKey>UTF-8</encodingKey>
     <name>Contract Signed</name>
     <style>none</style>
-    <subject>{!HCP_Contract_MERC__c.Account_MERC__c}: Contracting is complete for Meeting {!Meeting_MERC__c.Name}</subject>
+    <subject>{!Meeting_Participant_MERC__c.Account_MERC__c}: Contracting is complete for Meeting {!Meeting_MERC__c.Name}</subject>
     <type>text</type>
 </EmailTemplate>
