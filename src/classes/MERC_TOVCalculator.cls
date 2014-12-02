@@ -60,11 +60,12 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 			for (Travel_Itinerary_MERC__c ti : (List<Travel_Itinerary_MERC__c>)sobjects) {
 				if (Trigger.isInsert ||
 					(Trigger.oldMap.get(ti.Id).get('Sgmnt_Bgin_TS_MERC__c') != ti.Sgmnt_Bgin_TS_MERC__c ||
-					  Trigger.oldMap.get(ti.Id).get('Sgmnt_End_TS_MERC__c') != ti.Sgmnt_End_TS_MERC__c ||
-					  Trigger.oldMap.get(ti.Id).get('Status_MERC__c') != ti.Status_Merc__c |
-					  Trigger.oldMap.get(ti.Id).get('Total_Fare_Amount_MERC__c') != ti.Total_Fare_Amount_MERC__c) &&
-					ti.Meeting_Status_MERC__c != 'Completed' &&
-					ti.Meeting_Status_MERC__c != 'Cancelled') {
+						Trigger.oldMap.get(ti.Id).get('Sgmnt_End_TS_MERC__c') != ti.Sgmnt_End_TS_MERC__c ||
+						Trigger.oldMap.get(ti.Id).get('Status_MERC__c') != ti.Status_Merc__c |
+						Trigger.oldMap.get(ti.Id).get('Total_Fare_Amount_MERC__c') != ti.Total_Fare_Amount_MERC__c) &&
+						!ti.Meeting_Status_MERC__c.startsWith('Complete')) {
+					//ti.Meeting_Status_MERC__c != 'Completed' &&
+					//ti.Meeting_Status_MERC__c != 'Cancelled') {
 					meetingIds.add(ti.Meeting_Id_MERC__c);
 				}
 			}
@@ -191,8 +192,9 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 			if (this.triggeredSobjectType == Meeting_Vendor_MERC__c.SobjectType) {
 				for (Meeting_Vendor_MERC__c vendor : (List<Meeting_Vendor_MERC__c>)sobjects) {
 					if (Trigger.oldMap.get(vendor.Id).get('Room_Rate_MERC__c') != vendor.Room_Rate_MERC__c &&
-						vendor.Meeting_Status_MERC__c != 'Completed' &&
-						vendor.Meeting_Status_MERC__c != 'Cancelled') {
+						!vendor.Meeting_Status_MERC__c.startsWith('Complete')) {
+						//vendor.Meeting_Status_MERC__c != 'Completed' &&
+						//vendor.Meeting_Status_MERC__c != 'Cancelled') {
 						//room rate has changed
 						meetingIds.add(vendor.Meeting_MERC__c);
 					}
@@ -207,8 +209,9 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 						  Trigger.oldMap.get(ti.Id).get('Sgmnt_Bgin_TS_MERC__c') != ti.Sgmnt_Bgin_TS_MERC__c ||
 						  Trigger.oldMap.get(ti.Id).get('Sgmnt_End_TS_MERC__c') != ti.Sgmnt_End_TS_MERC__c ||
 						  Trigger.oldMap.get(ti.Id).get('Status_MERC__c') != ti.Status_Merc__c) &&
-						ti.Meeting_Status_MERC__c != 'Completed' &&
-						ti.Meeting_Status_MERC__c != 'Cancelled') {
+						!ti.Meeting_Status_MERC__c.startsWith('Complete')) {
+					//ti.Meeting_Status_MERC__c != 'Completed' &&
+					//ti.Meeting_Status_MERC__c != 'Cancelled') {
 						//room rate has changed
 						meetingIds.add(ti.Meeting_Id_MERC__c);
 					}
