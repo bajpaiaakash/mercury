@@ -12,5 +12,17 @@
         <members>MERC_TravelItinerary</members>
         <name>ApexTrigger</name>
     </types>
+    <types>
+        <members>Meeting_MERC__c</members>
+        <members>Meeting_Participant_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Meeting_MERC__c</members>
+        <members>Meeting_Participant_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c</members>
+        <name>Workflow</name>
+    </types>
     <version>29.0</version>
 </Package>
