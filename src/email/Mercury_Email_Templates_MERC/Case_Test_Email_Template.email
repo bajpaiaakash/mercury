@@ -1,0 +1,6 @@
+Hello, this is a response to your case {!Case.Id}
+
+Thank you
+
+
+tracking id {!Case.Email_Thread}
