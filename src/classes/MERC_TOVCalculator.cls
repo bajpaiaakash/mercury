@@ -124,6 +124,11 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 		}
 
 		//check for creation/edit of daily attendance/tov records
+
+		/**
+		 * The requirements have changed! ToV not to be updated based on Daily Attendence records so 
+		 * Trigger no longer bound to TOVCalculation
+		 **/
 		if (
 			this.triggeredSobjectType == Daily_Attendance_TOV_MERC__c.SobjectType &&
 			MERC_TOVCalculator.runIndividualTransferTovCalculation &&
