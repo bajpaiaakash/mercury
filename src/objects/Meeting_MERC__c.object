@@ -2723,6 +2723,14 @@ Created by John Adams 11/6/2013</description>
                 <fullName>Customer Facing Team Initiated</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Regional Europe CMS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Global CMS</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
@@ -2844,7 +2852,35 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Further-eastern European Time (Europe/Minsk)</fullName>
+                <fullName>Kaliningrad Time Zone (Europe/Kaliningrad)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yekaterinburg Time Zone (Asia/Yekaterinburg)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Omsk Time Zone (Asia/Omsk)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Krasnoyarsk Time Zone (Asia/Krasnoyarsk)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Irkutsk Time Zone (Asia/Irkutsk)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yakutsk Time Zone (Asia/Yakutsk)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vladivostok Standard Time (Asia/Vladivostok)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Srednekolymsk Time  (Asia/Srednekolymsk)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5815,11 +5851,19 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Global CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>International</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Local Affiliate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional Europe CMS</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5916,10 +5960,6 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Further-eastern European Time %28Europe%2FMinsk%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Greenwich Mean Time %28Europe%2FDublin%29</fullName>
                 <default>false</default>
             </values>
@@ -5932,11 +5972,43 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Irkutsk Time Zone %28Asia%2FIrkutsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kaliningrad Time Zone %28Europe%2FKaliningrad%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Krasnoyarsk Time Zone %28Asia%2FKrasnoyarsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Moscow Standard Time %28Europe%2FMoscow%29</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Omsk Time Zone %28Asia%2FOmsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Srednekolymsk Time  %28Asia%2FSrednekolymsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vladivostok Standard Time %28Asia%2FVladivostok%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Western European Time %28Europe%2FLisbon%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yakutsk Time Zone %28Asia%2FYakutsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yekaterinburg Time Zone %28Asia%2FYekaterinburg%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7511,11 +7583,19 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Global CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>International</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Local Affiliate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional Europe CMS</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7612,10 +7692,6 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Further-eastern European Time %28Europe%2FMinsk%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Greenwich Mean Time %28Europe%2FDublin%29</fullName>
                 <default>false</default>
             </values>
@@ -7628,11 +7704,43 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Irkutsk Time Zone %28Asia%2FIrkutsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kaliningrad Time Zone %28Europe%2FKaliningrad%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Krasnoyarsk Time Zone %28Asia%2FKrasnoyarsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Moscow Standard Time %28Europe%2FMoscow%29</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Omsk Time Zone %28Asia%2FOmsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Srednekolymsk Time  %28Asia%2FSrednekolymsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vladivostok Standard Time %28Asia%2FVladivostok%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Western European Time %28Europe%2FLisbon%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yakutsk Time Zone %28Asia%2FYakutsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yekaterinburg Time Zone %28Asia%2FYekaterinburg%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9235,11 +9343,19 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Global CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>International</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Local Affiliate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional Europe CMS</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9336,10 +9452,6 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Further-eastern European Time %28Europe%2FMinsk%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Greenwich Mean Time %28Europe%2FDublin%29</fullName>
                 <default>false</default>
             </values>
@@ -9352,11 +9464,43 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Irkutsk Time Zone %28Asia%2FIrkutsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kaliningrad Time Zone %28Europe%2FKaliningrad%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Krasnoyarsk Time Zone %28Asia%2FKrasnoyarsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Moscow Standard Time %28Europe%2FMoscow%29</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Omsk Time Zone %28Asia%2FOmsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Srednekolymsk Time  %28Asia%2FSrednekolymsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vladivostok Standard Time %28Asia%2FVladivostok%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Western European Time %28Europe%2FLisbon%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yakutsk Time Zone %28Asia%2FYakutsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yekaterinburg Time Zone %28Asia%2FYekaterinburg%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10959,11 +11103,19 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Global CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>International</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Local Affiliate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional Europe CMS</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11060,10 +11212,6 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Further-eastern European Time %28Europe%2FMinsk%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Greenwich Mean Time %28Europe%2FDublin%29</fullName>
                 <default>false</default>
             </values>
@@ -11076,11 +11224,43 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Irkutsk Time Zone %28Asia%2FIrkutsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kaliningrad Time Zone %28Europe%2FKaliningrad%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Krasnoyarsk Time Zone %28Asia%2FKrasnoyarsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Moscow Standard Time %28Europe%2FMoscow%29</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Omsk Time Zone %28Asia%2FOmsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Srednekolymsk Time  %28Asia%2FSrednekolymsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vladivostok Standard Time %28Asia%2FVladivostok%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Western European Time %28Europe%2FLisbon%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yakutsk Time Zone %28Asia%2FYakutsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yekaterinburg Time Zone %28Asia%2FYekaterinburg%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12655,11 +12835,19 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Global CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>International</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Local Affiliate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional Europe CMS</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12756,10 +12944,6 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Further-eastern European Time %28Europe%2FMinsk%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Greenwich Mean Time %28Europe%2FDublin%29</fullName>
                 <default>false</default>
             </values>
@@ -12772,11 +12956,43 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Irkutsk Time Zone %28Asia%2FIrkutsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kaliningrad Time Zone %28Europe%2FKaliningrad%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Krasnoyarsk Time Zone %28Asia%2FKrasnoyarsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Moscow Standard Time %28Europe%2FMoscow%29</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Omsk Time Zone %28Asia%2FOmsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Srednekolymsk Time  %28Asia%2FSrednekolymsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vladivostok Standard Time %28Asia%2FVladivostok%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Western European Time %28Europe%2FLisbon%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yakutsk Time Zone %28Asia%2FYakutsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yekaterinburg Time Zone %28Asia%2FYekaterinburg%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14379,11 +14595,19 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Global CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>International</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Local Affiliate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional Europe CMS</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14480,10 +14704,6 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Further-eastern European Time %28Europe%2FMinsk%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Greenwich Mean Time %28Europe%2FDublin%29</fullName>
                 <default>false</default>
             </values>
@@ -14496,11 +14716,43 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Irkutsk Time Zone %28Asia%2FIrkutsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kaliningrad Time Zone %28Europe%2FKaliningrad%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Krasnoyarsk Time Zone %28Asia%2FKrasnoyarsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Moscow Standard Time %28Europe%2FMoscow%29</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Omsk Time Zone %28Asia%2FOmsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Srednekolymsk Time  %28Asia%2FSrednekolymsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vladivostok Standard Time %28Asia%2FVladivostok%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Western European Time %28Europe%2FLisbon%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yakutsk Time Zone %28Asia%2FYakutsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yekaterinburg Time Zone %28Asia%2FYekaterinburg%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -16107,11 +16359,19 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Global CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>International</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Local Affiliate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional Europe CMS</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -16208,10 +16468,6 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Further-eastern European Time %28Europe%2FMinsk%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Greenwich Mean Time %28Europe%2FDublin%29</fullName>
                 <default>false</default>
             </values>
@@ -16224,11 +16480,43 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Irkutsk Time Zone %28Asia%2FIrkutsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kaliningrad Time Zone %28Europe%2FKaliningrad%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Krasnoyarsk Time Zone %28Asia%2FKrasnoyarsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Moscow Standard Time %28Europe%2FMoscow%29</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Omsk Time Zone %28Asia%2FOmsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Srednekolymsk Time  %28Asia%2FSrednekolymsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vladivostok Standard Time %28Asia%2FVladivostok%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Western European Time %28Europe%2FLisbon%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yakutsk Time Zone %28Asia%2FYakutsk%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yekaterinburg Time Zone %28Asia%2FYekaterinburg%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
