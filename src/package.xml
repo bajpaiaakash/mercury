@@ -24,7 +24,9 @@
     </types>
     <types>
         <members>Admin</members>
-        <members>Mercury Customer Meeting Services - Read Only</members>
+		<members>Mercury Integration Docusign - Platform</members>
+        <members>Mercury Integration ExactTarget - Platform</members>
+        <members>Mercury Portal API - Platform</members>
         <members>Mercury Integration CST - Platform</members>
         <members>Mercury Integration MVI - Platform</members>
         <members>Mercury Integration ODS - Platform</members>
