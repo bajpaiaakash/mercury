@@ -27,13 +27,15 @@ public with sharing class MERC_HcpCapLimitCalculator implements GLBL_TriggerHand
 					countries.add(a.Country_of_Residence_GLBL__c);
 					accountsToProcess.add(a);
 			} else if (Trigger.isUpdate) {
-				if ((String)Trigger.oldMap.get(a.Id).get('Country_of_Residence_GLBL__c') != a.Country_of_Residence_GLBL__c) {
+				if (a.Annual_CAP_Limit_Reset_Flag_MERC__c || 
+					(String)Trigger.oldMap.get(a.Id).get('Country_of_Residence_GLBL__c') != a.Country_of_Residence_GLBL__c) {
 					if (a.Country_of_Residence_GLBL__c != null) {
 						countries.add(a.Country_of_Residence_GLBL__c);
 						accountsToProcess.add(a);
 					} else {
 						a.Annual_CAP_Limit_MERC__c = null;
 					}
+					a.Annual_CAP_Limit_Reset_Flag_MERC__c = false;
 				}
 			}
 		}
