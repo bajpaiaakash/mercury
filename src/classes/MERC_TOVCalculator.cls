@@ -177,13 +177,14 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 	}
 
 	private void calculateHotelTov(List<SObject> sobjects) {
+p('calculateHotelTov()!');
 		if (
 			(
 				this.triggeredSobjectType == Meeting_Vendor_MERC__c.SobjectType ||
 				this.triggeredSobjectType == Travel_Itinerary_MERC__c.SobjectType
 			)
 			&& Trigger.isAfter
-		) {
+		   ) {
 			Set<Id> meetingIds = new Set<Id>();
 
 			//check for room rate change
@@ -192,6 +193,7 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 					if (Trigger.oldMap.get(vendor.Id).get('Room_Rate_MERC__c') != vendor.Room_Rate_MERC__c &&
 						!vendor.Meeting_Status_MERC__c.startsWith('Complete')) {
 						//room rate has changed
+p('room rate has changed!');
 						meetingIds.add(vendor.Meeting_MERC__c);
 					}
 				}
@@ -212,7 +214,7 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 				}
 			}
 
-			p('calculateHotelTov-isAfter '+this.triggeredSobjectType+':'+meetingIds);
+p('calculateHotelTov-isAfter '+this.triggeredSobjectType+':'+meetingIds);
 
 			if (meetingIds.size() == 0) return;
 
@@ -230,7 +232,7 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 				participantIdToHotelItineraries.put(mp.Id, mp.Travel_Itineraries_MERC__r);
 			}
 
-			p('participantIdToHotelItineraries:'+participantIdToHotelItineraries);
+p('participantIdToHotelItineraries:'+participantIdToHotelItineraries);
 
 			// Associate TOVs with their respective Itineraries
 			Map<Daily_Attendance_TOV_MERC__c,Travel_Itinerary_MERC__c> tovToItinerary = new Map<Daily_Attendance_TOV_MERC__c,Travel_Itinerary_MERC__c>();
@@ -263,18 +265,24 @@ p('Daily_Attendance_TOV_MERC__c: '+tov);
 p('hotel ToV #1 from travel itinerary: '+tovToItinerary);
 			// Determine which TOVs to process and how...
 			List<Daily_Attendance_TOV_MERC__c> tovRecordsToUpdate = new List<Daily_Attendance_TOV_MERC__c>();
+
+			Map<Id,Daily_Attendance_TOV_MERC__c> tovKeys = new Map<Id,Daily_Attendance_TOV_MERC__c>();
 			for (Daily_Attendance_TOV_MERC__c tov : tovToItinerary.keySet()) {
+				tovKeys.put(tov.Id,tov);
+			}
+
+			for (Id tovId : tovKeys.keySet()) {
+				Daily_Attendance_TOV_MERC__c tov = tovKeys.get(tovId);
 				Travel_Itinerary_MERC__c t = tovToItinerary.get(tov);
 				if (t.Include_ToV_MERC__c) {
 					tovRecordsToUpdate.add(tov);
 				} else {
 					if (t.Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c == 'Yes') { // this value has already been sent to Activity ODS
-						 if (tov.Est_Hotel_ToV_MERC__c != null) {
+						if (tov.Est_Hotel_ToV_MERC__c != null) {
 						// 	tov.Est_Hotel_ToV_MERC__c = 0.0;
 							tovRecordsToUpdate.add(tov);
 						}
 					} else {
-						p('Setting t.Room_Rate_excl_VAT_MERC__c to null');
 						tov.Est_Hotel_ToV_MERC__c = null;
 						tovRecordsToUpdate.add(tov);
 					}
@@ -374,6 +382,6 @@ p('hotel ToV #2 from DA');
 	}
 
 	static void p(String m) {
-		System.debug('\n\nYYZ - '+m+'\n\n');
+		System.debug(LoggingLevel.INFO,'\n\nYYZ - '+m+'\n\n');
 	}
 }

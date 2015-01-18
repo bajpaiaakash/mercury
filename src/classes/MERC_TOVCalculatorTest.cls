@@ -1,5 +1,7 @@
 /**
- * @author Joseph Ferraro && Kyle Thornton && Sean Harrison
+ * @author Joseph Ferraro
+ * @author Kyle Thornton
+ * @author Sean Harrison
  *
  * Unit tests for MERC_TOVCalculator
  */
@@ -161,68 +163,73 @@ private class MERC_TOVCalculatorTest {
 											'Totals do not match expected sum. day1='+ day1.Est_Hotel_ToV_MERC__c +'+day2='+ day2.Est_Hotel_ToV_MERC__c);
 	}
 
-	// @isTest
+	@isTest
 	static void testShouldCalculateHotelTovOnRoomRateChange() {
-		Test.startTest();
-		System.debug(LoggingLevel.INFO, 'QUERY LIMIT BEFORE TEST EXECUTION: '+Limits.getQueries());
-		System.assertEquals(0, Limits.getQueries());
-
 		Meeting_Vendor_MERC__c hotel1 = vendors.get(0);
 
-		List<Hotel_Allocation_MERC__c> allocations = new List<Hotel_Allocation_MERC__c>();
+		//List<Hotel_Allocation_MERC__c> allocations = new List<Hotel_Allocation_MERC__c>();
 
-		Hotel_Allocation_MERC__c hotel1Day1Allocation = new Hotel_Allocation_MERC__c();
-		hotel1Day1Allocation.Meeting_Vendor_MERC__c = hotel1.Id;
-		hotel1Day1Allocation.Meeting_Day_MERC__c = meetingDays.get(0).Id;
-		hotel1Day1Allocation.Total_Rooms_in_Block_MERC__c = 50;
-		allocations.add(hotel1Day1Allocation);
+		//Hotel_Allocation_MERC__c hotel1Day1Allocation = new Hotel_Allocation_MERC__c();
+		//hotel1Day1Allocation.Meeting_Vendor_MERC__c = hotel1.Id;
+		//hotel1Day1Allocation.Meeting_Day_MERC__c = meetingDays.get(0).Id;
+		//hotel1Day1Allocation.Total_Rooms_in_Block_MERC__c = 50;
+		//allocations.add(hotel1Day1Allocation);
 
-		Hotel_Allocation_MERC__c hotel1Day2Allocation = new Hotel_Allocation_MERC__c();
-		hotel1Day2Allocation.Meeting_Vendor_MERC__c = hotel1.Id;
-		hotel1Day2Allocation.Meeting_Day_MERC__c = meetingDays.get(1).Id;
-		hotel1Day2Allocation.Total_Rooms_in_Block_MERC__c = 50;
-		allocations.add(hotel1Day2Allocation);
+		//Hotel_Allocation_MERC__c hotel1Day2Allocation = new Hotel_Allocation_MERC__c();
+		//hotel1Day2Allocation.Meeting_Vendor_MERC__c = hotel1.Id;
+		//hotel1Day2Allocation.Meeting_Day_MERC__c = meetingDays.get(1).Id;
+		//hotel1Day2Allocation.Total_Rooms_in_Block_MERC__c = 50;
+		//allocations.add(hotel1Day2Allocation);
 
-		Hotel_Allocation_MERC__c hotel1Day3Allocation = new Hotel_Allocation_MERC__c();
-		hotel1Day3Allocation.Meeting_Vendor_MERC__c = hotel1.Id;
-		hotel1Day3Allocation.Meeting_Day_MERC__c = meetingDays.get(2).Id;
-		hotel1Day3Allocation.Total_Rooms_in_Block_MERC__c = 50;
-		allocations.add(hotel1Day3Allocation);
+		//Hotel_Allocation_MERC__c hotel1Day3Allocation = new Hotel_Allocation_MERC__c();
+		//hotel1Day3Allocation.Meeting_Vendor_MERC__c = hotel1.Id;
+		//hotel1Day3Allocation.Meeting_Day_MERC__c = meetingDays.get(2).Id;
+		//hotel1Day3Allocation.Total_Rooms_in_Block_MERC__c = 50;
+		//allocations.add(hotel1Day3Allocation);
 
-		insert allocations;
-
-		System.debug(LoggingLevel.INFO, 'QUERIES: '+Limits.getQueries());
-
-		Travel_Itinerary_MERC__c t = new Travel_Itinerary_MERC__c();
-		t.Meeting_Participant_MERC__c = participants.get(0).Id;
-		t.Sgmnt_Bgin_TS_MERC__c = meetingDays.get(0).Date_MERC__c; //check in day 1
-		t.Sgmnt_End_TS_MERC__c = meetingDays.get(2).Date_MERC__c; //check out day 3
-		t.Account_MERC__c = participants.get(0).Account_MERC__c;
-		t.RecordTypeId = hotelItineraryRecordTypeId;
-		t.Meeting_Vendor_MERC__c = hotel1.Id;
-		insert t;
+		//insert allocations;
 
 		System.debug(LoggingLevel.INFO, 'QUERIES: '+Limits.getQueries());
 
-		//reset the static variable that got turned off during data loads
-		MERC_TOVCalculator.runHotelTovCalculation = true;
+		List<Travel_Itinerary_MERC__c> currentItineraries = [SELECT Id FROM Travel_Itinerary_MERC__c WHERE Meeting_Participant_MERC__c = :participants.get(0).Id];
+		for (Travel_Itinerary_MERC__c ti : currentItineraries) {
+			ti.Meeting_Vendor_MERC__c = hotel1.Id;			
+		} 
+		update currentItineraries;
 
-		//set participant 1 to attending on day 1
-		Daily_Attendance_TOV_MERC__c tovForParticipant1Day1 = MERC_TestFactory.insertTov(meetingDays.get(0).Id, participants.get(0).Id, 'Attended');
+		Test.startTest();
 
-		//reset the static variable that got turned off during data loads
-		MERC_TOVCalculator.runHotelTovCalculation = true;
+			System.debug(LoggingLevel.INFO, 'QUERIES: '+Limits.getQueries());
 
-		hotel1.Room_Rate_MERC__c = 600;
-		update hotel1;
+			//reset the static variable that got turned off during data loads
+			MERC_TOVCalculator.runHotelTovCalculation = true;
+
+			//set participant 1 to attending on day 1
+			Daily_Attendance_TOV_MERC__c tovForParticipant1Day1 = MERC_TestFactory.insertTov(meetingDays.get(0).Id, participants.get(0).Id, 'Attended');
+
+			MERC_TOVCalculator.runHotelTovCalculation = true;
+			hotel1.Room_Rate_MERC__c = 666;
+
+			update hotel1;
+
 		Test.stopTest();
 
 		System.debug('QUERY LIMIT AFTER TEST EXECUTION: '+Limits.getQueries());
 
-		Meeting_Participant_MERC__c participant1 = [SELECT Id, Total_Hotel_ToV_MERC__c, Total_Hours_of_Service_MERC__c, Total_Ground_Transporation_ToV_MERC__c, Total_Registration_ToV_MERC__c, Total_Food_Beverage_ToV_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :participants.get(0).Id];
+		Meeting_Participant_MERC__c participant1 = [SELECT Id, Total_Hotel_ToV_MERC__c, Total_Hours_of_Service_MERC__c, 
+														Total_Ground_Transporation_ToV_MERC__c, Total_Registration_ToV_MERC__c, 
+														Total_Food_Beverage_ToV_MERC__c 
+														FROM Meeting_Participant_MERC__c 
+														WHERE Id = :participants.get(0).Id];
+		hotel1 = [SELECT Id, Room_Rate_MERC__c FROM Meeting_Vendor_MERC__c WHERE Id = :hotel1.Id];
+		tovForParticipant1Day1 = [SELECT Id, Est_Hotel_ToV_MERC__c, Status_MERC__c 
+									FROM Daily_Attendance_TOV_MERC__c 
+									WHERE Id = :tovForParticipant1Day1.Id];
 
 		//assert that meeting day 1's food bev estimate rolled up up to the participant total
-		System.assertEquals(600, participant1.Total_Hotel_ToV_MERC__c);
+		System.assertNotEquals(hotel1.Room_Rate_MERC__c,null,'Unexpected null value on room rate.');
+		System.assertEquals(hotel1.Room_Rate_MERC__c, tovForParticipant1Day1.Est_Hotel_ToV_MERC__c,'tov does not equal new room rate');
+		System.assertEquals(hotel1.Room_Rate_MERC__c, participant1.Total_Hotel_ToV_MERC__c,'Participant total hotel does not equal new room rate');
 	}
 
 	@isTest
@@ -256,10 +263,16 @@ private class MERC_TOVCalculatorTest {
 		System.assertEquals(null, participant1.Total_Food_Beverage_ToV_MERC__c);
 	}
 
-	// @isTest
+//	@isTest
 	static void testShouldCalculateHotelOnDailyAttendanceStatusUpdate() {
 
+		for (Travel_Itinerary_MERC__c ti : itineraries){
+			ti.Meeting_Vendor_MERC__c = vendors[0].Id;
+		}
+		update itineraries;
+
 		//set participant 1 to attending on day 1
+		MERC_TOVCalculator.runHotelTovCalculation = true;
 		Daily_Attendance_TOV_MERC__c tovForParticipant1Day1 = 
 									MERC_TestFactory.insertTov(meetingDays.get(0).Id, participants.get(0).Id, 'Attended');
 
@@ -279,8 +292,10 @@ private class MERC_TOVCalculatorTest {
 		MERC_TOVCalculator.runHotelTovCalculation = true;
 		//now remove attendance on day 1
 		Test.startTest();
-		tovForParticipant1Day1.Status_MERC__c = 'No Show';
-		update tovForParticipant1Day1;
+
+			tovForParticipant1Day1.Status_MERC__c = 'No Show';
+			update tovForParticipant1Day1;
+
 		Test.stopTest();
 		participant1 = [SELECT Id, Total_Hotel_ToV_MERC__c
 						FROM Meeting_Participant_MERC__c 
@@ -290,47 +305,53 @@ private class MERC_TOVCalculatorTest {
 		System.assertEquals(null, participant1.Total_Hotel_ToV_MERC__c);
 	}
 
-	// @isTest
+	@isTest
 	static void testShouldNotCalculateHotelOnDailyAttendanceStatusUpdateWhenFinal() {
 
-		Meeting_Participant_MERC__c participant1 = [SELECT Id, Meeting_MERC__c, Total_Hotel_ToV_MERC__c
-													FROM Meeting_Participant_MERC__c 
-													WHERE Id = :participants.get(0).Id];
+		for (Travel_Itinerary_MERC__c ti : itineraries){
+			ti.Meeting_Vendor_MERC__c = vendors[0].Id;
+		}
+		update itineraries;
 
 		//set participant 1 to attending on day 1
 		MERC_TOVCalculator.runHotelTovCalculation = true;
 		Daily_Attendance_TOV_MERC__c tovForParticipant1Day1 = 
-									MERC_TestFactory.insertTov(meetingDays.get(0).Id, participant1.Id, 'Attended');
-
-		Meeting_MERC__c meeting1 = [SELECT Id, Participant_ToV_Final_MERC__c FROM Meeting_MERC__c WHERE Id = :participant1.Meeting_MERC__c];
+									MERC_TestFactory.insertTov(meetingDays.get(0).Id, participants.get(0).Id, 'Attended');
 
 		tovForParticipant1Day1 = [SELECT Id, Est_Hotel_ToV_MERC__c, Status_MERC__c 
 									FROM Daily_Attendance_TOV_MERC__c 
 									WHERE Id = :tovForParticipant1Day1.Id];
 
+		Meeting_Participant_MERC__c participant1 = [SELECT Id, Meeting_MERC__c, Total_Hotel_ToV_MERC__c
+													FROM Meeting_Participant_MERC__c 
+													WHERE Id = :participants.get(0).Id];
+
 		Decimal previousValue = tovForParticipant1Day1.Est_Hotel_ToV_MERC__c;
 		System.assert(previousValue > 0,'Unexpected value for Est_Hotel_ToV during test setup. '+previousValue);
 
 		//assert that meeting day 1's hotel estimate rolled up up to the participant total
-		System.assertEquals(tovForParticipant1Day1.Est_Hotel_ToV_MERC__c, participant1.Total_Hotel_ToV_MERC__c, 'Unexpected hotel ToV values do not match');
+		System.assertEquals(previousValue, participant1.Total_Hotel_ToV_MERC__c, 'Unexpected hotel ToV values do not match');
 
 		//reset the static variable
 		MERC_TOVCalculator.runHotelTovCalculation = true;
 
 		//set ToV to Final
+		Meeting_MERC__c meeting1 = [SELECT Id, Participant_ToV_Final_MERC__c FROM Meeting_MERC__c WHERE Id = :participant1.Meeting_MERC__c];
 		meeting1.Participant_ToV_Final_MERC__c = 'Yes';
 		update meeting1;
 
 		Test.startTest();
-		MERC_TOVCalculator.runHotelTovCalculation = true;
 
-		//now remove attendance on day 1
-		tovForParticipant1Day1.Status_MERC__c = 'No Show';
-		update tovForParticipant1Day1;
+			MERC_TOVCalculator.runHotelTovCalculation = true;
+
+			//now remove attendance on day 1
+			tovForParticipant1Day1.Status_MERC__c = 'No Show';
+			update tovForParticipant1Day1;
+		
 		Test.stopTest();
 		participant1 = [SELECT Id, Total_Hotel_ToV_MERC__c
 						FROM Meeting_Participant_MERC__c 
-						WHERE Id = :participants.get(0).Id];
+						WHERE Id = :participant1.Id];
 
 		//now ensure the rollup re-calculated
 		System.assertNotEquals(null, participant1.Total_Hotel_ToV_MERC__c);
@@ -513,8 +534,7 @@ private class MERC_TOVCalculatorTest {
 		return result;
 	}
 
-
-		static void p(String m) {
-			System.debug(LoggingLevel.WARN,'\n\n\nYYZ - '+m+'\n\n\n\n');
-		}
+	static void p(String m) {
+		System.debug(LoggingLevel.WARN,'\n\n\nYYZ - '+m+'\n\n\n\n');
+	}
 }
