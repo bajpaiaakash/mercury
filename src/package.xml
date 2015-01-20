@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>Account</members>
+        <members>Meeting_MERC__c</members>
+        <members>Meeting_Participant_MERC__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Meeting_Participant_MERC__c-MERC_Consulting</members>
+        <members>Meeting_Participant_MERC__c-MERC_Delegate</members>
+        <members>Meeting_Participant_MERC__c-MERC_Individual Sponsorship</members>
+        <members>Meeting_Participant_MERC__c-MERC_Service Provider</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>Mercury_Account_Manager_Edit</members>
+        <members>Mercury_Customer_Meeting_Services_Edit</members>
+        <members>Mercury_Legal_Edit</members>
+        <members>Mercury_Med_Director_Edit</members>
+        <members>Mercury_Meeting_Owner_Edit</members>
+        <members>Mercury_Meeting_Planning_Company_Edit</members>
+        <name>PermissionSet</name>
+    </types>
+    <types>
+        <members>Mercury Integration CST - Platform</members>
+        <members>Mercury Integration Docusign - Platform</members>
+        <members>Mercury Integration ExactTarget - Platform</members>
+        <members>Mercury Integration MVI - Platform</members>
+        <members>Mercury Integration ODS - Platform</members>
+        <members>Mercury Metadata API</members>
+        <members>Mercury Portal API - Platform</members>
+        <name>Profile</name>
+    </types>
+    <types>
+        <members>Meeting_Participant_MERC__c</members>
+        <name>Workflow</name>
+    </types>
+    <version>31.0</version>
+</Package>
