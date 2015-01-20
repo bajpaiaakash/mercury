@@ -22,10 +22,8 @@ private class MERC_TOVCalculatorTest {
 	public static Id hcpRecordTypeId = 				[SELECT ID FROM RecordType WHERE SObjectType = 'Account' AND DeveloperName = 'HCP_GLBL' LIMIT 1].Id;
 	public static Id vendorRecordTypeId = 			[SELECT ID FROM RecordType WHERE SObjectType = 'Account' AND DeveloperName = 'Vendor_GLBL' LIMIT 1].Id;
 	public static Id hotelItineraryRecordTypeId = 	[SELECT ID FROM RecordType WHERE SObjectType = 'Travel_Itinerary_MERC__c' AND DeveloperName = 'Hotel_MERC' LIMIT 1].Id;
+	public static Id rentalCarRecordTypeId = 		[SELECT ID FROM RecordType WHERE SObjectType = 'Travel_Itinerary_MERC__c' AND DeveloperName = 'Car_MERC' LIMIT 1].Id;
 
-	/*
-		Set up 1 meeting with 3 meeting days and 5 participants
-	*/
 	static {
 		MERC_TriggerHandlerStateManager.deactivateAll();
 		MERC_TriggerHandlerStateManager.activate(MERC_TOVCalculator.class);
@@ -33,13 +31,6 @@ private class MERC_TOVCalculatorTest {
 		MERC_TestFactory.loadDeclarativeRollupSummaries();
 
 		// MERC_TestFactory has some bugs. Until this is cleaned up, data factory methods moved within class...
-		//accounts = MERC_TestFactory.insertAccounts(3);
-		//meetings = MERC_TestFactory.insertMeetings(1);
-		//meetingDays = MERC_TestFactory.insertMeetingDays(meetings.get(0).Id, 3);
-		//participants = MERC_TestFactory.insertParticipants(meetings.get(0).Id, accounts);
-		//meetingVendors = MERC_TestFactory.insertHotelsForMeeting(2, meetings.get(0).Id);
-		//itineraries = MERC_TestFactory.insertHotelItineraries(participants, meetings.get(0).Date_of_Event_MERC__c, meetings.get(0).End_Date_of_Event_MERC__c);
-
 		startDate = Date.today();
 		durationInDays = 2;
 		Date endDate = startDate.addDays(durationInDays);
@@ -49,17 +40,276 @@ private class MERC_TOVCalculatorTest {
 		meetingDays = insertMeetingDays(meetings);
 		participants = insertParticipants(meetings,accounts);
 		vendors = insertHotels(2,meetings);
-		itineraries = insertItineraries(participants,startDate,endDate);
+		itineraries = insertHotelItineraries(participants,startDate,endDate,vendors[0]);
 
 		p('1.Limits:'+Limits.getQueries()+'/'+Limits.getLimitQueries());
 	}
 
 	/**
+	 * Lilly T-1344
+	 * Itinerary cancellation should clear ToV
+	 **/
+	//@isTest
+	static void shouldNullifyActiveToVOnCancelItinerary() {
+		// get a participant
+		Meeting_Participant_MERC__c attendee = participants[0];
+
+		//set attendee to attending.... 
+		MERC_TOVCalculator.runHotelTovCalculation = true;
+		List<Daily_Attendance_TOV_MERC__c> tovs = insertTovs(meetingDays, attendee.Id, 'Attended');
+		attendee = [SELECT Id, Total_Hotel_ToV_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :attendee.Id LIMIT 1];
+		System.assert(attendee.Total_Hotel_ToV_MERC__c>0,'Unexpected '+attendee.Total_Hotel_ToV_MERC__c+' value for total hotel');
+
+		Test.startTest();
+		 	// Change travel itinerary to "cancelled"
+			for (Travel_Itinerary_MERC__c ti : itineraries) {
+				ti.Status_MERC__c = 'Cancelled';
+			}
+			MERC_TOVCalculator.runHotelTovCalculation = true;
+			update itineraries;
+		Test.stopTest();
+
+	 	// if ToV not final, value should be null
+	 	tovs = [SELECT Est_Hotel_ToV_MERC__c FROM Daily_Attendance_TOV_MERC__c WHERE Meeting_Participant_MERC__c = :attendee.Id];
+	 	System.assertEquals(null,tovs[0].Est_Hotel_ToV_MERC__c,'Unexpected '+tovs[0].Est_Hotel_ToV_MERC__c+' value for daily hotel tov');
+		attendee = [SELECT Id, Total_Hotel_ToV_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :attendee.Id LIMIT 1];
+		System.assertEquals(null,attendee.Total_Hotel_ToV_MERC__c,'Unexpected '+attendee.Total_Hotel_ToV_MERC__c+' value for total hotel');
+	 }
+
+	/**
+	 * Lilly T-1344
+	 * Itinerary cancellation should clear final ToV
+	 **/
+	//@isTest
+	static void shouldClearFinalToVOnCancelItinerary() {
+		// get a participant
+		Meeting_Participant_MERC__c attendee = participants[0];
+
+		//set attendee to attending.... 
+		MERC_TOVCalculator.runHotelTovCalculation = true;
+		List<Daily_Attendance_TOV_MERC__c> tovs = insertTovs(meetingDays, attendee.Id, 'Attended');
+		attendee = [SELECT Id, Total_Hotel_ToV_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :attendee.Id LIMIT 1];
+		System.assert(attendee.Total_Hotel_ToV_MERC__c>0,'Unexpected '+attendee.Total_Hotel_ToV_MERC__c+' value for total hotel');
+
+		for (Meeting_MERC__c meet : meetings) {
+			meet.Participant_ToV_Final_MERC__c = 'Yes';
+		}
+		update meetings;
+
+		Test.startTest();
+		 	// Change travel itinerary to "cancelled"
+			for (Travel_Itinerary_MERC__c ti : itineraries) {
+				ti.Confirm_ToV_Reporting_Change_MERC__c = true;
+				ti.Status_MERC__c = 'Cancelled';
+			}
+			MERC_TOVCalculator.runHotelTovCalculation = true;
+			update itineraries;
+		Test.stopTest();
+
+	 	// if ToV final, value should be 0
+	 	tovs = [SELECT Est_Hotel_ToV_MERC__c FROM Daily_Attendance_TOV_MERC__c WHERE Meeting_Participant_MERC__c = :attendee.Id];
+	 	System.assertEquals(0,tovs[0].Est_Hotel_ToV_MERC__c,'Unexpected '+tovs[0].Est_Hotel_ToV_MERC__c+' value for daily hotel tov');
+	 	// MP rollup has "treat 0 as null" = true
+		attendee = [SELECT Id, Total_Hotel_ToV_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :attendee.Id LIMIT 1];
+		System.assertEquals(null,attendee.Total_Hotel_ToV_MERC__c,'Unexpected '+attendee.Total_Hotel_ToV_MERC__c+' value for total hotel');
+	 }
+
+	/**
+	 * Lilly T-1344
+	 * INC1039808 - If a travel itinerary is cancelled the ToV is not reduced accordingly.  ToV over-stated.
+	 * 
+	 *  Description: Meeting Participant Holger King, Hotel ToV allocated in Mercury although Travel Itinerary 
+	 *	was cancelled prior to managing daily attendance and prior to sending ToV and completing the meeting. 
+	 *	If the Itinerary is cancelled, the associated ToV should be unallocated.
+	 *
+	 *	Steps to re-create the defect:
+	 *
+	 *	1.    Created a new meeting.
+	 *	2.    Added meeting participant
+	 *	3.    Created travel itinerary for the meeting participant
+	 *	4.    Cancelled Travel Itinerary prior to managing daily attendance and prior to sending ToV
+	 *	5.    Hotel ToV is still allocated for the HCP in the system
+	 **/
+	//@isTest
+	static void shouldAdjustToVOnCancelledItinerary() {
+
+		Date d1 = Date.today();
+		Date d2 = d1.addDays(1);
+
+		List<Account> accts = insertAccounts(1);
+		List<Meeting_MERC__c> meets = insertMeetings(1, d1, d2);
+		List<Meeting_Day_MERC__c> days = insertMeetingDays(meets);
+		List<Meeting_Participant_MERC__c> parts = insertParticipants(meets,accts);
+		List<Meeting_Vendor_MERC__c> vends = insertHotels(1,meets);
+		Hotel_Allocation_MERC__c hotelAllocation = new Hotel_Allocation_MERC__c(
+			Meeting_Vendor_MERC__c = vends[0].Id,
+			Meeting_Day_MERC__c = days.get(0).Id,
+			Total_Rooms_in_Block_MERC__c = 5
+		);
+		insert hotelAllocation;
+
+		Test.startTest();
+			Travel_Itinerary_MERC__c ti = new Travel_Itinerary_MERC__c();
+			ti.RecordTypeId = hotelItineraryRecordTypeId;
+			ti.Meeting_Vendor_MERC__c = vends[0].Id;
+			ti.Meeting_Participant_MERC__c = parts[0].Id;
+			ti.Account_MERC__c = parts[0].Account_MERC__c;
+			ti.Sgmnt_Bgin_TS_MERC__c = Datetime.newInstance(d1, Time.newInstance(12, 0, 0, 0));
+			ti.Sgmnt_End_TS_MERC__c = Datetime.newInstance(d2, Time.newInstance(15, 0, 0, 0));
+
+			MERC_TOVCalculator.runHotelTovCalculation = true;
+			insert ti;
+
+			MERC_TOVCalculator.runHotelTovCalculation = true;
+			ti.Status_MERC__c = 'Cancelled';
+			update ti;
+		Test.stopTest();
+
+	 	// if ToV not final, value should be null
+		Meeting_Participant_MERC__c attendee = [SELECT Id, Total_Hotel_ToV_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :parts[0].Id LIMIT 1];
+		System.assertEquals(null,attendee.Total_Hotel_ToV_MERC__c,'Unexpected '+attendee.Total_Hotel_ToV_MERC__c+' value for total hotel');
+	 }
+
+	/**
+	 * Lilly T-1344
+	 * Itinerary created as "cancelled" should have no ToV
+	 **/
+	//@isTest
+	static void shouldOmitToVUponCreationNewItineraryAsCancelled() {
+		Date d = Date.today().addDays(1);
+
+		List<Account> accts = insertAccounts(1);
+		List<Meeting_MERC__c> meets = insertMeetings(1, d, d);
+		List<Meeting_Day_MERC__c> days = insertMeetingDays(meets);
+		List<Meeting_Participant_MERC__c> parts = insertParticipants(meets,accts);
+		List<Meeting_Vendor_MERC__c> vends = insertHotels(1,meets);
+		Hotel_Allocation_MERC__c hotelAllocation = new Hotel_Allocation_MERC__c(
+			Meeting_Vendor_MERC__c = vends[0].Id,
+			Meeting_Day_MERC__c = days.get(0).Id,
+			Total_Rooms_in_Block_MERC__c = 5
+		);
+		insert hotelAllocation;
+
+		Test.startTest();
+
+			Meeting_Participant_MERC__c attendee = parts[0];
+
+		 	// create new travel itinerary with status "cancelled"
+			Travel_Itinerary_MERC__c ti = new Travel_Itinerary_MERC__c();
+			ti.RecordTypeId = hotelItineraryRecordTypeId;
+			ti.Meeting_Vendor_MERC__c = vends[0].Id;
+			ti.Meeting_Participant_MERC__c = attendee.Id;
+			ti.Account_MERC__c = attendee.Account_MERC__c;
+			ti.Sgmnt_Bgin_TS_MERC__c = Datetime.newInstance(d, Time.newInstance(8, 0, 0, 0));
+			ti.Sgmnt_End_TS_MERC__c = Datetime.newInstance(d, Time.newInstance(18, 0, 0, 0));
+			ti.Status_MERC__c = 'Cancelled';
+
+			MERC_TOVCalculator.runHotelTovCalculation = true;
+			insert ti;
+
+		 	// set participant as "attended"
+			MERC_TOVCalculator.runHotelTovCalculation = true;
+			List<Daily_Attendance_TOV_MERC__c> tovs = insertTovs(days, attendee.Id, 'Attended');
+			attendee = [SELECT Id, Total_Hotel_ToV_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :attendee.Id LIMIT 1];
+
+		 	// if ToV not final, value should be null
+		 	System.assertEquals(1,tovs.size(),'Unexpected # of tov records');
+		 	System.assertEquals(null,tovs[0].Est_Hotel_ToV_MERC__c,'Unexpected '+tovs[0].Est_Hotel_ToV_MERC__c+' value for daily hotel tov');
+			System.assertEquals(null,attendee.Total_Hotel_ToV_MERC__c,'Unexpected '+attendee.Total_Hotel_ToV_MERC__c+' value for total hotel');
+
+		 	// if ToV final, value should be 0
+	 }
+
+	/**
+	 * Lilly T-1346
+	 * Multiple private transfer itineraries should be combined to give you a SUM of the Individual Travel ToV
+	 **/
+	//@isTest
+	static void shouldRollupMultipleCarItineraries() {
+		// get a participant
+		Meeting_Participant_MERC__c attendee = participants[0];
+
+		// clear initial trans amount
+		for (Meeting_Day_MERC__c m : meetingDays) {
+			m.Daily_Ground_Trans_Amount_MERC__c = null;
+		}
+		MERC_TOVCalculator.runIndividualTransferTovCalculation = true;
+		update meetingDays;
+
+		// set participant as "attended"
+		MERC_TOVCalculator.runIndividualTransferTovCalculation = true;
+		List<Daily_Attendance_TOV_MERC__c> tovs = insertTovs(meetingDays, attendee.Id, 'Attended');
+
+		attendee = [SELECT Id, Account_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :attendee.Id LIMIT 1];
+
+		Test.startTest();
+
+		 	// create new travel itineraries of type Car_MERC
+			MERC_TOVCalculator.runIndividualTransferTovCalculation = true;
+	 		List<Travel_Itinerary_MERC__c> pvtTransfers = insertPrivateTransferItineraries(new List<Meeting_Participant_MERC__c>{attendee},startDate,startDate.addDays(2),3);
+
+	 	Test.stopTest();
+
+		Decimal itinerarySum = 0;
+		for (Travel_Itinerary_MERC__c ti : pvtTransfers) {
+			if (ti.Total_Fare_Amount_MERC__c != null) itinerarySum += ti.Total_Fare_Amount_MERC__c;
+		}
+		System.assert(itinerarySum>0,'Why is the sum of these fares = '+itinerarySum);
+
+	 	// ground transportation match should be sum of initeraries above
+	 	tovs = [SELECT Est_Grnd_Transp_MERC__c 
+	 			FROM Daily_Attendance_TOV_MERC__c 
+	 			WHERE Meeting_Participant_MERC__c = :attendee.Id AND Meeting_Day_MERC__c in :meetingDays];
+		Decimal tovSum = 0;
+	 	for (Daily_Attendance_TOV_MERC__c tov : tovs) {
+	 		if (tov.Est_Grnd_Transp_MERC__c != null) tovSum += tov.Est_Grnd_Transp_MERC__c;
+	 	}
+
+	 	System.assertEquals(itinerarySum,tovSum,'Unexpected total for Daily Transport ToV');
+	 }
+
+	/**
+	 * Lilly T-1378
+	 * When entering a hotel itinerary for 2 nights, managing daily attendance and then changing 
+	 * the check-out date so that only one night remains, Hotel ToV should only reflect remaining dates
+	 **/
+	//@isTest
+	static void shouldCalculateHotelTovOnDateChange() {
+		// Create a travel itinerary for 2 nights in the hotel.  
+
+		// Set MP to attended.  
+		Meeting_Participant_MERC__c attendee = participants[0];
+		MERC_TOVCalculator.runHotelTovCalculation = true;
+		List<Daily_Attendance_TOV_MERC__c> tovs = insertTovs(meetingDays, attendee.Id, 'Attended');
+		p('itineraries: '+ itineraries);
+
+		// Confirm Hotel ToV
+		attendee = [SELECT Id, Account_MERC__c, Total_Hotel_ToV_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :attendee.Id LIMIT 1];
+		System.assertNotEquals(attendee.Total_Hotel_ToV_MERC__c,null,'Unexpected null value for participant tov.');
+		Decimal valueBefore = attendee.Total_Hotel_ToV_MERC__c;
+
+		Test.startTest();
+			// Change Travel Itinerary hotel record to be one night
+			List<Travel_Itinerary_MERC__c> changingItineraries = [SELECT Id, Combined_ID_MERC__c FROM Travel_Itinerary_MERC__c WHERE Meeting_Participant_MERC__c = :attendee.Id];
+			for (Travel_Itinerary_MERC__c ti : changingItineraries) {
+				ti.Sgmnt_Bgin_TS_MERC__c = Datetime.newInstance(startDate, Time.newInstance(12, 0, 0, 0));
+				ti.Sgmnt_End_TS_MERC__c = Datetime.newInstance(startDate.addDays(durationInDays-1), Time.newInstance(15, 0, 0, 0));
+			}
+			MERC_TOVCalculator.runHotelTovCalculation = true;
+			update changingItineraries;
+		Test.stopTest();
+
+		// Hotel ToV should reduced accordingly 
+		attendee = [SELECT Id, Account_MERC__c, Total_Hotel_ToV_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :attendee.Id LIMIT 1];
+		System.assert(attendee.Total_Hotel_ToV_MERC__c < valueBefore,'Did not reduce? before:'+valueBefore+'after:'+attendee.Total_Hotel_ToV_MERC__c);
+	 }
+
+	/**
 	 * For T#14374 - 
 	 * Two itineraries across multiple days for a single participant...
 	 **/
-	@isTest
-	static void testShouldRollupMultipleItineraries() {
+	//@isTest
+	static void shouldRollupMultipleHotels() {
 
 		// get a participant
 		Meeting_Participant_MERC__c attendee = participants[0];
@@ -79,14 +329,14 @@ private class MERC_TOVCalculatorTest {
 			List<Travel_Itinerary_MERC__c> changingItineraries = new List<Travel_Itinerary_MERC__c>();
 
 			// attendee stays at one hotel on Day 1
-			Travel_Itinerary_MERC__c ti1 = insertItinerary(attendee, meetingDays.get(0).Date_MERC__c, meetingDays.get(1).Date_MERC__c);
+			Travel_Itinerary_MERC__c ti1 = insertHotelItinerary(attendee, meetingDays.get(0).Date_MERC__c, meetingDays.get(1).Date_MERC__c);
 			ti1.Meeting_Vendor_MERC__c = hotel1.Id;
 			changingItineraries.add(ti1);
 			update ti1;
 			p('4.Limits:'+Limits.getQueries()+'/'+Limits.getLimitQueries());
 
 			// attendee upset; moves to local youth hostel
-			Travel_Itinerary_MERC__c ti2 = insertItinerary(attendee, meetingDays.get(1).Date_MERC__c, meetingDays.get(2).Date_MERC__c);
+			Travel_Itinerary_MERC__c ti2 = insertHotelItinerary(attendee, meetingDays.get(1).Date_MERC__c, meetingDays.get(2).Date_MERC__c);
 			ti2.Meeting_Vendor_MERC__c = hotel2.Id;
 			changingItineraries.add(ti2);
 			update ti2;
@@ -113,8 +363,8 @@ private class MERC_TOVCalculatorTest {
 	 * Two itineraries across multiple days for a single participant + calculation triggered
 	 * by vendor and itinerary change...
 	 **/
-	@isTest
-	static void testShouldRollupMultipleItineraryVendorChange() {
+	//@isTest
+	static void shouldRollupMultipleItineraryVendorChange() {
 		// get a participant
 		Meeting_Participant_MERC__c attendee = participants[0];
 
@@ -138,13 +388,13 @@ private class MERC_TOVCalculatorTest {
 			List<Travel_Itinerary_MERC__c> changingItineraries = new List<Travel_Itinerary_MERC__c>();
 
 			// attendee stays at one hotel on Day 1
-			Travel_Itinerary_MERC__c ti1 = insertItinerary(attendee, meetingDays.get(0).Date_MERC__c, meetingDays.get(1).Date_MERC__c);
+			Travel_Itinerary_MERC__c ti1 = insertHotelItinerary(attendee, meetingDays.get(0).Date_MERC__c, meetingDays.get(1).Date_MERC__c);
 			ti1.Meeting_Vendor_MERC__c = hotel1.Id;
 			changingItineraries.add(ti1);
 			update changingItineraries;
 
 			// attendee upset; moves to local youth hostel
-			Travel_Itinerary_MERC__c ti2 = insertItinerary(attendee, meetingDays.get(1).Date_MERC__c, meetingDays.get(2).Date_MERC__c);
+			Travel_Itinerary_MERC__c ti2 = insertHotelItinerary(attendee, meetingDays.get(1).Date_MERC__c, meetingDays.get(2).Date_MERC__c);
 			ti2.Meeting_Vendor_MERC__c = hotel2.Id;
 			changingItineraries.add(ti2);
 			update changingItineraries;
@@ -163,33 +413,9 @@ private class MERC_TOVCalculatorTest {
 											'Totals do not match expected sum. day1='+ day1.Est_Hotel_ToV_MERC__c +'+day2='+ day2.Est_Hotel_ToV_MERC__c);
 	}
 
-	@isTest
-	static void testShouldCalculateHotelTovOnRoomRateChange() {
+	//@isTest
+	static void shouldCalculateHotelTovOnRoomRateChange() {
 		Meeting_Vendor_MERC__c hotel1 = vendors.get(0);
-
-		//List<Hotel_Allocation_MERC__c> allocations = new List<Hotel_Allocation_MERC__c>();
-
-		//Hotel_Allocation_MERC__c hotel1Day1Allocation = new Hotel_Allocation_MERC__c();
-		//hotel1Day1Allocation.Meeting_Vendor_MERC__c = hotel1.Id;
-		//hotel1Day1Allocation.Meeting_Day_MERC__c = meetingDays.get(0).Id;
-		//hotel1Day1Allocation.Total_Rooms_in_Block_MERC__c = 50;
-		//allocations.add(hotel1Day1Allocation);
-
-		//Hotel_Allocation_MERC__c hotel1Day2Allocation = new Hotel_Allocation_MERC__c();
-		//hotel1Day2Allocation.Meeting_Vendor_MERC__c = hotel1.Id;
-		//hotel1Day2Allocation.Meeting_Day_MERC__c = meetingDays.get(1).Id;
-		//hotel1Day2Allocation.Total_Rooms_in_Block_MERC__c = 50;
-		//allocations.add(hotel1Day2Allocation);
-
-		//Hotel_Allocation_MERC__c hotel1Day3Allocation = new Hotel_Allocation_MERC__c();
-		//hotel1Day3Allocation.Meeting_Vendor_MERC__c = hotel1.Id;
-		//hotel1Day3Allocation.Meeting_Day_MERC__c = meetingDays.get(2).Id;
-		//hotel1Day3Allocation.Total_Rooms_in_Block_MERC__c = 50;
-		//allocations.add(hotel1Day3Allocation);
-
-		//insert allocations;
-
-		System.debug(LoggingLevel.INFO, 'QUERIES: '+Limits.getQueries());
 
 		List<Travel_Itinerary_MERC__c> currentItineraries = [SELECT Id FROM Travel_Itinerary_MERC__c WHERE Meeting_Participant_MERC__c = :participants.get(0).Id];
 		for (Travel_Itinerary_MERC__c ti : currentItineraries) {
@@ -198,8 +424,6 @@ private class MERC_TOVCalculatorTest {
 		update currentItineraries;
 
 		Test.startTest();
-
-			System.debug(LoggingLevel.INFO, 'QUERIES: '+Limits.getQueries());
 
 			//reset the static variable that got turned off during data loads
 			MERC_TOVCalculator.runHotelTovCalculation = true;
@@ -232,8 +456,8 @@ private class MERC_TOVCalculatorTest {
 		System.assertEquals(hotel1.Room_Rate_MERC__c, participant1.Total_Hotel_ToV_MERC__c,'Participant total hotel does not equal new room rate');
 	}
 
-	@isTest
-	static void testShouldCalculateRollupsOnDailyAttendanceUpdate() {
+	//@isTest
+	static void shouldCalculateRollupsOnDailyAttendanceUpdate() {
 		//set participant 1 to attending on day 1
 		Daily_Attendance_TOV_MERC__c tovForParticipant1Day1 = MERC_TestFactory.insertTov(meetingDays.get(0).Id, participants.get(0).Id, 'Attended');
 
@@ -254,8 +478,10 @@ private class MERC_TOVCalculatorTest {
 		MERC_TOVCalculator.runHotelTovCalculation = true;
 		//now remove attendance on day 1
 		Test.startTest();
-		tovForParticipant1Day1.Status_MERC__c = 'No Show';
-		update tovForParticipant1Day1;
+
+			tovForParticipant1Day1.Status_MERC__c = 'No Show';
+			update tovForParticipant1Day1;
+
 		Test.stopTest();
 		participant1 = [SELECT Id, Total_Hours_of_Service_MERC__c, Total_Ground_Transporation_ToV_MERC__c, Total_Registration_ToV_MERC__c, Total_Food_Beverage_ToV_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :participants.get(0).Id];
 
@@ -263,8 +489,8 @@ private class MERC_TOVCalculatorTest {
 		System.assertEquals(null, participant1.Total_Food_Beverage_ToV_MERC__c);
 	}
 
-//	@isTest
-	static void testShouldCalculateHotelOnDailyAttendanceStatusUpdate() {
+	//@isTest
+	static void shouldCalculateHotelOnDailyAttendanceStatusUpdate() {
 
 		for (Travel_Itinerary_MERC__c ti : itineraries){
 			ti.Meeting_Vendor_MERC__c = vendors[0].Id;
@@ -284,7 +510,7 @@ private class MERC_TOVCalculatorTest {
 									FROM Daily_Attendance_TOV_MERC__c 
 									WHERE Id = :tovForParticipant1Day1.Id];
 
-		//assert that meeting day 1's hotel estimate rolled up up to the participant total
+		//assert that meeting day 1's hotel estimate rolled up to the participant total
 		System.assertNotEquals(participant1.Total_Hotel_ToV_MERC__c,null,'Unexpected null value for participant tov.');
 		System.assertEquals(tovForParticipant1Day1.Est_Hotel_ToV_MERC__c, participant1.Total_Hotel_ToV_MERC__c, 'Unexpected hotel ToV values do not match.');
 
@@ -305,8 +531,8 @@ private class MERC_TOVCalculatorTest {
 		System.assertEquals(null, participant1.Total_Hotel_ToV_MERC__c);
 	}
 
-	@isTest
-	static void testShouldNotCalculateHotelOnDailyAttendanceStatusUpdateWhenFinal() {
+	//@isTest
+	static void shouldNotCalculateHotelOnDailyAttendanceStatusUpdateWhenFinal() {
 
 		for (Travel_Itinerary_MERC__c ti : itineraries){
 			ti.Meeting_Vendor_MERC__c = vendors[0].Id;
@@ -364,8 +590,8 @@ private class MERC_TOVCalculatorTest {
 		System.assertEquals(tovForParticipant1Day1.Est_Hotel_ToV_MERC__c,previousValue,'Hotel ToV on Daily Attendance has unexpectedly changed.');
 	}
 
-	@isTest
-	static void testShouldEnsureDeletesRecalculateRollups() {
+	//@isTest
+	static void shouldEnsureDeletesRecalculateRollups() {
 		//set participant 1 to attending on day 1
 		Daily_Attendance_TOV_MERC__c tovForParticipant1Day1 = MERC_TestFactory.insertTov(meetingDays.get(0).Id, participants.get(0).Id, 'Attended');
 
@@ -396,8 +622,8 @@ private class MERC_TOVCalculatorTest {
 		System.assertEquals(null, participant1.Total_Food_Beverage_ToV_MERC__c);
 	}
 
-	@isTest
-	static void testShouldRollTovUpToParticipant() {
+	//@isTest
+	static void shouldRollTovUpToParticipant() {
 		Test.startTest();
 
 		//set participant 1 to attending on day 1
@@ -502,14 +728,18 @@ private class MERC_TOVCalculatorTest {
 		return hotels;
 	}
 
-	static Travel_Itinerary_MERC__c insertItinerary(Meeting_Participant_MERC__c mp, Date start_date, Date end_date) {
-		return insertItineraries(new List<Meeting_Participant_MERC__c>{mp}, start_date, end_date)[0];
+	static Travel_Itinerary_MERC__c insertHotelItinerary(Meeting_Participant_MERC__c mp, Date start_date, Date end_date) {
+		return insertHotelItineraries(new List<Meeting_Participant_MERC__c>{mp}, start_date, end_date, null)[0];
 	}
-	static List<Travel_Itinerary_MERC__c> insertItineraries(List<Meeting_Participant_MERC__c> mps, Date start_date, Date end_date) {
+	static Travel_Itinerary_MERC__c insertHotelItinerary(Meeting_Participant_MERC__c mp, Date start_date, Date end_date, Meeting_Vendor_MERC__c hotel) {
+		return insertHotelItineraries(new List<Meeting_Participant_MERC__c>{mp}, start_date, end_date, hotel)[0];
+	}
+	static List<Travel_Itinerary_MERC__c> insertHotelItineraries(List<Meeting_Participant_MERC__c> mps, Date start_date, Date end_date, Meeting_Vendor_MERC__c hotel) {
 		List<Travel_Itinerary_MERC__c> hotelItineraries = new List<Travel_Itinerary_MERC__c>();
 		for (Meeting_Participant_MERC__c mp : mps) {
 			Travel_Itinerary_MERC__c ti = new Travel_Itinerary_MERC__c();
 			ti.RecordTypeId = hotelItineraryRecordTypeId;
+			if (hotel!=null) ti.Meeting_Vendor_MERC__c = hotel.Id;
 			ti.Meeting_Participant_MERC__c = mp.Id;
 			ti.Account_MERC__c = mp.Account_MERC__c;
 			ti.Sgmnt_Bgin_TS_MERC__c = Datetime.newInstance(start_date, Time.newInstance(12, 0, 0, 0));
@@ -520,7 +750,35 @@ private class MERC_TOVCalculatorTest {
 		return hotelItineraries;
 	}
 
+	static List<Travel_Itinerary_MERC__c> insertPrivateTransferItineraries(List<Meeting_Participant_MERC__c> mps, Date start_date, Date end_date) {
+		return insertPrivateTransferItineraries(mps, start_date, end_date, 1);
+	}
+	static List<Travel_Itinerary_MERC__c> insertPrivateTransferItineraries(List<Meeting_Participant_MERC__c> mps, Date start_date, Date end_date, Integer numOfRecords) {
+		List<Travel_Itinerary_MERC__c> ptItineraries = new List<Travel_Itinerary_MERC__c>();
+		for (Integer i=0; i<numOfRecords; i++) {
+			for (Meeting_Participant_MERC__c mp : mps) {
+				Travel_Itinerary_MERC__c ti = new Travel_Itinerary_MERC__c();
+				ti.RecordTypeId = rentalCarRecordTypeId;
+				ti.Individual_Travel_ToV_Applicable_MERC__c = true;
+				ti.Total_Fare_Amount_MERC__c = 99;
+				ti.Meeting_Participant_MERC__c = mp.Id;
+				ti.Account_MERC__c = mp.Account_MERC__c;
+				ti.Sgmnt_Bgin_TS_MERC__c = Datetime.newInstance(start_date, Time.newInstance(8, 0, 0, 0));
+				ti.Sgmnt_End_TS_MERC__c = Datetime.newInstance(end_date, Time.newInstance(18, 0, 0, 0));
+				ti.Status_MERC__c = 'Confirmed';
+				ptItineraries.add(ti);
+			}
+		}
+		insert ptItineraries;
+		return ptItineraries;
+	}
+
 	// combined to manage SOQL limits
+	static List<Daily_Attendance_TOV_MERC__c> insertTovs(List<Meeting_Day_MERC__c> listOfDays, String meetingParticipantId, String status) {
+		List<String> meetingDayIds = new List<String>();
+		for (Meeting_Day_MERC__c day : listOfDays) meetingDayIds.add(day.Id);
+		return insertTovs(meetingDayIds, meetingParticipantId, status);
+	}
 	static List<Daily_Attendance_TOV_MERC__c> insertTovs(List<String> meetingDayIds, String meetingParticipantId, String status) {
 		List<Daily_Attendance_TOV_MERC__c> result = new List<Daily_Attendance_TOV_MERC__c>();
 		for (String id : meetingDayIds) {
