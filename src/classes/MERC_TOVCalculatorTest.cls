@@ -45,7 +45,8 @@ private class MERC_TOVCalculatorTest {
 		p('1.Limits:'+Limits.getQueries()+'/'+Limits.getLimitQueries());
 	}
 
-	//@isTest
+	@isTest
+
 	static void foodShouldCalculateOnDailyAttendanceUpdate() {
 		//set participant 1 to attending on day 1
 		Daily_Attendance_TOV_MERC__c tovForParticipant1Day1 = MERC_TestFactory.insertTov(meetingDays.get(0).Id, participants.get(0).Id, 'Attended');
@@ -78,7 +79,8 @@ private class MERC_TOVCalculatorTest {
 		System.assertEquals(null, participant1.Total_Food_Beverage_ToV_MERC__c);
 	}
 
-	//@isTest
+	@isTest
+
 	static void foodShouldRecalculateOnToVDelete() {
 		//set participant 1 to attending on day 1
 		Daily_Attendance_TOV_MERC__c tovForParticipant1Day1 = MERC_TestFactory.insertTov(meetingDays.get(0).Id, participants.get(0).Id, 'Attended');
@@ -110,7 +112,8 @@ private class MERC_TOVCalculatorTest {
 		System.assertEquals(null, participant1.Total_Food_Beverage_ToV_MERC__c);
 	}
 
-	//@isTest
+	@isTest
+
 	static void foodShouldRollTovUpToParticipant() {
 		Test.startTest();
 
@@ -140,7 +143,8 @@ private class MERC_TOVCalculatorTest {
 	 * Lilly T-1346
 	 * Multiple private transfer itineraries should be combined to give you a SUM of the Individual Travel ToV
 	 **/
-	//@isTest
+	@isTest
+
 	static void groundShouldCaptureMultiplePrivateTransfers() {
 		// get a participant
 		Meeting_Participant_MERC__c attendee = participants[0];
@@ -200,7 +204,8 @@ private class MERC_TOVCalculatorTest {
 	 *	4.    Cancelled Travel Itinerary prior to managing daily attendance and prior to sending ToV
 	 *	5.    Hotel ToV is still allocated for the HCP in the system
 	 **/
-	//@isTest
+	@isTest
+
 	static void hotelShouldAdjustToVWhenItineraryCancelled() {
 
 		Date d1 = Date.today();
@@ -278,7 +283,7 @@ private class MERC_TOVCalculatorTest {
 		System.assertEquals(null, participant1.Total_Hotel_ToV_MERC__c);
 	}
 
-	//@isTest
+	@isTest
 	static void hotelShouldCalculateRoomRateChange() {
 		Meeting_Vendor_MERC__c hotel1 = vendors.get(0);
 
@@ -325,7 +330,8 @@ private class MERC_TOVCalculatorTest {
 	 * Lilly T-1344
 	 * Itinerary cancellation should clear final ToV
 	 **/
-	//@isTest
+	@isTest
+
 	static void hotelShouldClearFinalToVOnItineraryCancel() {
 		// get a participant
 		Meeting_Participant_MERC__c attendee = participants[0];
@@ -359,7 +365,8 @@ private class MERC_TOVCalculatorTest {
 		System.assertEquals(null,attendee.Total_Hotel_ToV_MERC__c,'Unexpected '+attendee.Total_Hotel_ToV_MERC__c+' value for total hotel');
 	 }
 
-	//@isTest
+	@isTest
+
 	static void hotelShouldNotCalculateOnDailyAttendanceStatusUpdateWhenFinal() {
 
 		for (Travel_Itinerary_MERC__c ti : itineraries){
@@ -422,7 +429,8 @@ private class MERC_TOVCalculatorTest {
 	 * Lilly T-1344
 	 * Itinerary cancellation should clear ToV
 	 **/
-	//@isTest
+	@isTest
+
 	static void hotelShouldNullifyActiveToVOnItineraryCancel() {
 		// get a participant
 		Meeting_Participant_MERC__c attendee = participants[0];
@@ -454,7 +462,8 @@ private class MERC_TOVCalculatorTest {
 	 * Lilly T-1344
 	 * Itinerary created as "cancelled" should have no ToV
 	 **/
-	//@isTest
+	@isTest
+
 	static void hotelShouldOmitUponItineraryInsertAsCancelled() {
 		Date d = Date.today().addDays(1);
 
@@ -505,7 +514,8 @@ private class MERC_TOVCalculatorTest {
 	 * When entering a hotel itinerary for 2 nights, managing daily attendance and then changing 
 	 * the check-out date so that only one night remains, Hotel ToV should only reflect remaining dates
 	 **/
-	//@isTest
+	@isTest
+
 	static void hotelShouldRecalculateOnDateChange() {
 
 		// Set MP to attended.  
@@ -552,7 +562,8 @@ private class MERC_TOVCalculatorTest {
 	 * For T#14374 - 
 	 * Two itineraries across multiple days for a single participant...
 	 **/
-	//@isTest
+	@isTest
+
 	static void hotelShouldRollupMultipleItineraries() {
 
 		// get a participant
@@ -607,7 +618,8 @@ private class MERC_TOVCalculatorTest {
 	 * Two itineraries across multiple days for a single participant + calculation triggered
 	 * by vendor and itinerary change...
 	 **/
-	//@isTest
+	@isTest
+
 	static void hotelShouldRollupMultipleVendorChange() {
 		// get a participant
 		Meeting_Participant_MERC__c attendee = participants[0];
