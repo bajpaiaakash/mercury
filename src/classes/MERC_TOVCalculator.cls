@@ -1,5 +1,6 @@
 /**
  * @author Joseph Ferraro
+ * @author Sean Harrison
  *
  * Trigger handler that facilitates TOV rollups
  *
@@ -438,7 +439,8 @@ p('t'+i+': '+t);
 		return tovToItinerary;
 	}
 
+	// TODO: Remove debug statements. Hide for now by setting to FINE
 	private static void p(String m) {
-		System.debug(LoggingLevel.INFO,'\n\nYYZ - '+m+'\n\n');
+		System.debug(LoggingLevel.FINE,'\n\nYYZ - '+m+'\n\n');
 	}
 }

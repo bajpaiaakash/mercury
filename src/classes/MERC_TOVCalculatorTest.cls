@@ -42,7 +42,7 @@ private class MERC_TOVCalculatorTest {
 		vendors = insertHotels(2,meetings);
 		itineraries = insertHotelItineraries(participants,startDate,endDate,vendors[0]);
 
-		//MERC_TOVCalculator.runHotelTovCalculation = true;
+		MERC_TOVCalculator.runHotelTovCalculation = true;
 
 		p('1.Limits:'+Limits.getQueries()+'/'+Limits.getLimitQueries());
 	}
@@ -77,7 +77,6 @@ private class MERC_TOVCalculatorTest {
 		System.assert(tovForParticipant1Day1.Est_Food_Bev_ToV_MERC__c == participant1.Total_Food_Beverage_ToV_MERC__c);
 
 		//reset the static variable
-		//MERC_TOVCalculator.runHotelTovCalculation = true;
 		//now remove attendance on day 1
 		Test.startTest();
 
@@ -121,7 +120,6 @@ private class MERC_TOVCalculatorTest {
 		System.assert(tovForParticipant1Day1.Est_Food_Bev_ToV_MERC__c == participant1.Total_Food_Beverage_ToV_MERC__c);
 
 		//reset the static variable
-		//MERC_TOVCalculator.runHotelTovCalculation = true;
 		
 		Test.startTest();
 
@@ -314,11 +312,9 @@ private class MERC_TOVCalculatorTest {
 			ti.Sgmnt_Bgin_TS_MERC__c = Datetime.newInstance(d1, Time.newInstance(12, 0, 0, 0));
 			ti.Sgmnt_End_TS_MERC__c = Datetime.newInstance(d2, Time.newInstance(15, 0, 0, 0));
 
-			//MERC_TOVCalculator.runHotelTovCalculation = true;
-			insert ti;
+				insert ti;
 
-			//MERC_TOVCalculator.runHotelTovCalculation = true;
-			ti.Status_MERC__c = 'Cancelled';
+				ti.Status_MERC__c = 'Cancelled';
 			update ti;
 		Test.stopTest();
 
@@ -340,7 +336,6 @@ private class MERC_TOVCalculatorTest {
 	static void hotelShouldCalculateOnDailyAttendanceStatusUpdate() {
 
 		//reset the static variable
-		//MERC_TOVCalculator.runHotelTovCalculation = true;
 
 		//set participant 1 to attending on day 1
 		Daily_Attendance_TOV_MERC__c tovForParticipant1Day1 = 
@@ -396,13 +391,11 @@ p('stopTest');
 		Test.startTest();
 
 			//reset the static variable that got turned off during data loads
-			//MERC_TOVCalculator.runHotelTovCalculation = true;
-
+	
 			//set participant 1 to attending on day 1
 			Daily_Attendance_TOV_MERC__c tovForParticipant1Day1 = MERC_TestFactory.insertTov(meetingDays.get(0).Id, participants.get(0).Id, 'Attended');
 
-			//MERC_TOVCalculator.runHotelTovCalculation = true;
-			hotel1.Room_Rate_MERC__c = 666;
+				hotel1.Room_Rate_MERC__c = 666;
 
 			update hotel1;
 
@@ -442,7 +435,6 @@ p('stopTest');
 		Meeting_Participant_MERC__c attendee = participants[0];
 
 		//set attendee to attending.... 
-		//MERC_TOVCalculator.runHotelTovCalculation = true;
 		List<Daily_Attendance_TOV_MERC__c> tovs = insertTovs(meetingDays, attendee.Id, 'Attended');
 		attendee = [SELECT Id, Total_Hotel_ToV_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :attendee.Id LIMIT 1];
 		System.assert(attendee.Total_Hotel_ToV_MERC__c>0,'Unexpected '+attendee.Total_Hotel_ToV_MERC__c+' value for total hotel');
@@ -458,8 +450,7 @@ p('stopTest');
 				ti.Confirm_ToV_Reporting_Change_MERC__c = true;
 				ti.Status_MERC__c = 'Cancelled';
 			}
-			//MERC_TOVCalculator.runHotelTovCalculation = true;
-			update itineraries;
+				update itineraries;
 		Test.stopTest();
 
 	 	// if ToV final, value should be 0
@@ -484,7 +475,6 @@ p('stopTest');
 	static void hotelShouldNotCalculateOnDailyAttendanceStatusUpdateWhenFinal() {
 
 		//reset the static variable
-		//MERC_TOVCalculator.runHotelTovCalculation = true;
 
 		//set participant 1 to attending on day 1
 		Daily_Attendance_TOV_MERC__c tovForParticipant1Day1 = 
@@ -505,7 +495,6 @@ p('stopTest');
 		System.assertEquals(previousValue, participant1.Total_Hotel_ToV_MERC__c, 'Unexpected hotel ToV values do not match');
 
 		//reset the static variable
-		//MERC_TOVCalculator.runHotelTovCalculation = true;
 
 		//set ToV to Final
 		Meeting_MERC__c meeting1 = [SELECT Id, Participant_ToV_Final_MERC__c FROM Meeting_MERC__c WHERE Id = :participant1.Meeting_MERC__c];
@@ -514,8 +503,7 @@ p('stopTest');
 
 		Test.startTest();
 
-			//MERC_TOVCalculator.runHotelTovCalculation = true;
-
+	
 			//now remove attendance on day 1
 			tovForParticipant1Day1.Status_MERC__c = 'No Show';
 			update tovForParticipant1Day1;
@@ -553,7 +541,6 @@ p('stopTest');
 		Meeting_Participant_MERC__c attendee = participants[0];
 
 		//set attendee to attending.... 
-		//MERC_TOVCalculator.runHotelTovCalculation = true;
 		List<Daily_Attendance_TOV_MERC__c> tovs = insertTovs(meetingDays, attendee.Id, 'Attended');
 		attendee = [SELECT Id, Total_Hotel_ToV_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :attendee.Id LIMIT 1];
 		System.assert(attendee.Total_Hotel_ToV_MERC__c>0,'Unexpected '+attendee.Total_Hotel_ToV_MERC__c+' value for total hotel');
@@ -563,8 +550,7 @@ p('stopTest');
 			for (Travel_Itinerary_MERC__c ti : itineraries) {
 				ti.Status_MERC__c = 'Cancelled';
 			}
-			//MERC_TOVCalculator.runHotelTovCalculation = true;
-			update itineraries;
+				update itineraries;
 		Test.stopTest();
 
 	 	// if ToV not final, value should be null
@@ -614,12 +600,10 @@ p('stopTest');
 			ti.Sgmnt_End_TS_MERC__c = Datetime.newInstance(d, Time.newInstance(18, 0, 0, 0));
 			ti.Status_MERC__c = 'Cancelled';
 
-			//MERC_TOVCalculator.runHotelTovCalculation = true;
-			insert ti;
+				insert ti;
 
 		 	// set participant as "attended"
-			//MERC_TOVCalculator.runHotelTovCalculation = true;
-			List<Daily_Attendance_TOV_MERC__c> tovs = insertTovs(days, attendee.Id, 'Attended');
+				List<Daily_Attendance_TOV_MERC__c> tovs = insertTovs(days, attendee.Id, 'Attended');
 			attendee = [SELECT Id, Total_Hotel_ToV_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :attendee.Id LIMIT 1];
 
 		 	// if ToV not final, value should be null
@@ -644,7 +628,6 @@ p('stopTest');
 	@isTest
 	static void hotelShouldRecalculateOnDateChange() {
 
-		//MERC_TOVCalculator.runHotelTovCalculation = true;
 
 		// Set MP to attended.  
 		Meeting_Participant_MERC__c attendee = participants[0];
@@ -730,7 +713,7 @@ p('stopTest');
 			update ti2;
 
 			//reset the static variable that got turned off during data loads
-			//MERC_TOVCalculator.runHotelTovCalculation = true;
+			MERC_TOVCalculator.runHotelTovCalculation = true;
 
 			//set attendee to attending first two days.... 
 			List<String> meetingDayIds = new List<String>();
@@ -804,13 +787,12 @@ p('stopTest');
 			ti2.Status_MERC__c = 'Confirmed';
 			hotelItineraries.add(ti2);
 
-			//MERC_TOVCalculator.runHotelTovCalculation = true;
+			MERC_TOVCalculator.runHotelTovCalculation = true;
 			insert hotelItineraries;
 // TODO: confirm initial room rates
 
 // TODO: then change to new values
-			// reset the static variable that got turned off during data loads
-			//MERC_TOVCalculator.runHotelTovCalculation = true;
+			MERC_TOVCalculator.runHotelTovCalculation = true;
 			p('final update');
 			update vendors;
 
