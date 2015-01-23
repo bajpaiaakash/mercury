@@ -45,6 +45,17 @@ private class MERC_TOVCalculatorTest {
 		p('1.Limits:'+Limits.getQueries()+'/'+Limits.getLimitQueries());
 	}
 
+	/**
+	 * Food/Beverage ToV test for DA/ToV updates
+	 * ---
+	 * Start Meeting Day 1 with Daily_Food_Beverage_Amount_MERC__c = value
+	 * Set DA/ToV for participant 1 to 'Attended' on day 1
+	 * Confirm participant has correct Total_Food_Beverage_ToV_MERC__c
+	 * Change DA/ToV for participant 1 from 'Attended' to 'No Show' on day 1
+	 * Confirm participant has null for Total_Food_Beverage_ToV_MERC__c
+
+	 TODO: change to check Ground and Registration also
+	 **/
 	@isTest
 	static void foodShouldCalculateOnDailyAttendanceUpdate() {
 		//set participant 1 to attending on day 1
@@ -78,6 +89,17 @@ private class MERC_TOVCalculatorTest {
 		System.assertEquals(null, participant1.Total_Food_Beverage_ToV_MERC__c);
 	}
 
+	/**
+	 * Food/Beverage ToV test for DA/ToV deletes
+	 * ---
+	 * Start Meeting Day 1 with Daily_Food_Beverage_Amount_MERC__c = value
+	 * Set DA/ToV for participant 1 to 'Attended' on day 1
+	 * Confirm participant has correct Total_Food_Beverage_ToV_MERC__c
+	 * Delete DA/ToV for participant 1 on day 1
+	 * Confirm has null for Total_Food_Beverage_ToV_MERC__c
+
+	 TODO: change to check Ground and Registration also
+	 **/
 	@isTest
 	static void foodShouldRecalculateOnToVDelete() {
 		//set participant 1 to attending on day 1
@@ -100,9 +122,12 @@ private class MERC_TOVCalculatorTest {
 
 		//reset the static variable
 		MERC_TOVCalculator.runHotelTovCalculation = true;
-		//now remove attendance on day 1
+		
 		Test.startTest();
-		delete tovForParticipant1Day1;
+
+			//now remove attendance on day 1
+			delete tovForParticipant1Day1;
+
 		Test.stopTest();
 		participant1 = [SELECT Id, Total_Hours_of_Service_MERC__c, Total_Ground_Transporation_ToV_MERC__c, Total_Registration_ToV_MERC__c, Total_Food_Beverage_ToV_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :participants.get(0).Id];
 
@@ -110,6 +135,15 @@ private class MERC_TOVCalculatorTest {
 		System.assertEquals(null, participant1.Total_Food_Beverage_ToV_MERC__c);
 	}
 
+	/**
+	 * Food/Beverage ToV test
+	 * ---
+	 * Start Meeting Day 1 with Daily_Food_Beverage_Amount_MERC__c = value
+	 * Set DA/ToV for participant 1 to 'Attended' on day 1
+	 * Confirm participant has correct Total_Food_Beverage_ToV_MERC__c
+
+	 TODO: change to check Ground and Registration also
+	 **/
 	@isTest
 	static void foodShouldRollTovUpToParticipant() {
 		Test.startTest();
@@ -122,8 +156,6 @@ private class MERC_TOVCalculatorTest {
 										Daily_Registration_Amount_MERC__c,
 										Daily_Food_Beverage_Amount_MERC__c
 											FROM Meeting_Day_MERC__c WHERE Id = :meetingDays.get(0).Id];
-
-
 
 		Meeting_Participant_MERC__c participant1 = [SELECT Id, Total_Hours_of_Service_MERC__c, Total_Ground_Transporation_ToV_MERC__c, Total_Registration_ToV_MERC__c, Total_Food_Beverage_ToV_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :participants.get(0).Id];
 
@@ -139,6 +171,11 @@ private class MERC_TOVCalculatorTest {
 	/**
 	 * Lilly T-1346
 	 * Multiple private transfer itineraries should be combined to give you a SUM of the Individual Travel ToV
+	 * ---
+	 * Start Meeting Days with Daily_Ground_Trans_Amount_MERC__c = null
+	 * Set DA/ToV for participant 1 to 'Attended' for each day
+	 * Create multiple private transfer Itineraries (3) with Total_Fare = value for participant 1 for duration of meeting
+	 * Confirm DA/ToVs reflect sum of Total_Fare values
 	 **/
 	@isTest
 	static void groundShouldCaptureMultiplePrivateTransfers() {
@@ -185,8 +222,8 @@ private class MERC_TOVCalculatorTest {
 	 }
 
 	/**
-	 * Lilly T-1344
-	 * INC1039808 - If a travel itinerary is cancelled the ToV is not reduced accordingly.  ToV over-stated.
+	 *  Lilly T-1344
+	 *  If a travel itinerary is cancelled the ToV should be reduced accordingly.
 	 * 
 	 *  Description: Meeting Participant Holger King, Hotel ToV allocated in Mercury although Travel Itinerary 
 	 *	was cancelled prior to managing daily attendance and prior to sending ToV and completing the meeting. 
@@ -240,6 +277,15 @@ private class MERC_TOVCalculatorTest {
 		System.assertEquals(null,attendee.Total_Hotel_ToV_MERC__c,'Unexpected '+attendee.Total_Hotel_ToV_MERC__c+' value for total hotel');
 	 }
 
+	/**
+	 * When meeting is active (ie. ToV not Final), DA/ToV status updates should be reflected in participant hotel totals
+	 * ---
+	 * Start hotel Itinerary with Vendor & Vendor Room Rate = value
+	 * Set DA/ToV for participant 1 to 'Attended' for each day
+	 * Confirm Room Rate values reflected in DA/ToV & MP Total Hotel
+	 * Change DA/ToV Status to 'No Show'
+	 * Confirm MP Total Hotel = null
+	 **/
 	@isTest
 	static void hotelShouldCalculateOnDailyAttendanceStatusUpdate() {
 
@@ -277,10 +323,20 @@ p('stopTest');
 		System.assertEquals(null, participant1.Total_Hotel_ToV_MERC__c);
 	}
 
+	/**
+	 * When vendor room rates change, DA/ToV & MP totals should reflect new values
+	 * ---
+	 * Start hotel Itinerary with Vendor & Vendor Room Rate = value
+	 * Set DA/ToV for participant 1 to 'Attended' on day 1
+	 * Change Vendor Room Rate to new value
+	 * Confirm DA/ToV reflects new value
+	 * Confirm MP Total Hotel is adjusted appropriately
+	 **/
 	@isTest
 	static void hotelShouldCalculateRoomRateChange() {
 		Meeting_Vendor_MERC__c hotel1 = vendors.get(0);
 
+//TODO: next bit not needed anymore
 		List<Travel_Itinerary_MERC__c> currentItineraries = [SELECT Id FROM Travel_Itinerary_MERC__c WHERE Meeting_Participant_MERC__c = :participants.get(0).Id];
 		for (Travel_Itinerary_MERC__c ti : currentItineraries) {
 			ti.Meeting_Vendor_MERC__c = hotel1.Id;			
@@ -302,8 +358,6 @@ p('stopTest');
 
 		Test.stopTest();
 
-		System.debug('QUERY LIMIT AFTER TEST EXECUTION: '+Limits.getQueries());
-
 		Meeting_Participant_MERC__c participant1 = [SELECT Id, Total_Hotel_ToV_MERC__c, Total_Hours_of_Service_MERC__c, 
 														Total_Ground_Transporation_ToV_MERC__c, Total_Registration_ToV_MERC__c, 
 														Total_Food_Beverage_ToV_MERC__c 
@@ -323,6 +377,14 @@ p('stopTest');
 	/**
 	 * Lilly T-1344
 	 * Itinerary cancellation should clear final ToV
+	 * ---
+	 * Start hotel Itinerary with Vendor & Vendor Room Rate = value
+	 * Set DA/ToV for participant 1 to 'Attended' for each day
+	 * Confirm MP Total Hotel reflects initial Vendor Room Rate
+	 * Change Meeting Participant ToV to Final
+	 * Change all Itineraries to Confirm_ToV_Reporting_Change_MERC__c = true & Status_MERC__c = 'Cancelled'
+	 * Confirm DA/ToV has Est_Hotel = 0
+	 * Confirm MP Total Hotel = null   (MP rollup has "treat 0 as null" = true)
 	 **/
 	@isTest
 	static void hotelShouldClearFinalToVOnItineraryCancel() {
@@ -358,6 +420,16 @@ p('stopTest');
 		System.assertEquals(null,attendee.Total_Hotel_ToV_MERC__c,'Unexpected '+attendee.Total_Hotel_ToV_MERC__c+' value for total hotel');
 	 }
 
+	/**
+	 * When meeting participant ToV is Final, DA/ToV status updates should not be reflected in participant hotel totals
+	 * ---
+	 * Start hotel Itinerary with Vendor & Vendor Room Rate = value
+	 * Set DA/ToV for participant 1 to 'Attended' on day 1
+	 * Confirm Room Rate values reflected in DA/ToV & MP Total Hotel
+	 * Change Meeting Participant_ToV_Final = 'Yes'
+	 * Confirm MP Total Hotel is not null
+	 * Confirm DA/ToV has not changed
+	 **/
 	@isTest
 	static void hotelShouldNotCalculateOnDailyAttendanceStatusUpdateWhenFinal() {
 
@@ -403,7 +475,7 @@ p('stopTest');
 						FROM Meeting_Participant_MERC__c 
 						WHERE Id = :participant1.Id];
 
-		//now ensure the rollup re-calculated
+		//now ensure the rollup did not clear value
 		System.assertNotEquals(null, participant1.Total_Hotel_ToV_MERC__c);
 
 		tovForParticipant1Day1 = [SELECT Id, Est_Hotel_ToV_MERC__c, Status_MERC__c 
@@ -417,6 +489,13 @@ p('stopTest');
 	/**
 	 * Lilly T-1344
 	 * Itinerary cancellation should clear ToV
+	 * ---
+	 * Start hotel Itinerary with Vendor & Vendor Room Rate = value
+	 * Set DA/ToV for participant 1 to 'Attended' for each day
+	 * Confirm MP Total Hotel reflects initial Vendor Room Rate
+	 * Change all Itineraries to Status_MERC__c = 'Cancelled'
+	 * Confirm DA/ToV has Est_Hotel = null
+	 * Confirm MP Total Hotel = null
 	 **/
 	@isTest
 	static void hotelShouldNullifyActiveToVOnItineraryCancel() {
@@ -445,10 +524,15 @@ p('stopTest');
 		System.assertEquals(null,attendee.Total_Hotel_ToV_MERC__c,'Unexpected '+attendee.Total_Hotel_ToV_MERC__c+' value for total hotel');
 	 }
 
-
 	/**
 	 * Lilly T-1344
 	 * Itinerary created as "cancelled" should have no ToV
+	 * ---
+	 * Create Vendor with Vendor Room Rate = value
+	 * Create new Itinerary with Vender & Status = 'Cancelled'
+	 * Set DA/ToV for participant 1 to 'Attended' for each day
+	 * Confirm DA/ToV has Est_Hotel = null
+	 * Confirm MP Total Hotel = null
 	 **/
 	@isTest
 	static void hotelShouldOmitUponItineraryInsertAsCancelled() {
@@ -500,6 +584,12 @@ p('stopTest');
 	 * Lilly T-1378
 	 * When entering a hotel itinerary for 2 nights, managing daily attendance and then changing 
 	 * the check-out date so that only one night remains, Hotel ToV should only reflect remaining dates
+	 * ---
+	 * Start hotel Itinerary with Vendor & Vendor Room Rate = value
+	 * Set DA/ToV for participant 1 to 'Attended' for each day
+	 * Confirm MP Total Hotel reflects initial Vendor Room Rate
+	 * Change Itineraries from duration of meeting to leaving "early"
+	 * Confirm MP Total Hotel was reduced accordingly
 	 **/
 	@isTest
 	static void hotelShouldRecalculateOnDateChange() {
@@ -511,6 +601,7 @@ p('stopTest');
 		List<Daily_Attendance_TOV_MERC__c> tovs = insertTovs(meetingDays, attendee.Id, 'Attended');
 
 		// Confirm Daily Attendence ToVs
+		// TODO: remove this unnecessary bit
 		tovs = [SELECT Id, Est_Hotel_ToV_MERC__c FROM Daily_Attendance_TOV_MERC__c WHERE Meeting_Participant_MERC__c = :attendee.Id];
 		for (Daily_Attendance_TOV_MERC__c tov : tovs) {
 			p('tov: '+tov);
@@ -536,6 +627,7 @@ p('stopTest');
 			p('update done');
 		Test.stopTest();
 
+//TODO: remove this unnecessary bit
 		tovs = [SELECT Id, Est_Hotel_ToV_MERC__c, Meeting_Participant_MERC__c, Meeting_Participant_Account_Name_MERC__c, Room_Rate_MERC__c FROM Daily_Attendance_TOV_MERC__c WHERE Meeting_Participant_MERC__c = :attendee.Id];
 		for (Daily_Attendance_TOV_MERC__c tov : tovs) {
 			p('tov: '+tov);
@@ -549,6 +641,11 @@ p('stopTest');
 	/**
 	 * For T#14374 - 
 	 * Two itineraries across multiple days for a single participant...
+	 * ---
+	 * Create hotel Itinerary with Vendor A & Vendor Room Rate = value 1 for Day 1
+	 * Create hotel Itinerary with Vendor B & Vendor Room Rate = value 2 for Day 2
+	 * Set DA/ToV for participant 1 to 'Attended' for both days
+	 * Confirm MP Total Hotel reflects sum of both Vendor Room Rates
 	 **/
 	@isTest
 	static void hotelShouldRollupMultipleItineraries() {
@@ -575,7 +672,6 @@ p('stopTest');
 			ti1.Meeting_Vendor_MERC__c = hotel1.Id;
 			changingItineraries.add(ti1);
 			update ti1;
-			p('4.Limits:'+Limits.getQueries()+'/'+Limits.getLimitQueries());
 
 			// attendee upset; moves to local youth hostel
 			Travel_Itinerary_MERC__c ti2 = insertHotelItinerary(attendee, meetingDays.get(1).Date_MERC__c, meetingDays.get(2).Date_MERC__c);
@@ -604,6 +700,12 @@ p('stopTest');
 	 * For T#14374 - 
 	 * Two itineraries across multiple days for a single participant + calculation triggered
 	 * by vendor and itinerary change...
+	 * ---
+	 * Set DA/ToV for participant 1 to 'Attended' for Day 1 & 2 days
+	 * Create hotel Itinerary with Vendor A & Vendor Room Rate = value 1 for Day 1
+	 * Create hotel Itinerary with Vendor B & Vendor Room Rate = value 2 for Day 2
+	 * Change room rates for both Vendors
+	 * Confirm DA/ToV Est Hotel reflects new Vendor Room Rates
 	 **/
 	@isTest
 	static void hotelShouldRollupMultipleVendorChange() {
@@ -620,6 +722,7 @@ p('stopTest');
 		Test.startTest();
 
 			// set hotels
+			// TODO: move this bit down
 			Meeting_Vendor_MERC__c hotel1 = vendors[0];
 			Meeting_Vendor_MERC__c hotel2 = vendors[1];
 			hotel1.Room_Rate_MERC__c = 199;
@@ -653,8 +756,9 @@ p('stopTest');
 
 			MERC_TOVCalculator.runHotelTovCalculation = true;
 			insert hotelItineraries;
-			p('3.Limits:'+Limits.getQueries()+'/'+Limits.getLimitQueries());
+// TODO: confirm initial room rates
 
+// TODO: then change to new values
 			// reset the static variable that got turned off during data loads
 			MERC_TOVCalculator.runHotelTovCalculation = true;
 			p('final update');
