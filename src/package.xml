@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
-    <version>31.0</version> 
+    <types>
+        <members>GLBL_RollupSummariesTest</members>
+        <members>MERC_DailyAttendanceController</members>
+        <members>MERC_DailyAttendanceControllerTest</members>
+        <members>MERC_HcpCapActualsCalculator</members>
+        <members>MERC_HotelAllocationCalculator</members>
+        <members>MERC_ParticipantStatusCalculator</members>
+        <members>MERC_ParticipantTovStampHandler</members>
+        <members>MERC_TOVCalculator</members>
+        <members>MERC_TOVCalculatorTest</members>
+        <members>MERC_TestFactory</members>
+        <members>MERC_TimestampHandler</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>MERC_DailyAttendance</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
+        <members>MERC_DailyAttendanceTOV</members>
+        <members>MERC_TravelItinerary</members>
+        <name>ApexTrigger</name>
+    </types>
+    <types>
+        <members>DeclarativeRollupTestData_MERC</members>
+        <name>StaticResource</name>
+    </types>
+    <version>29.0</version>
 </Package>
