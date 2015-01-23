@@ -111,8 +111,6 @@ private class MERC_TOVCalculatorTest {
 										Daily_Food_Beverage_Amount_MERC__c
 											FROM Meeting_Day_MERC__c WHERE Id = :meetingDays.get(0).Id];
 
-
-
 		Meeting_Participant_MERC__c participant1 = [SELECT Id, Total_Hours_of_Service_MERC__c, Total_Ground_Transporation_ToV_MERC__c, Total_Registration_ToV_MERC__c, Total_Food_Beverage_ToV_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :participants.get(0).Id];
 
 		tovForParticipant1Day1 = [SELECT Id, Est_Grnd_Transp_MERC__c, Est_Reg_Amt_ToV_MERC__c, Est_Food_Bev_ToV_MERC__c FROM Daily_Attendance_TOV_MERC__c WHERE Id = :tovForParticipant1Day1.Id];
@@ -220,6 +218,56 @@ private class MERC_TOVCalculatorTest {
 
 	 	System.assertEquals(itinerarySum,tovSum,'Unexpected total for Daily Transport ToV');
 	 }
+
+	/**
+	 * T-1376
+	 * Group Ground Transportation ToV test
+	 * ---
+	 * Start Meeting Day 1 with Daily_Ground_Trans_Amount_MERC__c = value
+	 * Set DA/ToV for participant 1 to 'Attended' on day 1
+	 * Confirm participant has correct Total_Ground_Transporation_ToV_MERC__c
+	 **/
+	@isTest
+	static void groupGroundShouldRollTovUpToParticipant() {
+		Test.startTest();
+
+		//set participant 1 to attending on day 1
+		Daily_Attendance_TOV_MERC__c tovForParticipant1Day1 = MERC_TestFactory.insertTov(meetingDays.get(0).Id, participants.get(0).Id, 'Attended');
+
+		Meeting_Participant_MERC__c participant1 = [SELECT Id, Total_Ground_Transporation_ToV_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :participants.get(0).Id];
+
+		tovForParticipant1Day1 = [SELECT Id, Est_Grp_Grnd_Transp_MERC__c FROM Daily_Attendance_TOV_MERC__c WHERE Id = :tovForParticipant1Day1.Id];
+
+		//assert that meeting day 1's food bev estimate rolled up up to the participant total
+		System.assert(tovForParticipant1Day1.Est_Grp_Grnd_Transp_MERC__c == participant1.Total_Ground_Transporation_ToV_MERC__c);
+
+		Test.stopTest();
+	}
+
+	/**
+	 * T-1376
+	 * Individual Travel ToV test
+	 * ---
+	 * Start Meeting Day 1 with Daily_Ground_Trans_Amount_MERC__c = value
+	 * Set DA/ToV for participant 1 to 'Attended' on day 1
+	 * Confirm participant has correct Total_Ground_Transporation_ToV_MERC__c
+	 **/
+	@isTest
+	static void individualTransferShouldRollTovUpToParticipant() {
+		Test.startTest();
+
+		//set participant 1 to attending on day 1
+		Daily_Attendance_TOV_MERC__c tovForParticipant1Day1 = MERC_TestFactory.insertTov(meetingDays.get(0).Id, participants.get(0).Id, 'Attended');
+		tovForParticipant1Day1.Est_Indv_Transfer_MERC__c = 99;
+		update tovForParticipant1Day1;
+
+		Meeting_Participant_MERC__c participant1 = [SELECT Id, Total_Indiv_Transport_ToV_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :participants.get(0).Id];
+
+		//assert that meeting day 1's food bev estimate rolled up up to the participant total
+		System.assert(tovForParticipant1Day1.Est_Indv_Transfer_MERC__c == participant1.Total_Individual_Transport_ToV_MERC__c);
+
+		Test.stopTest();
+	}
 
 	/**
 	 *  Lilly T-1344
