@@ -39,39 +39,55 @@ public with sharing class MERC_MergeHistoryStampTriggerHandler implements GLBL_T
 		//This map will store the ongoing count as we loop through the aggregate results
 		Map<Id, Integer> idRelatedRecords = new Map<Id, Integer>();
 
-		//Loop through the queries and store their results in a list of results
+		//Loop through the queries running them and storing their results in a list of results
 		List<List<AggregateResult>> aggResults = new List<List<AggregateResult>>();
-
 		for(String query : countQueries){
 			List<AggregateResult> queryResult = Database.query(query);
+			System.debug('Paul: ' + queryResult);
 			aggResults.add(queryResult);
 		}
 
+		//Loop through the results and update the counts for each accountID
 		for(List<AggregateResult> results : aggResults) {
 			for(Integer i = 0, j = results.size(); i < j; i++) {
 				String accountId = (String)results[i].get('Prior_Parent_Id_GLBL__c');
 				Integer count = (Integer)results[i].get('expr0');
 
+				//If the account Id is on the map then a value has been set and so the count should be 
+				//updated to add the old value
 				if(idRelatedRecords.containsKey(accountId)) {
 					count += idRelatedRecords.get(accountId);
 				} 
 
+				//Set the count value for the account Id
 				idRelatedRecords.put(accountId, count);
 			}
 		}
 
-		List<Merge_History_GLBL__c> updatedHistories = new List<Merge_History_GLBL__c>();
-
+		//Loop through all of our history records and for those where the Id is not on the counting map
+		//i.e. a value has not been set or no count was returned, mark it as complete.
 		for(Integer i = 0, j = histories.size(); i < j; i++) {
 			Id previousAccountId = histories[i].Original_Account_ID_GLBL__c;
 
 			if(!idRelatedRecords.containsKey(previousAccountId)) {
 				histories[i].Merge_Marked_Complete_MERC__c = true;
-				updatedHistories.add(histories[i]);
 			}
 		}
+
+		String limitString = '\n\n LIMITS:\n\tCPU Time = ' + Limits.getCpuTime() + ' from ' + Limits.getLimitCpuTime();
+		limitString += '\n\tQueries Run = ' + Limits.getQueries() + ' from ' + Limits.getLimitCpuTime();
+		limitString += '\n\t Aggregate Queries Run = ' + Limits.getAggregateQueries() + ' from ' + Limits.getLimitAggregateQueries();
+		limitString += '\n\tQuery Rows = ' + Limits.getQueryRows() + ' from ' + Limits.getLimitQueryRows();
+		limitString += '\n\tQuery Locator Rows = ' + Limits.getQueryLocatorRows() + ' from ' + Limits.getLimitQueryLocatorRows();
+		limitString += '\n\n';
+
+		System.debug(limitString);
 	}
 
+	/**
+	  * @description This method loops through all of the Account Merge Related List objects and creates the
+	  * associated COUNT queries returning them as a list of strings to be run. 
+	  */
 	private List<String> buildCountQueriesForObjects() {
 		Map<String, Account_Merge_Related_Lists_MERC__c> relatedListSettings = Account_Merge_Related_Lists_MERC__c.getAll();
 

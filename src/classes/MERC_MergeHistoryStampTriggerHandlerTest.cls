@@ -1,6 +1,11 @@
+/**
+  * @author Paul Battisson
+  * This is the test class for the MERC_MergeHistoryStampTrigger
+  */
 @isTest
 private class MERC_MergeHistoryStampTriggerHandlerTest {
 
+	//This test validates that when related records are present that no update is performed.
 	@isTest 
 	private static void TestRelatedRecordsNoUpdate() {
 		MERC_TestFactory.insertMercuryCustomSettings();
@@ -31,8 +36,9 @@ private class MERC_MergeHistoryStampTriggerHandlerTest {
 
 	}
 
+	//This test validates that the record is not updated when there are multiple related objects with records.
 	@isTest 
-	private static void TestRelatedRecordsNultipleObjectNoUpdate() {
+	private static void TestRelatedRecordsMultipleObjectNoUpdate() {
 		MERC_TestFactory.insertMercuryCustomSettings();
 
 		String fakeId = Account.SObjectType.getDescribe().getKeyPrefix() + '000000000001AAA';
@@ -66,6 +72,7 @@ private class MERC_MergeHistoryStampTriggerHandlerTest {
 
 	}
 
+	//This test validates that is no related records are present then the Merge_History_GLBL__c record is marked as complete.
 	@isTest 
 	private static void TestNoRelatedRecordsNoUpdate() {
 		MERC_TestFactory.insertMercuryCustomSettings();
@@ -90,6 +97,7 @@ private class MERC_MergeHistoryStampTriggerHandlerTest {
 		System.assertEquals(true, updatedHistory.Merge_Marked_Complete_MERC__c);
 
 	}
+	
 	
 
 }
