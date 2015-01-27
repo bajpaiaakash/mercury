@@ -3644,10 +3644,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>MergeTopics</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>ModifyAllData</name>
     </userPermissions>
     <userPermissions>
