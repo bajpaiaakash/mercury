@@ -68,6 +68,11 @@ global class CUST_UserSettingsStatusChangeBatchable implements Database.Batchabl
 
 	global void finish(Database.BatchableContext BC) {
 		Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
+        Mercury_Settings_MERC__c settings = Mercury_Settings_MERC__c.getInstance();
+        String emailAddress = (String)settings.get('Debug_Email_Address_MERC__c');
+        if(String.isBlank(emailAddress)) {
+            emailAddress = 'mercury@mavensconsulting.com';
+        }
         String[] toAddresses = new String[] {'mercury@mavensconsulting.com'};
 
         mail.setToAddresses(toAddresses);

@@ -232,6 +232,18 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>SAP_Support_Email_MERC__c</fullName>
+        <description>This field stores the email address to which support emails regarding the creation of Invoice XML;MERC; Created 01/28/2015 P Battisson; NS; Green</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the email address to which errors around the generation of XML for Invoices to be sent to the SAP system should be sent.</inlineHelpText>
+        <label>SAP Support Email</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Subsequent_Search_Timeout__c</fullName>
         <defaultValue>1000</defaultValue>
         <description>Subsequent timeout, in milliseconds, after the initial timeout occurs when trying to retrieve results from the customer search tool when submitting a search.</description>
