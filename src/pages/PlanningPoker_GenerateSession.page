@@ -1,1 +1,0 @@
-<apex:page sidebar="false" action="{!generateSession}" controller="Controller_PlanningPoker"></apex:page>
