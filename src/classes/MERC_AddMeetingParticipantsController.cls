@@ -113,14 +113,7 @@ public with sharing class MERC_AddMeetingParticipantsController {
 
     public List<SelectOption> accountStatusTypes {
         get {
-            List<SelectOption> returnTypes = MERC_Util.getCSTPicklistValuesForFieldName('Account_Status_Types_CUST__c', false);
-            for(SelectOption option : returnTypes){
-                if(option.getLabel().toLowerCase() == 'active'){
-                    this.searchRequest.status = new List<String>{option.getValue()};
-                    break;
-                }
-            }
-            return returnTypes;
+            return MERC_Util.getCSTPicklistValuesForFieldName('Account_Status_Types_CUST__c', false);
         }
     }
 

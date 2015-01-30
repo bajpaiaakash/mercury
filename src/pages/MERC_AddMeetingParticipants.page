@@ -277,13 +277,7 @@
 			  						</apex:selectList>
 			  					</apex:pageBlockSectionItem>
 
-			  					<!-- Status -->
-			  					<apex:pageBlockSectionItem >
-			  						<apex:outputLabel for="status" value="Status"></apex:outputLabel>
-			  						<apex:selectList multiselect="true" value="{!searchRequest.status}" id="status" styleClass="multichosen">
-			  							<apex:selectOptions value="{!accountStatusTypes}"/>
-			  						</apex:selectList>
-			  					</apex:pageBlockSectionItem>
+			  					<apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
 
 			  					<!-- EMPLOYEE ONLY -->
 			  					<apex:pageBlockSectionItem >
@@ -385,7 +379,13 @@
 			  						</apex:selectList>
 			  					</apex:pageBlockSectionItem>
 
-			  					<apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+			  					<!-- Status -->
+			  					<apex:pageBlockSectionItem >
+			  						<apex:outputLabel for="status" value="Status"></apex:outputLabel>
+			  						<apex:selectList multiselect="true" value="{!searchRequest.status}" id="status" styleClass="multichosen">
+			  							<apex:selectOptions value="{!accountStatusTypes}"/>
+			  						</apex:selectList>
+			  					</apex:pageBlockSectionItem>
 
 			  					<!-- Specialty TEMPORARILY REMOVED-->
 
