@@ -235,11 +235,13 @@ p('participantIdToTransferItineraries'+participantIdToTransferItineraries);
 			'\r runIndividualTransferTovCalculation='+MERC_TOVCalculator.runIndividualTransferTovCalculation+
 			'\r Trigger.isBefore='+Trigger.isBefore);
 
-
+p('participantIdToTransferItineraries: '+participantIdToTransferItineraries);
 		Map<Daily_Attendance_TOV_MERC__c,Travel_Itinerary_MERC__c> tovToItinerary = new Map<Daily_Attendance_TOV_MERC__c,Travel_Itinerary_MERC__c>();
 		for (Daily_Attendance_TOV_MERC__c tov : tovs.values()) {
 			p('tov: '+tov);
 			Boolean accountedFor = false;
+p('participantIdToTransferItineraries.containsKey(tov.Meeting_Participant_MERC__c):'+participantIdToTransferItineraries.containsKey(tov.Meeting_Participant_MERC__c));
+p('meetingDays.containsKey(tov.Meeting_Day_MERC__c):'+meetingDays.containsKey(tov.Meeting_Day_MERC__c));
 
 			if (participantIdToTransferItineraries.containsKey(tov.Meeting_Participant_MERC__c) && meetingDays.containsKey(tov.Meeting_Day_MERC__c)) {
 				Date meetingDayDate = meetingDays.get(tov.Meeting_Day_MERC__c).Date_MERC__c;
@@ -248,8 +250,8 @@ p('participantIdToTransferItineraries'+participantIdToTransferItineraries);
 				for (Travel_Itinerary_MERC__c t : transferTravelItinerariesForParticipant) {
 					Date timestampStart = t.Sgmnt_Bgin_TS_MERC__c.date();
 					Date timestampEnd = t.Sgmnt_End_TS_MERC__c.date();
-					if (meetingDayDate >= timestampStart && meetingDayDate <= timestampEnd.addDays(-1)) {  
-						p('itinerary within date range: '+tov+' \r\r '+t);
+					p('itinerary within date range?: \r\r'+timestampStart+'>='+meetingDayDate+'<='+timestampEnd+'\r\r'+tov+' \r\r '+t);
+					if (meetingDayDate >= timestampStart && meetingDayDate <= timestampEnd) {  
 						tovToItinerary.put(tov,t);
 						accountedFor = true;
 					}
@@ -263,6 +265,7 @@ p('participantIdToTransferItineraries'+participantIdToTransferItineraries);
 			}
 		}
 
+p('tovToItinerary: '+tovToItinerary);
 		Map<Id,Daily_Attendance_TOV_MERC__c> tovKeys = new Map<Id,Daily_Attendance_TOV_MERC__c>();
 		for (Daily_Attendance_TOV_MERC__c tov : tovToItinerary.keySet()) {
 			tovKeys.put(tov.Id,tov);
@@ -272,10 +275,10 @@ Integer i = 100;
 			Daily_Attendance_TOV_MERC__c tov = tovKeys.get(tovId);
 			Travel_Itinerary_MERC__c t = tovToItinerary.get(tov);
 			Decimal sumOfIndvTransfer = 0;
-p('tov'+i+': '+tov+' '+sumOfIndvTransfer);
+p('tov'+i+': '+sumOfIndvTransfer+' '+tov);
+p('t'+i+': '+t);
 			if (t!=null) 
 			{
-p('t'+i+': '+t);
 				//Set the confirm reporting to true. If confirmirmation was needed on the meeting vendor
 				//or the travel itinerary we would not get here without the user having checked that box.
 				tov.Confirm_ToV_Reporting_Change_MERC__c = true;
@@ -288,7 +291,6 @@ p(i+': Include_ToV_MERC__c');
 					if (t.Total_Fare_Amount_MERC__c != null) sumOfIndvTransfer += t.Total_Fare_Amount_MERC__c;
 					tov.Est_Indv_Transfer_MERC__c = sumOfIndvTransfer;
 p(i+': Setting Est_Indv_Transfer_MERC__c = '+sumOfIndvTransfer);
-					tovRecordsToUpdate.put(tov.Id,tov);
 				} else {
 p(i+': Include_ToV_MERC__c = '+t.Include_ToV_MERC__c);
 					if (tovIsFinal) 
@@ -298,20 +300,18 @@ p(i+'ToV is Final');
 						{
 p(i+'Est_Indv_Transfer_MERC__c != null');
 							tov.Est_Indv_Transfer_MERC__c = 0.0;
-							tovRecordsToUpdate.put(tov.Id,tov);
 						}
 p(i+'Est_Indv_Transfer_MERC__c is already null');
 					} else {
 p(i+'Setting Est_Indv_Transfer_MERC__c to null');
 						tov.Est_Indv_Transfer_MERC__c = null;
-						tovRecordsToUpdate.put(tov.Id,tov);
 					}
 				}
 			} else {
 p('no itineraries for this DA/ToV. Setting to null.');
 				tov.Est_Indv_Transfer_MERC__c = null;
-				tovRecordsToUpdate.put(tov.Id,tov);
 			}
+			tovRecordsToUpdate.put(tov.Id,tov);
 		}
 		return tovRecordsToUpdate;
 	}
@@ -544,6 +544,7 @@ p('t'+i+': '+t);
 				for (Travel_Itinerary_MERC__c t : hotelTravelItinerariesForParticipant) {
 					Date timestampStart = t.Sgmnt_Bgin_TS_MERC__c.date();
 					Date timestampEnd = t.Sgmnt_End_TS_MERC__c.date();
+					p('itinerary within date range?: \r\r'+timestampStart+'>='+meetingDayDate+'<='+timestampEnd.addDays(-1)+'\r\r'+tov+' \r\r '+t);
 					if (meetingDayDate >= timestampStart && meetingDayDate <= timestampEnd.addDays(-1)) {  
 						p('itinerary within date range: '+tov+' \r\r '+t);
 						tovToItinerary.put(tov,t);

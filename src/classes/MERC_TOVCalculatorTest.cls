@@ -74,7 +74,7 @@ private class MERC_TOVCalculatorTest {
 		tovForParticipant1Day1 = [SELECT Id, Est_Grnd_Transp_MERC__c, Est_Reg_Amt_ToV_MERC__c, Est_Food_Bev_ToV_MERC__c, Status_MERC__c FROM Daily_Attendance_TOV_MERC__c WHERE Id = :tovForParticipant1Day1.Id];
 
 		//assert that meeting day 1's food bev estimate rolled up up to the participant total
-		System.assert(tovForParticipant1Day1.Est_Food_Bev_ToV_MERC__c == participant1.Total_Food_Beverage_ToV_MERC__c);
+		System.assertEquals(tovForParticipant1Day1.Est_Food_Bev_ToV_MERC__c, participant1.Total_Food_Beverage_ToV_MERC__c, 'Est_Food_Bev_ToV_MERC__c did not rollup as expected.');
 
 		//reset the static variable
 		//now remove attendance on day 1
@@ -87,7 +87,7 @@ private class MERC_TOVCalculatorTest {
 		participant1 = [SELECT Id, Total_Hours_of_Service_MERC__c, Total_Ground_Transporation_ToV_MERC__c, Total_Registration_ToV_MERC__c, Total_Food_Beverage_ToV_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :participants.get(0).Id];
 
 		//now ensure the rollup re-calculated
-		System.assertEquals(null, participant1.Total_Food_Beverage_ToV_MERC__c);
+		System.assertEquals(null, participant1.Total_Food_Beverage_ToV_MERC__c,'Unexpected non-null value for MP Total Food/Bev');
 	}
 
 	/**
@@ -117,7 +117,7 @@ private class MERC_TOVCalculatorTest {
 		tovForParticipant1Day1 = [SELECT Id, Est_Grnd_Transp_MERC__c, Est_Reg_Amt_ToV_MERC__c, Est_Food_Bev_ToV_MERC__c FROM Daily_Attendance_TOV_MERC__c WHERE Id = :tovForParticipant1Day1.Id];
 
 		//assert that meeting day 1's food bev estimate rolled up up to the participant total
-		System.assert(tovForParticipant1Day1.Est_Food_Bev_ToV_MERC__c == participant1.Total_Food_Beverage_ToV_MERC__c);
+		System.assertEquals(tovForParticipant1Day1.Est_Food_Bev_ToV_MERC__c, participant1.Total_Food_Beverage_ToV_MERC__c, 'Est_Food_Bev_ToV_MERC__c did not rollup as expected.');
 
 		//reset the static variable
 		
@@ -160,7 +160,7 @@ private class MERC_TOVCalculatorTest {
 		tovForParticipant1Day1 = [SELECT Id, Est_Grnd_Transp_MERC__c, Est_Reg_Amt_ToV_MERC__c, Est_Food_Bev_ToV_MERC__c FROM Daily_Attendance_TOV_MERC__c WHERE Id = :tovForParticipant1Day1.Id];
 
 		//assert that meeting day 1's food bev estimate rolled up up to the participant total
-		System.assert(tovForParticipant1Day1.Est_Food_Bev_ToV_MERC__c == participant1.Total_Food_Beverage_ToV_MERC__c);
+		System.assertEquals(tovForParticipant1Day1.Est_Food_Bev_ToV_MERC__c, participant1.Total_Food_Beverage_ToV_MERC__c, 'Est_Food_Bev_ToV_MERC__c did not rollup as expected.');
 
 		Test.stopTest();
 
@@ -237,21 +237,18 @@ private class MERC_TOVCalculatorTest {
 		for (Meeting_Day_MERC__c m : meetingDays) {
 			m.Daily_Ground_Trans_Amount_MERC__c = null;
 		}
-		MERC_TOVCalculator.runIndividualTransferTovCalculation = true;
 		update meetingDays;
 
 		// set participant as "attended"
-		MERC_TOVCalculator.runIndividualTransferTovCalculation = true;
 		List<Daily_Attendance_TOV_MERC__c> tovs = insertTovs(meetingDays, attendee.Id, 'Attended');
-
 		attendee = [SELECT Id, Account_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :attendee.Id LIMIT 1];
 
 		Test.startTest();
-
+p('starting...');
 		 	// create new travel itineraries of type Car_MERC
 			MERC_TOVCalculator.runIndividualTransferTovCalculation = true;
-	 		List<Travel_Itinerary_MERC__c> pvtTransfers = insertDailyPrivateTransferItineraries(new List<Meeting_Participant_MERC__c>{attendee},startDate,startDate.addDays(2));
-
+	 		List<Travel_Itinerary_MERC__c> pvtTransfers = insertDailyPrivateTransferItineraries(new List<Meeting_Participant_MERC__c>{attendee},startDate,startDate.addDays(durationInDays));
+p('...done');
 	 	Test.stopTest();
 
 		Decimal itinerarySum = 0;
@@ -346,7 +343,7 @@ private class MERC_TOVCalculatorTest {
 		tovForParticipant1Day1 = [SELECT Id, Est_Grp_Grnd_Transp_MERC__c FROM Daily_Attendance_TOV_MERC__c WHERE Id = :tovForParticipant1Day1.Id];
 
 		//assert that meeting day 1's food bev estimate rolled up up to the participant total
-		System.assert(tovForParticipant1Day1.Est_Grp_Grnd_Transp_MERC__c == participant1.Total_Ground_Transporation_ToV_MERC__c);
+		System.assertEquals(tovForParticipant1Day1.Est_Grp_Grnd_Transp_MERC__c, participant1.Total_Ground_Transporation_ToV_MERC__c, 'Est_Grp_Grnd_Transp did not rollup as expected.');
 
 		Test.stopTest();
 	}
@@ -906,7 +903,7 @@ p('stopTest');
 		Meeting_Participant_MERC__c participant1 = [SELECT Id, Total_Individual_Transport_ToV_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :participants.get(0).Id];
 
 		//assert that meeting day 1's food bev estimate rolled up up to the participant total
-		System.assert(tovForParticipant1Day1.Est_Indv_Transfer_MERC__c == participant1.Total_Individual_Transport_ToV_MERC__c);
+		System.assertEquals(tovForParticipant1Day1.Est_Indv_Transfer_MERC__c, participant1.Total_Individual_Transport_ToV_MERC__c, 'Est_Indv_Transfer did not rollup as expected.');
 
 		Test.stopTest();
 	}
