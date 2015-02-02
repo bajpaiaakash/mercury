@@ -4,6 +4,7 @@
         <members>Account</members>
         <members>Daily_Attendance_TOV_MERC__c</members>
         <members>Meeting_Day_MERC__c</members>
+        <members>Meeting_MERC__c</members>
         <members>Meeting_Participant_MERC__c</members>
         <name>CustomObject</name>
     </types>
@@ -42,6 +43,16 @@
         <name>Layout</name>
     </types>
     <types>
+        <members>Mercury_Account_Manager_Edit</members>
+        <members>Mercury_Customer_Meeting_Services_Edit</members>
+        <members>Mercury_Legal_Edit</members>
+        <members>Mercury_Med_Director_Edit</members>
+        <members>Mercury_Meeting_Owner_Edit</members>
+        <members>Mercury_Meeting_Planning_Company_Edit</members>
+        <name>PermissionSet</name>
+    </types>
+    <types>
+        <members>Admin</members>
         <members>Mercury Integration ODS - Platform</members>
         <name>Profile</name>
     </types>
