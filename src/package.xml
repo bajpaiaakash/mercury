@@ -8,6 +8,7 @@
     <types>
         <members>MERC_DailyAttendanceController</members>
         <members>MERC_DailyAttendanceControllerTest</members>
+        <members>MERC_HcpCapActualsCalculator</members>
         <members>MERC_HcpCapLimitCalculator</members>
         <members>MERC_HcpCapLimitCalculatorTest</members>
         <members>MERC_HcpCapYearlyCalculationJob</members>
