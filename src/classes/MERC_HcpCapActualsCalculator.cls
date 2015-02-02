@@ -57,6 +57,11 @@ public with sharing class MERC_HcpCapActualsCalculator implements GLBL_TriggerHa
 				Decimal mpFFee   = mp.Final_Fee_MERC__c;
 				Decimal mpPFFeeR  = mp.Proposed_Final_Fee_Rollup_MERC__c;
 				Decimal mpFFeeR   = mp.Final_Fee_Rollup_MERC__c;
+				p('mpCode='+mpCurr);
+				p('mpProposed='+mpPFFee+'/'+mpPFFeeR);
+				p('mpFee='+mpFFee+'/'+mpPFFeeR);
+				p('acctCurr='+acctCurr);
+				p('running user curr = '+UserInfo.getDefaultCurrency());
 			}
 
 			participantsToRollup = mpList;
@@ -68,4 +73,8 @@ public with sharing class MERC_HcpCapActualsCalculator implements GLBL_TriggerHa
 			GLBL_RollupService.asyncTriggerHandler(participantsToRollup);
 		}
 	}
+
+		static void p(String m) {
+			// System.debug(LoggingLevel.INFO, '\n\n\nYYZ - '+m+'\n\n\n\n');
+		}
 }
