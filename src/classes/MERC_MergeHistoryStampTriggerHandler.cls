@@ -29,9 +29,15 @@ public with sharing class MERC_MergeHistoryStampTriggerHandler implements GLBL_T
 		//Firstly let us loop through the list of Merge History records and retrieve
 		//all of the original account Ids.
 		List<String> originalIds = new List<String>();
+		List<String> newParentIds = new List<String>();
 		for(Integer i = 0, j = histories.size(); i < j; i++) {
+			System.debug(histories[i]);
 			originalIds.add(histories[i].Original_Account_ID_GLBL__c);
+			newParentIds.add(histories[i].Winning_Id_GLBL__c + '%');
 		}
+
+		System.debug('originalIds: ' + originalIds);
+		System.debug('newParentIds: ' + newParentIds);
 
 		//Build our base queries for every related list object
 		List<String> countQueries = buildCountQueriesForObjects();
@@ -42,6 +48,7 @@ public with sharing class MERC_MergeHistoryStampTriggerHandler implements GLBL_T
 		//Loop through the queries running them and storing their results in a list of results
 		List<List<AggregateResult>> aggResults = new List<List<AggregateResult>>();
 		for(Integer i = 0, j = countQueries.size(); i < j; i++){
+			System.debug('Hey Sean: ' + countQueries[i]);
 			List<AggregateResult> queryResult = Database.query(countQueries[i]);
 			aggResults.add(queryResult);
 		}
