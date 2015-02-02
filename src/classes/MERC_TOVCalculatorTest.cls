@@ -176,7 +176,7 @@ private class MERC_TOVCalculatorTest {
 	 * Confirm DA/ToVs reflect sum of Total_Fare values
 	 **/
 	@isTest
-	static void groundShouldCaptureMultiplePrivateTransfers() {
+	static void groundShouldCaptureMultiplePrivateTransfersOnItineraryCreate() {
 		// get a participant
 		Meeting_Participant_MERC__c attendee = participants[0];
 
@@ -198,6 +198,113 @@ private class MERC_TOVCalculatorTest {
 		 	// create new travel itineraries of type Car_MERC
 			MERC_TOVCalculator.runIndividualTransferTovCalculation = true;
 	 		List<Travel_Itinerary_MERC__c> pvtTransfers = insertPrivateTransferItineraries(new List<Meeting_Participant_MERC__c>{attendee},startDate,startDate.addDays(2),3);
+
+	 	Test.stopTest();
+
+		Decimal itinerarySum = 0;
+		for (Travel_Itinerary_MERC__c ti : pvtTransfers) {
+			if (ti.Total_Fare_Amount_MERC__c != null) itinerarySum += ti.Total_Fare_Amount_MERC__c;
+		}
+		System.assert(itinerarySum>0,'Why is the sum of these fares = '+itinerarySum);
+
+	 	// ground transportation match should be sum of initeraries above
+	 	tovs = [SELECT Est_Grnd_Transp_MERC__c 
+	 			FROM Daily_Attendance_TOV_MERC__c 
+	 			WHERE Meeting_Participant_MERC__c = :attendee.Id AND Meeting_Day_MERC__c in :meetingDays];
+		Decimal tovSum = 0;
+	 	for (Daily_Attendance_TOV_MERC__c tov : tovs) {
+	 		if (tov.Est_Grnd_Transp_MERC__c != null) tovSum += tov.Est_Grnd_Transp_MERC__c;
+	 	}
+
+	 	System.assertEquals(itinerarySum,tovSum,'Unexpected total for Daily Transport ToV');
+	 }
+
+	/**
+	 * Lilly T-1346
+	 * When entered one-a-day, multiple private transfer itineraries should be combined to give you a SUM of the Individual Travel ToV
+	 * ---
+	 * Start Meeting Days with Daily_Ground_Trans_Amount_MERC__c = null
+	 * Set DA/ToV for participant 1 to 'Attended' for each day
+	 * Create multiple private transfer Itineraries (3) with Total_Fare = value for participant 1 for duration of meeting
+	 * Confirm DA/ToVs reflect sum of Total_Fare values
+	 **/
+	@isTest
+	static void groundShouldCaptureMultipleDailyPrivateTransfersOnItineraryCreate() {
+		// get a participant
+		Meeting_Participant_MERC__c attendee = participants[0];
+
+		// clear initial trans amount
+		for (Meeting_Day_MERC__c m : meetingDays) {
+			m.Daily_Ground_Trans_Amount_MERC__c = null;
+		}
+		MERC_TOVCalculator.runIndividualTransferTovCalculation = true;
+		update meetingDays;
+
+		// set participant as "attended"
+		MERC_TOVCalculator.runIndividualTransferTovCalculation = true;
+		List<Daily_Attendance_TOV_MERC__c> tovs = insertTovs(meetingDays, attendee.Id, 'Attended');
+
+		attendee = [SELECT Id, Account_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :attendee.Id LIMIT 1];
+
+		Test.startTest();
+
+		 	// create new travel itineraries of type Car_MERC
+			MERC_TOVCalculator.runIndividualTransferTovCalculation = true;
+	 		List<Travel_Itinerary_MERC__c> pvtTransfers = insertDailyPrivateTransferItineraries(new List<Meeting_Participant_MERC__c>{attendee},startDate,startDate.addDays(2));
+
+	 	Test.stopTest();
+
+		Decimal itinerarySum = 0;
+		for (Travel_Itinerary_MERC__c ti : pvtTransfers) {
+			if (ti.Total_Fare_Amount_MERC__c != null) itinerarySum += ti.Total_Fare_Amount_MERC__c;
+		}
+		System.assert(itinerarySum>0,'Why is the sum of these fares = '+itinerarySum);
+
+	 	// ground transportation match should be sum of initeraries above
+	 	tovs = [SELECT Est_Grnd_Transp_MERC__c 
+	 			FROM Daily_Attendance_TOV_MERC__c 
+	 			WHERE Meeting_Participant_MERC__c = :attendee.Id AND Meeting_Day_MERC__c in :meetingDays];
+		Decimal tovSum = 0;
+	 	for (Daily_Attendance_TOV_MERC__c tov : tovs) {
+	 		if (tov.Est_Grnd_Transp_MERC__c != null) tovSum += tov.Est_Grnd_Transp_MERC__c;
+	 	}
+
+	 	System.assertEquals(itinerarySum,tovSum,'Unexpected total for Daily Transport ToV');
+	 }
+
+	/**
+	 * Lilly T-1346
+	 * Multiple private transfer itineraries should be combined to give you a SUM of the Individual Travel ToV
+	 * ---
+	 * [different order of events]
+	 * Start Meeting Days with Daily_Ground_Trans_Amount_MERC__c = null
+	 * Create multiple private transfer Itineraries (3) with Total_Fare = value for participant 1 for duration of meeting
+	 * Set DA/ToV for participant 1 to 'Attended' for each day
+	 * Confirm DA/ToVs reflect sum of Total_Fare values
+	 **/
+	@isTest
+	static void groundShouldCaptureMultiplePrivateTransfersOnTovCreate() {
+		// get a participant
+		Meeting_Participant_MERC__c attendee = participants[0];
+
+		// clear initial trans amount
+		for (Meeting_Day_MERC__c m : meetingDays) {
+			m.Daily_Ground_Trans_Amount_MERC__c = null;
+		}
+		MERC_TOVCalculator.runIndividualTransferTovCalculation = true;
+		update meetingDays;
+
+		attendee = [SELECT Id, Account_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :attendee.Id LIMIT 1];
+
+		Test.startTest();
+
+		 	// create new travel itineraries of type Car_MERC
+			MERC_TOVCalculator.runIndividualTransferTovCalculation = true;
+	 		List<Travel_Itinerary_MERC__c> pvtTransfers = insertPrivateTransferItineraries(new List<Meeting_Participant_MERC__c>{attendee},startDate,startDate.addDays(2),3);
+
+			// set participant as "attended"
+			MERC_TOVCalculator.runIndividualTransferTovCalculation = true; // why are we resetting this?
+			List<Daily_Attendance_TOV_MERC__c> tovs = insertTovs(meetingDays, attendee.Id, 'Attended');
 
 	 	Test.stopTest();
 
@@ -443,13 +550,13 @@ p('stopTest');
 	 * Set DA/ToV for participant 1 to 'Attended' on day 1
 	 * Confirm Room Rate values reflected in DA/ToV & MP Total Hotel
 	 * Change Meeting Participant_ToV_Final = 'Yes'
+	 * Change DA/ToV Status to "No Show"
 	 * Confirm MP Total Hotel is not null
+	 * Confirm MP Total Hotel has not changed
 	 * Confirm DA/ToV has not changed
 	 **/
 	@isTest
 	static void hotelShouldNotCalculateOnDailyAttendanceStatusUpdateWhenFinal() {
-
-		//reset the static variable
 
 		//set participant 1 to attending on day 1
 		Daily_Attendance_TOV_MERC__c tovForParticipant1Day1 = 
@@ -469,8 +576,6 @@ p('stopTest');
 		//assert that meeting day 1's hotel estimate rolled up up to the participant total
 		System.assertEquals(previousValue, participant1.Total_Hotel_ToV_MERC__c, 'Unexpected hotel ToV values do not match');
 
-		//reset the static variable
-
 		//set ToV to Final
 		Meeting_MERC__c meeting1 = [SELECT Id, Participant_ToV_Final_MERC__c FROM Meeting_MERC__c WHERE Id = :participant1.Meeting_MERC__c];
 		meeting1.Participant_ToV_Final_MERC__c = 'Yes';
@@ -478,7 +583,6 @@ p('stopTest');
 
 		Test.startTest();
 
-	
 			//now remove attendance on day 1
 			tovForParticipant1Day1.Status_MERC__c = 'No Show';
 			tovForParticipant1Day1.Confirm_ToV_Reporting_Change_MERC__c = true;
@@ -491,6 +595,7 @@ p('stopTest');
 
 		//now ensure the rollup did not clear value
 		System.assertNotEquals(null, participant1.Total_Hotel_ToV_MERC__c);
+		System.assertEquals(previousValue, participant1.Total_Hotel_ToV_MERC__c, 'Unexpected hotel ToV values do not match after status change.');
 
 		tovForParticipant1Day1 = [SELECT Id, Est_Hotel_ToV_MERC__c, Status_MERC__c 
 									FROM Daily_Attendance_TOV_MERC__c 
@@ -603,7 +708,6 @@ p('stopTest');
 	 **/
 	@isTest
 	static void hotelShouldRecalculateOnDateChange() {
-
 
 		// Set MP to attended.  
 		Meeting_Participant_MERC__c attendee = participants[0];
@@ -788,7 +892,7 @@ p('stopTest');
 	 * ---
 	 * Start Meeting Day 1 with Daily_Ground_Trans_Amount_MERC__c = value
 	 * Set DA/ToV for participant 1 to 'Attended' on day 1
-	 * Confirm participant has correct Total_Ground_Transporation_ToV_MERC__c
+	 * Confirm participant has correct Total_Individual_Transport_ToV_MERC__c
 	 **/
 	@isTest
 	static void individualTransferShouldRollTovUpToParticipant() {
@@ -799,10 +903,10 @@ p('stopTest');
 		tovForParticipant1Day1.Est_Indv_Transfer_MERC__c = 99;
 		update tovForParticipant1Day1;
 
-		Meeting_Participant_MERC__c participant1 = [SELECT Id, Total_Indiv_Transport_ToV_Rollup_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :participants.get(0).Id];
+		Meeting_Participant_MERC__c participant1 = [SELECT Id, Total_Individual_Transport_ToV_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :participants.get(0).Id];
 
 		//assert that meeting day 1's food bev estimate rolled up up to the participant total
-		System.assert(tovForParticipant1Day1.Est_Indv_Transfer_MERC__c == participant1.Total_Indiv_Transport_ToV_Rollup_MERC__c);
+		System.assert(tovForParticipant1Day1.Est_Indv_Transfer_MERC__c == participant1.Total_Individual_Transport_ToV_MERC__c);
 
 		Test.stopTest();
 	}
@@ -928,6 +1032,25 @@ p('stopTest');
 				ti.Account_MERC__c = mp.Account_MERC__c;
 				ti.Sgmnt_Bgin_TS_MERC__c = Datetime.newInstance(start_date, Time.newInstance(8, 0, 0, 0));
 				ti.Sgmnt_End_TS_MERC__c = Datetime.newInstance(end_date, Time.newInstance(18, 0, 0, 0));
+				ti.Status_MERC__c = 'Confirmed';
+				ptItineraries.add(ti);
+			}
+		}
+		insert ptItineraries;
+		return ptItineraries;
+	}
+	static List<Travel_Itinerary_MERC__c> insertDailyPrivateTransferItineraries(List<Meeting_Participant_MERC__c> mps, Date start_date, Date end_date) {
+		List<Travel_Itinerary_MERC__c> ptItineraries = new List<Travel_Itinerary_MERC__c>();
+		for (Date this_date = start_date; this_date.daysBetween(end_date)>-1; this_date = this_date.addDays(1)) {
+			for (Meeting_Participant_MERC__c mp : mps) {
+				Travel_Itinerary_MERC__c ti = new Travel_Itinerary_MERC__c();
+				ti.RecordTypeId = rentalCarRecordTypeId;
+				ti.Individual_Travel_ToV_Applicable_MERC__c = true;
+				ti.Total_Fare_Amount_MERC__c = 99;
+				ti.Meeting_Participant_MERC__c = mp.Id;
+				ti.Account_MERC__c = mp.Account_MERC__c;
+				ti.Sgmnt_Bgin_TS_MERC__c = Datetime.newInstance(this_date, Time.newInstance(8, 0, 0, 0));
+				ti.Sgmnt_End_TS_MERC__c = Datetime.newInstance(this_date, Time.newInstance(18, 0, 0, 0));
 				ti.Status_MERC__c = 'Confirmed';
 				ptItineraries.add(ti);
 			}
