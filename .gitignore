@@ -1,4 +1,4 @@
-*.sublime-project
-*.sublime-settings
-*.sublime-workspace
+mercury-tov.sublime-project
+mercury-tov.sublime-settings
+mercury-tov.sublime-workspace
 config/*
