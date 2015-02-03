@@ -5,11 +5,12 @@
         <members>MERC_DailyAttendanceControllerTest</members>
         <members>MERC_HcpCapActualsCalculator</members>
         <members>MERC_HotelAllocationCalculator</members>
+        <members>MERC_MeetingParticipantNewEditController</members>
         <members>MERC_ParticipantStatusCalculator</members>
         <members>MERC_ParticipantTovStampHandler</members>
-        <members>MERC_TimestampHandler</members>
         <members>MERC_TOVCalculator</members>
         <members>MERC_TOVCalculatorTest</members>
+        <members>MERC_TimestampHandler</members>
         <name>ApexClass</name>
     </types>
     <types>

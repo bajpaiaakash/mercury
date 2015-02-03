@@ -213,6 +213,8 @@ public with sharing class MERC_DailyAttendanceController {
 																	Meeting_Participant_MERC__c,
 																	Est_Food_Bev_ToV_MERC__c,
 																	Est_Grnd_Transp_MERC__c,
+																	Est_Grp_Grnd_Transp_MERC__c,
+																	Est_Indv_Transfer_MERC__c,
 																	Est_Reg_Amt_ToV_MERC__c,
 																	Est_Hotel_ToV_MERC__c,
 																	Status_MERC__c, External_ID_MERC__c,
