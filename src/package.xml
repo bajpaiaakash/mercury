@@ -41,18 +41,17 @@
         <members>MERC_TOVCalculator</members>
         <members>MERC_TOVCalculatorTest</members>
         <members>MERC_TimestampHandler</members>
+        <members>MERC_XmlWriterCalloutMock</members>
         <name>ApexClass</name>
     </types>
     <types>
         <members>MERC_AddMeetingParticipants</members>
         <members>MERC_DailyAttendance</members>
-        <members>MERC_MergedAccounts</members>
         <name>ApexPage</name>
     </types>
     <types>
         <members>MERC_DailyAttendanceTOV</members>
         <members>MERC_TravelItinerary</members>
-        <members>MERC_Account</members>
         <members>MERC_MergeHistoryTrigger</members>
         <name>ApexTrigger</name>
     </types>
