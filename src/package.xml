@@ -55,9 +55,5 @@
         <members>Mercury Integration ODS - Platform</members>
         <name>Profile</name>
     </types>
-    <types>
-        <members>DeclarativeRollupTestData_MERC</members>
-        <name>StaticResource</name>
-    </types>
     <version>31.0</version>
 </Package>
