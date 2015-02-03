@@ -312,4 +312,75 @@ private class MERC_AddMeetingParticipantsCntlrTest {
 			Test.stopTest();
 		}
 	}
+
+	@isTest
+	static void testNonAuthError() {
+		System.runAs(testUser) {
+			PageReference ref = Page.MERC_AddMeetingParticipants;
+			Test.setCurrentPage(ref);
+
+			ApexPages.StandardSetController setCntrlr = new ApexPages.StandardSetController(participants);
+			c = new MERC_AddMeetingParticipantsController(setCntrlr);
+
+			mockServices = new GLBL_CustomerSearchToolServiceMock(401, 'Unauthorized', 'Not valid json response', null);
+			Test.setMock(HttpCalloutMock.class, mockServices);
+
+			Test.startTest();
+			// meeting id is passed at request time
+			ApexPages.currentPage().getParameters().put('id',meetings[0].Id);
+			c.doSearch();
+			Test.stopTest();
+
+			System.assert(ApexPages.hasMessages());
+			System.assertEquals(Label.CST_Service_Error, ApexPages.getMessages()[0].getSummary());
+		}
+
+	}
+
+	@isTest
+	static void testMalformedJSONError() {
+		System.runAs(testUser) {
+			PageReference ref = Page.MERC_AddMeetingParticipants;
+			Test.setCurrentPage(ref);
+
+			ApexPages.StandardSetController setCntrlr = new ApexPages.StandardSetController(participants);
+			c = new MERC_AddMeetingParticipantsController(setCntrlr);
+
+			mockServices = new GLBL_CustomerSearchToolServiceMock(200, 'Okay', 'Non valid json response', null);
+			Test.setMock(HttpCalloutMock.class, mockServices);
+
+			Test.startTest();
+			// meeting id is passed at request time
+			ApexPages.currentPage().getParameters().put('id',meetings[0].Id);
+			c.doSearch();
+			Test.stopTest();
+
+			System.assert(ApexPages.hasMessages());
+			System.assertEquals(Label.CST_Service_Error, ApexPages.getMessages()[0].getSummary());
+		}
+
+	}
+
+	@isTest 
+	static void testRetrieveResultsError() {
+		System.runAs(testUser) {
+			PageReference ref = Page.MERC_AddMeetingParticipants;
+			Test.setCurrentPage(ref);
+
+			ApexPages.StandardSetController setCntrlr = new ApexPages.StandardSetController(participants);
+			c = new MERC_AddMeetingParticipantsController(setCntrlr);
+
+			mockServices = new GLBL_CustomerSearchToolServiceMock(401, 'Unauthorized', 'Not valid json response', null);
+			Test.setMock(HttpCalloutMock.class, mockServices);
+
+			Test.startTest();
+			// meeting id is passed at request time
+			ApexPages.currentPage().getParameters().put('id',meetings[0].Id);
+			c.retrieveResults();
+			Test.stopTest();
+
+			System.assert(ApexPages.hasMessages());
+			System.assertEquals(Label.CST_Retrieve_Results_Error, ApexPages.getMessages()[0].getSummary());
+		}
+	}
 }

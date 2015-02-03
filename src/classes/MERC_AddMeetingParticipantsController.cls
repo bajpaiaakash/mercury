@@ -26,7 +26,13 @@ public with sharing class MERC_AddMeetingParticipantsController {
 
     //if cst token is expired, it will grab a new one
     public void ensureCstToken() {
-        this.cstService.refreshToken();
+        try {
+            this.cstService.refreshToken();    
+        } catch(Exception ex) {
+            System.debug('CST TOKEN EXCEPTION CAUGHT >>>> ' + ex.getMessage());
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.CST_Service_Error));
+        }
+        
     }
 
     public Meeting_MERC__c meeting {
@@ -170,17 +176,25 @@ public with sharing class MERC_AddMeetingParticipantsController {
      * in the retrieveResults method.
      */
     public PageReference doSearch() {
-        p('Entering doSearch!!!!!!');
-        searching = true;
-        searchPerformed = true;
-        system.debug('>>>>>> '+this.searchRequest);
-        searchId = this.cstService.doSearch(this.searchRequest);
-        // if error, returns null & cstService.error will be available
-        if (searchId=='' && this.cstService.error != null) {
-            this.hasError = true;
-            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, this.cstService.error.Error+': '+this.cstService.error.Message));
+        try{
+            p('Entering doSearch!!!!!!');
+            searching = true;
+            searchPerformed = true;
+            system.debug('>>>>>> '+this.searchRequest);
+            searchId = this.cstService.doSearch(this.searchRequest);
+            // if error, returns null & cstService.error will be available
+            if (searchId=='' && this.cstService.error != null) {
+                this.hasError = true;
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, this.cstService.error.Error+': '+this.cstService.error.Message));
+            }
+            
+        } catch(Exception ex){
+            System.debug('CST EXCEPTION CAUGHT >>>> ' + ex.getMessage());
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.CST_Service_Error));
         }
+
         return null;
+
     }
 
     /* retrieveResults
@@ -188,18 +202,25 @@ public with sharing class MERC_AddMeetingParticipantsController {
      * in the GLBL_CustomerSerachToolSearvice class.
      */
     public PageReference retrieveResults() {
-        p('Entering retrieveResult!!!!!!');
-        system.debug('>>>>>> searchId = '+searchId);
-        this.searchResults = this.cstService.retrieveResults(searchId);
-        searching = this.cstService.searching;
-        searchStatus = this.cstService.searchStatus;
-        errorDescription = this.cstService.errorDescription;
-        // if error, returns null & cstService.error will be available
-        if (this.searchResults==null && this.cstService.error != null) {
-            this.hasError = true;
-            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, this.cstService.error.Error+': '+this.cstService.error.Message));
+        try {
+            p('Entering retrieveResult!!!!!!');
+            system.debug('>>>>>> searchId = '+searchId);
+            this.searchResults = this.cstService.retrieveResults(searchId);
+            searching = this.cstService.searching;
+            searchStatus = this.cstService.searchStatus;
+            errorDescription = this.cstService.errorDescription;
+            // if error, returns null & cstService.error will be available
+            if (this.searchResults==null && this.cstService.error != null) {
+                this.hasError = true;
+                ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, this.cstService.error.Error+': '+this.cstService.error.Message));
+            }
+            this.searchRequest = new GLBL_CustomerSearchToolService.SearchRequest();
+        } catch(Exception ex) {
+            System.debug('CST EXCEPTION CAUGHT >>>> ' + ex.getMessage());
+            this.cstService.searchStatus = null;
+            searching = this.cstService.searching;
+            ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.CST_Retrieve_Results_Error));
         }
-        this.searchRequest = new GLBL_CustomerSearchToolService.SearchRequest();
         return null;
     }
 

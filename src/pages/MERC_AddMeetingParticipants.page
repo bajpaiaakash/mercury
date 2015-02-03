@@ -219,7 +219,7 @@
 			  					<apex:commandButton onclick="showLoading()" action="{!doSearch}" value="Search" rerender="search-start" id="searchParticipants"/>
 			  					<apex:commandButton action="{!cancel}" value="Back to Meeting"/>
 			  				</apex:pageBlockButtons>
-			  				<apex:actionFunction name="retrieveSearch" action="{!retrieveResults}" rerender="retrieve-results, resultTableWrapper, srCountWrapper"/>
+			  				<apex:actionFunction name="retrieveSearch" action="{!retrieveResults}" rerender="searchMessages, retrieve-results, resultTableWrapper, srCountWrapper"/>
 
 			  				<apex:outputPanel id="search-start">
 			  					<apex:outputPanel rendered="{!searching}">
