@@ -1,0 +1,2189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>ACED_AssetUpdate_ErrorMessage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_AssetUpdate_ErrorMessage</shortDescription>
+        <value>An error occurred while saving Asset Data. Please contact your system administrator</value>
+    </labels>
+    <labels>
+        <fullName>ACED_CreateProduct_label1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_CreateProduct_label1</shortDescription>
+        <value>Create Brand Indication from GSO Product Catalog</value>
+    </labels>
+    <labels>
+        <fullName>ACED_CreateProduct_label2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_CreateProduct_label2</shortDescription>
+        <value>ACE Brand Indication Creation Form</value>
+    </labels>
+    <labels>
+        <fullName>ACED_CreateProduct_label3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_CreateProduct_label3</shortDescription>
+        <value>Create Brand Indications</value>
+    </labels>
+    <labels>
+        <fullName>ACED_CreateProduct_label4</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_CreateProduct_label4</shortDescription>
+        <value>Search Brand Indication</value>
+    </labels>
+    <labels>
+        <fullName>ACED_CreateProduct_label5</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_CreateProduct_label5</shortDescription>
+        <value>GSO Products</value>
+    </labels>
+    <labels>
+        <fullName>ACED_CreateProduct_label6</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_CreateProduct_label6</shortDescription>
+        <value>Create Products</value>
+    </labels>
+    <labels>
+        <fullName>ACED_CreateProduct_label7</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_CreateProduct_label7</shortDescription>
+        <value>GSO Brand Name</value>
+    </labels>
+    <labels>
+        <fullName>ACED_CreateProduct_label8</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_CreateProduct_label8</shortDescription>
+        <value>Product Group Id</value>
+    </labels>
+    <labels>
+        <fullName>ACED_DeliveryNotEligible</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_DeliveryNotEligible</shortDescription>
+        <value>This delivery is not eligible for adding Interactions</value>
+    </labels>
+    <labels>
+        <fullName>ACED_ErrorMessage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_ErrorMessage</shortDescription>
+        <value>There is error occurred in creating/updating the record. Please contact system Admin</value>
+    </labels>
+    <labels>
+        <fullName>ACED_Retire_Asset_Error_Msg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_Retire_Asset_Error_Msg</shortDescription>
+        <value>This asset record cannot be set to Retired as there are associated Assets that are still Active.</value>
+    </labels>
+    <labels>
+        <fullName>ACED_RightNow_EmailContent</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_RightNow_EmailContent</shortDescription>
+        <value>RightNow Batch job is complete, please check the below log files</value>
+    </labels>
+    <labels>
+        <fullName>ACED_RightNow_SubjectLine</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_RightNow_SubjectLine</shortDescription>
+        <value>RightNow Nighthly Job Scheduler is complete</value>
+    </labels>
+    <labels>
+        <fullName>ACED_Webtrends_EmailContent</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_Webtrends_EmailContent</shortDescription>
+        <value>WebTrends Nightly batch is completed, pls find below the summary of records updated</value>
+    </labels>
+    <labels>
+        <fullName>ACED_Webtrends_SubjectLine</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_Webtrends_SubjectLine</shortDescription>
+        <value>Webtrends Batch Job completed</value>
+    </labels>
+    <labels>
+        <fullName>AudienceObj_Audience_Affiliate</fullName>
+        <categories>Used in ACED_Audience_HUB controller</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Audience : Audience Affiliate</shortDescription>
+        <value>00N11000000qvaF</value>
+    </labels>
+    <labels>
+        <fullName>AudienceObj_Audience_Hub</fullName>
+        <categories>Used in ACED_Audience_HUB controller</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Audience : Audience Hub</shortDescription>
+        <value>00N11000000qtuS</value>
+    </labels>
+    <labels>
+        <fullName>Audience_New_Override</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Audience New Override</shortDescription>
+        <value>/a2y/e?retURL=%2Fa2y%2Fo</value>
+    </labels>
+    <labels>
+        <fullName>Burn_Status</fullName>
+        <categories>Burndown Chart</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Burn Status</shortDescription>
+        <value>Passed (Complete)</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_ATC_Approval_Feedback</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP ATC Approval Feedback label</shortDescription>
+        <value>ATC Approver Feedback</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_ATC_Approver</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP ATC Approver label used on Contract Request Form</shortDescription>
+        <value>ATC Approver</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_ATC_Rejection_Email</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP ATC Rejection Email</shortDescription>
+        <value>C3AP_Send_Notification_to_Initiator_for_ATC_Rejected_Australia</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_ATS_Approver</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP ATS Approver label used on Contract Request Form</shortDescription>
+        <value>ATS Approver</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Additional_Guidance_Information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Additional Guidance Information header on Homepage</shortDescription>
+        <value>Additional Guidance Information</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Additional_Links_For_Information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Additional Links for info column header on Homepage</shortDescription>
+        <value>Additional Links for Information (Click to Download)</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Amendment_Approved</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP_Amendment_Approved</shortDescription>
+        <value>You have successfully approved the amendment made by the Approver.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Amendment_Not_Approved</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP_Amendment_Not_Approved</shortDescription>
+        <value>The amendment has already been approved. Please validate if you have already approved the same by navigating to the Detail page and checking the Amendment Accepted check boxes.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Amendment_Popup</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Amendment Popup</shortDescription>
+        <value>Please make note of the following:
+
+1. Only ATC &amp; Legal Approver can request for Amend. 
+2. If ATC or Legal has previously approved or rejected the contract, they cannot Amend it later. 
+3. Amend is possible only after an amended contract has been attached by the  approver.
+4. Make sure to reject the approval after Amending the contract. This would help the requester re-submit the contract for approval.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Apex_Sharing_Access_Level</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Apex Sharing Access Level</shortDescription>
+        <value>Edit</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Application_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Application Name</shortDescription>
+        <value>C3</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Approval_Page_Layout_Comment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Approval Page Layout Comment</shortDescription>
+        <value>If you intend to amend the contract, please click cancel and then click Amend button on the contract request page.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Approval_Process_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Approval Process Name</shortDescription>
+        <value>04a11000000CdKx</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Approve_Button_label</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Approve Button label</shortDescription>
+        <value>Approve</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Approver_Feedback</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Legal Approval Feedback label</shortDescription>
+        <value>Approver Feedback</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Approver_Type_ATC</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP_Approver_Type_ATC</shortDescription>
+        <value>ATC</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Approver_Type_ATS</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP_Approver_Type_ATS</shortDescription>
+        <value>ATS</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Approver_Type_Legal</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP_Approver_Type_Legal</shortDescription>
+        <value>Legal</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Attach_Amended_Contract</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Attach Amended Contract</shortDescription>
+        <value>Contract has been Amended. Please provide the mandatory Amend Comments.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Cancel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Choose</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Choose label for uploading attachments on Contract Form</shortDescription>
+        <value>Choose</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Click_to_Download</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Click here to Download used on Contract Form on the Template Section</shortDescription>
+        <value>Click here to Download</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Close_Upload</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Contract Upload Section close button on Form page</shortDescription>
+        <value>Close Upload</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Contract_Attachments</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Contract Attachments Upload Section header on Form page</shortDescription>
+        <value>Contract Attachment</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Contract_Details</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Contract Details Section Header on Form Page</shortDescription>
+        <value>Contract Details</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Contract_Form_Attachment_Handling</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Contract Form Attachment Handling</shortDescription>
+        <value>You had selected an Attachment for upload. Please reselect the file and click &quot;Upload and Save&quot; first before saving the Contract Request if you wish to save it. 
+
+If you do not wish to upload the attachment, please click &quot;Close Upload&quot; and then save the Contract request.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Contract_Request</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Contract Request</shortDescription>
+        <value>C3 Contract Request</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Contract_Request_Approval</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Contract Approval Section header on Form page</shortDescription>
+        <value>Contract Request Approval</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Contract_Request_Form</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP  Contract Request Form Page Header</shortDescription>
+        <value>Contract Request Form</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Contract_Request_Report_ID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Contract Request Report ID</shortDescription>
+        <value>00O11000000VQrp</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Contract_Template</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Contract Template column header for Template download section</shortDescription>
+        <value>Contract Template</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Contract_Template_Download</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Contract Template Download  Section header on Form page</shortDescription>
+        <value>Download Contract Template</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Contract_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Contract Type Field label on Form Page</shortDescription>
+        <value>Contract Type</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Contrct_Completion_Email_Template</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Contrct Completion Email Template</shortDescription>
+        <value>C3AP_Send_Completed_Notification_to_Initiator</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Email_Template_NotSubmitted</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP_Email_Template_NotSubmitted</shortDescription>
+        <value>C3AP_Not_Submitted_Notification_Australia</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Error_Attachment_Uploaded_Successfully</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP_Error_Attachment_Uploaded _Successfully</shortDescription>
+        <value>Attachment uploaded successfully</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Error_Sharing_Records</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Error Sharing Records</shortDescription>
+        <value>Error sharing Contract Request:</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Error_Uploading_Attachment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Error  Uploading Attachment</shortDescription>
+        <value>Error Uploading Attachment</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_File_for_Upload</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP File for Upload</shortDescription>
+        <value>File for Upload</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Final_Sign</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Final Sign</shortDescription>
+        <value>Final Signature</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_GSO_Profile_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP GSO Profile Name</shortDescription>
+        <value>GSO Basic User_Platform</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Get_Contract_Template</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP_Get Contract Template on Contract Request Form</shortDescription>
+        <value>Get Contract Template</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Introductory_Questions</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Introductory Questions</shortDescription>
+        <value>Introductory Questions</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Legal_Approval_Feedback</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Legal Approval Feedback label</shortDescription>
+        <value>Legal Approver Feedback</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Legal_Approver</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Legal Approver label used on Contract Request Form</shortDescription>
+        <value>Legal Approver</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Legal_Questions</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Legal Questions</shortDescription>
+        <value>Legal Questions</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Legal_Review</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Contract Section Legal Review button title</shortDescription>
+        <value>Legal Review</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Legal_Review_URL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP_Legal_Review_URL</shortDescription>
+        <value>/apex/C3AP_Legal_Questionnaire?contractId=</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Legal_rejection_Email</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Legal rejection Email</shortDescription>
+        <value>C3AP_Send_Notification_to_Initiator_on_Legal_Reject_Australia</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_More_Information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP More Information</shortDescription>
+        <value>More Information</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_NO</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP NO</shortDescription>
+        <value>NO</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_New_Contract_Request</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP New Contract Request - Label for homepage button</shortDescription>
+        <value>New Contract Request</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_New_Contract_Request_URL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP_New_Contract_Request_URL</shortDescription>
+        <value>/apex/C3AP_Contract_Initiation?affiliateId=</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Next</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Next</shortDescription>
+        <value>Next</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_No_Additional_Guidance</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP No Additional Guidance Links message for affiliate on homepage</shortDescription>
+        <value>There are no Additional Guidance links available for this Affiliate. Please contact your administrator for more information.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_No_Templates_Available</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP No Tempaltes available for Download</shortDescription>
+        <value>There are no contract templates available for download. Please contact your administrator.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Org_Wide_Email_Display_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Org Wide Email Display Name</shortDescription>
+        <value>gso_noreply@lilly.com</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Proceed_to_Contract_Form</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Proceed to Contract Form</shortDescription>
+        <value>Proceed to Contract Form</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Question_Type_Information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Question Type Information</shortDescription>
+        <value>Information</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Question_Type_Introductory</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Question Type Introductory</shortDescription>
+        <value>Introductory</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Question_Type_Legal</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Question Type Legal</shortDescription>
+        <value>Legal</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Save_Contract_Request</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Used for Save Button on Contract Request Form Page</shortDescription>
+        <value>Save Contract Request</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Search_Existing_Request</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Search Existing Request button on Homepage</shortDescription>
+        <value>Search Existing Request</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Select_Affiliate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Select Affiliate option for the Affiliate picklist on Homepage</shortDescription>
+        <value>--Select Affiliate--</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Status_Completed</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Status Completed</shortDescription>
+        <value>Completed</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Status_Not_Approved_By_ATC</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Status Not Approved By ATC</shortDescription>
+        <value>Not Approved by ATC</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Status_Not_Approved_By_ATS</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Status Not Approved By ATS</shortDescription>
+        <value>Not Approved By ATS</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Status_Not_Approved_By_Legal</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Status Not Approved By Legal</shortDescription>
+        <value>Not Approved By Legal</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Status_Not_Submitted</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Status Not Submitted</shortDescription>
+        <value>Not Submitted</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Status_Pending_ATC_Approval</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Status Pending ATC Approval</shortDescription>
+        <value>Pending ATC Approval</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Status_Pending_ATS_Approval</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Status Pending ATS Approval</shortDescription>
+        <value>Pending ATS Approval</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Status_Pending_Final_Signatures</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Status Pending Final Signatures</shortDescription>
+        <value>Pending Final Signatures</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Status_Pending_Legal_Approval</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Status Pending Legal Approval</shortDescription>
+        <value>Pending Legal Approval</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Status_Pending_Requestor_Review</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Status Pending Requestor Review</shortDescription>
+        <value>Pending Requestor Review</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Upload_and_Save</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Upload and Save button on Contract Request Form</shortDescription>
+        <value>Upload and Save</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Welcome_Text</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Welcome Text</shortDescription>
+        <value>Welcome to C3! Before you begin, please read the C3
+Checklist link on the C3 homepage.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_YES</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP YES</shortDescription>
+        <value>YES</value>
+    </labels>
+    <labels>
+        <fullName>CST_Service_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CST_Web_Service_Error</shortDescription>
+        <value>The CST web service is currently not available. Contact an administrator if this error persists.</value>
+    </labels>
+    <labels>
+        <fullName>CST_Retrieve_Results_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CST_Retrieve_Results_Error</shortDescription>
+        <value>An error occurred whilst trying to retrieve the results from the CST web service. Contact an administrator if this error persists.</value>
+    </labels>
+    <labels>
+        <fullName>Clear_Search_Results_Button_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Clear Search Results Button</shortDescription>
+        <value>Clear</value>
+    </labels>
+    <labels>
+        <fullName>Create_New_Person_Prompt_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Create New Person Prompt</shortDescription>
+        <value>Complete the information below to create a new person.</value>
+    </labels>
+    <labels>
+        <fullName>Create_Person_Button_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Create Person Button</shortDescription>
+        <value>Create Person</value>
+    </labels>
+    <labels>
+        <fullName>Create_Person_Record_Type_Required_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Create Person Record Type Required</shortDescription>
+        <value>You must select a record type.</value>
+    </labels>
+    <labels>
+        <fullName>Create_Referred_By_Button_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Create Referred By Button</shortDescription>
+        <value>Create Referred By</value>
+    </labels>
+    <labels>
+        <fullName>Create_Requester_Button_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Create Requester Button</shortDescription>
+        <value>Create Requester</value>
+    </labels>
+    <labels>
+        <fullName>Currently_Creating_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Currently Creating</shortDescription>
+        <value>Creating...</value>
+    </labels>
+    <labels>
+        <fullName>Data_Design_Fields</fullName>
+        <categories>Technical Document Generation</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Data Design Fields</shortDescription>
+        <value>Overview__c 
+Fields__c</value>
+    </labels>
+    <labels>
+        <fullName>Duplicate_PI_Role</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SEC Duplicate PI Role in TrialForce</shortDescription>
+        <value>You have already created the Principal Investigator for this Trial Site!</value>
+    </labels>
+    <labels>
+        <fullName>Error_Can_t_Delete_Locked_Invoice</fullName>
+        <categories>MERC_LockedInvoiceDeleteHandler</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error - Can&apos;t Delete Locked Invoice</shortDescription>
+        <value>You many not delete Invoices or Credit Notes that are locked.</value>
+    </labels>
+    <labels>
+        <fullName>Error_Tab_Name_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error Tab Name</shortDescription>
+        <value>An Error occured</value>
+    </labels>
+    <labels>
+        <fullName>Functional_Document_Descriptions</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Functional Document Descriptions</shortDescription>
+        <value>The purpose of this document is to specify the details (‘acceptance criteria’) for a specific set of requirements (‘user stories’).
+Its format is specific for Agile projects.</value>
+    </labels>
+    <labels>
+        <fullName>GLBL_Correct_Password</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message when the password is correct</shortDescription>
+        <value>Correct password!</value>
+    </labels>
+    <labels>
+        <fullName>GLBL_Incorrect_Password</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message when the password is incorrect</shortDescription>
+        <value>Incorrect password!</value>
+    </labels>
+    <labels>
+        <fullName>Generic_Phone_Field_Label_MVN</fullName>
+        <categories>PersonSearchMVN, SelectedRequesterMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Generic Phone Field Label</shortDescription>
+        <value>Phone</value>
+    </labels>
+    <labels>
+        <fullName>Generic_Search_Button_MVN</fullName>
+        <categories>KnowledgeSearchMVN, PersonSearchMVN, SelectedRequesterMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Generic Search Button</shortDescription>
+        <value>Search</value>
+    </labels>
+    <labels>
+        <fullName>Generic_Search_Status_MVN</fullName>
+        <categories>KnowledgeSearchMVN, PersonSearchMVN, SelectedRequesterMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Generic Search Status</shortDescription>
+        <value>Searching...</value>
+    </labels>
+    <labels>
+        <fullName>Integration_Design_Fields</fullName>
+        <categories>Technical Document Generation</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Integration Design Fields</shortDescription>
+        <value>Overview__c</value>
+    </labels>
+    <labels>
+        <fullName>Invalid_Email_Address_MVN</fullName>
+        <categories>PersonSearchControllerMVN</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Invalid Email Address</shortDescription>
+        <value>Invalid Email Address</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Approval_History_Action_Column</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Approval History Action Column</shortDescription>
+        <value>Action</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Approval_History_Actual_Approver_Column</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss_Approval_History_Actual_Approver_Column</shortDescription>
+        <value>Actual Approver</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Approval_History_Assisgned_To_Column</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss_Approval_History_Assisgned_To_Column</shortDescription>
+        <value>Assigned To</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Approval_History_Date_Column</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss_Approval_History_Date_Column</shortDescription>
+        <value>Date</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Approval_History_Overall_Status_Column</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss_Approval_History_Overall_Status_Column</shortDescription>
+        <value>Overall Status</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Approval_History_Status_Column</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss_Approval_History_Status_Column</shortDescription>
+        <value>Status</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Approval_Request_Submitted</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Approval Request Submitted</shortDescription>
+        <value>Approval Request Submitted</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Approval_Status</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Approval Status</shortDescription>
+        <value>Approval Status</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Approve_Reject</fullName>
+        <categories>Button</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Approve/Reject</shortDescription>
+        <value>Approve/Reject</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Assessment_Not_Present</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Assessment Not Present</shortDescription>
+        <value>Either the Assessment or Assessment Question is not present for this Submission. Please contact your administrator.</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Assessment_Report_Body_Part_1</fullName>
+        <categories>Hardcoded</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Assessment Report Body Part 1</shortDescription>
+        <value>has been assessed by</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Assessment_Report_Body_Part_2</fullName>
+        <categories>Hardcoded</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Assessment Report Body Part 2</shortDescription>
+        <value>and a final decision regarding this submission has been made by</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Assessment_Report_Body_Part_3</fullName>
+        <categories>Hardcoded</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Assessment Report Body Part 3</shortDescription>
+        <value>A PDF of the completed assessment including the final decision is attached</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Assessment_Report_Body_Part_4</fullName>
+        <categories>Hardcoded</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Assessment Report Body Part 4</shortDescription>
+        <value>Questions regarding the assessment results should be directed to the assessor and/or approver.</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Assessment_Report_Body_Part_5</fullName>
+        <categories>Hardcoded</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Assessment Report Body Part 5</shortDescription>
+        <value>Thank you.</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Assessment_Report_Subject_Suffix</fullName>
+        <categories>Hardcoded</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Assessment Report Subject Suffix</shortDescription>
+        <value>Submission Review Completed</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Assessment_Response_Page_Description</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Assessment Response Page Description</shortDescription>
+        <value>Please note once your decision has been made to approve or reject the document, the document owner will receive an e-mail notification of the decision and a copy of the completed assessment.</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Assessment_SubTitle_Suffix</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Assessment SubTitle Suffix</shortDescription>
+        <value>Assessment</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Attachment_Name</fullName>
+        <categories>Hardcoded</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Attachment Name</shortDescription>
+        <value>Assessment Details</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Back</fullName>
+        <categories>Button</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Back</shortDescription>
+        <value>Back</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Cancel</fullName>
+        <categories>Button</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Clear</fullName>
+        <categories>Button</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Clear</shortDescription>
+        <value>Clear</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Edit</fullName>
+        <categories>Button</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Edit</shortDescription>
+        <value>Edit</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Error_calculating_Submission_countries</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss_Error_calculating_Submission_countries</shortDescription>
+        <value>Error while re-calculating Submission Countries.</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Error_calculating_Submission_regions</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Error calculating Submission regions</shortDescription>
+        <value>Error while re-calculating Submission Regions.</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Error_while_approving_assessment</fullName>
+        <categories>Error</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error while approving assessment</shortDescription>
+        <value>Error while approving assessment</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Error_while_saving_assessment</fullName>
+        <categories>Error</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error while saving assessment</shortDescription>
+        <value>Error while saving assessment</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Error_while_sending_email</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Error while sending email</shortDescription>
+        <value>Error while sending email. Please contact the administrator.</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Exit</fullName>
+        <categories>Button</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Exit</shortDescription>
+        <value>Exit</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Following_Error_occured</fullName>
+        <categories>Error</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Following Error occured</shortDescription>
+        <value>Following Error occured while submitting the form</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Following_error_occurred_approval</fullName>
+        <categories>Error</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Following error occurred approval</shortDescription>
+        <value>Following error occurred while submitting for approval</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Go_Back_Link</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Go Back Link</shortDescription>
+        <value>Go Back</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Maximum_Attachments_Allowed</fullName>
+        <categories>Hardcoded</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Maximum Attachments Allowed</shortDescription>
+        <value>10</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Only_One_Submission_Assessment</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Only One Submission Assessment</shortDescription>
+        <value>You cannot create more than one Submission Assessment per Submission</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Org_Wide_Email_Address</fullName>
+        <categories>Hardcoded</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Org Wide Email Address</shortDescription>
+        <value>ads_admin@lists.lilly.com</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Org_Wide_Email_Address_Display_Name</fullName>
+        <categories>Hardcoded</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Org Wide Email Address Display Name</shortDescription>
+        <value>ADS</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Please_select_Uploading_files</fullName>
+        <categories>Error</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please select Uploading files</shortDescription>
+        <value>Please select how many files you want to upload.</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Please_select_at_least_one_file</fullName>
+        <categories>Error</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please select at-least one file</shortDescription>
+        <value>Please select at-least one file</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Please_select_rating</fullName>
+        <categories>Error</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please select rating</shortDescription>
+        <value>Please select rating for all the questions before submitting for approval.</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Pre_Text_For_Country</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Pre Text For Country</shortDescription>
+        <value>-- Please click on the icon to select a country --</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Pre_Text_For_Region</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Pre Text For Region</shortDescription>
+        <value>-- Please click on the icon to select a region --</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Pre_Text_For_User</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Pre Text For User</shortDescription>
+        <value>-- Click on the icon to select User/s --</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Print</fullName>
+        <categories>Button</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Print</shortDescription>
+        <value>Print Assessment</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Review_Assessment</fullName>
+        <categories>Custom Link</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Review Assessment</shortDescription>
+        <value>Review Assessment</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Save_Response_button</fullName>
+        <categories>Button</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Save Response button</shortDescription>
+        <value>Save Response</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Save_as_Draft</fullName>
+        <categories>Button</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Save as Draft</shortDescription>
+        <value>Save as Draft</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Section_Title_Additional_Information</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss_Section_Title_Additional_Information</shortDescription>
+        <value>Additional Information</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Section_Title_Assessment_Details</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss_Section_Title_Assessment_Details</shortDescription>
+        <value>Assessment Details</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Section_Title_Select_Files</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss_Section_Title_Select_Files</shortDescription>
+        <value>Select Files</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Section_Title_Submission_Details</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss_Section_Title_Submission_Details</shortDescription>
+        <value>Submission Details</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Select_Button</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss_Select_Button</shortDescription>
+        <value>Select</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Select_Either_To_or_CC</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Select Either To or CC</shortDescription>
+        <value>Please select either To or CC field</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Submission_Assessment_Not_Editable</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Submission Assessment Not Editable</shortDescription>
+        <value>As the submission assessment is completed it cannot be edited.</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Submission_Form_Attachment_Message</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss_Submission_Form_Attachment_Message</shortDescription>
+        <value>How many files would you like to upload for this submission?</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Submission_From_SubTitle</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss_Submission_From_SubTitle</shortDescription>
+        <value>Affiliate Document Submission</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Submission_form_description</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Submission form description</shortDescription>
+        <value>A separate submission is required for each unique item (procedure, job aid, etc.) that needs to be assessed.  Complete the following fields to provide us details regarding the document (and supporting documents) you are submitting for review and approval.</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Submit</fullName>
+        <categories>Button</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Submit</shortDescription>
+        <value>Submit</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Submit_for_Approval</fullName>
+        <categories>Button</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Submit for Approval</shortDescription>
+        <value>Submit for Approval</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Submitting_request_for_approval</fullName>
+        <categories>Error</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Submitting request for approval</shortDescription>
+        <value>Submitting request for approval.</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_error_while_inserting_pdf_as_attachment</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss error while inserting pdf as attachment</shortDescription>
+        <value>Error occurred while inserting pdf (submission assessment report) as an attachment.</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_file_s_are_uploaded_successfully</fullName>
+        <categories>Comment</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>file(s) are uploaded successfully</shortDescription>
+        <value>file(s) are uploaded successfully</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_provide_email_subject</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss provide email subject</shortDescription>
+        <value>Please provide an email subject</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_unexpected_error</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss unexpected error</shortDescription>
+        <value>An unexpected error has occurred. Please contact system administrator.</value>
+    </labels>
+    <labels>
+        <fullName>Irss_No_records_to_display_on_Approval_History_Page</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Irss No records to display on Approval History Page</shortDescription>
+        <value>No records to display</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_AssessmentPage_Description</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD AssessmentPage - Description</shortDescription>
+        <value>Enter the Cirrus process and begin your change journey by completing the assessment questions below.</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_AssessmentPage_End</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD AssessmentPage - End</shortDescription>
+        <value>Submit</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_AssessmentPage_Question_Project_Name</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD AssessmentPage - Question Project Name</shortDescription>
+        <value>Please tell us your project&apos;s name</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_AssessmentPage_Result_Message_More_Info_1</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD AssessmentPage - Result - Message More Info 1 (prefix)</shortDescription>
+        <value>If you have any questions in the meantime please click</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_AssessmentPage_Result_Message_More_Info_2</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD AssessmentPage - Result - Message More Info 2 (link)</shortDescription>
+        <value>here</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_AssessmentPage_Result_Message_More_Info_3</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD AssessmentPage - Result - Message More Info 2 (link)</shortDescription>
+        <value>for the LillyFit chatter group</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_AssessmentPage_Result_Message_for_Force</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD AssessmentPage - Result - Message for Force.com</shortDescription>
+        <value>The Cirrus team will contact you in the next few days to review your LillyFit Assessment responses.</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_AssessmentPage_Result_Message_for_non_Force</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD AssessmentPage - Result - Message for non Force.com</shortDescription>
+        <value>A member of the Enterprise Architecture team team will contact you in the next few days to review your LillyFit Assessment responses.</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_AssessmentPage_Result_Thanks</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD AssessmentPage - Result - Thanks</shortDescription>
+        <value>Many thanks, The Launchpad Team</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_AssessmentPage_Score_A_Result_Heading</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD AssessmentPage - Score A Result - Heading</shortDescription>
+        <value>Your idea appears to be suitable for Force.com</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_AssessmentPage_Score_B_Result_Heading</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD AssessmentPage - Score B Result - Heading</shortDescription>
+        <value>Your idea appears to be suitable for Sharepoint</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_AssessmentPage_Score_C_Result_Heading</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD AssessmentPage - Score C Result - Heading</shortDescription>
+        <value>Your idea appears to be suitable for LillyCloud</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_AssessmentPage_Score_D_Result_Heading</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD AssessmentPage - Score D Result - Heading</shortDescription>
+        <value>Your idea appears to be suitable for Web Hosting</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_AssessmentPage_Score_E_Result_Heading</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD AssessmentPage - Score E Result - Heading</shortDescription>
+        <value>Your idea appears to be suitable for Business Strategic / Custom</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_AssessmentPage_Start</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD AssessmentPage -Start</shortDescription>
+        <value>Get Started</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_AssessmentPage_Title</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD AssessmentPage - Title</shortDescription>
+        <value>LILLYFIT ASSESSMENT</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_Chatter_Heading</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD Chatter Heading</shortDescription>
+        <value>Join the discussion</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_CirrusProcessPage_Description</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD CirrusProcessPage - Description</shortDescription>
+        <value>The Cirrus process will get your idea off the ground and operating in the business quicker than ever before. Have a look at the diagram below for details on each stage of the process.</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_CirrusProcessPage_Start</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD CirrusProcessPage - Start</shortDescription>
+        <value>View Process</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_CirrusProcessPage_Start_Process</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD CirrusProcessPage - Start Process</shortDescription>
+        <value>View Process</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_CirrusProcessPage_Title</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD CirrusProcessPage - Title</shortDescription>
+        <value>PROCESS</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_Footer_Email_Link</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD Footer - Email Link</shortDescription>
+        <value>here</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_Footer_Email_Prefix</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD Footer - Email Prefix</shortDescription>
+        <value>Click</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_Footer_Email_Suffix</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD Footer - Email Suffix</shortDescription>
+        <value>to email the Cirrus team</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_Footer_Title</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD Footer - Title</shortDescription>
+        <value>Cirrus Launchpad</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_Header_Menu_Assessment</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD Header Menu - Assessment</shortDescription>
+        <value>LillyFit Assessment</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_Header_Menu_Cirrus_Process</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD Header Menu - Cirrus Process</shortDescription>
+        <value>Cirrus Process</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_Header_Menu_Force</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD Header Menu - Force.com</shortDescription>
+        <value>Force.com</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_Header_Menu_Home</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD Header Menu - Home</shortDescription>
+        <value>Home</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_Header_Menu_Information</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD Header Menu - Information</shortDescription>
+        <value>View Information</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_Header_Menu_Success_Stories</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD Header Menu - Success Stories</shortDescription>
+        <value>Success Stories</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_InformationPage_Description</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD InformationPage - Description</shortDescription>
+        <value>Explore the art of the possible and find out how the Cirrus process can take your idea and make it reality.</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_InformationPage_Title</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD InformationPage - Title</shortDescription>
+        <value>INFORMATION</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_LandingPage_Description</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD LandingPage - Description</shortDescription>
+        <value>Cirrus enables fast and flexible delivery of technology enabled projects. Explore Launchpad to understand the limits of what we can achieve, or take the Cirrus assessment to get your project started. Your change journey starts here.</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_LandingPage_Title</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD LandingPage - Title</shortDescription>
+        <value>LAUNCHPAD</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_SuccessStoriesPage_Description</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD SuccessStoriesPage - Description</shortDescription>
+        <value>Read about the numerous Cirrus successes to date and begin to understand the technology that is available for you to build on.</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_SuccessStoriesPage_Title</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD SuccessStoriesPage - Title</shortDescription>
+        <value>SUCCESS STORIES</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_SuccessStoryDetailPage_Back</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD SuccessStoryDetailPage - Back</shortDescription>
+        <value>Back to Success Stories</value>
+    </labels>
+    <labels>
+        <fullName>Label_Iriss_Approval_History_Status_Column</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>{!$Label.Iriss_Approval_History_Status_Column}</shortDescription>
+        <value>Status</value>
+    </labels>
+    <labels>
+        <fullName>MICO_Add_An_Attachment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MICO_Add_An_Attachment</shortDescription>
+        <value>Add An Attachment</value>
+    </labels>
+    <labels>
+        <fullName>MICO_AttachFile</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MICO_AttachFile</shortDescription>
+        <value>Attach File</value>
+    </labels>
+    <labels>
+        <fullName>MICO_Awaiting_Approval</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MICO_Awaiting_Approval</shortDescription>
+        <value>Awaiting Approval</value>
+    </labels>
+    <labels>
+        <fullName>MICO_Error_On_Test_Execution</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error Message</shortDescription>
+        <value>An attachment cannot be deleted once a Test Execution has been approved or is pending approval</value>
+    </labels>
+    <labels>
+        <fullName>MICO_Error_On_Test_Execution_Step</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error Message</shortDescription>
+        <value>An attachment cannot be deleted once a Test Execution Step has been approved or is pending approval</value>
+    </labels>
+    <labels>
+        <fullName>MICO_Error_On_Test_Script</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error Message when user tries to delete an attachment</shortDescription>
+        <value>An attachment cannot be deleted once a Test Script has been approved or is pending approval</value>
+    </labels>
+    <labels>
+        <fullName>MICO_Passed</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Test Outcome label to be used in Apex Class</shortDescription>
+        <value>Passed</value>
+    </labels>
+    <labels>
+        <fullName>MICO_Passed_Minor_Issues</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Test Outcome label to be used in Apex Class</shortDescription>
+        <value>Passed with minor issues</value>
+    </labels>
+    <labels>
+        <fullName>MICO_Save_Test_Execution</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message to notify end user to complete all the test steps</shortDescription>
+        <value>Please complete all the test steps to complete the test</value>
+    </labels>
+    <labels>
+        <fullName>MICO_Save_Test_Execution_Button</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Name of the buttom on Run Test Script Page bottom</shortDescription>
+        <value>Save test execution</value>
+    </labels>
+    <labels>
+        <fullName>MICO_Save_Test_Outcome</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message to notify end user to fill test outcome fields</shortDescription>
+        <value>Please fill overall test outcome and overall test comments to complete the test</value>
+    </labels>
+    <labels>
+        <fullName>MICO_Save_Test_Step</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Name of the buttom on Run Test Script Page</shortDescription>
+        <value>Save Step</value>
+    </labels>
+    <labels>
+        <fullName>MICO_Submit_for_Approval</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MICO_Submit_for_Approval</shortDescription>
+        <value>Submit for Approval</value>
+    </labels>
+    <labels>
+        <fullName>MICO_Submitting_request_for_approval</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MICO_Submitting_request_for_approval</shortDescription>
+        <value>Submitting request for approval</value>
+    </labels>
+    <labels>
+        <fullName>Meeting_Locked_MERC</fullName>
+        <categories>Error Message</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Meeting_Locked_MERC</shortDescription>
+        <value>Operation Failed:  The record is locked due to the meeting being closed.  Please contact Customer Meeting Services for Assistance.</value>
+    </labels>
+    <labels>
+        <fullName>New_Person_Button_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>New Person Button</shortDescription>
+        <value>New Person</value>
+    </labels>
+    <labels>
+        <fullName>No_Search_Results_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error No Search Results</shortDescription>
+        <value>No Search Results.</value>
+    </labels>
+    <labels>
+        <fullName>Person_Search_All_Record_Types_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Person Search All Record Types</shortDescription>
+        <value>All</value>
+    </labels>
+    <labels>
+        <fullName>Person_Search_Results_Record_Type_Column_Label_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Person Search Results Record Type Column Label</shortDescription>
+        <value>Record Type</value>
+    </labels>
+    <labels>
+        <fullName>Person_Search_Tab_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Person Search Tab</shortDescription>
+        <value>Person Search</value>
+    </labels>
+    <labels>
+        <fullName>Please_Select_Requester_or_Referred_By_MVN</fullName>
+        <categories>PersonSearchControllerMVN</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please Select Requester or Referred By</shortDescription>
+        <value>Please select &quot;Create Requester&quot; or &quot;Create Referred By.&quot;</value>
+    </labels>
+    <labels>
+        <fullName>QR_Cards_Password</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>QR Cards Password</shortDescription>
+        <value>tracker</value>
+    </labels>
+    <labels>
+        <fullName>Remove_Person_Button_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Remove Person Button</shortDescription>
+        <value>(remove)</value>
+    </labels>
+    <labels>
+        <fullName>Return_To_Interaction_Button_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Return To Interaction Button</shortDescription>
+        <value>Return To Case</value>
+    </labels>
+    <labels>
+        <fullName>Return_to_Request_MVN</fullName>
+        <categories>KnowledgeSearchMVN</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Return to Request</shortDescription>
+        <value>Return to Request</value>
+    </labels>
+    <labels>
+        <fullName>SEC_Form_Demographics_Page_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SEC Form Demographics Page Name in TrialForce</shortDescription>
+        <value>Demographics</value>
+    </labels>
+    <labels>
+        <fullName>SOSL_Phone_Search_Min_Char_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error SOSL Phone Search Min Char</shortDescription>
+        <value>Phone searches must have at least 2 numeric characters:</value>
+    </labels>
+    <labels>
+        <fullName>Search_Term_Required_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Search Term Required</shortDescription>
+        <value>Must specify at least one field to begin searching.</value>
+    </labels>
+    <labels>
+        <fullName>Selected_Referrer_MVN</fullName>
+        <categories>SelectedRequesterMVN, PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Selected Referrer</shortDescription>
+        <value>Referred By:</value>
+    </labels>
+    <labels>
+        <fullName>Selected_Reqester_MVN</fullName>
+        <categories>SearchRequesterMVN,PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Selected Reqester</shortDescription>
+        <value>Requester:</value>
+    </labels>
+    <labels>
+        <fullName>Service_Cloud_Knowledge_Search_Cancel_MVN</fullName>
+        <categories>KnowledgeSearchMVN, PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Service Cloud Knowledge Search Cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>Sprint_Design_Fields</fullName>
+        <categories>Technical Document Generation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sprint Design Fields</shortDescription>
+        <value>Overview__c
+Data_Model__c
+Fields__c
+Objects__c
+Page_Layouts__c
+Apex_Classes__c
+Visualforce_Pages__c
+Apex_Trigger__c
+Other_Components__c</value>
+    </labels>
+    <labels>
+        <fullName>TRFO_Atleast_One_Record</fullName>
+        <categories>Used in Trial Management controller</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Atleast One Record</shortDescription>
+        <value>Please select atleast one record</value>
+    </labels>
+    <labels>
+        <fullName>TRFO_Do_Not_Enter_Any_Value</fullName>
+        <categories>Used in new button override on Sites, Contacts and Leads</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRFO Do Not Enter Any Value</shortDescription>
+        <value>TRFO_Do_Not_Enter_Any_Value</value>
+    </labels>
+    <labels>
+        <fullName>TRFO_Document_Label_1</fullName>
+        <categories>Used in TRFO_TFLinks class</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRFO Document Label 1</shortDescription>
+        <value>Trialforce- Reports-Offline-Email Training</value>
+    </labels>
+    <labels>
+        <fullName>TRFO_Document_Label_2</fullName>
+        <categories>Used in TRFO_TFLinks class</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRFO Document Label 2</shortDescription>
+        <value>TrialForce Quick Reference Guide</value>
+    </labels>
+    <labels>
+        <fullName>TRFO_Domain_URL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRFO_Domain URL</shortDescription>
+        <value>https://gso--tfdev.cs17.my.salesforce.com</value>
+    </labels>
+    <labels>
+        <fullName>TRFO_EU_Home_Page_Layout_1</fullName>
+        <categories>Used in TRFO_TFLinks class</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRFO EU Home Page Layout 1</shortDescription>
+        <value>EU Trialforce Home Page Layout 1</value>
+    </labels>
+    <labels>
+        <fullName>TRFO_EU_Home_Page_Layout_2</fullName>
+        <categories>Used in TRFO_TFLinks class</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRFO EU Home Page Layout 2</shortDescription>
+        <value>EU Trialforce Home Page Layout</value>
+    </labels>
+    <labels>
+        <fullName>TRFO_EU_Links</fullName>
+        <categories>Used in TRFO_TFLinks class</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRFO EU Links</shortDescription>
+        <value>EU Links</value>
+    </labels>
+    <labels>
+        <fullName>TRFO_ErrorMsgForDuplicateMember</fullName>
+        <categories>Used in TRFO_AddSiteTeamMembersExt class</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRFO_ErrorMsgForDuplicateMember</shortDescription>
+        <value>Duplicate Team Member Found. Please remove the duplicate  record and Save</value>
+    </labels>
+    <labels>
+        <fullName>TRFO_ErrorMsgForExistingMember</fullName>
+        <categories>Used in TRFO_AddSiteTeamMembersExt class</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRFO_ErrorMsgForExistingMember</shortDescription>
+        <value>Team Member already present in the System. Please select another User</value>
+    </labels>
+    <labels>
+        <fullName>TRFO_ErrorMsgForMandatoryFieldsMissing</fullName>
+        <categories>Used in TRFO_AddSiteTeamMembersExt class</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRFO_ErrorMsgForMandatoryFieldsMissing</shortDescription>
+        <value>Site Access,Trial Site Access,Team Role mandatory to add the Team Member to Site Team</value>
+    </labels>
+    <labels>
+        <fullName>TRFO_FORMGENError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRFO_FORMGENError</shortDescription>
+        <value>Form cannot be generated if the stage is not &apos;Selected&apos;</value>
+    </labels>
+    <labels>
+        <fullName>TRFO_FORMGENError2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRFO_FORMGENError2</shortDescription>
+        <value>There is a error in form generation, please contact system admin</value>
+    </labels>
+    <labels>
+        <fullName>TRFO_Filter_Criteria</fullName>
+        <categories>Used in Trial Management controller</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRFO Filter Criteria</shortDescription>
+        <value>Please set the filter criteria</value>
+    </labels>
+    <labels>
+        <fullName>TRFO_Home_Page_Document_Link_1</fullName>
+        <categories>Used in TRFO_TFLinks class</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRFO Home Page Document Link 1</shortDescription>
+        <value>TrialForce Reports-Offline Training</value>
+    </labels>
+    <labels>
+        <fullName>TRFO_Home_Page_Document_Link_2</fullName>
+        <categories>Used in TRFO_TFLinks class</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRFO Home Page Document Link 2</shortDescription>
+        <value>TrialForce Quick Reference Guides</value>
+    </labels>
+    <labels>
+        <fullName>TRFO_Home_Page_Layout_1</fullName>
+        <categories>Used in TRFO_TFLinks class</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRFO Home Page Layout 1</shortDescription>
+        <value>TrialForce Home Page</value>
+    </labels>
+    <labels>
+        <fullName>TRFO_Home_Page_Layout_2</fullName>
+        <categories>Used in TRFO_TFLinks class</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRFO Home Page Layout 2</shortDescription>
+        <value>Dashboard Home Page Default</value>
+    </labels>
+    <labels>
+        <fullName>TRFO_Insufficient_Privileges</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRFO Insufficient Privileges</shortDescription>
+        <value>You do not have sufficient privileges to view this page.</value>
+    </labels>
+    <labels>
+        <fullName>TRFO_Lead_Conversion_Error</fullName>
+        <categories>Used in Lead Conversion controller</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRFO Lead Conversion Error</shortDescription>
+        <value>There are some errors during Lead Conversion. Please contact your system administrator</value>
+    </labels>
+    <labels>
+        <fullName>TRFO_Member_Add_Successfull</fullName>
+        <categories>used in Trial Management controller</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRFO Member Add Successfull</shortDescription>
+        <value>Members added successfully to Trials</value>
+    </labels>
+    <labels>
+        <fullName>TRFO_Refrain_Search</fullName>
+        <categories>Used in Trial Management</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRFO Refrain Search</shortDescription>
+        <value>There are no members to display. Use the redefine your search options to find and add members</value>
+    </labels>
+    <labels>
+        <fullName>TRFO_Remove_Members</fullName>
+        <categories>Used in Trial Management controller</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRFO Remove Members</shortDescription>
+        <value>Member(s) removed successfully</value>
+    </labels>
+    <labels>
+        <fullName>TRFO_Select_Atleast_One_Record</fullName>
+        <categories>Used in Trail Management controller</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRFO Select Atleast One Record</shortDescription>
+        <value>Please select atleast one record</value>
+    </labels>
+    <labels>
+        <fullName>TRFO_Select_one_record</fullName>
+        <categories>Used in TRFO TrialManagement</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRFO Select one record</shortDescription>
+        <value>Please select at least one record for update</value>
+    </labels>
+    <labels>
+        <fullName>TRFO_TF_Links</fullName>
+        <categories>Used in TRFO_TFLinks class</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRFO TF Links</shortDescription>
+        <value>TF Links</value>
+    </labels>
+    <labels>
+        <fullName>TRFO_Trial_Member_Decline</fullName>
+        <categories>This label is used in Trail Management controller</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRFO Trial Member Decline</shortDescription>
+        <value>You must choose a reason when the status is Not Interested</value>
+    </labels>
+    <labels>
+        <fullName>TRFO_Trial_Member_Error</fullName>
+        <categories>Used in Trail Management controllers</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRFO Trial Member Error</shortDescription>
+        <value>There is an error while adding or updating trial members. Please contact your system administrator</value>
+    </labels>
+    <labels>
+        <fullName>TRFO_View_All_Trial_Members_Report_ID</fullName>
+        <categories>Used in View All Trial Members Report Link</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TRFO View All Trial Members Report ID</shortDescription>
+        <value>00Og0000000K3PU</value>
+    </labels>
+    <labels>
+        <fullName>Team_Member_Access_MERC</fullName>
+        <categories>Error Message</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Team_Member_Access_MERC</shortDescription>
+        <value>Access Restricted: You do not have access to add additional Mercury Team Members to the Meeting Team. Please contact the Primary Meeting Owner for assistance.</value>
+    </labels>
+    <labels>
+        <fullName>ToV_Already_Reported</fullName>
+        <categories>Error Message, MERC_MeetingParticipantTovValidation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ToV Already Reported</shortDescription>
+        <value>ToV has already been reported for participants of this Meeting. Customer Meeting Services needs to confirm this change before it can be made.</value>
+    </labels>
+    <labels>
+        <fullName>Too_Many_Results_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error Too Many Results</shortDescription>
+        <value>Too Many Results.</value>
+    </labels>
+    <labels>
+        <fullName>Tov_Cannot_be_null_after_reported</fullName>
+        <categories>MERC_MeetingParticipantTovValidation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Tov Cannot be null after reported</shortDescription>
+        <value>You may not enter a blank value if ToV has already been reported for this Meeting</value>
+    </labels>
+</CustomLabels>
