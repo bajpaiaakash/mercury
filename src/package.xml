@@ -1,8 +1,34 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
+        <members>CUST_AdminUtilitiesController</members>
+        <members>CUST_AdminUtilitiesControllerTest</members>
+        <members>CUST_Scheduler</members>
+        <members>CUST_SchedulerTest</members>
+        <members>CUST_UserSettingsStatusChangeBatchTest</members>
+        <members>CUST_UserSettingsStatusChangeBatchable</members>
+        <members>GLBL_AccountMergeStampTrigger</members>
+        <members>GLBL_AccountMergeStampTriggerTest</members>
+        <members>GLBL_CustomerSearchToolService</members>
+        <members>GLBL_CustomerSearchToolServiceMock</members>
+        <members>GLBL_CustomerSearchToolServiceTest</members>
+        <members>MERC_AddMeetingParticipantsCntlrTest</members>
+        <members>MERC_AddMeetingParticipantsController</members>
         <members>MERC_DailyAttendanceController</members>
+        <members>MERC_DailyAttendanceControllerStressTest</members>
         <members>MERC_DailyAttendanceControllerTest</members>
+        <members>MERC_InvoiceXmlWriter</members>
+        <members>MERC_InvoiceXmlWriterTest</members>
+        <members>MERC_MergeHistoryStampTriggerHandler</members>
+        <members>MERC_MergeHistoryStampTriggerHandlerTest</members>
+        <members>MERC_MergedAccountApex</members>
+        <members>MERC_MergedAccountApexTest</members>
+        <members>MERC_MergedAccountsController</members>
+        <members>MERC_MergedAccountsControllerTest</members>
+        <members>MERC_MergedAccountsFinalProcessJob</members>
+        <members>MERC_TimeZoneUtility</members>
+        <members>MERC_TriggerHandlerStateManager</members>
+        <members>MERC_Util</members>
         <members>MERC_HcpCapActualsCalculator</members>
         <members>MERC_HcpCapLimitCalculator</members>
         <members>MERC_HcpCapLimitCalculatorTest</members>
@@ -18,9 +44,21 @@
         <name>ApexClass</name>
     </types>
     <types>
+        <members>MERC_AddMeetingParticipants</members>
+        <members>MERC_DailyAttendance</members>
+        <members>MERC_MergedAccounts</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
         <members>MERC_DailyAttendanceTOV</members>
         <members>MERC_TravelItinerary</members>
+        <members>MERC_Account</members>
+        <members>MERC_MergeHistoryTrigger</members>
         <name>ApexTrigger</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>CustomLabels</name>
     </types>
     <types>
         <members>Account</members>
@@ -31,16 +69,16 @@
         <members>Mercury_Settings_MERC__c</members>
         <name>CustomObject</name>
     </types>
-    <types>
-        <members>Daily_Attendance_TOV_MERC__c-MERC_Daily Attendance %26 TOV</members>
-        <members>Meeting_Day_MERC__c-MERC_Meeting Day</members>
-        <members>Meeting_Participant_MERC__c-MERC_Consulting</members>
-        <members>Meeting_Participant_MERC__c-MERC_Delegate</members>
-        <members>Meeting_Participant_MERC__c-MERC_Individual Sponsorship</members>
-        <members>Meeting_Participant_MERC__c-MERC_Service Provider</members>
+     <types>
+        <members>Daily_Attendance_TOV_MERC__cMERC_Daily Attendance %26 TOV</members>
+        <members>Meeting_Day_MERC__cMERC_Meeting Day</members>
+        <members>Meeting_Participant_MERC__cMERC_Consulting</members>
+        <members>Meeting_Participant_MERC__cMERC_Delegate</members>
+        <members>Meeting_Participant_MERC__cMERC_Individual Sponsorship</members>
+        <members>Meeting_Participant_MERC__cMERC_Service Provider</members>
         <name>Layout</name>
-    </types>
-    <types>
+     </types>
+     <types>
         <members>Mercury_Account_Manager_Edit</members>
         <members>Mercury_Customer_Meeting_Services_Edit</members>
         <members>Mercury_Legal_Edit</members>
@@ -49,11 +87,11 @@
         <members>Mercury_Meeting_Planning_Company_Edit</members>
         <members>Mercury_Travel_Agent_Edit</members>
         <name>PermissionSet</name>
-    </types>
-    <types>
+     </types>
+     <types>
         <members>Admin</members>
-        <members>Mercury Integration ODS - Platform</members>
+        <members>Mercury Integration ODS  Platform</members>
         <name>Profile</name>
-    </types>
-    <version>31.0</version>
+     </types>
+    <version>32.0</version>
 </Package>
