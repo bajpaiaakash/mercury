@@ -4978,7 +4978,7 @@ Created by John A Adams 11/4/2013</description>
     </fields>
     <fields>
         <fullName>Update_Subscriber_Error_ET_MERC__c</fullName>
-        <description>Shows last error updating ET subscriber</description>
+        <description>Shows last error updating ET subscriber </description>
         <externalId>false</externalId>
         <label>Update Subscriber Error</label>
         <length>10000</length>
