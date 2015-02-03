@@ -18,7 +18,6 @@
         <members>MERC_InvoiceXmlWriter</members>
         <members>MERC_InvoiceXmlWriterTest</members>
         <members>MERC_MeetingParticipantNewEditController</members>
-        <members>MERC_MergedAccountsFinalProcessJob</members>
         <members>MERC_MergeHistoryStampTriggerHandler</members>
         <members>MERC_MergeHistoryStampTriggerHandlerTest</members>
         <members>MERC_ParticipantStatusCalculator</members>
