@@ -1110,6 +1110,17 @@ Created by John A Adams 1/7/2014</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Institutional_Notif_Validation_Sent_MERC__c</fullName>
+        <description>Record last date of DI validation and tracking.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date that request for validation of the Institutional Notification information on file was sent.</inlineHelpText>
+        <label>Institutional Notif Validation Sent</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Institutional_Notification_Complete_MERC__c</fullName>
         <description>Used by portal. Pulls from Account record to indicate if Institutional Notification Step is completed by HCP. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -1124,8 +1135,19 @@ Created by John A Adams 1/7/2014</description>
         <fullName>Institutional_Notification_Sent_MERC__c</fullName>
         <description>Used to input date the institutional notifications were sent out for the meeting participant. Also needed for reporting. Created 04/29/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <inlineHelpText>Date Institutional Notification was sent to Designated Individuals</inlineHelpText>
-        <label>Institutional Notification Sent</label>
+        <inlineHelpText>Date that all designated individual notifications and any responses required for the secondary method has been received.  Notification is complete.</inlineHelpText>
+        <label>Institutional Notification Completed</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Instnl_Notif_Sent_Secondary_Method_MERC__c</fullName>
+        <description>Date when all designated individuals were notified and asked to respond.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Secondary method only. Date when all designated individuals were notified and asked to respond.  Notification is not yet complete; responses are pending.</inlineHelpText>
+        <label>Institutional Notif Sent-SecondaryMethod</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -1367,6 +1389,43 @@ Created by John A Adams 10/31/2013</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Notification_Method_MERC__c</fullName>
+        <description>Record whether secondary method is used for notification</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Select the method of notification. This selection drives the corporate metrics for the Institutional Notification program.</inlineHelpText>
+        <label>Notification Method</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Primary Method (ON TIME)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Primary Method (LATE)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SECONDARY Method</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Primary or Secondary Method NOT COMPLETED</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Notification not required (SELF-EMPLOYED)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Not Applicable per business process</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Number_of_Completed_Contracts_MERC__c</fullName>
@@ -2469,6 +2528,17 @@ Created by John A Adams 12/12/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Validation_Complete_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>A check box that can be checked when response for the validation has been received.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Check this box when all validation activities are complete, any Designated Individuals information is updated and Notification may begin.</inlineHelpText>
+        <label>Validation Complete</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Video_Audio_Recording_MERC__c</fullName>
         <description>Is record consent needed for the meeting? Oliver Dunford 5th Nov 2013</description>
         <externalId>false</externalId>
@@ -2754,6 +2824,33 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
             </values>
             <values>
                 <fullName>Trained to speak on this topic</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Notification_Method_MERC__c</picklist>
+            <values>
+                <fullName>Not Applicable per business process</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Notification not required %28SELF-EMPLOYED%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Primary Method %28LATE%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Primary Method %28ON TIME%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Primary or Secondary Method NOT COMPLETED</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SECONDARY Method</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3119,6 +3216,33 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
             </values>
             <values>
                 <fullName>Trained to speak on this topic</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Notification_Method_MERC__c</picklist>
+            <values>
+                <fullName>Not Applicable per business process</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Notification not required %28SELF-EMPLOYED%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Primary Method %28LATE%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Primary Method %28ON TIME%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Primary or Secondary Method NOT COMPLETED</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SECONDARY Method</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3500,6 +3624,33 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Notification_Method_MERC__c</picklist>
+            <values>
+                <fullName>Not Applicable per business process</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Notification not required %28SELF-EMPLOYED%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Primary Method %28LATE%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Primary Method %28ON TIME%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Primary or Secondary Method NOT COMPLETED</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SECONDARY Method</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Partial_Payment_Justification_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -3861,6 +4012,33 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Notification_Method_MERC__c</picklist>
+            <values>
+                <fullName>Not Applicable per business process</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Notification not required %28SELF-EMPLOYED%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Primary Method %28LATE%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Primary Method %28ON TIME%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Primary or Secondary Method NOT COMPLETED</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SECONDARY Method</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Partial_Payment_Justification_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -4164,6 +4342,14 @@ TEXT(Confirm_Final_Fee_MERC__c) = &quot;Confirmed&quot; &amp;&amp; TEXT(Services
 (ISPICKVAL(Meeting_MERC__r.Participant_ToV_Final_MERC__c,&quot;No&quot;) ||
 ISPICKVAL(Meeting_MERC__r.Participant_ToV_Final_MERC__c,&quot;&quot;))</errorConditionFormula>
         <errorMessage>You may not enter 0.00 unless ToV has already been reported for this Meeting</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>MERC_Indicate_Notification_Method</fullName>
+        <active>true</active>
+        <description>User should indicate the Notification Method used to send the Institutional Notification.</description>
+        <errorConditionFormula>NOT(ISBLANK( Institutional_Notification_Sent_MERC__c )) &amp;&amp;   TEXT( Notification_Method_MERC__c)=NULL</errorConditionFormula>
+        <errorDisplayField>Notification_Method_MERC__c</errorDisplayField>
+        <errorMessage>Please indicate the Notification Method used to send the Institutional Notification.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>MERC_Partial_Payment_Allowed</fullName>

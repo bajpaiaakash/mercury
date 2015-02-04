@@ -17,6 +17,8 @@
         <members>MERC_HotelAllocationCalculator</members>
         <members>MERC_InvoiceXmlWriter</members>
         <members>MERC_InvoiceXmlWriterTest</members>
+        <members>MERC_MeetingCancellationHandler</members>
+        <members>MERC_MeetingCancellationHandlerTest</members>
         <members>MERC_MeetingParticipantNewEditController</members>
         <members>MERC_MergeHistoryStampTriggerHandler</members>
         <members>MERC_MergeHistoryStampTriggerHandlerTest</members>
@@ -77,5 +79,9 @@
         <members>Mercury Integration ODS - Platform</members>
         <name>Profile</name>
      </types>
+    <types>
+        <members>Account</members>
+        <name>Workflow</name>
+    </types>
     <version>32.0</version>
 </Package>

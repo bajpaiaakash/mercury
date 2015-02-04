@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
     <classAccesses>
+<<<<<<< HEAD
         <apexClass>MERC_DailyAttendanceController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -2608,6 +2609,16 @@
         <field>Meeting_MERC__c.of_Sponsorship_Group_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
+=======
+        <apexClass>MERC_MeetingCancellationHandler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_MeetingCancellationHandlerTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <description>Permission set to give the Account Manager access to edit the objects they should have access to edit</description>
+>>>>>>> TCSdevelop
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Account_External_MERC__c</field>
@@ -2685,11 +2696,14 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+<<<<<<< HEAD
         <field>Meeting_Participant_MERC__c.CoPay_AODS_Indiv_Transportation_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+=======
+>>>>>>> TCSdevelop
         <field>Meeting_Participant_MERC__c.CoPay_AODS_Registration_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2714,11 +2728,14 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+<<<<<<< HEAD
         <editable>false</editable>
         <field>Meeting_Participant_MERC__c.CoPay_Individual_Transport_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+=======
+>>>>>>> TCSdevelop
         <editable>true</editable>
         <field>Meeting_Participant_MERC__c.CoPay_Registration_MERC__c</field>
         <readable>true</readable>
@@ -2909,6 +2926,14 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+<<<<<<< HEAD
+=======
+        <editable>true</editable>
+        <field>Meeting_Participant_MERC__c.Institutional_Notif_Validation_Sent_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+>>>>>>> TCSdevelop
         <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Institutional_Notification_Complete_MERC__c</field>
         <readable>true</readable>
@@ -2920,6 +2945,14 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+<<<<<<< HEAD
+=======
+        <field>Meeting_Participant_MERC__c.Instnl_Notif_Sent_Secondary_Method_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+>>>>>>> TCSdevelop
         <field>Meeting_Participant_MERC__c.Invoice_Template_Needed_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2984,6 +3017,14 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+<<<<<<< HEAD
+=======
+        <editable>true</editable>
+        <field>Meeting_Participant_MERC__c.Notification_Method_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+>>>>>>> TCSdevelop
         <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Number_of_Completed_Contracts_MERC__c</field>
         <readable>false</readable>
@@ -3244,6 +3285,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+<<<<<<< HEAD
         <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Total_Indiv_Transport_ToV_Rollup_MERC__c</field>
         <readable>false</readable>
@@ -3254,6 +3296,8 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+=======
+>>>>>>> TCSdevelop
         <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Total_Registration_ToV_MERC__c</field>
         <readable>true</readable>
@@ -3345,6 +3389,14 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+<<<<<<< HEAD
+=======
+        <field>Meeting_Participant_MERC__c.Validation_Complete_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+>>>>>>> TCSdevelop
         <field>Meeting_Participant_MERC__c.Video_Audio_Recording_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3385,6 +3437,7 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
+<<<<<<< HEAD
         <object>Account</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
@@ -3488,6 +3541,11 @@
         <recordType>Meeting_MERC__c.Registered</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
+=======
+        <object>Meeting_Participant_MERC__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+>>>>>>> TCSdevelop
     <recordTypeVisibilities>
         <recordType>Meeting_Participant_MERC__c.Consulting</recordType>
         <visible>true</visible>
