@@ -230,14 +230,35 @@ private class MERC_DailyAttendanceControllerTest {
 
 			ApexPages.StandardSetController setController = new ApexPages.StandardSetController(new List<Daily_Attendance_TOV_MERC__c>());
 			MERC_DailyAttendanceController c = new MERC_DailyAttendanceController(setController);
-			c.upsertMissingTovRecords();
+			// System.assertNotEquals(true, c.hasError, 'Error in controller(1): '+ApexPages.getMessages());
+
+			// System.assertEquals(true,MERC_TOVCalculator.runIndividualTransferTovCalculation,'transfer tov not set to run');
+			// System.assertEquals(true,MERC_TOVCalculator.runHotelTovCalculation,'hotel tov not set to run');
+			MERC_TOVCalculator.runIndividualTransferTovCalculation = true;
+			MERC_TOVCalculator.runHotelTovCalculation = true;
+
+			p = c.upsertMissingTovRecords();
+			System.assertNotEquals(null, p, 'Unexpected null value for returned page reference.');
 			c = new MERC_DailyAttendanceController(setController);
-			c.upsertMissingTovRecords();
-			c = new MERC_DailyAttendanceController(setController);
+			System.assertNotEquals(true, c.hasError, 'Error in controller(2): '+ApexPages.getMessages());
+			// c.upsertMissingTovRecords();
+			// c = new MERC_DailyAttendanceController(setController);
+
+			System.assert(c.participants.size()>0,'no participants??');
+			for(MERC_DailyAttendanceController.ParticipantWrapper part : c.participants) {
+				if(part.tov.Meeting_Participant_MERC__c == participant.Id) {
+					System.assertEquals(part.tov.Confirm_ToV_Reporting_Change_MERC__c, false);
+					part.selected = true;
+				}
+			}
+			c.setSelectedToAttended();
+			System.assertNotEquals(true, c.hasError, 'Error in controller(3): '+ApexPages.getMessages());
+			c.refreshParticipants = true;
 
 			for(MERC_DailyAttendanceController.ParticipantWrapper part : c.participants) {
 				if(part.tov.Meeting_Participant_MERC__c == participant.Id) {
 					System.assertEquals(part.tov.Confirm_ToV_Reporting_Change_MERC__c, false);
+					System.assertEquals('Attended', part.tov.Status_MERC__c, 'Unexpected value for status: '+ part.tov.Status_MERC__c +'; '+part);
 				}
 			}
 		}
