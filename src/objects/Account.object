@@ -2508,7 +2508,7 @@ Created by John A Adams 12/18/2013</description>
     </fields>
     <fields>
         <fullName>First_Name_GLBL__c</fullName>
-        <description>Stores first name of the account. Created for CST application.</description>
+        <description>Stores first name of the account. Created for CST application</description>
         <externalId>false</externalId>
         <label>First Name</label>
         <length>40</length>
@@ -3128,7 +3128,7 @@ Created by John A Adams 10/28/2013</description>
     </fields>
     <fields>
         <fullName>Last_Name_GLBL__c</fullName>
-        <description>Stores second name of account. Created for CST application.</description>
+        <description>Stores second name of account. Created for CST application</description>
         <externalId>false</externalId>
         <label>Last Name</label>
         <length>80</length>
