@@ -601,18 +601,6 @@ Created by John Adams on 12/9/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Cost_Center_MERC__c</fullName>
-        <description>Cost Center entered solely for consulting meetings.  For other meeting types this is driven from Veeva or from the Budget record : MERC : Created on 23/01/2015 by Oliver Dunford, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <label>Cost Center</label>
-        <length>7</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Customer_Facing_End_Time_MERC__c</fullName>
         <description>Transforms the meeting end time in the timezone of the meeting to ensure a direct mapping to Veeva’s LOV end time field.  Thus removing complexity from the integration and incorporating in configuration. Oliver Dunford 25th March 2014.</description>
         <externalId>false</externalId>
@@ -2348,7 +2336,7 @@ Created by John A Adams 1/7/2014</description>
     </fields>
     <fields>
         <fullName>Internal_Order_Number_MERC__c</fullName>
-        <description>Stamped from associated Budget record, this is pulled over onto the Invoice and sent through to SAP.  Entered manually for Consulting Meetings as there is no Budget records for those : MERC : Created on 24/07/2014 by Oliver Dunford, Mavens Consulting</description>
+        <description>Stamped from associated Budget record, this is pulled over onto the Invoice and sent through to SAP : MERC : Created on 24/07/2014 by Oliver Dunford, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>Internal Order Number</label>
         <length>20</length>
@@ -2735,6 +2723,14 @@ Created by John Adams 11/6/2013</description>
                 <fullName>Customer Facing Team Initiated</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Regional Europe CMS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Global CMS</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
@@ -2941,10 +2937,6 @@ Created by John Adams 11/6/2013</description>
             </picklistValues>
             <picklistValues>
                 <fullName>Greenwich Mean Time (GMT)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>PBattisson Test Zone (Pacific/Kiritimati)</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -4278,7 +4270,6 @@ Created by John Adams 11/6/2013</description>
         <columns>Date_of_Event_MERC__c</columns>
         <columns>End_Date_of_Event_MERC__c</columns>
         <columns>Event_Country_MERC__c</columns>
-        <columns>Participant_ToV_Final_MERC__c</columns>
         <columns>Meeting_Status_MERC__c</columns>
         <columns>LAST_UPDATE</columns>
         <columns>CREATED_DATE</columns>
@@ -5860,11 +5851,19 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Global CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>International</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Local Affiliate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional Europe CMS</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5990,10 +5989,6 @@ Created by John Adams 11/6/2013</description>
             </values>
             <values>
                 <fullName>Omsk Time Zone %28Asia%2FOmsk%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PBattisson Test Zone %28Pacific%2FKiritimati%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7588,11 +7583,19 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Global CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>International</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Local Affiliate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional Europe CMS</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7718,10 +7721,6 @@ Created by John Adams 11/6/2013</description>
             </values>
             <values>
                 <fullName>Omsk Time Zone %28Asia%2FOmsk%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PBattisson Test Zone %28Pacific%2FKiritimati%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9344,11 +9343,19 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Global CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>International</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Local Affiliate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional Europe CMS</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9474,10 +9481,6 @@ Created by John Adams 11/6/2013</description>
             </values>
             <values>
                 <fullName>Omsk Time Zone %28Asia%2FOmsk%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PBattisson Test Zone %28Pacific%2FKiritimati%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11100,11 +11103,19 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Global CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>International</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Local Affiliate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional Europe CMS</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11230,10 +11241,6 @@ Created by John Adams 11/6/2013</description>
             </values>
             <values>
                 <fullName>Omsk Time Zone %28Asia%2FOmsk%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PBattisson Test Zone %28Pacific%2FKiritimati%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12828,11 +12835,19 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Global CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>International</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Local Affiliate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional Europe CMS</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12958,10 +12973,6 @@ Created by John Adams 11/6/2013</description>
             </values>
             <values>
                 <fullName>Omsk Time Zone %28Asia%2FOmsk%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PBattisson Test Zone %28Pacific%2FKiritimati%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14584,11 +14595,19 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Global CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>International</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Local Affiliate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional Europe CMS</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14714,10 +14733,6 @@ Created by John Adams 11/6/2013</description>
             </values>
             <values>
                 <fullName>Omsk Time Zone %28Asia%2FOmsk%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PBattisson Test Zone %28Pacific%2FKiritimati%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16344,11 +16359,19 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Global CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>International</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Local Affiliate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional Europe CMS</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -16474,10 +16497,6 @@ Created by John Adams 11/6/2013</description>
             </values>
             <values>
                 <fullName>Omsk Time Zone %28Asia%2FOmsk%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PBattisson Test Zone %28Pacific%2FKiritimati%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16842,19 +16861,6 @@ NOT ISPICKVAL(Event_Occurred_MERC__c,&apos;Yes&apos;)&amp;&amp; ISCHANGED(Meetin
 ISPICKVAL(Meeting_Status_MERC__c,&apos;Complete - Closed&apos;)</errorConditionFormula>
         <errorDisplayField>Event_Occurred_MERC__c</errorDisplayField>
         <errorMessage>The Meeting must have occurred in order to Complete the Meeting.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>MERC_Internal_Order_Number</fullName>
-        <active>true</active>
-        <description>The Internal Order Number must be 7 digits long : MERC : Created on 23/01/2015 by Oliver Dunford, Mavens Consulting</description>
-        <errorConditionFormula>NOT(
-OR(
-LEN (Internal_Order_Number_MERC__c) = 0,
-REGEX(Internal_Order_Number_MERC__c, &quot;[0-9]{7}&quot;)
-)
-)</errorConditionFormula>
-        <errorDisplayField>Internal_Order_Number_MERC__c</errorDisplayField>
-        <errorMessage>The Internal Order Number must be 7 digits long.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>MERC_Participant_ToV_Final_Meet_over</fullName>

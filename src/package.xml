@@ -65,10 +65,17 @@
      <types>
         <members>Mercury_Account_Manager_Edit</members>
         <members>Mercury_Customer_Meeting_Services_Edit</members>
+        <members>Mercury Integration CST - Platform</members>
+        <members>Mercury Integration Docusign - Platform</members>
+        <members>Mercury Integration ExactTarget - Platform</members>
+        <members>Mercury Integration MVI - Platform</members>
+        <members>Mercury Integration ODS - Platform</members>
         <members>Mercury_Legal_Edit</members>
         <members>Mercury_Med_Director_Edit</members>
         <members>Mercury_Meeting_Owner_Edit</members>
         <members>Mercury_Meeting_Planning_Company_Edit</members>
+        <members>Mercury Metadata API</members>
+        <members>Mercury Portal API - Platform</members>
         <members>Mercury_Travel_Agent_Edit</members>
         <name>PermissionSet</name>
      </types>
