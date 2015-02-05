@@ -51,6 +51,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Instnl_Notif_Sent_Secondary_Method_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Institutional_Notification_Sent_MERC__c</field>
             </layoutItems>
             <layoutItems>

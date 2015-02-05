@@ -1135,8 +1135,19 @@ Created by John A Adams 1/7/2014</description>
         <fullName>Institutional_Notification_Sent_MERC__c</fullName>
         <description>Used to input date the institutional notifications were sent out for the meeting participant. Also needed for reporting. Created 04/29/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <inlineHelpText>Date Institutional Notification was sent to Designated Individuals</inlineHelpText>
-        <label>Institutional Notification Sent</label>
+        <inlineHelpText>Date that all designated individual notifications and any responses required for the secondary method has been received.  Notification is complete.</inlineHelpText>
+        <label>Institutional Notification Completed</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Instnl_Notif_Sent_Secondary_Method_MERC__c</fullName>
+        <description>Date when all designated individuals were notified and asked to respond.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Secondary method only. Date when all designated individuals were notified and asked to respond.  Notification is not yet complete; responses are pending.</inlineHelpText>
+        <label>Institutional Notif Sent-SecondaryMethod</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>

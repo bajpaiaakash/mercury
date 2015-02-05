@@ -52,6 +52,14 @@
         <apexClass>MERC_TimestampHandler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_MeetingCancellationHandler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_MeetingCancellationHandlerTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <description>Permission set to give the Customer Meeting Services access to edit the objects they should have access to edit</description>
     <fieldPermissions>
         <editable>true</editable>
@@ -539,11 +547,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.First_Name_GLBL__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>Account.Flag_CST_Email_CUST__c</field>
         <readable>true</readable>
@@ -726,11 +729,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Language_Preference_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Last_Name_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2935,6 +2933,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Meeting_Participant_MERC__c.Instnl_Notif_Sent_Secondary_Method_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Invoice_Template_Needed_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3365,6 +3368,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Meeting_Participant_MERC__c.Validation_Complete_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Video_Audio_Recording_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3397,11 +3405,6 @@
         <editable>false</editable>
         <field>Meeting_Participant_MERC__c.of_Locked_Invoices_MERC__c</field>
         <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Meeting_Participant_MERC__c.Validation_Complete_MERC__c</field>
-        <readable>true</readable>
     </fieldPermissions>
     <label>Mercury Customer Meeting Services - Edit</label>
     <objectPermissions>

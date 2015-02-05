@@ -52,6 +52,14 @@
         <apexClass>MERC_TimestampHandler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_MeetingCancellationHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_MeetingCancellationHandlerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
     <description>Permission set to give the E&amp;C and Legal/Account access to read and edit fields</description>
     <fieldPermissions>
         <editable>false</editable>
@@ -540,11 +548,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.First_Name_GLBL__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account.Flag_CST_Email_CUST__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -726,11 +729,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Language_Preference_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Last_Name_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2931,7 +2929,12 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Institutional_Notification_Sent_MERC__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Instnl_Notif_Sent_Secondary_Method_MERC__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
