@@ -198,12 +198,12 @@ private class MERC_DailyAttendanceControllerTest {
 		}
 	}
 
+
 	@isTest
 	static void confirmTOVReportingChangeShouldBeSetToFalse() {
 		Meeting_Participant_MERC__c participant = participants[0];
 		Test.startTest();
 		System.runAs(runningUser) {
-
 			//participant.Status_MERC__c = 'Approved';
 			//update participant;
 
@@ -246,12 +246,7 @@ private class MERC_DailyAttendanceControllerTest {
 
 			System.assertEquals(c.participants.size(),5,'no participants??');
 			for(MERC_DailyAttendanceController.ParticipantWrapper part : c.participants) {
-				System.debug('Paul1a: ' + participant);
-				System.debug('Paul1b: ' + part.tov);
 				if(part.tov.Meeting_Participant_MERC__c == participant.Id) {
-
-					System.debug('Paul2: ' + part.tov);
-
 					System.assertEquals(part.tov.Confirm_ToV_Reporting_Change_MERC__c, false);
 					part.selected = true;
 				}
