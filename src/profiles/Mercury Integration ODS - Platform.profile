@@ -540,6 +540,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.First_Name_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.Flag_CST_Email_CUST__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -721,6 +726,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Language_Preference_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Last_Name_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
