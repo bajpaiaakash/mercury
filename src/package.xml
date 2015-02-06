@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>MERC_MeetingCancellationHandler</members>
+        <members>MERC_MeetingCancellationHandlerTest</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>Meeting_Participant_MERC__c.Institutional_Notification_Sent_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.Instnl_Notif_Sent_Secondary_Method_MERC__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>Meeting_Participant_MERC__c-MERC_Consulting</members>
+        <members>Meeting_Participant_MERC__c-MERC_Delegate</members>
+        <members>Meeting_Participant_MERC__c-MERC_Individual Sponsorship</members>
+        <members>Meeting_Participant_MERC__c-MERC_Service Provider</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>Mercury_Account_Manager_Edit</members>
+        <members>Mercury_Customer_Meeting_Services_Edit</members>
+        <members>Mercury_Legal_Edit</members>
+        <members>Mercury_Meeting_Planning_Company_Edit</members>
+        <name>PermissionSet</name>
+    </types>
+    <types>
+        <members>Account.Set_Service_Provider_Tier_MERC</members>
+        <name>WorkflowFieldUpdate</name>
+    </types>
+    <types>
+        <members>Account.MERC_Notification of HCP Email Address Change</members>
+        <name>WorkflowRule</name>
+    </types>
+    <version>31.0</version>
+</Package>
