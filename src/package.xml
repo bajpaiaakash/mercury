@@ -8,6 +8,7 @@
         <members>MERC_AddMeetingParticipantsCntlrTest</members>
         <members>MERC_AddMeetingParticipantsController</members>
         <members>MERC_DailyAttendanceController</members>
+        <members>MERC_DailyAttendanceControllerStressTest</members>
         <members>MERC_DailyAttendanceControllerTest</members>
         <members>MERC_ETAccountEmailTriggerImpl</members>
         <members>MERC_ETAccountEmailTriggerImpl_Test</members>
