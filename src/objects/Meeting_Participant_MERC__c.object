@@ -1110,17 +1110,6 @@ Created by John A Adams 1/7/2014</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Institutional_Notif_Validation_Sent_MERC__c</fullName>
-        <description>Record last date of DI validation and tracking.</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Date that request for validation of the Institutional Notification information on file was sent.</inlineHelpText>
-        <label>Institutional Notif Validation Sent</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
         <fullName>Institutional_Notification_Complete_MERC__c</fullName>
         <description>Used by portal. Pulls from Account record to indicate if Institutional Notification Step is completed by HCP. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -1135,8 +1124,8 @@ Created by John A Adams 1/7/2014</description>
         <fullName>Institutional_Notification_Sent_MERC__c</fullName>
         <description>Used to input date the institutional notifications were sent out for the meeting participant. Also needed for reporting. Created 04/29/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <inlineHelpText>Date that all designated individual notifications and any responses required for the secondary method has been received.  Notification is complete.</inlineHelpText>
-        <label>Institutional Notification Completed</label>
+        <inlineHelpText>Date Institutional Notification was sent to Designated Individuals</inlineHelpText>
+        <label>Institutional Notification Sent</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -1378,43 +1367,6 @@ Created by John A Adams 10/31/2013</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Currency</type>
-    </fields>
-    <fields>
-        <fullName>Notification_Method_MERC__c</fullName>
-        <description>Record whether secondary method is used for notification</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Select the method of notification. This selection drives the corporate metrics for the Institutional Notification program.</inlineHelpText>
-        <label>Notification Method</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Primary Method (ON TIME)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Primary Method (LATE)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SECONDARY Method</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Primary or Secondary Method NOT COMPLETED</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Notification not required (SELF-EMPLOYED)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Not Applicable per business process</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Number_of_Completed_Contracts_MERC__c</fullName>
@@ -2078,8 +2030,6 @@ K. Thornton 11 Jun 2015</description>
         <fullName>Total_Ground_Transport_ToV_Rollup_MERC__c</fullName>
         <description>The value stores the Declarative rollup summary value when rolled up from the meeting participant. This is a raw currency value and represents the value in euros. A trigger will convert this value to the meeting currency and store it in Total Ground Transportation Tov. 
 
-
-
 K. Thornton 11 Jun 2014</description>
         <externalId>false</externalId>
         <label>Total Group Ground Transport ToV Rollup</label>
@@ -2519,17 +2469,6 @@ Created by John A Adams 12/12/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Validation_Complete_MERC__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>A check box that can be checked when response for the validation has been received.</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Check this box when all validation activities are complete, any Designated Individuals information is updated and Notification may begin.</inlineHelpText>
-        <label>Validation Complete</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>Video_Audio_Recording_MERC__c</fullName>
         <description>Is record consent needed for the meeting? Oliver Dunford 5th Nov 2013</description>
         <externalId>false</externalId>
@@ -2815,33 +2754,6 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
             </values>
             <values>
                 <fullName>Trained to speak on this topic</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Notification_Method_MERC__c</picklist>
-            <values>
-                <fullName>Not Applicable per business process</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Notification not required %28SELF-EMPLOYED%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Primary Method %28LATE%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Primary Method %28ON TIME%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Primary or Secondary Method NOT COMPLETED</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SECONDARY Method</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3207,33 +3119,6 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
             </values>
             <values>
                 <fullName>Trained to speak on this topic</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Notification_Method_MERC__c</picklist>
-            <values>
-                <fullName>Not Applicable per business process</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Notification not required %28SELF-EMPLOYED%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Primary Method %28LATE%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Primary Method %28ON TIME%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Primary or Secondary Method NOT COMPLETED</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SECONDARY Method</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3615,33 +3500,6 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Notification_Method_MERC__c</picklist>
-            <values>
-                <fullName>Not Applicable per business process</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Notification not required %28SELF-EMPLOYED%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Primary Method %28LATE%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Primary Method %28ON TIME%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Primary or Secondary Method NOT COMPLETED</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SECONDARY Method</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Partial_Payment_Justification_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -4003,33 +3861,6 @@ TEXT(Air_Travel_Required_MERC__c) &amp; &quot;;&quot; &amp;
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Notification_Method_MERC__c</picklist>
-            <values>
-                <fullName>Not Applicable per business process</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Notification not required %28SELF-EMPLOYED%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Primary Method %28LATE%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Primary Method %28ON TIME%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Primary or Secondary Method NOT COMPLETED</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SECONDARY Method</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Partial_Payment_Justification_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -4315,49 +4146,39 @@ TEXT(Confirm_Final_Fee_MERC__c) = &quot;Confirmed&quot; &amp;&amp; TEXT(Services
         <active>true</active>
         <description>Users cannot enter a 0.00 in a CoPay if ToV has not been reported : MERC : Created on 01/07/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>( 
-
 (ISCHANGED(Total_Hotel_ToV_MERC__c) &amp;&amp; Total_Hotel_ToV_MERC__c = 0.00) || 
-
 (ISCHANGED(Total_Ground_Transporation_ToV_MERC__c) &amp;&amp; Total_Ground_Transporation_ToV_MERC__c = 0.00) || 
-
 (ISCHANGED(Total_Individual_Transport_ToV_MERC__c) &amp;&amp; Total_Individual_Transport_ToV_MERC__c = 0.00) || 
-
 (ISCHANGED(Total_Food_Beverage_ToV_MERC__c) &amp;&amp; Total_Food_Beverage_ToV_MERC__c = 0.00) || 
-
 (ISCHANGED(Total_Registration_ToV_MERC__c) &amp;&amp; Total_Registration_ToV_MERC__c = 0.00) || 
-
 (ISCHANGED(CoPay_Flight_Rail_MERC__c) &amp;&amp; CoPay_Flight_Rail_MERC__c = 0.00) || 
-
 (ISCHANGED(CoPay_Food_Beverage_MERC__c) &amp;&amp; CoPay_Food_Beverage_MERC__c = 0.00) || 
-
 (ISCHANGED(CoPay_Ground_Transport_MERC__c) &amp;&amp; CoPay_Ground_Transport_MERC__c = 0.00) ||
-
 (ISCHANGED(CoPay_Individual_Transport_MERC__c) &amp;&amp; CoPay_Individual_Transport_MERC__c = 0.00) ||  
-
 (ISCHANGED(CoPay_Hotel_MERC__c) &amp;&amp; CoPay_Hotel_MERC__c = 0.00) || 
-
 (ISCHANGED(CoPay_Registration_MERC__c) &amp;&amp; CoPay_Registration_MERC__c = 0.00) 
-
 ) 
-
-
 
 &amp;&amp; 
 
-
-
 (ISPICKVAL(Meeting_MERC__r.Participant_ToV_Final_MERC__c,&quot;No&quot;) ||
-
 ISPICKVAL(Meeting_MERC__r.Participant_ToV_Final_MERC__c,&quot;&quot;))</errorConditionFormula>
         <errorMessage>You may not enter 0.00 unless ToV has already been reported for this Meeting</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>MERC_Indicate_Notification_Method</fullName>
+        <fullName>MERC_Lock_Final_Fee</fullName>
         <active>true</active>
-        <description>User should indicate the Notification Method used to send the Institutional Notification.</description>
-        <errorConditionFormula>NOT(ISBLANK( Institutional_Notification_Sent_MERC__c )) &amp;&amp;   TEXT( Notification_Method_MERC__c)=NULL</errorConditionFormula>
-        <errorDisplayField>Notification_Method_MERC__c</errorDisplayField>
-        <errorMessage>Please indicate the Notification Method used to send the Institutional Notification.</errorMessage>
+        <description>Prevent the user from changing the proposed final fee and subsequently the final fee once it has been confirmed : MERC : Created on 0/02/2015 by Oliver Dunford, Mavens Consulting</description>
+        <errorConditionFormula>ISCHANGED( Proposed_Final_Fee_MERC__c ) 
+&amp;&amp;
+$User.Power_User_MERC__c = FALSE 
+&amp;&amp;
+(
+$Profile.Name &lt;&gt; &quot;System Administrator&quot; &amp;&amp; 
+$Profile.Name &lt;&gt; &quot;Mercury Integration ODS - Platform&quot;
+)</errorConditionFormula>
+        <errorDisplayField>Proposed_Final_Fee_MERC__c</errorDisplayField>
+        <errorMessage>Once confirmed you cannot modify the proposed final fee or final fee.  Please contact a member of the Customer Meeting Service team for assistance.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>MERC_Partial_Payment_Allowed</fullName>
@@ -4392,37 +4213,21 @@ ISPICKVAL( Meeting_MERC__r.Participant_ToV_Final_MERC__c ,&quot;Yes&quot;)</erro
         <active>true</active>
         <description>Prevent users from entering negative numbers in CoPay fields : MERC : Created on 01/07/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>(ISCHANGED(CoPay_Flight_Rail_MERC__c) &amp;&amp;
-
  CoPay_Flight_Rail_MERC__c &lt;0) ||
 
-
-
 (ISCHANGED(CoPay_Food_Beverage_MERC__c) &amp;&amp;
-
  CoPay_Food_Beverage_MERC__c &lt;0) ||
 
-
-
 (ISCHANGED(CoPay_Ground_Transport_MERC__c) &amp;&amp;
-
  CoPay_Ground_Transport_MERC__c &lt;0) ||
 
-
-
 (ISCHANGED(CoPay_Individual_Transport_MERC__c) &amp;&amp;
-
  CoPay_Individual_Transport_MERC__c &lt;0) ||
 
-
-
 (ISCHANGED(CoPay_Hotel_MERC__c) &amp;&amp;
-
 CoPay_Hotel_MERC__c &lt;0) ||
 
-
-
 (ISCHANGED(CoPay_Registration_MERC__c) &amp;&amp;
-
 CoPay_Registration_MERC__c &lt;0)</errorConditionFormula>
         <errorMessage>You may not enter a CoPay value less than zero.</errorMessage>
     </validationRules>
@@ -4458,6 +4263,14 @@ ISCHANGED(Services_Rendered_MERC__c) &amp;&amp;
 ISPICKVAL(PRIORVALUE(Services_Rendered_MERC__c),&quot;Yes&quot;)</errorConditionFormula>
         <errorDisplayField>Services_Rendered_MERC__c</errorDisplayField>
         <errorMessage>You may not change this value after services has been rendered. Please contact Customer Meeting Services.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>MERC_Type_of_Service</fullName>
+        <active>true</active>
+        <description>Ensures that the Type of Service field is updated correctly should the record type of a Meeting Participant change from Delegate to Service Provider.  This ensures &quot;Expenses&quot; is not an acceptable choice : MERC : Created on 03/02/2015 by Oliver Dunford</description>
+        <errorConditionFormula>RecordType.DeveloperName = &apos;Service_Provider_MERC&apos; &amp;&amp; TEXT( Types_of_Service_MERC__c ) = &apos;Expenses&apos;</errorConditionFormula>
+        <errorDisplayField>Types_of_Service_MERC__c</errorDisplayField>
+        <errorMessage>Expenses is not a valid type of Service for Service Providers.  Please update the field to reflect the service provided.</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>Add_Participants_MERC</fullName>

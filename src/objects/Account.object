@@ -205,6 +205,11 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
+            <field>Country_of_Residence_GLBL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
             <field>RecordTypeId</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -2179,9 +2184,9 @@ Created by John A Adams 11/4/2013</description>
     </fields>
     <fields>
         <fullName>Designated_Individual_Count_MERC__c</fullName>
-        <description>test</description>
+        <description>Returns a 1 for each record.  Used as a counter to determine the number of Designated Individuals a HCP has (only those with a Status of Active will be counted).  This counter for each HCP is added together with the result added to the Designated Individual Counter field : MERC : Updated on 26/01/2015 by Oliver Dunford, Mavens Consulting.</description>
         <externalId>false</externalId>
-        <formula>1</formula>
+        <formula>IF(RecordType.DeveloperName = &apos;Designated_Individual_GLBL&apos;, 1, 0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Designated Individual Count</label>
         <precision>18</precision>
@@ -2194,6 +2199,7 @@ Created by John A Adams 11/4/2013</description>
     <fields>
         <fullName>Designated_Individual_Counter_MERC__c</fullName>
         <defaultValue>0</defaultValue>
+        <description>Used to return the total number of Designated Individuals a HCP has, controlling whether a record exists for the Web Service registration steps. Counts the Designated Individual Count field, rolled up via the Lookup RollUp Summarise functionality  : MERC : Updated on 26/01/2015 by Oliver Dunford, Mavens Consulting.</description>
         <externalId>false</externalId>
         <label>Designated Individual Counter</label>
         <precision>4</precision>
@@ -2501,17 +2507,6 @@ Created by John A Adams 12/18/2013</description>
         <externalId>false</externalId>
         <label>Fax Phone Country Code</label>
         <length>30</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>First_Name_GLBL__c</fullName>
-        <description>Stores first name of the account. Created for CST application</description>
-        <externalId>false</externalId>
-        <label>First Name</label>
-        <length>40</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Text</type>
@@ -3121,17 +3116,6 @@ Created by John A Adams 10/28/2013</description>
         <inlineHelpText>This is the a HCPs preferred language for all meeting based correspondence.  This is set via the preferences and consent records and shown on the HCP profile for ease of reference.</inlineHelpText>
         <label>Language Preference</label>
         <length>30</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Last_Name_GLBL__c</fullName>
-        <description>Stores second name of account. Created for CST application</description>
-        <externalId>false</externalId>
-        <label>Last Name</label>
-        <length>80</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Text</type>
@@ -4674,6 +4658,14 @@ Created by John A Adams 11/4/2013</description>
                 <fullName>Other</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Inactive</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
@@ -4988,6 +4980,16 @@ Created by John A Adams 11/4/2013</description>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Update_Subscriber_Error_ET_MERC__c</fullName>
+        <description>Shows last error updating ET subscriber</description>
+        <externalId>false</externalId>
+        <label>Update Subscriber Error</label>
+        <length>10000</length>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
     </fields>
     <fields>
         <fullName>Utilised_CAP_MERC__c</fullName>
@@ -19420,7 +19422,7 @@ myuser={!User.Id}</url>
         <encodingKey>UTF-8</encodingKey>
         <height>1200</height>
         <linkType>url</linkType>
-        <masterLabel>LOOP Plus</masterLabel>
+        <masterLabel>Run DDP</masterLabel>
         <openType>sidebar</openType>
         <protected>false</protected>
         <url>/apex/loop__looplus?eid={!Account.Id}&amp;sessionId={!$Api.Session_ID}</url>
@@ -19445,7 +19447,7 @@ window.location.href = url;</url>
         <availability>online</availability>
         <displayType>massActionButton</displayType>
         <linkType>javascript</linkType>
-        <masterLabel>Mass LOOP Plus</masterLabel>
+        <masterLabel>Run DDP</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
