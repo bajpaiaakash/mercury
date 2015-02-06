@@ -691,18 +691,18 @@ Checklist link on the C3 homepage.</value>
         <value>YES</value>
     </labels>
     <labels>
-        <fullName>CST_Service_Error</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>CST_Web_Service_Error</shortDescription>
-        <value>The CST web service is currently not available. Contact an administrator if this error persists.</value>
-    </labels>
-    <labels>
         <fullName>CST_Retrieve_Results_Error</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>CST_Retrieve_Results_Error</shortDescription>
         <value>An error occurred whilst trying to retrieve the results from the CST web service. Contact an administrator if this error persists.</value>
+    </labels>
+    <labels>
+        <fullName>CST_Service_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CST_Web_Service_Error</shortDescription>
+        <value>The CST web service is currently not available. Contact an administrator if this error persists.</value>
     </labels>
     <labels>
         <fullName>Clear_Search_Results_Button_MVN</fullName>

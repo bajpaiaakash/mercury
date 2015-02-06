@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
+        <members>CUST_AdminUtilitiesControllerTest</members>
+        <members>CUST_SchedulerTest</members>
+        <members>CUST_UserSettingsStatusChangeBatchTest</members>
+        <members>CUST_UserSettingsStatusChangeBatchable</members>
+        <members>MERC_AddMeetingParticipantsCntlrTest</members>
+        <members>MERC_AddMeetingParticipantsController</members>
         <members>MERC_DailyAttendanceController</members>
         <members>MERC_DailyAttendanceControllerTest</members>
         <members>MERC_HcpCapActualsCalculator</members>
@@ -9,22 +15,40 @@
         <members>MERC_HcpCapYearlyCalculationJob</members>
         <members>MERC_HcpCapYearlyCalculationJobTest</members>
         <members>MERC_HotelAllocationCalculator</members>
+        <members>MERC_InvoiceXmlWriter</members>
+        <members>MERC_InvoiceXmlWriterTest</members>
+        <members>MERC_MeetingCancellationHandler</members>
+        <members>MERC_MeetingCancellationHandlerTest</members>
+        <members>MERC_MeetingParticipantNewEditController</members>
+        <members>MERC_MergeHistoryStampTriggerHandler</members>
+        <members>MERC_MergeHistoryStampTriggerHandlerTest</members>
         <members>MERC_ParticipantStatusCalculator</members>
         <members>MERC_ParticipantTovStampHandler</members>
         <members>MERC_TOVCalculator</members>
         <members>MERC_TOVCalculatorTest</members>
         <members>MERC_TimestampHandler</members>
+        <members>MERC_TriggerHandlerStateManager</members>
+        <members>MERC_XmlWriterCalloutMock</members>
         <name>ApexClass</name>
     </types>
     <types>
+        <members>MERC_AddMeetingParticipants</members>
+        <members>MERC_DailyAttendance</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
         <members>MERC_DailyAttendanceTOV</members>
+        <members>MERC_MergeHistoryTrigger</members>
         <members>MERC_TravelItinerary</members>
         <name>ApexTrigger</name>
     </types>
     <types>
+        <members>*</members>
+        <name>CustomLabels</name>
+    </types>
+    <types>
         <members>Account</members>
         <members>Daily_Attendance_TOV_MERC__c</members>
-        <members>Invoice_MERC__c</members>
         <members>Meeting_Day_MERC__c</members>
         <members>Meeting_MERC__c</members>
         <members>Meeting_Participant_MERC__c</members>
@@ -47,12 +71,23 @@
         <members>Mercury_Med_Director_Edit</members>
         <members>Mercury_Meeting_Owner_Edit</members>
         <members>Mercury_Meeting_Planning_Company_Edit</members>
+        <members>Mercury_Travel_Agent_Edit</members>
         <name>PermissionSet</name>
     </types>
     <types>
         <members>Admin</members>
+        <members>Mercury Integration CST - Platform</members>
+        <members>Mercury Integration Docusign - Platform</members>
+        <members>Mercury Integration ExactTarget - Platform</members>
+        <members>Mercury Integration MVI - Platform</members>
         <members>Mercury Integration ODS - Platform</members>
+        <members>Mercury Metadata API</members>
+        <members>Mercury Portal API - Platform</members>
         <name>Profile</name>
+    </types>
+    <types>
+        <members>Meeting_Participant_MERC__c</members>
+        <name>Workflow</name>
     </types>
     <version>31.0</version>
 </Package>

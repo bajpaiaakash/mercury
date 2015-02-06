@@ -2735,14 +2735,6 @@ Created by John Adams 11/6/2013</description>
                 <fullName>Customer Facing Team Initiated</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
-                <fullName>Regional Europe CMS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Global CMS</fullName>
-                <default>false</default>
-            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
@@ -16856,15 +16848,10 @@ ISPICKVAL(Meeting_Status_MERC__c,&apos;Complete - Closed&apos;)</errorConditionF
         <active>true</active>
         <description>The Internal Order Number must be 7 digits long : MERC : Created on 23/01/2015 by Oliver Dunford, Mavens Consulting</description>
         <errorConditionFormula>NOT(
-
 OR(
-
 LEN (Internal_Order_Number_MERC__c) = 0,
-
 REGEX(Internal_Order_Number_MERC__c, &quot;[0-9]{7}&quot;)
-
 )
-
 )</errorConditionFormula>
         <errorDisplayField>Internal_Order_Number_MERC__c</errorDisplayField>
         <errorMessage>The Internal Order Number must be 7 digits long.</errorMessage>
