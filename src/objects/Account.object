@@ -205,11 +205,6 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Country_of_Residence_GLBL__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
             <field>RecordTypeId</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
@@ -2184,9 +2179,9 @@ Created by John A Adams 11/4/2013</description>
     </fields>
     <fields>
         <fullName>Designated_Individual_Count_MERC__c</fullName>
-        <description>Returns a 1 for each record.  Used as a counter to determine the number of Designated Individuals a HCP has (only those with a Status of Active will be counted).  This counter for each HCP is added together with the result added to the Designated Individual Counter field : MERC : Updated on 26/01/2015 by Oliver Dunford, Mavens Consulting.</description>
+        <description>test</description>
         <externalId>false</externalId>
-        <formula>IF(RecordType.DeveloperName = &apos;Designated_Individual_GLBL&apos;, 1, 0)</formula>
+        <formula>1</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Designated Individual Count</label>
         <precision>18</precision>
@@ -2199,7 +2194,6 @@ Created by John A Adams 11/4/2013</description>
     <fields>
         <fullName>Designated_Individual_Counter_MERC__c</fullName>
         <defaultValue>0</defaultValue>
-        <description>Used to return the total number of Designated Individuals a HCP has, controlling whether a record exists for the Web Service registration steps. Counts the Designated Individual Count field, rolled up via the Lookup RollUp Summarise functionality  : MERC : Updated on 26/01/2015 by Oliver Dunford, Mavens Consulting.</description>
         <externalId>false</externalId>
         <label>Designated Individual Counter</label>
         <precision>4</precision>
@@ -2507,6 +2501,17 @@ Created by John A Adams 12/18/2013</description>
         <externalId>false</externalId>
         <label>Fax Phone Country Code</label>
         <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>First_Name_GLBL__c</fullName>
+        <description>Stores first name of the account. Created for CST application</description>
+        <externalId>false</externalId>
+        <label>First Name</label>
+        <length>40</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Text</type>
@@ -3116,6 +3121,17 @@ Created by John A Adams 10/28/2013</description>
         <inlineHelpText>This is the a HCPs preferred language for all meeting based correspondence.  This is set via the preferences and consent records and shown on the HCP profile for ease of reference.</inlineHelpText>
         <label>Language Preference</label>
         <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Last_Name_GLBL__c</fullName>
+        <description>Stores second name of account. Created for CST application</description>
+        <externalId>false</externalId>
+        <label>Last Name</label>
+        <length>80</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Text</type>
@@ -4656,14 +4672,6 @@ Created by John A Adams 11/4/2013</description>
             </picklistValues>
             <picklistValues>
                 <fullName>Other</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Active</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Inactive</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>

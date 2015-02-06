@@ -676,18 +676,12 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 OR 2</booleanFilter>
         <criteriaItems>
             <field>Meeting_Participant_MERC__c.Types_of_Service_MERC__c</field>
             <operation>equals</operation>
             <value>Medical Research Consultant</value>
         </criteriaItems>
-        <criteriaItems>
-            <field>Meeting_Participant_MERC__c.Types_of_Service_MERC__c</field>
-            <operation>equals</operation>
-            <value>Consulting Project</value>
-        </criteriaItems>
-        <description>If the Type of Service is Medical Research or Consulting Project, Set &quot;Include In Cap Rollup&quot; checkbox to &quot;false&quot;  : MERC : Created on 12/5/2013 by Oliver Dunford, Mavens Consulting</description>
+        <description>If the Type of Service is Medical Research, Set &quot;Include In Cap Rollup&quot; checkbox to &quot;false&quot;  : MERC : Created on 12/5/2013 by Oliver Dunford, Mavens Consulting</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -798,7 +792,7 @@
         <fullName>MERC_Reminder - Services Not Rendered</fullName>
         <active>true</active>
         <description>Notifies Primary Meeting Owner and Customer Facing User, if applicable, to let them know that the Services Rendered is not equal to Yes and it has been 5 days past the end of the meeting : MERC : Created on 04/03/2014 by Katy Lorenti, Mavens Consulting</description>
-        <formula>(ISPICKVAL(Services_Rendered_MERC__c,&apos;No&apos; ) ||   ISPICKVAL(Services_Rendered_MERC__c,&apos;&apos; )) &amp;&amp;    RecordType.Name  = &apos;Service Provider&apos; &amp;&amp;  ISPICKVAL(Status_MERC__c, &apos;Cancelled&apos;) = FALSE</formula>
+        <formula>(ISPICKVAL(Services_Rendered_MERC__c,&apos;No&apos; ) ||   ISPICKVAL(Services_Rendered_MERC__c,&apos;&apos; )) &amp;&amp;    RecordType.Name  = &apos;Service Provider&apos;</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>

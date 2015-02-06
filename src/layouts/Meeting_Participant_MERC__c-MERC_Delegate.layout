@@ -50,6 +50,10 @@
                 <field>Institutional_Notification_Sent_MERC__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Notification_Method_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Potential_Cross_Border_Activity_MERC__c</field>
             </layoutItems>
