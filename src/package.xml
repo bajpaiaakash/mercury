@@ -48,13 +48,20 @@
     </types>
     <types>
         <members>Account</members>
+        <members>CST_User_Settings_CUST__c</members>
         <members>Daily_Attendance_TOV_MERC__c</members>
         <members>Invoice_MERC__c</members>
         <members>Meeting_Day_MERC__c</members>
         <members>Meeting_MERC__c</members>
         <members>Meeting_Participant_MERC__c</members>
         <members>Mercury_Settings_MERC__c</members>
+        <members>Web_Service_Logic_MERC__c</members>
         <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Travel_Itinerary_MERC__c</members>
+        <members>Web_Service_Error_GLBL__c</members>
+        <name>CustomTab</name>
     </types>
     <types>
         <members>Daily_Attendance_TOV_MERC__c-MERC_Daily Attendance %26 TOV</members>
@@ -72,6 +79,7 @@
         <members>Mercury_Med_Director_Edit</members>
         <members>Mercury_Meeting_Owner_Edit</members>
         <members>Mercury_Meeting_Planning_Company_Edit</members>
+        <members>Mercury_System_Administrator_Lite</members>
         <members>Mercury_Travel_Agent_Edit</members>
         <name>PermissionSet</name>
     </types>
@@ -85,6 +93,11 @@
         <members>Mercury Metadata API</members>
         <members>Mercury Portal API - Platform</members>
         <name>Profile</name>
+    </types>
+    <types>
+        <members>Mercury_Case_Reports</members>
+        <members>Mercury_Case_Reports/MERC_Case_Emails_Last_7_Days</members>
+        <name>Report</name>
     </types>
     <types>
         <members>EmailMessage</members>

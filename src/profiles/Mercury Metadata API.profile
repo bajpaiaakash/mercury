@@ -1570,6 +1570,51 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_User_Settings_CUST__c.Access_Level_CUST__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_User_Settings_CUST__c.Access_Status_CUST__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_User_Settings_CUST__c.Audit_Date_CUST__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_User_Settings_CUST__c.Country_Code_CUST__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_User_Settings_CUST__c.Justification_for_Access_CUST__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_User_Settings_CUST__c.Last_Status_CUST__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_User_Settings_CUST__c.Manager_Global_ID_CUST__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CST_User_Settings_CUST__c.Start_Date_CUST__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CST_User_Settings_CUST__c.User_Name_CUST__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Daily_Attendance_TOV_MERC__c.Confirm_ToV_Reporting_Change_MERC__c</field>
         <readable>false</readable>
@@ -3754,6 +3799,141 @@
         <field>Meeting_Participant_MERC__c.of_Locked_Invoices_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Web_Service_Logic_MERC__c.Account_Record_Type_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Web_Service_Logic_MERC__c.Air_Required_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Web_Service_Logic_MERC__c.Country_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Web_Service_Logic_MERC__c.Hotel_Required_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Web_Service_Logic_MERC__c.InfoPack_Institutional_Notification_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Web_Service_Logic_MERC__c.InfoPack_Payee_Information_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Web_Service_Logic_MERC__c.InfoPack_Qualifications_Experience_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Web_Service_Logic_MERC__c.Key_Description_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Web_Service_Logic_MERC__c.Key_for_Lookup_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Web_Service_Logic_MERC__c.Key_for_Uniqueness_Check_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Web_Service_Logic_MERC__c.Meeting_Record_Type_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Web_Service_Logic_MERC__c.Participant_Record_Type_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Web_Service_Logic_MERC__c.RSVP_Accommodation_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Web_Service_Logic_MERC__c.RSVP_Congress_Registration_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Web_Service_Logic_MERC__c.RSVP_Dietary_Restrictions__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Web_Service_Logic_MERC__c.RSVP_Emergency_Contact_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Web_Service_Logic_MERC__c.RSVP_Include_Bus_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Web_Service_Logic_MERC__c.RSVP_Include_Personal_Transfer_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Web_Service_Logic_MERC__c.RSVP_Include_Rail_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Web_Service_Logic_MERC__c.RSVP_Institutional_Notification_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Web_Service_Logic_MERC__c.RSVP_Institutional_Wet_Signature_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Web_Service_Logic_MERC__c.RSVP_Sponsorship_Agreement_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Web_Service_Logic_MERC__c.RSVP_Summary_and_Comments_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Web_Service_Logic_MERC__c.RSVP_Transparency_Reporting_Consent_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Web_Service_Logic_MERC__c.RSVP_Travel_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Web_Service_Logic_MERC__c.RSVP_Welcome_Privacy_Consent_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Web_Service_Logic_MERC__c.Transparency_Consent_Exists_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>Daily_Attendance_TOV_MERC__c-MERC_Daily Attendance %26 TOV</layout>
     </layoutAssignments>
@@ -3930,6 +4110,15 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
+        <object>CST_User_Settings_CUST__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
         <object>Daily_Attendance_TOV_MERC__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
@@ -3967,6 +4156,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
         <object>Meeting_Participant_MERC__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>Web_Service_Logic_MERC__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <pageAccesses>
@@ -4103,6 +4301,20 @@
         <recordType>Meeting_Participant_MERC__c.Service_Provider_MERC</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Web_Service_Logic_MERC__c.HCP_Info_Package_MERC</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Web_Service_Logic_MERC__c.RSVP_MERC</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <tabVisibilities>
+        <tab>Travel_Itinerary_MERC__c</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Account</tab>
         <visibility>DefaultOn</visibility>
