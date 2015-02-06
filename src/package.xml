@@ -9,6 +9,14 @@
         <members>MERC_AddMeetingParticipantsController</members>
         <members>MERC_DailyAttendanceController</members>
         <members>MERC_DailyAttendanceControllerTest</members>
+        <members>MERC_ETAccountEmailTriggerImpl</members>
+        <members>MERC_ETAccountEmailTriggerImpl_Test</members>
+        <members>MERC_ETSubscriber</members>
+        <members>MERC_ETSubscriberFutureProcessor</members>
+        <members>MERC_ETSubscriberFutureProcessor_Test</members>
+        <members>MERC_ETSubscriberProcessor</members>
+        <members>MERC_ETSubscriberProcessorCallout_Mock</members>
+        <members>MERC_ETSubscriberProcessor_Test</members>
         <members>MERC_HcpCapActualsCalculator</members>
         <members>MERC_HcpCapLimitCalculator</members>
         <members>MERC_HcpCapLimitCalculatorTest</members>
@@ -38,6 +46,7 @@
     </types>
     <types>
         <members>MERC_DailyAttendanceTOV</members>
+        <members>MERC_ETAccountEmailTrigger</members>
         <members>MERC_MergeHistoryTrigger</members>
         <members>MERC_TravelItinerary</members>
         <name>ApexTrigger</name>
