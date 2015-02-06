@@ -3378,6 +3378,16 @@
         <field>Meeting_Participant_MERC__c.of_Locked_Invoices_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.First_Name_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Last_Name_GLBL__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <label>Mercury Medical Director - Edit</label>
     <objectPermissions>
         <allowCreate>false</allowCreate>

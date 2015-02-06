@@ -86,7 +86,6 @@
         <name>Profile</name>
      </types>
     <types>
-        <members>Account</members>
         <members>Meeting_Participant_MERC__c</members>
         <name>Workflow</name>
     </types>
