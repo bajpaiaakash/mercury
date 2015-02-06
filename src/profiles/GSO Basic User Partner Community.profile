@@ -3475,11 +3475,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>GLBL_Form_Template_Answer_Option__c.Answer_option__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>GLBL_Form_Template_Answer_Option__c.Form_Template_Question__c</field>
         <readable>false</readable>
     </fieldPermissions>
