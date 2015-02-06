@@ -80,6 +80,7 @@
         <members>Meeting_Participant_MERC__c-MERC_Delegate</members>
         <members>Meeting_Participant_MERC__c-MERC_Individual Sponsorship</members>
         <members>Meeting_Participant_MERC__c-MERC_Service Provider</members>
+        <members>PersonAccount-MERC_Designated Individual</members>
         <name>Layout</name>
     </types>
     <types>
