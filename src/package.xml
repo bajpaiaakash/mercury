@@ -49,6 +49,7 @@
     <types>
         <members>Account</members>
         <members>Daily_Attendance_TOV_MERC__c</members>
+        <members>Invoice_MERC__c</members>
         <members>Meeting_Day_MERC__c</members>
         <members>Meeting_MERC__c</members>
         <members>Meeting_Participant_MERC__c</members>
