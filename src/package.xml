@@ -79,7 +79,6 @@
         <members>Mercury_Med_Director_Edit</members>
         <members>Mercury_Meeting_Owner_Edit</members>
         <members>Mercury_Meeting_Planning_Company_Edit</members>
-        <members>Mercury_System_Administrator_Lite</members>
         <members>Mercury_Travel_Agent_Edit</members>
         <name>PermissionSet</name>
     </types>
