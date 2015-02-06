@@ -24,6 +24,7 @@
     <types>
         <members>Account</members>
         <members>Daily_Attendance_TOV_MERC__c</members>
+        <members>Invoice_MERC__c</members>
         <members>Meeting_Day_MERC__c</members>
         <members>Meeting_MERC__c</members>
         <members>Meeting_Participant_MERC__c</members>
@@ -52,10 +53,6 @@
         <members>Admin</members>
         <members>Mercury Integration ODS - Platform</members>
         <name>Profile</name>
-    </types>
-    <types>
-        <members>DeclarativeRollupTestData_MERC</members>
-        <name>StaticResource</name>
     </types>
     <version>31.0</version>
 </Package>

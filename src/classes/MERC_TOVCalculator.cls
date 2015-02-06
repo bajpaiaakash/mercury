@@ -19,7 +19,7 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 		this.triggeredSobjectType = sObjectType;
 		//prevent the meeting participant validation from firing when the lookup rollup summary fields hit it and try to
 		//update it without checking the Confirm_ToV_Reporting_Change_MERC__c boolean.
-		MERC_MeetingParticipantTovValidation.tovValidationByPass = true;
+		//MERC_MeetingParticipantTovValidation.tovValidationByPass = true;
 	}
 
 	public Boolean isActive() {
@@ -281,7 +281,7 @@ p('t'+i+': '+t);
 			{
 				//Set the confirm reporting to true. If confirmirmation was needed on the meeting vendor
 				//or the travel itinerary we would not get here without the user having checked that box.
-				tov.Confirm_ToV_Reporting_Change_MERC__c = true;
+				//tov.Confirm_ToV_Reporting_Change_MERC__c = true;
 
 				// has value already been sent to Activity ODS?
 				Boolean tovIsFinal = t.Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c == 'Yes';
@@ -382,7 +382,7 @@ p('t'+i+': '+t);
 				if (t!=null) {
 					//Set the confirm reporting to true. If confirmirmation was needed on the meeting vendor
 					//or the travel itinerary we would not get here without the user having checked that box.
-					tov.Confirm_ToV_Reporting_Change_MERC__c = true;
+					//tov.Confirm_ToV_Reporting_Change_MERC__c = true;
 
 					// has value already been sent to Activity ODS?
 					Boolean tovIsFinal = t.Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c == 'Yes';
