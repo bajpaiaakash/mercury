@@ -76,6 +76,7 @@
     </types>
     <types>
         <members>Daily_Attendance_TOV_MERC__c-MERC_Daily Attendance %26 TOV</members>
+        <members>Meeting_MERC__c-MERC_Consulting_Project</members>
         <members>Meeting_Day_MERC__c-MERC_Meeting Day</members>
         <members>Meeting_Participant_MERC__c-MERC_Consulting</members>
         <members>Meeting_Participant_MERC__c-MERC_Delegate</members>
