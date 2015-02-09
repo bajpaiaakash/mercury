@@ -792,7 +792,7 @@
         <fullName>MERC_Reminder - Services Not Rendered</fullName>
         <active>true</active>
         <description>Notifies Primary Meeting Owner and Customer Facing User, if applicable, to let them know that the Services Rendered is not equal to Yes and it has been 5 days past the end of the meeting : MERC : Created on 04/03/2014 by Katy Lorenti, Mavens Consulting</description>
-        <formula>(ISPICKVAL(Services_Rendered_MERC__c,&apos;No&apos; ) ||   ISPICKVAL(Services_Rendered_MERC__c,&apos;&apos; )) &amp;&amp;    RecordType.Name  = &apos;Service Provider&apos;</formula>
+        <formula>(ISPICKVAL(Services_Rendered_MERC__c,&apos;No&apos; ) ||   ISPICKVAL(Services_Rendered_MERC__c,&apos;&apos; )) &amp;&amp;    RecordType.Name  = &apos;Service Provider&apos; &amp;&amp;  ISPICKVAL(Status_MERC__c, &apos;Cancelled&apos;) = FALSE</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
