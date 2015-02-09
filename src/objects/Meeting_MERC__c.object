@@ -5868,11 +5868,19 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Global CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>International</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Local Affiliate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional Europe CMS</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7596,11 +7604,19 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Global CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>International</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Local Affiliate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional Europe CMS</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9352,11 +9368,19 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Global CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>International</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Local Affiliate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional Europe CMS</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11108,11 +11132,19 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Global CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>International</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Local Affiliate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional Europe CMS</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12836,11 +12868,19 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Global CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>International</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Local Affiliate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional Europe CMS</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14592,11 +14632,19 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Global CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>International</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Local Affiliate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional Europe CMS</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -16352,11 +16400,19 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Global CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>International</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Local Affiliate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional Europe CMS</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
