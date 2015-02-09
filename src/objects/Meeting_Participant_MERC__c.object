@@ -1135,8 +1135,8 @@ Created by John A Adams 1/7/2014</description>
         <fullName>Institutional_Notification_Sent_MERC__c</fullName>
         <description>Used to input date the institutional notifications were sent out for the meeting participant. Also needed for reporting. Created 04/29/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <inlineHelpText>Date that all designated individual notifications and any responses required for the secondary method has been received.  Notification is complete.</inlineHelpText>
-        <label>Institutional Notification Completed</label>
+        <inlineHelpText>Date Institutional Notification was sent to Designated Individuals</inlineHelpText>
+        <label>Institutional Notification Sent</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -2076,11 +2076,7 @@ K. Thornton 11 Jun 2015</description>
     </fields>
     <fields>
         <fullName>Total_Ground_Transport_ToV_Rollup_MERC__c</fullName>
-        <description>The value stores the Declarative rollup summary value when rolled up from the meeting participant. This is a raw currency value and represents the value in euros. A trigger will convert this value to the meeting currency and store it in Total Ground Transportation Tov. 
-
-
-
-K. Thornton 11 Jun 2014</description>
+        <description>The value stores the Declarative rollup summary value when rolled up from the meeting participant. This is a raw currency value and represents the value in euros. A trigger will convert this value to the meeting currency and store it in Total Ground Transportation Tov. K. Thornton 11 Jun 2014</description>
         <externalId>false</externalId>
         <label>Total Group Ground Transport ToV Rollup</label>
         <precision>18</precision>
@@ -4364,12 +4360,19 @@ ISPICKVAL(Meeting_MERC__r.Participant_ToV_Final_MERC__c,&quot;&quot;))</errorCon
         <active>true</active>
         <description>Prevent the user from changing the proposed final fee and subsequently the final fee once it has been confirmed : MERC : Created on 0/02/2015 by Oliver Dunford, Mavens Consulting</description>
         <errorConditionFormula>ISCHANGED( Proposed_Final_Fee_MERC__c ) 
+
 &amp;&amp;
+
 $User.Power_User_MERC__c = FALSE 
+
 &amp;&amp;
+
 (
+
 $Profile.Name &lt;&gt; &quot;System Administrator&quot; &amp;&amp; 
+
 $Profile.Name &lt;&gt; &quot;Mercury Integration ODS - Platform&quot;
+
 )</errorConditionFormula>
         <errorDisplayField>Proposed_Final_Fee_MERC__c</errorDisplayField>
         <errorMessage>Once confirmed you cannot modify the proposed final fee or final fee.  Please contact a member of the Customer Meeting Service team for assistance.</errorMessage>
