@@ -28,6 +28,7 @@
         <members>MERC_InvoiceXmlWriterTest</members>
         <members>MERC_MeetingCancellationHandler</members>
         <members>MERC_MeetingCancellationHandlerTest</members>
+        <members>MERC_MeetingParticipantCurrencyConvert</members>
         <members>MERC_MeetingParticipantNewEditController</members>
         <members>MERC_MergeHistoryStampTriggerHandler</members>
         <members>MERC_MergeHistoryStampTriggerHandlerTest</members>
