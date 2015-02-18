@@ -66,6 +66,7 @@
         <members>Meeting_MERC__c</members>
         <members>Meeting_Participant_MERC__c</members>
         <members>Mercury_Settings_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c</members>
         <members>Web_Service_Logic_MERC__c</members>
         <name>CustomObject</name>
     </types>
