@@ -98,7 +98,6 @@
         <name>PermissionSet</name>
     </types>
     <types>
-        <members>Admin</members>
         <members>Mercury Integration CST - Platform</members>
         <members>Mercury Integration Docusign - Platform</members>
         <members>Mercury Integration ExactTarget - Platform</members>
