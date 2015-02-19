@@ -66,6 +66,7 @@
         <members>Meeting_MERC__c</members>
         <members>Meeting_Participant_MERC__c</members>
         <members>Mercury_Settings_MERC__c</members>
+        <members>Task</members>
         <members>Travel_Itinerary_MERC__c</members>
         <members>Web_Service_Logic_MERC__c</members>
         <name>CustomObject</name>
@@ -79,12 +80,20 @@
     <types>
         <members>Daily_Attendance_TOV_MERC__c-MERC_Daily Attendance %26 TOV</members>
         <members>Meeting_Day_MERC__c-MERC_Meeting Day</members>
+        <members>Meeting_MERC__c-MERC_Active</members>
+        <members>Meeting_MERC__c-MERC_Completed</members>
         <members>Meeting_MERC__c-MERC_Consulting_Project</members>
+        <members>Meeting_MERC__c-MERC_Forecasted_Meeting</members>
+        <members>Meeting_MERC__c-MERC_Independent_Sponsorship</members>
+        <members>Meeting_MERC__c-MERC_Portal_API</members>
+        <members>Meeting_MERC__c-MERC_Program</members>
+        <members>Meeting_MERC__c-MERC_Registered_Meeting</members>
         <members>Meeting_Participant_MERC__c-MERC_Consulting</members>
         <members>Meeting_Participant_MERC__c-MERC_Delegate</members>
         <members>Meeting_Participant_MERC__c-MERC_Individual Sponsorship</members>
         <members>Meeting_Participant_MERC__c-MERC_Service Provider</members>
         <members>PersonAccount-MERC_Designated Individual</members>
+        <members>Task-MERC_Task_Layout</members>
         <name>Layout</name>
     </types>
     <types>

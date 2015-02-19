@@ -134,9 +134,9 @@
         <description>Formula logic to pull back the correct Venue Id based on Meeting conditions : MERC : Created on 08/08/2014 by Oliver Dunford, Mavens Consulting</description>
         <externalId>false</externalId>
         <formula>IF( Source_MERC__c = &quot;Veeva&quot; &amp;&amp;  RecordType.DeveloperName &lt;&gt; &quot;Independent_Sponsorship&quot;,   Event_Id_MERC__c , 
-		IF(Source_MERC__c = &quot;Mercury&quot; &amp;&amp;  !ISBLANK(Venue_MERC__r.Name ),   Venue_MERC__r.Id , 
-	Event_Id_MERC__c
-		)
+        IF(Source_MERC__c = &quot;Mercury&quot; &amp;&amp;  !ISBLANK(Venue_MERC__r.Name ),   Venue_MERC__r.Id , 
+    Event_Id_MERC__c
+        )
 )</formula>
         <label>AODS Venue Id</label>
         <required>false</required>
@@ -150,11 +150,11 @@
         <description>Formula logic to pull back the correct Venue Name based on Meeting conditions : MERC : Created on 08/08/2014 by Oliver Dunford, Mavens Consulting</description>
         <externalId>false</externalId>
         <formula>IF( Source_MERC__c = &quot;Veeva&quot; &amp;&amp;  RecordType.DeveloperName &lt;&gt; &quot;Independent_Sponsorship&quot;,  Preferred_Venue_MERC__c, 
-	IF(Source_MERC__c = &quot;Mercury&quot; &amp;&amp; !ISBLANK( Sourced_Venue_Name_Hist_MERC__c ), Sourced_Venue_Name_Hist_MERC__c, 
-		IF(Source_MERC__c = &quot;Mercury&quot; &amp;&amp;  !ISBLANK(Venue_MERC__r.Name ),  Venue_MERC__r.Name, 
-	&quot;No Venue Name Available&quot;
-		)
-	)
+    IF(Source_MERC__c = &quot;Mercury&quot; &amp;&amp; !ISBLANK( Sourced_Venue_Name_Hist_MERC__c ), Sourced_Venue_Name_Hist_MERC__c, 
+        IF(Source_MERC__c = &quot;Mercury&quot; &amp;&amp;  !ISBLANK(Venue_MERC__r.Name ),  Venue_MERC__r.Name, 
+    &quot;No Venue Name Available&quot;
+        )
+    )
 )</formula>
         <label>AODS Venue Name</label>
         <required>false</required>
@@ -1996,10 +1996,10 @@ Created by John A Adams 10/24/2013</description>
         <description>Used to prevent completed and locked meetings from being included within the calculation to update a HCPs Minimum and Maximum Hourly rate based upon a new Tier value.  This logic is triggered by CMS Cork on the HCPs profile via the Calculate Open Meeting fees box.  This formula simplifies the code by determining which meetings to ignore. Oliver Dunford 20th March.</description>
         <externalId>false</externalId>
         <formula>IF(
-	ISPICKVAL(Meeting_Status_MERC__c, &quot;Complete&quot;) || 
-	ISPICKVAL(Meeting_Status_MERC__c, &quot;Complete - Closed&quot;) || 
-	ISPICKVAL(Meeting_Status_MERC__c, &quot;Complete - Cancelled&quot;) || 
-	(Lock_Meeting_MERC__c = TRUE)	
+    ISPICKVAL(Meeting_Status_MERC__c, &quot;Complete&quot;) || 
+    ISPICKVAL(Meeting_Status_MERC__c, &quot;Complete - Closed&quot;) || 
+    ISPICKVAL(Meeting_Status_MERC__c, &quot;Complete - Cancelled&quot;) || 
+    (Lock_Meeting_MERC__c = TRUE)   
 
  , TRUE, FALSE)</formula>
         <label>Exclude from Open Meeting Fee Calc</label>
@@ -17079,9 +17079,9 @@ Number_of_Expected_Speakers_MERC__c &lt; 0</errorConditionFormula>
         <description>Check the required fields based on the Status and field selected : MERC : Created on 12/04/2014 by Katy Lorenti, Mavens Consulting</description>
         <errorConditionFormula>IF((RecordType.Name  &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp; RecordType.Name &lt;&gt; &apos;Consulting Project&apos;) &amp;&amp;
       ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
-		TEXT(Meeting_Status_MERC__c) = &apos;Registered&apos; &amp;&amp;
-		(ISBLANK (Number_of_Expected_Employees_MERC__c ))
-	,true, false)</errorConditionFormula>
+        TEXT(Meeting_Status_MERC__c) = &apos;Registered&apos; &amp;&amp;
+        (ISBLANK (Number_of_Expected_Employees_MERC__c ))
+    ,true, false)</errorConditionFormula>
         <errorDisplayField>Number_of_Expected_Employees_MERC__c</errorDisplayField>
         <errorMessage>The # of Expected Employees is required before status can be changed to Registered</errorMessage>
     </validationRules>
@@ -17092,8 +17092,8 @@ Number_of_Expected_Speakers_MERC__c &lt; 0</errorConditionFormula>
         <errorConditionFormula>IF((RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp; 
 RecordType.Name &lt;&gt; &apos;Consulting Project&apos;) &amp;&amp;
       ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
-		TEXT(Meeting_Status_MERC__c) = &apos;Registered&apos; &amp;&amp;
-		(ISBLANK(Number_of_Expected_Non_HCP_MERC__c)) 
+        TEXT(Meeting_Status_MERC__c) = &apos;Registered&apos; &amp;&amp;
+        (ISBLANK(Number_of_Expected_Non_HCP_MERC__c)) 
 ,true, false)</errorConditionFormula>
         <errorDisplayField>Number_of_Expected_Non_HCP_MERC__c</errorDisplayField>
         <errorMessage>The # of Expected Non-Lilly/Non-HCPs is required before status can be changed to Registered</errorMessage>
@@ -17105,9 +17105,9 @@ RecordType.Name &lt;&gt; &apos;Consulting Project&apos;) &amp;&amp;
         <errorConditionFormula>IF((RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
 RecordType.Name &lt;&gt; &apos;Consulting Project&apos;)  &amp;&amp;
       ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
-		TEXT(Meeting_Status_MERC__c) = &apos;Registered&apos; &amp;&amp;
-		(ISBLANK ( Number_of_Expected_Speakers_MERC__c ))
-	,true, false)</errorConditionFormula>
+        TEXT(Meeting_Status_MERC__c) = &apos;Registered&apos; &amp;&amp;
+        (ISBLANK ( Number_of_Expected_Speakers_MERC__c ))
+    ,true, false)</errorConditionFormula>
         <errorDisplayField>Number_of_Expected_Speakers_MERC__c</errorDisplayField>
         <errorMessage>The # of Expected Speakers is required before status can be changed to Registered</errorMessage>
     </validationRules>
@@ -17118,9 +17118,9 @@ RecordType.Name &lt;&gt; &apos;Consulting Project&apos;)  &amp;&amp;
         <errorConditionFormula>IF((RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp;
 RecordType.Name &lt;&gt; &apos;Consulting Project&apos;)  &amp;&amp;
       ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
-		TEXT(Meeting_Status_MERC__c) = &apos;Registered&apos; &amp;&amp;
-		(ISBLANK (Text( Interaction_Type_MERC__c )))
-	,true, false)</errorConditionFormula>
+        TEXT(Meeting_Status_MERC__c) = &apos;Registered&apos; &amp;&amp;
+        (ISBLANK (Text( Interaction_Type_MERC__c )))
+    ,true, false)</errorConditionFormula>
         <errorDisplayField>Interaction_Type_MERC__c</errorDisplayField>
         <errorMessage>The Interaction Type is required before status can be changed to Registered</errorMessage>
     </validationRules>
@@ -17131,9 +17131,9 @@ RecordType.Name &lt;&gt; &apos;Consulting Project&apos;)  &amp;&amp;
         <errorConditionFormula>IF((RecordType.Name &lt;&gt; &apos;Independent Meeting&apos; &amp;&amp; 
 RecordType.Name &lt;&gt; &apos;Consulting Project&apos;)  &amp;&amp;
       ISCHANGED(Meeting_Status_MERC__c) &amp;&amp;
-		TEXT(Meeting_Status_MERC__c) = &apos;Registered&apos; &amp;&amp;
-		(ISBLANK(Planned_Budget_MERC__c))
-	,true, false)</errorConditionFormula>
+        TEXT(Meeting_Status_MERC__c) = &apos;Registered&apos; &amp;&amp;
+        (ISBLANK(Planned_Budget_MERC__c))
+    ,true, false)</errorConditionFormula>
         <errorDisplayField>Planned_Budget_MERC__c</errorDisplayField>
         <errorMessage>The Budget is required before status can be changed to Registered</errorMessage>
     </validationRules>
