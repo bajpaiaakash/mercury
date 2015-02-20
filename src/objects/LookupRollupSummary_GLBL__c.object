@@ -150,6 +150,16 @@ MERC : Created on 2014-05-27 by Joe Ferraro, Mavens Consulting</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>DoNotAggregate_GLBL__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>If true, the rollup engine will not use SQL to rollup values. This avoids currency rounding errors but will make the calculation take much longer</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If true, the rollup engine will not use SQL to rollup values.</inlineHelpText>
+        <label>DoNotAggregate</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>FieldToAggregate_GLBL__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>API name of the field on the Child Object that contains the value to rollup, e.g. Amount</inlineHelpText>
@@ -231,7 +241,6 @@ MERC : Created on 2014-05-27 by Joe Ferraro, Mavens Consulting</description>
         <columns>ChildObject_GLBL__c</columns>
         <columns>AggregateOperation_GLBL__c</columns>
         <columns>AggregateResultField_GLBL__c</columns>
-        <columns>CalculateJobId_GLBL__c</columns>
         <columns>CalculationMode_GLBL__c</columns>
         <columns>FieldToAggregate_GLBL__c</columns>
         <columns>OverrideTriggerValidation_GLBL__c</columns>
@@ -239,6 +248,7 @@ MERC : Created on 2014-05-27 by Joe Ferraro, Mavens Consulting</description>
         <columns>RelationshipCriteriaFields_GLBL__c</columns>
         <columns>RelationshipField_GLBL__c</columns>
         <columns>TreatZeroAsNull_GLBL__c</columns>
+        <columns>DoNotAggregate_GLBL__c</columns>
         <columns>LAST_UPDATE</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>

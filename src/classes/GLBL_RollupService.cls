@@ -14,7 +14,7 @@
  *      may be used to endorse or promote products derived from this software without
  *      specific prior written permission.
  *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
  *  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
  *  OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
  *  THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
@@ -462,7 +462,7 @@ global with sharing class GLBL_RollupService
 	}
 
 	/**
-	 * Method wraps the GLBL_LREngine.rolup method, provides context via the lookups described in LookupRollupSummary_GLBL__c
+	 * Method wraps the GLBL_LREngine.rollup method, provides context via the lookups described in LookupRollupSummary_GLBL__c
 	 *
 	 * @param lookups Lookup to calculate perform
 	 * @param childRecords Child records being modified
@@ -549,6 +549,9 @@ global with sharing class GLBL_RollupService
 
 	/**
 	 * Method takes a list of Lookups and creates the most optimum list of GLBL_LREngine.Context's to execute
+	 *
+	 * @param lookups 	List of LookupRollupSummary_GLBL__c obj
+	 * @return 			Map of GLBL_LREngine Contexts keyed with custom delimited String of ParentObject_GLBL__c#RelationShipField_GLBL__c#RelationShipCriteria_GLBL__c
 	 **/
 	private static Map<String, GLBL_LREngine.Context> createGLBL_LREngineContexts(List<LookupRollupSummary_GLBL__c> lookups)
 	{
@@ -591,7 +594,8 @@ global with sharing class GLBL_RollupService
                     childObjectType,  // child object
                     relationshipField.getDescribe(), // relationship field name
                     lookup.RelationShipCriteria_GLBL__c,
-                    lookup.TreatZeroAsNull_GLBL__c);
+                    lookup.TreatZeroAsNull_GLBL__c,
+                    lookup.DoNotAggregate_GLBL__c);
 				engineCtxByParentRelationship.put(contextKey, lreContext);
 			}
 			// Add the lookup
@@ -646,4 +650,8 @@ global with sharing class GLBL_RollupService
 		public override List<Database.Saveresult> updateRecords(boolean allOrNothing)
 			{ return super.updateRecords(allOrNothing); }
 	}
+
+		static void p(String m) {
+			System.debug('\n\n\nYYZ - '+m+'\n\n\n\n');
+		}
 }

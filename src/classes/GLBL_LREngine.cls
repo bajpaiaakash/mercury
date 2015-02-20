@@ -29,7 +29,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 	LREngine("L"ookup "R"ollup Engine) : This class simplifies rolling up on the child records in lookup relationship.
 */
 public class GLBL_LREngine {
-	
+
 	/*
 		Tempalte tokens
 			0 : Fields to project
@@ -38,7 +38,8 @@ public class GLBL_LREngine {
 			3 : Group By field name
 	*/
 	static String SOQL_TEMPLATE = 'SELECT {0} FROM {1} WHERE {3} in :masterIds {2} GROUP BY {3}';
-	
+	static String NON_AGGREGATE_SOQL_TEMPLATE = 'SELECT {0} FROM {1} WHERE {3} in :masterIds {2}';
+
 	/**
 		Key driver method that rolls up lookup fields based on the context. This is specially useful in Trigger context.
 		
@@ -78,65 +79,110 @@ public class GLBL_LREngine {
             masterRecordsMap.put(mId, ctx.master.newSobject(mId));
         }
 		
-    	// #0 token : SOQL projection
-    	String soqlProjection = ctx.lookupField.getName();
-    	// k: detail field name, v: master field name
-    	Integer exprIdx = 0;
-    	Map<String, String> detail2MasterFldMap = new Map<String, String>();
-    	Map<String, String> detail2AliasMap = new Map<String, String>();
-        Map<String, Boolean> master2IsNumber = new Map<String, Boolean>();
-    	for (RollupSummaryField rsf : ctx.fieldsToRoll) {
-    		// create aggreate projection with alias for easy fetching via AggregateResult class
-    		// i.e. SUM(Amount) Amount
-    		String alias = 'lre'+exprIdx++; // Calculate an alias, using field name blew the 25 character limit in some cases
-    		soqlProjection += ', ' + rsf.operation + '(' + rsf.detail.getName() + ') ' + alias;
-    		detail2MasterFldMap.put(rsf.detail.getName(), rsf.master.getName());
-    		detail2AliasMap.put(rsf.detail.getName(), alias);
-            master2IsNumber.put(rsf.master.getName(), rsf.isMasterTypeNumber);
-    	}
-		
-    	// #1 token for SOQL_TEMPLATE
-    	String detailTblName = ctx.detail.getDescribe().getName();
-    	
-    	// #2 Where clause
-    	String whereClause = '';
-    	if (ctx.detailWhereClause != null && ctx.detailWhereClause.trim().length() > 0) {
-    		whereClause = 'AND ' + ctx.detailWhereClause ;
-    	}
-    	
-    	// #3 Group by field
-    	String grpByFld = ctx.lookupField.getName();
+        // #0 token : SOQL projection
+        String soqlProjection = ctx.lookupField.getName();
+ 
+        // #1 token for TEMPLATE
+        String detailTblName = ctx.detail.getDescribe().getName();
+        
+        // #2 token Where clause
+        String whereClause = '';
+        if (ctx.detailWhereClause != null && ctx.detailWhereClause.trim().length() > 0) {
+            whereClause = 'AND ' + ctx.detailWhereClause ;
+        }
+
+        // #3 token Group by field
+        String lookupFld = ctx.lookupField.getName();
 
         Boolean treatZerosAsNulls = ctx.treatZerosAsNulls;
     	
-    	String soql = String.format(SOQL_TEMPLATE, new String[]{soqlProjection, detailTblName, whereClause, grpByFld});
+        if (ctx.useNonaggregatingRollup) {
+            // #0 token continued...
+            // k: detail field name, v: master field name
+            Map<String, String> detail2MasterFldMap = new Map<String, String>();
+            Map<String, RollupOperation> detail2Operation = new Map<String, RollupOperation>();
+            Map<String, Boolean> master2IsNumber = new Map<String, Boolean>();
+            for (RollupSummaryField rsf : ctx.fieldsToRoll) {
+                soqlProjection += ', ' + rsf.detail.getName();
+                detail2MasterFldMap.put(rsf.detail.getName(), rsf.master.getName());
+                detail2Operation.put(rsf.detail.getName(),rsf.operation);
+                master2IsNumber.put(rsf.master.getName(), rsf.isMasterTypeNumber);
+            }
 
-    	// aggregated results 
-    	List<AggregateResult> results = Database.query(soql);
-    	
-    	for (AggregateResult res : results){
-			Id masterRecId = (Id)res.get(grpByFld);
-			Sobject masterObj = masterRecordsMap.get(masterRecId);
-			if (masterObj == null) {
-				System.debug(Logginglevel.WARN, 'No master record found for ID :' + masterRecId);
-				continue;
-			}
-			
-			for (String detailFld : detail2MasterFldMap.keySet()) {
-				Object aggregatedDetailVal = res.get(detail2AliasMap.get(detailFld));
-				System.debug(LoggingLevel.INFO, 'New aggregarte value ' + aggregatedDetailVal + ' for master ' + masterRecId);
-				//masterObj.put(detail2MasterFldMap.get(detailFld), aggregatedDetailVal);
-                String masterField = detail2MasterFldMap.get(detailFld);
-                if (master2IsNumber.get(masterField) && treatZerosAsNulls && Integer.valueOf(aggregatedDetailVal) == 0) {
-                    masterObj.put(detail2MasterFldMap.get(detailFld), null);
-                } else {
-                    masterObj.put(detail2MasterFldMap.get(detailFld), aggregatedDetailVal);
+            String soql = String.format(NON_AGGREGATE_SOQL_TEMPLATE, new String[]{soqlProjection, detailTblName, whereClause, lookupFld});
+            p('USING MANUAL CALCULATION: '+soql);
+            List<Sobject> results = Database.query(soql);
+
+            Map<String, Decimal> detail2ResultValue = GLBL_LRAbacus.calculate(results, detail2Operation);
+
+            for (Sobject obj : results) {
+                Id masterRecId = (Id) obj.get(lookupFld);
+                Sobject masterObj = masterRecordsMap.get(masterRecId);
+                if (masterObj == null) {
+                    System.debug(Logginglevel.WARN, 'No master record found for ID :' + masterRecId);
+                    continue;
                 }
-			} 			
-			// Remove master Id record as its been processed   	
-			masterIds.remove(masterRecId);	
+
+                for (String detailFld : detail2MasterFldMap.keySet()) {
+                    Object detailVal = detail2ResultValue.get(detailFld);
+                    System.debug(LoggingLevel.INFO, 'New calculated value ' + detailVal + ' for master ' + masterRecId);
+
+                    String masterField = detail2MasterFldMap.get(detailFld);
+                    if (master2IsNumber.get(masterField) && treatZerosAsNulls && Integer.valueOf(detailVal) == 0) {
+                        masterObj.put(detail2MasterFldMap.get(detailFld), null);
+                    } else {
+                        masterObj.put(detail2MasterFldMap.get(detailFld), detailVal);
+                    }
+                }           
+                // Remove master Id record as its been processed    
+                masterIds.remove(masterRecId);  
+            }
+        } else {
+            // #0 token continued...
+            // k: detail field name, v: master field name
+            Integer exprIdx = 0;
+            Map<String, String> detail2MasterFldMap = new Map<String, String>();
+            Map<String, String> detail2AliasMap = new Map<String, String>();
+            Map<String, Boolean> master2IsNumber = new Map<String, Boolean>();
+            for (RollupSummaryField rsf : ctx.fieldsToRoll) {
+                // create aggreate projection with alias for easy fetching via AggregateResult class
+                // i.e. SUM(Amount) Amount
+                String alias = 'lre'+exprIdx++; // Calculate an alias, using field name blew the 25 character limit in some cases
+                soqlProjection += ', ' + rsf.operation + '(' + rsf.detail.getName() + ') ' + alias;
+                detail2MasterFldMap.put(rsf.detail.getName(), rsf.master.getName());
+                detail2AliasMap.put(rsf.detail.getName(), alias);
+                master2IsNumber.put(rsf.master.getName(), rsf.isMasterTypeNumber);
+            }
+                    
+        	String soql = String.format(SOQL_TEMPLATE, new String[]{soqlProjection, detailTblName, whereClause, lookupFld});
+
+        	// aggregated results 
+        	List<AggregateResult> results = Database.query(soql);
+        	
+        	for (AggregateResult res : results){
+    			Id masterRecId = (Id)res.get(lookupFld);
+    			Sobject masterObj = masterRecordsMap.get(masterRecId);
+    			if (masterObj == null) {
+    				System.debug(Logginglevel.WARN, 'No master record found for ID :' + masterRecId);
+    				continue;
+    			}
+    			
+    			for (String detailFld : detail2MasterFldMap.keySet()) {
+    				Object aggregatedDetailVal = res.get(detail2AliasMap.get(detailFld));
+    				System.debug(LoggingLevel.INFO, 'New aggregate value ' + aggregatedDetailVal + ' for master ' + masterRecId);
+    				//masterObj.put(detail2MasterFldMap.get(detailFld), aggregatedDetailVal);
+                    String masterField = detail2MasterFldMap.get(detailFld);
+                    if (master2IsNumber.get(masterField) && treatZerosAsNulls && Integer.valueOf(aggregatedDetailVal) == 0) {
+                        masterObj.put(detail2MasterFldMap.get(detailFld), null);
+                    } else {
+                        masterObj.put(detail2MasterFldMap.get(detailFld), aggregatedDetailVal);
+                    }
+    			} 			
+    			// Remove master Id record as its been processed   	
+    			masterIds.remove(masterRecId);	
+        	}
     	}
-    	
+
     	// Zero rollups for unprocessed master records (those with no longer any child relationships)
     	for(Id masterRecId : masterIds)
     		for (RollupSummaryField rsf : ctx.fieldsToRoll) {
@@ -245,7 +291,9 @@ public class GLBL_LREngine {
 		// Where clause or filters to apply while aggregating detail records
 		public String detailWhereClause;	
 
-        public Boolean treatZerosAsNulls;       
+        public Boolean treatZerosAsNulls;
+
+        public Boolean useNonaggregatingRollup;     
 	    		
 	    public Context(Schema.Sobjecttype m, Schema.Sobjecttype d, 
                            Schema.Describefieldresult lf) {
@@ -254,22 +302,25 @@ public class GLBL_LREngine {
 
         public Context(Schema.Sobjecttype m, Schema.Sobjecttype d, 
                            Schema.Describefieldresult lf, String detailWhereClause) {
-            this.master = m;
-            this.detail = d;
-            this.lookupField = lf;
-            this.detailWhereClause = detailWhereClause;
-            this.fieldsToRoll = new List<RollupSummaryField>();
-            this.treatZerosAsNulls = false;
+            this(m, d, lf, detailWhereClause, false, false);
+        }
+
+        public Context(Schema.Sobjecttype m, Schema.Sobjecttype d, 
+                           Schema.Describefieldresult lf, String detailWhereClause, 
+                           Boolean treatZerosAsNulls) {
+            this(m, d, lf, detailWhereClause, treatZerosAsNulls, false);
         }
 
 	    public Context(Schema.Sobjecttype m, Schema.Sobjecttype d, 
-                           Schema.Describefieldresult lf, String detailWhereClause, Boolean treatZerosAsNulls) {
+                           Schema.Describefieldresult lf, String detailWhereClause, 
+                           Boolean treatZerosAsNulls, Boolean useNonaggregatingRollup) {
 	        this.master = m;
 	        this.detail = d;
 	        this.lookupField = lf;
 	        this.detailWhereClause = detailWhereClause;
 	        this.fieldsToRoll = new List<RollupSummaryField>();
             this.treatZerosAsNulls = treatZerosAsNulls;
+            this.useNonaggregatingRollup = useNonaggregatingRollup;
 	    }
 	    
 	    /**
@@ -279,4 +330,8 @@ public class GLBL_LREngine {
 	        this.fieldsToRoll.add(fld);
 	    }
 	}    
+
+    static void p(String m) {
+        System.debug('\n\n\nYYZ - '+m+'\n\n\n\n');
+    }
 }
