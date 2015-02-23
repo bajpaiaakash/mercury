@@ -109,6 +109,9 @@ public class GLBL_LREngine {
                 master2IsNumber.put(rsf.master.getName(), rsf.isMasterTypeNumber);
             }
 
+// Schema.Describefieldresult.Displaytype dt == Schema.Displaytype.Currency ??
+
+
             String soql = String.format(NON_AGGREGATE_SOQL_TEMPLATE, new String[]{soqlProjection, detailTblName, whereClause, lookupFld});
             p('USING MANUAL CALCULATION: '+soql);
             List<Sobject> results = Database.query(soql);

@@ -5,7 +5,9 @@ public with sharing class GLBL_LRAbacus {
 
 		Map<String, Decimal> result = new Map<String, Decimal>();
 		Decimal value;
-		for (String fieldName : field2Operation.keySet()) {
+		List<String> keys = new List<String>(field2Operation.keySet());  // make the for loop faster
+		for (Integer i=0,j=keys.size(); i<j; i++) {
+			String fieldName = keys.get(i);
 			GLBL_LREngine.RollupOperation rollOp = field2Operation.get(fieldName);
 			if (rollOp == GLBL_LREngine.RollupOperation.Sum) {
 			    value = sum(fieldName,operands);
@@ -30,10 +32,13 @@ public with sharing class GLBL_LRAbacus {
 	}
 
 	private static Decimal sum(String fieldName, List<Sobject> records) {
+
+		p('SUMMING '+fieldName);
 		Decimal sum;
 		try {
 			sum = 0;
-			for (Sobject obj : records) {
+			for (Integer i=0,j=records.size(); i<j; i++) {
+				Sobject obj = records.get(i);
 				sum += (Decimal) obj.get(fieldName);
 			}
 		} catch (Exception e) {
@@ -47,8 +52,9 @@ public with sharing class GLBL_LRAbacus {
 
 		Map<String, Datetime> result = new Map<String, Datetime>();
 		Decimal value;
-		for (String fieldName : field2Operation.keySet()) {
-			GLBL_LREngine.RollupOperation rollOp = field2Operation.get(fieldName);
+		List<String> keys = new List<String>(field2Operation.keySet());  // make the for loop faster
+		for (Integer i=0,j=keys.size(); i<j; i++) {
+			GLBL_LREngine.RollupOperation rollOp = field2Operation.get(keys.get(i));
 			if (rollOp == GLBL_LREngine.RollupOperation.Max) {
 			    p('Max');
 			} else if (rollOp == GLBL_LREngine.RollupOperation.Min) {
