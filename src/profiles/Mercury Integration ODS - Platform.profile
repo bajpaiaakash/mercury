@@ -1693,7 +1693,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Daily_Attendance_TOV_MERC__c.Est_Grp_Grnd_Transp_MERC__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -3219,7 +3219,7 @@
         <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Confirm_ToV_Reporting_Change_MERC__c</field>
         <readable>false</readable>
-    </fieldPermissions>
+    </fieldPermissions> n
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Congress_Additional_Information_MERC__c</field>
