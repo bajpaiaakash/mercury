@@ -316,6 +316,18 @@ p('no itineraries for this DA/ToV. Setting to null.');
 		return tovRecordsToUpdate;
 	}
 
+	/**
+	 * Calculating the hotel ToV based on the status of related objects. Per the admin guide:
+	 * <p>
+	 * Hotel ToV is managed by the creation of a Travel Itinerary record with the Hotel Record Type. 
+	 * Mercury ignores No Show/Attended Daily Attendance & ToV Status values. For each Meeting Day with
+	 * a corresponding Segment Begin/End Date within a Travel Itinerary record of type Hotel, the Room Rate 
+	 * on the Travel Itinerary becomes the ToV value for Hotel ToV. AODS will determine which days need 
+	 * reporting based upon the Daily Status values that are pulled from Mercury.
+	 * </p>
+	 *
+	 * @param sobjects 	List of Meeting_Vendor_MERC__c, Travel_Itinerary_MERC__c or Daily_Attendance_TOV_MERC__c
+	 **/
 	private void calculateHotelTov(List<SObject> sobjects) {
 
 		p('calculateHotelTov()!\rObject Type:'+this.triggeredSobjectType+
@@ -386,9 +398,10 @@ p('t'+i+': '+t);
 
 					// has value already been sent to Activity ODS?
 					Boolean tovIsFinal = t.Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c == 'Yes';
-					Boolean noRoomRate = t==null || t.Room_Rate_excl_VAT_MERC__c==null;
+					Boolean noRoomRate = t.Room_Rate_excl_VAT_MERC__c==null;
+					Boolean itineraryCancelled = t.Status_MERC__c == 'Cancelled';
 
-					if (noRoomRate || !t.Include_ToV_MERC__c) {
+					if (noRoomRate || !t.Include_ToV_MERC__c || itineraryCancelled) {
 						if (tovIsFinal) {
 	p(i+': ToV is Final');
 							if (tov.Est_Hotel_ToV_MERC__c != null) {
@@ -440,8 +453,6 @@ i++;
 
 p('hotel ToV #2 from DA');
 			// Determine which TOVs to process and how...
-			List<Daily_Attendance_TOV_MERC__c> tovRecordsToUpdate = new List<Daily_Attendance_TOV_MERC__c>();
-
 			Map<Id,Daily_Attendance_TOV_MERC__c> tovKeys = new Map<Id,Daily_Attendance_TOV_MERC__c>();
 			for (Daily_Attendance_TOV_MERC__c tov : tovToItinerary.keySet()) {
 				tovKeys.put(tov.Id,tov);
@@ -459,15 +470,26 @@ p('t'+i+': '+t);
 				if (t!=null) {
 					Boolean tovIsFinal = t.Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c == 'Yes';
 					Boolean statusUpdate = Trigger.isUpdate && (Trigger.oldMap.get(tov.Id).get('Status_MERC__c') != tov.Status_Merc__c);
+					Boolean itineraryCancelled = t.Status_MERC__c == 'Cancelled';
 
-					if (tovIsFinal) {
-						if (!statusUpdate && tov.Est_Hotel_ToV_MERC__c != null) tov.Est_Hotel_ToV_MERC__c = 0.0;
-					} else if (tov.Status_MERC__c=='No Show') {
-						tov.Est_Hotel_ToV_MERC__c = null;
+					if (itineraryCancelled) {
+						if (tovIsFinal) {
+							tov.Est_Hotel_ToV_MERC__c = 0.0;
+						} else {
+							tov.Est_Hotel_ToV_MERC__c = null;
+						}
 					} else {
 						tov.Est_Hotel_ToV_MERC__c = t.Room_Rate_excl_VAT_MERC__c;
-						tovRecordsToUpdate.add(tov);
 					}
+
+					//if (tovIsFinal) {
+					//	if (!statusUpdate && tov.Est_Hotel_ToV_MERC__c != null) tov.Est_Hotel_ToV_MERC__c = 0.0;
+					//} else if (itineraryCancelled) {
+					//	tov.Est_Hotel_ToV_MERC__c = null;
+					//} else {
+					//	tov.Est_Hotel_ToV_MERC__c = t.Room_Rate_excl_VAT_MERC__c;
+					//	tovRecordsToUpdate.add(tov);
+					//}
 				}
 			}
 		}
@@ -514,8 +536,8 @@ p('t'+i+': '+t);
 		Map<Id, List<Travel_Itinerary_MERC__c>> participantIdToHotelItineraries = new Map<Id, List<Travel_Itinerary_MERC__c>>();
 		soql = 'SELECT ID, Name, '+ 
 							'(SELECT '+
-							'	ID, Sgmnt_Bgin_TS_MERC__c, Sgmnt_End_TS_MERC__c,Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c, '+
-							'	Room_Rate_excl_VAT_MERC__c, Include_ToV_MERC__c '+
+							'	ID, Sgmnt_Bgin_TS_MERC__c, Sgmnt_End_TS_MERC__c, Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c, '+
+							'	Status_MERC__c, Room_Rate_excl_VAT_MERC__c, Include_ToV_MERC__c '+
 							'FROM Travel_Itineraries_MERC__r '+
 							'WHERE RecordType.DeveloperName = \'Hotel_MERC\') '+
 					   'FROM Meeting_Participant_MERC__c WHERE '+mpFilter+' in ';
