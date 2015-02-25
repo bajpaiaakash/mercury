@@ -23,7 +23,7 @@ public with sharing class GLBL_LRAbacus {
 			    value = avg(fieldName,operands);
 			} else if (rollOp == GLBL_LREngine.RollupOperation.Count) {
 			    p('Count');
-			    value = sum(fieldName,operands);
+			    value = count(fieldName,operands);
 			} else {
 			    p('n/a');
 			}
@@ -35,15 +35,13 @@ public with sharing class GLBL_LRAbacus {
 	private static Decimal sum(String fieldName, List<Sobject> records) {
 
 		p('SUMMING '+fieldName);
-		Decimal sum;
-		try {
-			sum = 0;
-			for (Integer i=0,j=records.size(); i<j; i++) {
-				Sobject obj = records.get(i);
-				sum += (Decimal) obj.get(fieldName);
+		Decimal sum = 0;
+		for(Integer i=0,j=records.size(); i<j; i++) {
+			Decimal value = (Decimal)records[i].get(fieldName);
+			if(value == null){
+				value = 0;
 			}
-		} catch (Exception e) {
-			System.debug(e);
+			sum += value;
 		}
 		return sum;
 	}
@@ -53,7 +51,11 @@ public with sharing class GLBL_LRAbacus {
 		Integer numRecords = records.size();
 
 		for(Integer i = 0, j = numRecords; i < j; i++){
-			total += (Decimal)records[i].get(fieldName);
+			if(records[i].get(fieldName) == null){
+				numRecords--;
+			} else {
+				total += (Decimal)records[i].get(fieldName);
+			}
 		}
 
 		return total/numRecords;
@@ -82,11 +84,28 @@ public with sharing class GLBL_LRAbacus {
 
 		values.sort();
 
-		return values[0];
+		Decimal lowestValue = null;
+
+		for(Integer x = 0, y = numRecords; x < y; x++){
+			if(values[x] != null){
+				lowestValue = values[x];
+				break;
+			}
+		}
+
+		return lowestValue;
 	}
 
 	private static Decimal count(String fieldName, List<Sobject> records){
-		return records.size();
+		Integer count = 0;
+
+		for(Integer i = 0, j = records.size(); i < j; i++){
+			if(records[i].get(fieldName) != null){
+				count++;
+			}
+		}
+
+		return count;
 	}
 
 	public static Map<String, Datetime> datetimeMuncher(List<Sobject> operands, Map<String, GLBL_LREngine.RollupOperation> field2Operation) {
