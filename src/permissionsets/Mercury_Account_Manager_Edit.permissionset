@@ -61,6 +61,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_ApexProfiler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_DailyAttendanceController</apexClass>
         <enabled>true</enabled>
     </classAccesses>

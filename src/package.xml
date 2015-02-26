@@ -16,6 +16,7 @@
         <members>GLBL_RollupSummariesSelector</members>
         <members>MERC_AddMeetingParticipantsCntlrTest</members>
         <members>MERC_AddMeetingParticipantsController</members>
+        <members>MERC_ApexProfiler</members>
         <members>MERC_DailyAttendanceController</members>
         <members>MERC_DailyAttendanceController</members>
         <members>MERC_DailyAttendanceControllerStressTest</members>
@@ -105,6 +106,10 @@
         <members>Web_Service_Error_GLBL__c</members>
         <members>et4ae5__Configuration__c</members>
         <name>CustomTab</name>
+    </types>
+    <types>
+        <members>unfiled$public/ContactFollowUpSAMPLE</members>
+        <name>EmailTemplate</name>
     </types>
     <types>
         <members>Account-GLBL_HCO Organization</members>
