@@ -91,7 +91,7 @@ public class GLBL_LREngine {
             whereClause = 'AND ' + ctx.detailWhereClause ;
         }
 
-        // #3 token Group by field
+        // #3 token Lookup field
         String lookupFld = ctx.lookupField.getName();
 
         Boolean treatZerosAsNulls = ctx.treatZerosAsNulls;
@@ -109,23 +109,36 @@ public class GLBL_LREngine {
                 master2IsNumber.put(rsf.master.getName(), rsf.isMasterTypeNumber);
             }
 
-// Schema.Describefieldresult.Displaytype dt == Schema.Displaytype.Currency ??
-
-
             String soql = String.format(NON_AGGREGATE_SOQL_TEMPLATE, new String[]{soqlProjection, detailTblName, whereClause, lookupFld});
             p('USING MANUAL CALCULATION: '+soql);
             List<Sobject> results = Database.query(soql);
 
-            Map<String, Decimal> detail2ResultValue = GLBL_LRAbacus.calculate(results, detail2Operation);
-
+            Map<Id,List<Sobject>> master2Operands = new Map<Id,List<Sobject>>();
             for (Sobject obj : results) {
                 Id masterRecId = (Id) obj.get(lookupFld);
+                Sobject masterObj = masterRecordsMap.get(masterRecId);                
+                if (masterObj == null) {
+                    System.debug(Logginglevel.WARN, 'No master record found for ID :' + masterRecId);
+                    continue;
+                }
+
+                if (master2Operands.get(masterRecId)==null) master2Operands.put(masterRecId,new List<Sobject>());
+                master2Operands.get(masterRecId).add(obj);
+            }
+
+            Map<Id, Map<String,Decimal>> master2ResultValues = new Map<Id, Map<String,Decimal>>();
+            for (Id masterRecId : master2Operands.keySet()) {
+                master2ResultValues.put(masterRecId, GLBL_LRAbacus.calculate(master2Operands.get(masterRecId), detail2Operation));
+            }
+
+            for (Id masterRecId : master2ResultValues.keySet()) {
                 Sobject masterObj = masterRecordsMap.get(masterRecId);
                 if (masterObj == null) {
                     System.debug(Logginglevel.WARN, 'No master record found for ID :' + masterRecId);
                     continue;
                 }
 
+                Map<String,Decimal> detail2ResultValue = master2ResultValues.get(masterRecId);
                 for (String detailFld : detail2MasterFldMap.keySet()) {
                     Object detailVal = detail2ResultValue.get(detailFld);
                     System.debug(LoggingLevel.INFO, 'New calculated value ' + detailVal + ' for master ' + masterRecId);
