@@ -13,16 +13,17 @@ public with sharing class GLBL_LRAbacus {
 			    value = sum(fieldName,operands);
 			    p('SUM='+value);
 			} else if (rollOp == GLBL_LREngine.RollupOperation.Max) {
-			    value = sum(fieldName,operands);
+			    p('Max');
+			    value = max(fieldName,operands);
 			} else if (rollOp == GLBL_LREngine.RollupOperation.Min) {
 			    p('Min');
-			    value = sum(fieldName,operands);
+			    value = min(fieldName,operands);
 			} else if (rollOp == GLBL_LREngine.RollupOperation.Avg) {
 			    p('Avg');
-			    value = sum(fieldName,operands);
+			    value = avg(fieldName,operands);
 			} else if (rollOp == GLBL_LREngine.RollupOperation.Count) {
 			    p('Count');
-			    value = sum(fieldName,operands);
+			    value = count(fieldName,operands);
 			} else {
 			    p('n/a');
 			}
@@ -34,17 +35,77 @@ public with sharing class GLBL_LRAbacus {
 	private static Decimal sum(String fieldName, List<Sobject> records) {
 
 		p('SUMMING '+fieldName);
-		Decimal sum;
-		try {
-			sum = 0;
-			for (Integer i=0,j=records.size(); i<j; i++) {
-				Sobject obj = records.get(i);
-				sum += (Decimal) obj.get(fieldName);
+		Decimal sum = 0;
+		for(Integer i=0,j=records.size(); i<j; i++) {
+			Decimal value = (Decimal)records[i].get(fieldName);
+			if(value == null){
+				value = 0;
 			}
-		} catch (Exception e) {
-			System.debug(e);
+			sum += value;
 		}
 		return sum;
+	}
+
+	private static Decimal avg(String fieldName, List<Sobject> records){
+		Decimal total = 0;
+		Integer numRecords = records.size();
+
+		for(Integer i = 0, j = numRecords; i < j; i++){
+			if(records[i].get(fieldName) == null){
+				numRecords--;
+			} else {
+				total += (Decimal)records[i].get(fieldName);
+			}
+		}
+
+		return total/numRecords;
+	}
+
+	private static Decimal max(String fieldName, List<Sobject> records){
+		Integer numRecords = records.size();
+		List<Decimal> values = new Decimal[numRecords];
+
+		for(Integer i = 0, j = numRecords; i < j; i++){
+			values[i] = (Decimal)records[i].get(fieldName);
+		}
+
+		values.sort();
+
+		return values[numRecords-1];
+	}
+
+	private static Decimal min(String fieldName, List<Sobject> records){
+		Integer numRecords = records.size();
+		List<Decimal> values = new Decimal[numRecords];
+
+		for(Integer i = 0, j = numRecords; i < j; i++){
+			values[i] = (Decimal)records[i].get(fieldName);
+		}
+
+		values.sort();
+
+		Decimal lowestValue = null;
+
+		for(Integer x = 0, y = numRecords; x < y; x++){
+			if(values[x] != null){
+				lowestValue = values[x];
+				break;
+			}
+		}
+
+		return lowestValue;
+	}
+
+	private static Decimal count(String fieldName, List<Sobject> records){
+		Integer count = 0;
+
+		for(Integer i = 0, j = records.size(); i < j; i++){
+			if(records[i].get(fieldName) != null){
+				count++;
+			}
+		}
+
+		return count;
 	}
 
 	public static Map<String, Datetime> datetimeMuncher(List<Sobject> operands, Map<String, GLBL_LREngine.RollupOperation> field2Operation) {
