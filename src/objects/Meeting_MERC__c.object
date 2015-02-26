@@ -2567,6 +2567,17 @@ Created by John Adams 11/6/2013</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Meeting_Active_Date_MERC__c</fullName>
+        <description>Date upon which Meeting Status was updated to ACTIVE.  Populated via workflow (MERC_Meeting_Active_Date).  Created by Mike Cashman on 23/2/2015.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date on which Meeting Status was sent to ACTIVE.</inlineHelpText>
+        <label>Meeting Active Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Meeting_Auto_Nmber_MERC__c</fullName>
         <description>Incremental Auto Number field used in conjunction with other values to create a human readable Meeting Id.  This will be used by AODS and for other systems requiring such an Id. Oliver Dunford 7th Jan.</description>
         <displayFormat>M-{00000}</displayFormat>

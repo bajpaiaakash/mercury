@@ -35,6 +35,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
+                <field>Invoice_Required_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
                 <field>Transparency_Reporting_Consent_MERC__c</field>
             </layoutItems>
             <layoutItems>
@@ -312,11 +316,23 @@
                 <behavior>Edit</behavior>
                 <field>Email_to_Invite_HCP_to_Portal_MERC__c</field>
             </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Send_HCP_Info_Package_to_Rep__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>HCP_Info_Package_Status_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>HCP_Info_Package_Sent_Date_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>HCP_Info_Package_Follow_Up_Date_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>

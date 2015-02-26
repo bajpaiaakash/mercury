@@ -287,27 +287,6 @@
         <description>Lookup to Account from Event Participant. Created 9/28/2013 by KLorenti.</description>
         <externalId>false</externalId>
         <label>Account</label>
-        <lookupFilter>
-            <active>true</active>
-            <booleanFilter>1 OR 2 OR 3</booleanFilter>
-            <filterItems>
-                <field>Account.RecordType.Name</field>
-                <operation>equals</operation>
-                <value>HCP</value>
-            </filterItems>
-            <filterItems>
-                <field>Account.RecordType.Name</field>
-                <operation>equals</operation>
-                <value>Non-HCP</value>
-            </filterItems>
-            <filterItems>
-                <field>Account.RecordType.Name</field>
-                <operation>equals</operation>
-                <value>Employee</value>
-            </filterItems>
-            <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
-            <isOptional>false</isOptional>
-        </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Meeting Participants</relationshipLabel>
         <relationshipName>Event_Participants</relationshipName>
@@ -974,6 +953,41 @@ Created by John Adams on 12/9/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>HCP_Info_Package_Follow_Up_Date_MERC__c</fullName>
+        <description>Date on which to follow up with HCP regarding status of HCP Info Package (to be sent back from HCP).  Should be set by user.  Available via reporting for greater ease of HCP Info Pack tracking/ processing.  Created by Mike Cashman, Mavens Consulting on 23/2/2015.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Can be used by CMS Cork to indicate when they should follow up with the Meeting Owner/HCP should the HCP Info Pack remain outstanding.  This is used to drive reporting on all outstanding HCP Info Packs and should be updated manually by CMS Cork.</inlineHelpText>
+        <label>HCP Info Package Follow Up Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>HCP_Info_Package_Sent_Date_MERC__c</fullName>
+        <description>Date on which Info Package was sent to HCP.  Used in SLA Reporting.  Created by Mike Cashman, Mavens Consulting on 23/2/2015.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field should be manually set once the HCP Info Pack has been sent to the HCP.  If the HCP preference is population via the Web Services, this should be set to the date that they were invited to populate the HCP Info Pack via the Web Service.</inlineHelpText>
+        <label>HCP Info Package Sent Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>HCP_Info_Package_Status_MERC__c</fullName>
+        <description>Pulls through HCP Info Pack Status value to Meeting Participant record for greater ease of tracking.</description>
+        <externalId>false</externalId>
+        <formula>TEXT(Account_MERC__r.HCP_Info_Package_Status_MERC__c)</formula>
+        <inlineHelpText>Pulled from the HCP profile and shows the status of HCP Info Pack completion.  For a paper based process, the field on the HCP Profile should be set manually to &apos;Submitted&apos; once completed, this is automatic if completed by the HCP via the Web Service.</inlineHelpText>
+        <label>HCP Info Package Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Has_Active_MSA_MERC__c</fullName>
         <description>Displays whether the HCP currently has an Active MSA agreement with Lilly. Created 02/13/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -1141,6 +1155,18 @@ Created by John A Adams 1/7/2014</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Invoice_Required_MERC__c</fullName>
+        <description>Pulls &quot;Invoice Required?&quot; Value from Account through to Meeting Participant for exposure to Mercury Users.  Created by Mike Cashman, Mavens Consulting on 24/2/15.</description>
+        <externalId>false</externalId>
+        <formula>TEXT( Account_MERC__r.Invoice_Required_MERC__c )</formula>
+        <label>Invoice Required?</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Invoice_Template_Needed_MERC__c</fullName>
@@ -4364,23 +4390,14 @@ ISPICKVAL(Meeting_MERC__r.Participant_ToV_Final_MERC__c,&quot;&quot;))</errorCon
         <active>true</active>
         <description>Prevent the user from changing the proposed final fee and subsequently the final fee once it has been confirmed : MERC : Created on 0/02/2015 by Oliver Dunford, Mavens Consulting</description>
         <errorConditionFormula>ISCHANGED( Proposed_Final_Fee_MERC__c ) 
-
 &amp;&amp;
-
  ISPICKVAL( Confirm_Final_Fee_MERC__c , &quot;Confirmed&quot;) 
-
 &amp;&amp;
-
 $User.Power_User_MERC__c = FALSE 
-
 &amp;&amp;
-
 (
-
 $Profile.Name &lt;&gt; &quot;System Administrator&quot; &amp;&amp; 
-
 $Profile.Name &lt;&gt; &quot;Mercury Integration ODS - Platform&quot;
-
 )</errorConditionFormula>
         <errorDisplayField>Proposed_Final_Fee_MERC__c</errorDisplayField>
         <errorMessage>Once confirmed you cannot modify the proposed final fee or final fee.  Please contact a member of the Customer Meeting Service team for assistance.</errorMessage>
