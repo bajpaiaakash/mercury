@@ -83,7 +83,10 @@
     <types>
         <members>Account</members>
         <members>CST_User_Settings_CUST__c</members>
+        <members>Consent_Setting_GLBL__c</members>
+        <members>Contact</members>
         <members>Daily_Attendance_TOV_MERC__c</members>
+        <members>HCP_Contract_MERC__c</members>
         <members>Invoice_MERC__c</members>
         <members>LookupRollupSummaryLog_GLBL__c</members>
         <members>LookupRollupSummaryScheduleItems_GLBL__c</members>
@@ -104,7 +107,28 @@
         <name>CustomTab</name>
     </types>
     <types>
+        <members>Account-GLBL_HCO Organization</members>
+        <members>Account-MERC_Contracting_Party</members>
+        <members>Account-MERC_Lilly Affiliate Business</members>
+        <members>Account-MERC_Supplier</members>
+        <members>Account-MERC_Third Party Organization</members>
+        <members>Account-MERC_Vendor</members>
+        <members>Account-MERC_Venue</members>
         <members>Daily_Attendance_TOV_MERC__c-MERC_Daily Attendance %26 TOV</members>
+        <members>HCP_Contract_MERC__c-HCP Contract Layout</members>
+        <members>HCP_Contract_MERC__c-MERC_Contract</members>
+        <members>HCP_Contract_MERC__c-MERC_MSA Contract</members>
+        <members>HCP_Contract_MERC__c-MERC_Work Order</members>
+        <members>Invoice_Line_Item_MERC__c-Invoice Line Item Layout</members>
+        <members>Invoice_Line_Item_MERC__c-MERC_Consulting Project</members>
+        <members>Invoice_Line_Item_MERC__c-MERC_Contracted Services</members>
+        <members>Invoice_Line_Item_MERC__c-MERC_Invoice Line Item</members>
+        <members>Invoice_MERC__c-Invoice Layout</members>
+        <members>Invoice_MERC__c-MERC_Credit Note</members>
+        <members>Invoice_MERC__c-MERC_Credit Note Locked</members>
+        <members>Invoice_MERC__c-MERC_Invoice</members>
+        <members>Invoice_MERC__c-MERC_Invoice_Locked</members>
+        <members>LookupRollupSummary_GLBL__c-Lookup Rollup Summary Layout</members>
         <members>Meeting_Day_MERC__c-MERC_Meeting Day</members>
         <members>Meeting_MERC__c-MERC_Active</members>
         <members>Meeting_MERC__c-MERC_Completed</members>
@@ -155,6 +179,8 @@
     </types>
     <types>
         <members>EmailMessage</members>
+        <members>HCP_Contract_MERC__c</members>
+        <members>Meeting_MERC__c</members>
         <members>Meeting_Participant_MERC__c</members>
         <name>Workflow</name>
     </types>

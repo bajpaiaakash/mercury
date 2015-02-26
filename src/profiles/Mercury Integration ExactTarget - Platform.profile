@@ -1722,6 +1722,151 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Consent_Setting_GLBL__c.Consent_Configuration_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Consent_Setting_GLBL__c.Consent_Disclaimer_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Consent_Setting_GLBL__c.Consent_Duration_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Consent_Setting_GLBL__c.Consent_Translation_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Consent_Setting_GLBL__c.Country_Code_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.AccountId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.AssistantName</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.AssistantPhone</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Birthdate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Department</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.DoNotCall</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Email</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Fax</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.HasOptedOutOfEmail</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.HasOptedOutOfFax</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.HomePhone</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Jigsaw</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.LeadSource</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.MailingAddress</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.MobilePhone</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.OtherAddress</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.OtherPhone</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Phone</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.ReportsToId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.TRFO_Contact__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Title</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.et4ae5__HasOptedOutOfMobile__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.et4ae5__Mobile_Country_Code__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Daily_Attendance_TOV_MERC__c.Confirm_ToV_Reporting_Change_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -1813,6 +1958,176 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Daily_Attendance_TOV_MERC__c.Transparency_Reporting_Consent_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>HCP_Contract_MERC__c.Additional_Conditions_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>HCP_Contract_MERC__c.Compliance_Met_Contract_Sent_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>HCP_Contract_MERC__c.Contract_Expiration_Date_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>HCP_Contract_MERC__c.Contract_Follow_Up_Date_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>HCP_Contract_MERC__c.Contract_Request_Status_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>HCP_Contract_MERC__c.Contract_Search_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>HCP_Contract_MERC__c.Contract_Sent_Date_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>HCP_Contract_MERC__c.Contract_Sent_Date_Time_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>HCP_Contract_MERC__c.Contract_Signed_Date_Time_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>HCP_Contract_MERC__c.Country_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>HCP_Contract_MERC__c.Country_of_Residence_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>HCP_Contract_MERC__c.Days_Since_Last_Modified_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>HCP_Contract_MERC__c.Days_Until_Contract_Signed_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>HCP_Contract_MERC__c.Days_from_Contract_Sent_to_Mtg_Date_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>HCP_Contract_MERC__c.Description_of_Service_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>HCP_Contract_MERC__c.Docusign_Envelope_Id_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>HCP_Contract_MERC__c.Docusign_Envelope_URL_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>HCP_Contract_MERC__c.Institution_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>HCP_Contract_MERC__c.Internal_Lilly_Signee_Email_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>HCP_Contract_MERC__c.Invoice_Template_Required_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>HCP_Contract_MERC__c.Justification_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>HCP_Contract_MERC__c.Lilly_Internal_Signee_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>HCP_Contract_MERC__c.MSA_End_Date_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>HCP_Contract_MERC__c.MSA_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>HCP_Contract_MERC__c.MSA_Start_Date_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>HCP_Contract_MERC__c.Meeting_Name_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>HCP_Contract_MERC__c.Meeting_Participant_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>HCP_Contract_MERC__c.Meeting_Start_Date_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>HCP_Contract_MERC__c.Mercury_External_Id_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>HCP_Contract_MERC__c.Other_Details_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>HCP_Contract_MERC__c.Payee_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>HCP_Contract_MERC__c.Payment_Required_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>HCP_Contract_MERC__c.Prior_Parent_Id_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>HCP_Contract_MERC__c.Signing_Parties_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4851,7 +5166,94 @@
         <readable>false</readable>
     </fieldPermissions>
     <layoutAssignments>
+        <layout>Account-GLBL_HCO Organization</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account-GLBL_HCO Organization</layout>
+        <recordType>Account.Business_Account</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account-GLBL_HCO Organization</layout>
+        <recordType>Account.Health_Care_Organization_GLBL</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account-GLBL_HCO Organization</layout>
+        <recordType>Account.Meeting_Planning_Company_GLBL</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account-GLBL_HCO Organization</layout>
+        <recordType>Account.PANG_RWE_Account</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account-MERC_Contracting_Party</layout>
+        <recordType>Account.Contracting_Party_GLBL</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account-MERC_Lilly Affiliate Business</layout>
+        <recordType>Account.Lilly_Affiliate_Business_GLBL</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account-MERC_Supplier</layout>
+        <recordType>Account.Supplier_GLBL</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account-MERC_Third Party Organization</layout>
+        <recordType>Account.Third_Party_Organization_GLBL</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account-MERC_Vendor</layout>
+        <recordType>Account.Vendor_GLBL</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account-MERC_Venue</layout>
+        <recordType>Account.Venue_GLBL</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Daily_Attendance_TOV_MERC__c-MERC_Daily Attendance %26 TOV</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>HCP_Contract_MERC__c-MERC_Contract</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>HCP_Contract_MERC__c-MERC_Contract</layout>
+        <recordType>HCP_Contract_MERC__c.Single_Event_Contract_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>HCP_Contract_MERC__c-MERC_Contract</layout>
+        <recordType>HCP_Contract_MERC__c.Work_Order_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>HCP_Contract_MERC__c-MERC_MSA Contract</layout>
+        <recordType>HCP_Contract_MERC__c.Master_Service_Agreement_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Invoice_Line_Item_MERC__c-MERC_Invoice Line Item</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Invoice_MERC__c-MERC_Credit Note</layout>
+        <recordType>Invoice_MERC__c.Credit_Note_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Invoice_MERC__c-MERC_Credit Note Locked</layout>
+        <recordType>Invoice_MERC__c.Credit_Note_Locked_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Invoice_MERC__c-MERC_Invoice</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Invoice_MERC__c-MERC_Invoice</layout>
+        <recordType>Invoice_MERC__c.Invoice_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Invoice_MERC__c-MERC_Invoice_Locked</layout>
+        <recordType>Invoice_MERC__c.Invoice_Invalid_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Invoice_MERC__c-MERC_Invoice_Locked</layout>
+        <recordType>Invoice_MERC__c.Invoice_Locked_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>LookupRollupSummary_GLBL__c-Lookup Rollup Summary Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Meeting_Day_MERC__c-MERC_Meeting Day</layout>
@@ -4922,6 +5324,15 @@
         <modifyAllRecords>false</modifyAllRecords>
         <object>Account</object>
         <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Contact</object>
+        <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
@@ -5020,6 +5431,21 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Account.Venue_GLBL</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>HCP_Contract_MERC__c.Master_Service_Agreement_MERC</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>HCP_Contract_MERC__c.Single_Event_Contract_MERC</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>HCP_Contract_MERC__c.Work_Order_MERC</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
@@ -5144,6 +5570,10 @@
     </recordTypeVisibilities>
     <tabVisibilities>
         <tab>standard-Account</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Contact</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <userLicense>Salesforce Platform</userLicense>
