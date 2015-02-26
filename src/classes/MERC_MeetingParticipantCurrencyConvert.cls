@@ -34,41 +34,75 @@ public with sharing class MERC_MeetingParticipantCurrencyConvert implements GLBL
 			countryCurrencyConversion.put(ct.IsoCode, ct.ConversionRate);
 		}
 
+		Map<String,Boolean> skipConversion = new Map<String,Boolean>();
+		for (LookupRollupSummary_GLBL__c lrs : [SELECT DoNotAggregate_GLBL__c, AggregateResultField_GLBL__c 
+					FROM LookupRollupSummary_GLBL__c 
+					WHERE Active_GLBL__c = true AND ParentObject_GLBL__c = 'Meeting_Participant_MERC__c']) {
+			skipConversion.put(lrs.AggregateResultField_GLBL__c, lrs.DoNotAggregate_GLBL__c);
+		}
+
 		for (Meeting_Participant_MERC__c mp : (List<Meeting_Participant_MERC__c>)Trigger.new)
 		{
 			if (mp.RecordTypeId != IndvSponsRecTypeId)
 			{
+				Boolean doNotConvert;
+
 				if (mp.Total_Food_Beverage_ToV_Rollup_MERC__c != null)
 				{
-					mp.Total_Food_Beverage_ToV_MERC__c = mp.Total_Food_Beverage_ToV_Rollup_MERC__c * countryCurrencyConversion.get(mp.ToV_Currency_MERC__c);
+					doNotConvert = skipConversion.get('Total_Food_Beverage_ToV_Rollup_MERC__c');
+					if (doNotConvert!=null && doNotConvert) {
+							mp.Total_Food_Beverage_ToV_MERC__c = mp.Total_Food_Beverage_ToV_Rollup_MERC__c;
+						} else {
+							mp.Total_Food_Beverage_ToV_MERC__c = mp.Total_Food_Beverage_ToV_Rollup_MERC__c * countryCurrencyConversion.get(mp.ToV_Currency_MERC__c);
+						}
 				} else {
 					mp.Total_Food_Beverage_ToV_MERC__c = null;
 				}
 
 				if (mp.Total_Ground_Transport_ToV_Rollup_MERC__c != null)
 				{
-					mp.Total_Ground_Transporation_ToV_MERC__c = mp.Total_Ground_Transport_ToV_Rollup_MERC__c * countryCurrencyConversion.get(mp.ToV_Currency_MERC__c);
+					doNotConvert = skipConversion.get('Total_Ground_Transport_ToV_Rollup_MERC__c');
+					if (doNotConvert!=null && doNotConvert) {
+							mp.Total_Ground_Transporation_ToV_MERC__c = mp.Total_Ground_Transport_ToV_Rollup_MERC__c;
+						} else {
+							mp.Total_Ground_Transporation_ToV_MERC__c = mp.Total_Ground_Transport_ToV_Rollup_MERC__c * countryCurrencyConversion.get(mp.ToV_Currency_MERC__c);
+						}
 				} else {
 					mp.Total_Ground_Transporation_ToV_MERC__c = null;
 				}
 
 				if (mp.Total_Indiv_Transport_ToV_Rollup_MERC__c != null)
 				{
-					mp.Total_Individual_Transport_ToV_MERC__c = mp.Total_Indiv_Transport_ToV_Rollup_MERC__c * countryCurrencyConversion.get(mp.ToV_Currency_MERC__c);
+					doNotConvert = skipConversion.get('Total_Indiv_Transport_ToV_Rollup_MERC__c');
+					if (doNotConvert!=null && doNotConvert) {
+							mp.Total_Individual_Transport_ToV_MERC__c = mp.Total_Indiv_Transport_ToV_Rollup_MERC__c;
+						} else {
+							mp.Total_Individual_Transport_ToV_MERC__c = mp.Total_Indiv_Transport_ToV_Rollup_MERC__c * countryCurrencyConversion.get(mp.ToV_Currency_MERC__c);
+						}
 				} else {
 					mp.Total_Individual_Transport_ToV_MERC__c = null;
 				}
 
 				if (mp.Total_Hotel_ToV_Rollup_MERC__c != null)
 				{
-					mp.Total_Hotel_ToV_MERC__c = mp.Total_Hotel_ToV_Rollup_MERC__c * countryCurrencyConversion.get(mp.ToV_Currency_MERC__c);
+					doNotConvert = skipConversion.get('Total_Hotel_ToV_Rollup_MERC__c');
+					if (doNotConvert!=null && doNotConvert) {
+							mp.Total_Hotel_ToV_MERC__c = mp.Total_Hotel_ToV_Rollup_MERC__c;
+						} else {
+							mp.Total_Hotel_ToV_MERC__c = mp.Total_Hotel_ToV_Rollup_MERC__c * countryCurrencyConversion.get(mp.ToV_Currency_MERC__c);
+						}					
 				} else {
 					mp.Total_Hotel_ToV_MERC__c = null;
 				}
 
 				if (mp.Total_Registration_ToV_Rollup_MERC__c != null)
 				{
-					mp.Total_Registration_ToV_MERC__c = mp.Total_Registration_ToV_Rollup_MERC__c * countryCurrencyConversion.get(mp.ToV_Currency_MERC__c);
+					doNotConvert = skipConversion.get('Total_Registration_ToV_Rollup_MERC__c');
+					if (doNotConvert!=null && doNotConvert) {
+							mp.Total_Registration_ToV_MERC__c = mp.Total_Registration_ToV_Rollup_MERC__c;
+						} else {
+							mp.Total_Registration_ToV_MERC__c = mp.Total_Registration_ToV_Rollup_MERC__c * countryCurrencyConversion.get(mp.ToV_Currency_MERC__c);
+						}
 				} else {
 					mp.Total_Registration_ToV_MERC__c = null;
 				}

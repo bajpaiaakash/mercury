@@ -93,7 +93,8 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 			p('participantIdToTransferItineraries:'+participantIdToTransferItineraries);
 
 			Map<String,Daily_Attendance_TOV_MERC__c> tovs = new Map<String,Daily_Attendance_TOV_MERC__c>(
-													[SELECT Id, Status_MERC__c, Est_Indv_Transfer_MERC__c, Meeting_Day_MERC__c, Meeting_Participant_MERC__c, Confirm_ToV_Reporting_Change_MERC__c
+													[SELECT Id, Status_MERC__c, Est_Indv_Transfer_MERC__c, Meeting_Day_MERC__c, Meeting_Participant_MERC__c, 
+														Confirm_ToV_Reporting_Change_MERC__c, Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c
 				                                     FROM Daily_Attendance_TOV_MERC__c
 				 									 WHERE Meeting_Participant_MERC__c in :participantIdToTransferItineraries.keySet()]);
 
@@ -235,8 +236,7 @@ p('participantIdToTransferItineraries'+participantIdToTransferItineraries);
 			'\r runIndividualTransferTovCalculation='+MERC_TOVCalculator.runIndividualTransferTovCalculation+
 			'\r Trigger.isBefore='+Trigger.isBefore);
 
-p('participantIdToTransferItineraries: '+participantIdToTransferItineraries);
-		Map<Daily_Attendance_TOV_MERC__c,Travel_Itinerary_MERC__c> tovToItinerary = new Map<Daily_Attendance_TOV_MERC__c,Travel_Itinerary_MERC__c>();
+		Map<Daily_Attendance_TOV_MERC__c,List<Travel_Itinerary_MERC__c>> tovToItinerary = new Map<Daily_Attendance_TOV_MERC__c,List<Travel_Itinerary_MERC__c>>();
 		for (Daily_Attendance_TOV_MERC__c tov : tovs.values()) {
 			p('tov: '+tov);
 			Boolean accountedFor = false;
@@ -250,9 +250,10 @@ p('meetingDays.containsKey(tov.Meeting_Day_MERC__c):'+meetingDays.containsKey(to
 				for (Travel_Itinerary_MERC__c t : transferTravelItinerariesForParticipant) {
 					Date timestampStart = t.Sgmnt_Bgin_TS_MERC__c.date();
 					Date timestampEnd = t.Sgmnt_End_TS_MERC__c.date();
-					p('itinerary within date range?: \r\r'+timestampStart+'>='+meetingDayDate+'<='+timestampEnd+'\r\r'+tov+' \r\r '+t);
-					if (meetingDayDate >= timestampStart && meetingDayDate <= timestampEnd) {  
-						tovToItinerary.put(tov,t);
+					p('itinerary within date range?: \r\r'+timestampStart+'<='+meetingDayDate+'<='+timestampEnd+'\r\r'+tov+' \r\r '+t);
+					if (meetingDayDate >= timestampStart && meetingDayDate <= timestampEnd) {
+						if (tovToItinerary.get(tov)==null) tovToItinerary.put(tov, new List<Travel_Itinerary_MERC__c>()); 
+						tovToItinerary.get(tov).add(t);
 						accountedFor = true;
 					}
 				}
@@ -273,43 +274,43 @@ p('tovToItinerary: '+tovToItinerary);
 Integer i = 100;
 		for (String tovId : tovKeys.keySet()) {
 			Daily_Attendance_TOV_MERC__c tov = tovKeys.get(tovId);
-			Travel_Itinerary_MERC__c t = tovToItinerary.get(tov);
+			List<Travel_Itinerary_MERC__c> tList = tovToItinerary.get(tov);
 			Decimal sumOfIndvTransfer = 0;
 p('tov'+i+': '+sumOfIndvTransfer+' '+tov);
-p('t'+i+': '+t);
-			if (t!=null) 
+p('tList'+i+': '+tList);
+			Boolean tovIsFinal = tov.Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c == 'Yes';
+			if (tovIsFinal) 
 			{
-				//Set the confirm reporting to true. If confirmirmation was needed on the meeting vendor
-				//or the travel itinerary we would not get here without the user having checked that box.
-				//tov.Confirm_ToV_Reporting_Change_MERC__c = true;
-
-				// has value already been sent to Activity ODS?
-				Boolean tovIsFinal = t.Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c == 'Yes';
-				if (t.Include_ToV_MERC__c) 
-				{
-p(i+': Include_ToV_MERC__c');
-					if (t.Total_Fare_Amount_MERC__c != null) sumOfIndvTransfer += t.Total_Fare_Amount_MERC__c;
-					tov.Est_Indv_Transfer_MERC__c = sumOfIndvTransfer;
-p(i+': Setting Est_Indv_Transfer_MERC__c = '+sumOfIndvTransfer);
-				} else {
-p(i+': Include_ToV_MERC__c = '+t.Include_ToV_MERC__c);
-					if (tovIsFinal) 
-					{
 p(i+'ToV is Final');
-						if (tov.Est_Indv_Transfer_MERC__c != null) 
-						{
+				if (tov.Est_Indv_Transfer_MERC__c != null) 
+				{
 p(i+'Est_Indv_Transfer_MERC__c != null');
-							tov.Est_Indv_Transfer_MERC__c = 0.0;
-						}
+					tov.Est_Indv_Transfer_MERC__c = 0.0;
+				}
 p(i+'Est_Indv_Transfer_MERC__c is already null');
+			} else {
+p(i+'Doing nothing');
+				tov.Est_Indv_Transfer_MERC__c = null;
+			}
+
+			if (tList!=null) 
+			{
+				for (Travel_Itinerary_MERC__c t : tList) {
+					// has value already been sent to Activity ODS?
+					// Boolean tovIsFinal = t.Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c == 'Yes';
+					if (t.Include_ToV_MERC__c) 
+					{
+	p(i+': Include_ToV_MERC__c');
+						if (t.Total_Fare_Amount_MERC__c != null) sumOfIndvTransfer += t.Total_Fare_Amount_MERC__c;
+						tov.Est_Indv_Transfer_MERC__c = sumOfIndvTransfer;
+	p(i+': Setting Est_Indv_Transfer_MERC__c = '+sumOfIndvTransfer);
 					} else {
-p(i+'Setting Est_Indv_Transfer_MERC__c to null');
-						tov.Est_Indv_Transfer_MERC__c = null;
+	p(i+': Include_ToV_MERC__c = '+t.Include_ToV_MERC__c);
 					}
 				}
 			} else {
-p('no itineraries for this DA/ToV. Setting to null.');
-				tov.Est_Indv_Transfer_MERC__c = null;
+p('no itineraries for this DA/ToV. Setting to 0/null.');
+				tov.Est_Indv_Transfer_MERC__c = (tovIsFinal) ? 0.0 : null;
 			}
 			tovRecordsToUpdate.put(tov.Id,tov);
 		}
@@ -526,7 +527,7 @@ p('t'+i+': '+t);
 		Set<Id> 									idListOne,
 		Set<Id> 									meetingParticipantIds
 	) {
-
+p('associateToVwithHotelItinerary\rtovs:'+tovs+'\rrecordIds:'+idListOne+'\rmpIds:'+meetingParticipantIds);
 		String mpFilter = (meetingParticipantIds==null) ? 'Meeting_MERC__c' : 'Id';  // idListOne contains Meeting ids or Meeting_Day
 
 		String soql = 'SELECT ID, Date_MERC__c FROM Meeting_Day_MERC__c WHERE '+mpFilter+' in :idListOne';
@@ -542,7 +543,7 @@ p('t'+i+': '+t);
 							'WHERE RecordType.DeveloperName = \'Hotel_MERC\') '+
 					   'FROM Meeting_Participant_MERC__c WHERE '+mpFilter+' in ';
 		soql += (meetingParticipantIds==null) ? ':idListOne' : ':meetingParticipantIds';
-					
+p('soql: '+soql);					
 		for (Meeting_Participant_MERC__c mp : (List<Meeting_Participant_MERC__c>) Database.query(soql)) {
 			participantIdToHotelItineraries.put(mp.Id, mp.Travel_Itineraries_MERC__r);
 		}
@@ -566,7 +567,7 @@ p('t'+i+': '+t);
 				for (Travel_Itinerary_MERC__c t : hotelTravelItinerariesForParticipant) {
 					Date timestampStart = t.Sgmnt_Bgin_TS_MERC__c.date();
 					Date timestampEnd = t.Sgmnt_End_TS_MERC__c.date();
-					p('itinerary within date range?: \r\r'+timestampStart+'>='+meetingDayDate+'<='+timestampEnd.addDays(-1)+'\r\r'+tov+' \r\r '+t);
+					p('itinerary within date range?: \r\r'+timestampStart+'<='+meetingDayDate+'<='+timestampEnd.addDays(-1)+'\r\r'+tov+' \r\r '+t);
 					if (meetingDayDate >= timestampStart && meetingDayDate <= timestampEnd.addDays(-1)) {  
 						p('itinerary within date range: '+tov+' \r\r '+t);
 						tovToItinerary.put(tov,t);

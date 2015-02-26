@@ -166,6 +166,7 @@ public with sharing class MERC_DailyAttendanceController {
 		} catch(Exception e) {
 			ApexPages.addMessages(e); //doesn't show ugly error text
 		}
+		this.refreshParticipants = true;
 		return null;
 	}
 
