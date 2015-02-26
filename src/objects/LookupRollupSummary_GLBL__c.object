@@ -50,9 +50,12 @@
 
 MERC : Created on 2014-05-27 by Joe Ferraro, Mavens Consulting</description>
     <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>false</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
     <fields>
         <fullName>Active_GLBL__c</fullName>
         <defaultValue>false</defaultValue>

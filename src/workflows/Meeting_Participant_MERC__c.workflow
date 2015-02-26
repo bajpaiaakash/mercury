@@ -91,6 +91,16 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>MERC_Set_Services_Rendered_Date</fullName>
+        <description>Sets the Services Rendered Date to today when Services Rendered is set to Yes</description>
+        <field>Date_Services_Rendered_set_to_Yes_MERC__c</field>
+        <formula>Today()</formula>
+        <name>MERC_Set_Services_Rendered_Date</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Populate_Participant_Type_MERC</fullName>
         <description>Populates the Participant Type field in the Meeting Participant based on value in Account</description>
         <field>Participant_Typ_MERC__c</field>
@@ -876,6 +886,17 @@
         </criteriaItems>
         <description>Sets Purpose of Payment to Expenses if Meeting Participant is of Type Delegate or Individual Sponsorship : MERC : Created on 04/03/2014 by Katy Lorenti, Mavens Consulting</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>MERC_Set_Services_Rendered_Date</fullName>
+        <actions>
+            <name>MERC_Set_Services_Rendered_Date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Sets the Date that the Services Rendered field was set to Yes.  This is used for SLA reporting : MERC : Created on 26/02/2015 by Oliver Dunford, Mavens Consulting</description>
+        <formula>ISCHANGED(Services_Rendered_MERC__c ) &amp;&amp; TEXT(Services_Rendered_MERC__c) = &quot;Yes&quot;</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>MERC_Trigger CoPay AODS Update</fullName>

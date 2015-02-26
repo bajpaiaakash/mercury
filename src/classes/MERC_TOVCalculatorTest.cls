@@ -58,7 +58,7 @@ private class MERC_TOVCalculatorTest {
 
 	 TODO: change to check Ground and Registration also
 	 **/
-	//@isTest
+	@isTest
 	static void foodShouldCalculateOnDailyAttendanceUpdate() {
 		//set participant 1 to attending on day 1
 p('starting'+[SELECT Id, Total_Hours_of_Service_MERC__c, Total_Ground_Transporation_ToV_MERC__c, Total_Registration_ToV_MERC__c, Total_Food_Beverage_ToV_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :participants.get(0).Id]);
@@ -82,10 +82,14 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 
 		//now remove attendance on day 1
 		Test.startTest();
+		MERC_ApexProfiler profiler = new MERC_ApexProfiler();
+		profiler.startProfiling();
 
 			tovForParticipant1Day1.Status_MERC__c = 'No Show';
 			update tovForParticipant1Day1;
 
+		profiler.stopProfiling();
+		profiler.debugUsage();
 		Test.stopTest();
 		participant1 = [SELECT Id, Total_Hours_of_Service_MERC__c, Total_Ground_Transporation_ToV_MERC__c, Total_Registration_ToV_MERC__c, Total_Food_Beverage_ToV_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :participants.get(0).Id];
 
@@ -104,7 +108,7 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 
 	 TODO: change to check Ground and Registration also
 	 **/
-	//@isTest
+	@isTest
 	static void foodShouldRecalculateOnToVDelete() {
 		//set participant 1 to attending on day 1
 		Daily_Attendance_TOV_MERC__c tovForParticipant1Day1 = MERC_TestFactory.insertTov(meetingDays.get(0).Id, participants.get(0).Id, 'Attended');
@@ -125,10 +129,14 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 		//reset the static variable
 		
 		Test.startTest();
+		MERC_ApexProfiler profiler = new MERC_ApexProfiler();
+		profiler.startProfiling();
 
 			//now remove attendance on day 1
 			delete tovForParticipant1Day1;
 
+		profiler.stopProfiling();
+		profiler.debugUsage();
 		Test.stopTest();
 		participant1 = [SELECT Id, Total_Hours_of_Service_MERC__c, Total_Ground_Transporation_ToV_MERC__c, Total_Registration_ToV_MERC__c, Total_Food_Beverage_ToV_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :participants.get(0).Id];
 
@@ -145,9 +153,11 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 
 	 TODO: change to check Ground and Registration also
 	 **/
-	//@isTest
+	@isTest
 	static void foodShouldRollTovUpToParticipant() {
 		Test.startTest();
+		MERC_ApexProfiler profiler = new MERC_ApexProfiler();
+		profiler.startProfiling();
 
 		//set participant 1 to attending on day 1
 		Daily_Attendance_TOV_MERC__c tovForParticipant1Day1 = MERC_TestFactory.insertTov(meetingDays.get(0).Id, participants.get(0).Id, 'Attended');
@@ -165,6 +175,8 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 		//assert that meeting day 1's food bev estimate rolled up up to the participant total
 		System.assertEquals(tovForParticipant1Day1.Est_Food_Bev_ToV_MERC__c, participant1.Total_Food_Beverage_ToV_MERC__c, 'Est_Food_Bev_ToV_MERC__c did not rollup as expected.');
 
+		profiler.stopProfiling();
+		profiler.debugUsage();
 		Test.stopTest();
 
 	}
@@ -178,7 +190,7 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 	 * Create multiple private transfer Itineraries (3) with Total_Fare = value for participant 1 for duration of meeting
 	 * Confirm DA/ToVs reflect sum of Total_Fare values
 	 **/
-	//@isTest
+	@isTest
 	static void groundShouldCaptureMultiplePrivateTransfersOnItineraryCreate() {
 		// get a participant
 		Meeting_Participant_MERC__c attendee = participants[0];
@@ -197,12 +209,16 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 		attendee = [SELECT Id, Account_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :attendee.Id LIMIT 1];
 
 		Test.startTest();
+		MERC_ApexProfiler profiler = new MERC_ApexProfiler();
+		profiler.startProfiling();
 
 		 	// create new travel itineraries of type Car_MERC
 			MERC_TOVCalculator.runIndividualTransferTovCalculation = true;
 	 		List<Travel_Itinerary_MERC__c> pvtTransfers = insertPrivateTransferItineraries(new List<Meeting_Participant_MERC__c>{attendee},startDate,startDate.addDays(2),3);
 
-	 	Test.stopTest();
+	 	profiler.stopProfiling();
+		profiler.debugUsage();
+		Test.stopTest();
 
 		Decimal itinerarySum = 0;
 		for (Travel_Itinerary_MERC__c ti : pvtTransfers) {
@@ -231,7 +247,7 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 	 * Create multiple private transfer Itineraries (3) with Total_Fare = value for participant 1 for duration of meeting
 	 * Confirm DA/ToVs reflect sum of Total_Fare values
 	 **/
-	//@isTest
+	@isTest
 	static void groundShouldCaptureMultipleDailyPrivateTransfersOnItineraryCreate() {
 		// get a participant
 		Meeting_Participant_MERC__c attendee = participants[0];
@@ -247,10 +263,14 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 		attendee = [SELECT Id, Account_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :attendee.Id LIMIT 1];
 
 		Test.startTest();
+		MERC_ApexProfiler profiler = new MERC_ApexProfiler();
+		profiler.startProfiling();
 		 	// create new travel itineraries of type Car_MERC
 			MERC_TOVCalculator.runIndividualTransferTovCalculation = true;
 	 		List<Travel_Itinerary_MERC__c> pvtTransfers = insertDailyPrivateTransferItineraries(new List<Meeting_Participant_MERC__c>{attendee},startDate,startDate.addDays(durationInDays));
-	 	Test.stopTest();
+	 	profiler.stopProfiling();
+		profiler.debugUsage();
+		Test.stopTest();
 
 		Decimal itinerarySum = 0;
 		for (Travel_Itinerary_MERC__c ti : pvtTransfers) {
@@ -280,7 +300,7 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 	 * Set DA/ToV for participant 1 to 'Attended' for each day
 	 * Confirm DA/ToV Est_Grnd_Transp_MERCs reflect sum of Total_Fare values
 	 **/
-	// @isTest
+	@isTest
 	static void groundShouldCaptureMultiplePrivateTransfersOnTovCreate() {
 		// get a participant
 		Meeting_Participant_MERC__c attendee = participants[0];
@@ -295,6 +315,8 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 		attendee = [SELECT Id, Account_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :attendee.Id LIMIT 1];
 
 		Test.startTest();
+		MERC_ApexProfiler profiler = new MERC_ApexProfiler();
+		profiler.startProfiling();
 
 		 	// create new travel itineraries of type Car_MERC
 			MERC_TOVCalculator.runIndividualTransferTovCalculation = true;
@@ -304,7 +326,9 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 			MERC_TOVCalculator.runIndividualTransferTovCalculation = true; // why are we resetting this?
 			List<Daily_Attendance_TOV_MERC__c> tovs = insertTovs(meetingDays, attendee.Id, 'Attended');
 
-	 	Test.stopTest();
+	 	profiler.stopProfiling();
+		profiler.debugUsage();
+		Test.stopTest();
 
 		Decimal itinerarySum = 0;
 		for (Travel_Itinerary_MERC__c ti : pvtTransfers) {
@@ -332,9 +356,11 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 	 * Set DA/ToV for participant 1 to 'Attended' on day 1
 	 * Confirm participant has correct Total_Ground_Transporation_ToV_MERC__c
 	 **/
-	//@isTest
+	@isTest
 	static void groupGroundShouldRollTovUpToParticipant() {
 		Test.startTest();
+		MERC_ApexProfiler profiler = new MERC_ApexProfiler();
+		profiler.startProfiling();
 
 		//set participant 1 to attending on day 1
 		Daily_Attendance_TOV_MERC__c tovForParticipant1Day1 = MERC_TestFactory.insertTov(meetingDays.get(0).Id, participants.get(0).Id, 'Attended');
@@ -346,6 +372,8 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 		//assert that meeting day 1's food bev estimate rolled up up to the participant total
 		System.assertEquals(tovForParticipant1Day1.Est_Grp_Grnd_Transp_MERC__c, participant1.Total_Ground_Transporation_ToV_MERC__c, 'Est_Grp_Grnd_Transp did not rollup as expected.');
 
+		profiler.stopProfiling();
+		profiler.debugUsage();
 		Test.stopTest();
 	}
 
@@ -365,7 +393,7 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 	 *	4.    Cancelled Travel Itinerary prior to managing daily attendance and prior to sending ToV
 	 *	5.    Hotel ToV is still allocated for the HCP in the system
 	 **/
-	//@isTest
+	@isTest
 	static void hotelShouldAdjustToVWhenItineraryCancelled() {
 
 		Date d1 = Date.today();
@@ -384,6 +412,8 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 		insert hotelAllocation;
 
 		Test.startTest();
+		MERC_ApexProfiler profiler = new MERC_ApexProfiler();
+		profiler.startProfiling();
 			Travel_Itinerary_MERC__c ti = new Travel_Itinerary_MERC__c();
 			ti.RecordTypeId = hotelItineraryRecordTypeId;
 			ti.Meeting_Vendor_MERC__c = vends[0].Id;
@@ -396,6 +426,8 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 
 				ti.Status_MERC__c = 'Cancelled';
 			update ti;
+		profiler.stopProfiling();
+		profiler.debugUsage();
 		Test.stopTest();
 
 	 	// if ToV not final, value should be null
@@ -412,7 +444,7 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 	 * Change DA/ToV Status to 'No Show'
 	 * Confirm MP Total Hotel remained the same
 	 **/
-	//@isTest
+	@isTest
 	static void hotelShouldCalculateOnDailyAttendanceNoShowUpdate() {
 
 		//set participant 1 to attending on day 1
@@ -434,8 +466,12 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 
 		//now remove attendance on day 1
 		Test.startTest();
+		MERC_ApexProfiler profiler = new MERC_ApexProfiler();
+		profiler.startProfiling();
 			tovForParticipant1Day1.Status_MERC__c = 'No Show';
 			update tovForParticipant1Day1;
+		profiler.stopProfiling();
+		profiler.debugUsage();
 		Test.stopTest();
 
 		participant1 = [SELECT Id, Total_Hotel_ToV_MERC__c
@@ -463,11 +499,13 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 	 * Confirm DA/ToV reflects new value
 	 * Confirm MP Total Hotel is adjusted appropriately
 	 **/
-	//@isTest
+	@isTest
 	static void hotelShouldCalculateRoomRateChange() {
 		Meeting_Vendor_MERC__c hotel1 = vendors.get(0);
 
 		Test.startTest();
+		MERC_ApexProfiler profiler = new MERC_ApexProfiler();
+		profiler.startProfiling();
 
 			//set participant 1 to attending on day 1
 			Daily_Attendance_TOV_MERC__c tovForParticipant1Day1 = MERC_TestFactory.insertTov(meetingDays.get(0).Id, participants.get(0).Id, 'Attended');
@@ -475,6 +513,8 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 			hotel1.Room_Rate_MERC__c = 666;
 			update hotel1;
 
+		profiler.stopProfiling();
+		profiler.debugUsage();
 		Test.stopTest();
 
 		Meeting_Participant_MERC__c participant1 = [SELECT Id, Total_Hotel_ToV_MERC__c, Total_Hours_of_Service_MERC__c, 
@@ -505,7 +545,7 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 	 * Confirm DA/ToV has Est_Hotel = 0
 	 * Confirm MP Total Hotel = null   (MP rollup has "treat 0 as null" = true)
 	 **/
-	//@isTest
+	@isTest
 	static void hotelShouldClearFinalToVOnItineraryCancel() {
 		// get a participant
 		Meeting_Participant_MERC__c attendee = participants[0];
@@ -521,12 +561,16 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 		update meetings;
 
 		Test.startTest();
+		MERC_ApexProfiler profiler = new MERC_ApexProfiler();
+		profiler.startProfiling();
 		 	// Change travel itinerary to "cancelled"
 			for (Travel_Itinerary_MERC__c ti : itineraries) {
 				ti.Confirm_ToV_Reporting_Change_MERC__c = true;
 				ti.Status_MERC__c = 'Cancelled';
 			}
 				update itineraries;
+		profiler.stopProfiling();
+		profiler.debugUsage();
 		Test.stopTest();
 
 	 	// if ToV final, value should be 0
@@ -549,7 +593,7 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 	 * Confirm MP Total Hotel has not changed
 	 * Confirm DA/ToV has not changed
 	 **/
-	//@isTest
+	@isTest
 	static void hotelShouldNotCalculateOnDailyAttendanceStatusUpdateWhenFinal() {
 
 		//set participant 1 to attending on day 1
@@ -576,12 +620,16 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 		update meeting1;
 
 		Test.startTest();
+		MERC_ApexProfiler profiler = new MERC_ApexProfiler();
+		profiler.startProfiling();
 
 			//now remove attendance on day 1
 			tovForParticipant1Day1.Status_MERC__c = 'No Show';
 			tovForParticipant1Day1.Confirm_ToV_Reporting_Change_MERC__c = true;
 			update tovForParticipant1Day1;
 		
+		profiler.stopProfiling();
+		profiler.debugUsage();
 		Test.stopTest();
 		participant1 = [SELECT Id, Total_Hotel_ToV_MERC__c
 						FROM Meeting_Participant_MERC__c 
@@ -610,7 +658,7 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 	 * Confirm DA/ToV has Est_Hotel = null
 	 * Confirm MP Total Hotel = null
 	 **/
-	//@isTest
+	@isTest
 	static void hotelShouldNullifyActiveToVOnItineraryCancel() {
 		// get a participant
 		Meeting_Participant_MERC__c attendee = participants[0];
@@ -621,11 +669,15 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 		System.assert(attendee.Total_Hotel_ToV_MERC__c>0,'Unexpected '+attendee.Total_Hotel_ToV_MERC__c+' value for total hotel');
 
 		Test.startTest();
+		MERC_ApexProfiler profiler = new MERC_ApexProfiler();
+		profiler.startProfiling();
 		 	// Change travel itinerary to "cancelled"
 			for (Travel_Itinerary_MERC__c ti : itineraries) {
 				ti.Status_MERC__c = 'Cancelled';
 			}
 				update itineraries;
+		profiler.stopProfiling();
+		profiler.debugUsage();
 		Test.stopTest();
 
 	 	// if ToV not final, value should be null
@@ -645,7 +697,7 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 	 * Confirm DA/ToV has Est_Hotel = null
 	 * Confirm MP Total Hotel = null
 	 **/
-	//@isTest
+	@isTest
 	static void hotelShouldOmitUponItineraryInsertAsCancelled() {
 		Date d = Date.today().addDays(1);
 
@@ -662,6 +714,8 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 		insert hotelAllocation;
 
 		Test.startTest();
+		MERC_ApexProfiler profiler = new MERC_ApexProfiler();
+		profiler.startProfiling();
 
 			Meeting_Participant_MERC__c attendee = parts[0];
 
@@ -700,7 +754,7 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 	 * Change Itineraries from duration of meeting to leaving "early"
 	 * Confirm MP Total Hotel was reduced accordingly
 	 **/
-	//@isTest
+	@isTest
 	static void hotelShouldRecalculateOnDateChange() {
 
 		// Set MP to attended.  
@@ -714,6 +768,8 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 		p('valueBefore: '+valueBefore);
 
 		Test.startTest();
+		MERC_ApexProfiler profiler = new MERC_ApexProfiler();
+		profiler.startProfiling();
 			// Change Travel Itinerary hotel record to be one night
 			List<Travel_Itinerary_MERC__c> changingItineraries = [SELECT Id, Combined_ID_MERC__c, Sgmnt_Bgin_TS_MERC__c, Sgmnt_End_TS_MERC__c FROM Travel_Itinerary_MERC__c WHERE Meeting_Participant_MERC__c = :attendee.Id];
 			p('retrieved itineraries: '+changingItineraries);
@@ -725,6 +781,8 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 			p('starting update: '+changingItineraries);
 			update changingItineraries;
 			p('update done');
+		profiler.stopProfiling();
+		profiler.debugUsage();
 		Test.stopTest();
 
 		// Hotel ToV should reduced accordingly 
@@ -741,7 +799,7 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 	 * Set DA/ToV for participant 1 to 'Attended' for both days
 	 * Confirm MP Total Hotel reflects sum of both Vendor Room Rates
 	 **/
-	//@isTest
+	@isTest
 	static void hotelShouldRollupMultipleItineraries() {
 
 		// get a participant
@@ -758,6 +816,8 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 		delete [SELECT Id, Combined_ID_MERC__c FROM Travel_Itinerary_MERC__c WHERE Meeting_Participant_MERC__c = :attendee.Id];
 
 		Test.startTest();
+		MERC_ApexProfiler profiler = new MERC_ApexProfiler();
+		profiler.startProfiling();
 
 			List<Travel_Itinerary_MERC__c> changingItineraries = new List<Travel_Itinerary_MERC__c>();
 
@@ -782,6 +842,8 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 			meetingDayIds.add(meetingDays.get(1).Id);
 			insertTovs(meetingDayIds, attendee.Id, 'Attended');
 
+		profiler.stopProfiling();
+		profiler.debugUsage();
 		Test.stopTest();
 
 		attendee = [SELECT Id, Total_Hotel_ToV_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :attendee.Id LIMIT 1];
@@ -801,7 +863,7 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 	 * Change room rates for both Vendors
 	 * Confirm DA/ToV Est Hotel reflects new Vendor Room Rates
 	 **/
-	//@isTest
+	@isTest
 	static void hotelShouldRollupMultipleVendorChange() {
 		// get a participant
 		Meeting_Participant_MERC__c attendee = participants[0];
@@ -814,6 +876,8 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 		p('2.Limits:'+Limits.getQueries()+'/'+Limits.getLimitQueries());
 
 		Test.startTest();
+		MERC_ApexProfiler profiler = new MERC_ApexProfiler();
+		profiler.startProfiling();
 
 			// clear itineraries to satisfy duplicate value validation check
 			delete [SELECT Id, Combined_ID_MERC__c FROM Travel_Itinerary_MERC__c WHERE Meeting_Participant_MERC__c = :attendee.Id];
@@ -855,6 +919,8 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 			MERC_TOVCalculator.runHotelTovCalculation = true;
 			update vendors;
 
+		profiler.stopProfiling();
+		profiler.debugUsage();
 		Test.stopTest();
 
 		Daily_Attendance_TOV_MERC__c day1 = [SELECT Id, Est_Hotel_ToV_MERC__c FROM Daily_Attendance_TOV_MERC__c WHERE Id = :tovs[0].Id LIMIT 1];
@@ -873,9 +939,11 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 	 * Set DA/ToV for participant 1 to 'Attended' on day 1
 	 * Confirm participant has correct Total_Individual_Transport_ToV_MERC__c
 	 **/
-	//@isTest
+	@isTest
 	static void individualTransferShouldRollTovUpToParticipant() {
 		Test.startTest();
+		MERC_ApexProfiler profiler = new MERC_ApexProfiler();
+		profiler.startProfiling();
 
 		//set participant 1 to attending on day 1
 		Daily_Attendance_TOV_MERC__c tovForParticipant1Day1 = MERC_TestFactory.insertTov(meetingDays.get(0).Id, participants.get(0).Id, 'Attended');
@@ -887,6 +955,8 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 		//assert that meeting day 1's estimate rolled up up to the participant total
 		System.assertEquals(tovForParticipant1Day1.Est_Indv_Transfer_MERC__c, participant1.Total_Individual_Transport_ToV_MERC__c, 'Est_Indv_Transfer did not rollup as expected.');
 
+		profiler.stopProfiling();
+		profiler.debugUsage();
 		Test.stopTest();
 	}
 
@@ -905,6 +975,8 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 		attendee = [SELECT Id, Account_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :attendee.Id LIMIT 1];
 
 		Test.startTest();
+		MERC_ApexProfiler profiler = new MERC_ApexProfiler();
+		profiler.startProfiling();
 
 		 	// create new travel itineraries of type Car_MERC
 			MERC_TOVCalculator.runIndividualTransferTovCalculation = true;
@@ -916,7 +988,9 @@ p('start');
 			MERC_TOVCalculator.runIndividualTransferTovCalculation = true; // why are we resetting this?
 			List<Daily_Attendance_TOV_MERC__c> tovs = insertTovs(meetingDays, attendee.Id, 'Attended');
 p('finish');
-	 	Test.stopTest();
+	 	profiler.stopProfiling();
+		profiler.debugUsage();
+		Test.stopTest();
 
 		Decimal itinerarySum = 0;
 		for (Travel_Itinerary_MERC__c ti : pvtTransfers) {

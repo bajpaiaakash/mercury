@@ -191,6 +191,10 @@
                 <behavior>Edit</behavior>
                 <field>Services_Rendered_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Date_Services_Rendered_set_to_Yes_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

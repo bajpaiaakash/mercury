@@ -29,7 +29,7 @@
                 <field>Therapeutic_Area_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Type_MERC__c</field>
             </layoutItems>
             <layoutItems>

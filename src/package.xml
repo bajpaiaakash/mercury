@@ -5,10 +5,22 @@
         <members>CUST_SchedulerTest</members>
         <members>CUST_UserSettingsStatusChangeBatchTest</members>
         <members>CUST_UserSettingsStatusChangeBatchable</members>
+        <members>GLBL_LRAbacus</members>
+        <members>GLBL_LREngine</members>
+        <members>GLBL_RollupService</members>
+        <members>GLBL_RollupServiceException</members>
+        <members>GLBL_RollupServiceExceptionTest</members>
+        <members>GLBL_RollupServiceTest</members>
+        <members>GLBL_RollupServiceTest2</members>
+        <members>GLBL_RollupServiceTest3</members>
+        <members>GLBL_RollupSummariesSelector</members>
         <members>MERC_AddMeetingParticipantsCntlrTest</members>
         <members>MERC_AddMeetingParticipantsController</members>
         <members>MERC_DailyAttendanceController</members>
+        <members>MERC_DailyAttendanceController</members>
         <members>MERC_DailyAttendanceControllerStressTest</members>
+        <members>MERC_DailyAttendanceControllerStressTest</members>
+        <members>MERC_DailyAttendanceControllerTest</members>
         <members>MERC_DailyAttendanceControllerTest</members>
         <members>MERC_ETAccountEmailTriggerImpl</members>
         <members>MERC_ETAccountEmailTriggerImpl_Test</members>
@@ -31,6 +43,8 @@
         <members>MERC_InvoiceXmlWriterTest</members>
         <members>MERC_MeetingCancellationHandler</members>
         <members>MERC_MeetingCancellationHandlerTest</members>
+        <members>MERC_MeetingParticipantCurrencyCnvrtTest</members>
+        <members>MERC_MeetingParticipantCurrencyConvert</members>
         <members>MERC_MeetingParticipantCurrencyConvert</members>
         <members>MERC_MeetingParticipantNewEditController</members>
         <members>MERC_MergeHistoryStampTriggerHandler</members>
@@ -38,26 +52,12 @@
         <members>MERC_ParticipantStatusCalculator</members>
         <members>MERC_ParticipantTovStampHandler</members>
         <members>MERC_TOVCalculator</members>
+        <members>MERC_TOVCalculator</members>
+        <members>MERC_TOVCalculatorTest</members>
         <members>MERC_TOVCalculatorTest</members>
         <members>MERC_TimestampHandler</members>
         <members>MERC_TriggerHandlerStateManager</members>
         <members>MERC_XmlWriterCalloutMock</members>
-        <members>GLBL_LRAbacus</members>
-        <members>GLBL_LREngine</members>
-        <members>GLBL_RollupService</members>
-        <members>GLBL_RollupServiceException</members>
-        <members>GLBL_RollupServiceExceptionTest</members>
-        <members>GLBL_RollupServiceTest</members>
-        <members>GLBL_RollupServiceTest2</members>
-        <members>GLBL_RollupServiceTest3</members>
-        <members>GLBL_RollupSummariesSelector</members>
-        <members>MERC_DailyAttendanceController</members>
-        <members>MERC_DailyAttendanceControllerStressTest</members>
-        <members>MERC_DailyAttendanceControllerTest</members>
-        <members>MERC_MeetingParticipantCurrencyCnvrtTest</members>
-        <members>MERC_MeetingParticipantCurrencyConvert</members>
-        <members>MERC_TOVCalculator</members>
-        <members>MERC_TOVCalculatorTest</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -66,28 +66,28 @@
         <name>ApexPage</name>
     </types>
     <types>
-        <members>MERC_DailyAttendanceTOV</members>
-        <members>MERC_ETAccountEmailTrigger</members>
-        <members>MERC_MergeHistoryTrigger</members>
-        <members>MERC_TravelItinerary</members>
         <members>GLBL_RollupServiceTest3Trigger</members>
         <members>GLBL_RollupServiceTestTrigger</members>
         <members>GLBL_RollupSummariesTrigger</members>
+        <members>MERC_DailyAttendanceTOV</members>
+        <members>MERC_ETAccountEmailTrigger</members>
         <members>MERC_MeetingParticipant</members>
+        <members>MERC_MergeHistoryTrigger</members>
+        <members>MERC_TravelItinerary</members>
         <name>ApexTrigger</name>
     </types>
     <types>
         <members>*</members>
         <name>CustomLabels</name>
-    </types>    
+    </types>
     <types>
-        <members>LookupRollupSummaryLog_GLBL__c</members>
-        <members>LookupRollupSummaryScheduleItems_GLBL__c</members>
-        <members>LookupRollupSummary_GLBL__c</members>
         <members>Account</members>
         <members>CST_User_Settings_CUST__c</members>
         <members>Daily_Attendance_TOV_MERC__c</members>
         <members>Invoice_MERC__c</members>
+        <members>LookupRollupSummaryLog_GLBL__c</members>
+        <members>LookupRollupSummaryScheduleItems_GLBL__c</members>
+        <members>LookupRollupSummary_GLBL__c</members>
         <members>Meeting_Day_MERC__c</members>
         <members>Meeting_MERC__c</members>
         <members>Meeting_Participant_MERC__c</members>
@@ -149,14 +149,14 @@
         <name>Report</name>
     </types>
     <types>
-        <members>EmailMessage</members>
-        <members>Meeting_Participant_MERC__c</members>
-        <name>Workflow</name>
-    </types>
-    <types>
         <members>DeclarativeRollupTestData_MERC</members>
         <members>GLBL_Rollup_jszip</members>
         <name>StaticResource</name>
+    </types>
+    <types>
+        <members>EmailMessage</members>
+        <members>Meeting_Participant_MERC__c</members>
+        <name>Workflow</name>
     </types>
     <version>31.0</version>
 </Package>

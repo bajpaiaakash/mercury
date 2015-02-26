@@ -717,6 +717,17 @@ Created by John A Adams 10/31/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Date_Services_Rendered_set_to_Yes_MERC__c</fullName>
+        <description>Sets the date to the current day when the Services Rendered field is set to Yes.  Used for SLA purposes : MERC : Created on 26/02/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date that the Services Rendered field was set to &quot;Yes&quot;.  Used for SLA purposes.</inlineHelpText>
+        <label>Date Services Rendered set to Yes</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Date_of_Check_In_MERC__c</fullName>
         <description>Date meeting participant of checks into accommodations. 
 Created by John A Adams 3/19/2014</description>
@@ -1158,10 +1169,11 @@ Created by John A Adams 1/7/2014</description>
     </fields>
     <fields>
         <fullName>Invoice_Required_MERC__c</fullName>
-        <description>Pulls &quot;Invoice Required?&quot; Value from Account through to Meeting Participant for exposure to Mercury Users.  Created by Mike Cashman, Mavens Consulting on 24/2/15.</description>
+        <description>Pulls &quot;Invoice Required&quot; Value from Account through to Meeting Participant for exposure to Mercury Users : MERC : Created on 24/02/15 by Mike Cashman, Mavens Consulting</description>
         <externalId>false</externalId>
         <formula>TEXT( Account_MERC__r.Invoice_Required_MERC__c )</formula>
-        <label>Invoice Required?</label>
+        <inlineHelpText>Defines whether CMS Cork should expect an invoice in order to pay a meeting participant or not.  This is pulled down from the HCP Profile.  If blank, the equivalent field on the HCP Profile should be updated by CMS Cork to maintain HCP data.</inlineHelpText>
+        <label>Invoice Required</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
