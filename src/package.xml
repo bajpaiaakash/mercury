@@ -10,14 +10,24 @@
         <members>GLBL_RollupServiceTest2</members>
         <members>GLBL_RollupServiceTest3</members>
         <members>GLBL_RollupSummariesSelector</members>
+        <members>MERC_DailyAttendanceController</members>
+        <members>MERC_DailyAttendanceControllerStressTest</members>
+        <members>MERC_DailyAttendanceControllerTest</members>
+        <members>MERC_MeetingParticipantCurrencyCnvrtTest</members>
+        <members>MERC_MeetingParticipantCurrencyConvert</members>
         <members>MERC_TOVCalculator</members>
         <members>MERC_TOVCalculatorTest</members>
         <name>ApexClass</name>
     </types>
     <types>
+        <members>MERC_DailyAttendance</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
         <members>GLBL_RollupServiceTest3Trigger</members>
         <members>GLBL_RollupServiceTestTrigger</members>
         <members>GLBL_RollupSummariesTrigger</members>
+        <members>MERC_MeetingParticipant</members>
         <name>ApexTrigger</name>
     </types>
     <types>
