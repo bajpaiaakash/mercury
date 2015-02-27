@@ -96,6 +96,7 @@
         <members>Meeting_MERC__c</members>
         <members>Meeting_Participant_MERC__c</members>
         <members>Mercury_Settings_MERC__c</members>
+        <members>PersonAccount</members>
         <members>Task</members>
         <members>Travel_Itinerary_MERC__c</members>
         <members>Web_Service_Logic_MERC__c</members>
@@ -147,7 +148,12 @@
         <members>Meeting_Participant_MERC__c-MERC_Delegate</members>
         <members>Meeting_Participant_MERC__c-MERC_Individual Sponsorship</members>
         <members>Meeting_Participant_MERC__c-MERC_Service Provider</members>
+        <members>PersonAccount-GLBL_Employee</members>
+        <members>PersonAccount-GLBL_HCP Account</members>
         <members>PersonAccount-MERC_Designated Individual</members>
+        <members>PersonAccount-MERC_Designated Individual</members>
+        <members>PersonAccount-MERC_Non-HCP</members>
+        <members>PersonAccount-Person Account Layout</members>
         <members>Task-MERC_Task_Layout</members>
         <name>Layout</name>
     </types>
