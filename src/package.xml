@@ -17,6 +17,8 @@
         <members>MERC_MeetingParticipantCurrencyConvert</members>
         <members>MERC_ApexProfiler</members>
         <members>MERC_TOVCalculator</members>
+        <members>MERC_TOVRoundingTest</members>
+        <members>MERC_TOVNonAggregateCalculatorTest</members>
         <members>MERC_TOVCalculatorTest</members>
         <members>MERC_TestFactory</members>
         <name>ApexClass</name>

@@ -1008,7 +1008,74 @@ p('finish');
 	 	}
 
 	 	System.assertEquals(itinerarySum,tovSum,'Unexpected total for Daily Transport ToV');
-	 }
+	}
+
+	@isTest
+	static void groundShouldCaptureMultipleDailyPrivateTransfersOnItineraryCreateBulk() {
+
+		MERC_TriggerHandlerStateManager.deactivateAll();
+		MERC_TriggerHandlerStateManager.activate(MERC_TOVCalculator.class);
+
+		MERC_TestFactory.loadDeclarativeRollupSummaries();
+
+		// MERC_TestFactory has some bugs. Until this is cleaned up, data factory methods moved within class...
+		startDate = Date.today();
+		durationInDays = 3;
+		Date endDate = startDate.addDays(durationInDays);
+
+		accounts = insertAccounts(4);
+		meetings = insertMeetings(1,startDate,endDate);
+		meetingDays = insertMeetingDays(meetings);
+		participants = insertParticipants(meetings,accounts);
+		vendors = insertHotels(2,meetings);
+		itineraries = insertHotelItineraries(participants,startDate,endDate,vendors[0]);
+
+		MERC_TOVCalculator.runHotelTovCalculation = true;
+
+		p('1.Limits:'+Limits.getQueries()+'/'+Limits.getLimitQueries());
+	
+		List<String> attendeeIds = new List<String>();
+		for(Meeting_Participant_MERC__c participant : participants){
+			attendeeIds.add(participant.Id);
+		}
+
+		// clear initial trans amount
+		for (Meeting_Day_MERC__c m : meetingDays) {
+			m.Daily_Ground_Trans_Amount_MERC__c = null;
+		}
+		update meetingDays;
+
+		// set participant as "attended"
+		List<Daily_Attendance_TOV_MERC__c> tovs = insertTovs(meetingDays, attendeeIds, 'Attended');
+		participants = [SELECT Id, Account_MERC__c FROM Meeting_Participant_MERC__c WHERE Id in :attendeeIds];
+
+		Test.startTest();
+		MERC_ApexProfiler profiler = new MERC_ApexProfiler();
+		profiler.startProfiling();
+		 	// create new travel itineraries of type Car_MERC
+			MERC_TOVCalculator.runIndividualTransferTovCalculation = true;
+	 		List<Travel_Itinerary_MERC__c> pvtTransfers = insertDailyPrivateTransferItineraries(participants,startDate,startDate.addDays(durationInDays));
+	 	profiler.stopProfiling();
+		profiler.debugUsage();
+		Test.stopTest();
+
+		Decimal itinerarySum = 0;
+		for (Travel_Itinerary_MERC__c ti : pvtTransfers) {
+			if (ti.Total_Fare_Amount_MERC__c != null) itinerarySum += ti.Total_Fare_Amount_MERC__c;
+		}
+		System.assert(itinerarySum>0,'Why is the sum of these fares = '+itinerarySum);
+
+	 	// ground transportation match should be sum of initeraries above
+	 	tovs = [SELECT Est_Grnd_Transp_MERC__c 
+	 			FROM Daily_Attendance_TOV_MERC__c 
+	 			WHERE Meeting_Participant_MERC__c in :attendeeIds AND Meeting_Day_MERC__c in :meetingDays];
+		Decimal tovSum = 0;
+	 	for (Daily_Attendance_TOV_MERC__c tov : tovs) {
+	 		if (tov.Est_Grnd_Transp_MERC__c != null) tovSum += tov.Est_Grnd_Transp_MERC__c;
+	 	}
+
+	 	System.assertEquals(itinerarySum,tovSum,'Unexpected total for Daily Transport ToV');
+	}
 
 /***** ============================   Data setup methods   ============================ *****/
 	static List<Account> insertAccounts(Integer numberOfAccounts) {
@@ -1157,19 +1224,33 @@ p('finish');
 	}
 
 	// combined to manage SOQL limits
+
+	static List<Daily_Attendance_TOV_MERC__c> insertTovs(List<Meeting_Day_MERC__c> listOfDays, List<String> meetingParticipantIds, String status) {
+		List<String> meetingDayIds = new List<String>();
+		for (Meeting_Day_MERC__c day : listOfDays) meetingDayIds.add(day.Id);
+		return insertTovs(meetingDayIds, meetingParticipantIds, status);
+	}
+
 	static List<Daily_Attendance_TOV_MERC__c> insertTovs(List<Meeting_Day_MERC__c> listOfDays, String meetingParticipantId, String status) {
 		List<String> meetingDayIds = new List<String>();
 		for (Meeting_Day_MERC__c day : listOfDays) meetingDayIds.add(day.Id);
 		return insertTovs(meetingDayIds, meetingParticipantId, status);
 	}
+
 	static List<Daily_Attendance_TOV_MERC__c> insertTovs(List<String> meetingDayIds, String meetingParticipantId, String status) {
+		return insertTovs(meetingDayIds, new List<String>{meetingParticipantId}, status);
+	}
+
+	static List<Daily_Attendance_TOV_MERC__c> insertTovs(List<String> meetingDayIds, List<String> meetingParticipantIds, String status) {
 		List<Daily_Attendance_TOV_MERC__c> result = new List<Daily_Attendance_TOV_MERC__c>();
-		for (String id : meetingDayIds) {
-			Daily_Attendance_TOV_MERC__c tov = new Daily_Attendance_TOV_MERC__c();
-			tov.Meeting_Day_MERC__c = id;
-			tov.Meeting_Participant_MERC__c = meetingParticipantId;
-			tov.Status_MERC__c = status;
-			result.add(tov);			
+		for(String meetingParticipantId : meetingParticipantIds){
+			for (String id : meetingDayIds) {
+				Daily_Attendance_TOV_MERC__c tov = new Daily_Attendance_TOV_MERC__c();
+				tov.Meeting_Day_MERC__c = id;
+				tov.Meeting_Participant_MERC__c = meetingParticipantId;
+				tov.Status_MERC__c = status;
+				result.add(tov);			
+			}
 		}
 		insert result;
 		return result;
