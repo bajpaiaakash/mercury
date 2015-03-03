@@ -271,7 +271,6 @@
         </displayedFields>
         <label>ToV Validation Fields</label>
     </fieldSets>
-    <enableEnhancedLookup>true</enableEnhancedLookup>
     <fields>
         <fullName>Account_External_MERC__c</fullName>
         <externalId>false</externalId>
