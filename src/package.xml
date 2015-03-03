@@ -158,6 +158,7 @@
         <name>Layout</name>
     </types>
     <types>
+        <members>ExactTarget_Meeting_Integration_MERC</members>
         <members>Mercury_Account_Manager_Edit</members>
         <members>Mercury_Customer_Meeting_Services_Edit</members>
         <members>Mercury_Legal_Edit</members>
