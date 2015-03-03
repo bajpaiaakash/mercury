@@ -25,7 +25,7 @@ Tier_1_Score_MERC__c &lt; 5
             <type>Alert</type>
         </actions>
         <active>true</active>
-        <description>Sends the CMS Cork Europe an email when a HCP email address is changed.  Not for mastered email addresses : MERC : Created on 16/09/2014 by Oliver Dunford, Mavens Consulting</description>
+        <description>Sends the CMS Cork Europe an email when an HCP email address is changed.  Not for mastered email addresses : MERC : Created on 16/09/2014 by Oliver Dunford, Mavens Consulting</description>
         <formula>RecordType.DeveloperName = &quot;HCP_GLBL&quot;  &amp;&amp; !CONTAINS($User.Username, &quot;unittest&quot;)  &amp;&amp;  !CONTAINS( FirstName , &quot;unittest&quot;)  &amp;&amp; (( !ISBLANK(PRIORVALUE(PersonEmail)) &amp;&amp; ISCHANGED(PersonEmail)))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>

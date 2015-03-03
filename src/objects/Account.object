@@ -2691,6 +2691,15 @@ Created by John A Adams 11/4/2013</description>
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>HCP_Info_Pack_Received_Date_MERC__c</fullName>
+        <description>MERC - Used to capture the date that an HCP Info Pack was received by CMS Team.  This field is automatically populated with the date that HCP Info Pack Status is updated to &quot;Submitted.&quot;  Created on 3/3/15 by Mike Cashman, Mavens Consulting.</description>
+        <externalId>false</externalId>
+        <label>HCP Info Pack Received Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>HCP_Info_Package_Status_MERC__c</fullName>
         <description>Used by portal to capture the status of the HCP&apos;s Information Package. Created on 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>

@@ -951,6 +951,17 @@ Created by John Adams on 12/9/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>HCP_Info_Pack_Received_Date_MERC__c</fullName>
+        <description>MERC - Date HCP Info Pack is received.  Pulled through from Account object (where set via workflow rule).  Created by Mike Cashman, Mavens Consulting on 3/3/15.</description>
+        <externalId>false</externalId>
+        <formula>Account_MERC__r.HCP_Info_Pack_Received_Date_MERC__c</formula>
+        <label>HCP Info Pack Received Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>HCP_Info_Package_Comm_Details_MERC__c</fullName>
         <description>Mapped from Participants orginating from Veeva so that SalesRep can communicate the contact details of the HCP for follow up correspondence.  Oliver Dunford 10th Jan.</description>
         <externalId>false</externalId>
