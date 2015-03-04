@@ -10,5 +10,6 @@
         <members>Meeting_Participant_MERC__c.MERC_Notify the Primary Meeting Owner of Signed Contract</members>
         <name>WorkflowRule</name>
     </types>
+
     <version>31.0</version>
 </Package>
