@@ -47,6 +47,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Instnl_Notif_Sent_Secondary_Method_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Institutional_Notif_Validation_Sent_MERC__c</field>
             </layoutItems>
             <layoutItems>
@@ -333,6 +337,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>HCP_Info_Package_Sent_Date_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Send_HCP_Info_Package_to_Rep__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -634,6 +642,7 @@
         <fields>Meeting_Day_MERC__c</fields>
         <fields>Status_MERC__c</fields>
         <fields>Est_Hotel_ToV_MERC__c</fields>
+        <fields>Est_Grnd_Transp_MERC__c</fields>
         <fields>Est_Grp_Grnd_Transp_MERC__c</fields>
         <fields>Est_Indv_Transfer_MERC__c</fields>
         <fields>Est_Food_Bev_ToV_MERC__c</fields>

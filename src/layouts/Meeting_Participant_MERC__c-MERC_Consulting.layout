@@ -51,6 +51,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Instnl_Notif_Sent_Secondary_Method_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Institutional_Notification_Sent_MERC__c</field>
             </layoutItems>
             <layoutItems>
@@ -294,6 +298,10 @@
                 <behavior>Edit</behavior>
                 <field>HCP_Info_Package_Follow_Up_Date_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Send_HCP_Info_Package_to_Rep__c</field>
+             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
