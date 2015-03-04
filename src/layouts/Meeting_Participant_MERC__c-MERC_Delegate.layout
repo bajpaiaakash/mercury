@@ -43,11 +43,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Customer_Id_GLBL__c</field>
+                <field>Invoice_Required_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Instnl_Notif_Sent_Secondary_Method_MERC__c</field>
+                <behavior>Readonly</behavior>
+                <field>Customer_Id_GLBL__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -226,6 +226,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
+                <field>Total_Individual_Transport_ToV_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
                 <field>Total_Registration_ToV_MERC__c</field>
             </layoutItems>
             <layoutItems>
@@ -258,6 +262,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>CoPay_Ground_Transport_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>CoPay_Individual_Transport_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -422,7 +430,8 @@
         <fields>Meeting_Day_MERC__c</fields>
         <fields>Status_MERC__c</fields>
         <fields>Est_Hotel_ToV_MERC__c</fields>
-        <fields>Est_Grnd_Transp_MERC__c</fields>
+        <fields>Est_Grp_Grnd_Transp_MERC__c</fields>
+        <fields>Est_Indv_Transfer_MERC__c</fields>
         <fields>Est_Food_Bev_ToV_MERC__c</fields>
         <fields>Est_Reg_Amt_ToV_MERC__c</fields>
         <relatedList>Daily_Attendance_TOV_MERC__c.Meeting_Participant_MERC__c</relatedList>

@@ -35,6 +35,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
+                <field>Invoice_Required_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
                 <field>Transparency_Reporting_Consent_MERC__c</field>
             </layoutItems>
             <layoutItems>
@@ -48,10 +52,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Validation_Complete_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Instnl_Notif_Sent_Secondary_Method_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -191,6 +191,10 @@
                 <behavior>Edit</behavior>
                 <field>Services_Rendered_MERC__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Date_Services_Rendered_set_to_Yes_MERC__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -316,11 +320,23 @@
                 <behavior>Edit</behavior>
                 <field>Email_to_Invite_HCP_to_Portal_MERC__c</field>
             </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Send_HCP_Info_Package_to_Rep__c</field>
+            </layoutItems>
+        </layoutColumns>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>HCP_Info_Package_Status_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>HCP_Info_Package_Sent_Date_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>HCP_Info_Package_Follow_Up_Date_MERC__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
@@ -412,6 +428,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
+                <field>Total_Individual_Transport_ToV_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
                 <field>Total_Registration_ToV_MERC__c</field>
             </layoutItems>
         </layoutColumns>
@@ -440,6 +460,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>CoPay_Ground_Transport_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>CoPay_Individual_Transport_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -610,7 +634,8 @@
         <fields>Meeting_Day_MERC__c</fields>
         <fields>Status_MERC__c</fields>
         <fields>Est_Hotel_ToV_MERC__c</fields>
-        <fields>Est_Grnd_Transp_MERC__c</fields>
+        <fields>Est_Grp_Grnd_Transp_MERC__c</fields>
+        <fields>Est_Indv_Transfer_MERC__c</fields>
         <fields>Est_Food_Bev_ToV_MERC__c</fields>
         <fields>Est_Reg_Amt_ToV_MERC__c</fields>
         <relatedList>Daily_Attendance_TOV_MERC__c.Meeting_Participant_MERC__c</relatedList>
