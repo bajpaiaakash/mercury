@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>RequestUpdate</excludeButtons>
     <excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
@@ -257,19 +258,8 @@
                 <customLink>et4ae5__Send_ExactTarget_Email</customLink>
             </layoutItems>
         </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <customLink>et4ae5__View_ExactTarget_Analytics</customLink>
-            </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <customLink>et4ae5__ExactTarget_Resubscribe</customLink>
-            </layoutItems>
-            <layoutItems>
-                <customLink>et4ae5__ExactTarget_Unsubscribe</customLink>
-            </layoutItems>
-        </layoutColumns>
+        <layoutColumns/>
+        <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
     <miniLayout>
