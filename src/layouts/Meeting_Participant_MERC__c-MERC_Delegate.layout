@@ -434,7 +434,6 @@
         <fields>Meeting_Day_MERC__c</fields>
         <fields>Status_MERC__c</fields>
         <fields>Est_Hotel_ToV_MERC__c</fields>
-        <fields>Est_Grnd_Transp_MERC__c</fields>
         <fields>Est_Grp_Grnd_Transp_MERC__c</fields>
         <fields>Est_Indv_Transfer_MERC__c</fields>
         <fields>Est_Food_Bev_ToV_MERC__c</fields>
