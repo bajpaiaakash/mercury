@@ -236,6 +236,8 @@ p('participantIdToTransferItineraries'+participantIdToTransferItineraries);
 			'\r runIndividualTransferTovCalculation='+MERC_TOVCalculator.runIndividualTransferTovCalculation+
 			'\r Trigger.isBefore='+Trigger.isBefore);
 
+		Set<Id> processedItineraries = new Set<Id>();
+
 		Map<Daily_Attendance_TOV_MERC__c,List<Travel_Itinerary_MERC__c>> tovToItinerary = new Map<Daily_Attendance_TOV_MERC__c,List<Travel_Itinerary_MERC__c>>();
 		for (Daily_Attendance_TOV_MERC__c tov : tovs.values()) {
 			p('tov: '+tov);
@@ -251,10 +253,11 @@ p('meetingDays.containsKey(tov.Meeting_Day_MERC__c):'+meetingDays.containsKey(to
 					Date timestampStart = t.Sgmnt_Bgin_TS_MERC__c.date();
 					Date timestampEnd = t.Sgmnt_End_TS_MERC__c.date();
 					p('itinerary within date range?: \r\r'+timestampStart+'<='+meetingDayDate+'<='+timestampEnd+'\r\r'+tov+' \r\r '+t);
-					if (meetingDayDate >= timestampStart && meetingDayDate <= timestampEnd) {
+					if (meetingDayDate >= timestampStart && meetingDayDate <= timestampEnd && !processedItineraries.contains(t.Id)) {
 						if (tovToItinerary.get(tov)==null) tovToItinerary.put(tov, new List<Travel_Itinerary_MERC__c>()); 
 						tovToItinerary.get(tov).add(t);
 						accountedFor = true;
+						processedItineraries.add(t.Id);
 					}
 				}
 			}

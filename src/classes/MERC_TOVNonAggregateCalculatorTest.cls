@@ -257,6 +257,10 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 	/**
 	 * Lilly T-1346
 	 * When entered one-a-day, multiple private transfer itineraries should be combined to give you a SUM of the Individual Travel ToV
+	 *
+	 * "If the HCP has at least one, Attended Daily Attendance & ToV Record they will be assigned the full Individual Travel ToV amount 
+	 * for the correct Meeting Day (which may not necessarily be the same record as the Daily Attendance & ToV record which has the Attended Status).""
+	 *
 	 * ---
 	 * Start Meeting Days with Daily_Ground_Trans_Amount_MERC__c = null
 	 * Set DA/ToV for participant 1 to 'Attended' for each day
@@ -367,7 +371,7 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 	 	System.assertEquals(itinerarySum,tovSum,'Unexpected total for Daily Transport ToV');
 	 }
 
-	 @isTest
+	@isTest
 	static void groundShouldCaptureMultipleDailyPrivateTransfersOnItineraryCreateBulk() {
 
 		MERC_TriggerHandlerStateManager.deactivateAll();
@@ -375,7 +379,6 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 
 		MERC_TestFactory.loadDeclarativeRollupNonAggregateSummaries();
 
-		// MERC_TestFactory has some bugs. Until this is cleaned up, data factory methods moved within class...
 		startDate = Date.today();
 		durationInDays = 3;
 		Date endDate = startDate.addDays(durationInDays);
@@ -1089,11 +1092,10 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 	 		List<Travel_Itinerary_MERC__c> pvtTransfers = insertPrivateTransferItineraries(new List<Meeting_Participant_MERC__c>{attendee},startDate,startDate,3);
 	 		pvtTransfers.addAll(insertPrivateTransferItineraries(new List<Meeting_Participant_MERC__c>{attendee},startDate.addDays(1),startDate.addDays(1),3));
 
-p('start');
 			// set participant as "attended"
 			MERC_TOVCalculator.runIndividualTransferTovCalculation = true; // why are we resetting this?
 			List<Daily_Attendance_TOV_MERC__c> tovs = insertTovs(meetingDays, attendee.Id, 'Attended');
-p('finish');
+
 	 	profiler.stopProfiling();
 		profiler.debugUsage();
 		Test.stopTest();
@@ -1123,7 +1125,6 @@ p('finish');
 
 		MERC_TestFactory.loadDeclarativeRollupNonAggregateSummaries();
 
-		// MERC_TestFactory has some bugs. Until this is cleaned up, data factory methods moved within class...
 		startDate = Date.today();
 		durationInDays = 1;
 		Date endDate = startDate.addDays(durationInDays);
@@ -1139,7 +1140,6 @@ p('finish');
 		Test.startTest();
 		itineraries = insertHotelItineraries(participants,startDate,endDate,vendors[0]);
 		Test.stopTest();
-		
 	}
 
 	@isTest
@@ -1149,7 +1149,6 @@ p('finish');
 
 		MERC_TestFactory.loadDeclarativeRollupNonAggregateSummaries();
 
-		// MERC_TestFactory has some bugs. Until this is cleaned up, data factory methods moved within class...
 		startDate = Date.today();
 		durationInDays = 1;
 		Date endDate = startDate.addDays(durationInDays);
@@ -1178,7 +1177,6 @@ p('finish');
 
 		MERC_TestFactory.loadDeclarativeRollupNonAggregateSummaries();
 
-		// MERC_TestFactory has some bugs. Until this is cleaned up, data factory methods moved within class...
 		startDate = Date.today();
 		durationInDays = 1;
 		Date endDate = startDate.addDays(durationInDays);
