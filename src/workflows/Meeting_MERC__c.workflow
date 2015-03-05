@@ -473,32 +473,13 @@ Name</formula>
         <fullName>RTI_Meeting_Updated_MERC</fullName>
         <apiVersion>29.0</apiVersion>
         <endpointUrl>https://gso1integration.xh1.lilly.com/rti/v1/genericUpdated</endpointUrl>
-        <fields>Accommodation_Information_MERC__c</fields>
         <fields>Address_Contact_Information_MERC__c</fields>
-        <fields>Agenda_Status_MERC__c</fields>
-        <fields>Alignment_Internal_Id_GLBL__c</fields>
         <fields>Amount_to_be_Paid_MERC__c</fields>
-        <fields>Approve_Sponsorship_MERC__c</fields>
-        <fields>Approved_MERC__c</fields>
         <fields>Associated_Countries_MERC__c</fields>
-        <fields>Budget_Final_Date_Time_MERC__c</fields>
-        <fields>Budget_is_Final_MERC__c</fields>
-        <fields>Business_Unit_MERC__c</fields>
         <fields>CME_Accredited_MERC__c</fields>
         <fields>City_of_Meeting_MERC__c</fields>
         <fields>Comments_MERC__c</fields>
-        <fields>Compliance_Met_Initiate_Sourcing_MERC__c</fields>
-        <fields>Compliance_Met_Invoices_MERC__c</fields>
-        <fields>Compliance_Met_Meeting_Closure_MERC__c</fields>
-        <fields>Compliance_Met_Meeting_Errors_MERC__c</fields>
-        <fields>Compliance_Met_ToV_Finalized_MERC__c</fields>
-        <fields>Compliance_Met_Venue_Sourcing_MER__c</fields>
         <fields>Compliant_MERC__c</fields>
-        <fields>Confirm_Meeting_Cancellation_MERC__c</fields>
-        <fields>Confirm_Meeting_Date_Change_MERC__c</fields>
-        <fields>Confirm_ToV_Reporting_Change_MERC__c</fields>
-        <fields>Confirmation_Comp_Invoice_Dt_Tm_MERC__c</fields>
-        <fields>Confirmed_Attendees_MERC__c</fields>
         <fields>CreatedById</fields>
         <fields>CreatedDate</fields>
         <fields>CurrencyIsoCode</fields>
@@ -506,163 +487,44 @@ Name</formula>
         <fields>Customer_Facing_Meeting_Organiser_MERC__c</fields>
         <fields>Customer_Facing_Start_Time_MERC__c</fields>
         <fields>Date_of_Event_MERC__c</fields>
-        <fields>Date_to_Send_Invitations_MERC__c</fields>
-        <fields>Days_Until_Meeting_MERC__c</fields>
-        <fields>Days_Until_Venue_Contracted_MERC__c</fields>
-        <fields>Days_from_End_Date_to_ToV_Reported_MERC__c</fields>
-        <fields>Days_from_MPC_to_Initiate_Sourcing_MERC__c</fields>
-        <fields>Disable_Portal_Registration_MERC__c</fields>
-        <fields>Employee_Accommodation_Covered_By_MERC__c</fields>
-        <fields>Employee_Travel_MERC__c</fields>
-        <fields>Employees_Attended_MERC__c</fields>
-        <fields>End_Date_Meeting_Time_Zone_MERC__c</fields>
-        <fields>End_Date_Year_MERC__c</fields>
         <fields>End_Date_of_Event_MERC__c</fields>
-        <fields>End_Date_of_Meeting_plus_60_Days_MERC__c</fields>
-        <fields>End_Time_In_Meeting_Time_Zone_MERC__c</fields>
         <fields>End_Time_of_Meeting_MERC__c</fields>
         <fields>Event_Country_MERC__c</fields>
         <fields>Event_Id_MERC__c</fields>
-        <fields>Event_Occurred_MERC__c</fields>
         <fields>Event_Website_MERC__c</fields>
-        <fields>Event_Website_Needed_MERC__c</fields>
-        <fields>Exclude_from_Open_Meeting_Fee_Calc_MERC__c</fields>
-        <fields>Expenses_MERC__c</fields>
-        <fields>Expose_on_Portal_MERC__c</fields>
-        <fields>External_Delegates_MERC__c</fields>
-        <fields>Food_and_Beverage_Requirements_MERC__c</fields>
-        <fields>Forecasting_Information_MERC__c</fields>
-        <fields>Formatted_Name_MERC__c</fields>
-        <fields>Functional_Area_MERC__c</fields>
-        <fields>Group_Sponsorship_Meeting_MERC__c</fields>
-        <fields>HCO_MERC__c</fields>
-        <fields>HCO_Sponsorship_MERC__c</fields>
-        <fields>HCP_Eligibile_for_Sponsorship_MERC__c</fields>
-        <fields>HCPs_Attended_MERC__c</fields>
-        <fields>Hospitality_Desk_Required_MERC__c</fields>
-        <fields>Hours_for_Education_MERC__c</fields>
         <fields>Id</fields>
-        <fields>Immediate_Source_MERC__c</fields>
-        <fields>Independent_Meeting_Organiser_MERC__c</fields>
-        <fields>Individual_Sponsorship_Meeting_MERC__c</fields>
-        <fields>Initiate_Venue_Sourcing_Date_Time_MERC__c</fields>
-        <fields>Interaction_Type_MERC__c</fields>
-        <fields>Internal_Delegates_MERC__c</fields>
-        <fields>Invitation_Template_MERC__c</fields>
-        <fields>Invitee_List_Status_MERC__c</fields>
-        <fields>Inviting_Delegates_MERC__c</fields>
-        <fields>Inviting_Delegates_Other_MERC__c</fields>
-        <fields>Invoicing_Completed_MERC__c</fields>
-        <fields>IsDeleted</fields>
-        <fields>Justification_for_Venue_MERC__c</fields>
         <fields>LastModifiedById</fields>
         <fields>LastModifiedDate</fields>
         <fields>Lock_Meeting_MERC__c</fields>
-        <fields>Logistics_Information_MERC__c</fields>
-        <fields>MCP_work_MERC__c</fields>
-        <fields>MPC_Date_Time_MERC__c</fields>
         <fields>Make_Payment_To_MERC__c</fields>
-        <fields>Materials_to_be_Shipped_MERC__c</fields>
-        <fields>Meeting_Auto_Nmber_MERC__c</fields>
-        <fields>Meeting_Cancellation_Date_MERC__c</fields>
-        <fields>Meeting_Errors_MERC__c</fields>
         <fields>Meeting_Objectives_MERC__c</fields>
         <fields>Meeting_Organiser_Type_MERC__c</fields>
-        <fields>Meeting_Owner_Email_MERC__c</fields>
-        <fields>Meeting_Owner_MERC__c</fields>
-        <fields>Meeting_Owner_Sales_Rep_MERC__c</fields>
-        <fields>Meeting_Room_Setup_MERC__c</fields>
         <fields>Meeting_Scope_MERC__c</fields>
         <fields>Meeting_Status_MERC__c</fields>
         <fields>Meeting_Sub_Type_MERC__c</fields>
         <fields>Meeting_Time_Zone_MERC__c</fields>
-        <fields>Meeting_Type_Abbreviation_MERC__c</fields>
         <fields>Mercury_External_Id_MERC__c</fields>
-        <fields>Mercury_Owner_Master_Id_MERC__c</fields>
-        <fields>Mercury_Worker_Country_Code_MERC__c</fields>
         <fields>Name</fields>
-        <fields>No_Shows_MERC__c</fields>
-        <fields>Non_HCPs_Attended_MERC__c</fields>
-        <fields>Number_of_Break_Out_Rooms_MERC__c</fields>
-        <fields>Number_of_Conference_Rooms_MERC__c</fields>
-        <fields>Number_of_Draft_Budgets_MERC__c</fields>
         <fields>Number_of_Expected_Deletgates_MERC__c</fields>
-        <fields>Number_of_Expected_Employees_MERC__c</fields>
-        <fields>Number_of_Expected_Non_HCP_MERC__c</fields>
         <fields>Number_of_Expected_Speakers_MERC__c</fields>
-        <fields>Number_of_Hotel_Rooms_MERC__c</fields>
-        <fields>Number_of_Restaurants_MERC__c</fields>
-        <fields>On_Site_Support_Required_MERC__c</fields>
-        <fields>OwnerId</fields>
-        <fields>Owner_Master_Id_MERC__c</fields>
-        <fields>PO_Number_MERC__c</fields>
-        <fields>Parent_Meeting_Event_Id_MERC__c</fields>
         <fields>Parent_Meeting_External_MERC__c</fields>
-        <fields>Parent_Meeting_MERC__c</fields>
-        <fields>Participant_CoPay_Updated_Date_MERC__c</fields>
-        <fields>Participant_ToV_Final_Date_Time_MERC__c</fields>
-        <fields>Participant_ToV_Final_MERC__c</fields>
-        <fields>Participant_ToV_Updated_Date_MERC__c</fields>
-        <fields>Participants_Attended_MERC__c</fields>
-        <fields>Planned_Attendees_MERC__c</fields>
         <fields>Planned_Budget_MERC__c</fields>
-        <fields>Preferred_Location_MERC__c</fields>
         <fields>Preferred_Venue_Addr_1_MERC__c</fields>
         <fields>Preferred_Venue_Addr_2_MERC__c</fields>
         <fields>Preferred_Venue_MERC__c</fields>
         <fields>Preferred_Venue_Postal_Code_MERC__c</fields>
-        <fields>Prmry_Mtng_Ownr_Nm_MERC__c</fields>
         <fields>RTI_Transaction_ID_MERC__c</fields>
-        <fields>Ready_for_Sourcing_MERC__c</fields>
         <fields>RecordTypeId</fields>
         <fields>Rep_Cost_Center_MERC__c</fields>
-        <fields>Responses_Due_Date_MERC__c</fields>
-        <fields>Restauraunt_Information_MERC__c</fields>
-        <fields>Sales_Rep_MERC__c</fields>
-        <fields>Send_Meeting_Team_Cancelled_Email_MERC__c</fields>
-        <fields>Send_Save_the_Date_MERC__c</fields>
-        <fields>Shipping_Address_for_Invitations_MERC__c</fields>
         <fields>Source_MERC__c</fields>
-        <fields>Sourced_Venue_Addr1_MERC__c</fields>
-        <fields>Sourced_Venue_Addr_1_Hist_MERC__c</fields>
-        <fields>Sourced_Venue_Addr_2_Hist_MERC__c</fields>
-        <fields>Sourced_Venue_Addr_2_MERC__c</fields>
-        <fields>Sourced_Venue_City_Hist_MERC__c</fields>
-        <fields>Sourced_Venue_City_MERC__c</fields>
-        <fields>Sourced_Venue_Country_Hist_MERC__c</fields>
-        <fields>Sourced_Venue_Country_MERC__c</fields>
-        <fields>Sourced_Venue_Name_Hist_MERC__c</fields>
-        <fields>Sourced_Venue_Name_MERC__c</fields>
-        <fields>Sourced_Venue_Postal_Code_Hist_MERC__c</fields>
-        <fields>Sourced_Venue_Postal_Code_MERC__c</fields>
-        <fields>Speaker_MERC__c</fields>
-        <fields>Sponsorship_Category_MERC__c</fields>
-        <fields>Sponsorship_Eligibility_Crit_Met_MERC__c</fields>
-        <fields>Sponsorship_Processed_MERC__c</fields>
         <fields>Sponsorship_Type_MERC__c</fields>
-        <fields>Sponsorship_WO_Lilly_Assistance_MERC__c</fields>
-        <fields>Sponsorship_W_Lilly_Assistance_MERC__c</fields>
-        <fields>Start_Date_Meeting_Time_Zone_MERC__c</fields>
-        <fields>Start_Time_In_Meeting_Time_Zone__c</fields>
         <fields>Start_Time_of_Meeting_MERC__c</fields>
-        <fields>SystemModstamp</fields>
         <fields>Target_Audience_List_MERC__c</fields>
         <fields>Target_Audience_MERC__c</fields>
-        <fields>Technical_Requirements_MERC__c</fields>
         <fields>Territory_Description_GLBL__c</fields>
         <fields>Territory_Id_GLBL__c</fields>
         <fields>Therapeutic_Area_MERC__c</fields>
-        <fields>Time_for_Restaurant_Booking_MERC__c</fields>
-        <fields>Transfers_MERC__c</fields>
-        <fields>Travel_Information_MERC__c</fields>
         <fields>Type_MERC__c</fields>
-        <fields>Venue_MERC__c</fields>
-        <fields>Venue_Sourced_Date_Time_MERC__c</fields>
-        <fields>Virtual_Meeting_MERC__c</fields>
-        <fields>Work_Cntry_Cd_GLBL__c</fields>
-        <fields>of_Days_Until_Invoice_Reviewed_MERC__c</fields>
-        <fields>of_Sponsored_Individuals_MERC__c</fields>
-        <fields>of_Sponsorship_Group_MERC__c</fields>
         <includeSessionId>true</includeSessionId>
         <integrationUser>mercuryintegration.veeva@gso1.lly</integrationUser>
         <name>RTI - Meeting Updated</name>

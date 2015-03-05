@@ -3079,6 +3079,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Status_MERC__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Inactive</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Tier_1_HCP_CV_Checked_MERC__c</picklist>
             <values>
                 <fullName>Confirmed HCP is Tier 1</fullName>

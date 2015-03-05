@@ -457,156 +457,44 @@
         <apiVersion>29.0</apiVersion>
         <endpointUrl>https://gso1integration.xh1.lilly.com/rti/v1/genericUpdated</endpointUrl>
         <fields>Account_External_MERC__c</fields>
-        <fields>Account_MERC__c</fields>
-        <fields>Active_on_Web_Service_MERC__c</fields>
-        <fields>Additional_Travel_Details_MERC__c</fields>
-        <fields>Air_Travel_No_Longer_Required_MERC__c</fields>
         <fields>Air_Travel_Required_MERC__c</fields>
         <fields>Amount_to_be_Paid_MERC__c</fields>
-        <fields>Anonymise_Record_MERC__c</fields>
         <fields>Associated_Countries_MERC__c</fields>
-        <fields>Cancellation_Notice_Sent_MERC__c</fields>
-        <fields>Classification_MERC__c</fields>
-        <fields>CoPay_AODS_Flight_Rail_MERC__c</fields>
-        <fields>CoPay_AODS_Food_Beverage_MERC__c</fields>
-        <fields>CoPay_AODS_Ground_Transport_MERC__c</fields>
-        <fields>CoPay_AODS_Hotel_MERC__c</fields>
-        <fields>CoPay_AODS_Registration_MERC__c</fields>
-        <fields>CoPay_Flight_Rail_MERC__c</fields>
-        <fields>CoPay_Food_Beverage_MERC__c</fields>
-        <fields>CoPay_Ground_Transport_MERC__c</fields>
-        <fields>CoPay_Hotel_MERC__c</fields>
-        <fields>CoPay_Registration_MERC__c</fields>
         <fields>Confirm_Final_Fee_MERC__c</fields>
-        <fields>Confirm_Partial_Payment_Amount_MERC__c</fields>
-        <fields>Confirm_ToV_Reporting_Change_MERC__c</fields>
-        <fields>Contract_Limitations_on_Use_MERC__c</fields>
-        <fields>Copay_Required_MERC__c</fields>
-        <fields>Country_of_Residence_MERC__c</fields>
         <fields>CreatedById</fields>
         <fields>CreatedDate</fields>
-        <fields>CurrencyIsoCode</fields>
-        <fields>Customer_Id_GLBL__c</fields>
-        <fields>Date_of_Check_In_MERC__c</fields>
-        <fields>Date_of_Check_Out_MERC__c</fields>
-        <fields>Days_Until_Meeting_MERC__c</fields>
         <fields>Description_of_Service_MERC__c</fields>
-        <fields>Dietary_Preferences_Step_Complete_MERC__c</fields>
-        <fields>Docusign_Contract_Status_MERC__c</fields>
-        <fields>Docusign_Envelope_Id_MERC__c</fields>
-        <fields>Email_Formula_MERC__c</fields>
-        <fields>Email_MERC__c</fields>
-        <fields>Email_to_Invite_HCP_to_Portal_MERC__c</fields>
-        <fields>Emergency_Contact_Step_Complete_MERC__c</fields>
-        <fields>Event_Customer_Id_MERC__c</fields>
         <fields>Event_Time_Hrs_MERC__c</fields>
-        <fields>FMV_Criteria_Map_MERC__c</fields>
         <fields>Final_Fee_MERC__c</fields>
-        <fields>Force_Unique_Participant_MERC__c</fields>
-        <fields>Global_Id_MERC__c</fields>
-        <fields>HCP_Info_Package_Comm_Details_MERC__c</fields>
-        <fields>Has_Active_MSA_MERC__c</fields>
         <fields>Has_Signed_Contract_MERC__c</fields>
-        <fields>Higher_Fee_Approval__c</fields>
-        <fields>Hotel_No_Longer_Required_MERC__c</fields>
         <fields>Hotel_Required_MERC__c</fields>
-        <fields>Hotel_Step_Complete_MERC__c</fields>
         <fields>Id</fields>
-        <fields>Immediate_Source_MERC__c</fields>
-        <fields>Include_CAP_Roll_Up_MERC__c</fields>
-        <fields>Inst_Notification_Lead_Time_MERC__c</fields>
-        <fields>Institutional_Notification_Complete_MERC__c</fields>
-        <fields>Institutional_Notification_Sent_MERC__c</fields>
-        <fields>Invoice_Template_Needed_MERC__c</fields>
-        <fields>IsDeleted</fields>
         <fields>Items_to_be_Sponsored_MERC__c</fields>
         <fields>Justification_MERC__c</fields>
         <fields>LastModifiedById</fields>
         <fields>LastModifiedDate</fields>
         <fields>Maximum_Fee_MERC__c</fields>
-        <fields>Maximum_Rate_MERC__c</fields>
-        <fields>Meeting_Date_MERC__c</fields>
-        <fields>Meeting_End_Date_MERC__c</fields>
         <fields>Meeting_External_MERC__c</fields>
-        <fields>Meeting_MERC__c</fields>
-        <fields>Meeting_Owner_Email_MERC__c</fields>
-        <fields>Meeting_Owner_Global_Id_MERC__c</fields>
         <fields>Mercury_External_Id_MERC__c</fields>
         <fields>Minimum_Fee_MERC__c</fields>
-        <fields>Minimum_Rate_MERC__c</fields>
         <fields>Name</fields>
-        <fields>Number_of_Completed_Contracts_MERC__c</fields>
-        <fields>Number_of_Contracts_MERC__c</fields>
-        <fields>Partial_Payment_Amount_MERC__c</fields>
-        <fields>Partial_Payment_Justification_MERC__c</fields>
-        <fields>Participant_Approved_MERC__c</fields>
-        <fields>Participant_Search_MERC__c</fields>
-        <fields>Participant_Typ_MERC__c</fields>
-        <fields>Payee_Info_Consent_MERC__c</fields>
-        <fields>Payee_and_Bank_Info_Complete_MERC__c</fields>
-        <fields>Payment_Required_MERC__c</fields>
-        <fields>Payment_Required_for_Meeting_MERC__c</fields>
-        <fields>Person_Contact_Id_MERC__c</fields>
-        <fields>Preferred_Departure_Airport_MERC__c</fields>
-        <fields>Preferred_Departure_Depot_MERC__c</fields>
-        <fields>Preferred_Departure_Station_MERC__c</fields>
         <fields>Preparation_Time_Hrs_MERC__c</fields>
-        <fields>Presentation_Approval_Needed_MERC__c</fields>
-        <fields>Prior_Parent_Id_GLBL__c</fields>
-        <fields>Processing_of_Data_Consent_MERC__c</fields>
         <fields>Proposed_Final_Fee_MERC__c</fields>
-        <fields>Purpose_of_Payment_MERC__c</fields>
-        <fields>Qualifications_Experience_Complete_MERC__c</fields>
         <fields>RTI_Transaction_ID_MERC__c</fields>
         <fields>RecordTypeId</fields>
+        <fields>Record_Type_MERC__c</fields>
         <fields>Record_Type_Name_MERC__c</fields>
-        <fields>Registration_Comments_MERC__c</fields>
         <fields>Sales_Rep_MERC__c</fields>
-        <fields>Send_HCP_Info_Package_to_Rep__c</fields>
-        <fields>Service_Provider_Tier_MERC__c</fields>
         <fields>Services_Rendered_MERC__c</fields>
         <fields>Source_MERC__c</fields>
-        <fields>Speaking_MERC__c</fields>
-        <fields>Speciality_MERC__c</fields>
-        <fields>Sponsorship_Agreement_Consent_MERC__c</fields>
-        <fields>Status_Change_Post_ToV_Final_MERC__c</fields>
         <fields>Status_MERC__c</fields>
-        <fields>Summary_Step_Complete_MERC__c</fields>
-        <fields>SystemModstamp</fields>
-        <fields>ToV_Currency_MERC__c</fields>
         <fields>Topic_Area_MERC__c</fields>
-        <fields>Total_Food_Beverage_ToV_MERC__c</fields>
-        <fields>Total_Food_Beverage_ToV_Rollup_MERC__c</fields>
-        <fields>Total_Ground_Transporation_ToV_MERC__c</fields>
-        <fields>Total_Ground_Transport_ToV_Rollup_MERC__c</fields>
-        <fields>Total_Honorarium_MERC__c</fields>
-        <fields>Total_Hotel_ToV_MERC__c</fields>
-        <fields>Total_Hotel_ToV_Rollup_MERC__c</fields>
         <fields>Total_Hours_of_Service_MERC__c</fields>
-        <fields>Total_Registration_ToV_MERC__c</fields>
-        <fields>Total_Registration_ToV_Rollup_MERC__c</fields>
-        <fields>Transparency_Reporting_Consent_MERC__c</fields>
-        <fields>Transparency_Step_Complete_MERC__c</fields>
-        <fields>Travel_Adjustment_Amount_MERC__c</fields>
-        <fields>Travel_Adjustment_Percentage_MERC__c</fields>
-        <fields>Travel_No_Longer_Required_MERC__c</fields>
-        <fields>Travel_Step_Complete_MERC__c</fields>
         <fields>Travel_Time_Hrs_MERC__c</fields>
-        <fields>Travel_by_Bus_MERC__c</fields>
-        <fields>Travel_by_Car_MERC__c</fields>
-        <fields>Travel_by_Train_MERC__c</fields>
-        <fields>Trnsctn_Typ_MERC__c</fields>
         <fields>Trtry_Cd_MERC__c</fields>
         <fields>Trtry_Desc_MERC__c</fields>
         <fields>Type_of_Contract_MERC__c</fields>
         <fields>Types_of_Service_MERC__c</fields>
-        <fields>Video_Audio_Recording_MERC__c</fields>
-        <fields>WS_Updt_Dt_MERC__c</fields>
-        <fields>WS_Updt_HCP_Actn_MERC__c</fields>
-        <fields>WS_Updt_HCP_Global_ID_MERC__c</fields>
-        <fields>WS_Updt_HCP_Name_MERC__c</fields>
-        <fields>Web_Service_Logic_Key_MERC__c</fields>
-        <fields>of_Locked_Invoices_MERC__c</fields>
         <includeSessionId>true</includeSessionId>
         <integrationUser>mercuryintegration.veeva@gso1.lly</integrationUser>
         <name>RTI - Meeting Participant Updated</name>
@@ -802,7 +690,11 @@
         <fullName>MERC_Reminder - Services Not Rendered</fullName>
         <active>true</active>
         <description>Notifies Primary Meeting Owner and Customer Facing User, if applicable, to let them know that the Services Rendered is not equal to Yes and it has been 5 days past the end of the meeting : MERC : Created on 04/03/2014 by Katy Lorenti, Mavens Consulting</description>
-        <formula>(ISPICKVAL(Services_Rendered_MERC__c,&apos;No&apos; ) ||   ISPICKVAL(Services_Rendered_MERC__c,&apos;&apos; )) &amp;&amp;    RecordType.Name  = &apos;Service Provider&apos; &amp;&amp;  ISPICKVAL(Status_MERC__c, &apos;Cancelled&apos;) = FALSE</formula>
+        <formula>(ISPICKVAL(Services_Rendered_MERC__c,&apos;No&apos; ) ||   ISPICKVAL(Services_Rendered_MERC__c,&apos;&apos; )) 
+&amp;&amp; RecordType.Name  = &apos;Service Provider&apos; 
+&amp;&amp; ISPICKVAL(Status_MERC__c, &apos;Cancelled&apos;) = FALSE 
+&amp;&amp; ISPICKVAL(Status_MERC__c, &apos;Declined&apos;) = FALSE 
+&amp;&amp; ISPICKVAL(Meeting_MERC__r.Meeting_Status_MERC__c, &apos;Complete - Cancelled&apos;) = FALSE</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
