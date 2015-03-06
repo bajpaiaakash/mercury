@@ -156,7 +156,7 @@ IF ( NOT(ISBLANK(Est_Indv_Transfer_MERC__c)) &amp;&amp;  NOT(ISBLANK(Est_Grp_Grn
 		(IF(
 			(ISPICKVAL(Meeting_Participant_MERC__r.Status_MERC__c,&quot;No Show&quot;) &amp;&amp; 
 			(ISPICKVAL(Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c , &quot;Yes&quot;)) &amp;&amp; 
-			(Meeting_Day_MERC__r.Daily_Registration_Amount_MERC__c &gt; 0) &amp;&amp; 
+			(Meeting_Day_MERC__r.Daily_Registration_Amount_MERC__c &gt;= 0) &amp;&amp; 
 			(Status_Change_Post_ToV_Final_MERC__c = TRUE))
 		,0, NULL)
 	)

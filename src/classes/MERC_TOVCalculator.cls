@@ -236,6 +236,11 @@ p('participantIdToTransferItineraries'+participantIdToTransferItineraries);
 			'\r runIndividualTransferTovCalculation='+MERC_TOVCalculator.runIndividualTransferTovCalculation+
 			'\r Trigger.isBefore='+Trigger.isBefore);
 
+
+		//<PAUL>
+		Set<Id> processedItineraries = new Set<Id>();
+		//</PAUL>
+
 		Map<Daily_Attendance_TOV_MERC__c,List<Travel_Itinerary_MERC__c>> tovToItinerary = new Map<Daily_Attendance_TOV_MERC__c,List<Travel_Itinerary_MERC__c>>();
 		for (Daily_Attendance_TOV_MERC__c tov : tovs.values()) {
 			p('tov: '+tov);
@@ -251,10 +256,16 @@ p('meetingDays.containsKey(tov.Meeting_Day_MERC__c):'+meetingDays.containsKey(to
 					Date timestampStart = t.Sgmnt_Bgin_TS_MERC__c.date();
 					Date timestampEnd = t.Sgmnt_End_TS_MERC__c.date();
 					p('itinerary within date range?: \r\r'+timestampStart+'<='+meetingDayDate+'<='+timestampEnd+'\r\r'+tov+' \r\r '+t);
-					if (meetingDayDate >= timestampStart && meetingDayDate <= timestampEnd) {
+					//<PAUL>
+					//if (meetingDayDate >= timestampStart && meetingDayDate <= timestampEnd) {
+					if (meetingDayDate >= timestampStart && meetingDayDate <= timestampEnd && !processedItineraries.contains(t.Id)) {
+					//</PAUL>
 						if (tovToItinerary.get(tov)==null) tovToItinerary.put(tov, new List<Travel_Itinerary_MERC__c>()); 
 						tovToItinerary.get(tov).add(t);
 						accountedFor = true;
+						//<PAUL>
+						processedItineraries.add(t.Id);
+						//</PAUL>
 					}
 				}
 			}
@@ -329,21 +340,21 @@ p('no itineraries for this DA/ToV. Setting to 0/null.');
 	 *
 	 * @param sobjects 	List of Meeting_Vendor_MERC__c, Travel_Itinerary_MERC__c or Daily_Attendance_TOV_MERC__c
 	 **/
-	private void calculateHotelTov(List<SObject> sobjects) {
+	 private void calculateHotelTov(List<SObject> sobjects) {
 
-		p('calculateHotelTov()!\rObject Type:'+this.triggeredSobjectType+
-			'\rrunHotelTovCalculation='+MERC_TOVCalculator.runHotelTovCalculation+
-			'\rTrigger.isBefore='+Trigger.isBefore);
+	 	p('calculateHotelTov()!\rObject Type:'+this.triggeredSobjectType+
+	 		'\rrunHotelTovCalculation='+MERC_TOVCalculator.runHotelTovCalculation+
+	 		'\rTrigger.isBefore='+Trigger.isBefore);
 
-		/*** =============== check for creation/edit of vendor or itinerary records  =============== ***/
-		if (
-			(
-				this.triggeredSobjectType == Meeting_Vendor_MERC__c.SobjectType ||
-				this.triggeredSobjectType == Travel_Itinerary_MERC__c.SobjectType
-			)
-			&& Trigger.isAfter
-		   ) {
-			Set<Id> meetingIds = new Set<Id>();
+	 	/*** =============== check for creation/edit of vendor or itinerary records  =============== ***/
+	 	if (
+	 		(
+	 			this.triggeredSobjectType == Meeting_Vendor_MERC__c.SobjectType ||
+	 			this.triggeredSobjectType == Travel_Itinerary_MERC__c.SobjectType
+	 			)
+	 		&& Trigger.isAfter
+	 		) {
+	 		Set<Id> meetingIds = new Set<Id>();
 
 			//check for room rate change
 			if (this.triggeredSobjectType == Meeting_Vendor_MERC__c.SobjectType) {
@@ -356,14 +367,13 @@ p('no itineraries for this DA/ToV. Setting to 0/null.');
 				}
 
 			//check for itinerary change
-			//TODO: we don't need to process all meetings, so provide list of affected travel itineraries instead *************
 			} else if (this.triggeredSobjectType == Travel_Itinerary_MERC__c.SobjectType) {
 				for (Travel_Itinerary_MERC__c ti : (List<Travel_Itinerary_MERC__c>)sobjects) {
 					if (Trigger.isInsert ||
 						(Trigger.oldMap.get(ti.Id).get('Meeting_Vendor_MERC__c') != ti.Meeting_Vendor_MERC__c ||
-						  Trigger.oldMap.get(ti.Id).get('Sgmnt_Bgin_TS_MERC__c') != ti.Sgmnt_Bgin_TS_MERC__c ||
-						  Trigger.oldMap.get(ti.Id).get('Sgmnt_End_TS_MERC__c') != ti.Sgmnt_End_TS_MERC__c ||
-						  Trigger.oldMap.get(ti.Id).get('Status_MERC__c') != ti.Status_Merc__c) &&
+							Trigger.oldMap.get(ti.Id).get('Sgmnt_Bgin_TS_MERC__c') != ti.Sgmnt_Bgin_TS_MERC__c ||
+							Trigger.oldMap.get(ti.Id).get('Sgmnt_End_TS_MERC__c') != ti.Sgmnt_End_TS_MERC__c ||
+							Trigger.oldMap.get(ti.Id).get('Status_MERC__c') != ti.Status_Merc__c) &&
 						!ti.Meeting_Status_MERC__c.startsWith('Complete')) {
 
 						meetingIds.add(ti.Meeting_Id_MERC__c);
@@ -371,12 +381,12 @@ p('no itineraries for this DA/ToV. Setting to 0/null.');
 				}
 			}
 
-p('calculateHotelTov-isAfter '+this.triggeredSobjectType+':'+meetingIds);
+			p('calculateHotelTov-isAfter '+this.triggeredSobjectType+':'+meetingIds);
 
 			if (meetingIds.size() == 0) return;
 			Map<Daily_Attendance_TOV_MERC__c,Travel_Itinerary_MERC__c> tovToItinerary = associateToVwithHotelItinerary(null,meetingIds,null);
 
-p('hotel ToV #1 from travel itinerary: '+tovToItinerary);
+			p('hotel ToV #1 from travel itinerary: '+tovToItinerary);
 			// Determine which TOVs to process and how...
 			List<Daily_Attendance_TOV_MERC__c> tovRecordsToUpdate = new List<Daily_Attendance_TOV_MERC__c>();
 
@@ -384,14 +394,14 @@ p('hotel ToV #1 from travel itinerary: '+tovToItinerary);
 			for (Daily_Attendance_TOV_MERC__c tov : tovToItinerary.keySet()) {
 				tovKeys.put(tov.Id,tov);
 			}
-Integer i = 0;
+			Integer i = 0;
 			for (Id tovId : tovKeys.keySet()) {
 				Daily_Attendance_TOV_MERC__c tov = tovKeys.get(tovId);
 				Travel_Itinerary_MERC__c t = tovToItinerary.get(tov);
-p('tov'+i+': '+tov);
+				p('tov'+i+': '+tov);
 
 
-p('t'+i+': '+t);
+				p('t'+i+': '+t);
 				if (t!=null) {
 					//Set the confirm reporting to true. If confirmirmation was needed on the meeting vendor
 					//or the travel itinerary we would not get here without the user having checked that box.
@@ -404,39 +414,39 @@ p('t'+i+': '+t);
 
 					if (noRoomRate || !t.Include_ToV_MERC__c || itineraryCancelled) {
 						if (tovIsFinal) {
-	p(i+': ToV is Final');
+							p(i+': ToV is Final');
 							if (tov.Est_Hotel_ToV_MERC__c != null) {
-	p(i+': Est_Hotel_ToV_MERC__c is not null but '+tov.Est_Hotel_ToV_MERC__c);
-							 	tov.Est_Hotel_ToV_MERC__c = 0.0;
+								p(i+': Est_Hotel_ToV_MERC__c is not null but '+tov.Est_Hotel_ToV_MERC__c);
+								tov.Est_Hotel_ToV_MERC__c = 0.0;
 								tovRecordsToUpdate.add(tov);
 							}
 						} else {
-	p(i+': ToV is not final, so setting value to null');
-							tov.Est_Hotel_ToV_MERC__c = null;
-							tovRecordsToUpdate.add(tov);
+								p(i+': ToV is not final, so setting value to null');
+								tov.Est_Hotel_ToV_MERC__c = null;
+								tovRecordsToUpdate.add(tov);
 						}
 					} else {
-	p(i+': updating room rate to '+t.Room_Rate_excl_VAT_MERC__c);
+						p(i+': updating room rate to '+t.Room_Rate_excl_VAT_MERC__c);
 						tov.Est_Hotel_ToV_MERC__c = t.Room_Rate_excl_VAT_MERC__c;
 						tovRecordsToUpdate.add(tov);
 					}
 				} else {
-					tov.Est_Hotel_ToV_MERC__c = null;
+					tov.Est_Hotel_ToV_MERC__c = 0.0;  // TODO - this should be null IF Tov is Final BUT we don't know without a t record!!!
 					tovRecordsToUpdate.add(tov);
 				}
-i++;
+				i++;
 			}
 
 			MERC_TOVCalculator.runHotelTovCalculation = false;
 			update tovRecordsToUpdate;
 		}
 
-		/*** =============== check for creation/edit of daily attendance/tov records  =============== ***/
-		if (
-			this.triggeredSobjectType == Daily_Attendance_TOV_MERC__c.SobjectType &&
-			MERC_TOVCalculator.runHotelTovCalculation &&
-			Trigger.isBefore
-		) {
+					/*** =============== check for creation/edit of daily attendance/tov records  =============== ***/
+					if (
+						this.triggeredSobjectType == Daily_Attendance_TOV_MERC__c.SobjectType &&
+						MERC_TOVCalculator.runHotelTovCalculation &&
+						Trigger.isBefore
+						) {
 
 			//get list of participant ids & meeting day ids associated with this transaction
 			Set<Id> meetingParticipantIds = new Set<Id>();
@@ -452,21 +462,21 @@ i++;
 
 			p('tovToItinerary'+tovToItinerary);
 
-p('hotel ToV #2 from DA');
+			p('hotel ToV #2 from DA');
 			// Determine which TOVs to process and how...
 			Map<Id,Daily_Attendance_TOV_MERC__c> tovKeys = new Map<Id,Daily_Attendance_TOV_MERC__c>();
 			for (Daily_Attendance_TOV_MERC__c tov : tovToItinerary.keySet()) {
 				tovKeys.put(tov.Id,tov);
 			}
-Integer i = 0;
+			Integer i = 0;
 
 			for (Id tovId : tovKeys.keySet()) {
 				Daily_Attendance_TOV_MERC__c tov = tovKeys.get(tovId);
-p('tov'+i+': '+tov);
+				p('tov'+i+': '+tov);
 
 				//apply itinerary to tov
 				Travel_Itinerary_MERC__c t = tovToItinerary.get(tov);
-p('t'+i+': '+t);
+				p('t'+i+': '+t);
 
 				if (t!=null) {
 					Boolean tovIsFinal = t.Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c == 'Yes';
@@ -476,12 +486,12 @@ p('t'+i+': '+t);
 					if (itineraryCancelled) {
 						if (tovIsFinal) {
 							tov.Est_Hotel_ToV_MERC__c = 0.0;
-						} else {
-							tov.Est_Hotel_ToV_MERC__c = null;
-						}
-					} else {
-						tov.Est_Hotel_ToV_MERC__c = t.Room_Rate_excl_VAT_MERC__c;
-					}
+							} else {
+								tov.Est_Hotel_ToV_MERC__c = null;
+							}
+							} else {
+								tov.Est_Hotel_ToV_MERC__c = t.Room_Rate_excl_VAT_MERC__c;
+							}
 
 					//if (tovIsFinal) {
 					//	if (!statusUpdate && tov.Est_Hotel_ToV_MERC__c != null) tov.Est_Hotel_ToV_MERC__c = 0.0;
