@@ -322,6 +322,8 @@ p(i+'Doing nothing');
 p('no itineraries for this DA/ToV. Setting to 0/null.');
 				tov.Est_Indv_Transfer_MERC__c = (tovIsFinal) ? 0.0 : null;
 			}
+			
+			if (!tovIsFinal && tov.Est_Indv_Transfer_MERC__c==0) tov.Est_Indv_Transfer_MERC__c = null;
 			tovRecordsToUpdate.put(tov.Id,tov);
 		}
 		return tovRecordsToUpdate;
