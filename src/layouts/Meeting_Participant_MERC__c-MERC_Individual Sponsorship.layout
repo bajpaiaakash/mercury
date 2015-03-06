@@ -39,7 +39,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
+                <field>Invoice_Required_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
                 <field>Customer_Id_GLBL__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Instnl_Notif_Sent_Secondary_Method_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

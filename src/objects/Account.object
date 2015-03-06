@@ -2199,9 +2199,9 @@ Created by John A Adams 11/4/2013</description>
     <fields>
         <fullName>Designated_Individual_Counter_MERC__c</fullName>
         <defaultValue>0</defaultValue>
+        <description>Used to return the total number of Designated Individuals a HCP has, controlling whether a record exists for the Web Service registration steps. Counts the Designated Individual Count field, rolled up via the Lookup RollUp Summarise functionality  : MERC : Updated on 26/01/2015 by Oliver Dunford, Mavens Consulting.</description>
         <externalId>false</externalId>
         <label>Designated Individual Counter</label>
-        <description>Used to return the total number of Designated Individuals a HCP has, controlling whether a record exists for the Web Service registration steps. Counts the Designated Individual Count field, rolled up via the Lookup RollUp Summarise functionality  : MERC : Updated on 26/01/2015 by Oliver Dunford, Mavens Consulting.</description>
         <precision>4</precision>
         <required>false</required>
         <scale>0</scale>
@@ -2658,15 +2658,6 @@ Created by John A Adams 11/4/2013</description>
         <description>Lookup relationship to associate Contracting Party to an HCP Account. Created 04/04/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <label>HCP for Contracting Party</label>
-        <lookupFilter>
-            <active>true</active>
-            <filterItems>
-                <field>Account.RecordTypeId</field>
-                <operation>equals</operation>
-                <value>HCP</value>
-            </filterItems>
-            <isOptional>false</isOptional>
-        </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Contracting Parties</relationshipLabel>
         <relationshipName>HCPs_Contracting_Party</relationshipName>
@@ -2692,21 +2683,21 @@ Created by John A Adams 11/4/2013</description>
         <externalId>false</externalId>
         <inlineHelpText>The HCP who indicated this person as their Designated Individual</inlineHelpText>
         <label>HCP for Designated Individual</label>
-        <lookupFilter>
-            <active>true</active>
-            <filterItems>
-                <field>Account.RecordTypeId</field>
-                <operation>equals</operation>
-                <value>HCP</value>
-            </filterItems>
-            <isOptional>false</isOptional>
-        </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Designated Individuals</relationshipLabel>
         <relationshipName>Designated_Individuals</relationshipName>
         <required>false</required>
         <trackHistory>true</trackHistory>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>HCP_Info_Pack_Received_Date_MERC__c</fullName>
+        <description>MERC - Used to capture the date that an HCP Info Pack was received by CMS Team.  This field is automatically populated with the date that HCP Info Pack Status is updated to &quot;Submitted.&quot;  Created on 3/3/15 by Mike Cashman, Mavens Consulting.</description>
+        <externalId>false</externalId>
+        <label>HCP Info Pack Received Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>HCP_Info_Package_Status_MERC__c</fullName>
@@ -3025,6 +3016,25 @@ Created by John A Adams 10/22/2013</description>
         <externalId>false</externalId>
         <inlineHelpText>Do you have current or previous experience at a teaching institution as an:  Instructor / Assistant Clinical Professor / Clinical Professor / Assistant Professor?</inlineHelpText>
         <label>Instructor/Assistant/Clinical Professor</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Invoice_Required_MERC__c</fullName>
+        <description>Maintained by CMS.  Is an Invoice Required for this Account?  Field is pulled through to Meeting Participant object via formula.  Created by Mike Cashman, Mavens Consulting on 24/2/15.</description>
+        <externalId>false</externalId>
+        <label>Invoice Required</label>
         <picklist>
             <picklistValues>
                 <fullName>Yes</fullName>
@@ -3620,16 +3630,6 @@ Created by John A Adams 12/15/2013</description>
     </fields>
     <fields>
         <fullName>ParentId</fullName>
-        <lookupFilter>
-            <active>true</active>
-            <filterItems>
-                <field>Account.RecordTypeId</field>
-                <operation>equals</operation>
-                <valueField>$Source.RecordTypeId</valueField>
-            </filterItems>
-            <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
-            <isOptional>false</isOptional>
-        </lookupFilter>
         <trackHistory>false</trackHistory>
         <type>Hierarchy</type>
     </fields>
@@ -4369,16 +4369,6 @@ Created by John A Adams 10/16/2013</description>
 Created by John A Adams 10/23/2013</description>
         <externalId>false</externalId>
         <label>Relationship Owner</label>
-        <lookupFilter>
-            <active>true</active>
-            <filterItems>
-                <field>Account.RecordTypeId</field>
-                <operation>equals</operation>
-                <value>Employee</value>
-            </filterItems>
-            <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
-            <isOptional>false</isOptional>
-        </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Accounts</relationshipLabel>
         <relationshipName>Accounts</relationshipName>
@@ -4810,7 +4800,7 @@ ISPICKVAL( Advisory_Board_Experience_MERC__c ,&quot;&quot;)
         <fullName>Tier_1_HCP_CV_Checked_MERC__c</fullName>
         <description>Used to confirm Tier 1 HCP post verification of CV.  Tier 1 HCP&apos;s must have CV verified. Oliver Dunford 14th Jan 2014.</description>
         <externalId>false</externalId>
-        <inlineHelpText>All Tier 1 HCP&apos;s must have their CV&apos;s verified before Tier 1 can be set.</inlineHelpText>
+        <inlineHelpText>All Tier 1 HCPs must have their CVs verified before Tier 1 can be assigned.  Medical Dir must be notified prior to confirming as Tier 1</inlineHelpText>
         <label>Tier 1 HCP CV Checked</label>
         <picklist>
             <picklistValues>
@@ -5683,6 +5673,17 @@ Created by John A Adams 11/4/2013</description>
             </values>
             <values>
                 <fullName>Utilities</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Invoice_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7111,6 +7112,17 @@ Created by John A Adams 11/4/2013</description>
         </picklistValues>
         <picklistValues>
             <picklist>Instructor_Assistant_Clinical_Prof_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Invoice_Required_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -8710,6 +8722,17 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Invoice_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Journal_Articles_MERC__c</picklist>
             <values>
                 <fullName>0-2</fullName>
@@ -10299,6 +10322,17 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Invoice_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Journal_Articles_MERC__c</picklist>
             <values>
                 <fullName>0-2</fullName>
@@ -10886,6 +10920,17 @@ Created by John A Adams 11/4/2013</description>
         </picklistValues>
         <picklistValues>
             <picklist>Instructor_Assistant_Clinical_Prof_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Invoice_Required_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -12483,6 +12528,17 @@ Created by John A Adams 11/4/2013</description>
         </picklistValues>
         <picklistValues>
             <picklist>Instructor_Assistant_Clinical_Prof_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Invoice_Required_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
@@ -14143,6 +14199,17 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Invoice_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Journal_Articles_MERC__c</picklist>
             <values>
                 <fullName>0-2</fullName>
@@ -15789,6 +15856,17 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Invoice_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Journal_Articles_MERC__c</picklist>
             <values>
                 <fullName>0-2</fullName>
@@ -17378,6 +17456,17 @@ Created by John A Adams 11/4/2013</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Invoice_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Journal_Articles_MERC__c</picklist>
             <values>
                 <fullName>0-2</fullName>
@@ -18953,6 +19042,17 @@ Created by John A Adams 11/4/2013</description>
         </picklistValues>
         <picklistValues>
             <picklist>Instructor_Assistant_Clinical_Prof_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Invoice_Required_MERC__c</picklist>
             <values>
                 <fullName>No</fullName>
                 <default>false</default>
