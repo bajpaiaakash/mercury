@@ -193,6 +193,7 @@
         <name>Report</name>
     </types>
     <types>
+        <members>HCP_Contracts_MERC</members>
         <members>MERC_Meeting_Participants_with_or_without_Contract</members>
         <members>MERC_Meeting_Participants_with_or_without_Invoices</members>
         <members>Meeting_Participants_with_HCP_Contracts_with_MSA_Contracts</members>

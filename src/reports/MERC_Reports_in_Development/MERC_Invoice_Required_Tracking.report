@@ -4,6 +4,9 @@
         <field>Meeting_Participant_MERC__c$Account_MERC__c</field>
     </columns>
     <columns>
+        <field>Meeting_Participant_MERC__c$Country_of_Residence_MERC__c</field>
+    </columns>
+    <columns>
         <field>Meeting_Participant_MERC__c$Meeting_MERC__c</field>
     </columns>
     <columns>
@@ -11,9 +14,6 @@
     </columns>
     <columns>
         <field>Meeting_Participant_MERC__c$Date_Services_Rendered_set_to_Yes_MERC__c</field>
-    </columns>
-    <columns>
-        <field>Meeting_Participant_MERC__c.Invoices__r$CreatedDate</field>
     </columns>
     <columns>
         <field>Meeting_Participant_MERC__c.Invoices__r$Invoice_Date_MERC__c</field>
@@ -25,6 +25,7 @@
         <field>Meeting_Participant_MERC__c.Invoices__r$Invoice_Follow_Up_Date_MERC__c</field>
     </columns>
     <currency>EUR</currency>
+    <description>Tracking Service Providers who have rendered Services and do or do not require an Invoice</description>
     <filter>
         <criteriaItems>
             <column>Meeting_Participant_MERC__c$Services_Rendered_MERC__c</column>
@@ -32,13 +33,18 @@
             <value>Yes</value>
         </criteriaItems>
         <criteriaItems>
-            <column>Meeting_Participant_MERC__c$Invoice_Required_MERC__c</column>
+            <column>Meeting_Participant_MERC__c.Invoices__r$Submit_for_Payment_MERC__c</column>
             <operator>equals</operator>
-            <value>Yes</value>
+            <value>No</value>
         </criteriaItems>
         <language>en_US</language>
     </filter>
-    <format>Tabular</format>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Meeting_Participant_MERC__c$Invoice_Required_MERC__c</field>
+        <sortOrder>Desc</sortOrder>
+    </groupingsDown>
     <name>Invoice Required Tracking</name>
     <params>
         <name>co</name>
@@ -47,6 +53,8 @@
     <reportType>MERC_Meeting_Participants_with_or_without_Invoices__c</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
+    <sortColumn>Meeting_Participant_MERC__c.Invoices__r$Invoice_Follow_Up_Date_MERC__c</sortColumn>
+    <sortOrder>Desc</sortOrder>
     <timeFrameFilter>
         <dateColumn>Meeting_Participant_MERC__c$Date_Services_Rendered_set_to_Yes_MERC__c</dateColumn>
         <interval>INTERVAL_CUSTOM</interval>

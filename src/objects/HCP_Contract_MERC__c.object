@@ -154,6 +154,7 @@ Created by John A Adams 10/17/2013</description>
         <fullName>Contract_Received_Date_MERC__c</fullName>
         <description>MERC - Date HCP Contract was received by MCS.  Date field is manually updated by user and available for SLA Reporting.</description>
         <externalId>false</externalId>
+        <inlineHelpText>The date the contract was received fully signed back from the HCP.  Entered manually by CMS Cork.</inlineHelpText>
         <label>Contract Received Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>

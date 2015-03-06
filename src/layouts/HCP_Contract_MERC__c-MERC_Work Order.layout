@@ -54,6 +54,10 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Contract_Received_Date_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Contract_Follow_Up_Date_MERC__c</field>
             </layoutItems>
             <layoutItems>

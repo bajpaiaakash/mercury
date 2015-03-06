@@ -7,6 +7,9 @@
         <field>Meeting_Participant_MERC__c.HCP_Contracts__r$Name</field>
     </columns>
     <columns>
+        <field>Meeting_Participant_MERC__c$Days_Until_Meeting_MERC__c</field>
+    </columns>
+    <columns>
         <field>Meeting_Participant_MERC__c.HCP_Contracts__r$Contract_Sent_Date_MERC__c</field>
     </columns>
     <columns>
@@ -20,12 +23,6 @@
     </columns>
     <columns>
         <field>Meeting_Participant_MERC__c.HCP_Contracts__r$Days_from_Contract_Sent_to_Mtg_Date_MERC__c</field>
-    </columns>
-    <columns>
-        <field>Meeting_Participant_MERC__c.HCP_Contracts__r$MSA_Start_Date_MERC__c</field>
-    </columns>
-    <columns>
-        <field>Meeting_Participant_MERC__c.HCP_Contracts__r$MSA_End_Date_MERC__c</field>
     </columns>
     <columns>
         <field>Meeting_Participant_MERC__c.HCP_Contracts__r$Contract_Request_Status_MERC__c</field>
@@ -42,7 +39,15 @@
         <relatedTableJoinColumn>Meeting_Participant_MERC__c</relatedTableJoinColumn>
     </crossFilters>
     <currency>EUR</currency>
-    <format>Matrix</format>
+    <filter>
+        <criteriaItems>
+            <column>Meeting_Participant_MERC__c.HCP_Contracts__r$Contract_Request_Status_MERC__c</column>
+            <operator>notEqual</operator>
+            <value>Completed</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
     <groupingsDown>
         <dateGranularity>Day</dateGranularity>
         <field>Meeting_Participant_MERC__c.HCP_Contracts__r$RecordType</field>
@@ -56,6 +61,8 @@
     <reportType>MERC_Meeting_Participants_with_or_without_Contract__c</reportType>
     <scope>organization</scope>
     <showDetails>true</showDetails>
+    <sortColumn>Meeting_Participant_MERC__c.HCP_Contracts__r$Contract_Follow_Up_Date_MERC__c</sortColumn>
+    <sortOrder>Desc</sortOrder>
     <timeFrameFilter>
         <dateColumn>Meeting_Participant_MERC__c.HCP_Contracts__r$Contract_Follow_Up_Date_MERC__c</dateColumn>
         <interval>INTERVAL_CUSTOM</interval>

@@ -42,11 +42,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Contract_Sent_Date_MERC__c</field>
+                <field>Country_of_Residence_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Country_of_Residence_MERC__c</field>
+                <field>Contract_Sent_Date_MERC__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Contract_Received_Date_MERC__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
