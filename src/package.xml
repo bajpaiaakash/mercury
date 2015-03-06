@@ -201,6 +201,7 @@
         <name>ReportType</name>
     </types>
     <types>
+        <members>DeclarativeRollupNonAggregateTestData_MERC</members>
         <members>DeclarativeRollupTestData_MERC</members>
         <members>GLBL_Rollup_jszip</members>
         <name>StaticResource</name>
