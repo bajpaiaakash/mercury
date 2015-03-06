@@ -289,6 +289,7 @@ Integer i = 100;
 			Decimal sumOfIndvTransfer = 0;
 p('tov'+i+': '+sumOfIndvTransfer+' '+tov);
 p('tList'+i+': '+tList);
+			// initializing
 			Boolean tovIsFinal = tov.Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c == 'Yes';
 			if (tovIsFinal) 
 			{
@@ -307,8 +308,6 @@ p(i+'Doing nothing');
 			if (tList!=null) 
 			{
 				for (Travel_Itinerary_MERC__c t : tList) {
-					// has value already been sent to Activity ODS?
-					// Boolean tovIsFinal = t.Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c == 'Yes';
 					if (t.Include_ToV_MERC__c) 
 					{
 	p(i+': Include_ToV_MERC__c');

@@ -56,6 +56,8 @@
         <members>MERC_TOVCalculator</members>
         <members>MERC_TOVCalculatorTest</members>
         <members>MERC_TOVCalculatorTest</members>
+        <members>MERC_TOVNonAggregateCalculatorTest</members>
+        <members>MERC_TOVRoundingTest</members>
         <members>MERC_TimestampHandler</members>
         <members>MERC_TriggerHandlerStateManager</members>
         <members>MERC_XmlWriterCalloutMock</members>
