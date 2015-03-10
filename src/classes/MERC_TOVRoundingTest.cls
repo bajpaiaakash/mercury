@@ -33,46 +33,13 @@ private class MERC_TOVRoundingTest {
 		meetings = insertMeetings(1,startDate,endDate);
 		meetingDays = insertMeetingDays(meetings);
 		participants = insertParticipants(meetings,accounts);
+		vendors = insertHotels(1,meetings);
 
 		MERC_TriggerHandlerStateManager.activate(MERC_TOVCalculator.class);
 		MERC_TOVCalculator.runHotelTovCalculation = true;
 	}
-	
-	// @isTest 
-	static void testRoundingValue() {
-
-		conversionRate = [SELECT ConversionRate, IsoCode, isActive FROM CurrencyType WHERE IsoCode = 'GBP' AND isActive = true LIMIT 1].ConversionRate;
-
-		Test.startTest();
-
-		System.debug('Conversion Rate: ' + conversionRate);
-
-		//This is the value of 99.99 EUR (the org's and user's base currency) converted into GBP (the meeting currency) and set to 4 d.p. Uses the default
-		//HALF_EVEN rounding mode.
-		Decimal transferCost = (Decimal)(99.99*conversionRate).setScale(4);
-
-		MERC_TOVCalculator.runIndividualTransferTovCalculation = true;
-		System.debug('Running test actions');
-		Meeting_Participant_MERC__c participant1 = [SELECT Id, Total_Ground_Transporation_ToV_MERC__c, Account_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :participants.get(0).Id];
-		insertPrivateTransferItineraries(new List<Meeting_Participant_MERC__c>{participant1}, Date.today(), Date.today().addDays(1), 1, transferCost);
-
-		//set participant 1 to attending on day 1
-		Daily_Attendance_TOV_MERC__c tovForParticipant1Day1 = MERC_TestFactory.insertTov(meetingDays.get(0).Id, participants.get(0).Id, 'Attended');
-
-		participant1 = [SELECT Id, Total_Ground_Transporation_ToV_MERC__c, Total_Ground_Transport_ToV_Rollup_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :participants.get(0).Id];
-
-		tovForParticipant1Day1 = [SELECT Id, Est_Grp_Grnd_Transp_MERC__c FROM Daily_Attendance_TOV_MERC__c WHERE Id = :tovForParticipant1Day1.Id];
-
-		//assert that meeting day 1's food bev estimate rolled up up to the participant total
-		//System.assert(false, 'participant1.Total_Ground_Transporation_ToV_MERC__c: ' + participant1.Total_Ground_Transporation_ToV_MERC__c + ' tovForParticipant1Day1.Est_Grp_Grnd_Transp_MERC__c: ' + tovForParticipant1Day1.Est_Grp_Grnd_Transp_MERC__c + ' participant1.Total_Ground_Transport_ToV_Rollup_MERC__c: ' + participant1.Total_Ground_Transport_ToV_Rollup_MERC__c);
-		System.assertEquals(transferCost, participant1.Total_Ground_Transporation_ToV_MERC__c, 'Total_Ground_Transporation_ToV_MERC did not rollup as expected.');
-		//System.assertEquals(99.99, participant1.Total_Ground_Transporation_ToV_MERC__c, 'Total_Ground_Transporation_ToV_MERC did not rollup as expected.');
-		System.assertEquals(tovForParticipant1Day1.Est_Grp_Grnd_Transp_MERC__c, participant1.Total_Ground_Transport_ToV_Rollup_MERC__c, 'Est_Grp_Grnd_Transp Rollup did not rollup as expected.');
-		Test.stopTest();
-
-	}
-	
-	@isTest 
+		
+	//@isTest 
 	static void testRoundingValue_Total_Indiv_Transport() {
 
 		Test.startTest();
@@ -103,11 +70,93 @@ private class MERC_TOVRoundingTest {
 
 			System.assertEquals(transferCost, tovForParticipant1Day1.Est_Indv_Transfer_MERC__c, 'Unexpected Est_Indv_Transfer_MERC__c');
 			System.assertEquals(tovForParticipant1Day1.Est_Indv_Transfer_MERC__c, participant1.Total_Indiv_Transport_ToV_Rollup_MERC__c, 'Total_Indiv_Transport_ToV_Rollup_MERC__c did not rollup as expected.');
-			System.assertEquals(transferCost, participant1.Total_Indiv_Transport_ToV_Rollup_MERC__c, 'Total does not match original set value.');
+			System.assertEquals(transferCost, participant1.Total_Individual_Transport_ToV_MERC__c, 'Total does not match original set value.');
 		Test.stopTest();
 	}
 
-	@isTest 
+	//@isTest 
+	static void testRoundingValue_Total_Hotel() {
+
+		Test.startTest();
+
+			System.debug('Conversion Rate: ' + conversionRate);
+
+			MERC_TOVCalculator.runIndividualTransferTovCalculation = true;
+			Meeting_Participant_MERC__c participant1 = [SELECT Id, Total_Indiv_Transport_ToV_Rollup_MERC__c, Account_MERC__c 
+														FROM Meeting_Participant_MERC__c 
+														WHERE Id = :participants.get(0).Id];
+			
+			Daily_Attendance_TOV_MERC__c tovForParticipant1Day1 = MERC_TestFactory.insertTov(meetingDays.get(0).Id, participants.get(0).Id, 'Attended');
+
+			p('Inserting itineraries');
+			insertHotelItineraries(new List<Meeting_Participant_MERC__c>{participant1}, Date.today(), Date.today().addDays(1), vendors[0]);
+			p('all done');
+
+			participant1 = [SELECT Id, Total_Hotel_ToV_Rollup_MERC__c, Total_Hotel_ToV_MERC__c
+							FROM Meeting_Participant_MERC__c 
+							WHERE Id = :participants.get(0).Id];
+
+			tovForParticipant1Day1 = [SELECT Id, Est_Hotel_ToV_MERC__c FROM Daily_Attendance_TOV_MERC__c WHERE Id = :tovForParticipant1Day1.Id];
+
+			System.assertEquals(99.99, tovForParticipant1Day1.Est_Hotel_ToV_MERC__c, 'Unexpected Est_Hotel_ToV_MERC__c');
+			System.assertEquals(tovForParticipant1Day1.Est_Hotel_ToV_MERC__c, participant1.Total_Hotel_ToV_Rollup_MERC__c, 'Total_Hotel_ToV_Rollup_MERC__c did not rollup as expected.');
+			System.assertEquals(99.99, participant1.Total_Hotel_ToV_MERC__c, 'Total does not match original set value.');
+		Test.stopTest();
+	}
+
+	//@isTest
+	static void testRoundingValue_Total_Ground() {
+		
+		Decimal transferCost = (Decimal)(99.99*conversionRate).setScale(2);
+		p('value & conversion = 99.99 & '+ transferCost);
+
+		Test.startTest();
+
+		//set participant 1 to attending on day 1
+		Daily_Attendance_TOV_MERC__c tovForParticipant1Day1 = MERC_TestFactory.insertTov(meetingDays.get(0).Id, participants.get(0).Id, 'Attended');
+
+		Meeting_Participant_MERC__c participant1 = [SELECT Id, Total_Ground_Transporation_ToV_MERC__c, Total_Ground_Transport_ToV_Rollup_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :participants.get(0).Id];
+
+		tovForParticipant1Day1 = [SELECT Id, Est_Grp_Grnd_Transp_MERC__c FROM Daily_Attendance_TOV_MERC__c WHERE Id = :tovForParticipant1Day1.Id];
+
+		//assert that meeting day 1's food bev estimate rolled up up to the participant total
+		//System.assert(false, tovForParticipant1Day1.Est_Grp_Grnd_Transp_MERC__c);
+		//System.assertEquals(tovForParticipant1Day1.Est_Grp_Grnd_Transp_MERC__c, participant1.Total_Ground_Transporation_ToV_MERC__c, 'Est_Grp_Grnd_Transp did not rollup as expected.');
+
+		System.assertEquals(transferCost, tovForParticipant1Day1.Est_Grp_Grnd_Transp_MERC__c, 'Unexpected Est_Grp_Grnd_Transp_MERC__c');
+		System.assertEquals(tovForParticipant1Day1.Est_Grp_Grnd_Transp_MERC__c, participant1.Total_Ground_Transport_ToV_Rollup_MERC__c, 'Total_Hotel_ToV_Rollup_MERC__c did not rollup as expected.');
+		System.assertEquals(transferCost, participant1.Total_Ground_Transporation_ToV_MERC__c, 'Total does not match original set value.');
+
+		Test.stopTest();
+	}
+
+	//@isTest
+	static void testRoundingValue_Total_Food() {
+		
+		Decimal transferCost = (Decimal)(99.99*conversionRate).setScale(2);
+		p('value & conversion = 99.99 & '+ transferCost);
+
+		Test.startTest();
+
+		//set participant 1 to attending on day 1
+		Daily_Attendance_TOV_MERC__c tovForParticipant1Day1 = MERC_TestFactory.insertTov(meetingDays.get(0).Id, participants.get(0).Id, 'Attended');
+
+		Meeting_Participant_MERC__c participant1 = [SELECT Id, Total_Food_Beverage_ToV_MERC__c, Total_Food_Beverage_ToV_Rollup_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :participants.get(0).Id];
+
+		tovForParticipant1Day1 = [SELECT Id, Est_Food_Bev_ToV_MERC__c FROM Daily_Attendance_TOV_MERC__c WHERE Id = :tovForParticipant1Day1.Id];
+
+		//assert that meeting day 1's food bev estimate rolled up up to the participant total
+		//System.assert(false, tovForParticipant1Day1.Est_Grp_Grnd_Transp_MERC__c);
+		//System.assertEquals(tovForParticipant1Day1.Est_Grp_Grnd_Transp_MERC__c, participant1.Total_Ground_Transporation_ToV_MERC__c, 'Est_Grp_Grnd_Transp did not rollup as expected.');
+
+		System.assertEquals(transferCost, tovForParticipant1Day1.Est_Food_Bev_ToV_MERC__c, 'Unexpected Est_Food_Bev_ToV_MERC__c');
+		System.assertEquals(tovForParticipant1Day1.Est_Food_Bev_ToV_MERC__c, participant1.Total_Food_Beverage_ToV_Rollup_MERC__c, 'Total_Food_Beverage_ToV_Rollup_MERC__c did not rollup as expected.');
+		System.assertEquals(transferCost, participant1.Total_Food_Beverage_ToV_MERC__c, 'Total does not match original set value.');
+
+		Test.stopTest();
+	}
+
+	//@isTest 
 	static void testRoundingValue_Total_Registration() {
 		//This is the value of 99.99 EUR (the org's and user's base currency) converted into GBP (the meeting currency) and set to 4 d.p. Uses the default
 		//HALF_EVEN rounding mode.
@@ -123,12 +172,147 @@ private class MERC_TOVRoundingTest {
 
 			tovForParticipant1Day1 = [SELECT Id, Est_Reg_Amt_ToV_MERC__c FROM Daily_Attendance_TOV_MERC__c WHERE Id = :tovForParticipant1Day1.Id];
 
-			System.assertEquals(transferCost, tovForParticipant1Day1.Est_Reg_Amt_ToV_MERC__c, 'Unexpected tov value');
+			
+			System.assertEquals((Decimal)(transferCost).setScale(2), tovForParticipant1Day1.Est_Reg_Amt_ToV_MERC__c, 'Unexpected tov value');
+			//System.assertEquals(transferCost, tovForParticipant1Day1.Est_Reg_Amt_ToV_MERC__c, 'Unexpected tov value');
 			System.assertEquals(tovForParticipant1Day1.Est_Reg_Amt_ToV_MERC__c, participant1.Total_Registration_ToV_Rollup_MERC__c, 'Total_Registration_ToV_Rollup_MERC__c did not rollup as expected.');
-			System.assertEquals(transferCost, participant1.Total_Registration_ToV_Rollup_MERC__c, 'Total does not match original set value.');
-			System.assert(false,'values are: '+transferCost+' & '+conversionRate); 
+			System.assertEquals((Decimal)(transferCost).setScale(2), (Decimal)(participant1.Total_Registration_ToV_Rollup_MERC__c).setScale(2), 'Total does not match original set value.');
+			//System.assert(false,'values are: '+transferCost+' & '+conversionRate); 
 		Test.stopTest();
 	}
+
+	@isTest 
+	static void testRoundingValue_originalScenarioNewProcess() {
+		Decimal intendedValue = 100.00;
+
+		conversionRate = [SELECT ConversionRate, IsoCode, isActive FROM CurrencyType WHERE IsoCode = 'BGN' AND isActive = true LIMIT 1].ConversionRate;
+
+		MERC_TriggerHandlerStateManager.deactivateAll();
+		Meeting_MERC__c m = new Meeting_MERC__c();
+		m.Date_of_Event_MERC__c = startDate;
+		m.End_Date_of_Event_MERC__c = startDate.addDays(durationInDays);
+		m.Start_Time_of_Meeting_MERC__c = DateTime.newInstance(startDate, Time.newInstance(10, 0, 0, 0));
+		m.End_Time_of_Meeting_MERC__c = DateTime.newInstance(startDate.addDays(durationInDays), Time.newInstance(14, 0, 0, 0));
+		m.Name = 'ToV MeetingBGN';
+		m.Meeting_Time_Zone_MERC__c = 'Greenwich Mean Time (Europe/London)';
+		m.Event_Country_MERC__c = 'BG';
+		m.CurrencyIsoCode = 'BGN';
+		m.Meeting_Status_MERC__c = 'Active';
+		insert m;
+
+		meetingDays = new List<Meeting_Day_MERC__c>();
+		Integer numberOfDays = m.Date_of_Event_MERC__c.daysBetween(m.End_Date_of_Event_MERC__c)+1;
+		for (Integer i = 0; i < numberOfDays; i++) {
+			Meeting_Day_MERC__c mDay = new Meeting_Day_MERC__c();
+			mDay.Date_MERC__c = m.Date_of_Event_MERC__c.addDays(i);
+			mDay.Meeting_MERC__c = m.Id;
+			mDay.Daily_Registration_Amount_MERC__c = intendedValue;
+			mDay.CurrencyIsoCode = 'BGN';
+			meetingDays.add(mDay);
+		}
+		insert meetingDays;
+
+		participants = insertParticipants(new List<Meeting_MERC__c>{m},accounts);
+
+		MERC_TriggerHandlerStateManager.activate(MERC_TOVCalculator.class);
+
+		User u = [SELECT Id FROM User WHERE Id = :UserInfo.getUserId()];
+
+		Test.startTest();
+
+		System.runAs(u){
+			System.debug('Big bucks: ' + UserInfo.getDefaultCurrency());
+
+			Daily_Attendance_TOV_MERC__c tovForParticipant1Day1 = MERC_TestFactory.insertTov(meetingDays.get(0).Id, participants.get(0).Id, 'Attended');
+
+			Meeting_Participant_MERC__c participant1 = [SELECT Id, Total_Registration_ToV_Rollup_MERC__c 
+							FROM Meeting_Participant_MERC__c 
+							WHERE Id = :participants.get(0).Id];
+
+			tovForParticipant1Day1 = [SELECT Id, Est_Reg_Amt_ToV_MERC__c FROM Daily_Attendance_TOV_MERC__c WHERE Id = :tovForParticipant1Day1.Id];
+
+			
+			System.assertEquals((Decimal)(intendedValue/conversionRate).setScale(2), tovForParticipant1Day1.Est_Reg_Amt_ToV_MERC__c, 'Unexpected tov value');
+			System.assertEquals(tovForParticipant1Day1.Est_Reg_Amt_ToV_MERC__c, participant1.Total_Registration_ToV_Rollup_MERC__c, 'Total_Registration_ToV_Rollup_MERC__c did not rollup as expected.');
+			System.assertEquals((Decimal)(intendedValue/conversionRate).setScale(2), (Decimal)(participant1.Total_Registration_ToV_Rollup_MERC__c).setScale(2), 'Total does not match original set value.');
+
+
+			System.assertEquals((Decimal)(intendedValue).setScale(2), (Decimal)(tovForParticipant1Day1.Est_Reg_Amt_ToV_MERC__c*conversionRate).setScale(2), 'Unexpected converted tov value');
+		}
+
+
+
+		Test.stopTest();
+	}
+
+	@isTest 
+	static void testRoundingValue_originalScenarioOldProcess() {
+
+		List<LookupRollupSummary_GLBL__c> rollups = [SELECT Id FROM LookupRollupSummary_GLBL__c];
+		delete rollups;
+		MERC_TestFactory.loadDeclarativeRollupSummaries();
+		Decimal intendedValue = 100.00;
+
+		conversionRate = [SELECT ConversionRate, IsoCode, isActive FROM CurrencyType WHERE IsoCode = 'BGN' AND isActive = true LIMIT 1].ConversionRate;
+
+		MERC_TriggerHandlerStateManager.deactivateAll();
+		Meeting_MERC__c m = new Meeting_MERC__c();
+		m.Date_of_Event_MERC__c = startDate;
+		m.End_Date_of_Event_MERC__c = startDate.addDays(durationInDays);
+		m.Start_Time_of_Meeting_MERC__c = DateTime.newInstance(startDate, Time.newInstance(10, 0, 0, 0));
+		m.End_Time_of_Meeting_MERC__c = DateTime.newInstance(startDate.addDays(durationInDays), Time.newInstance(14, 0, 0, 0));
+		m.Name = 'ToV MeetingBGN';
+		m.Meeting_Time_Zone_MERC__c = 'Greenwich Mean Time (Europe/London)';
+		m.Event_Country_MERC__c = 'BG';
+		m.CurrencyIsoCode = 'BGN';
+		m.Meeting_Status_MERC__c = 'Active';
+		insert m;
+
+		meetingDays = new List<Meeting_Day_MERC__c>();
+		Integer numberOfDays = m.Date_of_Event_MERC__c.daysBetween(m.End_Date_of_Event_MERC__c)+1;
+		for (Integer i = 0; i < numberOfDays; i++) {
+			Meeting_Day_MERC__c mDay = new Meeting_Day_MERC__c();
+			mDay.Date_MERC__c = m.Date_of_Event_MERC__c.addDays(i);
+			mDay.Meeting_MERC__c = m.Id;
+			mDay.Daily_Registration_Amount_MERC__c = intendedValue;
+			mDay.CurrencyIsoCode = 'BGN';
+			meetingDays.add(mDay);
+		}
+		insert meetingDays;
+
+		participants = insertParticipants(new List<Meeting_MERC__c>{m},accounts);
+
+		MERC_TriggerHandlerStateManager.activate(MERC_TOVCalculator.class);
+
+		User u = [SELECT Id FROM User WHERE Id = :UserInfo.getUserId()];
+
+		Test.startTest();
+
+		System.runAs(u){
+			System.debug('Big bucks: ' + UserInfo.getDefaultCurrency());
+
+			Daily_Attendance_TOV_MERC__c tovForParticipant1Day1 = MERC_TestFactory.insertTov(meetingDays.get(0).Id, participants.get(0).Id, 'Attended');
+
+			Meeting_Participant_MERC__c participant1 = [SELECT Id, Total_Registration_ToV_Rollup_MERC__c 
+							FROM Meeting_Participant_MERC__c 
+							WHERE Id = :participants.get(0).Id];
+
+			tovForParticipant1Day1 = [SELECT Id, Est_Reg_Amt_ToV_MERC__c FROM Daily_Attendance_TOV_MERC__c WHERE Id = :tovForParticipant1Day1.Id];
+
+			
+			System.assertEquals((Decimal)(intendedValue/conversionRate).setScale(2), tovForParticipant1Day1.Est_Reg_Amt_ToV_MERC__c, 'Unexpected tov value');
+			System.assertEquals(tovForParticipant1Day1.Est_Reg_Amt_ToV_MERC__c, participant1.Total_Registration_ToV_Rollup_MERC__c, 'Total_Registration_ToV_Rollup_MERC__c did not rollup as expected.');
+			System.assertEquals((Decimal)(intendedValue/conversionRate).setScale(2), (Decimal)(participant1.Total_Registration_ToV_Rollup_MERC__c).setScale(2), 'Total does not match original set value.');
+
+
+			System.assertEquals((Decimal)(intendedValue).setScale(2), (Decimal)(tovForParticipant1Day1.Est_Reg_Amt_ToV_MERC__c*conversionRate).setScale(2), 'Unexpected converted tov value');
+		}
+
+
+
+		Test.stopTest();
+	}
+
 
 	/***** ============================   Data setup methods   ============================ *****/
 	static List<Account> insertAccounts(Integer numberOfAccounts) {
@@ -169,6 +353,7 @@ private class MERC_TOVRoundingTest {
 				m.Daily_Food_Beverage_Amount_MERC__c = annoyingValue;
 				m.Daily_Ground_Trans_Amount_MERC__c = annoyingValue;
 				m.Daily_Registration_Amount_MERC__c = annoyingValue;
+				m.CurrencyIsoCode = 'GBP';
 				mtgDays.add(m);
 			}
 		}
@@ -193,6 +378,31 @@ private class MERC_TOVRoundingTest {
 		return mps;
 	}
 
+	static List<Meeting_Vendor_MERC__c> insertHotels(Integer numberOfHotels, List<Meeting_MERC__c> meets) {
+		List<Account> accts = new List<Account>();
+		for (Integer i = 0; i < numberOfHotels; i++) {
+			Account a = new Account();
+			a.RecordTypeId = vendorRecordTypeId;
+			a.Name = MERC_Util.generateRandomString(5);
+			accts.add(a);
+		}
+		insert accts;
+
+		List<Meeting_Vendor_MERC__c> hotels = new List<Meeting_Vendor_MERC__c>();
+		for (Meeting_MERC__c meeting : meets) {
+			for (Integer i = 0; i < accts.size(); i++) {
+				Meeting_Vendor_MERC__c v = new Meeting_Vendor_MERC__c();
+				v.Account_MERC__c = accts.get(i).Id;
+				v.Room_Rate_MERC__c = 99.99;
+				v.Meeting_MERC__c = meeting.Id;
+				v.CurrencyIsoCode = 'GBP';
+				hotels.add(v);
+			}
+		}
+		insert hotels;
+		return hotels;
+	}
+
 	static List<Travel_Itinerary_MERC__c> insertPrivateTransferItineraries(List<Meeting_Participant_MERC__c> mps, Date start_date, Date end_date) {
 		return insertPrivateTransferItineraries(mps, start_date, end_date, 1, 99);
 	}
@@ -215,6 +425,24 @@ private class MERC_TOVRoundingTest {
 		}
 		insert ptItineraries;
 		return ptItineraries;
+	}
+
+	static List<Travel_Itinerary_MERC__c> insertHotelItineraries(List<Meeting_Participant_MERC__c> mps, Date start_date, Date end_date, Meeting_Vendor_MERC__c hotel) {
+		List<Travel_Itinerary_MERC__c> hotelItineraries = new List<Travel_Itinerary_MERC__c>();
+		for (Meeting_Participant_MERC__c mp : mps) {
+			Travel_Itinerary_MERC__c ti = new Travel_Itinerary_MERC__c();
+			ti.RecordTypeId = hotelItineraryRecordTypeId;
+			if (hotel!=null) ti.Meeting_Vendor_MERC__c = hotel.Id;
+			ti.Meeting_Participant_MERC__c = mp.Id;
+			ti.Account_MERC__c = mp.Account_MERC__c;
+			ti.Sgmnt_Bgin_TS_MERC__c = Datetime.newInstance(start_date, Time.newInstance(12, 0, 0, 0));
+			ti.Sgmnt_End_TS_MERC__c = Datetime.newInstance(end_date, Time.newInstance(15, 0, 0, 0));
+			ti.Status_MERC__c = 'Confirmed';
+			ti.CurrencyIsoCode = 'GBP';
+			hotelItineraries.add(ti);
+		}
+		insert hotelItineraries;
+		return hotelItineraries;
 	}
 
 	// combined to manage SOQL limits
