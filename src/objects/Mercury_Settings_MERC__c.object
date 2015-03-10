@@ -183,6 +183,18 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>DocuSign_Contract_Report_Id_MERC__c</fullName>
+        <description>Links to DocuSign Recipient Status report. Created on 09/03/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Links to report: MERC_DocuSign_Contract_Status</inlineHelpText>
+        <label>DocuSign Contract Report</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Initial_Search_Timeout__c</fullName>
         <defaultValue>3000</defaultValue>
         <description>Initial timeout, in milliseconds, on the customer search tool when submitting a search before attempting to retrieve search results.</description>

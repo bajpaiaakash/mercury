@@ -2,7 +2,6 @@
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>Upload_Content_MERC</customButtons>
     <customButtons>Generate_Content_MERC</customButtons>
-    <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>EnableSelfService</excludeButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
     <excludeButtons>RequestUpdate</excludeButtons>
@@ -630,6 +629,23 @@
         <fields>Party_Rcrd_Typ_Cd_GLBL__c</fields>
         <fields>Src_Sys_Cd_GLBL__c</fields>
         <relatedList>Alternate_Id_GLBL__c.Account_GLBL__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>et4ae5__EmailName__c</fields>
+        <fields>et4ae5__fBusiness_Unit__c</fields>
+        <fields>et4ae5__Created_Date_Time__c</fields>
+        <fields>et4ae5__Send_Status_View__c</fields>
+        <fields>et4ae5__Status_Date_Time__c</fields>
+        <fields>et4ae5__FromName__c</fields>
+        <fields>et4ae5__FromEmail__c</fields>
+        <fields>et4ae5__Campaigns__c</fields>
+        <fields>et4ae5__Reports__c</fields>
+        <relatedList>et4ae5__SendDefinition__c.et4ae5__Contact__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>et4ae5__IndividualEmailResult__c.et4ae5__Contact__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>VERSION.TITLE</fields>

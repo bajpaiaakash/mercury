@@ -1168,6 +1168,26 @@ cf_Meeting_Name_MERC__c_lkid={!Meeting_Participant_MERC__c.Meeting_MERCId__c}&am
         <url>/apex/loop__looplus?sessionId={!$Api.Session_ID}&amp;eid={!HCP_Contract_MERC__c.Id}</url>
     </webLinks>
     <webLinks>
+        <fullName>MERC_Contract_Status_by_Recipient</fullName>
+        <availability>online</availability>
+        <description>HCP Contract Status by Recipient.  Links to report.  Created on 08/03/2015 by Oliver Dunford, Mavens Consulting</description>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Contract Status by Recipient</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/{!$Setup.Mercury_Settings_MERC__c.DocuSign_Contract_Report_Id_MERC__c}?pv0={!HCP_Contract_MERC__c.Docusign_Envelope_Id_MERC__c}</url>
+    </webLinks>
+    <webLinks>
         <fullName>Request_HCP_Signature_MERC</fullName>
         <availability>online</availability>
         <description>Used to request Docusign signature from HCP -JFerraro 2013-10-28</description>
