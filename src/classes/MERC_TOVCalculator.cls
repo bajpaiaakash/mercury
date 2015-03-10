@@ -102,44 +102,6 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 			p('tovs:'+tovs);
 			Map<Id,Daily_Attendance_TOV_MERC__c> tovRecordsToUpdate = applyIndividualTransferValues(tovs, participantIdToTransferItineraries, meetingDays);
 
-			//new Map<Id,Daily_Attendance_TOV_MERC__c>();
-
-			//for (Id tovId : tovs.keySet()) {
-			//	Daily_Attendance_TOV_MERC__c tov = tovs.get(tovId);
-			//	Decimal sumOfIndvTransfer = 0;
-			//	if (participantIdToTransferItineraries.containsKey(tov.Meeting_Participant_MERC__c)) 
-			//	{
-			//		Date meetingDayDate = meetingDays.get(tov.Meeting_Day_MERC__c).Date_MERC__c;
-			//		List<Travel_Itinerary_MERC__c> individualTransfersForParticipant = participantIdToTransferItineraries.get(tov.Meeting_Participant_MERC__c);
-			//		for (Travel_Itinerary_MERC__c t : individualTransfersForParticipant) 
-			//		{
-			//			Date timestampStart = t.Sgmnt_Bgin_TS_MERC__c.date();
-			//			Date timestampEnd = t.Sgmnt_End_TS_MERC__c.date();
-			//			//Set the confirm reporting to true. If confirmirmation was needed on the meeting vendor
-			//			//or the travel itinerary we would not get here without the user having checked that box.
-			//			tov.Confirm_ToV_Reporting_Change_MERC__c = true;
-			//			if (t.Include_ToV_MERC__c && meetingDayDate == timestampStart) 
-			//			{
-			//				if (t.Total_Fare_Amount_MERC__c != null) sumOfIndvTransfer += t.Total_Fare_Amount_MERC__c;
-			//				tov.Est_Indv_Transfer_MERC__c = sumOfIndvTransfer;
-			//				tovRecordsToUpdate.put(tov.Id,tov);
-			//			} else {
-			//				if (t.Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c == 'Yes') 
-			//				{
-			//					if (tov.Est_Indv_Transfer_MERC__c != null) 
-			//					{
-			//						tov.Est_Indv_Transfer_MERC__c = 0.0;
-			//						tovRecordsToUpdate.put(tov.Id,tov);
-			//					}
-			//				} else {
-			//					tov.Est_Indv_Transfer_MERC__c = null;
-			//					tovRecordsToUpdate.put(tov.Id,tov);
-			//				}
-			//			}
-			//		}
-			//	}
-			//}
-
 			MERC_TOVCalculator.runIndividualTransferTovCalculation = false;
 			update new List<Daily_Attendance_TOV_MERC__c>(tovRecordsToUpdate.values());
 		}
@@ -182,38 +144,6 @@ p('participantIdToTransferItineraries'+participantIdToTransferItineraries);
 			}
 
 			applyIndividualTransferValues(tovs, participantIdToTransferItineraries, meetingDays);
-			//for (Integer tovId : tovKeys.keySet()) {
-			//	Daily_Attendance_TOV_MERC__c tov = tovKeys.get(tovId);
-			//	Decimal sumOfIndvTransfer = 0;
-			//	if (participantIdToTransferItineraries.containsKey(tov.Meeting_Participant_MERC__c) && meetingDays.containsKey(tov.Meeting_Day_MERC__c)) 
-			//	{
-			//		Date meetingDayDate = meetingDays.get(tov.Meeting_Day_MERC__c).Date_MERC__c;
-			//		List<Travel_Itinerary_MERC__c> travelItinerariesForParticipant = participantIdToTransferItineraries.get(tov.Meeting_Participant_MERC__c);
-			//		for (Travel_Itinerary_MERC__c t : travelItinerariesForParticipant) 
-			//		{
-			//			//Set the confirm reporting to true. If confirmirmation was needed on the meeting vendor
-			//			//or the travel itinerary we would not get here without the user having checked that box.
-			//			tov.Confirm_ToV_Reporting_Change_MERC__c = true;
-
-			//			Date timestampStart = t.Sgmnt_Bgin_TS_MERC__c.date();
-			//			Date timestampEnd = t.Sgmnt_End_TS_MERC__c.date();
-			//			if (t.Include_ToV_MERC__c && meetingDayDate == timestampStart) 
-			//			{
-			//				if (t.Total_Fare_Amount_MERC__c != null) sumOfIndvTransfer += t.Total_Fare_Amount_MERC__c;
-			//				tov.Est_Indv_Transfer_MERC__c = sumOfIndvTransfer;
-			//			} else {
-			//				if (t.Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c == 'Yes') 
-			//				{
-			//					if (tov.Est_Indv_Transfer_MERC__c != null) {
-			//						tov.Est_Indv_Transfer_MERC__c = 0.0;
-			//					}
-			//				} else {
-			//					tov.Est_Indv_Transfer_MERC__c = null;
-			//				}
-			//			}
-			//		}
-			//	}
-			//}
 		}
 	}
 
@@ -431,7 +361,8 @@ p('no itineraries for this DA/ToV. Setting to 0/null.');
 						tovRecordsToUpdate.add(tov);
 					}
 				} else {
-					tov.Est_Hotel_ToV_MERC__c = 0.0;  // TODO - this should be null IF Tov is Final BUT we don't know without a t record!!!
+					Boolean tovIsFinal = tov.Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c == 'Yes';
+					tov.Est_Hotel_ToV_MERC__c = (tovIsFinal) ? 0.0 : null;
 					tovRecordsToUpdate.add(tov);
 				}
 				i++;
@@ -489,9 +420,9 @@ p('no itineraries for this DA/ToV. Setting to 0/null.');
 							} else {
 								tov.Est_Hotel_ToV_MERC__c = null;
 							}
-							} else {
-								tov.Est_Hotel_ToV_MERC__c = t.Room_Rate_excl_VAT_MERC__c;
-							}
+						} else {
+							tov.Est_Hotel_ToV_MERC__c = t.Room_Rate_excl_VAT_MERC__c;
+						}
 
 					//if (tovIsFinal) {
 					//	if (!statusUpdate && tov.Est_Hotel_ToV_MERC__c != null) tov.Est_Hotel_ToV_MERC__c = 0.0;

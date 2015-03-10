@@ -911,7 +911,7 @@ p('finished.');
 											FROM Daily_Attendance_TOV_MERC__c 
 											WHERE Meeting_Day_MERC__c = :dayTwoId];
 		System.assertEquals(50, tovDay2.Est_Hotel_ToV_MERC__c, 'Soon-to-be-orphaned Hotel TOV Incorrect');
-		System.assertEquals(null, tovDay2.Est_Indv_Transfer_MERC__c, 'Orther TOV Incorrect');
+		System.assertEquals(null, tovDay2.Est_Indv_Transfer_MERC__c, 'Other TOV Incorrect');
 
 		Test.startTest();
 			// Change Travel Itinerary hotel record to be one night
@@ -936,14 +936,14 @@ p('finished.');
 		tovDay2 = [SELECT Id, Est_Hotel_ToV_MERC__c, Est_Indv_Transfer_MERC__c 
 											FROM Daily_Attendance_TOV_MERC__c 
 											WHERE Meeting_Day_MERC__c = :dayTwoId];
-		System.assertEquals(null, tovDay2.Est_Hotel_ToV_MERC__c, 'Orphaned Hotel TOV Incorrect');
 		System.assertEquals(null, tovDay2.Est_Indv_Transfer_MERC__c, 'Orphaned other TOV Incorrect');
+		System.assertEquals(null, tovDay2.Est_Hotel_ToV_MERC__c, 'Orphaned Hotel TOV Incorrect');
 
 		Daily_Attendance_TOV_MERC__c tovDay1 = [SELECT Id, Est_Hotel_ToV_MERC__c, Est_Indv_Transfer_MERC__c 
 												FROM Daily_Attendance_TOV_MERC__c 
 												WHERE Meeting_Day_MERC__c = :dayOneId];
-		System.assertEquals(50, tovDay1.Est_Hotel_ToV_MERC__c, 'Remaining Hotel TOV Incorrect');
 		System.assertEquals(null, tovDay1.Est_Indv_Transfer_MERC__c, 'Remaining other TOV Incorrect');
+		System.assertEquals(50, tovDay1.Est_Hotel_ToV_MERC__c, 'Remaining Hotel TOV Incorrect');
 	 }
 
 	/**
