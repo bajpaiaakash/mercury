@@ -141,7 +141,7 @@ public class GLBL_LREngine {
                 Map<String,Decimal> detail2ResultValue = master2ResultValues.get(masterRecId);
                 for (String detailFld : detail2MasterFldMap.keySet()) {
                     Object detailVal = detail2ResultValue.get(detailFld);
-                    System.debug(LoggingLevel.INFO, 'New calculated value ' + detailVal + ' for master ' + masterRecId);
+                    System.debug(LoggingLevel.INFO, 'New calculated value ' + detailVal + ' for master ' + masterRecId + ' on detail field ' + detailFld);
 
                     String masterField = detail2MasterFldMap.get(detailFld);
                     if (master2IsNumber.get(masterField) && treatZerosAsNulls && Integer.valueOf(detailVal) == 0) {
@@ -171,7 +171,7 @@ public class GLBL_LREngine {
             }
                     
         	String soql = String.format(SOQL_TEMPLATE, new String[]{soqlProjection, detailTblName, whereClause, lookupFld});
-
+            System.debug('Query executed is: ' + soql);
         	// aggregated results 
         	List<AggregateResult> results = Database.query(soql);
         	
