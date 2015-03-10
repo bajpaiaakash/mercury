@@ -11,6 +11,7 @@ private class MERC_TOVRoundingTest {
 
 	static Date startDate;
 	static Integer durationInDays;
+	static Double conversionRate;
 
 	public static Id hcpRecordTypeId = 				[SELECT ID FROM RecordType WHERE SObjectType = 'Account' AND DeveloperName = 'HCP_GLBL' LIMIT 1].Id;
 	public static Id vendorRecordTypeId = 			[SELECT ID FROM RecordType WHERE SObjectType = 'Account' AND DeveloperName = 'Vendor_GLBL' LIMIT 1].Id;
@@ -18,12 +19,12 @@ private class MERC_TOVRoundingTest {
 	public static Id rentalCarRecordTypeId = 		[SELECT ID FROM RecordType WHERE SObjectType = 'Travel_Itinerary_MERC__c' AND DeveloperName = 'Car_MERC' LIMIT 1].Id;
 
 	static {
+		conversionRate = [SELECT ConversionRate, IsoCode, isActive FROM CurrencyType WHERE IsoCode = 'GBP' AND isActive = true LIMIT 1].ConversionRate;
+
 		MERC_TriggerHandlerStateManager.deactivateAll();
-		MERC_TriggerHandlerStateManager.activate(MERC_TOVCalculator.class);
 
 		MERC_TestFactory.loadDeclarativeRollupNonAggregateSummaries();
 
-		// MERC_TestFactory has some bugs. Until this is cleaned up, data factory methods moved within class...
 		startDate = Date.today();
 		durationInDays = 2;
 		Date endDate = startDate.addDays(durationInDays);
@@ -33,14 +34,18 @@ private class MERC_TOVRoundingTest {
 		meetingDays = insertMeetingDays(meetings);
 		participants = insertParticipants(meetings,accounts);
 
+		MERC_TriggerHandlerStateManager.activate(MERC_TOVCalculator.class);
 		MERC_TOVCalculator.runHotelTovCalculation = true;
 	}
 	
-	@isTest static void testRoundingValue() {
+	// @isTest 
+	static void testRoundingValue() {
 
-		Double conversionRate = [SELECT ConversionRate, IsoCode, isActive FROM CurrencyType WHERE IsoCode = 'GBP' AND isActive = true LIMIT 1].ConversionRate;
+		conversionRate = [SELECT ConversionRate, IsoCode, isActive FROM CurrencyType WHERE IsoCode = 'GBP' AND isActive = true LIMIT 1].ConversionRate;
 
 		Test.startTest();
+
+		System.debug('Conversion Rate: ' + conversionRate);
 
 		//This is the value of 99.99 EUR (the org's and user's base currency) converted into GBP (the meeting currency) and set to 4 d.p. Uses the default
 		//HALF_EVEN rounding mode.
@@ -67,6 +72,63 @@ private class MERC_TOVRoundingTest {
 
 	}
 	
+	@isTest 
+	static void testRoundingValue_Total_Indiv_Transport() {
+
+		Test.startTest();
+
+			System.debug('Conversion Rate: ' + conversionRate);
+
+			//This is the value of 99.99 EUR (the org's and user's base currency) converted into GBP (the meeting currency) and set to 4 d.p. Uses the default
+			//HALF_EVEN rounding mode.
+			Decimal transferCost = (Decimal)(99.99*conversionRate).setScale(4);
+			p('value & conversion = 99.99 & '+ transferCost);
+
+			MERC_TOVCalculator.runIndividualTransferTovCalculation = true;
+			Meeting_Participant_MERC__c participant1 = [SELECT Id, Total_Indiv_Transport_ToV_Rollup_MERC__c, Account_MERC__c 
+														FROM Meeting_Participant_MERC__c 
+														WHERE Id = :participants.get(0).Id];
+			
+			Daily_Attendance_TOV_MERC__c tovForParticipant1Day1 = MERC_TestFactory.insertTov(meetingDays.get(0).Id, participants.get(0).Id, 'Attended');
+
+			p('Inserting itineraries');
+			insertPrivateTransferItineraries(new List<Meeting_Participant_MERC__c>{participant1}, Date.today(), Date.today().addDays(1), 1, transferCost);
+			p('all done');
+
+			participant1 = [SELECT Id, Total_Individual_Transport_ToV_MERC__c, Total_Indiv_Transport_ToV_Rollup_MERC__c 
+							FROM Meeting_Participant_MERC__c 
+							WHERE Id = :participants.get(0).Id];
+
+			tovForParticipant1Day1 = [SELECT Id, Est_Indv_Transfer_MERC__c FROM Daily_Attendance_TOV_MERC__c WHERE Id = :tovForParticipant1Day1.Id];
+
+			System.assertEquals(transferCost, tovForParticipant1Day1.Est_Indv_Transfer_MERC__c, 'Unexpected Est_Indv_Transfer_MERC__c');
+			System.assertEquals(tovForParticipant1Day1.Est_Indv_Transfer_MERC__c, participant1.Total_Indiv_Transport_ToV_Rollup_MERC__c, 'Total_Indiv_Transport_ToV_Rollup_MERC__c did not rollup as expected.');
+			System.assertEquals(transferCost, participant1.Total_Indiv_Transport_ToV_Rollup_MERC__c, 'Total does not match original set value.');
+		Test.stopTest();
+	}
+
+	@isTest 
+	static void testRoundingValue_Total_Registration() {
+		//This is the value of 99.99 EUR (the org's and user's base currency) converted into GBP (the meeting currency) and set to 4 d.p. Uses the default
+		//HALF_EVEN rounding mode.
+		Decimal transferCost = (Decimal)(99.99*conversionRate).setScale(4);
+		p('value & conversion & rate = 99.99 & '+ transferCost +' & '+conversionRate);
+
+		Test.startTest();			
+			Daily_Attendance_TOV_MERC__c tovForParticipant1Day1 = MERC_TestFactory.insertTov(meetingDays.get(0).Id, participants.get(0).Id, 'Attended');
+
+			Meeting_Participant_MERC__c participant1 = [SELECT Id, Total_Registration_ToV_Rollup_MERC__c 
+							FROM Meeting_Participant_MERC__c 
+							WHERE Id = :participants.get(0).Id];
+
+			tovForParticipant1Day1 = [SELECT Id, Est_Reg_Amt_ToV_MERC__c FROM Daily_Attendance_TOV_MERC__c WHERE Id = :tovForParticipant1Day1.Id];
+
+			System.assertEquals(transferCost, tovForParticipant1Day1.Est_Reg_Amt_ToV_MERC__c, 'Unexpected tov value');
+			System.assertEquals(tovForParticipant1Day1.Est_Reg_Amt_ToV_MERC__c, participant1.Total_Registration_ToV_Rollup_MERC__c, 'Total_Registration_ToV_Rollup_MERC__c did not rollup as expected.');
+			System.assertEquals(transferCost, participant1.Total_Registration_ToV_Rollup_MERC__c, 'Total does not match original set value.');
+			System.assert(false,'values are: '+transferCost+' & '+conversionRate); 
+		Test.stopTest();
+	}
 
 	/***** ============================   Data setup methods   ============================ *****/
 	static List<Account> insertAccounts(Integer numberOfAccounts) {
@@ -94,15 +156,19 @@ private class MERC_TOVRoundingTest {
 
 	static List<Meeting_Day_MERC__c> insertMeetingDays(List<Meeting_MERC__c> meets) {
 		List<Meeting_Day_MERC__c> mtgDays = new List<Meeting_Day_MERC__c>();
+
+		Decimal annoyingValue = (Decimal)(99.99*conversionRate).setScale(4);
+		p('value & conversion = 99.99 & '+ annoyingValue);
+
 		for (Meeting_MERC__c meeting : meets) {
 			Integer numberOfDays = meeting.Date_of_Event_MERC__c.daysBetween(meeting.End_Date_of_Event_MERC__c)+1;
 			for (Integer i = 0; i < numberOfDays; i++) {
 				Meeting_Day_MERC__c m = new Meeting_Day_MERC__c();
 				m.Date_MERC__c = meeting.Date_of_Event_MERC__c.addDays(i);
 				m.Meeting_MERC__c = meeting.Id;
-				m.Daily_Food_Beverage_Amount_MERC__c = 100;
-				m.Daily_Ground_Trans_Amount_MERC__c = 100;
-				m.Daily_Registration_Amount_MERC__c = 100;
+				m.Daily_Food_Beverage_Amount_MERC__c = annoyingValue;
+				m.Daily_Ground_Trans_Amount_MERC__c = annoyingValue;
+				m.Daily_Registration_Amount_MERC__c = annoyingValue;
 				mtgDays.add(m);
 			}
 		}
@@ -117,7 +183,7 @@ private class MERC_TOVRoundingTest {
 				Meeting_Participant_MERC__c p = new Meeting_Participant_MERC__c();
 				p.Account_MERC__c = accts.get(i).Id;
 				p.Meeting_MERC__c = m.Id;
-				p.Status_MERC__c = 'Accepted';   // ?? impact of this status on ToV?
+				p.Status_MERC__c = 'Accepted';
 				p.Services_Rendered_MERC__c = 'Yes';
 				p.Alliance_MERC__c = 'Not Applicable';
 				mps.add(p);
@@ -170,4 +236,7 @@ private class MERC_TOVRoundingTest {
 		return result;
 	}
 	
+		static void p(String m) {
+			System.debug('\n\n\nYYZ - '+m+'\n\n\n\n');
+		}
 }

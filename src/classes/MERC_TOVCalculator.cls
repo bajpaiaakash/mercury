@@ -69,7 +69,7 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 						Trigger.oldMap.get(ti.Id).get('Sgmnt_End_TS_MERC__c') != ti.Sgmnt_End_TS_MERC__c ||
 						Trigger.oldMap.get(ti.Id).get('Status_MERC__c') != ti.Status_Merc__c |
 						Trigger.oldMap.get(ti.Id).get('Total_Fare_Amount_MERC__c') != ti.Total_Fare_Amount_MERC__c) &&
- 						!ti.Meeting_Status_MERC__c.startsWith('Complete')) {
+						!ti.Meeting_Status_MERC__c.startsWith('Complete')) {
 					meetingIds.add(ti.Meeting_Id_MERC__c);
 				}
 			}
@@ -83,7 +83,7 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 														(SELECT
 															ID, Sgmnt_Bgin_TS_MERC__c, Sgmnt_End_TS_MERC__c,
 															Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c,
-															Total_Fare_Amount_MERC__c, Include_ToV_MERC__c
+															 Include_ToV_MERC__c,Total_Fare_Amount_MERC__c
 																FROM Travel_Itineraries_MERC__r
 																	WHERE Individual_Travel_ToV_Applicable_MERC__c = true)
 														FROM Meeting_Participant_MERC__c WHERE Meeting_MERC__c in :meetingIds]) {
@@ -167,8 +167,7 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 			for (Meeting_Participant_MERC__c mp : [SELECT ID, Name,
 														(SELECT
 															ID, Sgmnt_Bgin_TS_MERC__c, Sgmnt_End_TS_MERC__c, Include_ToV_MERC__c, 
-															Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c,
-															Total_Fare_Amount_MERC__c
+															Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c, Total_Fare_Amount_MERC__c
 																FROM Travel_Itineraries_MERC__r
 																	WHERE Individual_Travel_ToV_Applicable_MERC__c = true)
 														FROM Meeting_Participant_MERC__c WHERE Id in :meetingParticipantIds]) {
