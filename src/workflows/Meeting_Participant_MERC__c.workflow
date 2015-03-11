@@ -11,4 +11,17 @@
         <formula>(ISCHANGED(Number_of_Completed_Contracts_MERC__c) &amp;&amp; Number_of_Completed_Contracts_MERC__c = 1)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
+    <rules>
+        <fullName>RTI - Meeting Participant  Updated</fullName>
+        <actions>
+            <name>RTI_Meeting_Participant_Updated</name>
+            <type>OutboundMessage</type>
+        </actions>
+        <active>true</active>
+        <formula>(NOT(CONTAINS(LastModifiedBy.Username,&apos;mvibatch.integration@&apos;))) &amp;&amp; (
+(NOT(CONTAINS(LastModifiedBy.Username,&apos;mercuryintegration.veeva@&apos;)) || ISCHANGED( Maximum_Fee_MERC__c ) || (NOT(ISBLANK(Maximum_Fee_MERC__c)) 
+&amp;&amp; ISNEW())) 
+&amp;&amp; NOT(ISBLANK( Account_External_MERC__c )))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
 </Workflow>
