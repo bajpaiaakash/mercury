@@ -212,6 +212,9 @@
         <members>HCP_Contract_MERC__c</members>
         <members>Meeting_MERC__c</members>
         <members>Meeting_Participant_MERC__c</members>
+        <members>Meeting_Products_MERC__c</members>
+        <members>Preferences_and_Consent_GLBL__c</members>
+        <members>Team_Member_MERC__c</members>
         <name>Workflow</name>
     </types>
     <types>
