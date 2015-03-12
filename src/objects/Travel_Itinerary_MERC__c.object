@@ -1565,7 +1565,8 @@ Oliver Dunford 14th Dec 2013</description>
         <required>false</required>
         <scale>2</scale>
         <trackTrending>false</trackTrending>
-        <type>Currency</type>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Transaction_Id_MERC__c</fullName>

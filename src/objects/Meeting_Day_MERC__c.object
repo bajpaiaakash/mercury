@@ -171,7 +171,8 @@ Created by John A Adams 10/15/2013</description>
         <required>false</required>
         <scale>2</scale>
         <trackTrending>false</trackTrending>
-        <type>Currency</type>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Daily_Ground_Trans_Amount_MERC__c</fullName>
@@ -184,7 +185,8 @@ Created by John A Adams 10/15/2013</description>
         <required>false</required>
         <scale>2</scale>
         <trackTrending>false</trackTrending>
-        <type>Currency</type>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Daily_Registration_Amount_MERC__c</fullName>
@@ -196,7 +198,8 @@ Created by John A Adams 10/15/2013</description>
         <required>false</required>
         <scale>2</scale>
         <trackTrending>false</trackTrending>
-        <type>Currency</type>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Date_MERC__c</fullName>

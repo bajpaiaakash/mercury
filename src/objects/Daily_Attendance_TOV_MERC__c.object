@@ -105,8 +105,7 @@ IF ( NOT(ISBLANK(Est_Indv_Transfer_MERC__c)) &amp;&amp;  NOT(ISBLANK(Est_Grp_Grn
         <required>false</required>
         <scale>2</scale>
         <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
+        <type>Currency</type>
     </fields>
     <fields>
         <fullName>Est_Grp_Grnd_Transp_MERC__c</fullName>
@@ -148,8 +147,7 @@ IF ( NOT(ISBLANK(Est_Indv_Transfer_MERC__c)) &amp;&amp;  NOT(ISBLANK(Est_Grp_Grn
         <required>false</required>
         <scale>2</scale>
         <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
+        <type>Currency</type>
     </fields>
     <fields>
         <fullName>Est_Reg_Amt_ToV_MERC__c</fullName>
