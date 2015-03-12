@@ -135,10 +135,13 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 														FROM Meeting_Participant_MERC__c WHERE Id in :meetingParticipantIds]) {
 				participantIdToTransferItineraries.put(mp.Id, mp.Travel_Itineraries_MERC__r);
 			}
-p('participantIdToTransferItineraries'+participantIdToTransferItineraries);
+p('participantIdToTransferItineraries'+participantIdToTransferItineraries);  // (List<Daily_Attendance_TOV_MERC__c>)sobjects
 			Integer i = 0;
 			Map<String,Daily_Attendance_TOV_MERC__c> tovs = new Map<String,Daily_Attendance_TOV_MERC__c>();
-			for (Daily_Attendance_TOV_MERC__c tov : (List<Daily_Attendance_TOV_MERC__c>)sobjects) {
+			for (Daily_Attendance_TOV_MERC__c tov : [SELECT Id, Status_MERC__c, Est_Indv_Transfer_MERC__c, Meeting_Day_MERC__c, Meeting_Participant_MERC__c, 
+													Confirm_ToV_Reporting_Change_MERC__c, Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c
+													FROM Daily_Attendance_TOV_MERC__c
+													WHERE Id in :sobjects]) {
 				tovs.put(String.valueOf(i),tov);
 				i++;
 			}
@@ -249,9 +252,8 @@ p(i+'Doing nothing');
 				}
 			} else {
 p('no itineraries for this DA/ToV. Setting to 0/null.');
-				tov.Est_Indv_Transfer_MERC__c = (tovIsFinal) ? 0.0 : null;
+				tov.Est_Indv_Transfer_MERC__c = (tovIsFinal && tov.Est_Indv_Transfer_MERC__c!=null) ? 0.0 : null;
 			}
-			
 			if (!tovIsFinal && tov.Est_Indv_Transfer_MERC__c==0) tov.Est_Indv_Transfer_MERC__c = null;
 			tovRecordsToUpdate.put(tov.Id,tov);
 		}
@@ -332,6 +334,7 @@ p('no itineraries for this DA/ToV. Setting to 0/null.');
 
 
 				p('t'+i+': '+t);
+				Boolean tovIsNull = tov.Est_Hotel_ToV_MERC__c == null;
 				if (t!=null) {
 					//Set the confirm reporting to true. If confirmirmation was needed on the meeting vendor
 					//or the travel itinerary we would not get here without the user having checked that box.
@@ -345,7 +348,7 @@ p('no itineraries for this DA/ToV. Setting to 0/null.');
 					if (noRoomRate || !t.Include_ToV_MERC__c || itineraryCancelled) {
 						if (tovIsFinal) {
 							p(i+': ToV is Final');
-							if (tov.Est_Hotel_ToV_MERC__c != null) {
+							if (!tovIsNull) {
 								p(i+': Est_Hotel_ToV_MERC__c is not null but '+tov.Est_Hotel_ToV_MERC__c);
 								tov.Est_Hotel_ToV_MERC__c = 0.0;
 								tovRecordsToUpdate.add(tov);
@@ -362,7 +365,7 @@ p('no itineraries for this DA/ToV. Setting to 0/null.');
 					}
 				} else {
 					Boolean tovIsFinal = tov.Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c == 'Yes';
-					tov.Est_Hotel_ToV_MERC__c = (tovIsFinal) ? 0.0 : null;
+					tov.Est_Hotel_ToV_MERC__c = (tovIsFinal && !tovIsNull) ? 0.0 : null;
 					tovRecordsToUpdate.add(tov);
 				}
 				i++;
@@ -411,18 +414,21 @@ p('no itineraries for this DA/ToV. Setting to 0/null.');
 
 				if (t!=null) {
 					Boolean tovIsFinal = t.Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c == 'Yes';
+					Boolean noRoomRate = t.Room_Rate_excl_VAT_MERC__c==null;
 					Boolean statusUpdate = Trigger.isUpdate && (Trigger.oldMap.get(tov.Id).get('Status_MERC__c') != tov.Status_Merc__c);
 					Boolean itineraryCancelled = t.Status_MERC__c == 'Cancelled';
+					p('tovIsFinal='+tovIsFinal+' itineraryCancelled='+itineraryCancelled);
 
 					if (itineraryCancelled) {
 						if (tovIsFinal) {
 							tov.Est_Hotel_ToV_MERC__c = 0.0;
-							} else {
-								tov.Est_Hotel_ToV_MERC__c = null;
-							}
 						} else {
-							tov.Est_Hotel_ToV_MERC__c = t.Room_Rate_excl_VAT_MERC__c;
+							tov.Est_Hotel_ToV_MERC__c = null;
 						}
+					} else {
+						p('setting HOTEL to Room Rate: '+t.Room_Rate_excl_VAT_MERC__c);
+						tov.Est_Hotel_ToV_MERC__c = t.Room_Rate_excl_VAT_MERC__c;
+					}
 
 					//if (tovIsFinal) {
 					//	if (!statusUpdate && tov.Est_Hotel_ToV_MERC__c != null) tov.Est_Hotel_ToV_MERC__c = 0.0;
