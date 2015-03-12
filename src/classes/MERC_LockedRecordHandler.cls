@@ -105,7 +105,6 @@ public with sharing class MERC_LockedRecordHandler implements GLBL_TriggerHandle
     Boolean isIntegrationUser{
         get {
             return [SELECT Profile.Name FROM User WHERE ID = :UserInfo.getUserId()].Profile.Name == 'Mercury Integration MVI - Platform';
-            return false;
         }
     }
 
