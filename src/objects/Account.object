@@ -4801,7 +4801,7 @@ ISPICKVAL( Advisory_Board_Experience_MERC__c ,&quot;&quot;)
         <description>Used to confirm Tier 1 HCP post verification of CV.  Tier 1 HCP&apos;s must have CV verified. Oliver Dunford 14th Jan 2014.</description>
         <externalId>false</externalId>
         <inlineHelpText>All Tier 1 HCPs must have their CVs verified before Tier 1 can be assigned.  Medical Dir must be notified prior to confirming as Tier 1</inlineHelpText>
-        <label>Tier 1 HCP CV Checked</label>
+        <label>Tier 1 CV Checked &amp; Med Dir Informed</label>
         <picklist>
             <picklistValues>
                 <fullName>Confirmed HCP is Tier 1</fullName>
