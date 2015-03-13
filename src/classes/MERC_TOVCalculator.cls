@@ -67,7 +67,8 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 				if (Trigger.isInsert ||
 					(Trigger.oldMap.get(ti.Id).get('Sgmnt_Bgin_TS_MERC__c') != ti.Sgmnt_Bgin_TS_MERC__c ||
 						Trigger.oldMap.get(ti.Id).get('Sgmnt_End_TS_MERC__c') != ti.Sgmnt_End_TS_MERC__c ||
-						Trigger.oldMap.get(ti.Id).get('Status_MERC__c') != ti.Status_Merc__c |
+						Trigger.oldMap.get(ti.Id).get('Status_MERC__c') != ti.Status_Merc__c ||
+						Trigger.oldMap.get(ti.Id).get('Individual_Travel_ToV_Applicable_MERC__c') != ti.Individual_Travel_ToV_Applicable_MERC__c ||
 						Trigger.oldMap.get(ti.Id).get('Total_Fare_Amount_MERC__c') != ti.Total_Fare_Amount_MERC__c) &&
 						!ti.Meeting_Status_MERC__c.startsWith('Complete')) {
 					meetingIds.add(ti.Meeting_Id_MERC__c);
@@ -146,9 +147,16 @@ p('participantIdToTransferItineraries'+participantIdToTransferItineraries);  // 
 				i++;
 			}
 
-			applyIndividualTransferValues(tovs, participantIdToTransferItineraries, meetingDays);
+			Map<Id,Daily_Attendance_TOV_MERC__c> updatedToVs = applyIndividualTransferValues(tovs, participantIdToTransferItineraries, meetingDays);
+			p('tovs after isBefore processing: '+updatedToVs.values());
+			p('sobjects: '+sobjects);
+			for (Sobject obj : sobjects) {
+				if (updatedToVs.containsKey(obj.Id)) obj.put('Est_Indv_Transfer_MERC__c', updatedToVs.get(obj.Id).Est_Indv_Transfer_MERC__c);
+			}
+			p('sobjects: '+sobjects);
 		}
 	}
+
 
 	/*
 	 * Combining some repeated code, this method applies rule-based changes to ToV Est_Indv_Transfer_MERC__c
@@ -161,6 +169,7 @@ p('participantIdToTransferItineraries'+participantIdToTransferItineraries);  // 
 	private Map<Id,Daily_Attendance_TOV_MERC__c> applyIndividualTransferValues(Map<String,Daily_Attendance_TOV_MERC__c> tovs, 
 																			   Map<Id, List<Travel_Itinerary_MERC__c>> participantIdToTransferItineraries,
 																			   Map<Id, Meeting_Day_MERC__c> meetingDays) {
+
 
 		Map<Id,Daily_Attendance_TOV_MERC__c> tovRecordsToUpdate = new Map<Id,Daily_Attendance_TOV_MERC__c>();
 
@@ -202,7 +211,7 @@ p('meetingDays.containsKey(tov.Meeting_Day_MERC__c):'+meetingDays.containsKey(to
 				}
 			}
 
-			// what if date is changed and tov left orphaned? set t to null
+			// what if date is changed or no longer individual travel and tov left orphaned? set t to null
 			if (!accountedFor) {
 				p('tov orphaned? '+tov);
 				tovToItinerary.put(tov,null);
@@ -233,7 +242,7 @@ p(i+'Est_Indv_Transfer_MERC__c != null');
 				}
 p(i+'Est_Indv_Transfer_MERC__c is already null');
 			} else {
-p(i+'Doing nothing');
+p(i+'Initializing to null');
 				tov.Est_Indv_Transfer_MERC__c = null;
 			}
 
@@ -251,11 +260,17 @@ p(i+'Doing nothing');
 					}
 				}
 			} else {
-p('no itineraries for this DA/ToV. Setting to 0/null.');
+	p('no itineraries for this DA/ToV. Setting to 0/null.');
 				tov.Est_Indv_Transfer_MERC__c = (tovIsFinal && tov.Est_Indv_Transfer_MERC__c!=null) ? 0.0 : null;
 			}
-			if (!tovIsFinal && tov.Est_Indv_Transfer_MERC__c==0) tov.Est_Indv_Transfer_MERC__c = null;
+
+			p('currenct Est_Indv value:'+tov.Est_Indv_Transfer_MERC__c);
+			if (!tovIsFinal && tov.Est_Indv_Transfer_MERC__c==0) {
+				p('resetting to null');
+				tov.Est_Indv_Transfer_MERC__c = null;
+			}
 			tovRecordsToUpdate.put(tov.Id,tov);
+			i++;
 		}
 		return tovRecordsToUpdate;
 	}
