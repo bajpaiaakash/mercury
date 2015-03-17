@@ -4420,23 +4420,6 @@ ISPICKVAL(Meeting_MERC__r.Participant_ToV_Final_MERC__c,&quot;&quot;))</errorCon
         <errorMessage>Please indicate the Notification Method used to send the Institutional Notification.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>MERC_Lock_Final_Fee</fullName>
-        <active>true</active>
-        <description>Prevent the user from changing the proposed final fee and subsequently the final fee once it has been confirmed : MERC : Created on 0/02/2015 by Oliver Dunford, Mavens Consulting</description>
-        <errorConditionFormula>ISCHANGED( Proposed_Final_Fee_MERC__c ) 
-&amp;&amp;
- ISPICKVAL( Confirm_Final_Fee_MERC__c , &quot;Confirmed&quot;) 
-&amp;&amp;
-$User.Power_User_MERC__c = FALSE 
-&amp;&amp;
-(
-$Profile.Name &lt;&gt; &quot;System Administrator&quot; &amp;&amp; 
-$Profile.Name &lt;&gt; &quot;Mercury Integration ODS - Platform&quot;
-)</errorConditionFormula>
-        <errorDisplayField>Proposed_Final_Fee_MERC__c</errorDisplayField>
-        <errorMessage>Once confirmed you cannot modify the proposed final fee or final fee.  Please contact a member of the Customer Meeting Service team for assistance.</errorMessage>
-    </validationRules>
-    <validationRules>
         <fullName>MERC_Partial_Payment_Allowed</fullName>
         <active>true</active>
         <description>The Partial Payment Amount should only be entered if the Final Fee has been entered and the Participant ToV Final is False : MERC : Created on 01/07/2014 by Katy Lorenti, Mavens Consulting</description>
