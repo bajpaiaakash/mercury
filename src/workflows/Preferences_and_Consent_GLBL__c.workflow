@@ -420,9 +420,11 @@ IF(($Profile.Name = &apos;Mercury Metadata API&apos; || $Profile.Name = &apos;Me
         <fields>Cmnctn_Sub_Chnl_Cd_Cap_GLBL__c</fields>
         <fields>Cmnctn_Sub_Chnl_Desc_Cap_GLBL__c</fields>
         <fields>Cnsnt_Cntct_Dtl_Txt_Cap_GLBL__c</fields>
+        <fields>Cnsnt_Prps_Cd_Cap_GLBL__c</fields>
         <fields>Cnsnt_Prps_Desc_Cap_GLBL__c</fields>
         <fields>Cnsnt_Sts_Cd_Cap_GLBL__c</fields>
         <fields>Cnsnt_Sts_Desc_Cap_GLBL__c</fields>
+        <fields>Cnsnt_Typ_Cd_Cap_GLBL__c</fields>
         <fields>CreatedById</fields>
         <fields>CreatedDate</fields>
         <fields>Efctv_End_Dt_Cap_GLBL__c</fields>

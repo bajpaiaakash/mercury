@@ -16,4 +16,5 @@ trigger MERC_DailyAttendanceTOV on Daily_Attendance_TOV_MERC__c (before insert, 
 		.bind(GLBL_TriggerHandler.Evt.afterdelete,   new MERC_TOVCalculator(Daily_Attendance_TOV_MERC__c.SobjectType))
 		.bind(GLBL_TriggerHandler.Evt.afterundelete, new MERC_TOVCalculator(Daily_Attendance_TOV_MERC__c.SobjectType))
         .manage();
+        
 }

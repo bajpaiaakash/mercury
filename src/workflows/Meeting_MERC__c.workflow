@@ -507,7 +507,9 @@ Name</formula>
         <fields>Name</fields>
         <fields>Number_of_Expected_Deletgates_MERC__c</fields>
         <fields>Number_of_Expected_Speakers_MERC__c</fields>
+        <fields>Parent_Meeting_Event_Id_MERC__c</fields>
         <fields>Parent_Meeting_External_MERC__c</fields>
+        <fields>Parent_Meeting_MERC__c</fields>
         <fields>Planned_Budget_MERC__c</fields>
         <fields>Preferred_Venue_Addr_1_MERC__c</fields>
         <fields>Preferred_Venue_Addr_2_MERC__c</fields>
@@ -516,6 +518,7 @@ Name</formula>
         <fields>RTI_Transaction_ID_MERC__c</fields>
         <fields>RecordTypeId</fields>
         <fields>Rep_Cost_Center_MERC__c</fields>
+        <fields>Sales_Rep_MERC__c</fields>
         <fields>Source_MERC__c</fields>
         <fields>Sponsorship_Type_MERC__c</fields>
         <fields>Start_Time_of_Meeting_MERC__c</fields>

@@ -457,6 +457,8 @@
         <apiVersion>29.0</apiVersion>
         <endpointUrl>https://gso1integration.xh1.lilly.com/rti/v1/genericUpdated</endpointUrl>
         <fields>Account_External_MERC__c</fields>
+        <fields>Account_MERC__c</fields>
+        <fields>Active_on_Web_Service_MERC__c</fields>
         <fields>Air_Travel_Required_MERC__c</fields>
         <fields>Amount_to_be_Paid_MERC__c</fields>
         <fields>Associated_Countries_MERC__c</fields>
@@ -464,6 +466,7 @@
         <fields>CreatedById</fields>
         <fields>CreatedDate</fields>
         <fields>Description_of_Service_MERC__c</fields>
+        <fields>Email_to_Invite_HCP_to_Portal_MERC__c</fields>
         <fields>Event_Time_Hrs_MERC__c</fields>
         <fields>Final_Fee_MERC__c</fields>
         <fields>Has_Signed_Contract_MERC__c</fields>
