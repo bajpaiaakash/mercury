@@ -327,7 +327,7 @@ public with sharing class MERC_TestFactory {
 				m.Meeting_MERC__c = meeting.Id;
 				m.Daily_Food_Beverage_Amount_MERC__c = 100;
 				m.Daily_Ground_Trans_Amount_MERC__c = 100;
-///				m.Daily_Registration_Amount_MERC__c = 100;
+				m.Daily_Registration_Amount_MERC__c = 100;
 				mtgDays.add(m);
 			}
 		}

@@ -138,7 +138,7 @@ private class MERC_TOVRoundingTest {
 
 			/*** This now fails because the Est_Reg_Amt_ToV_MERC__c is in the meeting currency. Yea! ***/
 			//System.assertEquals((Decimal)(intendedValue/conversionRate).setScale(2), tovForParticipant1Day1.Est_Indv_Transfer_MERC__c, 
-			//	'Unexpected tov value'+tovForParticipant1Day1.Est_Indv_Transfer_MERC__c);
+				//'Unexpected tov value'+tovForParticipant1Day1.Est_Indv_Transfer_MERC__c);
 			System.assertEquals(intendedValue, tovForParticipant1Day1.Est_Indv_Transfer_MERC__c, 
 				'Unexpected tov value'+tovForParticipant1Day1.Est_Indv_Transfer_MERC__c);
 			System.assertEquals(tovForParticipant1Day1.Est_Indv_Transfer_MERC__c, participant1.Total_Indiv_Transport_ToV_Rollup_MERC__c, 
@@ -356,7 +356,7 @@ private class MERC_TOVRoundingTest {
 
 			/*** This now fails because the Est_Grp_Grnd_Transp_MERC__c is in the meeting currency. Yea! ***/
 			//System.assertEquals((Decimal)(intendedValue/conversionRate).setScale(2), tovForParticipant1Day1.Est_Grp_Grnd_Transp_MERC__c, 
-			//	'Unexpected tov value'+tovForParticipant1Day1.Est_Grp_Grnd_Transp_MERC__c);
+				//'Unexpected tov value'+tovForParticipant1Day1.Est_Grp_Grnd_Transp_MERC__c);
 			System.assertEquals(intendedValue, tovForParticipant1Day1.Est_Grp_Grnd_Transp_MERC__c, 
 				'Unexpected tov value'+tovForParticipant1Day1.Est_Grp_Grnd_Transp_MERC__c);
 			System.assertEquals(tovForParticipant1Day1.Est_Grp_Grnd_Transp_MERC__c, participant1.Total_Ground_Transport_ToV_Rollup_MERC__c, 
@@ -374,30 +374,30 @@ private class MERC_TOVRoundingTest {
 	}
 
 	//@isTest
-	static void testRoundingValue_Total_Food() {
+	//static void testRoundingValue_Total_Food() {
 		
-		Decimal transferCost = (Decimal)(99.99*conversionRate).setScale(2);
-		p('value & conversion = 99.99 & '+ transferCost);
+	//	Decimal transferCost = (Decimal)(99.99*conversionRate).setScale(2);
+	//	p('value & conversion = 99.99 & '+ transferCost);
 
-		Test.startTest();
+	//	Test.startTest();
 
-		//set participant 1 to attending on day 1
-		Daily_Attendance_TOV_MERC__c tovForParticipant1Day1 = MERC_TestFactory.insertTov(meetingDays.get(0).Id, participants.get(0).Id, 'Attended');
+	//	//set participant 1 to attending on day 1
+	//	Daily_Attendance_TOV_MERC__c tovForParticipant1Day1 = MERC_TestFactory.insertTov(meetingDays.get(0).Id, participants.get(0).Id, 'Attended');
 
-		Meeting_Participant_MERC__c participant1 = [SELECT Id, Total_Food_Beverage_ToV_MERC__c, Total_Food_Beverage_ToV_Rollup_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :participants.get(0).Id];
+	//	Meeting_Participant_MERC__c participant1 = [SELECT Id, Total_Food_Beverage_ToV_MERC__c, Total_Food_Beverage_ToV_Rollup_MERC__c FROM Meeting_Participant_MERC__c WHERE Id = :participants.get(0).Id];
 
-		tovForParticipant1Day1 = [SELECT Id, Est_Food_Bev_ToV_MERC__c FROM Daily_Attendance_TOV_MERC__c WHERE Id = :tovForParticipant1Day1.Id];
+	//	tovForParticipant1Day1 = [SELECT Id, Est_Food_Bev_ToV_MERC__c FROM Daily_Attendance_TOV_MERC__c WHERE Id = :tovForParticipant1Day1.Id];
 
-		//assert that meeting day 1's food bev estimate rolled up up to the participant total
-		//System.assert(false, tovForParticipant1Day1.Est_Grp_Grnd_Transp_MERC__c);
-		//System.assertEquals(tovForParticipant1Day1.Est_Grp_Grnd_Transp_MERC__c, participant1.Total_Ground_Transporation_ToV_MERC__c, 'Est_Grp_Grnd_Transp did not rollup as expected.');
+	//	//assert that meeting day 1's food bev estimate rolled up up to the participant total
+	//	//System.assert(false, tovForParticipant1Day1.Est_Grp_Grnd_Transp_MERC__c);
+	//	//System.assertEquals(tovForParticipant1Day1.Est_Grp_Grnd_Transp_MERC__c, participant1.Total_Ground_Transporation_ToV_MERC__c, 'Est_Grp_Grnd_Transp did not rollup as expected.');
 
-		System.assertEquals(transferCost, tovForParticipant1Day1.Est_Food_Bev_ToV_MERC__c, 'Unexpected Est_Food_Bev_ToV_MERC__c');
-		System.assertEquals(tovForParticipant1Day1.Est_Food_Bev_ToV_MERC__c, participant1.Total_Food_Beverage_ToV_Rollup_MERC__c, 'Total_Food_Beverage_ToV_Rollup_MERC__c did not rollup as expected.');
-		System.assertEquals(transferCost, participant1.Total_Food_Beverage_ToV_MERC__c, 'Total does not match original set value.');
+	//	System.assertEquals(transferCost, tovForParticipant1Day1.Est_Food_Bev_ToV_MERC__c, 'Unexpected Est_Food_Bev_ToV_MERC__c');
+	//	System.assertEquals(tovForParticipant1Day1.Est_Food_Bev_ToV_MERC__c, participant1.Total_Food_Beverage_ToV_Rollup_MERC__c, 'Total_Food_Beverage_ToV_Rollup_MERC__c did not rollup as expected.');
+	//	System.assertEquals(transferCost, participant1.Total_Food_Beverage_ToV_MERC__c, 'Total does not match original set value.');
 
-		Test.stopTest();
-	}
+	//	Test.stopTest();
+	//}
 
 	@isTest 
 	static void testRoundingValue_originalScenarioNewProcess_Food_Bev() {
@@ -451,7 +451,7 @@ private class MERC_TOVRoundingTest {
 
 			/*** This now fails because the Est_Food_Bev_ToV_MERC__c is in the meeting currency. Yea! ***/
 			//System.assertEquals((Decimal)(intendedValue/conversionRate).setScale(2), tovForParticipant1Day1.Est_Food_Bev_ToV_MERC__c, 
-			//	'Unexpected tov value'+tovForParticipant1Day1.Est_Food_Bev_ToV_MERC__c);
+				//'Unexpected tov value'+tovForParticipant1Day1.Est_Food_Bev_ToV_MERC__c);
 			System.assertEquals(intendedValue, tovForParticipant1Day1.Est_Food_Bev_ToV_MERC__c, 
 				'Unexpected tov value'+tovForParticipant1Day1.Est_Food_Bev_ToV_MERC__c);
 			System.assertEquals(tovForParticipant1Day1.Est_Food_Bev_ToV_MERC__c, participant1.Total_Food_Beverage_ToV_Rollup_MERC__c, 
@@ -547,7 +547,7 @@ private class MERC_TOVRoundingTest {
 
 			/*** This now fails because the Est_Reg_Amt_ToV_MERC__c is in the meeting currency. Yea! ***/
 			//System.assertEquals((Decimal)(intendedValue/conversionRate).setScale(2), tovForParticipant1Day1.Est_Reg_Amt_ToV_MERC__c, 
-			//	'Unexpected tov value'+tovForParticipant1Day1.Est_Reg_Amt_ToV_MERC__c);
+				//'Unexpected tov value'+tovForParticipant1Day1.Est_Reg_Amt_ToV_MERC__c);
 			System.assertEquals(intendedValue, tovForParticipant1Day1.Est_Reg_Amt_ToV_MERC__c, 
 				'Unexpected tov value'+tovForParticipant1Day1.Est_Reg_Amt_ToV_MERC__c);
 			System.assertEquals(tovForParticipant1Day1.Est_Reg_Amt_ToV_MERC__c, participant1.Total_Registration_ToV_Rollup_MERC__c, 
@@ -555,7 +555,7 @@ private class MERC_TOVRoundingTest {
 
 			/*** This now fails presumably because we're not aggregating [?] ***/
 			//System.assertEquals((Decimal)(intendedValue/conversionRate).setScale(2), (Decimal)(participant1.Total_Registration_ToV_Rollup_MERC__c).setScale(2), 
-			//	'Total does not match original set value when converted.'+(Decimal)(participant1.Total_Registration_ToV_Rollup_MERC__c).setScale(2));
+				//'Total does not match original set value when converted.'+(Decimal)(participant1.Total_Registration_ToV_Rollup_MERC__c).setScale(2));
 			System.assertEquals(intendedValue, (Decimal)(participant1.Total_Registration_ToV_Rollup_MERC__c).setScale(2), 
 				'Total does not match original set value.'+(Decimal)(participant1.Total_Registration_ToV_Rollup_MERC__c).setScale(2));
 			System.assertEquals((Decimal)(intendedValue).setScale(2), (Decimal)(tovForParticipant1Day1.Est_Reg_Amt_ToV_MERC__c).setScale(2), 
@@ -620,7 +620,7 @@ private class MERC_TOVRoundingTest {
 
 			/*** This now fails because the Est_Reg_Amt_ToV_MERC__c is in the meeting currency. Yea! ***/
 			//System.assertEquals((Decimal)(intendedValue/conversionRate).setScale(2), tovForParticipant1Day1.Est_Reg_Amt_ToV_MERC__c, 
-			//	'Unexpected tov value'+tovForParticipant1Day1.Est_Reg_Amt_ToV_MERC__c);
+				//'Unexpected tov value'+tovForParticipant1Day1.Est_Reg_Amt_ToV_MERC__c);
 			System.assertEquals(intendedValue, tovForParticipant1Day1.Est_Reg_Amt_ToV_MERC__c, 
 				'Unexpected tov value'+tovForParticipant1Day1.Est_Reg_Amt_ToV_MERC__c);
 			System.assertEquals(tovForParticipant1Day1.Est_Reg_Amt_ToV_MERC__c, participant1.Total_Registration_ToV_Rollup_MERC__c, 

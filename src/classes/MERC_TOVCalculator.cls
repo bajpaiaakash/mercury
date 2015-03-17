@@ -94,7 +94,7 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 			p('participantIdToTransferItineraries:'+participantIdToTransferItineraries);
 
 			Map<String,Daily_Attendance_TOV_MERC__c> tovs = new Map<String,Daily_Attendance_TOV_MERC__c>(
-													[SELECT Id, Status_MERC__c, Est_Indv_Transfer_MERC__c, Meeting_Day_MERC__c, Meeting_Participant_MERC__c, 
+													[SELECT Id, Status_MERC__c, Est_Indv_Transfer_MERC__c, Meeting_Day_MERC__c, Meeting_Day_Date_MERC__c, Meeting_Participant_MERC__c, 
 														Confirm_ToV_Reporting_Change_MERC__c, Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c
 				                                     FROM Daily_Attendance_TOV_MERC__c
 				 									 WHERE Meeting_Participant_MERC__c in :participantIdToTransferItineraries.keySet()]);
@@ -139,7 +139,7 @@ public with sharing class MERC_TOVCalculator implements GLBL_TriggerHandler.Hand
 p('participantIdToTransferItineraries'+participantIdToTransferItineraries);  // (List<Daily_Attendance_TOV_MERC__c>)sobjects
 			Integer i = 0;
 			Map<String,Daily_Attendance_TOV_MERC__c> tovs = new Map<String,Daily_Attendance_TOV_MERC__c>();
-			for (Daily_Attendance_TOV_MERC__c tov : [SELECT Id, Status_MERC__c, Est_Indv_Transfer_MERC__c, Meeting_Day_MERC__c, Meeting_Participant_MERC__c, 
+			for (Daily_Attendance_TOV_MERC__c tov : [SELECT Id, Status_MERC__c, Est_Indv_Transfer_MERC__c, Meeting_Day_MERC__c, Meeting_Day_Date_MERC__c, Meeting_Participant_MERC__c, 
 													Confirm_ToV_Reporting_Change_MERC__c, Meeting_Participant_MERC__r.Meeting_MERC__r.Participant_ToV_Final_MERC__c
 													FROM Daily_Attendance_TOV_MERC__c
 													WHERE Id in :sobjects]) {
@@ -178,12 +178,14 @@ p('participantIdToTransferItineraries'+participantIdToTransferItineraries);  // 
 			'\r Trigger.isBefore='+Trigger.isBefore);
 
 
-		//<PAUL>
 		Set<Id> processedItineraries = new Set<Id>();
-		//</PAUL>
 
 		Map<Daily_Attendance_TOV_MERC__c,List<Travel_Itinerary_MERC__c>> tovToItinerary = new Map<Daily_Attendance_TOV_MERC__c,List<Travel_Itinerary_MERC__c>>();
-		for (Daily_Attendance_TOV_MERC__c tov : tovs.values()) {
+
+		List<Daily_Attendance_TOV_MERC__c> sortedTovs = sortTovs(tovs.values());
+
+		//for (Daily_Attendance_TOV_MERC__c tov : tovs.values()) {
+		for (Daily_Attendance_TOV_MERC__c tov : sortedTovs) {
 			p('tov: '+tov);
 			Boolean accountedFor = false;
 p('participantIdToTransferItineraries.containsKey(tov.Meeting_Participant_MERC__c):'+participantIdToTransferItineraries.containsKey(tov.Meeting_Participant_MERC__c));
@@ -197,16 +199,12 @@ p('meetingDays.containsKey(tov.Meeting_Day_MERC__c):'+meetingDays.containsKey(to
 					Date timestampStart = t.Sgmnt_Bgin_TS_MERC__c.date();
 					Date timestampEnd = t.Sgmnt_End_TS_MERC__c.date();
 					p('itinerary within date range?: \r\r'+timestampStart+'<='+meetingDayDate+'<='+timestampEnd+'\r\r'+tov+' \r\r '+t);
-					//<PAUL>
 					//if (meetingDayDate >= timestampStart && meetingDayDate <= timestampEnd) {
 					if (meetingDayDate >= timestampStart && meetingDayDate <= timestampEnd && !processedItineraries.contains(t.Id)) {
-					//</PAUL>
 						if (tovToItinerary.get(tov)==null) tovToItinerary.put(tov, new List<Travel_Itinerary_MERC__c>()); 
 						tovToItinerary.get(tov).add(t);
 						accountedFor = true;
-						//<PAUL>
 						processedItineraries.add(t.Id);
-						//</PAUL>
 					}
 				}
 			}
@@ -273,6 +271,51 @@ p(i+'Initializing to null');
 			i++;
 		}
 		return tovRecordsToUpdate;
+	}
+
+	/**
+	  * This method takes a list of daily attendance records and sorts thems by the date of the meeting day to which they apply
+		*
+		* @param tovs List of attendance records to order.
+	  **/
+	private List<Daily_Attendance_TOV_MERC__c> sortTovs(List<Daily_Attendance_TOV_MERC__c> tovs) {
+		List<TOVWrapper> wrappedList = new List<TOVWrapper>();
+
+		for(Integer x = 0, y = tovs.size(); x < y; x++) {
+			wrappedList.add(new TOVWrapper(tovs[x]));
+		}
+
+		wrappedList.sort();
+
+		List<Daily_Attendance_TOV_MERC__c> orderedList = new List<Daily_Attendance_TOV_MERC__c>();
+
+		for(Integer i = 0, j = wrappedList.size(); i < j; i++) {
+			orderedList.add(wrappedList[i].tov);
+		}
+
+		return orderedList;
+	}
+
+	public class TOVWrapper implements comparable {
+		public Daily_Attendance_TOV_MERC__c tov;
+
+		public TOVWrapper(Daily_Attendance_TOV_MERC__c datov){
+			tov = datov;
+		}
+
+		public Integer compareTo(Object compareTov){
+			TOVWrapper compWrapper = (TOVWrapper)compareTov;
+			
+			Integer returnVal = 0;
+
+			if(tov.Meeting_Day_Date_MERC__c < compWrapper.tov.Meeting_Day_Date_MERC__c) {
+				returnVal = -1;
+			} else if (tov.Meeting_Day_Date_MERC__c > compWrapper.tov.Meeting_Day_Date_MERC__c){
+				returnVal = 1;
+			}
+
+			return returnVal;
+		}
 	}
 
 	/**
