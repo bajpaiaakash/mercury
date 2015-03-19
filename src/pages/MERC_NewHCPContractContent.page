@@ -1,3 +1,0 @@
-<apex:page showHeader="true" sidebar="true" standardController="HCP_Contract_MERC__c">
-	<c:MERC_NewContentGeneric />
-</apex:page>
