@@ -6,6 +6,7 @@
         <members>CUST_UserSettingsStatusChangeBatchTest</members>
         <members>CUST_UserSettingsStatusChangeBatchable</members>
         <members>GLBL_LRAbacus</members>
+        <members>GLBL_LRAbacusTest</members>
         <members>GLBL_LREngine</members>
         <members>GLBL_RollupService</members>
         <members>GLBL_RollupServiceException</members>
@@ -44,6 +45,7 @@
         <members>MERC_InvoiceXmlWriterTest</members>
         <members>MERC_MeetingCancellationHandler</members>
         <members>MERC_MeetingCancellationHandlerTest</members>
+        <members>MERC_MeetingDayManagerControllerTest</members>
         <members>MERC_MeetingParticipantCurrencyCnvrtTest</members>
         <members>MERC_MeetingParticipantCurrencyConvert</members>
         <members>MERC_MeetingParticipantCurrencyConvert</members>
@@ -52,6 +54,7 @@
         <members>MERC_MergeHistoryStampTriggerHandlerTest</members>
         <members>MERC_ParticipantStatusCalculator</members>
         <members>MERC_ParticipantTovStampHandler</members>
+        <members>MERC_ParticipantTovStampHandlerTest</members>
         <members>MERC_TOVCalculator</members>
         <members>MERC_TOVCalculatorTest</members>
         <members>MERC_TOVNonAggregateCalculatorTest</members>
