@@ -307,7 +307,6 @@ p('tovForParticipant1Day1'+tovForParticipant1Day1);
 	 	for (Daily_Attendance_TOV_MERC__c tov : tovs) {
 	 		if (tov.Est_Grnd_Transp_MERC__c != null) tovSum += tov.Est_Grnd_Transp_MERC__c;
 	 	}
-
 	 	System.assertEquals(itinerarySum,tovSum,'Unexpected total for Daily Transport ToV');
 	 }
 
