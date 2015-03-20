@@ -21,6 +21,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>GLBL_LRAbacusTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>GLBL_LREngine</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -161,6 +165,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_MeetingDayManagerControllerTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_MeetingParticipantCurrencyCnvrtTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -186,6 +194,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_ParticipantTovStampHandler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_ParticipantTovStampHandlerTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
