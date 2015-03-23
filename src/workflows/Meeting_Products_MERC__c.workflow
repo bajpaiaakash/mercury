@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
-<<<<<<< HEAD
     <fieldUpdates>
         <fullName>External_ID_MeetingProduct_MERC</fullName>
         <description>Populates External ID with OrdID and ID</description>
@@ -61,8 +60,6 @@
         <description>Populates the external id upon creation of a record : MERC : Created on 12/5/2013 by Oliver Dunford, Mavens Consulting</description>
         <triggerType>onCreateOnly</triggerType>
     </rules>
-=======
->>>>>>> develop_april_release
     <rules>
         <fullName>RTI - Meeting Product Updated</fullName>
         <actions>

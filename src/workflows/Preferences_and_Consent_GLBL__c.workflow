@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
-<<<<<<< HEAD
     <fieldUpdates>
         <fullName>Clear_Channel_CMS</fullName>
         <description>Clears Channel (CMS) field</description>
@@ -757,8 +756,6 @@ IF(($Profile.Name = &apos;Mercury Metadata API&apos; || $Profile.Name = &apos;Me
         <formula>$Profile.Name != &apos;Mercury Integration ODS - Platform&apos;  &amp;&amp;  (!ISBLANK(Cmnctn_Chnl_Cd_Cap_GLBL__c) ||   !ISBLANK(Cmnctn_Chnl_Cd_GLBL__c))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
-=======
->>>>>>> develop_april_release
     <rules>
         <fullName>RTI - Pref and Consent Updated</fullName>
         <actions>

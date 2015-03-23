@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
-<<<<<<< HEAD
     <alerts>
         <fullName>Expiring_Auth_to_CST_Manager_CUST</fullName>
         <ccEmails>sean@mavensconsulting.com,</ccEmails>
@@ -823,8 +822,6 @@ IF(INCLUDES( Academic_Qualifications_MERC__c , &quot;MD Specialist&quot;), 1, 0)
         <formula>ISCHANGED(Tier_1_HCP_CV_Checked_MERC__c) &amp;&amp;   (  ISPICKVAL(Tier_1_HCP_CV_Checked_MERC__c, &quot;Confirmed HCP is Tier 1&quot;) ||   ISPICKVAL(Tier_1_HCP_CV_Checked_MERC__c, &quot;HCP is NOT Tier 1&quot;)  )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
-=======
->>>>>>> develop_april_release
     <rules>
         <fullName>RTI - Account Updated</fullName>
         <actions>
