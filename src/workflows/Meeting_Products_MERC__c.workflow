@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+<<<<<<< HEAD
     <fieldUpdates>
         <fullName>External_ID_MeetingProduct_MERC</fullName>
         <description>Populates External ID with OrdID and ID</description>
@@ -60,6 +61,8 @@
         <description>Populates the external id upon creation of a record : MERC : Created on 12/5/2013 by Oliver Dunford, Mavens Consulting</description>
         <triggerType>onCreateOnly</triggerType>
     </rules>
+=======
+>>>>>>> develop_april_release
     <rules>
         <fullName>RTI - Meeting Product Updated</fullName>
         <actions>
@@ -67,20 +70,7 @@
             <type>OutboundMessage</type>
         </actions>
         <active>true</active>
-        <formula>NOT(CONTAINS(LastModifiedBy.Username,&apos;mercuryintegration.veeva@&apos;))</formula>
+        <formula>(NOT(CONTAINS(LastModifiedBy.Username,&apos;mvibatch.integration@&apos;))) &amp;&amp; (NOT(CONTAINS(LastModifiedBy.Username,&apos;mercuryintegration.veeva@&apos;)))</formula>
         <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
-        <fullName>RTI - My Setup Product External ID</fullName>
-        <actions>
-            <name>Populate_My_Setup_Product_External_ID</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <criteriaItems>
-            <field>Meeting_Products_MERC__c.My_Setup_Product_External_ID_MERC__c</field>
-            <operation>equals</operation>
-        </criteriaItems>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
 </Workflow>

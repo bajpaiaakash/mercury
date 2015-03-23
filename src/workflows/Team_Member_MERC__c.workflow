@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+<<<<<<< HEAD
     <alerts>
         <fullName>Send_Team_Member_Notification_MERC</fullName>
         <description>Send Team Member Notification</description>
@@ -242,6 +243,8 @@ ISPICKVAL(Role_MERC__c, &quot;Primary Meeting Owner&quot;),
         <formula>RecordType.DeveloperName = &quot;External_User_MERC&quot; &amp;&amp;  CONTAINS( Meeting_MERC__r.Associated_Countries_MERC__c, TEXT(Account_MERC__r.Country_of_Residence_GLBL__c )) = FALSE</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
+=======
+>>>>>>> develop_april_release
     <rules>
         <fullName>RTI - Team Member Updated</fullName>
         <actions>
@@ -249,7 +252,8 @@ ISPICKVAL(Role_MERC__c, &quot;Primary Meeting Owner&quot;),
             <type>OutboundMessage</type>
         </actions>
         <active>true</active>
-        <formula>NOT(CONTAINS(LastModifiedBy.Username,&apos;mercuryintegration.veeva@&apos;)) &amp;&amp;  (Account_MERC__r.Prsnl_Nbr_GLBL__c) != &apos;&apos;</formula>
+        <formula>(NOT(CONTAINS(LastModifiedBy.Username,&apos;mvibatch.integration@&apos;))) &amp;&amp; (
+NOT(CONTAINS(LastModifiedBy.Username,&apos;mercuryintegration.veeva@&apos;)) &amp;&amp;  (Account_MERC__r.Prsnl_Nbr_GLBL__c) != &apos;&apos; )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>

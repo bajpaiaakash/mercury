@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+<<<<<<< HEAD
     <alerts>
         <fullName>Advisory_Board_Notification</fullName>
         <description>Notify Meeting Owner about an Advisory Board Meeting need for approval</description>
@@ -987,6 +988,8 @@ Name</formula>
         <formula>ISNEW() || ISCHANGED( Sales_Rep_MERC__c )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
+=======
+>>>>>>> develop_april_release
     <rules>
         <fullName>RTI - Meeting Updated</fullName>
         <actions>
@@ -994,7 +997,7 @@ Name</formula>
             <type>OutboundMessage</type>
         </actions>
         <active>true</active>
-        <formula>AND(NOT(CONTAINS(LastModifiedBy.Username,&apos;mercuryintegration.veeva@&apos;)),NOT( TEXT(Type_MERC__c) = &apos;Internal&apos;))</formula>
+        <formula>AND(NOT(CONTAINS(LastModifiedBy.Username,&apos;mvibatch.integration@&apos;)),NOT(CONTAINS(LastModifiedBy.Username,&apos;mercuryintegration.veeva@&apos;)),NOT( TEXT(Type_MERC__c) = &apos;Internal&apos;))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>

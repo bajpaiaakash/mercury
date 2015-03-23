@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+<<<<<<< HEAD
     <fieldUpdates>
         <fullName>Clear_Channel_CMS</fullName>
         <description>Clears Channel (CMS) field</description>
@@ -756,6 +757,8 @@ IF(($Profile.Name = &apos;Mercury Metadata API&apos; || $Profile.Name = &apos;Me
         <formula>$Profile.Name != &apos;Mercury Integration ODS - Platform&apos;  &amp;&amp;  (!ISBLANK(Cmnctn_Chnl_Cd_Cap_GLBL__c) ||   !ISBLANK(Cmnctn_Chnl_Cd_GLBL__c))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
+=======
+>>>>>>> develop_april_release
     <rules>
         <fullName>RTI - Pref and Consent Updated</fullName>
         <actions>
@@ -764,7 +767,10 @@ IF(($Profile.Name = &apos;Mercury Metadata API&apos; || $Profile.Name = &apos;Me
         </actions>
         <active>true</active>
         <description>Sends records information to Veeva orgs</description>
-        <formula>NOT(CONTAINS(LastModifiedBy.Username,&apos;mercuryintegration.veeva@&apos;)) &amp;&amp; NOT(CONTAINS(LastModifiedBy.Username,&apos;gso1.informatica@&apos;)) &amp;&amp; RecordType.DeveloperName = &quot;Consent_EVNT_MVN&quot;</formula>
+        <formula>(NOT(CONTAINS(LastModifiedBy.Username,&apos;mvibatch.integration@&apos;))) &amp;&amp; (
+(NOT(CONTAINS(LastModifiedBy.Username,&apos;mercuryintegration.veeva@&apos;)) &amp;&amp;
+ NOT(CONTAINS(LastModifiedBy.Username,&apos;gso1.informatica@&apos;)) 
+&amp;&amp; RecordType.DeveloperName = &quot;Consent_EVNT_MVN&quot;))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>

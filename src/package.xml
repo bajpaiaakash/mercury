@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
+<<<<<<< HEAD
         <members>CUST_AdminUtilitiesControllerTest</members>
         <members>CUST_SchedulerTest</members>
         <members>CUST_UserSettingsStatusChangeBatchTest</members>
@@ -229,6 +230,25 @@
     </types>
     <types>
         <members>Account.MERC_Notification of HCP Email Address Change</members>
+=======
+        <members>MERC_LockedRecordHandler</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>ContentVersion-Meeting_MERC</members>
+        <members>Meeting_MERC__c-MERC_Independent_Sponsorship</members>
+        <members>PersonAccount-GLBL_Employee</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>Account.RTI - Account Updated</members>
+        <members>Meeting_MERC__c.RTI - Meeting Updated</members>
+        <members>Meeting_Participant_MERC__c.MERC_Notify the Primary Meeting Owner of Signed Contract</members>
+        <members>Meeting_Participant_MERC__c.RTI - Meeting Participant  Updated</members>
+        <members>Meeting_Products_MERC__c.RTI - Meeting Product Updated</members>
+        <members>Preferences_and_Consent_GLBL__c.RTI - Pref and Consent Updated</members>
+        <members>Team_Member_MERC__c.RTI - Team Member Updated</members>
+>>>>>>> develop_april_release
         <name>WorkflowRule</name>
     </types>
     <version>31.0</version>

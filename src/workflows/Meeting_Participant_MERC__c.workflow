@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+<<<<<<< HEAD
     <alerts>
         <fullName>Non_HCP_participant_approval</fullName>
         <description>A Non-HCP participant has been created for a meeting and email requesting Managerial Approval will be sent.</description>
@@ -637,6 +638,8 @@
         <formula>ISCHANGED(Confirm_Final_Fee_MERC__c) &amp;&amp; ISPICKVAL(Confirm_Final_Fee_MERC__c,&quot;Confirmed&quot;)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
+=======
+>>>>>>> develop_april_release
     <rules>
         <fullName>MERC_Notify the Primary Meeting Owner of Signed Contract</fullName>
         <actions>
@@ -645,6 +648,7 @@
         </actions>
         <active>true</active>
         <description>Notifies the Primary Meeting Owner of a Signed Contract : MERC : Created on 01/26/2013 by Katy Lorenti, Mavens Consulting</description>
+<<<<<<< HEAD
         <formula>(ISCHANGED(Docusign_Contract_Status_MERC__c) &amp;&amp; (Docusign_Contract_Status_MERC__c = &quot;Completed&quot;) || (ISCHANGED(Number_of_Completed_Contracts_MERC__c) &amp;&amp; Number_of_Completed_Contracts_MERC__c = 1))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
@@ -937,6 +941,9 @@
         <active>true</active>
         <description>Updates the Unique Participant text field to enforce Participant Uniqueness for a Meeting  : MERC : Created on 01/10/2014 by Katy Lorenti, Mavens Consulting</description>
         <formula>TRUE</formula>
+=======
+        <formula>(ISCHANGED(Number_of_Completed_Contracts_MERC__c) &amp;&amp; Number_of_Completed_Contracts_MERC__c = 1)</formula>
+>>>>>>> develop_april_release
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -946,7 +953,10 @@
             <type>OutboundMessage</type>
         </actions>
         <active>true</active>
-        <formula>(NOT(CONTAINS(LastModifiedBy.Username,&apos;mercuryintegration.veeva@&apos;)) || ISCHANGED( Maximum_Fee_MERC__c ) || (NOT(ISBLANK(Maximum_Fee_MERC__c)) &amp;&amp; ISNEW())) &amp;&amp; NOT(ISBLANK( Account_External_MERC__c ))</formula>
+        <formula>(NOT(CONTAINS(LastModifiedBy.Username,&apos;mvibatch.integration@&apos;))) &amp;&amp; (
+(NOT(CONTAINS(LastModifiedBy.Username,&apos;mercuryintegration.veeva@&apos;)) || ISCHANGED( Maximum_Fee_MERC__c ) || (NOT(ISBLANK(Maximum_Fee_MERC__c)) 
+&amp;&amp; ISNEW())) 
+&amp;&amp; NOT(ISBLANK( Account_External_MERC__c )))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
 </Workflow>
