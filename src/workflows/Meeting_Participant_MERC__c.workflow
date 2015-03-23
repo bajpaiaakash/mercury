@@ -936,7 +936,6 @@
         </actions>
         <active>true</active>
         <description>Updates the Unique Participant text field to enforce Participant Uniqueness for a Meeting  : MERC : Created on 01/10/2014 by Katy Lorenti, Mavens Consulting</description>
-        <formula>TRUE</formula>
         <formula>(ISCHANGED(Number_of_Completed_Contracts_MERC__c) &amp;&amp; Number_of_Completed_Contracts_MERC__c = 1)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
