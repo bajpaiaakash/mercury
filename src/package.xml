@@ -133,7 +133,6 @@
         <members>HCP_Contract_MERC__c-MERC_MSA Contract</members>
         <members>HCP_Contract_MERC__c-MERC_Work Order</members>
         <members>Invoice_Line_Item_MERC__c-Invoice Line Item Layout</members>
-        <members>Invoice_Line_Item_MERC__c-MERC_Consulting Project</members>
         <members>Invoice_Line_Item_MERC__c-MERC_Contracted Services</members>
         <members>Invoice_Line_Item_MERC__c-MERC_Invoice Line Item</members>
         <members>Invoice_MERC__c-Invoice Layout</members>
