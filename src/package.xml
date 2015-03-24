@@ -44,6 +44,8 @@
         <members>MERC_InvoiceXmlWriter</members>
         <members>MERC_InvoiceXmlWriterTest</members>
         <members>MERC_LockedRecordHandler</members>
+        <members>MERC_MeetingCancellationHandler</members>
+        <members>MERC_MeetingCancellationHandlerTest</members>
         <members>MERC_MeetingDayManagerControllerTest</members>
         <members>MERC_MeetingParticipantCurrencyCnvrtTest</members>
         <members>MERC_MeetingParticipantCurrencyConvert</members>
