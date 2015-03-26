@@ -35,7 +35,8 @@ private class MERC_MVIMeetingTimeZoneHandlerTest
 		}
 	}
 
-	//@isTest 
+//  TODO - Add to next hotfix/testing cycle!! 
+//	@isTest
 	static void test_should_set_dates_per_timezone_when_MVI_updates()
 	{
 		User mviUser = [SELECT Id FROM user WHERE username LIKE 'mercuryintegration.veeva@%' limit 1];
@@ -67,7 +68,8 @@ private class MERC_MVIMeetingTimeZoneHandlerTest
 		}
 	}
 
-	@isTest 
+//  TODO - Add to next hotfix/testing cycle!! 
+//	@isTest
 	static void test_should_not_set_dates_when_non_MVI_updates()
 	{
 
