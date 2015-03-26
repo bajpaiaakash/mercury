@@ -47,7 +47,7 @@ private class MERC_ParticipantTovStampHandlerTest {
 		}
 	}
 
-//  TODO - Add to next hotfix/testing cycle! 
+//  TODO - Add to next hotfix/testing cycle!! 
 //	@isTest
 	static void test_travel_itinerary_update_does_not_stamp_meeting_when_tov_is_not_final() {
 		insertItineraries();
@@ -71,7 +71,7 @@ private class MERC_ParticipantTovStampHandlerTest {
 		}
 	}
 
-// TODO - Add to next hotfix/testing cycle! 
+// TODO - Add to next hotfix/testing cycle!! 
 //	@isTest
 	static void test_daily_attendance_update_stamps_meeting()
 	{
