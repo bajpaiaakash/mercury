@@ -53,6 +53,7 @@
         <members>MERC_MeetingParticipantNewEditController</members>
         <members>MERC_MergeHistoryStampTriggerHandler</members>
         <members>MERC_MergeHistoryStampTriggerHandlerTest</members>
+        <members>MERC_MVIMeetingTimeZoneHandlerTest</members>
         <members>MERC_ParticipantStatusCalculator</members>
         <members>MERC_ParticipantTovStampHandler</members>
         <members>MERC_ParticipantTovStampHandlerTest</members>
