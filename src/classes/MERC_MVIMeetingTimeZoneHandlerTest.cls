@@ -11,7 +11,7 @@ private class MERC_MVIMeetingTimeZoneHandlerTest
 	static User runningUser = MERC_TestFactory.getRunningUser();
 	static User testUser = MERC_TestFactory.getTestingUser();
 	static List<Meeting_MERC__c> meetings;
-	static String timeZoneId = 'Europe/Moscow';  // GMT + 4 (or 3 depending on daylight savings observance)
+	static String timeZoneId = 'Asia/Shanghai';  // GMT + 8 (does not observe Daylight Savings Time)
 	static Integer timeZoneOffset;
 	static
 	{
@@ -35,8 +35,7 @@ private class MERC_MVIMeetingTimeZoneHandlerTest
 		}
 	}
 
-//  TODO - Add to next hotfix/testing cycle!! 
-//	@isTest
+	@isTest
 	static void test_should_set_dates_per_timezone_when_MVI_updates()
 	{
 		User mviUser = [SELECT Id FROM user WHERE username LIKE 'mercuryintegration.veeva@%' limit 1];
@@ -48,7 +47,7 @@ private class MERC_MVIMeetingTimeZoneHandlerTest
 				meeting.Start_Time_of_Meeting_MERC__c = DateTime.newInstance(meeting.Date_of_Event_MERC__c, Time.newInstance(2, 0, 0, 0)); //2am will convert to prior day gmt
 				meeting.End_Date_of_Event_MERC__c = Date.today().addDays(3);
 				meeting.End_Time_of_Meeting_MERC__c = DateTime.newInstance(meeting.End_Date_of_Event_MERC__c, Time.newInstance(2, 0, 0, 0));
-				meeting.Meeting_Time_Zone_MERC__c = 'Moscow Standard Time ('+timeZoneId+')'; 
+				meeting.Meeting_Time_Zone_MERC__c = 'China Standard Time ('+timeZoneId+')'; 
 				meeting.Confirm_Meeting_Date_Change_MERC__c = true;
 			}
 			Test.startTest();
@@ -56,20 +55,23 @@ private class MERC_MVIMeetingTimeZoneHandlerTest
 			Test.stopTest();
 		}
 
-		meetings = [SELECT Date_of_Event_MERC__c, Start_Time_of_Meeting_MERC__c, End_Date_of_Event_MERC__c, End_Time_of_Meeting_MERC__c FROM Meeting_MERC__c];
-		System.assertEquals(200, meetings.size());
-		Integer adjustedHour = 24 + 2 - timeZoneOffset;
-		for (Meeting_MERC__c meeting : meetings)
+		System.runAs(runningUser)   
 		{
-			System.assertEquals(Date.today().addDays(1), meeting.Date_of_Event_MERC__c);
-			System.assertEquals(Datetime.newInstance(Date.today(), Time.newInstance(adjustedHour,0,0,0)), meeting.Start_Time_of_Meeting_MERC__c);
-			System.assertEquals(Date.today().addDays(3), meeting.End_Date_of_Event_MERC__c);
-			System.assertEquals(Datetime.newInstance(Date.today().addDays(2), Time.newInstance(adjustedHour,0,0,0)), meeting.End_Time_of_Meeting_MERC__c);
+			meetings = [SELECT Date_of_Event_MERC__c, Start_Time_of_Meeting_MERC__c, End_Date_of_Event_MERC__c, End_Time_of_Meeting_MERC__c FROM Meeting_MERC__c];
+			System.assertEquals(200, meetings.size());
+			Integer adjustedHour = 24 + 2 - timeZoneOffset;
+			for (Meeting_MERC__c meeting : meetings)
+			{
+				System.assertEquals(Date.today().addDays(1), meeting.Date_of_Event_MERC__c);
+				System.assertEquals(Datetime.newInstance(Date.today(), Time.newInstance(adjustedHour,0,0,0)), meeting.Start_Time_of_Meeting_MERC__c);
+				System.assertEquals(Date.today().addDays(3), meeting.End_Date_of_Event_MERC__c);
+				// assertion fails if run with a user NOT in true GMT
+				System.assertEquals(Datetime.newInstance(Date.today().addDays(2), Time.newInstance(adjustedHour,0,0,0)), meeting.End_Time_of_Meeting_MERC__c);
+			}
 		}
 	}
 
-//  TODO - Add to next hotfix/testing cycle!! 
-//	@isTest
+ 	@isTest
 	static void test_should_not_set_dates_when_non_MVI_updates()
 	{
 
@@ -81,7 +83,7 @@ private class MERC_MVIMeetingTimeZoneHandlerTest
 				meeting.Start_Time_of_Meeting_MERC__c = DateTime.newInstance(meeting.Date_of_Event_MERC__c, Time.newInstance(2, 0, 0, 0)); //2am will convert to prior day gmt
 				meeting.End_Date_of_Event_MERC__c = Date.today().addDays(3);
 				meeting.End_Time_of_Meeting_MERC__c = DateTime.newInstance(meeting.End_Date_of_Event_MERC__c, Time.newInstance(2, 0, 0, 0));
-				meeting.Meeting_Time_Zone_MERC__c = 'Moscow Standard Time ('+timeZoneId+')';
+				meeting.Meeting_Time_Zone_MERC__c = 'China Standard Time ('+timeZoneId+')';
 				meeting.Confirm_Meeting_Date_Change_MERC__c = true;
 			}
 			Test.startTest();
@@ -89,14 +91,18 @@ private class MERC_MVIMeetingTimeZoneHandlerTest
 			Test.stopTest();
 		}
 
-		meetings = [SELECT Date_of_Event_MERC__c, Start_Time_of_Meeting_MERC__c, End_Date_of_Event_MERC__c, End_Time_of_Meeting_MERC__c FROM Meeting_MERC__c];
-		System.assertEquals(200, meetings.size());
-		for (Meeting_MERC__c meeting : meetings)
+		System.runAs(runningUser)
 		{
-			System.assertEquals(Date.today().addDays(1), meeting.Date_of_Event_MERC__c);
-			System.assertEquals(Datetime.newInstance(Date.today().addDays(1), Time.newInstance(2,0,0,0)), meeting.Start_Time_of_Meeting_MERC__c);
-			System.assertEquals(Date.today().addDays(3), meeting.End_Date_of_Event_MERC__c);
-			System.assertEquals(Datetime.newInstance(Date.today().addDays(3), Time.newInstance(2,0,0,0)), meeting.End_Time_of_Meeting_MERC__c);
+			meetings = [SELECT Date_of_Event_MERC__c, Start_Time_of_Meeting_MERC__c, End_Date_of_Event_MERC__c, End_Time_of_Meeting_MERC__c FROM Meeting_MERC__c];
+			System.assertEquals(200, meetings.size());
+			for (Meeting_MERC__c meeting : meetings)
+			{
+				System.assertEquals(Date.today().addDays(1), meeting.Date_of_Event_MERC__c);
+				System.assertEquals(Datetime.newInstance(Date.today().addDays(1), Time.newInstance(2,0,0,0)), meeting.Start_Time_of_Meeting_MERC__c);
+				System.assertEquals(Date.today().addDays(3), meeting.End_Date_of_Event_MERC__c);
+				// assertion fails if run with a user NOT in true GMT
+				System.assertEquals(Datetime.newInstance(Date.today().addDays(3), Time.newInstance(2,0,0,0)), meeting.End_Time_of_Meeting_MERC__c);
+			}
 		}
 	}
 }
