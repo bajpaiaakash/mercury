@@ -2962,10 +2962,6 @@ Created by John Adams 11/6/2013</description>
                 <fullName>Greenwich Mean Time (GMT)</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
-                <fullName>PBattisson Test Zone (Pacific/Kiritimati)</fullName>
-                <default>false</default>
-            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>true</trackHistory>
