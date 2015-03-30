@@ -6016,10 +6016,6 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>PBattisson Test Zone %28Pacific%2FKiritimati%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Srednekolymsk Time  %28Asia%2FSrednekolymsk%29</fullName>
                 <default>false</default>
             </values>
@@ -7749,10 +7745,6 @@ Created by John Adams 11/6/2013</description>
             </values>
             <values>
                 <fullName>Omsk Time Zone %28Asia%2FOmsk%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PBattisson Test Zone %28Pacific%2FKiritimati%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9516,10 +9508,6 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>PBattisson Test Zone %28Pacific%2FKiritimati%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Srednekolymsk Time  %28Asia%2FSrednekolymsk%29</fullName>
                 <default>false</default>
             </values>
@@ -11280,10 +11268,6 @@ Created by John Adams 11/6/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>PBattisson Test Zone %28Pacific%2FKiritimati%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Srednekolymsk Time  %28Asia%2FSrednekolymsk%29</fullName>
                 <default>false</default>
             </values>
@@ -13013,10 +12997,6 @@ Created by John Adams 11/6/2013</description>
             </values>
             <values>
                 <fullName>Omsk Time Zone %28Asia%2FOmsk%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PBattisson Test Zone %28Pacific%2FKiritimati%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14777,10 +14757,6 @@ Created by John Adams 11/6/2013</description>
             </values>
             <values>
                 <fullName>Omsk Time Zone %28Asia%2FOmsk%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PBattisson Test Zone %28Pacific%2FKiritimati%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16545,10 +16521,6 @@ Created by John Adams 11/6/2013</description>
             </values>
             <values>
                 <fullName>Omsk Time Zone %28Asia%2FOmsk%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PBattisson Test Zone %28Pacific%2FKiritimati%29</fullName>
                 <default>false</default>
             </values>
             <values>
