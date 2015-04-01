@@ -84,10 +84,6 @@
         <name>ApexTrigger</name>
     </types>
     <types>
-        <members>*</members>
-        <name>CustomLabels</name>
-    </types>
-    <types>
         <members>Account</members>
         <members>Address_GLBL__c</members>
         <members>CST_User_Settings_CUST__c</members>
