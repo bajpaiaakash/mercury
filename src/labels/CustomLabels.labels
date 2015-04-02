@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>CST_Service_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CST_Web_Service_Error</shortDescription>
+        <value>The CST web service is currently not available. Contact an administrator if this error persists.</value>
+    </labels>
+</CustomLabels>

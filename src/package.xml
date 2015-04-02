@@ -86,6 +86,10 @@
         <name>ApexTrigger</name>
     </types>
     <types>
+        <members>CST_Service_Error</members>
+        <name>CustomLabels</name>
+    </types>
+    <types>
         <members>Account</members>
         <members>Address_GLBL__c</members>
         <members>CST_User_Settings_CUST__c</members>
@@ -244,5 +248,5 @@
         <members>Preferences_and_Consent_GLBL__c.Prior_Parent_Id_GLBL__c</members>
         <name>CustomField</name>
     </types>
-    <version>32.0</version>
+    <version>31.0</version>
 </Package>

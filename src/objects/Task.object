@@ -191,7 +191,101 @@
         <fullName>WhoId</fullName>
         <type>Lookup</type>
     </fields>
+    <recordTypes>
+        <fullName>MERC_Tasks</fullName>
+        <active>true</active>
+        <description>Mercury Tasks associated with a Meeting</description>
+        <label>Mercury Tasks</label>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deferred</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Waiting on someone else</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Subject</picklist>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Quote</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>MOH Notification%2Fapproval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Materials Approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting Approval</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <sharingModel>Private</sharingModel>
+    <validationRules>
+        <fullName>TRFO_OtherEntryValidation</fullName>
+        <active>true</active>
+        <description>make sure if type&lt;&gt; livevisit, the user does not populate live visit type</description>
+        <errorConditionFormula>and(Text(Type) &lt;&gt; &apos;Live Visit&apos;, Not(ISBLANK(text(TRFO_LiveVisitType__c))), NOT(CONTAINS($User.LastName , &quot;Migration User&quot;)))</errorConditionFormula>
+        <errorDisplayField>TRFO_LiveVisitType__c</errorDisplayField>
+        <errorMessage>Live Visit Type should be selected only when the Type is &quot;Live Visit&quot;. Please select &quot;None&quot; to continue.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>TRFO_VisitTypeValidation</fullName>
+        <active>true</active>
+        <description>When Live Visit is selected in Type, the user needs to select either Pre-Enrollment or Post-Enrollment</description>
+        <errorConditionFormula>and(Text(Type) = &apos;Live Visit&apos;, ISBLANK(text(TRFO_LiveVisitType__c )), NOT(CONTAINS($User.LastName , &quot;Migration User&quot;)))</errorConditionFormula>
+        <errorDisplayField>TRFO_LiveVisitType__c</errorDisplayField>
+        <errorMessage>Please select a value from the Live Visit Type field</errorMessage>
+    </validationRules>
     <webLinks>
         <fullName>IRIS_Custom_Send_Email</fullName>
         <availability>online</availability>
