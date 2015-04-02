@@ -246,19 +246,6 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>TRFO_Contact__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>Used to link custom contact record with Standard one in order to meet Activities and Salesforce to Outlook requirements.</description>
-        <externalId>false</externalId>
-        <label>TRFO Contact</label>
-        <referenceTo>TRFO_Contacts__c</referenceTo>
-        <relationshipLabel>Contacts</relationshipLabel>
-        <relationshipName>Standard_Contacts</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>Title</fullName>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
