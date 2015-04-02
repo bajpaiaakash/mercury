@@ -1232,9 +1232,6 @@ Expired: Access expired before it was reviewed</inlineHelpText>
         </filters>
         <label>Access Requests with Manager issues</label>
         <language>en_US</language>
-        <sharedTo>
-            <group>System_Administrators</group>
-        </sharedTo>
     </listViews>
     <nameField>
         <displayFormat>CSTUS-{000000}</displayFormat>
