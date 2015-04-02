@@ -86,7 +86,7 @@
         <name>ApexTrigger</name>
     </types>
     <types>
-        <members>CST_Service_Error</members>
+        <members>*</members>
         <name>CustomLabels</name>
     </types>
     <types>
