@@ -238,5 +238,9 @@
         <members>Team_Member_MERC__c.RTI - Team Member Updated</members>
         <name>WorkflowRule</name>
     </types>
+    <types>
+        <members>Preferences_and_Consent_GLBL__c.Prior_Parent_Id_GLBL__c</members>
+        <name>CustomField</name>
+    </types>
     <version>32.0</version>
 </Package>
