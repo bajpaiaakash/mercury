@@ -270,22 +270,6 @@
         </picklistValues>
     </recordTypes>
     <sharingModel>Private</sharingModel>
-    <validationRules>
-        <fullName>TRFO_OtherEntryValidation</fullName>
-        <active>true</active>
-        <description>make sure if type&lt;&gt; livevisit, the user does not populate live visit type</description>
-        <errorConditionFormula>and(Text(Type) &lt;&gt; &apos;Live Visit&apos;, Not(ISBLANK(text(TRFO_LiveVisitType__c))), NOT(CONTAINS($User.LastName , &quot;Migration User&quot;)))</errorConditionFormula>
-        <errorDisplayField>TRFO_LiveVisitType__c</errorDisplayField>
-        <errorMessage>Live Visit Type should be selected only when the Type is &quot;Live Visit&quot;. Please select &quot;None&quot; to continue.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>TRFO_VisitTypeValidation</fullName>
-        <active>true</active>
-        <description>When Live Visit is selected in Type, the user needs to select either Pre-Enrollment or Post-Enrollment</description>
-        <errorConditionFormula>and(Text(Type) = &apos;Live Visit&apos;, ISBLANK(text(TRFO_LiveVisitType__c )), NOT(CONTAINS($User.LastName , &quot;Migration User&quot;)))</errorConditionFormula>
-        <errorDisplayField>TRFO_LiveVisitType__c</errorDisplayField>
-        <errorMessage>Please select a value from the Live Visit Type field</errorMessage>
-    </validationRules>
     <webLinks>
         <fullName>IRIS_Custom_Send_Email</fullName>
         <availability>online</availability>
