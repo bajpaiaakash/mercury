@@ -163,6 +163,8 @@
         <name>Layout</name>
     </types>
     <types>
+        <members>DDP_Admin_Mercury</members>
+        <members>DDP_User_Mercury</members>
         <members>ExactTarget_Meeting_Integration_MERC</members>
         <members>Mercury_Account_Manager_Edit</members>
         <members>Mercury_Customer_Meeting_Services_Edit</members>
