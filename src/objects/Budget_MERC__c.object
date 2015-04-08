@@ -1,6 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Used to Manage and Store Budgets for Meetings, this Object is a Header for Budget Line Items : MERC : Created on 09/27/2013 by Katy Lorenti, Mavens Consulting</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
     <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
     <fields>
         <fullName>Additional_Information_Budget_MERC__c</fullName>
         <description>Captures notes for additional information about the budget. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
@@ -257,6 +311,7 @@ Created by J Adams 12/10/2013</description>
         <type>Number</type>
         <unique>false</unique>
     </fields>
+    <label>Budget</label>
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
@@ -267,6 +322,14 @@ Created by J Adams 12/10/2013</description>
         <label>All</label>
         <language>en_US</language>
     </listViews>
+    <nameField>
+        <displayFormat>BDGT-{000000}</displayFormat>
+        <label>Budget Name</label>
+        <trackHistory>true</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Budgets</pluralLabel>
+    <recordTypeTrackHistory>true</recordTypeTrackHistory>
     <recordTypes>
         <fullName>MERC_Budget_Active</fullName>
         <active>true</active>
@@ -385,6 +448,30 @@ Created by J Adams 12/10/2013</description>
             </values>
         </picklistValues>
     </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>Budget_Date_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Meeting_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CREATEDBY_USER</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Budget_Date_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Status_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Meeting_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>CREATEDBY_USER</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Budget_Date_MERC__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Status_MERC__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Meeting_MERC__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>CREATEDBY_USER</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Budget_Date_MERC__c</searchFilterFields>
+        <searchFilterFields>Status_MERC__c</searchFilterFields>
+        <searchFilterFields>Meeting_MERC__c</searchFilterFields>
+        <searchFilterFields>CREATEDBY_USER</searchFilterFields>
+        <searchResultsAdditionalFields>Budget_Date_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Meeting_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CREATEDBY_USER</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
         <fullName>MERC_Internal_Order_Number_Completed</fullName>
         <active>true</active>
@@ -421,4 +508,49 @@ Meeting_MERC__r.Number_of_Draft_Budgets_MERC__c &gt; 1</errorConditionFormula>
         <errorConditionFormula>$Setup.Mercury_Settings_MERC__c.Budget_Edit_Validation_MERC__c &amp;&amp; NOT(ISCHANGED(RecordTypeId)) &amp;&amp; (RecordType.DeveloperName == &apos;MERC_Budget_Final&apos;)</errorConditionFormula>
         <errorMessage>You cannot modify a finalised budget.</errorMessage>
     </validationRules>
+    <webLinks>
+        <fullName>Finalise_Budget_MERC</fullName>
+        <availability>online</availability>
+        <description>Finalises/locks down a budget -JFerraro Dec. 10, 2013</description>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Finalise Budget</masterLabel>
+        <openType>sidebar</openType>
+        <page>MERC_FinalizeBudgetConfirm</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>MERC_Activate_Budget</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Activate Budget</masterLabel>
+        <openType>sidebar</openType>
+        <page>MERC_ActivateBudget</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>MERC_New_Budget_Version</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>New Version</masterLabel>
+        <openType>sidebar</openType>
+        <page>MERC_NewBudgetVersion</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>Upload_Content</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Upload Content</masterLabel>
+        <openType>sidebar</openType>
+        <page>MERC_NewBudgetContent</page>
+        <protected>false</protected>
+    </webLinks>
 </CustomObject>
