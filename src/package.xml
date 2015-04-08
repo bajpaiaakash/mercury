@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>Account.Transparency_Reporting_current_time_MERC__c</members>
-        <members>Account.Transparency_Reporting_last_update_MERC__c</members>
-        <members>Meeting_MERC__c.Audit_End_Date_MERC__c</members>
-        <members>Meeting_MERC__c.Audit_Start_Date_MERC__c</members>
-        <members>Meeting_MERC__c.Meeting_Errors_MERC__c</members>
-        <members>Meeting_MERC__c.Subject_to_ToV_Audit_MERC__c</members>
-        <members>Meeting_MERC__c.ToV_Audit_Status_MERC__c</members>
-        <members>Meeting_Participant_MERC__c.Maximum_Fee_current_time_updated_MERC__c</members>
-        <members>Meeting_Participant_MERC__c.Maximum_Fee_last_updated_MERC__c</members>
-        <name>CustomField</name>
+        <members>Account</members>
+        <members>Address_GLBL__c</members>
+        <members>Budget_Line_Item_MERC__c</members>
+        <members>Budget_MERC__c</members>
+        <members>Content_Library_Lookup_MERC__c</members>
+        <members>Meeting_MERC__c</members>
+        <members>Meeting_Participant_MERC__c</members>
+        <members>Opportunity</members>
+        <name>CustomObject</name>
     </types>
     <types>
         <members>MERC_TOV_Auditors</members>
@@ -20,31 +19,6 @@
         <members>Mercury_System_Administrator_Lite</members>
         <members>Mercury_TOV_Audit_Team_Member_and_GTMS_Oversight</members>
         <name>PermissionSet</name>
-    </types>
-    <types>
-        <members>Meeting_MERC__c.MERC_Restrict_Audit_TOV_Status_Changes</members>
-        <name>ValidationRule</name>
-    </types>
-    <types>
-        <members>Account.MERC_Transparency_reporting_last_modify</members>
-        <members>Account.MERC_Transparency_reporting_modify_date</members>
-        <members>Meeting_MERC__c.Audit_Start_Date_stamped_MERC</members>
-        <members>Meeting_MERC__c.Audit_end_Date_stamping_MERC</members>
-        <members>Meeting_MERC__c.Audit_end_date_field_should_be_blank</members>
-        <members>Meeting_MERC__c.Reset_Audit_End_Date</members>
-        <members>Meeting_MERC__c.Reset_Audit_Start_Date</members>
-        <members>Meeting_MERC__c.Reset_TOV_Audit_Status</members>
-        <members>Meeting_Participant_MERC__c.MERC_Maximum_Fee_last_modify</members>
-        <members>Meeting_Participant_MERC__c.MERC_Maximum_Fee_modify_date</members>
-        <name>WorkflowFieldUpdate</name>
-    </types>
-    <types>
-        <members>Account.MERC_Transparency_reporting_last_modify_date_captured</members>
-        <members>Meeting_MERC__c.MERC_Audit status changed as Completed</members>
-        <members>Meeting_MERC__c.MERC_Audit status changed as InProcess</members>
-        <members>Meeting_MERC__c.MERC_Reset audit fields</members>
-        <members>Meeting_Participant_MERC__c.MERC_Maximum_Fee_last_modify_date_captured</members>
-        <name>WorkflowRule</name>
     </types>
     <version>31.0</version>
 </Package>
