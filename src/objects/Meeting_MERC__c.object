@@ -1,69 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
-    <actionOverrides>
-        <actionName>Accept</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>CancelEdit</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Clone</actionName>
-        <comment>Overridden for Date/Time UX purposes. Layout still edited in standard way via Page Layouts. - K Thornton (2014/05/13)</comment>
-        <content>MERC_MeetingNewEdit</content>
-        <skipRecordTypeSelect>false</skipRecordTypeSelect>
-        <type>Visualforce</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Delete</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Edit</actionName>
-        <comment>Overridden for Date/Time UX purposes. Layout still edited in standard way via Page Layouts. -JFerraro Jan 22, 2014</comment>
-        <content>MERC_MeetingNewEdit</content>
-        <skipRecordTypeSelect>false</skipRecordTypeSelect>
-        <type>Visualforce</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>List</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>New</actionName>
-        <comment>Overridden for Date/Time UX purposes. Layout still edited in standard way via Page Layouts. -JFerraro Jan 22, 2014</comment>
-        <content>MERC_MeetingNewEdit</content>
-        <skipRecordTypeSelect>false</skipRecordTypeSelect>
-        <type>Visualforce</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>SaveEdit</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Tab</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>View</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
-    <deploymentStatus>Deployed</deploymentStatus>
-    <description>Primary object to store meeting information. Integrates with Veeva : MERC : Created on 09/27/2013 by Katy Lorenti, Mavens Consulting</description>
-    <enableActivities>true</enableActivities>
-    <enableBulkApi>true</enableBulkApi>
     <enableEnhancedLookup>true</enableEnhancedLookup>
-    <enableFeeds>false</enableFeeds>
-    <enableHistory>true</enableHistory>
-    <enableReports>true</enableReports>
-    <enableSharing>true</enableSharing>
-    <enableStreamingApi>true</enableStreamingApi>
     <fieldSets>
         <fullName>Meeting_Date_Time_Edit_MERC</fullName>
         <description>MeetingNewEdit VF page</description>
@@ -4314,7 +4251,6 @@ Created by John Adams 11/6/2013</description>
         <trackTrending>false</trackTrending>
         <type>Summary</type>
     </fields>
-    <label>Meeting</label>
     <listViews>
         <fullName>Active_MERC</fullName>
         <columns>NAME</columns>
@@ -4527,13 +4463,6 @@ Created by John Adams 11/6/2013</description>
         <label>Registered Meetings</label>
         <language>en_US</language>
     </listViews>
-    <nameField>
-        <label>Meeting Name</label>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-    </nameField>
-    <pluralLabel>Meetings</pluralLabel>
-    <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
         <fullName>Ad_Hoc_Consulting</fullName>
         <active>true</active>
@@ -16879,39 +16808,6 @@ Created by John Adams 11/6/2013</description>
             </values>
         </picklistValues>
     </recordTypes>
-    <searchLayouts>
-        <customTabListAdditionalFields>Parent_Meeting_MERC__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Formatted_Name_MERC__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Type_MERC__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Date_of_Event_MERC__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>End_Date_of_Event_MERC__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Event_Country_MERC__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Meeting_Status_MERC__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>CREATEDBY_USER</customTabListAdditionalFields>
-        <listViewButtons>Mass_LOOP_Plus</listViewButtons>
-        <lookupDialogsAdditionalFields>Parent_Meeting_MERC__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Formatted_Name_MERC__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Type_MERC__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Date_of_Event_MERC__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Event_Country_MERC__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>CREATEDBY_USER</lookupDialogsAdditionalFields>
-        <searchFilterFields>NAME</searchFilterFields>
-        <searchFilterFields>Parent_Meeting_MERC__c</searchFilterFields>
-        <searchFilterFields>Formatted_Name_MERC__c</searchFilterFields>
-        <searchFilterFields>Type_MERC__c</searchFilterFields>
-        <searchFilterFields>Date_of_Event_MERC__c</searchFilterFields>
-        <searchFilterFields>Event_Country_MERC__c</searchFilterFields>
-        <searchFilterFields>CREATEDBY_USER</searchFilterFields>
-        <searchResultsAdditionalFields>Parent_Meeting_MERC__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Formatted_Name_MERC__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Date_of_Event_MERC__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>End_Date_of_Event_MERC__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Event_Country_MERC__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Type_MERC__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Meeting_Status_MERC__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>CREATEDBY_USER</searchResultsAdditionalFields>
-    </searchLayouts>
-    <sharingModel>Private</sharingModel>
     <validationRules>
         <fullName>MERC_Amount_paid_cannot_be_Negative</fullName>
         <active>true</active>
@@ -17266,134 +17162,4 @@ RecordType.Name &lt;&gt; &apos;Consulting Project&apos;)  &amp;&amp;
         <errorDisplayField>Planned_Budget_MERC__c</errorDisplayField>
         <errorMessage>The Budget is required before status can be changed to Registered</errorMessage>
     </validationRules>
-    <webLinks>
-        <fullName>Affiliate_Resource_Center_MERC</fullName>
-        <availability>online</availability>
-        <displayType>link</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <hasMenubar>false</hasMenubar>
-        <hasScrollbars>true</hasScrollbars>
-        <hasToolbar>false</hasToolbar>
-        <height>600</height>
-        <isResizable>true</isResizable>
-        <linkType>url</linkType>
-        <masterLabel>Affiliate Resource Center</masterLabel>
-        <openType>newWindow</openType>
-        <position>none</position>
-        <protected>false</protected>
-        <showsLocation>false</showsLocation>
-        <showsStatus>false</showsStatus>
-        <url>http://lillynetcollaboration.global.lilly.com/sites/CandE/AffiliateInfo/Pages/default.aspx</url>
-    </webLinks>
-    <webLinks>
-        <fullName>Generate_Content_MERC</fullName>
-        <availability>online</availability>
-        <description>Generates content  with DrawLoop for the Meeting. 
-Created by John Adams on 1/21/2014</description>
-        <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <height>600</height>
-        <linkType>url</linkType>
-        <masterLabel>Generate Content</masterLabel>
-        <openType>sidebar</openType>
-        <protected>false</protected>
-        <url>/apex/loop__looplus?eid={!Meeting_MERC__c.Id}&amp;sessionId={!$Api.Session_ID}</url>
-    </webLinks>
-    <webLinks>
-        <fullName>Mass_LOOP_Plus</fullName>
-        <availability>online</availability>
-        <description>Test Mass Loop Button</description>
-        <displayType>massActionButton</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>Mass LOOP Plus</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/26.0/connection.js&quot;)}
-{!REQUIRESCRIPT(&quot;/support/console/26.0/integration.js&quot;)}
-
-var ids = {!GETRECORDIDS($ObjectType.Meeting_MERC__c)};
-if (!ids || ids.length &lt; 1)
-    alert(&quot;Please select at least one record.&quot;);
-else
-{
-    var redirectUrl = &quot;/apex/loop__masslooplus?&amp;retURL=&quot; + encodeURI(window.location.pathname+window.location.search);
-    redirectUrl += &quot;&amp;recordIds=&quot;+ids.join(&quot;,&quot;);
-    redirectUrl += &quot;&amp;sessionId={!$Api.Session_ID}&quot;;
-        window.location.href = redirectUrl;
-}</url>
-    </webLinks>
-    <webLinks>
-        <fullName>Meeting_Date_Times</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <height>600</height>
-        <linkType>page</linkType>
-        <masterLabel>Meeting Date/Times</masterLabel>
-        <openType>sidebar</openType>
-        <page>MERC_MeetingDateTimesEdit</page>
-        <protected>false</protected>
-    </webLinks>
-    <webLinks>
-        <fullName>Meeting_Report_MERC</fullName>
-        <availability>online</availability>
-        <description>Displays List of Meeting Participants</description>
-        <displayType>link</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <hasMenubar>false</hasMenubar>
-        <hasScrollbars>true</hasScrollbars>
-        <hasToolbar>false</hasToolbar>
-        <height>600</height>
-        <isResizable>true</isResizable>
-        <linkType>url</linkType>
-        <masterLabel>Meeting Participant Report</masterLabel>
-        <openType>newWindow</openType>
-        <position>none</position>
-        <protected>false</protected>
-        <showsLocation>false</showsLocation>
-        <showsStatus>false</showsStatus>
-        <url>/{!$Setup.Mercury_Settings_MERC__c.Meeting_Participant_Report_Id_MERC__c}?pv0={!Meeting_MERC__c.Id}</url>
-    </webLinks>
-    <webLinks>
-        <fullName>Meetings_with_HCPs_Resources_MERC</fullName>
-        <availability>online</availability>
-        <displayType>link</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <hasMenubar>false</hasMenubar>
-        <hasScrollbars>true</hasScrollbars>
-        <hasToolbar>false</hasToolbar>
-        <height>600</height>
-        <isResizable>true</isResizable>
-        <linkType>url</linkType>
-        <masterLabel>Meetings with HCPs Resources</masterLabel>
-        <openType>newWindow</openType>
-        <position>none</position>
-        <protected>false</protected>
-        <showsLocation>false</showsLocation>
-        <showsStatus>false</showsStatus>
-        <url>http://lillynet.global.lilly.com/sites/CandE/GeneralResources/Pages/MeetingsWithHCPs.aspx</url>
-    </webLinks>
-    <webLinks>
-        <fullName>Send_ExactTarget_Email_MERC</fullName>
-        <availability>online</availability>
-        <description>Displays ExactTarget Email Send page for Meetings</description>
-        <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <linkType>url</linkType>
-        <masterLabel>Send ExactTarget Email</masterLabel>
-        <openType>replace</openType>
-        <protected>false</protected>
-        <url>/apex/MeetingEmailSend?id={!Meeting_MERC__c.Id}</url>
-    </webLinks>
-    <webLinks>
-        <fullName>Upload_Content_MERC</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <height>600</height>
-        <linkType>page</linkType>
-        <masterLabel>Upload Content</masterLabel>
-        <openType>sidebar</openType>
-        <page>MERC_NewMeetingContent</page>
-        <protected>false</protected>
-    </webLinks>
 </CustomObject>

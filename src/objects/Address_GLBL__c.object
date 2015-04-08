@@ -1,60 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
-    <actionOverrides>
-        <actionName>Accept</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>CancelEdit</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Clone</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Delete</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Edit</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>List</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>New</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>SaveEdit</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Tab</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>View</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
-    <deploymentStatus>Deployed</deploymentStatus>
-    <description>Stores Mastered and Mercury Address Information.  For example, a HCPs Payee Address or the Address of the HCPs Institution as per Master Data : MERC, CUST : Created on 10/17/2013 by John Adams, Mavens Consulting</description>
-    <enableActivities>false</enableActivities>
-    <enableBulkApi>true</enableBulkApi>
     <enableEnhancedLookup>true</enableEnhancedLookup>
-    <enableFeeds>false</enableFeeds>
-    <enableHistory>true</enableHistory>
-    <enableReports>true</enableReports>
-    <enableSharing>true</enableSharing>
-    <enableStreamingApi>true</enableStreamingApi>
     <fieldSets>
         <fullName>Account_Merge_Addresses_MERC</fullName>
         <description>MERC_MergedAccounts.page / MERC_MergedAccountsApex.cls / Custom Setting: Account Merge - Addresses .Oliver Dunford 8th May 2014</description>
@@ -1889,7 +1835,6 @@ Created by John A Adams 9/27/2013</description>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <label>Address</label>
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
@@ -1905,14 +1850,6 @@ Created by John A Adams 9/27/2013</description>
         <label>All</label>
         <language>en_US</language>
     </listViews>
-    <nameField>
-        <displayFormat>ADR-{000000}</displayFormat>
-        <label>Address</label>
-        <trackHistory>false</trackHistory>
-        <type>AutoNumber</type>
-    </nameField>
-    <pluralLabel>Addresses</pluralLabel>
-    <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
         <fullName>Contract_Party_Address</fullName>
         <active>true</active>
@@ -7013,41 +6950,6 @@ Created by John A Adams 9/27/2013</description>
             </values>
         </picklistValues>
     </recordTypes>
-    <searchLayouts>
-        <customTabListAdditionalFields>Account_GLBL__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Line_1_Adrs_Txt_GLBL__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Line_2_Adrs_Txt_GLBL__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>City_GLBL__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Zip_Postal_Code_GLBL__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Adrs_Cntry_Cd_GLBL__c</customTabListAdditionalFields>
-        <lookupDialogsAdditionalFields>Account_Name_MERC__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Line_1_Adrs_Txt_GLBL__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Line_2_Adrs_Txt_GLBL__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>City_GLBL__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Zip_Postal_Code_GLBL__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Adrs_Cntry_Cd_GLBL__c</lookupDialogsAdditionalFields>
-        <lookupFilterFields>NAME</lookupFilterFields>
-        <lookupFilterFields>Account_GLBL__c</lookupFilterFields>
-        <lookupFilterFields>Line_1_Adrs_Txt_GLBL__c</lookupFilterFields>
-        <lookupFilterFields>Line_2_Adrs_Txt_GLBL__c</lookupFilterFields>
-        <lookupFilterFields>City_GLBL__c</lookupFilterFields>
-        <lookupFilterFields>Zip_Postal_Code_GLBL__c</lookupFilterFields>
-        <searchFilterFields>NAME</searchFilterFields>
-        <searchFilterFields>Account_Name_MERC__c</searchFilterFields>
-        <searchFilterFields>Line_1_Adrs_Txt_GLBL__c</searchFilterFields>
-        <searchFilterFields>Line_2_Adrs_Txt_GLBL__c</searchFilterFields>
-        <searchFilterFields>City_GLBL__c</searchFilterFields>
-        <searchFilterFields>Zip_Postal_Code_GLBL__c</searchFilterFields>
-        <searchFilterFields>Adrs_Cntry_Cd_GLBL__c</searchFilterFields>
-        <searchResultsAdditionalFields>Account_Name_MERC__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Line_1_Adrs_Txt_GLBL__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Line_2_Adrs_Txt_GLBL__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>City_GLBL__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Zip_Postal_Code_GLBL__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Adrs_Cntry_Cd_GLBL__c</searchResultsAdditionalFields>
-    </searchLayouts>
-    <sharingModel>ControlledByParent</sharingModel>
-    <startsWith>Vowel</startsWith>
     <validationRules>
         <fullName>MERC_Prevent_Editing_Mastered_Address</fullName>
         <active>true</active>
@@ -7076,17 +6978,4 @@ ISCHANGED( Elctrnc_Adrs_Extnsn_Cd_GLBL__c)
 &amp;&amp; $Profile.Name &lt;&gt; &quot;Mercury Integration ODS - Platform&quot;)</errorConditionFormula>
         <errorMessage>You may not update an address that is mastered from ODS.</errorMessage>
     </validationRules>
-    <webLinks>
-        <fullName>New_Address</fullName>
-        <availability>online</availability>
-        <displayType>massActionButton</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <linkType>url</linkType>
-        <masterLabel>New Address</masterLabel>
-        <openType>replace</openType>
-        <protected>false</protected>
-        <requireRowSelection>true</requireRowSelection>
-        <url>/apex/GLBL_NewButtonPrepopulator?cObj=Address_GLBL__c&amp;cObjURL={!URLENCODE(URLFOR($Action.Address_GLBL__c.New))}&amp;cObjParent=Account&amp;cObjParentId={!Account.Id}&amp;cf_Account_GLBL__c={!Account.Name}&amp;
-cf_Account_GLBL__c_lkid={!Account.Id}</url>
-    </webLinks>
 </CustomObject>
