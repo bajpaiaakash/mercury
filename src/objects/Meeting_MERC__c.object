@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <fields>
+        <fullName>Audit_End_Date_MERC__c</fullName>
+        <description>Indicate when Audit is ended.</description>
+        <externalId>false</externalId>
+        <label>Audit End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Audit_Start_Date_MERC__c</fullName>
+        <description>Indicate when Audit is started.</description>
+        <externalId>false</externalId>
+        <label>Audit Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Errors_MERC__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>Used by Account Manager to input number of errors on the meeting. Used for SLA Reporting.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>All meeting financial data is complete and without errors.  Affiliate Account Managers include the number of errors encountered within this field to drive SLA reporting.</inlineHelpText>
+        <label>Meeting Errors</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Subject_to_ToV_Audit_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicate TOV is submitted for Audit.</description>
+        <externalId>false</externalId>
+        <label>Subject to ToV Audit</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ToV_Audit_Status_MERC__c</fullName>
+        <description>Indicate the status of TOV Audit.</description>
+        <externalId>false</externalId>
+        <label>ToV Audit Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>In Process</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <validationRules>
+        <fullName>MERC_Restrict_Audit_TOV_Status_Changes</fullName>
+        <active>true</active>
+        <description>Restrict TOV Audit Status changes to prevent jumping through multiple stages.</description>
+        <errorConditionFormula>/* Set &apos;Subject to TOV&apos; to make status change*/
+(Subject_to_ToV_Audit_MERC__c == false) &amp;&amp;
+ISCHANGED( ToV_Audit_Status_MERC__c )||
+/* From None to Completed*/
+(
+(Subject_to_ToV_Audit_MERC__c == true) &amp;&amp;
+ISCHANGED( ToV_Audit_Status_MERC__c ) &amp;&amp; 
+ISPICKVAL(ToV_Audit_Status_MERC__c,&apos;Completed&apos;) &amp;&amp;
+ISPICKVAL(PRIORVALUE(ToV_Audit_Status_MERC__c),&apos;&apos;)
+)||
+/* From Completed to None */
+(
+(Subject_to_ToV_Audit_MERC__c == true) &amp;&amp;
+ISCHANGED( ToV_Audit_Status_MERC__c ) &amp;&amp; 
+ISPICKVAL(ToV_Audit_Status_MERC__c,&apos;&apos;) &amp;&amp;
+ISPICKVAL(PRIORVALUE(ToV_Audit_Status_MERC__c),&apos;Completed&apos;)
+)</errorConditionFormula>
+        <errorMessage>NOTE: Please check &apos;Subject to ToV Audit&apos; checkbox. If checked, please follow the correct Status process. as None-&gt;InProcess-&gt;Completed. You cannot skip ToV Audit Status and can not change back the status, if Subject to TOV Audit checkbox is checked.</errorMessage>
+    </validationRules>
+</CustomObject>
