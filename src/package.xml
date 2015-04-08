@@ -20,5 +20,19 @@
         <members>Mercury_TOV_Audit_Team_Member_and_GTMS_Oversight</members>
         <name>PermissionSet</name>
     </types>
+    <types>
+        <members>Meeting_MERC__c</members>
+        <members>Meeting_Participant_MERC__c</members>
+        <name>Workflow</name>
+    </types>
+    <types>
+        <members>Account.MERC_Transparency_reporting_last_modify</members>
+        <members>Account.MERC_Transparency_reporting_modify_date</members>
+        <name>WorkflowFieldUpdate</name>
+    </types>
+    <types>
+        <members>Account.MERC_Transparency_reporting_last_modify_date_captured</members>
+        <name>WorkflowRule</name>
+    </types>
     <version>31.0</version>
 </Package>
