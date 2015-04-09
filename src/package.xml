@@ -39,14 +39,6 @@
         <name>Group</name>
     </types>
     <types>
-        <members>Account-Account Layout</members>
-        <members>Account-GLBL_HCO Organization</members>
-        <members>Account-MERC_Contracting_Party</members>
-        <members>Account-MERC_Lilly Affiliate Business</members>
-        <members>Account-MERC_Supplier</members>
-        <members>Account-MERC_Third Party Organization</members>
-        <members>Account-MERC_Vendor</members>
-        <members>Account-MERC_Venue</members>
         <members>Meeting_MERC__c-MERC_Active</members>
         <members>Meeting_MERC__c-MERC_Completed</members>
         <members>Meeting_MERC__c-MERC_Consulting_Project</members>
@@ -55,11 +47,6 @@
         <members>Meeting_MERC__c-MERC_Program</members>
         <members>Meeting_MERC__c-MERC_Registered_Meeting</members>
         <members>Meeting_MERC__c-Meeting Layout</members>
-        <members>Meeting_Participant_MERC__c-MERC_Consulting</members>
-        <members>Meeting_Participant_MERC__c-MERC_Delegate</members>
-        <members>Meeting_Participant_MERC__c-MERC_Individual Sponsorship</members>
-        <members>Meeting_Participant_MERC__c-MERC_Service Provider</members>
-        <members>Meeting_Participant_MERC__c-Meeting Participant Layout</members>
         <name>Layout</name>
     </types>
     <types>
@@ -67,6 +54,10 @@
         <members>Mercury_System_Administrator_Lite</members>
         <members>Mercury_TOV_Audit_Team_Member_and_GTMS_Oversight</members>
         <name>PermissionSet</name>
+    </types>
+    <types>
+        <members>Mercury Integration MVI - Platform</members>
+        <name>Profile</name>
     </types>
     <types>
         <members>Meeting_MERC__c</members>
@@ -82,5 +73,5 @@
         <members>Account.MERC_Transparency_reporting_last_modify_date_captured</members>
         <name>WorkflowRule</name>
     </types>
-    <version>31.0</version>
+    <version>32.0</version>
 </Package>

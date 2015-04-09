@@ -17070,8 +17070,11 @@ ISPICKVAL(PRIORVALUE(Participant_ToV_Final_MERC__c),&quot;Yes&quot;)</errorCondi
         <active>true</active>
         <description>Restrict TOV Audit Status changes to prevent jumping through multiple stages.</description>
         <errorConditionFormula>/* Set &apos;Subject to TOV&apos; to make status change*/
+(
 (Subject_to_ToV_Audit_MERC__c == false) &amp;&amp;
-ISCHANGED( ToV_Audit_Status_MERC__c )||
+ISCHANGED( ToV_Audit_Status_MERC__c ) &amp;&amp;
+NOT(ISPICKVAL(ToV_Audit_Status_MERC__c,&apos;&apos;))
+)||
 /* From None to Completed*/
 (
 (Subject_to_ToV_Audit_MERC__c == true) &amp;&amp;
