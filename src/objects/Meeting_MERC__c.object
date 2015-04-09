@@ -17086,7 +17086,7 @@ ISCHANGED( ToV_Audit_Status_MERC__c ) &amp;&amp;
 ISPICKVAL(ToV_Audit_Status_MERC__c,&apos;&apos;) &amp;&amp;
 ISPICKVAL(PRIORVALUE(ToV_Audit_Status_MERC__c),&apos;Completed&apos;)
 )</errorConditionFormula>
-        <errorMessage>NOTE: Please check &apos;Subject to ToV Audit&apos; checkbox. If checked, please follow the correct Status process. as None-&gt;InProcess-&gt;Completed. You cannot skip ToV Audit Status and can not change back the status, if Subject to TOV Audit checkbox is checked.</errorMessage>
+        <errorMessage>NOTE: Please check &apos;Subject to ToV Audit&apos; check box. If checked, please follow the correct Status process (e.g. None - In Process - Completed). You cannot skip ToV Audit Status, if &apos;Subject to TOV Audit&apos; check box is checked.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>MERC_Restrict_Meeting_Status_Changes</fullName>

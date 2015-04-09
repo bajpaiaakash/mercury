@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
+        <members>Mercury</members>
+        <name>CustomApplication</name>
+    </types>
+    <types>
         <members>Account</members>
-        <members>Budget_Line_Item_MERC__c</members>
         <members>Budget_MERC__c</members>
         <members>Contact</members>
         <members>Meeting_MERC__c</members>
         <members>Meeting_Participant_MERC__c</members>
         <members>Opportunity</members>
         <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Budget_MERC__c</members>
+        <members>Meeting_MERC__c</members>
+        <members>Meeting_Participant_MERC__c</members>
+        <name>CustomTab</name>
     </types>
     <types>
         <members>MERC_TOV_Auditors</members>
