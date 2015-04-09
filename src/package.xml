@@ -31,6 +31,7 @@
         <members>Meeting_Participant_MERC__c</members>
         <members>Meeting_Products_MERC__c</members>
         <members>Opportunity</members>
+        <members>Product_Group_GLBL__c</members>
         <members>Team_Member_MERC__c</members>
         <name>CustomObject</name>
     </types>
