@@ -4,6 +4,14 @@
         <application>Mercury</application>
         <visible>false</visible>
     </applicationVisibilities>
+    <classAccesses>
+        <apexClass>MERC_MeetingDateTimesController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_MeetingNewEditController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
     <description>Permission set given to those users who support Mercury but do NOT make any configuration changes in orgs such as Production and GSO1Full.  This is a read-only permission set giving access to comprehensive Mercury functionality.</description>
     <fieldPermissions>
         <editable>false</editable>
@@ -3621,6 +3629,18 @@
         <object>Opportunity</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
+    <pageAccesses>
+        <apexPage>MERC_MeetingDateTimes</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>MERC_MeetingDateTimesEdit</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>MERC_MeetingNewEdit</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
     <recordTypeVisibilities>
         <recordType>Account.Business_Account</recordType>
         <visible>false</visible>

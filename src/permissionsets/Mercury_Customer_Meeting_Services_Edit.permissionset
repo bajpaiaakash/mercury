@@ -4,6 +4,14 @@
         <application>Mercury</application>
         <visible>true</visible>
     </applicationVisibilities>
+    <classAccesses>
+        <apexClass>MERC_MeetingDateTimesController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_MeetingNewEditController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <description>Permission set to give the Customer Meeting Services access to edit the objects they should have access to edit</description>
     <fieldPermissions>
         <editable>true</editable>
@@ -3621,6 +3629,18 @@
         <object>Meeting_Participant_MERC__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
+    <pageAccesses>
+        <apexPage>MERC_MeetingDateTimes</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>MERC_MeetingDateTimesEdit</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>MERC_MeetingNewEdit</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
     <recordTypeVisibilities>
         <recordType>Account.Business_Account</recordType>
         <visible>false</visible>

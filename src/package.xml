@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
+        <members>MERC_MeetingDateTimesController</members>
+        <members>MERC_MeetingNewEditController</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>MERC_MeetingDateTimes</members>
+        <members>MERC_MeetingDateTimesEdit</members>
+        <members>MERC_MeetingNewEdit</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
+        <members>MERC_Meeting</members>
+        <name>ApexTrigger</name>
+    </types>
+    <types>
         <members>Mercury</members>
         <name>CustomApplication</name>
     </types>
@@ -22,6 +37,30 @@
     <types>
         <members>MERC_TOV_Auditors</members>
         <name>Group</name>
+    </types>
+    <types>
+        <members>Account-Account Layout</members>
+        <members>Account-GLBL_HCO Organization</members>
+        <members>Account-MERC_Contracting_Party</members>
+        <members>Account-MERC_Lilly Affiliate Business</members>
+        <members>Account-MERC_Supplier</members>
+        <members>Account-MERC_Third Party Organization</members>
+        <members>Account-MERC_Vendor</members>
+        <members>Account-MERC_Venue</members>
+        <members>Meeting_MERC__c-MERC_Active</members>
+        <members>Meeting_MERC__c-MERC_Completed</members>
+        <members>Meeting_MERC__c-MERC_Consulting_Project</members>
+        <members>Meeting_MERC__c-MERC_Forecasted_Meeting</members>
+        <members>Meeting_MERC__c-MERC_Independent_Sponsorship</members>
+        <members>Meeting_MERC__c-MERC_Program</members>
+        <members>Meeting_MERC__c-MERC_Registered_Meeting</members>
+        <members>Meeting_MERC__c-Meeting Layout</members>
+        <members>Meeting_Participant_MERC__c-MERC_Consulting</members>
+        <members>Meeting_Participant_MERC__c-MERC_Delegate</members>
+        <members>Meeting_Participant_MERC__c-MERC_Individual Sponsorship</members>
+        <members>Meeting_Participant_MERC__c-MERC_Service Provider</members>
+        <members>Meeting_Participant_MERC__c-Meeting Participant Layout</members>
+        <name>Layout</name>
     </types>
     <types>
         <members>Mercury_Customer_Meeting_Services_Edit</members>
