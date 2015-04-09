@@ -674,7 +674,7 @@
             <type>Alert</type>
         </actions>
         <active>true</active>
-        <description>Notifies Meeting Owner when Final Fee has been confirmed : MERC : Created on 11/12/2013 by John Adams, Mavens Consulting</description>
+        <description>Notifies Meeting Owner when Final Fee is &apos;Pending Confirmation&apos; and Min/Max value chagned from blank or &apos;0&apos; to greater than &apos;0&apos; : MERC : Created on 11/12/2013 by John Adams, Mavens Consulting, Modified on 04/09/2015 by Mercury Support TCS Team</description>
         <formula>OR(
 (ISNEW()&amp;&amp; Maximum_Fee_MERC__c &lt;&gt; 0 &amp;&amp; !ISBLANK(Maximum_Fee_MERC__c) &amp;&amp; !ISBLANK(Minimum_Fee_MERC__c) &amp;&amp; ISPICKVAL(Confirm_Final_Fee_MERC__c,&apos;Pending Confirmation&apos;) 
 )
