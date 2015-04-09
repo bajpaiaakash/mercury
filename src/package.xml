@@ -73,5 +73,5 @@
         <members>Account.MERC_Transparency_reporting_last_modify_date_captured</members>
         <name>WorkflowRule</name>
     </types>
-    <version>32.0</version>
+    <version>31.0</version>
 </Package>
