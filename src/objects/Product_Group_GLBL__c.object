@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Object to store Product Information, mastered Product Group records from Material ODS : MERC : Created on 09/27/2013 by Katy Lorenti, Mavens Consulting</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Cease_Pblsh_Dt_GLBL__c</fullName>
+        <description>This represents the last date on which that record was published/refreshed in the Material ODS.   When this date is populated, it indicates that the record has been deleted.  This is one of the two fields that would be used for delta detection of changes to the Material ODS.
+Created by John A Adams 11/1/2013</description>
+        <externalId>false</externalId>
+        <label>Cease Publish Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Cntry_Cd_GLBL__c</fullName>
+        <description>Unique code which describes the country which uses the translated names on this record.
+Created by John A Adams 11/1/2013</description>
+        <externalId>false</externalId>
+        <label>Country Code</label>
+        <length>2</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Crt_Dt_GLBL__c</fullName>
+        <description>This represents the date on which the record was initially created in the Material Master Hub database.
+Created by John A Adams 11/1/2013</description>
+        <externalId>false</externalId>
+        <label>ODS Created Date</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Dialect_Nm_GLBL__c</fullName>
+        <description>Language dialect of the translated data.
+Created by John A Adams 11/1/2013</description>
+        <externalId>false</externalId>
+        <label>Dialect Name</label>
+        <length>10</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>End_Dt_GLBL__c</fullName>
+        <description>The date on which the Product Group is last effective.
+Created by John A Adams 11/1/2013</description>
+        <externalId>false</externalId>
+        <label>End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Grp_Abbr_Nm_GLBL__c</fullName>
+        <description>The most-commonly used abbreviation for a product grouping.
+Created by John A Adams 11/1/2013</description>
+        <externalId>false</externalId>
+        <label>Abbreviation Name</label>
+        <length>5</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Grp_Cnvrsn_Unit_Cd_GLBL__c</fullName>
+        <description>A code used to denote the common unit of measure for a standard group of products.</description>
+        <externalId>false</externalId>
+        <label>Unit Measure</label>
+        <length>2</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Grp_Prps_Cd_GLBL__c</fullName>
+        <description>Classification of the purpose of a product grouping.   
+Created by John A Adams 11/1/2013</description>
+        <externalId>false</externalId>
+        <label>Purpose Code</label>
+        <length>4</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lst_Pblsh_Dt_GLBL__c</fullName>
+        <description>This represents the date on which information was last published for this record to the Material ODS.  This date will be populated when the record is initially created in the ODS or when it is updated.  This is one of the two fields that would be used for delta detection of changes to the Material ODS.  
+Created by John A Adams 11/1/2013</description>
+        <externalId>false</externalId>
+        <label>Last Publish Date</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Mercury_External_Id_MERC__c</fullName>
+        <description>Generated by Workflow used for Integration with External Systems.
+Created by J Adams 12/10/2013</description>
+        <externalId>true</externalId>
+        <label>Mercury External Id</label>
+        <length>150</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Prod_Grp_Desc_Txt_GLBL__c</fullName>
+        <description>Textual Description further explaining a product grouping or its use
+Created by John A Adams 11/1/2013</description>
+        <externalId>false</externalId>
+        <label>Description Text</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product_Group_External_ID_GLBL__c</fullName>
+        <description>Mastered External Id for Product Group Table.</description>
+        <externalId>true</externalId>
+        <label>Product Group External ID</label>
+        <length>250</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Product_Group_Id_GLBL__c</fullName>
+        <description>A sequentially-assigned number, generated from a sequence MTM_PRD_GRP_ID_SEQ  uniquely identifies a product grouping.
+Created by John A Adams 11/1/2013</description>
+        <externalId>false</externalId>
+        <label>Product Group Id</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Src_Cd_GLBL__c</fullName>
+        <description>An indicator of whether a grouping was defined by some external agency or by Lilly.   Valid Values are:  E = External Source, L = Lilly
+Created by John A Adams 11/1/2013</description>
+        <externalId>false</externalId>
+        <label>Source Code</label>
+        <length>1</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Start_Dt_GLBL__c</fullName>
+        <description>The date on which the Product Group becomes effective.
+Created by John A Adams 11/1/2013</description>
+        <externalId>false</externalId>
+        <label>Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Trnsltd_Grp_Nm_GLBL__c</fullName>
+        <description>Product group name captured in the language dialect specified on the record.
+Created by John A Adams 11/1/2013</description>
+        <externalId>false</externalId>
+        <label>Translated Name</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Updt_Dt_GLBL__c</fullName>
+        <description>This represents the date on which the record was last updated in the Material Master Hub database. 
+Created by John A Adams 11/1/2013</description>
+        <externalId>false</externalId>
+        <label>ODS Updated Date</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <label>Product Group</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Cntry_Cd_GLBL__c</columns>
+        <columns>Prod_Grp_Desc_Txt_GLBL__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <label>Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Product Group</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Prod_Grp_Desc_Txt_GLBL__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Cntry_Cd_GLBL__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Prod_Grp_Desc_Txt_GLBL__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Cntry_Cd_GLBL__c</lookupDialogsAdditionalFields>
+        <lookupFilterFields>NAME</lookupFilterFields>
+        <lookupFilterFields>Prod_Grp_Desc_Txt_GLBL__c</lookupFilterFields>
+        <lookupFilterFields>Cntry_Cd_GLBL__c</lookupFilterFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>Prod_Grp_Desc_Txt_GLBL__c</searchFilterFields>
+        <searchFilterFields>Cntry_Cd_GLBL__c</searchFilterFields>
+        <searchResultsAdditionalFields>Prod_Grp_Desc_Txt_GLBL__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Cntry_Cd_GLBL__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+</CustomObject>
