@@ -1,27 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
-	<rules>
-        <fullName>MERC_Maximum_Fee_last_modify_date_captured</fullName>
-        <actions>
-            <name>MERC_Maximum_Fee_last_modify</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <actions>
-            <name>MERC_Maximum_Fee_modify_date</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <description>To capture the last date of modification of field Maximum Fee on Meeting Participant object.</description>
-        <formula>OR(
-     ISNEW(),
-     AND(
-          NOT(ISNEW()),
-          ISCHANGED( Maximum_Fee_MERC__c )
-     )
-)</formula>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-	<fieldUpdates>
+		<fieldUpdates>
         <fullName>MERC_Maximum_Fee_last_modify</fullName>
         <description>To capture last modify date when Maximum Fee has been modified.</description>
         <field>Maximum_Fee_last_updated_MERC__c</field>
@@ -56,6 +35,28 @@
 ( !ISNEW() &amp;&amp; (ISBLANK(PRIORVALUE(Maximum_Fee_MERC__c)) || PRIORVALUE(Maximum_Fee_MERC__c) = 0)) &amp;&amp; (!ISBLANK(Maximum_Fee_MERC__c) &amp;&amp; Maximum_Fee_MERC__c &lt;&gt;0) &amp;&amp; (ISBLANK(PRIORVALUE(Minimum_Fee_MERC__c)) || PRIORVALUE(Minimum_Fee_MERC__c) = 0) &amp;&amp; !ISBLANK(Minimum_Fee_MERC__c) &amp;&amp; ISPICKVAL(Confirm_Final_Fee_MERC__c,&apos;Pending Confirmation&apos;) )</formula>
 <triggerType>onAllChanges</triggerType>
 </rules>
+<rules>
+        <fullName>MERC_Maximum_Fee_last_modify_date_captured</fullName>
+        <actions>
+            <name>MERC_Maximum_Fee_last_modify</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>MERC_Maximum_Fee_modify_date</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>To capture the last date of modification of field Maximum Fee on Meeting Participant object.</description>
+        <formula>OR(
+     ISNEW(),
+     AND(
+          NOT(ISNEW()),
+          ISCHANGED( Maximum_Fee_MERC__c )
+     )
+)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+
 </Workflow>
 
 	
