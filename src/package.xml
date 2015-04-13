@@ -21,6 +21,7 @@
         <members>Account</members>
         <members>Budget_MERC__c</members>
         <members>Contact</members>
+		<members>ContentVersion</members>
         <members>Daily_Attendance_TOV_MERC__c</members>
         <members>Meeting_Day_MERC__c</members>
         <members>Meeting_MERC__c</members>
@@ -67,6 +68,16 @@
         <members>Meeting_MERC__c</members>
         <members>Meeting_Participant_MERC__c</members>
         <name>Workflow</name>
+    </types>
+    <types>
+        <members>Account.MERC_Transparency_reporting_last_modify</members>
+        <members>Account.Update_Service_Provider_Tier_MERC</members>
+        <name>WorkflowFieldUpdate</name>
+    </types>
+    <types>
+        <members>Account.MERC_Tier Step 1%3A Update Tier Scores</members>
+        <members>Account.MERC_Transparency_reporting_last_modify_date_captured</members>
+        <name>WorkflowRule</name>
     </types>
     <version>31.0</version>
 </Package>
