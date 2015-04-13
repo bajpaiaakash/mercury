@@ -41,5 +41,9 @@
         <members>Mercury_Travel_Agent_Edit</members>
         <name>PermissionSet</name>
     </types>
+    <types>
+        <members>PersonAccount-GLBL_Employee</members>
+        <name>Layout</name>
+    </types>
     <version>33.0</version>
 </Package>
