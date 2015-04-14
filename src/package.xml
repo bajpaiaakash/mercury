@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>MERC_MVIMeetingTimeZoneHandlerTest</members>
-        <name>ApexClass</name>
+        <members>Account.HCP_Contracting_Party_MERC__c</members>
+        <members>Account.HCP_Designated_Individuals_MERC__c</members>
+        <members>Account.ParentId</members>
+        <members>Account.Relationship_Owner_MERC__c</members>
+        <name>CustomField</name>
     </types>
-    <version>32.0</version>
+    <version>33.0</version>
 </Package>
