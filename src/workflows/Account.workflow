@@ -11,28 +11,22 @@
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
-        <fullName>Update_Service_Provider_Tier_MERC</fullName>
-        <description>Updates the Service Provider Tier for Tier 2 and 3 HCP&apos;s. Cannot auto-update Tier 1&apos;s. Oliver Dunford 14th Jan 2014.</description>
+        <fullName>Set_Service_Provider_Tier_MERC</fullName>
+        <description>Sets the Tier based upon scoring output. This will only ever be a Tier 2 or 3 as Tier 1 HCPs need CV&apos;s checking.</description>
         <field>Service_Provider_Tier_MERC__c</field>
         <formula>IF(AND( 
-
-Tier_2_Score_MERC__c  &gt;= 5,
-
-Tier_1_Score_MERC__c  &lt;= 5 
-
-),2,
-
+Tier_2_Score_MERC__c &gt;= 5, 
+Tier_1_Score_MERC__c &lt; 5 
+),2, 
 IF(AND( 
-
-Tier_2_Score_MERC__c  &lt;= 5,
-
-Tier_1_Score_MERC__c  &lt;= 5 
-
+Tier_2_Score_MERC__c &lt; 5, 
+Tier_1_Score_MERC__c &lt; 5 
 ),3, null))</formula>
-        <name>Update Service Provider Tier</name>
+        <name>Set Service Provider Tier</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
     <rules>
         <fullName>MERC_Tier Step 1%3A Update Tier Scores</fullName>
