@@ -4791,6 +4791,10 @@
         <tab>Meeting_Participant_MERC__c</tab>
         <visibility>Visible</visibility>
     </tabSettings>
+     <tabSettings>
+        <tab>Travel_Itinerary_MERC__c</tab>
+        <visibility>Available</visibility>
+    </tabSettings>
     <userPermissions>
         <enabled>true</enabled>
         <name>ApiEnabled</name>
