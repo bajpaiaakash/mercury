@@ -2,8 +2,9 @@ mercury-tov.sublime-project
 mercury-tov.sublime-settings
 mercury-tov.sublime-workspace
 config/*
-.DS_Store
 mercury.sublime-project
 mercury.sublime-settings
 mercury.sublime-workspace
 build/.DS_Store
+src/.DS_Store
+.DS_Store
