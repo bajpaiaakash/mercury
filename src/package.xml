@@ -43,7 +43,7 @@
     </types>
     <types>
         <members>Mercury_Account_Manager_Edit</members>
-        <!--<members>Mercury_IT_Support</members>-->
+        <members>Mercury_IT_Support</members>
         <members>Mercury_Meeting_Planning_Company_Edit</members>
         <members>Mercury_Travel_Agent_Edit</members>
         <name>PermissionSet</name>
