@@ -3,7 +3,7 @@
     <defaultLandingTab>standard-home</defaultLandingTab>
     <description>Meeting Management System</description>
     <label>Mercury</label>
-    <logo>Logo_s_Images/Lilly_Logo.png</logo>
+<!--    <logo>Logo_s_Images/Lilly_Logo.png</logo>-->
     <tab>standard-Chatter</tab>
     <tab>standard-Account</tab>
     <tab>standard-Case</tab>
