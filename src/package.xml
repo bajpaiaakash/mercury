@@ -5,6 +5,7 @@
         <members>MERC_MeetingNewEditController</members>
         <members>MERC_NewContentController</members>
         <members>MERC_NewContentControllerTest</members>
+        <members>MERC_ParticipantTovStampHandlerTest</members>
         <name>ApexClass</name>
     </types>
     <types>
