@@ -84,12 +84,12 @@ public with sharing class MERC_NewContentController {
         try {
             if (objectAPIName == 'Budget_MERC__c') {
                 country = [SELECT Meeting_MERC__r.Event_Country_MERC__c FROM Budget_MERC__c WHERE Id = :recordId].Meeting_MERC__r.Event_Country_MERC__c;
-                //suffix  = [SELECT Procurement_Library_MERC__c FROM User WHERE Id=:UserInfo.getUserId()].Procurement_Library_MERC__c;
-                /*if (suffix == null) {
+                suffix  = [SELECT Procurement_Library_MERC__c FROM User WHERE Id=:UserInfo.getUserId()].Procurement_Library_MERC__c;
+                if (suffix == null) {
                     libraryName = country + ' - Regional';
                 } else {
                     libraryName = country + ' - ' + suffix;
-                }*/
+                }
             } else {
                 if (objectAPIName == 'Meeting_MERC__c') {
                     country = [SELECT Event_Country_MERC__c FROM Meeting_MERC__c WHERE Id = :recordId].Event_Country_MERC__c;
