@@ -4,6 +4,7 @@
         <members>MERC_MeetingDateTimesController</members>
         <members>MERC_MeetingNewEditController</members>
         <members>MERC_NewContentController</members>
+        <members>MERC_NewContentControllerTest</members>
         <name>ApexClass</name>
     </types>
     <types>
