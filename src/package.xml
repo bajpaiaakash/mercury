@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
+        <members>MERC_MeetingTeamManager</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
+        <members>GLBL_GenericRelatedListController</members>
         <members>MERC_AddMeetingParticipantsController</members>
         <members>MERC_AddMeetingParticipantsCntlrTest</members>
+        <members>MERC_MeetingTeamManagerController</members>
+        <members>MERC_MeetingTeamManagerControllerTest</members>
         <name>ApexClass</name>
     </types>
 	<types>
         <members>Add_Meeting_Participant_Record_Type_MERC__c</members>
+        <members>Team_Member_MERC__c</members>
         <name>CustomObject</name>
     </types>
-    <version>33.0</version>
+    <version>32.0</version>
 </Package>
