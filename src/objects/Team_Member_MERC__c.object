@@ -48,6 +48,7 @@
         <type>Checkbox</type>
     </fields>
     <label>Team Member</label>
+    <pluralLabel>Team Members</pluralLabel>
     <recordTypes>
         <fullName>External_User_MERC</fullName>
         <active>true</active>
