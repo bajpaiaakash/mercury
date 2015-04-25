@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Stores list of Team Members that can be associated to a Meeting. Can be Users or Person Accounts. Grants a Mercury Sharing Rule for Meeting and gives Sales Representatives access to Veeva Meetings. Integrates with Veeva : MERC : Created on 09/27/2013 by Katy Lorenti, Mavens Consulting</description>
+    <fieldSets>
+        <fullName>Team_Employee_MERC</fullName>
+        <description>Fields used in the Team Member related list manager -RLocke 4/22/2015</description>
+        <displayedFields>
+            <field>Account_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Role_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <label>Meeting Team Manager - Employee</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Team_External_MERC</fullName>
+        <description>Fields used in the Team Member related list manager -JFerraro 11/11/2013</description>
+        <displayedFields>
+            <field>Account_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Access_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Attendee_Invite_Limit_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Meeting Team Manager - External</label>
+    </fieldSets>
+    <fields>
+        <fullName>Account_Employee_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Is this record an account employee and thus will be displayed with Account Employees on the Meeting Team Manager page.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Is this record an account employee and thus will be displayed with Account Employees on the Meeting Team Manager page.</inlineHelpText>
+        <label>Account Employee</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Team Member</label>
+    <recordTypes>
+        <fullName>External_User_MERC</fullName>
+        <active>true</active>
+        <description>Used to add Customer Facing Team members and Medical Directors to grant access to the meeting in Veeva.</description>
+        <label>Non-Mercury Users</label>
+        <picklistValues>
+            <picklist>Access_MERC__c</picklist>
+            <values>
+                <fullName>Can Add Attendees</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cannot Add Attendees</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Role_MERC__c</picklist>
+            <values>
+                <fullName>Budget Owner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Facing Team</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Final Budget Approver</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Home Approver</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Host Approver</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International Event Approver</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local CMS Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local CMS Team</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical Director</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical Liaison</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting Owner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting Planning Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Onsite Attendance Checker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Primary Meeting Owner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel Agent</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+</CustomObject>
