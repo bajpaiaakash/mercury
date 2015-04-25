@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
     <description>Stores list of Team Members that can be associated to a Meeting. Can be Users or Person Accounts. Grants a Mercury Sharing Rule for Meeting and gives Sales Representatives access to Veeva Meetings. Integrates with Veeva : MERC : Created on 09/27/2013 by Katy Lorenti, Mavens Consulting</description>
     <fieldSets>
         <fullName>Team_Employee_MERC</fullName>
