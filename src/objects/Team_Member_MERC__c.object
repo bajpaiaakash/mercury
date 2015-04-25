@@ -48,6 +48,12 @@
         <type>Checkbox</type>
     </fields>
     <label>Team Member</label>
+    <nameField>
+        <displayFormat>TM-{000000}</displayFormat>
+        <label>Team Member #</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
     <pluralLabel>Team Members</pluralLabel>
     <recordTypes>
         <fullName>External_User_MERC</fullName>

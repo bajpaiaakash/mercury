@@ -17,15 +17,5 @@
         <members>Team_Member_MERC__c</members>
         <name>CustomObject</name>
     </types>
-    <types>
-        <members>MERC_Stamp_HCP_Contract_Info_to_MP-1</members>
-        <members>MERC_Stamp_HCP_Contract_Info_to_MP-2</members>
-        <members>MERC_Stamp_HCP_Contract_Info_to_MP-3</members>
-        <members>MERC_Stamp_HCP_Contract_Info_to_MP_Created_Record-1</members>
-        <members>MERC_Stamp_Invoice_Info_to_MP_Created_Record-1</members>
-        <members>MERC_Stamp_Invoice_Info_to_MP_Created_Record-2</members>
-        <members>MERC_Stamp_Invoice_Info_to_MP_Edited_Record-1</members>
-        <name>Flow</name>
-    </types>
     <version>32.0</version>
 </Package>
