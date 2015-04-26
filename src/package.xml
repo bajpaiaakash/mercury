@@ -10,6 +10,8 @@
         <members>MERC_AddMeetingParticipantsCntlrTest</members>
         <members>MERC_MeetingTeamManagerController</members>
         <members>MERC_MeetingTeamManagerControllerTest</members>
+        <members>MERC_ParticipantTovStampHandler</members>
+        <members>MERC_ParticipantTovStampHandlerTest</members>
         <name>ApexClass</name>
     </types>
 	<types>
