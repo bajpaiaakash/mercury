@@ -101,6 +101,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Final_Fee_Confirmed_Date_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Meeting_Participant_MERC__c.HCP_Info_Pack_Received_Date_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -123,6 +128,11 @@
         <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Logistic_Compliance_Comments_MERC__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Meeting_Active_Confirm_Fee_Date_MERC__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
