@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>MERC_MeetingTeamManager</members>
-        <name>ApexPage</name>
-    </types>
-    <types>
         <members>GLBL_GenericRelatedListController</members>
-        <members>MERC_AddMeetingParticipantsController</members>
         <members>MERC_AddMeetingParticipantsCntlrTest</members>
+        <members>MERC_AddMeetingParticipantsController</members>
         <members>MERC_MeetingTeamManagerController</members>
         <members>MERC_MeetingTeamManagerControllerTest</members>
         <members>MERC_ParticipantTovStampHandler</members>
@@ -15,11 +11,26 @@
         <name>ApexClass</name>
     </types>
     <types>
+        <members>MERC_MeetingTeamManager</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
         <members>HCP_Contract_MERC__c.Contract_Signed_Date_Time_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.HCP_Info_Pack_Received_Date_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.HCP_Info_Package_Follow_Up_Date_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.HCP_Info_Package_Sent_Date_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.HCP_Info_Package_Status_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.SEA_WO_Follow_Up_Date_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.SEA_WO_Received_Date_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.SEA_WO_Sent_Date_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.SEA_WO_Signed_Date_Time_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.SEA_WO_Status_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.Submitted_for_Payment_Date_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.Submitted_for_Payment_MERC__c</members>
         <members>Team_Member_MERC__c.Account_Employee_MERC__c</members>
         <name>CustomField</name>
     </types>
-	<types>
+    <types>
         <members>Add_Meeting_Participant_Record_Type_MERC__c</members>
         <name>CustomObject</name>
     </types>
@@ -32,16 +43,28 @@
         <members>HCP_Contract_MERC__c-MERC_Contract</members>
         <members>HCP_Contract_MERC__c-MERC_MSA Contract</members>
         <members>HCP_Contract_MERC__c-MERC_Work Order</members>
+        <members>Meeting_Participant_MERC__c-MERC_Consulting</members>
+        <members>Meeting_Participant_MERC__c-MERC_Delegate</members>
+        <members>Meeting_Participant_MERC__c-MERC_Individual Sponsorship</members>
+        <members>Meeting_Participant_MERC__c-MERC_Service Provider</members>
         <name>Layout</name>
     </types>
     <types>
-        <members>HCP_Contract_MERC__c</members>
-        <name>Workflow</name>
+        <members>Mercury_Account_Manager_Edit</members>
+        <members>Mercury_Customer_Meeting_Services_Edit</members>
+        <members>Mercury_Legal_Edit</members>
+        <members>Mercury_Meeting_Planning_Company_Edit</members>
+        <members>Mercury_System_Administrator_Lite</members>
+        <name>PermissionSet</name>
     </types>
     <types>
         <members>Team_Member_MERC__c.External_User_MERC</members>
         <members>Team_Member_MERC__c.Mercury_User_MERC</members>
         <name>RecordType</name>
+    </types>
+    <types>
+        <members>HCP_Contract_MERC__c</members>
+        <name>Workflow</name>
     </types>
     <version>32.0</version>
 </Package>

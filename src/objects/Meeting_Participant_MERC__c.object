@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <fields>
+        <fullName>HCP_Info_Pack_Received_Date_MERC__c</fullName>
+        <description>MERC - Date HCP Info Pack is received.  Pulled through from Account object (where set via workflow rule).  Created by Mike Cashman, Mavens Consulting on 3/3/15.</description>
+        <externalId>false</externalId>
+        <formula>Account_MERC__r.HCP_Info_Pack_Received_Date_MERC__c</formula>
+        <label>HCP Info Pack Received Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>HCP_Info_Package_Follow_Up_Date_MERC__c</fullName>
+        <description>Date on which to follow up with HCP regarding status of HCP Info Package (to be sent back from HCP).  Should be set by user.  Available via reporting for greater ease of HCP Info Pack tracking/ processing.  Created by Mike Cashman, Mavens Consulting on 23/2/2015.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Can be used by CMS Cork to indicate when they should follow up with the Meeting Owner/HCP should the HCP Info Pack remain outstanding.  This is used to drive reporting on all outstanding HCP Info Packs and should be updated manually by CMS Cork.</inlineHelpText>
+        <label>HCP Info Package Follow Up Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>HCP_Info_Package_Sent_Date_MERC__c</fullName>
+        <description>Date on which Info Package was sent to HCP.  Used in SLA Reporting.  Created by Mike Cashman, Mavens Consulting on 23/2/2015.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field should be manually set once the HCP Info Pack has been sent to the HCP.  If the HCP preference is population via the Web Services, this should be set to the date that they were invited to populate the HCP Info Pack via the Web Service.</inlineHelpText>
+        <label>HCP Info Package Sent Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>HCP_Info_Package_Status_MERC__c</fullName>
+        <description>Pulls through HCP Info Pack Status value to Meeting Participant record for greater ease of tracking.</description>
+        <externalId>false</externalId>
+        <formula>TEXT(Account_MERC__r.HCP_Info_Package_Status_MERC__c)</formula>
+        <inlineHelpText>Pulled from the HCP profile and shows the status of HCP Info Pack completion.  For a paper based process, the field on the HCP Profile should be set manually to &apos;Submitted&apos; once completed, this is automatic if completed by the HCP via the Web Service.</inlineHelpText>
+        <label>HCP Info Package Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SEA_WO_Follow_Up_Date_MERC__c</fullName>
+        <description>Stamped by Process Builder/Flow for Contact Status Updates : MERC : Created on 20/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>SEA/WO Follow Up Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>SEA_WO_Received_Date_MERC__c</fullName>
+        <description>Stamped by Process Builder/Flow for Contact Status Updates : MERC : Created on 20/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>SEA/WO Received Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>SEA_WO_Sent_Date_MERC__c</fullName>
+        <description>Stamped by Process Builder/Flow for Contact Status Updates : MERC : Created on 20/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>SEA/WO Sent Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>SEA_WO_Signed_Date_Time_MERC__c</fullName>
+        <description>Stamped by Process Builder/Flow for Contact Status Updates : MERC : Created on 20/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>SEA/WO Signed Date/Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>SEA_WO_Status_MERC__c</fullName>
+        <description>Stamped by Process Builder/Flow for Contact Status Updates : MERC : Created on 20/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>SEA/WO Status</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Submitted_for_Payment_Date_MERC__c</fullName>
+        <description>Stores the Invoice Information populated via Process Builder for parties without Invoice access : MERC : Created on 20/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Includes Fees and/or Expenses</inlineHelpText>
+        <label>Submitted for Payment Date/Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Submitted_for_Payment_MERC__c</fullName>
+        <description>Stores the Invoice Information populated via Process Builder for parties without Invoice access : MERC : Created on 20/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Includes Fees and/or Expenses</inlineHelpText>
+        <label>Submitted for Payment</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+</CustomObject>
