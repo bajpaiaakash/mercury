@@ -34,6 +34,7 @@
     </types>
     <types>
         <members>Add_Meeting_Participant_Record_Type_MERC__c</members>
+        <members>Answer_MERC__c</members>
         <members>Registration_Question_MERC__c</members>
         <members>Response_MERC__c</members>
         <name>CustomObject</name>
