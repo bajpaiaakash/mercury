@@ -1,6 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <enableEnhancedLookup>true</enableEnhancedLookup>
+    <fieldSets>
+        <fullName>Delegate_Required_Fields_MERC</fullName>
+        <description>Used on the MERC_AddMeetingParticipants page to indicate the fields required in order to add an account as a Meeting participant with record type Delegate.</description>
+        <displayedFields>
+            <field>Air_Travel_Required_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Hotel_Required_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Accountable_Business_Contact_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Delegate Required Fields</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Service_Provider_Required_Fields_MERC</fullName>
+        <description>Used on the MERC_AddMeetingParticipants page to indicate the fields required in order to add an account as a Meeting participant with record type Service Provider.</description>
+        <displayedFields>
+            <field>Air_Travel_Required_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Hotel_Required_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Justification_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Topic_Area_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Types_of_Service_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Description_of_Service_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Accountable_Business_Contact_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Service Provider Required Fields</label>
+    </fieldSets>
     <fields>
         <fullName>Accountable_Business_Contact_MERC__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>

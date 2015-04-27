@@ -47,16 +47,222 @@
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
+    <fields>
+        <fullName>Account_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup relationship to Account so Person Accounts may be selected as Team Members a Meeting. Created 9/27/2013 by KLorenti</description>
+        <externalId>false</externalId>
+        <label>Customer Facing/Other Team Member</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Employee</value>
+            </filterItems>
+            <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Team Members</relationshipLabel>
+        <relationshipName>Team_Members</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Role_MERC__c</fullName>
+        <description>Tracks Role of Team Members for a Meeting. Created 9/30/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <label>Role</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Budget Owner</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Customer Facing Team</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Final Budget Approver</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Home Approver</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Host Approver</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>International Event Approver</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Local CMS Manager</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Local CMS Team</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Medical Director</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Meeting Owner</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Meeting Planning Company</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Onsite Attendance Checker</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Primary Meeting Owner</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Travel Agent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
     <recordTypes>
         <fullName>External_User_MERC</fullName>
         <active>true</active>
         <description>Used to add Customer Facing Team members and Medical Directors to grant access to the meeting in Veeva.</description>
         <label>Non-Mercury Users</label>
+        <picklistValues>
+            <picklist>Role_MERC__c</picklist>
+            <values>
+                <fullName>Budget Owner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer Facing Team</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Final Budget Approver</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Home Approver</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Host Approver</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International Event Approver</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local CMS Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local CMS Team</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical Director</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting Owner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting Planning Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Onsite Attendance Checker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Primary Meeting Owner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel Agent</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
     <recordTypes>
         <fullName>Mercury_User_MERC</fullName>
         <active>true</active>
         <description>Used to add Meeting Planning Company, Travel Agency, Account Mangers</description>
         <label>Mercury Users</label>
+        <picklistValues>
+            <picklist>Role_MERC__c</picklist>
+            <values>
+                <fullName>Budget Owner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Final Budget Approver</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Home Approver</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Host Approver</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>International Event Approver</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local CMS Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local CMS Team</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medical Director</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting Owner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting Planning Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Onsite Attendance Checker</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Primary Meeting Owner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel Agent</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
 </CustomObject>

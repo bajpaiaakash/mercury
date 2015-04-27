@@ -15,6 +15,7 @@
         <name>ApexPage</name>
     </types>
     <types>
+        <members>Case.Customer_Query_Received_Date_MERC__c</members>
         <members>HCP_Contract_MERC__c.Contract_Follow_Up_Date_MERC__c</members>
         <members>HCP_Contract_MERC__c.Contract_Received_Date_MERC__c</members>
         <members>HCP_Contract_MERC__c.Contract_Sent_Date_MERC__c</members>
@@ -153,6 +154,8 @@
         <members>Preferences_and_Consent_GLBL__c.WS_Updt_HCP_Global_ID_MERC__c</members>
         <members>Preferences_and_Consent_GLBL__c.WS_Updt_HCP_Name_MERC__c</members>
         <members>Team_Member_MERC__c.Account_Employee_MERC__c</members>
+        <members>Team_Member_MERC__c.Account_MERC__c</members>
+        <members>Team_Member_MERC__c.Role_MERC__c</members>
         <name>CustomField</name>
     </types>
     <types>
@@ -164,14 +167,24 @@
         <name>CustomObject</name>
     </types>
     <types>
+        <members>Meeting_Participant_MERC__c.Delegate_Required_Fields_MERC</members>
+        <members>Meeting_Participant_MERC__c.Service_Provider_Required_Fields_MERC</members>
         <members>Team_Member_MERC__c.Team_Employee_MERC</members>
         <members>Team_Member_MERC__c.Team_External_MERC</members>
         <name>FieldSet</name>
     </types>
     <types>
+        <members>Account-MERC_Supplier</members>
+        <members>Case-Case Layout</members>
         <members>HCP_Contract_MERC__c-MERC_Contract</members>
         <members>HCP_Contract_MERC__c-MERC_MSA Contract</members>
         <members>HCP_Contract_MERC__c-MERC_Work Order</members>
+        <members>Meeting_MERC__c-MERC_Active</members>
+        <members>Meeting_MERC__c-MERC_Completed</members>
+        <members>Meeting_MERC__c-MERC_Consulting_Project</members>
+        <members>Meeting_MERC__c-MERC_Forecasted_Meeting</members>
+        <members>Meeting_MERC__c-MERC_Independent_Sponsorship</members>
+        <members>Meeting_MERC__c-MERC_Registered_Meeting</members>
         <members>Meeting_Participant_MERC__c-MERC_Consulting</members>
         <members>Meeting_Participant_MERC__c-MERC_Delegate</members>
         <members>Meeting_Participant_MERC__c-MERC_Individual Sponsorship</members>
@@ -180,8 +193,10 @@
     </types>
     <types>
         <members>Mercury_Account_Manager_Edit</members>
+        <members>Mercury_Case_Management_Access</members>
         <members>Mercury_Customer_Meeting_Services_Edit</members>
         <members>Mercury_Legal_Edit</members>
+        <members>Mercury_Med_Director_Edit</members>
         <members>Mercury_Meeting_Owner_Edit</members>
         <members>Mercury_Meeting_Planning_Company_Edit</members>
         <members>Mercury_System_Administrator_Lite</members>
