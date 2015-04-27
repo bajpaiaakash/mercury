@@ -25,4 +25,16 @@
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
+    <fields>
+        <fullName>Final_Logistics_Information_MERC__c</fullName>
+        <description>Holds final logistic information included within the meeting briefing : MERC : Created on 21/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>For external use. the information included here will be sent to customers</inlineHelpText>
+        <label>Final Logistics Information</label>
+        <length>1000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
 </CustomObject>
