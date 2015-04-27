@@ -37,4 +37,28 @@
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
+    <fields>
+        <fullName>Logistics_Management_Supplier_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Associates Logistics Management Supplier to the Meeting : MERC : Created on 22/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Logistics Management Supplier</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.RecordType.DeveloperName</field>
+                <operation>equals</operation>
+                <value>Supplier_GLBL</value>
+            </filterItems>
+            <infoMessage>If you cannot find the record you&apos;re looking for. Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Meetings (Logistics Management Supplier)</relationshipLabel>
+        <relationshipName>Logistics_Management_Supplier</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
 </CustomObject>
