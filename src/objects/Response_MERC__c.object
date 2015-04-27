@@ -1,5 +1,132 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Used to capture responses to Registration Questions : MERC : Created on 13/04/2015 by Oliver Dunford</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Answer_End_Date_MERC__c</fullName>
+        <description>Pulls end date from Answer in meeting time zone : MERC : Created on 14/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Answer_MERC__r.End_Date_Meeting_Time_Zone_MERC__c</formula>
+        <label>Answer End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Answer_End_Date_Time_MERC__c</fullName>
+        <description>Pulls the end date/time in the meeting time zone : MERC : Created on 14/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Answer_MERC__r.End_Date_Time_Meeting_Time_Zone_MERC__c</formula>
+        <label>Answer End Date/Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Answer_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Used to tie a response to an applicable answer so that answer information can be pulled down to the record : MERC : Created on 14/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Answer</label>
+        <referenceTo>Answer_MERC__c</referenceTo>
+        <relationshipLabel>Responses</relationshipLabel>
+        <relationshipName>Responses</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Answer_Start_Date_MERC__c</fullName>
+        <description>Pulls the start date in the meeting timezone : MERC : Created on 14/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Answer_MERC__r.Start_Date_Meeting_Time_Zone_MERC__c</formula>
+        <label>Answer Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Answer_Start_Date_Time_MERC__c</fullName>
+        <description>Pulls the Answer Start Date to the record : MERC : Created on 14/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Answer_MERC__r.Start_Date_Time_MERC__c</formula>
+        <label>Answer Start Date/Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Answer_Text_MERC__c</fullName>
+        <description>Pulls the Answer Text to the record : MERC : Created on 14/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Answer_MERC__r.Answer_Text_MERC__c</formula>
+        <label>Answer Text</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Meeting_Participant_MERC__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
@@ -14,4 +141,80 @@
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
+    <fields>
+        <fullName>Mercury_External_Id_MERC__c</fullName>
+        <description>Set via workflow for integration with external systems : MERC : Created on 27/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>true</externalId>
+        <label>Mercury External Id</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Question_Text_MERC__c</fullName>
+        <description>Pulls down the question to the response record for display to the user : MERC : Created on 14/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Registration_Question_MERC__r.Question_MERC__c</formula>
+        <label>Question Text</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Registration_Question_MERC__c</fullName>
+        <description>The link to the Registration Question : MERC : Created on 13/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Registration Question</label>
+        <referenceTo>Registration_Question_MERC__c</referenceTo>
+        <relationshipLabel>Responses</relationshipLabel>
+        <relationshipName>Responses</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Response_Text_MERC__c</fullName>
+        <description>Stores the HCPs response to free text questions : MERC : Created on 14/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter the free text response from the HCP here.  Leave blank should a free text response not be applicable for this question.</inlineHelpText>
+        <label>Response Text</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Response</label>
+    <nameField>
+        <displayFormat>R-{00000}</displayFormat>
+        <label>Response Reference</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Responses</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <webLinks>
+        <fullName>Update_Responses_MERC</fullName>
+        <availability>online</availability>
+        <description>Launches a custom page to ensure Responses can be captured for each MP : MERC : Created in 17/04/2015 by Oliver Dunford, Mavens Consulting,</description>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Update Responses</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/apex/MERC_RegistrationResponses?id={!Meeting_Participant_MERC__c.Id}</url>
+    </webLinks>
 </CustomObject>

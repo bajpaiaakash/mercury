@@ -29,12 +29,12 @@
         <members>Meeting_Participant_MERC__c.SEA_WO_Status_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Submitted_for_Payment_Date_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Submitted_for_Payment_MERC__c</members>
-        <members>Response_MERC__c.Meeting_Participant_MERC__c</members>
         <members>Team_Member_MERC__c.Account_Employee_MERC__c</members>
         <name>CustomField</name>
     </types>
     <types>
         <members>Add_Meeting_Participant_Record_Type_MERC__c</members>
+        <members>Response_MERC__c</members>
         <name>CustomObject</name>
     </types>
     <types>
