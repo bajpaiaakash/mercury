@@ -60,6 +60,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting_Participant_MERC__c.Logistic_Compliance_Comments_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_Participant_MERC__c.SEA_WO_Follow_Up_Date_MERC__c</field>
         <readable>true</readable>
@@ -93,6 +98,11 @@
         <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Submitted_for_Payment_MERC__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Response_MERC__c.Meeting_Participant_MERC__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
