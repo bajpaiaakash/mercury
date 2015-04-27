@@ -75,6 +75,10 @@
         <name>RecordType</name>
     </types>
     <types>
+        <members>Meeting_Participant_MERC__c.MERC_Lock_Final_Fee</members>
+        <name>ValidationRule</name>
+    </types>
+    <types>
         <members>Travel_Itinerary_MERC__c.Manage_Travel_Proposals_MERC</members>
         <name>WebLink</name>
     </types>
