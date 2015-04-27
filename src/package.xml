@@ -29,6 +29,7 @@
         <members>Meeting_Participant_MERC__c.SEA_WO_Status_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Submitted_for_Payment_Date_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Submitted_for_Payment_MERC__c</members>
+        <members>Meeting_Tasks_MERC__c.Meeting_Participant_MERC__c</members>
         <members>Team_Member_MERC__c.Account_Employee_MERC__c</members>
         <name>CustomField</name>
     </types>

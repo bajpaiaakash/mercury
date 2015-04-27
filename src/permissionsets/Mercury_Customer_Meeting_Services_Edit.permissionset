@@ -160,6 +160,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Tasks_MERC__c.Meeting_Participant_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Registration_Question_MERC__c.Answer_Type_MERC__c</field>
         <readable>true</readable>
