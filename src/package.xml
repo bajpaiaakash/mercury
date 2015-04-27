@@ -14,10 +14,34 @@
         <members>MERC_ParticipantTovStampHandlerTest</members>
         <name>ApexClass</name>
     </types>
+    <types>
+        <members>HCP_Contract_MERC__c.Contract_Signed_Date_Time_MERC__c</members>
+        <members>Team_Member_MERC__c.Account_Employee_MERC__c</members>
+        <name>CustomField</name>
+    </types>
 	<types>
         <members>Add_Meeting_Participant_Record_Type_MERC__c</members>
-        <members>Team_Member_MERC__c</members>
         <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Team_Member_MERC__c.Team_Employee_MERC</members>
+        <members>Team_Member_MERC__c.Team_External_MERC</members>
+        <name>FieldSet</name>
+    </types>
+    <types>
+        <members>HCP_Contract_MERC__c-MERC_Contract</members>
+        <members>HCP_Contract_MERC__c-MERC_MSA Contract</members>
+        <members>HCP_Contract_MERC__c-MERC_Work Order</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>HCP_Contract_MERC__c</members>
+        <name>Workflow</name>
+    </types>
+    <types>
+        <members>Team_Member_MERC__c.External_User_MERC</members>
+        <members>Team_Member_MERC__c.Mercury_User_MERC</members>
+        <name>RecordType</name>
     </types>
     <version>32.0</version>
 </Package>

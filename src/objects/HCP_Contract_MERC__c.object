@@ -1,0 +1,1213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Contains contract details between Lilly and Service Providers, also Integrates with DocuSign for Digital Signature  : MERC : Created on 10/02/2013 by John Adams, Mavens Consulting</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fieldSets>
+        <fullName>Merge_HCP_Contracts_MERC</fullName>
+        <description>MERC_MergedAccounts.page / MERC_MergedAccountsApex.cls / Custom Setting: Account Merge Field Set - HCP Contracts .Oliver Dunford 8th May 2014</description>
+        <displayedFields>
+            <field>Account_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Contract_Request_Status_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>RecordTypeId</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Meeting_Start_Date_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>MSA_Start_Date_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>MSA_End_Date_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Account Merge Contracts</label>
+    </fieldSets>
+    <fields>
+        <fullName>Account_MERC__c</fullName>
+        <description>Lookup relationship between HCP Contracts and Accounts
+Created by John A Adams 10/9/2013</description>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>HCP Contracts</relationshipLabel>
+        <relationshipName>HCP_Contracts</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Additional_Conditions_MERC__c</fullName>
+        <description>Free text to allow entry of any additional contract or Payment conditions 
+Created by John A Adams 10/17/2013</description>
+        <externalId>false</externalId>
+        <label>Additional Contract or Payment Condition</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Compliance_Met_Contract_Sent_MERC__c</fullName>
+        <description>Contract should be sent more than1 week in Advance from Meeting Start Date</description>
+        <externalId>false</externalId>
+        <formula>IF (Days_from_Contract_Sent_to_Mtg_Date_MERC__c &gt; 7, true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Compliance Met - Contract Sent</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Expiration_Date_MERC__c</fullName>
+        <description>Capture the expiration date of the contract. Created 11/19/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Contract Expiration Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Follow_Up_Date_MERC__c</fullName>
+        <description>Date on which user is to follow up on HCP signature.  For use in SLA Reporting : MERC : Created on 25/02/2105 by Mike Cashman, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Defaults to +7 Days when the Contract Status is set to &quot;Sent&quot;.  This can be updated manually by CMS Cork and is used to report on which Contracts need chasing up should no signatures be received.</inlineHelpText>
+        <label>Contract Follow Up Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Received_Date_MERC__c</fullName>
+        <description>MERC - Date HCP Contract was received by MCS.  Date field is manually updated by user and available for SLA Reporting.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date the contract was received fully signed back from the HCP.  Entered manually by CMS Cork.</inlineHelpText>
+        <label>Contract Received Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Request_Status_MERC__c</fullName>
+        <description>Records the status of the contract.
+Created by John A Adams 10/8/2013</description>
+        <externalId>false</externalId>
+        <label>Contract Request Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Contract in progress</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contract cancelled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Search_MERC__c</fullName>
+        <description>Used to improve Searching for Contracts from the Meeting Participant record.</description>
+        <externalId>false</externalId>
+        <label>Contract Search</label>
+        <length>120</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contract_Sent_Date_MERC__c</fullName>
+        <description>Date of HCP Contract Send if capturing wet signature - to be updated by end user.  If HCP Contract is received via DocuSign, field is updated via workflow.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date the Contract was sent.  This is set when the Contract Status is set to &quot;Sent&quot;.  This is done manually by CMS Cork for a paper based process or automatically for a DocuSign process.</inlineHelpText>
+        <label>Contract Sent Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Sent_Date_Time_MERC__c</fullName>
+        <description>Datetime populated via workflow when contract is sent for signature. Created 04/21/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Contract Sent Date/Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Contract_Signed_Date_Time_MERC__c</fullName>
+        <description>Datetime populated by workflow when HCP signature on contract is received. Created 04/21/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Set when the Contract Status = &apos;Complete&apos;.  If contract signed date and contract received date do not match, change the contract signed date field to HCP signature date.</inlineHelpText>
+        <label>Contract Signed Date/Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Country_MERC__c</fullName>
+        <description>Select speakers country to start fee calculation process
+Created by John A Adams 10/4/2013</description>
+        <externalId>false</externalId>
+        <label>Country</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Germany</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>France</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>UK</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Country_of_Residence_MERC__c</fullName>
+        <description>Formula field to pull in Country of Residence from HCP Profile. Created 01/15/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>TEXT(Account_MERC__r.Country_of_Residence_GLBL__c)</formula>
+        <label>Country</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Days_Since_Last_Modified_MERC__c</fullName>
+        <description>Days since contract was last modified. Created 01/30/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Today()- DateValue(LastModifiedDate)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Days Since Last Modified</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Days_Until_Contract_Signed_MERC__c</fullName>
+        <description>Number of days from contract sent for signature to signature received from HCP. Created 04/21/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Contract_Signed_Date_Time_MERC__c  -  Contract_Sent_Date_Time_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Days Until Contract Signed</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Days_from_Contract_Sent_to_Mtg_Date_MERC__c</fullName>
+        <description>Calculates number of days Contract was Sent before the Start Date of the Meeting. Created 04/28/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Meeting_Start_Date_MERC__c  -  DATEVALUE(Contract_Sent_Date_Time_MERC__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Days from Contract Sent to Meeting Date</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Description_of_Service_MERC__c</fullName>
+        <description>Description of service (only if ad hoc consulting)
+Created by John A Adams 10/17/2013</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Provide a description of service only if an ad hoc consulting</inlineHelpText>
+        <label>Description of Service</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Docusign_Envelope_Id_MERC__c</fullName>
+        <description>The Docusign envelope ID generated when the contract was sent for signature.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Docusign envelope ID generated when the contract was sent for signature.</inlineHelpText>
+        <label>Docusign Envelope Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Docusign_Envelope_URL_MERC__c</fullName>
+        <externalId>false</externalId>
+        <label>Docusign Envelope URL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Institution_MERC__c</fullName>
+        <description>Pulls the Veeva Organization name in so that have ability to manually reconfirm a HCP&apos;s affiliated Institutions by asking the question within the Payment Contract.
+Created by John A Adams 10/29/2013</description>
+        <externalId>false</externalId>
+        <formula>Account_MERC__r.Veeva_Organization_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Institution</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Internal_Lilly_Signee_Email_MERC__c</fullName>
+        <description>Pulls the Email Address of the Internal Lilly Employee.  Oliver Dunford 21st Jan 2014.</description>
+        <externalId>false</externalId>
+        <formula>Lilly_Internal_Signee_MERC__r.PersonEmail</formula>
+        <label>Internal Lilly Signee Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Invoice_Template_Required_MERC__c</fullName>
+        <description>Per Appendix R creating field on HCP Contract. Created 05/19/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Invoice Template Required</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Justification_MERC__c</fullName>
+        <description>Multi-Picklist created to identify reason to select the HCP for this service of work.
+Created by John A Adams 10/7/2013</description>
+        <externalId>false</externalId>
+        <inlineHelpText>An HCP must NOT be selected for any business relationship in order to influence or reward an HCP for past, present or future support of Lilly products, to gain access to a customer or formulary decision makers, to influence the outcome of clinical trial</inlineHelpText>
+        <label>Justification</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Recognized as a Thought Leader</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Significant topic research / background</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Outstanding speaking ability</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trained to speak on this topic</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Therapeutic Area knowledge / experience</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Recognized by local peers as a SME</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Published author in the Therapeutic Area</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Proven effective Speaker / Moderator</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other (please explain)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Lilly_Internal_Signee_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Used to indicate who the Lilly Internal Employee is for the first round of Contract signature. Oliver Dunford 21st Jan 2014.</description>
+        <externalId>false</externalId>
+        <label>Lilly Internal Signee</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.RecordType.Name</field>
+                <operation>equals</operation>
+                <value>Employee</value>
+            </filterItems>
+            <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>HCP Contracts (Lilly Internal Signee)</relationshipLabel>
+        <relationshipName>Lilly_Internal_Signee</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>MSA_End_Date_MERC__c</fullName>
+        <description>End Date for and Multi-Service Agreement Contract
+Created by John A Adams 10/28/2013</description>
+        <externalId>false</externalId>
+        <label>MSA End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>MSA_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup relationship to associate a Work Order to an MSA. Oliver Dunford 12th Nov.</description>
+        <externalId>false</externalId>
+        <label>MSA</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>HCP_Contract_MERC__c.RecordType.Name</field>
+                <operation>equals</operation>
+                <value>Master Service Agreement</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>HCP_Contract_MERC__c</referenceTo>
+        <relationshipLabel>Work Orders</relationshipLabel>
+        <relationshipName>HCP_Contracts</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>MSA_Start_Date_MERC__c</fullName>
+        <description>Start Date for and Multi-Service Agreement Contract
+Created by John A Adams 10/28/2013</description>
+        <externalId>false</externalId>
+        <label>MSA Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Name_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Name of Meeting
+Created by John A Adams 12/19/2013</description>
+        <externalId>false</externalId>
+        <label>Meeting Name</label>
+        <referenceTo>Meeting_MERC__c</referenceTo>
+        <relationshipLabel>HCP Contracts</relationshipLabel>
+        <relationshipName>HCP_Contracts</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Participant_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup to Meeting Participant from Contract for Single Event and Work Order contracts.
+Created by John Adams 1/15/14</description>
+        <externalId>false</externalId>
+        <label>Meeting Participant</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>$Source.Account_MERC__c</field>
+                <operation>equals</operation>
+                <valueField>Meeting_Participant_MERC__c.Account_MERC__c</valueField>
+            </filterItems>
+            <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Meeting_Participant_MERC__c</referenceTo>
+        <relationshipLabel>HCP Contracts</relationshipLabel>
+        <relationshipName>HCP_Contracts</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Start_Date_MERC__c</fullName>
+        <description>Start Date of Meeting
+Created by John A Adams 12/19/2013</description>
+        <externalId>false</externalId>
+        <formula>Meeting_Name_MERC__r.Date_of_Event_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Mercury_External_Id_MERC__c</fullName>
+        <description>Generated by Workflow used for Integration with External Systems.
+Created by J Adams 12/10/2013</description>
+        <externalId>true</externalId>
+        <label>Mercury External Id</label>
+        <length>150</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Other_Details_MERC__c</fullName>
+        <description>Text are to note other details about potential speaker
+Created by John A Adams 10/7/2013</description>
+        <externalId>false</externalId>
+        <label>Other Details</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Payee_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Lookup to payee
+Created by John A Adams 10/7/2013</description>
+        <externalId>false</externalId>
+        <label>Payee</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>$Source.Account_MERC__c</field>
+                <operation>equals</operation>
+                <valueField>Payee_MERC__c.Account_MERC__c</valueField>
+            </filterItems>
+            <infoMessage>If you cannot find the record you&apos;re looking for.  Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Payee_MERC__c</referenceTo>
+        <relationshipLabel>HCP Contracts</relationshipLabel>
+        <relationshipName>ContractXs</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Payment_Required_MERC__c</fullName>
+        <description>Records if payment for service is required
+Created by John A Adams 10/7/2013</description>
+        <externalId>false</externalId>
+        <label>Payment Required</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Prior_Parent_Id_GLBL__c</fullName>
+        <description>The Global Id of the account which this record was merged from. This field is set when an account merge occurs and the record belonged to the losing account.</description>
+        <externalId>false</externalId>
+        <label>Prior Parent Id</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Signing_Parties_MERC__c</fullName>
+        <description>Identifies parties that are needed to sign agreement.  This will be managed by Drawloop and DocuSign.
+Created by John A Adams 10/17/2013</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Identify which parties must sign the agreement?</inlineHelpText>
+        <label>Signing Parties</label>
+        <picklist>
+            <picklistValues>
+                <fullName>HCP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Institution</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HCP and Institution</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HCP Legal Entity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HCP and HCP Legal Entity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <label>HCP Contract</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Account_MERC__c</columns>
+        <columns>RECORDTYPE</columns>
+        <columns>Country_of_Residence_MERC__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>Contract_Request_Status_MERC__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Submitted_Contracts_MERC</fullName>
+        <columns>NAME</columns>
+        <columns>Account_MERC__c</columns>
+        <columns>Contract_Request_Status_MERC__c</columns>
+        <columns>Country_MERC__c</columns>
+        <columns>Payee_MERC__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Contract_Request_Status_MERC__c</field>
+            <operation>equals</operation>
+            <value>Contract request submitted</value>
+        </filters>
+        <label>Submitted Contracts</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <displayFormat>CNTR-{000000}</displayFormat>
+        <label>HCP Contract #</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>HCP Contracts</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Master_Service_Agreement_MERC</fullName>
+        <active>true</active>
+        <description>A master agreement permits the parties to quickly negotiate future transactions or agreements.</description>
+        <label>Master Service Agreement</label>
+        <picklistValues>
+            <picklist>Contract_Request_Status_MERC__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contract cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contract in progress</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Sent</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Country_MERC__c</picklist>
+            <values>
+                <fullName>France</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Germany</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UK</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Invoice_Template_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Justification_MERC__c</picklist>
+            <values>
+                <fullName>Other %28please explain%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outstanding speaking ability</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Proven effective Speaker %2F Moderator</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Published author in the Therapeutic Area</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recognized as a Thought Leader</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recognized by local peers as a SME</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Significant topic research %2F background</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Therapeutic Area knowledge %2F experience</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trained to speak on this topic</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Signing_Parties_MERC__c</picklist>
+            <values>
+                <fullName>HCP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP Legal Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP and HCP Legal Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP and Institution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Institution</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Single_Event_Contract_MERC</fullName>
+        <active>true</active>
+        <description>A contract for a single meeting event if an MSA is unacceptable.  Once meeting is over the contract expires.</description>
+        <label>Single Event Contract</label>
+        <picklistValues>
+            <picklist>Contract_Request_Status_MERC__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contract cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contract in progress</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Sent</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Country_MERC__c</picklist>
+            <values>
+                <fullName>France</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Germany</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UK</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Invoice_Template_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Justification_MERC__c</picklist>
+            <values>
+                <fullName>Other %28please explain%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outstanding speaking ability</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Proven effective Speaker %2F Moderator</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Published author in the Therapeutic Area</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recognized as a Thought Leader</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recognized by local peers as a SME</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Significant topic research %2F background</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Therapeutic Area knowledge %2F experience</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trained to speak on this topic</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Signing_Parties_MERC__c</picklist>
+            <values>
+                <fullName>HCP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP Legal Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP and HCP Legal Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP and Institution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Institution</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Work_Order_MERC</fullName>
+        <active>true</active>
+        <description>Used to produce a Work Order, relating to an existing Master Services Agreement.</description>
+        <label>Work Order</label>
+        <picklistValues>
+            <picklist>Contract_Request_Status_MERC__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contract cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contract in progress</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Sent</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Country_MERC__c</picklist>
+            <values>
+                <fullName>France</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Germany</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UK</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Invoice_Template_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Justification_MERC__c</picklist>
+            <values>
+                <fullName>Other %28please explain%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outstanding speaking ability</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Proven effective Speaker %2F Moderator</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Published author in the Therapeutic Area</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recognized as a Thought Leader</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recognized by local peers as a SME</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Significant topic research %2F background</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Therapeutic Area knowledge %2F experience</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trained to speak on this topic</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Required_MERC__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Signing_Parties_MERC__c</picklist>
+            <values>
+                <fullName>HCP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP Legal Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP and HCP Legal Entity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>HCP and Institution</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Institution</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Account_MERC__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Contract_Request_Status_MERC__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>RECORDTYPE</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Account_MERC__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Contract_Request_Status_MERC__c</lookupDialogsAdditionalFields>
+        <lookupFilterFields>NAME</lookupFilterFields>
+        <lookupFilterFields>RECORDTYPE</lookupFilterFields>
+        <lookupFilterFields>Account_MERC__c</lookupFilterFields>
+        <lookupFilterFields>Contract_Request_Status_MERC__c</lookupFilterFields>
+        <lookupPhoneDialogsAdditionalFields>Account_MERC__c</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Account_MERC__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Contract_Request_Status_MERC__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>MERC_Prevents_creating_dupe_Contracts</fullName>
+        <active>true</active>
+        <description>Prevents creating more than one HCP Contract for a meeting participant : MERC : Created on 03/05/2014 by Katy Lorenti, Mavens Consulting</description>
+        <errorConditionFormula>(ISNEW()  &amp;&amp; Meeting_Participant_MERC__r.Number_of_Contracts_MERC__c &gt; 0.00)</errorConditionFormula>
+        <errorMessage>There is already a contract created for this Meeting Participant.</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>Create_HCP_Contract</fullName>
+        <availability>online</availability>
+        <description>Custom link to prepopulate multiple fields in the subsequent detail page</description>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Create HCP Contract</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/apex/GLBL_NewButtonPrepopulator?cObj=HCP_Contract_MERC__c&amp;cObjURL={!URLENCODE(URLFOR($Action.HCP_Contract_MERC__c.New))}&amp;cf_Contract_Expiration_Date_MERC__c={!Meeting_Participant_MERC__c.Meeting_End_Date_MERC__c}&amp;cf_Meeting_Participant_MERC__c={!Meeting_Participant_MERC__c.Name}&amp;
+cf_Meeting_Participant_MERC__c_lkid={!Meeting_Participant_MERC__c.Id}&amp;
+cf_Account_MERC__c={!URLENCODE(Account.Name)}&amp;
+cf_Account_MERC__c_lkid={!Account.Id}&amp;
+cf_Meeting_Name_MERC__c={!URLENCODE( Meeting_Participant_MERC__c.Meeting_MERC__c )}&amp;
+cf_Meeting_Name_MERC__c_lkid={!Meeting_Participant_MERC__c.Meeting_MERCId__c}&amp;cObjParent=Meeting_Participant_MERC__c&amp;cObjParentId={!Meeting_Participant_MERC__c.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Create_HCP_Contract_Backup</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Create HCP Contract Backup</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/apex/GLBL_NewButtonPrepopulator?cObj=HCP_Contract_MERC__c&amp;cObjURL={!URLENCODE(URLFOR($Action.HCP_Contract_MERC__c.New))}&amp;cf_Contract_Expiration_Date_MERC__c={!Meeting_Participant_MERC__c.Meeting_End_Date_MERC__c}&amp;cf_Meeting_Participant_MERC__c={!Meeting_Participant_MERC__c.Name}&amp;
+cf_Meeting_Participant_MERC__c_lkid={!Meeting_Participant_MERC__c.Id}&amp;
+cf_Account_MERC__c={!URLENCODE(Account.Name)}&amp;
+cf_Account_MERC__c_lkid={!Account.Id}&amp;
+cf_Meeting_Name_MERC__c={!URLENCODE( Meeting_Participant_MERC__c.Meeting_MERC__c )}&amp;
+cf_Meeting_Name_MERC__c_lkid={!Meeting_Participant_MERC__c.Meeting_MERCId__c}&amp;cObjParent=Meeting_Participant_MERC__c&amp;cObjParentId={!Meeting_Participant_MERC__c.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Generate_Content_MERC</fullName>
+        <availability>online</availability>
+        <description>Sends user to DrawLoop UI to generate contract.</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Generate Content</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/loop__looplus?sessionId={!$Api.Session_ID}&amp;eid={!HCP_Contract_MERC__c.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>MERC_Contract_Status_by_Recipient</fullName>
+        <availability>online</availability>
+        <description>HCP Contract Status by Recipient.  Links to report.  Created on 08/03/2015 by Oliver Dunford, Mavens Consulting</description>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Contract Status by Recipient</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/{!$Setup.Mercury_Settings_MERC__c.DocuSign_Contract_Report_Id_MERC__c}?pv0={!HCP_Contract_MERC__c.Docusign_Envelope_Id_MERC__c}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Request_HCP_Signature_MERC</fullName>
+        <availability>online</availability>
+        <description>Used to request Docusign signature from HCP -JFerraro 2013-10-28</description>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Request HCP Signature</masterLabel>
+        <openType>sidebar</openType>
+        <page>MERC_RequestHCPSignature</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>Upload_Content_MERC</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Upload Content</masterLabel>
+        <openType>sidebar</openType>
+        <page>MERC_NewHCPContractContent</page>
+        <protected>false</protected>
+    </webLinks>
+</CustomObject>
