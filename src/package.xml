@@ -20,6 +20,7 @@
         <name>CustomApplication</name>
     </types>
     <types>
+        <members>Account</members>
         <members>Budget_MERC__c</members>
 		<members>ContentVersion</members>
         <members>Daily_Attendance_TOV_MERC__c</members>
