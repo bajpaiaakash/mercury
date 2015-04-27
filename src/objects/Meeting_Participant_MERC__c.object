@@ -73,6 +73,17 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Logistic_Compliance_Comments_MERC__c</fullName>
+        <description>Captures free-text logistics information to share with meeting teams : MERC : Created on 17/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Record appropriate comments for this participant viewable by CMS Regional and Local CMS teams. Follow applicable country privacy requirements</inlineHelpText>
+        <label>Logistic/Compliance Comments</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
         <fullName>SEA_WO_Follow_Up_Date_MERC__c</fullName>
         <description>Stamped by Process Builder/Flow for Contact Status Updates : MERC : Created on 20/04/2015 by Oliver Dunford, Mavens Consulting</description>
         <externalId>false</externalId>

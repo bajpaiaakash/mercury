@@ -21,6 +21,7 @@
         <members>Meeting_Participant_MERC__c.HCP_Info_Package_Follow_Up_Date_MERC__c</members>
         <members>Meeting_Participant_MERC__c.HCP_Info_Package_Sent_Date_MERC__c</members>
         <members>Meeting_Participant_MERC__c.HCP_Info_Package_Status_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.Logistic_Compliance_Comments_MERC__c</members>
         <members>Meeting_Participant_MERC__c.SEA_WO_Follow_Up_Date_MERC__c</members>
         <members>Meeting_Participant_MERC__c.SEA_WO_Received_Date_MERC__c</members>
         <members>Meeting_Participant_MERC__c.SEA_WO_Sent_Date_MERC__c</members>
