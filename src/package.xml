@@ -8,6 +8,7 @@
         <members>MERC_MeetingTeamManagerControllerTest</members>
         <members>MERC_ParticipantTovStampHandler</members>
         <members>MERC_ParticipantTovStampHandlerTest</members>
+        <members>MERC_RegistrationResponsesController</members>
         <members>MERC_TestFactory</members>
         <members>MERC_TravelProposalsController</members>
         <members>MERC_TravelProposalsControllerTest</members>
