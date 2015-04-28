@@ -30,4 +30,19 @@
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
     </fields>
+    <fields>
+        <fullName>Meeting_MERC__c</fullName>
+        <description>Master-Detail Relationship from Meeting Participant to Meeting. Created 9/30/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <label>Meeting</label>
+        <referenceTo>Meeting_MERC__c</referenceTo>
+        <relationshipLabel>Meeting Participants</relationshipLabel>
+        <relationshipName>Meeting_Participants_del</relationshipName>
+        <relationshipOrder>1</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
 </CustomObject>
