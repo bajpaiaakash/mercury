@@ -8,13 +8,18 @@
         <members>MERC_MeetingTeamManagerControllerTest</members>
         <members>MERC_ParticipantTovStampHandler</members>
         <members>MERC_ParticipantTovStampHandlerTest</members>
+        <members>MERC_TravelProposalsController</members>
         <name>ApexClass</name>
     </types>
     <types>
         <members>MERC_MeetingTeamManager</members>
+        <members>MERC_RegistrationResponses</members>
+        <members>MERC_TravelProposals</members>
         <name>ApexPage</name>
     </types>
     <types>
+        <members>Account.Hotel_Check_in_Time_MERC__c</members>
+        <members>Account.Hotel_Check_out_Time_MERC__c</members>
         <members>Case.Customer_Query_Received_Date_MERC__c</members>
         <members>HCP_Contract_MERC__c.Contract_Follow_Up_Date_MERC__c</members>
         <members>HCP_Contract_MERC__c.Contract_Received_Date_MERC__c</members>
@@ -24,6 +29,7 @@
         <members>Meeting_MERC__c.Delegate_Management_Supplier_MERC__c</members>
         <members>Meeting_MERC__c.Final_Logistics_Information_MERC__c</members>
         <members>Meeting_MERC__c.Logistics_Management_Supplier_MERC__c</members>
+        <members>Meeting_MERC__c.Travel_Information_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Accountable_Business_Contact_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Final_Fee_Confirmed_Date_MERC__c</members>
         <members>Meeting_Participant_MERC__c.HCP_Info_Pack_Received_Date_MERC__c</members>
@@ -39,6 +45,19 @@
         <members>Meeting_Participant_MERC__c.SEA_WO_Status_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Submitted_for_Payment_Date_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Submitted_for_Payment_MERC__c</members>
+        <members>Meeting_Tasks_MERC__c.Change_Process_End_Date_MERC__c</members>
+        <members>Meeting_Tasks_MERC__c.Change_Process_Start_Date_MERC__c</members>
+        <members>Meeting_Tasks_MERC__c.Comments_MERC__c</members>
+        <members>Meeting_Tasks_MERC__c.Due_Date_MERC__c</members>
+        <members>Meeting_Tasks_MERC__c.Force_Unique_Process_State_MERC__c</members>
+        <members>Meeting_Tasks_MERC__c.HCP_Country_of_Residence_Stamped_MERC__c</members>
+        <members>Meeting_Tasks_MERC__c.Meeting_Participant_MERC__c</members>
+        <members>Meeting_Tasks_MERC__c.Mercury_External_Id_MERC__c</members>
+        <members>Meeting_Tasks_MERC__c.Process_End_Date_MERC__c</members>
+        <members>Meeting_Tasks_MERC__c.Process_MERC__c</members>
+        <members>Meeting_Tasks_MERC__c.Process_Start_Date_MERC__c</members>
+        <members>Meeting_Tasks_MERC__c.Process_State_MERC__c</members>
+        <members>Meeting_Tasks_MERC__c.Task_Status_MERC__c</members>
         <members>Preferences_and_Consent_GLBL__c.Account_External_Id_GLBL__c</members>
         <members>Preferences_and_Consent_GLBL__c.Account_Field_Update_MERC__c</members>
         <members>Preferences_and_Consent_GLBL__c.Account_GLBL__c</members>
@@ -156,18 +175,26 @@
         <members>Team_Member_MERC__c.Account_Employee_MERC__c</members>
         <members>Team_Member_MERC__c.Account_MERC__c</members>
         <members>Team_Member_MERC__c.Role_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Additional_Information_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Additional_Information_TEST__c</members>
         <members>Travel_Itinerary_MERC__c.Booking_Information_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Flght_Nmbr_MERC__c</members>
         <members>Travel_Itinerary_MERC__c.Internal_Notes_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Rm_Typ_Cd_MERC__c</members>
         <members>Travel_Itinerary_MERC__c.Sgmnt_Bgin_TS_MERC__c</members>
         <members>Travel_Itinerary_MERC__c.Sgmnt_End_TS_MERC__c</members>
         <members>Travel_Itinerary_MERC__c.Status_MERC__c</members>
         <members>Travel_Itinerary_MERC__c.Travel_Proposal_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Trn_Nmbr_MERC__c</members>
         <name>CustomField</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>CustomLabels</name>
     </types>
     <types>
         <members>Add_Meeting_Participant_Record_Type_MERC__c</members>
         <members>Answer_MERC__c</members>
-        <members>Meeting_Tasks_MERC__c</members>
         <members>Registration_Question_MERC__c</members>
         <members>Response_MERC__c</members>
         <members>Travel_Proposal_Segment_Type_MERC__c</members>
@@ -185,25 +212,35 @@
     </types>
     <types>
         <members>Account-MERC_Supplier</members>
+        <members>Account-MERC_Vendor</members>
+        <members>Answer_MERC__c-MERC_Answer_Layout</members>
         <members>Case-Case Layout</members>
         <members>HCP_Contract_MERC__c-MERC_Contract</members>
         <members>HCP_Contract_MERC__c-MERC_MSA Contract</members>
         <members>HCP_Contract_MERC__c-MERC_Work Order</members>
+        <members>Meeting_Day_MERC__c-MERC_Meeting Day</members>
         <members>Meeting_MERC__c-MERC_Active</members>
         <members>Meeting_MERC__c-MERC_Completed</members>
         <members>Meeting_MERC__c-MERC_Consulting_Project</members>
         <members>Meeting_MERC__c-MERC_Forecasted_Meeting</members>
         <members>Meeting_MERC__c-MERC_Independent_Sponsorship</members>
+        <members>Meeting_MERC__c-MERC_Portal_API</members>
         <members>Meeting_MERC__c-MERC_Registered_Meeting</members>
         <members>Meeting_Participant_MERC__c-MERC_Consulting</members>
         <members>Meeting_Participant_MERC__c-MERC_Delegate</members>
         <members>Meeting_Participant_MERC__c-MERC_Individual Sponsorship</members>
         <members>Meeting_Participant_MERC__c-MERC_Service Provider</members>
+        <members>Registration_Question_MERC__c-MERC_Question_Layout</members>
+        <members>Response_MERC__c-MERC_Response_Layout</members>
         <members>Travel_Itinerary_MERC__c-MERC_Air</members>
         <members>Travel_Itinerary_MERC__c-MERC_Bus</members>
         <members>Travel_Itinerary_MERC__c-MERC_Rail</members>
         <members>Travel_Itinerary_MERC__c-MERC_Travel_Proposal</members>
         <name>Layout</name>
+    </types>
+    <types>
+        <members>Meeting_Tasks_MERC__c.All</members>
+        <name>ListView</name>
     </types>
     <types>
         <members>Mercury_Account_Manager_Edit</members>
@@ -223,6 +260,7 @@
         <members>GSO Basic User_Salesforce</members>
         <members>Mercury Integration MVI - Platform</members>
         <members>Mercury Metadata API</members>
+        <members>Mercury Portal API - Platform</members>
         <name>Profile</name>
     </types>
     <types>
@@ -245,6 +283,8 @@
         <name>ReportType</name>
     </types>
     <types>
+        <members>Account.MERC_CheckIn_Time</members>
+        <members>Account.MERC_CheckOut_Time</members>
         <members>Meeting_Participant_MERC__c.MERC_Lock_Final_Fee</members>
         <name>ValidationRule</name>
     </types>
@@ -253,15 +293,23 @@
         <name>WebLink</name>
     </types>
     <types>
+        <members>Answer_MERC__c</members>
         <members>HCP_Contract_MERC__c</members>
+        <members>Registration_Question_MERC__c</members>
+        <members>Response_MERC__c</members>
         <name>Workflow</name>
     </types>
     <types>
         <members>Meeting_Participant_MERC__c.MERC_Set_Final_Fee_Confirmed_Date</members>
+        <members>Meeting_Tasks_MERC__c.MERC_Stamp_External_Id_Meeting_Task</members>
+        <members>Travel_Itinerary_MERC__c.MERC_Set_Hotel_CheckOut_Time</members>
+        <members>Travel_Itinerary_MERC__c.MERC_Set_Hotel_Checkin_Time</members>
         <name>WorkflowFieldUpdate</name>
     </types>
     <types>
         <members>Meeting_Participant_MERC__c.MERC Final Fee Date</members>
+        <members>Meeting_Tasks_MERC__c.MERC_Set External Id - Meeting Tasks</members>
+        <members>Travel_Itinerary_MERC__c.MERC_Update Check In%2FOut Times</members>
         <name>WorkflowRule</name>
     </types>
     <version>32.0</version>

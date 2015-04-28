@@ -28,7 +28,21 @@
         <apexClass>MERC_ParticipantTovStampHandlerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_TravelProposalsController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
     <custom>true</custom>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Hotel_Check_in_Time_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Hotel_Check_out_Time_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Answer_MERC__c.Answer_Text_MERC__c</field>
@@ -123,6 +137,11 @@
         <editable>false</editable>
         <field>Meeting_MERC__c.Logistics_Management_Supplier_MERC__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting_MERC__c.Travel_Information_MERC__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -231,16 +250,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Meeting_Tasks_MERC__c.Has_Ended_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Meeting_Tasks_MERC__c.Has_Started_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Meeting_Tasks_MERC__c.Meeting_Participant_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -267,11 +276,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_Tasks_MERC__c.Process_State_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Meeting_Tasks_MERC__c.Start_Meeting_Task_Id_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -916,13 +920,33 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Travel_Itinerary_MERC__c.Additional_Information_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Travel_Itinerary_MERC__c.Additional_Information_TEST__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Travel_Itinerary_MERC__c.Booking_Information_MERC__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Travel_Itinerary_MERC__c.Flght_Nmbr_MERC__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Travel_Itinerary_MERC__c.Internal_Notes_MERC__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Travel_Itinerary_MERC__c.Rm_Typ_Cd_MERC__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -944,6 +968,14 @@
         <field>Travel_Itinerary_MERC__c.Travel_Proposal_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Travel_Itinerary_MERC__c.Trn_Nmbr_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <layoutAssignments>
+        <layout>Answer_MERC__c-MERC_Answer_Layout</layout>
+    </layoutAssignments>
     <layoutAssignments>
         <layout>Case-Case Layout</layout>
     </layoutAssignments>
@@ -951,10 +983,19 @@
         <layout>HCP_Contract_MERC__c-MERC_Contract</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Meeting_Day_MERC__c-MERC_Meeting Day</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Meeting_MERC__c-MERC_Active</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Meeting_Participant_MERC__c-MERC_Service Provider</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Registration_Question_MERC__c-MERC_Question_Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Response_MERC__c-MERC_Response_Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Travel_Itinerary_MERC__c-MERC_Air</layout>
@@ -969,6 +1010,14 @@
     </loginIpRanges>
     <pageAccesses>
         <apexPage>MERC_MeetingTeamManager</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>MERC_RegistrationResponses</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>MERC_TravelProposals</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <recordTypeVisibilities>

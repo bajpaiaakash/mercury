@@ -1,0 +1,160 @@
+<apex:page showHeader="true" sidebar="true" controller="MERC_TravelProposalsController">
+	<style>
+		div.proposal-fields { margin: 20px 0;}
+
+		.pageBlock h1 {
+			font-size:20px;
+			display:block;
+			margin-top:20px;
+			padding-top:10px;
+			border-top:1px solid #bbb;
+		}
+
+		.pageBlock h1:nth-of-type(1) {
+			border-top: 0px;
+		}
+
+		.pageBlock h2 {
+			font-size: 18px;
+		}
+
+		.pageBlock .segment-button { margin-top: 10px; }
+
+		table.outer-table { margin-left: 20px; }
+		.inner-table table{
+			border-bottom: 1px solid #aaa;
+  			padding-bottom: 10px;
+		}
+	</style>
+	<apex:sectionHeader title="{!pageTitle}" subtitle="{!pageSubTitle}" rendered="{!NOT(initializationError)}"/>
+
+	<apex:pageMessages id="messages"/>
+
+	<apex:form id="theForm" styleClass="pageBlock" rendered="{!NOT(initializationError)}">
+		<apex:pageBlock >
+
+			<!--  Buttons: All use 'Processing...' action status -->
+			<apex:pageBlockButtons location="top">
+				<apex:actionStatus id="processing">
+					<apex:facet name="stop">
+						<apex:outputPanel >
+							<apex:commandButton value="{!$Label.Travel_Proposals_Save_Proposals}" action="{!save}" rerender="theForm, messages" status="processing"/>
+							<apex:commandButton value="{!$Label.Travel_Proposals_Save_Exit}" action="{!saveProposalsAndReturn}" rerender="theForm, messages" status="processing"/>
+							<apex:actionRegion >
+								<apex:commandButton value="{!$Label.Generic_Cancel}" action="{!exitPAge}" rerender="theForm, messages" status="processing"/>
+							</apex:actionRegion>
+							<apex:commandButton value="{!$Label.Travel_Proposals_New_Proposal}" action="{!addProposal}" rerender="theForm, messages" status="processing"/>
+						</apex:outputPanel>
+					</apex:facet>
+					<apex:facet name="start">
+						{!$Label.Generic_Processing}
+					</apex:facet>
+				</apex:actionStatus>
+			</apex:pageBlockButtons>
+
+			<!-- Basic Meeting Information -->
+			<h2>{!$Label.Travel_Proposals_Meeting_Information}</h2>
+			<apex:pageBlockSection columns="2">
+				<apex:outputField value="{!participant.Meeting_MERC__r.Meeting_Time_Zone_MERC__c}"/>
+				<apex:outputText value=""/>
+				<apex:outputField value="{!participant.Meeting_MERC__r.Start_Time_In_Meeting_Time_Zone__c}"/>
+				<apex:outputField value="{!participant.Meeting_MERC__r.End_Time_In_Meeting_Time_Zone_MERC__c}"/>
+			</apex:pageBlockSection>
+
+
+			<!-- Iterate over each of the proposals -->
+			<apex:repeat value="{!proposals}" var="proposal">
+				<apex:outputPanel id="proposal">
+					<h1>
+						{!$Label.Travel_Proposals_Proposal} <a href="/{!proposal.detail.id}" target="_blank">{!proposal.detail.Name}</a>
+					</h1>
+
+					<!-- Users can toggle the status of a proposal. On change the proposal is rerendered in case it needs to be hidden  -->
+					<div class="proposal-fields">
+						<apex:actionRegion >
+							<apex:pageBlockSection >
+								<apex:inputField value="{!proposal.detail.Status_MERC__c}" required="true">
+									<apex:actionSupport event="onchange"
+														action="{!doNothing}"
+														rerender="proposal"/>
+								</apex:inputField>
+							</apex:pageBlockSection>
+						</apex:actionRegion>
+					</div>
+
+
+					<!-- Iterate over each of the segments for this proposal. Using a table to simplify formatting-->
+					<apex:outputPanel styleClass="segments" id="segments" rendered="{!proposal.displaySegments}">
+						<p><h2>{!$Label.Travel_Proposals_Segments}</h2></p>
+						<table class="outer-table">
+							<apex:repeat value="{!proposal.segments}" var="segment">
+								<tr>
+									<td>
+										<!-- an inner table holds basic info for every segment including the number (ordering), the type and the status -->
+										<table>
+											<thead>
+												<tr>
+													<th>{!$Label.Travel_Proposals_Number}</th>
+													<th>{!$Label.Travel_Proposals_Type}</th>
+													<th>{!$Label.Travel_Proposals_Status}</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td><apex:inputField value="{!segment.detail.Segment_Number__c}" style="width:20px;" required="true"/></td>
+													<td style="padding-right:10px;">
+														<apex:actionRegion >
+															<div class="requiredInput">
+																<div class="requiredBlock"/>
+
+																<apex:selectList id="segmentType" label="Segment Type" value="{!segment.segmentType}" size="1" required="true">
+																	<apex:selectOptions value="{!segmentOptions}"/>
+																	<apex:actionSupport event="onchange"
+																	                    action="{!doNothing}"
+																						rerender="segments"/>
+																</apex:selectList>
+															</div>
+														</apex:actionRegion>
+													</td>
+													<td>
+														<apex:actionRegion >
+															<apex:inputField value="{!segment.detail.Status_MERC__c}" required="true">
+																<apex:actionSupport event="onchange"
+																					action="{!doNothing}"
+																					rerender="segments"/>
+															</apex:inputField>
+														</apex:actionRegion>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</td>
+									<td style="padding-top:20px;" class="inner-table">
+										<apex:pageBlockSection columns="2" rendered="{!segment.display}">
+											<apex:repeat value="{!segment.segmentFields}" var="field">
+												<apex:inputField value="{!segment.detail[field.fieldPath]}" required="{!field.DBRequired || field.Required}"/>
+											</apex:repeat>
+										</apex:pageBlockSection>
+									</td>
+								</tr>
+							</apex:repeat>
+						</table>
+
+						<apex:actionStatus id="processingSegment">
+							<apex:facet name="stop">
+								<apex:commandButton value="{!$Label.Travel_Proposals_Add_Segment}"
+								                    action="{!proposal.addSegment}"
+													rerender="segments, messages"
+													styleClass="segment-button"
+													status="processingSegment"/>
+							</apex:facet>
+							<apex:facet name="start">
+								<apex:commandButton value="{!$Label.Generic_Processing}" disabled="true" styleClass="segment-button"/>
+							</apex:facet>
+						</apex:actionStatus>
+					</apex:outputPanel>
+				</apex:outputPanel>
+			</apex:repeat>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

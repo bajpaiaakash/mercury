@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Hotel_Check_in_Time_MERC__c</fullName>
+        <description>Used to auto-populate the check-in/out times of a Travel Itinerary record : MERC : Created on 28/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Must be in the format &quot;00:00&quot; for example &quot;08:00&quot; indicates an 8am check-in.  Used to automatically update Travel Itinerary Hotel Check-in Times.  Both Check-in and Check-out times must be populated for this to run.</inlineHelpText>
+        <label>Hotel Check-in Time</label>
+        <length>5</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Hotel_Check_out_Time_MERC__c</fullName>
+        <description>Used to auto-populate the check-in/out times of a Travel Itinerary record : MERC : Created on 28/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Must be in the format &quot;00:00&quot; and be in 24hr format, for example &quot;13:00&quot; indicates a 1pm check-out.  Used to automatically update Travel Itinerary Hotel Check-out Times.  Both Check-in and Check-out times must be populated for this to run.</inlineHelpText>
+        <label>Hotel Check-out Time</label>
+        <length>5</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <validationRules>
+        <fullName>MERC_CheckIn_Time</fullName>
+        <active>true</active>
+        <description>Ensures the check-in time is the correct format and length should it be populated : MERC : Created on 28/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <errorConditionFormula>NOT(OR(LEN(Hotel_Check_in_Time_MERC__c)=0, 
+REGEX(Hotel_Check_in_Time_MERC__c, &quot;^(([0-1]?[0-9])|([2][0-3])):([0-5][0-9])$&quot;)))</errorConditionFormula>
+        <errorDisplayField>Hotel_Check_in_Time_MERC__c</errorDisplayField>
+        <errorMessage>The incorrect format has been supplied for Hotel Check-in.  This should be in 24hr format format as follows &quot;13:00&quot;.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>MERC_CheckOut_Time</fullName>
+        <active>true</active>
+        <description>Ensures the check-out time is the correct format and length should it be populated : MERC : Created on 28/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <errorConditionFormula>NOT(OR(LEN(Hotel_Check_in_Time_MERC__c)=0, 
+REGEX(Hotel_Check_in_Time_MERC__c, &quot;^(([0-1]?[0-9])|([2][0-3])):([0-5][0-9])$&quot;)))</errorConditionFormula>
+        <errorDisplayField>Hotel_Check_in_Time_MERC__c</errorDisplayField>
+        <errorMessage>The incorrect format has been supplied for Hotel Check-in.  This should be in 24hr format format as follows &quot;13:00&quot;.</errorMessage>
+    </validationRules>
+</CustomObject>

@@ -167,6 +167,28 @@
         <label>Proposal Segment - Rail</label>
     </fieldSets>
     <fields>
+        <fullName>Additional_Information_MERC__c</fullName>
+        <description>Added per defect 108. Created 06/02/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>For private transfer you can use this box to specify if a car with wheelchair is needed, or where the HCP can find the chauffeur, or the telephone number of chauffeur.  For other types examples include; No Smoking, Dust Allergy etc</inlineHelpText>
+        <label>Additional Information</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Additional_Information_TEST__c</fullName>
+        <description>DONOTDEPLOY</description>
+        <externalId>false</externalId>
+        <formula>DATETIMEVALUE(TEXT(YEAR(DATEVALUE(Sgmnt_Bgin_TS_MERC__c))) +&quot;-&quot;+ TEXT(MONTH(DATEVALUE(Sgmnt_Bgin_TS_MERC__c))) +&quot;-&quot;+ TEXT(DAY(DATEVALUE(Sgmnt_Bgin_TS_MERC__c))) + RIGHT(TEXT( Account_MERC__r.CreatedDate ),10))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>DONOTDEPLOY</inlineHelpText>
+        <label>Additional Information</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>Booking_Information_MERC__c</fullName>
         <description>Holds booking information for Travel records : MERC : Created on 27/04/2015 by Oliver Dunford, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -177,6 +199,19 @@
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>Flght_Nmbr_MERC__c</fullName>
+        <description>This is a number which identifies a specific flight from one airport to another.   The combination of Airline Code + Flight Number make it unique.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Only if it applies.</inlineHelpText>
+        <label>Flight Number</label>
+        <length>6</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Internal_Notes_MERC__c</fullName>
         <description>Holds Internal Notes for Travel records : MERC : Created on 27/04/2015 by Oliver Dunford, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -185,6 +220,19 @@
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Rm_Typ_Cd_MERC__c</fullName>
+        <description>The code detailing the type of room, number of beds, and size of beds.  Examples are A1K and A1Q.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Specify if it&apos;s single, double for single use, or double</inlineHelpText>
+        <label>Room Type</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Sgmnt_Bgin_TS_MERC__c</fullName>
@@ -269,6 +317,19 @@ Created by John A Adams 12/13/2013</description>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Trn_Nmbr_MERC__c</fullName>
+        <description>This is a number which identifies a specific rail-trip from one station to another. Similar to an air segment&apos;s flight number.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Only if it applies</inlineHelpText>
+        <label>Train Number</label>
+        <length>12</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <recordTypes>
         <fullName>MERC_Travel_Proposal</fullName>

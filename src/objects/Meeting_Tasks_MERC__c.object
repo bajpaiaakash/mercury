@@ -1,59 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
-    <actionOverrides>
-        <actionName>Accept</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>CancelEdit</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Clone</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Delete</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Edit</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Follow</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>List</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>New</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>SaveEdit</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Tab</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>View</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
-    <deploymentStatus>Deployed</deploymentStatus>
-    <description>Captures to-do items for all meeting management functions : MERC : Created on 21/04/2015 by Oliver Dunford, Mavens Consulting</description>
-    <enableActivities>false</enableActivities>
-    <enableBulkApi>true</enableBulkApi>
-    <enableFeeds>false</enableFeeds>
-    <enableHistory>true</enableHistory>
-    <enableReports>true</enableReports>
-    <enableSharing>true</enableSharing>
-    <enableStreamingApi>true</enableStreamingApi>
     <fields>
         <fullName>Change_Process_End_Date_MERC__c</fullName>
         <description>Allows an override for the specific process end date should it be incorrect : MERC : Created on 23/04/2015 by Oliver Dunford, Mavens Consulting</description>
@@ -122,26 +68,6 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Has_Ended_MERC__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>Indicates if the process has started to ensure validation rules can fire : MERC : Created on 28/04/2015 by Oliver Dunford, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <label>Has Ended</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Has_Started_MERC__c</fullName>
-        <defaultValue>false</defaultValue>
-        <description>Indicates if the process has started to ensure validation rules can fire : MERC : Created on 28/04/2015 by Oliver Dunford, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <label>Has Started</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Meeting_Participant_MERC__c</fullName>
@@ -250,18 +176,6 @@
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Start_Meeting_Task_Id_MERC__c</fullName>
-        <description>Used to store the Id of the Starting Task, ensures each process has a Start State : MERC : Created on 28/04/2015 by Oliver Dunford, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <label>Start Meeting Task Id</label>
-        <length>25</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Task_Status_MERC__c</fullName>
         <description>Stores the Status of each Task, drives automation : MERC : Created on 21/04/2015 by Oliver Dunford, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -290,7 +204,6 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-    <label>Meeting Task</label>
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
@@ -305,12 +218,4 @@
         <label>All</label>
         <language>en_US</language>
     </listViews>
-    <nameField>
-        <label>Meeting Task Name</label>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-    </nameField>
-    <pluralLabel>Meeting Tasks</pluralLabel>
-    <searchLayouts/>
-    <sharingModel>Private</sharingModel>
 </CustomObject>

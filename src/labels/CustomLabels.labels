@@ -1,0 +1,4094 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>ACED_AssetUpdate_ErrorMessage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_AssetUpdate_ErrorMessage</shortDescription>
+        <value>An error occurred while saving Asset Data. Please contact your system administrator</value>
+    </labels>
+    <labels>
+        <fullName>ACED_CreateProduct_label1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_CreateProduct_label1</shortDescription>
+        <value>Create Brand Indication from GSO Product Catalog</value>
+    </labels>
+    <labels>
+        <fullName>ACED_CreateProduct_label2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_CreateProduct_label2</shortDescription>
+        <value>ACE Brand Indication Creation Form</value>
+    </labels>
+    <labels>
+        <fullName>ACED_CreateProduct_label3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_CreateProduct_label3</shortDescription>
+        <value>Create Brand Indications</value>
+    </labels>
+    <labels>
+        <fullName>ACED_CreateProduct_label4</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_CreateProduct_label4</shortDescription>
+        <value>Search Brand Indication</value>
+    </labels>
+    <labels>
+        <fullName>ACED_CreateProduct_label5</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_CreateProduct_label5</shortDescription>
+        <value>GSO Products</value>
+    </labels>
+    <labels>
+        <fullName>ACED_CreateProduct_label6</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_CreateProduct_label6</shortDescription>
+        <value>Create Products</value>
+    </labels>
+    <labels>
+        <fullName>ACED_CreateProduct_label7</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_CreateProduct_label7</shortDescription>
+        <value>GSO Brand Name</value>
+    </labels>
+    <labels>
+        <fullName>ACED_CreateProduct_label8</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_CreateProduct_label8</shortDescription>
+        <value>Product Group Id</value>
+    </labels>
+    <labels>
+        <fullName>ACED_DeliveryNotEligible</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_DeliveryNotEligible</shortDescription>
+        <value>This delivery is not eligible for adding Interactions</value>
+    </labels>
+    <labels>
+        <fullName>ACED_ErrorMessage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_ErrorMessage</shortDescription>
+        <value>There is error occurred in creating/updating the record. Please contact system Admin</value>
+    </labels>
+    <labels>
+        <fullName>ACED_PrivateKey_Prefix</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_PrivateKey_Prefix</shortDescription>
+        <value>-----BEGIN PRIVATE KEY</value>
+    </labels>
+    <labels>
+        <fullName>ACED_PrivateKey_Suffix</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_PrivateKey_Suffix</shortDescription>
+        <value>-----END PRIVATE KEY-----</value>
+    </labels>
+    <labels>
+        <fullName>ACED_Private_Key_title</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED Private Key title</shortDescription>
+        <value>Google Analytics Private Key</value>
+    </labels>
+    <labels>
+        <fullName>ACED_Refresh_eInt_Error_Message</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_Refresh_eInt_Error_Message</shortDescription>
+        <value>Please maintain a WebTrends or Google Analytics Profile ID for the corresponding asset</value>
+    </labels>
+    <labels>
+        <fullName>ACED_Retire_Asset_Error_Msg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_Retire_Asset_Error_Msg</shortDescription>
+        <value>This asset record cannot be set to Retired as there are associated Assets that are still Active.</value>
+    </labels>
+    <labels>
+        <fullName>ACED_RightNow_EmailContent</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_RightNow_EmailContent</shortDescription>
+        <value>RightNow Batch job is complete, please check the below log files</value>
+    </labels>
+    <labels>
+        <fullName>ACED_RightNow_SubjectLine</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_RightNow_SubjectLine</shortDescription>
+        <value>RightNow Nighthly Job Scheduler is complete</value>
+    </labels>
+    <labels>
+        <fullName>ACED_Webtrends_Batch_Job_Issues</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_Webtrends Batch Job Issues</shortDescription>
+        <value>Webtrends Batch Job not completed</value>
+    </labels>
+    <labels>
+        <fullName>ACED_Webtrends_EmailContent</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_Webtrends_EmailContent</shortDescription>
+        <value>WebTrends Nightly batch is completed, pls find below the summary of records updated</value>
+    </labels>
+    <labels>
+        <fullName>ACED_Webtrends_SubjectLine</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_Webtrends_SubjectLine</shortDescription>
+        <value>Webtrends Batch Job completed</value>
+    </labels>
+    <labels>
+        <fullName>ACED_Webtrends_intConsole_errors</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ACED_Webtrends_intConsole_errors</shortDescription>
+        <value>There is an error associated with Webtrends Nightly Batch Job. Please rectify the following errors on Integration console record:-</value>
+    </labels>
+    <labels>
+        <fullName>APOL_Apollo_App_Name</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL_Apollo App Name</shortDescription>
+        <value>Apollo</value>
+    </labels>
+    <labels>
+        <fullName>APOL_ApollotestData</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL ApollotestData</shortDescription>
+        <value>ApollotestData</value>
+    </labels>
+    <labels>
+        <fullName>APOL_Application</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL_Application</shortDescription>
+        <value>Application</value>
+    </labels>
+    <labels>
+        <fullName>APOL_Business_Unit</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL Business Unit</shortDescription>
+        <value>business Unit</value>
+    </labels>
+    <labels>
+        <fullName>APOL_CS</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL_CS</shortDescription>
+        <value>.cs</value>
+    </labels>
+    <labels>
+        <fullName>APOL_Changed</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL_Changed</shortDescription>
+        <value>changed</value>
+    </labels>
+    <labels>
+        <fullName>APOL_Clinical_Innovation</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL Clinical Innovation</shortDescription>
+        <value>Clinical Innovation</value>
+    </labels>
+    <labels>
+        <fullName>APOL_Compound</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL Compound</shortDescription>
+        <value>compound</value>
+    </labels>
+    <labels>
+        <fullName>APOL_DatetimeFormat</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL_DatetimeFormat</shortDescription>
+        <value>EEE MMM dd yyyy HH:mm:ss Z</value>
+    </labels>
+    <labels>
+        <fullName>APOL_Email</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL Email</shortDescription>
+        <value>email</value>
+    </labels>
+    <labels>
+        <fullName>APOL_GlobalPath</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL GlobalPath</shortDescription>
+        <value>globalPath</value>
+    </labels>
+    <labels>
+        <fullName>APOL_HomePage2</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL_HomePage2</shortDescription>
+        <value>APOL_HomePage2</value>
+    </labels>
+    <labels>
+        <fullName>APOL_Homepage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL_Homepage</shortDescription>
+        <value>APOL_Homepage</value>
+    </labels>
+    <labels>
+        <fullName>APOL_Homeurl</fullName>
+        <categories>Used in the Lilly Icon link in the Apollo Chord Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL_Homeurl</shortDescription>
+        <value>/home/home.jsp?tsid=</value>
+    </labels>
+    <labels>
+        <fullName>APOL_Host</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL_Host</shortDescription>
+        <value>Host</value>
+    </labels>
+    <labels>
+        <fullName>APOL_Lead</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL Lead</shortDescription>
+        <value>lead</value>
+    </labels>
+    <labels>
+        <fullName>APOL_Name</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL Name</shortDescription>
+        <value>name</value>
+    </labels>
+    <labels>
+        <fullName>APOL_NextGenDev</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL_NextGenDev</shortDescription>
+        <value>NexGenDev</value>
+    </labels>
+    <labels>
+        <fullName>APOL_Phase</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL Phase</shortDescription>
+        <value>phase</value>
+    </labels>
+    <labels>
+        <fullName>APOL_Picture</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL Picture</shortDescription>
+        <value>picture</value>
+    </labels>
+    <labels>
+        <fullName>APOL_Pillar</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL Pillar</shortDescription>
+        <value>pillar</value>
+    </labels>
+    <labels>
+        <fullName>APOL_Possibility</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL_Possibility</shortDescription>
+        <value>Possibility (Ideation)</value>
+    </labels>
+    <labels>
+        <fullName>APOL_Project</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL_Project</shortDescription>
+        <value>apol_project__c</value>
+    </labels>
+    <labels>
+        <fullName>APOL_ProjectImages</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL_ProjectImages</shortDescription>
+        <value>APOL_ProjectImages</value>
+    </labels>
+    <labels>
+        <fullName>APOL_ResourceFolderDistPath</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL_ResourceFolderDistPath</shortDescription>
+        <value>/dist/</value>
+    </labels>
+    <labels>
+        <fullName>APOL_ResourceUrl</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL_ResourceUrl</shortDescription>
+        <value>--c.cs</value>
+    </labels>
+    <labels>
+        <fullName>APOL_Slash</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL_Slash</shortDescription>
+        <value>/</value>
+    </labels>
+    <labels>
+        <fullName>APOL_Success</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL_Success</shortDescription>
+        <value>Success</value>
+    </labels>
+    <labels>
+        <fullName>APOL_TherapeuticArea</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL TherapeuticArea</shortDescription>
+        <value>therapeuticArea</value>
+    </labels>
+    <labels>
+        <fullName>APOL_Title</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL Title</shortDescription>
+        <value>title</value>
+    </labels>
+    <labels>
+        <fullName>APOL_TrackedChange</fullName>
+        <categories>Used in Chatter Updates JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL_TrackedChange</shortDescription>
+        <value>TrackedChange</value>
+    </labels>
+    <labels>
+        <fullName>APOL_Trial</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL Trial</shortDescription>
+        <value>trial</value>
+    </labels>
+    <labels>
+        <fullName>APOL_VideoDownloadUrl</fullName>
+        <categories>Used in Background Video in Apollo Chord Page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL_VideoDownloadUrl</shortDescription>
+        <value>/sfc/servlet.shepherd/version/download/</value>
+    </labels>
+    <labels>
+        <fullName>APOL_VideoDownloadUrlSuffix</fullName>
+        <categories>Used in Background Video in Apollo Chord Page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL_VideoDownloadUrlSuffix</shortDescription>
+        <value>?asPdf=false</value>
+    </labels>
+    <labels>
+        <fullName>APOL_affectingchange</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL affectingchange</shortDescription>
+        <value>affectingChange</value>
+    </labels>
+    <labels>
+        <fullName>APOL_bu</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL bu</shortDescription>
+        <value>bu</value>
+    </labels>
+    <labels>
+        <fullName>APOL_categories</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL_categories</shortDescription>
+        <value>categories</value>
+    </labels>
+    <labels>
+        <fullName>APOL_category</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL_category</shortDescription>
+        <value>category</value>
+    </labels>
+    <labels>
+        <fullName>APOL_categoryName</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL categoryName</shortDescription>
+        <value>categoryName</value>
+    </labels>
+    <labels>
+        <fullName>APOL_comment</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL comment</shortDescription>
+        <value>comment</value>
+    </labels>
+    <labels>
+        <fullName>APOL_featured</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL featured</shortDescription>
+        <value>featured</value>
+    </labels>
+    <labels>
+        <fullName>APOL_following</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL_following</shortDescription>
+        <value>following</value>
+    </labels>
+    <labels>
+        <fullName>APOL_from</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL_from</shortDescription>
+        <value>from</value>
+    </labels>
+    <labels>
+        <fullName>APOL_geo</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL geo</shortDescription>
+        <value>geo</value>
+    </labels>
+    <labels>
+        <fullName>APOL_https</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL_https</shortDescription>
+        <value>https://</value>
+    </labels>
+    <labels>
+        <fullName>APOL_id</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL id</shortDescription>
+        <value>id</value>
+    </labels>
+    <labels>
+        <fullName>APOL_investigators</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL investigators</shortDescription>
+        <value>investigators</value>
+    </labels>
+    <labels>
+        <fullName>APOL_longdesc</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL longdesc</shortDescription>
+        <value>longDesc</value>
+    </labels>
+    <labels>
+        <fullName>APOL_mysalesforce</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL_mysalesforce</shortDescription>
+        <value>my.salesforce</value>
+    </labels>
+    <labels>
+        <fullName>APOL_patients</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL patients</shortDescription>
+        <value>patients</value>
+    </labels>
+    <labels>
+        <fullName>APOL_problem</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL problem</shortDescription>
+        <value>problem</value>
+    </labels>
+    <labels>
+        <fullName>APOL_production</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL_production</shortDescription>
+        <value>production</value>
+    </labels>
+    <labels>
+        <fullName>APOL_resourcePath</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL_resourcePath</shortDescription>
+        <value>/resource/</value>
+    </labels>
+    <labels>
+        <fullName>APOL_shortdesc</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL shortdesc</shortDescription>
+        <value>shortDesc</value>
+    </labels>
+    <labels>
+        <fullName>APOL_stage</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL stage</shortDescription>
+        <value>stage</value>
+    </labels>
+    <labels>
+        <fullName>APOL_stakeholders</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL stakeholders</shortDescription>
+        <value>stakeholders</value>
+    </labels>
+    <labels>
+        <fullName>APOL_status</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL status</shortDescription>
+        <value>status</value>
+    </labels>
+    <labels>
+        <fullName>APOL_timestamp</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL_timestamp</shortDescription>
+        <value>timestamp</value>
+    </labels>
+    <labels>
+        <fullName>APOL_to</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL_to</shortDescription>
+        <value>to</value>
+    </labels>
+    <labels>
+        <fullName>APOL_update</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL_update</shortDescription>
+        <value>update</value>
+    </labels>
+    <labels>
+        <fullName>APOL_updates</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL_updates</shortDescription>
+        <value>updates</value>
+    </labels>
+    <labels>
+        <fullName>APOL_visualforce</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>APOL_visualforce</shortDescription>
+        <value>visual.force</value>
+    </labels>
+    <labels>
+        <fullName>Apol_HomePageVideo</fullName>
+        <categories>Used in Project JSON for Apollo Home Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Apol_HomePageVideo</shortDescription>
+        <value>0D51100000CCHHkCAP</value>
+    </labels>
+    <labels>
+        <fullName>Apol_HomePageVideoName</fullName>
+        <categories>Used in Background Video in Apollo Chord Page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Apol_HomePageVideoName</shortDescription>
+        <value>APOL_HomePageVideo</value>
+    </labels>
+    <labels>
+        <fullName>AudienceObj_Audience_Affiliate</fullName>
+        <categories>Used in ACED_Audience_HUB controller</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Audience : Audience Affiliate</shortDescription>
+        <value>00N11000000qvaF</value>
+    </labels>
+    <labels>
+        <fullName>AudienceObj_Audience_Hub</fullName>
+        <categories>Used in ACED_Audience_HUB controller</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Audience : Audience Hub</shortDescription>
+        <value>00N11000000qtuS</value>
+    </labels>
+    <labels>
+        <fullName>Audience_New_Override</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Audience New Override</shortDescription>
+        <value>/a2y/e?retURL=%2Fa2y%2Fo</value>
+    </labels>
+    <labels>
+        <fullName>Burn_Status</fullName>
+        <categories>Burndown Chart</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Burn Status</shortDescription>
+        <value>Passed (Complete)</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_ATC_Approval_Feedback</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP ATC Approval Feedback label</shortDescription>
+        <value>ATC Approver Feedback</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_ATC_Approver</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP ATC Approver label used on Contract Request Form</shortDescription>
+        <value>ATC Approver</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_ATC_Rejection_Email</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP ATC Rejection Email</shortDescription>
+        <value>C3AP_Send_Notification_to_Initiator_for_ATC_Rejected</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_ATS_Approver</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP ATS Approver label used on Contract Request Form</shortDescription>
+        <value>ATS Approver</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Additional_Guidance_Information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Additional Guidance Information header on Homepage</shortDescription>
+        <value>Additional Guidance Information</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Additional_Links_For_Information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Additional Links for info column header on Homepage</shortDescription>
+        <value>Additional Links for Information (Click to Download)</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Affiliate_Approvers</fullName>
+        <categories>C3AP_Add_Affiliate_Approver page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Affiliate Approvers</shortDescription>
+        <value>Affiliate Approvers</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Affiliate_Approvers_Edit</fullName>
+        <categories>C3AP_Add_Affiliate_Approver page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Affiliate Approvers Edit</shortDescription>
+        <value>Affiliate Approvers Edit</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Amend_ATC_Approver</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP_Amend_Approver</shortDescription>
+        <value>Please click &apos;Ok&apos; to confirm that you have:
+1. Attached an amended contract
+2. Reviewed the responses to the introductory and legal questions and made any required changes</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Amend_Request_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Amend Request Error</shortDescription>
+        <value>You do not have permission to amend the contract request at this stage</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Amendment</fullName>
+        <categories>ContractRequestForm</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Amendment</shortDescription>
+        <value>Amendment</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Amendment_Approved</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP_Amendment_Approved</shortDescription>
+        <value>You have successfully approved the amendment made by the Approver.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Amendment_Not_Approved</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP_Amendment_Not_Approved</shortDescription>
+        <value>The amendment has already been approved. Please validate if you have already approved the same by navigating to the Detail page and checking the Amendment Accepted check boxes.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Amendment_Popup</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Amendment Popup</shortDescription>
+        <value>Please make note of the following:
+
+1. Only ATC &amp; Legal Approver can request for Amend. 
+2. If ATC or Legal has previously approved or rejected the contract, they cannot Amend it later. 
+3. Amend is possible only after an amended contract has been attached by the  approver.
+4. Make sure to reject the approval after Amending the contract. This would help the requester re-submit the contract for approval.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Apex_Sharing_Access_Level</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Apex Sharing Access Level</shortDescription>
+        <value>Edit</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_App_Admin</fullName>
+        <categories>C3APSubmitForCompletionController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP App Admin</shortDescription>
+        <value>C3AP_App_Admin</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Application_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Application Name</shortDescription>
+        <value>C3</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Approval_Page_Layout_Comment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Approval Page Layout Comment</shortDescription>
+        <value>If you intend to amend the contract, please click cancel and then click Amend button on the contract request page.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Approval_Process_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Approval Process Name</shortDescription>
+        <value>04a11000000CdKx</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Approve_Button_label</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Approve Button label</shortDescription>
+        <value>Approve</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Approver_Feedback</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Legal Approval Feedback label</shortDescription>
+        <value>Approver Feedback</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Approver_Guidance</fullName>
+        <categories>C3AP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Approver Guidance</shortDescription>
+        <value>Please select the approvers for this contract, before saving and submitting it for approval</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Approver_Type_ATC</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP_Approver_Type_ATC</shortDescription>
+        <value>ATC</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Approver_Type_ATS</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP_Approver_Type_ATS</shortDescription>
+        <value>ATS</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Approver_Type_Legal</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP_Approver_Type_Legal</shortDescription>
+        <value>Legal</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Attach_Amended_Contract</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Attach Amended Contract</shortDescription>
+        <value>Contract has been Amended. Please provide the mandatory Amend Comments.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Attachment_Type</fullName>
+        <categories>ContractForm</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Attachment Type</shortDescription>
+        <value>Attachment Type</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Cancel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Cancel_Request_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Cancel Request Error</shortDescription>
+        <value>You do not have permission to cancel the contract request at this stage</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Choose</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Choose label for uploading attachments on Contract Form</shortDescription>
+        <value>Choose</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Click_to_Download</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Click here to Download used on Contract Form on the Template Section</shortDescription>
+        <value>Click here to Download</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Close_Upload</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Contract Upload Section close button on Form page</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Comments</fullName>
+        <categories>C3APContractForm</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Comments</shortDescription>
+        <value>Comments</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Completion_Checkpoints</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Completion Checkpoints</shortDescription>
+        <value>Please select &apos;Ok&apos; to submit your contract for completion. The following tasks must have been completed beforehand: 
+
+    1. Upload the final signed contract
+    2. If necessary, update the commencement date, expiry date, and reminder date</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Completion_Submission_Conditions</fullName>
+        <categories>C3APSubmitForCompletionController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Completion Submission Conditions</shortDescription>
+        <value>Only the Contract Initiator can submit the contract for completion, when the status is &apos;Pending Final Signatures&apos;.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Contract_Attachments</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Contract Attachments Upload Section header on Form page</shortDescription>
+        <value>Upload Contract</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Contract_Cancel_Message</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cancel Request Confirmation Message</shortDescription>
+        <value>Please click &quot;Ok&quot; to confirm that you would like to cancel your contract request.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Contract_Details</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Contract Details Section Header on Form Page</shortDescription>
+        <value>Contract Details</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Contract_Form_Attachment_Handling</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Contract Form Attachment Handling</shortDescription>
+        <value>You had selected an Attachment for upload. Please reselect the file and click &quot;Upload and Save&quot; first before saving the Contract Request if you wish to save it. 
+
+If you do not wish to upload the attachment, please click &quot;Close Upload&quot; and then save the Contract request.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Contract_Request</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Contract Request</shortDescription>
+        <value>C3 Contract Request</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Contract_Request_Approval</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Contract Approval Section header on Form page</shortDescription>
+        <value>Contract Request Approval</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Contract_Request_Form</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP  Contract Request Form Page Header</shortDescription>
+        <value>Contract Request Form</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Contract_Request_Report_ID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Contract Request Report ID</shortDescription>
+        <value>00O11000000VQrp</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Contract_Template</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Contract Template column header for Template download section</shortDescription>
+        <value>Contract Template</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Contract_Template_Download</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Contract Template Download  Section header on Form page</shortDescription>
+        <value>Get Template</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Contract_Terminate_Confirmation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Contract Terminate Confirmation</shortDescription>
+        <value>Please confirm that you wish to terminate this contract?</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Contract_Terminate_Msg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Contract Terminate Msg</shortDescription>
+        <value>Only Completed Contracts can be terminated</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Contract_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Contract Type Field label on Form Page</shortDescription>
+        <value>Contract Type</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Contract_Under_Development</fullName>
+        <categories>ContractForm</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Contract Under Development</shortDescription>
+        <value>Contract Under Development</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Contrct_Completion_Email_Template</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Contrct Completion Email Template</shortDescription>
+        <value>C3AP_Send_Completed_Notification_to_Initiator</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Description</fullName>
+        <categories>C3AP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP_Description</shortDescription>
+        <value>Description</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Discard_Changes</fullName>
+        <categories>C3AP_Contract_Initiation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Discard Changes</shortDescription>
+        <value>Discard Changes</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Due_Diligence</fullName>
+        <categories>ContractForm</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Due Diligence</shortDescription>
+        <value>Due Diligence</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_EditAccessDenied</fullName>
+        <categories>C3AP_EditAccessDeniedPage</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP EditAccessDenied</shortDescription>
+        <value>You do not have access to edit responses manually. If you would like to update the responses then please click one of the Update Question buttons at the top of the list.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Email_ATC_Amend_Subject</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Email ATC Amend Subject</shortDescription>
+        <value>A contract request has been amended by the ATC Approver</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Email_Action_Required</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Email Action Required</shortDescription>
+        <value>Action Required</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Email_Activation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Email Activation</shortDescription>
+        <value>Your expired contract has been updated and is now in effect. 
+Please keep the signed hard copy of the contract in the relevant department files.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Email_Amended_By_ATC</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Email Amended By ATC</shortDescription>
+        <value>Your contract request has been amended by ATC. Please open the request using the link below and approve and attach an amended contact</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Email_Amended_By_Legal</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Email Amended By Legal</shortDescription>
+        <value>Your contract request has been amended by Legal. Please open the request using the link below and approve and attach an amended contact</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Email_Approved_By_ATS</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Email Approved By ATS</shortDescription>
+        <value>You are receiving this email as your contract request has been approved by the ATS Approver.
+
+Please complete the following steps to have the contract signed by Lilly and the ETP:
+1. Have ETP sign final contract (hard copy)
+2. Ensure that the final contract (hard copy) is signed by the relevant department director with appropriate ATS.
+3. Scan the signed contract and attach it to your contract request. On the contract request form, insert the date of the contract in the calendar box.
+4. Save request in C3 and provide the signed hard copy contract to Legal.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Email_Body_For_High_Risk_Contracts</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Email Body For High Risk Contracts</shortDescription>
+        <value>If you are no longer part of E&amp;C, please forward this email to Legal C3 site administrator with the name of the person who replaced you.
+
+A contract request flagged as high-risk has just been completed. Please click the link below to view more details, or contact the legal team quoting the above reference number.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Email_Cancelled</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Email Cancelled</shortDescription>
+        <value>You are receiving this email as you have recently cancelled your contract request. If this was unintentional please open a new contract request.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Email_Completed</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Email Completed</shortDescription>
+        <value>Your contract request has been completed. If you have not provided the signed hard copy to Legal, please do so.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Email_Contract_Terminated</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Contract Terminated</shortDescription>
+        <value>You are receiving this email as you have terminated your contract.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Email_Expired_Notification</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Email Expired Notification</shortDescription>
+        <value>Your contract has expired in C3. If this is not the case please click the link below and update the expiry date and the reminder date if required.
+
+If you are planning to extend the contract beyond the date set in the original contract or in approved amendments, you have to submit a new amendment through C3 before proceeding with the ETP.
+
+Please keep the signed hard copy of the contract in the relevant department files.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Email_Legal_Amend_Subject</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Email Legal Amend Subject</shortDescription>
+        <value>A contract request has been amended by the Legal Approver</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Email_No_Longer_Owner_Instruction</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Email No longer owner instruction</shortDescription>
+        <value>If you are no longer the owner of this contract (e.g. you have changed roles), please forward this email to Legal C3 site administrator with the new contract owner&apos;s name.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Email_Not_Submitted_Notification</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Email saved not submitted</shortDescription>
+        <value>You are receiving this email as your contract request has been saved but not submitted. 
+
+Please open the request using the link below to open, edit or submit the contract request.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Email_Notification_Only_No_Action</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Notification Only No Action required</shortDescription>
+        <value>This is a notification only. No action is required.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Email_Notification_for_Approval</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Notification for Approval</shortDescription>
+        <value>You are receiving this email as your contract request has been sent for approval.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Email_Rejected_Notification</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP rejected notification</shortDescription>
+        <value>You are receiving this email as your contract request has not been approved.
+
+Please open the request using the link below and either amend as required or cancel request.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Email_Reminder</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Email Reminder</shortDescription>
+        <value>Please refer to the terms of the contract and check why this Reminder Date was set in C3. Please take any action necessary under the contract (eg. send ETP a notice of intention to terminate or renew contract, arrange extension of contract etc.).
+
+If you are planning to extend the contract beyond the date set in the original contract or in approved amendments, you have to submit a new amendment through C3 before proceeding with the ETP.
+
+It may be that no action is required but you must confirm this by checking the contract and understanding why this reminder date was entered in C3. Consider if you need to set a new reminder date.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Email_Reminder_Subject</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Email Reminder Subject</shortDescription>
+        <value>You have a contract with a Reminder Date set for</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Email_Saved_Not_Submitted</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Email saved not submitted</shortDescription>
+        <value>You are receiving this email as your contract request has been saved but not submitted. 
+
+Please open the request using the link below to open, edit or submit the contract request.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Email_Sent_For_ATS_Approval</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Email Sent For ATS Approval</shortDescription>
+        <value>You are receiving this email as your contract request has been sent for ATS approval.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Email_Sent_For_Legal_Approval</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Email Sent For Legal Approval</shortDescription>
+        <value>You are receiving this email as your contract request has been sent for legal approval.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Email_Template_NotSubmitted</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP_Email_Template_NotSubmitted</shortDescription>
+        <value>C3AP_Not_Submitted_Notification</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Email_Thankyou_Footer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Email Template footer</shortDescription>
+        <value>Thank you,
+C3
+
+** This is an automated email. Do not reply to this email **</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Email_Updated</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Email Updated</shortDescription>
+        <value>Updated</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Email_Waiting_Approval</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Email Waiting Approval</shortDescription>
+        <value>You are receiving this email as there is a contract request waiting for your approval.
+
+Please open the request using the link below to approve/reject the contract request.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Error_Attachment_Uploaded_Successfully</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP_Error_Attachment_Uploaded _Successfully</shortDescription>
+        <value>Attachment uploaded successfully</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Error_Sharing_Records</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Error Sharing Records</shortDescription>
+        <value>Error sharing Contract Request:</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Error_Uploading_Attachment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Error  Uploading Attachment</shortDescription>
+        <value>Error Uploading Attachment</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Exisiting_Contracts_Report_Link</fullName>
+        <categories>C3AP Send Completed Notification to Email Group for High Risk Contracts - Email Alert</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Exisiting Contracts Report Id</shortDescription>
+        <value>00O11000000VQrpEAG</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_File_for_Upload</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP File for Upload</shortDescription>
+        <value>File for Upload</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Final_Contract</fullName>
+        <categories>ContractForm</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Final Contract</shortDescription>
+        <value>Final Signed Contract</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Final_Sign</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Final Sign</shortDescription>
+        <value>Final Signature</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Fully_Executed_Contract</fullName>
+        <categories>ContractForm</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Fully Executed Contract</shortDescription>
+        <value>Fully Executed Contract</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_GSO_Profile_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP GSO Profile Name</shortDescription>
+        <value>GSO Basic User_Platform</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Get_Contract_Template</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP_Get Contract Template on Contract Request Form</shortDescription>
+        <value>1. Download Template</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Insufficient_Delete_Privilege</fullName>
+        <categories>C3AP_AttachmentTriggerHandler</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Insufficient Delete Privileges</shortDescription>
+        <value>You do not have permissions to update or delete this attachment.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Introductory_Questions</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Introductory Questions</shortDescription>
+        <value>Introductory Questions</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Legal_Approval_Feedback</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Legal Approval Feedback label</shortDescription>
+        <value>Legal Approver Feedback</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Legal_Approver</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Legal Approver label used on Contract Request Form</shortDescription>
+        <value>Legal Approver</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Legal_Questions</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Legal Questions</shortDescription>
+        <value>Legal Questions</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Legal_Review</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Contract Section Legal Review button title</shortDescription>
+        <value>3. Legal Questions</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Legal_Review_URL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP_Legal_Review_URL</shortDescription>
+        <value>/apex/C3AP_Legal_Questionnaire?contractId=</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Legal_rejection_Email</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Legal rejection Email</shortDescription>
+        <value>C3AP_Send_Notification_to_Initiator_on_Legal_Reject</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_More_Information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP More Information</shortDescription>
+        <value>More Information</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_My_Contract_Requests</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP My Contract Requests button on Homepage</shortDescription>
+        <value>My Contract Requests</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_NO</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP NO</shortDescription>
+        <value>NO</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_New_Affiliate_Approver</fullName>
+        <categories>C3AP_Add_Affiliate_Approver page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP New Affiliate Approver</shortDescription>
+        <value>New Affiliate Approver</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_New_Contract_Request</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP New Contract Request - Label for homepage button</shortDescription>
+        <value>New Contract Request</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_New_Contract_Request_URL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP_New_Contract_Request_URL</shortDescription>
+        <value>/apex/C3AP_Contract_Initiation?affiliateId=</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Next</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Next</shortDescription>
+        <value>Next</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_No_Additional_Guidance</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP No Additional Guidance Links message for affiliate on homepage</shortDescription>
+        <value>There are no Additional Guidance links available for this Affiliate. Please contact your administrator for more information.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_No_Response</fullName>
+        <categories>C3AP_Contract_Request_Answer__c.C3AP_Response__c</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP No Response</shortDescription>
+        <value>No</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_No_Templates_Available</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP No Tempaltes available for Download</shortDescription>
+        <value>There are no contract templates available for download. Please contact your administrator.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Notification</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Notification</shortDescription>
+        <value>Notification</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_One</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP One</shortDescription>
+        <value>1.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Org_Base_URL</fullName>
+        <categories>C3AP Send Completed Notification to Email Group for High Risk Contracts - Email Alert</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Org Base URL</shortDescription>
+        <value>gso--deldev.cs18.my.salesforce.com</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Org_Wide_Email_Display_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Org Wide Email Display Name</shortDescription>
+        <value>gso_noreply@lilly.com</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Other</fullName>
+        <categories>ContractForm</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Other</shortDescription>
+        <value>Other</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Please_Select_Attachment_Type</fullName>
+        <categories>C3APContractForm</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Please Select Attachment Type</shortDescription>
+        <value>Please select an attachment type</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Previous_Question</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Previous Question</shortDescription>
+        <value>Previous Question</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Proceed_to_Contract_Form</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Proceed to Contract Form</shortDescription>
+        <value>Proceed to Contract Form</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Question_Type_Information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Question Type Information</shortDescription>
+        <value>Information</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Question_Type_Introductory</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Question Type Introductory</shortDescription>
+        <value>Introductory</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Question_Type_Legal</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Question Type Legal</shortDescription>
+        <value>Legal</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Reset</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Reset</shortDescription>
+        <value>Reset</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Return_to_Contract_Details</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Return to Contract Details</shortDescription>
+        <value>Return to Contract Details</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Reverse_Termination_Admin_MSG</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Reverse Termination Admin MSG</shortDescription>
+        <value>Only C3 App Admin can request reversal of terminated Contracts</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Reverse_Termination_Confirmation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Reverse Termination Confirmation</shortDescription>
+        <value>Please confirm that you wish to reverse termination for this contract?</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Reverse_Termination_Msg</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Reverse Termination Msg</shortDescription>
+        <value>Only Terminated Contracts can be requested for reversal</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Review_Introductory_Questions</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Review Introductory Questions</shortDescription>
+        <value>2. Review Introductory Questions</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Review_Legal_Questions</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Review Legal Questions</shortDescription>
+        <value>3. Review Legal Questions</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Save_Amendments</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Save Amendments</shortDescription>
+        <value>4. Save</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Save_Contract_Request</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Used for Save Button on Contract Request Form Page</shortDescription>
+        <value>Save Contract Request</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Search_Existing_Request</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Search Existing Request button on Homepage</shortDescription>
+        <value>Search Existing Request</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Select_Affiliate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Select Affiliate option for the Affiliate picklist on Homepage</shortDescription>
+        <value>--Select Affiliate--</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Select_Attachment_Type</fullName>
+        <categories>C3APContractRequestForm</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Select Attachment Type</shortDescription>
+        <value>--Select Attachment Type--</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Status_Completed</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Status Completed</shortDescription>
+        <value>Completed</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Status_Expired</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Status Expired</shortDescription>
+        <value>Expired</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Status_Not_Approved_By_ATC</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Status Not Approved By ATC</shortDescription>
+        <value>Not Approved by ATC</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Status_Not_Approved_By_ATS</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Status Not Approved By ATS</shortDescription>
+        <value>Not Approved By ATS</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Status_Not_Approved_By_Legal</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Status Not Approved By Legal</shortDescription>
+        <value>Not Approved By Legal</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Status_Not_Submitted</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Status Not Submitted</shortDescription>
+        <value>Not Submitted</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Status_Pending_ATC_Approval</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Status Pending ATC Approval</shortDescription>
+        <value>Pending ATC Approval</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Status_Pending_ATS_Approval</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Status Pending ATS Approval</shortDescription>
+        <value>Pending ATS Approval</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Status_Pending_Final_Signatures</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Status Pending Final Signatures</shortDescription>
+        <value>Pending Final Signatures</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Status_Pending_Legal_Approval</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Status Pending Legal Approval</shortDescription>
+        <value>Pending Legal Approval</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Status_Pending_Requestor_Review</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Status Pending Requestor Review</shortDescription>
+        <value>Pending Requestor Review</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Status_Request_Cancelled</fullName>
+        <categories>Cancel Request Button on contract request page layout</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Status Request Cancelled</shortDescription>
+        <value>Cancelled</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_System_Administrator</fullName>
+        <categories>C3APSubmitForCompletionController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP System Administrator</shortDescription>
+        <value>System Administrator</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Terminated</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Terminated</shortDescription>
+        <value>Terminated</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_To_Get_Started</fullName>
+        <categories>C3AP</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP To Get Started</shortDescription>
+        <value>To get started, choose an Affiliate</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Two</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP_Two</shortDescription>
+        <value>2.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Upload_and_Save</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Upload and Save button on Contract Request Form</shortDescription>
+        <value>Upload Contract</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Welcome_Text</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Welcome Text</shortDescription>
+        <value>Welcome to C3! Before you begin, please read the C3
+Checklist link on the C3 homepage.</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_YES</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP YES</shortDescription>
+        <value>YES</value>
+    </labels>
+    <labels>
+        <fullName>C3AP_Yes_Response</fullName>
+        <categories>C3AP_Contract_Request_Answer__c.C3AP_Response__c</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>C3AP Yes Response</shortDescription>
+        <value>Yes</value>
+    </labels>
+    <labels>
+        <fullName>CST_Retrieve_Results_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CST_Retrieve_Results_Error</shortDescription>
+        <value>An error occurred whilst trying to retrieve the results from the CST web service. Contact an administrator if this error persists.</value>
+    </labels>
+    <labels>
+        <fullName>CST_Service_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CST_Web_Service_Error</shortDescription>
+        <value>The CST web service is currently not available. Contact an administrator if this error persists.</value>
+    </labels>
+    <labels>
+        <fullName>Clear_Search_Results_Button_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Clear Search Results Button</shortDescription>
+        <value>Clear</value>
+    </labels>
+    <labels>
+        <fullName>Create_New_Person_Prompt_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Create New Person Prompt</shortDescription>
+        <value>Complete the information below to create a new person.</value>
+    </labels>
+    <labels>
+        <fullName>Create_Person_Button_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Create Person Button</shortDescription>
+        <value>Create Person</value>
+    </labels>
+    <labels>
+        <fullName>Create_Person_Record_Type_Required_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Create Person Record Type Required</shortDescription>
+        <value>You must select a record type.</value>
+    </labels>
+    <labels>
+        <fullName>Create_Referred_By_Button_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Create Referred By Button</shortDescription>
+        <value>Create Referred By</value>
+    </labels>
+    <labels>
+        <fullName>Create_Requester_Button_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Create Requester Button</shortDescription>
+        <value>Create Requester</value>
+    </labels>
+    <labels>
+        <fullName>Currently_Creating_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Currently Creating</shortDescription>
+        <value>Creating...</value>
+    </labels>
+    <labels>
+        <fullName>Data_Design_Fields</fullName>
+        <categories>Technical Document Generation</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Data Design Fields</shortDescription>
+        <value>Overview__c 
+Fields__c</value>
+    </labels>
+    <labels>
+        <fullName>Duplicate_PI_Role</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SEC Duplicate PI Role in TrialForce</shortDescription>
+        <value>You have already created the Principal Investigator for this Trial Site!</value>
+    </labels>
+    <labels>
+        <fullName>Error_Can_t_Delete_Locked_Invoice</fullName>
+        <categories>MERC_LockedInvoiceDeleteHandler</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error - Can&apos;t Delete Locked Invoice</shortDescription>
+        <value>You many not delete Invoices or Credit Notes that are locked.</value>
+    </labels>
+    <labels>
+        <fullName>Error_Tab_Name_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error Tab Name</shortDescription>
+        <value>An Error occured</value>
+    </labels>
+    <labels>
+        <fullName>FORM_Access_Denied</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FORM Access Denied</shortDescription>
+        <value>This action is currently not possible for this form.</value>
+    </labels>
+    <labels>
+        <fullName>FORM_Access_Level_Edit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FORM Access Level Edit</shortDescription>
+        <value>Edit</value>
+    </labels>
+    <labels>
+        <fullName>FORM_Access_Level_RW</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FORM_Access_Level_RW</shortDescription>
+        <value>Read/Write</value>
+    </labels>
+    <labels>
+        <fullName>FORM_Access_Level_Read</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FORM Access Level Read</shortDescription>
+        <value>Read</value>
+    </labels>
+    <labels>
+        <fullName>FORM_Attachment_AttachFile</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FORM Attachment AttachFile</shortDescription>
+        <value>2.   Click &quot;Attach File&quot;</value>
+    </labels>
+    <labels>
+        <fullName>FORM_Attachment_Done</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FORM Attachment Done</shortDescription>
+        <value>3.   Click &quot;Done&quot; to return to the previous page</value>
+    </labels>
+    <labels>
+        <fullName>FORM_Attachment_SectionHeader</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FORM Attachment SectionHeader</shortDescription>
+        <value>Attach File to Form</value>
+    </labels>
+    <labels>
+        <fullName>FORM_Attachment_Select_File</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FORM Attachment Select File</shortDescription>
+        <value>1.   Select a file</value>
+    </labels>
+    <labels>
+        <fullName>FORM_Attachment_Upload_Success_Message</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FORM Attachment Upload Success Message</shortDescription>
+        <value>You have just uploaded the following file:</value>
+    </labels>
+    <labels>
+        <fullName>FORM_Completion_Chatter_Prefix</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FORM Completion Chatter Prefix</shortDescription>
+        <value>has just completed the following form:</value>
+    </labels>
+    <labels>
+        <fullName>FORM_Completion_Chatter_Suffix</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FORM Completion Chatter Suffix</shortDescription>
+        <value>. Please click the link below to view the form execution details.</value>
+    </labels>
+    <labels>
+        <fullName>FORM_Continue_Form_Execution</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FORM Continue Form Execution</shortDescription>
+        <value>Resume Form</value>
+    </labels>
+    <labels>
+        <fullName>FORM_Execution_Cancel_Message</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FORM_Execution_Cancel_Message</shortDescription>
+        <value>Your form has been cancelled.</value>
+    </labels>
+    <labels>
+        <fullName>FORM_Execution_Description</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FORM Execution Description</shortDescription>
+        <value>Description</value>
+    </labels>
+    <labels>
+        <fullName>FORM_Execution_Executed_By</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FORM Execution Executed By</shortDescription>
+        <value>Completed by</value>
+    </labels>
+    <labels>
+        <fullName>FORM_Execution_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FORM Execution Name</shortDescription>
+        <value>Name</value>
+    </labels>
+    <labels>
+        <fullName>FORM_Execution_Not_Possible</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FORM Execution Not Possible</shortDescription>
+        <value>Unavailable</value>
+    </labels>
+    <labels>
+        <fullName>FORM_Execution_Number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Form Execution Number</shortDescription>
+        <value>Ref. Number</value>
+    </labels>
+    <labels>
+        <fullName>FORM_Execution_Picklist_Default</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FORM Execution Picklist Default</shortDescription>
+        <value>-- Please select an option --</value>
+    </labels>
+    <labels>
+        <fullName>FORM_Execution_Save_Message</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FORM Execution Save Message</shortDescription>
+        <value>Your form is saved successfully!</value>
+    </labels>
+    <labels>
+        <fullName>FORM_Execution_Status</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FORM Execution Status</shortDescription>
+        <value>Status</value>
+    </labels>
+    <labels>
+        <fullName>FORM_Execution_Submit_Message</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FORM Execution Submit Message</shortDescription>
+        <value>Your form is completed and submitted successfully!</value>
+    </labels>
+    <labels>
+        <fullName>FORM_Form_Template_field_ID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FORM Form Template field ID</shortDescription>
+        <value>CF00N11000000t82Z</value>
+    </labels>
+    <labels>
+        <fullName>FORM_Invalid_Image</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FORM Invalid Image</shortDescription>
+        <value>Not a valid image file. Please upload a valid image!</value>
+    </labels>
+    <labels>
+        <fullName>FORM_Max_Image_Dimension_Message</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FORM Max Image Dimension Message</shortDescription>
+        <value>Your attached image is too large. Please upload an image that is smaller than</value>
+    </labels>
+    <labels>
+        <fullName>FORM_Max_Image_Size_Message</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FORM Max Image Size Message</shortDescription>
+        <value>Image size must not be more than</value>
+    </labels>
+    <labels>
+        <fullName>FORM_Question_Type_Currency</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FORM Question Type Currency</shortDescription>
+        <value>Currency</value>
+    </labels>
+    <labels>
+        <fullName>FORM_Question_Type_Free_Text</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FORM Question Type Free Text</shortDescription>
+        <value>Free Text</value>
+    </labels>
+    <labels>
+        <fullName>FORM_Question_Type_Number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FORM Question Type Number</shortDescription>
+        <value>Number</value>
+    </labels>
+    <labels>
+        <fullName>FORM_Question_Type_Picklist</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FORM Question Type Picklist</shortDescription>
+        <value>Picklist</value>
+    </labels>
+    <labels>
+        <fullName>FORM_RowCause</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FORM RowCause</shortDescription>
+        <value>Manual</value>
+    </labels>
+    <labels>
+        <fullName>Form_Execution</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>FORM Form Execution</shortDescription>
+        <value>Start Form</value>
+    </labels>
+    <labels>
+        <fullName>Functional_Document_Descriptions</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Functional Document Descriptions</shortDescription>
+        <value>The purpose of this document is to specify the details (&apos;acceptance criteria&apos;) for a specific set of requirements (&apos;user stories&apos;).
+Its format is specific for Agile projects.</value>
+    </labels>
+    <labels>
+        <fullName>GFK_ERROR_MSG</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>GFK ERROR MSG</shortDescription>
+        <value>Ensure Start and end date is entered and is less than 1 month</value>
+    </labels>
+    <labels>
+        <fullName>GLBL_Correct_Password</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message when the password is correct</shortDescription>
+        <value>Correct password!</value>
+    </labels>
+    <labels>
+        <fullName>GLBL_Incorrect_Password</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Message when the password is incorrect</shortDescription>
+        <value>Incorrect password!</value>
+    </labels>
+    <labels>
+        <fullName>Generic_Cancel</fullName>
+        <categories>MERC_RegistrationResponsesController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Generic Cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>Generic_Phone_Field_Label_MVN</fullName>
+        <categories>PersonSearchMVN, SelectedRequesterMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Generic Phone Field Label</shortDescription>
+        <value>Phone</value>
+    </labels>
+    <labels>
+        <fullName>Generic_Processing</fullName>
+        <categories>MERC_RegistrationResponses.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Generic Processing</shortDescription>
+        <value>Processing...</value>
+    </labels>
+    <labels>
+        <fullName>Generic_Save</fullName>
+        <categories>MERC_RegistrationResponsesController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Generic Save</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>Generic_Search_Button_MVN</fullName>
+        <categories>KnowledgeSearchMVN, PersonSearchMVN, SelectedRequesterMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Generic Search Button</shortDescription>
+        <value>Search</value>
+    </labels>
+    <labels>
+        <fullName>Generic_Search_Status_MVN</fullName>
+        <categories>KnowledgeSearchMVN, PersonSearchMVN, SelectedRequesterMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Generic Search Status</shortDescription>
+        <value>Searching...</value>
+    </labels>
+    <labels>
+        <fullName>Integration_Design_Fields</fullName>
+        <categories>Technical Document Generation</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Integration Design Fields</shortDescription>
+        <value>Overview__c</value>
+    </labels>
+    <labels>
+        <fullName>Invalid_Email_Address_MVN</fullName>
+        <categories>PersonSearchControllerMVN</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Invalid Email Address</shortDescription>
+        <value>Invalid Email Address</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Approval_History_Action_Column</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Approval History Action Column</shortDescription>
+        <value>Action</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Approval_History_Actual_Approver_Column</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss_Approval_History_Actual_Approver_Column</shortDescription>
+        <value>Actual Approver</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Approval_History_Assisgned_To_Column</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss_Approval_History_Assisgned_To_Column</shortDescription>
+        <value>Assigned To</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Approval_History_Date_Column</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss_Approval_History_Date_Column</shortDescription>
+        <value>Date</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Approval_History_Overall_Status_Column</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss_Approval_History_Overall_Status_Column</shortDescription>
+        <value>Overall Status</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Approval_History_Status_Column</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss_Approval_History_Status_Column</shortDescription>
+        <value>Status</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Approval_Request_Submitted</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Approval Request Submitted</shortDescription>
+        <value>Approval Request Submitted</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Approval_Status</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Approval Status</shortDescription>
+        <value>Approval Status</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Approve_Reject</fullName>
+        <categories>Button</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Approve/Reject</shortDescription>
+        <value>Approve/Reject</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Assessment_Not_Present</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Assessment Not Present</shortDescription>
+        <value>Either the Assessment or Assessment Question is not present for this Submission. Please contact your administrator.</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Assessment_Report_Body_Part_1</fullName>
+        <categories>Hardcoded</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Assessment Report Body Part 1</shortDescription>
+        <value>has been assessed by</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Assessment_Report_Body_Part_2</fullName>
+        <categories>Hardcoded</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Assessment Report Body Part 2</shortDescription>
+        <value>and a final decision regarding this submission has been made by</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Assessment_Report_Body_Part_3</fullName>
+        <categories>Hardcoded</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Assessment Report Body Part 3</shortDescription>
+        <value>A PDF of the completed assessment including the final decision is attached</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Assessment_Report_Body_Part_4</fullName>
+        <categories>Hardcoded</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Assessment Report Body Part 4</shortDescription>
+        <value>Questions regarding the assessment results should be directed to the assessor and/or approver.</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Assessment_Report_Body_Part_5</fullName>
+        <categories>Hardcoded</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Assessment Report Body Part 5</shortDescription>
+        <value>Thank you.</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Assessment_Report_Subject_Suffix</fullName>
+        <categories>Hardcoded</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Assessment Report Subject Suffix</shortDescription>
+        <value>Submission Review Completed</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Assessment_Response_Page_Description</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Assessment Response Page Description</shortDescription>
+        <value>Please note once your decision has been made to approve or reject the document, the document owner will receive an e-mail notification of the decision and a copy of the completed assessment.</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Assessment_SubTitle_Suffix</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Assessment SubTitle Suffix</shortDescription>
+        <value>Assessment</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Attachment_Name</fullName>
+        <categories>Hardcoded</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Attachment Name</shortDescription>
+        <value>Assessment Details</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Back</fullName>
+        <categories>Button</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Back</shortDescription>
+        <value>Back</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Cancel</fullName>
+        <categories>Button</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Clear</fullName>
+        <categories>Button</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Clear</shortDescription>
+        <value>Clear</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Edit</fullName>
+        <categories>Button</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Edit</shortDescription>
+        <value>Edit</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Error_calculating_Submission_countries</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss_Error_calculating_Submission_countries</shortDescription>
+        <value>Error while re-calculating Submission Countries.</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Error_calculating_Submission_regions</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Error calculating Submission regions</shortDescription>
+        <value>Error while re-calculating Submission Regions.</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Error_while_approving_assessment</fullName>
+        <categories>Error</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error while approving assessment</shortDescription>
+        <value>Error while approving assessment</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Error_while_saving_assessment</fullName>
+        <categories>Error</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error while saving assessment</shortDescription>
+        <value>Error while saving assessment</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Error_while_sending_email</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Error while sending email</shortDescription>
+        <value>Error while sending email. Please contact the administrator.</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Exit</fullName>
+        <categories>Button</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Exit</shortDescription>
+        <value>Exit</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Following_Error_occured</fullName>
+        <categories>Error</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Following Error occured</shortDescription>
+        <value>Following Error occured while submitting the form</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Following_error_occurred_approval</fullName>
+        <categories>Error</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Following error occurred approval</shortDescription>
+        <value>Following error occurred while submitting for approval</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Go_Back_Link</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Go Back Link</shortDescription>
+        <value>Go Back</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Maximum_Attachments_Allowed</fullName>
+        <categories>Hardcoded</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Maximum Attachments Allowed</shortDescription>
+        <value>10</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Only_One_Submission_Assessment</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Only One Submission Assessment</shortDescription>
+        <value>You cannot create more than one Submission Assessment per Submission</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Org_Wide_Email_Address</fullName>
+        <categories>Hardcoded</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Org Wide Email Address</shortDescription>
+        <value>ads_admin@lists.lilly.com</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Org_Wide_Email_Address_Display_Name</fullName>
+        <categories>Hardcoded</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Org Wide Email Address Display Name</shortDescription>
+        <value>ADS</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Please_select_Uploading_files</fullName>
+        <categories>Error</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please select Uploading files</shortDescription>
+        <value>Please select how many files you want to upload.</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Please_select_at_least_one_file</fullName>
+        <categories>Error</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please select at-least one file</shortDescription>
+        <value>Please select at-least one file</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Please_select_rating</fullName>
+        <categories>Error</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please select rating</shortDescription>
+        <value>Please select rating for all the questions before submitting for approval.</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Pre_Text_For_Country</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Pre Text For Country</shortDescription>
+        <value>-- Please click on the icon to select a country --</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Pre_Text_For_Region</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Pre Text For Region</shortDescription>
+        <value>-- Please click on the icon to select a region --</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Pre_Text_For_User</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Pre Text For User</shortDescription>
+        <value>-- Click on the icon to select User/s --</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Print</fullName>
+        <categories>Button</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Print</shortDescription>
+        <value>Print Assessment</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Review_Assessment</fullName>
+        <categories>Custom Link</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Review Assessment</shortDescription>
+        <value>Review Assessment</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Save_Response_button</fullName>
+        <categories>Button</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Save Response button</shortDescription>
+        <value>Save Response</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Save_as_Draft</fullName>
+        <categories>Button</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Save as Draft</shortDescription>
+        <value>Save as Draft</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Section_Title_Additional_Information</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss_Section_Title_Additional_Information</shortDescription>
+        <value>Additional Information</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Section_Title_Assessment_Details</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss_Section_Title_Assessment_Details</shortDescription>
+        <value>Assessment Details</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Section_Title_Select_Files</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss_Section_Title_Select_Files</shortDescription>
+        <value>Select Files</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Section_Title_Submission_Details</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss_Section_Title_Submission_Details</shortDescription>
+        <value>Submission Details</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Select_Button</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss_Select_Button</shortDescription>
+        <value>Select</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Select_Either_To_or_CC</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Select Either To or CC</shortDescription>
+        <value>Please select either To or CC field</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Submission_Assessment_Not_Editable</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss Submission Assessment Not Editable</shortDescription>
+        <value>As the submission assessment is completed it cannot be edited.</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Submission_Form_Attachment_Message</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss_Submission_Form_Attachment_Message</shortDescription>
+        <value>How many files would you like to upload for this submission?</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Submission_From_SubTitle</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss_Submission_From_SubTitle</shortDescription>
+        <value>Affiliate Document Submission</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Submission_form_description</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Submission form description</shortDescription>
+        <value>A separate submission is required for each unique item (procedure, job aid, etc.) that needs to be assessed.  Complete the following fields to provide us details regarding the document (and supporting documents) you are submitting for review and approval.</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Submit</fullName>
+        <categories>Button</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Submit</shortDescription>
+        <value>Submit</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Submit_for_Approval</fullName>
+        <categories>Button</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Submit for Approval</shortDescription>
+        <value>Submit for Approval</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_Submitting_request_for_approval</fullName>
+        <categories>Error</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Submitting request for approval</shortDescription>
+        <value>Submitting request for approval.</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_error_while_inserting_pdf_as_attachment</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss error while inserting pdf as attachment</shortDescription>
+        <value>Error occurred while inserting pdf (submission assessment report) as an attachment.</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_file_s_are_uploaded_successfully</fullName>
+        <categories>Comment</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>file(s) are uploaded successfully</shortDescription>
+        <value>file(s) are uploaded successfully</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_provide_email_subject</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss provide email subject</shortDescription>
+        <value>Please provide an email subject</value>
+    </labels>
+    <labels>
+        <fullName>Iriss_unexpected_error</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Iriss unexpected error</shortDescription>
+        <value>An unexpected error has occurred. Please contact system administrator.</value>
+    </labels>
+    <labels>
+        <fullName>Irss_No_records_to_display_on_Approval_History_Page</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Irss No records to display on Approval History Page</shortDescription>
+        <value>No records to display</value>
+    </labels>
+    <labels>
+        <fullName>KS55_Account_Request_Attachment_Error</fullName>
+        <categories>Used in Submit for Approval Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KS55 Account Request Attachment Error</shortDescription>
+        <value>Account does not contain CDA attachment,</value>
+    </labels>
+    <labels>
+        <fullName>KS55_Completed_Request_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KS55_Completed_Request_Error</shortDescription>
+        <value>This request has already been completed and cannot be edited.</value>
+    </labels>
+    <labels>
+        <fullName>KS55_Contact_Status_Error</fullName>
+        <categories>Used in Submit for Approval Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KS55 Contact Status Error</shortDescription>
+        <value>This request has already been approved (if the request is approved) or has already been completed (if the request is Completed).</value>
+    </labels>
+    <labels>
+        <fullName>KS55_Date_Expired_Error</fullName>
+        <categories>Used in Submit for Approval Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KS55 Date Expired Error</shortDescription>
+        <value>Please provide a value for Documentation Date Expired.</value>
+    </labels>
+    <labels>
+        <fullName>KS55_Delete_ContReq_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KS55_Delete_ContReq_Error</shortDescription>
+        <value>This Contact request has already been submitted. You cannot delete submitted requests.</value>
+    </labels>
+    <labels>
+        <fullName>KS55_Documentation_Signed_Field</fullName>
+        <categories>Used in Submit for Approval Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KS55 Documentation Signed Field</shortDescription>
+        <value>Please provide a value for Documentation Date Signed.</value>
+    </labels>
+    <labels>
+        <fullName>KS55_Signed_Documentation_Error</fullName>
+        <categories>Used in Submit for Approval Page.</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KS55_Signed Documentation Error</shortDescription>
+        <value>Please select Yes for Signed Documentation In Place field .</value>
+    </labels>
+    <labels>
+        <fullName>KS55_Submitted_Request_Error</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KS55 Submitted Request Error</shortDescription>
+        <value>This request has already been submitted for approval so it cannot be edited.</value>
+    </labels>
+    <labels>
+        <fullName>KS55_Unauthorised_Edit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KS55_Unauthorised_Edit</shortDescription>
+        <value>Insufficient Privileges: You cannot edit contact request created by other users</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_AssessmentPage_Description</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD AssessmentPage - Description</shortDescription>
+        <value>Enter the Cirrus process and begin your change journey by completing the assessment questions below.</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_AssessmentPage_End</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD AssessmentPage - End</shortDescription>
+        <value>Submit</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_AssessmentPage_Question_Project_Name</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD AssessmentPage - Question Project Name</shortDescription>
+        <value>Please tell us your project&apos;s name</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_AssessmentPage_Result_Message_More_Info_1</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD AssessmentPage - Result - Message More Info 1 (prefix)</shortDescription>
+        <value>If you have any questions in the meantime please click</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_AssessmentPage_Result_Message_More_Info_2</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD AssessmentPage - Result - Message More Info 2 (link)</shortDescription>
+        <value>here</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_AssessmentPage_Result_Message_More_Info_3</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD AssessmentPage - Result - Message More Info 2 (link)</shortDescription>
+        <value>for the LillyFit chatter group</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_AssessmentPage_Result_Message_for_Force</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD AssessmentPage - Result - Message for Force.com</shortDescription>
+        <value>The Cirrus team will contact you in the next few days to review your LillyFit Assessment responses.</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_AssessmentPage_Result_Message_for_non_Force</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD AssessmentPage - Result - Message for non Force.com</shortDescription>
+        <value>A member of the Enterprise Architecture team team will contact you in the next few days to review your LillyFit Assessment responses.</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_AssessmentPage_Result_Thanks</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD AssessmentPage - Result - Thanks</shortDescription>
+        <value>Many thanks, The Launchpad Team</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_AssessmentPage_Score_A_Result_Heading</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD AssessmentPage - Score A Result - Heading</shortDescription>
+        <value>Your idea appears to be suitable for Force.com</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_AssessmentPage_Score_B_Result_Heading</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD AssessmentPage - Score B Result - Heading</shortDescription>
+        <value>Your idea appears to be suitable for Sharepoint</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_AssessmentPage_Score_C_Result_Heading</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD AssessmentPage - Score C Result - Heading</shortDescription>
+        <value>Your idea appears to be suitable for LillyCloud</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_AssessmentPage_Score_D_Result_Heading</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD AssessmentPage - Score D Result - Heading</shortDescription>
+        <value>Your idea appears to be suitable for Web Hosting</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_AssessmentPage_Score_E_Result_Heading</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD AssessmentPage - Score E Result - Heading</shortDescription>
+        <value>Your idea appears to be suitable for Business Strategic / Custom</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_AssessmentPage_Start</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD AssessmentPage -Start</shortDescription>
+        <value>Get Started</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_AssessmentPage_Title</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD AssessmentPage - Title</shortDescription>
+        <value>LILLYFIT ASSESSMENT</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_Chatter_Heading</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD Chatter Heading</shortDescription>
+        <value>Join the discussion</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_CirrusProcessPage_Description</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD CirrusProcessPage - Description</shortDescription>
+        <value>The Cirrus process will get your idea off the ground and operating in the business quicker than ever before. Have a look at the diagram below for details on each stage of the process.</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_CirrusProcessPage_Start</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD CirrusProcessPage - Start</shortDescription>
+        <value>View Process</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_CirrusProcessPage_Start_Process</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD CirrusProcessPage - Start Process</shortDescription>
+        <value>View Process</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_CirrusProcessPage_Title</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD CirrusProcessPage - Title</shortDescription>
+        <value>PROCESS</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_Footer_Email_Link</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD Footer - Email Link</shortDescription>
+        <value>here</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_Footer_Email_Prefix</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD Footer - Email Prefix</shortDescription>
+        <value>Click</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_Footer_Email_Suffix</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD Footer - Email Suffix</shortDescription>
+        <value>to email the Cirrus team</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_Footer_Title</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD Footer - Title</shortDescription>
+        <value>Cirrus Launchpad</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_Header_Menu_Assessment</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD Header Menu - Assessment</shortDescription>
+        <value>LillyFit Assessment</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_Header_Menu_Cirrus_Process</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD Header Menu - Cirrus Process</shortDescription>
+        <value>Cirrus Process</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_Header_Menu_Force</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD Header Menu - Force.com</shortDescription>
+        <value>Force.com</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_Header_Menu_Home</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD Header Menu - Home</shortDescription>
+        <value>Home</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_Header_Menu_Information</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD Header Menu - Information</shortDescription>
+        <value>View Information</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_Header_Menu_Success_Stories</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD Header Menu - Success Stories</shortDescription>
+        <value>Success Stories</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_InformationPage_Description</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD InformationPage - Description</shortDescription>
+        <value>Explore the art of the possible and find out how the Cirrus process can take your idea and make it reality.</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_InformationPage_Title</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD InformationPage - Title</shortDescription>
+        <value>INFORMATION</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_LandingPage_Description</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD LandingPage - Description</shortDescription>
+        <value>Cirrus enables fast and flexible delivery of technology enabled projects. Explore Launchpad to understand the limits of what we can achieve, or take the Cirrus assessment to get your project started. Your change journey starts here.</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_LandingPage_Title</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD LandingPage - Title</shortDescription>
+        <value>LAUNCHPAD</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_SuccessStoriesPage_Description</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD SuccessStoriesPage - Description</shortDescription>
+        <value>Read about the numerous Cirrus successes to date and begin to understand the technology that is available for you to build on.</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_SuccessStoriesPage_Title</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD SuccessStoriesPage - Title</shortDescription>
+        <value>SUCCESS STORIES</value>
+    </labels>
+    <labels>
+        <fullName>LPAD_SuccessStoryDetailPage_Back</fullName>
+        <categories>Launchpad</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>LPAD SuccessStoryDetailPage - Back</shortDescription>
+        <value>Back to Success Stories</value>
+    </labels>
+    <labels>
+        <fullName>Label_Iriss_Approval_History_Status_Column</fullName>
+        <categories>Visualforce page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>{!$Label.Iriss_Approval_History_Status_Column}</shortDescription>
+        <value>Status</value>
+    </labels>
+    <labels>
+        <fullName>MICO_Add_An_Attachment</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MICO_Add_An_Attachment</shortDescription>
+        <value>Add An Attachment</value>
+    </labels>
+    <labels>
+        <fullName>MICO_AttachFile</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MICO_AttachFile</shortDescription>
+        <value>Attach File</value>
+    </labels>
+    <labels>
+        <fullName>MICO_Awaiting_Approval</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MICO_Awaiting_Approval</shortDescription>
+        <value>Awaiting Approval</value>
+    </labels>
+    <labels>
+        <fullName>MICO_Error_On_Test_Execution</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error Message</shortDescription>
+        <value>An attachment cannot be deleted once a Test Execution has been approved or is pending approval</value>
+    </labels>
+    <labels>
+        <fullName>MICO_Error_On_Test_Execution_Step</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error Message</shortDescription>
+        <value>An attachment cannot be deleted once a Test Execution Step has been approved or is pending approval</value>
+    </labels>
+    <labels>
+        <fullName>MICO_Error_On_Test_Script</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error Message when user tries to delete an attachment</shortDescription>
+        <value>An attachment cannot be deleted once a Test Script has been approved or is pending approval</value>
+    </labels>
+    <labels>
+        <fullName>MICO_Passed</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Test Outcome label to be used in Apex Class</shortDescription>
+        <value>Passed</value>
+    </labels>
+    <labels>
+        <fullName>MICO_Passed_Minor_Issues</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Test Outcome label to be used in Apex Class</shortDescription>
+        <value>Passed with minor issues</value>
+    </labels>
+    <labels>
+        <fullName>MICO_Save_Test_Execution</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message to notify end user to complete all the test steps</shortDescription>
+        <value>Please complete all the test steps to complete the test</value>
+    </labels>
+    <labels>
+        <fullName>MICO_Save_Test_Execution_Button</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Name of the buttom on Run Test Script Page bottom</shortDescription>
+        <value>Save test execution</value>
+    </labels>
+    <labels>
+        <fullName>MICO_Save_Test_Outcome</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error message to notify end user to fill test outcome fields</shortDescription>
+        <value>Please fill overall test outcome and overall test comments to complete the test</value>
+    </labels>
+    <labels>
+        <fullName>MICO_Save_Test_Step</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Name of the buttom on Run Test Script Page</shortDescription>
+        <value>Save Step</value>
+    </labels>
+    <labels>
+        <fullName>MICO_Submit_for_Approval</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MICO_Submit_for_Approval</shortDescription>
+        <value>Submit for Approval</value>
+    </labels>
+    <labels>
+        <fullName>MICO_Submitting_request_for_approval</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MICO_Submitting_request_for_approval</shortDescription>
+        <value>Submitting request for approval</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_AccountManager</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_AccountManager</shortDescription>
+        <value>Account Manager</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_Baseline</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_Baseline</shortDescription>
+        <value>baseline</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_Calls</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_Calls</shortDescription>
+        <value>calls</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_Date</shortDescription>
+        <value>date</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_DateFormat</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_DateFormat</shortDescription>
+        <value>MM/dd/yyyy</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_District</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_District</shortDescription>
+        <value>District</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_DistrictSalesManager</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_DistrictSalesManager</shortDescription>
+        <value>District Sales Manager</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_EFFIENT</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_EFFIENT</shortDescription>
+        <value>EFFIENT</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_FirstName</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>firstName</shortDescription>
+        <value>firstName</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_LILLY</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_LILLY</shortDescription>
+        <value>LILLY</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_LastName</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>lastName</shortDescription>
+        <value>lastName</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_MajorMarketManager</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_MajorMarketManager</shortDescription>
+        <value>Major Market Manager</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>name</shortDescription>
+        <value>name</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_PercentageChangePastMonth</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>percentageChangePastMonth</shortDescription>
+        <value>percentageChangePastMonth</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_PercentageChangePastSixMonths</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>percentageChangePastSixMonths</shortDescription>
+        <value>percentageChangePastSixMonths</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_PercentageChangePastThreeMonths</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>percentageChangePastThreeMonths</shortDescription>
+        <value>percentageChangePastThreeMonths</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_Product1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>product1</shortDescription>
+        <value>product1</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_Product2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>product2</shortDescription>
+        <value>product2</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_Product_Weight_DDD_c</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_Product_Weight_DDD</shortDescription>
+        <value>productWeightDDD</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_Product_Weight_TRx</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_Product_Weight_TRx</shortDescription>
+        <value>productWeightTRx</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_Products</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_Products</shortDescription>
+        <value>products</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_Region</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_Region</shortDescription>
+        <value>Region</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_SalesRepresentative</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_SalesRepresentative</shortDescription>
+        <value>Sales Representative</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_SampleOnly</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sample Only Call Type</shortDescription>
+        <value>Sample Only</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_ScriptsWrittenPastMonth</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>scriptsWrittenPastMonth</shortDescription>
+        <value>scriptsWrittenPastMonth</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_ScriptsWrittenPastSixMonths</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>scriptsWrittenPastSixMonths</shortDescription>
+        <value>scriptsWrittenPastSixMonths</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_ScriptsWrittenPastThreeMonths</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>scriptsWrittenPastThreeMonths</shortDescription>
+        <value>scriptsWrittenPastThreeMonths</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_SuperUser</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_SuperUser</shortDescription>
+        <value>Super User</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_Territory</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_Territory</shortDescription>
+        <value>Territory</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_Tier</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>tier</shortDescription>
+        <value>tier</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_Type</shortDescription>
+        <value>type</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_Year</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_Year</shortDescription>
+        <value>year</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_actualDddUnits</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_actualDddUnits</shortDescription>
+        <value>actualDddUnits</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_children</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_children</shortDescription>
+        <value>children</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_data</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_data</shortDescription>
+        <value>data</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_dddDollars</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_dddDollars</shortDescription>
+        <value>dddDollars</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_dddUnits</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_dddUnits</shortDescription>
+        <value>dddUnits</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_defaultRegion</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_defaultRegion</shortDescription>
+        <value>Central Ihs Area</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_globalID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_globalID</shortDescription>
+        <value>globalID</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_goalMet</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_goalMet</shortDescription>
+        <value>goalMet</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_goalSet</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_goalSet</shortDescription>
+        <value>goalSet</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_goals</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_goals</shortDescription>
+        <value>goals</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_grossMargins</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_grossMargins</shortDescription>
+        <value>grossMargins</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_lillyProduct</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_lillyProduct</shortDescription>
+        <value>lillyProduct</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_market</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_market</shortDescription>
+        <value>market</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_month</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_month</shortDescription>
+        <value>month</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_netProfit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_netProfit</shortDescription>
+        <value>netProfit</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_nrxValue</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_nrxValue</shortDescription>
+        <value>nrxValue</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_oneMonthDataStartDate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_oneMonthDataStartDate</shortDescription>
+        <value>oneMonthDataStartDate</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_opex</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_opex</shortDescription>
+        <value>opex</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_percentageChangeFromPreviousMonthDDDDollars</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_percentageChangeFromPreviousMonthDDDDollars</shortDescription>
+        <value>percentageChangeFromPreviousMonthDDDDollars</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_percentageChangeFromPreviousMonthDDDUnits</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_percentageChangeFromPreviousMonthDDDUnits</shortDescription>
+        <value>percentageChangeFromPreviousMonthDDDUnits</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_percentageChangeFromPreviousMonthTRx</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_percentageChangeFromPreviousMonthTRx</shortDescription>
+        <value>percentageChangeFromPreviousMonthTRx</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_prescriberFirstName</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_prescriberFirstName</shortDescription>
+        <value>prescriberFirstName</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_prescriberLastName</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_prescriberLastName</shortDescription>
+        <value>prescriberLastName</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_product</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_product</shortDescription>
+        <value>product</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_productName</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_productName</shortDescription>
+        <value>productName</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_sixMonthDataStartDate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_sixMonthDataStartDate</shortDescription>
+        <value>sixMonthDataStartDate</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_threeMonthDataStartDate</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_threeMonthDataStartDate</shortDescription>
+        <value>threeMonthDataStartDate</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_topFivePrescribers</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_topFivePrescribers</shortDescription>
+        <value>topFivePrescribers</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_trx</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_trx</shortDescription>
+        <value>trx</value>
+    </labels>
+    <labels>
+        <fullName>MYBZ_trxValue</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MYBZ_trxValue</shortDescription>
+        <value>trxValue</value>
+    </labels>
+    <labels>
+        <fullName>Meeting_Locked_MERC</fullName>
+        <categories>Error Message</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Meeting_Locked_MERC</shortDescription>
+        <value>Operation Failed:  The record is locked due to the meeting being closed.  Please contact Customer Meeting Services for Assistance.</value>
+    </labels>
+    <labels>
+        <fullName>New_Person_Button_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>New Person Button</shortDescription>
+        <value>New Person</value>
+    </labels>
+    <labels>
+        <fullName>No_Search_Results_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error No Search Results</shortDescription>
+        <value>No Search Results.</value>
+    </labels>
+    <labels>
+        <fullName>Person_Search_All_Record_Types_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Person Search All Record Types</shortDescription>
+        <value>All</value>
+    </labels>
+    <labels>
+        <fullName>Person_Search_Results_Record_Type_Column_Label_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Person Search Results Record Type Column Label</shortDescription>
+        <value>Record Type</value>
+    </labels>
+    <labels>
+        <fullName>Person_Search_Tab_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Person Search Tab</shortDescription>
+        <value>Person Search</value>
+    </labels>
+    <labels>
+        <fullName>Please_Select_Requester_or_Referred_By_MVN</fullName>
+        <categories>PersonSearchControllerMVN</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please Select Requester or Referred By</shortDescription>
+        <value>Please select &quot;Create Requester&quot; or &quot;Create Referred By.&quot;</value>
+    </labels>
+    <labels>
+        <fullName>QR_Cards_Password</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>QR Cards Password</shortDescription>
+        <value>tracker</value>
+    </labels>
+    <labels>
+        <fullName>Registration_Questions_Answer_Required</fullName>
+        <categories>MERC_RegistrationResponsesController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration Questions - Answer Required</shortDescription>
+        <value>Answer required for question</value>
+    </labels>
+    <labels>
+        <fullName>Registration_Questions_Clear_Responses</fullName>
+        <categories>MERC_RegistrationResponses.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration Questions - Clear Responses</shortDescription>
+        <value>Clear Responses</value>
+    </labels>
+    <labels>
+        <fullName>Registration_Questions_Cleared_Responses</fullName>
+        <categories>MERC_RegistrationResponsesController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration Questions - Cleared Responses</shortDescription>
+        <value>Cleared Responses</value>
+    </labels>
+    <labels>
+        <fullName>Registration_Questions_Confirm_Delete</fullName>
+        <categories>MERC_RegistrationResponsesController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration Questions - Confirm Delete</shortDescription>
+        <value>Continuing with this action will delete all responses for</value>
+    </labels>
+    <labels>
+        <fullName>Registration_Questions_Error_Deleting_Responses</fullName>
+        <categories>MERC_RegistrationResponsesController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration Questions - Error Deleting Responses</shortDescription>
+        <value>Error removing old responses</value>
+    </labels>
+    <labels>
+        <fullName>Registration_Questions_Error_Inserting_Responses</fullName>
+        <categories>MERC_RegistrationResponsesController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration Questions - Error Inserting Responses</shortDescription>
+        <value>Error inserting new responses</value>
+    </labels>
+    <labels>
+        <fullName>Registration_Questions_Invalid_Participant</fullName>
+        <categories>MERC_RegistrationResponsesController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration Questions - Invalid Participant</shortDescription>
+        <value>Unable to locate Participant with Id provided</value>
+    </labels>
+    <labels>
+        <fullName>Registration_Questions_No_Participant_Id</fullName>
+        <categories>MERC_RegistrationResponsesController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration Questions - No Participant Id</shortDescription>
+        <value>No Participant Id Provided</value>
+    </labels>
+    <labels>
+        <fullName>Registration_Questions_Responses_For</fullName>
+        <categories>MERC_RegistrationResponsesController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration Questions - Responses For</shortDescription>
+        <value>Responses for meeting participant</value>
+    </labels>
+    <labels>
+        <fullName>Registration_Questions_Select_Many</fullName>
+        <categories>MERC_RegistrationResponsesController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration Questions - Select Many</shortDescription>
+        <value>Select Many</value>
+    </labels>
+    <labels>
+        <fullName>Registration_Questions_Select_One</fullName>
+        <categories>MERC_RegistrationResponsesController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration Questions - Select One</shortDescription>
+        <value>Select One</value>
+    </labels>
+    <labels>
+        <fullName>Registration_Questions_Text</fullName>
+        <categories>MERC_RegistrationResponsesController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration Questions - Text</shortDescription>
+        <value>Text</value>
+    </labels>
+    <labels>
+        <fullName>Remove_Person_Button_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Remove Person Button</shortDescription>
+        <value>(remove)</value>
+    </labels>
+    <labels>
+        <fullName>Return_To_Interaction_Button_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Return To Interaction Button</shortDescription>
+        <value>Return To Case</value>
+    </labels>
+    <labels>
+        <fullName>Return_to_Request_MVN</fullName>
+        <categories>KnowledgeSearchMVN</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Return to Request</shortDescription>
+        <value>Return to Request</value>
+    </labels>
+    <labels>
+        <fullName>SEC_Form_Demographics_Page_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SEC Form Demographics Page Name in TrialForce</shortDescription>
+        <value>Demographics</value>
+    </labels>
+    <labels>
+        <fullName>SOSL_Phone_Search_Min_Char_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error SOSL Phone Search Min Char</shortDescription>
+        <value>Phone searches must have at least 2 numeric characters:</value>
+    </labels>
+    <labels>
+        <fullName>Search_Term_Required_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Search Term Required</shortDescription>
+        <value>Must specify at least one field to begin searching.</value>
+    </labels>
+    <labels>
+        <fullName>Selected_Referrer_MVN</fullName>
+        <categories>SelectedRequesterMVN, PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Selected Referrer</shortDescription>
+        <value>Referred By:</value>
+    </labels>
+    <labels>
+        <fullName>Selected_Reqester_MVN</fullName>
+        <categories>SearchRequesterMVN,PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Selected Reqester</shortDescription>
+        <value>Requester:</value>
+    </labels>
+    <labels>
+        <fullName>Service_Cloud_Knowledge_Search_Cancel_MVN</fullName>
+        <categories>KnowledgeSearchMVN, PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Service Cloud Knowledge Search Cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>Sprint_Design_Fields</fullName>
+        <categories>Technical Document Generation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Sprint Design Fields</shortDescription>
+        <value>Overview__c
+Data_Model__c
+Fields__c
+Objects__c
+Page_Layouts__c
+Apex_Classes__c
+Visualforce_Pages__c
+Apex_Trigger__c
+Other_Components__c</value>
+    </labels>
+    <labels>
+        <fullName>Team_Member_Access_MERC</fullName>
+        <categories>Error Message</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Team_Member_Access_MERC</shortDescription>
+        <value>Access Restricted: You do not have access to add additional Mercury Team Members to the Meeting Team. Please contact the Primary Meeting Owner for assistance.</value>
+    </labels>
+    <labels>
+        <fullName>Test_Attachment_Parent_ID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Test Attachment Parent ID</shortDescription>
+        <value>a3B11000000BK4u</value>
+    </labels>
+    <labels>
+        <fullName>ToV_Already_Reported</fullName>
+        <categories>Error Message, MERC_MeetingParticipantTovValidation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ToV Already Reported</shortDescription>
+        <value>ToV has already been reported for participants of this Meeting. Customer Meeting Services needs to confirm this change before it can be made.</value>
+    </labels>
+    <labels>
+        <fullName>Too_Many_Results_MVN</fullName>
+        <categories>PersonSearchMVN</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error Too Many Results</shortDescription>
+        <value>Too Many Results.</value>
+    </labels>
+    <labels>
+        <fullName>Tov_Cannot_be_null_after_reported</fullName>
+        <categories>MERC_MeetingParticipantTovValidation</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Tov Cannot be null after reported</shortDescription>
+        <value>You may not enter a blank value if ToV has already been reported for this Meeting</value>
+    </labels>
+    <labels>
+        <fullName>Travel_Proposals_Add_Segment</fullName>
+        <categories>MERC_TravelProposals.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Travel Proposals - Add Segment</shortDescription>
+        <value>Add Segment</value>
+    </labels>
+    <labels>
+        <fullName>Travel_Proposals_Cannot_Find_Participant</fullName>
+        <categories>MERC_TravelProposalsController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Travel Proposals - Cannot Find Participant</shortDescription>
+        <value>Unable to locate meeting participant using the id provided</value>
+    </labels>
+    <labels>
+        <fullName>Travel_Proposals_Custom_Settings_not_defined</fullName>
+        <categories>MERC_TravelProposalsController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Travel Proposals - Custom Settings not defined</shortDescription>
+        <value>No &apos;Travel Proposal Segment Type&apos; Custom Settings Defined</value>
+    </labels>
+    <labels>
+        <fullName>Travel_Proposals_Error_updating_proposals_segments</fullName>
+        <categories>MERC_TravelProposalsController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Travel Proposals - Error updating proposals/segments</shortDescription>
+        <value>Error upserting Proposal and/or Segments:</value>
+    </labels>
+    <labels>
+        <fullName>Travel_Proposals_Meeting_Information</fullName>
+        <categories>MERC_TravelProposals.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Travel Proposals - Meeting Information</shortDescription>
+        <value>Meeting Information</value>
+    </labels>
+    <labels>
+        <fullName>Travel_Proposals_New_Proposal</fullName>
+        <categories>MERC_TravelProposals.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Travel Proposals - New Proposal</shortDescription>
+        <value>New Proposal</value>
+    </labels>
+    <labels>
+        <fullName>Travel_Proposals_No_Field_Sets_Defined</fullName>
+        <categories>MERC_TravelProposalsController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Travel Proposals - No Field Sets Defined</shortDescription>
+        <value>No field sets defined. Check the &apos;Travel Proposal Segment Type&apos; custom setting configuration</value>
+    </labels>
+    <labels>
+        <fullName>Travel_Proposals_No_Participant_Id</fullName>
+        <categories>MERC_TravelProposalsController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Travel Proposals - No Participant Id</shortDescription>
+        <value>No meeting participant id provided</value>
+    </labels>
+    <labels>
+        <fullName>Travel_Proposals_No_segment_fields_to_query</fullName>
+        <categories>MERC_TravelProposalsController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Travel Proposals - No segment fields to query</shortDescription>
+        <value>No Segment fields available to query</value>
+    </labels>
+    <labels>
+        <fullName>Travel_Proposals_Number</fullName>
+        <categories>MERC_TravelProposals.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Travel Proposals - Number</shortDescription>
+        <value>Number</value>
+    </labels>
+    <labels>
+        <fullName>Travel_Proposals_Page_subtitle_prefix</fullName>
+        <categories>MERC_TravelProposalsController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Travel Proposals - Page subtitle prefix</shortDescription>
+        <value>Travel Proposals for Meeting Participant:</value>
+    </labels>
+    <labels>
+        <fullName>Travel_Proposals_Proposal</fullName>
+        <categories>MERC_RegistrationResponses.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Travel Proposals - Proposal</shortDescription>
+        <value>Proposal</value>
+    </labels>
+    <labels>
+        <fullName>Travel_Proposals_Save_Exit</fullName>
+        <categories>MERC_TravelProposals.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Travel Proposals - Save &amp; Exit</shortDescription>
+        <value>Save &amp; Exit</value>
+    </labels>
+    <labels>
+        <fullName>Travel_Proposals_Save_Proposals</fullName>
+        <categories>MERC_TravelProposals.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Travel Proposals - Save Proposals</shortDescription>
+        <value>Save Proposals</value>
+    </labels>
+    <labels>
+        <fullName>Travel_Proposals_Segments</fullName>
+        <categories>MERC_TravelProposals.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Travel Proposals - Segments</shortDescription>
+        <value>Segments</value>
+    </labels>
+    <labels>
+        <fullName>Travel_Proposals_Status</fullName>
+        <categories>MERC_TravelProposals.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Travel Proposals - Status</shortDescription>
+        <value>Status</value>
+    </labels>
+    <labels>
+        <fullName>Travel_Proposals_Type</fullName>
+        <categories>MERC_TravelProposals.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Travel Proposals - Type</shortDescription>
+        <value>Type</value>
+    </labels>
+    <labels>
+        <fullName>test</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>test</shortDescription>
+        <value>/dfkjdf\</value>
+    </labels>
+</CustomLabels>
