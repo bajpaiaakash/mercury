@@ -3,6 +3,11 @@
     <label>Meeting</label>
     <pluralLabel>Meetings</pluralLabel>
     <description>Primary object to store meeting information. Integrates with Veeva : MERC : Created on 09/27/2013 by Katy Lorenti, Mavens Consulting</description>
+    <nameField>
+        <label>Meeting Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
     <fields>
         <fullName>Audit_End_Date_MERC__c</fullName>
         <description>Indicate when Audit is ended.</description>

@@ -3,6 +3,12 @@
     <label>Meeting Participant</label>
     <pluralLabel>Meeting Participants</pluralLabel>
     <description>Object to store Meeting Participants associated to the meeting, e.g. attendees of a meeting. Integrates with Veeva : MERC : Created on 09/27/2013 by Katy Lorenti, Mavens Consulting</description>
+    <nameField>
+        <displayFormat>MP-{000000}</displayFormat>
+        <label>Meeting Participant #</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
     <fields>
         <fullName>Maximum_Fee_last_updated_MERC__c</fullName>
         <description>To capture last modified date of Maximum Fee if it has been changed.</description>
