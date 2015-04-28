@@ -29,7 +29,15 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_TestFactory</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_TravelProposalsController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MERC_TravelProposalsControllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <description>Provides access to only the Case Management functionality</description>
