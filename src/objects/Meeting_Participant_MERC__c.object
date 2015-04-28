@@ -2,7 +2,6 @@
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <label>Meeting Participant</label>
     <pluralLabel>Meeting Participants</pluralLabel>
-    <description>Object to store Meeting Participants associated to the meeting, e.g. attendees of a meeting. Integrates with Veeva : MERC : Created on 09/27/2013 by Katy Lorenti, Mavens Consulting</description>
     <nameField>
         <displayFormat>MP-{000000}</displayFormat>
         <label>Meeting Participant #</label>
