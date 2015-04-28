@@ -675,17 +675,6 @@
         <relatedList>Participant_Agenda_MERC__c.Meeting_Participant_MERC__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <customButtons>Update_Responses_MERC</customButtons>
-        <excludeButtons>New</excludeButtons>
-        <fields>NAME</fields>
-        <fields>Question_Text_MERC__c</fields>
-        <fields>Answer_MERC__c</fields>
-        <fields>Answer_Text_MERC__c</fields>
-        <fields>Answer_Start_Date_Time_MERC__c</fields>
-        <fields>Response_Text_MERC__c</fields>
-        <relatedList>Response_MERC__c.Meeting_Participant_MERC__c</relatedList>
-    </relatedLists>
-    <relatedLists>
         <fields>NAME</fields>
         <fields>Process_MERC__c</fields>
         <fields>Process_State_MERC__c</fields>
@@ -697,6 +686,16 @@
         <relatedList>Meeting_Tasks_MERC__c.Meeting_Participant_MERC__c</relatedList>
         <sortField>CREATED_DATE</sortField>
         <sortOrder>Desc</sortOrder>
+    </relatedLists>
+    <relatedLists>
+        <customButtons>Update_Responses_MERC</customButtons>
+        <excludeButtons>New</excludeButtons>
+        <fields>NAME</fields>
+        <fields>Question_Text_MERC__c</fields>
+        <fields>Answer_MERC__c</fields>
+        <fields>Answer_Text_MERC__c</fields>
+        <fields>Response_Text_MERC__c</fields>
+        <relatedList>Response_MERC__c.Meeting_Participant_MERC__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>

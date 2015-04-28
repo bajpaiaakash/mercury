@@ -1157,26 +1157,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>Answer_End_Date_MERC__c</field>
-            <table>Meeting_MERC__c.Registration_Questions__r.Responses__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Answer_End_Date_Time_MERC__c</field>
-            <table>Meeting_MERC__c.Registration_Questions__r.Responses__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Answer_Start_Date_MERC__c</field>
-            <table>Meeting_MERC__c.Registration_Questions__r.Responses__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Answer_Start_Date_Time_MERC__c</field>
-            <table>Meeting_MERC__c.Registration_Questions__r.Responses__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>Answer_Text_MERC__c</field>
             <table>Meeting_MERC__c.Registration_Questions__r.Responses__r</table>
         </columns>

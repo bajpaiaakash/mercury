@@ -1,6 +1,308 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <enableEnhancedLookup>true</enableEnhancedLookup>
+    <fieldSets>
+        <fullName>Proposal_Segment_Air_MERC</fullName>
+        <description>Travel Proposal Segment Custom Setting used in MERC_TravelProposalsController</description>
+        <displayedFields>
+            <field>Travel_Detail_Typ_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Flght_Nmbr_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Dprtr_Trmnl_Nm_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Arrvl_Trmnl_Nm_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Sgmnt_Bgin_TS_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Segment_Begin_Timezone_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Sgmnt_End_TS_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Segment_End_Timezone_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Booking_Information_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Internal_Notes_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Proposal Segment - Air</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Proposal_Segment_Bus_MERC</fullName>
+        <description>Travel Proposal Segment Custom Setting used in MERC_TravelProposalsController</description>
+        <displayedFields>
+            <field>Travel_Detail_Typ_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Bus_Nmbr_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Bgn_Sttn_Nm_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>End_Sttn_Nm_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Sgmnt_Bgin_TS_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Segment_Begin_Timezone_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Sgmnt_End_TS_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Segment_End_Timezone_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Booking_Information_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Internal_Notes_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Proposal Segment - Bus</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Proposal_Segment_Rail_MERC</fullName>
+        <description>Used in the Travel Proposal Segment Type custom setting and referenced in MERC_TravelProposalsController</description>
+        <displayedFields>
+            <field>Travel_Detail_Typ_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Trn_Nmbr_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Bgn_Sttn_Nm_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>End_Sttn_Nm_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Sgmnt_Bgin_TS_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Segment_Begin_Timezone_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Sgmnt_End_TS_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Segment_End_Timezone_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Booking_Information_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Internal_Notes_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Proposal Segment - Rail</label>
+    </fieldSets>
+    <fields>
+        <fullName>Booking_Information_MERC__c</fullName>
+        <description>Holds booking information for Travel records : MERC : Created on 27/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Customer facing, information on services, ticket references, travel class etc</inlineHelpText>
+        <label>Booking Information</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Internal_Notes_MERC__c</fullName>
+        <description>Holds Internal Notes for Travel records : MERC : Created on 27/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>For reflection, information provided by HCP</inlineHelpText>
+        <label>Internal Notes</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Sgmnt_Bgin_TS_MERC__c</fullName>
+        <description>The begin date and time of this segment.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the start date/time for the Travel Segment. For Hotels, the Travel Time will be automatically overwritten with standard Check-in time as set in Hotel Account upon record save</inlineHelpText>
+        <label>Segment Begin Timestamp</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Sgmnt_End_TS_MERC__c</fullName>
+        <description>The end date and time of this segment.
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the end date/time for the Travel Segment. For Hotels, the Travel Time will be automatically overwritten with standard Check-out time as set in Hotel Account upon record save.</inlineHelpText>
+        <label>Segment End Timestamp</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Status_MERC__c</fullName>
+        <description>If the HCP cancels travel or does not use it, the record can be Cancelled.  This then removes any ToV from the associated meeting for that HCP.  Oliver Dunford 11th June 2014.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If the HCP cancels attendance, or the ToV attributed to this record should not be reported within Mercury due to a No Show, the record can be updated to Cancelled.  Confirmed records are reportable.</inlineHelpText>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Confirmed</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Draft</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Proposed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rejected / New Proposal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ticketed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Travel_Proposal_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Self lookup to ensure Individual Travel Segments can be associated to a specific Travel Proposal : MERC : Created on 16/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Travel Proposal</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>$Source.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Air, Bus, Rail</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Travel_Itinerary_MERC__c</referenceTo>
+        <relationshipLabel>Travel Itineraries</relationshipLabel>
+        <relationshipName>Travel_Itineraries</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <recordTypes>
+        <fullName>MERC_Travel_Proposal</fullName>
+        <active>true</active>
+        <description>Used to create Travel Proposals for Meeting Participants</description>
+        <label>Travel Proposal</label>
+        <picklistValues>
+            <picklist>Status_MERC__c</picklist>
+            <values>
+                <fullName>Accepted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Proposed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected %2F New Proposal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ticketed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <webLinks>
         <fullName>Manage_Travel_Proposals_MERC</fullName>
         <availability>online</availability>

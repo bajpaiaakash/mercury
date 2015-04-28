@@ -1176,11 +1176,6 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
-            <field>End_Date_MERC__c</field>
-            <table>Meeting_MERC__c.Registration_Questions__r.Answers__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
             <field>End_Date_Time_Meeting_Time_Zone_MERC__c</field>
             <table>Meeting_MERC__c.Registration_Questions__r.Answers__r</table>
         </columns>
@@ -1197,11 +1192,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Registration_Question_MERC__c</field>
-            <table>Meeting_MERC__c.Registration_Questions__r.Answers__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Start_Date_MERC__c</field>
             <table>Meeting_MERC__c.Registration_Questions__r.Answers__r</table>
         </columns>
         <columns>
@@ -1265,26 +1255,6 @@
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Answer_MERC__c</field>
-            <table>Meeting_MERC__c.Registration_Questions__r.Answers__r.Responses__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Answer_End_Date_MERC__c</field>
-            <table>Meeting_MERC__c.Registration_Questions__r.Answers__r.Responses__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Answer_End_Date_Time_MERC__c</field>
-            <table>Meeting_MERC__c.Registration_Questions__r.Answers__r.Responses__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Answer_Start_Date_MERC__c</field>
-            <table>Meeting_MERC__c.Registration_Questions__r.Answers__r.Responses__r</table>
-        </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>Answer_Start_Date_Time_MERC__c</field>
             <table>Meeting_MERC__c.Registration_Questions__r.Answers__r.Responses__r</table>
         </columns>
         <columns>

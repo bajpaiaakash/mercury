@@ -367,9 +367,6 @@
                                 <apex:column headerValue="{!$ObjectType.Team_Member_MERC__c.Fields.Attendee_Invite_Limit_MERC__c.label}">
                                     <apex:inputField value="{!result.member.Attendee_Invite_Limit_MERC__c}" styleClass="attendeeLimit"/>
                                 </apex:column>
-                                <apex:column headerValue="{!$ObjectType.Team_Member_MERC__c.Fields.Role_MERC__c.label}">
-                                    <apex:inputField value="{!result.member.Role_MERC__c}" styleClass="role"/>
-                                </apex:column>
                             </apex:pageBlockTable>
                         </apex:pageBlock>
                     </apex:actionRegion>

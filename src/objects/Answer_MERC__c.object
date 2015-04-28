@@ -55,21 +55,6 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <fieldSets>
-        <fullName>Answer_Date_Time_Edit_MERC</fullName>
-        <description>MERC_AnswerNewEdit. used to render date fields</description>
-        <displayedFields>
-            <field>Start_Date_Time_MERC__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>End_Date_Time_MERC__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <label>Answer Date Time Edit</label>
-    </fieldSets>
-    <fieldSets>
         <fullName>Answer_Date_Time_View_MERC</fullName>
         <description>Displays the Date/Time string fields on the Answer view so that they can be viewed relative to the meeting time zone.</description>
         <displayedFields>
@@ -96,16 +81,6 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>End_Date_MERC__c</fullName>
-        <description>The End Date for Answers surrounding logistics, populated automatically : MERC : Created on 13/04/2015 by Oliver Dunford, Mavens Consulting.</description>
-        <externalId>false</externalId>
-        <label>End Date</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
     </fields>
     <fields>
         <fullName>End_Date_Meeting_Time_Zone_MERC__c</fullName>
@@ -195,16 +170,6 @@
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
-    </fields>
-    <fields>
-        <fullName>Start_Date_MERC__c</fullName>
-        <description>The Start Date for Answers surrounding logistics, populated automatically : MERC : Created on 13/04/2015 by Oliver Dunford, Mavens Consulting.</description>
-        <externalId>false</externalId>
-        <label>Start Date</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
     </fields>
     <fields>
         <fullName>Start_Date_Meeting_Time_Zone_MERC__c</fullName>

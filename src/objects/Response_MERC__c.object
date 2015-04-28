@@ -55,30 +55,6 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
-        <fullName>Answer_End_Date_MERC__c</fullName>
-        <description>Pulls end date from Answer in meeting time zone : MERC : Created on 14/04/2015 by Oliver Dunford, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <formula>Answer_MERC__r.End_Date_Meeting_Time_Zone_MERC__c</formula>
-        <label>Answer End Date</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Answer_End_Date_Time_MERC__c</fullName>
-        <description>Pulls the end date/time in the meeting time zone : MERC : Created on 14/04/2015 by Oliver Dunford, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <formula>Answer_MERC__r.End_Date_Time_Meeting_Time_Zone_MERC__c</formula>
-        <label>Answer End Date/Time</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Answer_MERC__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Used to tie a response to an applicable answer so that answer information can be pulled down to the record : MERC : Created on 14/04/2015 by Oliver Dunford, Mavens Consulting</description>
@@ -91,29 +67,6 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Answer_Start_Date_MERC__c</fullName>
-        <description>Pulls the start date in the meeting timezone : MERC : Created on 14/04/2015 by Oliver Dunford, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <formula>Answer_MERC__r.Start_Date_Meeting_Time_Zone_MERC__c</formula>
-        <label>Answer Start Date</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Answer_Start_Date_Time_MERC__c</fullName>
-        <description>Pulls the Answer Start Date to the record : MERC : Created on 14/04/2015 by Oliver Dunford, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <formula>Answer_MERC__r.Start_Date_Time_MERC__c</formula>
-        <label>Answer Start Date/Time</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Answer_Text_MERC__c</fullName>

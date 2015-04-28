@@ -156,6 +156,12 @@
         <members>Team_Member_MERC__c.Account_Employee_MERC__c</members>
         <members>Team_Member_MERC__c.Account_MERC__c</members>
         <members>Team_Member_MERC__c.Role_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Booking_Information_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Internal_Notes_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Sgmnt_Bgin_TS_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Sgmnt_End_TS_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Status_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Travel_Proposal_MERC__c</members>
         <name>CustomField</name>
     </types>
     <types>
@@ -164,6 +170,7 @@
         <members>Meeting_Tasks_MERC__c</members>
         <members>Registration_Question_MERC__c</members>
         <members>Response_MERC__c</members>
+        <members>Travel_Proposal_Segment_Type_MERC__c</members>
         <name>CustomObject</name>
     </types>
     <types>
@@ -171,6 +178,9 @@
         <members>Meeting_Participant_MERC__c.Service_Provider_Required_Fields_MERC</members>
         <members>Team_Member_MERC__c.Team_Employee_MERC</members>
         <members>Team_Member_MERC__c.Team_External_MERC</members>
+        <members>Travel_Itinerary_MERC__c.Proposal_Segment_Air_MERC</members>
+        <members>Travel_Itinerary_MERC__c.Proposal_Segment_Bus_MERC</members>
+        <members>Travel_Itinerary_MERC__c.Proposal_Segment_Rail_MERC</members>
         <name>FieldSet</name>
     </types>
     <types>
@@ -189,6 +199,10 @@
         <members>Meeting_Participant_MERC__c-MERC_Delegate</members>
         <members>Meeting_Participant_MERC__c-MERC_Individual Sponsorship</members>
         <members>Meeting_Participant_MERC__c-MERC_Service Provider</members>
+        <members>Travel_Itinerary_MERC__c-MERC_Air</members>
+        <members>Travel_Itinerary_MERC__c-MERC_Bus</members>
+        <members>Travel_Itinerary_MERC__c-MERC_Rail</members>
+        <members>Travel_Itinerary_MERC__c-MERC_Travel_Proposal</members>
         <name>Layout</name>
     </types>
     <types>
@@ -199,17 +213,22 @@
         <members>Mercury_Med_Director_Edit</members>
         <members>Mercury_Meeting_Owner_Edit</members>
         <members>Mercury_Meeting_Planning_Company_Edit</members>
+        <members>Mercury_Portal_API_Edit</members>
         <members>Mercury_System_Administrator_Lite</members>
         <members>Mercury_Travel_Agent_Edit</members>
         <name>PermissionSet</name>
     </types>
     <types>
+        <members>GSO Basic User_Platform</members>
+        <members>GSO Basic User_Salesforce</members>
         <members>Mercury Integration MVI - Platform</members>
+        <members>Mercury Metadata API</members>
         <name>Profile</name>
     </types>
     <types>
         <members>Team_Member_MERC__c.External_User_MERC</members>
         <members>Team_Member_MERC__c.Mercury_User_MERC</members>
+        <members>Travel_Itinerary_MERC__c.MERC_Travel_Proposal</members>
         <name>RecordType</name>
     </types>
     <types>
