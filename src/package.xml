@@ -21,10 +21,6 @@
         <name>ApexPage</name>
     </types>
     <types>
-        <members>Mercury</members>
-        <name>CustomApplication</name>
-    </types>
-    <types>
         <members>Account.Hotel_Check_in_Time_MERC__c</members>
         <members>Account.Hotel_Check_out_Time_MERC__c</members>
         <members>Case.Customer_Query_Received_Date_MERC__c</members>

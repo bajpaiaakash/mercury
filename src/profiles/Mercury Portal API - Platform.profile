@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
-    <applicationVisibilities>
-        <application>Mercury</application>
-        <default>true</default>
-        <visible>true</visible>
-    </applicationVisibilities>
     <classAccesses>
         <apexClass>GLBL_GenericRelatedListController</apexClass>
         <enabled>true</enabled>
@@ -80,6 +75,11 @@
         <editable>true</editable>
         <field>Answer_MERC__c.End_Date_Time_Meeting_Time_Zone_MERC__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Answer_MERC__c.Meeting_MERC__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -930,6 +930,11 @@
         <editable>false</editable>
         <field>Response_MERC__c.Answer_Text_MERC__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Response_MERC__c.Meeting_MERC__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>

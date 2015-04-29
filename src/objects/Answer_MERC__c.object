@@ -103,6 +103,18 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Meeting_MERC__c</fullName>
+        <description>Pulls down meeting id. Used by trigger to pass to locked record handler</description>
+        <externalId>false</externalId>
+        <formula>Registration_Question_MERC__r.Meeting_MERC__c</formula>
+        <label>Meeting</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Meeting_Time_Zone_MERC__c</fullName>
         <description>Pulls down the Time Zone from the Meeting : MERC : Created on 15/04/2015 by Oliver Dunford, Mavens Consulting.</description>
         <externalId>false</externalId>

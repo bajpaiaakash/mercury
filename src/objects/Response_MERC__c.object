@@ -81,6 +81,18 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Meeting_MERC__c</fullName>
+        <description>Pulls down the meeting Id. Used in trigger to be passed to the locked record handler</description>
+        <externalId>false</externalId>
+        <formula>Registration_Question_MERC__r.Meeting_MERC__c</formula>
+        <label>Meeting</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Meeting_Participant_MERC__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Links to the Meeting Participant object.  Lookup Relationship due to data model limitations : MERC : Created on 14/04/2015 by Oliver Dunford, Mavens Consulting</description>
