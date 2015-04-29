@@ -68,6 +68,33 @@ private class MERC_TravelProposalsControllerTest
 		expectTheParticipantToHaveXProposalsWithYSegments(1,2);
 	}
 
+	/********  Scenario : User encounters error on save *******/
+	@isTest
+	static void itShouldBeAbleToHandleSaveErrors() {
+		givenThePageIsLoaded();
+		givenTheUserClicksNewProposal();
+		givenTheUserTogglesTheProposalXSegmentYTypeToAir(0,0);
+		givenTheUserCompletesProposalXSegmentYInformation(0,0);
+		givenTheUserWillEncounterAnError();
+		givenTheUserClicksSave();
+		expectOneErrorMessage();
+		expectErrorStartsWith(Label.Travel_Proposals_Error_updating_proposals_segments);
+	}
+
+	/********  Scenario : User encounters error on save *******/
+	@isTest
+	static void itShouldBeAbleToHandleSaveAndExitErrors() {
+		givenThePageIsLoaded();
+		givenTheUserClicksNewProposal();
+		givenTheUserTogglesTheProposalXSegmentYTypeToAir(0,0);
+		givenTheUserCompletesProposalXSegmentYInformation(0,0);
+		givenTheUserWillEncounterAnError();
+		givenTheUserClicksSaveAndExit();
+		expectUserToRemainOnThePage();
+		expectOneErrorMessage();
+		expectErrorStartsWith(Label.Travel_Proposals_Error_updating_proposals_segments);
+	}
+
 	/*********************************************************************************
 	                     HELPER METHODS
 	*********************************************************************************/
@@ -118,6 +145,10 @@ private class MERC_TravelProposalsControllerTest
 		controller.doNothing(); //simulate the post back to the server from the page onchange actionsupport
 	}
 
+	private static void givenTheUserWillEncounterAnError() {
+		Test.setReadOnlyApplicationMode(true);
+	}
+
 	/******************************* Expectations *********************************/
 	private static void expectOneErrorMessage() {
 		System.assertEquals(1, ApexPages.getMessages().size());
@@ -159,6 +190,9 @@ private class MERC_TravelProposalsControllerTest
 		System.assertEquals('/'+participant.id, currentPageRef.getUrl());
 	}
 
+	private static void expectUserToRemainOnThePage() {
+		System.assertEquals(null, currentPageRef);
+	}
 	private static void expectTheParticipantToHaveXProposalsWithYSegments(Integer proposalCount, Integer segmentCount) {
 		List<Travel_Itinerary_MERC__c> itineraries = [SELECT Id,
 		                                                     (SELECT Id FROM Travel_Itineraries__r)
@@ -168,5 +202,9 @@ private class MERC_TravelProposalsControllerTest
 
 		System.assertEquals(proposalCount, itineraries.size());
 		System.assertEquals(segmentCount, itineraries[0].Travel_Itineraries__r.size());
+	}
+
+	private static void expectErrorStartsWith(String errorBegin) {
+		System.assert(ApexPages.getMessages().get(0).getSummary().startsWith(errorBegin));
 	}
 }

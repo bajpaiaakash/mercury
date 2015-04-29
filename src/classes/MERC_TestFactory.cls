@@ -27,8 +27,8 @@ public with sharing class MERC_TestFactory {
 		List<sObject> timeZoneFieldMappings = Test.loadData(Time_Zone_Field_Mappings_MERC__c.sObjectType, 'TimeZoneMappingTestData_MERC');
 	}
 
-	public static void loadTravelProposalSegmentTypeSettings() {
-		Test.loadData(Travel_Proposal_Segment_Type_MERC__c.sObjectType, 'TravelProposalSegementTypes_MERC');
+	public static List<sObject> loadTravelProposalSegmentTypeSettings() {
+		return Test.loadData(Travel_Proposal_Segment_Type_MERC__c.sObjectType, 'TravelProposalSegementTypes_MERC');
 	}
 
 	public static void loadCAPSettings() {
