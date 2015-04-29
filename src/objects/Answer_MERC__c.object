@@ -54,21 +54,6 @@
     <enableReports>true</enableReports>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <fieldSets>
-        <fullName>Answer_Date_Time_View_MERC</fullName>
-        <description>Displays the Date/Time string fields on the Answer view so that they can be viewed relative to the meeting time zone.</description>
-        <displayedFields>
-            <field>Start_Date_Time_Meeting_Time_Zone_MERC__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>End_Date_Time_Meeting_Time_Zone_MERC__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <label>Answer Date Time View</label>
-    </fieldSets>
     <fields>
         <fullName>Answer_Text_MERC__c</fullName>
         <description>Holds the answer text for each possible Answer for any given Registration Question</description>

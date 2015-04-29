@@ -2,6 +2,31 @@
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <enableEnhancedLookup>true</enableEnhancedLookup>
     <fieldSets>
+        <fullName>Consultant_Required_Fields_MERC</fullName>
+        <description>Used on the MERC_AddMeetingParticipants page to indicate the fields required in order to add an account as a Meeting participant with record type consultant.</description>
+        <displayedFields>
+            <field>Justification_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Types_of_Service_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Description_of_Service_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Accountable_Business_Contact_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Consultant Required Fields</label>
+    </fieldSets>
+    <fieldSets>
         <fullName>Delegate_Required_Fields_MERC</fullName>
         <description>Used on the MERC_AddMeetingParticipants page to indicate the fields required in order to add an account as a Meeting participant with record type Delegate.</description>
         <displayedFields>
@@ -20,6 +45,26 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <label>Delegate Required Fields</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Individual_Sponsor_Required_Fields_MERC</fullName>
+        <description>Used on the MERC_AddMeetingParticipants page to indicate the fields required in order to add an account as a Meeting participant with record type Individual Sponsorship.</description>
+        <displayedFields>
+            <field>Air_Travel_Required_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Hotel_Required_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Accountable_Business_Contact_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Individual Sponsorship Required Fields</label>
     </fieldSets>
     <fieldSets>
         <fullName>Service_Provider_Required_Fields_MERC</fullName>

@@ -148,6 +148,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Meeting_MERC__c.Logistics_Information_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Meeting_MERC__c.Logistics_Management_Supplier_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -934,11 +939,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Travel_Itinerary_MERC__c.Additional_Information_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Travel_Itinerary_MERC__c.Additional_Information_TEST__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

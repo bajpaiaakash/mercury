@@ -31,6 +31,7 @@
         <members>HCP_Contract_MERC__c.Contract_Signed_Date_Time_MERC__c</members>
         <members>Meeting_MERC__c.Delegate_Management_Supplier_MERC__c</members>
         <members>Meeting_MERC__c.Final_Logistics_Information_MERC__c</members>
+        <members>Meeting_MERC__c.Logistics_Information_MERC__c</members>
         <members>Meeting_MERC__c.Logistics_Management_Supplier_MERC__c</members>
         <members>Meeting_MERC__c.Travel_Information_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Accountable_Business_Contact_MERC__c</members>
@@ -179,7 +180,6 @@
         <members>Team_Member_MERC__c.Account_MERC__c</members>
         <members>Team_Member_MERC__c.Role_MERC__c</members>
         <members>Travel_Itinerary_MERC__c.Additional_Information_MERC__c</members>
-        <members>Travel_Itinerary_MERC__c.Additional_Information_TEST__c</members>
         <members>Travel_Itinerary_MERC__c.Booking_Information_MERC__c</members>
         <members>Travel_Itinerary_MERC__c.Flght_Nmbr_MERC__c</members>
         <members>Travel_Itinerary_MERC__c.Internal_Notes_MERC__c</members>
@@ -204,7 +204,9 @@
         <name>CustomObject</name>
     </types>
     <types>
+        <members>Meeting_Participant_MERC__c.Consultant_Required_Fields_MERC</members>
         <members>Meeting_Participant_MERC__c.Delegate_Required_Fields_MERC</members>
+        <members>Meeting_Participant_MERC__c.Individual_Sponsor_Required_Fields_MERC</members>
         <members>Meeting_Participant_MERC__c.Service_Provider_Required_Fields_MERC</members>
         <members>Team_Member_MERC__c.Team_Employee_MERC</members>
         <members>Team_Member_MERC__c.Team_External_MERC</members>

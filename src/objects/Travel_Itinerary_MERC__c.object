@@ -177,18 +177,6 @@
         <type>TextArea</type>
     </fields>
     <fields>
-        <fullName>Additional_Information_TEST__c</fullName>
-        <description>DONOTDEPLOY</description>
-        <externalId>false</externalId>
-        <formula>DATETIMEVALUE(TEXT(YEAR(DATEVALUE(Sgmnt_Bgin_TS_MERC__c))) +&quot;-&quot;+ TEXT(MONTH(DATEVALUE(Sgmnt_Bgin_TS_MERC__c))) +&quot;-&quot;+ TEXT(DAY(DATEVALUE(Sgmnt_Bgin_TS_MERC__c))) + RIGHT(TEXT( Account_MERC__r.CreatedDate ),10))</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <inlineHelpText>DONOTDEPLOY</inlineHelpText>
-        <label>Additional Information</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>DateTime</type>
-    </fields>
-    <fields>
         <fullName>Booking_Information_MERC__c</fullName>
         <description>Holds booking information for Travel records : MERC : Created on 27/04/2015 by Oliver Dunford, Mavens Consulting</description>
         <externalId>false</externalId>

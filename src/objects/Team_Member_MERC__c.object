@@ -82,19 +82,27 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Business Contact for Meeting Questions</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Customer Facing Team</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Final Budget Approver</fullName>
+                <fullName>Delegate Management</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Home Approver</fullName>
+                <fullName>Global CMS</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Host Approver</fullName>
+                <fullName>IMA Home HCP Approver</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IMA Host Meeting Location Approver</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -102,11 +110,15 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Local CMS Manager</fullName>
+                <fullName>Lilly Contract Signatory</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Local CMS Team</fullName>
+                <fullName>Local CMS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Local Invoicing/Finance Support</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -122,15 +134,31 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Onsite Attendance Checker</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Primary Meeting Owner</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Regional CMS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Regional EMBU CMS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Regional Europe CMS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Travel Agency</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Travel Agent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Venue Sourcing</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>true</sorted>
@@ -151,19 +179,27 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Business Contact for Meeting Questions</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Customer Facing Team</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Final Budget Approver</fullName>
+                <fullName>Delegate Management</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Home Approver</fullName>
+                <fullName>Global CMS</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Host Approver</fullName>
+                <fullName>IMA Home HCP Approver</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IMA Host Meeting Location Approver</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -171,11 +207,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Local CMS Manager</fullName>
+                <fullName>Lilly Contract Signatory</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Local CMS Team</fullName>
+                <fullName>Local CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local Invoicing%2FFinance Support</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -191,15 +231,31 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Onsite Attendance Checker</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Primary Meeting Owner</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Regional CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional EMBU CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional Europe CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Travel Agent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Venue Sourcing</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -216,15 +272,23 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Final Budget Approver</fullName>
+                <fullName>Business Contact for Meeting Questions</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Home Approver</fullName>
+                <fullName>Delegate Management</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Host Approver</fullName>
+                <fullName>Global CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IMA Home HCP Approver</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IMA Host Meeting Location Approver</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -232,11 +296,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Local CMS Manager</fullName>
+                <fullName>Lilly Contract Signatory</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Local CMS Team</fullName>
+                <fullName>Local CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local Invoicing%2FFinance Support</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -252,15 +320,31 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Onsite Attendance Checker</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Primary Meeting Owner</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Regional CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional EMBU CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regional Europe CMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel Agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Travel Agent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Venue Sourcing</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

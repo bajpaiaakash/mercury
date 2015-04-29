@@ -27,10 +27,6 @@
                 <behavior>Readonly</behavior>
                 <field>Last_Name_MERC__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Additional_Information_TEST__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

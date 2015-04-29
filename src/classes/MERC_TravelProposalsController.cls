@@ -113,8 +113,6 @@ public with sharing class MERC_TravelProposalsController {
 	//VF page New Proposal Button
 	public void addProposal() {
 		TravelProposal proposal = new TravelProposal(participant);
-		insert proposal.detail;
-		proposal.detail = queryForProposal(proposal.detail.id);
 		proposals.add(proposal);
 	}
 
@@ -226,6 +224,7 @@ public with sharing class MERC_TravelProposalsController {
 					   Meeting_MERC__r.Meeting_Time_Zone_MERC__c,
 					   Meeting_MERC__r.Start_Time_In_Meeting_Time_Zone__c,
 					   Meeting_MERC__r.End_Time_In_Meeting_Time_Zone_MERC__c,
+					   Meeting_MERC__r.CurrencyIsoCode,
 					   Account_MERC__c,
 					   Account_MERC__r.Name
                   FROM Meeting_Participant_MERC__c
@@ -262,7 +261,7 @@ public with sharing class MERC_TravelProposalsController {
 	}
 
 	//return a specific proposal. Used to ensure that autopopulate fields (e.g. name) are available
-	private Travel_Itinerary_MERC__c queryForProposal(Id proposalId) {
+	private static Travel_Itinerary_MERC__c queryForProposal(Id proposalId) {
 		String queryString = 'SELECT';
 		for (String field : proposalFields) {
 			queryString += ' ' + field + ',';
@@ -275,10 +274,10 @@ public with sharing class MERC_TravelProposalsController {
 	}
 
 	//Required fields for time zone conversion
-	private List<String> timeZoneFields = new List<String>{'Segment_End_Timezone_MERC__c', 'Segment_Begin_Timezone_MERC__c'};
+	private static List<String> timeZoneFields = new List<String>{'Segment_End_Timezone_MERC__c', 'Segment_Begin_Timezone_MERC__c'};
 
 	//Fields needed for the proposal records
-	private Set<String> proposalFields {
+	private static Set<String> proposalFields {
 		get {
 			if (proposalFields == null) {
 				proposalFields = new Set<String>();
@@ -348,8 +347,12 @@ public with sharing class MERC_TravelProposalsController {
 			this.detail = new Travel_Itinerary_MERC__c(
 			                     RecordTypeId=MERC_TravelProposalsController.proposalRecordTypeId,
 								 Meeting_Participant_MERC__c = participant.id,
-								 Account_MERC__c = participant.Account_MERC__c);
+								 Account_MERC__c = participant.Account_MERC__c,
+								 CurrencyIsoCode = participant.Meeting_MERC__r.CurrencyIsoCode);
 			this.segments = new List<Segment>();
+
+			insert this.detail;
+			this.detail = queryForProposal(this.detail.id);
 			addSegment();
 		}
 
@@ -409,7 +412,7 @@ public with sharing class MERC_TravelProposalsController {
 				this.detail = new Travel_Itinerary_MERC__c(Travel_Proposal_MERC__c = itinerary.Id,
 				                                           Meeting_Participant_MERC__c = itinerary.Meeting_Participant_MERC__c,
 														   Account_MERC__c = itinerary.Account_MERC__c,
-														   CurrencyIsoCode= itinerary.CurrencyIsoCode,
+														   CurrencyIsoCode= itinerary.Meeting_Participant_MERC__r.Meeting_MERC__r.CurrencyIsoCode,
 														   Status_MERC__c = 'Confirmed',
 														   Segment_Begin_Timezone_MERC__c=itinerary.Meeting_Time_Zone_MERC__c,
 														   Segment_End_Timezone_MERC__c=itinerary.Meeting_Time_Zone_MERC__c);
