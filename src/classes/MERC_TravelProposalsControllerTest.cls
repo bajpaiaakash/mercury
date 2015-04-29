@@ -1,17 +1,18 @@
 @isTest
 private class MERC_TravelProposalsControllerTest
 {
-	static Account                              account;
-	static Meeting_MERC__c                      meeting;
-	static Meeting_Participant_MERC__c          participant;
-	static MERC_TravelProposalsController       controller;
-	static PageReference                        currentPageRef;
+	static Account                        account;
+	static Meeting_MERC__c                meeting;
+	static Meeting_Participant_MERC__c    participant;
+	static MERC_TravelProposalsController controller;
+	static PageReference                  currentPageRef;
+	static List<sObject>                  segmentTypeDefinitions;
 
 	static {
-		MERC_TestFactory.loadTravelProposalSegmentTypeSettings();
-		account = 	  MERC_TestFactory.insertAccounts(1)[0];
-		meeting =     MERC_TestFactory.insertMeetings(1)[0];
-		participant = MERC_TestFactory.insertParticipants(meeting.id, new List<Account>{account})[0];
+		segmentTypeDefinitions = MERC_TestFactory.loadTravelProposalSegmentTypeSettings();
+		account   	           = MERC_TestFactory.insertAccounts(1)[0];
+		meeting                = MERC_TestFactory.insertMeetings(1)[0];
+		participant            = MERC_TestFactory.insertParticipants(meeting.id, new List<Account>{account})[0];
 	}
 
 	/****************** Scenario : Page accessed without an Id **********************/
@@ -56,11 +57,18 @@ private class MERC_TravelProposalsControllerTest
 	static void itShouldBeAbleToAddSegmentsAndSaveItineraries() {
 		givenThePageIsLoaded();
 		givenTheUserClicksNewProposal();
+		expectTheSegmentTypesToBeDefined();
+
+		expectProposalXSegmentYFieldsToBeUndefined(0,0);
 		givenTheUserTogglesTheProposalXSegmentYTypeToAir(0,0);
+		expectProposalXSegmentYFieldsToBeShown(0,0);
+		expectAirSegmentFieldsToBeDisplayedForProposalXSegmentY(0,0);
+
 		givenTheUserCompletesProposalXSegmentYInformation(0,0);
 		givenTheUserClicksSave(); //exercising save only
 		givenTheUserAddsAnotherSegmentToProposal(0);
 		expectProposalXToHaveYSegments(0,2);
+
 		givenTheUserTogglesTheProposalXSegmentYTypeToAir(0,1);
 		givenTheUserCompletesProposalXSegmentYInformation(0,1);
 		givenTheUserClicksSaveAndExit(); //exercising Save And Exit
@@ -81,7 +89,7 @@ private class MERC_TravelProposalsControllerTest
 		expectErrorStartsWith(Label.Travel_Proposals_Error_updating_proposals_segments);
 	}
 
-	/********  Scenario : User encounters error on save *******/
+	/********  Scenario : User encounters error on save & exit*******/
 	@isTest
 	static void itShouldBeAbleToHandleSaveAndExitErrors() {
 		givenThePageIsLoaded();
@@ -95,9 +103,56 @@ private class MERC_TravelProposalsControllerTest
 		expectErrorStartsWith(Label.Travel_Proposals_Error_updating_proposals_segments);
 	}
 
+	/********  Scenario : User cancels segments and proposals *******/
+	@isTest
+	static void itShouldNotLoadCancelledProposalsOrSegments() {
+		givenThePageIsLoaded();
+		givenTheUserClicksNewProposal();
+		givenTheUserTogglesTheProposalXSegmentYTypeToAir(0,0);
+		givenTheUserCompletesProposalXSegmentYInformation(0,0);
+		givenTheUserClicksSave();
+		expectProposalXToHaveYSegments(0,1);
+
+		givenTheUserChangesProposalXSegmentYToCancelled(0,0);
+		expectProposalXSegmentYFieldsToBeHidden(0,0);
+
+		givenTheUserClicksSave();
+		expectProposalXToHaveYSegments(0,0);
+
+		givenTheUserChangesPropsalXToCancelled(0);
+		expectProposalXSegmentsToBeHidden(0);
+
+		givenTheUserClicksSave();
+		expectProposalCountToBe(0);
+	}
+
+	/************ Scenario : Segment Type somehow set to non-defined value ******/
+	// this tests a protection that might be over protective, but is in place regardless
+	@isTest
+	static void itShouldReturnNullIfBadSegmentTypeIsSet() {
+		givenThePageIsLoaded();
+		givenTheUserClicksNewProposal();
+		givenTheProposalXSegmentYSegmentTypeHasBadValue(0,0);
+		expectProposalXSegmentYGetSegmentDetailToReturnNull(0,0);
+	}
+
+	/************ Scenario : Custom Settings are not defined ******/
+	@isTest
+	static void itShouldThrowErrorIfCustomSettingsAreNotDefined() {
+		givenNoCustomSettingsAreDefined();
+		givenThePageIsLoaded();
+		expectOneErrorMessage();
+		expectErrorMessageToBe(Label.Travel_Proposals_Custom_Settings_not_defined);
+	}
+
+
 	/*********************************************************************************
+
 	                     HELPER METHODS
+
 	*********************************************************************************/
+
+
 
 	/******************************* Actions *********************************/
 	private static void givenThePageIsLoaded() {
@@ -148,6 +203,23 @@ private class MERC_TravelProposalsControllerTest
 	private static void givenTheUserWillEncounterAnError() {
 		Test.setReadOnlyApplicationMode(true);
 	}
+
+	private static void givenTheUserChangesProposalXSegmentYToCancelled(Integer proposalIndex, Integer segmentIndex) {
+		controller.proposals[proposalIndex].segments[segmentIndex].detail.Status_MERC__c = 'Cancelled';
+	}
+
+	private static void givenTheUserChangesPropsalXToCancelled(Integer proposalIndex) {
+		controller.proposals[proposalIndex].detail.Status_MERC__c = 'Cancelled';
+	}
+
+	private static void givenTheProposalXSegmentYSegmentTypeHasBadValue(Integer proposalIndex, Integer segmentIndex) {
+		controller.proposals[proposalIndex].segments[segmentIndex].segmentType = 'badSegmentType';
+	}
+
+	private static void givenNoCustomSettingsAreDefined() {
+		delete [SELECT Id FROM Travel_Proposal_Segment_Type_MERC__c];
+	}
+
 
 	/******************************* Expectations *********************************/
 	private static void expectOneErrorMessage() {
@@ -206,5 +278,41 @@ private class MERC_TravelProposalsControllerTest
 
 	private static void expectErrorStartsWith(String errorBegin) {
 		System.assert(ApexPages.getMessages().get(0).getSummary().startsWith(errorBegin));
+	}
+
+	private static void expectTheSegmentTypesToBeDefined() {
+		Set<String> types = new Set<String>{''}; //first option should be empty string
+		for (sObject so : segmentTypeDefinitions) {
+			types.add((String)so.get('Record_Type_Name_MERC__c'));
+		}
+		System.assert(controller.segmentOptions.size() > 1, 'No segment types defined');
+		System.assertEquals(types.size(), controller.segmentOptions.size());
+		for (SelectOption option : controller.segmentOptions) {
+			System.assert(types.contains(option.getValue()));
+		}
+	}
+
+	private static void expectProposalXSegmentYFieldsToBeHidden(Integer proposalIndex, Integer segmentIndex) {
+		System.assertEquals(false, controller.proposals[proposalIndex].segments[segmentIndex].getDisplay());
+	}
+
+	private static void expectProposalXSegmentYFieldsToBeUndefined(Integer proposalIndex, Integer segmentIndex) {
+		System.assert(controller.proposals[proposalIndex].segments[segmentIndex].getSegmentFields().isEmpty());
+	}
+
+	private static void expectProposalXSegmentYFieldsToBeShown(Integer proposalIndex, Integer segmentIndex) {
+		System.assert(controller.proposals[proposalIndex].segments[segmentIndex].getDisplay());
+	}
+
+	private static void expectProposalXSegmentsToBeHidden(Integer proposalIndex) {
+		System.assertEquals(false, controller.proposals[proposalIndex].getDisplaySegments());
+	}
+
+	private static void expectAirSegmentFieldsToBeDisplayedForProposalXSegmentY(Integer proposalIndex, Integer segmentIndex) {
+		System.assertEquals(false, controller.proposals[proposalIndex].segments[segmentIndex].getSegmentFields().isEmpty());
+	}
+
+	private static void expectProposalXSegmentYGetSegmentDetailToReturnNull(Integer proposalIndex, Integer segmentIndex) {
+		System.assertEquals(null, controller.proposals[proposalIndex].segments[segmentIndex].getSegmentDetail());
 	}
 }

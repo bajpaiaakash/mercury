@@ -290,6 +290,10 @@
         <name>ReportType</name>
     </types>
     <types>
+        <members>Preferences_and_Consent_GLBL__c</members>
+        <name>SharingRules</name>
+    </types>
+    <types>
         <members>Account.MERC_CheckIn_Time</members>
         <members>Account.MERC_CheckOut_Time</members>
         <members>Meeting_Participant_MERC__c.MERC_Lock_Final_Fee</members>
@@ -318,5 +322,5 @@
         <members>Travel_Itinerary_MERC__c.MERC_Update Check In%2FOut Times</members>
         <name>WorkflowRule</name>
     </types>
-    <version>32.0</version>
+    <version>33.0</version>
 </Package>
