@@ -235,6 +235,16 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Next_Follow_Up_Date_MERC__c</fullName>
+        <description>The Current Process State Task Due Date of the Meeting Participant - stamped from Meeting Tasks object : MERC : Created on 29/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Next Follow Up Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Process_State_MERC__c</fullName>
         <description>The Current Process State of the Meeting Participant - stamped from Meeting Tasks object : MERC : Created on 29/04/2015 by Oliver Dunford, Mavens Consulting</description>
         <externalId>false</externalId>
