@@ -163,7 +163,8 @@ private class MERC_TravelProposalsControllerTest
 		List<Travel_Itinerary_MERC__c> itineraries = [SELECT Id,
 		                                                     (SELECT Id FROM Travel_Itineraries__r)
 														FROM Travel_Itinerary_MERC__c
-													   WHERE Meeting_Participant_MERC__c=:participant.id];
+													   WHERE Meeting_Participant_MERC__c=:participant.id
+													     AND RecordTypeId=:MERC_TravelProposalsController.proposalRecordTypeId];
 
 		System.assertEquals(proposalCount, itineraries.size());
 		System.assertEquals(segmentCount, itineraries[0].Travel_Itineraries__r.size());
