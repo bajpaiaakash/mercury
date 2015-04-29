@@ -14,7 +14,7 @@
         <members>MERC_TravelProposalsControllerTest</members>
         <name>ApexClass</name>
     </types>
-    <types>
+    <types> 
         <members>MERC_MeetingTeamManager</members>
         <members>MERC_RegistrationResponses</members>
         <members>MERC_TravelProposals</members>
