@@ -21,6 +21,10 @@
         <name>ApexPage</name>
     </types>
     <types>
+        <members>Mercury</members>
+        <name>CustomApplication</name>
+    </types>
+    <types>
         <members>Account.Hotel_Check_in_Time_MERC__c</members>
         <members>Account.Hotel_Check_out_Time_MERC__c</members>
         <members>Case.Customer_Query_Received_Date_MERC__c</members>
@@ -37,12 +41,14 @@
         <members>Meeting_Participant_MERC__c.Accountable_Business_Contact_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Current_Process_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Final_Fee_Confirmed_Date_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.Follow_Up_Status_MERC__c</members>
         <members>Meeting_Participant_MERC__c.HCP_Info_Pack_Received_Date_MERC__c</members>
         <members>Meeting_Participant_MERC__c.HCP_Info_Package_Follow_Up_Date_MERC__c</members>
         <members>Meeting_Participant_MERC__c.HCP_Info_Package_Sent_Date_MERC__c</members>
         <members>Meeting_Participant_MERC__c.HCP_Info_Package_Status_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Logistic_Compliance_Comments_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Meeting_Active_Confirm_Fee_Date_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.Process_State_MERC__c</members>
         <members>Meeting_Participant_MERC__c.SEA_WO_Follow_Up_Date_MERC__c</members>
         <members>Meeting_Participant_MERC__c.SEA_WO_Received_Date_MERC__c</members>
         <members>Meeting_Participant_MERC__c.SEA_WO_Sent_Date_MERC__c</members>
@@ -50,19 +56,6 @@
         <members>Meeting_Participant_MERC__c.SEA_WO_Status_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Submitted_for_Payment_Date_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Submitted_for_Payment_MERC__c</members>
-        <members>Meeting_Tasks_MERC__c.Change_Process_End_Date_MERC__c</members>
-        <members>Meeting_Tasks_MERC__c.Change_Process_Start_Date_MERC__c</members>
-        <members>Meeting_Tasks_MERC__c.Comments_MERC__c</members>
-        <members>Meeting_Tasks_MERC__c.Due_Date_MERC__c</members>
-        <members>Meeting_Tasks_MERC__c.Force_Unique_Process_State_MERC__c</members>
-        <members>Meeting_Tasks_MERC__c.HCP_Country_of_Residence_Stamped_MERC__c</members>
-        <members>Meeting_Tasks_MERC__c.Meeting_Participant_MERC__c</members>
-        <members>Meeting_Tasks_MERC__c.Mercury_External_Id_MERC__c</members>
-        <members>Meeting_Tasks_MERC__c.Process_End_Date_MERC__c</members>
-        <members>Meeting_Tasks_MERC__c.Process_MERC__c</members>
-        <members>Meeting_Tasks_MERC__c.Process_Start_Date_MERC__c</members>
-        <members>Meeting_Tasks_MERC__c.Process_State_MERC__c</members>
-        <members>Meeting_Tasks_MERC__c.Task_Status_MERC__c</members>
         <members>Preferences_and_Consent_GLBL__c.Account_External_Id_GLBL__c</members>
         <members>Preferences_and_Consent_GLBL__c.Account_Field_Update_MERC__c</members>
         <members>Preferences_and_Consent_GLBL__c.Account_GLBL__c</members>
@@ -199,10 +192,15 @@
     <types>
         <members>Add_Meeting_Participant_Record_Type_MERC__c</members>
         <members>Answer_MERC__c</members>
+        <members>Meeting_Tasks_MERC__c</members>
         <members>Registration_Question_MERC__c</members>
         <members>Response_MERC__c</members>
         <members>Travel_Proposal_Segment_Type_MERC__c</members>
         <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Meeting_Tasks_MERC__c</members>
+        <name>CustomTab</name>
     </types>
     <types>
         <members>Meeting_Participant_MERC__c.Consultant_Required_Fields_MERC</members>
@@ -236,6 +234,7 @@
         <members>Meeting_Participant_MERC__c-MERC_Delegate</members>
         <members>Meeting_Participant_MERC__c-MERC_Individual Sponsorship</members>
         <members>Meeting_Participant_MERC__c-MERC_Service Provider</members>
+        <members>Meeting_Tasks_MERC__c-MERC_Meeting Task Layout</members>
         <members>Registration_Question_MERC__c-MERC_Question_Layout</members>
         <members>Response_MERC__c-MERC_Response_Layout</members>
         <members>Travel_Itinerary_MERC__c-MERC_Air</members>
@@ -243,10 +242,6 @@
         <members>Travel_Itinerary_MERC__c-MERC_Rail</members>
         <members>Travel_Itinerary_MERC__c-MERC_Travel_Proposal</members>
         <name>Layout</name>
-    </types>
-    <types>
-        <members>Meeting_Tasks_MERC__c.All</members>
-        <name>ListView</name>
     </types>
     <types>
         <members>Mercury_Account_Manager_Edit</members>
@@ -301,20 +296,19 @@
     <types>
         <members>Answer_MERC__c</members>
         <members>HCP_Contract_MERC__c</members>
+        <members>Meeting_Tasks_MERC__c</members>
         <members>Registration_Question_MERC__c</members>
         <members>Response_MERC__c</members>
         <name>Workflow</name>
     </types>
     <types>
         <members>Meeting_Participant_MERC__c.MERC_Set_Final_Fee_Confirmed_Date</members>
-        <members>Meeting_Tasks_MERC__c.MERC_Stamp_External_Id_Meeting_Task</members>
         <members>Travel_Itinerary_MERC__c.MERC_Set_Hotel_CheckOut_Time</members>
         <members>Travel_Itinerary_MERC__c.MERC_Set_Hotel_Checkin_Time</members>
         <name>WorkflowFieldUpdate</name>
     </types>
     <types>
         <members>Meeting_Participant_MERC__c.MERC Final Fee Date</members>
-        <members>Meeting_Tasks_MERC__c.MERC_Set External Id - Meeting Tasks</members>
         <members>Travel_Itinerary_MERC__c.MERC_Update Check In%2FOut Times</members>
         <name>WorkflowRule</name>
     </types>

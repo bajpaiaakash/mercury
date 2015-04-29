@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
+    <applicationVisibilities>
+        <application>Mercury</application>
+        <default>true</default>
+        <visible>true</visible>
+    </applicationVisibilities>
     <classAccesses>
         <apexClass>GLBL_GenericRelatedListController</apexClass>
         <enabled>false</enabled>
@@ -178,6 +183,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Follow_Up_Status_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Meeting_Participant_MERC__c.HCP_Info_Pack_Received_Date_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -204,6 +214,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Meeting_Active_Confirm_Fee_Date_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Process_State_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -299,6 +314,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_Tasks_MERC__c.Process_State_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Tasks_MERC__c.Start_Meeting_Task_Id_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1010,6 +1030,9 @@
         <layout>Meeting_Participant_MERC__c-MERC_Service Provider</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Meeting_Tasks_MERC__c-MERC_Meeting Task Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Registration_Question_MERC__c-MERC_Question_Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -1189,6 +1212,15 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
+        <object>Meeting_Tasks_MERC__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
         <object>Registration_Question_MERC__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
@@ -1228,6 +1260,10 @@
         <recordType>Travel_Itinerary_MERC__c.MERC_Travel_Proposal</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
+    <tabVisibilities>
+        <tab>Meeting_Tasks_MERC__c</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
     <userLicense>Salesforce</userLicense>
     <userPermissions>
         <enabled>true</enabled>

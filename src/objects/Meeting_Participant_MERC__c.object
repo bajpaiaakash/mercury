@@ -154,6 +154,18 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Follow_Up_Status_MERC__c</fullName>
+        <description>The Current Process State of the Meeting Participant - Task Status Field - stamped from Meeting Tasks object : MERC : Created on 29/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Follow Up Status</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>HCP_Info_Pack_Received_Date_MERC__c</fullName>
         <description>MERC - Date HCP Info Pack is received.  Pulled through from Account object (where set via workflow rule).  Created by Mike Cashman, Mavens Consulting on 3/3/15.</description>
         <externalId>false</externalId>
@@ -221,6 +233,18 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Process_State_MERC__c</fullName>
+        <description>The Current Process State of the Meeting Participant - stamped from Meeting Tasks object : MERC : Created on 29/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Process State</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>SEA_WO_Follow_Up_Date_MERC__c</fullName>
