@@ -294,6 +294,10 @@
         <name>SharingRules</name>
     </types>
     <types>
+        <members>TravelProposalSegementTypes_MERC</members>
+        <name>StaticResource</name>
+    </types>
+    <types>
         <members>Account.MERC_CheckIn_Time</members>
         <members>Account.MERC_CheckOut_Time</members>
         <members>Meeting_Participant_MERC__c.MERC_Lock_Final_Fee</members>
