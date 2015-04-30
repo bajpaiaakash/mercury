@@ -16,11 +16,11 @@
                 <field>Meeting_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Question_MERC__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Required</behavior>
                 <field>Answer_Type_MERC__c</field>
             </layoutItems>
             <layoutItems>

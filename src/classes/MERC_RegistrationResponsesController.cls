@@ -176,7 +176,8 @@ public with sharing class MERC_RegistrationResponsesController {
 					    FROM Responses__r
 					   WHERE Meeting_Participant_MERC__c = :participantId)
 			   	 FROM Registration_Question_MERC__C
-		   	    WHERE Meeting_MERC__c = :meetingId];
+		   	    WHERE Meeting_MERC__c = :meetingId
+				ORDER BY Order_Number_MERC__c];
 	}
 
 	//Map of question ids to responses.

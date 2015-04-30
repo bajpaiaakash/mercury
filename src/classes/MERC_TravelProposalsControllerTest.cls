@@ -19,7 +19,10 @@ private class MERC_TravelProposalsControllerTest
 	@isTest
 	static void itShouldErrorWhenNoIdParameterIsProvided()
 	{
+		Test.startTest();
 		givenThePageIsLoaded(null);
+		Test.stopTest();
+
 		expectOneErrorMessage();
 		expectErrorMessageToBe(Label.Travel_Proposals_No_Participant_Id);
 		expectAnInitializationError();
@@ -28,7 +31,10 @@ private class MERC_TravelProposalsControllerTest
 	/****************** Scenario : Page accessed with a bad Id **********************/
 	@isTest
 	static void itShouldErrorWhenBadIdIsProvided() {
+		Test.startTest();
 		givenThePageIsLoaded('001000000000000'); //with a bad id
+		Test.stopTest();
+
 		expectOneErrorMessage();
 		expectErrorMessageToBe(Label.Travel_Proposals_Cannot_Find_Participant);
 		expectAnInitializationError();
@@ -37,7 +43,10 @@ private class MERC_TravelProposalsControllerTest
 	/***************** Scenario : Page is accessed with no Itineraries **************/
 	@isTest
 	static void itShouldLoadPageProperly() {
+		Test.startTest();
 		givenThePageIsLoaded();
+		Test.stopTest();
+
 		expectNoErrors();
 		expectPageTitleToBeSet();
 		expectPageSubTitleToBeSet();
@@ -46,13 +55,16 @@ private class MERC_TravelProposalsControllerTest
 	/******************  Scenario : User Creates a Proposal    **********************/
 	@isTest
 	static void itShouldCreateProposalAndSegment() {
+		Test.startTest();
 		givenThePageIsLoaded();
 		givenTheUserClicksNewProposal();
+		Test.stopTest();
+
 		expectProposalCountToBe(1);
 		expectProposalXToHaveYSegments(0,1);
 	}
 
-	/********  Scenario : User Creates a Proposal, saves, creates segment saves & exits *******/
+	/********  Scenario : User Creates a Proposal, saves *******/
 	@isTest
 	static void itShouldBeAbleToAddSegmentsAndSaveItineraries() {
 		givenThePageIsLoaded();
@@ -65,15 +77,26 @@ private class MERC_TravelProposalsControllerTest
 		expectAirSegmentFieldsToBeDisplayedForProposalXSegmentY(0,0);
 
 		givenTheUserCompletesProposalXSegmentYInformation(0,0);
-		givenTheUserClicksSave(); //exercising save only
-		givenTheUserAddsAnotherSegmentToProposal(0);
-		expectProposalXToHaveYSegments(0,2);
 
-		givenTheUserTogglesTheProposalXSegmentYTypeToAir(0,1);
-		givenTheUserCompletesProposalXSegmentYInformation(0,1);
+		Test.startTest();
+		givenTheUserClicksSave(); //exercising save only
+		Test.stopTest();
+
+		expectTheParticipantToHaveXProposalsWithYSegments(1,1);
+	}
+
+	/********  Scenario : User creates segment saves & exits *******/
+	@isTest static void itShouldBeAbleToAddSegmentsAndSaveAndExit() {
+		givenThePageIsLoaded();
+		givenTheUserClicksNewProposal();
+		givenTheUserTogglesTheProposalXSegmentYTypeToAir(0,0);
+		givenTheUserCompletesProposalXSegmentYInformation(0,0);
+
+		Test.startTest();
 		givenTheUserClicksSaveAndExit(); //exercising Save And Exit
+		Test.stopTest();
 		expectUserToBeReturnedToMeetingParticipant();
-		expectTheParticipantToHaveXProposalsWithYSegments(1,2);
+		expectTheParticipantToHaveXProposalsWithYSegments(1,1);
 	}
 
 	/********  Scenario : User encounters error on save *******/
@@ -84,7 +107,11 @@ private class MERC_TravelProposalsControllerTest
 		givenTheUserTogglesTheProposalXSegmentYTypeToAir(0,0);
 		givenTheUserCompletesProposalXSegmentYInformation(0,0);
 		givenTheUserWillEncounterAnError();
+
+		Test.startTest();
 		givenTheUserClicksSave();
+		Test.stopTest();
+
 		expectOneErrorMessage();
 		expectErrorStartsWith(Label.Travel_Proposals_Error_updating_proposals_segments);
 	}
@@ -97,7 +124,11 @@ private class MERC_TravelProposalsControllerTest
 		givenTheUserTogglesTheProposalXSegmentYTypeToAir(0,0);
 		givenTheUserCompletesProposalXSegmentYInformation(0,0);
 		givenTheUserWillEncounterAnError();
+
+		Test.startTest();
 		givenTheUserClicksSaveAndExit();
+		Test.stopTest();
+
 		expectUserToRemainOnThePage();
 		expectOneErrorMessage();
 		expectErrorStartsWith(Label.Travel_Proposals_Error_updating_proposals_segments);
@@ -105,24 +136,32 @@ private class MERC_TravelProposalsControllerTest
 
 	/********  Scenario : User cancels segments and proposals *******/
 	@isTest
-	static void itShouldNotLoadCancelledProposalsOrSegments() {
+	static void itShouldNotLoadCancelledSegments() {
 		givenThePageIsLoaded();
 		givenTheUserClicksNewProposal();
-		givenTheUserTogglesTheProposalXSegmentYTypeToAir(0,0);
-		givenTheUserCompletesProposalXSegmentYInformation(0,0);
-		givenTheUserClicksSave();
-		expectProposalXToHaveYSegments(0,1);
 
+		Test.startTest();
 		givenTheUserChangesProposalXSegmentYToCancelled(0,0);
 		expectProposalXSegmentYFieldsToBeHidden(0,0);
 
 		givenTheUserClicksSave();
 		expectProposalXToHaveYSegments(0,0);
+		Test.stopTest();
+	}
 
+	/********  Scenario : User cancels segments and proposals *******/
+	@isTest
+	static void itShouldNotLoadCancelledProposals() {
+		givenThePageIsLoaded();
+		givenTheUserClicksNewProposal();
+
+		Test.startTest();
 		givenTheUserChangesPropsalXToCancelled(0);
 		expectProposalXSegmentsToBeHidden(0);
 
 		givenTheUserClicksSave();
+		Test.stopTest();
+
 		expectProposalCountToBe(0);
 	}
 
@@ -133,14 +172,21 @@ private class MERC_TravelProposalsControllerTest
 		givenThePageIsLoaded();
 		givenTheUserClicksNewProposal();
 		givenTheProposalXSegmentYSegmentTypeHasBadValue(0,0);
+
+		Test.startTest();
 		expectProposalXSegmentYGetSegmentDetailToReturnNull(0,0);
+		Test.stopTest();
 	}
 
 	/************ Scenario : Custom Settings are not defined ******/
 	@isTest
 	static void itShouldThrowErrorIfCustomSettingsAreNotDefined() {
 		givenNoCustomSettingsAreDefined();
+
+		Test.startTest();
 		givenThePageIsLoaded();
+		Test.stopTest();
+
 		expectOneErrorMessage();
 		expectErrorMessageToBe(Label.Travel_Proposals_Custom_Settings_not_defined);
 	}
@@ -219,7 +265,6 @@ private class MERC_TravelProposalsControllerTest
 	private static void givenNoCustomSettingsAreDefined() {
 		delete [SELECT Id FROM Travel_Proposal_Segment_Type_MERC__c];
 	}
-
 
 	/******************************* Expectations *********************************/
 	private static void expectOneErrorMessage() {

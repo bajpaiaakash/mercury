@@ -86,59 +86,63 @@
 					<!-- Iterate over each of the segments for this proposal. Using a table to simplify formatting-->
 					<apex:outputPanel styleClass="segments" id="segments" rendered="{!proposal.displaySegments}">
 						<p><h2>{!$Label.Travel_Proposals_Segments}</h2></p>
-						<table class="outer-table">
-							<apex:repeat value="{!proposal.segments}" var="segment">
-								<tr>
-									<td>
-										<!-- an inner table holds basic info for every segment including the number (ordering), the type and the status -->
-										<table>
-											<thead>
-												<tr>
-													<th>{!$Label.Travel_Proposals_Number}</th>
-													<th>{!$Label.Travel_Proposals_Type}</th>
-													<th>{!$Label.Travel_Proposals_Status}</th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr>
-													<td><apex:inputField value="{!segment.detail.Segment_Number__c}" style="width:20px;" required="true"/></td>
-													<td style="padding-right:10px;">
-														<apex:actionRegion >
-															<div class="requiredInput">
-																<div class="requiredBlock"/>
+						<apex:repeat value="{!proposal.segments}" var="segment">
+							<apex:actionRegion >
+							 	<apex:outputPanel id="segment">
+									<table class="outer-table">
+										<tr>
+											<td>
+												<!-- an inner table holds basic info for every segment including the number (ordering), the type and the status -->
+												<table>
+													<thead>
+														<tr>
+															<th>{!$Label.Travel_Proposals_Number}</th>
+															<th>{!$Label.Travel_Proposals_Type}</th>
+															<th>{!$Label.Travel_Proposals_Status}</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td><apex:inputField value="{!segment.detail.Segment_Number__c}" style="width:20px;" required="true"/></td>
+															<td style="padding-right:10px;">
+																<apex:actionRegion >
+																	<div class="requiredInput">
+																		<div class="requiredBlock"/>
 
-																<apex:selectList id="segmentType" label="Segment Type" value="{!segment.segmentType}" size="1" required="true">
-																	<apex:selectOptions value="{!segmentOptions}"/>
-																	<apex:actionSupport event="onchange"
-																	                    action="{!doNothing}"
-																						rerender="segments"/>
-																</apex:selectList>
-															</div>
-														</apex:actionRegion>
-													</td>
-													<td>
-														<apex:actionRegion >
-															<apex:inputField value="{!segment.detail.Status_MERC__c}" required="true">
-																<apex:actionSupport event="onchange"
-																					action="{!doNothing}"
-																					rerender="segments"/>
-															</apex:inputField>
-														</apex:actionRegion>
-													</td>
-												</tr>
-											</tbody>
-										</table>
-									</td>
-									<td style="padding-top:20px;" class="inner-table">
-										<apex:pageBlockSection columns="2" rendered="{!segment.display}">
-											<apex:repeat value="{!segment.segmentFields}" var="field">
-												<apex:inputField value="{!segment.detail[field.fieldPath]}" required="{!field.DBRequired || field.Required}"/>
-											</apex:repeat>
-										</apex:pageBlockSection>
-									</td>
-								</tr>
-							</apex:repeat>
-						</table>
+																		<apex:selectList id="segmentType" label="Segment Type" value="{!segment.segmentType}" size="1" required="true">
+																			<apex:selectOptions value="{!segmentOptions}"/>
+																			<apex:actionSupport event="onchange"
+																			                    action="{!doNothing}"
+																								rerender="segment"/>
+																		</apex:selectList>
+																	</div>
+																</apex:actionRegion>
+															</td>
+															<td>
+																<apex:actionRegion >
+																	<apex:inputField value="{!segment.detail.Status_MERC__c}" required="true">
+																		<apex:actionSupport event="onchange"
+																							action="{!doNothing}"
+																							rerender="segment"/>
+																	</apex:inputField>
+																</apex:actionRegion>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</td>
+											<td style="padding-top:20px;" class="inner-table">
+												<apex:pageBlockSection columns="2" rendered="{!segment.display}">
+													<apex:repeat value="{!segment.segmentFields}" var="field">
+														<apex:inputField value="{!segment.detail[field.fieldPath]}" required="{!field.DBRequired || field.Required}"/>
+													</apex:repeat>
+												</apex:pageBlockSection>
+											</td>
+										</tr>
+									</table>
+								</apex:outputPanel>
+							</apex:actionRegion>
+						</apex:repeat>
 
 						<apex:actionStatus id="processingSegment">
 							<apex:facet name="stop">
