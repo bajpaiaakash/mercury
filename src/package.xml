@@ -200,6 +200,7 @@
         <name>CustomObject</name>
     </types>
     <types>
+        <members>Meeting_Participant_MERC__c</members>
         <members>Meeting_Tasks_MERC__c</members>
         <name>CustomTab</name>
     </types>
@@ -245,6 +246,9 @@
         <members>Response_MERC__c-MERC_Response_Layout</members>
         <members>Travel_Itinerary_MERC__c-MERC_Air</members>
         <members>Travel_Itinerary_MERC__c-MERC_Bus</members>
+        <members>Travel_Itinerary_MERC__c-MERC_Car</members>
+        <members>Travel_Itinerary_MERC__c-MERC_Hotel</members>
+        <members>Travel_Itinerary_MERC__c-MERC_Limo_Service</members>
         <members>Travel_Itinerary_MERC__c-MERC_Rail</members>
         <members>Travel_Itinerary_MERC__c-MERC_Travel_Proposal</members>
         <name>Layout</name>
@@ -277,19 +281,26 @@
         <name>RecordType</name>
     </types>
     <types>
+        <members>HCP_Contracts_MERC</members>
         <members>MERC_Meeting_Participants_with_or_without_Contract</members>
         <members>MERC_Meeting_Participants_with_or_without_Invoices</members>
+        <members>MERC_Meetings_Meeting_Participants_Meeting_Tasks</members>
         <members>Meetings_with_Budgets_with_Budget_Line_Items</members>
         <members>Meetings_with_Meeting_Days_with_Daily_Attendance_TOV</members>
         <members>Meetings_with_Meeting_Days_with_Hotel_Allocation</members>
         <members>Meetings_with_Meeting_Email_Sends_with_Meeting_Participant_Email_Sends</members>
+        <members>Meetings_with_Meeting_Participants_with_Daily_Attendance_TOV</members>
+        <members>Meetings_with_Meeting_Participants_with_Participant_Agendas</members>
+        <members>Meetings_with_Meeting_Participants_without_Travel</members>
         <members>Meetings_with_Participants_Without_Invoices_MERC</members>
+        <members>Meetings_with_Participants_and_Invoices</members>
         <members>Meetings_with_Registration_Questions_with_Answers</members>
         <members>Meetings_with_Registration_Questions_with_Answers_with_Responses</members>
         <members>Meetings_with_Registration_Questions_with_Responses</members>
         <name>ReportType</name>
     </types>
     <types>
+        <members>Meeting_Tasks_MERC__c</members>
         <members>Preferences_and_Consent_GLBL__c</members>
         <name>SharingRules</name>
     </types>

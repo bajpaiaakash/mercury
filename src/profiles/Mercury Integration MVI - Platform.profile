@@ -1096,6 +1096,10 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <tabVisibilities>
+        <tab>Meeting_Participant_MERC__c</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>Meeting_Tasks_MERC__c</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
