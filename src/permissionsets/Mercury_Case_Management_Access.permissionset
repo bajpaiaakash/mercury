@@ -1062,6 +1062,10 @@
         <tab>Meeting_Tasks_MERC__c</tab>
         <visibility>None</visibility>
     </tabSettings>
+    <tabSettings>
+        <tab>et4ae5__Configuration__c</tab>
+        <visibility>None</visibility>
+    </tabSettings>
     <userPermissions>
         <enabled>true</enabled>
         <name>TransferAnyCase</name>

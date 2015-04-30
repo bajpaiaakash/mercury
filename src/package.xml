@@ -202,6 +202,7 @@
     <types>
         <members>Meeting_Participant_MERC__c</members>
         <members>Meeting_Tasks_MERC__c</members>
+        <members>et4ae5__Configuration__c</members>
         <name>CustomTab</name>
     </types>
     <types>
