@@ -15,13 +15,14 @@ public with sharing class MERC_TravelProposalsController {
 
 	public List<TravelProposal> proposals { get; set; }
 	public Meeting_Participant_MERC__c participant { get; private set; }
+	public Boolean initializationError { get; private set; }
 
 	public static MERC_TimeZoneUtility tz = new MERC_TimeZoneUtility(Travel_Itinerary_MERC__c.sObjectType);
 
 	public MERC_TravelProposalsController() {
 		initialize();
 	}
-	public Boolean initializationError { get; private set; }
+
 	private void initialize() {
 		initializationError = true;
 		proposals = new List<TravelProposal>();
@@ -42,7 +43,12 @@ public with sharing class MERC_TravelProposalsController {
 		}
 
 		//Grab the data
-		List<Travel_Itinerary_MERC__c> proposalsAndItineraries = getProposalsAndChildItineraries();
+		List<Travel_Itinerary_MERC__c> proposalsAndItineraries;
+		try {
+			proposalsAndItineraries = getProposalsAndChildItineraries();
+		} catch(System.Exception ex) {
+			return;
+		}
 
 		//build the list of proposals and segements and add them to a list to do time zone conversion
 		List<Travel_Itinerary_MERC__c> timeZoneConvertList = new List<Travel_Itinerary_MERC__c>();
@@ -204,10 +210,6 @@ public with sharing class MERC_TravelProposalsController {
 					if (allItineraryFieldSets.containsKey(fieldSetName)) {
 						itineraryFieldSets.put(fieldSetName, allItineraryFieldSets.get(fieldSetName));
 					}
-				}
-				if (itineraryFieldSets.isEmpty()) {
-					ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, Label.Travel_Proposals_No_Field_Sets_Defined));
-					throw new TravelProposalException();
 				}
 			}
 			return itineraryFieldSets;

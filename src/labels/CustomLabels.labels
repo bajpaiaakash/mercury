@@ -3997,14 +3997,6 @@ Other_Components__c</value>
         <value>New Proposal</value>
     </labels>
     <labels>
-        <fullName>Travel_Proposals_No_Field_Sets_Defined</fullName>
-        <categories>MERC_TravelProposalsController</categories>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>Travel Proposals - No Field Sets Defined</shortDescription>
-        <value>No field sets defined. Check the &apos;Travel Proposal Segment Type&apos; custom setting configuration</value>
-    </labels>
-    <labels>
         <fullName>Travel_Proposals_No_Participant_Id</fullName>
         <categories>MERC_TravelProposalsController</categories>
         <language>en_US</language>
