@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>Address_GLBL__c.Designated_Individual</members>
+        <name>RecordType</name>
+    </types>
+    <types>
+        <members>Meeting_MERC__c-MERC_Completed</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>Mercury_Account_Manager_Edit</members>
+        <members>Mercury_Meeting_Planning_Company_Edit</members>
+        <members>Mercury_Travel_Agent_Edit</members>
+        <name>PermissionSet</name>
+    </types>
+    <version>31.0</version>
+</Package>
