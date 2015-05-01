@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customObject>true</customObject>
-    <description>Hosts the Meeting Tasks object for all Meeting related task capture and reporting : MERC : Created on 21/04/2015 by Oliver Dunford, Mavens Consulting</description>
-    <mobileReady>false</mobileReady>
-    <motif>Custom70: Handsaw</motif>
-</CustomTab>
