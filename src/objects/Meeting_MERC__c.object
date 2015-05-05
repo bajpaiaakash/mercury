@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <fields>
+        <fullName>Audit_End_Date_MERC__c</fullName>
+        <description>Indicate when Audit is ended.</description>
+        <externalId>false</externalId>
+        <label>Audit End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Audit_Start_Date_MERC__c</fullName>
+        <description>Indicate when Audit is started.</description>
+        <externalId>false</externalId>
+        <label>Audit Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Compliance_Met_Meeting_Errors_MERC__c</fullName>
+        <description>Shows whether or not Meeting Errors are zero after 60 days of meeting closure/cancellation. Used for SLA Reporting. Created 04/15/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF(Meeting_Errors_MERC__c &gt; 0, false, true)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Compliance Met - Meeting Errors</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Delegate_Management_Supplier_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Used to associate and report on delegate management supplier : MERC : Created on 22/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Delegate Management Supplier</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.RecordType.DeveloperName</field>
+                <operation>equals</operation>
+                <value>Supplier_GLBL</value>
+            </filterItems>
+            <infoMessage>If you cannot find the record you&apos;re looking for. Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Meetings (Delegate Management Supplier)</relationshipLabel>
+        <relationshipName>Delegate_Management_Supplier</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Final_Logistics_Information_MERC__c</fullName>
+        <description>Holds final logistic information included within the meeting briefing : MERC : Created on 21/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>For external use. the information included here will be sent to customers</inlineHelpText>
+        <label>Final Logistics Information</label>
+        <length>1000</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Logistics_Information_MERC__c</fullName>
+        <description>Capture notes and comments on Logistics. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Internal information and instructions regarding the logistics requirements for this meeting</inlineHelpText>
+        <label>Meeting Briefing - Logistics</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Logistics_Management_Supplier_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Associates Logistics Management Supplier to the Meeting : MERC : Created on 22/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Logistics Management Supplier</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.RecordType.DeveloperName</field>
+                <operation>equals</operation>
+                <value>Supplier_GLBL</value>
+            </filterItems>
+            <infoMessage>If you cannot find the record you&apos;re looking for. Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Meetings (Logistics Management Supplier)</relationshipLabel>
+        <relationshipName>Logistics_Management_Supplier</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Subject_to_ToV_Audit_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Indicate TOV is submitted for Audit.</description>
+        <externalId>false</externalId>
+        <label>Subject to ToV Audit</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>ToV_Audit_Status_MERC__c</fullName>
+        <description>Indicate the status of TOV Audit.</description>
+        <externalId>false</externalId>
+        <label>ToV Audit Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>In Process</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Travel_Information_MERC__c</fullName>
+        <description>Capture notes and comments on Travel. Created 10/22/2013 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Information and instructions regarding the travel requirements for this meeting</inlineHelpText>
+        <label>Travel Information</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <recordTypes>
+        <fullName>Ad_Hoc_Consulting</fullName>
+        <active>true</active>
+        <description>For Consulting Projects</description>
+        <label>Consulting Project</label>
+        <picklistValues>
+            <picklist>ToV_Audit_Status_MERC__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Process</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Completed</fullName>
+        <active>true</active>
+        <description>Meeting has been completed</description>
+        <label>Meeting - Completed</label>
+        <picklistValues>
+            <picklist>ToV_Audit_Status_MERC__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Process</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Forecasted</fullName>
+        <active>true</active>
+        <description>For forecasting meeting</description>
+        <label>Meeting - Forecasted</label>
+        <picklistValues>
+            <picklist>ToV_Audit_Status_MERC__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Process</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Independent_Sponsorship</fullName>
+        <active>true</active>
+        <description>For Independent Meetings</description>
+        <label>Independent Meeting</label>
+        <picklistValues>
+            <picklist>ToV_Audit_Status_MERC__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Process</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Meeting_Active</fullName>
+        <active>true</active>
+        <description>Meeting in Active Stage</description>
+        <label>Meeting - Active</label>
+        <picklistValues>
+            <picklist>ToV_Audit_Status_MERC__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Process</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Meeting_Program</fullName>
+        <active>true</active>
+        <description>Meeting Program</description>
+        <label>Meeting Program</label>
+        <picklistValues>
+            <picklist>ToV_Audit_Status_MERC__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Process</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Registered</fullName>
+        <active>true</active>
+        <description>For registering meeting that were not forecasted</description>
+        <label>Meeting - Registered</label>
+        <picklistValues>
+            <picklist>ToV_Audit_Status_MERC__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Process</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+</CustomObject>

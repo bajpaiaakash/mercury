@@ -1,0 +1,678 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <fieldSets>
+        <fullName>Consultant_Required_Fields_MERC</fullName>
+        <description>Used on the MERC_AddMeetingParticipants page to indicate the fields required in order to add an account as a Meeting participant with record type consultant.</description>
+        <displayedFields>
+            <field>Justification_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Types_of_Service_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Description_of_Service_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Accountable_Business_Contact_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Consultant Required Fields</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Delegate_Required_Fields_MERC</fullName>
+        <description>Used on the MERC_AddMeetingParticipants page to indicate the fields required in order to add an account as a Meeting participant with record type Delegate.</description>
+        <displayedFields>
+            <field>Air_Travel_Required_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Hotel_Required_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Accountable_Business_Contact_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Delegate Required Fields</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Individual_Sponsor_Required_Fields_MERC</fullName>
+        <description>Used on the MERC_AddMeetingParticipants page to indicate the fields required in order to add an account as a Meeting participant with record type Individual Sponsorship.</description>
+        <displayedFields>
+            <field>Air_Travel_Required_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Hotel_Required_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Accountable_Business_Contact_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Individual Sponsorship Required Fields</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>Service_Provider_Required_Fields_MERC</fullName>
+        <description>Used on the MERC_AddMeetingParticipants page to indicate the fields required in order to add an account as a Meeting participant with record type Service Provider.</description>
+        <displayedFields>
+            <field>Air_Travel_Required_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Hotel_Required_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Justification_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Topic_Area_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Types_of_Service_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>true</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Description_of_Service_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Accountable_Business_Contact_MERC__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Service Provider Required Fields</label>
+    </fieldSets>
+    <fields>
+        <fullName>Accountable_Business_Contact_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The Lilly contact accountable to answer questions or own follow-ups related to this Meeting Participant : MERC : Created on 22/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Lilly contact accountable to answer questions or own follow-ups related to this Meeting Participant</inlineHelpText>
+        <label>Accountable Business Contact</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.RecordType.DeveloperName</field>
+                <operation>equals</operation>
+                <value>Employee_GLBL</value>
+            </filterItems>
+            <infoMessage>If you cannot find the record you&apos;re looking for. Select the &quot;All Fields&quot; option to search across additional criteria.</infoMessage>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Meeting Participants (Accountable Business Contact)</relationshipLabel>
+        <relationshipName>Accountable_Business_Contact</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Additional_Travel_Details_MERC__c</fullName>
+        <description>Records additional travel details of the Meeting Participant. Created by John A Adams 3/19/2014</description>
+        <externalId>false</externalId>
+        <label>Additional Travel Details</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Air_Travel_No_Longer_Required_MERC__c</fullName>
+        <description>Used by portal to capture if Meeting Participant no longer requires Air Travel, if Air Travel was previously required. Created 04/02/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Was Air Travel offered and then declined</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Congress_Additional_Information_MERC__c</fullName>
+        <description>Populated by the HCP if they need to provide additional information on the Web Service for Congress Registration : MERC : Created on 21/07/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Congress Additional Information</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Congress_Membership_Id_MERC__c</fullName>
+        <description>Captures Registration Id of HCP for Independent Meetings: MERC : Created on 21/07/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Congress Membership Id</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Current_Process_MERC__c</fullName>
+        <description>The Current Process of the Meeting Participant - stamped from Meeting Tasks object : MERC : Created on 29/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Current Process</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Date_of_Check_In_MERC__c</fullName>
+        <description>Date meeting participant of checks into accommodations. 
+Created by John A Adams 3/19/2014</description>
+        <externalId>false</externalId>
+        <label>Date of Check-In</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_of_Check_Out_MERC__c</fullName>
+        <description>The date the meeting participant  checks out of accommodations. 
+Created by John A Adams 3/19/2014</description>
+        <externalId>false</externalId>
+        <label>Date of Check-Out</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Dietary_Preferences_Step_Complete_MERC__c</fullName>
+        <description>If Dietary Preference Values exist, then this step is considered completed. Created 05/02/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF(Account_MERC__r.Count_Dietary_Preferences_MERC__c &gt; 0, true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Dietary Preferences Step Complete</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Emergency_Contact_Step_Complete_MERC__c</fullName>
+        <description>Determines if Emergency Contact information exists and indicates completion of that step on the portal. Created 05/04/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF (!ISBLANK(Account_MERC__r.Emergency_Contact_Name_MERC__c) &amp;&amp; !ISBLANK(Account_MERC__r.Emergency_Contact_Phone_Number_MERC__c), true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Emergency Contact Step Complete</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Final_Fee_Confirmed_Date_MERC__c</fullName>
+        <description>Stamped via workflow, the date where the final fee was confirmed : MERC : Created on 20/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Final Fee Confirmed Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Follow_Up_Status_MERC__c</fullName>
+        <description>The Current Process State of the Meeting Participant - Task Status Field - stamped from Meeting Tasks object : MERC : Created on 29/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Follow Up Status</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>HCP_Info_Pack_Received_Date_MERC__c</fullName>
+        <description>MERC - Date HCP Info Pack is received.  Pulled through from Account object (where set via workflow rule).  Created by Mike Cashman, Mavens Consulting on 3/3/15.</description>
+        <externalId>false</externalId>
+        <formula>Account_MERC__r.HCP_Info_Pack_Received_Date_MERC__c</formula>
+        <label>HCP Info Pack Received Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>HCP_Info_Package_Follow_Up_Date_MERC__c</fullName>
+        <description>Date on which to follow up with HCP regarding status of HCP Info Package (to be sent back from HCP).  Should be set by user.  Available via reporting for greater ease of HCP Info Pack tracking/ processing.  Created by Mike Cashman, Mavens Consulting on 23/2/2015.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Can be used by CMS Cork to indicate when they should follow up with the Meeting Owner/HCP should the HCP Info Pack remain outstanding.  This is used to drive reporting on all outstanding HCP Info Packs and should be updated manually by CMS Cork.</inlineHelpText>
+        <label>HCP Info Package Follow Up Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>HCP_Info_Package_Sent_Date_MERC__c</fullName>
+        <description>Date on which Info Package was sent to HCP.  Used in SLA Reporting.  Created by Mike Cashman, Mavens Consulting on 23/2/2015.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field should be manually set once the HCP Info Pack has been sent to the HCP.  If the HCP preference is population via the Web Services, this should be set to the date that they were invited to populate the HCP Info Pack via the Web Service.</inlineHelpText>
+        <label>HCP Info Package Sent Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>HCP_Info_Package_Status_MERC__c</fullName>
+        <description>Pulls through HCP Info Pack Status value to Meeting Participant record for greater ease of tracking.</description>
+        <externalId>false</externalId>
+        <formula>TEXT(Account_MERC__r.HCP_Info_Package_Status_MERC__c)</formula>
+        <inlineHelpText>Pulled from the HCP profile and shows the status of HCP Info Pack completion.  For a paper based process, the field on the HCP Profile should be set manually to &apos;Submitted&apos; once completed, this is automatic if completed by the HCP via the Web Service.</inlineHelpText>
+        <label>HCP Info Package Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Hotel_No_Longer_Required_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal to capture if Meeting Participant originally required accommodations, but changed their mind and no longer need them.  Created 04/02/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Was Hotel offered and then declined</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Institutional_Notification_Complete_MERC__c</fullName>
+        <description>Used by portal. Pulls from Account record to indicate if Institutional Notification Step is completed by HCP. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Account_MERC__r.Institutional_Notif_Info_Exists_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Institutional Notification Complete</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Logistic_Compliance_Comments_MERC__c</fullName>
+        <description>Captures free-text logistics information to share with meeting teams : MERC : Created on 17/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Record appropriate comments for this participant viewable by CMS Regional and Local CMS teams. Follow applicable country privacy requirements</inlineHelpText>
+        <label>Logistic/Compliance Comments</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Maximum_Fee_last_updated_MERC__c</fullName>
+        <description>To capture last modified date of Maximum Fee if it has been changed.</description>
+        <externalId>false</externalId>
+        <label>Maximum Fee last updated</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Active_Confirm_Fee_Date_MERC__c</fullName>
+        <description>Returns the greater of two dates, either the date the meeting was set to Active or the date that the Service Providers Final Fee was Confirmed. Used to report on SLAs against the time taken to Sign Contracts : MERC : Created on 20/04/2015 by Oliver Dunford</description>
+        <externalId>false</externalId>
+        <formula>IF(ISNULL(Meeting_MERC__r.Meeting_Active_Date_MERC__c) &amp;&amp; NOT ISNULL(Final_Fee_Confirmed_Date_MERC__c), Final_Fee_Confirmed_Date_MERC__c, IF(NOT ISNULL(Meeting_MERC__r.Meeting_Active_Date_MERC__c) &amp;&amp; ISNULL(Final_Fee_Confirmed_Date_MERC__c), Meeting_MERC__r.Meeting_Active_Date_MERC__c, IF(ISNULL(Meeting_MERC__r.Meeting_Active_Date_MERC__c) &amp;&amp; ISNULL(Final_Fee_Confirmed_Date_MERC__c), Final_Fee_Confirmed_Date_MERC__c , IF(Meeting_MERC__r.Meeting_Active_Date_MERC__c &gt; Final_Fee_Confirmed_Date_MERC__c, Meeting_MERC__r.Meeting_Active_Date_MERC__c,Final_Fee_Confirmed_Date_MERC__c))))</formula>
+        <inlineHelpText>Returns the greater of two dates, either the date the meeting was set to Active or the date that the Service Provider&apos;s Final Fee was Confirmed</inlineHelpText>
+        <label>Meeting Active/Confirm Final Fee Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_MERC__c</fullName>
+        <description>Master-Detail Relationship from Meeting Participant to Meeting. Created 9/30/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <label>Meeting</label>
+        <referenceTo>Meeting_MERC__c</referenceTo>
+        <relationshipLabel>Meeting Participants</relationshipLabel>
+        <relationshipName>Meeting_Participants_del</relationshipName>
+        <relationshipOrder>1</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Next_Follow_Up_Date_MERC__c</fullName>
+        <description>The Current Process State Task Due Date of the Meeting Participant - stamped from Meeting Tasks object : MERC : Created on 29/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Next Follow Up Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Payee_and_Bank_Info_Complete_MERC__c</fullName>
+        <description>Used by portal. Pulled from Account to display whether Payee and Bank Information step is complete for HCP Info Package. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Account_MERC__r.Payee_and_Bank_Info_Complete_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Payee and Bank Info Complete</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Preferred_Departure_Airport_MERC__c</fullName>
+        <description>Records Meeting Participant&apos;s preferred departure airport. Created by John A Adams 3/19/2014</description>
+        <externalId>false</externalId>
+        <label>Preferred Departure Airport</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Preferred_Departure_Depot_MERC__c</fullName>
+        <description>Records Meeting Participant&apos;s preferred departure bus depot. Created by John Lorenti 2014-05-02</description>
+        <externalId>false</externalId>
+        <label>Preferred Departure Depot</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Preferred_Departure_Station_MERC__c</fullName>
+        <description>Records Meeting Participant&apos;s preferred departure train station. Created by John A Adams 3/19/2014</description>
+        <externalId>false</externalId>
+        <label>Preferred Departure Station</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Process_State_MERC__c</fullName>
+        <description>The Current Process State of the Meeting Participant - stamped from Meeting Tasks object : MERC : Created on 29/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Process State</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Registration_Comments_MERC__c</fullName>
+        <description>Records registration comments of the Meeting Participant. Created by John A Adams 3/19/2014</description>
+        <externalId>false</externalId>
+        <label>Registration Comments</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>SEA_WO_Follow_Up_Date_MERC__c</fullName>
+        <description>Stamped by Process Builder/Flow for Contact Status Updates : MERC : Created on 20/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>SEA/WO Follow Up Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>SEA_WO_Received_Date_MERC__c</fullName>
+        <description>Stamped by Process Builder/Flow for Contact Status Updates : MERC : Created on 20/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>SEA/WO Received Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>SEA_WO_Sent_Date_MERC__c</fullName>
+        <description>Stamped by Process Builder/Flow for Contact Status Updates : MERC : Created on 20/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>SEA/WO Sent Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>SEA_WO_Signed_Date_Time_MERC__c</fullName>
+        <description>Stamped by Process Builder/Flow for Contact Status Updates : MERC : Created on 20/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>SEA/WO Signed Date/Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>SEA_WO_Status_MERC__c</fullName>
+        <description>Stamped by Process Builder/Flow for Contact Status Updates : MERC : Created on 20/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>SEA/WO Status</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sponsorship_Agreement_Consent_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal. Indicates when Meeting Participant has consented to Sponsorship Agreement. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Checked by CMS if a paper copy of the Sponsorship Package has been received.  The agreement should also be uploaded against the Meeting Participant.  This will complete this step for the HCP in the RSVP section of the web service.</inlineHelpText>
+        <label>Sponsorship Agreement Consent</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Submitted_for_Payment_Date_MERC__c</fullName>
+        <description>Stores the Invoice Information populated via Process Builder for parties without Invoice access : MERC : Created on 20/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Includes Fees and/or Expenses</inlineHelpText>
+        <label>Submitted for Payment Date/Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Submitted_for_Payment_MERC__c</fullName>
+        <description>Stores the Invoice Information populated via Process Builder for parties without Invoice access : MERC : Created on 20/04/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Includes Fees and/or Expenses</inlineHelpText>
+        <label>Submitted for Payment</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Summary_Step_Complete_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal. Indicates when Meeting Participant has completed the Summary Step during meeting registration. Created 04/16/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Summary Step Complete</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Transparency_Step_Complete_MERC__c</fullName>
+        <description>Used by portal. Indicates when Meeting Participant has completed the step of Transparency Reporting Consent during meeting registration. Created 05/04/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF( !ISBLANK(Account_MERC__r.Transparency_Reporting_Opt_Out_MERC__c), true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Transparency Reporting Step Complete</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Travel_No_Longer_Required_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal to capture if Meeting Participant no longer requires travel, when Travel Required was originally set to Yes. Created 04/02/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Was Travel offered and then declined</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Travel_Step_Complete_MERC__c</fullName>
+        <description>Used by portal. Determines if Meeting Participant has completed Travel step when RSVP&apos;ing on the portal. Created 04/02/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(Travel_by_Air_MERC__c,&quot;Yes&quot;) || ISPICKVAL(Travel_by_Bus_MERC__c,&quot;Yes&quot;) || ISPICKVAL(Travel_by_Car_MERC__c,&quot;Yes&quot;) ||  ISPICKVAL(Travel_by_Train_MERC__c,&quot;Yes&quot;) || ISPICKVAL( Air_Travel_No_Longer_Required_MERC__c ,&quot;Yes&quot;) || Travel_No_Longer_Required_MERC__c, true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Travel Step Complete</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Travel_by_Air_MERC__c</fullName>
+        <description>Records if the Meeting Participant traveling by Air : MERC : Created on 13/08/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Travel by Air</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Travel_by_Bus_MERC__c</fullName>
+        <description>Records if the Meeting Participant traveling by bus. Created by John A Adams 3/19/2014</description>
+        <externalId>false</externalId>
+        <label>Travel by Bus</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Travel_by_Car_MERC__c</fullName>
+        <description>Records if the Meeting Participant traveling by car. Created by John A Adams 3/19/2014</description>
+        <externalId>false</externalId>
+        <label>Travel by Car</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Travel_by_Train_MERC__c</fullName>
+        <description>Records if the Meeting Participant traveling by train. Created by John A Adams 3/19/2014</description>
+        <externalId>false</externalId>
+        <label>Travel by Train</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <validationRules>
+        <fullName>MERC_Lock_Final_Fee</fullName>
+        <active>true</active>
+        <description>Locks the Final Fee once confirmed, unless you&apos;re flagged as a power user in the user profile (CMS Cork) : MERC : Created on 17/04/2015 by Oliver Dunford, Mavens Consulting.</description>
+        <errorConditionFormula>ISCHANGED( Proposed_Final_Fee_MERC__c ) 
+&amp;&amp; 
+ISPICKVAL( Confirm_Final_Fee_MERC__c , &quot;Confirmed&quot;) 
+&amp;&amp; 
+$User.Power_User_MERC__c = FALSE 
+&amp;&amp; 
+( 
+$Profile.Name &lt;&gt; &quot;System Administrator&quot; &amp;&amp; 
+$Profile.Name &lt;&gt; &quot;Mercury Integration ODS - Platform&quot; 
+)</errorConditionFormula>
+        <errorDisplayField>Confirm_Final_Fee_MERC__c</errorDisplayField>
+        <errorMessage>Once confirmed, you cannot change the Final Fee.  Please contacts a member of the CMS Regional team for assistance.</errorMessage>
+    </validationRules>
+</CustomObject>

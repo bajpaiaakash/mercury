@@ -46,11 +46,11 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_ParticipantTovStampHandler</apexClass>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_ParticipantTovStampHandlerTest</apexClass>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>MERC_RegistrationResponsesController</apexClass>
@@ -68,7 +68,6 @@
         <apexClass>MERC_TravelProposalsControllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    <description>Permission set to give the Account Manager access to edit the objects they should have access to edit</description>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Hotel_Check_in_Time_MERC__c</field>
@@ -145,39 +144,39 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>HCP_Contract_MERC__c.Contract_Follow_Up_Date_MERC__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>HCP_Contract_MERC__c.Contract_Received_Date_MERC__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>HCP_Contract_MERC__c.Contract_Sent_Date_MERC__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>HCP_Contract_MERC__c.Contract_Sent_Date_Time_MERC__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>HCP_Contract_MERC__c.Contract_Signed_Date_Time_MERC__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_MERC__c.Audit_End_Date_MERC__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_MERC__c.Audit_Start_Date_MERC__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -207,12 +206,12 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_MERC__c.Subject_to_ToV_Audit_MERC__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_MERC__c.ToV_Audit_Status_MERC__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -230,7 +229,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Air_Travel_No_Longer_Required_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -272,7 +271,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Final_Fee_Confirmed_Date_MERC__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -285,12 +284,12 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_Participant_MERC__c.HCP_Info_Package_Follow_Up_Date_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_Participant_MERC__c.HCP_Info_Package_Sent_Date_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -300,7 +299,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Hotel_No_Longer_Required_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -322,7 +321,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Meeting_Active_Confirm_Fee_Date_MERC__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -400,7 +399,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Summary_Step_Complete_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -410,7 +409,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Travel_No_Longer_Required_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -485,7 +484,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_Tasks_MERC__c.Process_End_Date_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -495,7 +494,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Meeting_Tasks_MERC__c.Process_Start_Date_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -550,9 +549,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Cmnctn_Chnl_Cd_CMS_MERC__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -565,9 +564,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Cmnctn_Chnl_Desc_CMS_MERC__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -610,12 +609,12 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Cnsnt_Exprtn_Dt_Cap_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Cnsnt_Exprtn_Dt_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -640,9 +639,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Cnsnt_Src_Nm_CMS_MERC__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -665,9 +664,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Cnsnt_Sts_Desc_CMS_MERC__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -695,7 +694,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Cnsnt_Typ_Desc_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -705,32 +704,32 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Communication_Preference_Cap_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Communication_Preference_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Contract_Delivery_Cap_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Contract_Delivery_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Contract_Restrictions_Cap_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Contract_Restrictions_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -760,12 +759,12 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Detailed_Preferences_Cap_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Detailed_Preferences_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -780,9 +779,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Document_Id_CMS_MERC__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -790,9 +789,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Efctv_End_Dt_CMS_MERC__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -805,9 +804,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Efctv_Start_Dt_CMS_MERC__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -830,17 +829,17 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Hotel_Travel_Preferences_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Interaction_Channel_Type_Cap_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Interaction_Channel_Type_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -855,22 +854,22 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Language_Preference_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Language_of_Choice_Cap_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Language_of_Choice_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Meals_Allergy_Preferences_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -880,7 +879,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Name_as_in_Passport_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -895,7 +894,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.ODS_Ld_Usr_Cap_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -905,7 +904,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.ODS_Lst_Updt_Tmstmp_Cap_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -915,7 +914,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.ODS_Lst_Updt_Usr_Cap_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -950,17 +949,17 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Payment_Required_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Permission_Status_Cap_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Permission_Status_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -980,7 +979,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Prevent_Duplicate_Preference_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -995,17 +994,17 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Priority_Rank_Nbr_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Record_Type_Id_Cap_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Record_Type_Id_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1015,17 +1014,17 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Speaker_Interest_Cap_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Speaker_Interest_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Src_Block_Flg_Cap_GLBL__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1050,7 +1049,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Preferences_and_Consent_GLBL__c.Transparency_Reporting_Opt_Out_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1204,7 +1203,16 @@
         <field>Travel_Itinerary_MERC__c.Trn_Nmbr_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <label>Mercury Account Manager - Edit</label>
+    <label>Mercury Customer Meeting Services - Edit</label>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Add_Meeting_Participant_Record_Type_MERC__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>
@@ -1212,7 +1220,7 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Answer_MERC__c</object>
-        <viewAllRecords>false</viewAllRecords>
+        <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
@@ -1221,7 +1229,7 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Meeting_Tasks_MERC__c</object>
-        <viewAllRecords>false</viewAllRecords>
+        <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
@@ -1230,7 +1238,7 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Registration_Question_MERC__c</object>
-        <viewAllRecords>false</viewAllRecords>
+        <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
@@ -1239,7 +1247,16 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Response_MERC__c</object>
-        <viewAllRecords>false</viewAllRecords>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Travel_Proposal_Segment_Type_MERC__c</object>
+        <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <pageAccesses>
         <apexPage>MERC_InvoiceAFIXML</apexPage>
@@ -1343,11 +1360,31 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>AssignPermissionSets</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>CreateCustomizeReports</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>EditTask</name>
+        <name>CreateReportFolders</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>CustomizeApplication</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>EditBrandTemplates</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>EditHtmlTemplates</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>EditMyReports</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -1359,11 +1396,71 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>ManageCustomPermissions</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ManageInternalUsers</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ManageIpAddresses</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ManageLoginAccessPolicies</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ManagePasswordPolicies</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ManageProfilesPermissionsets</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ManageRoles</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ManageSharing</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ManageTerritories</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ManageTranslation</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ManageUsers</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ResetPasswords</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>RunReports</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>ViewMyTeamsDashboards</name>
+        <name>TransferAnyCase</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ViewAllForecasts</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ViewAllUsers</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ViewEventLogFiles</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -1372,5 +1469,9 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ViewPublicReports</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ViewSetup</name>
     </userPermissions>
 </PermissionSet>
