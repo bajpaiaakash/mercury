@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>Mercury_TOV_Audit_Team_Member_and_GTMS_Oversight</members>
+        <name>PermissionSet</name>
+    </types>
+    <types>
+        <members>Meeting_MERC__c.MERC_Restrict_Audit_TOV_Status_Changes</members>
+        <name>ValidationRule</name>
+    </types>
+    <version>31.0</version>
+</Package>
