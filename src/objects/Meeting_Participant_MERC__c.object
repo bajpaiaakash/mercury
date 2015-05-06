@@ -318,6 +318,17 @@ Created by John A Adams 3/19/2014</description>
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Hotel_Step_Complete_MERC__c</fullName>
+        <description>Used by portal. Determines if Meeting Participant has completed the Accommodations step on the portal when RSVP&apos;ing to a Meeting. Created 04/02/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>IF((!ISBLANK(Date_of_Check_In_MERC__c) &amp;&amp; !ISBLANK(Date_of_Check_Out_MERC__c)) ||   Hotel_No_Longer_Required_MERC__c , true, false)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Hotel Step Complete</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Institutional_Notification_Complete_MERC__c</fullName>
         <description>Used by portal. Pulls from Account record to indicate if Institutional Notification Step is completed by HCP. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
@@ -440,6 +451,17 @@ Created by John A Adams 3/19/2014</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Qualifications_Experience_Complete_MERC__c</fullName>
+        <description>Used by portal. Pulled from Account to display whether Qualifications and Experience Step is complete for HCP Info Package. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Account_MERC__r.Qualifications_Experience_Complete_MERC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Qualifications and Experience Complete</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Registration_Comments_MERC__c</fullName>
         <description>Records registration comments of the Meeting Participant. Created by John A Adams 3/19/2014</description>
         <externalId>false</externalId>
@@ -448,6 +470,26 @@ Created by John A Adams 3/19/2014</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Require_Congress_Registration_MERC__c</fullName>
+        <description>Captures whether a HCP has congress registration details for Independent Meetings : MERC : Created on 21/07/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Require Congress Registration</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>SEA_WO_Follow_Up_Date_MERC__c</fullName>

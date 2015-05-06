@@ -172,12 +172,12 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_MERC__c.Audit_End_Date_MERC__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_MERC__c.Audit_Start_Date_MERC__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -207,12 +207,12 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_MERC__c.Subject_to_ToV_Audit_MERC__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Meeting_MERC__c.ToV_Audit_Status_MERC__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -306,6 +306,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Hotel_Step_Complete_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Institutional_Notification_Complete_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -356,7 +361,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Qualifications_Experience_Complete_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Registration_Comments_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Require_Congress_Registration_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1227,7 +1242,7 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_MeetingTeamManager</apexPage>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MERC_RegistrationResponses</apexPage>

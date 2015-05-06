@@ -71,6 +71,7 @@
         <members>Meeting_Participant_MERC__c.HCP_Info_Package_Sent_Date_MERC__c</members>
         <members>Meeting_Participant_MERC__c.HCP_Info_Package_Status_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Hotel_No_Longer_Required_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.Hotel_Step_Complete_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Institutional_Notification_Complete_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Logistic_Compliance_Comments_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Maximum_Fee_last_updated_MERC__c</members>
@@ -82,7 +83,9 @@
         <members>Meeting_Participant_MERC__c.Preferred_Departure_Depot_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Preferred_Departure_Station_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Process_State_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.Qualifications_Experience_Complete_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Registration_Comments_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.Require_Congress_Registration_MERC__c</members>
         <members>Meeting_Participant_MERC__c.SEA_WO_Follow_Up_Date_MERC__c</members>
         <members>Meeting_Participant_MERC__c.SEA_WO_Received_Date_MERC__c</members>
         <members>Meeting_Participant_MERC__c.SEA_WO_Sent_Date_MERC__c</members>

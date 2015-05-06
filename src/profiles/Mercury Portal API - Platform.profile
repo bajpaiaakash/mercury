@@ -308,6 +308,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Hotel_Step_Complete_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Meeting_Participant_MERC__c.Institutional_Notification_Complete_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -357,8 +362,18 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Participant_MERC__c.Qualifications_Experience_Complete_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Meeting_Participant_MERC__c.Registration_Comments_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Meeting_Participant_MERC__c.Require_Congress_Registration_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
