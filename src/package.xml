@@ -36,6 +36,7 @@
         <members>MERC_NewBudgetContent</members>
         <members>MERC_NewInvoiceContent</members>
         <members>MERC_NewMeetingContent</members>
+        <members>MERC_NewMeetingParticipantContent</members>
         <members>MERC_RegistrationResponses</members>
         <members>MERC_TravelProposals</members>
         <name>ApexPage</name>
@@ -111,6 +112,7 @@
         <members>Meeting_Participant_MERC__c.Preferred_Departure_Depot_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Preferred_Departure_Station_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Process_State_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.Processing_of_Data_Consent_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Qualifications_Experience_Complete_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Registration_Comments_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Require_Congress_Registration_MERC__c</members>
@@ -130,6 +132,7 @@
         <members>Meeting_Participant_MERC__c.Travel_by_Bus_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Travel_by_Car_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Travel_by_Train_MERC__c</members>
+        <members>Payee_MERC__c.Associated_Address_MERC__c</members>
         <members>Payee_MERC__c.Bank_Account_Number_MERC__c</members>
         <members>Payee_MERC__c.Bank_City_MERC__c</members>
         <members>Payee_MERC__c.Bank_Country_MERC__c</members>
@@ -139,8 +142,23 @@
         <members>Payee_MERC__c.Bank_State_Province_MERC__c</members>
         <members>Payee_MERC__c.Bank_Street_MERC__c</members>
         <members>Payee_MERC__c.Bank_Zip_Postal_Code_MERC__c</members>
+        <members>Payee_MERC__c.Mercury_External_Id_MERC__c</members>
+        <members>Payee_MERC__c.Payee_City_MERC__c</members>
+        <members>Payee_MERC__c.Payee_Country_MERC__c</members>
+        <members>Payee_MERC__c.Payee_Email_MERC__c</members>
+        <members>Payee_MERC__c.Payee_Fax_Number_MERC__c</members>
+        <members>Payee_MERC__c.Payee_State_Province_MERC__c</members>
+        <members>Payee_MERC__c.Payee_Street_MERC__c</members>
+        <members>Payee_MERC__c.Payee_Zip_Postal_Code_MERC__c</members>
+        <members>Payee_MERC__c.Payment_Method_MERC__c</members>
+        <members>Payee_MERC__c.Priority_Rank_Nbr_MERC__c</members>
+        <members>Payee_MERC__c.SAP_Vendor_ID_MERC__c</members>
         <members>Payee_MERC__c.Tax_Id_MERC__c</members>
         <members>Payee_MERC__c.VAT_ID_MERC__c</members>
+        <members>Payee_MERC__c.WS_Updt_Dt_MERC__c</members>
+        <members>Payee_MERC__c.WS_Updt_HCP_Actn_MERC__c</members>
+        <members>Payee_MERC__c.WS_Updt_HCP_Global_ID_MERC__c</members>
+        <members>Payee_MERC__c.WS_Updt_HCP_Name_MERC__c</members>
         <members>Preferences_and_Consent_GLBL__c.Account_External_Id_GLBL__c</members>
         <members>Preferences_and_Consent_GLBL__c.Account_Field_Update_MERC__c</members>
         <members>Preferences_and_Consent_GLBL__c.Account_GLBL__c</members>

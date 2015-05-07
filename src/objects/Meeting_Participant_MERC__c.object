@@ -461,6 +461,16 @@ Created by John A Adams 3/19/2014</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Processing_of_Data_Consent_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal to indicate that the Meeting Participant agrees to Lilly gathering this their information related needed for RSVP to meeting. Created 04/02/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Processing of Data Consent</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Qualifications_Experience_Complete_MERC__c</fullName>
         <description>Used by portal. Pulled from Account to display whether Qualifications and Experience Step is complete for HCP Info Package. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
