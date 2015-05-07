@@ -437,6 +437,13 @@ public with sharing class MERC_TravelProposalsController {
 			return null;
 		}
 
+		public void updateSegmentRecordType() {
+			if (String.isNotBlank(segmentType)) {
+				this.detail.RecordTypeId = MERC_TravelProposalsController.itineraryRecordTypesByDeveloperName.get(segmentType).Id;
+			}
+			return;
+		}
+
 		//only display segment info if the segment is not cancelled
 		public Boolean getDisplay() {
 			return this.detail.Status_MERC__c != 'Cancelled';

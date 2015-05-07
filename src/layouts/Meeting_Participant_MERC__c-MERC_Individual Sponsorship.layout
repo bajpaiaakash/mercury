@@ -476,6 +476,7 @@
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
+        <customButtons>Manage_Travel_Proposals_MERC</customButtons>
         <fields>NAME</fields>
         <fields>Travel_Detail_Typ_MERC__c</fields>
         <fields>Segment_Number__c</fields>

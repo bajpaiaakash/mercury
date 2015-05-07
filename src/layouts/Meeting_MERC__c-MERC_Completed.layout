@@ -424,10 +424,6 @@
                 <behavior>Edit</behavior>
                 <field>Disable_Portal_Registration_MERC__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Final_Logistics_Information_MERC__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -454,7 +450,12 @@
         <detailHeading>false</detailHeading>
         <editHeading>false</editHeading>
         <label>Travel Information</label>
-        <layoutColumns/>
+        <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Final_Logistics_Information_MERC__c</field>
+            </layoutItems>
+        </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>
     <layoutSections>

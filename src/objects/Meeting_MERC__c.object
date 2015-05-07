@@ -22,12 +22,43 @@
         <type>DateTime</type>
     </fields>
     <fields>
+        <fullName>Budget_Final_Date_Time_MERC__c</fullName>
+        <description>Stamped by workflow to indicate when Budget became final. Created 04/09/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Budget Final Date/Time</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>Compliance_Met_Meeting_Errors_MERC__c</fullName>
         <description>Shows whether or not Meeting Errors are zero after 60 days of meeting closure/cancellation. Used for SLA Reporting. Created 04/15/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
         <formula>IF(Meeting_Errors_MERC__c &gt; 0, false, true)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Compliance Met - Meeting Errors</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Confirm_ToV_Reporting_Change_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>CMS Cork to confirm the change if ToV has already been reported for this meeting. Created 10/06/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Confirm ToV Reporting Change</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Confirm_Web_Service_Change_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used to accept text based changes to information that is active on the Web Services.  Exposed to CMS Cork only who make such changes : MERC : Created on 21/07/2014 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used by CMS Regional and Local to confirm updates to certain information once a meeting is activated on the web services.</inlineHelpText>
+        <label>Confirm Web Service Change</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -66,7 +97,7 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
-        <visibleLines>3</visibleLines>
+        <visibleLines>5</visibleLines>
     </fields>
     <fields>
         <fullName>Logistics_Information_MERC__c</fullName>
@@ -102,6 +133,21 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Meeting_Errors_MERC__c</fullName>
+        <defaultValue>0</defaultValue>
+        <description>Used by Account Manager to input number of errors on the meeting. Used for SLA Reporting.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>All meeting financial data is complete and without errors.  Affiliate Account Managers include the number of errors encountered within this field to drive SLA reporting.</inlineHelpText>
+        <label>Meeting Errors</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Subject_to_ToV_Audit_MERC__c</fullName>

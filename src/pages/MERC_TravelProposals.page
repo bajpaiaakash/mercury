@@ -112,7 +112,7 @@
 																		<apex:selectList id="segmentType" label="Segment Type" value="{!segment.segmentType}" size="1" required="true">
 																			<apex:selectOptions value="{!segmentOptions}"/>
 																			<apex:actionSupport event="onchange"
-																			                    action="{!doNothing}"
+																			                    action="{!segment.updateSegmentRecordType}"
 																								rerender="segment"/>
 																		</apex:selectList>
 																	</div>

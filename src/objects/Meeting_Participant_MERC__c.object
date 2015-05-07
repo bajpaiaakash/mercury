@@ -398,6 +398,16 @@ Created by John A Adams 3/19/2014</description>
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Payee_Info_Consent_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Used by portal. Indicates when Meeting Participant has completed the Payee Information Consent during meeting registration. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Payee Information Consent</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Payee_and_Bank_Info_Complete_MERC__c</fullName>
         <description>Used by portal. Pulled from Account to display whether Payee and Bank Information step is complete for HCP Info Package. Created 04/03/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>

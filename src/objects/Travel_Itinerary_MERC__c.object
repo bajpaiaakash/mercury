@@ -193,7 +193,7 @@ Created by John A Adams 12/13/2013</description>
         <externalId>false</externalId>
         <inlineHelpText>Only if it applies.</inlineHelpText>
         <label>Flight Number</label>
-        <length>6</length>
+        <length>30</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -313,7 +313,7 @@ Created by John A Adams 12/13/2013</description>
         <externalId>false</externalId>
         <inlineHelpText>Only if it applies</inlineHelpText>
         <label>Train Number</label>
-        <length>12</length>
+        <length>30</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>

@@ -20,12 +20,22 @@
         <name>ApexClass</name>
     </types>
     <types>
+        <members>CreateCaseRedirectMVN</members>
+        <members>MERC_AddMeetingParticipants</members>
+        <members>MERC_AgendaBuilder</members>
+        <members>MERC_AgendaItemNewEdit</members>
         <members>MERC_InvoiceAFIXML</members>
         <members>MERC_MeetingDateTimes</members>
         <members>MERC_MeetingDateTimesEdit</members>
+        <members>MERC_MeetingDayManager</members>
+        <members>MERC_MeetingDayNewEdit</members>
         <members>MERC_MeetingNewEdit</members>
         <members>MERC_MeetingParticipantNewEdit</members>
         <members>MERC_MeetingTeamManager</members>
+        <members>MERC_NewAccountContent</members>
+        <members>MERC_NewBudgetContent</members>
+        <members>MERC_NewInvoiceContent</members>
+        <members>MERC_NewMeetingContent</members>
         <members>MERC_RegistrationResponses</members>
         <members>MERC_TravelProposals</members>
         <name>ApexPage</name>
@@ -38,19 +48,36 @@
         <members>Account.Hotel_Check_in_Time_MERC__c</members>
         <members>Account.Hotel_Check_out_Time_MERC__c</members>
         <members>Account.Transparency_Reporting_last_updated_MERC__c</members>
+        <members>Alternate_Id_GLBL__c.Mercury_External_Id_MERC__c</members>
+        <members>Case.Case_Contact_Method_MERC__c</members>
         <members>Case.Customer_Query_Received_Date_MERC__c</members>
         <members>HCP_Contract_MERC__c.Contract_Follow_Up_Date_MERC__c</members>
         <members>HCP_Contract_MERC__c.Contract_Received_Date_MERC__c</members>
         <members>HCP_Contract_MERC__c.Contract_Sent_Date_MERC__c</members>
         <members>HCP_Contract_MERC__c.Contract_Sent_Date_Time_MERC__c</members>
         <members>HCP_Contract_MERC__c.Contract_Signed_Date_Time_MERC__c</members>
+        <members>Invoice_MERC__c.Bank_Account_Number_Encrypted_MERC__c</members>
+        <members>Invoice_MERC__c.Bank_Account_Number_MERC__c</members>
+        <members>Invoice_MERC__c.Bank_City_MERC__c</members>
+        <members>Invoice_MERC__c.Bank_Name_MERC__c</members>
+        <members>Invoice_MERC__c.Bank_Sort_Code_MERC__c</members>
+        <members>Invoice_MERC__c.Bank_State_Province_MERC__c</members>
+        <members>Invoice_MERC__c.Bank_Street_MERC__c</members>
+        <members>Invoice_MERC__c.Bank_Zip_Postal_Code_MERC__c</members>
+        <members>Invoice_MERC__c.IBAN_MERC__c</members>
+        <members>Invoice_MERC__c.Tax_Id_MERC__c</members>
+        <members>Invoice_MERC__c.VAT_Identification_MERC__c</members>
         <members>Meeting_MERC__c.Audit_End_Date_MERC__c</members>
         <members>Meeting_MERC__c.Audit_Start_Date_MERC__c</members>
+        <members>Meeting_MERC__c.Budget_Final_Date_Time_MERC__c</members>
         <members>Meeting_MERC__c.Compliance_Met_Meeting_Errors_MERC__c</members>
+        <members>Meeting_MERC__c.Confirm_ToV_Reporting_Change_MERC__c</members>
+        <members>Meeting_MERC__c.Confirm_Web_Service_Change_MERC__c</members>
         <members>Meeting_MERC__c.Delegate_Management_Supplier_MERC__c</members>
         <members>Meeting_MERC__c.Final_Logistics_Information_MERC__c</members>
         <members>Meeting_MERC__c.Logistics_Information_MERC__c</members>
         <members>Meeting_MERC__c.Logistics_Management_Supplier_MERC__c</members>
+        <members>Meeting_MERC__c.Meeting_Errors_MERC__c</members>
         <members>Meeting_MERC__c.Subject_to_ToV_Audit_MERC__c</members>
         <members>Meeting_MERC__c.ToV_Audit_Status_MERC__c</members>
         <members>Meeting_MERC__c.Travel_Information_MERC__c</members>
@@ -78,6 +105,7 @@
         <members>Meeting_Participant_MERC__c.Meeting_Active_Confirm_Fee_Date_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Meeting_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Next_Follow_Up_Date_MERC__c</members>
+        <members>Meeting_Participant_MERC__c.Payee_Info_Consent_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Payee_and_Bank_Info_Complete_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Preferred_Departure_Airport_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Preferred_Departure_Depot_MERC__c</members>
@@ -102,6 +130,17 @@
         <members>Meeting_Participant_MERC__c.Travel_by_Bus_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Travel_by_Car_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Travel_by_Train_MERC__c</members>
+        <members>Payee_MERC__c.Bank_Account_Number_MERC__c</members>
+        <members>Payee_MERC__c.Bank_City_MERC__c</members>
+        <members>Payee_MERC__c.Bank_Country_MERC__c</members>
+        <members>Payee_MERC__c.Bank_IBAN_MERC__c</members>
+        <members>Payee_MERC__c.Bank_Name_MERC__c</members>
+        <members>Payee_MERC__c.Bank_Sort_Code_MERC__c</members>
+        <members>Payee_MERC__c.Bank_State_Province_MERC__c</members>
+        <members>Payee_MERC__c.Bank_Street_MERC__c</members>
+        <members>Payee_MERC__c.Bank_Zip_Postal_Code_MERC__c</members>
+        <members>Payee_MERC__c.Tax_Id_MERC__c</members>
+        <members>Payee_MERC__c.VAT_ID_MERC__c</members>
         <members>Preferences_and_Consent_GLBL__c.Account_External_Id_GLBL__c</members>
         <members>Preferences_and_Consent_GLBL__c.Account_Field_Update_MERC__c</members>
         <members>Preferences_and_Consent_GLBL__c.Account_GLBL__c</members>
@@ -329,6 +368,7 @@
         <name>Profile</name>
     </types>
     <types>
+        <members>Account.Contracting_Party_GLBL</members>
         <members>Address_GLBL__c.Designated_Individual</members>
         <members>Meeting_MERC__c.Ad_Hoc_Consulting</members>
         <members>Meeting_MERC__c.Completed</members>
