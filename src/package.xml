@@ -377,6 +377,7 @@
         <members>Meeting_MERC__c.Meeting_Active</members>
         <members>Meeting_MERC__c.Meeting_Program</members>
         <members>Meeting_MERC__c.Registered</members>
+        <members>PersonAccount.Designated_Individual_GLBL</members>
         <members>Team_Member_MERC__c.External_User_MERC</members>
         <members>Team_Member_MERC__c.Mercury_User_MERC</members>
         <members>Travel_Itinerary_MERC__c.MERC_Travel_Proposal</members>
