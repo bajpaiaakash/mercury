@@ -25,6 +25,8 @@
 			border-bottom: 1px solid #aaa;
   			padding-bottom: 10px;
 		}
+
+		.internal-notes { width : 100% }
 	</style>
 	<apex:sectionHeader title="{!pageTitle}" subtitle="{!pageSubTitle}" rendered="{!NOT(initializationError)}"/>
 
@@ -43,7 +45,7 @@
 							<apex:actionRegion >
 								<apex:commandButton value="{!$Label.Generic_Cancel}" action="{!exitPAge}" rerender="theForm, messages" status="processing"/>
 							</apex:actionRegion>
-							<apex:commandButton value="{!$Label.Travel_Proposals_New_Proposal}" action="{!addProposal}" rerender="theForm, messages" status="processing"/>
+							<apex:commandButton value="{!$Label.Travel_Proposals_New_Proposal}" action="{!addProposal}" rendered="{!showNewTravelItineraryButton}" rerender="theForm, messages" status="processing"/>
 						</apex:outputPanel>
 					</apex:facet>
 					<apex:facet name="start">
@@ -55,10 +57,9 @@
 			<!-- Basic Meeting Information -->
 			<h2>{!$Label.Travel_Proposals_Meeting_Information}</h2>
 			<apex:pageBlockSection columns="2">
-				<apex:outputField value="{!participant.Meeting_MERC__r.Meeting_Time_Zone_MERC__c}"/>
-				<apex:outputText value=""/>
 				<apex:outputField value="{!participant.Meeting_MERC__r.Start_Time_In_Meeting_Time_Zone__c}"/>
 				<apex:outputField value="{!participant.Meeting_MERC__r.End_Time_In_Meeting_Time_Zone_MERC__c}"/>
+				<apex:outputField value="{!participant.Meeting_MERC__r.Meeting_Time_Zone_MERC__c}"/>
 			</apex:pageBlockSection>
 
 
@@ -72,12 +73,15 @@
 
 						<!-- Users can toggle the status of a proposal. On change the proposal is rerendered in case it needs to be hidden  -->
 						<div class="proposal-fields">
-							<apex:pageBlockSection >
+							<apex:pageBlockSection columns="1">
 								<apex:inputField value="{!proposal.detail.Status_MERC__c}" required="true">
 									<apex:actionSupport event="onchange"
 														action="{!doNothing}"
 														rerender="proposal"/>
 								</apex:inputField>
+								<apex:inputField value="{!proposal.detail.Internal_Notes_MERC__c}"
+								                 rendered="{!proposal.displaySegments}"
+												 styleClass="internal-notes"/>
 							</apex:pageBlockSection>
 						</div>
 

@@ -156,10 +156,6 @@
                 <behavior>Edit</behavior>
                 <field>Seat_Nmbr_MERC__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Internal_Notes_MERC__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>

@@ -168,13 +168,6 @@
                 <behavior>Edit</behavior>
                 <field>Sgmnt_Trvl_Drtn_Vl_MERC__c</field>
             </layoutItems>
-            <layoutItems>
-                <emptySpace>true</emptySpace>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Internal_Notes_MERC__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>

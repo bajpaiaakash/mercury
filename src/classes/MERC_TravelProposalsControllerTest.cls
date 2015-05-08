@@ -50,6 +50,7 @@ private class MERC_TravelProposalsControllerTest
 		expectNoErrors();
 		expectPageTitleToBeSet();
 		expectPageSubTitleToBeSet();
+		expectNewProposalButtonToBeVisible();
 	}
 
 	/******************  Scenario : User Creates a Proposal    **********************/
@@ -297,6 +298,10 @@ private class MERC_TravelProposalsControllerTest
 		Meeting_Participant_MERC__c thisParticipant =  [select id, name, account_merc__r.name from Meeting_Participant_MERC__c where id=:participant.id];
 		System.assertEquals(Label.Travel_Proposals_Page_subtitle_prefix + thisParticipant.Name + ' (' + thisParticipant.Account_MERC__r.Name + ')',
 		                     controller.getPageSubTitle());
+	}
+
+	private static void expectNewProposalButtonToBeVisible() {
+		System.assert(controller.getShowNewTravelItineraryButton());
 	}
 
 	private static void expectProposalXToHaveYSegments(Integer proposalIndex, Integer segmentCount) {

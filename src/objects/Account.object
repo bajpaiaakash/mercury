@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <fields>
+        <fullName>HCP_Info_Pack_Received_Date_MERC__c</fullName>
+        <description>MERC - Used to capture the date that an HCP Info Pack was received by CMS Team.  This field is automatically populated with the date that HCP Info Pack Status is updated to &quot;Submitted.&quot;  Created on 3/3/15 by Mike Cashman, Mavens Consulting.</description>
+        <externalId>false</externalId>
+        <label>HCP Info Pack Received Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Hotel_Check_in_Time_MERC__c</fullName>
         <description>Used to auto-populate the check-in/out times of a Travel Itinerary record : MERC : Created on 28/04/2015 by Oliver Dunford, Mavens Consulting</description>
         <externalId>false</externalId>

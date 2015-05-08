@@ -68,6 +68,10 @@ public with sharing class MERC_TravelProposalsController {
 	//helper method for VF page to post to
 	public void doNothing() {}
 
+	public Boolean getShowNewTravelItineraryButton() {
+		return proposals.isEmpty();
+	}
+
 	@TestVisible
 	private Boolean saveProposals() {
 		//build a list of itineraries
@@ -285,7 +289,7 @@ public with sharing class MERC_TravelProposalsController {
 			if (proposalFields == null) {
 				proposalFields = new Set<String>();
 				proposalFields.addAll( new List<String>{'Name', 'Meeting_Participant_MERC__r.Meeting_MERC__r.CurrencyIsoCode',
-				                                        'Account_MERC__c','Meeting_Time_Zone_MERC__c', 'Status_MERC__c'});
+				                                        'Account_MERC__c','Meeting_Time_Zone_MERC__c', 'Status_MERC__c', 'Internal_Notes_MERC__c'});
 				proposalFields.addall(timeZoneFields);
 			}
 			return proposalFields;
@@ -416,7 +420,7 @@ public with sharing class MERC_TravelProposalsController {
 				                                           Meeting_Participant_MERC__c = itinerary.Meeting_Participant_MERC__c,
 														   Account_MERC__c = itinerary.Account_MERC__c,
 														   CurrencyIsoCode= itinerary.Meeting_Participant_MERC__r.Meeting_MERC__r.CurrencyIsoCode,
-														   Status_MERC__c = 'Confirmed',
+														   Status_MERC__c = 'In Progress',
 														   Segment_Begin_Timezone_MERC__c=itinerary.Meeting_Time_Zone_MERC__c,
 														   Segment_End_Timezone_MERC__c=itinerary.Meeting_Time_Zone_MERC__c);
 				this.segmentType = '';

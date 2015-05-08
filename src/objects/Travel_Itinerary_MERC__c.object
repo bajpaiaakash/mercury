@@ -49,11 +49,6 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-        <displayedFields>
-            <field>Internal_Notes_MERC__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
         <label>Proposal Segment - Air</label>
     </fieldSets>
     <fieldSets>
@@ -101,11 +96,6 @@
         </displayedFields>
         <displayedFields>
             <field>Booking_Information_MERC__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Internal_Notes_MERC__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -159,18 +149,13 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
-        <displayedFields>
-            <field>Internal_Notes_MERC__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
         <label>Proposal Segment - Rail</label>
     </fieldSets>
     <fields>
         <fullName>Additional_Information_MERC__c</fullName>
         <description>Added per defect 108. Created 06/02/2014 by KLorenti, Mavens Consulting</description>
         <externalId>false</externalId>
-        <inlineHelpText>For private transfer you can use this box to specify if a car with wheelchair is needed, or where the HCP can find the chauffeur, or the telephone number of chauffeur.  For other types examples include; No Smoking, Dust Allergy etc</inlineHelpText>
+        <inlineHelpText>Logistical information for internal use</inlineHelpText>
         <label>Additional Information</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -187,11 +172,48 @@
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>Bus_Nmbr_MERC__c</fullName>
+        <description>Identifies a specific Bus from one station to another. Created by Katy Lorenti 05/13/2014</description>
+        <externalId>false</externalId>
+        <label>Bus Number</label>
+        <length>30</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Car_Typ_Cd_MERC__c</fullName>
+        <description>The code value of the type of car requested for this segment.  Listed below are examples and may not be complete:
+ B - 2 Door
+ C - Car
+ D - 4 Door
+ F - 4 Wheel Drive
+ J - All Terrain
+ K - Truck
+ L - Limousine
+ P - Pickup
+ R - Recreation Vehicle
+ S - Sports Car
+ T - Convertible
+ V - Van
+ W - Wagon
+ X - Special
+Created by John A Adams 12/13/2013</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Vehicle type, chaffeur contact details, other information for customer</inlineHelpText>
+        <label>Vehicle and Chauffeur Information</label>
+        <length>200</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Flght_Nmbr_MERC__c</fullName>
         <description>This is a number which identifies a specific flight from one airport to another.   The combination of Airline Code + Flight Number make it unique.
 Created by John A Adams 12/13/2013</description>
         <externalId>false</externalId>
-        <inlineHelpText>Only if it applies.</inlineHelpText>
         <label>Flight Number</label>
         <length>30</length>
         <required>false</required>
@@ -203,11 +225,12 @@ Created by John A Adams 12/13/2013</description>
         <fullName>Internal_Notes_MERC__c</fullName>
         <description>Holds Internal Notes for Travel records : MERC : Created on 27/04/2015 by Oliver Dunford, Mavens Consulting</description>
         <externalId>false</externalId>
-        <inlineHelpText>For reflection, information provided by HCP</inlineHelpText>
+        <inlineHelpText>Logistical comments related to proposal and booking</inlineHelpText>
         <label>Internal Notes</label>
-        <required>false</required>
+        <length>500</length>
         <trackTrending>false</trackTrending>
-        <type>TextArea</type>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
     </fields>
     <fields>
         <fullName>Rm_Typ_Cd_MERC__c</fullName>
@@ -252,8 +275,12 @@ Created by John A Adams 12/13/2013</description>
         <label>Status</label>
         <picklist>
             <picklistValues>
-                <fullName>Confirmed</fullName>
+                <fullName>In Progress</fullName>
                 <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Confirmed</fullName>
+                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Cancelled</fullName>
@@ -272,7 +299,7 @@ Created by John A Adams 12/13/2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Rejected / New Proposal</fullName>
+                <fullName>Rejected</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -311,7 +338,6 @@ Created by John A Adams 12/13/2013</description>
         <description>This is a number which identifies a specific rail-trip from one station to another. Similar to an air segment&apos;s flight number.
 Created by John A Adams 12/13/2013</description>
         <externalId>false</externalId>
-        <inlineHelpText>Only if it applies</inlineHelpText>
         <label>Train Number</label>
         <length>30</length>
         <required>false</required>
@@ -319,6 +345,90 @@ Created by John A Adams 12/13/2013</description>
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <recordTypes>
+        <fullName>Air_MERC</fullName>
+        <active>true</active>
+        <description>Air Travel Information</description>
+        <label>Air</label>
+        <picklistValues>
+            <picklist>Status_MERC__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmed</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Bus</fullName>
+        <active>true</active>
+        <description>Bus Travel Information</description>
+        <label>Bus</label>
+        <picklistValues>
+            <picklist>Status_MERC__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmed</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Car_MERC</fullName>
+        <active>true</active>
+        <description>Rental Car or Car Service Information or Private Transfer</description>
+        <label>Car Service</label>
+        <picklistValues>
+            <picklist>Status_MERC__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmed</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Hotel_MERC</fullName>
+        <active>true</active>
+        <description>Hotel Information</description>
+        <label>Hotel</label>
+        <picklistValues>
+            <picklist>Status_MERC__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmed</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <recordTypes>
         <fullName>MERC_Travel_Proposal</fullName>
         <active>true</active>
@@ -343,11 +453,32 @@ Created by John A Adams 12/13/2013</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Rejected %2F New Proposal</fullName>
+                <fullName>Rejected</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Ticketed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Rail_MERC</fullName>
+        <active>true</active>
+        <description>Rail Travel Information</description>
+        <label>Rail</label>
+        <picklistValues>
+            <picklist>Status_MERC__c</picklist>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Confirmed</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -360,7 +491,7 @@ Created by John A Adams 12/13/2013</description>
         <encodingKey>UTF-8</encodingKey>
         <height>600</height>
         <linkType>url</linkType>
-        <masterLabel>Manage Travel Proposals</masterLabel>
+        <masterLabel>Air, Rail or Bus Travel</masterLabel>
         <openType>sidebar</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>

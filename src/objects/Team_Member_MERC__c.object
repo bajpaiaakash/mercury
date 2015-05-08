@@ -106,10 +106,6 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>International Event Approver</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Lilly Contract Signatory</fullName>
                 <default>false</default>
             </picklistValues>
@@ -151,10 +147,6 @@
             </picklistValues>
             <picklistValues>
                 <fullName>Travel Agency</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Travel Agent</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -203,10 +195,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>International Event Approver</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Lilly Contract Signatory</fullName>
                 <default>false</default>
             </values>
@@ -248,10 +236,6 @@
             </values>
             <values>
                 <fullName>Travel Agency</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Travel Agent</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -292,10 +276,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>International Event Approver</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Lilly Contract Signatory</fullName>
                 <default>false</default>
             </values>
@@ -337,10 +317,6 @@
             </values>
             <values>
                 <fullName>Travel Agency</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Travel Agent</fullName>
                 <default>false</default>
             </values>
             <values>

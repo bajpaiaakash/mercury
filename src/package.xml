@@ -38,6 +38,7 @@
         <members>MERC_NewMeetingContent</members>
         <members>MERC_NewMeetingParticipantContent</members>
         <members>MERC_RegistrationResponses</members>
+        <members>MERC_TravelItineraryDateTimesDetail</members>
         <members>MERC_TravelProposals</members>
         <name>ApexPage</name>
     </types>
@@ -46,6 +47,7 @@
         <name>CustomApplication</name>
     </types>
     <types>
+        <members>Account.HCP_Info_Pack_Received_Date_MERC__c</members>
         <members>Account.Hotel_Check_in_Time_MERC__c</members>
         <members>Account.Hotel_Check_out_Time_MERC__c</members>
         <members>Account.Transparency_Reporting_last_updated_MERC__c</members>
@@ -278,6 +280,8 @@
         <members>Team_Member_MERC__c.Role_MERC__c</members>
         <members>Travel_Itinerary_MERC__c.Additional_Information_MERC__c</members>
         <members>Travel_Itinerary_MERC__c.Booking_Information_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Bus_Nmbr_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Car_Typ_Cd_MERC__c</members>
         <members>Travel_Itinerary_MERC__c.Flght_Nmbr_MERC__c</members>
         <members>Travel_Itinerary_MERC__c.Internal_Notes_MERC__c</members>
         <members>Travel_Itinerary_MERC__c.Rm_Typ_Cd_MERC__c</members>
@@ -374,6 +378,7 @@
         <members>Mercury_Meeting_Planning_Company_Edit</members>
         <members>Mercury_Portal_API_Edit</members>
         <members>Mercury_System_Administrator_Lite</members>
+        <members>Mercury_TOV_Audit_Team_Member_and_GTMS_Oversight</members>
         <members>Mercury_Travel_Agent_Edit</members>
         <name>PermissionSet</name>
     </types>
@@ -398,7 +403,12 @@
         <members>PersonAccount.Designated_Individual_GLBL</members>
         <members>Team_Member_MERC__c.External_User_MERC</members>
         <members>Team_Member_MERC__c.Mercury_User_MERC</members>
+        <members>Travel_Itinerary_MERC__c.Air_MERC</members>
+        <members>Travel_Itinerary_MERC__c.Bus</members>
+        <members>Travel_Itinerary_MERC__c.Car_MERC</members>
+        <members>Travel_Itinerary_MERC__c.Hotel_MERC</members>
         <members>Travel_Itinerary_MERC__c.MERC_Travel_Proposal</members>
+        <members>Travel_Itinerary_MERC__c.Rail_MERC</members>
         <name>RecordType</name>
     </types>
     <types>

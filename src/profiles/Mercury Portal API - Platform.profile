@@ -73,6 +73,11 @@
     <description>Work in Process - This will ultimately be new Portal API Profile. KLorenti</description>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account.HCP_Info_Pack_Received_Date_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account.Hotel_Check_in_Time_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -1413,6 +1418,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Travel_Itinerary_MERC__c.Bus_Nmbr_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Travel_Itinerary_MERC__c.Car_Typ_Cd_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Travel_Itinerary_MERC__c.Flght_Nmbr_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1510,6 +1525,26 @@
         <layout>Travel_Itinerary_MERC__c-MERC_Air</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Travel_Itinerary_MERC__c-MERC_Air</layout>
+        <recordType>Travel_Itinerary_MERC__c.Air_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Travel_Itinerary_MERC__c-MERC_Bus</layout>
+        <recordType>Travel_Itinerary_MERC__c.Bus</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Travel_Itinerary_MERC__c-MERC_Car</layout>
+        <recordType>Travel_Itinerary_MERC__c.Car_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Travel_Itinerary_MERC__c-MERC_Hotel</layout>
+        <recordType>Travel_Itinerary_MERC__c.Hotel_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Travel_Itinerary_MERC__c-MERC_Rail</layout>
+        <recordType>Travel_Itinerary_MERC__c.Rail_MERC</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Travel_Itinerary_MERC__c-MERC_Travel_Proposal</layout>
         <recordType>Travel_Itinerary_MERC__c.MERC_Travel_Proposal</recordType>
     </layoutAssignments>
@@ -1590,6 +1625,10 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>MERC_TravelItineraryDateTimesDetail</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>MERC_TravelProposals</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -1655,7 +1694,32 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>Travel_Itinerary_MERC__c.Air_MERC</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Travel_Itinerary_MERC__c.Bus</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Travel_Itinerary_MERC__c.Car_MERC</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Travel_Itinerary_MERC__c.Hotel_MERC</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Travel_Itinerary_MERC__c.MERC_Travel_Proposal</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Travel_Itinerary_MERC__c.Rail_MERC</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <tabVisibilities>
