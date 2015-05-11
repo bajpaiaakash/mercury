@@ -726,6 +726,16 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Vendor_MERC__c.Hotel_Check_in_Time_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Vendor_MERC__c.Hotel_Check_out_Time_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Payee_MERC__c.Associated_Address_MERC__c</field>
         <readable>true</readable>
@@ -1618,6 +1628,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Meeting_Tasks_MERC__c-MERC_Meeting Task Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Meeting_Vendor_MERC__c-MERC_Meeting Vendor Hotel</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Registration_Question_MERC__c-MERC_Question_Layout</layout>

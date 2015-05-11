@@ -153,6 +153,8 @@
         <members>Meeting_Participant_MERC__c.Travel_by_Bus_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Travel_by_Car_MERC__c</members>
         <members>Meeting_Participant_MERC__c.Travel_by_Train_MERC__c</members>
+        <members>Meeting_Vendor_MERC__c.Hotel_Check_in_Time_MERC__c</members>
+        <members>Meeting_Vendor_MERC__c.Hotel_Check_out_Time_MERC__c</members>
         <members>Payee_MERC__c.Associated_Address_MERC__c</members>
         <members>Payee_MERC__c.Bank_Account_Number_MERC__c</members>
         <members>Payee_MERC__c.Bank_City_MERC__c</members>
@@ -345,6 +347,7 @@
         <members>Meeting_Participant_MERC__c.Delegate_Required_Fields_MERC</members>
         <members>Meeting_Participant_MERC__c.Individual_Sponsor_Required_Fields_MERC</members>
         <members>Meeting_Participant_MERC__c.Service_Provider_Required_Fields_MERC</members>
+        <members>Meeting_Vendor_MERC__c.Meeting_Day_Manager_MERC</members>
         <members>Team_Member_MERC__c.Team_Employee_MERC</members>
         <members>Team_Member_MERC__c.Team_External_MERC</members>
         <members>Travel_Itinerary_MERC__c.Proposal_Segment_Air_MERC</members>
@@ -378,6 +381,7 @@
         <members>Meeting_Participant_MERC__c-MERC_Individual Sponsorship</members>
         <members>Meeting_Participant_MERC__c-MERC_Service Provider</members>
         <members>Meeting_Tasks_MERC__c-MERC_Meeting Task Layout</members>
+        <members>Meeting_Vendor_MERC__c-MERC_Meeting Vendor Hotel</members>
         <members>Registration_Question_MERC__c-MERC_Question_Layout</members>
         <members>Response_MERC__c-MERC_Response_Layout</members>
         <members>Travel_Itinerary_MERC__c-MERC_Air</members>
@@ -465,6 +469,8 @@
         <members>Account.MERC_CheckOut_Time</members>
         <members>Meeting_MERC__c.MERC_Restrict_Audit_TOV_Status_Changes</members>
         <members>Meeting_Participant_MERC__c.MERC_Lock_Final_Fee</members>
+        <members>Meeting_Vendor_MERC__c.MERC_Hotel_CheckIn_Time</members>
+        <members>Meeting_Vendor_MERC__c.MERC_Hotel_CheckOut_Time</members>
         <name>ValidationRule</name>
     </types>
     <types>
