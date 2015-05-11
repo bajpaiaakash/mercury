@@ -6,6 +6,15 @@
         <detailHeading>false</detailHeading>
         <editHeading>true</editHeading>
         <label>Information</label>
+        <layoutColumns/>
+        <layoutColumns/>
+        <style>TwoColumnsTopToBottom</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>false</detailHeading>
+        <editHeading>false</editHeading>
+        <label>Question</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -19,6 +28,15 @@
                 <behavior>Required</behavior>
                 <field>Question_MERC__c</field>
             </layoutItems>
+        </layoutColumns>
+        <style>OneColumn</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>false</detailHeading>
+        <editHeading>false</editHeading>
+        <label>Main</label>
+        <layoutColumns>
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Answer_Type_MERC__c</field>
@@ -29,7 +47,7 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns/>
-        <style>TwoColumnsTopToBottom</style>
+        <style>TwoColumnsLeftToRight</style>
     </layoutSections>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -63,8 +81,6 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>Answer_Text_MERC__c</fields>
-        <fields>Start_Date_Time_Meeting_Time_Zone_MERC__c</fields>
-        <fields>End_Date_Time_Meeting_Time_Zone_MERC__c</fields>
         <fields>Order_Number_MERC__c</fields>
         <relatedList>Answer_MERC__c.Registration_Question_MERC__c</relatedList>
         <sortField>Order_Number_MERC__c</sortField>

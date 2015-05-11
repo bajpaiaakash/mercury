@@ -463,6 +463,15 @@
         <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
+        <fields>NAME</fields>
+        <fields>Question_MERC__c</fields>
+        <fields>Answer_Type_MERC__c</fields>
+        <fields>Order_Number_MERC__c</fields>
+        <relatedList>Registration_Question_MERC__c.Meeting_MERC__c</relatedList>
+        <sortField>Order_Number_MERC__c</sortField>
+        <sortOrder>Asc</sortOrder>
+    </relatedLists>
+    <relatedLists>
         <excludeButtons>New</excludeButtons>
         <fields>Email_Send_Number_MERC__c</fields>
         <fields>Date_Sent_MERC__c</fields>
@@ -482,15 +491,6 @@
         <fields>CASES.CREATED_DATE</fields>
         <fields>CASES.PRIORITY</fields>
         <relatedList>Case.Meeting_MERC__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>Question_MERC__c</fields>
-        <fields>Answer_Type_MERC__c</fields>
-        <fields>Order_Number_MERC__c</fields>
-        <relatedList>Registration_Question_MERC__c.Meeting_MERC__c</relatedList>
-        <sortField>Order_Number_MERC__c</sortField>
-        <sortOrder>Asc</sortOrder>
     </relatedLists>
     <relatedLists>
         <excludeButtons>NewEvent</excludeButtons>

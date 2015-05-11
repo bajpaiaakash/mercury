@@ -177,7 +177,7 @@
 
 		div.addToMeetingPopover .addToMeetingPopoverBody label {
 			font-weight: bold;
-			display: block;
+			display: inline;
 		}
 
 		a.btn, a.btn:hover {

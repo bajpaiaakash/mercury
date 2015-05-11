@@ -40,12 +40,12 @@
 				<apex:actionStatus id="processing">
 					<apex:facet name="stop">
 						<apex:outputPanel >
+							<apex:commandButton value="{!$Label.Travel_Proposals_New_Proposal}" action="{!addProposal}" rendered="{!showNewTravelItineraryButton}" rerender="theForm, messages" status="processing"/>
 							<apex:commandButton value="{!$Label.Travel_Proposals_Save_Proposals}" action="{!save}" rerender="theForm, messages" status="processing"/>
 							<apex:commandButton value="{!$Label.Travel_Proposals_Save_Exit}" action="{!saveProposalsAndReturn}" rerender="theForm, messages" status="processing"/>
 							<apex:actionRegion >
 								<apex:commandButton value="{!$Label.Generic_Cancel}" action="{!exitPAge}" rerender="theForm, messages" status="processing"/>
 							</apex:actionRegion>
-							<apex:commandButton value="{!$Label.Travel_Proposals_New_Proposal}" action="{!addProposal}" rendered="{!showNewTravelItineraryButton}" rerender="theForm, messages" status="processing"/>
 						</apex:outputPanel>
 					</apex:facet>
 					<apex:facet name="start">
