@@ -222,6 +222,20 @@ Created by John A Adams 12/13/2013</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Hotel_Check_in_Time_MERC__c</fullName>
+        <description>Pulls the check-in/out times from the Meeting Vendor record, these are used and shown to the HCP rather than the timetamp : MERC : Created on 11/05/2015 by Oliver Dunford, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <formula>Meeting_Vendor_MERC__r.Hotel_Check_in_Time_MERC__c</formula>
+        <inlineHelpText>Accurate standard check-in/check-out times; saved into Travel Itinerary and communicated to the HCP 
+
+Must be in the format &quot;00:00&quot; for example &quot;08:00&quot;.</inlineHelpText>
+        <label>Hotel Check-in Time</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Internal_Notes_MERC__c</fullName>
         <description>Holds Internal Notes for Travel records : MERC : Created on 27/04/2015 by Oliver Dunford, Mavens Consulting</description>
         <externalId>false</externalId>

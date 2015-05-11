@@ -302,6 +302,7 @@
         <members>Travel_Itinerary_MERC__c.Bus_Nmbr_MERC__c</members>
         <members>Travel_Itinerary_MERC__c.Car_Typ_Cd_MERC__c</members>
         <members>Travel_Itinerary_MERC__c.Flght_Nmbr_MERC__c</members>
+        <members>Travel_Itinerary_MERC__c.Hotel_Check_in_Time_MERC__c</members>
         <members>Travel_Itinerary_MERC__c.Internal_Notes_MERC__c</members>
         <members>Travel_Itinerary_MERC__c.Rm_Typ_Cd_MERC__c</members>
         <members>Travel_Itinerary_MERC__c.Sgmnt_Bgin_TS_MERC__c</members>
