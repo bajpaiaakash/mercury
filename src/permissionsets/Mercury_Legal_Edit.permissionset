@@ -13,6 +13,36 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account.Elctrnc_Adrs_Cntry_Prfx_Cd_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+     <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Elctrnc_Adrs_Txt_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+     <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Elctrnc_Adrs_Extnsn_Cd_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+     <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Elctrnc_Adrs2_Cntry_Prfx_Cd_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+     <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Elctrnc_Adrs2_Txt_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+     <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Elctrnc_Adrs2_Extnsn_Cd_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account.Emergency_Contact_Name_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -374,7 +404,7 @@
      <fieldPermissions>
         <editable>false</editable>
         <field>Case.Case_Contact_Method_MERC__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <label>Mercury Legal - Edit</label>
     <objectPermissions>
@@ -444,7 +474,7 @@
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
         <allowEdit>false</allowEdit>
-        <allowRead>true</allowRead>
+        <allowRead>false</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Case</object>
         <viewAllRecords>false</viewAllRecords>

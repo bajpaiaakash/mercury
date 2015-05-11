@@ -15,5 +15,13 @@
         <members>Mercury_Legal_Edit</members>
         <name>PermissionSet</name>
     </types>
+    <types>
+        <members>MERC_Compliance_Users</members>
+        <name>Group</name>
+    </types>
+    <types>
+        <members>Invoice_MERC__c.All_invoices_shared_to_Compliance_users</members>
+        <name>CustomObjectCriteriaBasedSharingRule</name>
+    </types>
     <version>31.0</version>
 </Package>
