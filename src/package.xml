@@ -356,6 +356,7 @@
         <name>FieldSet</name>
     </types>
     <types>
+        <members>MERC_Compliance_Users</members>
         <members>MERC_TOV_Auditors</members>
         <name>Group</name>
     </types>
@@ -456,6 +457,7 @@
         <name>ReportType</name>
     </types>
     <types>
+        <members>Invoice_MERC__c</members>
         <members>Meeting_Tasks_MERC__c</members>
         <members>Preferences_and_Consent_GLBL__c</members>
         <name>SharingRules</name>

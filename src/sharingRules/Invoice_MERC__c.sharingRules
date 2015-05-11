@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>All_invoices_shared_to_Compliance_users</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>All invoices should be accessible by Compliance users.</description>
+        <label>All invoices shared to Compliance users</label>
+        <sharedTo>
+            <group>MERC_Compliance_Users</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>Name</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingOwnerRules>
+        <fullName>MERC_Invoice_CMS_Cork_Sharing_Rule</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Shares Invoices across CMS Cork as read/write.</description>
+        <label>MERC_Invoice CMS Cork Sharing Rule</label>
+        <sharedTo>
+            <group>MERC_Meetings_CMS_Cork</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>MERC_Meetings_CMS_Cork</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>
