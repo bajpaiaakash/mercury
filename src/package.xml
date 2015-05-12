@@ -81,6 +81,7 @@
         <members>Invoice_MERC__c.Bank_Account_Number_Encrypted_MERC__c</members>
         <members>Invoice_MERC__c.Bank_Account_Number_MERC__c</members>
         <members>Invoice_MERC__c.Bank_City_MERC__c</members>
+        <members>Invoice_MERC__c.Bank_Country_MERC__c</members>
         <members>Invoice_MERC__c.Bank_Name_MERC__c</members>
         <members>Invoice_MERC__c.Bank_Sort_Code_MERC__c</members>
         <members>Invoice_MERC__c.Bank_State_Province_MERC__c</members>

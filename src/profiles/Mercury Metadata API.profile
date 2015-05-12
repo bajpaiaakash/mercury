@@ -298,6 +298,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Invoice_MERC__c.Bank_Country_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Invoice_MERC__c.Bank_Name_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
