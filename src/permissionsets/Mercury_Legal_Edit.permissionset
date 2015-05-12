@@ -92,26 +92,56 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Phone</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Fax</field>
-        <readable>true</readable>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Elctrnc_Adrs_Cntry_Prfx_Cd_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+     <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Elctrnc_Adrs_Txt_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+     <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Elctrnc_Adrs_Extnsn_Cd_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+     <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Elctrnc_Adrs2_Cntry_Prfx_Cd_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+     <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Elctrnc_Adrs2_Txt_GLBL__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+     <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Elctrnc_Adrs2_Extnsn_Cd_GLBL__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Emergency_Contact_Name_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Emergency_Contact_Phone_Number_MERC__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
      <fieldPermissions>
         <editable>false</editable>
         <field>Account.Exec_Smmry_Note_MERC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Calculate_Open_Meeting_Fees_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
