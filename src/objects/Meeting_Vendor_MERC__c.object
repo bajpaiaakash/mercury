@@ -51,6 +51,18 @@ Must be in the format &quot;00:00&quot; for example &quot;08:00&quot;.  Both Che
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <recordTypes>
+        <fullName>Hotel_MERC</fullName>
+        <active>true</active>
+        <description>Meeting Vendors that are Hotels</description>
+        <label>Hotel</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Other</fullName>
+        <active>true</active>
+        <description>Meeting Vendors that are not a Hotel</description>
+        <label>Other</label>
+    </recordTypes>
     <validationRules>
         <fullName>MERC_Hotel_CheckIn_Time</fullName>
         <active>true</active>

@@ -809,6 +809,7 @@
     <types>
         <members>Add_Meeting_Participant_Record_Type_MERC__c</members>
         <members>Answer_MERC__c</members>
+        <members>Meeting_Products_MERC__c</members>
         <members>Meeting_Tasks_MERC__c</members>
         <members>Registration_Question_MERC__c</members>
         <members>Response_MERC__c</members>
@@ -906,6 +907,10 @@
     <types>
         <members>Account.Contracting_Party_GLBL</members>
         <members>Address_GLBL__c.Designated_Individual</members>
+        <members>Budget_MERC__c.MERC_Budget_Active</members>
+        <members>Budget_MERC__c.MERC_Budget_Archived</members>
+        <members>Budget_MERC__c.MERC_Budget_Draft</members>
+        <members>Budget_MERC__c.MERC_Budget_Final</members>
         <members>Meeting_MERC__c.Ad_Hoc_Consulting</members>
         <members>Meeting_MERC__c.Completed</members>
         <members>Meeting_MERC__c.Forecasted</members>
@@ -913,6 +918,12 @@
         <members>Meeting_MERC__c.Meeting_Active</members>
         <members>Meeting_MERC__c.Meeting_Program</members>
         <members>Meeting_MERC__c.Registered</members>
+        <members>Meeting_Participant_MERC__c.Consulting</members>
+        <members>Meeting_Participant_MERC__c.Delegate_MERC</members>
+        <members>Meeting_Participant_MERC__c.Individual_Sponsorship</members>
+        <members>Meeting_Participant_MERC__c.Service_Provider_MERC</members>
+        <members>Meeting_Vendor_MERC__c.Hotel_MERC</members>
+        <members>Meeting_Vendor_MERC__c.Other</members>
         <members>PersonAccount.Designated_Individual_GLBL</members>
         <members>Team_Member_MERC__c.External_User_MERC</members>
         <members>Team_Member_MERC__c.Mercury_User_MERC</members>
