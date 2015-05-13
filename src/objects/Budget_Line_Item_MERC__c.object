@@ -103,6 +103,19 @@ Created by J Adams 12/10/2013</description>
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>Previous_Budget_Line_Item_Version_MERC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Previous Budget Line Item Version</label>
+        <referenceTo>Budget_Line_Item_MERC__c</referenceTo>
+        <relationshipLabel>Budget Line Items (Previous Budget Line Item Version)</relationshipLabel>
+        <relationshipName>Child_Budget_Line_Item_Versions_MERC</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Quantity_MERC__c</fullName>
         <defaultValue>1</defaultValue>
         <description>The quantity of units for the budget line item : MERC : Created on 24/09/2014 by by Oliver Dunford, Mavens Consulting</description>
