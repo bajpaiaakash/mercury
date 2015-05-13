@@ -724,9 +724,10 @@ Created by John A Adams 3/19/2014</description>
         <fullName>MERC_Lock_Final_Fee</fullName>
         <active>true</active>
         <description>Locks the Final Fee once confirmed, unless you&apos;re flagged as a power user in the user profile (CMS Cork) : MERC : Created on 17/04/2015 by Oliver Dunford, Mavens Consulting.</description>
-        <errorConditionFormula>ISCHANGED( Proposed_Final_Fee_MERC__c ) 
-&amp;&amp; 
-ISPICKVAL( Confirm_Final_Fee_MERC__c , &quot;Confirmed&quot;) 
+        <errorConditionFormula>(
+(ISCHANGED( Proposed_Final_Fee_MERC__c ) &amp;&amp; ISPICKVAL( Confirm_Final_Fee_MERC__c ,&quot;Confirmed&quot;)) ||
+(ISPICKVAL(Confirm_Final_Fee_MERC__c,&quot;Pending Confirmation&quot;) &amp;&amp; ISPICKVAL(PRIORVALUE( Confirm_Final_Fee_MERC__c),&quot;Confirmed&quot;))
+)
 &amp;&amp; 
 $User.Power_User_MERC__c = FALSE 
 &amp;&amp; 

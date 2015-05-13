@@ -664,6 +664,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Meeting_Tasks_MERC__c.Check_for_Changes_MERC__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Meeting_Tasks_MERC__c.Comments_MERC__c</field>
         <readable>true</readable>

@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <fieldUpdates>
+        <fullName>MERC_Check_for_Changes</fullName>
+        <description>Updates the check for changes field to either trigger or not trigger the delegate management field updates at MP level, temporary till next release : MERC : Created on 13/05/2015 by Oliver Dunford, Mavens Consulting</description>
+        <field>Check_for_Changes_MERC__c</field>
+        <formula>IF(ISNEW(),&quot;TRUE&quot;, 
+IF(
+( 
+ISCHANGED( Process_State_MERC__c ) || 
+ISCHANGED( Task_Status_MERC__c ) || 
+ISCHANGED( Due_Date_MERC__c ) || 
+ISCHANGED( Process_MERC__c ) 
+)
+,&quot;TRUE&quot;,&quot;FALSE&quot;)
+)</formula>
+        <name>MERC_Check for Changes</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>MERC_Set_Meeting_Task_Unique_Field</fullName>
         <description>Sets the unique process field to prevent errors for process entry : MERC : Created on 27/04/2015 by Oliver Dunford, Mavens Consulting</description>
         <field>Force_Unique_Process_State_MERC__c</field>
@@ -38,6 +57,17 @@
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
+    <rules>
+        <fullName>MERC_Check for Changes</fullName>
+        <actions>
+            <name>MERC_Check_for_Changes</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Stamps a concatenated text field to ensure process builder can check for changes to the record before triggering an update : MERC : Created on 13/05/2015 by Oliver Dunford, Mavens Consulting</description>
+        <formula>true</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
     <rules>
         <fullName>MERC_Ensure Unique Process Start%2FEnd</fullName>
         <actions>

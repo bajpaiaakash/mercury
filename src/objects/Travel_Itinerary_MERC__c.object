@@ -167,14 +167,16 @@
         <externalId>false</externalId>
         <inlineHelpText>Customer facing, information on services, ticket references, travel class etc</inlineHelpText>
         <label>Booking Information</label>
-        <required>false</required>
+        <length>256</length>
         <trackTrending>false</trackTrending>
-        <type>TextArea</type>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
     </fields>
     <fields>
         <fullName>Bus_Nmbr_MERC__c</fullName>
         <description>Identifies a specific Bus from one station to another. Created by Katy Lorenti 05/13/2014</description>
         <externalId>false</externalId>
+        <inlineHelpText>Company and Carrier Number</inlineHelpText>
         <label>Bus Number</label>
         <length>30</length>
         <required>false</required>
@@ -214,6 +216,7 @@ Created by John A Adams 12/13/2013</description>
         <description>This is a number which identifies a specific flight from one airport to another.   The combination of Airline Code + Flight Number make it unique.
 Created by John A Adams 12/13/2013</description>
         <externalId>false</externalId>
+        <inlineHelpText>Company and Carrier Number</inlineHelpText>
         <label>Flight Number</label>
         <length>30</length>
         <required>false</required>
@@ -366,6 +369,7 @@ Created by John A Adams 12/13/2013</description>
         <description>This is a number which identifies a specific rail-trip from one station to another. Similar to an air segment&apos;s flight number.
 Created by John A Adams 12/13/2013</description>
         <externalId>false</externalId>
+        <inlineHelpText>Company and Carrier Number</inlineHelpText>
         <label>Train Number</label>
         <length>30</length>
         <required>false</required>
