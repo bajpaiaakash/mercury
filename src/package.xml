@@ -22,10 +22,14 @@
     </types>
     <types>
         <members>CreateCaseRedirectMVN</members>
+        <members>MERC_ActivateBudget</members>
         <members>MERC_AddMeetingParticipants</members>
         <members>MERC_AgendaBuilder</members>
         <members>MERC_AgendaItemNewEdit</members>
+        <members>MERC_DailyAttendance</members>
+        <members>MERC_FinalizeBudgetConfirm</members>
         <members>MERC_InvoiceAFIXML</members>
+        <members>MERC_InvoicePDF</members>
         <members>MERC_MeetingDateTimes</members>
         <members>MERC_MeetingDateTimesEdit</members>
         <members>MERC_MeetingDayManager</members>
@@ -35,11 +39,14 @@
         <members>MERC_MeetingTeamManager</members>
         <members>MERC_NewAccountContent</members>
         <members>MERC_NewBudgetContent</members>
+        <members>MERC_NewBudgetVersion</members>
         <members>MERC_NewInvoiceContent</members>
         <members>MERC_NewMeetingContent</members>
         <members>MERC_NewMeetingParticipantContent</members>
+        <members>MERC_ParticipantAgendaNewEdit</members>
         <members>MERC_RegistrationResponses</members>
         <members>MERC_TravelItineraryDateTimesDetail</members>
+        <members>MERC_TravelItineraryNewEdit</members>
         <members>MERC_TravelProposals</members>
         <name>ApexPage</name>
     </types>
@@ -819,6 +826,7 @@
     </types>
     <types>
         <members>Budget_MERC__c</members>
+        <members>Invoice_MERC__c</members>
         <members>Meeting_MERC__c</members>
         <members>Meeting_Participant_MERC__c</members>
         <members>Meeting_Tasks_MERC__c</members>
