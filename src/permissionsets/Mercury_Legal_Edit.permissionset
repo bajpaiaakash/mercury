@@ -667,6 +667,10 @@
         <apexPage>MERC_ActivateBudget</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
+    <pageAccesses>
+        <apexPage>MERC_DailyAttendance</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
     <recordTypeVisibilities>
         <recordType>Account.Designated_Individual_GLBL</recordType>
         <visible>true</visible>
