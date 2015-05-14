@@ -4,6 +4,7 @@
         <members>GLBL_GenericRelatedListController</members>
         <members>MERC_AddMeetingParticipantsCntlrTest</members>
         <members>MERC_AddMeetingParticipantsController</members>
+        <members>MERC_LockedInvoiceDeleteHandlerTest</members>
         <members>MERC_MeetingDateTimesController</members>
         <members>MERC_MeetingNewEditController</members>
         <members>MERC_MeetingParticipantNewEditController</members>

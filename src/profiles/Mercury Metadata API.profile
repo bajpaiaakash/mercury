@@ -18,6 +18,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>MERC_LockedInvoiceDeleteHandlerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>MERC_MeetingDateTimesController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -4298,6 +4302,10 @@
     <loginIpRanges>
         <endAddress>107.23.255.255</endAddress>
         <startAddress>107.20.0.0</startAddress>
+    </loginIpRanges>
+    <loginIpRanges>
+        <endAddress>166.172.185.174</endAddress>
+        <startAddress>166.172.185.174</startAddress>
     </loginIpRanges>
     <loginIpRanges>
         <endAddress>173.73.247.89</endAddress>
