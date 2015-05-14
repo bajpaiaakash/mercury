@@ -675,4 +675,8 @@
         <recordType>Account.Contracting_Party_GLBL</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
+    <tabSettings>
+        <tab>Invoice_MERC__c</tab>
+        <visibility>None</visibility>
+    </tabSettings>
 </PermissionSet>
