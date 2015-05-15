@@ -407,10 +407,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Require_Congress_Registration_MERC__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Logistic_Compliance_Comments_MERC__c</field>
             </layoutItems>
         </layoutColumns>

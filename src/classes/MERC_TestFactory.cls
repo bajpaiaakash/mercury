@@ -513,16 +513,12 @@ public with sharing class MERC_TestFactory {
 				Answer_MERC__c answer1 = new Answer_MERC__c(
 					Answer_Text_MERC__c           = 'Answer 1 for ' + question.Question_MERC__c,
 					Registration_Question_MERC__c = question.Id,
-					Start_Date_Time_MERC__c       = DateTime.now().addDays(1),
-					End_Date_Time_MERC__c         = DateTime.now().addDays(2),
 					Order_Number_MERC__c          = 1
 				);
 
 				Answer_MERC__c answer2 = new Answer_MERC__c(
 					Answer_Text_MERC__c           = 'Answer 2 for ' + question.Question_MERC__c,
 					Registration_Question_MERC__c = question.Id,
-					Start_Date_Time_MERC__c       = DateTime.now().addDays(1),
-					End_Date_Time_MERC__c         = DateTime.now().addDays(2),
 					Order_Number_MERC__c          = 2
 				);
 
