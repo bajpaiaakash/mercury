@@ -82,16 +82,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.Hotel_Check_in_Time_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Hotel_Check_out_Time_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account.Transparency_Reporting_last_updated_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -103,21 +93,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Answer_MERC__c.Answer_Text_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Answer_MERC__c.End_Date_Meeting_Time_Zone_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Answer_MERC__c.End_Date_Time_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Answer_MERC__c.End_Date_Time_Meeting_Time_Zone_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -138,21 +113,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Answer_MERC__c.Order_Number_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Answer_MERC__c.Start_Date_Meeting_Time_Zone_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Answer_MERC__c.Start_Date_Time_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Answer_MERC__c.Start_Date_Time_Meeting_Time_Zone_MERC__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4304,10 +4264,6 @@
         <startAddress>107.20.0.0</startAddress>
     </loginIpRanges>
     <loginIpRanges>
-        <endAddress>166.172.185.174</endAddress>
-        <startAddress>166.172.185.174</startAddress>
-    </loginIpRanges>
-    <loginIpRanges>
         <endAddress>173.73.247.89</endAddress>
         <startAddress>173.73.247.89</startAddress>
     </loginIpRanges>
@@ -4331,15 +4287,6 @@
         <endAddress>204.236.255.255</endAddress>
         <startAddress>204.236.192.0</startAddress>
     </loginIpRanges>
-    <objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>true</modifyAllRecords>
-        <object>Answer_MERC__c</object>
-        <viewAllRecords>true</viewAllRecords>
-    </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>

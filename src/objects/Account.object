@@ -10,34 +10,6 @@
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Hotel_Check_in_Time_MERC__c</fullName>
-        <description>Used to auto-populate the check-in/out times of a Travel Itinerary record : MERC : Created on 28/04/2015 by Oliver Dunford, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Accurate standard check-in/check-out times; saved into Travel Itinerary and communicated to the HCP
-
-Must be in the format &quot;00:00&quot; for example &quot;08:00&quot;.  Both Check-in and Check-out times must be populated.</inlineHelpText>
-        <label>Hotel Check-in Time</label>
-        <length>5</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Hotel_Check_out_Time_MERC__c</fullName>
-        <description>Used to auto-populate the check-in/out times of a Travel Itinerary record : MERC : Created on 28/04/2015 by Oliver Dunford, Mavens Consulting</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Accurate standard check-in/check-out times; saved into Travel Itinerary and communicated to the HCP
-
-Must be in the format &quot;00:00&quot; for example &quot;08:00&quot;.  Both Check-in and Check-out times must be populated.</inlineHelpText>
-        <label>Hotel Check-out Time</label>
-        <length>5</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Transparency_Reporting_last_updated_MERC__c</fullName>
         <description>To capture last modified date of Transparency Reporting consent if it has been changed.</description>
         <externalId>false</externalId>
@@ -307,22 +279,4 @@ Must be in the format &quot;00:00&quot; for example &quot;08:00&quot;.  Both Che
             </values>
         </picklistValues>
     </recordTypes>
-    <validationRules>
-        <fullName>MERC_CheckIn_Time</fullName>
-        <active>true</active>
-        <description>Ensures the check-in time is the correct format and length should it be populated : MERC : Created on 28/04/2015 by Oliver Dunford, Mavens Consulting</description>
-        <errorConditionFormula>NOT(OR(LEN(Hotel_Check_in_Time_MERC__c)=0, 
-REGEX(Hotel_Check_in_Time_MERC__c, &quot;^(([0-1]?[0-9])|([2][0-3])):([0-5][0-9])$&quot;)))</errorConditionFormula>
-        <errorDisplayField>Hotel_Check_in_Time_MERC__c</errorDisplayField>
-        <errorMessage>The incorrect format has been supplied for Hotel Check-in.  This should be in 24hr format format as follows &quot;13:00&quot;.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>MERC_CheckOut_Time</fullName>
-        <active>true</active>
-        <description>Ensures the check-out time is the correct format and length should it be populated : MERC : Created on 28/04/2015 by Oliver Dunford, Mavens Consulting</description>
-        <errorConditionFormula>NOT(OR(LEN(Hotel_Check_in_Time_MERC__c)=0, 
-REGEX(Hotel_Check_in_Time_MERC__c, &quot;^(([0-1]?[0-9])|([2][0-3])):([0-5][0-9])$&quot;)))</errorConditionFormula>
-        <errorDisplayField>Hotel_Check_in_Time_MERC__c</errorDisplayField>
-        <errorMessage>The incorrect format has been supplied for Hotel Check-in.  This should be in 24hr format format as follows &quot;13:00&quot;.</errorMessage>
-    </validationRules>
 </CustomObject>

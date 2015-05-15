@@ -80,16 +80,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.Hotel_Check_in_Time_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Hotel_Check_out_Time_MERC__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account.Transparency_Reporting_last_updated_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -101,21 +91,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Answer_MERC__c.Answer_Text_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Answer_MERC__c.End_Date_Meeting_Time_Zone_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Answer_MERC__c.End_Date_Time_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Answer_MERC__c.End_Date_Time_Meeting_Time_Zone_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -136,21 +111,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Answer_MERC__c.Order_Number_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Answer_MERC__c.Start_Date_Meeting_Time_Zone_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Answer_MERC__c.Start_Date_Time_MERC__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Answer_MERC__c.Start_Date_Time_Meeting_Time_Zone_MERC__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
