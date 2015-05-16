@@ -9,6 +9,10 @@
         <members>Answer_MERC__c.Start_Date_Meeting_Time_Zone_MERC__c</members>
         <members>Answer_MERC__c.Start_Date_Time_MERC__c</members>
         <members>Answer_MERC__c.Start_Date_Time_Meeting_Time_Zone_MERC__c</members>
+        <members>Response_MERC__c.Answer_End_Date_MERC__c</members>
+        <members>Response_MERC__c.Answer_End_Date_Time_MERC__c</members>
+        <members>Response_MERC__c.Answer_Start_Date_MERC__c</members>
+        <members>Response_MERC__c.Answer_Start_Date_Time_MERC__c</members>
         <name>CustomField</name>
     </types>
     <types>
