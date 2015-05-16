@@ -12,11 +12,10 @@
         <name>CustomField</name>
     </types>
     <types>
-        <members>Answer_MERC__c.Answer_Date_Time_Edit_MERC__c</members>
-        <members>Answer_MERC__c.Answer_Date_Time_View_MERC__c</members>
+        <members>Answer_MERC__c.Answer_Date_Time_Edit_MERC</members>
+        <members>Answer_MERC__c.Answer_Date_Time_View_MERC</members>
         <name>FieldSet</name>
     </types>
-    
     <types>
         <members>Account.MERC_CheckIn_Time</members>
         <members>Account.MERC_CheckOut_Time</members>
