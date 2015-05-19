@@ -103,6 +103,20 @@
 		table.list.hotels > tbody > tr.last > td {
 			border-bottom:0px solid #ccc !important;
 		}
+
+		.vfHelpText a {position:relative;}
+		.vfHelpText a span {display: none;}
+		.vfHelpText a:hover span {
+			display: block;
+			position:absolute;
+			top:1.25em;
+			padding:2px 5px;
+			left:-15em; width:15em;
+			z-index:100;
+			border:1px solid orange;
+			background-color:#FEFDB9;
+			color:black;
+		}
 	</style>
 
 	<apex:outputLink target="_blank" style="display:none" styleClass="newAccountVendor" value="{!URLFOR($Action.Account.New)}">
@@ -199,6 +213,7 @@
 							        	<td>
 								        	<apex:outputLabel for="accountTypeAhead" value="Account" />
 								        </td>
+										<td></td>
 								        <td>
 								        	<div class="requiredInput">
 								        		<div class="requiredBlock"></div>
@@ -212,8 +227,17 @@
 								        	<td>
 									        	<apex:outputLabel for="hotelField" value="{!$ObjectType.Meeting_Vendor_MERC__c.Fields[f].Label}" />
 									        </td>
-									        <td>
-									        	<apex:inputField id="hotelField" value="{!a.so[f]}" required="{!OR(f.required, f.dbrequired)}" />
+									        <td width="15px">
+												<!-- had to roll our own help text: https://blog.internetcreations.com/2012/05/using-hover-help-text-in-visualforce/ -->
+												<span class="vfHelpText" >
+													<apex:outputLink value="javascript:return false;" rendered="{!NOT(ISBLANK($ObjectType.Meeting_Vendor_MERC__c.Fields[f].inlineHelpText))}">
+														<img src="/s.gif" id="HelpImage" alt="" class="helpOrb"/>
+														<span>{!$ObjectType.Meeting_Vendor_MERC__c.Fields[f].inlineHelpText}</span>
+													</apex:outputLink>
+												</span>
+											</td>
+											<td>
+												<apex:inputField id="hotelField" value="{!a.so[f]}" required="{!OR(f.required, f.dbrequired)}" />
 								        	</td>
 								        </tr>
 							        </apex:repeat>

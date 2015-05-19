@@ -523,6 +523,7 @@ Created by John A Adams 12/13/2013</description>
         <description>The description of the location where a traveler is to drop off the car.
 Created by John A Adams 12/13/2013</description>
         <externalId>false</externalId>
+        <inlineHelpText>This is the meeting point. Specify the name of airport or train station if applicable</inlineHelpText>
         <label>Drop off Location Description</label>
         <length>50</length>
         <required>false</required>
@@ -3348,7 +3349,7 @@ Created by John A Adams 12/13/2013</description>
         <encodingKey>UTF-8</encodingKey>
         <height>600</height>
         <linkType>url</linkType>
-        <masterLabel>Air, Rail or Bus Travel</masterLabel>
+        <masterLabel>Air, Rail or Bus Travel Proposal</masterLabel>
         <openType>sidebar</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>

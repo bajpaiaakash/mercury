@@ -166,7 +166,7 @@
         <label>Date/Time Information</label>
         <layoutColumns>
             <layoutItems>
-                <height>75</height>
+                <height>90</height>
                 <page>MERC_TravelItineraryDateTimesDetail</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>false</showScrollbars>

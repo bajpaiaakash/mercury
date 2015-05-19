@@ -12,12 +12,12 @@
         <displayedFields>
             <field>Hotel_Check_in_Time_MERC__c</field>
             <isFieldManaged>false</isFieldManaged>
-            <isRequired>true</isRequired>
+            <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
             <field>Hotel_Check_out_Time_MERC__c</field>
             <isFieldManaged>false</isFieldManaged>
-            <isRequired>true</isRequired>
+            <isRequired>false</isRequired>
         </displayedFields>
         <label>Meeting Day Manager</label>
     </fieldSets>
