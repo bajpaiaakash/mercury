@@ -4336,4 +4336,16 @@ $Profile.Name &lt;&gt; &quot;Mercury Integration MVI - Platform&quot;
         <errorDisplayField>Confirm_Final_Fee_MERC__c</errorDisplayField>
         <errorMessage>Once confirmed, you cannot change the Final Fee or Proposed Final Fee.  Please contact a member of the CMS Regional team for assistance.</errorMessage>
     </validationRules>
+    <validationRules>
+        <fullName>MERC_Services_Rendered</fullName>
+        <active>true</active>
+        <description>Only HCP Care or System Administrator can change Services Rendered value if it is already set to &quot;Yes&quot; : MERC : Created on 02/03/2014 by Katy Lorenti, Mavens Consulting</description>
+        <errorConditionFormula>$Profile.Name &lt;&gt; &quot;System Administrator&quot; &amp;&amp; 
+($User.Power_User_MERC__c = False ||   
+LOWER($User.Case_Application_GLBL__c) != &quot;mercury&quot;)  &amp;&amp; 
+ISCHANGED(Services_Rendered_MERC__c) &amp;&amp;
+ISPICKVAL(PRIORVALUE(Services_Rendered_MERC__c),&quot;Yes&quot;)</errorConditionFormula>
+        <errorDisplayField>Services_Rendered_MERC__c</errorDisplayField>
+        <errorMessage>You may not change this value after services has been rendered. Please contact Customer Meeting Services.</errorMessage>
+    </validationRules>
 </CustomObject>

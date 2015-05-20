@@ -4137,19 +4137,19 @@
     </layoutAssignments>
     <loginHours>
         <fridayEnd>1440</fridayEnd>
-        <fridayStart>720</fridayStart>
+        <fridayStart>0</fridayStart>
         <mondayEnd>1440</mondayEnd>
-        <mondayStart>720</mondayStart>
-        <saturdayEnd>840</saturdayEnd>
-        <saturdayStart>720</saturdayStart>
-        <sundayEnd>840</sundayEnd>
-        <sundayStart>720</sundayStart>
+        <mondayStart>0</mondayStart>
+        <saturdayEnd>1440</saturdayEnd>
+        <saturdayStart>0</saturdayStart>
+        <sundayEnd>1440</sundayEnd>
+        <sundayStart>0</sundayStart>
         <thursdayEnd>1440</thursdayEnd>
-        <thursdayStart>720</thursdayStart>
+        <thursdayStart>0</thursdayStart>
         <tuesdayEnd>1440</tuesdayEnd>
-        <tuesdayStart>720</tuesdayStart>
+        <tuesdayStart>0</tuesdayStart>
         <wednesdayEnd>1440</wednesdayEnd>
-        <wednesdayStart>720</wednesdayStart>
+        <wednesdayStart>0</wednesdayStart>
     </loginHours>
     <loginIpRanges>
         <endAddress>23.23.255.255</endAddress>
@@ -4250,6 +4250,10 @@
     <loginIpRanges>
         <endAddress>67.233.255.255</endAddress>
         <startAddress>67.233.0.0</startAddress>
+    </loginIpRanges>
+    <loginIpRanges>
+        <endAddress>71.238.255.255</endAddress>
+        <startAddress>71.238.0.0</startAddress>
     </loginIpRanges>
     <loginIpRanges>
         <endAddress>72.44.63.255</endAddress>

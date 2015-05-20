@@ -974,6 +974,7 @@
     <types>
         <members>Meeting_MERC__c.MERC_Restrict_Audit_TOV_Status_Changes</members>
         <members>Meeting_Participant_MERC__c.MERC_Lock_Final_Fee</members>
+        <members>Meeting_Participant_MERC__c.MERC_Services_Rendered</members>
         <members>Meeting_Vendor_MERC__c.MERC_Hotel_CheckIn_Time</members>
         <members>Meeting_Vendor_MERC__c.MERC_Hotel_CheckOut_Time</members>
         <name>ValidationRule</name>
