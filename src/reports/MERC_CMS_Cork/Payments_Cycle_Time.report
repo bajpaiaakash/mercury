@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Meeting_MERC__c.Meeting_Participants_del__r.Invoices__r$Name</field>
+    </columns>
+    <columns>
+        <field>Meeting_MERC__c.Meeting_Participants_del__r.Invoices__r$CreatedDate</field>
+    </columns>
+    <columns>
+        <field>Meeting_MERC__c.Meeting_Participants_del__r.Invoices__r$Customer_Invoice_Number_MERC__c</field>
+    </columns>
+    <columns>
+        <field>Meeting_MERC__c.Meeting_Participants_del__r.Invoices__r$SAP_Vendor_Number_MERC__c</field>
+    </columns>
+    <columns>
+        <field>Meeting_MERC__c.Meeting_Participants_del__r.Invoices__r$RecordType</field>
+    </columns>
+    <columns>
+        <field>Meeting_MERC__c.Meeting_Participants_del__r.Invoices__r$Submitted_for_Payment_Date_MERC__c</field>
+    </columns>
+    <columns>
+        <field>Meeting_MERC__c.Meeting_Participants_del__r.Invoices__r$TOTAL_INCL_VAT_MERC__c</field>
+    </columns>
+    <currency>EUR</currency>
+    <format>Tabular</format>
+    <name>Payments Cycle Time</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Meetings_with_Participants_and_Invoices__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Meeting_MERC__c.Meeting_Participants_del__r.Invoices__r$CreatedDate</dateColumn>
+        <endDate>2015-02-28</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2015-02-01</startDate>
+    </timeFrameFilter>
+</Report>
