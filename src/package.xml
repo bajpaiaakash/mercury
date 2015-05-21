@@ -4,6 +4,7 @@
         <members>GLBL_GenericRelatedListController</members>
         <members>MERC_AddMeetingParticipantsCntlrTest</members>
         <members>MERC_AddMeetingParticipantsController</members>
+        <members>MERC_DailyAttendanceControllerStressTest</members>
         <members>MERC_LockedInvoiceDeleteHandlerTest</members>
         <members>MERC_MeetingDateTimesController</members>
         <members>MERC_MeetingNewEditController</members>
@@ -15,7 +16,9 @@
         <members>MERC_ParticipantTovStampHandler</members>
         <members>MERC_ParticipantTovStampHandlerTest</members>
         <members>MERC_RegistrationResponsesController</members>
+        <members>MERC_RegistrationResponsesControllerTest</members>
         <members>MERC_TestFactory</members>
+        <members>MERC_TimeZoneUtility</members>
         <members>MERC_TravelProposalsController</members>
         <members>MERC_TravelProposalsControllerTest</members>
         <name>ApexClass</name>
@@ -49,6 +52,13 @@
         <members>MERC_TravelItineraryNewEdit</members>
         <members>MERC_TravelProposals</members>
         <name>ApexPage</name>
+    </types>
+    <types>
+        <members>MERC_Answer</members>
+        <members>MERC_MeetingTask</members>
+        <members>MERC_RegistrationQuestion</members>
+        <members>MERC_Response</members>
+        <name>ApexTrigger</name>
     </types>
     <types>
         <members>Mercury</members>
