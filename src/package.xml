@@ -819,8 +819,38 @@
         <name>CustomField</name>
     </types>
     <types>
-        <members>*</members>
-        <name>CustomLabels</name>
+        <members>Generic_Cancel</members>
+        <members>Generic_Processing</members>
+        <members>Generic_Save</members>
+        <members>Registration_Questions_Answer_Required</members>
+        <members>Registration_Questions_Cleared_Responses</members>
+        <members>Registration_Questions_Confirm_Delete</members>
+        <members>Registration_Questions_Error_Deleting_Responses</members>
+        <members>Registration_Questions_Error_Inserting_Responses</members>
+        <members>Registration_Questions_Invalid_Participant</members>
+        <members>Registration_Questions_No_Participant_Id</members>
+        <members>Registration_Questions_Responses_For</members>
+        <members>Registration_Questions_Select_Many</members>
+        <members>Registration_Questions_Select_One</members>
+        <members>Registration_Questions_Text</members>
+        <members>Travel_Proposals_Add_Segment</members>
+        <members>Travel_Proposals_Cannot_Find_Participant</members>
+        <members>Travel_Proposals_Custom_Settings_not_defined</members>
+        <members>Travel_Proposals_Error_updating_proposals_segments</members>
+        <members>Travel_Proposals_Meeting_Information</members>
+        <members>Travel_Proposals_New_Proposal</members>
+        <members>Travel_Proposals_No_Participant_Id</members>
+        <members>Travel_Proposals_No_segment_fields_to_query</members>
+        <members>Travel_Proposals_Number</members>
+        <members>Travel_Proposals_Page_subtitle_prefix</members>
+        <members>Travel_Proposals_Proposal</members>
+        <members>Travel_Proposals_Save_Exit</members>
+        <members>Travel_Proposals_Save_Proposals</members>
+        <members>Travel_Proposals_Saved</members>
+        <members>Travel_Proposals_Segments</members>
+        <members>Travel_Proposals_Status</members>
+        <members>Travel_Proposals_Type</members>
+        <name>CustomLabel</name>
     </types>
     <types>
         <members>Add_Meeting_Participant_Record_Type_MERC__c</members>
