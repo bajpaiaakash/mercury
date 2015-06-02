@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Generic_Cancel</fullName>
+        <categories>MERC_RegistrationResponsesController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Generic Cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>Generic_Processing</fullName>
+        <categories>MERC_RegistrationResponses.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Generic Processing</shortDescription>
+        <value>Processing...</value>
+    </labels>
+    <labels>
+        <fullName>Generic_Save</fullName>
+        <categories>MERC_RegistrationResponsesController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Generic Save</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>Registration_Questions_Answer_Required</fullName>
+        <categories>MERC_RegistrationResponsesController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration Questions - Answer Required</shortDescription>
+        <value>Answer required for question</value>
+    </labels>
+    <labels>
+        <fullName>Registration_Questions_Cleared_Responses</fullName>
+        <categories>MERC_RegistrationResponsesController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration Questions - Cleared Responses</shortDescription>
+        <value>Cleared Responses</value>
+    </labels>
+    <labels>
+        <fullName>Registration_Questions_Confirm_Delete</fullName>
+        <categories>MERC_RegistrationResponsesController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration Questions - Confirm Delete</shortDescription>
+        <value>Continuing with this action will delete all responses for</value>
+    </labels>
+    <labels>
+        <fullName>Registration_Questions_Error_Deleting_Responses</fullName>
+        <categories>MERC_RegistrationResponsesController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration Questions - Error Deleting Responses</shortDescription>
+        <value>Error removing old responses</value>
+    </labels>
+    <labels>
+        <fullName>Registration_Questions_Error_Inserting_Responses</fullName>
+        <categories>MERC_RegistrationResponsesController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration Questions - Error Inserting Responses</shortDescription>
+        <value>Error inserting new responses</value>
+    </labels>
+    <labels>
+        <fullName>Registration_Questions_Invalid_Participant</fullName>
+        <categories>MERC_RegistrationResponsesController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration Questions - Invalid Participant</shortDescription>
+        <value>Unable to locate Participant with Id provided</value>
+    </labels>
+    <labels>
+        <fullName>Registration_Questions_No_Participant_Id</fullName>
+        <categories>MERC_RegistrationResponsesController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration Questions - No Participant Id</shortDescription>
+        <value>No Participant Id Provided</value>
+    </labels>
+    <labels>
+        <fullName>Registration_Questions_Responses_For</fullName>
+        <categories>MERC_RegistrationResponsesController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration Questions - Responses For</shortDescription>
+        <value>Responses for meeting participant</value>
+    </labels>
+    <labels>
+        <fullName>Registration_Questions_Select_Many</fullName>
+        <categories>MERC_RegistrationResponsesController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration Questions - Select Many</shortDescription>
+        <value>Select Many</value>
+    </labels>
+    <labels>
+        <fullName>Registration_Questions_Select_One</fullName>
+        <categories>MERC_RegistrationResponsesController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration Questions - Select One</shortDescription>
+        <value>Select One</value>
+    </labels>
+    <labels>
+        <fullName>Registration_Questions_Text</fullName>
+        <categories>MERC_RegistrationResponsesController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration Questions - Text</shortDescription>
+        <value>Text</value>
+    </labels>
+    <labels>
+        <fullName>Travel_Proposals_Add_Segment</fullName>
+        <categories>MERC_TravelProposals.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Travel Proposals - Add Segment</shortDescription>
+        <value>Add Segment</value>
+    </labels>
+    <labels>
+        <fullName>Travel_Proposals_Cannot_Find_Participant</fullName>
+        <categories>MERC_TravelProposalsController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Travel Proposals - Cannot Find Participant</shortDescription>
+        <value>Unable to locate meeting participant using the id provided</value>
+    </labels>
+    <labels>
+        <fullName>Travel_Proposals_Custom_Settings_not_defined</fullName>
+        <categories>MERC_TravelProposalsController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Travel Proposals - Custom Settings not defined</shortDescription>
+        <value>No &apos;Travel Proposal Segment Type&apos; Custom Settings Defined</value>
+    </labels>
+    <labels>
+        <fullName>Travel_Proposals_Error_updating_proposals_segments</fullName>
+        <categories>MERC_TravelProposalsController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Travel Proposals - Error updating proposals/segments</shortDescription>
+        <value>Error upserting Proposal and/or Segments:</value>
+    </labels>
+    <labels>
+        <fullName>Travel_Proposals_Meeting_Information</fullName>
+        <categories>MERC_TravelProposals.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Travel Proposals - Meeting Information</shortDescription>
+        <value>Meeting Information</value>
+    </labels>
+    <labels>
+        <fullName>Travel_Proposals_New_Proposal</fullName>
+        <categories>MERC_TravelProposals.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Travel Proposals - New Proposal</shortDescription>
+        <value>New Proposal</value>
+    </labels>
+    <labels>
+        <fullName>Travel_Proposals_No_Participant_Id</fullName>
+        <categories>MERC_TravelProposalsController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Travel Proposals - No Participant Id</shortDescription>
+        <value>No meeting participant id provided</value>
+    </labels>
+    <labels>
+        <fullName>Travel_Proposals_No_segment_fields_to_query</fullName>
+        <categories>MERC_TravelProposalsController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Travel Proposals - No segment fields to query</shortDescription>
+        <value>No Segment fields available to query</value>
+    </labels>
+    <labels>
+        <fullName>Travel_Proposals_Number</fullName>
+        <categories>MERC_TravelProposals.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Travel Proposals - Number</shortDescription>
+        <value>Number</value>
+    </labels>
+    <labels>
+        <fullName>Travel_Proposals_Page_subtitle_prefix</fullName>
+        <categories>MERC_TravelProposalsController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Travel Proposals - Page subtitle prefix</shortDescription>
+        <value>Travel Proposals for Meeting Participant:</value>
+    </labels>
+    <labels>
+        <fullName>Travel_Proposals_Proposal</fullName>
+        <categories>MERC_RegistrationResponses.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Travel Proposals - Proposal</shortDescription>
+        <value>Proposal</value>
+    </labels>
+    <labels>
+        <fullName>Travel_Proposals_Save_Exit</fullName>
+        <categories>MERC_TravelProposals.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Travel Proposals - Save &amp; Exit</shortDescription>
+        <value>Save &amp; Exit</value>
+    </labels>
+    <labels>
+        <fullName>Travel_Proposals_Save_Proposals</fullName>
+        <categories>MERC_TravelProposals.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Travel Proposals - Save Proposals</shortDescription>
+        <value>Save Proposals</value>
+    </labels>
+    <labels>
+        <fullName>Travel_Proposals_Saved</fullName>
+        <categories>MERC_TravelProposalsController</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Travel Proposals - Saved</shortDescription>
+        <value>Saved</value>
+    </labels>
+    <labels>
+        <fullName>Travel_Proposals_Segments</fullName>
+        <categories>MERC_TravelProposals.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Travel Proposals - Segments</shortDescription>
+        <value>Segments</value>
+    </labels>
+    <labels>
+        <fullName>Travel_Proposals_Status</fullName>
+        <categories>MERC_TravelProposals.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Travel Proposals - Status</shortDescription>
+        <value>Status</value>
+    </labels>
+    <labels>
+        <fullName>Travel_Proposals_Type</fullName>
+        <categories>MERC_TravelProposals.page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Travel Proposals - Type</shortDescription>
+        <value>Type</value>
+    </labels>
+</CustomLabels>

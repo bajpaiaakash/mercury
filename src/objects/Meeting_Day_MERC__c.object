@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <fields>
+        <fullName>Confirm_ToV_Reporting_Change_MERC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Validation checkbox for HCP Care to confirm that the ToV is being updated/corrected. Created 01/07/2014 by KLorenti, Mavens Consulting</description>
+        <externalId>false</externalId>
+        <label>Confirm ToV Reporting Change</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Daily_Food_Beverage_Amount_MERC__c</fullName>
+        <description>Food and Beverage 
+Created by John A Adams 10/15/2013</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Values per day per person. Please leave this field blank if no ToV is to be reported for Food &amp; Beverage for this meeting.</inlineHelpText>
+        <label>Daily Food &amp; Beverage Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Daily_Ground_Trans_Amount_MERC__c</fullName>
+        <description>Daily ground transportation
+Created by John A Adams 10/15/2013</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Values per day per person. Please leave this field blank if no ToV is to be reported for Ground Transportation for this meeting.</inlineHelpText>
+        <label>Daily Ground Transportation Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Daily_Registration_Amount_MERC__c</fullName>
+        <description>Store ToV estimate for Registration cost. Oliver Dunford 10/10/2013</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please leave this field blank if no ToV is to be reported for Registration Fees for this meeting.</inlineHelpText>
+        <label>Registration Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Date_MERC__c</fullName>
+        <description>Date of the Meeting Day. Created 10/10/2013 by KLorenti.</description>
+        <externalId>false</externalId>
+        <label>Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_Meeting_Time_Zone__c</fullName>
+        <description>Stamped with the date locale based on the meeting time zone</description>
+        <externalId>false</externalId>
+        <label>Date (Meeting Time Zone)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Force_Unique_Meeting_Day_MERC__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <description>Stamped via workflow to enforce a that each Meeting Day has a unique date.</description>
+        <externalId>false</externalId>
+        <label>Force Unique Meeting Day</label>
+        <length>50</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Meeting_MERC__c</fullName>
+        <description>Lookup relationship to Meeting. Created 10/10/2013 by KLorenti 
+Changed to a Master Detail relationship.  4/2/2014 J Adams</description>
+        <externalId>false</externalId>
+        <label>Meeting</label>
+        <referenceTo>Meeting_MERC__c</referenceTo>
+        <relationshipLabel>Meeting Days</relationshipLabel>
+        <relationshipName>Meeting_Days</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Meeting_Time_Zone_MERC__c</fullName>
+        <externalId>false</externalId>
+        <formula>text(Meeting_MERC__r.Meeting_Time_Zone_MERC__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Meeting Time Zone</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Mercury_External_Id_MERC__c</fullName>
+        <description>Generated by Workflow used for Integration with External Systems.
+Created by J Adams 12/10/2013</description>
+        <externalId>true</externalId>
+        <label>Mercury External Id</label>
+        <length>150</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+</CustomObject>
