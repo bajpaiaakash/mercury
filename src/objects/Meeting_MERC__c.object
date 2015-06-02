@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <enableEnhancedLookup>true</enableEnhancedLookup>
+    <recordTypes>
+        <fullName>Ad_Hoc_Consulting</fullName>
+        <active>true</active>
+        <description>Independent consultant contracts only. Typically services are rendered over a period of time to deliver a specific work product. Meeting-related ToV cannot be captured. Do not use for Advisory Boards.</description>
+        <label>Consulting Project</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Forecasted</fullName>
+        <active>true</active>
+        <description>Lilly-owned meeting that is forecasted, but not confirmed. Typically used for business planning purposes. May be used to hold annual cap for HCPs. Forecasted meetings may be progressed to the registered stage once confirmed.</description>
+        <label>Meeting - Forecasted</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Independent_Sponsorship</fullName>
+        <active>true</active>
+        <description>A scientific program controlled by an independent third party organization. Includes independent meeting sponsorship.</description>
+        <label>Independent Meeting</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Meeting_Program</fullName>
+        <active>true</active>
+        <description>A parent meeting where content, objectives and strategy are developed for implementation as a series of meetings linked as child meetings. Not a real meeting; no participants may be added.</description>
+        <label>Meeting Program</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Registered</fullName>
+        <active>true</active>
+        <description>Lilly-owned meeting that is ready to enter the meeting planning process. Includes: Promotional, Health Education, Consultant (Advisory Board), Scientific Exchange, Speaker Training, Clinical Trial, Internal and Other.</description>
+        <label>Meeting - Registered</label>
+    </recordTypes>
+</CustomObject>

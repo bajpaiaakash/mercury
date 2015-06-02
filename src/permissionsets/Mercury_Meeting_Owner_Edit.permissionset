@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Permission set to give the Meeting Owner access to edit the objects they should have access to edit</description>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Budget_MERC__c.Total_Budget_Line_items__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <label>Mercury Meeting Owner - Edit</label>
+    </PermissionSet>

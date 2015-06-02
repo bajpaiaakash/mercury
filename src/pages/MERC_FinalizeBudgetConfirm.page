@@ -1,0 +1,17 @@
+<apex:page showHeader="true" sidebar="true" standardController="Budget_MERC__c" extensions="MERC_BudgetVersionController">
+    <apex:sectionHeader title="{!$ObjectType.Budget_MERC__c.label}" subtitle="{!Budget_MERC__c.Name}" />
+    <apex:form >
+        <apex:pageBlock title="Finalise Budget">
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton value="Finalise Budget" action="{!finalize}"/>
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            <!-- start added by Jyoti Gaur -->
+            <apex:outputPanel id="pnlMessages" >
+           <apex:pageMessages id="errorMessage" ></apex:pageMessages>
+           </apex:outputPanel>
+           <!-- end added by Jyoti Gaur -->
+            <!--<apex:pageMessage severity="WARNING" strength="2" summary="Are you sure you want to finalise this budget? You will not be able to modify the budget once it's been finalised." rendered={!finalizeflag}/>--> <!-- commented by Jyoti Gaur-->
+        </apex:pageBlock>
+    </apex:form> 
+</apex:page>
